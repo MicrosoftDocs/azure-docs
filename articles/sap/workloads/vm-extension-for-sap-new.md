@@ -19,13 +19,11 @@ ms.author: oldoll
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
 [std-extension]:vm-extension-for-sap-standard.md (Standard Version of Azure VM extension for SAP solutions)
-[configure-windows]:vm-extension-for-sap-new.md#a876ee7b-43b4-4782-aa5f-73753b6af0ea (Configure the New Azure VM extension for SAP solutions with PowerShell)
+[configure]:vm-extension-for-sap-new.md#configure (Configure the New Azure VM extension for SAP solutions with PowerShell)
 [troubleshoot-windows]:vm-extension-for-sap-new.md#dee9099b-7b8a-4cdd-86a2-3f6ee964266f (Troubleshooting for Windows)
 [troubleshoot-linux]:vm-extension-for-sap-new.md#02783aa4-5443-43f5-bc11-7af19ebf0c36 (Troubleshooting for Linux)
 [deployment-guide-4.1]:vm-extension-for-sap-new.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 (Deploying Azure PowerShell cmdlets)
 [azure-cli-2]:/cli/azure/install-azure-cli
-[configure-linux]:vm-extension-for-sap-new.md#fa4428b9-bed6-459a-9dfb-74cc27454481 (Configure the Azure VM extension for SAP solutions with Azure CLI)
-[configure-windows]:vm-extension-for-sap-new.md#a876ee7b-43b4-4782-aa5f-73753b6af0ea (Configure the Azure VM extension for SAP solutions with PowerShell)
 [health-check]:vm-extension-for-sap-new.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Health checks)
 [1031096]:https://launchpad.support.sap.com/#/notes/1031096
 [readiness-check]:vm-extension-for-sap-new.md#5774c1db-1d3c-4b34-8448-3afd0b0f18ab (Readiness check)
@@ -46,7 +44,7 @@ ms.author: oldoll
 * Make sure to use SAP Host Agent 7.21 PL 47 or higher.
 * Make sure the virtual machine on which the extension is enabled has access to management.azure.com.
 
-### <a name="604bcec2-8b6e-48d2-a944-61b0f5dee2f7"></a>Deploy Azure PowerShell cmdlets
+### [Deploy Azure PowerShell cmdlets](#tab/powershell1)
 
 Follow the steps described in the article [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell)
 
@@ -58,7 +56,7 @@ To check the version of the Azure PowerShell cmdlets that are installed on your 
 (Get-Module Az.Compute).Version
 ```
 
-### <a name="1ded9453-1330-442a-86ea-e0fd8ae8cab3"></a>Deploy Azure CLI
+### [Deploy Azure CLI](#tab/cli1)
 
 Follow the steps described in the article [Install the Azure CLI](/cli/azure/install-azure-cli)
 
@@ -70,7 +68,9 @@ To check the version of Azure CLI that is installed on your computer, run this c
 az --version
 ```
  
-## <a name="a876ee7b-43b4-4782-aa5f-73753b6af0ea"></a>Configure the Azure VM extension for SAP solutions with PowerShell
+## <a name="configure"></a>Configure the Azure VM extension for SAP solutions 
+
+### [<a name="configure">](#tab/powershell1)
  
 The new VM Extension for SAP uses a managed identity that's assigned to the VM to access monitoring and configuration data of the VM. To install the new Azure Extension for SAP by using PowerShell, you first have to assign such an identity to the VM and grant that identity access to all resources that are in use by that VM, for example, disks and network interfaces.
 
@@ -97,7 +97,7 @@ The new VM Extension for SAP uses a managed identity that's assigned to the VM t
 
     Log on to the virtual machine on which you enabled the VM Extension for SAP and restart the SAP Host Agent if it was already installed. SAP Host Agent does not use the VM Extension until it is restarted. It currently cannot detect that an extension was installed after it was started.
 
-## <a name="fa4428b9-bed6-459a-9dfb-74cc27454481"></a>Configure the Azure VM extension for SAP solutions with Azure CLI
+### [Azure CLI](#tab/cli1)
  
 The new VM Extension for SAP uses a managed identity that is assigned to the VM to access monitoring and configuration data of the VM.
 
@@ -131,7 +131,7 @@ The new VM Extension for SAP uses a managed identity that is assigned to the VM 
 
     Log on to the virtual machine on which you enabled the VM Extension for SAP and restart the SAP Host Agent if it was already installed. SAP Host Agent does not use the VM Extension until it is restarted. It currently cannot detect that an extension was installed after it was started.
 
-## <a name="ba74712c-4b1f-44c2-9412-de101dbb1ccc"></a>Manually configure the Azure VM extension for SAP solutions
+## <a name="configure-manually"></a>Manually configure the Azure VM extension for SAP solutions
 
 If you want to use Azure Resource Manager, Terraform or other tools to deploy the VM Extension for SAP, you can also deploy the VM Extension for SAP manually i.e. without using the dedicated PowerShell or Azure CLI commands.
 
@@ -152,8 +152,7 @@ The extension currently supports the following configuration keys. In the exampl
 * msi_res_id: ID of the user assigned identity the extension should use to get the required information about the VM and its resources
 * proxy: URL of the proxy the extension should use to connect to the internet, for example to retrieve information about the virtual machine and its resources.
 
-### Deploy manually with Azure PowerShell
-
+### [Deploy manually with Azure PowerShell](#tab/powershell1)
 The following code contains four examples. It shows how to deploy the extension on Windows and Linux, using a system or user assigned identity. Make sure to replace the name of the resource group, the location and VM name in the example.
 
 ``` powershell
@@ -173,8 +172,7 @@ Set-AzVMExtension -Publisher "Microsoft.AzureCAT.AzureEnhancedMonitoring" -Exten
 Set-AzVMExtension -Publisher "Microsoft.AzureCAT.AzureEnhancedMonitoring" -ExtensionType "MonitorX64Linux" -ResourceGroupName "<rg name>" -VMName "<vm name>" `
    -Name "MonitorX64Linux" -TypeHandlerVersion "1.0" -Location "<location>" -SettingString '{"cfg":[]}'
 ```
-
-### Deploy manually with Azure CLI
+### [Deploy manually with Azure CLI](#tab/cli1)
 
 The following code contains four examples. It shows how to deploy the extension on Windows and Linux, using a system or user assigned identity. Make sure to replace the name of the resource group, the location and VM name in the example.
 
@@ -196,7 +194,7 @@ az vm extension set --publisher "Microsoft.AzureCAT.AzureEnhancedMonitoring" --n
    --extension-instance-name "MonitorX64Linux" --settings '{"cfg":[]}'
 ```
 
-### Deploy manually with Terraform
+### [Deploy manually with Terraform](#tab/terraform4)
 
 The following manifest contains four examples. It shows how to deploy the extension on Windows and Linux, using a system or user assigned identity. Make sure to replace the ID of the VM and ID of the user assigned identity in the example.
 
@@ -283,7 +281,7 @@ SETTINGS
 }
 ```
 
-### Versions of the VM Extension for SAP
+## <a name="versions"></a> Versions of the VM Extension for SAP
 
 If you want to disable automatic updates for the VM extension or want to deploy a specific version of the extension, you can retrieve the available versions with Azure CLI or Azure PowerShell.
 
@@ -302,7 +300,7 @@ az vm extension image list --location westeurope --publisher Microsoft.AzureCAT.
 az vm extension image list --location westeurope --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Linux
 ```
  
-## <a name="5774c1db-1d3c-4b34-8448-3afd0b0f18ab"></a>Readiness check
+## <a name="readiness-check"></a>Readiness check
 
 This check makes sure that all performance metrics that appear inside your SAP application are provided by the underlying Azure Extension for SAP.
 
@@ -361,7 +359,7 @@ If any of these checks fail, and for detailed information about how to redeploy 
 
 If some of the infrastructure data is not delivered correctly as indicated by the tests described in [Readiness check][readiness-check], run the health checks described in this chapter to check whether the Azure infrastructure and the Azure Extension for SAP are configured correctly.
 
-### Health checks using PowerShell
+### [Azure PowerShell](#tab/powershell1)
 
 1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet, as described in [Deploying Azure PowerShell cmdlets][deployment-guide-4.1].
 1. Run the following PowerShell cmdlet. For a list of available environments, run the cmdlet `Get-AzEnvironment`. To use global Azure, select the **AzureCloud** environment. For Microsoft Azure operated by 21Vianet, select **AzureChinaCloud**.
@@ -374,9 +372,9 @@ If some of the infrastructure data is not delivered correctly as indicated by th
    ```
 1. The script tests the configuration of the virtual machine you selected.
 
-Make sure that every health check result is **OK**. If some checks do not display **OK**, run the update cmdlet as described in [Configure the Azure VM extension for SAP solutions with Azure CLI][configure-linux] or [Configure the Azure VM extension for SAP solutions with PowerShell][configure-windows]. Repeat the checks described in [Readiness check][readiness-check] and this chapter. If the checks still indicate a problem with some or all counters, see [Troubleshooting for Linux][troubleshoot-linux] or [Troubleshooting for Windows][troubleshoot-windows].
+Make sure that every health check result is **OK**. If some checks do not display **OK**, run the update cmdlet as described in [Configure the Azure VM extension for SAP solutions with Azure CLI][configure] o. Repeat the checks described in [Readiness check][readiness-check] and this chapter. If the checks still indicate a problem with some or all counters, see [Troubleshooting for Linux][troubleshoot-linux] or [Troubleshooting for Windows][troubleshoot-windows].
 
-### Health checks using Azure CLI
+### [Azure CLI](#tab/cli1)
 
 To run the health check for the Azure VM Extension for SAP by using Azure CLI:
  
@@ -397,7 +395,7 @@ To run the health check for the Azure VM Extension for SAP by using Azure CLI:
    ```
 The script tests the configuration of the virtual machine you select.
 
-Make sure that every health check result is **OK**. If some checks do not display **OK**, run the update cmdlet as described in [Configure the Azure VM extension for SAP solutions with Azure CLI][configure-linux] or [Configure the Azure VM extension for SAP solutions with PowerShell][configure-windows]. Repeat the checks described in [Readiness check][readiness-check] and this chapter. If the checks still indicate a problem with some or all counters, see [Troubleshooting for Linux][troubleshoot-linux] or [Troubleshooting for Windows][troubleshoot-windows].
+Make sure that every health check result is **OK**. If some checks do not display **OK**, run the update cmdlet as described in [Configure the Azure VM extension for SAP solutions][configure]. Repeat the checks described in [Readiness check][readiness-check] and this chapter. If the checks still indicate a problem with some or all counters, see [Troubleshooting for Linux][troubleshoot-linux] or [Troubleshooting for Windows][troubleshoot-windows].
 
 
 ## Next steps
