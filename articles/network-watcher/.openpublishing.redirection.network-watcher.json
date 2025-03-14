@@ -18,7 +18,7 @@
         {
             "source_path_from_root": "/articles/network-watcher/connection-troubleshoot-portal.md",
             "redirect_url": "/azure/network-watcher/connection-troubleshoot-manage",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/network-watcher/connection-troubleshoot-cli.md",
