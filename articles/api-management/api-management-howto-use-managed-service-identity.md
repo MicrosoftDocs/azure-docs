@@ -493,7 +493,7 @@ To remove all identities by using the Azure Resource Manager template, update th
 >
 > You can unblock yourself by switching from an Azure Key Vault certificate to an inline encoded certificate, and then disabling the managed identity. For more information, see [Configure a custom domain name](configure-custom-domain.md).
 
-## Next steps
+## Related content
 
 Learn more about managed identities for Azure resources:
 

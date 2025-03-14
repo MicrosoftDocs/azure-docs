@@ -84,7 +84,7 @@ API Management [backend](backends.md) entities allow you to manage and apply bac
 * Distribute and load-balance traffic to a [pool of URLs](backends.md#load-balanced-pool)
 * Configure [circuit breaker rules](backends.md#circuit-breaker) to apply the circuit breaker pattern to protect the backend from too many requests
 
-## Next steps
+## Related content
 
 * Learn more about [reliability in Azure](../reliability/overview.md)
 * Learn more about [designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design)
