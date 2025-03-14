@@ -11,11 +11,11 @@ ms.date: 03/14/2025
 #CustomerIntent: As an Azure administrator, I want to log my virtual network IP traffic using Network Watcher VNet flow logs so that I can analyze it later.
 ---
 
-# Create, change, enable, disable, or delete virtual network flow logs using the Azure portal
+# Create, change, enable, disable, or delete virtual network flow logs using
 
 Virtual network flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an Azure virtual network. For more information about virtual network flow logging, see [Virtual network flow logs overview](vnet-flow-logs-overview.md).
 
-In this article, you learn how to create, change, enable, disable, or delete a virtual network flow log using the Azure portal. You can also learn how to manage a virtual network flow log using [PowerShell](vnet-flow-logs-powershell.md) or [Azure CLI](vnet-flow-logs-cli.md).
+In this article, you learn how to create, change, enable, disable, or delete a virtual network flow log using the Azure portal, PowerShell, and Azure CLI.
 
 ## Prerequisites
 
