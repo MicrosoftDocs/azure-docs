@@ -55,41 +55,54 @@ You'll also need:
 - [Azurite](../../../storage/common/storage-use-azurite.md#run-azurite) installed.
 - An [HTTP test tool](../../functions-develop-local.md#http-test-tools) that keeps your data secure.
 
-::: zone pivot="csharp"  
+## Add the Durable Task Scheduler package
 
-## Add the Durable Task Scheduler extension
+::: zone pivot="csharp" 
 
 > [!NOTE] 
 > The DTS extension requires **Microsoft.Azure.Functions.Worker.Extensions.DurableTask** version `1.2.2` or higher. 
 
-Install the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged) extension from NuGet. There are several ways of doing this: 
-
-1. Add a reference to the extension in your _.csproj_ file and then build the project. 
-
-1. Use the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command to add extension packages.
-
-1. Install the extension by using the following [Azure Functions Core Tools CLI](../../functions-run-local.md#install-the-azure-functions-core-tools) command:
+Install the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged) package by using the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command:
 
    ```cmd
-   func extensions install --package Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged 
+   dotnet add package Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged --prerelease
    ```
 
 ::: zone-end 
 
 ::: zone pivot="other"  
 
-## Specify the required extension bundles
+Until the durable task scheduler package is added to the extension bundles, you need to manually install the latest version of these packages using [Azure Functions Core Tools](../../functions-run-local.md#install-the-azure-functions-core-tools):
+  - [Microsoft.Azure.WebJobs.Extensions.DurableTask.AzureManaged](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask.AzureManaged/)
+  - [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)
 
-Update the `extensionBundle` property to use the preview version that contains the DTS package: 
-
-```json
-{
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[4.*, 5.0.0)"
-  }
-}
+For example: 
+```cmd
+func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask.AzureManaged --version 0.4.2-alpha
 ```
+```cmd
+func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask --version 3.0.4
+```
+
+These commands should automatically generate a *extensions.csproj* file that looks like the following to your app. If the package references are not added to the file, check to ensure that `net8.0` is the target framework and run the commands again:
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+	<WarningsAsErrors></WarningsAsErrors>
+	<DefaultItemExcludes>**</DefaultItemExcludes>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.DurableTask" Version="3.0.4" />
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.DurableTask.AzureManaged" Version="0.4.2-alpha" />
+    <PackageReference Include="Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator" Version="1.1.3" />
+  </ItemGroup>
+</Project>
+```
+
+> [!NOTE]
+> Remember to remove the reference to extension bundles in `host.json`. 
 
 ::: zone-end 
 
@@ -129,31 +142,32 @@ Add connection information for local development:
 
 Get the DTS emulator port number in [the next step](#set-up-dts-emulator). 
 
-> [!NOTE]
-> For local development, it's easiest to use the `default` task hub. Setting up other task hubs require extra configuration. 
-
 ## Set up DTS emulator 
 
 1. Pull the docker image containing the emulator. 
 
    ```bash
-   docker pull mcr.microsoft.com/dts/dts-emulator:v0.0.4
+   docker pull mcr.microsoft.com/dts/dts-emulator:v0.0.5
    ```
 
 1. Run the emulator.
 
    ```bash
-   docker run -itP mcr.microsoft.com/dts/dts-emulator:v0.0.4
+   docker run -itP mcr.microsoft.com/dts/dts-emulator:v0.0.5
    ```
 
+   The command above registers the default task hub. If you need more than one task hub, you can set the environment variable `DTS_TASK_HUB_NAMES` on the container to a comma-delimited list of task hub names like below:
+
+   ```bash
+   docker run -itP -e DTS_TASK_HUB_NAMES=taskhub1,taskhub2,taskhub3 mcr.microsoft.com/dts/dts-emulator:v0.0.5
+   ```
+   
    The following indicates the emulator started successfully.
      :::image type="content" source="media/quickstart-durable-task-scheduler/emulator-started.png" alt-text="Screenshot showing emulator started successfully on terminal.":::
 
-1. Make note of the three ports exposed on Docker desktop: `8080`, `8081`, and `8082`. 
+1. Make note of the ports exposed on Docker desktop. These static ports are exposed by the container and mapped dynamically by default. DTS exposes multiple ports for different purposes:  
 
-   These static ports are exposed by the container and mapped dynamically by default. DTS exposes multiple ports for different purposes:  
    - `8080`: gRPC endpoint that allows an app to connect to DTS
-   - `8081`: Endpiont for metrics gathering
    - `8082`: Endpoint for DTS dashboard
 
    :::image type="content" source="media/quickstart-durable-task-scheduler/docker-ports.png" alt-text="Screenshot of ports on Docker.":::
@@ -220,13 +234,28 @@ Create a DTS instance and Azure Functions app on Azure following the *Function a
 
 [!INCLUDE [function-app-integrated-creation](./includes/function-app-integrated-creation.md)]
 
+### Add required environment variables to app
+
+Add the following environment variables: 
+  - `TASKHUB_NAME`: name of task hub
+  - `DURABLE_TASK_SCHEDULER_CONNECTION_STRING`: the format of the string is `"Endpoint={DTS endpoint};Authentication=ManagedIdentity;ClientID={client id}"`, where *endpoint* is the DTS endpoint and *client id* is the managed identity client ID. 
+
+You can use this command:
+  ```azurecli
+  az functionapp config appsettings set --resource-group RESOURCE_GROUP_NAME --name FUNCTION_APP_NAME --settings KEY_NAME=KEY_VALUE
+  ```
+
 ### Deploy your function app to Azure
 
 [!INCLUDE [functions-publish-project-vscode](../../../../includes/functions-deploy-project-vs-code.md)]
 
 #### Apps on Functions Premium plan
 
-If your app is running on the Functions Premium plan, follow instructions to [turn on Runtime Scale Monitoring](./develop-with-durable-task-scheduler.md#auto-scaling-in-functions-premium-plan) after deployment. This ensures your app autoscales based on load. 
+If your app is running on the Functions Premium plan, turn on the *Runtime Scale Monitoring* setting after deployment to ensure your app autoscales based on load:
+
+  ```azurecli
+  az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
+  ```
 
 ## Test your function app 
 
@@ -238,9 +267,11 @@ az functionapp function list --resource-group <RESOURCE_GROUP_NAME> --name <FUNC
 
 ### Check orchestration status
 
-Check the status of the orchestration instance and activity details on the DTS dashboard. 
+Check the status of the orchestration instance and activity details on the DTS dashboard. Follow the instructions below to assign the required role to your developer identity (email) to get access to the dashboard. 
 
 [!INCLUDE [assign-dev-identity-rbac-portal](./includes/assign-dev-identity-rbac-portal.md)]
+
+Finally, navigate to `https://dashboard.durabletask.io/` and click on **Add Endpoint**. Fill out the required fields to connect the task hub. 
 
 ## Clean up resources
 
