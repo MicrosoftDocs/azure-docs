@@ -1,15 +1,15 @@
 ---
-title: Troubleshoot the Durable Task Scheduler dashboard (preview)
-description: Learn how to troubleshoot error messages and issues you encounter while using the Durable Task Scheduler.
+title: Troubleshoot the Azure Functions durable task scheduler dashboard (preview)
+description: Learn how to troubleshoot error messages and issues you encounter while using the Azure Functions durable task scheduler.
 ms.topic: conceptual
 ms.date: 01/27/2025
 ---
 
-# Troubleshoot the Durable Task Scheduler dashboard (preview)
+# Troubleshoot the Azure Functions durable task scheduler dashboard (preview)
 
 ## Can't delete resource
 
-Make sure you delete all task hubs in the Durable Task Scheduler environment. If you haven't, you receive the following error message:
+Make sure you delete all task hubs in the durable task scheduler environment. If you haven't, you receive the following error message:
 
 ```json
 {
@@ -57,7 +57,7 @@ If you see gRPC errors related to not finding native binaries for ARM (such as o
 
 ## Experiencing gRPC runtime issues
 
-For Mx Mac (ARM64) users, you may run into gRPC runtime issues with Durable Functions. As a workaround:
+For Mx Mac (ARM64) users, you may run into gRPC runtime issues with durable functions. As a workaround:
 1. Reference the `2.41.0` version of the `Contrib.Grpc.Core.M1` NuGet package.
 1. Add a custom after-build target that ensures the correct ARM64 version of the gRPC libraries can be found.
  

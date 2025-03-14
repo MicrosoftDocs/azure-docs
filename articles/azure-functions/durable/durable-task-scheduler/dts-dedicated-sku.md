@@ -1,14 +1,14 @@
 ---
-title: Use the Dedicated SKU for Durable Task Scheduler (preview)
-description: Learn about how the Dedicated SKU in DTS.
+title: Use the Dedicated SKU for Azure Functions durable task scheduler (preview)
+description: Learn about how the Dedicated SKU in Azure Functions durable task scheduler.
 ms.topic: conceptual
-ms.date: 03/13/2025
+ms.date: 03/14/2025
 ms.author: azfuncdf
 author: lilyjma
 ms.subservice: durable
 ---
 
-# Use the Dedicated SKU for Durable Task Scheduler (preview)
+# Use the Dedicated SKU for Azure Functions durable task scheduler (preview)
 
 Durable task scheduler currently offers the Dedicated SKU only. In this article, you'll learn:
 - What the Dedicated SKU provides
@@ -17,10 +17,10 @@ Durable task scheduler currently offers the Dedicated SKU only. In this article,
 
 ## Dedicated SKU concepts 
 
-You're billed based on the number of "Capacity Units (CUs)" purchased. In the Durable Task Scheduler context:
+You're billed based on the number of "Capacity Units (CUs)" purchased. In the durable task scheduler context:
 
-- **A Capacity Unit (CU)** is a measure of the resources allocated to your Durable Task Scheduler. Each CU represents a preallocated amount of CPU, memory, and storage resources. A single CU guarantees the dispatch of a number of *work items* and provides a defined amount of storage. If extra performance and/or storage is needed, more CUs can be purchased.
-- **Work item** is a message dispatched by the Durable Task Scheduler to an application, triggering the execution of orchestrator, activity, or entity functions. The number of work items that can be dispatched per second is determined by the CUs allocated to the Durable Task Scheduler.
+- **A Capacity Unit (CU)** is a measure of the resources allocated to your scheduler resource. Each CU represents a preallocated amount of CPU, memory, and storage resources. A single CU guarantees the dispatch of a number of *work items* and provides a defined amount of storage. If extra performance and/or storage is needed, more CUs can be purchased.
+- **Work item** is a message dispatched by the durable task scheduler to an application, triggering the execution of orchestrator, activity, or entity functions. The number of work items that can be dispatched per second is determined by the CUs allocated to the scheduler.
 
 The following table explains the minimum cost and features provided with each CU.
 
@@ -35,14 +35,14 @@ Find the price of a capacity unit on the [Azure Functions pricing page](https://
 ## Determining the number of Capacity Units needed
 
 > [!NOTE]
-> DTS supports purchasing only **one capacity unit** at the moment.  
+> Durable task scheduler supports purchasing only **one capacity unit** at the moment.  
 
 To determine whether one unit is sufficient for your workload, follow these steps:
 
 1. **Understand how to identify the number of work items per orchestration**
    - Starting an orchestration consumes a single work item.
    - Each schedule of an activity run consumes another work item.
-   - Each response sent back to the Durable Task Scheduler consumes another work item.
+   - Each response sent back to the durable task scheduler consumes another work item.
      
 1. **Estimate monthly orchestrations**  
     Calculate the total number of orchestrations you need to run per month. 
@@ -60,4 +60,4 @@ For example, if you run 100 million orchestrations per month and each orchestrat
 
 ## Next steps
 
-Try out the [Durable Functions quickstart sample](quickstart-durable-task-scheduler.md).
+Try out the [durable functions quickstart sample](quickstart-durable-task-scheduler.md).

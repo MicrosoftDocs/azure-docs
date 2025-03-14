@@ -9,7 +9,7 @@ ms.date: 01/30/2025
 
 1. [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity). 
 
-1. Navigate to the Durable Task Scheduler resource on the portal. 
+1. Navigate to the durable task scheduler resource on the portal. 
 
 1. Click on a task hub name.
 

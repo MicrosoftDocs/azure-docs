@@ -1,7 +1,7 @@
 ---
 ms.service: azure-functions
 ms.topic: include
-ms.date: 03/05/2025
+ms.date: 03/14/2025
 ms.author: jiayma
 ms.reviewer: azfuncdf
 author: lilyjma
@@ -28,7 +28,7 @@ author: lilyjma
 
 1. Select the **Durable Functions** tab. 
 
-1. Choose **Durable Task Scheduler** as the backend provider for your Durable Functions. 
+1. Choose **Durable Task Scheduler** as the backend provider for your durable functions. 
 
 1. Create a scheduler resource. This action automatically creates a task hub.
 
@@ -44,7 +44,7 @@ author: lilyjma
 
 1. Click **Review + create** to review the resource creation. 
 
-   A user-assigned managed identity with the required RBAC role has been created automatically so that the Function app can access DTS. You can find in the summary view information related to the managed identity resource, such as:
+   A user-assigned managed identity with the required RBAC role has been created automatically so that the Function app can access durable task scheduler. You can find in the summary view information related to the managed identity resource, such as:
    - The RBAC assigned to it (*Durable Task Data Contributor*) 
    - The assignment scope (the scheduler or task hub name)
 

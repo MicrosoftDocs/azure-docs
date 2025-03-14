@@ -10,7 +10,7 @@ author: lilyjma
 > [!NOTE] 
 > The following instruction shows a role assignment scoped to a specific task hub. If you need access to *all* task hubs in a scheduler, perform the assignment on the scheduler level. 
 
-1. Navigate to the Durable Task Scheduler resource on the portal. 
+1. Navigate to the durable task scheduler resource on the portal. 
 
 1. Click on a task hub name.
 

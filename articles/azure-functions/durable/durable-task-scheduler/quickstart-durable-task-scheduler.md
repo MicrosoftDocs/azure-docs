@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Set a Durable Functions app to use Durable Task Scheduler (preview)"
-description: Learn how to configure an existing Durable Functions app to use Durable Task Scheduler.
+title: "Quickstart: Set a durable functions app to use Azure Functions durable task scheduler (preview)"
+description: Learn how to configure an existing durable functions app to use Azure Functions durable task scheduler.
 author: lilyjma
 ms.topic: how-to
 ms.date: 03/05/2025
@@ -9,58 +9,58 @@ ms.reviewer: azfuncdf
 zone_pivot_groups: dts-runtime
 ---
 
-# Quickstart: Set a Durable Functions app to use Durable Task Scheduler (preview)
+# Quickstart: Set a durable functions app to use Azure Functions durable task scheduler (preview)
 
-Use Durable Functions, a feature of [Azure Functions](../../functions-overview.md), to write stateful functions in a serverless environment. Scenarios where Durable Functions is useful include orchestrating microservices and workflows, stateful patterns like fan-out/fan-in, and long-running tasks.  
+Use durable functions, a feature of [Azure Functions](../../functions-overview.md), to write stateful functions in a serverless environment. Scenarios where durable functions is useful include orchestrating microservices and workflows, stateful patterns like fan-out/fan-in, and long-running tasks.  
 
-Durable Functions supports several [storage providers](../durable-functions-storage-providers.md), also known as _backends_, for storing orchestration and entity runtime state. 
+Durable functions supports several [storage providers](../durable-functions-storage-providers.md), also known as _backends_, for storing orchestration and entity runtime state. 
 
-In this quickstart, you configure a Durable Functions app to use the [Durable Task Scheduler (DTS)](../durable-functions-storage-providers.md#dts) as the backend and deploy the app to Azure using **Visual Studio Code**. 
+In this quickstart, you configure a durable functions app to use the [durable task scheduler](../durable-functions-storage-providers.md#dts) as the backend and deploy the app to Azure using **Visual Studio Code**. 
 
 > [!NOTE]
 >
-> - To learn more about the benefit of using DTS, see [Durable Functions backend providers overview](../durable-functions-storage-providers.md).
+> - To learn more about the benefit of using durable task scheduler, see [durable functions backend providers overview](../durable-functions-storage-providers.md).
 >
-> - Migrating [task hub data](../durable-functions-task-hubs.md) across backend providers currently isn't supported. Function apps that have existing runtime data need to start with a fresh, empty task hub after they switch to the DTS. Similarly, the task hub contents that are created by using DTS can't be preserved if you switch to a different backend provider.
+> - Migrating [task hub data](../durable-functions-task-hubs.md) across backend providers currently isn't supported. Function apps that have existing runtime data need to start with a fresh, empty task hub after they switch to the durable task scheduler. Similarly, the task hub contents that are created by using the scheduler resource can't be preserved if you switch to a different backend provider.
 >
-> - DTS currently only supports Durable Functions running on **Functions Premium** and **App Service** plans. 
+> - Durable task scheduler currently only supports durable functions running on **Functions Premium** and **App Service** plans. 
 
 ## Prerequisites
 
 This quickstart assumes you alredy have an Azure Functions project on your local computer with:
-- Durable Functions added to your project using:
+- Durable functions added to your project using:
   - An [orchestrator function](../durable-functions-bindings.md#orchestration-trigger). 
-  - A [client function](../durable-functions-bindings.md#orchestration-client) that triggers the Durable Functions app.
+  - A [client function](../durable-functions-bindings.md#orchestration-client) that triggers the durable functions app.
 - The project configured for local debugging.
 
 If you don't meet these prerequisites, we recommend that you begin with one of the following quickstarts to set up a local Functions project:
 
 ::: zone pivot="csharp"  
 
-- [Create a Durable Functions app - C#](../durable-functions-isolated-create-first-csharp.md)
+- [Create a durable functions app - C#](../durable-functions-isolated-create-first-csharp.md)
 
 ::: zone-end 
 
 ::: zone pivot="other"  
 
-- [Create a Durable Functions app - JavaScript](../quickstart-js-vscode.md)
-- [Create a Durable Functions app - Python](../quickstart-python-vscode.md)
-- [Create a Durable Functions app - PowerShell](../quickstart-powershell-vscode.md)
-- [Create a Durable Functions app - Java](../quickstart-java.md)
+- [Create a durable functions app - JavaScript](../quickstart-js-vscode.md)
+- [Create a durable functions app - Python](../quickstart-python-vscode.md)
+- [Create a durable functions app - PowerShell](../quickstart-powershell-vscode.md)
+- [Create a durable functions app - Java](../quickstart-java.md)
 
 ::: zone-end 
 
 You'll also need:
-- [Docker](https://docs.docker.com/engine/install/) installed to run the DTS emulator. 
+- [Docker](https://docs.docker.com/engine/install/) installed to run the durable task scheduler emulator. 
 - [Azurite](../../../storage/common/storage-use-azurite.md#run-azurite) installed.
 - An [HTTP test tool](../../functions-develop-local.md#http-test-tools) that keeps your data secure.
 
-## Add the Durable Task Scheduler package
+## Add the durable task scheduler package
 
 ::: zone pivot="csharp" 
 
 > [!NOTE] 
-> The DTS extension requires **Microsoft.Azure.Functions.Worker.Extensions.DurableTask** version `1.2.2` or higher. 
+> The durable task scheduler extension requires **Microsoft.Azure.Functions.Worker.Extensions.DurableTask** version `1.2.2` or higher. 
 
 Install the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged) package by using the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command:
 
@@ -108,7 +108,7 @@ These commands should automatically generate a *extensions.csproj* file that loo
 
 ## Update host.json
 
-Update the host.json as follows to use Durable Task Scheduler as the backend. 
+Update the host.json as follows to use durable task scheduler as the backend. 
 
 ```json
 {
@@ -140,9 +140,9 @@ Add connection information for local development:
 }
 ```
 
-Get the DTS emulator port number in [the next step](#set-up-dts-emulator). 
+Get the durable task scheduler emulator port number in [the next step](#set-up-dts-emulator). 
 
-## Set up DTS emulator 
+## Set up durable task scheduler emulator 
 
 1. Pull the docker image containing the emulator. 
 
@@ -165,10 +165,10 @@ Get the DTS emulator port number in [the next step](#set-up-dts-emulator).
    The following indicates the emulator started successfully.
      :::image type="content" source="media/quickstart-durable-task-scheduler/emulator-started.png" alt-text="Screenshot showing emulator started successfully on terminal.":::
 
-1. Make note of the ports exposed on Docker desktop. These static ports are exposed by the container and mapped dynamically by default. DTS exposes multiple ports for different purposes:  
+1. Make note of the ports exposed on Docker desktop. These static ports are exposed by the container and mapped dynamically by default. The scheduler exposes multiple ports for different purposes:  
 
-   - `8080`: gRPC endpoint that allows an app to connect to DTS
-   - `8082`: Endpoint for DTS dashboard
+   - `8080`: gRPC endpoint that allows an app to connect to the scheduler
+   - `8082`: Endpoint for durable task scheduler dashboard
 
    :::image type="content" source="media/quickstart-durable-task-scheduler/docker-ports.png" alt-text="Screenshot of ports on Docker.":::
 
@@ -190,7 +190,7 @@ Get the DTS emulator port number in [the next step](#set-up-dts-emulator).
    func start
    ```
 
-   You should see a list of the functions in your app. If you created your app following one of the Durable Functions quickstarts, you should see something similar to the following:
+   You should see a list of the functions in your app. If you created your app following one of the durable functions quickstarts, you should see something similar to the following:
 
    :::image type="content" source="media/quickstart-durable-task-scheduler/function-list.png" alt-text="Screenshot of functions listed when running app locally.":::
 
@@ -215,14 +215,14 @@ Get the DTS emulator port number in [the next step](#set-up-dts-emulator).
      }
    ```
 
-1. To view more details about the orchestration instance, go to the Docker desktop app and click the `8082` link to access the DTS dashboard. 
+1. To view more details about the orchestration instance, go to the Docker desktop app and click the `8082` link to access the durable task scheduler dashboard. 
 
    :::image type="content" source="media/quickstart-durable-task-scheduler/docker-ports.png" alt-text="Screenshot of ports on Docker.":::
 
 1. Click on the *default* task hub to see its dashboard. 
 
 > [!NOTE] 
-> The DTS emulator stores orchestration data in memory, which means all data is lost when it shuts down. 
+> The [durable task scheduler emulator](./durable-task-scheduler.md#emulator-for-local-development) stores orchestration data in memory, which means all data is lost when it shuts down. 
 >
 > Running into issues testing? [See the troubleshooting guide.](./troubleshoot-durable-task-scheduler.md)
 
@@ -230,7 +230,7 @@ Get the DTS emulator port number in [the next step](#set-up-dts-emulator).
 
 ### Create required resources
 
-Create a DTS instance and Azure Functions app on Azure following the *Function app integrated creation flow*. 
+Create a durable task scheduler instance and Azure Functions app on Azure following the *Function app integrated creation flow*. 
 
 [!INCLUDE [function-app-integrated-creation](./includes/function-app-integrated-creation.md)]
 
@@ -238,7 +238,7 @@ Create a DTS instance and Azure Functions app on Azure following the *Function a
 
 Add the following environment variables: 
   - `TASKHUB_NAME`: name of task hub
-  - `DURABLE_TASK_SCHEDULER_CONNECTION_STRING`: the format of the string is `"Endpoint={DTS endpoint};Authentication=ManagedIdentity;ClientID={client id}"`, where *endpoint* is the DTS endpoint and *client id* is the managed identity client ID. 
+  - `DURABLE_TASK_SCHEDULER_CONNECTION_STRING`: the format of the string is `"Endpoint={DTS endpoint};Authentication=ManagedIdentity;ClientID={client id}"`, where *endpoint* is the scheduler endpoint and *client id* is the managed identity client ID. 
 
 You can use this command:
   ```azurecli
@@ -267,7 +267,7 @@ az functionapp function list --resource-group <RESOURCE_GROUP_NAME> --name <FUNC
 
 ### Check orchestration status
 
-Check the status of the orchestration instance and activity details on the DTS dashboard. Follow the instructions below to assign the required role to your developer identity (email) to get access to the dashboard. 
+Check the status of the orchestration instance and activity details on the durable task scheduler dashboard. Follow the instructions below to assign the required role to your developer identity (email) to get access to the dashboard. 
 
 [!INCLUDE [assign-dev-identity-rbac-portal](./includes/assign-dev-identity-rbac-portal.md)]
 
@@ -279,5 +279,5 @@ If you no longer need the resources that you created to complete the quickstart,
 
 ## Next steps
 
-- Learn more about the [Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md).
-- [Troubleshoot any errors you may encounter](./troubleshoot-durable-task-scheduler.md) while using Durable Task Scheduler.
+- Learn more about the [durable task scheduler dashboard](./durable-task-scheduler-dashboard.md).
+- [Troubleshoot any errors you may encounter](./troubleshoot-durable-task-scheduler.md) while using durable task scheduler.

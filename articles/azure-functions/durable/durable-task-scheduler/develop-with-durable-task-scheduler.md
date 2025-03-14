@@ -1,6 +1,6 @@
 ---
-title: Develop with the Durable Task Scheduler (preview)
-description: Learn how to develop with the Durable Task Scheduler and task hub resources
+title: Develop with the Azure Functions durable task scheduler (preview)
+description: Learn how to develop with the Azure Functions durable task scheduler and task hub resources
 author: lilyjma
 ms.topic: how-to
 ms.date: 02/27/2025
@@ -9,16 +9,16 @@ ms.reviewer: azfuncdf
 zone_pivot_groups: dts-devexp
 ---
 
-# Develop with the Durable Task Scheduler (preview)
+# Develop with the Azure Functions durable task scheduler (preview)
 
-The Durable Task Scheduler (DTS) is a highly performant, fully-managed backend provider for Durable Functions with an [out-of-the-box monitoring dashboard](./durable-task-scheduler-dashboard.md). In this article, you'll learn how to:
+The Azure Functions durable task scheduler is a highly performant, fully-managed backend provider for durable functions with an [out-of-the-box monitoring dashboard](./durable-task-scheduler-dashboard.md). In this article, you'll learn how to:
 
 > [!div class="checklist"]
 > * Create a scheduler and task hub. 
-> * Configure identity-based authentication for your application to access DTS.
+> * Configure identity-based authentication for your application to access durable task scheduler.
 > * Monitor the status of your app and task hub on the dts dashboard. 
 
-[Learn more about DTS supported regions, plans, and the features it offers.](./durable-task-scheduler.md)
+Learn more about durable task scheduler [features](./durable-task-scheduler.md#feature-highlight), [supported regions](./durable-task-scheduler.md#considerations), and [plans](./durable-task-scheduler.md#considerations).
 
 ::: zone pivot="az-cli"  
 
@@ -35,13 +35,13 @@ The Durable Task Scheduler (DTS) is a highly performant, fully-managed backend p
     az upgrade
     ```
 
-1. Install the DTS CLI extension.
+1. Install the durable task scheduler CLI extension.
 
     ```azurecli
     az extension add --name durabletask
     ```
 
-1. If you've already installed the DTS CLI extension, upgrade to the latest version.
+1. If you've already installed the durable task scheduler CLI extension, upgrade to the latest version.
 
     ```azurecli
     az extension add --upgrade --name durabletask
@@ -54,7 +54,7 @@ The Durable Task Scheduler (DTS) is a highly performant, fully-managed backend p
 ::: zone pivot="az-cli"
 
 > [!NOTE]
-> DTS currently supports apps hosted in the **App Service** and **Functions Premium** plans only.  
+> Durable task scheduler currently supports apps hosted in the **App Service** and **Functions Premium** plans only.  
 
 1. Create a resource group.
 
@@ -135,11 +135,11 @@ The Durable Task Scheduler (DTS) is a highly performant, fully-managed backend p
 ::: zone pivot="az-portal" 
 
 You can create a scheduler and task hub on Azure portal via two ways: 
-- **Function app integrated creation:** *(recommended)* automatically creates the managed identity resource and RBAC assignment needed for your app to access DTS.
-- **Top-level creation:** Requires you to [manually assign RBAC](#configure-identity-based-authentication-for-app-to-access-dts) to configure DTS access for your app.
+- **Function app integrated creation:** *(recommended)* automatically creates the managed identity resource and RBAC assignment needed for your app to access durable task scheduler.
+- **Top-level creation:** Requires you to [manually assign RBAC](#configure-identity-based-authentication-for-app-to-access-dts) to configure scheduler access for your app.
 
 > [!NOTE]
-> DTS currently supports apps hosted in the **App Service** and **Functions Premium** plans, so this experience is available only when either of these plan types is picked. 
+> Durable task scheduler currently supports apps hosted in the **App Service** and **Functions Premium** plans, so this experience is available only when either of these plan types is picked. 
 
 # [Function app integrated creation](#tab/function-app-integrated-creation)  
 
@@ -151,11 +151,11 @@ You can create a scheduler and a task hub as part of the Function app creation o
 
 1. In the Azure portal, search for **Durable Task Scheduler** and select it from the results. 
 
-    :::image type="content" source="media/create-durable-task-scheduler/search-for-dts.png" alt-text="Screenshot of searching for the Durable Task Scheduler in the portal.":::
+    :::image type="content" source="media/create-durable-task-scheduler/search-for-dts.png" alt-text="Screenshot of searching for the durable task scheduler in the portal.":::
 
 1. Click **Create** to open the **Azure Functions: Durable Task Scheduler (preview)** pane.
 
-    :::image type="content" source="media/create-durable-task-scheduler/top-level-create-form.png" alt-text="Screenshot of the create page for the Durable Task Scheduler.":::
+    :::image type="content" source="media/create-durable-task-scheduler/top-level-create-form.png" alt-text="Screenshot of the create page for the durable task scheduler.":::
 
 1. Fill out the fields in the **Basics** tab. Click **Review + create**. Once the validation passes, click **Create**. 
 
@@ -165,11 +165,11 @@ You can create a scheduler and a task hub as part of the Function app creation o
 
 ::: zone-end 
 
-## View all Durable Task Scheduler resources in a subscription
+## View all durable task scheduler resources in a subscription
 
 ::: zone pivot="az-cli" 
 
-1. Get a list of all Durable Task Scheduler names within a subscription by running the following command.
+1. Get a list of all scheduler names within a subscription by running the following command.
 
     ```azurecli
     az durabletask scheduler list --subscription <SUBSCRIPTION_ID>
@@ -187,13 +187,13 @@ You can create a scheduler and a task hub as part of the Function app creation o
 
 In the Azure portal, search for **Durable Task Scheduler** and select it from the results. 
 
-:::image type="content" source="media/create-durable-task-scheduler/search-for-dts.png" alt-text="Screenshot of searching for the Durable Task Scheduler service in the portal.":::
+:::image type="content" source="media/create-durable-task-scheduler/search-for-dts.png" alt-text="Screenshot of searching for the durable task scheduler service in the portal.":::
 
 You can see the list of scheduler resources created in all subscriptions you have access to. 
 
 ::: zone-end 
 
-## View all task hubs in a Durable Task Scheduler
+## View all task hubs in a durable task scheduler
 
 ::: zone pivot="az-cli" 
 
@@ -209,7 +209,7 @@ You can see the list of scheduler resources created in all subscriptions you hav
 
 You can see all the task hubs created in a scheduler on the **Overview** of the resource on Azure portal. 
 
-:::image type="content" source="media/create-durable-task-scheduler/dts-overview-portal.png" alt-text="Screenshot of overview tab of Durable Task Scheduler in the portal.":::
+:::image type="content" source="media/create-durable-task-scheduler/dts-overview-portal.png" alt-text="Screenshot of overview tab of durable task scheduler in the portal.":::
 
 ::: zone-end 
 
@@ -243,11 +243,11 @@ You can see all the task hubs created in a scheduler on the **Overview** of the 
 
 ::: zone-end 
 
-## Configure identity-based authentication for app to access DTS
+## Configure identity-based authentication for app to access durable task scheduler
 
-DTS **only** supports either *user-assigned* or *system-assigned* managed identity authentication. **User-assigned identities are recommended,** as they aren't tied to the lifecycle of the app and can be reused after the app is de-provisioned.
+Durable task scheduler **only** supports either *user-assigned* or *system-assigned* managed identity authentication. **User-assigned identities are recommended,** as they aren't tied to the lifecycle of the app and can be reused after the app is de-provisioned.
 
-The following sections demonstrate how to configure identity resources for your Durable Functions app to access a scheduler and its task hubs. 
+The following sections demonstrate how to configure identity resources for your durable functions app to access a scheduler and its task hubs. 
 
 ### Assign RBAC (role-based access control) to managed identity resource 
 
@@ -324,7 +324,7 @@ The following sections demonstrate how to configure identity resources for your 
 
 ### Assign managed identity to your app
 
-Now that the identity has the required RBAC to access DTS, you need to assign it to your function app.
+Now that the identity has the required RBAC to access durable task scheduler, you need to assign it to your function app.
 
 ::: zone pivot="az-cli" 
 
@@ -356,13 +356,13 @@ Now that the identity has the required RBAC to access DTS, you need to assign it
 
 Add these two environment variables to app setting:
   - `TASKHUB_NAME`: name of task hub
-  - `DURABLE_TASK_SCHEDULER_CONNECTION_STRING`: the format of the string is `"Endpoint={DTS endpoint};Authentication=ManagedIdentity;ClientID={client id}"`, where *endpoint* is the DTS endpoint and *client id* is the managed identity client ID. 
+  - `DURABLE_TASK_SCHEDULER_CONNECTION_STRING`: the format of the string is `"Endpoint={DTS endpoint};Authentication=ManagedIdentity;ClientID={client id}"`, where *endpoint* is the scheduler endpoint and *client id* is the managed identity client ID. 
 
 ::: zone pivot="az-cli"
 
-1. Get required information for DTS connection string. 
+1. Get the required information for the durable task scheduler connection string. 
 
-    To get DTS endpoint.
+    To get the scheduler endpoint.
     ```azurecli
     az durabletask scheduler show --resource-group RESOURCE_GROUP_NAME --name DTS_NAME --query 'properties.endpoint' --output tsv
     ```
@@ -372,7 +372,7 @@ Add these two environment variables to app setting:
     az identity show --name MANAGED_IDENTITY_NAME --resource-group RESOURCE_GROUP_NAME --query 'clientId' --output tsv
     ```
 
-1. Use the following command to add environment variable for DTS connection string to app. 
+1. Use the following command to add environment variable for the scheduler connection string to app. 
     ```azurecli
     az functionapp config appsettings set --resource-group RESOURCE_GROUP_NAME --name FUNCTION_APP_NAME --settings KEY_NAME=KEY_VALUE
     ```
@@ -383,9 +383,9 @@ Add these two environment variables to app setting:
 
 ::: zone pivot="az-portal"
 
-1. Get required information for DTS connection string. 
+1. Get the required information for the durable task scheduler connection string. 
 
-    To get your DTS endpoint, navigate to the **Overview** tab of your scheduler resource and find "Endpoint" in the top *Essentials* section. 
+    To get your scheduler endpoint, navigate to the **Overview** tab of your scheduler resource and find "Endpoint" in the top *Essentials* section. 
 
     To get your managed identity client ID, navigate to the **Overview** tab of your resource and find "Client ID" in the top *Essentials* section. 
 
@@ -393,7 +393,7 @@ Add these two environment variables to app setting:
 
 1. In the left menu, click **Settings** > **Environment variables**. 
 
-1. Add environment variable for DTS connection string. 
+1. Add environment variable for durable task scheduler connection string. 
 
 1. Add environment variable for task hub name.   
 
@@ -404,9 +404,9 @@ Add these two environment variables to app setting:
 > [!NOTE]
 > If you use system-assigned identity, your connection string would *not* need the client ID of the identity resource: `"Endpoint={DTS URL};Authentication=ManagedIdentity"`.
 
-## Accessing DTS dashboard
+## Accessing durable task scheduler dashboard
 
-First, follow instructions below to gain access to the [DTS dashboard](./durable-task-scheduler-dashboard.md) by assigning the required role to your *developer identity (email)*. After granting access, go to `https://dashboard.durabletask.io/` and fill out the required information about your scheduler and task hub to see the dashboard. 
+First, follow instructions below to gain access to the [durable task scheduler dashboard](./durable-task-scheduler-dashboard.md) by assigning the required role to your *developer identity (email)*. After granting access, go to `https://dashboard.durabletask.io/` and fill out the required information about your scheduler and task hub to see the dashboard. 
 
 ::: zone pivot="az-cli" 
 
@@ -471,7 +471,7 @@ First, follow instructions below to gain access to the [DTS dashboard](./durable
 
 ## Auto scaling in Functions Premium plan 
 
-For DTS apps on the Functions Premium plan, enable the *Runtime Scale Monitoring* setting to get auto scaling of the app. 
+For durable task scheduler apps on the Functions Premium plan, enable the *Runtime Scale Monitoring* setting to get auto scaling of the app. 
 
 ::: zone pivot="az-portal"
 
@@ -479,7 +479,7 @@ For DTS apps on the Functions Premium plan, enable the *Runtime Scale Monitoring
 
 1. Under the **Function runtime settings** tab, turn on **Runtime Scale Monitoring**. 
 
-    :::image type="content" source="media/develop-with-durable-task-scheduler/runtime-scale-monitoring.png" alt-text="Screenshot of searching for Durable Task Scheduler in the portal.":::
+    :::image type="content" source="media/develop-with-durable-task-scheduler/runtime-scale-monitoring.png" alt-text="Screenshot of searching for durable task scheduler in the portal.":::
 
 ::: zone-end 
 
@@ -494,4 +494,4 @@ Run the following command:
 ::: zone-end 
 ## Next steps
 
-Try out the [Durable Functions quickstart sample](quickstart-durable-task-scheduler.md).
+Try out the [durable functions quickstart sample](quickstart-durable-task-scheduler.md).
