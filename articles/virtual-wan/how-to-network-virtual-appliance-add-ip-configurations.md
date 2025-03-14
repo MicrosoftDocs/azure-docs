@@ -91,7 +91,7 @@ The following section describes the steps needed to add additional IP configurat
 1. Select **Add configurations**.
 :::image type="content" source="./media/network-virtual-appliance-address/add-configuration-button.png"alt-text="Screenshot showing how to find button used to manage NVA IP configurations."lightbox="./media/network-virtual-appliance-address/add-configuration-button.png"::: 
 1. Type in the name of the new IP configuration and select **Save**.
-:::image type="content" source="./media/network-virtual-appliance-address/add-and-save-configuration.png"alt-text="Screenshot showing how to create and save new  NVA IP configurations."lightbox="./media/network-virtual-appliance-address/add-and-save-configuration.png"::: 
+:::image type="content" source="./media/network-virtual-appliance-address/add-save-configuration.png"alt-text="Screenshot showing how to create and save new  NVA IP configurations."lightbox="./media/network-virtual-appliance-address/add-save-configuration.png"::: 
 1. After the operation completes, reference your NVA provider's documentation for any configurations needed for the NVA operating system to use the newly allocated IP address(es).  
 
 ## Checking IP addresses assigned to a VM instance
@@ -104,4 +104,5 @@ The following section describes the steps needed to add additional IP configurat
 The following section describes the steps needed to remove IP configurations from your Network Virtual Appliance.
 
 Select the IP configuration you want to delete and select **Remove Configurations**.
+
 :::image type="content" source="./media/network-virtual-appliance-address/delete-button.png"alt-text="Screenshot showing how to delete  NVA IP configurations."lightbox="./media/network-virtual-appliance-address/delete-button.png"::: 

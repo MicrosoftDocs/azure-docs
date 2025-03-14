@@ -122,7 +122,6 @@
       href: how-to-network-virtual-appliance-inbound.md
     - name: Manage IP configurations
       href: how-to-network-virtual-appliance-add-ip-configurations.md
-  - name: Connect a VNet to a virtual hub
 - name: Configure site-to-site connections
   items:
   - name: Create a site-to-site connection
