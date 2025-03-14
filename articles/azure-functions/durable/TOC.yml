@@ -177,8 +177,6 @@
       href: durable-functions-extension-upgrade.md
     - name: Durable Functions Troubleshooting Guide
       href: durable-functions-troubleshooting-guide.md
-- name: Migration 
-  href: ./migration/toc.yml
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn training
