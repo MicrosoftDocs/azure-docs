@@ -42,7 +42,7 @@ Heres the list of all of the data fields found in your price sheet.
 | 20  | Product | Name of the product accruing the charges. For example, Basic SQL DB vs Standard SQL DB. |
 | 21  | productId | Unique identifier for the product. |
 | 22  | serviceFamily |Service family that the service belongs to. |
-| 23  | SkuID | Unique identifier of the SKU. |
+| 23  | SkuId | Unique identifier of the SKU. |
 | 24  | Term | Duration associated with priceType. For example, SavingsPlan priceType has two commitment options: one year and three years. The Term is _P1Y_ for a one-year commitment and _P3Y_ for a three-year commitment. |
 | 25  | tierMinimumUnits | Defines the lower bound of the tier range for which prices are defined. For example, if the range is 0 to 100, tierMinimumUnits would be 0. |
 | 26  | unitOfMeasure |The unit of measure for billing for the service. For example, compute services are billed per hour.|
