@@ -1,13 +1,13 @@
 ---
-title: Manage Standard workflows with Visual Studio Code
-description: Manage Standard workflows that run in single-tenant Azure Logic Apps with Visual Studio Code.
+title: Edit logic app workflows in Visual Studio Code
+description: Edit, enable, disable, or delete logic app resources and their workflows with Visual Studio Code.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 03/12/2025
 ms.custom: devx-track-dotnet
-# Customer intent: As a logic apps developer, I want to manage my Standard logic app workflow using Visual Studio Code.
+# Customer intent: As a logic apps developer, I want to manage my logic apps and workflows using Visual Studio Code.
 ---
 
 # Manage Standard logic app workflows with Visual Studio Code
@@ -15,6 +15,24 @@ ms.custom: devx-track-dotnet
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 This guide shows how to manage Standard logic apps and workflows that you create using Visual Studio Code with the **Azure Logic Apps (Standard)** extension.
+
+This guide shows how to manage Standard logic app workflows that you create using Visual Studio Code with the **Azure Logic Apps (Standard)** extension, and how to perform tasks such as edit, disable, enable, and delete workflows.
+
+<a name="add-workflow-existing-project"></a>
+
+## Add blank workflow to project
+
+You can have multiple workflows in your logic app project. To add a blank workflow to your project, follow these steps:
+
+1. In Visual Studio Code, on the Activity Bar, select the Azure icon.
+
+1. In the **Azure** window, on the **Workspace** section toolbar, from the **Azure Logic Apps** menu, select **Create workflow**.
+
+1. Select the workflow type that you want to add: **Stateful** or **Stateless**
+
+1. Provide a name for your workflow.
+
+When you're done, a new workflow folder appears in your project along with a **workflow.json** file for the workflow definition.
 
 <a name="manage-deployed-apps-vs-code"></a>
 
@@ -33,7 +51,7 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
    > For more information, see [Considerations for stopping logic apps](#considerations-stop-logic-apps) and 
    > [Considerations for deleting logic apps](#considerations-delete-logic-apps).
 
-   ![Screenshot shows Visual Studio Code with Resources section and deployed logic app resource.](./media/create-single-tenant-workflows-visual-studio-code/find-deployed-workflow-visual-studio-code.png)
+   ![Screenshot shows Visual Studio Code with Resources section and deployed logic app resource.](./media/create-standard-workflows-visual-studio-code/find-deployed-workflow-visual-studio-code.png)
 
 1. To view all the workflows in the logic app, expand your logic app, and then expand the **Workflows** node.
 
@@ -49,11 +67,11 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
 
    The Azure portal opens in your browser, signs you in to the portal automatically if you're signed in to Visual Studio Code, and shows your logic app.
 
-   ![Screenshot shows Azure portal page for your logic app in Visual Studio Code.](./media/create-single-tenant-workflows-visual-studio-code/deployed-workflow-azure-portal.png)
+   ![Screenshot shows Azure portal page for your logic app in Visual Studio Code.](./media/create-standard-workflows-visual-studio-code/deployed-workflow-azure-portal.png)
 
    You can also sign in separately to the Azure portal, use the portal search box to find your logic app, and then select your logic app from the results list.
 
-   ![Screenshot shows Azure portal and search bar with search results for deployed logic app, which appears selected.](./media/create-single-tenant-workflows-visual-studio-code/find-deployed-workflow-azure-portal.png)
+   ![Screenshot shows Azure portal and search bar with search results for deployed logic app, which appears selected.](./media/create-standard-workflows-visual-studio-code/find-deployed-workflow-azure-portal.png)
 
 <a name="considerations-stop-logic-apps"></a>
 
@@ -103,21 +121,21 @@ After you deploy a logic app to the Azure portal from Visual Studio Code, you ca
 
 1. In the Azure portal search box, enter **logic apps**. When the results list appears, under **Services**, select **Logic apps**.
 
-   ![Screenshot shows Azure portal search box with logic apps as search text.](./media/create-single-tenant-workflows-visual-studio-code/portal-find-logic-app-resource.png)
+   ![Screenshot shows Azure portal search box with logic apps as search text.](./media/create-standard-workflows-visual-studio-code/portal-find-logic-app-resource.png)
 
 1. On the **Logic apps** pane, select the logic app that you deployed from Visual Studio Code.
 
-   ![Screenshot shows Azure portal and Standard logic app resources deployed in Azure.](./media/create-single-tenant-workflows-visual-studio-code/logic-app-resources-pane.png)
+   ![Screenshot shows Azure portal and Standard logic app resources deployed in Azure.](./media/create-standard-workflows-visual-studio-code/logic-app-resources-pane.png)
 
    The Azure portal opens the individual resource page for the selected logic app.
 
-   ![Screenshot shows Azure portal and your logic app resource page.](./media/create-single-tenant-workflows-visual-studio-code/deployed-workflow-azure-portal.png)
+   ![Screenshot shows Azure portal and your logic app resource page.](./media/create-standard-workflows-visual-studio-code/deployed-workflow-azure-portal.png)
 
 1. To view the workflows in this logic app, on the logic app's menu, select **Workflows**.
 
    The **Workflows** pane shows all the workflows in the current logic app. This example shows the workflow that you created in Visual Studio Code.
 
-   ![Screenshot shows your logic app resource page with opened Workflows pane and workflows.](./media/create-single-tenant-workflows-visual-studio-code/deployed-logic-app-workflows-pane.png)
+   ![Screenshot shows your logic app resource page with opened Workflows pane and workflows.](./media/create-standard-workflows-visual-studio-code/deployed-logic-app-workflows-pane.png)
 
 1. To view a workflow, on the **Workflows** pane, select that workflow.
 
@@ -125,11 +143,11 @@ After you deploy a logic app to the Azure portal from Visual Studio Code, you ca
 
    For example, to view the steps in the workflow, select **Designer**.
 
-   ![Screenshot shows selected workflow's Overview pane, while the workflow menu shows the selected "Designer" command.](./media/create-single-tenant-workflows-visual-studio-code/workflow-overview-pane-select-designer.png)
+   ![Screenshot shows selected workflow's Overview pane, while the workflow menu shows the selected "Designer" command.](./media/create-standard-workflows-visual-studio-code/workflow-overview-pane-select-designer.png)
 
    The workflow designer opens and shows the workflow that you built in Visual Studio Code. You can now make changes to this workflow in the Azure portal.
 
-   ![Screenshot shows workflow designer and workflow deployed from Visual Studio Code.](./media/create-single-tenant-workflows-visual-studio-code/opened-workflow-designer.png)
+   ![Screenshot shows workflow designer and workflow deployed from Visual Studio Code.](./media/create-standard-workflows-visual-studio-code/opened-workflow-designer.png)
 
 <a name="add-workflow-portal"></a>
 
@@ -141,17 +159,17 @@ Through the Azure portal, you can add blank workflows to a Standard logic app re
 
 1. On the logic app resource menu, select **Workflows**. On the **Workflows** pane, select **Add**.
 
-   ![Screenshot shows selected logic app's Workflows pane and toolbar with Add command selected.](./media/create-single-tenant-workflows-visual-studio-code/add-new-workflow.png)
+   ![Screenshot shows selected logic app's Workflows pane and toolbar with Add command selected.](./media/create-standard-workflows-visual-studio-code/add-new-workflow.png)
 
 1. In the **New workflow** pane, provide name for the workflow. Select either **Stateful** or **Stateless** **>** **Create**.
 
    After Azure deploys your new workflow, which appears on the **Workflows** pane, select that workflow so that you can manage and perform other tasks, such as opening the designer or code view.
 
-   ![Screenshot shows selected workflow with management and review options.](./media/create-single-tenant-workflows-visual-studio-code/view-new-workflow.png)
+   ![Screenshot shows selected workflow with management and review options.](./media/create-standard-workflows-visual-studio-code/view-new-workflow.png)
 
    For example, opening the designer for a new workflow shows a blank canvas. You can now build this workflow in the Azure portal.
 
-   ![Screenshot shows workflow designer and blank workflow.](./media/create-single-tenant-workflows-visual-studio-code/opened-blank-workflow-designer.png)
+   ![Screenshot shows workflow designer and blank workflow.](./media/create-standard-workflows-visual-studio-code/opened-blank-workflow-designer.png)
 
 <a name="delete-from-designer"></a>
 
@@ -165,7 +183,7 @@ To delete an item in your workflow from the designer, follow any of these steps:
 
 * Select the item so that details pane opens for that item. In the pane's upper right corner, open the ellipses (**...**) menu, and select **Delete**. To confirm, select **OK**.
 
-  ![Screenshot shows a selected item on designer with opened information pane plus selected ellipses button and "Delete" command.](./media/create-single-tenant-workflows-visual-studio-code/delete-item-from-designer.png)
+  ![Screenshot shows a selected item on designer with opened information pane plus selected ellipses button and "Delete" command.](./media/create-standard-workflows-visual-studio-code/delete-item-from-designer.png)
 
   > [!TIP]
   > If the ellipses menu isn't visible, expand Visual Studio Code window wide enough so that 

@@ -241,15 +241,15 @@ After your assembly finishes uploading, the assembly appears in the **Assemblies
 
 ### [Standard](#tab/standard)
 
-A Standard logic app resource supports referencing external assemblies from maps, which enable directly calling custom .NET code from XSLT maps:
+A Standard logic app resource supports referencing external assemblies from maps. For example, this capability enables your workflow to call custom .NET Framework code from XSLT maps. For more information, see [Create and run .NET Framework code from Standard workflows](create-run-custom-code-functions.md).
+
+The following table describes the supported assembly types:
 
 | Assembly type | Description |
 |---------------|-------------|
-| **Client/SDK Assembly (.NET Framework)** | This assembly type provides storage and deployment of client and custom SDK for the .NET Framework. For example, the [SAP built-in connector](/azure/logic-apps/connectors/built-in/reference/sap/) uses these assemblies to load the SAP NCo non-redistributable DLL files. |
-| **Client/SDK Assembly (Java)** | This assembly type provides storage and deployment of custom SDK for Java. For example, the [JDBC built-in connector](/azure/logic-apps/connectors/built-in/reference/jdbc/) uses these JAR files to find JDBC drivers for custom relational databases (RDBs). |
-| **Custom Assembly (.NET Framework)** | This assembly type provides storage and deployment of custom DLLs. For example, the [**Transform XML** operation](logic-apps-enterprise-integration-transform.md) uses these assemblies for the custom transformation functions that are required during XML transformation. |
-
-For more information about this capability, see [Create and run .NET Framework code from Standard workflows](create-run-custom-code-functions.md).
+| **Client or SDK Assembly (.NET Framework)** | This assembly type provides storage and deployment of client and custom SDK for the .NET Framework. For example, the [**SAP** built-in connector](/azure/logic-apps/connectors/built-in/reference/sap/) uses these assemblies to load the SAP NCo non-redistributable DLL files. |
+| **Client or SDK Assembly (Java)** | This assembly type provides storage and deployment of custom SDK for Java. For example, the [**JDBC** built-in connector](/azure/logic-apps/connectors/built-in/reference/jdbc/) uses these JAR files to find JDBC drivers for custom relational databases (RDBs). |
+| **Custom Assembly (.NET Framework or .NET 8)** | These assembly types provide storage and deployment of custom DLLs. For example, the [**Transform XML** operation](/azure/logic-apps/logic-apps-enterprise-integration-transform) uses these assemblies for the custom transformation functions that are required during XML transformation. |
 
 #### Azure portal
 
@@ -257,9 +257,9 @@ For more information about this capability, see [Create and run .NET Framework c
 
 1. On the logic app menu, under **Artifacts**, select **Assemblies**.
 
-1. On the **Assemblies** page toolbar, select **Add**. On the **Add Assembly** pane, under **Assembly Type**, select the following type for your assembly, based on your scenario:
+1. On the **Assemblies** page toolbar, select **Add**. On the **Add Assembly** pane, under **Assembly Type**, select the matching assembly type.
 
-1. Now, either drag-and-drop your assemblies to the **Upload Files** area, or browse to and select your assemblies.
+1. Now, either drag your assemblies to the **Upload Files** area, or find and select your assemblies.
 
 1. When you're done, select **Upload Files**.
 
@@ -267,9 +267,21 @@ For more information about this capability, see [Create and run .NET Framework c
 
 #### Visual Studio Code
 
-1. In your Standard logic app project, open the following folders: **Artifacts** > **lib** > **custom** > **net472**.
+1. On your computer, go to your project's *local* folder, and expand the **lib** folder.
 
-1. Add your assemblies to the **net472** folder.
+1. Choose from the following options, based on the assembly type:
+
+   | Assembly type | File extension | Folder location |
+   |---------------|----------------|-----------------|
+   | **Client or SDK Assembly (.NET Framework)** | **.dll** | **builtinOperationSdks** > **net472** |
+   | **Client or SDK Assembly (Java)** | **.jar** | **builtinOperationSdks** > **JAR** |
+   | **Custom Assembly (.NET Framework or .NET 8)** | **.dll** | **custom** > **net472** |
+
+1. Return to Visual Studio Code.
+
+   Your assembly file now appears in your project, for example:
+
+   :::image type="content" source="media/logic-apps-enterprise-integration-maps/assembly-upload-visual-studio-code.png" alt-text="Screenshot shows Visual Studio Code project structure and expanded assembly folders.":::
 
 ---
 
@@ -345,9 +357,15 @@ The following steps apply only if you want to add a map directly to your Standar
 
 #### Visual Studio Code
 
-1. In your logic app project's structure, open the **Artifacts** folder and then the **Maps** folder.
+1. On your computer, go to your project's *local* folder, and expand the following folders: **Artifacts** > **Maps**.
 
-1. In the **Maps** folder, add your map.
+1. In the **Maps** folder, add your map (**.xslt**) file.
+
+1. Return to Visual Studio Code.
+
+   Your map file now appears in your project, for example:
+
+   :::image type="content" source="media/logic-apps-enterprise-integration-maps/map-upload-visual-studio-code.png" alt-text="Screenshot shows Visual Studio Code project structure with expanded Artifacts and Maps folders.":::
 
 ---
 

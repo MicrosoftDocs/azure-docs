@@ -1,5 +1,5 @@
 ---
-title: Manage logic app workflows in the Azure portal
+title: Edit and manage logic app workflows in the Azure portal
 description: Edit, enable, disable, or delete logic app resources and their workflows using the Azure portal.
 services: logic-apps
 ms.suite: integration
