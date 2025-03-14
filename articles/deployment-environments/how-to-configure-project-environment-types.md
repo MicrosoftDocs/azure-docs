@@ -9,12 +9,12 @@ author: RoseHJM
 ms.date: 03/13/2025
 ms.topic: how-to
 
-#customer intent: As a platform engineer, I want to configure project environment types in order to preconfigure the environments that my team will create.   
+#customer intent: As a platform engineer, I want to configure project environment types so that I can preconfigure the environments that my team will create.   
 ---
 
 # Configure project environment types
 
-This guide explains how to add environment types to projects in Azure Deployment Environments. It also explains how to update, enable, disable, and delete environment types. 
+This article explains how to add environment types to projects in Azure Deployment Environments. It also explains how to update, enable, disable, and delete environment types. 
 
 Project environment types are a subset of the [environment types configured for a dev center](how-to-configure-devcenter-environment-types.md). They help preconfigure the environments that a specific development team can create. 
 
@@ -26,13 +26,6 @@ Project environment types allow platform engineering teams to:
 
   You can provide subscriptions for environment types in a project to automatically apply the right set of policies on environments. This action also abstracts Azure governance-related concepts from your development teams.
 - Preconfigure the managed identity that developers use to perform the deployment, along with the access levels that development teams get after the environment is created.
-
-In this article, you'll learn how to:
-
-* Add a new project environment type.
-* Update a project environment type.
-* Enable or disable a project environment type.
-* Delete a project environment type. 
 
 ## Prerequisites
 
