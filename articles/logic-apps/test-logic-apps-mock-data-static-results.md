@@ -26,23 +26,23 @@ This guide shows how to set up mock outputs for an action in a Consumption or St
 
   If you're new to logic apps, see the following documentation:
 
-  * [Create an example Consumption logic app workflow in multitenant Azure Logic Apps](quickstart-create-example-consumption-workflow.md)
+  * [Quickstart: Create an example Consumption logic app workflow using the Azure portal](quickstart-create-example-consumption-workflow.md)
 
-  * [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
+  * [Create an example Standard logic app workflow using the Azure portal](create-single-tenant-workflows-azure-portal.md)
 
 ## Limitations
 
-- This capability is available only for actions, not triggers.
+* This capability is available only for actions, not triggers.
 
-- No option currently exists to dynamically or programmatically enable and disable this capability.
+* No option currently exists to dynamically or programmatically enable and disable this capability.
 
-- No indications exist at the logic app level that this capability is enabled. The following list describes where you can find indications that this capability is enabled:
+* No indications exist at the logic app level that this capability is enabled. The following list describes where you can find indications that this capability is enabled:
 
-  - On the action shape, the lower-right corner shows the test beaker icon (![Icon for static result](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)).
+  * On the action shape, the lower-right corner shows the test beaker icon (![Icon for static result](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)).
 
-  - On the action's details pane, on **Testing** tab, the **Static Result** option is enabled.
+  * On the action's details pane, on **Testing** tab, the **Static Result** option is enabled.
 
-  - In code view, the action's JSON definition includes the following properties in the **`runtimeConfiguration`** JSON object:
+  * In code view, the action's JSON definition includes the following properties in the **`runtimeConfiguration`** JSON object:
 
     ```json
     "runtimeConfiguration": {
@@ -53,7 +53,7 @@ This guide shows how to set up mock outputs for an action in a Consumption or St
     }
     ```
 
-  - In the workflow's run history, the **Static Results** column appears with the word **Enabled** next to any run where at least one action has this capability enabled.
+  * In the workflow's run history, the **Static Results** column appears with the word **Enabled** next to any run where at least one action has this capability enabled.
 
 <a name="set-up-mock-outputs"></a>
 
@@ -90,7 +90,7 @@ This guide shows how to set up mock outputs for an action in a Consumption or St
 
    The action's lower-right corner now shows a test beaker icon (![Icon for static result](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)), which indicates that you enabled static results.
 
-   :::image type="content" source="media/test-logic-apps-mock-data-static-results/static-result-enabled.png" alt-text="Screenshot shows Consumption workflow with HTTP action and static result icon." lightbox="media/test-logic-apps-mock-data-static-results/static-result-enabled.png"::: 
+   :::image type="content" source="media/test-logic-apps-mock-data-static-results/static-result-enabled.png" alt-text="Screenshot shows Consumption workflow with HTTP action and static result icon." lightbox="media/test-logic-apps-mock-data-static-results/static-result-enabled.png":::
 
    To find workflow runs that use mock outputs, see [Find runs that use static results](#find-runs-mock-data) later in this guide.
 
@@ -163,9 +163,7 @@ To find earlier or other workflow runs where the actions use mock outputs, revie
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app workflow in the designer.
 
-1. On the workflow menu, select **Overview**.
-
-1. Under the **Essentials** section, select **Run History**, if not selected.
+1. On the workflow menu, select **Run History**.
 
    :::image type="content" source="media/test-logic-apps-mock-data-static-results/select-run-standard.png" alt-text="Screenshot shows Standard workflow run history with the Static Results column." lightbox="media/test-logic-apps-mock-data-static-results/select-run-standard.png":::
 
