@@ -71,7 +71,7 @@ Filters limit actions to a subset of blobs within the storage account. You can u
 
 ##### The blobTypes filter
 
-The current release supports **blockBlob** and **appendBlob**. Only the **Delete** action is supported for appendBlob**. 
+The current release supports **blockBlob** and **appendBlob**. Only the **Delete** action is supported for **appendBlob**. 
 
 ##### The prefixMatch filter
 
@@ -154,13 +154,13 @@ For more information about pricing, see [Block Blob pricing](https://azure.micro
 
 ## Frequently asked questions (FAQ)
 
-- [I created a new policy. Why do the actions not run immediately?](storage-blob-faq.yml#i-created-a-new-policy--why-do-the-actions-not-run-immediately)
-- [If I update an existing policy, how long does it take for the actions to run?](storage-blob-faq.yml#if-i-update-an-existing-policy--how-long-does-it-take-for-the-actions-to-run)
-- [The run completes but doesn't move or delete some blobs](storage-blob-faq.yml#the-run-completes-but-doesn-t-move-or-delete-some-blobs)
-- [I don't see capacity changes even though the policy is executing and deleting the blobs](storage-blob-faq.yml#i-don-t-see-capacity-changes-even-though-the-policy-is-executing-and-deleting-the-blobs)
-- [I rehydrated an archived blob. How do I prevent it from being moved back to the Archive tier temporarily?](storage-blob-faq.yml#i-rehydrated-an-archived-blob--how-do-i-prevent-it-from-being-moved-back-to-the-archive-tier-temporarily)
-- [The blob prefix match string didn't apply the policy to the expected blobs](storage-blob-faq.yml#the-blob-prefix-match-string-didn-t-apply-the-policy-to-the-expected-blobs)
-- [Is there a way to identify the time at which the policy will be executing?](storage-blob-faq.yml#is-there-a-way-to-identify-the-time-at-which-the-policy-will-be-executing)
+- [I created a new policy. Why do the actions not run immediately?](storage-blob-faq.yml#i-created-a-new-policy--why-do-the-actions-not-run-immediately-)
+- [If I update an existing policy, how long does it take for the actions to run?](storage-blob-faq.yml#if-i-update-an-existing-policy--how-long-does-it-take-for-the-actions-to-run-)
+- [The run completes but doesn't move or delete some blobs](storage-blob-faq.yml#the-run-completes-but-doesn-t-move-or-delete-some-blobs-)
+- [I don't see capacity changes even though the policy is executing and deleting the blobs](storage-blob-faq.yml#i-don-t-see-capacity-changes-even-though-the-policy-is-executing-and-deleting-the-blobs-)
+- [I rehydrated an archived blob. How do I prevent it from being moved back to the Archive tier temporarily?](storage-blob-faq.yml#i-rehydrated-an-archived-blob--how-do-i-prevent-it-from-being-moved-back-to-the-archive-tier-temporarily-)
+- [The blob prefix match string didn't apply the policy to the expected blobs](storage-blob-faq.yml#the-blob-prefix-match-string-didn-t-apply-the-policy-to-the-expected-blobs-)
+- [Is there a way to identify the time at which the policy will be executing?](storage-blob-faq.yml#is-there-a-way-to-identify-the-time-at-which-the-policy-will-be-executing-)
 
 ## Next steps
 

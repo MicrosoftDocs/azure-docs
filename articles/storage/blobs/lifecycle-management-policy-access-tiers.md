@@ -13,7 +13,9 @@ ms.topic: conceptual
 
 # Configure a lifecycle management policy for access tiers
 
-You can use Lifecycle management policies to transition blobs to cost-efficient access tiers based on their use patterns. For example, you can transition blobs to a cooler access tier if they haven't been accessed for a period of time and then return them back to a warmer tier when once they are accessed. 
+You can use Lifecycle management policies to transition blobs to cost-efficient access tiers based on their use patterns. For example, you can transition blobs to a cooler access tier if they haven't been accessed for a period of time and then return them back to a warmer tier when once they are accessed.
+
+This article describes scenarios and shows example policies. 
 
 > [!NOTE]
 > You can't use a lifecycle management policy to change the tier of an append blob or a page blob, or a block blob that is located in a premium block blob storage account.
@@ -46,7 +48,7 @@ This example shows how to transition block blobs prefixed with `sample-container
 }
 ```
 
-## Move data based on last accessed time
+## Move data based on the last accessed time
 
 You can enable last access time tracking to keep a record of when your blob is last read or written and as a filter to manage tiering and retention of your blob data. To learn how to enable last access time tracking, see [Optionally enable access time tracking](lifecycle-management-policy-configure.md#optionally-enable-access-time-tracking).
 
@@ -137,7 +139,7 @@ Only storage accounts that are configured for LRS, GRS, or RA-GRS support moving
 > [!NOTE]
 > Microsoft recommends that you upload your blobs directly to the archive tier for greater efficiency. You can specify the archive tier in the *x-ms-access-tier* header on the [Put Blob](/rest/api/storageservices/put-blob) or [Put Block List](/rest/api/storageservices/put-block-list) operation. The *x-ms-access-tier* header is supported with REST version 2018-11-09 and newer or the latest blob storage client libraries.
 
-## Manage previous versions
+## Managing previous versions
 
 For data that is modified and accessed regularly throughout its lifetime, you can enable blob storage versioning to automatically maintain previous versions of an object. You can create a policy to tier previous versions. The version age is determined by evaluating the version creation time. This policy rule moves previous versions within container `activedata` that are 90 days or older after version creation to the cool tier.
 
