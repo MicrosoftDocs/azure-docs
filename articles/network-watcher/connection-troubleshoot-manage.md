@@ -110,7 +110,7 @@ In this section, you test the remote desktop port (RDP) connectivity from one vi
 
     - If the two virtual machines are communicating with no issues, you see the following results: 
 
-        :::image type="content" source="./media/connection-troubleshoot-manage/connectivity-allowed.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection between two virtual machines that are communicating with no issues." lightbox="content" source="./media/connection-troubleshoot-manage/connectivity-allowed.png":::
+        :::image type="content" source="./media/connection-troubleshoot-manage/connectivity-allowed.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection between two virtual machines that are communicating with no issues." lightbox="./media/connection-troubleshoot-manage/connectivity-allowed.png":::
 
         - 66 probes were successfully sent to the destination virtual machine. Select **See details** to see the next hop details.
         - Outbound connectivity from the source virtual machine is allowed. Select **See details** to see the security rules that are allowing the outbound communication from the source virtual machine.
