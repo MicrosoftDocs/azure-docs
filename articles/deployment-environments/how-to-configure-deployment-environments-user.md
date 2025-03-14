@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Provide access to projects for developers
 
-This guide explains how to provide user access for Azure Deployment Environments projects.
+This article explains how to provide user access for Azure Deployment Environments projects.
 
 In Azure Deployment Environments, development team members must have access to a project before they can create deployment environments. By using the built-in roles, Deployment Environments User and Deployment Environments Reader, you can assign permissions to users or groups at either the project level or the environment type level.
 
