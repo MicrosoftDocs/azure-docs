@@ -33,7 +33,7 @@ Unlike other generic storage providers, DTS is a purpose-built backend-as-a-serv
 
 ### Managed by Azure 
 
-Unlike other [existing storage providers]((../durable-functions-storage-providers.md)) for durable functions, the durable task scheduler offers dedicated resources that are fully managed by Azure. You no longer need to bring your own storage account for storing orchestration and entity state, as it is built in.
+Unlike other [existing storage providers](../durable-functions-storage-providers.md) for durable functions, the durable task scheduler offers dedicated resources that are fully managed by Azure. You no longer need to bring your own storage account for storing orchestration and entity state, as it is built in.
 
 Since Azure has direct access to your app's backend, it also becomes easier to diagnose and resolve problems related to DTS so users can expect a better support experience. 
 
