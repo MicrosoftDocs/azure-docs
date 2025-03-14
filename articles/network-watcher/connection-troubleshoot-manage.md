@@ -104,13 +104,13 @@ In this section, you test the remote desktop port (RDP) connectivity from one vi
     | **Connection Diagnostic** |  |
     | Diagnostics tests | Select **Connectivity**, **NSG diagnostic**, **Next hop**, and **Port scanner**. |
 
-    :::image type="content" source="./media/connection-troubleshoot-portal/test-connectivity-vm.png" alt-text="Screenshot that shows Network Watcher connection troubleshoot in Azure portal to test the connection between two virtual machines." lightbox="./media/connection-troubleshoot-portal/test-connectivity-vm.png":::
+    :::image type="content" source="./media/connection-troubleshoot-manage/test-connectivity-vm.png" alt-text="Screenshot that shows Network Watcher connection troubleshoot in Azure portal to test the connection between two virtual machines." lightbox="./media/connection-troubleshoot-manage/test-connectivity-vm.png":::
 
 1. Select **Run diagnostic tests**.
 
     - If the two virtual machines are communicating with no issues, you see the following results: 
 
-        :::image type="content" source="./media/connection-troubleshoot-portal/connectivity-allowed.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection between two virtual machines that are communicating with no issues.":::
+        :::image type="content" source="./media/connection-troubleshoot-manage/connectivity-allowed.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection between two virtual machines that are communicating with no issues." lightbox="content" source="./media/connection-troubleshoot-manage/connectivity-allowed.png":::
 
         - 66 probes were successfully sent to the destination virtual machine. Select **See details** to see the next hop details.
         - Outbound connectivity from the source virtual machine is allowed. Select **See details** to see the security rules that are allowing the outbound communication from the source virtual machine.
@@ -120,7 +120,7 @@ In this section, you test the remote desktop port (RDP) connectivity from one vi
 
     - If the destination virtual machine has a network security group that's denying incoming RDP connections, you see the following results: 
 
-        :::image type="content" source="./media/connection-troubleshoot-portal/connectivity-denied-destination.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection to a virtual machine that has a denying inbound security rule.":::
+        :::image type="content" source="./media/connection-troubleshoot-manage/connectivity-denied-destination.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection to a virtual machine that has a denying inbound security rule." lightbox="./media/connection-troubleshoot-manage/connectivity-denied-destination.png":::
 
         - 30 probes were sent and failed to reach the destination virtual machine. Select **See details** to see the next hop details.
         - Outbound connectivity from the source virtual machine is allowed. Select **See details** to see the security rules that are allowing the outbound communication from the source virtual machine.
@@ -132,7 +132,7 @@ In this section, you test the remote desktop port (RDP) connectivity from one vi
 
     - If the source virtual machine has a network security group that's denying RDP connections to the destination, you see the following results: 
 
-        :::image type="content" source="./media/connection-troubleshoot-portal/connectivity-denied-source.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection from a virtual machine that has a denying outbound security rule.":::
+        :::image type="content" source="./media/connection-troubleshoot-manage/connectivity-denied-source.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection from a virtual machine that has a denying outbound security rule." lightbox="./media/connection-troubleshoot-manage/connectivity-denied-source.png":::
 
         - 30 probes were sent and failed to reach the destination virtual machine. Select **See details** to see the next hop details.
         - Outbound connectivity from the source virtual machine is denied. Select **See details** to see security rule that is denying the outbound communication from the source virtual machine.
@@ -144,7 +144,7 @@ In this section, you test the remote desktop port (RDP) connectivity from one vi
 
     - If the operating system on the destination virtual machine doesn't accept incoming connections on port 3389, you see the following results: 
 
-        :::image type="content" source="./media/connection-troubleshoot-portal/connectivity-denied-destination-port.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection to a virtual machine that isn't listening on the tested port.":::
+        :::image type="content" source="./media/connection-troubleshoot-manage/connectivity-denied-destination-port.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection to a virtual machine that isn't listening on the tested port." lightbox="./media/connection-troubleshoot-manage/connectivity-denied-destination-port.png":::
 
         - 30 probes were sent and failed to reach the destination virtual machine. Select **See details** to see the next hop details.
         - Outbound connectivity from the source virtual machine is allowed. Select **See details** to see the security rules that are allowing the outbound communication from the source virtual machine.
@@ -710,19 +710,19 @@ In this section, you test the connectivity between a virtual machine and a web a
     | **Connection Diagnostic** |  |
     | Diagnostics tests | Select **Connectivity**. |
 
-    :::image type="content" source="./media/connection-troubleshoot-portal/test-connectivity-bing.png" alt-text="Screenshot that shows connection troubleshoot in the Azure portal to test the connection between a virtual machine and Microsoft Bing website." lightbox="./media/connection-troubleshoot-portal/test-connectivity-bing.png":::
+    :::image type="content" source="./media/connection-troubleshoot-manage/test-connectivity-bing.png" alt-text="Screenshot that shows connection troubleshoot in the Azure portal to test the connection between a virtual machine and Microsoft Bing website." lightbox="./media/connection-troubleshoot-manage/test-connectivity-bing.png":::
 
 1. Select **Run diagnostic tests**.
 
     - If `www.bing.com` is reachable from the source virtual machine, you see the following results: 
 
-        :::image type="content" source="./media/connection-troubleshoot-portal/test-connectivity-bing-reachable.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection with Microsoft Bing website.":::
+        :::image type="content" source="./media/connection-troubleshoot-manage/test-connectivity-bing-reachable.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection with Microsoft Bing website." lightbox="./media/connection-troubleshoot-manage/test-connectivity-bing-reachable.png":::
 
         66 probes were successfully sent to `www.bing.com`. Select **See details** to see the next hop details.
 
     - If `www.bing.com` is unreachable from the source virtual machine due to a security rule, you see the following results: 
 
-        :::image type="content" source="./media/connection-troubleshoot-portal/test-connectivity-bing-unreachable.png" alt-text="Screenshot that shows connection troubleshoot results after unsuccessfully testing the connection with Microsoft Bing website.":::
+        :::image type="content" source="./media/connection-troubleshoot-manage/test-connectivity-bing-unreachable.png" alt-text="Screenshot that shows connection troubleshoot results after unsuccessfully testing the connection with Microsoft Bing website." lightbox="./media/connection-troubleshoot-manage/test-connectivity-bing-unreachable.png":::
 
         30 probes were sent and failed to reach `www.bing.com`. Select **See details** to see the next hop details and the cause of the error.
 
@@ -996,13 +996,13 @@ In this section, you test the connectivity between a virtual machine and an IP a
     | **Connection Diagnostic** |  |
     | Diagnostics tests | Select **Connectivity**, **NSG diagnostic**, and **Next hop**. |
 
-    :::image type="content" source="./media/connection-troubleshoot-portal/test-connectivity-ip.png" alt-text="Screenshot that shows connection troubleshoot in the Azure portal to test the connection between a virtual machine and an IP address." lightbox="./media/connection-troubleshoot-portal/test-connectivity-ip.png":::
+    :::image type="content" source="./media/connection-troubleshoot-manage/test-connectivity-ip.png" alt-text="Screenshot that shows connection troubleshoot in the Azure portal to test the connection between a virtual machine and an IP address." lightbox="./media/connection-troubleshoot-manage/test-connectivity-ip.png":::
 
 1. Select **Run diagnostic tests**.
 
     - If the IP address is reachable, you see the following results: 
 
-        :::image type="content" source="./media/connection-troubleshoot-portal/ip-reachable.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection to a reachable IP address.":::
+        :::image type="content" source="./media/connection-troubleshoot-manage/ip-reachable.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection to a reachable IP address." lightbox="./media/connection-troubleshoot-manage/ip-reachable.png":::
 
         - 66 probes were successfully sent with average latency of 4 ms. Select **See details** to see the next hop details.
         - Outbound connectivity from the source virtual machine is allowed. Select **See details** to see the security rules that are allowing the outbound communication from the source virtual machine.
@@ -1010,7 +1010,7 @@ In this section, you test the connectivity between a virtual machine and an IP a
 
     - If the IP address is unreachable because the destination virtual machine isn't running, you see the following results: 
 
-        :::image type="content" source="./media/connection-troubleshoot-portal/ip-unreachable-vm-stopped.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection to an IP address of a stopped virtual machine.":::
+        :::image type="content" source="./media/connection-troubleshoot-manage/ip-unreachable-vm-stopped.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection to an IP address of a stopped virtual machine." lightbox="./media/connection-troubleshoot-manage/ip-unreachable-vm-stopped.png":::
 
         - 30 probes were sent and failed to reach the destination virtual machine. Select **See details** to see the next hop details.
         - Outbound connectivity from the source virtual machine is allowed. Select **See details** to see the security rules that are allowing the outbound communication from the source virtual machine.
@@ -1020,7 +1020,7 @@ In this section, you test the connectivity between a virtual machine and an IP a
 
     - If there's no route to the IP address in the routing table of the source virtual machine (for example, the IP address isn't in the address space of the VM's virtual network or its peered virtual networks), you see the following results: 
 
-        :::image type="content" source="./media/connection-troubleshoot-portal/ip-unreachable-route-table.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection to unreachable IP address with no route in the routing table.":::
+        :::image type="content" source="./media/connection-troubleshoot-manage/ip-unreachable-route-table.png" alt-text="Screenshot that shows connection troubleshoot results after testing the connection to unreachable IP address with no route in the routing table." lightbox="./media/connection-troubleshoot-manage/ip-unreachable-route-table.png":::
 
         - 30 probes were sent and failed to reach the destination virtual machine. Select **See details** to see the next hop details.
         - Outbound connectivity from the source virtual machine is denied. Select **See details** to see security rule that is denying the outbound communication from the source virtual machine.
