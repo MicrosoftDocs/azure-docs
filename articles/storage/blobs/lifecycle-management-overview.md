@@ -13,9 +13,7 @@ ms.custom: references_regions, engagement-fy23
 
 # Azure Blob Storage lifecycle management overview
 
-You can use Lifecycle management policies to transition blobs to cost-efficient access tiers based on their use patterns or delete them entirely at the end of their lifecycle. 
-
-Policies can apply to current versions, previous version and snapshots that are located in any container except for system containers such as the **$logs** or **$web** containers. 
+You can use Lifecycle management policies to transition blobs to cost-efficient access tiers based on their use patterns or delete them entirely at the end of their lifecycle. A policy can operate on current versions, previous versions and snapshots. A policy does not operate on blobs in system containers such as as the **$logs** or **$web** containers. 
 
 This article describes the elements of a lifecycle management policy and how to apply them to optimize the storage and transaction costs of your blobs.
 
@@ -52,38 +50,40 @@ A policy is a collection of rules, as described in the following table:
 
 Each rule within the policy has several parameters, described in the following table:
 
-| Parameter name | Type | Notes | Required |
-|--|--|--|--|
-| **name** | String | A rule name can include up to 256 alphanumeric characters. Rule name is case-sensitive. It must be unique within a policy. | True |
-| **enabled** | Boolean | An optional boolean to allow a rule to be temporarily disabled. Default value is true if it's not set. | False |
-| **type** | An enum value | The current valid type is `Lifecycle`. | True |
-| **definition** | An object that defines the lifecycle rule | Each definition is made up of a filter set and an action set. | True |
+| Parameter name | Type                                      | Notes                                                                                                                      | Required |
+|----------------|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|----------|
+| **name**       | String                                    | A rule name can include up to 256 alphanumeric characters. Rule name is case-sensitive. It must be unique within a policy. | True     |
+| **enabled**    | Boolean                                   | An optional boolean to allow a rule to be temporarily disabled. Default value is true if it's not set.                     | False    |
+| **type**       | An enum value                             | The current valid type is `Lifecycle`.                                                                                     | True     |
+| **definition** | An object that defines the lifecycle rule | Each definition is made up of a filter set and an action set.                                                              | True     |
 
 ### Filters
 
 Filters limit actions to a subset of blobs within the storage account. You can use a filter to specify which blobs to include. A filter provides no means to specify which blobs to exclude. If more than one filter is defined, a logical AND runs on all filters. The following table describes each parameter.
 
-| Filter name | Type | Description | Required |
-|-----|-----|
-| **blobTypes** | Array of predefined enum values | The type of blob (For example: **blockblob**) | Yes |
-| prefixMatch | Array of strings | These strings are prefixes to be matched. | No |
-| blobIndexMatch | An array of dictionary values | These values consist of blob index tag key and value conditions to be matched.  | No |
+| Filter name    | Type                            | Description                                                                    | Required |
+|----------------|---------------------------------|--------------------------------------------------------------------------------|----------|
+| **blobTypes**  | Array of predefined enum values | The type of blob (For example: **blockblob**)                                  | Yes      |
+| **prefixMatch**    | Array of strings                | These strings are prefixes to be matched.                                      | No       |
+| **blobIndexMatch** | An array of dictionary values   | These values consist of blob index tag key and value conditions to be matched. | No       |
 
-##### The blobTypes filter
+#### blobTypes
 
 The current release supports **blockBlob** and **appendBlob**. Only the **Delete** action is supported for **appendBlob**. 
 
-##### The prefixMatch filter
+### prefixMatch
 
-Each rule can define up to 10 case-sensitive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under the path `https://myaccount.blob.core.windows.net/sample-container/blob1/...`, specify the **prefixMatch** as `sample-container/blob1`. This filter will match all blobs in `sample-container` where the names begin with `blob1`. If you don't define a prefix match, then, the rule applies to all blobs within the storage account. Prefix strings don't support wildcard matching. Characters such as `*` and `?` are treated as string literals.
+Each rule can define up to 10 case-sensitive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under the path `https://myaccount.blob.core.windows.net/sample-container/blob1/...`, specify the **prefixMatch** as `sample-container/blob1`. 
 
-##### The blobIndexMatch filter
+This filter will match all blobs in `sample-container` where the names begin with `blob1`. If you don't define a prefix match, then, the rule applies to all blobs within the storage account. Prefix strings don't support wildcard matching. Characters such as `*` and `?` are treated as string literals.
+
+#### blobIndexMatch
 
 Each rule can define up to 10 blob index tag condition. For example, if you want to match all blobs with `Project = Contoso` under `https://myaccount.blob.core.windows.net/` for a rule, the blobIndexMatch is `{"name": "Project","op": "==","value": "Contoso"}`. If you don't define a value for `blobIndexMatch`, then the rule applies to all blobs within the storage account.
 
 ### Actions
 
-Actions are applied to the filtered blobs when the run condition is met. Actions can apply to current versions, previous versions, and blob snapshots. You must define at least one action for each rule. 
+Actions are applied to the filtered blobs when the run condition is met. Actions can apply to current versions, previous versions, and blob snapshots. You must define at least one action for each rule. If you define more than one action on the same blob, lifecycle management applies the least expensive action to the blob. For example, a **delete** action is cheaper than the **tierToArchive** action and the **tierToArchive** action is cheaper than the **tierToCool** action.
 
 #### Transitioning blobs between tiers
 
@@ -93,34 +93,34 @@ Use any of these actions to transition blobs between tiers:
 - **tierToCold**
 - **tierToArchive**
 
-If a blob is set to the cool tier, then you can use a special action named **enableAutoTierToHotFromCool** to automatically move that blob into the hot tier when the blob is accessed. The **enableAutoTierToHotFromCool** action is supported only for current blob versions. It won't work with previous versions or snapshots. 
+If a blob is set to the cool tier, then you can use a special action named **enableAutoTierToHotFromCool** to automatically move that blob into the hot tier when the blob is accessed. This action is available only when used with the **daysAfterLastAccessTimeGreaterThan** run condition, and it works only with current blob versions. It won't work with previous versions or snapshots. 
 
 For more information about how to apply tier change actions, see [Configure a lifecycle management policy for access tiers](lifecycle-management-policy-access-tiers).
 
-> [!NOTE]
-> Actions that change a blob's tier have the following limitations:
-> - None of these actions are supported for tier of an append blob or a page blob, or a block blob that is located in a premium block blob storage account.
-> - The **tierToArchive** action can't be used for blobs that use an encryption scope.
+Actions that change a blob's tier have the following limitations:
+
+- None of these actions are supported for tier of an append blob or a page blob, or a block blob that is located in a premium block blob storage account.
+
+- The **tierToArchive** action can't be used for blobs that use an encryption scope.
 
 #### Deleting blobs
 
-Use the **delete** action to delete a blob. This action is not supported with page blobs are not supported.
+Use the **delete** action to delete a blob. This action is not supported with page blobs ad won't work with any blob in an immutable container.
 
 For more information about how to apply delete actions, see [Configure a lifecycle management policy to delete data](lifecycle-management-policy-delete.md).
 
-> [!NOTE]
-> If you define more than one action on the same blob, lifecycle management applies the least expensive action to the blob. For example, a **delete** action is cheaper than the **tierToArchive** action and the **tierToArchive** action is cheaper than the **tierToCool** action.
+
 
 ### Action run conditions
 
 The run conditions are based on age. Current versions use the last modified time or last access time, previous versions use the version creation time, and blob snapshots use the snapshot creation time to track age. The following table describes each action run condition.
 
-| Action run condition |  Description |
-|--|--|
-| daysAfterModificationGreaterThan | Integer value indicating the age in days. The condition for actions on a current version of a blob. |
-| daysAfterCreationGreaterThan | Integer value indicating the age in days. The condition for actions on the current version or previous version of a blob or a blob snapshot. |
-| daysAfterLastAccessTimeGreaterThan<sup>1</sup> | Integer value indicating the age in days. The condition for a current version of a blob when access tracking is enabled |
-| daysAfterLastTierChangeGreaterThan | Integer value indicating the age in days after last blob tier change time. The minimum duration in days that a rehydrated blob is kept in hot, cool or cold tiers before being returned to the archive tier. This condition applies only to **tierToArchive** actions. |
+| Condition name                                     | Type    | Description                                                                                                                                                                                                                                                |
+|----------------------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **daysAfterModificationGreaterThan**               | Integer | The age in days after the last modified time.<br>The condition for actions on a current version of a blob.                                                                                                                                                 |
+| **daysAfterCreationGreaterThan**                   | Integer | The age in days after the creation time.<br>The condition for actions on the current version or previous version of a blob or a blob snapshot.                                                                                                             |
+| **daysAfterLastAccessTimeGreaterThan**<sup>1</sup> | Integer | Indicates the age in days after the last access time.<br>The condition for a current version of a blob when access tracking is enabled                                                                                                                     |
+| **daysAfterLastTierChangeGreaterThan**             | Integer | Indicates the age in days after last blob tier change time.<br>The minimum duration in days that a rehydrated blob is kept in hot, cool or cold tiers before being returned to the archive tier. This condition applies only to **tierToArchive** actions. |
 
 <sup>1</sup> If [last access time tracking](#move-data-based-on-last-accessed-time) is not enabled, **daysAfterLastAccessTimeGreaterThan** uses the date the lifecycle policy was enabled instead of the **LastAccessTime** property of the blob. This date is also used when the **LastAccessTime** property is a null value. For more information about using last access time tracking, see [Move data based on last accessed time](#move-data-based-on-last-accessed-time).
 

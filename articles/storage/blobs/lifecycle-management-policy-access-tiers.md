@@ -48,12 +48,14 @@ This example shows how to transition block blobs prefixed with `sample-container
 }
 ```
 
+> [!NOTE]
+> The **baseBlob** element in a lifecycle management policy refers to the current version of a blob.
+
 ## Move data based on the last accessed time
 
 You can enable last access time tracking to keep a record of when your blob is last read or written and as a filter to manage tiering and retention of your blob data. To learn how to enable last access time tracking, see [Optionally enable access time tracking](lifecycle-management-policy-configure.md#optionally-enable-access-time-tracking).
 
 When last access time tracking is enabled, the blob property called `LastAccessTime` is updated when a blob is read or written. [Get Blob](/rest/api/storageservices/get-blob) and [Put Blob](/rest/api/storageservices/put-blob) operations are considered access operations. [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata), and [Get Blob Tags](/rest/api/storageservices/get-blob-tags) aren't access operations, and therefore don't update the last access time. 
-
 
 If last access time tracking is enabled, lifecycle management uses `LastAccessTime` to determine whether the run condition **daysAfterLastAccessTimeGreaterThan** is met. Lifecycle management uses the date the lifecycle policy was enabled instead of `LastAccessTime` in the following cases:
 
@@ -96,10 +98,6 @@ In the following example, blobs are moved to cool storage if they haven't been a
   }
 }
 ```
-
-## Configure a policy to move data back to warmer tier after access
-
-The `enableAutoTierToHotFromCool` action is available only when used with the `daysAfterLastAccessTimeGreaterThan` run condition. That condition is described in the next table. enableAutoTierToHotFromCool action is not supported for previous versions or snapshots.
 
 ## Archiving data
 
@@ -172,48 +170,8 @@ For data that is modified and accessed regularly throughout its lifetime, you ca
 }
 ```
 
-## Example featured in the overview
-
-The following sample rule filters the account to run the actions on objects that exist inside `sample-container` and start with `blob1`.
-
-- Tier blob to cool tier 30 days after last modification
-- Tier blob to archive tier 90 days after last modification
-
-```json
-{
-  "rules": [
-    {
-      "enabled": true,
-      "name": "sample-rule",
-      "type": "Lifecycle",
-      "definition": {
-        "actions": {
-          "baseBlob": {
-            "tierToCool": {
-              "daysAfterModificationGreaterThan": 30
-            },
-            "tierToArchive": {
-              "daysAfterModificationGreaterThan": 90,
-              "daysAfterLastTierChangeGreaterThan": 7
-            },
-          }
-        },
-        "filters": {
-          "blobTypes": [
-            "blockBlob"
-          ],
-          "prefixMatch": [
-            "sample-container/blob1"
-          ]
-        }
-      }
-    }
-  ]
-}
-```
-
 > [!NOTE]
-> The **baseBlob** element in a lifecycle management policy refers to the current version of a blob. The **version** element refers to a previous version.
+> The **version** element in a lifecycle management policy refers to a previous version.
 
 ## See also
 
