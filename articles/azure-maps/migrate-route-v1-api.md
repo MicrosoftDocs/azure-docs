@@ -1,45 +1,34 @@
 ---
-title: Migrate Azure Maps Route API version 1.0 to Azure Maps Routing API version 2025-01-01.
+title: Migrate Azure Maps Route service version 1.0 to Azure Maps Routing service version 2025-01-01.
 titleSuffix: Microsoft Azure Maps
-description: Learn how to Migrate the Azure Maps Route API version 1.0 to Azure Maps Route API version 2025-01-01.
+description: Learn how to Migrate the Azure Maps Route service version 1.0 to Azure Maps Route service version 2025-01-01.
 author: farazgis
 ms.author: fsiddiqui
-ms.date: 03/12/2025
+ms.date: 03/14/2025
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: rest-api
 ---
 
-# Migrate Azure Maps Route 1.0 API
+# Migrate Azure Maps Route 1.0 APIs
 
-This article explains how to migrate the [Azure Maps Route v1.0 API] to [Azure Maps Route v2025-01-01 API]. The following table shows the Route v1.0 APIs and the migration options.
+This article explains how to migrate the [Azure Maps Route v1.0] APIs to [Azure Maps Route v2025-01-01] APIs. The following table shows the Route v1.0 APIs and the migration options.
 
-| Azure Maps Route v1.0  | Azure Maps Route v2025-01-01 migration options  |
-|------------------------|-------------------------------------------------|
+| Azure Maps Route v1.0    | Azure Maps Route v2025-01-01 migration options  |
+|--------------------------|-------------------------------------------------|
 | [Get Route Directions]   | [Post Route Directions][Post Route Directions 2025-01-01]: Get Route Directions is no longer supported.|
-| [Get Route Directions Batch] | [Post Route Directions Batch]:  Route Directions async batch is currently unavailable, instead use sync batch.|
+| [Get Route Directions Batch] | Route Directions async batch is currently unavailable. Instead use [Post Route Directions Batch][Post Route Directions Batch 2025-01-01].|
 | [Post Route Directions]  | [Post Route Directions][Post Route Directions 2025-01-01]   |
-| [Post Route Direction Batch]  | [Post Route Directions Batch][Post Route Directions Batch 2025-01-01]: Route Directions async batch is currently unavailable, instead use sync batch. |
+| [Post Route Directions Batch] | [Post Route Directions Batch][Post Route Directions Batch 2025-01-01]: Route Directions async batch is currently unavailable, instead use sync batch. |
 | [Post Route Directions Batch Sync]  | [Post Route Directions Batch][Post Route Directions Batch 2025-01-01]  |
-| [Get Route Matrix]                  | [Get Route Operation Result]: Use to get result of Route Matrix async calls.<BR>[Get Route Operations Status]: Use to get status of Route Matrix async calls. |
-| [Post Route Matrix]                 | [Post Route Matrix Async]  |
-| [Post Route Matrix Sync]            | [Post Route Matrix][Post Route Matrix 2025-01-01]  |
-| [Get Route Range]                   | [Post Route Range]: The get request is no longer supported. |
+| [Get Route Matrix]       | [Get Route Operation Result]: Use to get result of Route Matrix async calls.<BR>[Get Route Operations Status]: Use to get status of Route Matrix async calls. |
+| [Post Route Matrix]      | [Post Route Matrix Async]  |
+| [Post Route Matrix Sync] | [Post Route Matrix][Post Route Matrix 2025-01-01]  |
+| [Get Route Range]        | [Post Route Range]: The `GET` request is no longer supported. |
 
 ## Notable differences
 
 ### Route Directions notable differences
-<!------------------------------------------------------------------------------------------------------
-- V1.0 supports GET requests, while V2025-01-01 supports POST requests.
-- V1.0 supports XML and JSON responses; V2025-01-01 uses GeoJSON for both input and response.
-- V1.0 uses latitude/longitude coordinates; V2025-01-01 uses longitude/latitude, as defined by [GeoJSON].
-- V1.0 supports waypoints only; V2025-01-01 adds `viaWaypoints` for route creation in driving and walking modes.
-- V2025-01-01 doesn't support the [electric consumption model].
-- V1.0 includes car, truck, pedestrian routing and BETA profiles (bus, bicycle, motorcycle, taxi, van); V2025-01-01 supports car, truck, and pedestrian routing only.
-- For batch operations; v1.0 supports _sync_ and _async_ requests. v2025-01-01 currently only supports _sync_ requests.
-- V1.0 support waypoint optimization; V2025-01-01 currently only supports waypoint optimization for truck routing.
-- V1.0 requires a `language”`parameter to localize the language of the route instructions; V2025-01-01 requires an `Accept-Language` request header to input localization code.
------------------------------------------------------------------------------------------------------->
 
 | Feature                    | v1.0           | v2025-01-01                                       |
 |----------------------------|----------------|---------------------------------------------------|
@@ -54,14 +43,6 @@ This article explains how to migrate the [Azure Maps Route v1.0 API] to [Azure 
 | Waypoints                  | Supported      | Supported. Also supports `viaWaypoints` for driving and walking modes. |
 
 ### Route Matrix notable differences
-<!------------------------------------------------------------------------------------------------------
-- V1.0 synchronous requests support up to 100 cells, while asynchronous requests support up to 700 cells in a matrix request. V2025-01-01 synchronous requests supports up to 2,500 cells, and asynchronous requests supports up to 50,000 cells in a matrix request.
-- V1.0 support JSON response; V2025-01-01 support GeoJSON response.
-- V1.0 uses GeoJSON multipoint features for input coordinates, but the request is in JSON. V2025-01-01 uses GeoJSON compliant input.
-- Both version supports input coordinates in longitude/latitude format.
-- V2025-01-01 doesn't support the electric consumption model.
-- V1.0 includes car, truck, pedestrian routing and BETA profiles (bus, bicycle, motorcycle, taxi, van); V2025-01-01 supports car, truck, and pedestrian routing only.
------------------------------------------------------------------------------------------------------->
 
 | Feature                      | v1.0                 | v2025-01-01                                  |
 |------------------------------|----------------------|----------------------------------------------|
@@ -74,13 +55,6 @@ This article explains how to migrate the [Azure Maps Route v1.0 API] to [Azure 
 | Travel mode                  | Car, truck, pedestrian.<BR>Beta profiles: Bus, bicycle, motorcycle, taxi, van. | Car, truck, pedestrian. |
 
 ### Route Range notable differences
-<!---------------------------------------------------------------------------------------------------
-- V1.0 supports GET requests, while V2025-01-01 supports POST requests.
-- V1.0 supports XML and JSON responses; V2025-01-01 uses GeoJSON for both input and response.
-- V1.0 uses latitude/longitude coordinates; V2025-01-01 uses longitude/latitude as per GeoJSON.
-- V1.0 includes car and truck travel modes and BETA profiles (bus, motorcycle, taxi, van); V2025-01-01 supports car and truck travel modes only.
-- V2025-01-01 doesn't support the electric consumption model.
------------------------------------------------------------------------------------------------------->
 
 | Feature           | V1.0      | V2025-01-01                                               |
 |-------------------|-----------|-----------------------------------------------------------|
@@ -532,7 +506,7 @@ Parameters included in the body of the HTTP `POST` request are provided as GeoJS
 
 #### Route Range version 1.0 response example
 
-<!--  What are the differences in the responses between v1/v2025-01-01?   -->
+Response results are truncated for brevity.
 
 ```json
 { 
@@ -566,7 +540,7 @@ Parameters included in the body of the HTTP `POST` request are provided as GeoJS
 
 #### Route Range version 2025-01-01 response example
 
-<!--  What are the differences in the responses between v1/v2025-01-01?   -->
+Response results are truncated for brevity.
 
 ```json
 { 
@@ -621,6 +595,7 @@ Parameters included in the body of the HTTP `POST` request are provided as GeoJS
 ```
 
 <!------------------- Links to Route v1 API  ----------------------------------------------------->
+[Azure Maps Route v1.0]: /rest/api/maps/route?view=rest-maps-1.0
 [Get Route Directions Batch]: /rest/api/maps/route/get-route-directions-batch?view=rest-maps-1.0
 [Get Route Directions]: /rest/api/maps/route/get-route-directions?view=rest-maps-1.0
 [Get Route Matrix]: /rest/api/maps/route/get-route-matrix?view=rest-maps-1.0
@@ -632,6 +607,7 @@ Parameters included in the body of the HTTP `POST` request are provided as GeoJS
 [Post Route Matrix]: /rest/api/maps/route/post-route-matrix?view=rest-maps-1.0
 
 <!------------------- Links to Route v2025-01-01 API  ----------------------------------------------------->
+[Azure Maps Route v2025-01-01]: /rest/api/maps/route
 [Get Route Operation Result]: /rest/api/maps/route/post-route-operation-result
 [Get Route Operations Status]: /rest/api/maps/route/post-route-operations-status
 [Post Route Directions Batch 2025-01-01]: /rest/api/maps/route/post-route-directions-batch
