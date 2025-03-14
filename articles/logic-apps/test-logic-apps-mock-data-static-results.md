@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/11/2025
+ms.date: 03/14/2025
 ---
 
 # Test workflows with mock outputs in Azure Logic Apps
@@ -167,13 +167,9 @@ To find earlier or other workflow runs where the actions use mock outputs, revie
 
 1. Under the **Essentials** section, select **Run History**, if not selected.
 
-1. In the **Run History** table, find the **Static Results** column.
-
-   Any run that includes actions with mock outputs has the **Static Results** column set to **Enabled**, for example:
-
    :::image type="content" source="media/test-logic-apps-mock-data-static-results/select-run-standard.png" alt-text="Screenshot shows Standard workflow run history with the Static Results column." lightbox="media/test-logic-apps-mock-data-static-results/select-run-standard.png":::
 
-1. To view the actions in a run that uses mock outputs, select the run where the **Static Results** column is set to **Enabled**.
+1. To view the actions in a run that uses mock outputs, select the run where the **Static Results** is set to **Enabled**.
 
    On the run details pane, any actions that use static results show the test beaker icon (![Icon for static result](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)), for example:
 
@@ -199,6 +195,6 @@ Turning off static results on an action doesn't remove the values from your last
 
 For more information about this setting in your underlying workflow definitions, see [Static results - Schema reference for Workflow Definition Language](logic-apps-workflow-definition-language.md#static-results) and [runtimeConfiguration.staticResult - Runtime configuration settings](logic-apps-workflow-actions-triggers.md#runtime-configuration-settings).
 
-## Next step
+## Related content
 
-* Learn more about [Azure Logic Apps](logic-apps-overview.md)
+* [What is Azure Logic Apps?](logic-apps-overview.md)
