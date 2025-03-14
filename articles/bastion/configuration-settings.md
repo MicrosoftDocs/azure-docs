@@ -5,7 +5,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: azure-bastion
 ms.topic: concept-article
-ms.date: 03/12/2025
+ms.date: 03/14/2025
 ms.custom: references_regions, ignite-2024
 ---
 
@@ -21,9 +21,9 @@ A SKU is also known as a Tier. Azure Bastion supports multiple SKU tiers. When y
 
 ### Bastion Developer
 
-[!INCLUDE [Developer SKU description](../../includes/bastion-developer-sku-description.md)]
+[!INCLUDE [Bastion Developer description](../../includes/bastion-developer-description.md)]
 
-[!INCLUDE [Developer SKU regions](../../includes/bastion-developer-sku-regions.md)]
+[!INCLUDE [Bastion Developer regions](../../includes/bastion-developer-regions.md)]
 
 > [!NOTE]
 > VNet peering isn't currently supported for Bastion Developer.
