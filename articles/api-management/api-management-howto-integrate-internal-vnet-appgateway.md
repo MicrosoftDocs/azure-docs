@@ -544,7 +544,7 @@ The Application Gateway now has private and public pathways. Using the same doma
 
 API Management configured in a virtual network provides a single gateway interface for all configured APIs, whether they're hosted on-premises or in the cloud. Integrating Application Gateway with API Management provides you with the flexibility to selectively enable particular APIs to be accessible on the internet. Integration also provides a WAF as a front end to your API Management instance.
 
-## Next steps
+## Related content
 
 * Set up using an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-internal-vnet-application-gateway)
   

@@ -46,6 +46,8 @@ items:
     items:
     - name: NAT gateway security baseline
       href: /security/benchmark/azure/baselines/virtual-network-nat-security-baseline
+    - name: Network security blog
+      href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
   - name: SNAT with NAT gateway
     href: nat-gateway-snat.md
   - name: NAT gateway design guidance
@@ -99,6 +101,8 @@ items:
   - name: Build your skills with Microsoft Learn training
     href: /training/modules/intro-to-azure-virtual-network-nat/
   - name: Networking blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
+  - name: Azure networking blog
     href: https://azure.microsoft.com/blog/category/networking
   - name: Microsoft Q&A question page for Networking
     href: /answers/topics/azure-virtual-network.html
