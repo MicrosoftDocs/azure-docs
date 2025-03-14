@@ -24,7 +24,7 @@ ms.collection: ce-skilling-ai-copilot
 >
 > To find Copilot in Azure, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
 
-Azure App Service content is stored on Azure Storage and is exposed as a durable content share. This design works with various apps and has the following attributes:  
+Azure App Service content is stored in Azure Storage and is exposed as a durable content share. This design works with various apps and has the following attributes:  
 
 - The content is shared across multiple virtual machine (VM) instances of the app.
 - The content is durable, and running apps can modify it.
@@ -37,7 +37,7 @@ The local cache feature in Azure App Service provides a web role view of your co
 
 Apps running with a local cache benefit in these ways:
 
-- They're immune to latencies associated with accessing content on Azure Storage.
+- They're immune to latencies associated with accessing content in Azure Storage.
 - Problems with connecting to the storage don't affect them, because the read-only copy is cached locally.
 - They experience fewer app restarts from changes in the storage share.
 
@@ -127,7 +127,7 @@ Sticky settings are tied to the slot. When the staging slot is swapped into prod
 
 ### What if I exceed the size limit for the local cache?
 
-If the copied files exceed the size limit of the local cache, the app reverts to reading from the remote share. The following table shows the details.
+If the copied files exceed the size limit for the local cache, the app reverts to reading from the remote share. The following table shows the details.
 
 | Local cache size | Copied files         | Result                                                                                          |
 | -------------------- | ------------------------ | --------------------------------------------------------------------------------------------------- |

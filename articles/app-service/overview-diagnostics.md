@@ -12,7 +12,7 @@ ms.custom: UpdateFrequency3
 ---
 # Diagnostics in Azure App Service
 
-When you're running a web application, you want to be prepared for any problems that might arise. Such problems can range from 500 errors to your users telling you that your site is down. Azure App Service diagnostics is an interactive experience to help you troubleshoot your app with no configuration required. If you have problems with your app, App Service diagnostics points out what's wrong and guides you to the right information to more easily and quickly troubleshoot and resolve the problem.
+When you're running a web application, you want to be prepared for any problems that might arise. Such problems can range from HTTP 500 errors to your users telling you that your site is down. Azure App Service diagnostics is an interactive experience to help you troubleshoot your app with no configuration required. If you have problems with your app, App Service diagnostics points out what's wrong and guides you to the right information to more easily and quickly troubleshoot and resolve the problem.
 
 Although this experience is most helpful when you're having problems with your app within the last 24 hours, all the diagnostic graphs are always available for you to analyze.
 
@@ -94,7 +94,7 @@ The tiles or the **Troubleshoot** link shows the available diagnostics for the c
 
 To investigate the problem further, you can select a topic and view more details in a diagnostic report. These details are often supplemented with graphs and Markdown.
 
-The diagnostic report can be a powerful tool for pinpointing the problem with your app. The following example is the **Web App Down** report from **Availability and Performance**.
+The diagnostic report can be a powerful tool for pinpointing the problem with your app. The following example is the **Web App Down** report in **Availability and Performance**.
 
 :::image type="content" source="./media/app-service-diagnostics/full-diagnostic-report-5.png" alt-text="Screenshot that shows the Web App Down diagnostic report in the portal.":::
 
@@ -130,7 +130,7 @@ Proactive CPU monitoring helps you take action when your app or a child process 
 
 ### Auto-healing
 
-Auto-healing is a mitigation action that you can take when your app is having unexpected behavior. You can set your own rules based on request count, slow request, memory limit, and HTTP status code to trigger mitigation actions. Use the tool to temporarily mitigate an unexpected behavior until you find the root cause.
+Auto-healing is a mitigation action that you can take when your app has unexpected behavior. You can set your own rules based on request count, slow request, memory limit, and HTTP status code to trigger mitigation actions. Use the tool to temporarily mitigate an unexpected behavior until you find the root cause.
 
 The tool is currently available for Windows web apps, Linux web apps, and Linux custom containers. Supported conditions and mitigation vary, depending on the type of the web app. For more information, see the blog posts [Announcing the New Auto Healing Experience in App Service Diagnostics](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html) and [Announcing Auto Heal for Linux](https://azure.github.io/AppService/2021/04/21/Announcing-Autoheal-for-Azure-App-Service-Linux.html).
 

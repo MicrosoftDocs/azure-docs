@@ -15,7 +15,7 @@ author: msangapu-msft
 
 HTTP "502 Bad Gateway" and "503 Service Unavailable" are common errors that you can get when you try to open your app that's hosted in [Azure App Service](./overview.md). This article helps you troubleshoot these errors.
 
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident on the [Azure Support site](https://azure.microsoft.com/support/options/) by selecting **Get Support**.
+If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident on the [Azure Support site](https://azure.microsoft.com/support/options/) by selecting **Get Support**.
 
 The cause of these errors is often an application-level problem, such as:
 
@@ -99,7 +99,7 @@ In Azure App Service, for increased performance and throughput, you can adjust t
 
 For more information on scaling, see [Scale an app in Azure App Service](manage-scale-up.md).
 
-Additionally, you can choose to run your application on more than one instance. This choice not only provides you with more processing capability, but also gives you some amount of fault tolerance. If the process goes down on one instance, the other instance continues to serve requests.
+Additionally, you can choose to run your application on more than one instance. This choice not only provides you with more processing capability but also gives you some amount of fault tolerance. If the process goes down on one instance, the other instance continues to serve requests.
 
 You can set the scaling to be manual or automatic.
 

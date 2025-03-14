@@ -22,11 +22,7 @@ Apps that are hosted in App Service are subject to certain limits on the resourc
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 If the app is hosted in a Free or Shared plan, quotas define the limits
-on the resources that the app can use.
-
-If the app is hosted in a Basic, Standard, or Premium plan, the limits on the resources that it can use are set by the *size* (small, medium, large) and *instance count* (1, 2, 3, and so on) of the App Service plan.
-
-Quotas for apps in a Free or Shared plan are:
+on the resources that the app can use. Quotas for apps in a Free or Shared plan are:
 
 | Quota | Description |
 | --- | --- |
@@ -36,7 +32,7 @@ Quotas for apps in a Free or Shared plan are:
 | **Bandwidth** | The total amount of outgoing bandwidth allowed for this app in a day. This quota resets every 24 hours at midnight UTC. |
 | **Filesystem** | The total amount of storage allowed. |
 
-The only quota applicable to apps that are hosted in a Basic, Standard, or Premium plan is **Filesystem**.
+If the app is hosted in a Basic, Standard, or Premium plan, the limits on the resources that it can use are set by the *size* (small, medium, large) and *instance count* (1, 2, 3, and so on) of the App Service plan. The only quota applicable to apps that are hosted in a Basic, Standard, or Premium plan is **Filesystem**.
 
 For more information about the specific quotas, limits, and features available to the App Service tiers, see [Azure App Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits).
 
@@ -54,7 +50,7 @@ You can increase or remove quotas from your app by upgrading your App Service pl
 
 ## <a name = "understand-metrics"></a> Metrics
 
-Metrics provide information about the app or the App Service plan's behavior. App Service plan metrics are available only for plans in Basic, Standard, Premium, and Isolated tiers.
+Metrics provide information about the app's or the App Service plan's behavior. App Service plan metrics are available only for plans in Basic, Standard, Premium, and Isolated tiers.
 
 For a list of available metrics for apps or for App Service plans, see [Supported metrics for Microsoft.Web](monitor-app-service-reference.md#supported-metrics-for-microsoftweb).
 
@@ -69,7 +65,7 @@ Two metrics reflect CPU usage:
 
 - **CPU Time**: Useful for apps hosted in Free or Shared plans, because one of their quotas is defined in CPU minutes that the app uses.
 
-- **CPU percentage**: Useful for apps hosted in Basic, Standard, and Premium plans, because they can be scaled out. CPU percentage is a good indication of the overall usage across instances.
+- **CPU Percentage**: Useful for apps hosted in Basic, Standard, and Premium plans, because they can be scaled out. CPU percentage is a good indication of the overall usage across instances.
 
 ### <a name = "metrics-granularity-and-retention-policy"></a> Retention policy
 
@@ -98,6 +94,6 @@ To learn more about metrics, see [Azure Monitor data platform](/azure/azure-moni
 
 Metrics for an app or an App Service plan can be connected to alerts. For more information, see [Alerts](monitor-app-service.md#alerts).
 
-App Service apps hosted in Basic or higher App Service plans support autoscale. With autoscale, you can configure rules that monitor the App Service plan metrics. Rules can increase or decrease the instance count, which can provide additional resources as needed. Rules can also help you save money when the app is overprovisioned.
+Apps hosted in Basic or higher App Service plans support autoscale. With autoscale, you can configure rules that monitor the App Service plan metrics. Rules can increase or decrease the instance count, which can provide additional resources as needed. Rules can also help you save money when the app is overprovisioned.
 
 For more information about autoscale, see [Get started with autoscale in Azure](/azure/azure-monitor/autoscale/autoscale-get-started) and [Best practices for autoscale](/azure/azure-monitor/autoscale/autoscale-best-practices).

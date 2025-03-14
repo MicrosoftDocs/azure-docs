@@ -15,7 +15,7 @@ In this quickstart, you get started with [Azure App Service](overview.md) by dep
 
 Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. It provides concise syntax, reliable type safety, and support for code reuse.
 
-You can use Bicep instead of JSON to develop your Azure Resource Manager templates ([ARM templates](../azure-resource-manager/templates/overview.md)). The JSON syntax to create an ARM template can be verbose and require complicated expressions. Bicep syntax reduces that complexity and improves the development experience. Bicep is a transparent abstraction over ARM template JSON and doesn't lose any of the JSON template capabilities. During deployment, the Bicep CLI transpiles a Bicep file into ARM template JSON.
+You can use Bicep instead of JSON to develop your [Azure Resource Manager templates (ARM templates)](../azure-resource-manager/templates/overview.md). The JSON syntax to create an ARM template can be verbose and require complicated expressions. Bicep syntax reduces that complexity and improves the development experience. Bicep is a transparent abstraction over ARM template JSON and doesn't lose any of the JSON template capabilities. During deployment, the Bicep CLI transpiles a Bicep file into ARM template JSON.
 
 ## Prerequisites
 
@@ -27,12 +27,12 @@ To effectively create resources by using Bicep, you need to set up a Bicep [deve
 
 ::: zone pivot="app-service-bicep-linux"
 
-This quickstart use the following template. It deploys an App Service plan and an App Service app on Linux. It also deploys a sample Node.js "Hello World" app from the [Azure Samples](https://github.com/Azure-Samples) repo.
+This quickstart uses the following template. It deploys an App Service plan and an App Service app on Linux. It also deploys a sample Node.js "Hello World" app from the [Azure Samples](https://github.com/Azure-Samples) repo.
 
 ```bicep
-param webAppName string = uniqueString(resourceGroup().id) // Generate unique String for web app name
-param sku string = 'F1' // The SKU of App Service Plan
-param linuxFxVersion string = 'node|14-lts' // The runtime stack of web app
+param webAppName string = uniqueString(resourceGroup().id) // Generate a unique string for the web app name
+param sku string = 'F1' // Tier of the App Service plan
+param linuxFxVersion string = 'node|14-lts' // Runtime stack of the web app
 param location string = resourceGroup().location // Location for all resources
 param repositoryUrl string = 'https://github.com/Azure-Samples/nodejs-docs-hello-world'
 param branch string = 'main'
@@ -95,9 +95,9 @@ The template contains the following parameters that are predefined for your conv
 
 Copy and paste the template to your preferred editor or IDE. Then save the file to your local working directory.
 
-Here, you use the Azure CLI to deploy the template. You can also use the Azure portal, Azure PowerShell, and the REST API. To learn about other deployment methods, see [Deploy Bicep files with the Azure CLI](../azure-resource-manager/bicep/deploy-cli.md).
+Here, you use the Azure CLI to deploy the template. You can also use the Azure portal, Azure PowerShell, or the REST API. To learn about other deployment methods, see [Deploy Bicep files with the Azure CLI](../azure-resource-manager/bicep/deploy-cli.md).
 
-The following code creates a resource group, an App Service plan, and a web app. A default resource group, App Service plan, and location are set for you. Replace `<app-name>` with a globally unique app name. Valid characters are `a-z`, `0-9`, and `-`.
+The following code creates a resource group, an App Service plan, and a web app. A default resource group, App Service plan, and location are set for you. Replace `<app-name>` with a globally unique app name. Valid characters are `a-z`, `0-9`, and a hyphen (`-`).
 
 Open a terminal where the Azure CLI is installed. Run this code to create a Node.js app on Linux:
 
@@ -125,11 +125,11 @@ To deploy a different language stack, update `linuxFxVersion` with appropriate v
 This quickstart uses the following template. It deploys an App Service plan and an App Service app on Windows. It also deploys a sample .NET "Hello World" app from the [Azure Samples](https://github.com/Azure-Samples) repo.
 
 ```bicep
-param webAppName string = uniqueString(resourceGroup().id) // generate unique name for web app
-param location string = resourceGroup().location // location for all resources
-param sku string = 'P1V3' // The SKU of App Service Plan
-param dockerContainerImage string = 'mcr.microsoft.com/dotnet/framework/samples:aspnetapp' // sample .NET app
-var appServicePlanName = toLower('ASP-${webAppName}') // generate unique name for App Service Plan
+param webAppName string = uniqueString(resourceGroup().id) // Generate a unique name for the web app
+param location string = resourceGroup().location // Location for all resources
+param sku string = 'P1V3' // Tier of the App Service plan
+param dockerContainerImage string = 'mcr.microsoft.com/dotnet/framework/samples:aspnetapp' // Sample .NET app
+var appServicePlanName = toLower('ASP-${webAppName}') // Generate a unique name for the App Service plan
 
 resource appServicePlan 'Microsoft.Web/serverfarms@2021-02-01' = {
   name: appServicePlanName
@@ -181,9 +181,9 @@ The template contains the following parameters that are predefined for your conv
 
 Copy and paste the template to your preferred editor or IDE. Then save the file to your local working directory.
 
-Here, you use the Azure CLI to deploy the template. You can also use the Azure portal, Azure PowerShell, and the REST API. To learn about other deployment methods, see [Deploy Bicep files with the Azure CLI](../azure-resource-manager/bicep/deploy-cli.md).
+Here, you use the Azure CLI to deploy the template. You can also use the Azure portal, Azure PowerShell, or the REST API. To learn about other deployment methods, see [Deploy Bicep files with the Azure CLI](../azure-resource-manager/bicep/deploy-cli.md).
 
-The following code creates a resource group, an App Service plan, and a web app. A default resource group, App Service plan, and location are set for you. Replace `<app-name>` with a globally unique app name. Valid characters are `a-z`, `0-9`, and `-`.
+The following code creates a resource group, an App Service plan, and a web app. A default resource group, App Service plan, and location are set for you. Replace `<app-name>` with a globally unique app name. Valid characters are `a-z`, `0-9`, and a hyphen (`-`).
 
 Open a terminal where the Azure CLI is installed. Run this code to create a .NET app:
 
