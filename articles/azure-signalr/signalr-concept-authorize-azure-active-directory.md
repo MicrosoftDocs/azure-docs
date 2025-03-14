@@ -50,6 +50,14 @@ In some cases, your server and your Azure SignalR resource may not in the same t
 
 A [Multi-tenant applications](/entra/identity-platform/single-and-multi-tenant-apps#best-practices-for-multitenant-apps) could help you in this scenario.
 
+If you've already registered a single-tenant app, see [convert your single-tenant app to multitenant](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
+
+Once you have registered the multi-tenant application in your `tenantA`, you should provision it as an enterprise application in your `tenantB`.
+
+[Create an enterprise application from a multitenant application in Microsoft Entra ID](/entra/identity/enterprise-apps/create-service-principal-cross-tenant?pivots=msgraph-powershell)
+
+The application registered in your `tenantA` and the enterprise application provisioned in your `tenantB` share the same Application (client) id.
+
 ## Assign Azure roles for access rights
 
 Microsoft Entra ID authorizes access rights to secured resources through [Azure RBAC](../role-based-access-control/overview.md). Azure SignalR Service defines a set of Azure built-in roles that encompass common sets of permissions for accessing Azure SignalR Service resources. You can also define custom roles for access to Azure SignalR Service resources.
@@ -71,10 +79,10 @@ You can scope access to Azure SignalR Service resources at the following levels,
 
 | Role                                                                                              | Description                                                                                               | Use case                                                                                                                                     |
 | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| [SignalR App Server](/azure/role-based-access-control/built-in-roles.md#signalr-app-server)           | Access to the server connection creation and key generation APIs.                                                | Most commonly used for app server with Azure SignalR resource run in **Default** mode.                                                                                                             |
-| [SignalR Service Owner](/azure/role-based-access-control/built-in-roles.md#signalr-service-owner)     | Full access to all data-plane APIs, including REST APIs, the server connection creation, and key/token generation APIs. | For negotiation server with Azure SignalR resource run in **Serverless** mode, as it requires both REST API permissions and authentication API permissions. |
-| [SignalR REST API Owner](/azure/role-based-access-control/built-in-roles.md#signalr-rest-api-owner)   | Full access to data-plane REST APIs.                                                                      | For using [Azure SignalR Management SDK](/azure/azure-signalr/signalr-howto-use-management-sdk) to manage connections and groups, but does **NOT** make server connections or handle negotiation requests.                          |
-| [SignalR REST API Reader](/azure/role-based-access-control/built-in-roles.md#signalr-rest-api-reader) | Read-only access to data-plane REST APIs.                                                                 | Use it when write a monitoring tool that calls readonly REST APIs.
+| [SignalR App Server](../role-based-access-control/built-in-roles.md#signalr-app-server)           | Access to the server connection creation and key generation APIs.                                                | Most commonly used for app server with Azure SignalR resource run in **Default** mode.                                                                                                             |
+| [SignalR Service Owner](../role-based-access-control/built-in-roles.md#signalr-service-owner)     | Full access to all data-plane APIs, including REST APIs, the server connection creation, and key/token generation APIs. | For negotiation server with Azure SignalR resource run in **Serverless** mode, as it requires both REST API permissions and authentication API permissions. |
+| [SignalR REST API Owner](../role-based-access-control/built-in-roles.md#signalr-rest-api-owner)   | Full access to data-plane REST APIs.                                                                      | For using [Azure SignalR Management SDK](./signalr-howto-use-management-sdk) to manage connections and groups, but does **NOT** make server connections or handle negotiation requests.                          |
+| [SignalR REST API Reader](../role-based-access-control/built-in-roles.md#signalr-rest-api-reader) | Read-only access to data-plane REST APIs.                                                                 | Use it when write a monitoring tool that calls readonly REST APIs.
 
 ## Next steps
 
@@ -82,8 +90,8 @@ You can scope access to Azure SignalR Service resources at the following levels,
 
 - To learn how to configure a managed identity and use Microsoft Entra authorization, see [Authorize requests to Azure SignalR Service resources with Microsoft Entra managed identities](./signalr-howto-authorize-managed-identity.md).
 
-- To learn more about roles and role assignments, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview.md).
+- To learn more about roles and role assignments, see [What is Azure role-based access control (Azure RBAC)?](../role-based-access-control/overview.md).
 
-- To learn how to create custom roles, see [Steps to create a custom role](/azure/role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
+- To learn how to create custom roles, see [Steps to create a custom role](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
 
 - To learn how to use only Microsoft Entra authentication, see [Disable local authentication](./howto-disable-local-auth.md).

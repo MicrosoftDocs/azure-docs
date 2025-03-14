@@ -62,6 +62,8 @@ services.AddSignalR().AddAzureSignalR(option =>
 });
 ```
 
+More sample can be found in this [Sample link](https://github.com/Azure/azure-signalr/blob/dev/samples/ChatSample/ChatSample/Startup.cs)
+
 ### Use multiple endpoints
 
 Credentials can be different for different endpoints.

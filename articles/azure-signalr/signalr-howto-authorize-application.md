@@ -44,6 +44,9 @@ After registering an app, you can add **certificates, client secrets (a string),
 The Azure SignalR server SDK leverages the [Azure.Identity library](/dotnet/api/overview/azure/identity-readme) to generate tokens for connecting to resources.
 Click to explore detailed usages.
 
+> [!NOTE]
+> The tenantId must match the tenantId of the tenant where your SignalR resource is in.
+
 ### Use Microsoft Entra application with certificate
 ```csharp
 services.AddSignalR().AddAzureSignalR(option =>
@@ -71,9 +74,12 @@ services.AddSignalR().AddAzureSignalR(option =>
 
 ### Use Microsoft Entra application with Federated identity
 
+In the case of your organization disabled the usage of client secret/certificate, you can configure the application to trust a managed identity for authentication.
+
+To learn more about it, see [Configure an application to trust a managed identity (preview)](/entra/workload-id/workload-identity-federation-config-app-trust-managed-identity).
+
 > [!NOTE]
 > Configure an application to trust a managed identity is a preview feature. 
-> To learn more about it, see [Configure an application to trust a managed identity (preview)](/entra/workload-id/workload-identity-federation-config-app-trust-managed-identity).
 
 ```csharp
 services.AddSignalR().AddAzureSignalR(option =>
@@ -90,10 +96,14 @@ services.AddSignalR().AddAzureSignalR(option =>
     });
 
     option.Endpoints = [
-      new ServiceEndpoint(new Uri(), "https://<resource>.service.signalr.net"), credential);
+        new ServiceEndpoint(new Uri(), "https://<resource>.service.signalr.net"), credential);
     ];
 });
 ```
+
+This credential will use the user-assigned managed identity to generate a `clientAssertion` and use it to exchange for a `clientToken` for authentication.
+
+The `appClientId` and `tenantId` should be the enterprise application that you provisioned in the tenant of SignalR resource.
 
 ### Use multiple endpoints
 
@@ -114,6 +124,8 @@ services.AddSignalR().AddAzureSignalR(option =>
     };
 });
 ```
+
+More sample can be found in this [Sample link](https://github.com/Azure/azure-signalr/blob/dev/samples/ChatSample/ChatSample/Startup.cs)
 
 ## Azure SignalR Service bindings in Azure Functions
 
