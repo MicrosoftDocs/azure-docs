@@ -113,7 +113,7 @@ For more information about setting up a resolver, see [Configure a GraphQL resol
 * Explore the GraphQL schema and run test queries against the GraphQL APIs in the Azure and developer portals.
 
 
-## Next steps
+## Related content
 
 - [Import a GraphQL API](graphql-api.md)
 - [Import a GraphQL schema and set up field resolvers](graphql-schema-resolve-api.md)
