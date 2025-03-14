@@ -80,7 +80,7 @@ The migration approach from Azure Spring Apps to Azure Container Apps involves t
 
 ## Migration assistant tool
 
-To speed up your migration and help you evaluate features on Azure Container Apps, we provide a new command in Azure CLI. This command retrieves the configurations of existing Azure Spring Apps resources based on the resource ID of the service instance and translates them into Bicep files for Azure Container App resources. This method enables you to quickly set up an Azure Container Apps managed environment and applications while applying basic settings similar to those in your existing Azure Spring Apps resources. For more information, see [az spring export](/cli/azure/spring#az-spring-export).
+To speed up your migration and help you evaluate features on Azure Container Apps, we provide a new command in Azure CLI. This command retrieves the configurations of existing Azure Spring Apps resources based on the resource ID of the service instance and translates them into Bicep files for Azure Container App resources. This method enables you to quickly set up an Azure Container Apps managed environment and app resources while applying basic settings similar to those in your existing Azure Spring Apps resources. For more information, see [az spring export](/cli/azure/spring#az-spring-export).
 
 To create Azure Container Apps resources that match the configurations of your existing Azure Spring Apps resources, use the following steps:
 
@@ -98,6 +98,8 @@ To create Azure Container Apps resources that match the configurations of your e
     ```
 
 1. The previous command generates a **README.md** file with detailed instructions. Follow those instructions to update the required parameters in the Bicep files.
+   > [!NOTE]
+   > Azure Container Apps require containerized image URLs. If you don’t yet have a containerized image URL for your application, you can leave the QuickStart image URL in the parameters unchanged and deploy your own application later. For more details on obtaining container images, refer to [Application containerization](./migrate-to-azure-container-apps-build-overview.md)
 
 1. If a resource group doesn't exist, create it by using the following command:
 
