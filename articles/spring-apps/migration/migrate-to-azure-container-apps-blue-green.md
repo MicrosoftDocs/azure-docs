@@ -84,7 +84,7 @@ export GREEN_DOMAIN=$(az containerapp revision show \
     --resource-group <resource-group> \
     --name <app-name> \
     --revision <green-revision-name> \
-    --query "properties.fqdn"
+    --query "properties.fqdn" \
     --output tsv)
 
 curl -s https://$GREEN_DOMAIN
