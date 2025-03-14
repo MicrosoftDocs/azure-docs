@@ -116,13 +116,13 @@ You can also register resource providers via the `az cli`. For more information,
       [Device-IP]: PS>
       ```
 
-   - Option 2 - e the following steps to view JSON details for your device In Azure portal:
+   - Option 2 - Use the following steps to view JSON details for your device In Azure portal:
       
       1. Navigate to your Azure Stack Edge device **Overview** and then select **JSON view** at top right.
   
           ![View Overview page for your Azure Stack Edge device](media/azure-stack-edge-gpu-deploy-arc-kubernetes-cluster/view-device-overview.png)    
 
-      1.  You see **Resource JSON** details for your device. Make note of the `principalId` for your device. 
+      1.  In the **Resource JSON** details for your device, make note of the `principalId`. 
 
           ![View JSON details for your Azure Stack Edge device](media/azure-stack-edge-gpu-deploy-arc-kubernetes-cluster/view-json-details.png)
 
@@ -172,7 +172,7 @@ Follow these steps to configure the Kubernetes cluster for Azure Arc management:
 
     Add the `CloudEnvironment` parameter if you're using a cloud other than Azure public. You can set this parameter to `AZUREPUBLICCLOUD`, `AZURECHINACLOUD`, `AZUREGERMANCLOUD`, and `AZUREUSGOVERNMENTCLOUD`.
 
-   **Usage considerations**
+   **Usage considerations:**
 
    - To deploy Azure Arc on your device, make sure that you're using a [Supported region for Azure Arc](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
    - Use the `az account list-locations` command to determine the exact location name to pass in the `Set-HcsKubernetesAzureArcAgent` cmdlet. Location names are typically formatted without any spaces.
@@ -239,7 +239,7 @@ A conceptual overview of these agents is available [here](/azure/azure-arc/kuber
 To remove the Azure Arc management, follow these steps:
 
 1. [Connect to the PowerShell interface](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface) of your device.
-2. Type:
+2. Run the following command:
 
     `Remove-HcsKubernetesAzureArcAgent`
 
