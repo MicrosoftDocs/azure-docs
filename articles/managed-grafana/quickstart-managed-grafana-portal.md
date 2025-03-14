@@ -7,7 +7,7 @@ ms.service: azure-managed-grafana
 ms.topic: quickstart
 author: maud-lv
 ms.author: malev
-ms.date: 02/19/2025
+ms.date: 03/14/2025
 --- 
 
 # Quickstart: Create an Azure Managed Grafana workspace using the Azure portal
@@ -58,7 +58,11 @@ In this quickstart, you get started with Azure Managed Grafana by creating an Az
         - or enable **Creator can admin (Preview)** as a temporary workaround. This option available in preview grants you the required permissions to access and manage the Grafana resource.
 
         > [!NOTE]
-        > The **Creator can admin (Preview)** feature can only be enabled when creating the workspace. It can be disabled from the **Configuration** menu if the workspace creator doesn't need this level of access anymore. Once disabled, it cannot be enabled again. If this option is disabled and the user needs to access this Grafana instance again, they will need to [a Grafana role](how-to-manage-access-permissions-users-identities.md).
+        > The **Creator can admin (Preview)** option can only be enabled when creating the workspace. Later on, it can be disabled from the **Configuration** menu if the workspace creator doesn't need this level of access anymore. Once disabled, it cannot be enabled again. If this option is disabled and the user needs to access this Grafana instance again, they will need [a Grafana role](how-to-manage-access-permissions-users-identities.md).
+
+        > [!NOTE]
+        > The **Creator can admin (Preview)** option may not be available in some specific scenarios. For example, it doesn't support workspaces managed by Cloud Solution Providers (CSPs). In CSP scenarios, the necessary information about the individual creator of the resource is not accessible. As a result, the feature cannot grant administrative privileges to the creator.
+
 
 1. Optionally select **Next : Tags** and add tags to categorize resources.
 
