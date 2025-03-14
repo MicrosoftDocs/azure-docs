@@ -11,11 +11,13 @@ ms.custom: template-how-to
 
 # Append custom suffix to interface descriptions in Azure Operator Nexus Network Fabric
 
-This guide explains how to append a user-defined suffix (`additionalDescription`) to interface descriptions in Azure Operator Nexus Network Fabric. This feature provides enhanced flexibility for operational annotations, allowing users to customize interface descriptions for specific maintenance or operational requirements.
+TThis guide explains how to append a user-defined suffix (`additionalDescription`) to interface descriptions in Azure Operator Nexus Network Fabric. The primary interface description is `read-only,` but the `additionalDescription` property provides enhanced flexibility for operational annotations. This approach allows users to customize interface descriptions for specific maintenance or operational requirements without altering the system-generated description.
 
 ## Prerequisites
 
-- **Azure CLI**: Version 2.61 or higher
+- **Azure CLI**: Version 2.69 or higher.
+
+- Install CLI extension **`managednetworkfabric`** 8.0.0 or higher.
 
 ## Steps to append a custom suffix
 
@@ -37,9 +39,11 @@ az networkfabric interface show -g "example-rg" \
 | `-g, --resource-group`        | `-g`      | Name of the resource group where the network device resides. |
 | `--network-device-name`       | N/A       | Name of the Network Fabric device. |
 | `--resource-name`             | N/A       | Name of the network interface resource. |
-| `--query`                     | N/A       | Filters the output to show only the specified field (e.g., `description`). |
+| `--query`                     | N/A       | Filters the output to show only the specified field (for example, `description`). |
 
 ### 2. Append a suffix to the interface description
+
+The primary interface description (for example, AR-CE2(Fab3-AR-CE2):Et1/1 to CR1-TOR1(Fab3-CP1-TOR1)-Port23) is read-only and can't be modified. However, you can append a custom suffix using the additional-description property. This updates only the additional-description field while keeping the main description unchanged.
 
 To add a custom suffix, use the following command:
 

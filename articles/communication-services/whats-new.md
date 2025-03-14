@@ -724,7 +724,7 @@ Image sharing is helpful in many scenarios, such as a business that shares photo
 Try out this feature by using either the UI Library or the Chat SDK. The SDK is available in C# (.NET), JavaScript, Python, and Java. For more information, see:
 
 - [Enable an inline image by using the UI Library in Teams meetings](./tutorials/inline-image-tutorial-interop-chat.md)
-- [GitHub sample: Adding image sharing](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-jointeamsmeeting--join-teams-meeting#adding-image-sharing)
+- [GitHub sample: Adding image sharing](https://azure.github.io/communication-ui-library/iframe.html?viewMode=docs&id=composites-callwithchatcomposite--docs#inline-image-in-teams-interop-meeting-chat-thread)
 
 ### Deep noise suppression
 

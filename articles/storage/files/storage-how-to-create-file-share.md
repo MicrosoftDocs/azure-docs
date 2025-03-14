@@ -5,7 +5,7 @@ description: How to create and delete SMB and NFS Azure file share by using the 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 01/10/2025
+ms.date: 03/12/2025
 ms.author: kendownie
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
 ---
@@ -162,7 +162,8 @@ The final step to create the storage account is to select the **Create** button 
 
 # [PowerShell](#tab/azure-powershell)
 ### Create a provisioned v2 storage account (PowerShell)
-The Az.Storage PowerShell module doesn't currently support creating provisioned v2 storage accounts. To create a provisioned v2 storage account using PowerShell, use the `New-AzResource` cmdlet. Storage account properties can be set using the `-Properties` parameter of the `New-AzResource` cmdlet. See [Microsoft.Storage resource provider REST API documentation](/rest/api/storagerp/storage-accounts/create#request-body) to learn more about the possible property names.
+
+To create a provisioned v2 storage account using PowerShell, use the `New-AzStorageAccount` cmdlet in the Az.Storage PowerShell module. This cmdlet has many options; only the required options are shown. To learn more about advanced options, see the [`New-AzStorageAccount` cmdlet documentation](/powershell/module/az.storage/new-azstorageaccount).
 
 To create a storage account for provisioned v2 file shares, use the following command. Remember to replace the values for the variables `$resourceGroupName`, `$storageAccountName`, `$region`, and `$storageAccountSku` with the desired values for your storage account deployment.
 
@@ -170,25 +171,11 @@ To create a storage account for provisioned v2 file shares, use the following co
 $resourceGroupName = "<my-resource-group>"
 $storageAccountName = "<my-storage-account-name>"
 $region = "<my-region>"
-
-# Valid SKUs are StandardV2_LRS (HDD Local provisioned v2), StandardV2_ZRS (HDD 
-# Zone provisioned v2), StandardV2_GRS (HDD Geo provisioned v2), 
-# StandardV2_GZRS (HDD GeoZone provisioned v2)
+$storageAccountKind = "FileStorage"
+# Valid SKUs for provisioned v2 HDD file share are 'StandardV2_LRS' (HDD Local Pv2), 'StandardV2_GRS' (HDD Geo Pv2), 'StandardV2_ZRS' (HDD Zone Pv2), 'StandardV2_GZRS' (HDD GeoZone Pv2).
 $storageAccountSku = "StandardV2_LRS"
 
-# Note that kind provided is FileStorage. Combining this with a valid selected 
-# SKU will result in an HDD provisioned v2 file share with the selected 
-# redundancy. It is also possible to other types of storage accounts with the 
-# New-AzResource cmdlet, however, we recommend using the New-AzStorageAccount 
-# cmdlet instead.
-$storageAccount = New-AzResource `
-        -ResourceType "Microsoft.Storage/storageAccounts" `
-        -ResourceGroupName $resourceGroupName `
-        -ResourceName $storageAccountName `
-        -Location $region `
-        -Kind "FileStorage" `
-        -Sku @{ Name = $storageAccountSku } `
-        -Confirm:$false
+New-AzStorageAccount -ResourceGroupName $resourceGroupName -AccountName $storageAccountName -SkuName $storageAccountSku -Kind $storageAccountKind -Location $region
 ```
 
 ### Create a provisioned v1 or pay-as-you-go storage account (PowerShell)
@@ -224,34 +211,20 @@ $storageAccount = New-AzStorageAccount `
 
 # [Azure CLI](#tab/azure-cli)
 ### Create a provisioned v2 storage account (Azure CLI)
-The Azure CLI storage command group doesn't currently support creating provisioned v2 storage accounts. To create a provisioned v2 storage account using Azure CLI, use the `az resource create` command. Storage account properties can be set using the `--properties` parameter of the command. See [Microsoft.Storage resource provider REST API documentation](/rest/api/storagerp/storage-accounts/create#request-body) to learn more about the possible property names.
+To create a provisioned v2 storage account using Azure CLI, use the `az storage account create` command. This command has many options; only the required options are shown. To learn more about the advanced options, see the [`az storage account create` command documentation](/cli/azure/storage/account).
 
-To create a storage account for provisioned v2 file shares, use the following command. Remember to replace the values for the variables `resourceGroupName`, `storageAccountName`, `region`, and `storageAccountSku` with the desired values for your storage account deployment.
+To create a storage account for provisioned v2 file shares, use the following command. Remember to replace the values for the variables `resourceGroupName`, `storageAccountName`, `region`, `storageAccountKind`, and `storageAccountSku` with the desired values for your storage account deployment.
 
 ```bash
 resourceGroupName="<my-resource-group>"
 storageAccountName="<my-storage-account-name>"
 region="<my-region>"
+storageAccountKind="FileStorage"
 
-# Valid SKUs are StandardV2_LRS (HDD Local provisioned v2), StandardV2_ZRS (HDD 
-# Zone provisioned v2), StandardV2_GRS (HDD Geo provisioned v2), 
-# StandardV2_GZRS (HDD GeoZone provisioned v2)
+# Valid SKUs for provisioned v2 HDD file share are 'StandardV2_LRS' (HDD Local Pv2), 'StandardV2_GRS' (HDD Geo Pv2), 'StandardV2_ZRS' (HDD Zone Pv2), 'StandardV2_GZRS' (HDD GeoZone Pv2).
 storageAccountSku="StandardV2_LRS"
 
-# Note that kind provided is FileStorage. Combining this with a valid selected 
-# SKU will result in an HDD provisioned v2 file share with the selected 
-# redundancy. It is also possible to other types of storage accounts with the 
-# az resource create command, however, we recommend using the az storage account 
-# create command instead.
-storageAccount=$(az resource create \
-        --resource-type "Microsoft.Storage/storageAccounts" \
-        --resource-group $resourceGroupName \
-        --name $storageAccountName \
-        --is-full-object \
-        --properties "{\"location\":\"$region\",\"kind\":\"FileStorage\",\"sku\":{\"name\":\"$storageAccountSku\"},\"properties\":{}}" \
-        --query "id" \
-        --output tsv
-)
+az storage account create --resource-group $resourceGroupName --name $storageAccountName --location $region --kind $storageAccountKind --sku $storageAccountSku --output none
 ```
 
 ### Create a provisioned v1 or pay-as-you-go storage account (Azure CLI)
@@ -325,101 +298,44 @@ Follow these instructions to create a new Azure file share using the Azure porta
 5. Select **Review + create** and then **Create** to create the Azure file share.
 
 # [PowerShell](#tab/azure-powershell)
-You can create an Azure file share with the `New-AzResource` cmdlet. The following PowerShell commands assume you set the `$storageAccount` variable when creating a storage account in the Azure PowerShell section.
+You can create a provisioned v2 Azure file share with the `New-AzRmStorageShare` cmdlet. The following PowerShell commands assume you set the variables `$resourceGroupName` and `$storageAccountName` as defined in the "Create Storage Account" section.
 
-To create a provisioned v2 file share, use the following command. Remember to replace the values for the variables `$shareName`, `$provisionedStorageGiB`, `$provisionedIops`, and `$provisionedThroughputMibPerSec` with the desired selections for your file share deployment.
+To create a provisioned v2 file share, use the following command. Remember to replace the values for the variables `$shareName` and `$provisionedStorageGib` with the desired selections for your file share deployment.
 
 ```powershell
-$shareName = "<file-share>"
+$shareName = "<name-of-the-file-share>"
 
-# The provisioned storage size of the share in GiB. Valid range is 32 to 
-# 262,144. 
+# The provisioned storage size of the share in GiB. Valid range is 32 to 262,144.
 $provisionedStorageGib = 1024
 
-# The provisioned IOPS of the share. This is set to null here to get the 
-# recommended IOPS for the amount of provisioned storage provided, however, you 
-# can override this value if you have detail about how many IOPS your workload 
-# requires.
-$provisionedIops = $null
+# If you do not specify on the ProvisionedBandwidthMibps and ProvisionedIops, the deployment will use the recommended provisioning.
+$provisionedIops = 3000
+$provisionedThroughputMibPerSec = 130
 
-# The provisioned throughput in MiB / sec of the share. This is set to null 
-# here to get the recommended throughput for the amount of provisioned storage 
-# provided, however, you can override this value if you have detail about how 
-# much throughput your workload requires.
-$provisionedThroughputMibPerSec = $null
-
-# Build file share properties for provisioning
-$fileShareProperties = @{ shareQuota = $provisionedStorageGib }
-
-if ($null -ne $provisionedIops) { 
-    $fileShareProperties += @{ provisionedIops = $provisionedIops } 
-}
-
-if ($null -ne $provisionedThroughputMibPerSec) {
-    $fileShareProperties += @{ 
-        provisionedBandwidthMibps = $provisionedThroughputMibPerSec 
-    }
-}
-
-# Build resource ID for desired file share
-$resourceId = $storageAccount.ResourceId
-$resourceId += "/fileServices/default/shares/$shareName"
-
-# Create resource
-New-AzResource `
-        -ResourceId $resourceId `
-        -Properties $fileShareProperties `
-        -Confirm:$false | `
-    Out-Null
+New-AzRmStorageShare -ResourceGroupName $resourceGroupName -AccountName $storageAccountName -ShareName $shareName -QuotaGiB $provisionedStorageGib;
+# -ProvisionedBandwidthMibps $provisionedThroughputMibPerSec -ProvisionedIops $provisionedIops
+$f = Get-AzRmStorageShare -ResourceGroupName $resourceGroupName -AccountName $storageAccountName -ShareName $shareName;
+$f | fl
 ```
 
 # [Azure CLI](#tab/azure-cli)
-You can create an Azure file share with the `az resource create` command. The following commands assume you set the `storageAccount` variable when creating a storage account in the Azure CLI section.
+You can create an Provisioned v2 Azure file share with [`az storage share-rm create`](/cli/azure/storage/share-rm#az-storage-share-rm-create) command. The following PowerShell commands assume you set the variables `resourceGroupName` and `storageAccountName` as defined in the creating a storage account with Azure CLI section.
 
-To create a provisioned v2 file share, use the following command. Remember to replace the values for the variables `shareName`, `provisionedStorageGib`, `provisionedIops`, and `provisionedThroughputMibPerSec` with the desired selections for your file share deployment.
+To create a provisioned v2 file share, use the following command. Remember to replace the values for the variables `shareName`, `provisionedStorageGib` with the desired selections for your file share deployment.
 
 ```bash
 shareName="<file-share>"
 
-# The provisioned storage size of the share in GiB. Valid range is 32 to 
+# The provisioned storage size of the share in GiB. Valid range is 32 to
 # 262,144.
 provisionedStorageGib=1024
 
-# The provisioned IOPS of the share. This is set to the empty string here to 
-# get the recommended IOPS for the amount of provisioned storage provided, 
-# however, you can override this value if you have detail about how many IOPS 
-# your workload requires.
-provisionedIops=""
+# If you do not specify on the ProvisionedBandwidthMibps and ProvisionedIops, the deployment will use the recommended provisioning.
+provisionedIops=3000
+provisionedThroughputMibPerSec=130
 
-# The provisioned throughput in MiB / sec of the share. This is set to null 
-# here to get the recommended throughput for the amount of provisioned storage 
-# provided, however, you can override this value if you have detail about how 
-# much throughput your workload requires.
-provisionedThroughputMibPerSec=""
-
-# Build file share properties JSON.
-fileShareProperties="{\"shareQuota\":$provisionedStorageGib"
-
-if [ ! -z "${provisionedIops}" ]; then
-    fileShareProperties="$fileShareProperties,\"provisionedIops\":"
-    fileShareProperties="$fileShareProperties$provisionedIops"
-fi
-
-if [ ! -z "${provisionedThroughputMibPerSec}" ]; then
-    fileShareProperties="$fileShareProperties,\"provisionedBandwidthMibps\":"
-    fileShareProperties="$fileShareProperties$provisionedThroughputMibPerSec"
-fi
-
-fileShareProperties="$fileShareProperties}"
-
-# Build resource ID for desired file share
-resourceId="$storageAccount/fileServices/default/shares/$shareName"
-
-# Create resource
-az resource create \
-        --id $resourceId \
-        --properties $fileShareProperties \
-        --output none
+az storage share-rm create --resource-group $resourceGroupName --name $shareName --storage-account $storageAccountName --quota $provisionedStorageGib
+# --provisioned-iops $provisionedIops --provisioned-bandwidth-mibps $provisionedThroughputMibPerSec
 ```
 
 ---
@@ -600,56 +516,35 @@ Follow these instructions to update the provisioning for your file share.
 5. Select **Save** to save provisioning changes. Storage, IOPS, and throughput changes are effective within a few minutes after a provisioning change.
 
 # [PowerShell](#tab/azure-powershell)
-You can modify a provisioned v2 file share with the `Set-AzResource` cmdlet. Remember to replace the values for the variables `$resourceGroupName`, `$storageAccountName`, `$fileShareName`, `$provisionedStorageGib`, `$provisionedIops`, and `$provisionedThroughputMibPerSec` with the desired values for your file share.
+You can modify a provisioned v2 file share with the `Update-AzRmStorageShare` cmdlet. Remember to replace the values for the variables `$resourceGroupName`, `$storageAccountName`, `$shareName`, `$provisionedMibps`, `$provisionedIops`, and `$provisionedStorageGib` with the desired values for your file share.
 
 ```powershell
 # The path to the file share resource to be modified.
-$resourceGroupName = "<resource-group>"
-$storageAccountName = "<storage-account>"
-$fileShareName = "<file-share>"
+$resourceGroupName = "<my-resource-group>"
+$storageAccountName = "<my-storage-account-name>"
+$shareName = "<name-of-the-file-share>"
 
-# The provisioning desired on the file share. Set these values to $null if no 
+# The provisioning desired on the file share. Delete the parameters if no
 # change is desired.
 $provisionedStorageGib = 10240
 $provisionedIops = 10000
 $provisionedThroughputMibPerSec = 2048
 
-# Get the resource ID of the storage account
-$storageAccount = Get-AzResource `
-        -ResourceType "Microsoft.Storage/storageAccounts" `
+# Update the file share provisioning.
+Update-AzRmStorageShare `
         -ResourceGroupName $resourceGroupName `
-        -ResourceName $storageAccountName
+        -AccountName $storageAccountName `
+        -ShareName $shareName `
+        -QuotaGiB $provisionedStorageGib `
+        -ProvisionedIops $provisionedIops `
+        -ProvisionedBandwidthMibps $provisionedThroughputMibPerSec
 
-# Build the resource ID of the file share
-$resourceId = $storageAccount.ResourceId
-$resourceId += "/fileServices/default/shares/$fileShareName"
-
-# Build the properties to be updated for the file share
-$fileShareProperties = @{}
-
-if ($null -ne $provisionedStorageGib) {
-    $fileShareProperties += @{ shareQuota = $provisionedStorageGib }
-}
-
-if ($null -ne $provisionedIops) {
-    $fileShareProperties += @{ provisionedIops = $provisionedIops }
-}
-
-if ($null -ne $provisionedThroughputMibPerSec) {
-    $fileShareProperties += @{ 
-        provisionedBandwidthMibps = $provisionedThroughputMibPerSec 
-    }
-}
-
-# Update file share with new provisioning
-Set-AzResource `
-        -ResourceId $resourceId `
-        -Properties $fileShareProperties `
-        -Confirm:$false
+$f = Get-AzRmStorageShare -ResourceGroupName $resourceGroupName -AccountName $storageAccountName -ShareName $shareName
+$f | fl
 ```
 
 # [Azure CLI](#tab/azure-cli)
-You can modify a provisioned v2 file share with the `az resource patch` command. Remember to replace the value of variables `resourceGroupName`, `storageAccountName`, `fileShareName`, `provisionedStorageGib`, `provisionedIops`, and `provisionedThroughputMibPerSec` with the correct values for your file share.
+You can modify a provisioned v2 file share with the `az storage share-rm update` command. Remember to replace the values for the variables `resourceGroupName`, `storageAccountName`, `fileShareName`, `provisionedStorageGib`, `provisionedIops`, and `provisionedThroughputMibPerSec` with the desired values for your file share.
 
 ```bash
 # The path to the file share resource to be modified.
@@ -657,66 +552,20 @@ resourceGroupName="<resource-group>"
 storageAccountName="<storage-account>"
 fileShareName="<file-share>"
 
-# The provisioning desired on the file share. Set these values to the empty 
-# string if no change is desired.
+# The provisioning desired on the file share. Delete the parameters if no
+# change is desired.
 provisionedStorageGib=10240
 provisionedIops=10000
 provisionedThroughputMibPerSec=2048
 
-# Get the resource ID of the storage account
-storageAccount=$(az resource show \
-        --resource-type "Microsoft.Storage/storageAccounts" \
+# Update the file share provisioning.
+az storage share-rm update \
         --resource-group $resourceGroupName \
-        --name $storageAccountName \
-        --query "id" \
-        --output tsv
-)
-
-# Build the resource ID of the file share
-resourceId="$storageAccount/fileServices/default/shares/$fileShareName"
-
-# Build the properties to be updated for the file share
-fileShareProperties="{"
-
-if [ -z "${provisionedStorageGib}" ]; then
-    provisionedStorageGib=$(az resource show \
-            --ids $resourceId \
-            --query "properties.shareQuota" \
-            --output tsv
-    )
-fi
-
-fileShareProperties="$fileShareProperties\"shareQuota\":"
-fileShareProperties="$fileShareProperties$provisionedStorageGib"
-
-if [ -z "${provisionedIops}" ]; then
-    provisionedIops=$(az resource show \
-            --ids $resourceId \
-            --query "properties.provisionedIops" \
-            --output tsv
-    )
-fi
-
-fileShareProperties="$fileShareProperties,\"provisionedIops\":"
-fileShareProperties="$fileShareProperties$provisionedIops"
-
-if [ -z "${provisionedThroughputMibPerSec}" ]; then
-    provisionedThroughputMibPerSec=$(az resource show \
-            --ids $resourceId \
-            --query "properties.provisionedBandwidthMibps" \
-            --output tsv
-    )
-fi
-
-fileShareProperties="$fileShareProperties,\"provisionedBandwidthMibps\":"
-fileShareProperties="$fileShareProperties$provisionedThroughputMibPerSec"
-
-fileShareProperties="$fileShareProperties}"
-
-# Update file share with new provisioning
-az resource patch \
-        --ids $resourceId \
-        --properties $fileShareProperties
+        --name $shareName \
+        --storage-account $storageAccountName \
+        --quota $provisionedStorageGib \
+        --provisioned-iops $provisionedIops \
+        --provisioned-bandwidth-mibps $provisionedThroughputMibPerSec
 ```
 
 ---
@@ -741,8 +590,11 @@ Follow these instructions to update the provisioning for your file share.
 
 5. Select **Save** to save provisioning changes. Storage, IOPS, and throughput changes are effective within a few minutes after a provisioning change.
 
+> [!NOTE]
+> You can use PowerShell and CLI to enable/disable paid bursting if desired. Paid bursting is an advanced feature of the provisioned v1 billing model. Consult [provisioned v1 paid bursting](./understanding-billing.md#provisioned-v1-paid-bursting) before enabling paid bursting.
+
 # [PowerShell](#tab/azure-powershell)
-You can modify a provisioned v1 file share with the `Update-AzRmStorageShare` cmdlet. Remember to replace the values for the variables `$resourceGroupName`, `$storageAccountName`, `$fileShareName`, and `$provisionedStorageGib` with the desired values for your file share.
+You can modify a provisioned v1 file share with the `Update-AzRmStorageShare` cmdlet. Remember to replace the values for the variables `$resourceGroupName`, `$storageAccountName`, and `$fileShareName` with the desired values for your file share. Set `$provisionedStorageGib`, `$paidBurstingEnabled`, `$paidBurstingMaxIops`, and `$paidBurstingMaxThroughputMibPerSec` to non-null (`$null`) values to set on the file share. Paid bursting is an advanced feature of the provisioned v1 model. Consult [provisioned v1 paid bursting](./understanding-billing.md#provisioned-v1-paid-bursting) before enabling.
 
 ```PowerShell
 # The path to the file share resource to be modified.
@@ -750,15 +602,42 @@ $resourceGroupName = "<resource-group>"
 $storageAccountName = "<storage-account>"
 $fileShareName = "<file-share>"
 
-# The provisioning desired on the file share.
-$provisionedStorageGib = 10240
+# The provisioning desired on the file share. Set to $null to keep at the 
+# current level of provisioning.
+$provisionedStorageGib = 10240 
+
+# Paid bursting settings.
+$paidBurstingEnabled = $null # Set to $true or $false.
+$paidBurstingMaxIops = $null # Set to an integer value.
+$paidBurstingMaxThroughputMibPerSec = $null # Set to an integer value.
+
+# Configure parameter object for splatting.
+$params = @{
+    ResourceGroupName = $resourceGroupName;
+    StorageAccountName = $storageAccountName;
+    Name = $fileShareName;
+}
+
+if ($null -ne $provisionedStorageGib) { 
+    $params += @{ QuotaGiB = $provisionedStorageGib }
+}
+
+if ($null -ne $paidBurstingEnabled) {
+    $params += @{ PaidBurstingEnabled = $paidBurstingEnabled }
+}
+
+if ($null -ne $paidBurstingMaxIops) {
+    $params += @{ PaidBurstingMaxIops = $paidBurstingMaxIops }
+}
+
+if ($null -ne $paidBurstingMaxThroughputMibPerSec) {
+    $params += @{ 
+        PaidBurstingMaxBandwidthMibps = $paidBurstingMaxThroughputMibPerSec 
+    }
+}
 
 # Update the file share provisioning.
-Update-AzRmStorageShare `
-        -ResourceGroupName $resourceGroupName `
-        -StorageAccountName $storageAccountName `
-        -Name $fileShareName `
-        -QuotaGiB $provisionedStorageGib
+Update-AzRmStorageShare @params
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -779,6 +658,20 @@ az storage share-rm update \
         --storage-account $storageAccountName \
         --name $fileShareName \
         --quota $provisionedStorageGib
+```
+
+To toggle paid bursting, use the `--paid-bursting-enabled` parameter. Paid bursting is an advanced feature of the provisioned v1 model. Consult [provisioned v1 paid bursting](./understanding-billing.md#provisioned-v1-paid-bursting) before enabling. You can optionally use the `--paid-bursting-max-iops` and `--paid-bursting-max-bandwidth-mibps` flags to set a restriction on the upper amount of paid bursting allowed for cost control purposes. Remember to replace the values for the variables `resourceGroupName`, `storageAccountName`, and `fileShareName` with the desired values for your file share.
+
+```bash
+resourceGroupName="<resource-group>"
+storageAccountName="<storage-account>"
+fileShareName="<file-share>"
+
+az storage share-rm update \
+        --resource-group $resourceGroupName \
+        --storage-account $storageAccountName \
+        --name $fileShareName \
+        --paid-bursting-enabled true
 ```
 
 ---

@@ -4,7 +4,7 @@ description: Learn about reliability in Azure Logic Apps, including availability
 author: anaharris-ms 
 ms.author: anaharris
 ms.topic: reliability-article
-ms.custom: subject-reliability, references_regions
+ms.custom: subject-reliability
 services: logic-apps
 ms.service: azure-logic-apps
 ms.date: 01/06/2025
@@ -171,7 +171,7 @@ Consumption logic app workflows automatically support zone redundancy, so no con
 
 ### Capacity planning and management
 
-[!INCLUDE [Over-provisioning description](includes/reliability-over-provisioning-calculation-include.md)]
+To prepare for availability zone failure, consider *over-provisioning* the capacity of your integration runtime. Over-provisioning allows the solution to tolerate some degree of capacity loss and still continue to function without degraded performance. To learn more about over-provisioning, see [Manage capacity with over-provisioning](./concept-redundancy-replication-backup.md#manage-capacity-with-over-provisioning).
 
 ::: zone-end
 

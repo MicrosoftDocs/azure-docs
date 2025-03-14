@@ -511,11 +511,16 @@ The RW command feature is open and there are no restrictions on it. However, pro
 
 ## Retreive runRW configuration
 
-To retrieve the last successfully applied runRW configuration for a given device, perform a GET operation on the device resource.
+To obtain the last successfully applied runRW configuration, refer to the `rwDeviceConfig` property. This property stores the last successfully applied RW configuration for the device. To access it, perform a GET request on the device resource.
 
 ```rest
-az rest -m get -u /subscriptions/<example-subscription-id>/resourceGroups/<example-rg>/providers/Microsoft.ManagedNetworkFabric/NetworkDevices/<example-devicename>?api-version=2024-06-15-preview
+az networkfabric device show --resource-group "example-rg" --resource-name "example-device"
 ```
+
+| Parameter          | Alias | Description |
+|--------------------|-------|-------------|
+| `--resource-group` | `-g`  | Name of resource group. You can configure the default group using `az configure --defaults group=<name>`. |
+| `--resource-name`  |       | Name of the Network Device. |
 
 Expected output
 
@@ -532,7 +537,7 @@ Expected output
     "networkDeviceSku": "DefaultSku",
     "networkRackId": "/subscriptions/xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkRacks/example-rack-name",
     "provisioningState": "Succeeded",
-"rwDeviceConfig": "interface Ethernet 1/1\n description RW-test1",
+    "rwDeviceConfig": "interface Ethernet 1/1\n description RW-test1",
     "serialNumber": "Arista;CCS-720DT-XXXX;11.07;WTW2248XXXX",
     "version": "4.0.0"
   },
@@ -549,7 +554,7 @@ Expected output
 ```
 
 > [!Note]
-> RW configurations do not persist across upgrades. After an upgrade of Network Fabric, the rwDeviceConfig property will be empty unless the user manually reapplies the RW configuration.
+> RW configuration persists during a reboot without ZTP but does not persist upgrades, device RMA, or a reboot with ZTP. After these events, the rwDeviceConfig property is empty unless the user reapplies the RW configuration manually.
 
 ## Limitations 
 

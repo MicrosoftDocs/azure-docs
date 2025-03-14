@@ -1,8 +1,8 @@
 ---
-title: 'Overview of MQTT broker in Azure Event Grid'
-description: Message Queuing Telemetry Transport (MQTT) broker feature in Azure Event Grid enables MQTT clients to communicate with each other and with Azure services.
+title: MQTT (PubSub) broker'
+description: Message Queuing Telemetry Transport (MQTT) PubSub broker feature in Azure Event Grid enables MQTT clients to communicate with each other and with Azure services.
 ms.topic: concept-article
-ms.date: 02/12/2025
+ms.date: 03/05/2025
 author: george-guirguis
 ms.author: geguirgu
 ms.subservice: mqtt

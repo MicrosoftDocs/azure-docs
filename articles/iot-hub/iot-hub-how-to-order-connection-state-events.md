@@ -1,9 +1,9 @@
 ---
 title: Order device connection events from Azure IoT Hub w/Azure Cosmos DB
 description: This article describes how to order and record device connection events from Azure IoT Hub using Azure Cosmos DB to maintain the latest connection state.
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.custom: devx-track-azurecli
 ms.topic: how-to
