@@ -32,17 +32,17 @@ This guide shows how to set up mock outputs for an action in a Consumption or St
 
 ## Limitations
 
-* This capability is available only for actions, not triggers.
+- This capability is available only for actions, not triggers.
 
-* No option currently exists to dynamically or programmatically enable and disable this capability.
+- No option currently exists to dynamically or programmatically enable and disable this capability.
 
-* No indications exist at the logic app level that this capability is enabled. The following list describes where you can find indications that this capability is enabled:
+- No indications exist at the logic app level that this capability is enabled. The following list describes where you can find indications that this capability is enabled:
 
-  * On the action shape, the lower-right corner shows the test beaker icon (![Icon for static result](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)).
+  - On the action shape, the lower-right corner shows the test beaker icon (![Icon for static result](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)).
 
-  * On the action's details pane, on **Testing** tab, the **Static Result** option is enabled.
+  - On the action's details pane, on **Testing** tab, the **Static Result** option is enabled.
 
-  * In code view, the action's JSON definition includes the following properties in the **`runtimeConfiguration`** JSON object:
+  - In code view, the action's JSON definition includes the following properties in the **`runtimeConfiguration`** JSON object:
 
     ```json
     "runtimeConfiguration": {
@@ -53,7 +53,7 @@ This guide shows how to set up mock outputs for an action in a Consumption or St
     }
     ```
 
-  * In the workflow's run history, the **Static Results** column appears with the word **Enabled** next to any run where at least one action has this capability enabled.
+  - In the workflow's run history, the **Static Results** column appears with the word **Enabled** next to any run where at least one action has this capability enabled.
 
 <a name="set-up-mock-outputs"></a>
 
