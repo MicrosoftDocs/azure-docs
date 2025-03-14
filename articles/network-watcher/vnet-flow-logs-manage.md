@@ -81,7 +81,7 @@ In this article, you learn how to create, change, enable, disable, or delete a v
 
 1. Confirm the status of the provider displayed is **Registered**. If the status is **NotRegistered**, select the **Microsoft.Insights** provider then select **Register**.
 
-    :::image type="content" source="./media/vnet-flow-logs-portal/register-microsoft-insights.png" alt-text="Screenshot that shows how to register Microsoft Insights provider in the Azure portal.":::
+    :::image type="content" source="./media/vnet-flow-logs-manage/register-microsoft-insights.png" alt-text="Screenshot that shows how to register Microsoft Insights provider in the Azure portal." lightbox="./media/vnet-flow-logs-manage/register-microsoft-insights.png":::
 
 # [**PowerShell**](#tab/powershell)
 
@@ -115,7 +115,7 @@ Create a flow log for your virtual network, subnet, or network interface. This f
 
 1. In **Network Watcher | Flow logs**, select **+ Create** or **Create flow log** blue button.
 
-    :::image type="content" source="./media/vnet-flow-logs-portal/flow-logs.png" alt-text="Screenshot of Network Watcher flow logs in the Azure portal." lightbox="./media/vnet-flow-logs-portal/flow-logs.png":::
+    :::image type="content" source="./media/vnet-flow-logs-manage/flow-logs.png" alt-text="Screenshot of Network Watcher flow logs in the Azure portal." lightbox="./media/vnet-flow-logs-manage/flow-logs.png":::
 
 1. On the **Basics** tab of **Create a flow log**, enter or select the following values:
 
@@ -130,7 +130,7 @@ Create a flow log for your virtual network, subnet, or network interface. This f
     | Storage accounts | Select the storage account that you want to save the flow logs to. If you want to create a new storage account, select **Create a new storage account**. |
     | Retention (days) | Enter a retention time for the logs (this option is only available with [Standard general-purpose v2](../storage/common/storage-account-overview.md?toc=/azure/network-watcher/toc.json#types-of-storage-accounts) storage accounts). Enter *0* if you want to retain the flow logs data in the storage account forever (until you manually delete it from the storage account). For information about pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). |
 
-    :::image type="content" source="./media/vnet-flow-logs-portal/create-vnet-flow-log-basics.png" alt-text="Screenshot that shows the Basics tab of creating a virtual network flow log in the Azure portal." lightbox="./media/vnet-flow-logs-portal/create-vnet-flow-log-basics.png":::
+    :::image type="content" source="./media/vnet-flow-logs-manage/create-vnet-flow-log-basics.png" alt-text="Screenshot that shows the Basics tab of creating a virtual network flow log in the Azure portal." lightbox="./media/vnet-flow-logs-manage/create-vnet-flow-log-basics.png":::
 
     > [!NOTE]
     > If the storage account is in a different subscription, the resource that you're logging (virtual network, subnet, or network interface) and the storage account must be associated with the same Microsoft Entra tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
@@ -144,7 +144,7 @@ Create a flow log for your virtual network, subnet, or network interface. This f
     | Subscription | Select the Azure subscription of your Log Analytics workspace. |
     | Log Analytics Workspace | Select your Log Analytics workspace. By default, Azure portal creates ***DefaultWorkspace-{SubscriptionID}-{Region}*** Log Analytics workspace in ***defaultresourcegroup-{Region}*** resource group. |
 
-    :::image type="content" source="./media/vnet-flow-logs-portal/create-vnet-flow-log-analytics.png" alt-text="Screenshot that shows how to enable traffic analytics for a new flow log in the Azure portal.":::
+    :::image type="content" source="./media/vnet-flow-logs-manage/create-vnet-flow-log-analytics.png" alt-text="Screenshot that shows how to enable traffic analytics for a new flow log in the Azure portal." lightbox="./media/vnet-flow-logs-manage/create-vnet-flow-log-analytics.png":::
 
     > [!NOTE]
     > To create and select a Log Analytics workspace other than the default one, see [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace?toc=/azure/network-watcher/toc.json)
@@ -157,34 +157,34 @@ Create a flow log for your virtual network, subnet, or network interface. This f
 
 Use [New-AzNetworkWatcherFlowLog](/powershell/module/az.network/new-aznetworkwatcherflowlog) cmdlet to create a virtual network flow log. 
 
-### Enable virtual network flow logs without traffic analytics
+- Enable virtual network flow logs without traffic analytics
 
-```azurepowershell-interactive
-# Place the virtual network configuration into a variable.
-$vnet = Get-AzVirtualNetwork -Name 'myVNet' -ResourceGroupName 'myResourceGroup'
+    ```azurepowershell-interactive
+    # Place the virtual network configuration into a variable.
+    $vnet = Get-AzVirtualNetwork -Name 'myVNet' -ResourceGroupName 'myResourceGroup'
+    
+    # Place the storage account configuration into a variable.
+    $storageAccount = Get-AzStorageAccount -Name 'myStorageAccount' -ResourceGroupName 'myResourceGroup'
+    
+    # Create a VNet flow log.
+    New-AzNetworkWatcherFlowLog -Enabled $true -Name 'myVNetFlowLog' -NetworkWatcherName 'NetworkWatcher_eastus' -ResourceGroupName 'NetworkWatcherRG' -StorageId $storageAccount.Id -TargetResourceId $vnet.Id -FormatVersion 2
+    ```
 
-# Place the storage account configuration into a variable.
-$storageAccount = Get-AzStorageAccount -Name 'myStorageAccount' -ResourceGroupName 'myResourceGroup'
+- Enable virtual network flow logs and traffic analytics
 
-# Create a VNet flow log.
-New-AzNetworkWatcherFlowLog -Enabled $true -Name 'myVNetFlowLog' -NetworkWatcherName 'NetworkWatcher_eastus' -ResourceGroupName 'NetworkWatcherRG' -StorageId $storageAccount.Id -TargetResourceId $vnet.Id -FormatVersion 2
-```
-
-### Enable virtual network flow logs and traffic analytics
-
-```azurepowershell-interactive
-# Place the virtual network configuration into a variable.
-$vnet = Get-AzVirtualNetwork -Name 'myVNet' -ResourceGroupName 'myResourceGroup'
-
-# Place the storage account configuration into a variable.
-$storageAccount = Get-AzStorageAccount -Name 'myStorageAccount' -ResourceGroupName 'myResourceGroup'
-
-# Create a traffic analytics workspace and place its configuration into a variable.
-$workspace = New-AzOperationalInsightsWorkspace -Name 'myWorkspace' -ResourceGroupName 'myResourceGroup' -Location 'EastUS'
-
-# Create a VNet flow log.
-New-AzNetworkWatcherFlowLog -Enabled $true -Name 'myVNetFlowLog' -NetworkWatcherName 'NetworkWatcher_eastus' -ResourceGroupName 'NetworkWatcherRG' -StorageId $storageAccount.Id -TargetResourceId $vnet.Id -FormatVersion 2 -EnableTrafficAnalytics -TrafficAnalyticsWorkspaceId $workspace.ResourceId -TrafficAnalyticsInterval 10
-```
+    ```azurepowershell-interactive
+    # Place the virtual network configuration into a variable.
+    $vnet = Get-AzVirtualNetwork -Name 'myVNet' -ResourceGroupName 'myResourceGroup'
+    
+    # Place the storage account configuration into a variable.
+    $storageAccount = Get-AzStorageAccount -Name 'myStorageAccount' -ResourceGroupName 'myResourceGroup'
+    
+    # Create a traffic analytics workspace and place its configuration into a variable.
+    $workspace = New-AzOperationalInsightsWorkspace -Name 'myWorkspace' -ResourceGroupName 'myResourceGroup' -Location 'EastUS'
+    
+    # Create a VNet flow log.
+    New-AzNetworkWatcherFlowLog -Enabled $true -Name 'myVNetFlowLog' -NetworkWatcherName 'NetworkWatcher_eastus' -ResourceGroupName 'NetworkWatcherRG' -StorageId $storageAccount.Id -TargetResourceId $vnet.Id -FormatVersion 2 -EnableTrafficAnalytics -TrafficAnalyticsWorkspaceId $workspace.ResourceId -TrafficAnalyticsInterval 10
+    ```
 
 # [**Azure CLI**](#tab/cli)
 
@@ -242,7 +242,7 @@ To enable traffic analytics for a flow log, follow these steps:
 
 1. In **Flow logs settings**, under **Traffic analytics**, check the **Enable traffic analytics** checkbox.
 
-    :::image type="content" source="./media/vnet-flow-logs-portal/enable-traffic-analytics.png" alt-text="Screenshot that shows how to enable traffic analytics for an existing flow log in the Azure portal." lightbox="./media/vnet-flow-logs-portal/enable-traffic-analytics.png":::
+    :::image type="content" source="./media/vnet-flow-logs-manage/enable-traffic-analytics.png" alt-text="Screenshot that shows how to enable traffic analytics for an existing flow log in the Azure portal." lightbox="./media/vnet-flow-logs-manage/enable-traffic-analytics.png":::
 
 1. Enter or select the following values:
 
@@ -252,13 +252,13 @@ To enable traffic analytics for a flow log, follow these steps:
     | Log Analytics workspace | Select your Log Analytics workspace. By default, Azure portal creates ***DefaultWorkspace-{SubscriptionID}-{Region}*** Log Analytics workspace in ***defaultresourcegroup-{Region}*** resource group. |
     | Traffic logging interval  | Select the processing interval that you prefer, available options are: **Every 1 hour** and **Every 10 mins**. The default processing interval is every one hour. For more information, see [Traffic analytics](traffic-analytics.md). |
 
-    :::image type="content" source="./media/vnet-flow-logs-portal/enable-traffic-analytics-settings.png" alt-text="Screenshot that shows configurations of traffic analytics for an existing flow log in the Azure portal." lightbox="./media/vnet-flow-logs-portal/enable-traffic-analytics-settings.png":::
+    :::image type="content" source="./media/vnet-flow-logs-manage/enable-traffic-analytics-settings.png" alt-text="Screenshot that shows configurations of traffic analytics for an existing flow log in the Azure portal." lightbox="./media/vnet-flow-logs-manage/enable-traffic-analytics-settings.png":::
 
 1. Select **Save** to apply the changes.
 
 To disable traffic analytics for a flow log, take the previous steps 1-3, then uncheck the **Enable traffic analytics** checkbox and select **Save**.
 
-:::image type="content" source="./media/vnet-flow-logs-portal/disable-traffic-analytics.png" alt-text="Screenshot that shows how to disable traffic analytics for an existing flow log in the Azure portal." lightbox="./media/vnet-flow-logs-portal/disable-traffic-analytics.png":::
+:::image type="content" source="./media/vnet-flow-logs-manage/disable-traffic-analytics.png" alt-text="Screenshot that shows how to disable traffic analytics for an existing flow log in the Azure portal." lightbox="./media/vnet-flow-logs-manage/disable-traffic-analytics.png":::
 
 # [**PowerShell**](#tab/powershell)
 
@@ -321,7 +321,7 @@ You can list all flow logs in a subscription or a group of subscriptions (Azure 
 
 1. Select **Subscription equals** filter to choose one or more of your subscriptions. You can apply other filters like **Location equals** to list all the flow logs in a region.
 
-    :::image type="content" source="./media/vnet-flow-logs-portal/list-flow-logs.png" alt-text="Screenshot that shows how to list existing flow logs in the Azure portal." lightbox="./media/vnet-flow-logs-portal/list-flow-logs.png":::
+    :::image type="content" source="./media/vnet-flow-logs-manage/list-flow-logs.png" alt-text="Screenshot that shows how to list existing flow logs in the Azure portal." lightbox="./media/vnet-flow-logs-manage/list-flow-logs.png":::
 
 # [**PowerShell**](#tab/powershell)
 
@@ -357,7 +357,7 @@ You can view the details of a flow log.
 
 1. In **Flow logs settings**, you can view the settings of the flow log resource.
 
-    :::image type="content" source="./media/vnet-flow-logs-portal/flow-log-settings.png" alt-text="Screenshot of Flow logs settings page in the Azure portal." lightbox="./media/vnet-flow-logs-portal/flow-log-settings.png":::
+    :::image type="content" source="./media/vnet-flow-logs-manage/flow-log-settings.png" alt-text="Screenshot of Flow logs settings page in the Azure portal." lightbox="./media/vnet-flow-logs-manage/flow-log-settings.png":::
 
 1. Select **Cancel** to close the settings page without making changes.
 
@@ -403,7 +403,7 @@ You can download the flow logs data from the storage account that you saved the 
 
 1. Select the ellipsis **...** to the right of the `PT1H.json` file, then select **Download**.
 
-   :::image type="content" source="./media/vnet-flow-logs-portal/flow-log-file-download.png" alt-text="Screenshot shows how to download a virtual network flow log data file from the storage account container in the Azure portal." lightbox="./media/vnet-flow-logs-portal/flow-log-file-download.png":::
+   :::image type="content" source="./media/vnet-flow-logs-manage/flow-log-file-download.png" alt-text="Screenshot shows how to download a virtual network flow log data file from the storage account container in the Azure portal." lightbox="./media/vnet-flow-logs-manage/flow-log-file-download.png":::
 
 # [**PowerShell**](#tab/powershell)
 
@@ -446,7 +446,7 @@ You can temporarily disable a virtual network flow log without deleting it. Disa
 
 1. Select **Disable**.
 
-    :::image type="content" source="./media/vnet-flow-logs-portal/disable-flow-log.png" alt-text="Screenshot shows how to disable a flow log in the Azure portal." lightbox="./media/vnet-flow-logs-portal/disable-flow-log.png":::
+    :::image type="content" source="./media/vnet-flow-logs-manage/disable-flow-log.png" alt-text="Screenshot shows how to disable a flow log in the Azure portal." lightbox="./media/vnet-flow-logs-manage/disable-flow-log.png":::
 
 > [!NOTE]
 > If traffic analytics is enabled for a flow log, you must disable it before you can disable the flow log. To disable traffic analytics, see [Enable or disable traffic analytics](#enable-or-disable-traffic-analytics).
@@ -497,7 +497,7 @@ You can permanently delete a virtual network flow log. Deleting a flow log delet
 
 1. Select **Delete**.
 
-    :::image type="content" source="./media/vnet-flow-logs-portal/delete-flow-log.png" alt-text="Screenshot shows how to delete a flow log in the Azure portal." lightbox="./media/vnet-flow-logs-portal/delete-flow-log.png":::
+    :::image type="content" source="./media/vnet-flow-logs-manage/delete-flow-log.png" alt-text="Screenshot shows how to delete a flow log in the Azure portal." lightbox="./media/vnet-flow-logs-manage/delete-flow-log.png":::
 
 # [**PowerShell**](#tab/powershell)
 
