@@ -33,7 +33,7 @@ When a security principal tries to access an Azure SignalR Service resource, the
 
 When you use an access key, the key is shared between your app server (or function app) and the Azure SignalR Service resource. Azure SignalR Service authenticates the client connection request by using the shared key.
 
-When you use Microsoft Entra ID, there is no shared key. Instead, Azure SignalR Service uses a *temporary access key* for signing tokens used in client connections. The workflow contains four steps:
+When you use Microsoft Entra ID, there's no shared key. Instead, Azure SignalR Service uses a *temporary access key* for signing tokens used in client connections. The workflow contains four steps:
 
 1. The security principal requires an OAuth 2.0 token from Microsoft Entra ID to authenticate itself.
 2. The security principal calls the SignalR authentication API to get a temporary access key.
@@ -46,17 +46,17 @@ The workflow is built in the [Azure SignalR Service SDK for app servers](https:/
 
 ### Cross tenant access when using Microsoft Entra ID
 
-In some cases, your server and your Azure SignalR resource may not in the same tenant for security concerns.
+In some cases, your server and your Azure SignalR resource may not be in the same tenant due to security concerns.
 
-A [Multi-tenant applications](/entra/identity-platform/single-and-multi-tenant-apps#best-practices-for-multitenant-apps) could help you in this scenario.
+A [multitenant applications](/entra/identity-platform/single-and-multi-tenant-apps#best-practices-for-multitenant-apps) could help you in this scenario.
 
 If you've already registered a single-tenant app, see [convert your single-tenant app to multitenant](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
 
-Once you have registered the multi-tenant application in your `tenantA`, you should provision it as an enterprise application in your `tenantB`.
+Once you have registered the multitenant application in your `tenantA`, you should provision it as an enterprise application in your `tenantB`.
 
 [Create an enterprise application from a multitenant application in Microsoft Entra ID](/entra/identity/enterprise-apps/create-service-principal-cross-tenant?pivots=msgraph-powershell)
 
-The application registered in your `tenantA` and the enterprise application provisioned in your `tenantB` share the same Application (client) id.
+The application registered in your `tenantA` and the enterprise application provisioned in your `tenantB` share the same Application (client) ID.
 
 ## Assign Azure roles for access rights
 
