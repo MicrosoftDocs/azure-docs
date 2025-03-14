@@ -16,7 +16,6 @@ ms.author: mareusch
 
 # New Version of Azure VM extension for SAP solutions 
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[configure-windows]:vm-extension-for-sap-new.md#a876ee7b-43b4-4782-aa5f-73753b6af0ea (Configure the New Azure VM extension for SAP solutions with PowerShell)
 [configure]:vm-extension-for-sap-new.md#configure (Configure the Azure VM extension for SAP solutions)
 
 ## <a name="dee9099b-7b8a-4cdd-86a2-3f6ee964266f"></a>Troubleshooting for Windows
@@ -53,7 +52,7 @@ The extension is not installed. Determine whether this is a proxy issue (as desc
 
 Performance metrics in Azure are collected by a daemon, which gets data from several sources. Some configuration data is collected locally, and some performance metrics are read from Azure Monitor.
 For a complete and up-to-date list of known issues, see SAP Note [1999351], which has additional troubleshooting information for Azure Extension for SAP.
-If troubleshooting by using SAP Note [1999351] does not resolve the issue, install the extension again as described in [Configure the Azure Extension for SAP][configure-windows]. If the problem persists, open an SAP customer support message on the component BC-OP-NT-AZR for Windows or BC-OP-LNX-AZR for a Linux virtual machine. Please attach the log file /var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-&lt;version>/logapp.txt to the incident.
+If troubleshooting by using SAP Note [1999351] does not resolve the issue, install the extension again as described in [Configure the Azure Extension for SAP][configure]. If the problem persists, open an SAP customer support message on the component BC-OP-NT-AZR for Windows or BC-OP-LNX-AZR for a Linux virtual machine. Please attach the log file /var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-&lt;version>/logapp.txt to the incident.
 
 
 ## Azure extension error codes
