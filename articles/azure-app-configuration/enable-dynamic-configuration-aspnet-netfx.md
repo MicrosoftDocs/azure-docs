@@ -99,15 +99,15 @@ Add the following key-values to the App Configuration store and leave **Label** 
         builder.AddAzureAppConfiguration(options =>
         {
             string endpoint = Environment.GetEnvironmentVariable("Endpoint"); 
-            options.Connect(new Uri(endpoint), new DefaultAzureCredential());
-                    // Load all keys that start with `TestApp:` and have no label.
-                    .Select("TestApp:*")
-                    // Configure to reload configuration if the registered key 'TestApp:Settings:Sentinel' is modified.
-                    .ConfigureRefresh(refresh => 
-                    {
-                        refresh.Register("TestApp:Settings:Sentinel", refreshAll:true)
-                               .SetCacheExpiration(new TimeSpan(0, 5, 0));
-                    });
+            options.Connect(new Uri(endpoint), new DefaultAzureCredential())
+                   // Load all keys that start with `TestApp:` and have no label.
+                   .Select("TestApp:*")
+                   // Configure to reload configuration if the registered key 'TestApp:Settings:Sentinel' is modified.
+                   .ConfigureRefresh(refresh => 
+                   {
+                       refresh.Register("TestApp:Settings:Sentinel", refreshAll:true)
+                              .SetCacheExpiration(new TimeSpan(0, 5, 0));
+                   });
             _configurationRefresher = options.GetRefresher();
         });
 
@@ -124,14 +124,14 @@ Add the following key-values to the App Configuration store and leave **Label** 
         builder.AddAzureAppConfiguration(options =>
         {
             options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-                    // Load all keys that start with `TestApp:` and have no label.
-                    .Select("TestApp:*")
-                    // Configure to reload configuration if the registered key 'TestApp:Settings:Sentinel' is modified.
-                    .ConfigureRefresh(refresh => 
-                    {
-                        refresh.Register("TestApp:Settings:Sentinel", refreshAll:true)
-                               .SetCacheExpiration(new TimeSpan(0, 5, 0));
-                    });
+                   // Load all keys that start with `TestApp:` and have no label.
+                   .Select("TestApp:*")
+                   // Configure to reload configuration if the registered key 'TestApp:Settings:Sentinel' is modified.
+                   .ConfigureRefresh(refresh => 
+                   {
+                       refresh.Register("TestApp:Settings:Sentinel", refreshAll:true)
+                              .SetCacheExpiration(new TimeSpan(0, 5, 0));
+                   });
             _configurationRefresher = options.GetRefresher();
         });
 
@@ -236,7 +236,7 @@ Add the following key-values to the App Configuration store and leave **Label** 
 
     ### [Connection string](#tab/connection-string)
 
-    Set an environment variable named `ConnectionString` to the read-only key connection string found under **Access keys** of your store in the Azure portal.
+    Set an environment variable named `ConnectionString` to the read-only key connection string found under **Access settings** of your store in the Azure portal.
 
     If you use the Windows command prompt, run the following command:
     ```console

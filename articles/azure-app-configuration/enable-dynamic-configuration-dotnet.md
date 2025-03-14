@@ -50,12 +50,12 @@ Add the following key-value to the App Configuration store and leave **Label** a
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
-    *Microsoft.Extensions.Configuration.AzureAppConfiguration*
-    *Azure.Identity*
+    - *Microsoft.Extensions.Configuration.AzureAppConfiguration*
+    - *Azure.Identity*
 
     ### [Connection string](#tab/connection-string)
 
-   *Microsoft.Extensions.Configuration.AzureAppConfiguration*
+   - *Microsoft.Extensions.Configuration.AzureAppConfiguration*
     ---
 
 1. Open *Program.cs* and add following namespaces.
@@ -99,16 +99,16 @@ Add the following key-value to the App Configuration store and leave **Label** a
         var builder = new ConfigurationBuilder();
         builder.AddAzureAppConfiguration(options =>
         {
-        string endpoint = Environment.GetEnvironmentVariable("Endpoint"); 
-        options.Connect(new Uri(endpoint), new DefaultAzureCredential());
-            // Load all keys that start with `TestApp:`.
-            .Select("TestApp:*")
-                  // Configure to reload the key 'TestApp:Settings:Message' if it is modified.
-                    .ConfigureRefresh(refresh =>
-                    {
-                        refresh.Register("TestApp:Settings:Message")
-                               .SetCacheExpiration(TimeSpan.FromSeconds(10));
-                    });
+            string endpoint = Environment.GetEnvironmentVariable("Endpoint"); 
+            options.Connect(new Uri(endpoint), new DefaultAzureCredential())
+                   // Load all keys that start with `TestApp:`.
+                   .Select("TestApp:*")
+                   // Configure to reload the key 'TestApp:Settings:Message' if it is modified.
+                   .ConfigureRefresh(refresh =>
+                   {
+                       refresh.Register("TestApp:Settings:Message")
+                              .SetCacheExpiration(TimeSpan.FromSeconds(10));
+                   });
 
             _refresher = options.GetRefresher();
         });
@@ -133,14 +133,14 @@ Add the following key-value to the App Configuration store and leave **Label** a
         builder.AddAzureAppConfiguration(options =>
         {
             options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-                    // Load all keys that start with `TestApp:`.
-                    .Select("TestApp:*")
-                    // Configure to reload the key 'TestApp:Settings:Message' if it is modified.
-                    .ConfigureRefresh(refresh =>
-                    {
-                        refresh.Register("TestApp:Settings:Message")
-                               .SetCacheExpiration(TimeSpan.FromSeconds(10));
-                    });
+                   // Load all keys that start with `TestApp:`.
+                   .Select("TestApp:*")
+                   // Configure to reload the key 'TestApp:Settings:Message' if it is modified.
+                   .ConfigureRefresh(refresh =>
+                   {
+                       refresh.Register("TestApp:Settings:Message")
+                              .SetCacheExpiration(TimeSpan.FromSeconds(10));
+                   });
 
             _refresher = options.GetRefresher();
         });
