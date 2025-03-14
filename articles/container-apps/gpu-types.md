@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 03/11/2025
+ms.date: 03/14/2025
 ms.author: cshoe
 ---
 
@@ -22,7 +22,20 @@ The fundamental difference between T4 and A100 GPU types involves the amount of 
 | GPU type | Description |
 |---|---|
 | T4 | delivers cost-effective acceleration ideal for inference workloads and mainstream AI applications. The GPU is built on the Turing architecture, which provides sufficient computational power for most production inference scenarios. |
-| A100 | Features performance advantages for demanding workloads that require maximum computational power. The massive memory capacity (40 GB or 80GB of HBM2/HBM2e) helps you work with large language models, complex computer vision applications, or scientific simulations that wouldn't fit in the T4's more limited memory.<br><br>For AI training, the A100 enables up to 2.5x faster model development compared to the T4. |
+| A100 | Features performance advantages for demanding workloads that require maximum computational power. The massive memory capacity (40GB or 80GB of HBM2/HBM2e) helps you work with large language models, complex computer vision applications, or scientific simulations that wouldn't fit in the T4's more limited memory.<br><br>For AI training, the A100 enables up to 2.5x faster model development compared to the T4. |
+
+| Specification | NVIDIA T4 | NVIDIA A100 |
+|---------------|-----------|-------------|
+| **Memory** | 16GB VRAM | 40GB or 80GB HBM2/HBM2e |
+| **Architecture** | Turing | Ampere |
+| **Power Consumption** | 70W TDP | Higher (400W for SXM variant) |
+| **Precision Support** | FP32, FP16 | TF32, FP32, FP16, BFLOAT16, INT8, INT4 |
+| **Training Performance** | Limited for modern deep learning | Up to 20x faster than T4 for large models |
+| **Inference Performance** | Cost-effective for smaller models | Substantially higher, especially for large models |
+| **Special Features** | - | MIG technology (up to seven isolated instances), NVLink |
+| **Optimal Model Size** | Small models (<5GB) | Medium to large models (>5GB) |
+| **Best Use Cases** | Cost-effective inference, mainstream AI applications | Training workloads, large models, complex computer vision, scientific simulations |
+| **Scalability** | Limited multi-GPU scaling | Better multi-GPU scaling with NVLink |
 
 ## Differences between GPU types
 
@@ -32,7 +45,7 @@ The type of GPU you select is largely dependent on the purpose of your applicati
 
 For inference workloads, choosing between T4 and A100 depends on several factors including model size, performance requirements, and deployment scale.
 
-The T4 provides the most cost-effective inference acceleration, particularly when deploying smaller models. The A100, however, delivers substantially higher inference performance, especially for large models, where it can perform up to 20 times faster than the T4. Additionally, the A100 introduces Multi-Instance GPU (MIG) technology, which allows a single GPU to be partitioned into up to seven isolated instances. This capability enables efficient resource sharing among multiple inference workloads, improving GPU use in multitenant environments.
+The T4 provides the most cost-effective inference acceleration, particularly when deploying smaller models. The A100, however, delivers substantially higher inference performance, especially for large models, where it can perform faster than the T4 GPU.
 
 When looking to scale, the T4 often provides better cost-performance ratio, while the A100 excels in scenarios requiring maximum performance. The A100 type is specially suited for large models or when using MIG to serve multiple inference workloads simultaneously.
 
@@ -41,8 +54,6 @@ When looking to scale, the T4 often provides better cost-performance ratio, whil
 For AI training workloads, the difference between these GPUs becomes even more pronounced. The T4, while capable of handling small model training, faces significant limitations for modern deep learning training.
 
 The A100 is overwhelmingly superior for training workloads, delivering up to 20 times better performance for large models compared to the T4. The substantially larger memory capacity (40 GB or 80GB) enables training of larger models without the need for complex model parallelism techniques in many cases. The A100's higher memory bandwidth also significantly accelerates data loading during training, reducing overall training time.
-
-For serious AI training workloads, especially with medium to large models, the A100 is the preferred choice. The T4 is best only when you're training small models in highly budget-constrained environments where performance isn't a primary concern.
 
 ### Mixed precision and specialized workloads
 
@@ -56,13 +67,9 @@ For workloads that benefit from mixed precision or require specialized formats, 
 
 Choosing between the T4 and A100 GPUs requires careful consideration of several key factors. The primary workload type should guide the initial decision: for inference-focused workloads, especially with smaller models, the T4 often provides sufficient performance at a more attractive price point. For training-intensive workloads or inference with large models, the A100's superior performance becomes more valuable and often necessary.
 
-Model size and complexity represent another critical decision factor. For small models (under 5GB), the T4's 16GB memory is typically adequate. Medium-sized models (5-15GB) can work on T4 with optimization techniques like quantization but generally perform better on A100. Large models (over 15GB) often require the A100's expanded memory capacity and bandwidth.
+Model size and complexity represent another critical decision factor. For small models (under 5GB), the T4's 16GB memory is typically adequate. For medium-sized models (5-15GB) consider testing on both GPU types to determine the optimal cost vs. performance for your situation. Large models (over 15GB) often require the A100's expanded memory capacity and bandwidth.
 
-Performance requirements should be carefully evaluated. For baseline acceleration needs, the T4 provides a good balance of performance and cost. For maximum performance in demanding applications, the A100 delivers superior results especially for large-scale AI and  high-performance computing workloads. Latency-sensitive applications benefit from the A100's higher compute capability and memory bandwidth, which reduce processing time.
-
-Power and space constraints must be considered in facility planning. The T4's 70W TDP is more power-efficient than the A100, allowing for more GPUs per server rack within the same power envelope. The A100 requires robust cooling and power infrastructure, especially for the 400-W SXM variant.
-
-Future scalability needs should factor into investment decisions. For short-term deployments or when working with stable workload sizes, the T4 might be sufficient. For long-term strategic investments or when anticipating growing model sizes and computational demands, the A100 provides capability for future workloads. Organizations requiring multi-GPU scaling should strongly consider the A100 with its NVLink capabilities, which enable more efficient scaling than what's possible with the T4.
+Evaluate your performance requirements carefully. For baseline acceleration needs, the T4 provides a good balance of performance and cost. For maximum performance in demanding applications, the A100 delivers superior results especially for large-scale AI and  high-performance computing workloads. Latency-sensitive applications benefit from the A100's higher compute capability and memory bandwidth, which reduce processing time.
 
 ## Special considerations
 
