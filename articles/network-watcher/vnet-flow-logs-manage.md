@@ -295,7 +295,6 @@ Set-AzNetworkWatcherFlowLog -Enabled $true -Name 'myVNetFlowLog' -NetworkWatcher
 To enable traffic analytics on a flow log resource, use [az network watcher flow-log update](/cli/azure/network/watcher/flow-log#az-network-watcher-flow-log-update) command.
 
 ```azurecli-interactive
-
 # Update the VNet flow log.
 az network watcher flow-log update --location 'eastus' --name 'myVNetFlowLog' --resource-group 'myResourceGroup' --vnet 'myVNet' --storage-account 'myStorageAccount' --traffic-analytics true --workspace 'myWorkspace' --interval 10
 ```
