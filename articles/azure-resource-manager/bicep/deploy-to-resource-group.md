@@ -76,7 +76,7 @@ You can deploy a resource from within a resource-group-scope Bicep file at the f
 - [The subscription](#scope-to-subscription)
 - [The tenant](#scope-to-tenant)
 
-### Scope to the target resource group
+### Scope to target resource group
 
 To deploy resources to the target resource group, add those resources to the Bicep file.
 
@@ -89,7 +89,7 @@ resource exampleResource 'Microsoft.Storage/storageAccounts@2023-04-01' = {
 
 For an example template, see [Deploy to target resource group](#deploy-to-target-resource-group).
 
-### Scope to a different resource group
+### Scope to different resource group
 
 To deploy resources to a resource group that isn't the target resource group, add a [module](modules.md). Use the [`resourceGroup` function](bicep-functions-scope.md#resourcegroup) to set the `scope` property for that module.
 

@@ -24,7 +24,7 @@ The benefits of deployment scripts include:
 - You can allow passing command-line arguments to the script.
 - You can specify script outputs and pass them back to the deployment.
 
-The deployment script resource is available only in the regions where Azure Container Instances is available. For more information, see [Resource availability & quota limits for ACI](/azure/container-instances/container-instances-resource-and-quota-limits) and [Products available by region](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/).
+The deployment script resource is available only in the regions where Azure Container Instances is available. For more information, see [Resource availability & quota limits for ACI](/azure/container-instances/container-instances-resource-and-quota-limits) and [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
 
 > [!WARNING]
 > The deployment script service requires two extra resources to run and troubleshoot scripts: a storage account and a container instance. Generally, the service cleans up these resources after the deployment script finishes. You incur charges for these resources until they're removed.
