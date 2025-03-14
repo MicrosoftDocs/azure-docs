@@ -24,7 +24,7 @@ The following errors can be returned by the Azure Active Directory B2C service.
 
 | Error code | Message | Notes |
 | ---------- | ------- | ----- |
-| `AADB2C90001` | The server hosting resource '{0}' is not enabled for CORS requests. Ensure that the 'Access-Control-Allow-Origin' header has been configured. | [Sign-up flow](add-sign-up-and-sign-in-policy.md) |
+| `AADB2C90001` | The server hosting resource '{0}' is not enabled for CORS requests. Ensure that the 'Access-Control-Allow-Origin' header has been configured. | |
 | `AADB2C90002` | The CORS resource '{0}' returned a 404 not found. | [Hosting the page content](customize-ui-with-html.md#hosting-the-page-content) |
 | `AADB2C90006` | The redirect URI '{0}' provided in the request is not registered for the client ID '{1}'. | [Register a web application](tutorial-register-applications.md), [Sending authentication requests](openid-connect.md#send-authentication-requests) |
 | `AADB2C90007` | The application associated with client ID '{0}' has no registered redirect URIs. | [Register a web application](tutorial-register-applications.md), [Sending authentication requests](openid-connect.md#send-authentication-requests) |
