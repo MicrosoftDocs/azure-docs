@@ -109,18 +109,10 @@
     items:  
     - name: Container solutions overview
       href: choose-confidential-containers-offerings.md 
-    - name: Application enclave nodes on AKS
-      items:
-      - name: Application enclave with Intel SGX DCSv2/DCsv3 nodes 
-        href: confidential-nodes-aks-overview.md
-      - name: Deploy application enclave nodes on AKS
-        href: confidential-enclave-nodes-aks-get-started.md
-      - name: Enclave-aware containers
-        href: enclave-aware-containers.md
-      - name: AKS Add-on
-        href: confidential-nodes-aks-addon.md
-      - name: Confidential enclave nodes FAQ
-        href: confidential-nodes-aks-faq.yml
+    - name: Confidential node pools on AKS
+      items: 
+      - name: Confidential VM node pools in AKS
+        href: confidential-node-pool-aks.md
     - name: Confidential containers
       items:
       - name: Confidential containers overview
@@ -133,10 +125,18 @@
         href: confidential-containers.md#vm-isolated-confidential-containers-on-azure-container-instances-aci
       - name: Confidential containers with Intel SGX enclaves
         href: confidential-containers-enclaves.md
-    - name: Confidential node pools on AKS
-      items: 
-      - name: Confidential VM node pools in AKS
-        href: confidential-node-pool-aks.md
+    - name: Application enclave nodes on AKS
+      items:
+      - name: Application enclave with Intel SGX DCSv2/DCsv3 nodes 
+        href: confidential-nodes-aks-overview.md
+      - name: Deploy application enclave nodes on AKS
+        href: confidential-enclave-nodes-aks-get-started.md
+      - name: Enclave-aware containers
+        href: enclave-aware-containers.md
+      - name: AKS Add-on
+        href: confidential-nodes-aks-addon.md
+      - name: Confidential enclave nodes FAQ
+        href: confidential-nodes-aks-faq.yml
     - name: References
       items:
       - name: DCasv5 and DCadsv5-series
