@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
  
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: concept-article
 ms.date: 10/31/2021
 ms.author: danlep
 ---
