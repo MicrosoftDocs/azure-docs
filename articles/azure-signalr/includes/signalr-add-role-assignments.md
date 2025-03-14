@@ -31,9 +31,11 @@ The following steps describe how to assign a **SignalR App Server** role to a se
    | [SignalR REST API Owner](../../role-based-access-control/built-in-roles.md#signalr-rest-api-owner)   | Full access to data-plane REST APIs.                                                                      | For using [Azure SignalR Management SDK](/azure/azure-signalr/signalr-howto-use-management-sdk) to manage connections and groups, but does **NOT** make server connections or handle negotiation requests.                          |
    | [SignalR REST API Reader](../../role-based-access-control/built-in-roles.md#signalr-rest-api-reader) | Read-only access to data-plane REST APIs.                                                                 | Use it when write a monitoring tool that calls readonly REST APIs.                                      |
 
-1. click Next.
+1. Select Next.
 
-1. For Microsoft entra application.
+
+1. For Microsoft Entra application.
+
 
    1. In the `Assign access` to row, select **User, group, or service principal**.
    1. In the `Members` row, click `select members`, then choose the identity in the pop-up window.
@@ -43,7 +45,8 @@ The following steps describe how to assign a **SignalR App Server** role to a se
    1. In the `Assign access` to row, select **Managed identity**.
    1. In the `Members` row, click `select members`, then choose the application in the pop-up window.
 
-1. click Next.
+1. Select Next.
+
 
 1. Review your assignment, then click **Review + assign** to confirm the role assignment.
 
