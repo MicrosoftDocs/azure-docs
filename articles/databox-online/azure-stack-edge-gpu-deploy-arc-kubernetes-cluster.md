@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: azure-stack-edge
 ms.topic: how-to
-ms.date: 03/11/2025
+ms.date: 03/14/2025
 ms.author: alkohli
 ---
 
@@ -50,7 +50,7 @@ Make sure that you've completed the following prerequisites on your Azure Stack 
       - Use `kubectl version` to check the version of kubectl running on the client. Make a note of the full version.
       - In the local UI of your Azure Stack Edge Pro device, go to **Software update** and note the Kubernetes server version number.
 
-        ![Verify Kubernetes server version number](media/azure-stack-edge-gpu-connect-powershell-interface/verify-kubernetes-version-1.png)
+        ![Verify Kubernetes server version number](media/azure-stack-edge-gpu-deploy-arc-kubernetes-cluster/verify-kubernetes-version-1.png)
 
       - Verify these two versions are compatible.
 
@@ -62,15 +62,15 @@ Before you enable Azure Arc on the Kubernetes cluster, you need to enable and re
 1. To enable a resource provider, in the Azure portal, go to the subscription that you're planning to use for the deployment. Go to **Resource Providers**.
 1. In the right-pane, search for the providers you want to add. In this example, `Microsoft.Kubernetes` and `Microsoft.KubernetesConfiguration`.
 
-    ![Register Kubernetes resource providers](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-1.png)
+    ![Register Kubernetes resource providers](media/azure-stack-edge-gpu-deploy-arc-kubernetes-cluster/register-k8-resource-providers-1.png)
 
 1. Select a resource provider and from the top of the command bar, select **Register**. Registration  takes several minutes.
 
-    ![Register Kubernetes resource providers 2](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-2.png)
+    ![Register Kubernetes resource providers 2](media/azure-stack-edge-gpu-deploy-arc-kubernetes-cluster/register-k8-resource-providers-2.png)
 
 1. Refresh the UI until you see that the resource provider is registered. Repeat the process for both resource providers.
 
-    ![Register Kubernetes resource providers 3](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-4.png)
+    ![Register Kubernetes resource providers 3](media/azure-stack-edge-gpu-deploy-arc-kubernetes-cluster/register-k8-resource-providers-4.png)
 
 You can also register resource providers via the `az cli`. For more information, see [Register the two providers for Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/quickstart-connect-cluster#register-providers-for-azure-arc-enabled-kubernetes).
 
@@ -78,11 +78,11 @@ You can also register resource providers via the `az cli`. For more information,
 
 1. Make sure that you have `Subscription ID` and the name of the resource group you used for the resource deployment for your Azure Stack Edge service. To get the subscription ID, go to your Azure Stack Edge resource in the Azure portal. Navigate to **Overview > Essentials**.
 
-    ![Get subscription ID](media/azure-stack-edge-gpu-connect-powershell-interface/get-subscription-id-1.png)
+    ![Get subscription ID](media/azure-stack-edge-gpu-deploy-arc-kubernetes-cluster/get-subscription-id-1.png)
 
     To get the resource group name, go to **Properties**.
 
-    ![Get resource group name](media/azure-stack-edge-gpu-connect-powershell-interface/get-resource-group-name-1.png)
+    ![Get resource group name](media/azure-stack-edge-gpu-deploy-arc-kubernetes-cluster/get-resource-group-name-1.png)
 
 1. To create a service principal, use the following command via the `az cli`.
 
@@ -106,28 +106,37 @@ You can also register resource providers via the `az cli`. For more information,
 
 1. Make a note of the `appId`, `name`, `password`, and `tenantID` as you'll use these values as input to the next command.
 
-   There are several ways to obtain `appId`. If you use one of the following methods, you can skip steps 1, 2, and 3 from the previous section and move directly to the following step 4.
+   There are several ways to obtain `appId`. The following three options are the preferred methods. If you use one of the following options, you can skip steps 1, 2, and 3 from the previous section and move directly to the following step 4.
 
-   - Use Minishell to run the following PowerShell cmdlet: 
-
-      ```powershell
-      Get-AzureDataBoxEdgeApplicationId 
-      ```
-
-   - In Azure portal, navigate to your Azure Stack Edge device **Overview** and then at top right, select **JSON view**. You see **Resource JSON** details for your device. Make note of the `principalId` for your device. 
-
-   <Include new screenshot from portal> 
-   ![View JSON details for your Azure Stack Edge device](media/azure-stack-edge-gpu-connect-powershell-interface/view-json-details.png)
-
-   - Use non-Azure Stack Edge PowerShell on a client machine to run the following command:
+   - Option 1 - Use Minishell to run the following PowerShell cmdlet: 
 
       ```powershell
-      $ASEResource= GetAzResource –ResourceGroupName <resource-group-name> -ResourceName <resource-name> 
-
-      $ASEResource.Identity.PrincipalId
+      [Device-IP]: PS> Get-AzureDataBoxEdgeApplicationId
+      xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+      [Device-IP]: PS>
       ```
 
-1. After you create the new service principal or retrieve it using one of these methods, assign the `Kubernetes Cluster - Azure Arc Onboarding` role to the newly created principal. This is a built-in Azure role (use the role ID in the command) with limited permissions. Use the following command:
+   - Option 2 - e the following steps to view JSON details for your device In Azure portal:
+      
+      1. Navigate to your Azure Stack Edge device **Overview** and then select **JSON view** at top right.
+  
+          ![View Overview page for your Azure Stack Edge device](media/azure-stack-edge-gpu-deploy-arc-kubernetes-cluster/view-device-overview.png)    
+
+      1.  You see **Resource JSON** details for your device. Make note of the `principalId` for your device. 
+
+          ![View JSON details for your Azure Stack Edge device](media/azure-stack-edge-gpu-deploy-arc-kubernetes-cluster/view-json-details.png)
+
+   - Option 3 - Use non-Azure Stack Edge PowerShell on a client machine to run the following command:
+
+      ```powershell
+      // ASE resource group and resource name can be obtained from Azure portal
+      PS C:\>$ASEResource= GetAzResource –ResourceGroupName <resource-group-name> -ResourceName <resource-name>
+      PS C:\>$ASEResource.Identity.PrincipalId
+      xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+      PS C:\>
+      ```
+
+1. After you create the new service principal, or after you retrieve it using one of these options, assign the `Kubernetes Cluster - Azure Arc Onboarding` role to the newly created principal. This is a built-in Azure role (use the role ID in the command) with limited permissions. Use the following command:
 
     `az role assignment create --role 34e09817-6cbe-4d01-b1a2-e0eac5743d41 --assignee <appId-from-service-principal> --scope /subscriptions/<SubscriptionID>/resourceGroups/<Resource-group-name>`
 
@@ -167,8 +176,7 @@ Follow these steps to configure the Kubernetes cluster for Azure Arc management:
 
    - To deploy Azure Arc on your device, make sure that you're using a [Supported region for Azure Arc](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
    - Use the `az account list-locations` command to determine the exact location name to pass in the `Set-HcsKubernetesAzureArcAgent` cmdlet. Location names are typically formatted without any spaces.
-   - Specifying `ClientId`, `TenantId`, and `ClientSecret` is optional.
-   - If you assign a role to `appId`, don't specify `ClientId`, `TenantId`, or `ClientSecret`.   
+   - **Important:** If you obtain the `Id` instead of creating a new service principle using the older method, then do not specify `ClientId`, `TenantId`, or `ClientSecret`.   
 
    Here's an example:
 
@@ -188,7 +196,7 @@ Follow these steps to configure the Kubernetes cluster for Azure Arc management:
 
    In the Azure portal, a resource should be created with the name you provided in the preceding command.
 
-   ![Go to Azure Arc resource](media/azure-stack-edge-gpu-connect-powershell-interface/verify-azure-arc-enabled-1.png)
+   ![Go to Azure Arc resource](media/azure-stack-edge-gpu-deploy-arc-kubernetes-cluster/verify-azure-arc-enabled-1.png)
 
 1. To verify that Azure Arc is enabled successfully, run the following command from PowerShell interface:
 
