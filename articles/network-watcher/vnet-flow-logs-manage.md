@@ -407,7 +407,7 @@ You can download the flow logs data from the storage account that you saved the 
 
 # [**PowerShell**](#tab/powershell)
 
-To download virtual network flow logs from your storage account, use [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent) cmdlet.
+To download virtual network flow logs from your storage account, use [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent) cmdlet. For more information, see [Download a blob](../storage/blobs/storage-quickstart-blobs-powershell.md#download-blobs).
 
 Virtual network flow log files are saved to the storage account at the following path:
 
@@ -417,7 +417,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-flowlogfloweven
 
 # [**Azure CLI**](#tab/cli)
 
-To download virtual network flow logs from your storage account, use the [az storage blob download](/cli/azure/storage/blob#az-storage-blob-download) command.
+To download virtual network flow logs from your storage account, use the [az storage blob download](/cli/azure/storage/blob#az-storage-blob-download) command. For more information, see [Download a blob](../storage/blobs/storage-quickstart-blobs-cli.md#download-a-blob).
 
 Virtual network flow log files are saved to the storage account at the following path:
 
@@ -428,7 +428,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-flowlogfloweven
 ---
 
 > [!NOTE]
-> As an alternative way to access and download flow logs from your storage account, you can use Azure Storage Explorer. For more information, see [Get started with Storage Explorer](../storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer.md).
+> As an alternative way to access and download flow logs from your storage account, you can use Azure Storage Explorer. For more information, see [Get started with Storage Explorer](../storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer.md) and [Download blobs using Storage Explorer](../storage/blobs/quickstart-storage-explorer.md#download-blobs).
 
 For information about the structure of a flow log, see [Log format of virtual network flow logs](vnet-flow-logs-overview.md#log-format).
 
