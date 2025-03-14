@@ -174,6 +174,7 @@ When you use this profile:
 
 - Maximum memory usage of each frontend replica is approximately 99 MiB, but the actual maximum memory usage might be higher.
 - Maximum memory usage of each backend replica is approximately 102 MiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
+- Maximum amount of incoming buffer or PUBLISH data is approximately 16 MiB multiplied by the number of backend workers. 16 MiB The actual size might be lower due to backpressure watermark starting at 75% of the incoming buffer or 12 MiB.
 
 Recommendations when you use this profile:
 
