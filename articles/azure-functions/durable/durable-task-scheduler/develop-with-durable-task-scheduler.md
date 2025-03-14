@@ -199,9 +199,9 @@ You can see the list of scheduler resources created in all subscriptions you hav
 
   Retrieve a list of task hubs in a specific scheduler by running: 
 
-  ```azurecli
-  az durabletask taskhub list --resource-group <RESOURCE_GROUP_NAME> --scheduler-name <SCHEDULER_NAME>
-  ```
+    ```azurecli
+    az durabletask taskhub list --resource-group <RESOURCE_GROUP_NAME> --scheduler-name <SCHEDULER_NAME>
+    ```
 
 ::: zone-end 
 
@@ -245,7 +245,7 @@ You can see all the task hubs created in a scheduler on the **Overview** of the 
 
 ## Configure identity-based authentication for app to access DTS
 
-DTS *only* supports either *user-assigned* or *system-assigned* managed identity authentication. **User-assigned identities are recommended,** as they aren't tied to the lifecycle of the app and can be reused after the app is de-provisioned.
+DTS **only** supports either *user-assigned* or *system-assigned* managed identity authentication. **User-assigned identities are recommended,** as they aren't tied to the lifecycle of the app and can be reused after the app is de-provisioned.
 
 The following sections demonstrate how to configure identity resources for your Durable Functions app to access a scheduler and its task hubs. 
 
@@ -406,7 +406,7 @@ Add these two environment variables to app setting:
 
 ## Accessing DTS dashboard
 
-Gain access to the [DTS dashboard](./durable-task-scheduler-dashboard.md) by assigning the required role to your *developer identity*. After granting access, go to `https://dashboard.durabletask.dev/` and fill out the required information about your scheduler and task hub to see the dashboard. 
+First, follow instructions below to gain access to the [DTS dashboard](./durable-task-scheduler-dashboard.md) by assigning the required role to your *developer identity (email)*. After granting access, go to `https://dashboard.durabletask.io/` and fill out the required information about your scheduler and task hub to see the dashboard. 
 
 ::: zone pivot="az-cli" 
 
@@ -467,13 +467,13 @@ Gain access to the [DTS dashboard](./durable-task-scheduler-dashboard.md) by ass
 
 ::: zone-end 
 
-::: zone pivot="az-portal"
-
 [!INCLUDE [assign-dev-identity-rbac-portal](./includes/assign-dev-identity-rbac-portal.md)]
 
 ## Auto scaling in Functions Premium plan 
 
 For DTS apps on the Functions Premium plan, enable the *Runtime Scale Monitoring* setting to get auto scaling of the app. 
+
+::: zone pivot="az-portal"
 
 1. In the portal overview of your function app, navigate to **Settings** > **Configuration**.
 
@@ -483,6 +483,15 @@ For DTS apps on the Functions Premium plan, enable the *Runtime Scale Monitoring
 
 ::: zone-end 
 
+::: zone pivot="az-cli" 
+
+Run the following command:
+
+    ```azurecli
+    az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
+    ```
+
+::: zone-end 
 ## Next steps
 
 Try out the [Durable Functions quickstart sample](quickstart-durable-task-scheduler.md).
