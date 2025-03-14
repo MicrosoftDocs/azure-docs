@@ -19,7 +19,7 @@ When you set up access restrictions, you can define a priority-ordered allow/blo
 
 The access restriction capability works with all Azure App Service-hosted workloads. The workloads can include web apps, API apps, Linux apps, Linux custom containers, and Azure Functions apps.
 
-When someone makes a request to your app, the `FROM` address is evaluated against the rules in your access restriction list. If the `FROM` address is in a subnet configured with service endpoints to `Microsoft.Web`, the source subnet is compared against the virtual network rules in your access restriction list. If the address isn't allowed access based on the rules in the list, the service replies with an [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) status code.
+When someone makes a request to your app, the `FROM` address is evaluated against the rules in your access restriction list. If the `FROM` address is in a subnet configured with service endpoints to `Microsoft.Web`, the source subnet is compared against the virtual network rules in your access restriction list. If the address isn't allowed access based on the rules in the list, the service replies with an HTTP 403 status code.
 
 The access restriction capability is implemented in the App Service front-end roles, which are upstream of the worker hosts where your code runs. Therefore, access restrictions are effectively network access-control lists.
 
@@ -92,7 +92,7 @@ Follow the procedure as outlined in the preceding section, but with the followin
 
 - For step 4, in the **Type** dropdown list, select IPv4 or IPv6.
 
-Specify **IP Address Block** in the Classless Inter-Domain Routing (CIDR) notation for both the IPv4 and IPv6 addresses. To specify an address, you can use something like `1.2.3.4/32`, where the first four octets represent your IP address and `/32` is the mask. The IPv4 CIDR notation for all addresses is `0.0.0.0/0`. To learn more about CIDR notation, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+Specify **IP Address Block** in the Classless Inter-Domain Routing (CIDR) notation for both the IPv4 and IPv6 addresses. To specify an address, you can use something like `1.2.3.4/32`, where the first four octets represent your IP address and `/32` is the mask. The IPv4 CIDR notation for all addresses is `0.0.0.0/0`.
 
 > [!NOTE]
 > IP-based access restriction rules only handle virtual network address ranges when your app is in an App Service Environment. If your app is in the multitenant service, you need to use service endpoints to restrict traffic to select subnets in your virtual network.
