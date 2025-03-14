@@ -11,7 +11,7 @@ ms.date: 03/14/2025
 
 # Integrate Azure Database for PostgreSQL with Service Connector
 
-This article covers supported authentication methods, clients, and sample code you can use to connect your apps to Azure Database for PostgreSQL using Service Connector. You'll also find default environment variable names, values and configuration obtained when creating service connections.
+This article covers supported authentication methods, clients, and sample code you can use to connect your apps to Azure Database for PostgreSQL using Service Connector. In this article, you'll also find default environment variable names, values, and configuration obtained when creating service connections.
 
 ## Supported compute services
 
