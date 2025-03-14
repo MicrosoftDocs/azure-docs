@@ -1,17 +1,17 @@
 ---
-title: Troubleshoot outbound connections - Azure portal
+title: Troubleshoot outbound connections
 titleSuffix: Azure Network Watcher
-description: Learn how to use the connection troubleshoot feature of Azure Network Watcher to troubleshoot outbound connections using the Azure portal.
+description: Learn how to use the connection troubleshoot feature of Azure Network Watcher to troubleshoot outbound connections.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 03/31/2025
+ms.date: 03/14/2025
 
-#CustomerIntent: As an Azure administrator, I want to learn how to use Connection Troubleshoot to diagnose outbound connectivity issues in Azure using the Azure portal.
+#CustomerIntent: As an Azure administrator, I want to learn how to use Connection Troubleshoot to diagnose outbound connectivity issues in Azure using the Azure portal, Powershell, or Azure CLI.
 ---
 
-# Troubleshoot outbound connections using the Azure portal
+# Troubleshoot outbound connections
 
 In this article, you learn how to use the connection troubleshoot feature of Azure Network Watcher to diagnose and troubleshoot connectivity issues. For more information about connection troubleshoot, see [Connection troubleshoot overview](connection-troubleshoot-overview.md).
 
@@ -155,33 +155,242 @@ In this section, you test the remote desktop port (RDP) connectivity from one vi
 
 1. Select **Export to CSV** to download the test results in csv format.
 
-
-
 # [**PowerShell**](#tab/powershell)
 
+Use [Test-AzNetworkWatcherConnectivity](/powershell/module/az.network/test-aznetworkwatcherconnectivity) cmdlet to run connection troubleshoot diagnostic tests to test the connectivity to a virtual machine over port 3389:
 
+```azurepowershell-interactive
+# Test connectivity between two virtual machines that are in the same resource group over port 3389.
+Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup1/providers/Microsoft.Compute/virtualMachines/VM1' -DestinationId '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup2/providers/Microsoft.Compute/virtualMachines/VM2' -DestinationPort '3389'  | Format-List
+```
+
+- If the two virtual machines are communicating with no issues, you see the following results:
+
+    ```output
+    Hops             : {aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb, bbbbbbbb-1111-2222-3333-cccccccccccc}
+    ConnectionStatus : Reachable
+    AvgLatencyInMs   : 1
+    MinLatencyInMs   : 1
+    MaxLatencyInMs   : 1
+    ProbesSent       : 66
+    ProbesFailed     : 0
+    HopsText         : [
+                         {
+                           "Type": "Source",
+                           "Id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+                           "Address": "10.0.0.4",
+                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+                           "NextHopIds": [
+                             "bbbbbbbb-1111-2222-3333-cccccccccccc"
+                           ],
+                           "Issues": []
+                         },
+                         {
+                           "Type": "VirtualMachine",
+                           "Id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
+                           "Address": "10.0.0.5",
+                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
+                           "NextHopIds": [],
+                           "Issues": []
+                         }
+                       ]
+    ```
+
+    - Connection status is **Reachable** (destination virtual machine is reachable over port 3389).
+    - 66 probes were successfully sent to the destination virtual machine.
+    - There are two hops in the path between the two virtual machines (no appliances or other resources in the path between the two VMs).
+
+
+- If the destination virtual machine has a network security group that's denying incoming RDP connections, you see the following results:
+
+    ```output
+    Hops             : {aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb, bbbbbbbb-1111-2222-3333-cccccccccccc}
+    ConnectionStatus : Unreachable
+    AvgLatencyInMs   : 
+    MinLatencyInMs   : 
+    MaxLatencyInMs   : 
+    ProbesSent       : 30
+    ProbesFailed     : 30
+    HopsText         : [
+                         {
+                           "Type": "Source",
+                           "Id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+                           "Address": "10.0.0.4",
+                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+                           "NextHopIds": [
+                             "bbbbbbbb-1111-2222-3333-cccccccccccc"
+                           ],
+                           "Issues": []
+                         },
+                         {
+                           "Type": "VirtualMachine",
+                           "Id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
+                           "Address": "10.0.0.5",
+                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
+                           "NextHopIds": [],
+                           "Issues": [
+                             {
+                               "Origin": "Inbound",
+                               "Severity": "Error",
+                               "Type": "NetworkSecurityRule",
+                               "Context": [
+                                 {
+                                   "key": "RuleName",
+                                   "value": 
+                       "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/VM2-nsg/SecurityRules/Deny3389Inbound"
+                                 }
+                               ]
+                             },
+                             {
+                               "Origin": "Local",
+                               "Severity": "Error",
+                               "Type": "NoListenerOnDestination",
+                               "Context": []
+                             }
+                           ]
+                         }
+                       ]
+    ```
+
+    - Connection status is **Unreachable** (destination virtual machine is unreachable over port 3389).
+    - 30 probes were sent and failed to reach the destination virtual machine.
+    - There are two hops in the path between the two virtual machines (no appliances or other resources in the path between the two VMs).
+    - Inbound connectivity to the destination virtual machine is denied by the security rule `Deny3389Inbound` in the network security group `VM2-nsg`.
+
+    **Solution**: Update the network security group on the destination virtual machine to allow inbound RDP traffic.
+
+- If the source virtual machine has a network security group that's denying RDP connections to the destination, you see the following results:
+
+    ```output
+    Hops             : {aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb, bbbbbbbb-1111-2222-3333-cccccccccccc}
+    ConnectionStatus : Unreachable
+    AvgLatencyInMs   : 
+    MinLatencyInMs   : 
+    MaxLatencyInMs   : 
+    ProbesSent       : 30
+    ProbesFailed     : 30
+    HopsText         : [
+                         {
+                           "Type": "Source",
+                           "Id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+                           "Address": "10.0.0.4",
+                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+                           "NextHopIds": [
+                             "bbbbbbbb-1111-2222-3333-cccccccccccc"
+                           ],
+                           "Issues": [
+                             {
+                               "Origin": "Outbound",
+                               "Severity": "Error",
+                               "Type": "NetworkSecurityRule",
+                               "Context": [
+                                 {
+                                   "key": "RuleName",
+                                   "value": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/VM1-nsg/SecurityRules/Deny3389Outbound"
+                                 }
+                               ]
+                             }
+                           ]
+                         },
+                         {
+                           "Type": "VirtualMachine",
+                           "Id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
+                           "Address": "10.0.0.5",
+                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
+                           "NextHopIds": [],
+                           "Issues": [
+                             {
+                               "Origin": "Local",
+                               "Severity": "Error",
+                               "Type": "NoListenerOnDestination",
+                               "Context": []
+                             }
+                           ]
+                         }
+                       ]
+    ```
+
+    - Connection status is **Unreachable** (destination virtual machine is unreachable over port 3389).
+    - 30 probes were sent and failed to reach the destination virtual machine.
+    - There are two hops in the path between the two virtual machines (no appliances or other resources in the path between the two VMs).
+    - Outbound connectivity from the source virtual machine is denied by the security rule `Deny3389Outbound` in the network security group `VM1-nsg`.
+  
+    **Solution**: Update the network security group on the source virtual machine to allow outbound RDP traffic.
+
+- If the operating system on the destination virtual machine doesn't accept incoming connections on port 3389, you see the following results:
+
+    ```output
+    Hops             : {aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb, bbbbbbbb-1111-2222-3333-cccccccccccc}
+    ConnectionStatus : Unreachable
+    AvgLatencyInMs   : 
+    MinLatencyInMs   : 
+    MaxLatencyInMs   : 
+    ProbesSent       : 30
+    ProbesFailed     : 30
+    HopsText         : [
+                         {
+                           "Type": "Source",
+                           "Id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+                           "Address": "10.0.0.4",
+                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+                           "NextHopIds": [
+                             "bbbbbbbb-1111-2222-3333-cccccccccccc"
+                           ],
+                           "Issues": []
+                         },
+                         {
+                           "Type": "VirtualMachine",
+                           "Id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
+                           "Address": "10.0.0.5",
+                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
+                           "NextHopIds": [],
+                           "Issues": [
+                             {
+                               "Origin": "Local",
+                               "Severity": "Error",
+                               "Type": "NoListenerOnDestination",
+                               "Context": []
+                             },
+                             {
+                               "Origin": "Local",
+                               "Severity": "Error",
+                               "Type": "GuestFirewall",
+                               "Context": []
+                             }
+                           ]
+                         }
+                       ]
+    ```
+
+    - Connection status is **Unreachable** (destination virtual machine is unreachable over port 3389).
+    - 30 probes were sent and failed to reach the destination virtual machine.
+    - There are two hops in the path between the two virtual machines (no appliances or other resources in the path between the two VMs).
+    - Port 3389 isn't reachable on the destination virtual machine (the output has `NoListenerOnDestination` and `GuestFirewall` errors on the destination virtual machine). 
+
+    **Solution**: Configure the operating system on the destination virtual machine to accept inbound RDP traffic.
 
 # [**Azure CLI**](#tab/cli)
 
-Use [az network watcher test-connectivity](/cli/azure/network/watcher#az-network-watcher-test-connectivity) to run connection troubleshoot diagnostic tests to test the connectivity to a virtual machine over port 3389:
+Use [az network watcher test-connectivity](/cli/azure/network/watcher#az-network-watcher-test-connectivity) command to run connection troubleshoot diagnostic tests to test the connectivity to a virtual machine over port 3389:
 
 ```azurecli-interactive
 # Test connectivity between two virtual machines that are in the same resource group over port 3389.
 az network watcher test-connectivity --resource-group 'myResourceGroup' --source-resource 'VM1' --dest-resource 'VM2' --protocol 'TCP' --dest-port '3389'
 ```
 
-If the virtual machines aren't in the same resource group, use their resource IDs instead of their names:
-
-```azurecli-interactive
-# Test connectivity between two virtual machines that are in two different resource groups over port 3389.
-az network watcher test-connectivity --source-resource '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup1/providers/Microsoft.Compute/virtualMachines/VM1' --dest-resource '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup2/providers/Microsoft.Compute/virtualMachines/VM2' --protocol 'TCP' --dest-port '3389'
-```
+> [!NOTE]
+> If the virtual machines aren't in the same resource group, use their resource IDs instead of their names. For example, use the following command to test connectivity between two virtual machines that are in two different resource groups:
+> 
+> ```azurecli-interactive
+> # Test connectivity between two virtual machines that are in two different resource groups over port 3389.
+> az network watcher test-connectivity --source-resource '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup1/providers/Microsoft.Compute/virtualMachines/VM1' --dest-resource '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup2/providers/Microsoft.Compute/virtualMachines/VM2' --protocol 'TCP' --dest-port '3389'
+> ```
 
 - If the two virtual machines are communicating with no issues, you see the following results:
 
     ```json
     {
-      "avgLatencyInMs": 2,
+      "avgLatencyInMs": 1,
       "connectionStatus": "Reachable",
       "hops": [
         {
@@ -195,9 +404,9 @@ az network watcher test-connectivity --source-resource '/subscriptions/aaaa0a0a-
               "linkType": "VirtualNetwork",
               "nextHopId": "bbbbbbbb-1111-2222-3333-cccccccccccc",
               "resourceId": "",
-              "roundTripTimeAvg": 2,
-              "roundTripTimeMax": 2,
-              "roundTripTimeMin": 2
+              "roundTripTimeAvg": 1,
+              "roundTripTimeMax": 1,
+              "roundTripTimeMin": 1
             }
           ],
           "nextHopIds": [
@@ -230,7 +439,7 @@ az network watcher test-connectivity --source-resource '/subscriptions/aaaa0a0a-
           "type": "VirtualMachine"
         }
       ],
-      "maxLatencyInMs": 8,
+      "maxLatencyInMs": 1,
       "minLatencyInMs": 1,
       "probesFailed": 0,
       "probesSent": 66
@@ -474,21 +683,13 @@ az network watcher test-connectivity --source-resource '/subscriptions/aaaa0a0a-
 
     **Solution**: Configure the operating system on the destination virtual machine to accept inbound RDP traffic.
 
-
-
 ---
-
 
 ## Test connectivity to a web address
 
 In this section, you test the connectivity between a virtual machine and a web address.
 
 # [**Portal**](#tab/portal)
-
-
-
-
-
 
 1. On the **Connection troubleshoot** page. Enter or select the following information:
 
@@ -530,18 +731,103 @@ In this section, you test the connectivity between a virtual machine and a web a
 
 # [**PowerShell**](#tab/powershell)
 
+Use [Test-AzNetworkWatcherConnectivity](/powershell/module/az.network/test-aznetworkwatcherconnectivity) cmdlet to run connection troubleshoot to test the connectivity to `www.bing.com`:
 
+```azurepowershell-interactive
+# Test connectivity from a virtual machine to www.bing.com.
+Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1' -DestinationAddress 'www.bing.com' -DestinationPort '443' | Format-List
+```
 
+- If `www.bing.com` is reachable from the source virtual machine, you see the following results:
 
+    ```output
+    Hops             : {aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb, bbbbbbbb-1111-2222-3333-cccccccccccc}
+    ConnectionStatus : Reachable
+    AvgLatencyInMs   : 1
+    MinLatencyInMs   : 1
+    MaxLatencyInMs   : 6
+    ProbesSent       : 66
+    ProbesFailed     : 0
+    HopsText         : [
+                         {
+                           "Type": "Source",
+                           "Id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+                           "Address": "10.0.0.4",
+                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+                           "NextHopIds": [
+                             "bbbbbbbb-1111-2222-3333-cccccccccccc"
+                           ],
+                           "Issues": []
+                         },
+                         {
+                           "Type": "Internet",
+                           "Id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
+                           "Address": "150.171.30.10",
+                           "NextHopIds": [],
+                           "Issues": []
+                         }
+                       ]
+    ```
+
+    - Connection status is **Reachable** (`www.bing.com` is reachable from **VM1**).
+    - 66 probes were successfully sent to `www.bing.com` with average latency of 9 ms.
+    - Next hop type is `Internet`.
+
+- If `www.bing.com` is unreachable from the source virtual machine due to a security rule, you see the following results:
+
+    ```output
+    Hops             : {aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb, bbbbbbbb-1111-2222-3333-cccccccccccc}
+    ConnectionStatus : Unreachable
+    AvgLatencyInMs   : 
+    MinLatencyInMs   : 
+    MaxLatencyInMs   : 
+    ProbesSent       : 30
+    ProbesFailed     : 30
+    HopsText         : [
+                         {
+                           "Type": "Source",
+                           "Id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+                           "Address": "10.0.0.4",
+                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+                           "NextHopIds": [
+                             "bbbbbbbb-1111-2222-3333-cccccccccccc"
+                           ],
+                           "Issues": [
+                             {
+                               "Origin": "Outbound",
+                               "Severity": "Error",
+                               "Type": "NetworkSecurityRule",
+                               "Context": [
+                                 {
+                                   "key": "RuleName",
+                                   "value": 
+                       "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/VM1-nsg/SecurityRules/DenyInternetOutbound"
+                                 }
+                               ]
+                             }
+                           ]
+                         },
+                         {
+                           "Type": "Internet",
+                           "Id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
+                           "Address": "203.0.113.184",
+                           "NextHopIds": [],
+                           "Issues": []
+                         }
+                       ]
+    ```
+
+    - Connection status is **Unreachable** (`www.bing.com` isn't reachable from **VM1**).
+    - 30 probes were sent and failed to reach `www.bing.com`.
+    - Outbound connectivity from the source virtual machine is denied by the security rule `DenyInternetOutbound` in the network security group `VM1-nsg`.
+    - Next hop type is `Internet`.
+
+    **Solution**: Update the network security group on the source virtual machine to allow outbound traffic to `www.bing.com`.
 
 
 # [**Azure CLI**](#tab/cli)
 
-
-
-
-
-Use [az network watcher test-connectivity](/cli/azure/network/watcher#az-network-watcher-test-connectivity) to run connection troubleshoot to test the connectivity to `www.bing.com`:
+Use [az network watcher test-connectivity](/cli/azure/network/watcher#az-network-watcher-test-connectivity) command to run connection troubleshoot to test the connectivity to `www.bing.com`:
 
 ```azurecli-interactive
 # Test connectivity from a virtual machine to www.bing.com.
@@ -651,7 +937,7 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
           "type": "Source"
         },
         {
-          "address": "23.198.7.184",
+          "address": "203.0.113.184",
           "id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
           "issues": [],
           "links": [],
@@ -683,19 +969,13 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
 
     **Solution**: Update the network security group on the source virtual machine to allow outbound traffic to `www.bing.com`.
 
-
 ---
-
-
 
 ## Test connectivity to an IP address
 
 In this section, you test the connectivity between a virtual machine and an IP address of another virtual machine.
 
 # [**Portal**](#tab/portal)
-
-
-
 
 1. On the **Connection troubleshoot** page. Enter or select the following information:
 
@@ -749,23 +1029,165 @@ In this section, you test the connectivity between a virtual machine and an IP a
 
 1. Select **Export to CSV** to download the test results in csv format.
 
-
-
-
 # [**PowerShell**](#tab/powershell)
 
+Use [Test-AzNetworkWatcherConnectivity](/powershell/module/az.network/test-aznetworkwatcherconnectivity) cmdlet to run connection troubleshoot to test RDP connectivity to `10.10.10.10`:
 
+```azurepowershell-interactive
+# Test connectivity from a virtual machine to 10.10.10.10 over port 3389.
+Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1' -DestinationAddress '10.10.10.10' -DestinationPort '3389' | Format-List
+```
 
+- If the IP address is reachable, you see the following results:
+    ```output
+    Hops             : {aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb, bbbbbbbb-1111-2222-3333-cccccccccccc}
+    ConnectionStatus : Reachable
+    AvgLatencyInMs   : 1
+    MinLatencyInMs   : 1
+    MaxLatencyInMs   : 3
+    ProbesSent       : 66
+    ProbesFailed     : 8
+    HopsText         : [
+                         {
+                           "Type": "Source",
+                           "Id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+                           "Address": "10.0.0.4",
+                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+                           "NextHopIds": [
+                             "bbbbbbbb-1111-2222-3333-cccccccccccc"
+                           ],
+                           "Issues": []
+                         },
+                         {
+                           "Type": "VirtualNetwork",
+                           "Id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
+                           "Address": "10.10.10.10",
+                           "NextHopIds": [],
+                           "Issues": []
+                         }
+                       ]
+    ```
 
+    - Connection status is **Reachable** (`10.10.10.10` is reachable over port 3389).
+    - 66 probes were successfully sent to `10.10.10.10` with average latency of 2 ms.
+    - There are two hops in the path between the two virtual machines (no appliances or other resources in the path between the two VMs). 
+
+- If the IP address is unreachable because the destination virtual machine isn't running, you see the following results: 
+
+    ```output
+    Hops             : {aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb, bbbbbbbb-1111-2222-3333-cccccccccccc}
+    ConnectionStatus : Unreachable
+    AvgLatencyInMs   : 
+    MinLatencyInMs   : 
+    MaxLatencyInMs   : 
+    ProbesSent       : 30
+    ProbesFailed     : 30
+    HopsText         : [
+                         {
+                           "Type": "Source",
+                           "Id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+                           "Address": "10.0.0.4",
+                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+                           "NextHopIds": [
+                             "bbbbbbbb-1111-2222-3333-cccccccccccc"
+                           ],
+                           "Issues": []
+                         },
+                         {
+                           "Type": "VirtualNetwork",
+                           "Id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
+                           "Address": "10.10.10.10",
+                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup1/providers/Microsoft.Network/networkInterfaces/vm2375/ipConfigurations/ipconfig1",
+                           "NextHopIds": [],
+                           "Issues": []
+                         }
+                       ]
+    ```
+
+    - Connection status is **Unreachable** (`10.10.10.10` is unreachable over port 3389).
+    - 30 probes were sent and failed to reach `10.10.10.10`.
+    - No issues in the source virtual machine.
+    - No issues with `10.10.10.10`.
+    
+    **Solution**: Start the destination virtual machine.
+
+- If there's no route to the IP address in the routing table of the source virtual machine (for example, the IP address isn't in the address space of the VM's virtual network or its peered virtual networks), you see the following results: 
+
+    ```output
+    Hops             : {aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb, bbbbbbbb-1111-2222-3333-cccccccccccc}
+    ConnectionStatus : Unreachable
+    AvgLatencyInMs   : 
+    MinLatencyInMs   : 
+    MaxLatencyInMs   : 
+    ProbesSent       : 30
+    ProbesFailed     : 30
+    HopsText         : [
+                         {
+                           "Type": "Source",
+                           "Id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+                           "Address": "10.1.0.4",
+                           "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+                           "NextHopIds": [
+                             "bbbbbbbb-1111-2222-3333-cccccccccccc"
+                           ],
+                           "Issues": [
+                             {
+                               "Origin": "Local",
+                               "Severity": "Error",
+                               "Type": "RouteMissing",
+                               "Context": []
+                             },
+                             {
+                               "Origin": "Outbound",
+                               "Severity": "Error",
+                               "Type": "UserDefinedRoute",
+                               "Context": [
+                                 {
+                                   "key": "ErrorMessage",
+                                   "value": "NextHop Type None, NextHop IP "
+                                 }
+                               ]
+                             },
+                             {
+                               "Origin": "Outbound",
+                               "Severity": "Error",
+                               "Type": "NetworkSecurityRule",
+                               "Context": [
+                                 {
+                                   "key": "RuleName",
+                                   "value": "DefaultRule_DenyAllOutBound"
+                                 }
+                               ]
+                             }
+                           ]
+                         },
+                         {
+                           "Type": "Destination",
+                           "Id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
+                           "Address": "10.0.0.4",
+                           "NextHopIds": [],
+                           "Issues": []
+                         }
+                       ]
+    ```
+
+    - Connection status is **Unreachable** (`10.10.10.10` is unreachable over port 3389).
+    - 30 probes were sent and failed to reach `10.10.10.10`.
+    - No route in the routing table of the source virtual machine to `10.10.10.10` (the output has `RouteMissing` error on the source virtual machine).
+    - Next hop type is *None* because there's no route to `10.10.10.10`.
+    - Outbound connectivity from the source virtual machine is denied by the security rule `DefaultRule_DenyAllOutBound` in the network security group `VM1-nsg`.
+    
+    **Solution**: Associate a route table with a correct route to the subnet of the source virtual machine.
+    
 
 
 # [**Azure CLI**](#tab/cli)
 
-Use [az network watcher test-connectivity](/cli/azure/network/watcher#az-network-watcher-test-connectivity) to run connection troubleshoot to test RDP connectivity to `10.10.10.10`:
+Use [az network watcher test-connectivity](/cli/azure/network/watcher#az-network-watcher-test-connectivity) command to run connection troubleshoot to test RDP connectivity to `10.10.10.10`:
 
 ```azurecli-interactive
 # Test connectivity from a virtual machine to 10.10.10.10 over port 3389.
-az network watcher test-connectivity --resource-group 'myResourceGroup' --source-resource 'VM1' --dest-address '10.10.10.10' --protocol 'TCP'  --dest-port 3389
+az network watcher test-connectivity --resource-group 'myResourceGroup' --source-resource 'VM1' --dest-address '10.10.10.10' --protocol 'TCP'  --dest-port '3389'
 ```
 
 - If the IP address is reachable, you see the following results:
@@ -982,9 +1404,6 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
     - Outbound connectivity from the source virtual machine is denied by the security rule `DefaultRule_DenyAllOutBound` in the network security group `VM1-nsg`.
     
     **Solution**: Associate a route table with a correct route to the subnet of the source virtual machine.
-    
-
-
 
 ---
 
