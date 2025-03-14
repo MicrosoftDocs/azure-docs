@@ -102,9 +102,13 @@ docker run -d -p 8080:8080 -e DTS_TASK_HUB_NAMES=taskhub1,taskhub2 mcr.microsoft
 
 ## Considerations  
 
-- **Scaling**: If your durable functions app is not reaching the maximum throughout of the durable task scheduler, consider scaling out your app to more instances as the bottleneck might lie in the number of workers available to run orchestrations. If scaling out also doesn't achieve the throughput you need, then consider *scaling up* your compute resources. In the future, you'll also be able to scale out the resources allocated to a durable task scheduler by purchasing more [capacity units](./dts-dedicated-sku.md#dedicated-sku-concepts). 
-- **Supported hosting plans**: DTS currently only supports Durable Functions running on *Functions Premium* and *App Service* plans. 
-- **Available regions**: Durable task scheduler is only available in certain Azure regions today. Run this command to get the latest supported regions:  `az provider show --namespace Microsoft.DurableTask --query "resourceTypes[?resourceType=='schedulers'].locations | [0]" --out table`.  
+- **Scaling**: If your durable functions app is not reaching the maximum throughout of the durable task scheduler, consider *scaling out* your app to more instances as the bottleneck might lie in the number of workers available to run orchestrations. If scaling out also doesn't achieve the throughput you need, then consider *scaling up* your compute resources. In the future, you'll also be able to scale out the resources allocated to a durable task scheduler by purchasing more [capacity units](./dts-dedicated-sku.md#dedicated-sku-concepts). 
+- **Supported hosting plans**: DTS currently only supports Durable Functions running on *Functions Premium* and *App Service* plans. For apps running on the Functions Premium plan, [enable the *Runtime Scale Monitoring* setting](./develop-with-durable-task-scheduler.md#auto-scaling-in-functions-premium-plan) to get auto scaling of the app.
+- **Available regions**: Durable task scheduler is only available in certain Azure regions today. Run this command to get the latest supported regions:  
+
+    `az provider show --namespace Microsoft.DurableTask --query "resourceTypes[?resourceType=='schedulers'].locations | [0]" --out table`. 
+    
+    Consider picking the same region for your durable functions app and the durable task scheduler as having these resources in different regions may impact performance and limit certain network-related functionality.
 - **Scheduler quota**: You can create up to **five schedulers per region** per subscription today. 
 
 ## Next steps
