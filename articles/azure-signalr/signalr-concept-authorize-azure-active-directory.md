@@ -50,7 +50,7 @@ Microsoft Entra ID authorizes access rights to secured resources through [Azure 
 
 ### Resource scope
 
-You might have to determine the scope of access that the security principal should have before you assign any Azure RBAC role to a security principal. We recommend that you grant only the narrowest possible scope. Azure RBAC roles defined at a broader scope are inherited by the resources beneath them.
+Before assigning Azure RBAC roles to a security principal, it’s essential to define the appropriate scope of access they should have. We advise granting the most limited scope necessary to minimize unnecessary permissions. Keep in mind that Azure RBAC roles assigned at a higher or broader scope are automatically inherited by the resources nested within that scope.
 
 You can scope access to Azure SignalR Service resources at the following levels, beginning with the narrowest scope.
 
@@ -65,10 +65,10 @@ You can scope access to Azure SignalR Service resources at the following levels,
 
 | Role                                                                                              | Description                                                                                               | Use case                                                                                                                                     |
 | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| [SignalR App Server](../role-based-access-control/built-in-roles.md#signalr-app-server)           | Access to the WebSocket connection creation API and authentication APIs.                                                | Most commonly used for an app server.                                                                                                             |
-| [SignalR Service Owner](../role-based-access-control/built-in-roles.md#signalr-service-owner)     | Full access to all data-plane APIs, including REST APIs, the WebSocket connection creation API, and authentication APIs. | Use for *serverless mode* for authorization with Microsoft Entra ID, because it requires both REST API permissions and authentication API permissions. |
-| [SignalR REST API Owner](../role-based-access-control/built-in-roles.md#signalr-rest-api-owner)   | Full access to data-plane REST APIs.                                                                      | Often used to write a tool that manages connections and groups, but does *not* make connections or call authentication APIs.                          |
-| [SignalR REST API Reader](../role-based-access-control/built-in-roles.md#signalr-rest-api-reader) | Read-only access to data-plane REST APIs.                                                                 | Commonly used to write a monitoring tool that calls *only* Azure SignalR Service data-plane read-only REST APIs.                                      |
+| [SignalR App Server](../role-based-access-control/built-in-roles.md#signalr-app-server)           | Access to the server connection creation and key generation APIs.                                                | Most commonly used for app server with Azure SignalR resource run in **Default** mode.                                                                                                             |
+| [SignalR Service Owner](../role-based-access-control/built-in-roles.md#signalr-service-owner)     | Full access to all data-plane APIs, including REST APIs, the server connection creation, and key/token generation APIs. | For negotiation server with Azure SignalR resource run in **Serverless** mode, as it requires both REST API permissions and authentication API permissions. |
+| [SignalR REST API Owner](../role-based-access-control/built-in-roles.md#signalr-rest-api-owner)   | Full access to data-plane REST APIs.                                                                      | For using [Azure SignalR Management SDK](/azure/azure-signalr/signalr-howto-use-management-sdk) to manage connections and groups, but does **NOT** make server connections or handle negotiation requests.                          |
+| [SignalR REST API Reader](../role-based-access-control/built-in-roles.md#signalr-rest-api-reader) | Read-only access to data-plane REST APIs.                                                                 | Use it when write a monitoring tool that calls readonly REST APIs.
 
 ## Next steps
 
