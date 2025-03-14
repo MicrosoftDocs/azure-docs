@@ -19,7 +19,7 @@ This article shows you how to enable Azure Arc on an existing Kubernetes cluster
 This procedure assumes that you've read and understood the following articles:
 
 - [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md).
-- [What is Azure Arc-enabled Kubernetes (Preview)?](/azure/azure-arc/kubernetes/overview).
+- [What is Azure Arc-enabled Kubernetes (Preview)?](/azure/azure-arc/kubernetes/overview)
 
 ## Prerequisites
 
@@ -130,8 +130,8 @@ You can also register resource providers via the `az cli`. For more information,
 
       ```powershell
       // ASE resource group and resource name can be obtained from Azure portal
-      PS C:\>$ASEResource= GetAzResource –ResourceGroupName <resource-group-name> -ResourceName <resource-name>
-      PS C:\>$ASEResource.Identity.PrincipalId
+      PS C:\> $ASEResource= GetAzResource –ResourceGroupName <resource-group-name> -ResourceName <resource-name>
+      PS C:\> $ASEResource.Identity.PrincipalId
       xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
       PS C:\>
       ```
