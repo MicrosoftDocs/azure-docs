@@ -10,11 +10,11 @@ ms.subservice: durable
 
 # Durable Task Scheduler backend for Durable Functions (preview)
 
-The durable task scheduler is a fully managed backend for Durable Functions. It is built from scratch and provides several key benefits not available in the "bring your own (BYO)" backend options today. This document discusses different aspects of DTS including architecture, concepts, and key features.
+The durable task scheduler is a fully managed backend for durable function apps. It's built from scratch and provides several key benefits not available in the "bring your own (BYO)" backend options today. This document discusses different aspects of the managed backend including architecture, concepts, and key features.
 
-For an in-depth comparision between the supported storage providers for Durable Functions, see the [Durable Functions storage providers](../durable-functions-storage-providers.md) documentation.
+For an in-depth comparison between the supported storage providers for durable function apps, see the [storage providers](../durable-functions-storage-providers.md) documentation.
 
-## Architecture 
+## Architecture
 
 The Durable Task Scheduler (DTS) is designed from the ground up to be the fastest and most efficient backend for Durable Functions. DTS has its own dedicated compute and memory resources optimized for:
 
@@ -83,13 +83,22 @@ This benchmark showed that the durable task scheduler is roughly **five times fa
 
 ### Supports multiple task hubs
 
-Durable Functions application states are durably persisted in a task hub. A task hub is a logical container for orchestrations and entities and provides a way to partition the state store. One DTS instance allows for the creation of multiple task hubs, each of which can be used by a different application. Just like the dashboard, access to a task hub require that an identity has the required RBAC (role-based access control) permission. This allows for multiple applications to securely share one DTS instance through different task hubs, thus reducing management overhead. 
+Durable function state is durably persisted in a *task hub*. A [task hub](../durable-functions-task-hubs.md) is a logical container for orchestration and entity instances and provides a way to partition the state store. One scheduler instance allows for the creation of multiple task hubs, each of which can be used by different apps. Access to a task hub requires that the caller's identity has the required RBAC (role-based access control) permissions.
 
-### Other features
+Creating multiple task hubs allows you to isolate different workloads and manage them independently. For example, you can create a task hub for each environment (dev, test, prod) or for different teams within your organization. Creating multiple task hubs in a single scheduler instance is also a way to reduce costs, as you can share the same scheduler resources across multiple task hubs. However, task hubs under the same scheduler instance share the same resources, so if one task hub is heavily loaded, it may affect the performance of the other task hubs.
 
-- **DTS emulator**: DTS offers an [emulator for local development](./quickstart-durable-task-scheduler.md#set-up-dts-emulator) through a Docker image. The DTS dashboard is also available when using the emulator. 
+### Emulator for local development
 
-- **Durable Entities**: Users of Durable Entities can use DTS as the backend without any code changes just like orchestrations. Entities related data will surface on the dashboard as well. 
+The [durable task scheduler emulator](./quickstart-durable-task-scheduler.md#set-up-dts-emulator) is a lightweight version of the DTS backend that runs locally in a Docker container. It allows you to develop and test your durable function app without needing to deploy it to Azure. The emulator provides a local version of the management dashboard, so you can monitor and manage your orchestrations and entities just like you would in Azure.
+
+Without any additional configuration, the emulator exposes a task hub named `default`. You can enable additional task hubs by specifying the `DTS_TASK_HUB_NAMES` environment variable with a comma-separated list of task hub names when starting the emulator. For example, to enable two task hubs named `taskhub1` and `taskhub2`, you can run the following command:
+
+```bash
+docker run -d -p 8080:8080 -e DTS_TASK_HUB_NAMES=taskhub1,taskhub2 mcr.microsoft.com/dts/dts-emulator:latest
+```
+
+> [!NOTE]
+> The emulator internally stores orchestration and entity state in local memory, so it isn't suitable for production use.
 
 ## Considerations  
 
