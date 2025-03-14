@@ -10,7 +10,7 @@ ms.subservice: durable
 
 # Durable Task Scheduler backend for Durable Functions (preview)
 
-The durable task scheduler is a fully-managed backend for Durable Functions. It is built from scratch and provides several key benefits not available in the "bring your own (BYO)" backend options today. This document discusses different aspects of DTS including architecture, concepts, and key features.
+The durable task scheduler is a fully managed backend for Durable Functions. It is built from scratch and provides several key benefits not available in the "bring your own (BYO)" backend options today. This document discusses different aspects of DTS including architecture, concepts, and key features.
 
 For an in-depth comparision between the supported storage providers for Durable Functions, see the [Durable Functions storage providers](../durable-functions-storage-providers.md) documentation.
 
@@ -24,7 +24,7 @@ The Durable Task Scheduler (DTS) is designed from the ground up to be the fastes
 
 :::image type="content" source="media/durable-task-scheduler/architecture.png" alt-text="Diagram of the Durable Task Scheduler architecture.":::
 
-Unlike other generic storage providers, DTS is a purpose-built backend-as-a-service optimized for the specific needs of the Durable Task Framework. DTS does the heavy lifting of work item dispatching, partition management, and other tasks typically handled internally by the BYO backends running in the app process (like the Azure Functions host). As a result, durable apps using DTS run with significantly less overhead.
+Unlike other generic storage providers, DTS is a purpose-built backend-as-a-service optimized for the specific needs of the Durable Task Framework. DTS does the heavy lifting of work item dispatching, partition management, and other tasks typically handled internally by the BYO backends running in the app process (like the Azure Functions host). As a result, durable apps using DTS run with less overhead.
 
 ## Feature highlight
 
@@ -33,7 +33,7 @@ Unlike other generic storage providers, DTS is a purpose-built backend-as-a-serv
 
 ### Managed by Azure 
 
-Unlike other [existing storage providers]((../durable-functions-storage-providers.md)) for durable functions, the durable task scheduler offers dedicated resources that are fully managed by Azure. You no longer need to bring your own storage account for storing orchestration and entity state, as it is completely built in.
+Unlike other [existing storage providers]((../durable-functions-storage-providers.md)) for durable functions, the durable task scheduler offers dedicated resources that are fully managed by Azure. You no longer need to bring your own storage account for storing orchestration and entity state, as it is built in.
 
 Since Azure has direct access to your app's backend, it also becomes easier to diagnose and resolve problems related to DTS so users can expect a better support experience. 
 
@@ -47,41 +47,39 @@ Aside from monitoring purposes, you can also perform ad hoc management operation
 
 ### Supports the highest throughput
 
-[TODO - @cgillum  and @sebastianburckhardt to provide more updated data, if available.]
+The durable task scheduler was benchmarked against other storage providers, including the Azure Storage, MSSQL, and Netherite providers. The results show the durable task scheduler provides better throughput than the other options.
 
-The following table shows the results of a series of benchmarks ran to compare the relative throughput of each storage backend provider supported by Durable Functions:
+The following table shows the results of a series of benchmarks ran to compare the relative throughput of the durable task scheduler provider vs. the default Azure Storage provider. The Azure Storage provider was chosen as the comparison because it's by far the most commonly used backend option for durable function apps.
 
-| Backend provider | Throughput (orchestrations/sec) |
-|------------------|---------------------------------|
-| Azure Storage | 26.8 |
-| Azure SQL (MSSQL, 4 vCPUs) | 40.5 |
-| Netherite | 151.3 |
-| DTS | **196.9** |
+:::image type="content" source="media/durable-task-scheduler/performance.png" alt-text="Bar chart comparing throughput of DTS vs Azure Storage providers.":::
 
-To test the relative throughput of the backend providers, these benchmarks were run using a standard orchestration function that calls five activity functions, one for each city, in a list. Each activity simply returns a "Hello, {cityName}!" string value and doesn't do any other work. 
+> [!NOTE]
+> The results shown in the chart are for an early preview version of the durable task scheduler feature, configured with the lowest available scale settings. The results are expected to improve as the backend provider matures and gets closer to general availability.
 
-The intent is to measure the overhead of each backend without doing anything too complicated. This type of orchestration was chosen due to its commonality amongst Durable Functions users. 
+To test the relative throughput of the backend providers, these benchmarks were run using a standard orchestrator function that calls five activity functions, one for each city, in a sequence. Each activity simply returns a "Hello, {cityName}!" string value and doesn't do any other work.
+
+The intent of the benchmark is to measure the overhead of each backend without doing anything too complicated. This type of sequential orchestration was chosen due to its commonality in function apps that include durable functions.
 
 #### Test details
 
 The test consists of the following criteria:  
 
-- The function app used for this test runs on **a single P2v3 App Service virtual machine instance with 16 GB of memory and four cores**. 
-- A Consumption plan was intentionally avoided in order to keep the machine resources constant across all tests. 
+- The function app used for this test runs on **one to four Elastic Premium EP2 instances**. 
 - The orchestration code was written in C# using the **.NET Isolated worker model on NET 8**. 
-- The same app was used for all storage providers, and the only change was the storage provider configuration.
-- The test is triggered using an HTTP trigger which starts **1,000 orchestrations concurrently**. 
+- The same app was used for all storage providers, and the only change was the backend storage provider configuration.
+- The test is triggered using an HTTP trigger which starts **5,000 orchestrations concurrently**. 
 
-Once the test is triggered, the throughput is calculated by dividing the total number of orchestrations completed by the total time taken to complete them. The test was run multiple times for each storage provider configuration to ensure the results were consistent.
+After the test is triggered, the throughput is calculated by dividing the total number of orchestrations completed by the total time taken to complete them. The test was run multiple times for each storage provider configuration to ensure the results were consistent.
 
-For this particular test, the results show that Durable Task Scheduler is **30% faster** than the next fastest storage provider backend, Netherite, and **7.3x faster** than the default Azure Storage provider. Your mileage may vary depending on:
+This benchmark showed that the durable task scheduler is roughly **five times faster** than the Azure Storage provider. Your results might vary depending on:
+
 - The complexity of your orchestrations and activities
 - The number of orchestrations running concurrently
 - The size of the data payloads being passed between orchestrations and activities
 - Other factors such as the virtual machine size. 
 
 > [!NOTE]
-> These results are meant to provide a rough comparison of the relative performance of each storage provider backend, but shouldn't be taken as definitive.
+> These results are meant to provide a rough comparison of the relative performance of the storage provider backends at the time the test was run. These results shouldn't be taken as definitive.
 
 ### Supports multiple task hubs
 
