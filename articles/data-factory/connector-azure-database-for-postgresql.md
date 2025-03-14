@@ -103,7 +103,7 @@ The following properties are supported for the Azure Database for PostgreSQL lin
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| username | The username to connect with. Not required if using IntegratedSecurity. |Yes |
+| username | The username to connect with. Not required if using IntegratedSecurity. | Yes |
 | password | The password to connect with. Not required if using IntegratedSecurity. Mark this field as **SecureString** to store it securely. Or, you can  [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 
 **Example**:
