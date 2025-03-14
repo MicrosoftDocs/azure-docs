@@ -62,6 +62,24 @@ services.AddSignalR().AddAzureSignalR(option =>
 });
 ```
 
+### Use multiple endpoints
+
+Credentials can be different for different endpoints.
+
+In this sample, the Azure SignalR SDK will connect to `resource1` with system-assigned managed identity and connect to `resource2` with user-assigned managed identity.
+
+```csharp
+services.AddSignalR().AddAzureSignalR(option =>
+{
+    option.Endpoints = new ServiceEndpoint[]
+    {
+        var clientId = "<your-user-assigned-identity-client-id>";
+        new ServiceEndpoint(new Uri("https://<resource1>.service.signalr.net"), new ManagedIdentityCredential()),
+        new ServiceEndpoint(new Uri("https://<resource2>.service.signalr.net"), new ManagedIdentityCredential(clientId)),
+    };
+});
+```
+
 
 ### Azure SignalR Service bindings in Azure Functions
 
