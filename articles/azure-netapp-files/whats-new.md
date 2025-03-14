@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 03/06/2025
+ms.date: 03/13/2025
 ms.author: anfdocs
 ---
 
@@ -21,6 +21,18 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     The Flexible service level is only supported with _new_ manual QoS capacity pools. The Flexible service level offers a minimum throughput of 128 MiB/s and a maximum of 640 MiB/s per TiB. This new service level is suitable for applications such as Oracle or SAP HANA and for creating high-capacity volumes with low throughput needs. You can adjust throughput and size limits independently, ensuring flexibility and precise scaling to meet their price-performance requirements. 
 
 ## March 2025
+
+* [Application volume group for Oracle](application-volume-group-oracle-introduction.md) is now generally available (GA)
+
+    Application volume group for Oracle enables you to deploy all volumes required to install and operate Oracle databases at enterprise scale, with optimal performance and according to best practices in a single one-step and optimized workflow. The application volume group feature uses the Azure NetApp Files ability to place all volumes in the same availability zone as the VMs to achieve automated, latency-optimized deployments. Azure NetApp Files application volume group shortens Oracle database deployment time and increases overall application performance and stability, including the use of multiple storage endpoints. The application volume group feature supports a wide range of Oracle database layouts from small databases with a single volume up to multi 100-TiB sized databases. Application volume group for Oracle is supported in all Azure NetApp Files-enabled regions.
+
+* [Application volume group for SAP HANA extension one](application-volume-group-introduction.md) is now generally available (GA)
+
+    Application volume group for SAP HANA extension one enables you to improve your volume group deployment experience for SAP HANA. Key improvements include: 
+
+    - Support for availability zone volume placement, avoiding the manual AVset pining requirement (when using PPG) 
+    - Support for Standard network features for SAP HANA volumes 
+    - Support for customer-managed keys for increased security and compliance
 
 * [Storage with cool access enhancement:](manage-cool-access.md) snapshot-only tiering policy
 

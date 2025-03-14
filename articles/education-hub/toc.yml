@@ -20,12 +20,6 @@
       href: azure-dev-tools-teaching/about-program.md
 - name: Quickstarts
   items:
-  - name: Azure Classroom
-    items:
-    - name: Access the Education Hub
-      href: access-education-hub.md
-    - name: Set up a lab
-      href: set-up-lab.md
   - name: Azure Dev Tools for Teaching
     items:
     - name: Enroll or renew a subscription
@@ -38,8 +32,6 @@
     items:
     - name: Use a script to automate lab functionality
       href: full-api-script.md
-    - name: Add students to a lab with REST APIs
-      href: add-student-api.md
   - name: Azure Dev Tools for Teaching
     items:
     - name: Download software
