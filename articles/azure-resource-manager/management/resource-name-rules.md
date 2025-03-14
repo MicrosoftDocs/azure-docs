@@ -634,7 +634,7 @@ In the following tables, the term alphanumeric refers to:
 > | netAppAccounts / backups | NetApp account | 3-225 | Alphanumerics, underscores, periods, and hyphens <br><br> Start with alphanumeric. |
 > | netAppAccounts / backupPolicies | NetApp account | 1-64 | Alphanumerics, underscores, and hyphens <br><br> Start with alphanumeric. |
 > | netAppAccounts / capacityPools | NetApp account | 1-64 |  Alphanumerics, underscores, and hyphens<br><br>Start with alphanumeric. |
-> | netAppAccounts / shareName | NetApp account | 1-64 | Alphanumerics and hyphens. <br><br>Start with alphanumeric.<br><br>Underscores aren't supported. |
+> | netAppAccounts / shareNames | NetApp account | 1-64 | Alphanumerics and hyphens. <br><br>Start with alphanumeric.<br><br>Underscores aren't supported. |
 > | netAppAccounts / snapshots | NetApp account | 1-255 | Alphanumerics, underscores, and hyphens <br><br> Start with alphanumeric. |
 > | netAppAccounts / snapshotPolicies | NetApp account | 1-64 |  Alphanumerics, underscores, and hyphens<br><br>Start with alphanumeric. |
 > | netAppAccounts / volumes | NetApp account | 1-64 | Alphanumerics and hyphens <br><br> Start with alphanumeric. <br><br> Volume can't be named `bin` or `default`. |
