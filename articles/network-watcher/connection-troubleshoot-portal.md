@@ -43,9 +43,9 @@ In this article, you learn how to use the connection troubleshoot feature of Azu
 
 - Azure Cloud Shell or Azure PowerShell.
 
-    The steps in this article run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+    The steps in this article run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the cmdlets in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
-    You can also install Azure PowerShell locally to run the cmdlets. This article requires the Az PowerShell module. For more information, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell). To find the installed version, run `Get-InstalledModule -Name Az`. If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
+    You can also install Azure PowerShell locally to run the cmdlets. This article requires the Az PowerShell module. For more information, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell). If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 # [**Azure CLI**](#tab/cli)
 
@@ -68,6 +68,7 @@ In this article, you learn how to use the connection troubleshoot feature of Azu
 ---
 
 > [!NOTE]
+>  The Network Watcher agent VM extension is required on the source virtual machine to run the connection troubleshoot *connectivity test*. The extension is automatically installed on the virtual machine when using the Azure portal. If you don't have the extension installed, you can install it manually:
 > - To install the extension on a Windows virtual machine, see [Network Watcher agent VM extension for Windows](network-watcher-agent-windows.md).
 > - To install the extension on a Linux virtual machine, see [Network Watcher agent VM extension for Linux](network-watcher-agent-linux.md).
 > - To update an already installed extension, see [Update Network Watcher agent VM extension to the latest version](network-watcher-agent-update.md).
@@ -157,7 +158,7 @@ In this section, you test the remote desktop port (RDP) connectivity from one vi
 
 # [**PowerShell**](#tab/powershell)
 
-Use [Test-AzNetworkWatcherConnectivity](/powershell/module/az.network/test-aznetworkwatcherconnectivity) cmdlet to run connection troubleshoot diagnostic tests to test the connectivity to a virtual machine over port 3389:
+Use [Test-AzNetworkWatcherConnectivity](/powershell/module/az.network/test-aznetworkwatcherconnectivity) cmdlet to run connection troubleshoot to test the connectivity to a virtual machine over port 3389:
 
 ```azurepowershell-interactive
 # Test connectivity between two virtual machines that are in the same resource group over port 3389.
@@ -166,7 +167,7 @@ Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/a
 
 - If the two virtual machines are communicating with no issues, you see the following results:
 
-    ```output
+    ```json
     Hops             : {aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb, bbbbbbbb-1111-2222-3333-cccccccccccc}
     ConnectionStatus : Reachable
     AvgLatencyInMs   : 1
@@ -203,7 +204,7 @@ Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/a
 
 - If the destination virtual machine has a network security group that's denying incoming RDP connections, you see the following results:
 
-    ```output
+    ```json
     Hops             : {aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb, bbbbbbbb-1111-2222-3333-cccccccccccc}
     ConnectionStatus : Unreachable
     AvgLatencyInMs   : 
@@ -261,7 +262,7 @@ Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/a
 
 - If the source virtual machine has a network security group that's denying RDP connections to the destination, you see the following results:
 
-    ```output
+    ```json
     Hops             : {aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb, bbbbbbbb-1111-2222-3333-cccccccccccc}
     ConnectionStatus : Unreachable
     AvgLatencyInMs   : 
@@ -319,7 +320,7 @@ Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/a
 
 - If the operating system on the destination virtual machine doesn't accept incoming connections on port 3389, you see the following results:
 
-    ```output
+    ```json
     Hops             : {aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb, bbbbbbbb-1111-2222-3333-cccccccccccc}
     ConnectionStatus : Unreachable
     AvgLatencyInMs   : 
@@ -740,7 +741,7 @@ Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/a
 
 - If `www.bing.com` is reachable from the source virtual machine, you see the following results:
 
-    ```output
+    ```json
     Hops             : {aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb, bbbbbbbb-1111-2222-3333-cccccccccccc}
     ConnectionStatus : Reachable
     AvgLatencyInMs   : 1
@@ -775,7 +776,7 @@ Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/a
 
 - If `www.bing.com` is unreachable from the source virtual machine due to a security rule, you see the following results:
 
-    ```output
+    ```json
     Hops             : {aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb, bbbbbbbb-1111-2222-3333-cccccccccccc}
     ConnectionStatus : Unreachable
     AvgLatencyInMs   : 
@@ -1039,7 +1040,7 @@ Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/a
 ```
 
 - If the IP address is reachable, you see the following results:
-    ```output
+    ```json
     Hops             : {aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb, bbbbbbbb-1111-2222-3333-cccccccccccc}
     ConnectionStatus : Reachable
     AvgLatencyInMs   : 1
@@ -1074,7 +1075,7 @@ Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/a
 
 - If the IP address is unreachable because the destination virtual machine isn't running, you see the following results: 
 
-    ```output
+    ```json
     Hops             : {aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb, bbbbbbbb-1111-2222-3333-cccccccccccc}
     ConnectionStatus : Unreachable
     AvgLatencyInMs   : 
@@ -1113,7 +1114,7 @@ Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/a
 
 - If there's no route to the IP address in the routing table of the source virtual machine (for example, the IP address isn't in the address space of the VM's virtual network or its peered virtual networks), you see the following results: 
 
-    ```output
+    ```json
     Hops             : {aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb, bbbbbbbb-1111-2222-3333-cccccccccccc}
     ConnectionStatus : Unreachable
     AvgLatencyInMs   : 
@@ -1407,7 +1408,7 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
 
 ---
 
-## Next step
+## Related content
 
-> [!div class="nextstepaction"]
-> [Manage packet captures](packet-capture-vm-portal.md)
+- [What is Azure Network Watcher?](network-watcher-overview.md)
+- [Connection troubleshoot](connection-troubleshoot-overview.md)
