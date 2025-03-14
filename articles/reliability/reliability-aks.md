@@ -24,8 +24,6 @@ When you create an AKS cluster, the Azure platform automatically creates and con
 
 AKS only handles compute and the management of compute resources. AKS requires deep integration with other Azure components, like load balancers, virtual networks, and storage. When you deploy your workloads, you need to ensure that the other Azure components are also configured for resiliency by following the best practices for those services.
 
-AKS offers three pricing tiers for cluster management: **Free**, **Standard**, and **Premium**. For more information, see [Free, Standard, and Premium pricing tiers for Azure Kubernetes Service (AKS) cluster management](/azure/aks/free-standard-pricing-tiers). The Free tier enables you to use AKS to test your workloads. The Standard and Premium tiers are designed for production workloads.
-
 ## Production deployment recommendations
 
 For recommendations on how to deploy production workloads in AKS, see the following articles:
@@ -122,8 +120,8 @@ For most solutions, you shouldn't rely exclusively on backups. Instead, use the 
 ## Service-level agreement
 
 The service-level agreement (SLA) for Azure Logic Apps describes the expected availability of the service. This agreement also describes the conditions to meet for achieving this expectation. To understand these conditions, make sure that you review the [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
-	
-When you deploy an AKS cluster with availability zones enabled, the uptime percentage defined in the SLA increases. However, you're only covered by the SLA if you deploy a cluster in the Standard or Premium pricing tiers.
+
+AKS offers three pricing tiers for cluster management: **Free**, **Standard**, and **Premium**. For more information, see [Free, Standard, and Premium pricing tiers for Azure Kubernetes Service (AKS) cluster management](/azure/aks/free-standard-pricing-tiers). The Free tier enables you to use AKS to test your workloads. The Standard and Premium tiers are designed for production workloads. When you deploy an AKS cluster with availability zones enabled, the uptime percentage defined in the SLA increases. However, you're only covered by the SLA if you deploy a cluster in the Standard or Premium pricing tiers.
 
 ## Related content
 
