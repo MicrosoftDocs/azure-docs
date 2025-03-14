@@ -275,7 +275,7 @@ Sudo privileges are not granted to the extensions for assessment or patching ope
 EXCEPTION: Exception('Unable to invoke sudo successfully. Output: root is not in the sudoers file. This incident will be reported. False ',)
 ```
 
-Azure Update Manager (*AUM*) requires a high level of permissions due to the many different components that may be updated with AUM (*Kernel drivers, OS Security Patching, etc.*). The AUM extension uses the `root` account for operations.
+Azure Update Manager (*AUM*) requires a high level of permissions due to the many different components that may be updated with AUM (*Kernel drivers, OS Security Patching, etc.*). The AUM extensions use the `root` account for operations.
 
 #### Resolution
 Grant sudo privileges to ensure assessment or patching operations succeed. You will need to add the root account to the sudoers file.
