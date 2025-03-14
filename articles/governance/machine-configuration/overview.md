@@ -38,7 +38,7 @@ Azure Policy assignment orchestrated the configuration is orchestrated, you can 
 evaluated resource" link on the ["Compliance details" page][07]. 
 
 > [!NOTE]
-> Machine Configuration currently supports the creation of 50 guest assignments per machine. Past this limit, there may be irregular reporting of the compliance status of the machine.
+> Machine Configuration currently supports the creation of up to 50 guest assignments per machine.
 
 ## Enforcement Modes for Custom Policies
 
