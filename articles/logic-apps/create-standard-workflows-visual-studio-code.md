@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/12/2025
+ms.date: 03/17/2025
 ms.custom: engagement-fy23, devx-track-dotnet
 # Customer intent: As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
 ---
@@ -222,7 +222,7 @@ After you create the required workspace, follow the prompts to create your proje
    >
    > If you don't select this option, and you later try to add a managed connector 
    > operation when you build your workflow, you can't continue because the operation 
-   > information pane shows an endlessly-spinning waiting symbol.
+   > information pane shows a spinning circle that doesn't stop.
 
 1. For the Azure resource group, select **Create new resource group**. Enter the resource group name to use.
 
@@ -315,11 +315,11 @@ If you need to delete an item from the designer, [follow these steps for deletin
 
    If the action doesn't appear in the initial results, next to the connector name, select **See more**, for example:
 
-   :::image type="content" source="media/create-standard-workflows-visual-studio-code/add-send-email-action.png" alt-text="Screenshot shows workflow designer and Add an action pane with action search results, and selected See more option.":::
+   :::image type="content" source="media/create-standard-workflows-visual-studio-code/add-send-email-action.png" alt-text="Screenshot shows workflow designer and Add an action pane with action search results, and selected See more options.":::
 
 1. When the action's authentication pane appears, select **Sign in** to create a connection to your email account.
 
-   :::image type="content" source="media/create-standard-workflows-visual-studio-code/send-email-action-sign-in.png" alt-text="Screenshot shows action named Send an email (V2) with selected sign in button.":::
+   :::image type="content" source="media/create-standard-workflows-visual-studio-code/send-email-action-sign-in.png" alt-text="Screenshot shows actions named Send an email (V2) with selected sign in button.":::
 
 1. Follow the subsequent prompts to authenticate your credentials, allow access, and allow returning to Visual Studio Code.
 
@@ -642,7 +642,7 @@ To test your workflow, follow these steps to run a debugging session and find th
 
    1. Copy and save the **Callback URL**, which looks similar to the following URL for the **When an HTTP request is received** trigger in this example:
 
-      `http://localhost:7071/api/<workflow-name>/triggers/manual/invoke?api-version=2020-05-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<shared-access-signature>`
+      **`http://localhost:7071/api/<workflow-name>/triggers/manual/invoke?api-version=2020-05-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<shared-access-signature>`
 
       :::image type="content" source="media/create-standard-workflows-visual-studio-code/find-callback-url.png" alt-text="Screenshot shows workflow overview page with callback URL.":::
 
@@ -703,7 +703,7 @@ To test your workflow, follow these steps to run a debugging session and find th
    | **Cancelled** | The action was running but received a request to cancel. |
    | **Failed** | The action failed. |
    | **Running** | The action is currently running. |
-   | **Skipped** | The action was skipped because the immediately preceding action failed. An action has a `runAfter` condition that requires that the preceding action finishes successfully before the current action can run. |
+   | **Skipped** | The action was skipped because the immediately preceding action failed. An action has a **`runAfter`** condition that requires that the preceding action finishes successfully before the current action can run. |
    | **Succeeded** | The action succeeded. |
    | **Succeeded with retries** | The action succeeded but only after one or more retries. To review the retry history, in the run history details view, select that action so that you can view the inputs and outputs. |
    | **Timed out** | The action stopped due to the time-out limit specified by that action's settings. |
@@ -783,9 +783,9 @@ To find the fully qualified domain names (FQDNs) for these connections, follow t
 
    The following example **connections.json** file contains two connections, an Office 365 connection and an AS2 connection. Both use managed identities for authentication and have the following **`connectionRuntimeUrl`** values, respectively:
 
-   - Office 365: `"connectionRuntimeUrl": https://A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u.00.common.logic-<Azure-region>.azure-apihub.net/apim/office365/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1`
+   - Office 365: **`"connectionRuntimeUrl": https://A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u.00.common.logic-<Azure-region>.azure-apihub.net/apim/office365/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1`
 
-   - AS2: `"connectionRuntimeUrl": https://A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u.00.common.logic-<Azure-region>.azure-apihub.net/apim/as2/b1b1b1b1-cccc-dddd-eeee-f2f2f2f2f2f2`
+   - AS2: **`"connectionRuntimeUrl": https://A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u.00.common.logic-<Azure-region>.azure-apihub.net/apim/as2/b1b1b1b1-cccc-dddd-eeee-f2f2f2f2f2f2`
 
    ```json
    {
@@ -898,7 +898,7 @@ Deployment for the Standard logic app resource requires a hosting plan and prici
    1. For the Azure storage account to use with workflows that enable saving run history information, choose from the following options:
    
       - **Create new storage account**
-      - Select from existing existing Azure storage accounts, if any exist.
+      - Select from existing Azure storage accounts, if any.
 
       This example selects **Create new storage account**.
 
@@ -936,7 +936,7 @@ Deployment for the Standard logic app resource requires a hosting plan and prici
 
 1. When you're ready to deploy, in the confirmation message, select **Deploy**.
 
-   Visual Studio Code starts to create and deploy the necesssary resources to publish your logic app to Azure.
+   Visual Studio Code starts to create and deploy the necessary resources to publish your logic app to Azure.
 
 1. To view and monitor the deployment process, on the **View** menu, select **Output**.
 
@@ -1058,7 +1058,9 @@ After you deploy your logic app from Visual Studio Code to the Azure portal, con
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
-1. In the Azure title search box, enter your logic app name, which should appear as a result in the **Resources** section. Select your logic app.
+1. In the Azure title search box, enter your logic app name, which should appear as a result in the **Resources** section. Select your logic app to open the resource.
+
+   :::image type="content" source="media/create-standard-workflows-visual-studio-code/find-deployed-workflow-azure-portal.png" alt-text="Screenshot shows Azure search box with logic app name entered.":::
 
 1. On the logic app menu, under **Workflows**, select **Workflows**.
 
@@ -1106,23 +1108,25 @@ During workflow execution, your logic app workflow emits telemetry along with ot
 
 1. On the **Application Insights** page, select **Turn on Application Insights**.
 
-1. After the **Application Insights** page updates, in the **Change your resource** section, select from the following options:
+1. After the **Application Insights** page updates, in the **Change your resource** section, select from the following options: 
 
    - **Create new resource**
+
+     Azure creates resources for Application Insights and a Log Analytics workspace using the current subscription and resource group. If you want to use a different subscription and resource group, see [Create a new Application Insights resource](/azure/azure-monitor/app/create-workspace-resource?tabs=portal), and then return to this page.
 
      | Property | Description |
      |----------|-------------|
      | **New resource name** | Either accept the generated name or provide another name. |
      | **Location** | Select an Azure region. |
-     | **Log Analytics workspace** | Select an existing workspace, if any exists. Otherwise, a default workspace is created for you. For more information, see [Log Analytics workspace overview](/azure/azure-monitor/logs/log-analytics-workspace-overview). |
+     | **Log Analytics workspace** | Select an existing workspace, if any. Otherwise, a default workspace is created for you. For more information, see [Log Analytics workspace overview](/azure/azure-monitor/logs/log-analytics-workspace-overview). |
 
    - **Select existing resource**:
 
-     1. For the subscription, select the Azure subscription for the Application Insights resource.
+     1. Select the Azure subscription for your Application Insights resource.
 
-     1. From the Application Insights resources associated with the subscription, select the resource you want.
+     1. Select your Application Insights resource.
 
-1. After the pane updates, at the bottom, select **Apply**.
+1. When you're done, at the page bottom, select **Apply**.
 
 #### Open Application Insights from your logic app
 
@@ -1130,7 +1134,7 @@ During workflow execution, your logic app workflow emits telemetry along with ot
 
 1. On the logic app menu, under **Monitoring**, select **Application Insights**.
 
-1. On the **Application Insights** page, select **View Application Insights data**.
+1. On the **Application Insights** page, select the link for your Application Insights resource.
 
 After Application Insights opens, you can review various metrics for your logic app. For more information, see these articles:
 
@@ -1145,13 +1149,13 @@ After Application Insights opens, you can review various metrics for your logic 
 
 ### Designer fails to open
 
-When you try to open the designer, you get this error, **"Workflow design time could not be started"**. If you previously tried to open the designer, and then discontinued or deleted your project, the extension bundle might not be downloading correctly. To check whether this cause is the problem, follow these steps:
+When you try to open the designer, you get this error, **"Workflow design time could not be started"**. If you previously tried to open the designer, and then discontinued or deleted your project, the extension bundle might not correctly download. To check whether this reason is the cause, follow these steps:
 
   1. In Visual Studio Code, open the Output window. From the **View** menu, select **Output**.
 
   1. From the list in the Output window's title bar, select **Azure Logic Apps (Standard)** so that you can review output from the extension, for example:
 
-     ![Screenshot that shows the Output window with "Azure Logic Apps" selected.](./media/create-standard-workflows-visual-studio-code/check-output-window-azure-logic-apps.png)
+     :::image type="content" source="media/create-standard-workflows-visual-studio-code/check-output-window-azure-logic-apps.png" alt-text="Screenshot shows Output window with scope list and Azure Logic Apps (Standard) selected.":::
 
   1. Review the output and check whether this error message appears:
 
@@ -1173,7 +1177,7 @@ When you try to open the designer, you get this error, **"Workflow design time c
 
 ### New triggers and actions are missing from the designer picker for previously created workflows
 
-Single-tenant Azure Logic Apps supports built-in actions for Azure Function Operations, Liquid Operations, and XML Operations, such as **XML Validation** and **Transform XML**. However, for previously created logic apps, these actions might not appear in the designer picker for you to select if Visual Studio Code uses an outdated version of the extension bundle, `Microsoft.Azure.Functions.ExtensionBundle.Workflows`.
+Single-tenant Azure Logic Apps supports built-in actions for Azure Function Operations, Liquid Operations, and XML Operations, such as **XML Validation** and **Transform XML**. However, for previously created logic apps, these actions might not appear in the designer picker for you to select if Visual Studio Code uses an outdated version of the extension bundle, **`Microsoft.Azure.Functions.ExtensionBundle.Workflows`.
 
 Also, the **Azure Function Operations** connector and actions don't appear in the designer picker unless you enabled or selected **Use connectors from Azure** when you created your logic app. If you didn't enable the Azure-deployed connectors at app creation time, you can enable them from your project in Visual Studio Code. Open the **workflow.json** shortcut menu, and select **Use Connectors from Azure**.
 
@@ -1189,13 +1193,13 @@ To fix the outdated bundle, follow these steps to delete the outdated bundle, wh
 
 1. On your computer, browse to the following folder, which contains versioned folders for the existing bundle:
 
-   `...\Users\<user-name>\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows`
+   **`...\Users\<user-name>\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows`
 
 1. Delete the version folder for the earlier bundle, for example, if you have a folder for version 1.1.3, delete that folder.
 
 1. Now, browse to the following folder, which contains versioned folders for required NuGet package:
 
-   `...\Users\<user-name>\.nuget\packages\microsoft.azure.workflows.webjobs.extension`
+   **`...\Users\<user-name>\.nuget\packages\microsoft.azure.workflows.webjobs.extension`
 
 1. Delete the version folder for the earlier package.
 
@@ -1209,32 +1213,32 @@ The missing triggers and actions now appear in the designer.
 
 When a run fails, and you inspect the run in monitoring view, this error might appear on a trigger or action that has a longer name, which causes the underlying Uniform Resource Identifier (URI) to exceed the default character limit.
 
-To resolve this problem and adjust for the longer URI, edit the `UrlSegmentMaxCount` and `UrlSegmentMaxLength` registry keys on your computer by following the steps below. These key's default values are described in this topic, [Http.sys registry settings for Windows](/troubleshoot/iis/httpsys-registry-windows).
+To resolve this problem and adjust for the longer URI, edit the **`UrlSegmentMaxCount`** and **`UrlSegmentMaxLength`** registry keys on your computer by following the steps below. These key's default values are described in this topic, [Http.sys registry settings for Windows](/troubleshoot/iis/httpsys-registry-windows).
 
 > [!IMPORTANT]
 >
 > Before you start, make sure that you save your work. This solution requires you 
 > to restart your computer after you're done so that the changes can take effect.
 
-1. On your computer, open the **Run** window, and run the `regedit` command, which opens the registry editor.
+1. On your computer, open the **Run** window, and run the **`regedit`** command, which opens the registry editor.
 
 1. In the **User Account Control** box, select **Yes** to permit your changes to your computer.
 
 1. In the left pane, under **Computer**, expand the nodes along the path, **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters**, and then select **Parameters**.
 
-1. In the right pane, find the `UrlSegmentMaxCount` and `UrlSegmentMaxLength` registry keys.
+1. In the right pane, find the **`UrlSegmentMaxCount`** and **`UrlSegmentMaxLength`** registry keys.
 
 1. Increase these key values enough so that the URIs can accommodate the names that you want to use. If these keys don't exist, add them to the **Parameters** folder by following these steps:
 
    1. From the **Parameters** shortcut menu, select **New** > **DWORD (32-bit) Value**.
 
-   1. In the edit box that appears, enter `UrlSegmentMaxCount` as the new key name.
+   1. In the edit box that appears, enter **`UrlSegmentMaxCount`** as the new key name.
 
    1. Open the new key's shortcut menu, and select **Modify**.
 
-   1. In the **Edit String** box that appears, enter the **Value data** key value that you want in hexadecimal or decimal format. For example, `400` in hexadecimal is equivalent to `1024` in decimal.
+   1. In the **Edit String** box that appears, enter the **Value data** key value that you want in hexadecimal or decimal format. For example, **`400`** in hexadecimal is equivalent to **`1024`** in decimal.
 
-   1. To add the `UrlSegmentMaxLength` key value, repeat these steps.
+   1. To add the **`UrlSegmentMaxLength`** key value, repeat these steps.
 
    After you increase or add these key values, the registry editor looks like this example:
 
@@ -1248,9 +1252,9 @@ To resolve this problem and adjust for the longer URI, edit the `UrlSegmentMaxCo
 
 When you try to start a debugging session, you get the error, **"Error exists after running preLaunchTask 'generateDebugSymbols'"**. To resolve this problem, edit the **tasks.json** file in your project to skip symbol generation.
 
-1. In your project, expand the folder that's named **.vscode**, and open the **tasks.json** file.
+1. In your project, expand the **.vscode** folder, and open the **tasks.json** file.
 
-1. In the following task, delete the line, `"dependsOn: "generateDebugSymbols"`, along with the comma that ends the preceding line, for example:
+1. In the following task, delete the line, **`"dependsOn: "generateDebugSymbols"`**, along with the comma that ends the preceding line, for example:
 
    Before:
 
