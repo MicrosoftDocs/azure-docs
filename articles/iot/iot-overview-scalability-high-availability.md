@@ -36,7 +36,7 @@ An IoT solution might need to support millions of connected assets and devices. 
 
 # [Edge-based solution](#tab/edge)
 
-Deploy Azure IoT Operations on a multi-node cluster to ensure that you can handle increased traffic or workload demands. When Azure IoT Operations runs on a multi-node cluster, it can process more data and take advantage of the scabalability and high-availability capabilities of Kubernetes.
+Deploy Azure IoT Operations on a multi-node cluster to ensure that you can handle increased traffic or workload demands. When Azure IoT Operations runs on a multi-node cluster, it can process more data and take advantage of the scalability and high-availability capabilities of Kubernetes.
 
 You can horizontally scale the MQTT broker of Azure IoT Operations by adding more frontend replicas and backend partitions. The frontend replicas are responsible for accepting MQTT connections from clients and forwarding them to the backend partitions. The backend partitions are responsible for storing and delivering messages to the clients. The frontend pods distribute message traffic across the backend pods. The backend redundancy factor determines the number of data copies to provide resiliency against node failures in the cluster. To learn more, see [Configure broker settings for high availability, scaling, and memory usage](../iot-operations/manage-mqtt-broker/howto-configure-availability-scale.md).
 
