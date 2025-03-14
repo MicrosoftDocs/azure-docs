@@ -100,7 +100,7 @@ To create Azure Container Apps resources that match the configurations of your e
 1. The previous command generates a **README.md** file with detailed instructions. Follow those instructions to update the required parameters in the Bicep files.
 
    > [!NOTE]
-   > Azure Container Apps requires containerized image URLs. If you don't yet have a containerized image URL for your application, you can leave the quickstart image URL in the parameters unchanged, and deploy your own application later. For more information on obtaining container images, see [Application containerization](./migrate-to-azure-container-apps-build-overview.md)
+   > Azure Container Apps requires containerized image URLs. If you don't yet have a containerized image URL for your application, you can leave the quickstart image URL in the parameters unchanged, and deploy your own application later. For more information on obtaining container images, see [Overview of containerization](./migrate-to-azure-container-apps-build-overview.md)
 
 1. If a resource group doesn't exist, create it by using the following command:
 
