@@ -172,13 +172,13 @@ You can create, verify, and deploy a code project to your new function app from 
 
 1. [Create the local code project](./functions-run-local.md#create-your-local-project)
 1. [Verify locally](./functions-run-local.md#run-a-local-function)
-1. [Publish to Azure](./functions-run-local.md#publish-to-azure)
+1. [Publish to Azure](./functions-run-local.md#publish)
 
 ### [Visual Studio Code](#tab/vs-code)
 
 1. [Create the local code project](./functions-develop-vs-code.md#create-an-azure-functions-project)
 1. [Verify locally](./functions-develop-vs-code.md#run-functions-locally)
-1. [Publish to Azure](./functions-develop-vs-code.md#deploy-project-files)
+1. [Publish to Azure](./functions-develop-vs-code.md#republish-project-files)
  
 ### [Visual Studio](#tab/vs)
 
