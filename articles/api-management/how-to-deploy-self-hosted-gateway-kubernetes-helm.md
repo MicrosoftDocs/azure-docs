@@ -4,7 +4,7 @@ description: Learn how to deploy self-hosted gateway component of Azure API Mana
 author: tomkerkhove
 manager: mrcarlosdev
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/21/2021
 ms.author: tomkerkhove
 ---
