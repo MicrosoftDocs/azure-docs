@@ -1,12 +1,12 @@
 ---
 title: Migrate to Azure Container Apps
-description: Describes an overview approach of migrating to Azure Container Apps.
+description: Describes migrating to Azure Container Apps.
 author: KarlErickson
 ms.author: karler
-ms.reviewer: dixue
+ms.reviewer: dingmeng-xue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article
-ms.date: 03/10/2025
+ms.date: 03/13/2025
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
@@ -80,35 +80,50 @@ The migration approach from Azure Spring Apps to Azure Container Apps involves t
 
 ## Migration assistant tool
 
-To speed up your migration and help you evaluate features on Azure Container Apps, we provide a new command in Azure CLI. This command retrieves the configurations of existing Azure Spring Apps resource based on the resource id of service instance and translates them into Biceps files for Azure Container App resources. This method allows you to quickly set up an Azure Container Apps managed environment and applications while applying basic settings similar to those in your Azure Spring Apps. For more details, refer to the following steps or see [az spring export](/cli/azure/spring#az-spring-export)
+To speed up your migration and help you evaluate features on Azure Container Apps, we provide a new command in Azure CLI. This command retrieves the configurations of existing Azure Spring Apps resources based on the resource ID of the service instance and translates them into Bicep files for Azure Container App resources. This method enables you to quickly set up an Azure Container Apps managed environment and applications while applying basic settings similar to those in your existing Azure Spring Apps resources. For more information, see [az spring export](/cli/azure/spring#az-spring-export).
 
-1. Install Azure CLI version 2.45.0 or higher and latest version of Azure Spring Apps extension using the following command `az extension add --name spring`.
-1. Generate Bicep files to create the corresponding Azure Container Apps resources. It also generates a `README.md` file with detailed instructions.
-   ```azurecli
-   az spring export \ 
-       --target aca \
-       --subscription <subscription-id> \
-       --resource-group <resource-group-name> \
-       --service <service-name> \
-       --output-folder <output-folder-name> 
-   ```
-1. Follow the instructions in `README.md` to update the required parameters in the Bicep files.
-1. Create a resource group if it doesn't exist.
-   ```azurecli
-   az group create \
-       --subscription <subscription-id> \
-       --name <resource-group-name> \
-       --location <location> 
-   ```
-1. Deploy Azure Container Apps resources to the resource group. You may need to run the command multiple times and adjust the configuration based on the response message.
-   ```azurecli
-   az deployment group create
-     --resource-group <resource-group-name> --template-file main.bicep --parameters param.bicepparam --subscription <subscription-id>
-   ```
-1. Follow the instructions in `README.md` file to update resources for advanced features. These features include uploading certificates, enabling a custom domain, adding role assignments to the system-assigned managed identity, and more.
+To create Azure Container Apps resources that match the configurations of your existing Azure Spring Apps resources, use the following steps:
 
-If you need the Terraform configuration of those resources, you can export them using the export workflow of Azure Terraform Resource Provider. For more information, see [Overview of the Azure Terraform Resource Provider](/azure/developer/terraform/azure-terraform-resource-provider/resource-provider-overview).
- 
+1. Install Azure CLI version 2.45.0 or higher and the latest version of Azure Spring Apps extension by using the `az extension add --name spring` command.
+
+1. Generate Bicep files to create the corresponding Azure Container Apps resources by using the following command:
+
+    ```azurecli
+    az spring export \
+        --resource-group <resource-group-name> \
+        --target aca \
+        --subscription <subscription-id> \
+        --service <service-name> \
+        --output-folder <output-folder-name> 
+    ```
+
+1. The previous command generates a **README.md** file with detailed instructions. Follow those instructions to update the required parameters in the Bicep files.
+
+1. If a resource group doesn't exist, create it by using the following command:
+
+    ```azurecli
+    az group create \
+        --name <resource-group-name> \
+        --subscription <subscription-id> \
+        --location <location> 
+    ```
+
+1. Deploy Azure Container Apps resources to the resource group by using the following command:
+
+    > [!NOTE]
+    > You may need to run the command multiple times and adjust the configuration based on the response message.
+
+    ```azurecli
+    az deployment group create \
+      --resource-group <resource-group-name> \
+      --template-file main.bicep \
+      --parameters param.bicepparam \
+      --subscription <subscription-id>
+    ```
+
+1. Follow the instructions in the **README.md** file to update resources for advanced features. These features include uploading certificates, enabling a custom domain, adding role assignments to the system-assigned managed identity, and more.
+
+1. If you need the Terraform configuration of those resources, export them using the export workflow of Azure Terraform Resource Provider. For more information, see [Overview of the Azure Terraform Resource Provider](/azure/developer/terraform/azure-terraform-resource-provider/resource-provider-overview).
 
 ## Tutorial
 
