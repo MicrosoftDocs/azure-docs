@@ -13,16 +13,10 @@ ms.topic: conceptual
 
 # Configure a lifecycle management policy for access tiers
 
+You can use Lifecycle management policies to transition blobs to cost-efficient access tiers based on their use patterns. For example, you can transition blobs to a cooler access tier if they haven't been accessed for a period of time and then return them back to a warmer tier when once they are accessed. 
 
-You can use Lifecycle management policies to transition blobs to cost-efficient access tiers based on their use patterns
-
-- Transition blobs to cost-efficient access tiers based on their use patterns. 
-- Transition blobs to a cooler storage tier if these objects haven't been accessed or modified for a period of time. 
-- Transition blobs blobs back from the cool tier to the hot tier immediately when they're accessed. 
-
-
-
- tiering actions are not supported for append blobs, page blobs, or block blobs that are located in a premium block blob storage account.
+> [!NOTE]
+> You can't use a lifecycle management policy to change the tier of an append blob or a page blob, or a block blob that is located in a premium block blob storage account.
 
 ## Move aging data to a cooler tier
 
