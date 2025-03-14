@@ -161,27 +161,29 @@ Use [New-AzNetworkWatcherFlowLog](/powershell/module/az.network/new-aznetworkwat
 
 ```azurepowershell-interactive
 # Place the virtual network configuration into a variable.
-$vnet = Get-AzVirtualNetwork -Name myVNet -ResourceGroupName myResourceGroup
+$vnet = Get-AzVirtualNetwork -Name 'myVNet' -ResourceGroupName 'myResourceGroup'
+
 # Place the storage account configuration into a variable.
-$storageAccount = Get-AzStorageAccount -Name myStorageAccount -ResourceGroupName myResourceGroup
+$storageAccount = Get-AzStorageAccount -Name 'myStorageAccount' -ResourceGroupName 'myResourceGroup'
 
 # Create a VNet flow log.
-New-AzNetworkWatcherFlowLog -Enabled $true -Name myVNetFlowLog -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -StorageId $storageAccount.Id -TargetResourceId $vnet.Id -FormatVersion 2
+New-AzNetworkWatcherFlowLog -Enabled $true -Name 'myVNetFlowLog' -NetworkWatcherName 'NetworkWatcher_eastus' -ResourceGroupName 'NetworkWatcherRG' -StorageId $storageAccount.Id -TargetResourceId $vnet.Id -FormatVersion 2
 ```
 
 ### Enable virtual network flow logs and traffic analytics
 
 ```azurepowershell-interactive
 # Place the virtual network configuration into a variable.
-$vnet = Get-AzVirtualNetwork -Name myVNet -ResourceGroupName myResourceGroup
+$vnet = Get-AzVirtualNetwork -Name 'myVNet' -ResourceGroupName 'myResourceGroup'
+
 # Place the storage account configuration into a variable.
-$storageAccount = Get-AzStorageAccount -Name myStorageAccount -ResourceGroupName myResourceGroup
+$storageAccount = Get-AzStorageAccount -Name 'myStorageAccount' -ResourceGroupName 'myResourceGroup'
 
 # Create a traffic analytics workspace and place its configuration into a variable.
-$workspace = New-AzOperationalInsightsWorkspace -Name myWorkspace -ResourceGroupName myResourceGroup -Location EastUS
+$workspace = New-AzOperationalInsightsWorkspace -Name 'myWorkspace' -ResourceGroupName 'myResourceGroup' -Location 'EastUS'
 
 # Create a VNet flow log.
-New-AzNetworkWatcherFlowLog -Enabled $true -Name myVNetFlowLog -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -StorageId $storageAccount.Id -TargetResourceId $vnet.Id -FormatVersion 2 -EnableTrafficAnalytics -TrafficAnalyticsWorkspaceId $workspace.ResourceId -TrafficAnalyticsInterval 10
+New-AzNetworkWatcherFlowLog -Enabled $true -Name 'myVNetFlowLog' -NetworkWatcherName 'NetworkWatcher_eastus' -ResourceGroupName 'NetworkWatcherRG' -StorageId $storageAccount.Id -TargetResourceId $vnet.Id -FormatVersion 2 -EnableTrafficAnalytics -TrafficAnalyticsWorkspaceId $workspace.ResourceId -TrafficAnalyticsInterval 10
 ```
 
 # [**Azure CLI**](#tab/cli)
@@ -192,12 +194,12 @@ Use [az network watcher flow-log create](/cli/azure/network/watcher/flow-log#az-
 
 ```azurecli-interactive
 # Create a VNet flow log.
-az network watcher flow-log create --location 'eastus' --resource-group 'myResourceGroup' --name 'myVNetFlowLog' --vnet myVNet --storage-account 'myStorageAccount'
+az network watcher flow-log create --location 'eastus' --resource-group 'myResourceGroup' --name 'myVNetFlowLog' --vnet 'myVNet' --storage-account 'myStorageAccount'
 ```
 
 ```azurecli-interactive
 # Create a VNet flow log (storage account is in a different resource group from the virtual network).
-az network watcher flow-log create --location 'eastus' --resource-group 'myResourceGroup' --name 'myVNetFlowLog' --vnet myVNet --storage-account '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/StorageRG/providers/Microsoft.Storage/storageAccounts/myStorageAccount'
+az network watcher flow-log create --location 'eastus' --resource-group 'myResourceGroup' --name 'myVNetFlowLog' --vnet 'myVNet' --storage-account '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/StorageRG/providers/Microsoft.Storage/storageAccounts/myStorageAccount'
 ```
 
 ### Enable virtual network flow logs and traffic analytics
@@ -267,7 +269,7 @@ To enable traffic analytics on a flow log resource, use [Set-AzNetworkWatcherFlo
 $vnet = Get-AzVirtualNetwork -Name 'myVNet' -ResourceGroupName 'myResourceGroup'
 
 # Place the storage account configuration into a variable.
-$storageAccount = Get-AzStorageAccount -Name 'mynwstorageaccount' -ResourceGroupName 'Storage'
+$storageAccount = Get-AzStorageAccount -Name 'myStorageAccount' -ResourceGroupName 'myResourceGroup'
 
 # Place the workspace configuration into a variable.
 $workspace = Get-AzOperationalInsightsWorkspace -Name 'myWorkspace' -ResourceGroupName 'myResourceGroup'
@@ -279,13 +281,13 @@ To disable traffic analytics on the flow log resource and continue to generate a
 
 ```azurepowershell-interactive
 # Place the virtual network configuration into a variable.
-$vnet = Get-AzVirtualNetwork -Name myVNet -ResourceGroupName myResourceGroup
+$vnet = Get-AzVirtualNetwork -Name 'myVNet' -ResourceGroupName 'myResourceGroup'
 
 # Place the storage account configuration into a variable.
-$storageAccount = Get-AzStorageAccount -Name mynwstorageaccount -ResourceGroupName Storage
+$storageAccount = Get-AzStorageAccount -Name 'myStorageAccount' -ResourceGroupName 'myResourceGroup'
 
 # Update the VNet flow log.
-Set-AzNetworkWatcherFlowLog -Enabled $true -Name myVNetFlowLog -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -StorageId $storageAccount.Id -TargetResourceId $vnet.Id -FormatVersion 2
+Set-AzNetworkWatcherFlowLog -Enabled $true -Name 'myVNetFlowLog' -NetworkWatcherName 'NetworkWatcher_eastus' -ResourceGroupName 'NetworkWatcherRG' -StorageId $storageAccount.Id -TargetResourceId $vnet.Id -FormatVersion 2
 ```
 
 # [**Azure CLI**](#tab/cli)
@@ -455,13 +457,13 @@ Use [Set-AzNetworkWatcherFlowLog](/powershell/module/az.network/set-aznetworkwat
 
 ```azurepowershell-interactive
 # Place the virtual network configuration into a variable.
-$vnet = Get-AzVirtualNetwork -Name myVNet -ResourceGroupName myResourceGroup
+$vnet = Get-AzVirtualNetwork -Name 'myVNet' -ResourceGroupName 'myResourceGroup'
 
 # Place the storage account configuration into a variable.
-$storageAccount = Get-AzStorageAccount -Name mynwstorageaccount -ResourceGroupName Storage
+$storageAccount = Get-AzStorageAccount -Name 'myStorageAccount' -ResourceGroupName 'myResourceGroup'
 
 # Disable the VNet flow log.
-Set-AzNetworkWatcherFlowLog -Enabled $false -Name myVNetFlowLog -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -StorageId $storageAccount.Id -TargetResourceId $vnet.Id
+Set-AzNetworkWatcherFlowLog -Enabled $false -Name 'myVNetFlowLog' -NetworkWatcherName 'NetworkWatcher_eastus' -ResourceGroupName 'NetworkWatcherRG' -StorageId $storageAccount.Id -TargetResourceId $vnet.Id
 ```
 
 > [!NOTE]
@@ -473,7 +475,7 @@ Use [az network watcher flow-log update](/cli/azure/network/watcher/flow-log#az-
 
 ```azurecli-interactive
 # Update the VNet flow log.
-az network watcher flow-log update --enabled 'false' --location 'eastus' --name 'myVNetFlowLog' --resource-group 'myResourceGroup' --vnet 'myVNet' --storage-account 'myStorageAccount'
+az network watcher flow-log update --enabled false --location 'eastus' --name 'myVNetFlowLog' --resource-group 'myResourceGroup' --vnet 'myVNet' --storage-account 'myStorageAccount'
 ```
 
 > [!NOTE]
@@ -522,5 +524,6 @@ az network watcher flow-log delete --name 'myVNetFlowLog' --location 'eastus'
 
 ## Related content
 
-- To learn about traffic analytics, see [Traffic analytics](traffic-analytics.md).
-- To learn how to use Azure built-in policies to audit or enable traffic analytics, see [Manage traffic analytics using Azure Policy](traffic-analytics-policy-portal.md).
+- [Audit and deploy virtual network flow logs using Azure Policy](vnet-flow-logs-policy.md)
+- [Virtual network flow logs](vnet-flow-logs-overview.md)
+- [Traffic analytics](traffic-analytics.md)
