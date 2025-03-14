@@ -1,5 +1,5 @@
 ---
-title: Asset and device development introduction
+title: IoT asset and device development
 description: An overview of Azure IoT asset and device development including an introduction to the device SDKs, modeling, IoT Edge modules, and a survey of the available tools.
 ms.service: azure-iot
 services: iot
@@ -52,7 +52,7 @@ In Azure IoT, a device developer writes the code to run on the devices in the so
 
 ## Asset and device types
 
-An IoT solution can contain many types of [assets](iot-glossary.md#asset) and [devices](iot-glossary.md#device). You typically find devices in cloud-based solutions and assets in edge-based solutions. It's also possible to have a hybrid solutions that contain both devices and assets.
+An IoT solution can contain many types of [assets](iot-glossary.md#asset) and [devices](iot-glossary.md#device). You typically find devices in cloud-based solutions and assets in edge-based solutions. It's also possible to have a hybrid solution that contain both devices and assets.
 
 # [Edge-based solution](#tab/edge)
 
@@ -196,7 +196,7 @@ If you use containers, such as in Docker, to run your device code you can deploy
 Azure IoT Edge runs device code in containers. You can use Azure IoT Edge to deploy code modules to your devices. To learn more, see [Develop your own IoT Edge modules](../iot-edge/module-development.md).
 
 > [!TIP]
-> Azure IoT Edge enables multiple scenarios. In addition to running your IoT device code in containers, you can use Azure IoT Edge to run Azure services on your devices and implement [field gateways](iot-overview-device-connectivity.md#field-gateways). For more information, see [What is Azure IoT Edge?](../iot-edge/about-iot-edge.md)
+> Azure IoT Edge enables multiple scenarios. In addition to running your IoT device code in containers, you can use Azure IoT Edge to run Azure services on your devices and implement [field gateways](iot-overview-device-connectivity.md#edge-gateways). For more information, see [What is Azure IoT Edge?](../iot-edge/about-iot-edge.md)
 
 ---
 
