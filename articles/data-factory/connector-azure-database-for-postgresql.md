@@ -161,7 +161,7 @@ The following properties are supported for the Azure Database for PostgreSQL lin
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| service principal name | The display name of the service principal |Yes |
+| username | The display name of the service principal | Yes |
 | tenant | The tenant which the Azure Database for PostgreSQL server is located |Yes |
 | service principal id | Application ID of service principal |Yes |
 | service principal credential type | Select if service principal certificate or service principal key is desired authentication method<br/>- **ServicePrincipalCert**: Set to service principal certificate for service principal certifiate.<br/>- **ServicePrincipalKey**: Set to service principal key for service principal key authentication. | Yes |
