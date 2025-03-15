@@ -21,7 +21,7 @@ The first step is to [Register an application in Microsoft Entra ID](/entra/iden
 
 After you register your application, you can find the **Application (client) ID** and **Directory (tenant) ID** values on the application's overview page. These GUIDs can be useful in the following steps.
 
-![Screenshot of overview information for a registered application.](./media/signalr-howto-authorize-application/application-overview.png)
+![Screenshot of overview information for a registered application.](./media/howto-authorize-from-application/application-overview.png)
 
 ## Add credentials
 
