@@ -8,15 +8,15 @@ ms.custom: references_regions
 
 # Network Security Perimeter
 
-The [network security perimeter (NSP)](../../private-link/network-security-perimeter-concepts.md) provided by Azure networking serves as a comprehensive tool for customers to ensure optimal security when utilizing PaaS resources. It allows customers to establish logical boundaries for network isolation and collectively manage public access controls for numerous PaaS resources.
+The [network security perimeter (NSP)](../private-link/network-security-perimeter-concepts.md) provided by Azure networking serves as a comprehensive tool for customers to ensure optimal security when utilizing PaaS resources. It allows customers to establish logical boundaries for network isolation and collectively manage public access controls for numerous PaaS resources.
 
 With a network security perimeter:
   - PaaS resources associated with a specific perimeter are, by default, only able to communicate with other PaaS resources within the same perimeter.
   - Explicit access rules can actively permit external inbound and outbound communication.
-  - [Diagnostic Logs](../../private-link/network-security-perimeter-diagnostic-logs.md) are enabled for PaaS resources within perimeter for Audit and Compliance.
+  - [Diagnostic Logs](../private-link/network-security-perimeter-diagnostic-logs.md) are enabled for PaaS resources within perimeter for Audit and Compliance.
 
 > [!IMPORTANT]
-> Network security perimeter rules do not govern the private link with the [private endpoint](../../private-link/private-endpoint-overview.md).
+> Network security perimeter rules do not govern the private link with the [private endpoint](../private-link/private-endpoint-overview.md).
 
 ## Network Security Perimeter Scenarios in Batch service
 
@@ -52,7 +52,7 @@ Batch users can also use the network security perimeter to secure inbound traffi
 
 ### Create a Network Security Perimeter
 
-Create your own network security perimeter resource using [Azure portal](../../private-link/create-network-security-perimeter-portal.md) or [PowerShell](../../private-link/create-network-security-perimeter-powershell.md) or [Azure CLI](../../private-link/create-network-security-perimeter-cli.md).
+Create your own network security perimeter resource using [Azure portal](../private-link/create-network-security-perimeter-portal.md) or [PowerShell](../private-link/create-network-security-perimeter-powershell.md) or [Azure CLI](../private-link/create-network-security-perimeter-cli.md).
 
 ### Associate Batch account with the Network Security Perimeter
 
@@ -145,7 +145,7 @@ Create your own network security perimeter resource using [Azure portal](../../p
 ## Next steps
 
 - Learn more about [Security Best Practices in Azure Batch](security-best-practices.md).
-- Learn more about [Network Security Perimeter Concepts](../../private-link/network-security-perimeter-concepts.md).
-- Learn more about [Network Security Perimeter Diagnostic Logs](../../private-link/network-security-perimeter-diagnostic-logs.md).
-- Learn more about [Network Security Perimeter Role Based Access Control](../../private-link/network-security-perimeter-role-based-access-control-requirements.md).
-- Learn more about [Network Security Perimeter Transition](../../private-link/network-security-perimeter-transition.md).
+- Learn more about [Network Security Perimeter Concepts](../private-link/network-security-perimeter-concepts.md).
+- Learn more about [Network Security Perimeter Diagnostic Logs](../private-link/network-security-perimeter-diagnostic-logs.md).
+- Learn more about [Network Security Perimeter Role Based Access Control](../private-link/network-security-perimeter-role-based-access-control-requirements.md).
+- Learn more about [Network Security Perimeter Transition](../private-link/network-security-perimeter-transition.md).
