@@ -67,36 +67,27 @@ You can scope access to Azure Web PubSub resources at the following levels, begi
 
 ## Azure built-in roles for Web PubSub resources
 
-- `Web PubSub Service Owner`
+   | Role                                                                                              | Description                                                                                               | Use case                                                                                                                                     |
+   | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+   | [Web PubSub Service Owner](/azure/role-based-access-control/built-in-roles#web-pubsub-service-owner)           | Full access to data-plane APIs, including read/write REST APIs and Auth APIs.                                               | Most commonly used for building a upstream server that handles negotiation requests and client events.                                                                                                             |
+   | [Web PubSub Service Reader](/azure/role-based-access-control/built-in-roles#web-pubsub-service-reader)           | Readonly access to data-plane APIs.                                                | Use it when write a monitoring tool that calls readonly REST APIs.
 
-  Full access to data-plane permissions, including read/write REST APIs and Auth APIs.
 
-  This role is the most common used for building an upstream server.
+Learn how to create a custom role if the built-in roles do not meet your requirements.
 
-- `Web PubSub Service Reader`
-
-  Use to grant read-only REST APIs permissions to Web PubSub resources.
-
-  It's used when you'd like to write a monitoring tool that calling **ONLY** Web PubSub data-plane **READONLY** REST APIs.
+[Azure custom roles: Steps to create a custom role](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role)
 
 ## Next steps
 
-To learn how to create an Azure application and use Microsoft Entra authorization, see
+To learn how to use Microsoft Entra authentication with role-based access control, see
 
-- [Authorize request to Web PubSub resources with Microsoft Entra ID from applications](howto-authorize-from-application.md)
+  - [Authorize requests to Azure Web PubSub resources with Microsoft Entra applications](howto-authorize-from-application.md)
+  - [Authorize requests to Azure Web PubSub resources with Managed identities for Azure resources](howto-authorize-from-managed-identity.md)
 
-To learn how to configure a managed identity and use Microsoft Entra auth, see
+To learn more about roles-based access control, see
 
-- [Authorize request to Web PubSub resources with Microsoft Entra ID from managed identities](howto-authorize-from-managed-identity.md)
+  - [What is Azure role-based access control](../role-based-access-control/overview.md)
 
-To learn more about roles and role assignments, see
+To learn how to disable the connection string and use only Microsoft Entra authentication, see
 
-- [What is Azure role-based access control](../role-based-access-control/overview.md)
-
-To learn how to create custom roles, see
-
-- [Steps to create a custom role](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role)
-
-To learn how to use only Microsoft Entra authorization, see
-
-- [Disable local authentication](./howto-disable-local-auth.md)
+- [How to disable local authentication](./howto-disable-local-auth.md)
