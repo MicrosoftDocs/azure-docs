@@ -73,8 +73,7 @@ Create your own network security perimeter resource using [Azure portal](../priv
 1. Create a new profile for your network security perimeter
 
     ```azurepowershell-interactive
-        # Create a new profile
-        
+        # Create a new profile 
         $nspProfile = @{ 
             Name = 'nsp-profile' 
             ResourceGroupName = $rgParams.name 
@@ -88,13 +87,12 @@ Create your own network security perimeter resource using [Azure portal](../priv
 
      ```azurepowershell-interactive
         # Associate the PaaS resource with the above created profile
-        
         $nspAssociation = @{ 
             AssociationName = 'nsp-association' 
             ResourceGroupName = $rgParams.name 
             SecurityPerimeterName = $nsp.name 
             AccessMode = 'Learning'  
-            ProfileId = $Profile.Id 
+            ProfileId = $nspProfile.Id 
             PrivateLinkResourceId = $batchAccount.ResourceID
             }
     
@@ -116,22 +114,15 @@ Create your own network security perimeter resource using [Azure portal](../priv
 
 2. Associate the Batch account (PaaS resource) with the network security perimeter profile with the following commands. 
 
-    ```azurecli-interactive
-    
-    # Get key vault id
-    az keyvault show \
-        --name $key_vault_name \
-        --resource-group resource-group \
-        --query 'id'
-        
+    ```azurecli-interactive        
     # Get the profile id
     az network perimeter profile show \
         --name network-perimeter-profile \
         --resource-group resource-group \
         --perimeter-name network-security-perimeter
     
-    # Associate the Azure Key Vault with the network security perimeter profile
-    # Replace <PaaSArmId> and <networkSecurityPerimeterProfileId> with the ID values for your Batch account and profile
+    # Associate the Batch account with the network security perimeter profile
+    # Replace <PaaSArmId> and <networkSecurityPerimeterProfileId> with the values for your Batch account name and profile
     az network perimeter association create \
         --name network-perimeter-association \
         --perimeter-name network-security-perimeter \
