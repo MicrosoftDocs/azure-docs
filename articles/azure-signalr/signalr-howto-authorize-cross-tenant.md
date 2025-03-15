@@ -1,6 +1,6 @@
 ---
 title: Cross tenant authorization with Microsoft Entra
-description: This article provides information about building multitenant applications and configure authorization in SignalR.
+description: This article provides information about building multitenant applications and configures authorization in SignalR.
 author: terencefan
 ms.author: tefa
 ms.date: 03/12/2023
@@ -12,11 +12,11 @@ ms.custom: subject-rbac-steps
 
 # Cross tenant authorization with Microsoft Entra
 
-For security reasons, your server may host in a independent tenant from your Azure SignalR resource.
+For security reasons, your server may host in an independent tenant from your Azure SignalR resource.
 
-Since managed identity can not be used across tenants, you'll need to register an application in `tenantA` and then provision it as an enterprise application in `tenantB`.
+Since managed identity can't be used across tenants, you need to register an application in `tenantA` and then provision it as an enterprise application in `tenantB`.
 
-This doc will help you create an application in `tenantA` and use it to connect to a SignalR resource in `tenantB`.
+This doc help you create an application in `tenantA` and use it to connect to a SignalR resource in `tenantB`.
 
 ## Register a multitenant application in tenant A
 
@@ -28,14 +28,14 @@ The first step is to create a multitenant application.
 
 [Quickstart: Register an application in Microsoft Entra ID](/entra/identity-platform/quickstart-register-app)
 
-There will be 4 account types:
+There are four account types:
 
 1. Accounts in this organizational directory
 2. Accounts in any organizational directory	
 3. Accounts in any organizational directory and personal Microsoft accounts
 4. Personal Microsoft accounts
 
-Be sure to select either 2 or 3 when creating the application.
+Be sure to select either type 2 or type 3 when creating the application.
 
 ![Screenshot of overview information for a registered application.](./media/signalr-howto-authorize-application/application-overview.png)
 
@@ -43,17 +43,17 @@ Note down the **Application (client) ID** and **Directory (tenant) ID**, they ca
 
 ## Provision the application in tenant B
 
-The role cannot be assigned to the application registered in other tenants. We have to provision it as an external enterprise application in the tenant B.
+The role can't be assigned to the application registered in other tenants. We have to provision it as an external enterprise application in the tenant B.
 
 Click to learn [differences between App registration and Enterprise applications](/answers/questions/270680/app-registration-vs-enterprise-applications).
 
-For short, the enterprise application is a service principal, while the app registration is not. The enterprise application will inherit certain properties from the application object, such as **Application (client) ID**. 
+For short, the enterprise application is a service principal, while the app registration isn't. The enterprise application inherits certain properties from the application object, such as **Application (client) ID**. 
 
-A default service principal will be created in the tenant where the app is registered. For other tenants, you'll need to provision the app to get an enterprice application service principal, see:
+A default service principal is created in the tenant where the app is registered. For other tenants, you need to provision the app to get an enterprise application service principal, see:
 
 [Create an enterprise application from a multitenant application in Microsoft Entra ID](/entra/identity/enterprise-apps/create-service-principal-cross-tenant)
 
-Enterprise applications in different tenant will have different **Directory (tenant) ID**, but share the same **Application (client) ID**.
+Enterprise applications in different tenant have different **Directory (tenant) ID**, but share the same **Application (client) ID**.
 
 ## Assign roles to the enterprise application
 
@@ -77,7 +77,7 @@ We strongly recommend you to use the first 2 ways to make cross tenant requests.
 - `clientId` in both tenants are equal.
 - `clientSecret` and `clientCert` should be configured in **Tenant A**, see [Add credentials](/entra/identity-platform/quickstart-register-app?tabs=certificate%2Cexpose-a-web-api#add-credentials)
 
-If you are not sure about your tenant ID, see [Find your Microsoft Entra tenant](/azure/azure-portal/get-subscription-tenant-id#find-your-microsoft-entra-tenant)
+If you aren't sure about your tenant ID, see [Find your Microsoft Entra tenant](/azure/azure-portal/get-subscription-tenant-id#find-your-microsoft-entra-tenant)
 
 ```csharp
 services.AddSignalR().AddAzureSignalR(option =>
@@ -95,7 +95,7 @@ services.AddSignalR().AddAzureSignalR(option =>
 
 ### Use Federated identity
 
-However, for security reasons, certificates and client secrets might be disabled in your subscription. In this case, you'll need to either use an external identity providor or try the preview support for managed identity.
+However, for security reasons, certificates and client secrets might be disabled in your subscription. In this case, you need to either use an external identity provider or try the preview support for managed identity.
 
 - [Configure an app to trust an external identity provider](/entra/workload-id/workload-identity-federation-create-trust)
 - [Configure an application to trust a managed identity (preview)](/entra/workload-id/workload-identity-federation-config-app-trust-managed-identity)
@@ -127,7 +127,7 @@ services.AddSignalR().AddAzureSignalR(option =>
 });
 ```
 
-When using enternal identity providers, the code should look like this:
+When using external identity providers, the code should look like this:
 
 ```csharp
 services.AddSignalR().AddAzureSignalR(option =>
@@ -167,15 +167,15 @@ Your goal is to get a token with following claims. Use [jwt.io](https://jwt.io/)
 
 - **oid**
 
-  This should be equal to your enterprise application object ID. 
+  The value should be equal to your enterprise application object ID. 
 
-  If you don't know where to get it, see [How Retrieve Enterprise Object Id](/answers/questions/1007608/how-retrieve-enterprise-object-id-from-azure-activ)
+  If you don't know where to get it, see [How Retrieve Enterprise Object ID](/answers/questions/1007608/how-retrieve-enterprise-object-id-from-azure-activ)
 
 - **tid**
 
-  This should be equal to the Directory ID of your tenant B. 
+  The value should be equal to the Directory ID of your tenant B. 
 
-  If you are not sure about your tenant ID, see [Find your Microsoft Entra tenant](/azure/azure-portal/get-subscription-tenant-id#find-your-microsoft-entra-tenant)
+  If you aren't sure about your tenant ID, see [Find your Microsoft Entra tenant](/azure/azure-portal/get-subscription-tenant-id#find-your-microsoft-entra-tenant)
 
 - **audience**
 
