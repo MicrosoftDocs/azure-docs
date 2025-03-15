@@ -92,7 +92,7 @@ PlacementGroupId | String | If set, this label is used to place this node in a s
 KeyPairLocation | Integer | Where CycleCloud will find a SSH keypair on the local filesystem
 KeepAlive | Boolean | If true, CycleCloud will prevent the termination of this node
 Locker | String | Specify the name of the locker from which to download project specs. See [Use Projects](~/articles/cyclecloud/how-to/projects.md)
-BootDiagnosticsUri | String | Storage URI for boot diagnostics (example: https://mystorageaccount.blob.core.windows.net/), if specified. Storage charges will apply.
+BootDiagnosticsUri | String | Storage URI for boot diagnostics (example: `https://mystorageaccount.blob.core.windows.net/`), if specified. Storage charges will apply.
 HybridBenefit | Boolean | If true, enables "Azure Hybrid Benefit" licensing for Windows VMs
 NetworkSecurityGroupId | String | If given, the full resource id for a Network Security Group to use for this node. Note: this can also be specified as `SecurityGroup` on a [network interface](network-interface-reference.md).
 EnableTerminateNotification (8.2.0+) | Boolean | If true, enables [Terminate Notification](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification) to send events on VM deletion to the VM for local handling. This only applies to scaleset VMs.
