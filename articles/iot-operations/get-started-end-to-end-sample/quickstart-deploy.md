@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Run Azure IoT Operations in Codespaces"
 description: "Quickstart: Deploy Azure IoT Operations to a Kubernetes cluster running in GitHub Codespaces."
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.topic: quickstart
 ms.custom: ignite-2023, devx-track-azurecli
 ms.date: 01/30/2025
