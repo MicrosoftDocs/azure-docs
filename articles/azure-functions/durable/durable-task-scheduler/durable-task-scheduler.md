@@ -16,7 +16,7 @@ For an in-depth comparison between the supported storage providers for durable f
 
 ## Architecture
 
-Instances of the durable task scheduler can be created using Azure Resource Manager and are of type [Microsoft.DurableTask/scheduler](microsoft.durabletask/schedulers). Each *scheduler* resource internally has its own dedicated compute and memory resources optimized for:
+Instances of the durable task scheduler can be created using Azure Resource Manager and are of type [Microsoft.DurableTask/scheduler](/azure/templates/microsoft.durabletask/schedulers). Each *scheduler* resource internally has its own dedicated compute and memory resources optimized for:
 
 - Dispatching orchestrator, activity, and entity work items
 - Storing and querying history at scale with minimal latency
@@ -63,7 +63,7 @@ When a scheduler resource is created, a corresponding dashboard is provided out-
 
 Aside from monitoring, you can also perform management operations on the dashboard, such as pausing, terminating, or restarting an orchestration instance. For more information about the dashboard, see [Debug and manage orchestrations using the durable task scheduler dashboard](./durable-task-scheduler-dashboard.md).
 
-[Access to the dashboard](./develop-with-durable-task-scheduler.md#accessing-dts-dashboard) is secured by identity and role-based access controls. 
+[Access to the dashboard](./develop-with-durable-task-scheduler.md#accessing-durable-task-scheduler-dashboard) is secured by identity and role-based access controls. 
 
 ### Multiple task hubs
 
@@ -73,7 +73,7 @@ Creating multiple task hubs allows you to isolate different workloads and manage
 
 ### Emulator for local development
 
-The [durable task scheduler emulator](./quickstart-durable-task-scheduler.md#set-up-dts-emulator) is a lightweight version of the scheduler backend that runs locally in a Docker container. It allows you to develop and test your durable function app without needing to deploy it to Azure. The emulator provides a local version of the management dashboard, so you can monitor and manage your orchestrations and entities just like you would in Azure.
+The [durable task scheduler emulator](./quickstart-durable-task-scheduler.md#set-up-durable-task-scheduler-emulator) is a lightweight version of the scheduler backend that runs locally in a Docker container. It allows you to develop and test your durable function app without needing to deploy it to Azure. The emulator provides a local version of the management dashboard, so you can monitor and manage your orchestrations and entities just like you would in Azure.
 
 By default, the emulator exposes a single task hub named `default`. You can expose multiple task hubs by specifying the `DTS_TASK_HUB_NAMES` environment variable with a comma-separated list of task hub names when starting the emulator. For example, to enable two task hubs named `taskhub1` and `taskhub2`, you can run the following command:
 
@@ -120,7 +120,7 @@ This benchmark showed that the durable task scheduler is roughly **five times fa
 > [!NOTE]
 > These results are meant to provide a rough comparison of the relative performance of the storage provider backends at the time the test was run. These results shouldn't be taken as definitive.
 
-## Limitations and considerations  
+## Limitations and considerations
 
 - **Supported hosting plans**: The durable task scheduler currently only supports durable functions running on *Functions Premium* and *App Service* plans. For apps running on the Functions Premium plan, you must [enable the *Runtime Scale Monitoring* setting](./develop-with-durable-task-scheduler.md#auto-scaling-in-functions-premium-plan) to get auto scaling of the app.
 
@@ -134,13 +134,23 @@ This benchmark showed that the durable task scheduler is roughly **five times fa
 
     Consider using the same region for your durable functions app and the durable task scheduler resources. Having these resources in different regions might impact performance and limit certain network-related functionality.
 
-- **Scheduler quota**: You can currently create up to **five schedulers per region** per subscription. 
+- **Scheduler quota**: You can currently create up to **five schedulers per region** per subscription.
+
+- **Max payload size**: The durable task scheduler has a maximum payload size restrictions for the following JSON-serialized data types:
+  
+    | Data type | Max size |
+    | --------- | -------- |
+    | Orchestrator inputs and outputs | 1 MB |
+    | Activity inputs and outputs | 1 MB |
+    | External event data | 1 MB |
+    | Orchestration custom status | 1 MB |
+    | Entity state | 1 MB |
 
 - **Feature parity**: Some features might not be available in the durable task scheduler backend yet. For example, at the time of writing, the durable task scheduler doesn't support the following features:
 
-    - [Orchestration rewind](../durable-functions-instance-management#rewind-instances-preview)
-    - [Extended sessions](../durable-functions-azure-storage-provider#extended-sessions)
-    - [Management operations using the Azure Functions Core Tools](../durable-functions-instance-management#azure-functions-core-tools)
+    - [Orchestration rewind](../durable-functions-instance-management.md#rewind-instances-preview)
+    - [Extended sessions](../durable-functions-azure-storage-provider.md#extended-sessions)
+    - [Management operations using the Azure Functions Core Tools](../durable-functions-instance-management.md#azure-functions-core-tools)
 
     > [!NOTE]
     > Feature availability is subject to change as the durable task scheduler backend approaches general availability.

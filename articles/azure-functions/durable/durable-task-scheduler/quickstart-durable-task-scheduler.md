@@ -140,7 +140,7 @@ Add connection information for local development:
 }
 ```
 
-Get the durable task scheduler emulator port number in [the next step](#set-up-dts-emulator). 
+Get the durable task scheduler emulator port number in [the next step](#set-up-durable-task-scheduler-emulator). 
 
 ## Set up durable task scheduler emulator 
 

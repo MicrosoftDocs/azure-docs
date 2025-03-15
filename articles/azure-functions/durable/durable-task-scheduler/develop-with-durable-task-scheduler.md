@@ -18,7 +18,7 @@ The Azure Functions durable task scheduler is a highly performant, fully-managed
 > * Configure identity-based authentication for your application to access durable task scheduler.
 > * Monitor the status of your app and task hub on the dts dashboard. 
 
-Learn more about durable task scheduler [features](./durable-task-scheduler.md#feature-highlight), [supported regions](./durable-task-scheduler.md#considerations), and [plans](./durable-task-scheduler.md#considerations).
+Learn more about durable task scheduler [features](./durable-task-scheduler.md#feature-highlights), [supported regions](./durable-task-scheduler.md#limitations-and-considerations), and [plans](./durable-task-scheduler.md#limitations-and-considerations).
 
 ::: zone pivot="az-cli"  
 

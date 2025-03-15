@@ -54,7 +54,7 @@ The dashboard includes features for managing orchestrations on demand, such as s
 
 ## Security 
 
-Dashboard access is secured through [integration with Azure Role-Based Access Control (RBAC)](./develop-with-durable-task-scheduler.md#accessing-dts-dashboard).
+Dashboard access is secured through [integration with Azure Role-Based Access Control (RBAC)](./develop-with-durable-task-scheduler.md#accessing-durable-task-scheduler-dashboard).
 
 ## Next steps
 
