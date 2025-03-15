@@ -60,7 +60,7 @@ This article guides you through the steps to configure an Azure Front Door Premi
     | Region | Select the region that matches or is closest to your origin. |
     | Request message | Enter a custom message to display while approving the Private Endpoint.  |
 
-   :::image type="content" source="media/private-link/application-gateway-private-link.png" alt-text="Screenshot of origin dettings for configuring Application Gateway as a private origin.":::    
+   :::image type="content" source="media/private-link/application-gateway-private-link.png" alt-text="Screenshot of origin settings for configuring Application Gateway as a private origin.":::    
 
 1. Select **Add** to save your origin settings
 1. Select **Add** to save the origin group settings.
