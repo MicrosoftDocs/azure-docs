@@ -1,28 +1,36 @@
 ---
-title: Streamline Your Workflow with Dev Box Team Customizations
-description: Understand how to use Dev Box team customizations to create ready-to-code configurations for your development teams.
+title: Streamline Your Workflow with Dev Box customizations
+description: Understand how to use Dev Box customizations to create ready-to-code configurations for your development teams and individual developers.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
 ms.custom:
   - ignite-2024
 ms.topic: concept-article
-ms.date: 01/29/2025
+ms.date: 03/20/2025
 
-#customer intent: As a Dev Center Admin or Project Admin, I want to understand how to use Dev Box team customizations so that I can create efficient, ready-to-code configurations for my development teams.
+#customer intent: As a Dev Center Admin or Project Admin, I want to understand how to use Dev Box customizations so that I can create efficient, ready-to-code configurations for my development teams.
 ---
 
-# Microsoft Dev Box team customizations
+# Microsoft Dev Box customizations
 
-Getting developers started on a new project or team can be complex and time-consuming. The Microsoft Dev Box *team customizations* feature helps you streamline setup of the developer environment. With team customizations, you can configure ready-to-code workstations with necessary applications, tools, repositories, code libraries, packages, and build scripts.
+Getting developers started on a new project or team can be complex and time-consuming. The Microsoft Dev Box customizations feature helps you streamline setup of the developer environment. With customizations, you can configure ready-to-code workstations with necessary applications, tools, repositories, code libraries, packages, and build scripts.
+
+There are two ways to use customizations in Microsoft Dev Box. 
+
+- *Team customizations* are applied automatically when developers configure them on a pool. 
+- *Individual customizations* are applied when a user creates a dev box.
+
+[!INCLUDE [customizations-preview-text](includes/customizations-preview-text.md)]
+
+# [Team customizations](#tab/team-customizations)
+## How do team customizations work?
 
 You can use team customizations to define a shared Dev Box configuration for each of your development teams without having to invest in setting up an imaging solution like Packer or Azure virtual machine (VM) image templates. Team customizations provide a lightweight alternative that allows central platform engineering teams to delegate Dev Box configuration management to the teams that use them.
 
 Team customizations also offer an in-built way of optimizing your team's Dev Box customizations by flattening them into a custom image. You use the same customization file, without the need to manage added infrastructure or maintain image templates.
 
-[!INCLUDE [customizations-preview-text](includes/customizations-preview-text.md)]
-
-## How do Dev Box team customizations work?
+Although teams of developers can share common YAML files, this approach can be inefficient and error prone. It can also be against compliance policies. Dev Box team customizations provide a workflow for developer team leaders, project admins, and dev center administrators to preconfigure customization files in dev box pools. This way, a developer who's creating a dev box doesn't need to find and upload a customization file.
 
 When you configure Dev Box team customizations for your organization, careful planning and informed decision-making are essential. The following diagram provides an overview of the process and highlights key decision points.
 
@@ -48,6 +56,14 @@ When you configure Dev Box team customizations for your organization, careful pl
 - **Create dev box:**
   - Create your dev box from the configured pool by using the developer portal.
 
+# [Individual customizations](#tab/individual-customizations)
+## How do individual customizations work?
+Individual developers can attach a YAML-based customization file when creating their dev box to control the development environment. Developers should use individual customizations only for personal settings and apps. Tasks specified in the individual customization file run only in the user context, after sign-in.
+
+:::image type="content" source="media/concept-what-are-team-customizations/individual-customizations-workflow.png" alt-text="Diagram that shows the workflow for Dev Box individual customizations, including steps for planning, configuring, and deploying customizations." lightbox="media/concept-what-are-team-customizations/individual-customizations-workflow.png":::
+
+---
+
 ## What is a customization file?
 
 Dev Box customizations use a YAML-formatted file to specify a list of tasks to apply from the catalog when developers are creating a dev box. These tasks identify the catalog task and provide parameters like the name of the software to install. You then make the customization file available to the developers.
@@ -60,15 +76,10 @@ Dev Box customization tasks are wrappers for PowerShell scripts. You use them to
 
 When you're creating tasks, determine which of them need to run in a system context and which of them can run in a user context (after sign-in). Team customizations can run in both contexts. Individual customizations can run only in a user context.
 
-## Differences between team customizations and individual customizations
-
-Individual developers can attach a YAML-based customization file when creating their dev box to control the development environment. Developers should use individual customizations only for personal settings and apps. Tasks specified in the individual customization file run only in the user context, after sign-in.
-
-Although teams of developers can share common YAML files, this approach can be inefficient and error prone. It can also be against compliance policies. Dev Box team customizations provide a workflow for developer team leaders, project admins, and dev center administrators to preconfigure customization files in dev box pools. This way, a developer who's creating a dev box doesn't need to find and upload a customization file.
 
 ## Key terms
 
-When you're working with Dev Box team customizations, you should be familiar with the following key terms:
+When you're working with Dev Box customizations, you should be familiar with the following key terms:
 
 - **Catalog**:
   - Stored in your code repository or in a separate repository of customization files.
@@ -85,7 +96,6 @@ You can find instructions for creating a customization file in the [Write a cust
 
 ## Related content
 
-- [Quickstart: Create a dev box by using team customizations](quickstart-team-customizations.md)
 - [Write a customization file for a dev box](how-to-write-customization-file.md)
 - [Configure imaging for Dev Box team customizations](how-to-configure-customization-imaging.md)
 - [Create tasks for Dev Box team customizations](how-to-create-customization-tasks-catalog.md)
