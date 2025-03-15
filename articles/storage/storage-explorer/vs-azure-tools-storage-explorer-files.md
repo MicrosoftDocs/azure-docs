@@ -6,7 +6,7 @@ author: jinglouMSFT
 ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 03/09/2017
-ms.author: jinglouMSFT
+ms.author: jinglou
 ms.reviewer: cralvord,richardgao
 ---
 
