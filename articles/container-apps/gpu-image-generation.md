@@ -58,7 +58,7 @@ In this tutorial you:
 
     | Setting | Value |
     |---|---|
-    | Region | Select **West US 3**. <br><br>For more supported regions, refer to [Using serverless GPUs in Azure](gpu-serverless-overview.md#supported-regions). |
+    | Region | Select **Sweden Central**. <br><br>For more supported regions, refer to [Using serverless GPUs in Azure](gpu-serverless-overview.md#supported-regions). |
     | Container Apps environment | Select **Create new**. |
 
     In the *Create Container Apps environment* window, enter the following values:
@@ -80,9 +80,9 @@ In this tutorial you:
     | Image type | Select **public**. |
     | Registry login server | Enter **mcr.microsoft.com**. |
     | Image and tag | Enter **k8se/gpu-quickstart:latest**. |
-    | Workload profile | Select the option that begins with **Consumption - Up to 4**... |
+    | Workload profile | Select **Consumption - Up to 4 vCPUs, 8 Gib memory**. |
     | GPU | Select the checkbox. |
-    | GPU Type | Select the **T4** option and select the link to add the profile to your environment. |
+    | GPU Type | Select **Consumption-GPU-NC8as-T4 - Up to 8 vCPUs, 56 GiB memory** and select the link to add the profile to your environment. |
 
     Select **Next: Ingress >**.
 
@@ -110,7 +110,7 @@ From the *Overview* window, select the **Application Url** link to open the web 
 > - To achieve the best performance of your GPU apps, follow the steps to [improve cold start for your serverless GPUs](gpu-serverless-overview.md#improve-gpu-cold-start).
 > - When there are multiple containers in your application, the first container gets access to the GPU.
 
-:::zone-end
+::: zone-end
 
 ::: zone pivot="azure-cli"
 
