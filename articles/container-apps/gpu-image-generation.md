@@ -152,26 +152,26 @@ $WORKLOAD_PROFILE_TYPE="Consumption-GPU-NC8as-T4"
 1. Add a workload profile to your environment.
 
     ```azurecli
-    az containerapp env workload-profile add `
-      --name $ENVIRONMENT_NAME `
-      --resource-group $RESOURCE_GROUP `
-      --workload-profile-name $WORKLOAD_PROFILE_NAME `
+    az containerapp env workload-profile add \
+      --name $ENVIRONMENT_NAME \
+      --resource-group $RESOURCE_GROUP \
+      --workload-profile-name $WORKLOAD_PROFILE_NAME \
       --workload-profile-type $WORKLOAD_PROFILE_TYPE
     ```
 
 1. Create your container app.
 
     ```azurecli
-    az containerapp create `
-      --name $CONTAINER_APP_NAME `
-      --resource-group $RESOURCE_GROUP `
-      --environment $ENVIRONMENT_NAME `
-      --image $CONTAINER_IMAGE `
-      --target-port 80 `
-      --ingress external `
-      --cpu 8.0 `
-      --memory 56.0Gi `
-      --workload-profile-name $WORKLOAD_PROFILE_NAME `
+    az containerapp create \
+      --name $CONTAINER_APP_NAME \
+      --resource-group $RESOURCE_GROUP \
+      --environment $ENVIRONMENT_NAME \
+      --image $CONTAINER_IMAGE \
+      --target-port 80 \
+      --ingress external \
+      --cpu 8.0 \
+      --memory 56.0Gi \
+      --workload-profile-name $WORKLOAD_PROFILE_NAME \
       --query properties.configuration.ingress.fqdn
     ```
 
