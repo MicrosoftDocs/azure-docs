@@ -17,7 +17,13 @@ zone_pivot_groups: data-box-sku
 [!INCLUDE [data-box-retirement](includes/data-box-retirement.md)]
 :::zone-end
 
+:::zone pivot="dbx"
 Azure Data Box is a hybrid solution that allows you to import your on-premises data into Azure in a quick, easy, and reliable way. You transfer your data to a Microsoft-supplied storage device with 80 TB of usable capacity, and then ship the device back. This data is then uploaded to Azure.
+:::zone-end
+
+:::zone pivot="dbx-ng"
+Azure Data Box is a hybrid solution that allows you to import your on-premises data into Azure in a quick, easy, and reliable way. You transfer your data to a Microsoft-supplied storage device with 120 TB or 525 TB of usable capacity, and then ship the device back. This data is then uploaded to Azure.
+:::zone-end
 
 This tutorial describes how you can order an Azure Data Box. In this tutorial, you learn about:   
 
