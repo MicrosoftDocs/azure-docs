@@ -37,7 +37,7 @@ For more information on operating system and language support, see [Operating sy
 
 When in-portal editing isn't available, you must instead [develop your functions locally](functions-develop-local.md#local-development-environments).
 
-To maintain full-support coverage when running your functions in Azure, see our [language-support-policy](language-support-policy.md).
+To learn more about how to maintain full-support coverage while running your functions in Azure, see our [language-support-policy](language-support-policy.md) article.
 
 ### Language major version support
 
