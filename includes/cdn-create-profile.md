@@ -1,12 +1,9 @@
 ---
-title: include file
-description: include file
-services: cdn
 author: SyntaxC4
+ms.author: cfowler
 ms.service: azure-cdn
 ms.topic: include
 ms.date: 04/06/2022
-ms.author: cfowler
 ms.custom: include file
 ---
 

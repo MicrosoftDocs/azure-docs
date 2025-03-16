@@ -1,12 +1,9 @@
 ---
-title: include file
-description: include file
-services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: include
 ms.date: 09/08/2023
-ms.author: duau
 ms.custom: include file
 ---
 

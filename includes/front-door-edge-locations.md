@@ -1,12 +1,10 @@
 ---
- title: include file
- description: include file
- author: halkazwini
- ms.author: halkazwini
- ms.service: azure-frontdoor
- ms.topic: include
- ms.date: 10/16/2023
- ms.custom: include file
+author: halkazwini
+ms.author: halkazwini
+ms.service: azure-frontdoor
+ms.topic: include
+ms.date: 10/16/2023
+ms.custom: include file
 ---
 
 | Region | Cities |

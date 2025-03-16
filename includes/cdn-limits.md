@@ -1,9 +1,10 @@
 ---
 author: mdgattuso
-ms.service: cdn
+ms.author: magattus
+ms.service: azure-cdn
 ms.topic: include
 ms.date: 07/31/2021    
-ms.author: magattus
+ms.custom: include file
 ---
 
 | Resource | Limit |
