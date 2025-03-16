@@ -38,4 +38,3 @@ A CDN profile is a container for CDN endpoints and specifies a pricing tier.
     :::image type="content" source="./media/cdn-create-profile/cdn-new-profile.png" alt-text="Input variables in Basics tab.":::
 
 1. Select **Review + Create** then **Create** to create the profile.
-
