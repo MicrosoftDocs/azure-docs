@@ -1,37 +1,38 @@
 ---
-title: Start & stop lab VMs with command lines
-description: Use Azure PowerShell or Azure CLI command lines and scripts to start and stop Azure DevTest Labs virtual machines.
+title: Start and stop lab VMs with command lines
+description: Use Azure PowerShell or Azure CLI command lines and scripts to start and stop Azure DevTest Labs virtual machines (VMs).
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 09/30/2023
+ms.date: 03/14/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, UpdateFrequency2 
 ms.devlang: azurecli
+
+#customer intent: As a lab user, I want to use PowerShell or Azure CLI commands to start and stop VMs so I can support automated workflows and save costs.
 ---
 
-# Use command lines to start and stop DevTest Labs virtual machines
+# Use command lines to start and stop DevTest Labs VMs
 
-This article shows how to start or stop Azure DevTest Labs virtual machines (VMs) by using Azure PowerShell or Azure CLI command lines and scripts.
+This article shows how you can use PowerShell or Azure CLI commands to script or automate start or stop for Azure DevTest Labs VMs. For example, you can use start or stop commands to:
 
-You can start, stop, or [restart DevTest Labs VMs](devtest-lab-restart-vm.md) by using the Azure portal. You can also use the portal to configure [automatic startup](devtest-lab-auto-startup-vm.yml) and [automatic shutdown](devtest-lab-auto-shutdown.md) schedules and policies for lab VMs.
+- Test a three-tier application where the tiers need to start in a sequence.
+- Turn off your VMs to save costs when they meet custom criteria.
+- Start and stop a VM when a continuous integration and continuous delivery (CI/CD) workflow begins and finishes. For an example of this workflow, see [Run an image factory from Azure DevOps](image-factory-set-up-devops-lab.md).
 
-When you want to script or automate start or stop for lab VMs, use PowerShell or Azure CLI commands. For example, you can use start or stop commands to:
-
-- Test a three-tier application, where the tiers need to start in a sequence.
-- Turn off VMs to save costs when they meet custom criteria.
-- Start when a continuous integration and continuous delivery (CI/CD) workflow begins, and stop when it finishes. For an example of this workflow, see [Run an image factory from Azure DevOps](image-factory-set-up-devops-lab.md).
+You can also use the Azure portal to start, stop, or [restart](devtest-lab-restart-vm.md) DevTest Labs VMs. Lab admins can use the portal to configure [automatic startup](devtest-lab-auto-startup-vm.yml) and [automatic shutdown](devtest-lab-auto-shutdown.md) schedules and policies for lab VMs.
 
 ## Prerequisites
 
-- A [lab VM in DevTest Labs](devtest-lab-add-vm.md).
-- For Azure PowerShell, the [Az PowerShell module](/powershell/azure/new-azureps-module-az) installed on your workstation. Make sure you have the latest version. If necessary, run `Update-Module -Name Az` to update the module.
-- For Azure CLI, [Azure CLI ](/cli/azure/install-azure-cli) installed on your workstation.
+- Access to Azure PowerShell. You can [use Azure Cloud Shell](/azure/cloud-shell/quickstart?tabs=powershell) in the Azure portal, or [install Azure PowerShell](/powershell/azure/install-azure-powershell) locally. If necessary, run `Update-Module -Name Az` to update your local installation.
+
+- Ownership of a [lab VM in DevTest Labs](devtest-lab-add-vm.md).
+- Access to Azure CLI. You can [use Azure Cloud Shell](/azure/cloud-shell/quickstart?tabs=powershell) in the Azure portal, or install [Azure CLI ](/cli/azure/install-azure-cli) locally.
 
 ## Azure PowerShell script
 
-The following PowerShell script starts or stops a VM in a lab by using [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction). The `ResourceId` parameter is the fully qualified ID for the lab VM you want to start or stop. The `Action` parameter determines whether to start or stop the VM, depending on which action you need.
+The following PowerShell script starts or stops a VM in a lab by using the [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) PowerShell cmdlet. The `ResourceId` parameter is the fully qualified ID for the lab VM you want to start or stop. The `Action` parameter determines whether to start or stop the VM, depending on which action you need.
 
-1. From your workstation, use the PowerShell [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet to sign in to your Azure account. If you have multiple Azure subscriptions, uncomment the `Set-AzContext` line and fill in the `<Subscription ID>` you want to use.
+1. In Cloud Shell, make sure the **PowerShell** environment is selected. Use the PowerShell [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet to sign in to your Azure account. If you have multiple Azure subscriptions, uncomment `Set-AzContext` and provide the `<SubscriptionId>` you want to use.
 
     ```powershell
     # Sign in to your Azure subscription
@@ -44,13 +45,11 @@ The following PowerShell script starts or stops a VM in a lab by using [Invoke-A
     # Set-AzContext -SubscriptionId "<Subscription ID>"
     ```
 
-1. Provide values for the *`<lab name>`* and *`<VM name>`*, and enter which action you want for *`<Start or Stop>`*.
+1. Set variables by providing your own values for `<lab name>`, `<VM name>`, and whether to `Start` or `Stop` the VM.
 
     ```powershell
     $devTestLabName = "<lab name>"
     $vMToStart = "<VM name>"
-    
-    # The action on the virtual machine (Start or Stop)
     $vmAction = "<Start or Stop>"
     ```
 
@@ -76,44 +75,43 @@ The following PowerShell script starts or stops a VM in a lab by using [Invoke-A
 
 ## Azure CLI script
 
-The following script provides [Azure CLI](/cli/azure/get-started-with-azure-cli) commands for starting or stopping a lab VM. The variables in this script are for a Windows environment, like a command prompt. Bash or other environments have slight variations.
+The Azure CLI [az lab vm start](/cli/azure/lab/vm#az-lab-vm-start) and [az lab vm stop](/cli/azure/lab/vm#az-lab-vm-stop) commands start or stop a lab VM.
 
-1. Provide appropriate values for *`<Subscription ID>`*, *`<lab name>`*, *`<VM name>`*, and the *`<Start or Stop>`* action to take.
+>[!NOTE]
+>This script assumes a Bash environment. The variables and command for a Windows environment, like a command prompt, have slight variations.
 
-   ```azurecli
-   set SUBSCRIPTIONID=<Subscription ID>
-   set DEVTESTLABNAME=<lab name>
-   set VMNAME=<VM name>
-   set ACTION=<Start or Stop>
-   ```
-
-1. Sign in to your Azure account. If you have multiple Azure subscriptions, uncomment the `az account set` line to use the subscription ID you provided.
+1. In Cloud Shell, make sure the **Bash** environment is selected, and sign in to your Azure account. If you have multiple Azure subscriptions, uncomment the `az account set` line to use the subscription ID you provide.
 
    ```azurecli
    az login
    
-   REM az account set --subscription %SUBSCRIPTIONID%
+   REM az account set --subscription <SubscriptionId>
    ```
 
-1. Get the name of the resource group that contains the lab.
+1. Set variables by providing values for `<SubscriptionId>`, `<resourceGroup>`, `<lab name>`, `<VM name>`, and whether to `Start` or `Stop` the VM.
 
    ```azurecli
-   az resource list --resource-type "Microsoft.DevTestLab/labs" --name %DEVTESTLABNAME% --query "[0].resourceGroup"
+   SUBSCRIPTIONID=<SubscriptionId>
+   RESOURCEGROUP=<resourceGroup>
+   DEVTESTLABNAME=<lab name>
+   VMNAME=<VM name>
+   ACTION=<Start or Stop>
    ```
 
-1. Replace *`<resourceGroup>`* with the value you got from the previous step.
+   >[!TIP]
+   >If you don't know the name of the Azure resource group that contains your lab, you can find it by providing your `<lab name>` in the following query.
 
    ```azurecli
-   set RESOURCEGROUP=<resourceGroup>
+   az resource list --resource-type "Microsoft.DevTestLab/labs" --name "<LabName>" --query "[0].resourceGroup"
    ```
 
-1. Run the command line to start or stop the VM, based on the value you passed to `ACTION`.
+1. Run the following Azure CLI command to start or stop the VM, based on the value passed to `ACTION`.
 
    ```azurecli
-   az lab vm %ACTION% --lab-name %DEVTESTLABNAME% --name %VMNAME% --resource-group %RESOURCEGROUP%
+   az lab vm $ACTION --lab-name $DEVTESTLABNAME --name $VMNAME --resource-group $RESOURCEGROUP
    ```
 
-## Next steps
+## Related content
 
 - [Azure CLI az lab reference](/cli/azure/lab)
 - [PowerShell Az.DevTestLabs reference](/powershell/module/az.devtestlabs)

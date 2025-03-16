@@ -7,14 +7,27 @@ author: RoseHJM
 ms.date: 03/14/2025
 ms.custom: UpdateFrequency2
 
-#customer intent: As a lab user or administrator, I want to understand basic DevTest Labs concepts so I know how I can create, manage, or use labs, VMs, environments, and templates.
+#customer intent: As a lab user or administrator, I want to understand basic DevTest Labs concepts so I know how I can create, manage, and use labs, VMs, environments, and templates.
 ---
 
 # DevTest Labs concepts
 
 This article describes key [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab) concepts and definitions. DevTest Labs is a service for easily creating, using, and managing Azure virtual machines (VMs) and other resources.
 
-## Roles
+## Labs
+
+A DevTest Labs lab is the infrastructure that encompasses a group of resources such as VMs. DevTest Labs administrators can:
+
+- Add and configure lab users.
+- Create ready-made VMs for lab users to claim and use.
+- Create and use templates to create and configure labs, VMs, and environments.
+- Connect artifact and template repositories to the lab.
+- Let users create and configure their own lab VMs and environments.
+- Specify allowed virtual machine (VM) limits, sizes, and configurations.
+- Set autoshutdown and autostartup policies.
+- Track and manage lab costs.
+
+### Roles
 
 [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) defines DevTest Labs access and roles. DevTest Labs has three roles that define lab member permissions: **Owner**, **Contributor**, and **DevTest Labs User**.
 
@@ -30,19 +43,7 @@ This article describes key [Azure DevTest Labs](https://azure.microsoft.com/serv
 
   DevTest Labs Users can't modify lab policies, or change any other users' VMs. DevTest Labs Users automatically have Owner permissions on their own VMs.
 
-## Labs
-
-A DevTest Labs lab is the infrastructure that encompasses a group of resources such as VMs. Lab administrators can:
-
-- Add and configure users (Owners only).
-- Create ready-made VMs for lab users to claim and use.
-- Connect artifact and template repositories to the lab.
-- Let users create and configure their own lab VMs and environments.
-- Specify allowed virtual machine (VM) limits, sizes, and configurations.
-- Set autoshutdown and autostartup policies.
-- Track and manage lab costs.
-
-### Lab policies
+### Policies
 
 Lab policies help control costs and reduce waste. For example, policies can automatically shut down lab VMs based on a defined schedule, or limit the number or sizes of VMs per user or lab. For more information, see [Manage lab policies to control costs](devtest-lab-set-lab-policy.md).
 
@@ -100,6 +101,6 @@ For more information about custom images and formulas, see [Compare custom image
 
 ## Environments
 
-A DevTest Labs environment is a collection of Azure platform-as-a-service (PaaS) resources, such as an Azure Web App or a SharePoint farm, defined by an Azure Resource Manager (ARM) template. Lab administrators can add public or privately created environment tamplates to labs, and lab users can use them to quickly create environments. For more information, see [Use ARM templates to create DevTest Labs environments](devtest-lab-create-environment-from-arm.md).
+A DevTest Labs environment is a collection of Azure platform-as-a-service (PaaS) resources, such as an Azure Web App or a SharePoint farm, that's defined by an Azure Resource Manager (ARM) template. Lab administrators can add public or privately created environment tamplates to labs, and lab users can use them to quickly create environments. For more information, see [Use ARM templates to create DevTest Labs environments](devtest-lab-create-environment-from-arm.md).
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
