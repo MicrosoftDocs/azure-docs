@@ -12,7 +12,7 @@ ms.author: zhenlwa
 ---
 # Quickstart: Add feature flags to an Azure Functions app
 
-In this quickstart, you create an Azure Functions C# code project and use feature flags in it. You use the feature management from Azure App Configuration to centrally store all your feature flags and control their states.
+In this quickstart, you create an Azure Functions app and use feature flags in it. You use the feature management from Azure App Configuration to centrally store all your feature flags and control their states.
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
 
     ---
 
-1. Open *Program.cs* and update the code as follows. You add Azure App Configuration as an additional configuration source by calling the `AddAzureAppConfiguration` method.
+1. Open *Program.cs* and update the code as follows. You add Azure App Configuration as an extra configuration source by calling the `AddAzureAppConfiguration` method.
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
@@ -112,7 +112,6 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
                .UseFeatureFlags();
     });
     ```
-
     ---
 
     The `UseFeatureFlags()` method instructs the provider to load feature flags. By default, all feature flags without labels are loaded and refreshed every 30 seconds. The selection and refresh behavior of feature flags are configured independently from other configuration key-values. You can customize these behaviors by passing a `FeatureFlagOptions` action to the `UseFeatureFlags` method. Use `FeatureFlagOptions.Select` to specify the keys and labels of feature flags to load, and use `FeatureFlagOptions.SetRefreshInterval` to override the default refresh interval.
@@ -177,7 +176,6 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
             ? $"The Feature Flag '{featureName}' is turned ON!"
             : $"The Feature Flag '{featureName}' is turned OFF");
     }
-
     ```
 
 ## Test the function locally
@@ -239,7 +237,7 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
 
 1. In the Azure portal, navigate to your App Configuration store. Under **Operations**, select **Feature manager**, locate the *Beta* feature flag, and set the **Enabled** toggle to **On**.
 
-1. Refresh the browser a few times. When the refresh interval time window passes, the page will change to indicate the feature flag *Beta* is turned on, as shown in the image below.
+1. Refresh the browser a few times. When the refresh interval time window passes, the page changes to indicate the feature flag *Beta* is turned on, as shown in the image.
  
     ![Quickstart Function feature flag enabled](./media/quickstarts/functions-launch-ff-enabled.png)
 
