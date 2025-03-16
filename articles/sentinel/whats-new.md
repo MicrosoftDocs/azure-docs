@@ -26,10 +26,10 @@ The listed features were released in the last three months. For information abou
 
 The Microsoft Sentinel data connector and security content is now included, as public preview, in the solution for SAP applications. This update also includes the following enhancements for the agentless data connector:
 
-- Enhanced instructions in the portal for deploying and configuring the data connector. [External documentation](sap/preparing-sap.md#next-step) is updated to rely on the instructions in the portal.
-- [More data ingested](sap/sap-solution-log-reference.md) with the agentless data connector, such as Change Docs logs and User Master data.
-- Optional parameters to [customize data collection](sap/configure-agentless.md).
-- [A new tool to verify system prerequisites and compatibility](sap/preparing-sap.md#perform-initial-connector-configuration), recommended both before deploying and when [troubleshooting](sap/sap-deploy-troubleshoot.md#check-for-prerequisites).
+- **Enhanced instructions** in the portal for deploying and configuring the data connector. [External documentation](sap/preparing-sap.md#next-step) is updated to rely on the instructions in the portal.
+- **[More data ingested](sap/sap-solution-log-reference.md)**, such as Change Docs logs and User Master data.
+- **Optional parameters** to [customize data collection](sap/configure-agentless.md).
+- [**A new tool to verify system prerequisites and compatibility**](sap/preparing-sap.md#perform-initial-connector-configuration), recommended both before deploying and when [troubleshooting](sap/sap-deploy-troubleshoot.md#check-for-prerequisites).
 
 For more information, see:
 
