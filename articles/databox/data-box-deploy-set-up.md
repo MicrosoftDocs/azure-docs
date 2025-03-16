@@ -8,6 +8,7 @@ ms.service: azure-databox
 ms.topic: tutorial
 ms.date: 02/16/2023
 ms.author: shaas
+zone_pivot_groups: data-box-sku
 
 # Customer intent: As an IT admin, I need to be able to set up Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -37,23 +38,43 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 Before you begin, make sure that:
-
+:::zone pivot="dbx-ng"
 1. You have placed the order for Azure Data Box.
     - For an import order, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
     - For an export order, see [Tutorial: Order Azure Data Box](data-box-deploy-export-ordered.md)
-1. You have received your Data Box and the order status in the portal is **Delivered**. 
+2. You have received your Data Box and the order status in the portal is **Delivered**. 
     - There is a shipping label in the clear pouch affixed to the device under the current label. Keep this label safe as you will use it for return shipment.
     - Some regions in Europe may receive the device packaged in a box. Ensure that you unpack the device and save the box for return shipment.
-1. You have reviewed the [Data Box safety guidelines](data-box-safety.md).
-1. You have received one grounded power cord to use with your 100-TB storage device.
-1. You have a host computer that is used to copy data (import order) to or copy data from (export order) your Data Box. Your host computer must
+3. You have reviewed the [Data Box safety guidelines](data-box-safety.md).
+4. You have received one grounded power cord to use with your 120 TB or 525 TB storage device. 
+5. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
+    - Run a [Supported operating system](data-box-system-requirements.md).
+    - Be connected to high-speed network. We recommend that you have at least one 100-GbE connection. If a 100-GbE connection isn't available, you can use a 10-GbE or 1-GbE data link, though copy speeds are impacted.
+6. You must have access to a flat surface where you can place the Data Box. If you want to place the device on a standard rack shelf, you need a 7U slot in your datacenter rack. You can place the device flat or upright in the rack.
+7. You have the following cables to connect your Data Box to the host computer. These cables are recommended, however, the next generation devices will work with 10G cables too.
+    - 2 x 10G-BaseT RJ-45 cables (CAT-5e or CAT6)
+    - 2 x 100-GbE QSFP28 passive direct attached cable (use with DATA 1, DATA 2 network interfaces)
+    [!INCLUDE [data-box-cable-adapter](../../includes/data-box-cable-adapter.md)]  
+:::zone-end
+
+:::zone pivot="dbx"
+1. You have placed the order for Azure Data Box.
+    - For an import order, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
+    - For an export order, see [Tutorial: Order Azure Data Box](data-box-deploy-export-ordered.md)
+2. You have received your Data Box and the order status in the portal is **Delivered**. 
+    - There is a shipping label in the clear pouch affixed to the device under the current label. Keep this label safe as you will use it for return shipment.
+    - Some regions in Europe may receive the device packaged in a box. Ensure that you unpack the device and save the box for return shipment.
+3. You have reviewed the [Data Box safety guidelines](data-box-safety.md).
+4. You have received one grounded power cord to use with your 100-TB storage device.
+5. You have a host computer that is used to copy data (import order) to or copy data from (export order) your Data Box. Your host computer must
     - Run a [Supported operating system](data-box-system-requirements.md).
     - Be connected to high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, a 1-GbE data link can be used but the copy speeds are impacted. 
-1. You must have access to a flat surface where you can place the Data Box. If you want to place the device on a standard rack shelf, you need a 7U slot in your datacenter rack. You can place the device flat or upright in the rack.
-1. You have procured the following cables to connect your Data Box to the host computer.
+6. You must have access to a flat surface where you can place the Data Box. If you want to place the device on a standard rack shelf, you need a 7U slot in your datacenter rack. You can place the device flat or upright in the rack.
+7. You have procured the following cables to connect your Data Box to the host computer.
     - One or more 10-GbE SFP+ Twinax copper or SFP+ fiber optic cables (use with DATA 1, DATA 2 network interfaces). Data Box has the Mellanox ConnectX®-3 Pro EN Dual-Port 10GBASE-T Adapters w/ PCI Express 3.0 network interface, so cables that are compatible with this interface should work. For example, a CISCO SFP-H10GB-CU3M 10GBASE-CU TWINAX SFP +3M cable was used for in-house testing. For more information, see the [list of supported cables and switches from Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
     - One RJ-45 CAT 6 network cable (use with MGMT network interface)
     - One RJ-45 CAT 6A OR one RJ-45 CAT 6 network cable (use with DATA 3 network interface configured as 10 Gbps or 1 Gbps respectively)
+::: zone-end 
 
 ## Cable your device
 
