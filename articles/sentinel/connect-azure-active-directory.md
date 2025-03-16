@@ -1,19 +1,23 @@
 ---
-title: Connect Microsoft Entra data to Microsoft Sentinel | Microsoft Docs
+title: Connect Microsoft Entra ID data to Microsoft Sentinel
 description: Learn how to collect data from Microsoft Entra ID, and stream Microsoft Entra sign-in, audit, and provisioning logs into Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
-ms.date: 05/13/2024
-ms.author: yelevin
+ms.date: 03/16/2025
+ms.author: guywild
 
 
 #Customer intent: As a security engineer, I want to stream Microsoft Entra logs into Microsoft Sentinel so that analysts can monitor and analyze sign-in activities, audit logs, and provisioning logs for enhanced security and threat detection.
 
 ---
 
-# Connect Microsoft Entra data to Microsoft Sentinel
+# Collect log data to Microsoft Sentinel using the Microsoft Entra ID data connector
 
-You can use Microsoft Sentinel's built-in connector to collect data from [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) and stream it into Microsoft Sentinel. The connector allows you to stream the following log types:
+[Microsoft Entra ID](/entra/fundamentals/what-is-entra) logs provide comprehensive information about users, applications, and networks accessing your Entra tenant. This article explains the types of logs you can collect using the Microsoft Entra ID data connector, how to enable the Microsoft Entra ID to send data to Microsoft Sentinel, and how to find your data in Microsoft Sentinel.
+
+## Microsoft Entra ID data connector data types
+
+This table lists the log you can send from Microsoft Entra ID to Microsoft Sentinel using the Microsoft Entra ID data connector. Sentinel stores these logs in the Log Analytics workspace linked to your Microsoft Sentinel workspace.
 
 | **Log type** | **Information contained in logs** | **Log schema** |
 |--------------|-----------------------------------|----------------|
