@@ -9,6 +9,8 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+zone_pivot_groups: sentinel-sap-connection
+
 
 #Customer intent: As a security analyst, I want to configure and monitor SAP systems using Microsoft Sentinel so that I can detect and respond to suspicious activities and threats effectively.
 
