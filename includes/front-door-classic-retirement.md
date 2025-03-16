@@ -1,12 +1,11 @@
 ---
  title: Azure Front Door (classic) retirement notice
  description: include file
- services: front-door
- author: duongau
+ author: halkazwini
+ ms.author: halkazwini
  ms.service: front-door
  ms.topic: include
  ms.date: 03/18/2024
- ms.author: duau
  ms.custom: include file
 ---
 > [!IMPORTANT]
