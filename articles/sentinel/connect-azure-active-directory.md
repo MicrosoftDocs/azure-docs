@@ -11,7 +11,7 @@ ms.author: guywild
 
 ---
 
-# Collect log data to Microsoft Sentinel using the Microsoft Entra ID data connector
+# Collect data to Microsoft Sentinel using the Microsoft Entra ID data connector
 
 [Microsoft Entra ID](/entra/fundamentals/what-is-entra) logs provide comprehensive information about users, applications, and networks accessing your Entra tenant. This article explains the types of logs you can collect using the Microsoft Entra ID data connector, how to enable the Microsoft Entra ID to send data to Microsoft Sentinel, and how to find your data in Microsoft Sentinel.
 
