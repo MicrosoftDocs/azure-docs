@@ -1,7 +1,7 @@
 ---
 title: Connect Microsoft Entra ID data to Microsoft Sentinel
 description: Learn how to collect data from Microsoft Entra ID, and stream Microsoft Entra sign-in, audit, and provisioning logs into Microsoft Sentinel.
-author: yelevin
+author: guywi-ms
 ms.topic: how-to
 ms.date: 03/16/2025
 ms.author: guywild
