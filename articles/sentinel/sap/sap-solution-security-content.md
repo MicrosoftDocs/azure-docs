@@ -18,7 +18,7 @@ ms.collection: usx-security
 This article details the security content available for the Microsoft Sentinel solutions for SAP.
 
 > [!IMPORTANT]
-> While the Microsoft Sentinel solution for SAP applications is in GA, some specific components remain in PREVIEW. This article indicates the components that are in preview in the relevant sections below. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Noted elements described in this article are in Preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 Available security content includes built-in workbooks and analytics rules. You can also add SAP-related [watchlists](../watchlists.md) to use in your search, detection rules, threat hunting, and response playbooks.
