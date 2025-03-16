@@ -78,7 +78,7 @@ For more information, see [Available watchlists](sap-solution-security-content.m
 
 The Microsoft Sentinel solution for SAP applications includes the **SAP - Security Audit Controls** workbook, which helps you check compliance for your SAP security controls. The workbook provides a comprehensive view of the security controls that are in place and the compliance status of each control.
 
-For more information, see [Check compliance for your SAP security controls with the SAP - Security Audit Controls workbook(Preview)](sap-audit-controls-workbook.md).
+For more information, see [Check compliance for your SAP security controls with the SAP - Security Audit Controls workbook](sap-audit-controls-workbook.md).
 
 ## Next step
 
