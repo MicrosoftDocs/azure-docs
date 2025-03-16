@@ -55,15 +55,11 @@ This table lists the log you can send from Microsoft Entra ID to Microsoft Senti
 
 <a name='connect-to-azure-active-directory'></a>
 
-## Connect to Microsoft Entra ID
+## Install the Microsoft Entra ID data connector
 
-1. In Microsoft Sentinel, select **Data connectors** from the navigation menu.
+To install the Microsoft Entra ID data connector, see [Enable a data connector](configure-data-connector.md#enable-a-data-connector).
 
-1. From the data connectors gallery, select **Microsoft Entra ID** and then select **Open connector page**.
-
-1. Mark the check boxes next to the log types you want to stream into Microsoft Sentinel, and select **Connect**.
-
-## Find your data
+## Query your data
 
 After a successful connection is established, the data appears in **Logs**, under the **LogManagement** section, in the following tables:
 
