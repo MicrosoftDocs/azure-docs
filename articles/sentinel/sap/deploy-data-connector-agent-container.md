@@ -332,7 +332,7 @@ At this stage, the system's **Health** status is **Pending**. If the agent is up
 
 :::zone pivot="connection-agentless"
 
-## Connect your agentless data connector
+## Connect your agentless data connector (Preview)
 
 1. In Microsoft Sentinel, go to the **Configuration > Data connectors** page and locate the **Microsoft Sentinel for SAP - agent-less (Preview) (Preview)** data connector.
 
