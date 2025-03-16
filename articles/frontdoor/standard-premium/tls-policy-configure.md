@@ -40,7 +40,7 @@ If you're using Azure to host your [DNS domains](/azure/dns/dns-overview), you m
 ## Verify TLS policy configurations
 
 1. Once the custom domain with TLS policy is deployed successfully, you can test it in your browser. 
-1. View the supported cipher suit of your domain via <https://www.ssllabs.com/ssltest/analyze.html?d=p2c1test.bugbash.dev.azfdtest.xyz&latest> or use the sslscan tool.
+1. View the supported cipher suite of your domain via <https://www.ssllabs.com/ssltest/analyze.html?d=p2c1test.bugbash.dev.azfdtest.xyz&latest> or use the sslscan tool.
 
 ## Related content
 

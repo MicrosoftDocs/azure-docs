@@ -10,7 +10,7 @@ ms.date: 03/16/2025
 
 # Azure Front Door TLS policy 
 
-Azure Front Door supports [end-to-end TLS encryption](end-to-end-tls.md). When you add a custom domain to Azure Front Door, HTTPS is required, and you need to define a TLS policy which includes control of the TLS protocol version as well as the cipher suites and the order in which ciphers are used during a TLS handshake. 
+Azure Front Door supports [end-to-end TLS encryption](../end-to-end-tls.md). When you add a custom domain to Azure Front Door, HTTPS is required, and you need to define a TLS policy which includes control of the TLS protocol version as well as the cipher suites and the order in which ciphers are used during a TLS handshake. 
 
 Azure Front Door supports four versions of the TLS protocol: TLS versions 1.0, 1.1, 1.2 and 1.3. Although TLS 1.2 introduced client/mutual authentication in RFC 5246, Azure Front Door currently doesn't support client/mutual authentication (mTLS).
 
