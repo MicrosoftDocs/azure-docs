@@ -8,6 +8,7 @@ ms.service: azure-databox
 ms.topic: tutorial
 ms.date: 10/20/2019
 ms.author: shaas
+zone_pivot_groups: data-box-sku
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises VM data from my server onto Azure.
 ---
 # Tutorial: Use Data Box to import data as managed disks in Azure
