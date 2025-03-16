@@ -7,8 +7,9 @@ ms.service: azure-container-apps
 ms.custom:
   - ignite-2024
 ms.topic: how-to
-ms.date: 11/06/2024
+ms.date: 03/16/2025
 ms.author: cshoe
+zone_pivot_groups: container-apps-portal-or-cli
 ---
 
 # Tutorial: Generate images using serverless GPUs in Azure Container Apps (preview)
@@ -31,8 +32,12 @@ In this tutorial you:
 | Resource | Description |
 |---|---|
 | Azure account | You need an Azure account with an active subscription. If you don't have one, you [can create one for free](https://azure.microsoft.com/free/). |
-| Azure Container Registry instance | You need an existing Azure Container Registry instance or the permissions to create one. |
 | Access to serverless GPUs | Access to GPUs is only available after you request GPU quotas. You can submit your GPU quota request via a [customer support case](/azure/azure-portal/supportability/how-to-create-azure-support-request). |
+::: zone pivot="azure-cli"
+| [Azure CLI](/cli/azure/install-azure-cli) | Install the [Azure CLI](/cli/azure/install-azure-cli) or upgrade to the latest version. |
+::: zone-end
+
+::: zone pivot="azure-portal"
 
 ## Create your container app
 
@@ -105,6 +110,83 @@ From the *Overview* window, select the **Application Url** link to open the web 
 > - To achieve the best performance of your GPU apps, follow the steps to [improve cold start for your serverless GPUs](gpu-serverless-overview.md#improve-gpu-cold-start).
 > - When there are multiple containers in your application, the first container gets access to the GPU.
 
+:::zone-end
+
+::: zone pivot="azure-cli"
+
+## Create environment variables
+
+Define the following environment variables. Replace the `<PLACEHOLDERS>` with your values.
+
+```azurecli
+$RESOURCE_GROUP="<RESOURCE_GROUP>"
+$ENVIRONMENT_NAME="<ENVIRONMENT_NAME>"
+$LOCATION="swedencentral"
+$CONTAINER_APP_NAME="<CONTAINER_APP_NAME>"
+$CONTAINER_IMAGE="mcr.microsoft.com/k8se/gpu-quickstart:latest"
+$WORKLOAD_PROFILE_NAME="NC8as-T4"
+$WORKLOAD_PROFILE_TYPE="Consumption-GPU-NC8as-T4"
+```
+
+## Create your container app
+
+1. Create the resource group to contain the resources you create in this tutorial.
+
+    ```azurecli
+    az group create \
+      --name $RESOURCE_GROUP \
+      --location $LOCATION \
+      --query "properties.provisioningState"
+    ```
+
+1. Create a Container Apps environment to host your container app.
+
+    ```azurecli
+    az containerapp env create \
+      --name $ENVIRONMENT_NAME \
+      --resource-group $RESOURCE_GROUP \
+      --location "$LOCATION" \
+      --query "properties.provisioningState"
+    ```
+
+1. Add a workload profile to your environment.
+
+    ```azurecli
+    az containerapp env workload-profile add `
+      --name $ENVIRONMENT_NAME `
+      --resource-group $RESOURCE_GROUP `
+      --workload-profile-name $WORKLOAD_PROFILE_NAME `
+      --workload-profile-type $WORKLOAD_PROFILE_TYPE
+    ```
+
+1. Create your container app.
+
+    ```azurecli
+    az containerapp create `
+      --name $CONTAINER_APP_NAME `
+      --resource-group $RESOURCE_GROUP `
+      --environment $ENVIRONMENT_NAME `
+      --image $CONTAINER_IMAGE `
+      --target-port 80 `
+      --ingress external `
+      --cpu 8.0 `
+      --memory 56.0Gi `
+      --workload-profile-name $WORKLOAD_PROFILE_NAME `
+      --query properties.configuration.ingress.fqdn
+    ```
+
+    This command outputs the application URL for your container app.
+
+## Use your GPU app
+
+Open the application URL for your container app in your browser. Note it can take up to five minutes for the container app to start up.
+
+> [!NOTE]
+> - To achieve the best performance of your GPU apps, follow the steps to [improve cold start for your serverless GPUs](gpu-serverless-overview.md#improve-gpu-cold-start).
+> - When there are multiple containers in your application, the first container gets access to the GPU.
+
+::: zone-end
+
 ## Monitor your GPU
 
 Once you generate an image, use the following steps to view results of the GPU processing:
@@ -129,6 +211,8 @@ The resources created in this tutorial have an effect on your Azure bill.
 
 If you aren't going to use these services long-term, use the steps to remove everything created in this tutorial.
 
+::: zone pivot="azure-portal"
+
 1. In the Azure portal, search for and select **Resource Groups**.
 
 1. Select **my-gpu-demo-group**.
@@ -138,6 +222,18 @@ If you aren't going to use these services long-term, use the steps to remove eve
 1. In the confirmation box, enter **my-gpu-demo-group**.
 
 1. Select **Delete**.
+
+::: zone-end
+
+::: zone pivot="azure-cli"
+
+Run the following command.
+
+```azurecli
+az group delete --name $RESOURCE_GROUP
+```
+
+::: zone-end
 
 ## Next steps
 
