@@ -21,8 +21,10 @@ Before you begin, make sure that:
 
 :::zone pivot="dbx-ng"
 * Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 100-GbE connection. If a 100-GbE connection isn't available, you can use a 10-GbE or 1-GbE data link can be used, but copy speeds are impacted.
+  
 :::zone-end
 
 :::zone pivot="dbx"
 * Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, 1-GbE data link can be used, but copy speeds are impacted.
+
 :::zone-end
