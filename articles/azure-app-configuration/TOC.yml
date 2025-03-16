@@ -15,19 +15,61 @@
   - name: Configuration
     items:
     - name: ASP.NET Core
-      href: quickstart-aspnet-core-app.md
+      items:
+      - name: Use Azure App Configuration
+        href: quickstart-aspnet-core-app.md
+      - name: Enable dynamic configuration
+        href: enable-dynamic-configuration-aspnet-core.md
     - name: .NET
-      href: quickstart-dotnet-core-app.md
+      items:
+      - name: Use Azure App Configuration
+        href: quickstart-dotnet-core-app.md
+      - name: Enable dynamic configuration
+        href: enable-dynamic-configuration-dotnet-core.md
+    - name: .NET Background Service
+      items:
+      - name: Enable dynamic configuration
+        href: enable-dynamic-configuration-dotnet-background-service.md
+    - name: ASP.NET (.NET Framework)
+      items:
+      - name: Enable dynamic configuration
+        href: enable-dynamic-configuration-aspnet-netfx.md
     - name: .NET Framework
-      href: quickstart-dotnet-app.md
+      items:
+      - name: Use Azure App Configuration
+        href: quickstart-dotnet-app.md
+      - name: Enable dynamic configuration
+        href: enable-dynamic-configuration-dotnet.md
     - name: Java Spring
-      href: quickstart-java-spring-app.md
+      items:
+      - name: Use Azure App Configuration
+        href: quickstart-java-spring-app.md
+      - name: Enable dynamic configuration
+        href: enable-dynamic-configuration-java-spring-app.md
     - name: Python
-      href: quickstart-python-provider.md
+      items:
+      - name: Use Azure App Configuration
+        href: quickstart-python-provider.md
+      - name: Enable dynamic configuration
+        href: enable-dynamic-configuration-python.md 
     - name: Node.js
-      href: quickstart-javascript-provider.md
+      items:
+      - name: Use Azure App Configuration
+        href: quickstart-javascript-provider.md
+      - name: Enable dynamic configuration
+        href: enable-dynamic-configuration-javascript.md
     - name: Azure Functions
-      href: quickstart-azure-functions-csharp.md
+      items:
+      - name: Use Azure App Configuration
+        href: quickstart-azure-functions-csharp.md
+      - name: Enable dynamic configuration
+        href: enable-dynamic-configuration-azure-functions-csharp.md
+    - name: Azure Kubernetes Service
+      items:
+      - name: Use Azure App Configuration
+        href: quickstart-azure-kubernetes-service.md
+      - name: Enable dynamic configuration
+        href: enable-dynamic-configuration-azure-kubernetes-service.md
   - name: Feature management
     items:
     - name: Manage feature flags
@@ -50,8 +92,6 @@
       href: quickstart-feature-flag-azure-kubernetes-service.md
   - name: Service integration
     items:
-    - name: Azure Kubernetes Service
-      href: quickstart-azure-kubernetes-service.md
     - name: App Service & Azure Functions
       href: /azure/app-service/app-service-configuration-references
     - name: Azure Container Apps
@@ -72,28 +112,6 @@
   expanded: true
 - name: Tutorials
   items:
-  - name: Enable dynamic configuration using poll model
-    items:
-    - name: ASP.NET Core
-      href: enable-dynamic-configuration-aspnet-core.md
-    - name: ASP.NET (.NET Framework)
-      href: enable-dynamic-configuration-aspnet-netfx.md
-    - name: .NET
-      href: enable-dynamic-configuration-dotnet-core.md
-    - name: .NET Framework
-      href: enable-dynamic-configuration-dotnet.md
-    - name: .NET Background Service
-      href: enable-dynamic-configuration-dotnet-background-service.md
-    - name: Spring Boot
-      href: enable-dynamic-configuration-java-spring-app.md
-    - name: Python
-      href: enable-dynamic-configuration-python.md
-    - name: Node.js
-      href: enable-dynamic-configuration-javascript.md
-    - name: Azure Functions
-      href: enable-dynamic-configuration-azure-functions-csharp.md
-    - name: Azure Kubernetes Service
-      href: enable-dynamic-configuration-azure-kubernetes-service.md
   - name: Enable dynamic configuration using push model
     items:
     - name: .NET
