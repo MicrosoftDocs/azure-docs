@@ -15,20 +15,23 @@ ms.author: yelevin
 
 You can use Microsoft Sentinel's built-in connector to collect data from [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) and stream it into Microsoft Sentinel. The connector allows you to stream the following log types:
 
-- [**Sign-in logs**](../active-directory/reports-monitoring/concept-all-sign-ins.md), which contain information about interactive user sign-ins where a user provides an authentication factor.
-
-    The Microsoft Entra connector now includes the following three additional categories of sign-in logs, all currently in **PREVIEW**:
-    
-    - [**Non-interactive user sign-in logs**](../active-directory/reports-monitoring/concept-all-sign-ins.md#non-interactive-user-sign-ins), which contain information about sign-ins performed by a client on behalf of a user without any interaction or authentication factor from the user.
-    
-    - [**Service principal sign-in logs**](../active-directory/reports-monitoring/concept-all-sign-ins.md#service-principal-sign-ins), which contain information about sign-ins by apps and service principals that don't involve any user. In these sign-ins, the app or service provides a credential on its own behalf to authenticate or access resources.
-    
-    - [**Managed Identity sign-in logs**](../active-directory/reports-monitoring/concept-all-sign-ins.md#managed-identity-for-azure-resources-sign-ins), which contain information about sign-ins by Azure resources that have secrets managed by Azure. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
-
-- [**Audit logs**](../active-directory/reports-monitoring/concept-audit-logs.md), which contain information about system activity relating to user and group management, managed applications, and directory activities.
-
-- [**Provisioning logs**](../active-directory/reports-monitoring/concept-provisioning-logs.md) (also in **PREVIEW**), which contain system activity information about users, groups, and roles provisioned by the Microsoft Entra provisioning service. 
-- [**Microsoft Graph activity logs**](/graph/microsoft-graph-activity-logs-overview), which contain information about HTTP requests accessing your tenant’s resources through the Microsoft Graph API.
+| **Log type** | **Information contained in logs** | **Log schema** |
+|--------------|-----------------------------------|----------------|
+| [**Sign-in logs**](../active-directory/reports-monitoring/concept-all-sign-ins.md) | Interactive user sign-ins where a user provides an authentication factor. | [SigninLogs](/azure/azure-monitor/reference/tables/signinlogs) |
+| [**Non-interactive user sign-in logs**](../active-directory/reports-monitoring/concept-all-sign-ins.md#non-interactive-user-sign-ins) | Sign-ins performed by a client on behalf of a user without any interaction or authentication factor from the user. | [AADNonInteractiveUserSignInLogs](/azure/azure-monitor/reference/tables/aadnoninteractiveusersigninlogs) |
+| [**Service principal sign-in logs**](../active-directory/reports-monitoring/concept-all-sign-ins.md#service-principal-sign-ins) | Sign-ins by apps and service principals that don't involve any user. In these sign-ins, the app or service provides a credential on its own behalf to authenticate or access resources. | [AADServicePrincipalSignInLogs](/azure/azure-monitor/reference/tables/aadserviceprincipalsigninlogs) |
+| [**Managed Identity sign-in logs**](../active-directory/reports-monitoring/concept-all-sign-ins.md#managed-identity-for-azure-resources-sign-ins) | Sign-ins by Azure resources that have secrets managed by Azure. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md). | [AADManagedIdentitySignInLogs](/azure/azure-monitor/reference/tables/aadmanagedidentitysigninlogs) |
+| [**Audit logs**](../active-directory/reports-monitoring/concept-audit-logs.md) | System activity relating to user and group management, managed applications, and directory activities. | [AuditLogs](/azure/azure-monitor/reference/tables/auditlogs) |
+| [**Provisioning logs**](../active-directory/reports-monitoring/concept-provisioning-logs.md) | System activity information about users, groups, and roles provisioned by the Microsoft Entra provisioning service. (**PREVIEW**) | [AADProvisioningLogs](/azure/azure-monitor/reference/tables/aadprovisioninglogs) |
+| [**Microsoft Graph activity logs**](/graph/microsoft-graph-activity-logs-overview) | HTTP requests accessing your tenant’s resources through the Microsoft Graph API. | [MicrosoftGraphActivityLogs](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/microsoftgraphactivitylogs) |
+| [**AD FS sign-in logs**](../active-directory/reports-monitoring/concept-all-sign-ins.md#ad-fs-sign-ins) | Sign-ins performed through Active Directory Federation Services (AD FS). | [ADFSSignInLogs](/azure/azure-monitor/reference/tables/adfssigninlogs) |
+| [**User risk events**](../active-directory/reports-monitoring/concept-risk-events.md) | Risk detections associated with user accounts. | [AADUserRiskEvents](/azure/azure-monitor/reference/tables/aaduserriskevents) |
+| [**Risky users**](../active-directory/reports-monitoring/concept-risky-users.md) | Information about users flagged as risky by Microsoft Entra ID. | [AADRiskyUsers](/azure/azure-monitor/reference/tables/aadriskyusers) |
+| [**Network access traffic logs**](../network-access/overview.md) | Logs related to network access traffic and activities. | [NetworkAccessTraffic](/azure/azure-monitor/reference/tables/networkaccesstraffic) |
+| [**Risky service principals**](../active-directory/reports-monitoring/concept-risky-service-principals.md) | Information about service principals flagged as risky by Microsoft Entra ID. | [AADRiskyServicePrincipals](/azure/azure-monitor/reference/tables/aadriskyserviceprincipals) |
+| [**Service principal risk events**](../active-directory/reports-monitoring/concept-risk-events.md#service-principal-risk-events) | Risk detections associated with service principals. | [AADServicePrincipalRiskEvents](/azure/azure-monitor/reference/tables/aadserviceprincipalriskevents) |
+| [**Enriched Office 365 audit logs**](../microsoft-365/compliance/audit-log-search.md) | Enhanced audit logs for Office 365 activities. | [EnrichedOffice365AuditLogs](/azure/azure-monitor/reference/tables/enrichedoffice365auditlogs) |
+| [**Remote network health logs**](../network-access/remote-network-health.md) | Logs providing insights into the health of remote networks. | [RemoteNetworkHealthLogs](/azure/azure-monitor/reference/tables/remotenetworkhealthlogs) |
 
 > [!IMPORTANT]
 > Some of the available log types are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
