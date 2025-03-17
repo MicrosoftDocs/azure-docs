@@ -82,7 +82,7 @@ Azure Operator Nexus provides a shared filesystem storage solution for container
 
 You can create the shared storage service on either storage appliance when the CSN is created. All nexus-shared PVCs using that shared storage service consume storage from the storage appliance backing the shared service. You can't place a specific nexus-shared PVC on a specific storage appliance. If no storage appliance configuration is provided at CSN creation time, or if the configuration doesn't match a storage appliance, the shared storage service uses the first storage appliance.
 
-See [How to create shared storage on a specific storage appliance](howto-storage-multi-appliance-nfs.md) for instructions on creating the shared storage service on a specific storage appliance.
+See [Prerequisites for deploying tenant workloads](/quickstarts-tenant-workload-prerequisites.md#create-a-cloud-services-network) for instructions on creating the shared storage service on a specific storage appliance.
 
 #### Nexus-shared limitations
 
