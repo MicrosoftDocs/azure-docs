@@ -23,30 +23,35 @@ The following diagram shows a high-level view of the components in a typical edg
 
 ### [Cloud-based solution](#tab/cloud)
 
-IoT Central applications use the IoT Hub and the Device Provisioning Service (DPS) services internally. Therefore, the concepts in this article apply whether you're using IoT Central to explore an IoT scenario or building your solution by using IoT Hub and DPS.
-
-The following diagram shows a high-level view of the components in a typical edge-based IoT solution. This article focuses on the device management and control components of a cloud-based IoT solution:
+The following diagram shows a high-level view of the components in a typical cloud-based IoT solution. This article focuses on the device management and control components of a cloud-based IoT solution:
 
 <!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-device-management/iot-cloud-management-architecture.svg" alt-text="Diagram that shows the high-level IoT cloud-based solution architecture highlighting device management areas." border="false" lightbox="media/iot-overview-device-management/iot-cloud-management-architecture.svg":::
 
-In Azure IoT, device management refers to processes such as provisioning and updating devices. Device management includes the following tasks:
+IoT Central applications use the IoT Hub and the Device Provisioning Service (DPS) services internally. Therefore, the concepts in a cloud-based IoT solution apply whether you're using IoT Central or IoT Hub.
 
-- Device registration
-- Device provisioning
-- Device deployment
-- Device updates
-- Device key management and rotation
-- Device monitoring
-- Enabling and disabling devices
+---
 
-In Azure IoT, *command and control* refers to the processes that let you send commands to devices and receive responses from them. For example, you can send a command to a device to:
+In Azure IoT, asset and device management refers to processes such as provisioning and updating assets or devices. Asset and device management includes the following tasks:
+
+- Asset or device registration.
+- Asset or device provisioning.
+- Asset or device deployment.
+- Asset or device updates.
+- Asset or device key management and rotation.
+- Asset or device monitoring.
+- Enabling and disabling assets or devices.
+- Define the asset endpoints that connect assets to your edge runtime environment.
+- Define asset tags and events to enable data flow from OPC UA servers to the MQTT broker.
+
+In Azure IoT, *command and control* refers to the processes that let you send commands to assets and devices and receive responses from them. For example, you can send a command to:
 
 - Set a target temperature.
 - Request maximum and minimum temperature values for the last two hours.
-- Set the telemetry interval to 10 seconds.
-
----
+- Set the sensor data interval to 10 seconds.
+- Control the camera pan, tilt, and zoom.
+- Capture snapshots from a video stream and publish them to an MQTT topic.
+- Shut down the lights of a building to save energy.
 
 ## Primitives
 
