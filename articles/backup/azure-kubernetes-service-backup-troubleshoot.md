@@ -174,7 +174,7 @@ These error codes appear due to issues on the Backup Extension installed in the 
        2. CPU: requests - 500m, limits - 1000m
 ```
 
-However, if the number of resources in the cluster exceeds 1000, the pods may require additional CPU and memory beyond the default reservation. If the required resources exceed the allocated limits, you might encounter an BackupPluginPodRestarted due to OOMKilled (Out of Memory) error during backup jobs.
+However, if the number of resources in the cluster exceeds 1000, the pods may require additional CPU and memory beyond the default reservation. If the required resources exceed the allocated limits, you might encounter a BackupPluginPodRestarted error due to OOMKilled (Out of Memory) error during backup jobs.
 
 **Recommended action**: To ensure successful backup and restore operations, manually update the resource settings for the extension pods by following these steps:
 
@@ -316,23 +316,23 @@ These error codes can appear while you enable AKS backup to store backups in a v
 
 **Cause**: Namespaces provided in Backup Configuration is missing while performing backups. Either the namespace was wrongly provided or has been deleted.
 
-**Recommended action**: Check if the Namespaces to be backed up are correctly provided.
+**Recommended action**: Check if the Namespaces to be backed-up are correctly provided.
 
 ### UserErrorPVCHasNoVolume
 
 **Error code**: UserErrorPVCHasNoVolume
 
-**Cause**: The Persistent Volume Claim (PVC) in context doesn't have a Persistent Volume attached to it. So, the PVC won't be backed up.
+**Cause**: The Persistent Volume Claim (PVC) in context doesn't have a Persistent Volume attached to it. So, the PVC won't be backed-up.
 
-**Recommended action**: Attach a volume to the PVC, if it needs to be backed up.
+**Recommended action**: Attach a volume to the PVC, if it needs to be backed-up.
 
 ### UserErrorPVCNotBoundToVolume
 
 **Error code**: UserErrorPVCNotBoundToVolume
 
-**Cause**: The PVC in context is in *Pending* state and doesn't have a Persistent Volume attached to it. So, the PVC won't be backed up. 
+**Cause**: The PVC in context is in *Pending* state and doesn't have a Persistent Volume attached to it. So, the PVC won't be backed-up. 
 
-**Recommended action**: Attach a volume to the PVC, if it needs to be backed up.
+**Recommended action**: Attach a volume to the PVC, if it needs to be backed-up.
 
 ### UserErrorPVNotFound
 
@@ -362,7 +362,7 @@ These error codes can appear while you enable AKS backup to store backups in a v
 
 **Error code**: LinkedAuthorizationFailed
 
-**Cause**: To perform a restore operation, user needs to have a **read** permission over the backed up AKS cluster. 
+**Cause**: To perform a restore operation, user needs to have a **read** permission over the backed-up AKS cluster. 
 
 **Recommended action**: Assign Reader role on the source AKS cluster and then proceed to perform the restore operation. 
 
