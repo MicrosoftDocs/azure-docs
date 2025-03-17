@@ -4,7 +4,7 @@ description: Learn how to manually promote a Resource Manager template to multip
 ms.subservice: ci-cd
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.topic: conceptual
 ms.date: 01/29/2025
 ---

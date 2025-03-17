@@ -3,7 +3,7 @@ title: Install a Private package
 description: This article provides step-by-step instructions on how to install a private package in a Workflow Orchestration Manager runtime.
 author: nabhishek
 ms.author: abnarain
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.topic: how-to
 ms.date: 02/13/2025
 ---

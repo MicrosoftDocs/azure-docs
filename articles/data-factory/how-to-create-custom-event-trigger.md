@@ -4,7 +4,7 @@ description: Learn how to create a trigger in Azure Data Factory that runs a pip
 ms.subservice: orchestration
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.topic: conceptual
 ms.date: 12/16/2024
 ai-usage: ai-assisted

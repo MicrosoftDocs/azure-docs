@@ -2,11 +2,11 @@
 title: Deploy linked ARM templates with VSTS
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to deploy linked ARM templates with Azure DevOps Services (formerly Visual Studio Team Services, or VSTS).
-author: jonburchel
+author: whhender
 ms.custom: synapse
 ms.topic: how-to
 ms.date: 05/15/2024
-ms.author: jburchel
+ms.author: whhender
 ms.subservice: authoring
 ---
 # Deploy linked ARM templates with VSTS
