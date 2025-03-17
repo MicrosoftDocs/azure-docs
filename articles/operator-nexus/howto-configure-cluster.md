@@ -69,6 +69,8 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
 
 ### Create the Cluster using Azure CLI - multiple storage appliances:
 
+"$AGGR_RACK_SKU" must be set to a value which supports two storage appliances. See [Operator Nexus Network Cloud SKUs](./reference-operator-nexus-skus.md) to pick an appropriate SKU.
+
 ```azurecli
 az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
   --extended-location name="$CL_NAME" type="CustomLocation" \
