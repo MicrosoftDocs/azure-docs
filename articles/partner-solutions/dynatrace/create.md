@@ -60,7 +60,7 @@ There are required fields (identified with a red asterisk) that you need to fill
 
 1. Select **Next: Metrics and Logs**. 
 
-### Configure metrics and logs
+### Metrics and logs tab (optional)
 
 If you wish, you can configure resources to send metrics/logs to Dynatrace. 
 
@@ -70,16 +70,6 @@ If you wish, you can configure resources to send metrics/logs to Dynatrace.
 
 > [!IMPORTANT]
 > When the checkbox for Azure resource logs is selected, logs are forwarded for all resources by default.
-
-#### Inclusion and exclusion rules for metrics and logs
-
-To filter the set of Azure resources that send logs to Dynatrace, use inclusion and exclusion rules and set Azure resource tags:
-
-- All Azure resources with tags defined in include rules send logs to Dynatrace.
-- All Azure resources with tags defined in exclude rules don't send logs to Dynatrace.
-
-> [!NOTE]
-> If there's a conflict between inclusion and exclusion rules, the exclusion rule applies.
 
 Select the **Next** button at the bottom of the page.
 
