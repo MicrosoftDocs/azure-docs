@@ -41,7 +41,7 @@ If you aren't already connected to your Azure account, follow these steps to con
 
    :::image type="content" source="media/manage-logic-apps-visual-studio-code/visual-studio-code-azure-icon.png" alt-text="Screenshot shows the Visual Studio Code Activity Bar and selected Azure icon.":::
 
-1. In the Azure pane, in the **Logic Apps (Consumption)** section, select **Sign in to Azure**.
+1. In the **Azure** pane, in the **Logic Apps (Consumption)** section, select **Sign in to Azure**.
 
 1. When the Visual Studio Code authentication page appears, sign in with your Azure account.
 
@@ -57,7 +57,7 @@ If you aren't already connected to your Azure account, follow these steps to con
 
    :::image type="content" source="media/manage-logic-apps-visual-studio-code/visual-studio-code-azure-icon.png" alt-text="Screenshot shows Visual Studio Code Activity Bar and selected Azure icon.":::
 
-1. In the Azure pane, in the **Resources** section, select **Sign in to Azure**.
+1. In the **Azure** pane, in the **Resources** section, select **Sign in to Azure**.
 
 1. When the Visual Studio Code authentication page appears, sign in with your Azure account.
 
@@ -75,7 +75,7 @@ If you aren't already connected to your Azure account, follow these steps to con
 
 1. In Visual Studio Code, [connect to your Azure account](#connect-azure-account), if you haven't already.
 
-1. On the Visual Studio Code Activity Bar, select the Azure icon to open the Azure pane.
+1. On the Visual Studio Code Activity Bar, select the Azure icon to open the **Azure** pane.
 
 1. In the **Logic Apps (Consumption)** section, expand your subscription node.
 
@@ -87,8 +87,8 @@ If you aren't already connected to your Azure account, follow these steps to con
 
    | Task | Select |
    |------|--------|
-   | Open workflow in the designer | **Open in Designer** |
-   | Open workflow in the code view editor | **Open in Editor** |
+   | Open workflow in the designer | **Open in Designer**, which opens the workflow in read-only mode. |
+   | Open workflow in the code view editor | **Open in Editor**, which opens the workflow for editing. See [Edit a workflow](#edit-workflow). |
 
 1. Expand the node for the items described in the following table where you want to view more information, if any exists:
 
@@ -96,13 +96,13 @@ If you aren't already connected to your Azure account, follow these steps to con
    |------|-------------|
    | **Runs** | Workflow run history |
    | **Triggers** | Workflow trigger information. <br><br>- To open in the code view editor, open the shortcut menu for the trigger, and select **Open in Editor**. <br><br>- To run the trigger, open the shortcut menu for the trigger, and select **Run**. |
-   | **Versions** | Logic app versions. <br><br>- To open in the designer, open the shortcut menu for a specific version, and select **Open in Designer**. <br><br>- To open in the code view editor, open the shortcut menu for a specific version, and select **Open in Editor**. |
+   | **Versions** | Logic app versions. <br><br>- To open in the designer, open the shortcut menu for a specific version, and select **Open in Designer**, which opens in read-only mode. <br><br>- To open in the code view editor, open the shortcut menu for a specific version, and select **Open in Editor**, which opens in read-only mode. |
 
 ### [Standard](#tab/standard)
 
 1. In Visual Studio Code, [connect to your Azure account](#connect-azure-account), if you haven't already.
 
-1. On the Visual Studio Code Activity Bar, select the Azure icon to open the Azure pane.
+1. On the Visual Studio Code Activity Bar, select the Azure icon to open the **Azure** pane.
 
 1. In the **Resources** section, expand your subscription node, and then expand the **Logic App** node.
 
@@ -118,24 +118,87 @@ If you aren't already connected to your Azure account, follow these steps to con
    | **Configurations** | View the following configuration elements: <br><br>- **Application Settings** <br><br>- **Connections** <br><br>- **Parameters** |
    | **Files** | Project files and any other files in your logic app resource, for example:  <br><br>- **Artifacts** <br><br>- **workflow.json** file for each workflow in your logic app resource <br><br>- **connections.json** file that contains information about connections created by managed connectors <br><br>- **host.json** file |
    | **Logs** | Log files that contain any diagnostic logging information |
-   | **Deployments** ||
-   | **Slots** | Deployment slots |
+   | **Deployments** | |
+   | **Slots** | Any existing deployment slots |
    | **Artifacts** | Files such as map (.xslt) files, schemas (.xsd), or assemblies (.dll or .jar) <br><br>**Note**: This node and subnodes appear only if any actual files exist. |
 
  ---
 
-   To edit the workflow, you have these options:
+<a name="add-workflow-existing-project"></a>
 
-   * In Visual Studio Code, open your project's **workflow.json** file in the workflow designer, make your edits, and redeploy your logic app to Azure.
+## Add blank workflow to project (Standard logic app only)
 
-   * In the Azure portal, [open your logic app](#manage-deployed-apps-portal). You can then open, edit, and save your workflow.
+Your Standard logic app can include multiple workflows. To add a new empty workflow to your project, follow these steps:
 
-   You can also sign in separately to the Azure portal, use the portal search box to find your logic app, and then select your logic app from the results list.
+1. In Visual Studio Code, open your Standard logic app project, if not already open.
 
+1. On the Activity Bar, select the files icon, which opens the **Explorer** window to show your project.
 
-1. lect the logic app that you want and  to manage. From the logic app's shortcut menu, select the task that you want to perform.
+1. On your project folder shortcut menu, and select **Create workflow**.
 
-   For example, you can select tasks such as stopping, starting, restarting, or deleting your deployed logic app. You can [disable or enable a workflow by using the Azure portal](manage-logic-apps-with-azure-portal.md#disable-enable-standard-workflows).
+1. Select the workflow template **Stateful** or **Stateless**
+
+1. Provide a name for your workflow.
+
+A new workflow folder now appears in your project. This folder contains a **workflow.json** file for the workflow's underlying JSON definition.
+
+<a name="edit-workflow"></a>
+
+## Edit a workflow
+
+In Visual Studio Code, you can edit a deployed Consumption workflow using only the code view editor. If you open a deployed Consumption workflow using the designer, the workflow opens in read-only mode. By comparison, you can edit a Standard workflow using the designer or code view editor only within the context of your Standard logic app project in the **Explorer** pane. If you open a *deployed* Standard workflow using the designer or code view editor from the **Resources** section in the **Azure** pane, the workflow opens in read-only mode.
+
+To edit a deployed Consumption or Standard workflow using the designer, make those changes in the Azure portal instead.
+
+> [!IMPORTANT]
+>
+> Before you change your workflow, you might want to stop or disable your workflow. Make sure 
+> that you understand how your changes affect your workflow's operation. When you're done, 
+> remember to restart or reenable your workflow. For considerations around stopping, disabling, 
+> restarting, or reenabling workflows, see the following documentation:
+>
+> - [Considerations for stopping Consumption logic apps](/azure/logic-apps/manage-logic-apps-with-azure-portal?tabs=consumption#considerations-stop-consumption-logic-apps)
+> - [Considerations for stopping Standard logic apps](/azure/logic-apps/manage-logic-apps-with-azure-portal?tabs=standard#considerations-stop-standard-logic-apps)
+
+### [Consumption](#tab/consumption)
+
+1. On the Visual Studio Code Activity Bar, select the Azure icon to open the **Azure** pane.
+
+1. Expand the Azure subscription for your Consumption logic app, and find your logic app.
+
+1. Open the logic app shortcut menu, and select **Open in Editor**.
+
+   Visual Studio Code opens the code view editor for the workflow's underlying JSON definition file named **<*logic-app-name*>.logicapp.json** file. You can now edit the workflow's underlying JSON definition.
+
+1. After you make changes and try to save your workflow, a message appears to confirm that you want to upload your changes to the deployed workflow.
+
+1. To continue saving and publishing your changes, select **Upload**.
+
+   Azure saves the original workflow as a previous version. Your updated workflow becomes the current workflow.
+
+1. If your workflow is disabled, remember to reenable your workflow.
+
+### [Standard](#tab/standard)
+
+#### Edit workflow in project
+
+1. In Visual Studio Code, open your Standard logic app project, if not already open.
+
+1. On the Activity Bar, select the files icon to open the **Explorer** pane, which shows your project.
+
+1. In your project, expand the workflow folder that you want.
+
+1. Choose from the following options:
+
+   - Open the **workflow.json** shortcut menu, select **Open Designer**, and make your changes in the designer.
+
+   - Open the **workflow.json** file, and make your changes in the underlying JSON definition.
+
+1. When you're done, [publish your updated Standard logic app](/azure/logic-apps/create-standard-workflows-visual-studio-code#publish-new-logic-app).
+
+1. If your workflow is disabled, remember to reenable your workflow.
+
+---
 
    > [!NOTE]
    >
@@ -145,23 +208,6 @@ If you aren't already connected to your Azure account, follow these steps to con
 
    ![Screenshot shows Visual Studio Code with Resources section and deployed logic app resource.](./media/manage-logic-apps-visual-studio-code/find-deployed-workflow-visual-studio-code.png)
 
-
-
-<a name="add-workflow-existing-project"></a>
-
-## Add blank workflow to project (Standard logic app only)
-
-You can have multiple workflows in your logic app project. To add a blank workflow to your project, follow these steps:
-
-1. In Visual Studio Code, on the Activity Bar, select the files icon, which opens the **Explorer** window to show your project.
-
-1. In your project, open the project folder shortcut window, and select **Create workflow**.
-
-1. Select the template for the workflow: **Stateful** or **Stateless**
-
-1. Provide a name for your new workflow.
-
-When you finish, a new workflow folder appears in your project. This folder contains a **workflow.json** file for the workflow definition.
 
 <a name="considerations-stop-logic-apps"></a>
 
@@ -177,7 +223,7 @@ Stopping a logic app affects workflow instances in the following ways:
 
   To stop a trigger from firing on unprocessed items since the last run, clear the trigger state before you restart the logic app:
 
-  1. On the Visual Studio Code Activity Bar, select the Azure icon, which opens the Azure window.
+  1. On the Visual Studio Code Activity Bar, select the Azure icon, which opens the **Azure** pane.
 
   1. In the **Resources** section, expand your subscription, which shows all the deployed logic apps for that subscription.
 
