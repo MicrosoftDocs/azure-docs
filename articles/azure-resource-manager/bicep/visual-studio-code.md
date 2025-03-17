@@ -245,6 +245,12 @@ From Visual Studio Code, you can open the template reference for the resource ty
 
 When defining a [module](./modules.md) and regardless of the type of file that's being referenced - a local file, module registry file, or a template spec - you can open the file by selecting or highlighting the module path and pressing **[F12]**. If the referenced file is an [Azure Verified Module, an AVM](https://aka.ms/avm), then you can toggle between the compiled JSON or Bicep file. To open the Bicep file of a private registry module, ensure that the module is published to the registry with the `WithSource` switch enabled. For more information, see [Publish files to registry](./private-module-registry.md#publish-files-to-registry). Visual Studio Code Bicep extension version 0.27.1 or newer is required for opening Bicep files from a private module registry.
 
+## Deployment pane
+
+The Deployment Pane in VSCode is a UI panel that lets you connect to your Azure subscription and perform validate, deploy, and what-if operations, providing instant feedback without leaving the editor.
+
+
+
 ## Troubleshoot
 
 The `Problems` pane summarizes the errors and warning in your Bicep file:
