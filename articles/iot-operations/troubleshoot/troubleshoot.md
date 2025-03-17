@@ -23,6 +23,11 @@ For general deployment and configuration troubleshooting, you can use the Azure 
 
 - Use [az iot ops support create-bundle](/cli/azure/iot/ops/support#az-iot-ops-support-create-bundle) to collect logs and traces to help you diagnose problems. The `support create-bundle` command creates a standard support bundle zip archive you can review or provide to Microsoft Support.
 
+### You see a "code":"LinkedAuthorizationFailed” error message
+If your deployment fails with the "code":"LinkedAuthorizationFailed" error, it indicates that the required permissions on the resource group containing the cluster are not available.
+
+To resolve this issue, ensure that **Microsoft.Authorization/roleAssignments/write** permissions are granted at the resource group level.
+
 ### You see an UnauthorizedNamespaceError error message
 
 If you see the following error message, you either didn't enable the required Azure-arc custom locations feature, or you enabled the custom locations feature with an incorrect custom locations RP OID.
