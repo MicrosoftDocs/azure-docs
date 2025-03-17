@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Generate images using serverless GPUs in Azure Container Apps (preview)"
+title: "Tutorial: Generate images using serverless GPUs in Azure Container Apps"
 description: Learn to run to generate images powered by serverless GPUs in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
@@ -11,7 +11,7 @@ ms.date: 11/06/2024
 ms.author: cshoe
 ---
 
-# Tutorial: Generate images using serverless GPUs in Azure Container Apps (preview)
+# Tutorial: Generate images using serverless GPUs in Azure Container Apps
 
 In this article, you learn how to create a container app that uses [serverless GPUs](gpu-serverless-overview.md) to power an AI application.
 
