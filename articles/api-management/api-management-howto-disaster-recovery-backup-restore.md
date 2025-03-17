@@ -410,7 +410,7 @@ If the storage account is **[firewall][azure-storage-ip-firewall] enabled**, it'
 
 The frequency with which you perform service backups affects your recovery point objective. To minimize it, we recommend implementing regular backups and performing on-demand backups after you make changes to your API Management service.
 
-## Next steps
+## Related content
 
 Check out the following related resources for the backup/restore process:
 

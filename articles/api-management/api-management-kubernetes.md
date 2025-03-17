@@ -6,7 +6,7 @@ author: dlepow
 manager: cfowler
  
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: concept-article
 ms.date: 12/14/2019
 ms.author: danlep
 ---
@@ -112,7 +112,7 @@ Pros:
 Cons:
 * Increases complexity of deploying and configuring API Management to work inside the VNet
 
-## Next steps
+## Related content
 
 * Learn more about [Network concepts for applications in AKS](/azure/aks/concepts-network)
 * Learn more about [How to use API Management with virtual networks](./virtual-network-concepts.md)
