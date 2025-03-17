@@ -177,8 +177,7 @@ Microsoft.ManagedNetworkFabric/NetworkDevices/<device>-AggrRack-PE1 --rw-command
     bfd per-link rfc-7130
 ```
 
-  Example show output after configuring MicroBFD in CE1 :	  
-
+``` Example show output after configuring MicroBFD in CE1
  		PE1#show running-config interfaces  pox
  			interface xyz
  			   description "Port xyz Connected to CE-01"
@@ -189,6 +188,7 @@ Microsoft.ManagedNetworkFabric/NetworkDevices/<device>-AggrRack-PE1 --rw-command
  			   bfd neighbor 10.30.0.65
  			   bfd per-link rfc-7130
  			PE1#
+```
 
 #### Step 6: Move device CE1 into enabled state
 
