@@ -89,7 +89,7 @@ Create a Cosmos DB account for SQL API and a Cosmos DB container. For more infor
 All IoT Hub routes point to an endpoint, which will receive the routed device and event data. More than one route can point to the same endpoint. Currently, IoT Hub supports endpoints for Event hubs, Service Bus queues or topics, Storage, and Cosmos DB. An instance of the service that you use for your endpoint must exist in your Azure subscription before you create the endpoint.
 
 > [!NOTE]
-> This article uses the [az iot hub message-endpoint](/cli/azure/iot/hub/message-endpoint) command group, which was introduced in version 0.19.0 of the azure-iot extension for the Azure CLI. Previous versions of the azure-iot extension used the [az iot hub routing-endpoint](/azure/iot-hub/how-to-routing-azure-cli) command group, which is similar and still supported but does not support creating Cosmos DB endpoints.
+> This article uses the [az iot hub message-endpoint](/cli/azure/iot/hub/message-endpoint) command group, which was introduced in version 0.19.0 of the azure-iot extension for the Azure CLI. Previous versions of the azure-iot extension used the `az iot hub routing-endpoint` command group, which is no longer supported.
 >
 > Use the following command to update to the latest version of the azure-iot extension:
 >
