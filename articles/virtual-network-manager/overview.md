@@ -23,7 +23,7 @@ During the creation process, you define the scope for what your Azure Virtual Ne
 
 After you deploy the Virtual Network Manager instance, you create a *network group*, which serves as a logical container of networking resources to apply configurations at scale. You can manually select individual virtual networks to be added to your network group, known as static membership. Or you can use Azure Policy to define conditions that govern your group membership dynamically, or dynamic membership. For more information about Azure Policy initiatives, see [Azure Virtual Network Manager and Azure Policy](concept-network-groups.md#network-groups-and-azure-policy).  
 
-Next, you create connectivity and/or security configuration(s) applied to those network groups based on your topology and security needs. A [connectivity configuration](concept-connectivity-configuration.md) enables you to create a mesh or a hub-and-spoke network topology. A [security configuration](concept-security-admins.md) allows you to define a collection of rules that you can apply to one or more network groups at the global level. Once you've created your desired network groups and configurations, you can deploy the configurations to any region of your choosing.
+Next, you create connectivity and/or security configuration(s) applied to those network groups based on your topology and security needs. A [connectivity configuration](concept-connectivity-configuration.md) enables you to create a mesh or a hub-and-spoke network topology. A [security configuration](concept-security-admins.md) allows you to define a collection of rules that you can apply to one or more network groups at the global level. Once you have created your desired network groups and configurations, you can deploy the configurations to any region of your choosing.
 
 Azure Virtual Network Manager can be deployed and managed through the [Azure portal](./create-virtual-network-manager-portal.md), [Azure CLI](./create-virtual-network-manager-cli.md), [Azure PowerShell](./create-virtual-network-manager-powershell.md), or [Terraform](./create-virtual-network-manager-terraform.md).
 
@@ -45,6 +45,14 @@ For current information on the regions where Azure Virtual Network Manager is av
 
 ## Pricing   
 For pricing details, see [Azure Virtual Network Manager pricing](https://azure.microsoft.com/pricing/details/virtual-network-manager/).
+
+New Azure Virtual Network Manager instances will charge solely on the virtual network-based pricing described in the pricing page above.
+
+Azure Virtual Network Manager instances created prior to the release of the virtual network-based pricing will continue to charge on the subscription-based pricing described in the pricing page above. If you prefer for your Azure Virtual Network Manager instance to instead charge on the virtual network-based pricing, follow the steps below to switch its pricing model.
+
+1. In the Azure Portal, search for "Preview features".
+2. On the "Preview Features" page, ensure the subscription selected is the subscription that contains your Azure Virtual Network Manager instance. Filter the features by "Network manager".
+3. Select the feature named "Network manager billing by virtual networks" and register. The Azure Virtual Network Manager instance in the registered subscription will now charge on the virtual network-based pricing.
  
 ## FAQs  
 For FAQs, see [Azure Virtual Network Manager FAQs](faq.md).

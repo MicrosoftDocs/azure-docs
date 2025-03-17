@@ -14,7 +14,7 @@ appliesto:
 
 ---
 
-# About Microsoft Sentinel content and solutions
+# About Microsoft Sentinel Out-of-the-box content
 
 Microsoft Sentinel *content* is Security Information and Event Management (SIEM) solution components that enable customers to ingest data, monitor, alert, hunt, investigate, respond, and connect with different products, platforms, and services.
 

@@ -85,8 +85,6 @@ A **DMZ** and **Private** subnet are needed for this tutorial. The **DMZ** subne
     | Starting address | Enter **10.0.2.0**. |
     | Size | Leave the default of **/24 (256 addresses)**. |
 
-    :::image type="content" source="./media/tutorial-create-route-table-portal/create-private-subnet.png" alt-text="Screenshot of private subnet creation in virtual network.":::
-
 1. Select **Add**.
 
 1. Select **+ Subnet**.
@@ -101,8 +99,6 @@ A **DMZ** and **Private** subnet are needed for this tutorial. The **DMZ** subne
     | IPv4 address range | Leave the default of **10.0.0.0/16**. |
     | Starting address | Enter **10.0.3.0**. |
     | Size | Leave the default of **/24 (256 addresses)**. |
-
-    :::image type="content" source="./media/tutorial-create-route-table-portal/create-dmz-subnet.png" alt-text="Screenshot of DMZ subnet creation in virtual network.":::
 
 1. Select **Add**.
 
@@ -690,7 +686,6 @@ In this section, create a route in the route table that you created in the previ
     | Next hop type | Select **Virtual appliance**. |
     | Next hop address | Enter **10.0.3.4**. </br> **_This is the IP address of the vm-nva you created in the earlier steps._**. |
 
-    :::image type="content" source="./media/tutorial-create-route-table-portal/add-route.png" alt-text="Screenshot of route creation in route table.":::
 
 1. Select **Add**.
 
