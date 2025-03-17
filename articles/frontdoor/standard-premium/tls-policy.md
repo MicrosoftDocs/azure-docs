@@ -92,4 +92,4 @@ Azure Front Door supports the following cipher suites from which you can choose 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Configure TLS policy on Front Door](tls-policy-configure.md).
+> [Configure TLS policy on Front Door](tls-policy-configure.md)
