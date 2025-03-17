@@ -273,7 +273,7 @@ az iot hub message-endpoint delete --hub-name {iothub_name} --endpoint-type stor
 In IoT Hub, you can create a route to send messages or capture events. Each route has a data source and an endpoint. The data source is where messages or event logs originate. The endpoint is where the messages or event logs end up. You choose locations for the data source and endpoint when you create a new route in your IoT hub. Optionally, you can [Add queries to message routes](iot-hub-devguide-routing-query-syntax.md) to filter messages or events before they go to the endpoint.
 
 > [!NOTE]
-> This article uses the [az iot hub message-route](/cli/azure/iot/hub/message-route) command group, which was introduced in version 0.19.0 of the azure-iot extension for the Azure CLI. Previous versions of the azure-iot extension used the [az iot hub route](/azure/iot-hub/how-to-routing-azure-cli?tabs=eventhubs) command group, which is similar and still supported.
+> This article uses the [az iot hub message-route](/cli/azure/iot/hub/message-route) command group, which was introduced in version 0.19.0 of the azure-iot extension for the Azure CLI. Previous versions of the azure-iot extension used the `az iot hub route` command group, which is no longer supported.
 >
 > Use the following command to update to the latest version of the azure-iot extension:
 >
