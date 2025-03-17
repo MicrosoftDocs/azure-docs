@@ -42,6 +42,7 @@ Each service is accessed through a storage account with a unique address. To get
 Additionally, Azure provides the following specialized storage:
 
 - [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md): Enterprise files storage, powered by NetApp: makes it easy for enterprise line-of-business (LOB) and storage professionals to migrate and run complex, file-based applications with no code change. Azure NetApp Files is managed via NetApp accounts and can be accessed via NFS, SMB and dual-protocol volumes. To get started, see [Create a NetApp account](../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).
+- [Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview): A high-performance distributed parallel file system solution, ideal for HPC workloads that require high throughput, low latency, and Lustre protocol compatibility.
 
 For help in deciding which data services to use for your scenario, see [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options) in the Microsoft Cloud Adoption Framework.
 
