@@ -33,7 +33,7 @@ The key benefits of the durable task scheduler include:
 
 Existing Durable Functions users can leverage the scheduler with no code changes. Learn more about the [durable task scheduler](./durable-task-scheduler/durable-task-scheduler.md), and [how to get started](./durable-task-scheduler/quickstart-durable-task-scheduler.md). 
 
-Samples for durable task scheduler can be found on [GitHub](https://aka.ms/dts-samples).
+Samples for durable task scheduler can be found on [GitHub](https://github.com/Azure-Samples/Durable-Task-Scheduler/).
 
 ## Azure Storage
 
