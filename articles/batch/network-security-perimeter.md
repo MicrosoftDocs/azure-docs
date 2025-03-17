@@ -74,10 +74,10 @@ Create your own network security perimeter resource using [Azure portal](../priv
 
     ```azurepowershell-interactive
         # Create a new profile 
-        $nspProfile = @{ 
-            Name = 'nsp-profile' 
-            ResourceGroupName = $rgParams.name 
-            SecurityPerimeterName = $nsp.name 
+        $nspProfile = @{
+            Name = '<ProfileName>' 
+            ResourceGroupName = '<ResourceGroupName>'
+            SecurityPerimeterName = '<NetworkSecurityPerimeterName>'
             }
         
         $profile = New-AzNetworkSecurityPerimeterProfile @nspProfile
@@ -87,13 +87,13 @@ Create your own network security perimeter resource using [Azure portal](../priv
 
      ```azurepowershell-interactive
         # Associate the PaaS resource with the above created profile
-        $nspAssociation = @{ 
-            AssociationName = 'nsp-association' 
-            ResourceGroupName = $rgParams.name 
-            SecurityPerimeterName = $nsp.name 
-            AccessMode = 'Learning'  
-            ProfileId = $nspProfile.Id 
-            PrivateLinkResourceId = $batchAccount.ResourceID
+        $nspAssociation = @{
+            AssociationName = '<AssociationName>'
+            ResourceGroupName = '<ResourceGroupName>'
+            SecurityPerimeterName = '<NetworkSecurityPerimeterName>'
+            AccessMode = 'Learning'
+            ProfileId = '<NetworkSecurityPerimeterProfileId>'
+            PrivateLinkResourceId = '<BatchAccountResourceId>'
             }
     
         New-AzNetworkSecurityPerimeterAssociation @nspAssociation | format-list
@@ -106,9 +106,9 @@ Create your own network security perimeter resource using [Azure portal](../priv
     ```azurecli-interactive
     # Create a new profile
     az network perimeter profile create \
-        --name network-perimeter-profile \
-        --resource-group resource-group \
-        --perimeter-name network-security-perimeter
+        --name <ProfileName> \
+        --resource-group <ResourceGroupName> \
+        --perimeter-name <NetworkSecurityPerimeterName>
 
     ```
 
@@ -117,19 +117,19 @@ Create your own network security perimeter resource using [Azure portal](../priv
     ```azurecli-interactive        
     # Get the profile id
     az network perimeter profile show \
-        --name network-perimeter-profile \
-        --resource-group resource-group \
-        --perimeter-name network-security-perimeter
+        --name <ProfileName> \
+        --resource-group <ResourceGroupName> \
+        --perimeter-name <NetworkSecurityPerimeterName>
     
     # Associate the Batch account with the network security perimeter profile
-    # Replace <PaaSArmId> and <networkSecurityPerimeterProfileId> with the values for your Batch account name and profile
+    # Replace <PaaSArmId> and <NetworkSecurityPerimeterProfileId> with the values for your Batch account resource id and profile
     az network perimeter association create \
-        --name network-perimeter-association \
-        --perimeter-name network-security-perimeter \
-        --resource-group resource-group \
+        --name <NetworkSecurityPerimeterAssociationName> \
+        --perimeter-name <NetworkSecurityPerimeterName> \
+        --resource-group <ResourceGroupName> \
         --access-mode Learning  \
         --private-link-resource "{id:<PaaSArmId>}" \
-        --profile "{id:<networkSecurityPerimeterProfileId>}"
+        --profile "{id:<NetworkSecurityPerimeterProfileId>}"
         
     ```
 
