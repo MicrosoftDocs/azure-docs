@@ -55,7 +55,7 @@ The scheduler internally uses a combination of in-memory and persistent storage 
 ## Feature highlights
 
 > [!NOTE]
-> The following features are available at the current stage of public preview with more under way. To report problems or request new features, submit an issue in the [durable task scheduler GitHub repository](https://aka.ms/dts-samples).
+> The following features are available at the current stage of public preview with more under way. To report problems or request new features, submit an issue in the [durable task scheduler samples GitHub repository](https://aka.ms/dts-samples).
 
 ### Durable task scheduler dashboard
 

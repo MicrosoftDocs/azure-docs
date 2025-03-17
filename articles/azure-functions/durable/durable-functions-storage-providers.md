@@ -33,7 +33,7 @@ The key benefits of the durable task scheduler include:
 
 Existing Durable Functions users can leverage the scheduler with no code changes. Learn more about the [durable task scheduler](./durable-task-scheduler/durable-task-scheduler.md), and [how to get started](./durable-task-scheduler/quickstart-durable-task-scheduler.md). 
 
-The source code for durable task scheduler can be found on its [GitHub repository](https://aka.ms/dts-samples).
+Samples for durable task scheduler can be found on [GitHub](https://aka.ms/dts-samples).
 
 ## Azure Storage
 
@@ -204,18 +204,18 @@ There are many significant tradeoffs between the various supported storage provi
 |- |-              |-          |-      |- |
 | Official support status | ✅ Generally available (GA) | ✅ Generally available (GA) | ✅ Generally available (GA) | Public preview|
 | External dependencies | Azure Storage account (general purpose v1) | Azure Event Hubs<br/>Azure Storage account (general purpose) | [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) or Azure SQL Database | N/A | 
-| Local development and emulation options | [Azurite v3.12+](../../storage/common/storage-use-azurite.md) (cross platform) | Supports in-memory emulation of task hubs ([more information](https://microsoft.github.io/durabletask-netherite/#/emulation)) | SQL Server Developer Edition (supports [Windows](/sql/database-engine/install-windows/install-sql-server), [Linux](/sql/linux/sql-server-linux-setup), and [Docker containers](/sql/linux/sql-server-linux-docker-container-deployment)) | DTS emulator | 
+| Local development and emulation options | [Azurite v3.12+](../../storage/common/storage-use-azurite.md) (cross platform) | Supports in-memory emulation of task hubs ([more information](https://microsoft.github.io/durabletask-netherite/#/emulation)) | SQL Server Developer Edition (supports [Windows](/sql/database-engine/install-windows/install-sql-server), [Linux](/sql/linux/sql-server-linux-setup), and [Docker containers](/sql/linux/sql-server-linux-docker-container-deployment)) | [Durable task scheduler emulator](./durable-task-scheduler/durable-task-scheduler.md#emulator-for-local-development) | 
 | Task hub configuration | Explicit | Explicit | Implicit by default ([more information](https://microsoft.github.io/durabletask-mssql/#/taskhubs)) | Explicit | 
 | Maximum throughput | Moderate | Very high | Moderate | Very high | 
 | Maximum orchestration/entity scale-out (nodes) | 16 | 32 | N/A | N/A | 
 | Maximum activity scale-out (nodes) | N/A | 32 | N/A | N/A | 
 | Durable Entities support | ✅ Fully supported | ✅ Fully supported | ⚠️ Supported except when using .NET Isolated | ✅ Fully supported |
-| [KEDA 2.0](https://keda.sh/) scaling support<br/>([more information](../functions-kubernetes-keda.md)) | ❌ Not supported | ❌ Not supported | ✅ Supported using the [MSSQL scaler](https://keda.sh/docs/scalers/mssql/) ([more information](https://microsoft.github.io/durabletask-mssql/#/scaling)) | ❌ Not supported | 
-| Support for [extension bundles](../functions-bindings-register.md#extension-bundles) (recommended for non-.NET apps) | ✅ Fully supported | ✅ Fully supported | ✅ Fully supported |  ✅ Fully supported (preview bundles)| 
-| Price-performance configurable? | ❌ No | ✅ Yes (Event Hubs TUs and CUs) | ✅ Yes (SQL vCPUs) | ✅ Yes (Capacity units) | 
+| [KEDA 2.0](https://keda.sh/) scaling support<br/>([more information](../functions-kubernetes-keda.md)) | ❌ Not supported | ❌ Not supported | ✅ Supported using the [MSSQL scaler](https://keda.sh/docs/scalers/mssql/) ([more information](https://microsoft.github.io/durabletask-mssql/#/scaling)) | Coming soon! | 
+| Support for [extension bundles](../functions-bindings-register.md#extension-bundles) (recommended for non-.NET apps) | ✅ Fully supported | ✅ Fully supported | ✅ Fully supported |  Coming soon! | 
+| Price-performance configurable? | ❌ No | ✅ Yes (Event Hubs TUs and CUs) | ✅ Yes (SQL vCPUs) | Coming soon! | 
 | Disconnected environment support | ❌ Azure connectivity required | ❌ Azure connectivity required | ✅ Fully supported | ❌ Azure connectivity required |
 | Identity-based connections | ✅ Fully supported |❌ Not supported | ⚠️ Requires runtime-driven scaling |  ✅ Fully supported |
-| [Flex Consumption plan](../flex-consumption-plan.md) | ✅ Fully supported ([see notes](./durable-functions-azure-storage-provider.md#flex-consumption-plan)) |❌ Not supported | ❌ Not supported | ❌ Not supported |
+| [Flex Consumption plan](../flex-consumption-plan.md) | ✅ Fully supported ([see notes](./durable-functions-azure-storage-provider.md#flex-consumption-plan)) |❌ Not supported | ✅ Fully supported | ❌ Not supported |
 
 ## Next steps
 
