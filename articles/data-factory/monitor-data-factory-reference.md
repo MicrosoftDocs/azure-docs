@@ -4,8 +4,8 @@ description: This article contains important reference material you need when yo
 ms.date: 03/19/2024
 ms.custom: horz-monitor
 ms.topic: reference
-author: jonburchel
-ms.author: jburchel
+author: whhender
+ms.author: whhender
 ---
 
 # Azure Data Factory monitoring data reference

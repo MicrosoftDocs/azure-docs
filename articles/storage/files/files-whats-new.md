@@ -20,6 +20,10 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 
 Data plane REST API access to NFS Azure file shares will enable further development of multiple value-added services for NFS shares, such as AzCopy and Azure Backup. This enhancement also allows third-party ISV partners to implement efficient migration, backup, and disaster recovery scenarios. Additionally, the REST API support includes OAuth, providing end-to-end security and enabling access without storage account keys.
 
+#### Support for customer initiated LRS-ZRS redundancy conversion for Premium Files storage accounts
+
+Azure Files now supports customer initiated LRS to ZRS (and vice versa) redundancy conversions for premium Files storage accounts with SMB and NFS (private endpoints enabled) shares. You can easily manage the migration of your storage accounts through the Azure Portal, PowerShell, or CLI. To learn more, see [Azure Files data redundancy](files-redundancy.md).
+
 ## What's new in 2024
 
 ### 2024 quarter 4 (October, November, December)

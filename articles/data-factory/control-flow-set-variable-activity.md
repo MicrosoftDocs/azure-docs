@@ -8,7 +8,7 @@ ms.date: 02/13/2025
 ms.topic: conceptual
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ---
 
 # Set Variable Activity in Azure Data Factory and Azure Synapse Analytics

@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: This article describes system variables supported by Azure Data Factory and Azure Synapse Analytics. You can use these variables in expressions when defining entities within either service.
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
