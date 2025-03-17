@@ -471,10 +471,10 @@ Interface:    net1, via: LLDP, RID: 1, Time: 0 day, 20:28:36
 >[!NOTE]
 >Verify that the output matches your expectations and that all configurations are correct.
 
-## Set up storage array
+## Set up first storage array
 
 1. Operator needs to install the storage array hardware as specified by the BOM and rack elevation
-   within the Aggregation Rack.
+   within the Aggregation Rack. The hardware must go in the first storage appliance rack slot in the aggregator rack.
 2. Operator needs to provide the storage array Technician with information, in order for the storage
    array Technician to arrive on-site to configure the appliance.
 3. Required location-specific data that is shared with storage array technician:
@@ -513,6 +513,70 @@ Interface:    net1, via: LLDP, RID: 1, Time: 0 day, 20:28:36
      - Bond: not set by operator during setup
    - Management: Controller 1
      - IP Address: 172.27.255.253
+     - Gateway: not set by operator during setup
+     - Subnet Mask: 255.255.255.0
+     - MTU: 1500
+     - Bond: not set by operator during setup
+   - ct0.eth10: not set by operator during setup
+   - ct0.eth11: not set by operator during setup
+   - ct0.eth18: not set by operator during setup
+   - ct0.eth19: not set by operator during setup
+   - ct1.eth10: not set by operator during setup
+   - ct1.eth11: not set by operator during setup
+   - ct1.eth18: not set by operator during setup
+   - ct1.eth19: not set by operator during setup
+   - Pure Tunable to be applied:
+     - `puretune -set PS_ENFORCE_IO_ORDERING 1 "PURE-209441";`
+     - `puretune -set PS_STALE_IO_THRESH_SEC 4 "PURE-209441";`
+     - `puretune -set PS_LANDLORD_QUORUM_LOSS_TIME_LIMIT_MS 0 "PURE-209441";`
+     - `puretune -set PS_RDMA_STALE_OP_THRESH_MS 5000 "PURE-209441";`
+     - `puretune -set PS_BDRV_REQ_MAXBUFS 128 "PURE-209441";`
+
+## [Optional] Set up second storage array
+
+>[!IMPORTANT]
+> This section is optional. You only need to execute it if you are deploying an Azure Operator Nexus instance with two storage appliances. For more information, including restrictions on supported hardware, see [Azure Operator Nexus multiple storage appliances](/concepts-storage-multiple-appliances.md).
+
+1. Operator needs to install the storage array hardware as specified by the BOM and rack elevation
+   within the Aggregation Rack. The hardware must go in the second storage appliance rack slot in the aggregator rack.
+2. Operator needs to provide the storage array Technician with information, in order for the storage
+   array Technician to arrive on-site to configure the appliance.
+3. Required location-specific data that is shared with storage array technician:
+   - Customer Name:
+   - Physical Inspection Date:
+   - Chassis Serial Number:
+   - Storage array Array Hostname:
+   - CLLI code (Common Language location identifier):
+   - Installation Address:
+   - FIC/Rack/Grid Location:
+4. Data provided to the operator and shared with storage array technician, which will be common to
+   all installations:
+   - Purity Code Level: Refer to [supported Purity versions]
+   - Safe Mode: Disabled
+   - Array Timezone: UTC
+   - DNS (Domain Name System) Server IP Address: not set by operator during setup
+   - DNS Domain Suffix: not set by operator during setup
+   - NTP (Network Time Protocol) Server IP Address or FQDN: not set by operator during setup
+   - Syslog Primary: not set by operator during setup
+   - Syslog Secondary: not set by operator during setup
+   - SMTP Gateway IP address or FQDN: not set by operator during setup
+   - Email Sender Domain Name: domain name of the sender of the email (example.com)
+   - Email Addresses to be alerted: not set by operator during setup
+   - Proxy Server and Port: not set by operator during setup
+   - Management: Virtual Interface
+     - IP Address: 172.27.255.201
+     - Gateway: not set by operator during setup
+     - Subnet Mask: 255.255.255.0
+     - MTU: 1500
+     - Bond: not set by operator during setup
+   - Management: Controller 0
+     - IP Address: 172.27.255.251
+     - Gateway: not set by operator during setup
+     - Subnet Mask: 255.255.255.0
+     - MTU: 1500
+     - Bond: not set by operator during setup
+   - Management: Controller 1
+     - IP Address: 172.27.255.252
      - Gateway: not set by operator during setup
      - Subnet Mask: 255.255.255.0
      - MTU: 1500
