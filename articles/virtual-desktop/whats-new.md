@@ -46,12 +46,6 @@ The current capabilities of managing devices connecting to Azure Virtual Desktop
 
 For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](/azure/virtual-desktop/client-device-redirection-intune).
 
-### Windows App running on Android 15 now supports Microsoft Intune Mobile Application Management (MAM) policies
-
-Intune MAM policies can now be applied to Windows App on Android (preview) when the device is running on Android 15. Previously, Windows App could run on Android 15, but MAM policies wouldn't take effect.
-
-For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](/azure/virtual-desktop/client-device-redirection-intune).
-
 ## January 2025
 
 Here's what changed in January 2025:

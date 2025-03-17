@@ -194,6 +194,7 @@ Medium is the default profile.
 
 - Maximum memory usage of each frontend replica is approximately 1.9 GiB, but the actual maximum memory usage might be higher.
 - Maximum memory usage of each backend replica is approximately 1.5 GiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
+- Maximum message size is 64 MB.
 
 ### High
 
