@@ -5,7 +5,7 @@ description: Learn how to configure the Azure VPN Client on a Windows operating 
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 02/07/2025
+ms.date: 03/13/2025
 ms.author: cherylmc
 ---
 
@@ -63,6 +63,16 @@ If you don't see either file, or you don't have an **AzureVPN** folder, verify t
 ### Configure the Azure VPN Client profile
 
 [!INCLUDE [Configure the Azure VPN client](../../includes/vpn-gateway-vwan-configure-azure-vpn-client-certificate.md)]
+
+If you experience connection issues, if you're running the v4.0.0.0 version of the Azure VPN Client or later, you can click the **...** at the bottom of the Azure VPN Client page and select **Prerequisites**. On the **Test Application Prerequisites** page, select **Run Prerequisites Test**. Fix any issues and try connecting again. For more information, see [Azure VPN Client prerequisites check](azure-vpn-client-prerequisites-check.md).
+
+#### System tray
+
+[!INCLUDE [Azure VPN Client system tray](../../includes/vpn-gateway-vwan-azure-vpn-client-tray.md)]
+
+#### Custom settings: DNS and routing
+
+You can configure the Azure VPN Client with optional configuration settings such as more DNS servers, custom DNS, forced tunneling, custom routes, and other settings. For a description of the available settings and configuration steps, see [Azure VPN Client optional settings](azure-vpn-client-optional-configurations.md).
 
 ## Next steps
 

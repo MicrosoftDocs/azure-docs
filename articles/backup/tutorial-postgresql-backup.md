@@ -118,9 +118,9 @@ You can configure backup on multiple databases across multiple Azure PostgreSQL 
    :::image type="content" source="./media/backup-azure-database-postgresql/choose-an-azure-postgresql-server-inline.png" alt-text="Screenshot showing how to choose an Azure PostgreSQL server." lightbox="./media/backup-azure-database-postgresql/choose-an-azure-postgresql-server-expanded.png":::
 
 
-1. **Assign Azure key vault** that stores the credentials to connect to the selected database. To assign the key vault at the individual row level, click **Select a key vault and secret**. You can also assign the key vault by multi-selecting the rows and click **Assign key vault** in the top menu of the grid. 
+1. **Assign Azure Key Vault** that stores the credentials to connect to the selected database. To assign the key vault at the individual row level, click **Select a key vault and secret**. You can also assign the key vault by multi-selecting the rows and click **Assign key vault** in the top menu of the grid. 
 
-   :::image type="content" source="./media/backup-azure-database-postgresql/assign-azure-key-vault-inline.png" alt-text="Screenshot showing how to assign Azure key vault." lightbox="./media/backup-azure-database-postgresql/assign-azure-key-vault-expanded.png"::: 
+   :::image type="content" source="./media/backup-azure-database-postgresql/assign-azure-key-vault-inline.png" alt-text="Screenshot showing how to assign Azure Key Vault." lightbox="./media/backup-azure-database-postgresql/assign-azure-key-vault-expanded.png"::: 
 
 1. To specify the secret information, use one of the following options: 
 
