@@ -3,7 +3,7 @@ title: Extend Microsoft Sentinel across workspaces and tenants
 description: How to use Microsoft Sentinel to query and analyze data across workspaces and tenants.
 author: yelevin
 ms.topic: concept-article
-ms.date: 02/28/2025
+ms.date: 03/17/2025
 ms.author: yelevin
 appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 

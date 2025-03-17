@@ -4,7 +4,7 @@ description: Learn how using Microsoft Defender XDR together with Microsoft Sent
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 02/26/2025
+ms.date: 03/17/2025
 appliesto:
 - Microsoft Sentinel in the Azure portal
 - Microsoft Sentinel with Defender XDR in the Microsoft Defender portal
