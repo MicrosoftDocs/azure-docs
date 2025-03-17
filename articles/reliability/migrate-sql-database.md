@@ -6,7 +6,7 @@ ms.service: sql
 ms.topic: conceptual
 ms.date: 03/25/2024
 ms.author: anaharris 
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 ---
 
 # Migrate Azure SQL Database to availability zone support

@@ -136,6 +136,9 @@ Now that the physical installation and validation has completed, the next steps 
 
 ### Set up Terminal Server
 
+>[!Note]
+> This guide has been validated with Opengear firmware version 24.11.2, which was upgraded from version 22.06.0, and is supported with Nexus Network Fabric runtime version 5.0.0.
+
 Terminal Server has been deployed and configured as follows:
   - Terminal Server is configured for Out-of-Band management
     - Authentication credentials have been set up
@@ -143,6 +146,8 @@ Terminal Server has been deployed and configured as follows:
     - HTTP access is enabled
   - Terminal Server interface is connected to the operators on-premises Provider Edge routers (PEs) and configured with the IP addresses and credentials
   - Terminal Server is accessible from the management VPN
+  - To upgrade the terminal server to OS version 24.11.2 [refer](./howto-upgrade-os-of-terminal-server.md)
+  - To setup single session and session timeout for serial console [refer](./howto-restrict-serial-port-access-and-set-timeout-on-terminal-server.md)
 
 ### Step 1: Setting up hostname
 

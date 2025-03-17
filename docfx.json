@@ -11,10 +11,25 @@
         ],
         "exclude": [
           "iot-edge/**",
+          "cyclecloud/**",
           "**/_themes/**",
           "**/includes/**",
           "**/obj/**",
           "**/*.graffle"
+        ]
+      },
+      {
+        "group": "cyclecloud-7-group",
+        "src": "articles/cyclecloud",
+        "dest": "./cyclecloud/",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+            "**/_themes/**",
+            "**/includes/**",
+            "**/obj/**"
         ]
       },
       {
@@ -58,6 +73,22 @@
         ],
         "exclude": [
           "iot-edge/**",
+          "**/_themes/**",
+          "**/obj/**"
+        ]
+      },
+      {
+        "group": "cyclecloud-7-group",
+        "src": "articles/cyclecloud",
+        "dest": "./cyclecloud/",
+        "files": [
+          "**/*.gif",
+          "**/*.jpeg",
+          "**/*.jpg",
+          "**/*.png",
+          "**/*.svg"
+        ],
+        "exclude": [
           "**/_themes/**",
           "**/obj/**"
         ]
@@ -253,6 +284,8 @@
         "articles/cloud-shell/**/*.md": "sdwheeler",
         "articles/connectors/*.md": "ecfan",
         "articles/container-registry/**/*.md": "tejaswikolli-web",
+        "articles/cyclecloud/**/*.md": "adriankjohnson",
+        "articles/cyclecloud/**/*.yml": "adriankjohnson",
         "articles/data-catalog/*.md": "whhender",
         "articles/defender-for-iot/device-builders/*.md": "limwainstein",
         "articles/defender-for-iot/organizations/*.md": "limwainstein",
@@ -702,7 +735,7 @@
         "articles/app-service/environment/*.md": "madsd",
         "articles/app-service/scripts/*.md": "cephalin",
         "articles/app-spaces/*.md": "msangapu",
-        "articles/automanage/*md": "orspodek",
+        "articles/automanage/*md": "memccror",
         "articles/automation/**/*.md": "sudhirsneha",
         "articles/azure-arc/**/*.md": "jenhayes",
         "articles/azure-arc/servers/**/*.md": "johnmarc",
@@ -868,6 +901,7 @@
         "articles/azure-portal/supportability/**/*.md": "azure-supportability",
         "articles/azure-relay/**/*": "azure-relay",
         "articles/azure-resource-manager/**/*.md": "azure-resource-manager",
+        "articles/azure-resource-manager/**/*.yml": "azure-resource-manager",
         "articles/azure-resource-manager/custom-providers/**/*.md": "azure-custom-providers",
         "articles/azure-resource-manager/managed-applications/**/*.md": "azure-managed-applications",
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "azure-video-analyzer",
@@ -884,14 +918,18 @@
         "articles/cloud-shell/**/*.md": "azure-cloud-shell",
         "articles/connectors/*.md": "azure-logic-apps",
         "articles/container-registry/**/*.md": "azure-container-registry",
+        "articles/cyclecloud/**/*.md": "azure-cyclecloud",
+        "articles/cyclecloud/**/*.yml": "azure-cyclecloud",
         "articles/data-factory/**/*": "azure-data-factory",
         "articles/defender-for-iot/device-builders/*.md": "defender-for-iot",
         "articles/defender-for-iot/organizations/*.md": "defender-for-iot",
+        "articles/defender-for-iot/organizations/**/*.yml": "defender-for-iot",
         "articles/defender-for-iot/organizations/**/*.md": "defender-for-iot",
         "articles/deployment-environments/**/*.md": "azure-deployment-environments",
         "articles/dev-box/**/*.md": "dev-box",
         "articles/dev-spaces/**/*.md": "azure-dev-spaces",
         "articles/devtest-labs/**/*.md": "azure-devtest-labs",
+        "articles/devtest-labs/**/*.yml": "azure-devtest-labs",
         "articles/event-grid/**/*": "azure-event-grid",
         "articles/event-hubs/**/*": "azure-event-hubs",
         "articles/governance/*.md": "azure-policy",
@@ -979,6 +1017,8 @@
         "articles/partner-solutions/informatica/**/*.yml": "informatica",
         "articles/partner-solutions/logzio/**/*.md": "logzio",
         "articles/partner-solutions/logzio/**/*.yml": "logzio",
+        "articles/partner-solutions/neon/**/*.md": "neon",
+        "articles/partner-solutions/neon/**/*.yml": "neon",
         "articles/partner-solutions/new-relic/**/*.md": "new-relic",
         "articles/partner-solutions/new-relic/**/*.yml": "new-relic",
         "articles/partner-solutions/nginx/**/*.md": "nginx",
@@ -1034,6 +1074,8 @@
         "articles/backup/**/*.yml": ["Azure","Azure Backup"],
         "articles/cost-management-billing/**/*.md": ["Azure","Cost Management Billing"],
         "articles/cost-management-billing/**/*.yml": ["Azure","Cost Management Billing"],
+        "articles/cyclecloud/**/*.md": ["Azure","CycleCloud"],
+        "articles/cyclecloud/**/*.yml": ["Azure","CycleCloud"],
         "articles/data-catalog/**/*.md": ["Azure","Azure Data Catalog"],
         "articles/data-catalog/**/*.yml": ["Azure","Azure Data Catalog"],
         "articles/data-factory/**/*.md": ["Azure","Azure Data Factory"],
@@ -1140,6 +1182,8 @@
         "articles/container-registry/**/*.md": "Azure Container Registry",
         "articles/cost-management-billing/**/*.md": "Microsoft Cost Management",
         "articles/cost-management-billing/**/*.yml": "Microsoft Cost Management",
+        "articles/cyclecloud/**/*.md": "Azure CycleCloud",
+        "articles/cyclecloud/**/*.yml": "Azure CycleCloud",
         "articles/data-factory/**/*.md": "Azure Data Factory",
         "articles/data-factory/**/*.yml": "Azure Data Factory",
         "articles/defender-for-iot/*.md": "Microsoft Defender for IoT",
@@ -1203,12 +1247,28 @@
         "articles/terraform/**/*.yml": "Terraform"
       },
       "ms.custom": {
+      },
+      "ms.topic": {
+        "articles/cyclecloud/**/*.md": "conceptual",
+        "articles/cyclecloud/**/*.yml": "conceptual",
+        "articles/cyclecloud/includes/**/*.md": "include",
+        "articles/cyclecloud/**/qs-*.md": "quickstart",
+        "articles/cyclecloud/tutorials/**/*.md": "tutorial",
+        "articles/cyclecloud/how-to/**/*.md": "how-to",
+        "articles/cyclecloud/**overview.md": "overview",
+        "articles/cyclecloud/**overview.yml": "overview"
       }
     },
     "template": [
       "docs.html",
       "default","DocFx.Plugins.PlantUml/template"
     ],
+    "groups": {
+      "cyclecloud-7-group": {
+        "dest": "tempdest_cyclecloud_7",
+        "moniker_range": ">= cyclecloud-7"
+      }
+    },
     "dest": "azure",
     "rules": {
       "sensitive-language-ma": {
@@ -1240,6 +1300,7 @@
       "sensitive-language-bl": {
         "exclude": [
           "articles/azure-monitor/app/opencensus-python-request.md",
+          "articles/cyclecloud/release-notes/8-7-1.md",
           "articles/governance/blueprints/**/*.md",
           "articles/governance/policy/**/*.md",
           "articles/hdinsight/kafka/apache-kafka-mirror-maker-2.md",

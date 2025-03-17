@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Options to authenticate and authorize to Azure OpenAI APIs using Azure API Management. Includes API key, managed identity, and OAuth 2.0 authorization.
 author: dlepow
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: concept-article
 ms.date: 01/23/2025
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot

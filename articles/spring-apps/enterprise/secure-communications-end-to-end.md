@@ -6,7 +6,8 @@ author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: conceptual
 ms.date: 06/27/2024
-ms.author: asirveda
+ms.author: karler
+ms.reviewer: asirveda
 ms.custom: devx-track-java
 ---
 

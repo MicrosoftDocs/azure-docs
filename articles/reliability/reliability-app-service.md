@@ -62,6 +62,10 @@ Instance spreading with a zone-redundant deployment is determined using the foll
 - The instances spread evenly if you specify a capacity larger than three, and the number of instances is divisible by three.
 - Any instance counts beyond 3*N are spread across the remaining one or two zones.
 
+> [!NOTE]
+> In some cases, your workload is hosted on a [scale unit](/azure/app-service/overview-hosting-plans#how-does-my-app-run-and-scale) (also known as a stamp or VMSS compute cluster) that is deployed across two zones rather than three zones. For these cases, the instances are evenly spread across the two zones if the number of instances is divisible by two. Any instance count beyond 2*n is placed in one of the zones. 
+> 
+
 When the App Service platform allocates instances for a zone-redundant App Service plan, it uses best effort zone balancing offered by the underlying Azure virtual machine scale sets. An App Service plan is *balanced* if each zone has either the same number of virtual machines, or plus or minus one, in all of the other zones. For more information, see [Zone balancing](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
 
 For App Service plans that aren't configured as zone redundant, virtual machine instances aren't resilient to availability zone failures. They can experience downtime during an outage in any zone in that region.
@@ -144,7 +148,7 @@ Zone redundancy can only be configured when you create a new App Service plan. I
 
 ### Capacity planning and management
 
-To prepare for availability zone failure, you should over-provision capacity of service. This approach ensures that the solution can tolerate 1/3 loss of capacity and continue to function without degraded performance during zone-wide outages. Since the platform spreads virtual machines across three zones and you need to account for at least the failure of one zone, multiply peak workload instance count by a factor of `zones/(zones-1)`, or 3/2. For example, if your typical peak workload requires four instances, you should provision six instances: (2/3 * 6 instances) = 4 instances.
+To prepare for availability zone failure, consider *over-provisioning* the capacity of your integration runtime. Over-provisioning allows the solution to tolerate some degree of capacity loss and still continue to function without degraded performance. To learn more about over-provisioning, see [Manage capacity with over-provisioning](./concept-redundancy-replication-backup.md#manage-capacity-with-over-provisioning).
 
 ### Traffic routing between zones
 

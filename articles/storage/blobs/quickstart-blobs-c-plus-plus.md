@@ -66,10 +66,10 @@ The following diagram shows the relationship between these resources.
 
 Use these C++ classes to interact with these resources:
 
-- [BlobServiceClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/12.0.0/class_azure_1_1_storage_1_1_blobs_1_1_blob_service_client.html): The `BlobServiceClient` class allows you to manipulate Azure Storage resources and blob containers.
-- [BlobContainerClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/12.0.0/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html): The `BlobContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
-- [BlobClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/12.0.0/class_azure_1_1_storage_1_1_blobs_1_1_blob_client.html): The `BlobClient` class allows you to manipulate Azure Storage blobs. It's the base class for all specialized blob classes.
-- [BlockBlobClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/12.0.0/class_azure_1_1_storage_1_1_blobs_1_1_block_blob_client.html): The `BlockBlobClient` class allows you to manipulate Azure Storage block blobs.
+- [BlobServiceClient](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-storage-blobs/12.13.0/classes.html): The `BlobServiceClient` class allows you to manipulate Azure Storage resources and blob containers.
+- [BlobContainerClient](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-storage-blobs/12.13.0/classes.html): The `BlobContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
+- [BlobClient](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-storage-blobs/12.13.0/classes.html): The `BlobClient` class allows you to manipulate Azure Storage blobs. It's the base class for all specialized blob classes.
+- [BlockBlobClient](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-storage-blobs/12.13.0/classes.html): The `BlockBlobClient` class allows you to manipulate Azure Storage block blobs.
 
 ## Code examples
 
@@ -235,8 +235,8 @@ containerClient.CreateIfNotExists();
 The following code snippet:
 
 1. Declares a string containing "Hello Azure!"
-1. Gets a reference to a [BlockBlobClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_block_blob_client.html) object by calling [GetBlockBlobClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html#acd8c68e3f37268fde0010dd478ff048f) on the container from the [Create a container](#create-a-container) section.
-1. Uploads the string to the blob by calling the [​Upload​From](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_block_blob_client.html#af93af7e37f8806e39481596ef253f93d) function. This function creates the blob if it doesn't already exist, or updates it if it does.
+2. Gets a reference to a [BlockBlobClient](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-storage-blobs/12.13.0/classes.html) object by calling [GetBlockBlobClient](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-storage-blobs/12.13.0/classes.html) on the container from the [Create a container](#create-a-container) section.
+3. Uploads the string to the blob by calling the [​Upload​From](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-storage-blobs/12.13.0/classes.html) function. This function creates the blob if it doesn't already exist, or updates it if it does.
 
 Add this code to the end of `main()`:
 
@@ -244,7 +244,7 @@ Add this code to the end of `main()`:
 
 ### List the blobs in a container
 
-List the blobs in the container by calling the [ListBlobs](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/12.0.0/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html#a8f7e6653ef69788cb4fb23ec85d4fd96) function. Only one blob has been added to the container, so the operation returns just that blob.
+List the blobs in the container by calling the [ListBlobs](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-storage-blobs/12.13.0/classes.html) function. Only one blob has been added to the container, so the operation returns just that blob.
 
 Add this code to the end of `main()`:
 
@@ -252,7 +252,7 @@ Add this code to the end of `main()`:
 
 ### Download blobs
 
-Get the properties of the uploaded blob. Then, declare and resize a new `std::vector<uint8_t>` object by using the properties of the uploaded blob. Download the previously created blob into the new `std::vector<uint8_t>` object by calling the [​DownloadTo](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/12.0.0/class_azure_1_1_storage_1_1_blobs_1_1_blob_client.html#aa0bcbdbf6ebd17e4888cced4736420f7) function in the [BlobClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/12.0.0/class_azure_1_1_storage_1_1_blobs_1_1_blob_client.html) base class. Finally, display the downloaded blob data.
+Get the properties of the uploaded blob. Then, declare and resize a new `std::vector<uint8_t>` object by using the properties of the uploaded blob. Download the previously created blob into the new `std::vector<uint8_t>` object by calling the [​DownloadTo](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-storage-blobs/12.13.0/classes.html) function in the [BlobClient](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-storage-blobs/12.13.0/classes.html) base class. Finally, display the downloaded blob data.
 
 Add this code to the end of `main()`:
 
@@ -260,13 +260,13 @@ Add this code to the end of `main()`:
 
 ### Delete a Blob
 
-The following code deletes the blob from the Azure Blob Storage container by calling the [BlobClient.Delete](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/12.0.0/class_azure_1_1_storage_1_1_blobs_1_1_blob_client.html#ac121df9f5dfcdeb80f47b50543df0984) function.
+The following code deletes the blob from the Azure Blob Storage container by calling the [BlobClient.Delete](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-storage-blobs/12.13.0/classes.html) function.
 
 :::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" ID="Snippet_DeleteBlob":::
 
 ### Delete a container
 
-The following code cleans up the resources the app created by deleting the entire container by using [BlobContainerClient.​Delete](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/12.0.0/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html#ae7661b6d8f37213b409504c0e9a68d69).
+The following code cleans up the resources the app created by deleting the entire container by using [BlobContainerClient.​Delete](https://azuresdkdocs.z19.web.core.windows.net/cpp/azure-storage-blobs/12.13.0/classes.html).
 
 Add this code to the end of `main()`:
 

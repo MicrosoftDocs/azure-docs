@@ -1,12 +1,11 @@
 ---
 title: 'Quickstart: Create an Azure Front Door using Azure PowerShell'
 description: Learn how to create an Azure Front Door using Azure PowerShell. Use Azure Front Door to deliver content to your global user base and protect your web apps against vulnerabilities.
-services: front-door
-author: duongau
-ms.author: duau
-ms.date: 11/18/2024
-ms.topic: quickstart
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
+ms.topic: quickstart
+ms.date: 11/18/2024
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 

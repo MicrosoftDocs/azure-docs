@@ -1,0 +1,7 @@
+- name: Docs
+  tocHref: /
+  topicHref: /
+  items:
+  - name: Azure
+    tocHref: /entra/
+    topicHref: /azure/index

@@ -49,6 +49,8 @@ items:
       href: tutorial-discover-spring-boot.md
     - name: Discover SAP systems (preview)
       href: tutorial-discover-sap-systems.md
+    - name: Discover MySQL databases (preview)
+      href: tutorial-discover-mysql-database-instances.md
   - name: Decide
     items:
     - name: Build a business case
@@ -89,6 +91,8 @@ items:
       href: tutorial-discover-import.md
     - name: Assess SAP systems for migration (preview)
       href: tutorial-assess-sap-systems.md
+    - name: Assess MySQL databases for migration to Azure Database for MySQL (preview)
+      href: create-mysql-assessment.md 
   - name: Migrate
     items:
     - name: Migrate servers in VMware environment
@@ -121,8 +125,6 @@ items:
       href: tutorial-app-containerization-java-app-service.md
     - name: Modernize ASP.NET web apps to App Service code
       href: tutorial-modernize-asp-net-appservice-code.md
-    - name: Modernize ASP.NET web apps to AKS (Retired)
-      href: tutorial-modernize-asp-net-aks.md
     - name: CI/CD for Day 2 operations
       href: tutorial-app-containerization-azure-pipeline.md  
 - name: Concepts
@@ -169,6 +171,8 @@ items:
       href: best-practices-assessment.md
     - name: Assessment overview (discover and assess SAP Systems) (preview)
       href: concepts-azure-sap-systems-assessment.md
+    - name: Assessment overview (migrate to Azure Database for MySQL) (preview)
+      href: assessments-overview-migrate-to-azure-db-mysql.md
   - name: Migrate
     items:
     - name: Build a migration plan

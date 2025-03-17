@@ -113,6 +113,13 @@ When you apply storage task assignments to storage accounts that have IP or netw
 
 If you migrate your storage account from a GRS or GZRS primary region to a secondary region or vice versa, then any storage tasks that target the storage account won't be triggered and any existing task executions might fail.
 
+## Moving storage tasks and task assignments
+Moving storage tasks and task assignments across different resource groups and subscriptions is not supported. This limitation means that any storage tasks and their associated task assignments cannot be transferred between resource groups or subscriptions.
+
+## Cleaning up task assignments before moving storage accounts
+Task assignments must be cleaned up before moving storage accounts across resource groups and subscriptions. Specifically, before a storage account is moved from one resource group to another, or from one subscription to another, all task assignments applied to the storage account must be deleted to ensure a smooth transition.
+
+
 
 ## See Also
 

@@ -26,7 +26,7 @@ The reader of this article is expected to have an understanding of the following
 -	[Azure Communication Services](/azure/communication-services/) [Chat](/azure/communication-services/concepts/chat/concepts), [Calling](/azure/communication-services/concepts/voice-video-calling/calling-sdk-features) and [user interface library](/azure/communication-services/concepts/ui-library/ui-library-overview)
 
 ## Customizable ready-to-use user interface composites
-You can integrate ready-to-use meeting composites provided by the Azure Communication Service user interface library. This composite provides out-of-the-box React components that can be integrated into your Web application. You can find more details [here](https://azure.github.io/communication-ui-library/?path=/docs/use-composite-in-non-react-environment--page) about using this composite with different web frameworks.
+You can integrate ready-to-use meeting composites provided by the Azure Communication Service user interface library. This composite provides out-of-the-box React components that can be integrated into your Web application. You can find more details [here](https://azure.github.io/communication-ui-library/?path=/docs/composites-build-your-own-javascript-bundle--docs) about using this composite with different web frameworks.
 1.	First, provide details about the application's user. To do that, create [Azure Communication Call Adapter Arguments](/javascript/api/@azure/communication-react/azurecommunicationcalladapterargs) to hold information about user ID, access token, display name, and Teams meeting URL.
 
 ```js
@@ -55,7 +55,7 @@ return (
 );
 ```
 
-You can further [customize the user interface with your own theme for customization and branding](https://azure.github.io/communication-ui-library/?path=/docs/theming--page) or [optimize the layout for desktop or mobile](/javascript/api/@azure/communication-react/callwithchatcompositeprops#@azure-communication-react-callwithchatcompositeprops-formfactor). If you would like to customize the layout even further, you may utilize pre-existing user interface components as described in the subsequent section.
+You can further [customize the user interface with your own theme for customization and branding](https://azure.github.io/communication-ui-library/?path=/docs/concepts-theming--docs) or [optimize the layout for desktop or mobile](/javascript/api/@azure/communication-react/callwithchatcompositeprops#@azure-communication-react-callwithchatcompositeprops-formfactor). If you would like to customize the layout even further, you may utilize pre-existing user interface components as described in the subsequent section.
 
   
 ## Build your own layout with user interface components
@@ -67,9 +67,9 @@ The following table details the individual components:
 
 | Component | Description |
 | --- | --- |
-| [Grid Layout](https://azure.github.io/communication-ui-library/?path=/story/ui-components-gridlayout--grid-layout) | Grid component to organize Video Tiles into an NxN grid |
-| [Video Tile](https://azure.github.io/communication-ui-library/?path=/story/ui-components-videotile--video-tile)  | Component that displays video stream when available and a default static component when not |
-| [Control Bar](https://azure.github.io/communication-ui-library/?path=/story/ui-components-controlbar--control-bar) | Container to organize DefaultButtons to hook up to specific call actions like mute or share screen |
+| [Grid Layout](https://azure.github.io/communication-ui-library/?path=/docs/components-grid-layout--docs) | Grid component to organize Video Tiles into an NxN grid |
+| [Video Tile](https://azure.github.io/communication-ui-library/?path=/docs/components-video-tile--docs)  | Component that displays video stream when available and a default static component when not |
+| [Control Bar](https://azure.github.io/communication-ui-library/?path=/docs/components-controlbar-control-bar--docs) | Container to organize DefaultButtons to hook up to specific call actions like mute or share screen |
 | [Video Gallery](https://azure.github.io/communication-ui-library/?path=/story/ui-components-videogallery--video-gallery) | Turn-key video gallery component which dynamically changes as participants are added |
 
 You can also customize your chat experience. The following image highlights the individual components of chat.
@@ -86,7 +86,7 @@ The following table provides descriptions with links to individual components
 | Typing indicator | Text component to render the participants who are actively typing on a thread |
 
 
-Let’s take a look at how you can use [Control Bar](https://azure.github.io/communication-ui-library/?path=/story/ui-components-controlbar--control-bar) component to show only camera and microphone buttons in this order, and control actions that are performed after selection of those buttons.
+Let’s take a look at how you can use [Control Bar](https://azure.github.io/communication-ui-library/?path=/docs/components-controlbar-control-bar--docs) component to show only camera and microphone buttons in this order, and control actions that are performed after selection of those buttons.
 
 ```js
 export const AllButtonsControlBarExample: () => JSX.Element = () => {
@@ -147,7 +147,7 @@ callAgent.join(meetingLocator , new JoinCallOptions());
 
 Those steps allow you to join the Teams meeting. You can then extend those steps with [management of speakers, microphone, camera and individual video streams](/azure/communication-services/how-tos/calling-sdk/manage-video?pivots=platform-web). Then, optionally, you can also integrate chat in the Virtual appointment experience.
 
-Create a [ChatClient](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-communication-chat/1.3.2-beta.1/classes/ChatClient.html) that initiates the SDK and give you access to notifications and [ChatThreadClient](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-communication-chat/1.3.2-beta.1/classes/ChatThreadClient.html).
+Create a [ChatClient](/dotnet/api/azure.communication.chat.chatclient) that initiates the SDK and give you access to notifications and [ChatThreadClient](/dotnet/api/azure.communication.chat.chatthreadclient).
 
 ```js
 const chatClient = new ChatClient(
@@ -169,7 +169,7 @@ Subscribe to an event when message is received.
 chatClient.on("chatMessageReceived", (e) => { /*Render message*/})
 ```
 
-Create [ChatThreadClient](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-communication-chat/1.3.2-beta.1/classes/ChatThreadClient.html) to initiate client for operations related to specific chat thread. 
+Create [ChatThreadClient](/dotnet/api/azure.communication.chat.chatthreadclient) to initiate client for operations related to specific chat thread. 
 
 ```js
 chatThreadClient = await chatClient.getChatThreadClient(threadIdInput.value);

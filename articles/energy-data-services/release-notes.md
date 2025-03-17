@@ -43,6 +43,9 @@ Azure Data Manager for Energy is now SOC 2 and ISO compliant, reinforcing our co
 ### Support for EDS Naturalization DAG (Preview)
 Support for the `eds_naturalization` DAG is now available as a preview feature with the Azure Data Manager for Energy M23 release.
 
+### Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM
+You can now use keys stored in Azure Key Vault Managed HSM to encrypt data stored at rest in Azure Data Manager for Energy. See [Data security and encryption in Azure Data Manager for Energy](how-to-manage-data-security-and-encryption.md).
+
 ## August 2024
 
 ### Compliant with M23 OSDU&reg; release

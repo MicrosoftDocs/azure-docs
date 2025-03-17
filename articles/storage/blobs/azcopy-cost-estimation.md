@@ -47,9 +47,9 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 
 | Price factor                                                     | Hot         | Cool        | Cold         | Archive      |
 |------------------------------------------------------------------|-------------|-------------|--------------|--------------|
-| Price of a single write operation (price / 10,000)               | $0.0000055  | $0.00001    | $0.000018    | $0.000011    |
+| Price of a single write operation                                | $0.0000055  | $0.00001    | $0.000018    | $0.000011    |
 | **Cost of write operations (641,000 * operation price)**         | **$3.5255** | **$6.4100** | **$11.5380** | **$7.0510**  |
-| Price of a single _other_ operation (price / 10,000)             | $0.00000044 | $0.00000044 | $0.00000052  | $0.00000044  |
+| Price of a single _other_ operation                              | $0.00000044 | $0.00000044 | $0.00000052  | $0.00000044  |
 | **Cost to get blob properties (1000 * _other_ operation price)** | **$0.0004** | **$0.0004** | **$0.0005**  | **$0.00044** |
 | **Total cost (write + properties)**                              | **$3.53**   | **$6.41**   | **$11.54**   | **$7.05**    |
 
@@ -77,9 +77,9 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 
 | Price factor                                               | Hot         | Cool         | Cold         | Archive      |
 |------------------------------------------------------------|-------------|--------------|--------------|--------------|
-| Price of a single write operation (price / 10,000)         | $0.00000720 | $0.000013    | $0.0000234   | $0.0000143   |
+| Price of a single write operation                          | $0.00000720 | $0.000013    | $0.0000234   | $0.0000143   |
 | **Cost of write operations (1,281,000 * operation price)** | **$9.2332** | **$16.6530** | **$29.9754** | **$18.3183** |
-| Price of a single _other_ operation (price / 10,000)       | $0.00000044 | $0.00000044  | $0.00000068  | $0.00000044  |
+| Price of a single _other_ operation                        | $0.00000044 | $0.00000044  | $0.00000068  | $0.00000044  |
 | **Cost to get blob properties (1000 * operation price)**   | **$0.0004** | **$0.0004**  | **$0.0007**  | **$0.0004**  |
 | **Total cost (write + properties)**                        | **$9.22**   | **$16.65**   | **$29.98**   | **$18.32**   |
 
@@ -102,11 +102,11 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 
 | Price factor                                             | Hot            | Cool           | Cold           |
 |----------------------------------------------------------|----------------|----------------|----------------|
-| Price of a single list operation (price/ 10,000)         | $0.0000055     | $0.0000055     | $0.0000065     |
+| Price of a single list operation                         | $0.0000055     | $0.0000055     | $0.0000065     |
 | **Cost of listing operations (1 * operation price)**     | **$0.0000055** | **$0.0000050** | **$0.0000065** |
-| Price of a single _other_ operation (price / 10,000)     | $0.00000044    | $0.00000044    | $0.00000052    |
+| Price of a single _other_ operation                      | $0.00000044    | $0.00000044    | $0.00000052    |
 | **Cost to get blob properties (1000 * operation price)** | **$0.00044**   | **$0.00044**   | **$0.00052**   |
-| Price of a single read operation (price / 10,000)        | $0.00000044    | $0.000001      | $0.00001       |
+| Price of a single read operation                         | $0.00000044    | $0.000001      | $0.00001       |
 | **Cost of read operations (1000 * operation price)**     | **$0.00044**   | **$0.001**     | **$0.01**      |
 | Price of data retrieval (per GiB)                        | $0.00          | $0.01          | $0.03          |
 | **Cost of data retrieval 1000 * (5 * operation price)**  | **$0.00**      | **$50.00**     | **$150.00**    |
@@ -136,11 +136,11 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 
 | Price factor                                              | Hot            | Cool           | Cold           |
 |-----------------------------------------------------------|----------------|----------------|----------------|
-| Price of a single list operation (price/ 10,000)          | $0.0000055     | $0.0000055     | $0.0000065     |
+| Price of a single list operation                          | $0.0000055     | $0.0000055     | $0.0000065     |
 | **Cost of listing operations (1 * operation price)**      | **$0.0000055** | **$0.0000050** | **$0.0000065** |
-| Price of a single _other_ operation (price / 10,000)      | $0.00000044    | $0.00000044    | $0.00000052    |
+| Price of a single _other_ operation                       | $0.00000044    | $0.00000044    | $0.00000052    |
 | **Cost to get blob properties (1000 * operation price)**  | **$0.00044**   | **$0.00044**   | **$0.00052**   |
-| Price of a single read operation (price / 10,000)         | $0.00000060    | $0.00000130    | $0.00001300    |
+| Price of a single read operation                          | $0.00000060    | $0.00000130    | $0.00001300    |
 | **Cost of read operations (1,281,000 * operation price)** | **$0.73017**   | **$1.6653**    | **$16.653**    |
 | Price of data retrieval (per GiB)                         | $0.00000000    | $0.01000000    | $0.03000000    |
 | **Cost of data retrieval 1000 * (5 * operation price)**   | **$0.00**      | **$50.00**     | **$150.00**    |
@@ -162,11 +162,11 @@ For each blob, AzCopy uses the [Get Blob Properties](/rest/api/storageservices/g
 
 | Price factor                                             | Hot            | Cool           | Cold           |
 |----------------------------------------------------------|----------------|----------------|----------------|
-| Price of a single list operation (price/ 10,000)         | $0.0000055     | $0.0000055     | $0.0000065     |
+| Price of a single list operation                         | $0.0000055     | $0.0000055     | $0.0000065     |
 | **Cost of listing operations (1 * operation price)**     | **$0.0000055** | **$0.0000055** | **$0.0000065** |
-| Price of a single other operations (price / 10,000)      | $0.00000044    | $0.00000044    | $0.00000052    |
+| Price of a single other operations                       | $0.00000044    | $0.00000044    | $0.00000052    |
 | **Cost to get blob properties (2000 * operation price)** | **$0.00088**   | **$0.00088**   | **$0.00104**   |
-| Price of a single write operation (price / 10,000)       | $0.0000055     | $0.00001       | $0.000018      |
+| Price of a single write operation                        | $0.0000055     | $0.00001       | $0.000018      |
 | **Cost to write (1000 * operation price)**               | **$0.0055**    | **$0.01**      | **$0.018**     |
 | **Total cost (listing + properties + write)**            | **$0.0064**    | **$0.0109**    | **$0.0190**    |
 
@@ -177,7 +177,7 @@ This scenario is identical to the previous one except that you're also billed fo
 | Price factor                                            | Hot          | Cool         | Cold          |
 |---------------------------------------------------------|--------------|--------------|---------------|
 | **Total from previous section**                         | **$0.0064**  | **$0.0109**  | **$0.0190**   |
-| Price of a single read operation (price / 10,000)       | $0.00000044  | $0.000001    | $0.00001      |
+| Price of a single read operation                        | $0.00000044  | $0.000001    | $0.00001      |
 | **Cost of read operations (1,000 * operation price)**   | **$0.00044** | **$0.001**   | **$0.01**     |
 | Price of data retrieval (per GiB)                       | Free         | $0.01        | $0.03         |
 | **Cost of data retrieval 1000 * (5 * operation price)** | **$0.00**    | **$50.00**   | **$150.00**   |

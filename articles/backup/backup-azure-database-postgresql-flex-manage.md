@@ -1,17 +1,17 @@
 ---
-title: Manage Azure Backup for Azure PostgreSQL - Flexible servers
+title: Manage backups of Azure Database for PostgreSQL - Flexible Server using Azure portal
 description: Learn about managing backup for the Azure PostgreSQL - Flexible servers from the Azure portal.
 ms.topic: how-to
-ms.date: 03/21/2024
+ms.date: 03/18/2025
 author: jyothisuri
 ms.author: jsuri
 ms.service: azure-backup
 ms.custom: engagement-fy24, ignite-2024
 ---
 
-# Manage Azure Backup for Azure PostgreSQL - Flexible servers (preview)
+# Manage backups of Azure Database for PostgreSQL - Flexible Server using Azure portal
 
-This article explains how to manage backup for the Azure PostgreSQL - Flexible servers from the Azure portal.
+This article describes how to manage backup of Azure Database for PostgreSQL - Flexible Server using Azure portal.
 
 ## Change policy
 
@@ -74,6 +74,26 @@ After you trigger the restore operation, the backup service creates a job for tr
 
 This section describes several Azure Backup supported management operations that make it easy to manage Azure PostgreSQL - Flexible servers.
 
+### Enable public network access for the database storage account
+
+Ensure the target storage account for restoring backup as a file is accessible via a public network. If the storage account uses a private endpoint, update its public network access settings before executing a restore operation.
+
+To enable public network access for the target storage account, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com/), go to the **target storage account** > **Security + Networking** > **Networking**. 
+
+2. Select **Manage** under **Public network access**. 
+
+3. On the **Public network access** pane, select **Enable from selected networks** as **Default action**. 
+
+   :::image type="content" source="./media/backup-azure-database-postgresql-flex-manage/enable-public-network-access.png" alt-text="Screenshot shows how to enable public network access for the database storage account." lightbox="./media/backup-azure-database-postgresql-flex-manage/enable-public-network-access.png":::
+
+4. Under **Resource instances**, choose **Resource type** as `Microsoft.DataProtection/BackupVaults`, and then select the **Backup vault** where your backup is stored.
+
+5. Under **Exceptions**, select **Allow trusted Microsoft services to access this resource**. 
+
+6. Select **Save** to implement the updates.
+ 
 ### Stop Protection
 
 There are three ways by which you can stop protecting an Azure Disk:
@@ -178,6 +198,7 @@ To delete a PostgreSQL server backup instance, follow these steps:
 
 1. Select **Delete** to confirm and proceed with deleting backup instance.
 
-## Next steps
 
-[Backup vaults overview](backup-vault-overview.md)
+## Next step
+
+[Troubleshoot common errors for backup and restore operations for Azure Database for PostgreSQL - Flexible Server](backup-azure-database-postgresql-flex-troubleshoot.md).
