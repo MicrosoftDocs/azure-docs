@@ -130,13 +130,13 @@ From the *Overview* window, select the **Application Url** link to open the web 
 Define the following environment variables. Before running this command, replace the `<PLACEHOLDERS>` with your values.
 
 ```azurecli
-$RESOURCE_GROUP="<RESOURCE_GROUP>"
-$ENVIRONMENT_NAME="<ENVIRONMENT_NAME>"
-$LOCATION="swedencentral"
-$CONTAINER_APP_NAME="<CONTAINER_APP_NAME>"
-$CONTAINER_IMAGE="mcr.microsoft.com/k8se/gpu-quickstart:latest"
-$WORKLOAD_PROFILE_NAME="NC8as-T4"
-$WORKLOAD_PROFILE_TYPE="Consumption-GPU-NC8as-T4"
+RESOURCE_GROUP="<RESOURCE_GROUP>"
+ENVIRONMENT_NAME="<ENVIRONMENT_NAME>"
+LOCATION="swedencentral"
+CONTAINER_APP_NAME="<CONTAINER_APP_NAME>"
+CONTAINER_IMAGE="mcr.microsoft.com/k8se/gpu-quickstart:latest"
+WORKLOAD_PROFILE_NAME="NC8as-T4"
+WORKLOAD_PROFILE_TYPE="Consumption-GPU-NC8as-T4"
 ```
 
 ## Create your container app
