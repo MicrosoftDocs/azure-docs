@@ -1,9 +1,9 @@
 ---
 title: Authorize requests to Azure SignalR Service resources with Microsoft Entra applications
-description: This article provides information about authorizing requests to Azure SignalR Service resources by using Microsoft Entra applications.
+description: This article provides information about authorizing requests to Azure SignalR Service resources with Microsoft Entra applications.
 author: terencefan
 ms.author: tefa
-ms.date: 03/14/2023
+ms.date: 03/12/2023
 ms.service: azure-signalr-service
 ms.topic: how-to
 ms.devlang: csharp
@@ -12,9 +12,9 @@ ms.custom: subject-rbac-steps
 
 # Authorize requests to Azure SignalR Service resources with Microsoft Entra applications
 
-Azure SignalR Service supports Microsoft Entra ID for authorizing requests from [Microsoft Entra applications](/entra/identity-platform/app-objects-and-service-principals).
+Azure SignalR Service supports Microsoft Entra ID for authorizing requests with [Microsoft Entra applications](/entra/identity-platform/app-objects-and-service-principals).
 
-This article shows how to configure your Azure SignalR Service resource and codes to authorize requests to the resource from a Microsoft Entra application.
+This article explains how to set up your resource and code to authenticate requests to the resource using a Microsoft Entra application.
 
 ## Register an application in Microsoft Entra ID
 
@@ -32,44 +32,19 @@ After registering an app, you can add **certificates, client secrets (a string),
 - [Add a client secret](/entra/identity-platform/quickstart-register-app?tabs=client-secret#add-credentials)
 - [Add a federated credential](/entra/identity-platform/quickstart-register-app?tabs=federated-credential#add-credentials)
 
-
 ## Add role assignments in the Azure portal
 
-The following steps describe how to assign a SignalR App Server role to a service principal (application) over an Azure SignalR Service resource. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+[!INCLUDE [add role assignments](includes/signalr-add-role-assignments.md)]
 
-> [!NOTE]
-> A role can be assigned to any scope, including management group, subscription, resource group, or single resource. To learn more about scope, see [Understand scope for Azure RBAC](../role-based-access-control/scope-overview.md).
-
-1. In the [Azure portal](https://portal.azure.com/), go to your Azure SignalR Service resource.
-
-1. Select **Access control (IAM)**.
-
-1. Select **Add** > **Add role assignment**.
-
-   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows the page for access control and selections for adding a role assignment.":::
-
-1. On the **Role** tab, select **SignalR App Server**.
-
-1. On the **Members** tab, select **User, group, or service principal**, and then choose **Select members**.
-
-1. Search for and select the application to which you want to assign the role.
-
-1. On the **Review + assign** tab, select **Review + assign** to assign the role.
-
-> [!IMPORTANT]
-> Azure role assignments might take up to 30 minutes to propagate.
-
-To learn more about how to assign and manage Azure roles, see these articles:
-
-- [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml)
-- [Assign Azure roles using the REST API](../role-based-access-control/role-assignments-rest.md)
-- [Assign Azure roles using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
-- [Assign Azure roles using the Azure CLI](../role-based-access-control/role-assignments-cli.md)
-- [Assign Azure roles using Azure Resource Manager templates](../role-based-access-control/role-assignments-template.md)
-
-## Microsoft.Azure.SignalR app server SDK for C#
+## Configure Microsoft.Azure.SignalR app server SDK for C#
 
 [Azure SignalR server SDK for C#](https://github.com/Azure/azure-signalr)
+
+The Azure SignalR server SDK leverages the [Azure.Identity library](/dotnet/api/overview/azure/identity-readme) to generate tokens for connecting to resources.
+Click to explore detailed usages.
+
+> [!NOTE]
+> The tenantId must match the tenantId of the tenant where your SignalR resource is in.
 
 ### Use Microsoft Entra application with certificate
 ```csharp
@@ -98,9 +73,12 @@ services.AddSignalR().AddAzureSignalR(option =>
 
 ### Use Microsoft Entra application with Federated identity
 
+In the case of your organization disabled the usage of client secret/certificate, you can configure the application to trust a managed identity for authentication.
+
+To learn more about it, see [Configure an application to trust a managed identity (preview)](/entra/workload-id/workload-identity-federation-config-app-trust-managed-identity).
+
 > [!NOTE]
 > Configure an application to trust a managed identity is a preview feature. 
-> To learn more about it, see [Configure an application to trust a managed identity (preview)](/entra/workload-id/workload-identity-federation-config-app-trust-managed-identity).
 
 ```csharp
 services.AddSignalR().AddAzureSignalR(option =>
@@ -117,10 +95,14 @@ services.AddSignalR().AddAzureSignalR(option =>
     });
 
     option.Endpoints = [
-      new ServiceEndpoint(new Uri(), "https://<resource>.service.signalr.net"), credential);
+        new ServiceEndpoint(new Uri(), "https://<resource>.service.signalr.net"), credential);
     ];
 });
 ```
+
+This credential will use the user-assigned managed identity to generate a `clientAssertion` and use it to exchange for a `clientToken` for authentication.
+
+The `appClientId` and `tenantId` should be the enterprise application that you provisioned in the tenant of SignalR resource.
 
 ### Use multiple endpoints
 
@@ -141,6 +123,8 @@ services.AddSignalR().AddAzureSignalR(option =>
     };
 });
 ```
+
+More sample can be found in this [Sample link](https://github.com/Azure/azure-signalr/blob/dev/samples/ChatSample/ChatSample/Startup.cs)
 
 ## Azure SignalR Service bindings in Azure Functions
 
@@ -210,6 +194,7 @@ In the Azure portal, add settings as follows:
 
 See the following related articles:
 
-- [Authorize access with Microsoft Entra ID for Azure SignalR Service](signalr-concept-authorize-azure-active-directory.md)
-- [Authorize requests to Azure SignalR Service resources with Microsoft Entra managed identities](signalr-howto-authorize-managed-identity.md)
-- [Disable local authentication](./howto-disable-local-auth.md)
+- [Microsoft Entra ID for Azure SignalR Service](signalr-concept-authorize-azure-active-directory.md)
+- [Authorize requests to Azure SignalR Service resources with Managed identities for Azure resources](./signalr-howto-authorize-managed-identity.md)
+- [How to configure cross tenant authorization with Microsoft Entra](signalr-howto-authorize-cross-tenant.md)
+- [How to disable local authentication](./howto-disable-local-auth.md)
