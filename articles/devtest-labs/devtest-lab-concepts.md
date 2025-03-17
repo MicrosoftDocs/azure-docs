@@ -4,10 +4,10 @@ description: Learn about some basic Azure DevTest Labs concepts related to labs,
 ms.topic: conceptual
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/14/2025
+ms.date: 03/17/2025
 ms.custom: UpdateFrequency2
 
-#customer intent: As a lab user or administrator, I want to understand basic DevTest Labs concepts so I know how I can create, manage, and use labs, VMs, environments, and templates.
+#customer intent: As a lab user or administrator, I want to understand basic DevTest Labs concepts so I can create, manage, or use labs, VMs, and environments.
 ---
 
 # DevTest Labs concepts
@@ -20,8 +20,8 @@ A DevTest Labs lab is the infrastructure that encompasses a group of resources s
 
 - Add and configure lab users.
 - Create ready-made VMs for lab users to claim and use.
-- Create and use templates to create and configure labs, VMs, and environments.
-- Connect artifact and template repositories to the lab.
+- Create and use Azure Resource Manager (ARM) templates to create and configure labs, VMs, and environments.
+- Connect artifact and template source control repositories to the lab.
 - Let users create and configure their own lab VMs and environments.
 - Specify allowed virtual machine (VM) limits, sizes, and configurations.
 - Set autoshutdown and autostartup policies.
@@ -49,9 +49,11 @@ Lab policies help control costs and reduce waste. For example, policies can auto
 
 ## Templates
 
+You can use ARM templates to create and update DevTest Labs labs, environments, VMs, and artifacts.
+
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)] For more information about ARM template structure and properties, see [Template format](/azure/azure-resource-manager/templates/syntax#template-format).
 
-You can use ARM templates to create and update DevTest Labs labs, environments, VMs, and artifacts, or for automation. For more information, see:
+For more information about using ARM templates in DevTestLabs, see:
 
 - [Create labs from ARM templates](create-lab-windows-vm-template.md)
 - [Create environments from ARM templates](devtest-lab-create-environment-from-arm.md)
@@ -65,7 +67,9 @@ Lab administrators can also store custom artifacts and ARM templates in private 
 
 ## Virtual machines
 
-You can use templates, artifacts, custom images, and formulas to create and manage DevTest Labs VMs. Azure VMs are [on-demand, scalable computing resources](/azure/architecture/guide/technology-choices/compute-decision-tree) that give you the flexibility of virtualization without having to buy and maintain the physical hardware to run it. For more information about Azure VMs, see [Windows virtual machines in Azure](/azure/virtual-machines/windows/overview). 
+You can use templates, artifacts, custom images, and formulas to create and manage DevTest Labs VMs.
+
+Azure VMs are [on-demand, scalable computing resources](/azure/architecture/guide/technology-choices/compute-decision-tree) that give you the flexibility of virtualization without having to buy and maintain the physical hardware to run it. For more information about Azure VMs, see [Windows virtual machines in Azure](/azure/virtual-machines/windows/overview). 
 
 ### Base images
 
@@ -101,6 +105,6 @@ For more information about custom images and formulas, see [Compare custom image
 
 ## Environments
 
-A DevTest Labs environment is a collection of Azure platform-as-a-service (PaaS) resources, such as an Azure Web App or a SharePoint farm, that's defined by an Azure Resource Manager (ARM) template. Lab administrators can add public or privately created environment tamplates to labs, and lab users can use them to quickly create environments. For more information, see [Use ARM templates to create DevTest Labs environments](devtest-lab-create-environment-from-arm.md).
+A DevTest Labs environment is a collection of Azure platform-as-a-service (PaaS) resources, such as an Azure Web App or a SharePoint farm, that's defined by an ARM template. Lab administrators can add public or privately created environment tamplates to labs, and lab users can use them to quickly create environments. For more information, see [Use ARM templates to create DevTest Labs environments](devtest-lab-create-environment-from-arm.md).
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
