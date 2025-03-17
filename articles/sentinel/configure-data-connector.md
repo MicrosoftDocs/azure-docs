@@ -50,6 +50,8 @@ After you or someone in your organization installs the solution that includes th
 
    :::image type="content" source="media/configure-data-connector/open-connector-page-option-defender-portal.png" alt-text="Screenshot of data connector details page in the Defender portal.":::
 
+   ---
+
 1. Review the **Prerequisites**. To configure the data connector, fulfill all the prerequisites.
 1. Follow the steps outlined in the **Configurations** section.
   
@@ -74,6 +76,8 @@ To view the data:
    #### [Defender portal](#tab/defender-portal-1)
    
    See [Where to find your Microsoft Sentinel data in Microsoft Defender portal](/defender-xdr/advanced-hunting-microsoft-defender#where-to-find-your-microsoft-sentinel-data).
+
+   ---
 
 ## Find support for a data connector
 
