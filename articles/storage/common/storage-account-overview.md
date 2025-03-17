@@ -171,11 +171,11 @@ The storage account endpoint is stable and does not change. However, the CNAME r
 
 Consider the following guidelines:
 
-- The CNAME chain associated with a storage account endpoint can change without notice. Applications and environments should not take a dependency on the number of of CNAME records or the sub-domains that are associated with those CNAME records.
+- The CNAME chain associated with a storage account endpoint can change without notice. Applications and environments should not take a dependency on the number of CNAME records or the sub-domains that are associated with those CNAME records.
 
 - The A record's IP address that is returned by the DNS resolution of a storage account endpoint can change frequently.
 
-- The applications and operating systems should always honor the time-to-live (TTL) associated with the CNAME record. Caching the the value of the CNAME record beyond the TTL could lead to unintended behavior.
+- The applications and operating systems should always honor the time-to-live (TTL) associated with the CNAME record. Caching the value of the CNAME record beyond the TTL could lead to unintended behavior.
 
 ## Migrate a storage account
 
