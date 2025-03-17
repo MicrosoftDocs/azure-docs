@@ -16,7 +16,7 @@ For security reasons, your server may host in an independent tenant from your Az
 
 Since managed identity can't be used across tenants, you need to register an application in `tenantA` and then provision it as an enterprise application in `tenantB`.
 
-This doc help you create an application in `tenantA` and use it to connect to a SignalR resource in `tenantB`.
+This doc helps you create an application in `tenantA` and use it to connect to a SignalR resource in `tenantB`.
 
 ## Register a multitenant application in tenant A
 
@@ -24,7 +24,7 @@ The first step is to create a multitenant application, see:
 
 [Quickstart: Register an application in Microsoft Entra ID](/entra/identity-platform/quickstart-register-app)
 
-In the case that you've already have a single tenant application.
+In the case that you already have a single tenant application.
 
 [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant)
 
