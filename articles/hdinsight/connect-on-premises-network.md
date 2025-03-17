@@ -5,6 +5,9 @@ ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 06/15/2024
+author: rkottackal
+ms.author: rkottackal
+ms.reviewer: sairamyeturi 
 ---
 
 # Connect HDInsight to your on-premises network

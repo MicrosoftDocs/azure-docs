@@ -7,6 +7,9 @@ ms.topic: conceptual
 ms.date: 06/15/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
+author: anuj1905
+ms.author: anujsharda
+ms.reviewer: hgowrisankar
 ---
 # Azure HDInsight double encryption for data at rest
 

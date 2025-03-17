@@ -6,6 +6,9 @@ ms.topic: how-to
 author: reachnijel
 ms.author: nijelsf
 ms.date: 09/06/2024
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ---
 
 # Find the host names of cluster nodes
