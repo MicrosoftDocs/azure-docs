@@ -20,20 +20,20 @@ This doc help you create an application in `tenantA` and use it to connect to a 
 
 ## Register a multitenant application in tenant A
 
-The first step is to create a multitenant application.
-
-> In the case that you've already have a single tenant application.
->
-> [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant)
+The first step is to create a multitenant application, see:
 
 [Quickstart: Register an application in Microsoft Entra ID](/entra/identity-platform/quickstart-register-app)
 
+In the case that you've already have a single tenant application.
+
+[Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/howto-convert-app-to-be-multi-tenant)
+
 There are four account types:
 
-1. Accounts in this organizational directory
-2. Accounts in any organizational directory	
-3. Accounts in any organizational directory and personal Microsoft accounts
-4. Personal Microsoft accounts
+- Accounts in this organizational directory
+- Accounts in any organizational directory	
+- Accounts in any organizational directory and personal Microsoft accounts
+- Personal Microsoft accounts
 
 Be sure to select either type 2 or type 3 when creating the application.
 
@@ -75,7 +75,7 @@ We strongly recommend you to use the first 2 ways to make cross tenant requests.
 
 - `tenantId` should be the ID of your **Tenant B**.
 - `clientId` in both tenants are equal.
-- `clientSecret` and `clientCert` should be configured in **Tenant A**, see [Add credentials](/entra/identity-platform/quickstart-register-app?tabs=certificate%2Cexpose-a-web-api#add-credentials)
+- `clientSecret` and `clientCert` should be configured in **Tenant A**, see [Add credentials](/entra/identity-platform/quickstart-register-app?tabs=certificate%2Cexpose-a-web-api#add-credentials).
 
 If you aren't sure about your tenant ID, see [Find your Microsoft Entra tenant](/azure/azure-portal/get-subscription-tenant-id#find-your-microsoft-entra-tenant)
 
@@ -181,12 +181,10 @@ Your goal is to get a token with following claims. Use [jwt.io](https://jwt.io/)
 
   Has to be `https://signalr.azure.com/.default` to access SignalR resources.
 
-Good luck :)
-
 ## Next steps
 
 See the following related articles:
 
 - [Microsoft Entra ID for Azure SignalR Service](signalr-concept-authorize-azure-active-directory.md)
 - [Authorize requests to Azure SignalR Service resources with Microsoft Entra applications](signalr-howto-authorize-application.md)
-- [Authorize requests to Azure SignalR Service resources with Managed identities for Azure resources](./signalr-howto-authorize-managed-identity.md).
+- [Authorize requests to Azure SignalR Service resources with Managed identities for Azure resources](./signalr-howto-authorize-managed-identity.md)

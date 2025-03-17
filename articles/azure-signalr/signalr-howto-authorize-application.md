@@ -195,6 +195,6 @@ In the Azure portal, add settings as follows:
 See the following related articles:
 
 - [Microsoft Entra ID for Azure SignalR Service](signalr-concept-authorize-azure-active-directory.md)
-- [Authorize requests to Azure SignalR Service resources with Managed identities for Azure resources](./signalr-howto-authorize-managed-identity.md).
+- [Authorize requests to Azure SignalR Service resources with Managed identities for Azure resources](./signalr-howto-authorize-managed-identity.md)
 - [How to configure cross tenant authorization with Microsoft Entra](signalr-howto-authorize-cross-tenant.md)
 - [How to disable local authentication](./howto-disable-local-auth.md)
