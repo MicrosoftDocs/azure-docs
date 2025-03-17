@@ -2,12 +2,12 @@
 title: Large file download optimization with Azure Content Delivery Network
 description: Learn how large file downloads can be optimized in Azure Content Delivery Network. This article includes several scenarios.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
-ms.author: duau
 ---
 
 # Large file download optimization with Azure Content Delivery Network
