@@ -92,7 +92,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - Currently, backup instances with <= 100 disks attached as persistent volume are supported. Backup and restore operations might fail if number of disks are higher than the limit. 
 
-- Only Azure Disks with public access enabled from all networks are eligible to be moved to the Vault Tier; if ther are disks with network access apart from public access, tiering operation will fail. 
+- Only Azure Disks with public access enabled from all networks are eligible to be moved to the Vault Tier; if there are disks with network access apart from public access, tiering operation will fail. 
 
 - *Disaster Recovery* feature is only available between Azure Paired Regions (if backup is configured in a Geo Redundant Backup vault). The backup data is only available in an Azure paired region. For example, if you have an AKS cluster in East US that is backed up in a Geo Redundant Backup vault, the backup data is also available in West US for restore.
 

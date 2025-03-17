@@ -178,9 +178,9 @@ However, if the number of resources in the cluster exceeds 1000, the pods may re
 
 **Recommended action**: To ensure successful backup and restore operations, manually update the resource settings for the extension pods by following these steps:
 
-1. Open the AKS cluster in the Azure Portal.
+1. Open the AKS cluster in the Azure portal.
 
-    ![Screenshot shows AKS cluster in Azure Portal.](./media/azure-kubernetes-service-cluster-manage-backups/aks-cluster.png)
+    ![Screenshot shows AKS cluster in Azure portal.](./media/azure-kubernetes-service-cluster-manage-backups/aks-cluster.png)
 
 1. Navigate to Extensions + Applications under Settings in the left-hand pane.
 
