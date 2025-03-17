@@ -36,12 +36,12 @@ By default, TLSv1.2_2023 will be selected. TLSv1.2_2022 maps to the minimum TLS 
 
 | **OpenSSL** | **Cipher** **Suite** | **TLSv1.2_2023** | **TLSv1.2_2022** |
 |---|---|---|---|
-| **Min. Protocol version** | | **1.2** | **1.2** |
+| **Minimum Protocol version** | | **1.2** | **1.2** |
 | **Supported Protocols** | | **1.3/1.2** | **1.3./1.2** |
-| **min TLS1.3** | | | |
+| **Minimum TLS1.3** | | | |
 | **TLS_AES_256_GCM_SHA384** | TLS_AES_256_GCM_SHA384 | Yes | Yes |
 | **TLS_AES_128_GCM_SHA256** | TLS_AES_128_GCM_SHA256 | Yes | Yes |
-| **min TLS1.2** | | | |
+| **Minimum TLS1.2** | | | |
 | **ECDHE-RSA-AES256-GCM-SHA384** | TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 | Yes | Yes |
 | **ECDHE-RSA-AES128-GCM-SHA256** | TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 | Yes | Yes | 
 | **AES256-GCM-SHA384** | TLS_RSA_WITH_AES_256_GCM_SHA384 | | Yes | 
@@ -52,11 +52,6 @@ By default, TLSv1.2_2023 will be selected. TLSv1.2_2022 maps to the minimum TLS 
 | **DHE-RSA-AES128-GCM-SHA256** | TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 | | Yes | 
 | **ECDHE-RSA-AES256-SHA384** | TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 | | Yes | 
 | **ECDHE-RSA-AES128-SHA256** | TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 | | Yes | 
-| **min TLSv1.1/1.0** | | | | 
-| **ECDHE-RSA-AES256-SHA** | TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA | | | 
-| **ECDHE-RSA-AES128-SHA** | TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA | | | 
-| **AES256-SHA** | TLS_RSA_WITH_AES_256_CBC_SHA | | | 
-| **AES128-SHA** | TLS_RSA_WITH_AES_128_CBC_SHA | | | 
 
 ## Custom TLS policy
 
@@ -75,14 +70,10 @@ Azure Front Door supports the following cipher suites from which you can choose 
 - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
-- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
 - TLS_RSA_WITH_AES_256_GCM_SHA384
 - TLS_RSA_WITH_AES_128_GCM_SHA256
 - TLS_RSA_WITH_AES_256_CBC_SHA256
 - TLS_RSA_WITH_AES_128_CBC_SHA256
-- TLS_RSA_WITH_AES_256_CBC_SHA
-- TLS_RSA_WITH_AES_128_CBC_SHA
 - TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 - TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
 
