@@ -48,7 +48,7 @@ Go to **Search** in Microsoft Sentinel from the Azure portal or the Microsoft De
 1. When you're satisfied with the query and the search results preview, select the ellipses **...** and toggle  **Search job mode** on.
 
    :::image type="content" source="media/search-jobs/search-job-advanced-kql-ellipsis.png" alt-text="Screenshot of KQL editor with revised search with ellipsis highlighted for Search job mode." lightbox="media/search-jobs/search-job-advanced-kql-ellipsis.png":::
-1. Select the appropriate **Time range**.
+1. Specify the search job date range using the **Time range** selector. Don't include a time range in your KQL query as it is ignored.
 1. Resolve any KQL issues indicated by a squiggly red line in the editor.
 1. When you're ready to start the search job, select **Search job**.
 1. Enter a new table name to store the search job results.
