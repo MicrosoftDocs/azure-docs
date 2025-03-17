@@ -8,87 +8,85 @@
     href: howto-best-practices.md
   - name: FAQ
     href: faq.yml
-- name: Quickstarts
+- name: Get started
   items:
   - name: Create an App Configuration store
     href: quickstart-azure-app-configuration-create.md
-  - name: Configuration
+  - name: Manage feature flags
+    href: manage-feature-flags.md
+  - name: ASP.NET Core
     items:
-    - name: ASP.NET Core
-      items:
-      - name: Use Azure App Configuration
-        href: quickstart-aspnet-core-app.md
-      - name: Enable dynamic configuration
-        href: enable-dynamic-configuration-aspnet-core.md
-    - name: .NET
-      items:
-      - name: Use Azure App Configuration
-        href: quickstart-dotnet-core-app.md
-      - name: Enable dynamic configuration
-        href: enable-dynamic-configuration-dotnet-core.md
-    - name: .NET Background Service
-      items:
-      - name: Enable dynamic configuration
-        href: enable-dynamic-configuration-dotnet-background-service.md
-    - name: ASP.NET (.NET Framework)
-      items:
-      - name: Enable dynamic configuration
-        href: enable-dynamic-configuration-aspnet-netfx.md
-    - name: .NET Framework
-      items:
-      - name: Use Azure App Configuration
-        href: quickstart-dotnet-app.md
-      - name: Enable dynamic configuration
-        href: enable-dynamic-configuration-dotnet.md
-    - name: Java Spring
-      items:
-      - name: Use Azure App Configuration
-        href: quickstart-java-spring-app.md
-      - name: Enable dynamic configuration
-        href: enable-dynamic-configuration-java-spring-app.md
-    - name: Python
-      items:
-      - name: Use Azure App Configuration
-        href: quickstart-python-provider.md
-      - name: Enable dynamic configuration
-        href: enable-dynamic-configuration-python.md 
-    - name: Node.js
-      items:
-      - name: Use Azure App Configuration
-        href: quickstart-javascript-provider.md
-      - name: Enable dynamic configuration
-        href: enable-dynamic-configuration-javascript.md
-    - name: Azure Functions
-      items:
-      - name: Use Azure App Configuration
-        href: quickstart-azure-functions-csharp.md
-      - name: Enable dynamic configuration
-        href: enable-dynamic-configuration-azure-functions-csharp.md
-    - name: Azure Kubernetes Service
-      items:
-      - name: Use Azure App Configuration
-        href: quickstart-azure-kubernetes-service.md
-      - name: Enable dynamic configuration
-        href: enable-dynamic-configuration-azure-kubernetes-service.md
-  - name: Feature management
-    items:
-    - name: Manage feature flags
-      href: manage-feature-flags.md
-    - name: ASP.NET Core
+    - name: Configuration
+      href: quickstart-aspnet-core-app.md
+    - name: Dynamic configuration
+      href: enable-dynamic-configuration-aspnet-core.md
+    - name: Feature management
       href: quickstart-feature-flag-aspnet-core.md
-    - name: .NET/.NET Framework
+  - name: .NET
+    items:
+    - name: Configuration
+      href: quickstart-dotnet-core-app.md
+    - name: Dynamic configuration
+      href: enable-dynamic-configuration-dotnet-core.md
+    - name: Feature management
       href: quickstart-feature-flag-dotnet.md
-    - name: .NET Background Service
+  - name: .NET Background Service
+    items:
+    - name: Dynamic configuration
+      href: enable-dynamic-configuration-dotnet-background-service.md
+    - name: Feature management
       href: quickstart-feature-flag-dotnet-background-service.md
-    - name: Java Spring
+  - name: ASP.NET (.NET Framework)
+    items:
+    - name: Dynamic configuration
+      href: enable-dynamic-configuration-aspnet-netfx.md
+  - name: .NET Framework
+    items:
+    - name: Configuration
+      href: quickstart-dotnet-app.md
+    - name: Dynamic configuration
+      href: enable-dynamic-configuration-dotnet.md
+    - name: Feature management
+      href: quickstart-feature-flag-dotnet.md
+  - name: Java Spring
+    items:
+    - name: Configuration
+      href: quickstart-java-spring-app.md
+    - name: Dynamic configuration
+      href: enable-dynamic-configuration-java-spring-app.md
+    - name: Feature management
       href: quickstart-feature-flag-spring-boot.md
-    - name: Python
+  - name: Python
+    items:
+    - name: Configuration
+      href: quickstart-python-provider.md
+    - name: Dynamic configuration
+      href: enable-dynamic-configuration-python.md 
+    - name: Feature management
       href: quickstart-feature-flag-python.md
-    - name: Node.js
+  - name: Node.js
+    items:
+    - name: Configuration
+      href: quickstart-javascript-provider.md
+    - name: Dynamic configuration
+      href: enable-dynamic-configuration-javascript.md
+    - name: Feature management
       href: quickstart-feature-flag-javascript.md
-    - name: Azure Functions
+  - name: Azure Functions
+    items:
+    - name: Configuration
+      href: quickstart-azure-functions-csharp.md
+    - name: Dynamic configuration
+      href: enable-dynamic-configuration-azure-functions-csharp.md
+    - name: Feature management
       href: quickstart-feature-flag-azure-functions-csharp.md
-    - name: Azure Kubernetes Service
+  - name: Azure Kubernetes Service
+    items:
+    - name: Configuration
+      href: quickstart-azure-kubernetes-service.md
+    - name: Dynamic configuration
+      href: enable-dynamic-configuration-azure-kubernetes-service.md
+    - name: Feature management
       href: quickstart-feature-flag-azure-kubernetes-service.md
   - name: Service integration
     items:
