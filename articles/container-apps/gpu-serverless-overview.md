@@ -1,5 +1,5 @@
 ---
-title: Using serverless GPUs in Azure Container Apps (preview)
+title: Using serverless GPUs in Azure Container Apps
 description: Learn to how to use GPUs with apps and jobs in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
@@ -7,11 +7,11 @@ ms.service: azure-container-apps
 ms.custom:
   - ignite-2024
 ms.topic: how-to
-ms.date: 11/06/2024
+ms.date: 03/17/2025
 ms.author: cshoe
 ---
 
-# Using serverless GPUs in Azure Container Apps (preview)
+# Using serverless GPUs in Azure Container Apps
 
 Azure Container Apps provides access to GPUs on-demand without you having to manage the underlying infrastructure. As a serverless feature, you only pay for GPUs in use. When enabled, the number of GPUs used for your app rises and falls to meet the load demands of your application. Serverless GPUs enable you to seamlessly run your workloads with automatic scaling, optimized cold start, per-second billing with scale down to zero when not in use, and reduced operational overhead. 
 
