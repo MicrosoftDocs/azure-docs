@@ -7,12 +7,9 @@ ms.date: 01/24/2025
 
 # Debug and manage orchestrations using the Azure Functions durable task scheduler dashboard (preview)
 
-Observe, manage, and debug your task hub or scheduler's orchestations effectively using the durable task scheduler dashboard. Once you [assign the *Durable Task Data Contributor* role to your developer identity](./develop-with-durable-task-scheduler.md#accessing-dts-dashboard), you can access the dashboard via either:
+Observe, manage, and debug your task hub or scheduler's orchestations effectively using the durable task scheduler dashboard. The dashboard is available when you run the [durable task scheduler emulator](./durable-task-scheduler.md#emulator-for-local-development) locally or create a scheduler resource on Azure. The former does not require authentication. The latter requires that you [assign the *Durable Task Data Contributor* role to your identity](./develop-with-durable-task-scheduler.md#accessing-dts-dashboard), after which you can access the dashboard via either:
 - The task hub's dashboard endpoint URL in the Azure portal
-- Navigate to `https://dashboard.durabletask.io/` and your task endpoint to connect to it.  
-
-> [!NOTE]
-> Ensure your identity (email) has the **Durable Task Data Contributor** role [assigned](./includes/assign-dev-identity-rbac-portal.md) to it before accessing the dashboard. 
+- Navigate to `https://dashboard.durabletask.io/` and your task hub endpoint to connect to it.  
 
 ## Monitor orchestration progress and execution history
 
