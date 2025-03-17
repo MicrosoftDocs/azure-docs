@@ -21,7 +21,7 @@ Integrate Microsoft Defender XDR with Microsoft Sentinel to stream all Defender 
 
 Alternatively, onboard Microsoft Sentinel with Defender XDR to Microsoft's unified security operations (SecOps) platform in the Defender portal. Microsoft's unified SecOps platform brings together the full capabilities of Microsoft Sentinel, Defender XDR, and generative AI built specifically for cybersecurity. For more information, see the following resources:
 
-- [What is Microsoft's unified security operations platform?](/unified-secops-platform/overview-unified-security.md)
+- [What is Microsoft's unified security operations platform?](/unified-secops-platform/overview-unified-security)
 - [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
 
 ## Microsoft Sentinel and Defender XDR
