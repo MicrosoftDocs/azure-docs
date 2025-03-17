@@ -1,5 +1,5 @@
 ---
-title: Manage your Azure Native Dynatrace Service integration
+title: Manage settings for your Dynatrace resource via Azure portal
 description: Manage settings, view resources, reconfigure metrics/logs, and more for your Dynatrace resource via Azure portal.
 
 ms.topic: how-to
@@ -63,8 +63,8 @@ To monitor resources for virtual machines, select **Dynatrace environment config
 
 > [!IMPORTANT]
 >
-> - Dynatrace OneAgent can only be installed on virtual machines that are running. If the virtual machine is stopped, installing the Dynatrace OneAgent is disabled.   
-> - If a virtual machine shows that a OneAgent is installed and the option Uninstall extension is disabled, the agent was configured through another resource in the same subscription. To make any changes, go to the other Dynatrace resource in the Azure subscription.
+> - If the virtual machine is stopped, installing the Dynatrace OneAgent is disabled. Dynatrace OneAgent can only be installed on virtual machines that are running.    
+> - If a virtual machine shows that a OneAgent is installed and the option Uninstall extension is disabled, another resource configured the agent. To make changes, go to the other Dynatrace resource in the Azure subscription.
 
 [!INCLUDE [agent](../includes/agent.md)]
 
