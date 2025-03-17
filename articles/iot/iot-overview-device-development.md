@@ -1,5 +1,5 @@
 ---
-title: Asset and device development introduction
+title: IoT asset and device development
 description: An overview of Azure IoT asset and device development including an introduction to the device SDKs, modeling, IoT Edge modules, and a survey of the available tools.
 ms.service: azure-iot
 services: iot

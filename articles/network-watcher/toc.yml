@@ -127,14 +127,8 @@
     items:
     - name: Overview
       href: connection-troubleshoot-overview.md
-    - name: Diagnose outbound connection problems
-      items:
-      - name: Azure portal
-        href: connection-troubleshoot-portal.md
-      - name: PowerShell
-        href: connection-troubleshoot-powershell.md
-      - name: Azure CLI
-        href: connection-troubleshoot-cli.md
+    - name: Troubleshoot outbound connections
+      href: connection-troubleshoot-manage.md
 - name: Flow logs
   items:
   - name: VNet flow logs
@@ -142,15 +136,9 @@
     - name: Overview
       href: vnet-flow-logs-overview.md
     - name: Manage VNet flow logs
-      items:
-      - name: Azure portal
-        href: vnet-flow-logs-portal.md
-      - name: PowerShell
-        href: vnet-flow-logs-powershell.md
-      - name: Azure CLI
-        href: vnet-flow-logs-cli.md
-      - name: Built-in Policy
-        href: vnet-flow-logs-policy.md
+      href: vnet-flow-logs-manage.md
+    - name: Audit and deploy using Azure Policy
+      href: vnet-flow-logs-policy.md
   - name: NSG flow logs
     items:
     - name: Overview

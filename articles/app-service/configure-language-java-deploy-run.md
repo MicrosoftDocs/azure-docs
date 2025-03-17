@@ -549,7 +549,7 @@ See respective sections below for details as well as opportunities to customize 
 - The Keystore of the Java runtime is updated with any public and private certificates defined in Azure portal. 
     - Public certificates are provided by the platform in the */var/ssl/certs* directory, and they're loaded to *$JRE_HOME/lib/security/cacerts*.
     - Private certificates are provided by the platform in the */var/ssl/private* directory, and they're loaded to *$JRE_HOME/lib/security/client.jks*.
-- If any certificates are loaded in the Java keystore in this step, the properties `javax.net.ssl.keyStore`, `javax.net.ssl.keyStorePassword` and `javax.net.ssl.keyStoreType` are added to the `JAVA_TOOL_OPTIONS` environment variable.
+- If any certificates are loaded in the Java keystore in this step, the properties `javax.net.ssl.keyStore`, `javax.net.ssl.keyStorePassword` and `javax.net.ssl.keyStoreType` are added to the `JAVA_OPTS` environment variable.
 - Some initial JVM configuration is determined such as logging directories and Java memory heap parameters: 
     - If you provide the `–Xms` or `–Xmx` flags for memory in the app setting `JAVA_OPTS`, these values override the ones provided by the platform.
     - If you configure the app setting `WEBSITES_CONTAINER_STOP_TIME_LIMIT`, the value is passed to the runtime property `org.wildfly.sigterm.suspend.timeout`, which controls the maximum shutdown wait time (in seconds) when JBoss is being stopped.
