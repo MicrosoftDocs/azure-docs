@@ -16,7 +16,7 @@ zone_pivot_groups: container-apps-portal-or-cli
 
 In this article, you learn how to create a container app that uses [serverless GPUs](gpu-serverless-overview.md) to power an AI application.
 
-With serverless GPUs, you have direct access to GPU compute resources without having to do manual infrastructure configuration such as installing drivers. All you have to do is deploy your AI model's image. 
+With serverless GPUs, you have direct access to GPU compute resources without having to do manual infrastructure configuration such as installing drivers. All you have to do is deploy your AI model's image.
 
 In this tutorial you:
 
@@ -29,12 +29,23 @@ In this tutorial you:
 
 ## Prerequisites
 
+::: zone pivot="azure-portal"
+
 | Resource | Description |
 |---|---|
 | Azure account | You need an Azure account with an active subscription. If you don't have one, you [can create one for free](https://azure.microsoft.com/free/). |
 | Access to serverless GPUs | Access to GPUs is only available after you request GPU quotas. You can submit your GPU quota request via a [customer support case](/azure/azure-portal/supportability/how-to-create-azure-support-request). |
+
+::: zone-end
+
 ::: zone pivot="azure-cli"
+
+| Resource | Description |
+|---|---|
+| Azure account | You need an Azure account with an active subscription. If you don't have one, you [can create one for free](https://azure.microsoft.com/free/). |
+| Access to serverless GPUs | Access to GPUs is only available after you request GPU quotas. You can submit your GPU quota request via a [customer support case](/azure/azure-portal/supportability/how-to-create-azure-support-request). |
 | [Azure CLI](/cli/azure/install-azure-cli) | Install the [Azure CLI](/cli/azure/install-azure-cli) or upgrade to the latest version. |
+
 ::: zone-end
 
 ::: zone pivot="azure-portal"
