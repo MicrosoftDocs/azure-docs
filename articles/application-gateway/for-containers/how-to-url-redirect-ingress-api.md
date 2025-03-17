@@ -393,4 +393,4 @@ Via the response we should see:
 * Connection #0 to host contoso.com left intact
 ```
 
-Congratulations, you have installed ALB Controller, deployed a backend application, and used Ingress API to configure both an HTTP to HTTPs redirect and path based redirection to specific client requests.
+Congratulations, you have installed ALB Controller, deployed a backend application, and used Ingress API to configure both an HTTP to HTTPS redirect and path based redirection to specific client requests.
