@@ -61,6 +61,20 @@ After you or someone in your organization installs the solution that includes th
 
    :::image type="content" source="media/configure-data-connector/connected-data-connector.png" alt-text="Screenshot of a data connector page with status connected and graph that shows the data received.":::
 
+## Find your data
+
+After you enable the connector successfully, the connector begins to stream data to the table schemas related to the data types you configurated.
+
+To view the data:
+
+   #### [Azure portal](#tab/azure-portal-1)
+
+   Query the tables in the Microsoft Sentinel workspace linked to your Microsoft Sentinel workspace.
+
+   #### [Defender portal](#tab/defender-portal-1)
+   
+   See [Where to find your Microsoft Sentinel data in Microsoft Defender portal](/defender-xdr/advanced-hunting-microsoft-defender#where-to-find-your-microsoft-sentinel-data).
+
 ## Find support for a data connector
 
 Both Microsoft and other organizations author Microsoft Sentinel data connectors. Find the support contact from data connector page in Microsoft Sentinel.
