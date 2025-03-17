@@ -33,7 +33,7 @@ When a security principal tries to access an Azure SignalR Service resource, the
 
 When you use an access key, the key is shared between your app server (or function app) and the Azure SignalR Service resource. Azure SignalR Service authenticates the client connection request by using the shared key.
 
-When you use Microsoft Entra ID, there is no shared key. Instead, Azure SignalR Service uses a *temporary access key* for signing tokens used in client connections. The workflow contains four steps:
+When you use Microsoft Entra ID, there's no shared key. Instead, Azure SignalR Service uses a *temporary access key* for signing tokens used in client connections. The workflow contains four steps:
 
 1. The security principal requires an OAuth 2.0 token from Microsoft Entra ID to authenticate itself.
 2. The security principal calls the SignalR authentication API to get a temporary access key.
@@ -44,13 +44,27 @@ The temporary access key expires in 90 minutes. We recommend that you get a new 
 
 The workflow is built in the [Azure SignalR Service SDK for app servers](https://github.com/Azure/azure-signalr).
 
+### Cross tenant access when using Microsoft Entra ID
+
+In some cases, your server and your Azure SignalR resource may not be in the same tenant due to security concerns.
+
+A [multitenant applications](/entra/identity-platform/single-and-multi-tenant-apps#best-practices-for-multitenant-apps) could help you in this scenario.
+
+If you've already registered a single-tenant app, see [convert your single-tenant app to multitenant](/entra/identity-platform/howto-convert-app-to-be-multi-tenant).
+
+Once you have registered the multitenant application in your `tenantA`, you should provision it as an enterprise application in your `tenantB`.
+
+[Create an enterprise application from a multitenant application in Microsoft Entra ID](/entra/identity/enterprise-apps/create-service-principal-cross-tenant?pivots=msgraph-powershell)
+
+The application registered in your `tenantA` and the enterprise application provisioned in your `tenantB` share the same Application (client) ID.
+
 ## Assign Azure roles for access rights
 
 Microsoft Entra ID authorizes access rights to secured resources through [Azure RBAC](../role-based-access-control/overview.md). Azure SignalR Service defines a set of Azure built-in roles that encompass common sets of permissions for accessing Azure SignalR Service resources. You can also define custom roles for access to Azure SignalR Service resources.
 
 ### Resource scope
 
-You might have to determine the scope of access that the security principal should have before you assign any Azure RBAC role to a security principal. We recommend that you grant only the narrowest possible scope. Azure RBAC roles defined at a broader scope are inherited by the resources beneath them.
+Before assigning Azure RBAC roles to a security principal, it’s essential to define the appropriate scope of access they should have. We advise granting the most limited scope necessary to minimize unnecessary permissions. Keep in mind that Azure RBAC roles assigned at a higher or broader scope are automatically inherited by the resources nested within that scope.
 
 You can scope access to Azure SignalR Service resources at the following levels, beginning with the narrowest scope.
 
@@ -65,16 +79,16 @@ You can scope access to Azure SignalR Service resources at the following levels,
 
 | Role                                                                                              | Description                                                                                               | Use case                                                                                                                                     |
 | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| [SignalR App Server](../role-based-access-control/built-in-roles.md#signalr-app-server)           | Access to the WebSocket connection creation API and authentication APIs.                                                | Most commonly used for an app server.                                                                                                             |
-| [SignalR Service Owner](../role-based-access-control/built-in-roles.md#signalr-service-owner)     | Full access to all data-plane APIs, including REST APIs, the WebSocket connection creation API, and authentication APIs. | Use for *serverless mode* for authorization with Microsoft Entra ID, because it requires both REST API permissions and authentication API permissions. |
-| [SignalR REST API Owner](../role-based-access-control/built-in-roles.md#signalr-rest-api-owner)   | Full access to data-plane REST APIs.                                                                      | Often used to write a tool that manages connections and groups, but does *not* make connections or call authentication APIs.                          |
-| [SignalR REST API Reader](../role-based-access-control/built-in-roles.md#signalr-rest-api-reader) | Read-only access to data-plane REST APIs.                                                                 | Commonly used to write a monitoring tool that calls *only* Azure SignalR Service data-plane read-only REST APIs.                                      |
+| [SignalR App Server](../role-based-access-control/built-in-roles.md#signalr-app-server)           | Access to the server connection creation and key generation APIs.                                                | Most commonly used for app server with Azure SignalR resource run in **Default** mode.                                                                                                             |
+| [SignalR Service Owner](../role-based-access-control/built-in-roles.md#signalr-service-owner)     | Full access to all data-plane APIs, including REST APIs, the server connection creation, and key/token generation APIs. | For negotiation server with Azure SignalR resource run in **Serverless** mode, as it requires both REST API permissions and authentication API permissions. |
+| [SignalR REST API Owner](../role-based-access-control/built-in-roles.md#signalr-rest-api-owner)   | Full access to data-plane REST APIs.                                                                      | For using [Azure SignalR Management SDK](./signalr-howto-use-management-sdk.md) to manage connections and groups, but does **NOT** make server connections or handle negotiation requests.                          |
+| [SignalR REST API Reader](../role-based-access-control/built-in-roles.md#signalr-rest-api-reader) | Read-only access to data-plane REST APIs.                                                                 | Use it when write a monitoring tool that calls readonly REST APIs.
 
 ## Next steps
 
-- To learn how to create an Azure application and use Microsoft Entra authorization, see [Authorize requests to Azure SignalR Service resources with Microsoft Entra applications](signalr-howto-authorize-application.md).
+- To learn how to create an Azure application and use Microsoft Entra authorization, see [Authorize requests to Azure SignalR Service resources with Microsoft Entra applications](./signalr-howto-authorize-application.md).
 
-- To learn how to configure a managed identity and use Microsoft Entra authorization, see [Authorize requests to Azure SignalR Service resources with Microsoft Entra managed identities](signalr-howto-authorize-managed-identity.md).
+- To learn how to configure a managed identity and use Microsoft Entra authorization, see [Authorize requests to Azure SignalR Service resources with Microsoft Entra managed identities](./signalr-howto-authorize-managed-identity.md).
 
 - To learn more about roles and role assignments, see [What is Azure role-based access control (Azure RBAC)?](../role-based-access-control/overview.md).
 

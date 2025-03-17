@@ -26,12 +26,12 @@ Instructions for new or existing deployments of ALB Controller are found in the 
 
 | ALB Controller Version | Gateway API Version | Kubernetes Version | Release Notes |
 | ---------------------- | ------------------- | ------------------ | ------------- |
-| 1.4.12 | v1.1.1 | v1.26, v1.27, v1.28, v1.29, v1.30 | Updated to Gateway API version 1.1.1, Regex match support for path and header match in HTTP and GRPC routes, [Wildcard hostname fix](https://github.com/Azure/AKS/issues/4713), Misc. bug fixes and improvements |
-
+| 1.4.14 | v1.1.1 | v1.26, v1.27, v1.28, v1.29, v1.30 | Bug fixes, including [issue #4086](https://github.com/Azure/AKS/issues/4086)  |
 ## Release history
 
 | ALB Controller Version | Gateway API Version | Kubernetes Version | Release Notes |
 | ---------------------- | ------------------- | ------------------ | ------------- |
+| 1.4.12 | v1.1.1 | v1.26, v1.27, v1.28, v1.29, v1.30 | Updated to Gateway API version 1.1.1, Regex match support for path and header match in HTTP and GRPC routes, [Wildcard hostname fix](https://github.com/Azure/AKS/issues/4713), Misc. bug fixes and improvements |
 | 1.3.7| v1.1 | v1.26, v1.27, v1.28, v1.29, v1.30 | Minor fixes and improvements |
 | 1.2.3| v1.1 | v1.26, v1.27, v1.28, v1.29, v1.30 | Gateway API v1.1, gRPC support, frontend mutual authentication, readiness probe fixes, custom health probe port and TLS mode  |
 | 1.0.2| v1 | v1.26, v1.27, v1.28, v1.29 | ECDSA + RSA certificate support for both Ingress and Gateway API, Ingress fixes, Server-sent events support |

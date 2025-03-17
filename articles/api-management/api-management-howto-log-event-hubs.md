@@ -302,7 +302,7 @@ You can preview the log in Event Hubs by using [Azure Stream Analytics queries](
 3. On the **Enable real time insights from events** card, select **Start**.
 4. You should be able to preview the log on the **Input preview** tab. If the data shown isn't current, select **Refresh** to see the latest events.
 
-## Next steps
+## Related content
 * Learn more about Azure Event Hubs
   * [Get started with Azure Event Hubs](../event-hubs/event-hubs-c-getstarted-send.md)
   * [Receive messages with EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
