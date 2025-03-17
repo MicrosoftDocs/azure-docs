@@ -73,7 +73,7 @@ If you wish, you can configure resources to send metrics/logs to Dynatrace.
 
 Select the **Next** button at the bottom of the page.
 
-- ### Single sign-on tab (optional)
+### Single sign-on tab (optional)
 
 [!INCLUDE [sso](../includes/sso.md)]
 
