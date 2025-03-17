@@ -1,25 +1,34 @@
 ---
-title: Device management and control
-description: An overview of device management and control options in an Azure IoT solution including device updates.
+title: IoT asset and device management and control
+description: An overview of asset and device management and control options in an Azure IoT solution including device updates.
 ms.service: azure-iot
 services: iot
-author: dominicbetts
-ms.author: dobett
+author: asergaz
+ms.author: sergaz
 ms.topic: overview
-ms.date: 02/28/2024
-ms.custom: template-overview
-# Customer intent: As a solution builder or device developer I want a high-level overview of the issues around device management and control so that I can easily find relevant content.
+ms.date: 03/17/2025
+# Customer intent: As a solution builder or device developer I want a high-level overview of the issues around asset abd device management and control so that I can easily find relevant content.
 ---
 
-# Device management and control
+# IoT asset and device management and control
 
-This overview introduces the key concepts around managing and controlling devices in a typical Azure IoT solution. Each section includes links to content that provides further detail and guidance.
+This overview introduces the key concepts around managing and controlling assets and devices in a typical Azure IoT solution. Each section includes links to content that provides further detail and guidance.
+
+### [Edge-based solution](#tab/edge)
+
+The following diagram shows a high-level view of the components in a typical edge-based IoT solution. This article focuses on the asset management and control components of an edge-based IoT solution:
+
+<!-- Art Library Source# ConceptArt-0-000-032 -->
+:::image type="content" source="media/iot-overview-device-management/iot-edge-management-architecture.svg" alt-text="Diagram that shows the high-level IoT edge-based solution architecture highlighting asset management areas." border="false" lightbox="media/iot-overview-device-management/iot-edge-management-architecture.svg":::
+
+### [Cloud-based solution](#tab/cloud)
 
 IoT Central applications use the IoT Hub and the Device Provisioning Service (DPS) services internally. Therefore, the concepts in this article apply whether you're using IoT Central to explore an IoT scenario or building your solution by using IoT Hub and DPS.
 
-The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the device management and control components of an IoT solution.
+The following diagram shows a high-level view of the components in a typical edge-based IoT solution. This article focuses on the device management and control components of a cloud-based IoT solution:
 
-:::image type="content" source="media/iot-overview-device-management/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting device connectivity areas." border="false":::
+<!-- Art Library Source# ConceptArt-0-000-032 -->
+:::image type="content" source="media/iot-overview-device-management/iot-cloud-management-architecture.svg" alt-text="Diagram that shows the high-level IoT cloud-based solution architecture highlighting device management areas." border="false" lightbox="media/iot-overview-device-management/iot-cloud-management-architecture.svg":::
 
 In Azure IoT, device management refers to processes such as provisioning and updating devices. Device management includes the following tasks:
 
@@ -36,6 +45,8 @@ In Azure IoT, *command and control* refers to the processes that let you send co
 - Set a target temperature.
 - Request maximum and minimum temperature values for the last two hours.
 - Set the telemetry interval to 10 seconds.
+
+---
 
 ## Primitives
 
