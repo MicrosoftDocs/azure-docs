@@ -76,9 +76,9 @@ This section describes several Azure Backup supported management operations that
 
 ### Enable public network access for the database storage account
 
-Ensure the target storage account of the database is accessible via a public network. If the storage account uses a private endpoint, update its public network access settings accordingly to enable connectivity for the restore operation.
+Ensure the target storage account for restoring backup as a file is accessible via a public network. If the storage account uses a private endpoint, update its public network access settings before executing a restore operation."
 
-To enable public network access for the database storage account, follow these steps:
+To enable public network access for the target storage account, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), go to the **target storage account** > **Security + Networking** > **Networking**. 
 
