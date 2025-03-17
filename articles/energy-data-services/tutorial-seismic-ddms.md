@@ -35,13 +35,14 @@ For more information about DDMS, see [DDMS concepts](concepts-ddms.md).
 
 To proceed, gather the following details from your [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md) via the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_OpenEnergyPlatformHidden):
 
-| Parameter          | Description                | Example                               |
-| ------------------ | -------------------------- |-------------------------------------- |
-| `client_id`        | Application (client) ID    | `00001111-aaaa-2222-bbbb-3333cccc4444`|
-| `client_secret`    | Client secret              | `_fl******************`               |
-| `tenant_id`        | Directory (tenant) ID      | `72f988bf-86f1-41af-91ab-xxxxxxxxxxxx`|
-| `base_url`         | Instance URL               | `https://<instance>.energy.azure.com` |
-| `data_partition_id`| Data partition name        | `opendes`               |
+| Parameter          | Description                | Example                               | Where to find this value              |
+| ------------------ | -------------------------- |-------------------------------------- |-------------------------------------- |
+| `client_id`        | Application (client) ID    | `00001111-aaaa-2222-bbbb-3333cccc4444`| You use this app or client ID when registering the application with the Microsoft identity platform. See [Register an application](../active-directory/develop/quickstart-register-app.md#register-an-application)|
+| `client_secret`    | Client secret              | `_fl******************`               |Sometimes called an *application password*, a client secret is a string value that your app can use in place of a certificate to identity itself. See [Add a client secret](../active-directory/develop/quickstart-register-app.md#add-a-client-secret).|
+| `tenant_id`        | Directory (tenant) ID      | `72f988bf-86f1-41af-91ab-xxxxxxxxxxxx`|Hover over your account name in the Azure portal to get the directory or tenant ID. Alternately, search for and select **Microsoft Entra ID** > **Properties** > **Tenant ID** in the Azure portal. |
+| `base_url`         | Instance URL               | `https://<instance>.energy.azure.com` |Find this value on the overview page of the Azure Data Manager for Energy instance.|
+| `data_partition_id`| Data partition name        | `opendes`                             |Find this value on the overview page of the Azure Data Manager for Energy instance.|
+| `access_token`       | Access token value       | `0.ATcA01-XWHdJ0ES-qDevC6r...........`|Follow [How to generate auth token](how-to-generate-auth-token.md) to create a access token and save it.|
 
 ## Use Seismic DDMS APIs to store and retrieve seismic data
 
@@ -54,7 +55,7 @@ API: **Setup** > **Create Legal Tag for SDMS**
 ```bash
 curl --request POST \
   --url https://{base_url}/api/legal/v1/legaltags \
-  --header 'Authorization: Bearer {access-token}' \
+  --header 'Authorization: Bearer {access_token}' \
   --header 'Content-Type: application/json' \
   --header 'Data-Partition-Id:  {data_partition_id}' \
   --data '{
@@ -113,7 +114,7 @@ curl --request GET \
 ```
 
  **Sample Response:** 
-```json
+```bash
 service OK
 ```
 
@@ -133,7 +134,7 @@ API: **Tenant** > **Register a seismic-dms tenant**
 curl --request POST \
   --url https://{base_url}/seistore-svc/api/v3/tenant/{data_partition_id} \
   --header 'Accept: application/json' \
-  --header 'Authorization: Bearer {access-token}' \
+  --header 'Authorization: Bearer {access_token}' \
   --header 'Content-Type: application/json' \
   --data '{
     "gcpid": "{data_partition_id}",
@@ -165,7 +166,7 @@ API: **Subproject** > **Create a new subproject**
 curl --request POST \
   --url https://{base_url}/seistore-svc/api/v3/subproject/tenant/{data_partition_id}/subproject/{sesimic_subproject} \
   --header 'Accept: application/json' \
-  --header 'Authorization: Bearer {access-token}' \
+  --header 'Authorization: Bearer {access_token}' \
   --header 'Content-Type: application/json' \
   --header 'ltag: opendes-Seismic-Legal-Tag-Test999943387766' \
   --data '{
@@ -207,7 +208,7 @@ API: **Dataset** > **Register a new dataset**
 curl --request POST \
   --url https://{base_url}/seistore-svc/api/v3/dataset/tenant/{data_partition_id}/subproject/{seismic_subproject}/dataset/{dataset_name} \
   --header 'Accept: application/json' \
-  --header 'Authorization: Bearer {access-token}' \
+  --header 'Authorization: Bearer {access_token}' \
   --header 'Content-Type: application/json' \
   --header 'ltag: {legal_tag}' \
   --data '{
@@ -268,10 +269,10 @@ API: **Applications** > **Register a new application**
 ```bash
 curl --request POST \
   --url 'https://{base_url}/seistore-svc/api/v3/app?email={email}&sdpath={sdpath}' \
-  --header 'Authorization: Bearer {access-token}'
+  --header 'Authorization: Bearer {access_token}'
 ```
 **Sample Response:** 
-```json
+```bash
 Status Code: 200
 ```
 
