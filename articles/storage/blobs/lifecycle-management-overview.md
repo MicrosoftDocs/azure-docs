@@ -111,10 +111,23 @@ All run conditions are based on age. Current versions use the last modified time
 |----------------------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **daysAfterModificationGreaterThan**               | Integer | The age in days after the last modified time.<br>The condition for actions on a current version of a blob.                                                                                                                                                 |
 | **daysAfterCreationGreaterThan**                   | Integer | The age in days after the creation time.<br>The condition for actions on the current version or previous version of a blob or a blob snapshot.                                                                                                             |
-| **daysAfterLastAccessTimeGreaterThan**<sup>1</sup> | Integer | Indicates the age in days after the last access time.<br>The condition for a current version of a blob when access tracking is enabled                                                                                                                     |
+| **daysAfterLastAccessTimeGreaterThan** | Integer | Indicates the age in days after the last access time or in some cases, when the date when the policy was enabled. To learn more, see the [Access time tracking](#access-time-tracking) section below.<br>The condition for a current version of a blob when access tracking is enabled.                                                                                                                     |
 | **daysAfterLastTierChangeGreaterThan**             | Integer | Indicates the age in days after last blob tier change time.<br>The minimum duration in days that a rehydrated blob is kept in hot, cool or cold tiers before being returned to the archive tier. This condition applies only to **tierToArchive** actions. |
 
-<sup>1</sup> If [last access time tracking](#move-data-based-on-last-accessed-time) is not enabled, **daysAfterLastAccessTimeGreaterThan** uses the date the lifecycle policy was enabled instead of the **LastAccessTime** property of the blob. This date is also used when the **LastAccessTime** property is a null value. For more information about using last access time tracking, see [Move data based on last accessed time](#move-data-based-on-last-accessed-time).
+### Access time tracking
+
+You can enable access time tracking to keep a record of when your blob is last read or written and as a filter to manage tiering and retention of your blob data. 
+
+When you enable access time tracking, a blob property called `LastAccessTime` is updated when a blob is read or written. The [Get Blob](/rest/api/storageservices/get-blob) and [Put Blob](/rest/api/storageservices/put-blob) operations are access operations and will update the access time of a blob. However, the [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata), and [Get Blob Tags](/rest/api/storageservices/get-blob-tags) aren't access operations. Those operations won't update the access time of a blob. 
+
+If you apply the **daysAfterLastAccessTimeGreaterThan** run condition to a policy, then the `LastAccessTime` is used to determine whether that condition is met. 
+
+If you apply the **daysAfterLastAccessTimeGreaterThan** run condition to a policy, but you did not enable access time tracking, then the `LastAccessTime` is not used. The date the lifecycle policy was enabled instead. In fact, the date that the lifecycle policy was enabled is used in any situation where the `LastAccessTime` property of the blob is a null value. This can happen even if you've enable access time tracking in cases where a blob hasn't been accessed since tracking was enabled.
+
+> [!NOTE]
+> To minimize the effect on read access latency, only the first read of the last 24 hours updates the last access time. Subsequent reads in the same 24-hour period don't update the last access time. If a blob is modified between reads, the last access time is the more recent of the two values.
+
+To learn how to enable access time tracking, see [Optionally enable access time tracking](lifecycle-management-policy-configure.md#optionally-enable-access-time-tracking).
 
 ## Policy execution
 
