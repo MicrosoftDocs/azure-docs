@@ -107,8 +107,8 @@ landingContent:
             url: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
       - linkListType: whats-new
         links:
-          - text: Azure confidential VMs with NVIDIA H100 Tensor Core GPUs (Public Preview)
-            url: https://aka.ms/cvm-h100-blog
+          - text: Azure confidential VMs with NVIDIA H100 Tensor Core GPUs
+            url: https://techcommunity.microsoft.com/blog/azureconfidentialcomputingblog/general-availability-azure-confidential-vms-with-nvidia-h100-tensor-core-gpus/4242644
 
   # Card
   - title: Container compute
