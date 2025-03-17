@@ -57,7 +57,7 @@ This integration brings together the best of Azure infrastructure capabilities a
 
 1. Go to **Authentication**, and under **Supported account types**, select **Any Microsoft Entra ID tenant - Multitenant**.
 
-## Create account in SAP CAL and enable API access
+## Create an account in SAP CAL and enable API access
 
 1. Go to the [CAL portal](https://cal.sap.com/catalog#/solutions) and sign in by using the S-User role.
 
