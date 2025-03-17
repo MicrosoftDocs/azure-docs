@@ -1,6 +1,6 @@
 ---
-title: Disable SNAT requirement for private endpoint traffic through NVA
-description: Learn how to enable SNAT bypass for private endpoint traffic passing through a network virtual appliance (NVA) in Azure.
+title: Disable SNAT requirement for Azure private endpoint traffic through NVA
+description: Learn how to enable SNAT bypass for Azure private endpoint traffic passing through a network virtual appliance (NVA) in Azure.
 author: abell
 ms.author: abell
 ms.service: azure-private-link
@@ -11,7 +11,7 @@ ms.date: 03/11/2025
 
 ---
 
-# How to Guide: Disable SNAT requirement for private endpoint traffic through NVA
+# How to Guide: Disable SNAT requirement for Azure private endpoint traffic through NVA
 
 Source network address translation (SNAT) is no longer required for private endpoint destined traffic passing through a network virtual appliance (NVA). You can now configure a tag on your NVA virtual machines to notify the Microsoft platform that you wish to opt into this feature. This means SNATing is no longer be necessary for private endpoint destined traffic traversing through your NVA.
 
