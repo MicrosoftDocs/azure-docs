@@ -97,7 +97,7 @@ The identity attached to the dev center should be assigned the Contributor and U
 
 1. In the Azure portal, navigate to your dev center.
 1. In the left menu, under **Settings**, select **Identity**.
-1. Under **User assigned**, select the identity.
+1. Under **User assigned**, select the identity name.
 1. In the left menu, select **Azure role assignments**.
 1. To grant Contributor access to the subscription, select **Add role assignment (Preview)**, enter or select the following information, and then select **Save**:
 
