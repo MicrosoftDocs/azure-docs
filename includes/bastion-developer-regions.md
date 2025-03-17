@@ -7,7 +7,7 @@ ms.topic: include
 ms.custom: references_regions
 ---
 
-The Developer SKU is currently available in the following regions:
+Bastion Developer is currently available in the following regions:
 
 * Central US EUAP
 * East US 2 EUAP
