@@ -50,12 +50,12 @@ To view the list of resources emitting logs to Dynatrace, select **Dynatrace env
 > [!TIP]
 > You can filter the list of resources by resource type, resource group name, region, and whether the resource is sending logs and/or metrics. 
 
-The column **Logs to Dynatrace** indicates whether the resource is sending logs to Dynatrace. 
-The column **Metrics to Dynatrace** indicates whether the resource is sending metrics to Dynatrace.
+- The column **Logs to Dynatrace** indicates whether the resource is sending logs to Dynatrace. 
+- The column **Metrics to Dynatrace** indicates whether the resource is sending metrics to Dynatrace.
 
 ## Monitor resources using Dynatrace OneAgent
 
-You can install Datadog OneAgents on virtual machines, App Service extensions, and Azure Arc Machines.
+You can install Dynatrace OneAgents on virtual machines, App Service extensions, and Azure Arc Machines.
 
 ### Virtual Machines
 
@@ -73,24 +73,18 @@ To monitor resources for virtual machines, select **Dynatrace environment config
 To monitor resources for App Service, select **Dynatrace environment config > App Service** from the Resource pane.
 
 [!INCLUDE [agent](../includes/agent.md)]
-
-### Azure Arc Machines
  
 ### Azure Arc Machines
 
-To monitor resources for Azure Arc Machines, select **Datadog organization configurations > Azure Arc Machines** from the Resource pane.
+To monitor resources for Azure Arc Machines, select **Dynatrace environment config > Azure Arc Machines** from the Resource pane.
 
 [!INCLUDE [agent](../includes/agent.md)]
 
 ## Reconfigure single sign-on
 
-To enable single sign-on through Microsoft Entra ID:
+[!INCLUDE [reconfigure-sso](../includes/reconfigure-sso.md)]
 
-1. Select **Settings > Single sign-on** from the Resource pane.
-
-1. Select the check box.
-
-## Delete a Datadog resource
+## Delete a Dynatarace resource
 
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
