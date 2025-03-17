@@ -3,7 +3,7 @@ title: Set up multiple workspaces and tenants in Microsoft Sentinel
 description: If you've defined that your environment needs multiple workspaces, you now set up your multiple workspace architecture in Microsoft Sentinel.
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/27/2024
+ms.date: 03/17/2025
 ms.author: cwatson
 appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 
