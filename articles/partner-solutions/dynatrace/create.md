@@ -33,7 +33,7 @@ The *Basics* tab has three sections:
 - Dynatrace details
 - User account information
  
-:::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create a Datadog resource in Azure options inside of the Azure portal's working pane with the Basics tab displayed.":::
+:::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create a Dynatrace resource in Azure options inside of the Azure portal's working pane with the Basics tab displayed.":::
 
 There are required fields (identified with a red asterisk) that you need to fill out.
 
@@ -75,17 +75,7 @@ Select the **Next** button at the bottom of the page.
 
 - ### Single sign-on tab (optional)
 
-If your organization uses Microsoft Entra ID as its identity provider, you can establish single sign-on from the Azure portal to Datadog. 
-
-To establish single sign-on through Microsoft Entra ID:
-
-1. Select the checkbox.
-
-    The Azure portal retrieves the appropriate Datadog application from Microsoft Entra ID. 
-
-1. Select the Datadog app name.
-
-Select the **Next** button at the bottom of the page.
+[!INCLUDE [sso](../includes/sso.md)]
 
 ### Tags tab (optional)
 
