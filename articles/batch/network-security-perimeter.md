@@ -2,7 +2,7 @@
 title: Configure Network Security Perimeter for Azure Batch accounts
 description: Learn how to associate an Azure Batch account with Network Security Perimeter
 ms.topic: how-to
-ms.date: 2/27/2025
+ms.date: 3/17/2025
 ms.custom: references_regions
 ---
 
