@@ -72,7 +72,7 @@ status:
   phase: Bound
 ```
 
-`storageApplianceName` must match the Azure resource name of the storage appliance resource managed by your Azure Operator Nexus cluster on which you want to create the volume backing your PVC. If there's no `storageApplianceName`, or if the `storageApplianceName` doesn't match a storage appliance resource managed by your Azure Operator Nexus cluster, Azure Operator Nexus places the volume on the first storage appliance.
+`storageApplianceName` must match the Azure resource name of the storage appliance resource managed by your Azure Operator Nexus cluster on which you want to create the volume backing your PVC. If there's no `storageApplianceName` annotation, Azure Operator Nexus places the volume on the first storage appliance. If there is a `storageApplianceName` annotation, but it does not match the Azure resource name of a storage appliance managed by your Azure Operator Nexus cluster, the PVC creation will fail.
 
 #### Nexus-volume limitations
 
@@ -83,7 +83,9 @@ status:
 
 Azure Operator Nexus provides a shared filesystem storage solution for containerized workloads: the *nexus-shared* storage class. This storage class provides a highly available shared storage solution by enabling multiple pods in the same Nexus Kubernetes cluster to concurrently access and share the same volume. The *nexus-shared* storage class is backed by a highly available storage service. This service is deployed and managed by the Cloud Service Network (CSN) resource and is in turn backed by volumes on a storage appliance. Individual PVCs consume storage from the CSN-managed storage service, rather than directly from the storage appliance.
 
-You can create the shared storage service on either storage appliance when the CSN is created. All nexus-shared PVCs using that shared storage service consume storage from the storage appliance backing the shared service. You can't place a specific nexus-shared PVC on a specific storage appliance. If no storage appliance configuration is provided at CSN creation time, or if the configuration doesn't match a storage appliance, the shared storage service uses the first storage appliance.
+You can create the shared storage service on either storage appliance when the CSN is created. All nexus-shared PVCs using that shared storage service consume storage from the storage appliance backing the shared service. The configuration applies to all nexus-shared PVCs using the shared storage service provided by the CSN. All nexus-shared PVCs using the same shared storage service use the same storage appliance.
+
+If no storage appliance configuration is provided at CSN creation time, the shared storage service uses the first storage appliance. If the configuration is present but doesn't match a storage appliance then the CSN creation will fail.
 
 See [Prerequisites for deploying tenant workloads](/quickstarts-tenant-workload-prerequisites.md#create-a-cloud-services-network) for instructions on creating the shared storage service on a specific storage appliance.
 
