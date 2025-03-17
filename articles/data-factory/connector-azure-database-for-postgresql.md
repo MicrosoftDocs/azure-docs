@@ -294,7 +294,7 @@ Appending data is the default behavior of this Azure Database for PostgreSQL sin
 
 ### Upsert data
 
-Copy activity supports natively upsert, it will update the data in sink table if key exists and otherwise insert new data. To upsert data it is required to provide a set of columns that either have to be primary key or unique column.
+Copy activity natively supports upsert operations. To perform an upsert, user should provide key column(s) that are either primary keys or unique columns. If the user does not provide key column(s) then primary keys  in the sink table are used. Copy Activity will update non-key columns in the sink table where the key column values match those in the source table; otherwise, it will insert new data.
 
 ## Parallel copy from Azure Database for PostgreSQL
 
