@@ -280,7 +280,7 @@
       items:
       - name: Generate images with serverless GPUs
         href: gpu-image-generation.md
-      - name: Deploy an NVIDIA LLAMA3 NIM
+      - name: Deploy an NVIDIA Llama3 NIM
         href: tutorial-gpu-with-serverless-gpu.md
 - name: Microservices
   items:

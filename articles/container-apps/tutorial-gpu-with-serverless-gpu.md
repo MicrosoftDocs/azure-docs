@@ -53,7 +53,6 @@ This tutorial uses a premium instance of Azure Container Registry to improve col
 
 [!INCLUDE [container-apps-create-resource-group.md](../../includes/container-apps-create-resource-group.md)]
 
-[!INCLUDE [container-apps-create-environment.md](../../includes/container-apps-create-environment.md)]
 
 1. Create an Azure Container Registry (ACR)
 
