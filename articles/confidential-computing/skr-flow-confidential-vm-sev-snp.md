@@ -689,7 +689,7 @@ $cert | Format-List *
 # Subject              : CN=vault.azure.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US
 ```
 
-The response's JWT token body looks incredibly similar to the response that you get when invoking the `get` key operation. However, the `release` operation includes the `key_hsm` property, amongst other things.
+The response's JWT body looks incredibly similar to the response that you get when invoking the `get` key operation. However, the `release` operation includes the `key_hsm` property, amongst other things.
 
 ```json
 {
