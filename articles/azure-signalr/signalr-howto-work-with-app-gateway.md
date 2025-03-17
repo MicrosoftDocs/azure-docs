@@ -76,7 +76,7 @@ Create from the portal an Application Gateway instance **_AG1_**:
     - **Listener name**: Enter _myListener_ for the name of the listener.
     - **Frontend IP**: Select **Public** to choose the public IP you created for the frontend.
     - **Protocol**: HTTP
-      - We use the HTTP frontend protocol on Application Gateway in this article to simplify the demo and help you get started easier. But in reality, you may need to enable HTTPs and Customer Domain on it with production scenario.
+      - We use the HTTP frontend protocol on Application Gateway in this article to simplify the demo and help you get started easier. But in reality, you may need to enable HTTPS and Customer Domain on it with production scenario.
     - Accept the default values for the other settings on the **Listener** tab
     :::image type="content" source="./media/signalr-howto-work-with-app-gateway/application-gateway-create-rule-listener.png" alt-text="Screenshot of setting up the application gateway routing rule listener tab for the SignalR Service.":::
   - On the **Backend targets** tab, use the following values:
@@ -297,7 +297,7 @@ Now the web app is deployed, let's go to the portal for **_WA1_** and make the f
 
 - On the **TLS/SSL settings** tab:
 
-  - **HTTPS Only**: **Off**. To Simplify the demo, we used the HTTP frontend protocol on Application Gateway. Therefore, we need to turn off this option to avoid changing the HTTP URL to HTTPs automatically.
+  - **HTTPS Only**: **Off**. To Simplify the demo, we used the HTTP frontend protocol on Application Gateway. Therefore, we need to turn off this option to avoid changing the HTTP URL to HTTPS automatically.
 
 - Go to the **Overview** tab and get the URL of **_WA1_**.
 - Get the URL, and replace scheme https with http, for example, `http://wa1.azurewebsites.net`, open the URL in the browser, now you can start chatting! Use F12 to open network traces, and you can see the SignalR connection is established through **_AG1_**.
