@@ -66,14 +66,14 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The Greenplum connector now supports version 2.0. Refer to this [section](#upgrade-the-greenplum-connector) to upgrade your Greenplum connector version from version 1.0. For the property details, see the corresponding sections.
+The Greenplum connector now supports version 2.0 (Preview). Refer to this [section](#upgrade-the-greenplum-connector) to upgrade your Greenplum connector version from version 1.0. For the property details, see the corresponding sections.
 
-- [Version 2.0](#version-20)
+- [Version 2.0 (Preview)](#version-20-preview)
 - [Version 1.0](#version-10)
 
-### Version 2.0
+### Version 2.0 (Preview)
 
-The Greenplum linked service supports the following properties when apply version 2.0:
+The Greenplum linked service supports the following properties when apply version 2.0 (Preview):
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -124,6 +124,7 @@ The Greenplum linked service supports the following properties when apply versio
     "name": "GreenplumLinkedService",
     "properties": {
         "type": "Greenplum",
+        "version": "2.0",
         "typeProperties": {
             "host": "<host>",
             "port": 5432,
@@ -281,57 +282,57 @@ To copy data from Greenplum, set the source type in the copy activity to **Green
 
 When you copy data from Greenplum, the following mappings apply from Greenplum's data types to the internal data types used by the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-|Greenplum data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) |
+|Greenplum data type | Interim service data type (for version 2.0 (Preview)) | Interim service data type (for version 1.0) |
 |:---|:---|:---|
-|`SmallInt`|`Int16`|`Int16`|
-|`Integer`|`Int32`|`Int32`|
-|`BigInt`|`Int64`|`Int64`|
-|`Decimal` (Precision <= 28)|`IBigDecimal`|`Decimal`|
-|`Decimal` (Precision > 28)|`IBigDecimal` |`String`|
-|`Numeric`|`IBigDecimal`|`Decimal`|
-|`Real`|`Single`|`Single`|
-|`Double`|`Double`|`Double`|
-|`SmallSerial`|`Int16`|`Int16`|
-|`Serial`|`Int32`|`Int32`|
-|`BigSerial`|`Int64`|`Int64`|
-|`Money`|`IBigDecimal`|`String`|
-|`Char`|`String`|`String`|
-|`Varchar`|`String`|`String`|
-|`Text`|`String`|`String`|
-|`Bytea`|`Byte[]`|`Byte[]`|
-|`Timestamp`|`DateTime`|`DateTime`|
-|`Timestamp with time zone`|`DateTimeOffset`|`String`|
-|`Date`|`Date`|`DateTime`|
-|`Time`|`TimeSpan`|`TimeSpan`|
-|`Time with time zone`|`DateTimeOffset`|`String`|
-|`Interval`|`TimeSpan`|`String`|
-|`Boolean`|`Boolean`|`Boolean`|
-|`Point`|`String`|`String`|
-|`Line`|`String`|`String`|
-|`Iseg`|`String`|`String`|
-|`Box`|`String`|`String`|
-|`Path`|`String`|`String`|
-|`Polygon`|`String`|`String`|
-|`Circle`|`String`|`String`|
-|`Cidr`|`String`|`String`|
-|`Inet`|`String`|`String`|
-|`Macaddr`|`String`|`String`|
-|`Macaddr8`|`String`|`String`|
-|`Tsvector`|`String`|`String`|
-|`Tsquery`|`String`|`String`|
-|`UUID`|`Guid`|`Guid`|
-|`Json`|`String`|`String`|
-|`Jsonb`|`String`|`String`|
-|`Array`|`String`|`String`|
-|`Bit`|`Byte[]`|`Byte[]`|
-|`Bit varying`|`Byte[]`|`Byte[]`|
-|`XML`|`String`|`String`|
-|`IntArray`|`String`|`String`|
-|`TextArray`|`String`|`String`|
-|`NumericArray`|`String`|`String`|
-|`DateArray`|`String`|`String`|
-|`Range`|`String`|`String`|
-|`Bpchar`|`String`|`String`|
+|SmallInt|Int16|Int16|
+|Integer|Int32|Int32|
+|BigInt|Int64|Int64|
+|Decimal (Precision <= 28)|Decimal|Decimal|
+|Decimal (Precision > 28)|Decimal |String|
+|Numeric|Decimal|Decimal|
+|Real|Single|Single|
+|Double|Double|Double|
+|SmallSerial|Int16|Int16|
+|Serial|Int32|Int32|
+|BigSerial|Int64|Int64|
+|Money|Decimal|String|
+|Char|String|String|
+|Varchar|String|String|
+|Text|String|String|
+|Bytea|Byte[]|Byte[]|
+|Timestamp|DateTime|DateTime|
+|Timestamp with time zone|DateTimeOffset|String|
+|Date|Date|DateTime|
+|Time|TimeSpan|TimeSpan|
+|Time with time zone|DateTimeOffset|String|
+|Interval|TimeSpan|String|
+|Boolean|Boolean|Boolean|
+|Point|String|String|
+|Line|String|String|
+|Iseg|String|String|
+|Box|String|String|
+|Path|String|String|
+|Polygon|String|String|
+|Circle|String|String|
+|Cidr|String|String|
+|Inet|String|String|
+|Macaddr|String|String|
+|Macaddr8|String|String|
+|Tsvector|String|String|
+|Tsquery|String|String|
+|UUID|Guid|Guid|
+|Json|String|String|
+|Jsonb|String|String|
+|Array|String|String|
+|Bit|Byte[]|Byte[]|
+|Bit varying|Byte[]|Byte[]|
+|XML|String|String|
+|IntArray|String|String|
+|TextArray|String|String|
+|NumericArray|String|String|
+|DateArray|String|String|
+|Range|String|String|
+|Bpchar|String|String|
 
 ## Lookup activity properties
 
@@ -341,9 +342,17 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 Here are steps that help you upgrade your Greenplum connector:
 
-1. In **Edit linked service** page, select **2.0 (Preview)** under **Version** and configure the linked service by referring to [linked service version 2.0 properties](#version-20).
+1. In **Edit linked service** page, select version 2.0 (Preview) and configure the linked service by referring to [linked service version 2.0 (Preview) properties](#version-20-preview).
 
-2. The data type mapping for the Greenplum linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Greenplum](#data-type-mapping-for-greenplum).
+2. The data type mapping for the Greenplum linked service version 2.0 (Preview) is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Greenplum](#data-type-mapping-for-greenplum).
+
+## Differences between Greenplum version 2.0 (Preview) and version 1.0
+
+The Greenplum connector version 2.0 (Preview) offers new functionalities and is compatible with most features of version 1.0. The table below shows the feature differences between version 2.0 (Preview) and version 1.0.
+
+| Version 2.0 (Preview) | Version 1.0 |
+| --- | --- |
+| The following mappings are used from Greenplum data types to interim service data type. <br><br> Decimal (Precision > 28) -> Decimal <br> Money -> Decimal <br> Timestamp with time zone -> DateTimeOffset <br>Time with time zone -> DateTimeOffset <br>Interval -> TimeSpan | The following mappings are used from Greenplum data types to interim service data type. <br><br> Decimal (Precision > 28) -> String <br> Money -> String <br> Timestamp with time zone ->String <br>Time with time zone -> String <br>Interval -> String | 
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
