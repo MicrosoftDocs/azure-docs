@@ -26,14 +26,6 @@ In this quick start, you learn about how to use an Entra application to create t
 
 Application developers who build apps that send email using the SMTP protocol need to implement secure, modern authentication. Azure Communication Services uses Microsoft Entra application service principals to provide secure authentication. A Microsoft Entra application is linked to the Communication Service resource by creating an SMTP Username resource. The SMTP services uses the Microsoft Entra application information linked to the SMTP username to authenticate with Microsoft Entra on the user's behalf to ensure a secure and seamless email transmission. SMTP Username resources are user-defined and can be either use an email format or be freeform. If an SMTP username uses the email format, the domain must be one of the Communication Service resource's linked domains. The Microsoft Entra application must also be given access to the Communication resource using either a built-in role or a custom role with the required permissions.
 
-## Creating an SMTP Username using the Azure Portal
-1. In the portal, navigate to the Azure Communication Service Resource and then open **SMTP Usernames**.
-    :::image type="content" source="../media/smtpusernames-1-usernameblade.png" alt-text="Screenshot that shows SMTP Usernames.":::
-1. Click **+Add* SMTP Username* and then select the Entra application. The username can be custom text or an email address.
-    :::image type="content" source="../media/smtpusernames-2-addsmtpusername.png" alt-text="Screenshot that shows adding an SMTP username.":::
-1. Verify the SMTP Username is in the list. The status will be **Ready to use** once all of the requirements for sending an email using the username and SMTP are met.
-    :::image type="content" source="../media/smtpusernames-3-list.png" alt-text="Screenshot that shows newly created SMTP username in the list.":::
-
 ## Assigning the built-in 'Communication and Email Service Owner' role to the Microsoft Entra application
 The **Communication and Email Service Owner** role can be assigned to an Entra application to give it access to a Communication Service resource.
 
@@ -89,6 +81,14 @@ When assigning the Microsoft Entra application a role for the Azure Communicatio
     :::image type="content" source="../media/email-smtp-select-review.png" alt-text="Screenshot that shows reviewing the assignment.":::
 1. After confirming the scope and members, click **Review + assign**.
     :::image type="content" source="../media/email-smtp-select-assign.png" alt-text="Screenshot that shows assigning the custom role.":::
+
+## Creating an SMTP Username using the Azure Portal
+1. In the portal, navigate to the Azure Communication Service Resource and then open **SMTP Usernames**.
+    :::image type="content" source="../media/smtpusernames-1-usernameblade.png" alt-text="Screenshot that shows SMTP Usernames.":::
+1. Click **+Add* SMTP Username* and then select the Entra application. If the Entra application does not appear in the drop-down, see the previous steps to assign a role. The username can be custom text or an email address.
+    :::image type="content" source="../media/smtpusernames-2-addsmtpusername.png" alt-text="Screenshot that shows adding an SMTP username.":::
+1. Verify the SMTP Username is in the list. The status will be **Ready to use** once all of the requirements for sending an email using the username and SMTP are met.
+    :::image type="content" source="../media/smtpusernames-3-list.png" alt-text="Screenshot that shows newly created SMTP username in the list.":::
 
 ## SMTP Authentication Password
 The password is one of the Microsoft Entra application's client secrets.
