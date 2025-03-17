@@ -116,7 +116,7 @@ From the *Overview* window, select the **Application Url** link to open the web 
 
 ## Create environment variables
 
-Define the following environment variables. Replace the `<PLACEHOLDERS>` with your values.
+Define the following environment variables. Before running this command, replace the `<PLACEHOLDERS>` with your values.
 
 ```azurecli
 $RESOURCE_GROUP="<RESOURCE_GROUP>"
