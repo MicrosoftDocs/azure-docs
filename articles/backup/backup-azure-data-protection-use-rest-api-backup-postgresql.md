@@ -35,7 +35,7 @@ Fetch the Azure Resource Manager ID (ARM ID) of the PostgreSQL database to be pr
 "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/ossdemoRG/providers/Microsoft.DBforPostgreSQL/servers/testpostgresql/databases/empdb11"
 ```
 
-#### Azure key vault
+#### Azure Key Vault
 
 The Azure Backup service doesn't store the username and password to connect to the PostgreSQL database. Instead, the backup admin needs to seed the *keys* into the key vault. Then the Azure Backup service will access the key vault, read the keys, and access the database. Note the secret identifier of the relevant key. The following example uses bash.
 
