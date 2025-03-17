@@ -49,7 +49,7 @@ To share your scenes with someone else, the recipient will need at least *Reader
 ## Set up
 
 To work with 3D Scenes Studio, you'll need the following required resources:
-* An [Azure Digital Twins instance](how-to-set-up-instance-cli.md)
+* An [Azure Digital Twins instance](how-to-set-up-instance-portal.md)
     * You'll need *Azure Digital Twins Data Owner* or *Azure Digital Twins Data Reader* access to the instance
     * The instance should be populated with [models](concepts-models.md) and [twins](concepts-twins-graph.md)
 
