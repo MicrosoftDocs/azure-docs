@@ -60,11 +60,12 @@ To build a business case, follow these steps:
 
 1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
-    :::image type="content" source="./media/how-to-build-a-business-case/all-projects.png" alt-text="Screenshot on how to build a project." lightbox="./media/how-to-build-a-business-case/all-projects-expanded.png":::
+    :::image type="content" source="./media/how-to-build-a-business-case/all-projects.png" alt-text="Screenshot on how to build a project.":::
+
 
 1. In the overview page, select **Build business case**.
 
-    :::image type="content" source="./media/how-to-build-a-business-case/build-a-business-case.png" alt-text="Screenshot of the Build Business case." lightbox="./media/how-to-build-a-business-case/build-a-business-case-expanded.png":::
+    :::image type="content" source="./media/how-to-build-a-business-case/build-a-business-case.png" alt-text="Screenshot of the Build Business case.":::
 
     > [!Note]
     > We recommend waiting at least a day after starting discovery before building a Business case. This period allows for adequate performance and resource utilization data collection. Also, review the **Action Centre** blade on the Azure Migrate overview page to identify any discovery-related issues. This ensures a more accurate representation of your datacenter's IT estate, making the Business case recommendations more valuable.
@@ -75,13 +76,13 @@ To build a business case, follow these steps:
 1. Select the Scope of business case. 
     1. Select **Entire datacenter** your business case is created for all discovered workloads.
     
-    :::image type="content" source="./media/how-to-build-a-business-case/entire-datacenter.png" alt-text="Screenshot shows how to select the entire datacenter." lightbox="./media/how-to-build-a-business-case/entire-datacenter-expanded.png":::
+    :::image type="content" source="./media/how-to-build-a-business-case/entire-datacenter.png" alt-text="Screenshot shows how to select the entire datacenter.":::
 
 1. Seledt the **Selected Workloads**, you can create a business case for a specific set of workloads.
 1. Select **Add Workloads** and then select the workloads you want to include in your business case. You can filter and select based on the tags and criteria you’ve set.
 1. Select Next to proceed.
 
-:::image type="content" source="./media/how-to-build-a-business-case/add-workloads.png" alt-text="Screenshot shows how to add workloads." lightbox="./media/how-to-build-a-business-case/add-workloads-expanded.png":::
+:::image type="content" source="./media/how-to-build-a-business-case/add-workloads.png" alt-text="Screenshot shows how to add workloads.":::
 
 1. In **Target location**, specify the Azure region to which you want to migrate.
 
@@ -110,7 +111,7 @@ Based on the availability of the savings option in your selected region and the 
 
 1. You are directed to the newly created Business case with a banner indicating that the computation is in progress. The processing time might vary based on the number of servers and workloads involved. It is recommended to return to the Business case page after approximately 30 minutes and select the **Refresh**.
     
-    :::image type="content" source="./media/how-to-build-a-business-case/refresh-build.png" alt-text="Screenshot of the refresh button to refresh the Business case." lightbox="./media/how-to-build-a-business-case/refresh-build-expanded.png":::
+    :::image type="content" source="./media/how-to-build-a-business-case/refresh-build.png" alt-text="Screenshot of the refresh button to refresh the Business case.":::
     
 ## Next steps
 - [Learn more](how-to-view-a-business-case.md) about how to review the Business case reports.
