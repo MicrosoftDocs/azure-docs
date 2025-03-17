@@ -14,7 +14,7 @@ In this quickstart, you create a new instance of Dynatrace.
 ## Prerequisites
 
 [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
-- You must [configure your environment](prerequisites.md).
+- You must [configure your environment](configure-prerequisites.md).
 - You must [subscribe to Dynatrace](overview.md#subscribe-to-Dynatrace).
 
 ## Create a Dynatrace resource
