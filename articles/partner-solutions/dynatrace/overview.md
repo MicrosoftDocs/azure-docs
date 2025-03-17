@@ -54,6 +54,7 @@ When you use the integrated Dynatrace experience in Azure portal, the following 
 
 For more help using Azure Native Dynatrace Service, visit the [Dynatrace](https://dt-url.net/azurenativedynatraceservice) documentation.
 
-## Next steps
+## Next step
 
-- [QuickStart: Get started with Dynatrace](create.md)
+> [!div class="nextstepaction"]
+> [Configure pre-deployment](configure-prerequisites.md)

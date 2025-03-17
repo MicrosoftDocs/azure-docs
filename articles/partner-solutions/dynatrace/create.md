@@ -106,6 +106,7 @@ Select the **Next** button at the bottom of the page.
 [!INCLUDE [review-create](../includes/review-create.md)]
 
 ## Next step
+
 > [!div class="nextstepaction"]
 > [Manage a Dynatrace resource](manage.md)
 
