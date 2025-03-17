@@ -62,11 +62,11 @@ Learn more about durable task scheduler [features](./durable-task-scheduler.md#f
    docker run -itP mcr.microsoft.com/dts/dts-emulator:v0.0.5
    ```
 
-The command above exposes a single task hub named `default`. If you need more than one task hub, you can set the environment variable `DTS_TASK_HUB_NAMES` on the container to a comma-delimited list of task hub names like below:
+    The command above exposes a single task hub named `default`. If you need more than one task hub, you can set the environment variable `DTS_TASK_HUB_NAMES` on the container to a comma-delimited list of task hub names like below:
 
-```bash
-docker run -itP -e DTS_TASK_HUB_NAMES=taskhub1,taskhub2,taskhub3 mcr.microsoft.com/dts/dts-emulator:v0.0.5
-```
+    ```bash
+    docker run -itP -e DTS_TASK_HUB_NAMES=taskhub1,taskhub2,taskhub3 mcr.microsoft.com/dts/dts-emulator:v0.0.5
+    ```
 
 ## Create a scheduler and task hub
 
@@ -154,8 +154,8 @@ docker run -itP -e DTS_TASK_HUB_NAMES=taskhub1,taskhub2,taskhub3 mcr.microsoft.c
 ::: zone pivot="az-portal" 
 
 You can create a scheduler and task hub on Azure portal via two ways: 
-- **Function app integrated creation:** *(recommended)* automatically creates the managed identity resource and RBAC assignment needed for your app to access durable task scheduler.
-- **Top-level creation:** Requires you to [manually assign RBAC](#configure-identity-based-authentication-for-app-to-access-dts) to configure scheduler access for your app.
+- **Function app integrated creation:** *(recommended)* automatically creates the managed identity resource and RBAC assignment, plus configures required environment variables for your app to access durable task scheduler.
+- **Top-level creation:** Requires you to [manually assign RBAC permission](#configure-identity-based-authentication-for-app-to-access-dts) to configure scheduler access for your app.
 
 > [!NOTE]
 > Durable task scheduler currently supports apps hosted in the **App Service** and **Functions Premium** plans, so this experience is available only when either of these plan types is picked. 
@@ -216,11 +216,11 @@ You can see the list of scheduler resources created in all subscriptions you hav
 
 ::: zone pivot="az-cli" 
 
-Retrieve a list of task hubs in a specific scheduler by running: 
+    Retrieve a list of task hubs in a specific scheduler by running: 
 
-```azurecli
-az durabletask taskhub list --resource-group <RESOURCE_GROUP_NAME> --scheduler-name <SCHEDULER_NAME>
-```
+    ```azurecli
+    az durabletask taskhub list --resource-group <RESOURCE_GROUP_NAME> --scheduler-name <SCHEDULER_NAME>
+    ```
 
 ::: zone-end 
 
@@ -266,7 +266,16 @@ You can see all the task hubs created in a scheduler on the **Overview** of the 
 
 Durable task scheduler **only** supports either *user-assigned* or *system-assigned* managed identity authentication. **User-assigned identities are recommended,** as they aren't tied to the lifecycle of the app and can be reused after the app is de-provisioned.
 
-The following sections demonstrate how to configure identity resources for your durable functions app to access a scheduler and its task hubs. 
+The following are the durable task scheduler related roles you can grant to an identity:
+
+ - **Durable Task Data Contributor**: Role for all data access operations. This role is a superset of all other roles. 
+ - **Durable Task Worker**: Role used by worker applications to interact with the durable task scheduler. Assign this role if your app is used *only* for processing orchestrations, activities, and entities. 
+ - **Durable Task Data Reader**: Role to read all durable task scheduler data. Assign this role if you only need listing of orchestrations and entities payloads. 
+
+> [!NOTE]
+> Most durable functions apps would require the Durable Task Data Contributor role. 
+
+The sections below demonstrate how to grant permissions to an identity resource and configure your durable functions app to use the identity for access to schedulers and task hubs. 
 
 ### Assign RBAC (role-based access control) to managed identity resource 
 
