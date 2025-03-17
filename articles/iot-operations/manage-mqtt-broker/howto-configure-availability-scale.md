@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: azure-mqtt-broker
 ms.custom:
   - ignite-2023
-ms.date: 01/13/2025
+ms.date: 03/17/2025
 
 #CustomerIntent: As an operator, I want to understand the settings for the MQTT broker so that I can configure it for high availability and scale.
 ms.service: azure-iot-operations
@@ -174,7 +174,7 @@ When you use this profile:
 
 - Maximum memory usage of each frontend replica is approximately 99 MiB, but the actual maximum memory usage might be higher.
 - Maximum memory usage of each backend replica is approximately 102 MiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
-- Maximum amount of incoming buffer or PUBLISH data is approximately 16 MiB multiplied by the number of backend workers. 16 MiB The actual size might be lower due to backpressure watermark starting at 75% of the incoming buffer or 12 MiB.
+- The maximum size of the incoming buffer for PUBLISH data is approximately 16 MiB per backend worker. However, the effective size may be lower due to backpressure mechanisms, which activate when the buffer reaches 75% capacity resulting in a buffer size of approximately 12 MiB. Rejected packets have a PUBACK response with a *Quota exceeded* error code.
 
 Recommendations when you use this profile:
 
@@ -189,6 +189,7 @@ When you use this profile:
 
 - Maximum memory usage of each frontend replica is approximately 387 MiB, but the actual maximum memory usage might be higher.
 - Maximum memory usage of each backend replica is approximately 390 MiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
+- The maximum size of the incoming buffer for PUBLISH data is approximately 64 MiB per backend worker. However, the effective size may be lower due to backpressure mechanisms, which activate when the buffer reaches 75% capacity resulting in a buffer size of approximately 48 MiB. Rejected packets have a PUBACK response with a *Quota exceeded* error code.
 
 Recommendations when you use this profile:
 
@@ -204,6 +205,7 @@ Medium is the default profile.
 - Maximum memory usage of each frontend replica is approximately 1.9 GiB, but the actual maximum memory usage might be higher.
 - Maximum memory usage of each backend replica is approximately 1.5 GiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
 - Maximum message size is 64 MB.
+- The maximum size of the incoming buffer for PUBLISH data is approximately 576 MiB per backend worker. However, the effective size may be lower due to backpressure mechanisms, which activate when the buffer reaches 75% capacity resulting in a buffer size of approximately 432 MiB. Rejected packets have a PUBACK response with a *Quota exceeded* error code.
 
 ### High
 
@@ -211,6 +213,7 @@ Use this profile when you need to handle a large number of client messages.
 
 - Maximum memory usage of each frontend replica is approximately 4.9 GiB, but the actual maximum memory usage might be higher.
 - Maximum memory usage of each backend replica is approximately 5.8 GiB multiplied by the number of backend workers, but the actual maximum memory usage might be higher.
+- The maximum size of the incoming buffer for PUBLISH data is approximately 2 GiB per backend worker. However, the effective size may be lower due to backpressure mechanisms, which activate when the buffer reaches 75% capacity resulting in a buffer size of approximately 1.5 GiB. Rejected packets have a PUBACK response with a *Quota exceeded* error code.
 
 
 ## Calculate total memory usage
