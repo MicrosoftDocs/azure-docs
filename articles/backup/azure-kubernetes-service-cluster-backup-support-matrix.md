@@ -34,7 +34,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - Provide a new and empty blob container as input while installing backup extension in an AKS cluster for the first time. Don't use same blob container for more than one AKS cluster. 
 
-- AKS backups doesn't support in-tree volumes. You can back up only CSI driver-based volumes. You can [migrate from tree volumes to CSI driver-based persistent volumes](/azure/aks/csi-migrate-in-tree-volumes).
+- AKS backups do not support in-tree volumes. You can back up only CSI driver-based volumes. You can [migrate from tree volumes to CSI driver-based persistent volumes](/azure/aks/csi-migrate-in-tree-volumes).
 
 - Currently, an AKS backup supports only the backup of Azure disk-based persistent volumes (enabled by the CSI driver). The supported Azure Disk SKUs are Standard HDD, Standard SSD, and Premium SSD. The disks belonging to Premium SSD v2 and Ultra Disk SKU aren't supported. Both static and dynamically provisioned volumes are supported. For backup of static disks, the persistent volumes specification should have the *storage class* defined in the **YAML** file, otherwise such persistent volumes are skipped from the backup operation.
 
@@ -92,7 +92,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - Currently, backup instances with <= 100 disks attached as persistent volume are supported. Backup and restore operations might fail if number of disks are higher than the limit. 
 
-- Only Azure Disks with public access enabled from all networks are eligible to be moved to the Vault Tier; if their are disks with network access apart from public access, tiering operation will fail. 
+- Only Azure Disks with public access enabled from all networks are eligible to be moved to the Vault Tier; if ther are disks with network access apart from public access, tiering operation will fail. 
 
 - *Disaster Recovery* feature is only available between Azure Paired Regions (if backup is configured in a Geo Redundant Backup vault). The backup data is only available in an Azure paired region. For example, if you have an AKS cluster in East US that is backed up in a Geo Redundant Backup vault, the backup data is also available in West US for restore.
 
