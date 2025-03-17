@@ -3,7 +3,7 @@ title: Durable Functions storage providers - Azure
 description: Learn about the different storage providers for Durable Functions and how they compare
 author: cgillum
 ms.topic: conceptual
-ms.date: 03/05/2025
+ms.date: 03/17/2025
 ms.author: azfuncdf
 #Customer intent: As a developer, I want to understand what storage providers are available Durable Functions and which one I should choose.
 ---

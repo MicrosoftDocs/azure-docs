@@ -1,7 +1,7 @@
 ---
 ms.service: azure-functions
 ms.topic: include
-ms.date: 01/30/2025
+ms.date: 03/17/2025
 ---
 
 > [!NOTE] 

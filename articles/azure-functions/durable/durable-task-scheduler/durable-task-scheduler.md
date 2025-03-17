@@ -2,7 +2,7 @@
 title: Azure Functions durable task scheduler backend for durable functions (preview)
 description: Learn about the characteristics of the Azure Functions durable task scheduler backend.
 ms.topic: conceptual
-ms.date: 03/05/2025
+ms.date: 03/17/2025
 ms.author: azfuncdf
 author: hhunter-ms
 ms.subservice: durable
@@ -32,13 +32,13 @@ The following diagram shows the architecture of the durable task scheduler backe
 
 The durable task scheduler runs in Azure as a separate resource from the app. This separation allows the scheduler to scale independently of the app and provides better isolation between the two components. This isolation is important for several reasons:
 
-- **Reduced resource consumption**: BYO storage providers can consume a significant amount of CPU and memory resources. This resource consumption is due to the overhead of managing partitions and other complex state store interactions. By using a managed scheduler instead of a BYO storage provider, your app instances can run more efficiently and with less resource contention.
+- **Reduced resource consumption:** BYO storage providers can consume a significant amount of CPU and memory resources. This resource consumption is due to the overhead of managing partitions and other complex state store interactions. By using a managed scheduler instead of a BYO storage provider, your app instances can run more efficiently and with less resource contention.
 
-- **Fault isolation**: Stability or availability issues in the durable task scheduler will not affect the stability or availability of your connected apps. With BYO storage providers, instability in the backend provider (which is a complex component) can create instability in the app logic. By separating the scheduler from the app, you can reduce the risk of cascading failures and improve overall reliability.
+- **Fault isolation:** Stability or availability issues in the durable task scheduler will not affect the stability or availability of your connected apps. With BYO storage providers, instability in the backend provider (which is a complex component) can create instability in the app logic. By separating the scheduler from the app, you can reduce the risk of cascading failures and improve overall reliability.
 
-- **Independent scaling**: The scheduler resource can be scaled independently of the app, allowing for better infrastructure resource management and cost optimization. For example, multiple apps can share the same scheduler resource, improving overall resource utilization. This capability is especially useful for organizations with multiple teams or projects that require durable functions.
+- **Independent scaling:** The scheduler resource can be scaled independently of the app, allowing for better infrastructure resource management and cost optimization. For example, multiple apps can share the same scheduler resource, improving overall resource utilization. This capability is especially useful for organizations with multiple teams or projects that require durable functions.
 
-- **Improved support experience**: The durable task scheduler is a managed service, which means that Azure can provide better support and diagnostics for issues related to the scheduler. When using a BYO storage provider, you might need to troubleshoot issues related to the backend provider, which can be complex and time-consuming. A managed service allows Azure to take care of the underlying infrastructure and provide a more streamlined support experience.
+- **Improved support experience:** The durable task scheduler is a managed service, which means that Azure can provide better support and diagnostics for issues related to the scheduler. When using a BYO storage provider, you might need to troubleshoot issues related to the backend provider, which can be complex and time-consuming. A managed service allows Azure to take care of the underlying infrastructure and provide a more streamlined support experience.
 
 ### App connectivity
 
@@ -126,7 +126,7 @@ This benchmark showed that the durable task scheduler is roughly **five times fa
 
   The *Consumption*, *Flex Consumption*, and *Azure Container App* hosting plans aren't yet supported when using the durable task scheduler.
 
-- **Available regions**: Durable task scheduler resources can be created in a subset of Azure regions today. You can run the following command to get a list of the supported regions:  
+- **Available regions:** Durable task scheduler resources can be created in a subset of Azure regions today. You can run the following command to get a list of the supported regions:  
 
     ```bash
     az provider show --namespace Microsoft.DurableTask --query "resourceTypes[?resourceType=='schedulers'].locations | [0]" --out table
@@ -134,9 +134,9 @@ This benchmark showed that the durable task scheduler is roughly **five times fa
 
     Consider using the same region for your durable functions app and the durable task scheduler resources. Having these resources in different regions might impact performance and limit certain network-related functionality.
 
-- **Scheduler quota**: You can currently create up to **five schedulers per region** per subscription.
+- **Scheduler quota:** You can currently create up to **five schedulers per region** per subscription.
 
-- **Max payload size**: The durable task scheduler has a maximum payload size restrictions for the following JSON-serialized data types:
+- **Max payload size:** The durable task scheduler has a maximum payload size restrictions for the following JSON-serialized data types:
   
     | Data type | Max size |
     | --------- | -------- |
@@ -146,7 +146,7 @@ This benchmark showed that the durable task scheduler is roughly **five times fa
     | Orchestration custom status | 1 MB |
     | Entity state | 1 MB |
 
-- **Feature parity**: Some features might not be available in the durable task scheduler backend yet. For example, at the time of writing, the durable task scheduler doesn't support the following features:
+- **Feature parity:** Some features might not be available in the durable task scheduler backend yet. For example, at the time of writing, the durable task scheduler doesn't support the following features:
 
     - [Orchestration rewind](../durable-functions-instance-management.md#rewind-instances-preview)
     - [Extended sessions](../durable-functions-azure-storage-provider.md#extended-sessions)

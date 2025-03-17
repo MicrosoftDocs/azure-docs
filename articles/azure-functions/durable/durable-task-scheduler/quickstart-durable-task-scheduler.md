@@ -3,7 +3,7 @@ title: "Quickstart: Set a durable functions app to use Azure Functions durable t
 description: Learn how to configure an existing durable functions app to use Azure Functions durable task scheduler.
 author: lilyjma
 ms.topic: how-to
-ms.date: 03/05/2025
+ms.date: 03/17/2025
 ms.author: jiayma
 ms.reviewer: azfuncdf
 zone_pivot_groups: dts-runtime
@@ -28,7 +28,7 @@ In this quickstart, you configure a durable functions app to use the [durable ta
 ## Prerequisites
 
 This quickstart assumes you alredy have an Azure Functions project on your local computer with:
-- Durable functions added to your project include:
+- Durable functions added to your project including:
   - An [orchestrator function](../durable-functions-bindings.md#orchestration-trigger). 
   - A [client function](../durable-functions-bindings.md#orchestration-client) that triggers the durable functions app.
 - The project configured for local debugging.
@@ -180,7 +180,7 @@ Get the durable task scheduler emulator port number in [the next step](#set-up-d
 
 1. Run the application.
 
-   ```sh
+   ```bash
    func start
    ```
 
@@ -216,6 +216,8 @@ Get the durable task scheduler emulator port number in [the next step](#set-up-d
 1. Click on the *default* task hub to see its dashboard. 
 
 > [!NOTE] 
+> Learn more about the [durable task scheduler dashboard](./durable-task-scheduler-dashboard.md). 
+>
 > The [durable task scheduler emulator](./durable-task-scheduler.md#emulator-for-local-development) stores orchestration data in memory, which means all data is lost when it shuts down. 
 >
 > Running into issues testing? [See the troubleshooting guide.](./troubleshoot-durable-task-scheduler.md)
@@ -227,6 +229,8 @@ Get the durable task scheduler emulator port number in [the next step](#set-up-d
 Create a durable task scheduler instance and Azure Functions app on Azure following the *Function app integrated creation flow*. This experience will automatically set up identity-based access and configure the required environment variables for the app to access the scheduler. 
 
 [!INCLUDE [function-app-integrated-creation](./includes/function-app-integrated-creation.md)]
+
+Resource deployment could take around 15 to 20 minutes. Once that is finished, you can deploy your app to Azure. 
 
 ### Deploy your function app to Azure
 
@@ -244,17 +248,17 @@ If your app is running on the Functions Premium plan, turn on the *Runtime Scale
 
 Run the following command to get your function's URL: 
   
-```bash
-az functionapp function list --resource-group <RESOURCE_GROUP_NAME> --name <FUNCTION_APP_NAME>  --query '[].{Function:name, URL:invokeUrlTemplate}' --output table
+```azurecli
+az functionapp function list --resource-group <RESOURCE_GROUP_NAME> --name <FUNCTION_APP_NAME>  --query '[].{Function:name, URL:invokeUrlTemplate}' --output json
 ```
 
 ### Check orchestration status
 
-Check the status of the orchestration instance and activity details on the durable task scheduler dashboard. Accessing the dashboard requires you to login. Follow the instructions below to assign the required role to your identity. 
+Check the status of the orchestration instance and activity details on the durable task scheduler dashboard. Accessing the dashboard requires you to login. Follow the instructions below to assign the required role-based access control (RBAC) permission to your identity. 
 
 [!INCLUDE [assign-dev-identity-rbac-portal](./includes/assign-dev-identity-rbac-portal.md)]
 
-Finally, navigate to `https://dashboard.durabletask.io/` and click on **Add Endpoint**. Fill out the required fields to connect the task hub. 
+Finally, click **Overview** on the left menu of the task hub resource and navigate to the dashboard URL located at the top *Essentials* section. 
 
 ## Clean up resources
 
