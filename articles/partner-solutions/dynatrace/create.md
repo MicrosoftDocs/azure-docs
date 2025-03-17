@@ -32,8 +32,8 @@ The *Basics* tab has three sections:
 - Azure resource details
 - Dynatrace details
 - User account information
-- 
-- :::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create a Datadog resource in Azure options inside of the Azure portal's working pane with the Basics tab displayed.":::
+ 
+:::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create a Datadog resource in Azure options inside of the Azure portal's working pane with the Basics tab displayed.":::
 
 There are required fields (identified with a red asterisk) that you need to fill out.
 
