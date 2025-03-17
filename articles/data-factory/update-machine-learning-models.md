@@ -4,7 +4,7 @@ description: Describes how to create predictive pipelines using Machine Learning
 titleSuffix: Azure Data Factory & Azure Synapse
 author: dcstwh
 ms.author: weetok
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.custom: synapse, devx-track-arm-template
 ms.topic: conceptual
 ms.date: 05/15/2024
