@@ -495,7 +495,11 @@ First, follow instructions below to gain access to the [durable task scheduler d
 
 ::: zone-end 
 
+::: zone pivot="az-portal"
+
 [!INCLUDE [assign-dev-identity-rbac-portal](./includes/assign-dev-identity-rbac-portal.md)]
+
+::: zone-end 
 
 ## Auto scaling in Functions Premium plan 
 
