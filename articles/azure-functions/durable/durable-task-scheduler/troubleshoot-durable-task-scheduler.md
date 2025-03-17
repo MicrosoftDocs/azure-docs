@@ -20,8 +20,14 @@ When your app isn't running as expected, first check if you have the correct con
 
 1. Check your app for the environment variables `DURABLE_TASK_SCHEDULER_CONNECTION_STRING` and `TASKHUB_NAME`.
 1. Check the value of `DURABLE_TASK_SCHEDULER_CONNECTION_STRING`. Specifically, verify that the scheduler endpoint and authentication type are correct. The connection string should be formatted as follows when using: 
-    - **User-assigned managed identity** - `Endpoint={scheduler endpoint};Authentication=ManagedIdentity;ClientID={client id}` where *client id* is the identity's client ID. 
-    - **System-assigned managed identity** - `Endpoint={scheduler endpoint};Authentication=ManagedIdentity`
+
+    *User-assigned managed identity*
+
+    `Endpoint={scheduler endpoint};Authentication=ManagedIdentity;ClientID={client id}`, where *client id* is the identity's client ID. 
+
+    *System-assigned managed identity*
+
+    `Endpoint={scheduler endpoint};Authentication=ManagedIdentity`
 1. Ensure the required role-based access control (RBAC) permission is [granted to the identity](./develop-with-durable-task-scheduler.md#configure-identity-based-authentication-for-app-to-access-durable-task-scheduler) needing to access the specified task hub or scheduler. 
   1. When accessing the dashboard, ensure permission is [assigned to your own identity (email)](./develop-with-durable-task-scheduler.md#accessing-durable-task-scheduler-dashboard).
 1. If user-assigned managed identity is used, ensure the [identity is assigned to your app](./develop-with-durable-task-scheduler.md#assign-managed-identity-to-your-app).
