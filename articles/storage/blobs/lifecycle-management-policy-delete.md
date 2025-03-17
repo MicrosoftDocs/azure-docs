@@ -13,20 +13,9 @@ ms.topic: conceptual
 
 # Configure a lifecycle management policy to delete data
 
-You can use Lifecycle management policies to transition blobs to delete blob at the end of their lifecycle.
+You can use Lifecycle management policies to transition blobs to delete blob at the end of their lifecycle. 
 
-## Delete action
-
-When applied to an account with a hierarchical namespace enabled, a delete action removes empty directories. If the directory isn't empty, then the delete action removes objects that meet the policy conditions within the first lifecycle policy execution cycle. If that action results in an empty directory that also meets the policy conditions, then that directory will be removed within the next execution cycle, and so on.
-
-A lifecycle management policy will not delete the current version of a blob until any previous versions or snapshots associated with that blob have been deleted. If blobs in your storage account have previous versions or snapshots, then you must include previous versions and snapshots when you specify a delete action as part of the policy.
-
-The delete action of a lifecycle management policy won't work with any blob in an immutable container. With an immutable policy, objects can be created and read, but not modified or deleted. For more information, see [Store business-critical blob data with immutable storage](./immutable-storage-overview.md).
-
-## Examples of lifecycle policies
-
-The following examples demonstrate how to address common scenarios with lifecycle policy rules.
-
+This article contains examples of policy definitions that delete blobs.
 
 ### Expire data based on age
 

@@ -81,23 +81,6 @@ In the following example, blobs are moved to cool storage if they haven't been a
 }
 ```
 
-### Last accessed time tracking
-
-You can enable last access time tracking to keep a record of when your blob is last read or written and as a filter to manage tiering and retention of your blob data. To learn how to enable last access time tracking, see [Optionally enable access time tracking](lifecycle-management-policy-configure.md#optionally-enable-access-time-tracking).
-
-When last access time tracking is enabled, the blob property called `LastAccessTime` is updated when a blob is read or written. [Get Blob](/rest/api/storageservices/get-blob) and [Put Blob](/rest/api/storageservices/put-blob) operations are considered access operations. [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata), and [Get Blob Tags](/rest/api/storageservices/get-blob-tags) aren't access operations, and therefore don't update the last access time. 
-
-If last access time tracking is enabled, lifecycle management uses `LastAccessTime` to determine whether the run condition **daysAfterLastAccessTimeGreaterThan** is met. Lifecycle management uses the date the lifecycle policy was enabled instead of `LastAccessTime` in the following cases:
-
-- The value of the `LastAccessTime` property of the blob is a null value.
-
-  > [!NOTE]
-  > The `lastAccessedOn` property of the blob is null if a blob hasn't been accessed since last access time tracking was enabled.
-
-- Last access time tracking is not enabled. 
-
-To minimize the effect on read access latency, only the first read of the last 24 hours updates the last access time. Subsequent reads in the same 24-hour period don't update the last access time. If a blob is modified between reads, the last access time is the more recent of the two values.
-
 ## Archiving data
 
 Some data stays idle in the cloud and is rarely, if ever, accessed. The following lifecycle policy is configured to archive data shortly after it's ingested. This example transitions block blobs in a container named `archivecontainer` into an archive tier. The transition is accomplished by acting on blobs 0 days after last modified time. 

@@ -65,43 +65,43 @@ Filters limit actions to a subset of blobs within the storage account. You can u
 | **prefixMatch**    | Array of strings                | These strings are prefixes to be matched.                                      | No       |
 | **blobIndexMatch** | An array of dictionary values   | These values consist of blob index tag key and value conditions to be matched. | No       |
 
-#### blobTypes
-
-The current release supports **blockBlob** and **appendBlob**. Only the **Delete** action is supported for **appendBlob**. 
-
-#### prefixMatch
+The current release supports **blockBlob** and **appendBlob** blob types. Only the **Delete** action is supported for **appendBlob** blob type. 
 
 Each rule can define up to 10 case-sensitive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under the path `https://myaccount.blob.core.windows.net/sample-container/blob1/...`, specify the **prefixMatch** as `sample-container/blob1`. 
 
 This filter will match all blobs in `sample-container` where the names begin with `blob1`. If you don't define a prefix match, then, the rule applies to all blobs within the storage account. Prefix strings don't support wildcard matching. Characters such as `*` and `?` are treated as string literals.
 
-#### blobIndexMatch
-
 Each rule can define up to 10 blob index tag conditions. For example, if you want to match all blobs with `Project = Contoso` under `https://myaccount.blob.core.windows.net/`, then the **blobIndexMatch** filter is `{"name": "Project","op": "==","value": "Contoso"}`. If you don't define a value for the **blobIndexMatch** filter, then the rule applies to all blobs within the storage account.
 
 ### Actions
 
-Actions are applied to the filtered blobs when the run condition is met. Actions can apply to current versions, previous versions, and blob snapshots. You must define at least one action for each rule. If you define more than one action on the same blob, then lifecycle management applies the least expensive action to the blob. For example, a **delete** action is cheaper than the **tierToArchive** action and the **tierToArchive** action is cheaper than the **tierToCool** action.
+Actions are applied to the filtered blobs when the run condition is met. You must define at least one action for each rule. If you define more than one action on the same blob, then lifecycle management applies the least expensive action to the blob. For example, a **delete** action is cheaper than the **tierToArchive** action and the **tierToArchive** action is cheaper than the **tierToCool** action.
 
-#### Actions that transition blobs between tiers
+#### Transitioning blobs between access tiers
 
-The following actions transition blobs between tiers:
+To move blobs to a cooler the tier, use the **tierToCool**, **tierToCold**, or **tierToArchive** action. If a blob is set to the cool tier, then you can use a special action named **enableAutoTierToHotFromCool** to automatically move that blob into the hot tier when the blob is accessed. This action is available only when used with the **daysAfterLastAccessTimeGreaterThan** run. To view example policy definitions, see [Configure a lifecycle management policy for access tiers](lifecycle-management-policy-access-tiers).
 
-- **tierToCool**
-- **tierToCold**
-- **tierToArchive**
+Tier change actions have the following limitations:
 
-If a blob is set to the cool tier, then you can use a special action named **enableAutoTierToHotFromCool** to automatically move that blob into the hot tier when the blob is accessed. This action is available only when used with the **daysAfterLastAccessTimeGreaterThan** run condition, and it works only with current blob versions. It won't work with previous versions or snapshots. 
+- The **tierToArchive** action can't be used for blobs that use an encryption scope.
 
-The **tierToArchive** action can't be used for blobs that use an encryption scope, and none of these actions are supported for tier of an append blob or a page blob, or a block blob that is located in a premium block blob storage account.
+- Tier change actions are supported for tier of an append blob or a page blob, or a block blob that is located in a premium block blob storage account.
 
-To learn more, see [Configure a lifecycle management policy for access tiers](lifecycle-management-policy-access-tiers).
+- The **enableAutoTierToHotFromCool** action works only with current blob versions. It won't work with previous versions or snapshots. 
 
-#### Action that deletes blobs
+#### Deleting blobs
 
-Use the **delete** action to delete a blob. This action is not supported with page blobs and won't work with any blob in an immutable container.
+To delete blobs, use the **delete** action. To view example policy definitions, see [Configure a lifecycle management policy to delete data](lifecycle-management-policy-delete.md).
 
-To learn more, see [Configure a lifecycle management policy to delete data](lifecycle-management-policy-delete.md).
+When applied to an account with a hierarchical namespace enabled, a delete action removes empty directories. If the directory isn't empty, then the delete action removes objects that meet the policy conditions within the first lifecycle policy execution cycle. If that action results in an empty directory that also meets the policy conditions, then that directory will be removed within the next execution cycle, and so on.
+
+A lifecycle management policy will not delete the current version of a blob until any previous versions or snapshots associated with that blob have been deleted. If blobs in your storage account have previous versions or snapshots, then you must include previous versions and snapshots when you specify a delete action as part of the policy.
+
+Delete actions have the following limitations:
+
+- The **delete** action is not supported with page blobs.
+
+- The **delete** action won't work with any blob in an immutable container.
 
 ### Action run conditions
 
