@@ -30,9 +30,12 @@ The Azure Operator Nexus SKUs that support a second storage appliance are docume
 
 ## Supported deployment models
 
+>[!IMPORTANT]
+>Deployment of a Nexus instance with two storage appliances requires a manual step after [Network Fabric creation](/howto-configure-network-fabric.md#create-a-network-fabric) and before [Network Fabric provisioning](/howto-configure-network-fabric.md#provision-a-network-fabric). The network fabric requires manual enablement of the ports that connect to the second storage device. This step can only be performed by Microsoft support; users should [raise a support ticket to request assistance](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
 Azure Operator Nexus only supports deploying a second storage appliance at initial Nexus instance install time. There's no support for adding a second storage appliance to an existing Nexus instance. Any existing instance that requires a second storage appliance must be reinstalled.
 
-The deployment process for storage appliances has several prerequisites before you can deploy the Azure Operator Nexus software. The pre-requisities for the second storage appliance are the same as for the first storage appliance, with minor configuration differences. The prerequisites are fully documented for Nexus instances with one or two storage appliances in the [how-to documentation](./howto-azure-operator-nexus-prerequisites.md).
+The deployment process for storage appliances has several prerequisites before you can deploy the Azure Operator Nexus software. The pre-requisities for the second storage appliance are the same as for the first storage appliance, with minor configuration differences. The prerequisites are fully documented for Nexus instances with one or two storage appliances in the [how-to documentation](./howto-platform-prerequisites.md).
 
 ## Supported function
 

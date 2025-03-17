@@ -534,8 +534,11 @@ Interface:    net1, via: LLDP, RID: 1, Time: 0 day, 20:28:36
 
 ## [Optional] Set up second storage array
 
->[!IMPORTANT]
+>[!NOTE]
 > This section is optional. You only need to execute it if you are deploying an Azure Operator Nexus instance with two storage appliances. For more information, including restrictions on supported hardware, see [Azure Operator Nexus multiple storage appliances](/concepts-storage-multiple-appliances.md).
+
+>[!IMPORTANT]
+>Deployment of a Nexus instance with two storage appliances requires a manual step after [Network Fabric creation](/howto-configure-network-fabric.md#create-a-network-fabric) and before [Network Fabric provisioning](/howto-configure-network-fabric.md#provision-a-network-fabric). The network fabric requires manual enablement of the ports that connect to the second storage device. This step can only be performed by Microsoft support; users should [raise a support ticket to request assistance](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 1. Operator needs to install the storage array hardware as specified by the BOM and rack elevation
    within the Aggregation Rack. The hardware must go in the second storage appliance rack slot in the aggregator rack.
