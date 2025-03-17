@@ -33,7 +33,8 @@ This integration brings together the best of Azure infrastructure capabilities a
 
 - Select one of the regions supported by SAP CAL (West Europe, East US, and East US 2) for the deployment.
 - Use an [S-User role](https://help.sap.com/docs/help/3e7fe88850cf4ee39d151949a990d8ca/6a92e3ffb3ee43e59c1e394566b4c085.html). This role is required.
-- Set up Azure DevOps for the deployment framework. For more information, see [Use SAP Deployment Automation Framework from Azure DevOps Services](configure-devops.md). Use managed identities for the SDAF deployment.
+- Set up Azure DevOps for the deployment framework. For more information, see [Use SAP Deployment Automation Framework from Azure DevOps Services](configure-devops.md). 
+- Use managed identities for the SDAF deployment.
 - Set the parameter `enable_rbac_authorization_for_keyvault = true` in the Landscape `tfvars` file.
 - Set the parameter `enable_sap_cal = true` in the System `tfvars` file.
 
