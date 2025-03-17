@@ -81,7 +81,7 @@ az webapp deployment source config-local-git --name <app-name> --resource-group 
 The output contains a URL like: `https://<deployment-username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Use this URL to deploy your app in the next step.
 
 > [!TIP]
-> This URL contains the user-scope deployment username. If you like, you can [use the application-scope credentials](deploy-configure-credentials.md#appscope) instead. 
+> This URL contains the user-scope deployment username. If you like, you can [use the application-scope credentials](deploy-configure-credentials.md#appscope) instead.
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -99,9 +99,10 @@ Set-AzResource -PropertyObject $PropertiesObject -ResourceGroupName <group-name>
 
 # [Azure portal](#tab/portal)
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your app's management page.
+1. In the [Azure portal](https://portal.azure.com), go to your app.
 
-1. From the left menu, select **Deployment Center** > **Settings**. Select **Local Git** in **Source**, then select **Save**.
+1. On the left menu, select **Deployment Center** > **Settings**.
+1. in **Source**, select **Local Git** , then select **Save**.
 
     ![Shows how to enable local Git deployment for App Service in the Azure portal](./media/deploy-local-git/enable-portal.png)
 
@@ -112,22 +113,22 @@ Set-AzResource -PropertyObject $PropertiesObject -ResourceGroupName <group-name>
 ## Deploy the web app
 
 1. In a local terminal window, change the directory to the root of your Git repository, and add a Git remote using the URL you got from your app. If your chosen method doesn't give you a URL, use `https://<app-name>.scm.azurewebsites.net/<app-name>.git` with your app name in `<app-name>`.
-   
+
    ```bash
    git remote add azure <url>
    ```
 
     > [!NOTE]
     > If you [created a Git-enabled app in PowerShell using New-AzWebApp](#create-a-git-enabled-app), the remote is already created for you.
-   
-1. Push to the Azure remote with `git push azure master` (see [Change deployment branch](#change-deployment-branch)). 
-   
+
+1. Push to the Azure remote with `git push azure master` (see [Change deployment branch](#change-deployment-branch)).
+
 1. In the **Git Credential Manager** window, enter your [user-scope or application-scope credentials](#configure-a-deployment-user), not your Azure sign-in credentials.
 
-    If your Git remote URL already contains the username and password, you won't be prompted. 
-   
-1. Review the output. You might see runtime-specific automation, such as MSBuild for ASP.NET, `npm install` for Node.js, and `pip install` for Python. 
-   
+    If your Git remote URL already contains the username and password, you won't be prompted.
+
+1. Review the output. You might see runtime-specific automation, such as MSBuild for ASP.NET, `npm install` for Node.js, and `pip install` for Python.
+
 1. Browse to your app in the Azure portal to verify that the content is deployed.
 
 ## Change deployment branch
