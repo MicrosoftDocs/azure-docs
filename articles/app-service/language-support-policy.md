@@ -1,5 +1,5 @@
 ---
-title: Language runtime support policy
+title: Language Runtime Support Policy
 description: Learn about the language runtime support policy for Azure App Service.
 author: jeffwmartinez
 ms.topic: article
@@ -14,7 +14,7 @@ This article describes the language runtime support policy for updating existing
 
 ## Updates to existing stacks
 
-App Service updates existing stacks after they become available from each community. App Service updates major versions of stacks but can't guarantee any specific minor or patch versions. The platform controls minor and patch versions. For example, App Service updates Node 18 but doesn't guarantee a specific Node 18.x.x version. If you need a specific minor or patch version, you can use a [custom container](quickstart-custom-container.md).
+App Service updates existing stacks from each community after they become available. App Service updates major versions of stacks but can't guarantee any specific minor versions or patch versions. The platform controls minor and patch versions. For example, App Service updates Node 18 but doesn't guarantee a specific Node 18.x.x version. If you need a specific minor or patch version, you can use a [custom container](quickstart-custom-container.md).
 
 ## Retirements
 
@@ -27,7 +27,7 @@ App Service follows community support timelines for the lifecycle of the runtime
 
 End-of-support dates for runtime versions are determined independently by their respective stacks and are outside the control of App Service. App Service sends reminder notifications to subscription owners for upcoming end-of-support runtime versions when they become available for each language.
 
-Roles that receive notifications include account administrators, service administrators, and coadministrators. Contributors, readers, or other roles don't directly receive notifications unless they opt in to receive notification emails, using [Service Health Alerts](/azure/service-health/alerts-activity-log-service-notifications-portal).  
+Roles that receive notifications include account administrators, service administrators, and coadministrators. Contributors, readers, or other roles don't directly receive notifications unless they opt in to receive notification emails by using [Service Health Alerts](/azure/service-health/alerts-activity-log-service-notifications-portal).  
 
 ## Timelines for language runtime version support
 
@@ -51,7 +51,6 @@ App Service supports languages on both Linux and Windows operating systems. See 
 - [Python](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/python_support.md#support-timeline)
 - [PHP](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#support-timeline)
 
-
 ## Configure language versions
 
 To learn more about how to update language versions for your App Service applications, see the following resources:
@@ -71,11 +70,11 @@ To learn more about how to update language versions for your App Service applica
 
 ### JDK versions and maintenance
 
-Microsoft and Adoptium builds of OpenJDK are provided and supported on App Service for Java 8, 11, 17, and 21. These binaries are provided as a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and running Java SE applications. For local development or testing, you can install the Microsoft build of OpenJDK from the [downloads page](/java/openjdk/download). 
+Microsoft and Adoptium builds of OpenJDK are provided and supported on App Service for Java 21, 17, 11, and 8. These binaries are provided as a no-cost, multiplatform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and running Java SE applications. For local development or testing, you can install the Microsoft build of OpenJDK from the [downloads page](/java/openjdk/download).
 
 # [Linux](#tab/linux)
 
-| **Java stack name**       | **Linux distribution** | **Java distribution** |
+| Java stack name       | Linux distribution | Java distribution |
 | ----------------------- | ------------- | ------------------------- |
 | Java 8                  | Alpine 3.16\* | Adoptium Temurin 8 (MUSL) |
 | Java 11                 | Alpine 3.16\* | MSFT OpenJDK 11 (MUSL)    |
@@ -104,7 +103,7 @@ Microsoft and Adoptium builds of OpenJDK are provided and supported on App Servi
 
 # [Windows](#tab/windows)
 
-| **Java stack name**  | **Windows version** | **Java distribution** |
+| Java stack name  | Windows version | Java distribution |
 | -------------------- | ------------------- | --------------------- |
 | Java SE, Java 8      | Windows Server 2022 | Adoptium Temurin 8    |
 | Java SE, Java 11     | Windows Server 2022 | MSFT OpenJDK 11       |
@@ -126,19 +125,19 @@ Microsoft and Adoptium builds of OpenJDK are provided and supported on App Servi
 
 -----
 
-If you're [pinned](configure-language-java-deploy-run.md#choosing-a-java-runtime-version) to an older minor version of Java, your app might be using the deprecated [Azul Zulu for Azure](https://devblogs.microsoft.com/java/end-of-updates-support-and-availability-of-zulu-for-azure/) binaries provided through [Azul Systems](https://www.azul.com/). You can keep using these binaries for your app, but any security patches or improvements are available only in new versions of the OpenJDK, so we recommend that you periodically update your Web Apps to a later version of Java.
+If you're [pinned](configure-language-java-deploy-run.md#choosing-a-java-runtime-version) to an earlier minor version of Java, your app might be using the deprecated [Azul Zulu for Azure](https://devblogs.microsoft.com/java/end-of-updates-support-and-availability-of-zulu-for-azure/) binaries provided through [Azul Systems](https://www.azul.com/). You can keep using these binaries for your app, but any security patches or improvements are available only in more recent versions of OpenJDK. In this scenario, we recommend that you periodically update your web apps to a more recent version of Java.
 
-Major version updates are provided through new runtime options in Azure App Service. Customers update to these newer versions of Java by configuring their App Service deployment and are responsible for testing and ensuring the major update meets their needs.
+Major version updates are provided through new runtime options in Azure App Service. Customers update to these later versions of Java by configuring their App Service deployment and are responsible for testing and ensuring the major update meets their needs.
 
-Supported JDKs are automatically patched on a quarterly basis in January, April, July, and October of each year. For more information on Java on Azure, see [this support document](/azure/developer/java/fundamentals/java-support-on-azure).
+Supported JDKs are automatically patched on a quarterly basis in January, April, July, and October of each year. For more information, see [Java on Azure](/azure/developer/java/fundamentals/java-support-on-azure).
 
 ### Security updates
 
-Patches and fixes for major security vulnerabilities are released as soon as they become available in Microsoft builds of the OpenJDK. A "major" vulnerability has a base score of 9.0 or higher on the [NIST Common Vulnerability Scoring System, version 2](https://nvd.nist.gov/vuln-metrics/cvss).
+Patches and fixes for major security vulnerabilities are released as soon as they become available in Microsoft builds of OpenJDK. A "major" vulnerability has a base score of 9.0 or higher on the [NIST Common Vulnerability Scoring System, version 2](https://nvd.nist.gov/vuln-metrics/cvss).
 
 Tomcat 8.5 reached [End of Life as of March 31, 2024](https://tomcat.apache.org/tomcat-85-eol.html) and Tomcat 10.0 reached [End of Life as of October 31, 2022](https://tomcat.apache.org/tomcat-10.0-eol.html).
 
-While the runtimes are still available on Azure App Service, Tomcat 8.5 or 10.0 won't receive security updates.
+Although the runtimes are still available on Azure App Service, Tomcat 10 and Tomcat 8.5 don't receive security updates.
 
 When possible, migrate your applications to Tomcat 9.0 or Tomcat 10.1. Tomcat 9.0 and Tomcat 10.1 are available on Azure App Service. For more information, see the [official Tomcat site](https://tomcat.apache.org/whichversion.html).
 
@@ -153,6 +152,6 @@ If a supported Java runtime is retired, Azure developers using the affected runt
 
 ### Local development
 
-Developers can download the Microsoft Build of OpenJDK for local development from [our download site](/java/openjdk/download).
+Developers can download the Microsoft build of OpenJDK for local development from [our download site](/java/openjdk/download).
 
-Product support for the [Microsoft Build of OpenJDK](/java/openjdk/download) is available through Microsoft when developing for Azure or [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) with a [qualified Azure support plan](https://azure.microsoft.com/support/plans/).
+Product support for the [Microsoft build of OpenJDK](/java/openjdk/download) is available through Microsoft when developing for Azure or [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) with a [qualified Azure support plan](https://azure.microsoft.com/support/plans/).
