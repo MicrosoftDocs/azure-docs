@@ -1,6 +1,6 @@
 ---
 title: Manage your Azure Native Dynatrace Service integration
-description: This article describes how to manage Dynatrace on the Azure portal. 
+description: Manage settings, view resources, reconfigure metrics/logs, and more for your Dynatrace resource via Azure portal.
 
 ms.topic: how-to
 ms.date: 3/13/2025
@@ -15,7 +15,7 @@ This article describes how to manage the settings for Dynatrace for Azure.
 
 To see the details of your Dynatrace resource, select **Overview** in the left pane.
 
-:::image type="content" source="media/manage/resource-overivew.png" alt-text="A screenshot of a Dynatrace resource in the Azure portal with the overview displayed in teh working pane.":::
+:::image type="content" source="media/manage/resource-overivew.png" alt-text="A screenshot of a Dynatrace resource in the Azure portal with the overview displayed in the working pane.":::
 
 The details include:
 
@@ -64,7 +64,7 @@ To monitor resources for virtual machines, select **Dynatrace environment config
 > [!IMPORTANT]
 >
 > - Dynatrace OneAgent can only be installed on virtual machines that are running. If the virtual machine is stopped, installing the Dynatrace OneAgent is disabled.   
-> - If a virtual machine shows that a OneAgent is installed, but the option Uninstall extension is disabled, then the agent was configured through a different Dynatrace resource in the same Azure subscription. To make any changes, please go to the other Dynatrace resource in the Azure subscription.
+> - If a virtual machine shows that a OneAgent is installed and the option Uninstall extension is disabled, the agent was configured through another resource in the same subscription. To make any changes, go to the other Dynatrace resource in the Azure subscription.
 
 [!INCLUDE [agent](../includes/agent.md)]
 
@@ -90,6 +90,6 @@ To monitor resources for Azure Arc Machines, select **Dynatrace environment conf
 
 ## Related content
 
-- For help with troubleshooting, see [Troubleshooting Dynatrace integration with Azure](dynatrace-troubleshoot.md).
+- [Troubleshooting Dynatrace integration with Azure](dynatrace-troubleshoot.md).
 - [Get started with infrastructure monitoring](https://www.dynatrace.com/support/help/how-to-use-dynatrace/hosts/basic-concepts/get-started-with-infrastructure-monitoring)
 

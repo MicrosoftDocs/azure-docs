@@ -146,11 +146,7 @@ To monitor resources for Azure Arc Machines, select **Datadog organization confi
 
 ## Reconfigure single sign-on
 
-To enable single sign-on through Microsoft Entra ID:
-
-1. Select **Settings > Single sign-on** from the Resource pane.
-
-1. Select the check box.
+[!INCLUDE [reconfigure-sso](../includes/reconfigure-sso.md)]
 
 ## Change your billing plan
 
