@@ -27,7 +27,7 @@ This article provides information about known issues associated with Azure Digit
 
 | Does this affect me? | Cause | Resolution |
 | --- | --- | --- |
-| If you're using version 2.70 of the Azure CLI, this affects all `az dt` CLI commands. | This is a [known issue](https://github.com/Azure/azure-cli/issues/31042) with version 2.70 of the Azure CLI. | To bypass this issue, use the local Azure CLI (not Cloud Shell) and downgrade your CLI to version 2.69. On Windows, you can set the CLI version by running the command `winget install --exact --id Microsoft.AzureCLI --version 2.69.0`. For more information about installing the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli). |
+| If you're using version 2.70 of the Azure CLI, this affects all `az dt` CLI commands. | This is a [known issue](https://github.com/Azure/azure-cli/issues/31042) with version 2.70 of the Azure CLI. | To bypass this issue, use the local Azure CLI (not Cloud Shell) and downgrade your CLI to version 2.69. You can revert to an earlier version by [uninstalling the Azure CLI](/cli/azure/install-azure-cli-windows?pivots=winget#uninstall) and then [reinstalling](/cli/azure/install-azure-cli-windows?pivots=winget#install-or-update) the specific CLI version. On Windows, the reinstall command is `winget install --exact --id Microsoft.AzureCLI --version 2.69.0`. |
 
 ## "400 Client Error: Bad Request" in Cloud Shell
 
