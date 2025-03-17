@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Deploy your first container app'
+title: 'Tutorial: Deploy an NVIDIA Llama3 NIM to Azure Container Apps'
 description: Deploy a NVIDIA NIM to Azure Container Apps.
 services: container-apps
 author: craigshoemaker
@@ -10,7 +10,7 @@ ms.author: cachai
 ms.devlang: azurecli
 ---
 
-# Tutorial: Deploy an NVIDIA LLAMA3 NIM to Azure Container Apps
+# Tutorial: Deploy an NVIDIA Llama3 NIM to Azure Container Apps
 
 NVIDIA Inference Microservices (NIMs) are optimized, containerized AI inference microservices designed to simplify and accelerate the deployment of AI models. When you use Azure Container Apps with serverless GPUs, you can run these NIMs efficiently without having to manage the underlying infrastructure.​
 
@@ -48,7 +48,7 @@ This tutorial uses a premium instance of Azure Container Registry to improve col
     CONTAINERAPPS_ENVIRONMENT="my-environment-name"
     GPU_TYPE="Consumption-GPU-NC24-A100"
     CONTAINER_APP_NAME="llama3-nim"
-    CONTAINER_AND_TAG="llama3-8b-instruct:1.0.0"
+    CONTAINER_AND_TAG="llama-3.1-8b-instruct:latest"
     ```
 
 [!INCLUDE [container-apps-create-resource-group.md](../../includes/container-apps-create-resource-group.md)]
@@ -120,7 +120,7 @@ Many of the NIM images are large, and your container app can take a long time to
     ```azurecli
     az acr artifact-streaming update \
         --name $ACR_NAME \
-        --repository llama31_8b_ins \
+        --repository llama-3.1-8b-instruct \
         --enable-streaming True
     ```
 
@@ -129,7 +129,7 @@ Many of the NIM images are large, and your container app can take a long time to
     ```azurecli
     az acr artifact-streaming create \
       --name $ACR_NAME \
-      --image llama31_8b_ins:latest
+      --image $CONTAINER_AND_TAG
     ```
 
 ## Create your container app
@@ -197,7 +197,7 @@ curl -X POST \
 
 ## (Optional) Improving performance with volume mounts
 
-For even faster cold start times, many of the NIMs provide a volume mount path to mount a cache directory. You can use this cache directory to store the model weights and other files that the NIM needs to run. To set up a volume mount for the Llama3 NIM, see this article.
+When starting up and using artifact streaming with Azure Container Registry, your NIMs will still be pulling the images from the container registry at startup. This can add cold start even with the optimized artifact streaming. For even faster cold start times, many of the NIMs provide a volume mount path to mount a cache directory. You can use this cache directory to store the model weights and other files that the NIM needs to run. To set up a volume mount for the Llama3 NIM, you will need to set a volume mount on the `./opt/nim/.cache` as specified in the [NVIDIA Llama-3.1-8b documentation](https://build.nvidia.com/meta/llama-3_1-8b-instruct/deploy). To do so, follow the steps in the [volume mounts tutorial](./storage-mounts-azure-files.md) and set the volume mount path to `/opt/nim/.cache`.
 
 ## Clean up resources
 
