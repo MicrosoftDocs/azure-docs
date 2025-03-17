@@ -154,7 +154,7 @@ Next you create a container app with the NVIDIA GPU Cloud API key.
         --resource-group $RESOURCE_GROUP \
         --name $CONTAINERAPPS_ENVIRONMENT \
         --workload-profile-type $GPU_TYPE \
-        --workload-profile-name <WORKLOAD_PROFILE_NAME>
+        --workload-profile-name LLAMA_PROFILE
     ```
 
 1. Create the container app.
