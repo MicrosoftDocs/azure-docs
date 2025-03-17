@@ -129,7 +129,7 @@ If you're billed at the simplified Commitment tier rate, this table shows how Mi
 | Cost description | Service name | Meter |
 |--|--|--|
 | Microsoft Sentinel Commitment tier | `Sentinel` | **`n` GB Commitment Tier** |
-| Microsoft Sentinel Commitment tier overage | `Sentinel` |**Analysis**|
+| Microsoft Sentinel Commitment tier overage | `Sentinel` | **Analysis** |
 
 # [Commitment tiers](#tab/commitment-tiers/classic)
 
@@ -139,8 +139,8 @@ If you're billed at the classic Commitment tier rate, this table shows how Micro
 |--|--|--|
 | Microsoft Sentinel Commitment tier | `Sentinel` | **Classic `n` GB commitment tier** |
 | Log Analytics Commitment tier | `Azure Monitor` | **`n` GB commitment tier** |
-| Microsoft Sentinel Commitment tier overage | `Sentinel` |**Classic Analysis**|
-| Log Analytics over the Commitment tier| `Log Analytics` |**Data Ingestion**|
+| Microsoft Sentinel Commitment tier overage | `Sentinel` | **Classic Analysis** |
+| Log Analytics over the Commitment tier | `Log Analytics` | **Data Ingestion** |
 
 # [Pay-as-you-go](#tab/pay-as-you-go/simplified)
 
@@ -148,9 +148,8 @@ If you're billed at the simplified pay-as-you-go rate, this table shows how Micr
 
 | Cost description | Service name | Meter |
 |--|--|--|
-| Pay-as-you-go| `Sentinel` |**Pay-as-You-Go Analysis**|
-| Basic logs data analysis| `Sentinel` |**Basic Logs Analysis**|
-| Auxiliary logs data analysis| `Sentinel` |**???**|
+| Pay-as-you-go | `Sentinel` | **Pay-as-you-go Analysis** |
+| Auxiliary logs data analysis | `Sentinel` | **???** |
 
 
 # [Pay-as-you-go](#tab/pay-as-you-go/classic)
@@ -159,12 +158,10 @@ If you're billed at classic pay-as-you-go rate, this table shows how Microsoft S
 
 | Cost description | Service name | Meter |
 |--|--|--|
-| pay-as-you-go| `Sentinel` |**Classic Pay-as-You-Go Analysis**|
-| pay-as-you-go| `Log Analytics` |**Pay-as-You-Go Data Ingestion**|
-| Basic logs data analysis| `Sentinel` |**Classic Basic Logs Analysis**|
-| Basic logs data ingestion| `Azure Monitor` |**Basic Logs Data Ingestion**|
-| Auxiliary logs data analysis| `Sentinel` |**???**|
-| Auxiliary logs data ingestion| `Azure Monitor` |**???**|
+| Pay-as-you-go | `Sentinel` | **Classic Pay-as-you-go Analysis** |
+| Pay-as-you-go | `Log Analytics` | **Pay-as-you-go Data Ingestion** |
+| Auxiliary logs data analysis | `Sentinel` | **???** |
+| Auxiliary logs data ingestion | `Azure Monitor` | **???** |
 
 
 # [Free data meters](#tab/free-data-meters/simplified)
@@ -173,8 +170,8 @@ This table shows how Microsoft Sentinel and Log Analytics no charge costs appear
 
 | Cost description | Service name | Meter |
 |--|--|--|
-| Microsoft Sentinel Free Trial – Sentinel Analysis| `Sentinel` |**Free trial Analysis**|
-| Microsoft Defender XDR Benefit – Data Analysis| `Sentinel` |**Free Benefit - M365 Defender Analysis**|
+| Microsoft Sentinel Free Trial – Sentinel Analysis | `Sentinel` | **Free trial Analysis** |
+| Microsoft Defender XDR Benefit – Data Analysis | `Sentinel` | **Free Benefit - M365 Defender Analysis** |
 
 
 # [Free data meters](#tab/free-data-meters/classic)
@@ -183,10 +180,10 @@ This table shows how Microsoft Sentinel and Log Analytics no charge costs appear
 
 | Cost description | Service name | Meter |
 |--|--|--|
-| Microsoft Sentinel Free Trial – Log Analytics data ingestion| `Azure Monitor` |**Free Benefit - Az Sentinel Trial Data Ingestion**|
-| Microsoft Sentinel Free Trial – Sentinel Analysis| `Sentinel` |**Free trial Analysis**|
-| Microsoft Defender XDR Benefit – Data Ingestion| `Azure Monitor` |**Free Benefit - M365 Defender Data Ingestion**|
-| Microsoft Defender XDR Benefit – Data Analysis| `Sentinel` |**Free Benefit - M365 Defender Analysis**|
+| Microsoft Sentinel Free Trial – Log Analytics data ingestion | `Azure Monitor` | **Free Benefit - Az Sentinel Trial Data Ingestion** |
+| Microsoft Sentinel Free Trial – Sentinel Analysis | `Sentinel` | **Free trial Analysis** |
+| Microsoft Defender XDR Benefit – Data Ingestion | `Azure Monitor` | **Free Benefit - M365 Defender Data Ingestion** |
+| Microsoft Defender XDR Benefit – Data Analysis | `Sentinel` | **Free Benefit - M365 Defender Analysis** |
 
 ---
 

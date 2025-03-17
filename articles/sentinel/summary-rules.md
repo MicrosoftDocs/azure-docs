@@ -218,14 +218,14 @@ This procedure describes a sample process for using summary rules with [auxiliar
 
 1. Create summary rules that aggregate your CEF data. For example:
 
-    - **Lookup incident of concern (IoC) data**: Hunt for specific IoCs by running aggregated summary queries to bring unique occurrences, and then query only those occurrences for faster results. The following example shows an example of how to bring a unique `Source Ip` feed along with other metadata, which can then be used against IoC lookups:
+    - **Lookup indicator of compromise (IoC) data**: Hunt for specific IoCs by running aggregated summary queries to bring unique occurrences, and then query only those occurrences for faster results. The following example shows an example of how to bring a unique `Source Ip` feed along with other metadata, which can then be used against IoC lookups:
 
         ```kusto
         // Daily Network traffic trend Per Destination IP along with Data transfer stats 
         // Frequency - Daily - Maintain 30 day or 60 Day History. 
           Custom_CommonSecurityLog 
           | extend Day = format_datetime(TimeGenerated, "yyyy-MM-dd") 
-          | summarize Count= count(), DistinctSourceIps = dcount(SourceIP), NoofByesTransferred = sum(SentBytes), NoofBytesReceived = sum(ReceivedBytes)  
+          | summarize Count= count(), DistinctSourceIps = dcount(SourceIP), NoofBytesTransferred = sum(SentBytes), NoofBytesReceived = sum(ReceivedBytes)  
           by Day,DestinationIp, DeviceVendor 
         ```
 
