@@ -16,7 +16,7 @@ The Azure Functions durable task scheduler is a highly performant, fully-managed
 > [!div class="checklist"]
 > * Create a scheduler and task hub. 
 > * Configure identity-based authentication for your application to access durable task scheduler.
-> * Monitor the status of your app and task hub on the dts dashboard. 
+> * Monitor the status of your app and task hub on the durable task scheduler dashboard. 
 
 Learn more about durable task scheduler [features](./durable-task-scheduler.md#feature-highlights), [supported regions](./durable-task-scheduler.md#limitations-and-considerations), and [plans](./durable-task-scheduler.md#limitations-and-considerations).
 
@@ -155,7 +155,7 @@ docker run -itP -e DTS_TASK_HUB_NAMES=taskhub1,taskhub2,taskhub3 mcr.microsoft.c
 
 You can create a scheduler and task hub on Azure portal via two ways: 
 - **Function app integrated creation:** *(recommended)* automatically creates the managed identity resource and RBAC assignment needed for your app to access durable task scheduler.
-- **Top-level creation:** Requires you to [manually assign RBAC](#configure-identity-based-authentication-for-app-to-access-dts) to configure scheduler access for your app.
+- **Top-level creation:** Requires you to [manually assign RBAC](#configure-identity-based-authentication-for-app-to-access-durable-task-scheduler) to configure scheduler access for your app.
 
 > [!NOTE]
 > Durable task scheduler currently supports apps hosted in the **App Service** and **Functions Premium** plans, so this experience is available only when either of these plan types is picked. 
@@ -506,11 +506,12 @@ For durable task scheduler apps on the Functions Premium plan, enable the *Runti
 
 Run the following command:
 
-    ```azurecli
-    az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
-    ```
+```azurecli
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
+```
 
 ::: zone-end 
+
 ## Next steps
 
 Try out the [durable functions quickstart sample](quickstart-durable-task-scheduler.md).
