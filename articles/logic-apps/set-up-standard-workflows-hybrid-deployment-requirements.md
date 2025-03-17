@@ -6,7 +6,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/10/2025
+ms.date: 03/13/2025
 # Customer intent: As a developer, I need to set up the requirements to host and run Standard logic app workflows on infrastructure that my organization owns, which can include on-premises systems, private clouds, and public clouds.
 ---
 
@@ -157,9 +157,10 @@ Your Kubernetes cluster requires inbound and outbound connectivity with the [SQL
    az login
    az account set --subscription $SUBSCRIPTION
    az provider register --namespace Microsoft.KubernetesConfiguration --wait
+   az provider register --namespace Microsoft.Kubernetes --wait
    az extension add --name k8s-extension --upgrade --yes
-   az group create
-      --name $AKS_CLUSTER_GROUP_NAME
+   az group create \
+      --name $AKS_CLUSTER_GROUP_NAME \
       --location $LOCATION
    az aks create \
       --resource-group $AKS_CLUSTER_GROUP_NAME \
@@ -179,7 +180,10 @@ Your Kubernetes cluster requires inbound and outbound connectivity with the [SQL
    For more information, see the following resources:
 
    - [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure CLI](/azure/aks/learn/quick-kubernetes-deploy-cli)
+   - [**az extension add**](/cli/azure/extension#az-extension-add)
+   - [Register the required namespaces](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#setup)
    - [**az account set**](/cli/azure/account#az-account-set)
+   - [**az provider register**](/cli/azure/provider#az-provider-register)
    - [**az group create**](/cli/azure/group#az-group-create)
    - [**az aks create**](/cli/azure/aks#az-aks-create)
 
@@ -219,6 +223,7 @@ To create your Azure Arc-enabled Kubernetes cluster, connect your Kubernetes clu
 
    ```azurecli
    az provider register --namespace Microsoft.ExtendedLocation --wait
+   az provider register --namespace Microsoft.Kubernetes --wait
    az provider register --namespace Microsoft.KubernetesConfiguration --wait
    az provider register --namespace Microsoft.App --wait
    az provider register --namespace Microsoft.OperationalInsights --wait
@@ -242,6 +247,24 @@ To create your Azure Arc-enabled Kubernetes cluster, connect your Kubernetes clu
    - [Command line tool (kubectl)](https://kubernetes.io/docs/reference/kubectl/kubectl/)
    - [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy)
    - [choco install kubernetes-cli](https://docs.chocolatey.org/en-us/choco/commands/install/)
+
+1. Test your connection to your cluster by getting the [**kubeconfig** file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/):
+
+   ```azurecli
+   az aks get-credentials \
+      --resource-group $AKS_CLUSTER_GROUP_NAME \
+      --name $AKS_NAME \
+      --admin
+   kubectl get ns 
+   ```
+
+   By default, the **kubeconfig** file is saved to the path, **~/.kube/config**. This command applies to our example Kubernetes cluster and differs for other kinds of Kubernetes clusters.
+
+   For more information, see the following resources:
+
+   - [Create connected cluster](../container-apps/azure-arc-enable-cluster.md?tabs=azure-cli#create-a-connected-cluster)
+   - [**az aks get-credentials**](/cli/azure/aks#az-aks-get-credentials)
+   - [**kubectl get**](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/)
 
 1. Install the Kubernetes package manager named **Helm**:
 
@@ -279,24 +302,6 @@ To create your Azure Arc-enabled Kubernetes cluster, connect your Kubernetes clu
       For more information, see [**kubectl get**](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/).
 
 ## Connect your Kubernetes cluster to Azure Arc
-
-1. Test your connection to your cluster by getting the [**kubeconfig** file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/):
-
-   ```azurecli
-   az aks get-credentials \
-      --resource-group $AKS_CLUSTER_GROUP_NAME \
-      --name $AKS_NAME \
-      --admin
-   kubectl get ns 
-   ```
-
-   By default, the **kubeconfig** file is saved to the path, **~/.kube/config**. This command applies to our example Kubernetes cluster and differs for other kinds of Kubernetes clusters.
-
-   For more information, see the following resources:
-
-   - [Create connected cluster](../container-apps/azure-arc-enable-cluster.md?tabs=azure-cli#create-a-connected-cluster)
-   - [**az aks get-credentials**](/cli/azure/aks#az-aks-get-credentials)
-   - [**kubectl get**](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/)
 
 1. Based on your Kubernetes cluster deployment, set the following environment variable to provide a name to use for the Azure resource group that contains your Azure Arc-enabled cluster and resources:
 
