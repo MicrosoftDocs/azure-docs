@@ -31,4 +31,3 @@
 1. After the import validates (imports with no errors), select **Save**.
 
 1. In the left pane, locate the **VPN connection**, then select **Connect**.
-1. If you experience connection issues, if you're running the v4.0.0.0 version of the Azure VPN Client or later, you can click the **...** at the bottom of the Azure VPN Client page and select **Prerequisites**. On the **Test Application Prerequisites** page, select **Run Prerequisites Test**. Fix any issues and try connecting again. For more information, see [Azure VPN Client prerequisites check](../articles/vpn-gateway/azure-vpn-client-prerequisites-check.md).
