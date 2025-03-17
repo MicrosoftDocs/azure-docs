@@ -213,9 +213,11 @@ Get the durable task scheduler emulator port number in [the next step](#set-up-d
 
    :::image type="content" source="media/quickstart-durable-task-scheduler/docker-ports.png" alt-text="Screenshot of ports on Docker.":::
 
-1. Click on the *default* task hub to see its dashboard. Learn more about the [durable task scheduler dashboard](./durable-task-scheduler-dashboard.md). 
+1. Click on the *default* task hub to see its dashboard. 
 
 > [!NOTE] 
+> Learn more about the [durable task scheduler dashboard](./durable-task-scheduler-dashboard.md). 
+>
 > The [durable task scheduler emulator](./durable-task-scheduler.md#emulator-for-local-development) stores orchestration data in memory, which means all data is lost when it shuts down. 
 >
 > Running into issues testing? [See the troubleshooting guide.](./troubleshoot-durable-task-scheduler.md)
