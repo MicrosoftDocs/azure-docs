@@ -61,35 +61,12 @@ If you already have a project and you want to create an additional project, do t
 
    :::image type="content" source="./media/create-manage-projects/create-a-project.png" alt-text="Screenshot shows how to create a project by selecting the create project button.":::
 
-## Create a project in a specific region
-
-In the portal, you can select the geography in which you want to create the project. If you want to create the project within a specific Azure region, use the following API command to create the  project.
-
-```rest
-PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}"
-```
-After you create the project, perform the following steps to try out the new agentless dependency analysis enhancements: 
-
-Ensure that you install Az CLI to execute the required commands by following the steps provided in the documentation [here](https://learn.microsoft.com/cli/azure/install-azure-cli)
-
-After you install the Az CLI (in PowerShell), open PowerShell on your system as an Administrator and execute the following commands:
-
-1. Login to the Azure tenant and set the Subscription.  
-   - az log in --tenant <TENANT_ID>
-   - az account set --subscription <SUBSCRIPTION_ID> 
-   - Output contains - **"state": "Registered"**
-1. Register the new Dependency Map resource provider.  
-   - **az provider register --namespace Microsoft.DependencyMap**
-1. Ensure that the provider is in registered state. 
-    - **az provider show -n Microsoft.DependencyMap**
-    - Output contains - **"registrationState": "Registered"**
- 
 ## Find a project
 
 Follow the steps to find a project:
 
-1. In the [Azure portal](https://portal.azure.com), search for *Azure Migrate*.
-2. Select **All Projects** from the upper left.
+1. In the [Azure portal](https://portal.azure.com), search for *Azure Migrate*. 
+1. Select **All Projects** from the upper left.
 1. Filter and select the project of your choice.
 
     :::image type="content" source="./media/create-manage-projects/filter-and-select-project.png" alt-text="Screenshot shows to filter and select the project.":::
@@ -110,7 +87,7 @@ Follow the steps to delete a project:
   :::image type="content" source="./media/create-manage-projects/delete-window.png" alt-text="Window appears to delete a project.":::
 
 > [!Note]
-> You can't delete or manage the associated Azure Active Directory (AAD) app from this Azure Migrate project level. To delete this resource, visit the AAD app details or use the Azure Command Line Interface (AzCLI). az ad app delete --id <aad app id>
+> You can't delete or manage the associated Azure Active Directory (AAD) app from this Azure Migrate project level. To delete this resource, visit the AAD app details or use the Azure Command Line Interface (AzCLI). `az ad app delete --id <aad app id>`
 
 1. When you delete a project, both the project and its metadata about discovered servers are deleted. If you want to keep resources such as **key vaults** or **storage vaults**, you can **deselect them** 
 1. After you finalize the list of resources to delete, select **Next**.
