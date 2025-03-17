@@ -7,7 +7,7 @@ ms.service: azure-container-apps
 ms.custom:
   - ignite-2024
 ms.topic: how-to
-ms.date: 11/06/2024
+ms.date: 03/17/2025
 ms.author: cshoe
 ---
 
@@ -15,7 +15,7 @@ ms.author: cshoe
 
 Azure Container Apps provides access to GPUs on-demand without you having to manage the underlying infrastructure. As a serverless feature, you only pay for GPUs in use. When enabled, the number of GPUs used for your app rises and falls to meet the load demands of your application. Serverless GPUs enable you to seamlessly run your workloads with automatic scaling, optimized cold start, per-second billing with scale down to zero when not in use, and reduced operational overhead. 
 
-Serverless GPUs are only supported for Consumption workload profiles. The feature is not supported for Consumption-only environments.
+Serverless GPUs are only supported for Consumption workload profiles. The feature isn't supported for Consumption-only environments.
 
 > [!NOTE]
 > Access to GPUs is only available after you request GPU quotas. You can submit your GPU quota request via a [customer support case](/azure/azure-portal/supportability/how-to-create-azure-support-request).
@@ -93,7 +93,7 @@ Serverless GPUs are run on consumption GPU workload profiles. You manage a consu
 
 ## Improve GPU cold start
 
-You can improve cold start on your GPU-enabled containers by enabling artifact streaming on your Azure Container Registry. For more details, see [enable artifact streaming](./https://learn.microsoft.com/en-us/azure/container-registry/container-registry-artifact-streaming?pivots=development-environment-azure-cli#pushimport-the-image-and-generate-the-streaming-artifact----azure-cli).
+You can improve cold start on your GPU-enabled containers by enabling artifact streaming on your Azure Container Registry. For more information, see [enable artifact streaming](/azure/container-registry/container-registry-artifact-streaming?pivots=development-environment-azure-cli).
 
 > [!NOTE]
 > To use artifact streaming, your container images must be hosted in a premium Azure Container Registry.
