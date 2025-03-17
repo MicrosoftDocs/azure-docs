@@ -24,11 +24,11 @@ Learn more about durable task scheduler [features](./durable-task-scheduler.md#f
 
 ## Prerequisites
 
-- [The latest version of Azure CLI.](/cli/azure/install-azure-cli) 
+- [The latest version of the Azure CLI.](/cli/azure/install-azure-cli) 
 
 ## Set up the CLI
 
-1. Login to Azure CLI and make sure you have the latest installed.
+1. Login to the Azure CLI and make sure you have the latest installed.
 
     ```azurecli
     az login
