@@ -7,6 +7,36 @@ ms.date: 01/27/2025
 
 # Troubleshoot the Azure Functions durable task scheduler dashboard (preview)
 
+## Check connection string and access to durable task schedule
+
+When your app isn't running as expected, first check if you have the correct connection string format and have set up authentication correctly. 
+
+### Local development
+
+1. Check connection string, which should have this format: `Endpoint=http://localhost:<port number>;Authentication=None`. Ensure the port number is the one mapped to `8080` on the [container that's running the emulator](./quickstart-durable-task-scheduler.md#set-up-durable-task-scheduler-emulator). 
+1. In addition to the durable task scheduler emulator, check that the Azure Storage emulator [Azurite is started](./quickstart-durable-task-scheduler.md#test-locally). Azurite is need for components of the app related to Functions. 
+
+### Running on Azure
+
+1. Check your app for the environment variables `DURABLE_TASK_SCHEDULER_CONNECTION_STRING` and `TASKHUB_NAME`.
+1. Check the value of `DURABLE_TASK_SCHEDULER_CONNECTION_STRING`. Specifically, verify that the scheduler endpoint and authentication type are correct. The connection string should be formatted as follows when using: 
+    - **User-assigned managed identity** - `Endpoint={scheduler endpoint};Authentication=ManagedIdentity;ClientID={client id}` where *client id* is the identity's client ID. 
+    - **System-assigned managed identity** - `Endpoint={scheduler endpoint};Authentication=ManagedIdentity`
+1. Ensure the required role-based access control (RBAC) permission is [granted to the identity](./develop-with-durable-task-scheduler.md#configure-identity-based-authentication-for-app-to-access-durable-task-scheduler) needing to access the specified task hub or scheduler. 
+  1. When accessing the dashboard, ensure permission is [assigned to your own identity (email)](./develop-with-durable-task-scheduler.md#accessing-durable-task-scheduler-dashboard).
+1. If user-assigned managed identity is used, ensure the [identity is assigned to your app](./develop-with-durable-task-scheduler.md#assign-managed-identity-to-your-app).
+
+## Error deploying durable functions app to Azure 
+
+If your deployment fails with an error such as `Encountered an error (ServiceUnavailable) from host runtime` from Visual Studio Code, first check your app to ensure the required [environment variables](./develop-with-durable-task-scheduler.md#add-environment-variables-to-app) are set correctly. Then redeploy your app. If you see an error loading functions, click the "Refresh" button. 
+
+## Unknown error retrieving details of this task hub
+
+If you get an `Unknown error retrieving details of this task hub` error on the durable task scheduler dashboard, the reason could be:
+
+1. Your identity (email) doesn't have the required permission assigned for that task hub. Follow instructions to [grant the permission](./develop-with-durable-task-scheduler.md#accessing-durable-task-scheduler-dashboard), then access the dashboard again. 
+1. Your task hub was deleted. 
+
 ## Can't delete resource
 
 Make sure you delete all task hubs in the durable task scheduler environment. If you haven't, you receive the following error message:
@@ -75,7 +105,3 @@ For Mx Mac (ARM64) users, you may run into gRPC runtime issues with durable func
   </Target>
 </Project>     
 ``` 
-
-## Error deploying app to Azure 
-
-If your deployment fails with an error such as `Encountered an error (ServiceUnavailable) from host runtime` from Visual Studio Code, first check your app to ensure the required [environment variables](./develop-with-durable-task-scheduler.md#add-environment-variables-to-app) are set correctly. Then redeploy your app. If you see an error loading functions, click the "Refresh" button. 

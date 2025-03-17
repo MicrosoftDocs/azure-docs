@@ -384,7 +384,7 @@ Now that the identity has the required RBAC to access durable task scheduler, yo
 
 Add these two environment variables to app setting:
   - `TASKHUB_NAME`: name of task hub
-  - `DURABLE_TASK_SCHEDULER_CONNECTION_STRING`: the format of the string is `"Endpoint={DTS endpoint};Authentication=ManagedIdentity;ClientID={client id}"`, where *endpoint* is the scheduler endpoint and *client id* is the managed identity client ID. 
+  - `DURABLE_TASK_SCHEDULER_CONNECTION_STRING`: the format of the string is `"Endpoint={scheduler point};Authentication=ManagedIdentity;ClientID={client id}"`, where *endpoint* is the scheduler endpoint and *client id* is the identity's client ID. 
 
 ::: zone pivot="az-cli"
 
@@ -430,7 +430,7 @@ Add these two environment variables to app setting:
 ::: zone-end 
 
 > [!NOTE]
-> If you use system-assigned identity, your connection string would *not* need the client ID of the identity resource: `"Endpoint={DTS URL};Authentication=ManagedIdentity"`.
+> If you use system-assigned identity, your connection string would *not* need the client ID of the identity resource: `"Endpoint={scheduler endpoint};Authentication=ManagedIdentity"`.
 
 ## Accessing durable task scheduler dashboard
 
