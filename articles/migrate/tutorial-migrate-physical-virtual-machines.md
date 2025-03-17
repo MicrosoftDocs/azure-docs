@@ -167,7 +167,7 @@ This section introduces an upgraded agent-based migration stack for physical and
 
 ## Navigate to Azure Migrate project
 
-Follow the steps to navigate to the Azure Migrate project
+Follow the steps to navigate to the Azure Migrate project:
 
 **Step 1**: Navigate to Azure Migrate project
 

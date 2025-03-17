@@ -24,8 +24,6 @@ The key differences between the simplified experience and the classic experience
 - The ASR appliance is used for physical stack migrations.
 - VMware and Hyper-V migrations utilize different appliances.
 - The ASR appliance setup is a component of the simplified experience.
-The new design ensures a more efficient and intuitive user interaction, simplifying the migration journey for customers.
-
 
 ## Update (February 2025)
 
