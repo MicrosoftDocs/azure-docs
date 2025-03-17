@@ -7,7 +7,7 @@ ms.service: azure-container-apps
 ms.custom:
   - ignite-2024
 ms.topic: how-to
-ms.date: 03/16/2025
+ms.date: 03/17/2025
 ms.author: cshoe
 zone_pivot_groups: container-apps-portal-or-cli
 ---
@@ -116,7 +116,7 @@ From the *Overview* window, select the **Application Url** link to open the web 
 
 ## Create environment variables
 
-Define the following environment variables. Replace the `<PLACEHOLDERS>` with your values.
+Define the following environment variables. Before running this command, replace the `<PLACEHOLDERS>` with your values.
 
 ```azurecli
 $RESOURCE_GROUP="<RESOURCE_GROUP>"
@@ -130,7 +130,7 @@ $WORKLOAD_PROFILE_TYPE="Consumption-GPU-NC8as-T4"
 
 ## Create your container app
 
-1. Create the resource group to contain the resources you create in this tutorial.
+1. Create the resource group to contain the resources you create in this tutorial. This command should output `Succeeded`.
 
     ```azurecli
     az group create \
@@ -139,7 +139,7 @@ $WORKLOAD_PROFILE_TYPE="Consumption-GPU-NC8as-T4"
       --query "properties.provisioningState"
     ```
 
-1. Create a Container Apps environment to host your container app.
+1. Create a Container Apps environment to host your container app. This command should output `Succeeded`.
 
     ```azurecli
     az containerapp env create \
@@ -181,6 +181,8 @@ $WORKLOAD_PROFILE_TYPE="Consumption-GPU-NC8as-T4"
 
 Open the application URL for your container app in your browser. Note it can take up to five minutes for the container app to start up.
 
+The Azure Container Apps with Serverless GPUs application lets you enter a prompt to generate an image. You can also simply select `Generate Image` to use the default prompt. In the next step, you view the results of the GPU processing.
+
 > [!NOTE]
 > - To achieve the best performance of your GPU apps, follow the steps to [improve cold start for your serverless GPUs](gpu-serverless-overview.md#improve-gpu-cold-start).
 > - When there are multiple containers in your application, the first container gets access to the GPU.
@@ -189,7 +191,7 @@ Open the application URL for your container app in your browser. Note it can tak
 
 ## Monitor your GPU
 
-Once you generate an image, use the following steps to view results of the GPU processing:
+Once you generate an image, use the following steps to view the results of the GPU processing:
 
 1. Open your container app in the Azure portal.
 
