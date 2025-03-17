@@ -49,6 +49,25 @@ Learn more about durable task scheduler [features](./durable-task-scheduler.md#f
 
 ::: zone-end 
 
+## Run durable task emulator
+1. Pull the docker image containing the emulator. 
+
+   ```bash
+   docker pull mcr.microsoft.com/dts/dts-emulator:v0.0.5
+   ```
+
+1. Run the emulator.
+
+   ```bash
+   docker run -itP mcr.microsoft.com/dts/dts-emulator:v0.0.5
+   ```
+
+The command above exposes a single task hub named `default`. If you need more than one task hub, you can set the environment variable `DTS_TASK_HUB_NAMES` on the container to a comma-delimited list of task hub names like below:
+
+```bash
+docker run -itP -e DTS_TASK_HUB_NAMES=taskhub1,taskhub2,taskhub3 mcr.microsoft.com/dts/dts-emulator:v0.0.5
+```
+
 ## Create a scheduler and task hub
 
 ::: zone pivot="az-cli"
@@ -197,11 +216,11 @@ You can see the list of scheduler resources created in all subscriptions you hav
 
 ::: zone pivot="az-cli" 
 
-  Retrieve a list of task hubs in a specific scheduler by running: 
+Retrieve a list of task hubs in a specific scheduler by running: 
 
-    ```azurecli
-    az durabletask taskhub list --resource-group <RESOURCE_GROUP_NAME> --scheduler-name <SCHEDULER_NAME>
-    ```
+```azurecli
+az durabletask taskhub list --resource-group <RESOURCE_GROUP_NAME> --scheduler-name <SCHEDULER_NAME>
+```
 
 ::: zone-end 
 

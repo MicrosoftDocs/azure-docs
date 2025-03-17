@@ -28,7 +28,7 @@ In this quickstart, you configure a durable functions app to use the [durable ta
 ## Prerequisites
 
 This quickstart assumes you alredy have an Azure Functions project on your local computer with:
-- Durable functions added to your project using:
+- Durable functions added to your project include:
   - An [orchestrator function](../durable-functions-bindings.md#orchestration-trigger). 
   - A [client function](../durable-functions-bindings.md#orchestration-client) that triggers the durable functions app.
 - The project configured for local debugging.
@@ -64,7 +64,7 @@ You'll also need:
 
 Install the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged) package by using the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command:
 
-   ```cmd
+   ```bash
    dotnet add package Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged --prerelease
    ```
 
@@ -77,14 +77,14 @@ Until the durable task scheduler package is added to the extension bundles, you 
   - [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)
 
 For example: 
-```cmd
+```bash
 func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask.AzureManaged --version 0.4.2-alpha
 ```
-```cmd
+```bash
 func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask --version 3.0.4
 ```
 
-These commands should automatically generate a *extensions.csproj* file that looks like the following to your app. If the package references are not added to the file, check to ensure that `net8.0` is the target framework and run the commands again:
+These commands should automatically generate a *extensions.csproj* file. If the package references are not added to the file, check to ensure that `net8.0` is the target framework and run the commands again. The file should have content similar to the following:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -155,12 +155,6 @@ Get the durable task scheduler emulator port number in [the next step](#set-up-d
    ```bash
    docker run -itP mcr.microsoft.com/dts/dts-emulator:v0.0.5
    ```
-
-   The command above registers the default task hub. If you need more than one task hub, you can set the environment variable `DTS_TASK_HUB_NAMES` on the container to a comma-delimited list of task hub names like below:
-
-   ```bash
-   docker run -itP -e DTS_TASK_HUB_NAMES=taskhub1,taskhub2,taskhub3 mcr.microsoft.com/dts/dts-emulator:v0.0.5
-   ```
    
    The following indicates the emulator started successfully.
      :::image type="content" source="media/quickstart-durable-task-scheduler/emulator-started.png" alt-text="Screenshot showing emulator started successfully on terminal.":::
@@ -230,20 +224,9 @@ Get the durable task scheduler emulator port number in [the next step](#set-up-d
 
 ### Create required resources
 
-Create a durable task scheduler instance and Azure Functions app on Azure following the *Function app integrated creation flow*. 
+Create a durable task scheduler instance and Azure Functions app on Azure following the *Function app integrated creation flow*. This experience will automatically set up identity-based access and configure the required environment variables for the app to access the scheduler. 
 
 [!INCLUDE [function-app-integrated-creation](./includes/function-app-integrated-creation.md)]
-
-### Add required environment variables to app
-
-Add the following environment variables: 
-  - `TASKHUB_NAME`: name of task hub
-  - `DURABLE_TASK_SCHEDULER_CONNECTION_STRING`: the format of the string is `"Endpoint={DTS endpoint};Authentication=ManagedIdentity;ClientID={client id}"`, where *endpoint* is the scheduler endpoint and *client id* is the managed identity client ID. 
-
-You can use this command:
-  ```azurecli
-  az functionapp config appsettings set --resource-group RESOURCE_GROUP_NAME --name FUNCTION_APP_NAME --settings KEY_NAME=KEY_VALUE
-  ```
 
 ### Deploy your function app to Azure
 
@@ -267,7 +250,7 @@ az functionapp function list --resource-group <RESOURCE_GROUP_NAME> --name <FUNC
 
 ### Check orchestration status
 
-Check the status of the orchestration instance and activity details on the durable task scheduler dashboard. Follow the instructions below to assign the required role to your developer identity (email) to get access to the dashboard. 
+Check the status of the orchestration instance and activity details on the durable task scheduler dashboard. Accessing the dashboard requires you to login. Follow the instructions below to assign the required role to your identity. 
 
 [!INCLUDE [assign-dev-identity-rbac-portal](./includes/assign-dev-identity-rbac-portal.md)]
 

@@ -30,7 +30,7 @@ The following table explains the minimum cost and features provided with each CU
 
 ## Pricing
 
-Find the price of a capacity unit on the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/). 
+Find the price of a capacity unit in a given region on the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/). 
 
 ## Determining the number of Capacity Units needed
 

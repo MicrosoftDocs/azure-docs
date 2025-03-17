@@ -78,4 +78,4 @@ For Mx Mac (ARM64) users, you may run into gRPC runtime issues with durable func
 
 ## Error deploying app to Azure 
 
-If your deployment fails with an error such as `Encountered an error (ServiceUnavailable) from host runtime` from Visual Studio Code, first check your app to ensure the required [environment variables and their values](./develop-with-durable-task-scheduler.md#add-environment-variables-to-app) are set correctly. Then redeploy your app. If you see an error loading functions, click the "Refresh" button. 
+If your deployment fails with an error such as `Encountered an error (ServiceUnavailable) from host runtime` from Visual Studio Code, first check your app to ensure the required [environment variables](./develop-with-durable-task-scheduler.md#add-environment-variables-to-app) are set correctly. Then redeploy your app. If you see an error loading functions, click the "Refresh" button. 
