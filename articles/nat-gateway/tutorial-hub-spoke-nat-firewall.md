@@ -876,46 +876,67 @@ Traffic from the spoke through the hub must be allowed through and firewall poli
 
 ### [PowerShell](#tab/powershell)
 
-
-
-Use [New-AzFirewallNetworkRule](/powershell/module/az.network/new-azfirewallnetworkrule) to create a network rule.
+Use [New-AzFirewallPolicyRuleCollectionGroup](/powershell/module/az.network/new-azfirewallpolicyrulecollectiongroup) to create a rule collection group.
 
 ```powershell
-# Create network rule
+$firewallPolicyParams = @{
+    Name = 'firewall-policy'
+    ResourceGroupName = 'test-rg'
+}
+$firewallpolicy = Get-AzFirewallPolicy @firewallPolicyParams
+
+$newNetworkRuleCollectionGroupParams = @{
+    Name = 'DefaultNetworkRuleCollectionGroup'
+    Priority = 200
+    ResourceGroupName = 'test-rg'
+    FirewallPolicyName = 'firewall-policy'
+}
+$newnetworkrulecollectiongroup = New-AzFirewallPolicyRuleCollectionGroup @newNetworkRuleCollectionGroupParams
+
+$networkRuleCollectionGroupParams = @{
+    Name = 'DefaultNetworkRuleCollectionGroup'
+    ResourceGroupName = 'test-rg'
+    AzureFirewallPolicyName = 'firewall-policy'
+}
+$networkrulecollectiongroup = Get-AzFirewallPolicyRuleCollectionGroup @networkRuleCollectionGroupParams
+```
+
+Use [New-AzFirewallPolicyNetworkRule](/powershell/module/az.network/new-azfirewallpolicynetworkrule) to create a network rule.
+
+```powershell
 $networkRuleParams = @{
     Name = 'allow-web'
     SourceAddress = '10.1.0.0/24'
+    Protocol = 'TCP'
     DestinationAddress = '*'
     DestinationPort = '80,443'
-    Protocol = 'TCP'
 }
-$networkRule = New-AzFirewallNetworkRule @networkRuleParams
+$networkrule = New-AzFirewallPolicyNetworkRule @networkRuleParams
 ```
 
-Use [New-AzFirewallNetworkRuleCollection](/powershell/module/az.network/new-azfirewallnetworkrulecollection) to create a network rule collection.
+Use [New-AzFirewallPolicyFilterRuleCollection](/powershell/module/az.network/new-azfirewallpolicyfilterrulecollection) to create a rule collection.
 
 ```powershell
-# Create network rule collection
-$networkRuleCollectionParams = @{
-    Name = 'spoke-to-internet'
-    Priority = 100
-    Rule = $networkRule
+$newRuleCollectionConfigParams = @{
+    Name = 'rule-collection'
+    Priority = 1000
+    Rule = $networkrule
     ActionType = 'Allow'
 }
-$networkRuleCollection = New-AzFirewallNetworkRuleCollection @networkRuleCollectionParams
+$newrulecollectionconfig = New-AzFirewallPolicyFilterRuleCollection @newRuleCollectionConfigParams
+$newrulecollection = $networkrulecollectiongroup.Properties.RuleCollection.Add($newrulecollectionconfig)
 ```
 
-
-Use [Set-AzFirewallPolicy](/powershell/module/az.network/set-azfirewallpolicy) to update the firewall policy.
+Use [Set-AzFirewallPolicyRuleCollectionGroup](/powershell/module/az.network/set-azfirewallpolicyrulecollectiongroup) to update the rule collection group.
 
 ```powershell
-# Update firewall policy
-$firewallPolicyParams = @{
-    ResourceGroupName = 'test-rg'
-    Name = 'firewall-policy'
-    NetworkRuleCollection = $networkRuleCollection
+$setRuleCollectionGroupParams = @{
+    Name = 'DefaultNetworkRuleCollectionGroup'
+    Priority = 200
+    FirewallPolicyObject = $firewallpolicy
+    RuleCollection = $networkrulecollectiongroup.Properties.RuleCollection
 }
-Set-AzFirewallPolicy @firewallPolicyParams
+Set-AzFirewallPolicyRuleCollectionGroup @setRuleCollectionGroupParams
 ```
 
 ### [CLI](#tab/cli)
@@ -997,12 +1018,14 @@ Wait for the virtual machine to finishing deploying before proceeding to the nex
 
 ### [PowerShell](#tab/powershell)
 
-Use [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) to create a credential object for the virtual machine.
+Use [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) to set a user name and password for the VM and store them in the `$cred` variable.
 
-```powershell
-# Create credential object
+```azurepowershell
 $cred = Get-Credential
 ```
+
+> [!NOTE]
+> A username is required for the VM. The password is optional and won't be used if set. SSH key configuration is recommended for Linux VMs.
 
 Use [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) to create a network security group.
 
