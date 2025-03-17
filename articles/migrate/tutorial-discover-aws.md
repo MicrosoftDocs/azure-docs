@@ -11,7 +11,7 @@ ms.custom: mvc, subject-rbac-steps, engagement-fy25
 #Customer intent: As a server admin I want to discover my AWS instances.
 ---
 
-# Tutorial: Discover AWS instances with Azure Migrate: Discovery and assessment
+# Tutorial: Discover AWS instances with Azure Migrate
 
 As part of your migration journey to Azure, you discover your servers for assessment and migration.
 
