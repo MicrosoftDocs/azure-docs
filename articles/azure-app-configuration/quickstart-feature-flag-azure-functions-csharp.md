@@ -81,8 +81,6 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
         Uri endpoint = new(Environment.GetEnvironmentVariable("AZURE_APPCONFIG_ENDPOINT") ?? 
             throw new InvalidOperationException("The environment variable 'AZURE_APPCONFIG_ENDPOINT' is not set or is empty."));
         options.Connect(endpoint, new DefaultAzureCredential())
-               // Load a nonexisting dummy key to skip configuration data if desired
-               .Select("_");
                // Load all feature flags with no label. To load feature flags with specific keys and labels, set via FeatureFlagOptions.Select.
                // Use the default refresh interval of 30 seconds. It can be overridden via FeatureFlagOptions.SetRefreshInterval.
                .UseFeatureFlags();
@@ -105,8 +103,6 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
         string connectionString = Environment.GetEnvironmentVariable("AZURE_APPCONFIG_CONNECTION_STRING") ?? 
             throw new InvalidOperationException("The environment variable 'AZURE_APPCONFIG_CONNECTION_STRING' is not set or is empty.");
         options.Connect(connectionString)
-               // Load a nonexisting dummy key to skip configuration data if desired
-               .Select("_");
                // Load all feature flags with no label. To load feature flags with specific keys and labels, set via FeatureFlagOptions.Select.
                // Use the default refresh interval of 30 seconds. It can be overridden via FeatureFlagOptions.SetRefreshInterval.
                .UseFeatureFlags();
@@ -117,7 +113,7 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
     The `UseFeatureFlags()` method instructs the provider to load feature flags. By default, all feature flags without labels are loaded and refreshed every 30 seconds. The selection and refresh behavior of feature flags are configured independently from other configuration key-values. You can customize these behaviors by passing a `FeatureFlagOptions` action to the `UseFeatureFlags` method. Use `FeatureFlagOptions.Select` to specify the keys and labels of feature flags to load, and use `FeatureFlagOptions.SetRefreshInterval` to override the default refresh interval.
 
     > [!TIP]
-    > If you don't want any configuration other than feature flags to be loaded to your application, you can call `Select("_")` to only load a nonexisting dummy key `"_"`. By default, all configuration key-values without labels in your App Configuration store will be loaded if no `Select` method is called.
+    > If you don't want any configuration other than feature flags to be loaded to your application, you can call `options.Select("_")` to only load a nonexisting dummy key `"_"`. By default, all configuration key-values without labels in your App Configuration store will be loaded if no `Select` method is called.
 
 1. Update the *Program.cs* file to enable automatic feature flag refresh on each function execution by adding the Azure App Configuration middleware. You also register feature management service, allowing you to inject and use it in your function code later.
 
