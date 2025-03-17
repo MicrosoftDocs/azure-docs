@@ -7,37 +7,27 @@ ms.date: 03/13/2025
 
 ---
 
-# QuickStart: Get started with Dynatrace
+# Quickstart: Get started with Dynatrace
 
-In this quickstart, you create a new instance of Azure Native Dynatrace Service. You can either create a new Dynatrace environment or [link to an existing Dynatrace environment](dynatrace-link-to-existing.md#link-to-existing-dynatrace-environment).
-
-When you use the integrated Dynatrace experience in Azure portal, the following entities are created and mapped for monitoring and billing purposes.
-
-:::image type="content" source="media/dynatrace-create/dynatrace-entities.png" alt-text="Flowchart showing three entities: Marketplace S A A S connecting to Dynatrace resource, connecting to Dynatrace environment.":::
-
-- **Dynatrace resource in Azure** - Using the Dynatrace resource, you can manage the Dynatrace environment in Azure. The resource is created in the Azure subscription and resource group that you select during the create process or linking process.
-- **Dynatrace environment** - The Dynatrace environment on Dynatrace _Software as a Service_ (SaaS). When you create a new environment, the environment on Dynatrace SaaS is automatically created, in addition to the Dynatrace resource in Azure.
-- **Marketplace SaaS resource** - The SaaS resource is created automatically, based on the plan you select from the Dynatrace Marketplace offer. This resource is used for billing purposes.
+In this quickstart, you create an instance of Dynatrace.
 
 ## Prerequisites
 
-Before you link the subscription to a Dynatrace environment, [complete the pre-deployment configuration](configure-prerequisites.md).
+[!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
+- Before you link the subscription to a Dynatrace environment, [complete the pre-deployment configuration](configure-prerequisites.md).
+- You must [subscribe to Dynatrace](overview.md#subscribe-to-dynatrace).
 
-### Find Offer
+## Create a Dynatrace resource
 
-Use the Azure portal to find Azure Native Dynatrace Service application.
+[!INCLUDE [create-resource](../includes/create-resource.md)]
 
-1. Go to the [Azure portal](https://portal.azure.com) and sign in.
+### Basics tab
 
-1. If you've visited the **Marketplace** in a recent session, select the icon from the available options. Otherwise, search for _Marketplace_.
+The *Basics* tab has three sections:
 
-   :::image type="content" source="media/dynatrace-create/dynatrace-search-marketplace.png" alt-text="Screenshot showing a search for Marketplace in the Azure portal.":::
+# QuickStart: Get started with Dynatrace
 
-1. In the Marketplace, search for _Dynatrace_.
-   :::image type="content" source="media/dynatrace-create/dynatrace-marketplace.png" alt-text="Screenshot showing the Azure Native Dynatrace Service offering.":::
-
-1. Select **Subscribe**.
-   :::image type="content" source="media/dynatrace-create/dynatrace-subscribe.png" alt-text="Screenshot showing Dynatrace in the working pane to create a subscription.":::
+In this quickstart, you create a new instance of Azure Native Dynatrace Service. You can either create a new Dynatrace environment or [link to an existing Dynatrace environment](dynatrace-link-to-existing.md#link-to-existing-dynatrace-environment).
 
 ## Create a Dynatrace resource in Azure
 
