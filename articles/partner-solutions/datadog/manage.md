@@ -124,25 +124,25 @@ You can install Datadog agents on virtual machines, App Service extensions, Azur
 
 To monitor resources for virtual machines, select **Datadog organization configurations > Virtual machine agent** from the Resource pane.
 
-[!INCLUDE [install-datadog-agent](../includes/datadog-agent.md)]
+[!INCLUDE [agent](../includes/agent.md)]
 
 ### App Service
 
 To monitor resources for App Service, select **Datadog organization configurations > App Service extension** from the Resource pane.
 
-[!INCLUDE [install-datadog-agent](../includes/datadog-agent.md)]
+[!INCLUDE [agent](../includes/agent.md)]
 
 ### Azure Kubernetes Services
 
 To monitor resources Azure Kubernetes Services, select **Datadog organization configurations > Azure Kubernetes Services** from the Resource pane.
 
-[!INCLUDE [install-datadog-agent](../includes/datadog-agent.md)]
+[!INCLUDE [agent](../includes/agent.md)]
 
 ### Azure Arc Machines
 
 To monitor resources for Azure Arc Machines, select **Datadog organization configurations > Azure Arc Machines** from the Resource pane.
 
-[!INCLUDE [install-datadog-agent](../includes/datadog-agent.md)]
+[!INCLUDE [agent](../includes/agent.md)]
 
 ## Reconfigure single sign-on
 

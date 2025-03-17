@@ -15,28 +15,27 @@ This article describes how to manage the settings for Dynatrace for Azure.
 
 To see the details of your Dynatrace resource, select **Overview** in the left pane.
 
+:::image type="content" source="media/manage/resource-overview.png" alt-text="A screenshot of a Dynatrace resource in the Azure portal with the overview displayed in the working pane." lightbox="media/manage/resource-overview.png":::
+
 The details include:
 
 - Resource group name
 - Region
 - Subscription
+- Subscription ID
 - Tags
-- Single sign-on link to Dynatrace environment
-- Dynatrace billing plan
+- Dynatrace environment
+- Status
+- Pricing plan
 - Billing term
+- Dynatrace account
 
-At the bottom, you see two tabs:
+To manage your resource, select the links next to corresponding details.
 
-- **Get started tab** also provides links to Dynatrace dashboards, logs, and Smartscape Topology.
-- **Monitoring tab** provides a summary of the resources sending logs to Dynatrace.
+Below the essentials, you can navigate to other details about your resource by selecting the links.
 
-If you select the **Monitoring** pane, you see a table with information about the Azure resources sending logs to Dynatrace.
-
-The columns in the table denote important information for your resource:
-
-- **Resource type** - Azure resource type.
-- **Total resources** - Count of all resources for the resource type.
-- **Logs to Dynatrace** - Count of resources sending logs to Dynatrace through the integration.
+- **Get started** provides access to Dashboards, Logs, and Smartscape Topology.
+- **Monitoring** provides a summary of resources sending logs to Dynatrace.
 
 ## Reconfigure rules for metrics and logs
 
@@ -46,97 +45,57 @@ For more information, see [Configure metrics and logs](dynatrace-create.md#confi
 
 ## View monitored resources
 
-To see the list of resources emitting logs to Dynatrace, select **Monitored Resources** in the left pane.
+To view the list of resources emitting logs to Dynatrace, select **Dynatrace environment config > Monitored Resources** in the Resource menu.
 
-You can filter the list of resources by resource type, resource group name, region and whether the resource is sending logs.
+> [!TIP]
+> You can filter the list of resources by resource type, resource group name, region, and whether the resource is sending logs and/or metrics. 
 
-The column **Logs to Dynatrace** indicates whether the resource is sending logs to Dynatrace. If the resource isn't sending logs, this field indicates why logs aren't being sent. The reasons could be:
+The column **Logs to Dynatrace** indicates whether the resource is sending logs to Dynatrace. 
+The column **Metrics to Dynatrace** indicates whether the resource is sending metrics to Dynatrace.
 
-- _Resource doesn't support sending logs_ - Only resource types with monitoring log categories can be configured to send logs. See [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
-- _Limit of five diagnostic settings reached_ - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/cli/azure/monitor/diagnostic-settings).
-- _Error_ - The resource is configured to send logs to Dynatrace, but is blocked due to an error.
-- _Logs not configured_ - Only Azure resources that have the appropriate resource tags are configured to send logs to Dynatrace.
-- _Agent not configured_ - Virtual machines without the Dynatrace OneAgent installed don't emit logs to Dynatrace.
+## Monitor resources using Dynatrace OneAgent
 
-## Monitor virtual machines using Dynatrace OneAgent
+You can install Datadog OneAgents on virtual machines, App Service extensions, and Azure Arc Machines.
 
-You can install Dynatrace OneAgent on virtual machines as an extension. Select **Virtual Machines** under **Dynatrace environment config** in the Resource menu. In the working pane, you see a list of all virtual machines in the subscription.
+### Virtual Machines
 
-For each virtual machine, the following info is displayed:
+To monitor resources for virtual machines, select **Dynatrace environment config > Virtual Machines** from the Resource pane.
 
-| Column     | Description   |
-|------------|------------|
-| **Name** | The name of the virtual machine. |
-| **Status** | Indicates whether the virtual machine is stopped or running. Dynatrace OneAgent can only be installed on virtual machines that are running. If the virtual machine is stopped, installing the Dynatrace OneAgent is disabled. |
-| **OneAgent status** | Whether the Dynatrace OneAgent is running on the virtual machine. |
-| **OneAgent version** | The Dynatrace OneAgent version number. |
-| **Auto-update** | Whether autoupdate is enabled for the OneAgent. |
-| **Log monitoring** | Whether log monitoring option was selected when OneAgent was installed. |
-| **Monitoring mode** | Whether the Dynatrace OneAgent is monitoring hosts in [full-stack monitoring mode or infrastructure monitoring mode](https://www.dynatrace.com/support/help/how-to-use-dynatrace/hosts/basic-concepts/get-started-with-infrastructure-monitoring). |
+> [!IMPORTANT]
+>
+> - Dynatrace OneAgent can only be installed on virtual machines that are running. If the virtual machine is stopped, installing the Dynatrace OneAgent is disabled.   
+> - If a virtual machine shows that a OneAgent is installed, but the option Uninstall extension is disabled, then the agent was configured through a different Dynatrace resource in the same Azure subscription. To make any changes, please go to the other Dynatrace resource in the Azure subscription.
 
-> [!NOTE]
-> If a virtual machine shows that a OneAgent is installed, but the option Uninstall extension is disabled, then the agent was configured through a different Dynatrace resource in the same Azure subscription. To make any changes, please go to the other Dynatrace resource in the Azure subscription.
+[!INCLUDE [agent](../includes/agent.md)]
 
-## Monitor App Services using Dynatrace OneAgent
+### App Service
 
-You can install Dynatrace OneAgent on an App Service as an extension. Select an App Service in the Resource menu. In the working pane, you see a list of any App Service in the subscription.
+To monitor resources for App Service, select **Dynatrace environment config > App Service** from the Resource pane.
 
-For each App Service, the following information is displayed:
+[!INCLUDE [agent](../includes/agent.md)]
 
-| Column    |  Description   |
-|------------|------------|
-| **Name** | App Service name. |
-| **Status** | Indicates whether the App Service is running or stopped. Dynatrace OneAgent can only be installed on an App Service that is running. |
-| **App Service plan** | The plan configured for the App Service. |
-| **OneAgent version** | The Dynatrace OneAgent version. |
-| **OneAgent status** | status of the agent. |
-
-To install the Dynatrace OneAgent, select the App Service and select **Install Extension.** The application settings for the selected App Service are updated and the App Service is restarted to complete the configuration of the Dynatrace OneAgent.
-
-> [!NOTE]
->App Service extensions are currently supported only for App Services that are running on Windows OS. App Services using the Linux OS are not shown in the list.
-
-> [!NOTE]
-> This screen currently only shows App Services of type Web App. Managing agents for Function apps is not supported at this time.
-
-## Monitor Arc enabled servers using Dynatrace OneAgent
+### Azure Arc Machines
  
-Azure Arc delivers a consistent multicloud and on-premises management platform, allowing users to manage applications and services extending across data centers, multiple clouds and edge. 
- 
-You can install Dynatrace OneAgent to monitor Azure Arc-enabled servers as an extension. Select ARC Machine Extension under Dynatrace environment config in the Resource menu. In the working pane, you see a list of all Arc-enabled servers in the subscription. Filters include _Resource Group, Subscription, Resource Status and Agent Status_.
- 
-For each Arc-enabled server, the following information is displayed:
+### Azure Arc Machines
 
-| Column     | Description   |
-|------------|------------|
-| **Resource Name** | Name of the Azure Arc-enabled server. |
-| **Resource Group** | Name of the resource group containing the Arc-enabled server. |
-| **Susbscription** | Name of the subscription containing the Arc-enabled server. |
-| **Resource Status** | Indicates whether the Arc-enabled server is stopped or running. |
-| **Auto-update** | Whether autoupdate is enabled for the OneAgent. |
-| **Agent Status** | Indicates whether Dynatrace OneAgent is running on the Arc-enabled server. |
-| **Agent Version** | Version of Dynatrace OneAgent. |
- 
-To install OneAgent, choose the Arc-enabled servers you would like to monitor and click on **Install Extension**. Select **OK** to begin the installation process for Dynatrace OneAgent. After the agent is installed, the agent status changes to Installed.
-You can uninstall Dynatrace OneAgent on an Arc server by selecting the resource and clicking on **Uninstall Extension**.
+To monitor resources for Azure Arc Machines, select **Datadog organization configurations > Azure Arc Machines** from the Resource pane.
+
+[!INCLUDE [agent](../includes/agent.md)]
 
 ## Reconfigure single sign-on
 
-If you would like to reconfigure single sign-on, select **Single sign-on** in the left pane.
+To enable single sign-on through Microsoft Entra ID:
 
-If single sign-on was already configured, you can disable it.
+1. Select **Settings > Single sign-on** from the Resource pane.
 
-To establish single sign-on or change the application, select **Enable single sign-on through Microsoft Entra ID**. The portal retrieves  Dynatrace application from Microsoft Entra ID. The app comes from the enterprise app name selected during the [preconfiguration steps](configure-prerequisites.md).
+1. Select the check box.
 
-## Delete Dynatrace resource
+## Delete a Datadog resource
 
-Select **Overview** in Resource menu. Then, select **Delete**. Confirm that you want to delete the Dynatrace resource. Select **Delete**.
-
-If only one Dynatrace resource is mapped to a Dynatrace environment, logs are no longer sent to Dynatrace. All billing through Azure Marketplace stops for Dynatrace.
-
-If more than one Dynatrace resource is mapped to the Dynatrace environment using the link Azure subscription option, deleting the Dynatrace resource only stops sending logs for Azure resources associated to that Dynatrace resource. However, since this one Dynatrace environment might still be linked to other Dynatrace resources, billing continues through the Azure Marketplace.
+[!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
 ## Related content
 
 - For help with troubleshooting, see [Troubleshooting Dynatrace integration with Azure](dynatrace-troubleshoot.md).
+- [Get started with infrastructure monitoring](https://www.dynatrace.com/support/help/how-to-use-dynatrace/hosts/basic-concepts/get-started-with-infrastructure-monitoring)
 
