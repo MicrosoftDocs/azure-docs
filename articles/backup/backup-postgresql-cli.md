@@ -285,7 +285,7 @@ The following example uses bash.
 ossId="/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/ossrg/providers/Microsoft.DBforPostgreSQL/servers/archive-postgresql-ccy/databases/empdb11"
 ```
 
-#### Azure key vault
+#### Azure Key Vault
 
 The Azure Backup service doesn't store the username and password to connect to the PostgreSQL database. Instead, the backup admin needs to seed the *keys* into the key vault. Then the Backup service will access the key vault, read the keys, and then access the database. Note the secret identifier of the relevant key.
 

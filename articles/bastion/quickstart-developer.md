@@ -1,30 +1,30 @@
 ---
-title: 'Quickstart: Deploy Bastion using the Developer SKU: Azure portal'
-description: Learn how to deploy Bastion using the Developer SKU.
+title: 'Quickstart: Connect with Bastion Developer: Azure portal'
+description: Learn how to connect to VMs using Bastion Developer.
 author: cherylmc
 ms.service: azure-bastion
 ms.topic: quickstart
-ms.date: 01/21/2025
+ms.date: 03/14/2025
 ms.author: cherylmc
 ms.custom: references_regions
 ---
 
-# Quickstart: Deploy Azure Bastion - Developer SKU
+# Quickstart: Connect with Azure Bastion Developer
 
-In this quickstart, you learn how to deploy Azure Bastion using the Developer SKU. After Bastion is deployed, you can connect to virtual machines (VM) in the virtual network via Bastion using the private IP address of the VM. The VMs you connect to don't need a public IP address, client software, agent, or a special configuration. For more information about Azure Bastion, see [What is Azure Bastion](bastion-overview.md)?
+In this quickstart, you learn how to connect to VMs with the Azure Bastion Developer offering. In just a few seconds, you can connect to virtual machines (VM) in the virtual network at no extra cost via Bastion Developer using the private IP address of the VM. The VMs you connect to don't need a public IP address, client software, agent, or a special configuration. For more information about Azure Bastion, see [What is Azure Bastion](bastion-overview.md)?
 
-The following diagram shows the architecture for Azure Bastion and the Developer SKU.
+The following diagram shows the architecture for Azure Bastion Developer.
 
-:::image type="content" source="./media/quickstart-developer-sku/bastion-shared-pool.png" alt-text="Diagram that shows the Azure Bastion developer SKU architecture." lightbox="./media/quickstart-developer-sku/bastion-shared-pool.png":::
+:::image type="content" source="./media/quickstart-developer/bastion-shared-pool.png" alt-text="Diagram that shows the Azure Bastion Developer architecture." lightbox="./media/quickstart-developer/bastion-shared-pool.png":::
 
-[!INCLUDE [regions](../../includes/bastion-developer-sku-regions.md)]
+[!INCLUDE [regions](../../includes/bastion-developer-regions.md)]
 
 > [!NOTE]
-> Virtual network peering isn't currently supported for the Developer SKU.
+> Virtual network peering isn't currently supported for Bastion Developer.
 
-## <a name="developer"></a>About the Developer SKU
+## <a name="developer"></a>About Bastion Developer
 
-[!INCLUDE [Developer SKU](../../includes/bastion-developer-sku-description.md)]
+[!INCLUDE [Bastion developer](../../includes/bastion-developer-description.md)]
 
 ## <a name="prereq"></a>Prerequisites
 
@@ -32,7 +32,7 @@ The following diagram shows the architecture for Azure Bastion and the Developer
 
 * **A VM in a virtual network**.
 
-  When you deploy Bastion using default values, the values are pulled from the virtual network in which your VM resides. Make sure the VM resides in a resource group that's in a region where the Developer SKU is supported.
+  When you connect with Bastion Developer using default values, the values are pulled from the virtual network in which your VM resides. Make sure the VM resides in a resource group that's in a region where Bastion Developer is supported.
 
   * If you don't already have a VM in a virtual network, create one using [Quickstart: Create a Windows VM](/azure/virtual-machines/windows/quick-create-portal), or [Quickstart: Create a Linux VM](/azure/virtual-machines/linux/quick-create-portal).
   * If you need example values, see the [Example values](#values) section.
@@ -69,18 +69,18 @@ You can use the following example values when creating this configuration as an 
 
 ## <a name="createvmset"></a>Deploy Bastion and connect to VM
 
-These steps help you deploy Bastion using the developer SKU and automatically connect to your VM via the portal. To connect to a VM, your NSG rules must allow traffic to ports 22 and 3389 from the private IP address 168.63.129.16.
+These steps help you automatically connect to your VM via the portal with Bastion Developer. The VM must be located in a region that supports Bastion Developer. Additionally, to connect to a VM, your NSG rules must allow traffic to ports 22 and 3389 from the private IP address 168.63.129.16.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the portal, go to the VM to which you want to connect. The values from the virtual network in which this VM resides are used to create the Bastion deployment. The VM must be located in a region that supports the Developer SKU.
+1. In the portal, go to the VM to which you want to connect. The values from the virtual network in which this VM resides are used to connect with Bastion Developer. 
 1. On the page for your VM, expand the settings on the left menu if necessary, and select **Bastion**.
-1. On the **Bastion** page, you'll see a number of options. The SKU that you deploy depends on the settings you choose. To automatically deploy using the **Developer SKU**, select **Authentication Type** and input the required credential values. Then, click **Connect**. When you click **Connect**, Bastion automatically deploys using the Developer SKU. You could also deploy the Developer SKU using the "Configure manually" button, but it's more efficient to use the **Connect** button.
-1. The connection to this virtual machine via Bastion will open directly in the Azure portal (over HTML5) using port 443 and the Bastion service. Select **Allow** when asked for permissions to the clipboard. This lets you use the remote clipboard arrows on the left of the screen.
+1. On the **Bastion** page, you'll see multiple options, including dedicated SKUs and Bastion **Developer**. To automatically deploy using the Bastion Developer offering, select **Authentication Type** and input the required credential values. Then, click **Connect** to connect to your virtual machine in just a few seconds through Bastion Developer. When you click **Connect**, a free Bastion Developer resource automatically deploys to your virtual network. You could also deploy Bastion Developer using the "Configure manually" button, but it's more efficient to use the **Connect** button.
+1. The connection to this virtual machine via Bastion Developer will open directly in the Azure portal (over HTML5) using port 443 and the Bastion service. Select **Allow** when asked for permissions to the clipboard. This lets you use the remote clipboard arrows on the left of the screen.
 
    * When you connect, the desktop of the VM might look different than the example screenshot.
    * Using keyboard shortcut keys while connected to a VM might not result in the same behavior as shortcut keys on a local computer. For example, when connected to a Windows VM from a Windows client, CTRL+ALT+END is the keyboard shortcut for CTRL+ALT+Delete on a local computer. To do this from a Mac while connected to a Windows VM, the keyboard shortcut is Fn+CTRL+ALT+Backspace.
 
-1. When you disconnect from the VM, Bastion remains deployed to the virtual network. You can reconnect to the VM from the virtual machine page in the Azure portal by selecting **Bastion -> Connect**.
+1. When you disconnect from the VM, the Bastion Developer resource remains deployed to the virtual network. You can reconnect to the VM from the virtual machine page in the Azure portal by selecting **Bastion -> Connect**.
 
 ### <a name="audio"></a>To enable audio output
 
@@ -102,10 +102,10 @@ When you're done using the virtual network and the virtual machines, delete the 
 
 ## Next steps
 
-In this quickstart, you deployed Bastion using the Developer SKU, and then connected to a virtual machine securely via Bastion. Next, you can configure more features and work with VM connections.
+In this quickstart, you used Bastion Developer to connect to a virtual machine securely. Next, you can configure more features and work with VM connections.
 
 > [!div class="nextstepaction"]
-> [Upgrade SKUs](upgrade-sku.md)
+> [Upgrade to a dedicated SKU](upgrade-sku.md)
 
 > [!div class="nextstepaction"]
 > [Azure Bastion configuration settings and features](configuration-settings.md)

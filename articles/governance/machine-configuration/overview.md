@@ -35,7 +35,10 @@ Examples of each scenario are provided in the following table.
 
 You can view the per-setting results from configurations in the [Guest assignments page][44]. If an
 Azure Policy assignment orchestrated the configuration is orchestrated, you can select the "Last
-evaluated resource" link on the ["Compliance details" page][07].
+evaluated resource" link on the ["Compliance details" page][07]. 
+
+> [!NOTE]
+> Machine Configuration currently supports the creation of up to 50 guest assignments per machine.
 
 ## Enforcement Modes for Custom Policies
 
