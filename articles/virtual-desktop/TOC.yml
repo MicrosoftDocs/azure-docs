@@ -483,7 +483,7 @@
           displayName: apps, clients, remote desktop, rdp, connect, intune, configuration manager, configmgr, sccm, mem, mdm, per user
           href: /previous-versions/remote-desktop-client/install-windows-client-per-user
         - name: Remote Desktop client documentation
-          href: /preview-versions/remote-desktop-client/
+          href: /previous-versions/remote-desktop-client/
     - name: Peripheral and resource redirection
       items:
         - name: Peripheral and resource redirection overview

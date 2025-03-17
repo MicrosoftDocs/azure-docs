@@ -366,7 +366,6 @@ The following rule groups and rules are available when using Web Application Fir
 |942430|Warning - 3|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)|
 |942440|Critical - 5|SQL Comment Sequence Detected|
 |942450|Critical - 5|SQL Hex Encoding Identified|
-|942460|Warning - 3|Meta-Character Anomaly Detection Alert - Repetitive Non-Word Characters|
 |942470|Critical - 5|SQL Injection Attack|
 |942480|Critical - 5|SQL Injection Attack|
 |942500|Critical - 5|MySQL in-line comment detected|
@@ -691,7 +690,6 @@ The following rule groups and rules are available when using Web Application Fir
 |944210|Possible use of Java serialization|
 |944240|Remote Command Execution: Java serialization|
 |944250|Remote Command Execution: Suspicious Java method detected|
-|944300|Base64 encoded string matched suspicious keyword|
 
 # [OWASP 3.1](#tab/owasp31)
 

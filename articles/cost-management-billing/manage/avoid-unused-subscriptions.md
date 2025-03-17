@@ -16,8 +16,8 @@ ms.author: banders
 Unused and abandoned subscriptions can increase potential security risks to your Azure account. To reduce this risk, Microsoft takes measures to secure, protect, and ultimately delete unused Azure subscriptions.
 
 >[!NOTE]
-> This article only applies to the following subscription types:
-> - Microsoft Online Service Program (MOSP)
+> This article applies to the following subscription types:
+> - Microsoft Online Subscription Agreement (MOSA)
 > - Cloud Solution Provider (CSP)
 > - Microsoft Customer Agreement (MCA) that you bought through the Azure website or Azure portal
 > - Microsoft Customer Agreement (MCA) that your partner manages

@@ -144,7 +144,7 @@ You **can't** reuse the name of an API Management instance in a new deployment:
     This restriction is because Azure reserves the service host name to a customer's tenant for a reservation period to prevent the threat of subdomain takeover with dangling DNS entries. For more information, see [Prevent dangling DNS entries and avoid subdomain takeover](/azure/security/fundamentals/subdomain-takeover). To see all dangling DNS entries for subscriptions in a Microsoft Entra tenant, see [Identify dangling DNS entries](/azure/security/fundamentals/subdomain-takeover#identify-dangling-dns-entries). 
 
 
-## Next steps
+## Related content
 
 Learn about long-term API Management backup and recovery options:
 

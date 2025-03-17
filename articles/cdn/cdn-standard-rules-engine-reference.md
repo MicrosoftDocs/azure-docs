@@ -2,11 +2,11 @@
 title: Standard rules engine reference for Azure Content Delivery Network
 description: Reference documentation for match conditions and actions in the Standard rules engine for Azure Content Delivery Network.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: concept-article
 ms.date: 03/20/2024
-ms.author: duau
 ---
 
 # Standard rules engine reference for Azure Content Delivery Network

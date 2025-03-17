@@ -2,12 +2,11 @@
 title: Add a new endpoint with Front Door manager
 titleSuffix: Azure Front Door
 description: This article shows you how to configure a new endpoint for an existing Azure Front Door profile with Front Door manager.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 02/18/2025
-ms.author: duau
 ---
 
 # Add a new endpoint with Front Door manager
