@@ -1825,6 +1825,16 @@ groups:
     title: Android
   - id: platform-ios
     title: iOS
+- id: acs-plat-windows-android-ios
+  title: Platforms
+  prompt: Choose a platform
+  pivots:
+  - id: platform-windows
+    title: Windows
+  - id: platform-android
+    title: Android
+  - id: platform-ios
+    title: iOS
 # Owner: bagol
 - id: sentinel-sap-connection
   title: Connection

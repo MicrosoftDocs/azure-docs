@@ -2,7 +2,8 @@
 title: Use Apache Kafka MirrorMaker 2 - Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to use Kafka MirrorMaker 2 to replicate a Kafka cluster in Azure Event Hubs.
 ms.topic: how-to
-ms.date: 12/04/2022
+ms.subservice: kafka
+ms.date: 03/06/2025
 ---
 
 # Replicate data from a Kafka cluster to Event Hubs using Apache Kafka Mirror Maker 2
@@ -68,7 +69,7 @@ If you already have an existing Kafka cluster on-premises or in a managed Kafka 
 
 ## Configure Kafka Mirror Maker 2
 
-Apache Kafka distribution comes with `connect-mirror-maker.sh` script that is bundled with the Kafka library that implements a distributed Mirror Maker 2 cluster. It manages the Connect workers internally based on a configuration file. Internally MirrorMaker driver creates and handles pairs of each connector – *MirrorSource Connector*, *MirrorSink Connector*, *MirrorCheckpoint Connector* and *MirrorHeartbeat Connector*.
+Apache Kafka distribution comes with `connect-mirror-maker.sh` script that is bundled with the Kafka library that implements a distributed Mirror Maker 2 cluster. It manages the Connect workers internally based on a configuration file. Internally MirrorMaker driver creates and handles pairs of each connector – *MirrorSource Connector*, *MirrorSink Connector*, *MirrorCheckpoint Connector*, and *MirrorHeartbeat Connector*.
 
 1. To configure Mirror Maker 2 to replicate data, you need to update Mirror Maker 2 configuration file `kafka-to-eh-connect-mirror-maker.properties` to define the replication topology. 
 1. In the `kafka-to-eh-connect-mirror-maker.properties` config file, define cluster aliases that you plan to use for your Kafka cluster(source) and Event Hubs (destination). 
@@ -126,7 +127,7 @@ See the following samples on GitHub:
 
 - [Sample code for this tutorial on GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker-2)
  
-- If you are hosting Apache Kafka on Kubernetes using the CNCF Strimzi operator, you can use [Strimzi Mirror Maker 2 sample for Event Hubs](https://strimzi.io/blog/2020/06/09/mirror-maker-2-eventhub). 
+- If you're hosting Apache Kafka on Kubernetes using the CNCF Strimzi operator, you can use [Strimzi Mirror Maker 2 sample for Event Hubs](https://strimzi.io/blog/2020/06/09/mirror-maker-2-eventhub). 
 
 
 ## Next steps

@@ -19,6 +19,10 @@ This article shows two options to import an [Azure OpenAI Service](/azure/ai-ser
 - [Import an Azure OpenAI API directly from Azure OpenAI Service](#option-1-import-api-from-azure-openai-service) (recommended)
 - [Download and add the OpenAPI specification](#option-2-add-an-openapi-specification-to-api-management) for Azure OpenAI and add it to API Management as an OpenAPI API.
 
+Learn more about managing AI APIs in API Management:
+
+* [Generative AI gateway capabilities in Azure API Management](genai-gateway-capabilities.md)
+
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
@@ -134,9 +138,5 @@ In addition to the `azure-openai-token-limit` and `azure-openai-emit-token-metri
 * `azure-openai-semantic-cache-store`
 * `azure-openai-semantic-cache-lookup` 
 
-## Related content
-
-* [Generative AI gateway capabilities in Azure API Management](genai-gateway-capabilities.md)
-* [API Management policy reference](api-management-policies.md)
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
