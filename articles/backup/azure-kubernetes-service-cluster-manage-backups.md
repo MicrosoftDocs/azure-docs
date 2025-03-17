@@ -117,7 +117,7 @@ Azure Backup for AKS relies on pods deployed within the AKS cluster as part of t
        2. CPU: requests - 500m, limits - 1000m
 ```
 
-However, if the number of resources in the cluster exceeds 1000, the pods may require additional CPU and memory beyond the default reservation. If the required resources exceed the allocated limits, you might encounter an BackupPluginPodRestarted due to OOMKilled (Out of Memory) error during backup jobs.
+However, if the number of resources in the cluster exceeds 1000, the pods may require additional CPU and memory beyond the default reservation. If the required resources exceed the allocated limits, you might encounter a BackupPluginPodRestarted error due to OOMKilled (Out of Memory) error during backup jobs.
 
 #### Resolving OOMKilled Errors by Increasing CPU and Memory
 
@@ -194,7 +194,7 @@ For AKS backup, backup and restore jobs can show the status **Completed with War
 
 :::image type="content" source="./media/azure-kubernetes-service-cluster-manage-backups/backup-restore-jobs-completed-with-warnings.png" alt-text="Screenshot shows the backup and restore jobs completed with warnings." lightbox="./media/azure-kubernetes-service-cluster-manage-backups/backup-restore-jobs-completed-with-warnings.png":::
 
-For example, if a backup job for an AKS cluster completes with the status **Completed with Warnings**, a restore point is created, but it does not have all the resources in the cluster backed up as per the backup configuration. The job shows warning details, providing the *issues* and *resources* that were impacted during the operation. 
+For example, if a backup job for an AKS cluster completes with the status **Completed with Warnings**, a restore point is created, but it does not have all the resources in the cluster backed-up as per the backup configuration. The job shows warning details, providing the *issues* and *resources* that were impacted during the operation. 
 
 To view these warnings, select **View Details** next to **Warning Details**.
 
@@ -225,7 +225,7 @@ You can change the associated policy with a backup instance.
 
 There are three ways by which you can stop protecting an Azure Disk:
 
-- **Stop Protection and Retain Data (Retain forever)**: This option helps you stop all future backup jobs from protecting your cluster. However, Azure Backup service retains the recovery points that are backed up forever. You need to pay to keep the recovery points in the vault (see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/) for details). You are able to restore the disk, if needed. To resume cluster protection, use the **Resume backup** option.
+- **Stop Protection and Retain Data (Retain forever)**: This option helps you stop all future backup jobs from protecting your cluster. However, Azure Backup service retains the recovery points that are backed-up forever. You need to pay to keep the recovery points in the vault (see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/) for details). You are able to restore the disk, if needed. To resume cluster protection, use the **Resume backup** option.
 
 - **Stop Protection and Retain Data (Retain as per Policy)**: This option helps you stop all future backup jobs from protecting your cluster. The recovery points are retained as per policy and will be chargeable according to [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/). However, the latest recovery point is retained forever.
 
