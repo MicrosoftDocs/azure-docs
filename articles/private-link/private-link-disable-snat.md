@@ -1,5 +1,5 @@
 ---
-title: Disable SNAT requirement for Private Endpoint traffic through NVA
+title: Disable SNAT requirement for private endpoint traffic through NVA
 description: Learn how to enable SNAT bypass for private endpoint traffic passing through a network virtual appliance (NVA) in Azure.
 author: abell
 ms.author: abell
@@ -11,7 +11,7 @@ ms.date: 03/11/2025
 
 ---
 
-# How to Guide: Disable SNAT requirement for Private Endpoint traffic through NVA
+# How to Guide: Disable SNAT requirement for private endpoint traffic through NVA
 
 Source network address translation (SNAT) is no longer required for private endpoint destined traffic passing through a network virtual appliance (NVA). You can now configure a tag on your NVA virtual machines to notify the Microsoft platform that you wish to opt into this feature. This means SNATing is no longer be necessary for private endpoint destined traffic traversing through your NVA.
 
@@ -29,7 +29,7 @@ Enabling this feature provides a more streamlined experience for guaranteeing sy
 
 ### Disable SNAT requirement for Private Endpoint traffic through NVA
 
-The type of NVA you're using determines how to disable SNAT for private endpoint traffic passing through the NVA. For the virtual machine, you add a tag on the Network interface (NIC). On the virtual machine scale set (VMSS) you enable the tag on the virtual machine scale set instance.
+The type of NVA you're using determines how to disable SNAT for private endpoint traffic passing through the NVA. For the virtual machine, you add a tag on the Network interface (NIC). On the virtual machine scale set you enable the tag on the virtual machine scale set instance.
 
 #### Add Tag to your virtual machine NIC
 
@@ -58,7 +58,7 @@ Here we add the tag to the virtual machine's NIC.
 
 # [PowerShell](#tab/vm-nic-powershell)
 
-1. Use the following PowerShell command to add the tag to your virtual machine's NIC:
+* Use the following PowerShell command to add the tag to your virtual machine's NIC:
 
 ```azurepowershell-interactive
     $nic = Get-AzNetworkInterface -Name "myNIC" -ResourceGroupName "MyResourceGroup"
@@ -70,7 +70,7 @@ Here we add the tag to the virtual machine's NIC.
 
 # [Azure CLI](#tab/vm-nic-cli)
 
-1. Use the following CLI command to add the tag to your virtual machine's NIC:
+* Use the following CLI command to add the tag to your virtual machine's NIC:
 
 ```azurecli-interactive
     az network nic update --name "myNIC" --resource-group "MyResourceGroup" --set tags.disableSnatOnPL=\'true\'
@@ -102,7 +102,7 @@ Here we add the tag to the virtual machine scale set instance.
 
 # [PowerShell](#tab/vmss-powershell) 
 
-1. Use the following PowerShell command to add the tag to your virtual machine scale set:
+* Use the following PowerShell command to add the tag to your virtual machine scale set:
 
 ```azurepowershell-interactive
     $vmss = Get-AzVmss -ResourceGroupName "MyResourceGroup" -VMScaleSetName "myVmss"
@@ -112,7 +112,7 @@ Here we add the tag to the virtual machine scale set instance.
 
 # [Azure CLI](#tab/vmss-cli) 
 
-1. Use the following Azure CLI command to add the tag to your virtual machine scale set:
+* Use the following Azure CLI command to add the tag to your virtual machine scale set:
 
 ```azurecli-interactive
     az vmss update --name "myVmss" --resource-group "MyResourceGroup" --set tags.disableSnatOnPL=\'true\'
