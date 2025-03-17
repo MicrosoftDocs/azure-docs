@@ -212,7 +212,7 @@ Once you generate an image, use the following steps to view the results of the G
 
 1. Select your container.
 
-1. Select **Reconnect*.
+1. Select **Reconnect**.
 
 1. In the *Choose start up command* window, select **/bin/bash**, and select **Connect**.
 
