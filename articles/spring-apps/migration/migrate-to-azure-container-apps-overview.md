@@ -6,7 +6,7 @@ ms.author: karler
 ms.reviewer: dingmeng-xue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article
-ms.date: 03/13/2025
+ms.date: 03/17/2025
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
@@ -80,11 +80,11 @@ The migration approach from Azure Spring Apps to Azure Container Apps involves t
 
 ## Migration assistant tool
 
-To speed up your migration and help you evaluate features on Azure Container Apps, we provide a new command in Azure CLI. This command retrieves the configurations of existing Azure Spring Apps resources based on the resource ID of the service instance. It then translates these configurations into Bicep files for Azure Container App resources. This method enables you to quickly set up an Azure Container Apps managed environment and app resources while applying basic settings similar to those settings in your existing Azure Spring Apps resources. For more information, see [az spring export](/cli/azure/spring#az-spring-export).
+To speed up your migration and help you evaluate features on Azure Container Apps, we provide a new command in the Azure CLI. This command retrieves the configurations of existing Azure Spring Apps resources based on the resource ID of the service instance. It then translates these configurations into Bicep files for Azure Container App resources. This method enables you to quickly set up an Azure Container Apps managed environment and app resources while applying basic settings similar to those settings in your existing Azure Spring Apps resources. For more information, see [az spring export](/cli/azure/spring#az-spring-export).
 
 To create Azure Container Apps resources that match the configurations of your existing Azure Spring Apps resources, use the following steps:
 
-1. Install Azure CLI version 2.45.0 or higher and the latest version of Azure Spring Apps extension by using the `az extension add --name spring` command.
+1. Install Azure CLI version 2.45.0 or higher and the latest version of the Azure Spring Apps extension by using the `az extension add --name spring` command.
 
 1. Generate Bicep files to create the corresponding Azure Container Apps resources by using the following command:
 
@@ -126,7 +126,7 @@ To create Azure Container Apps resources that match the configurations of your e
 
 1. Follow the instructions in the **README.md** file to update resources for advanced features. These features include uploading certificates, enabling a custom domain, adding role assignments to the system-assigned managed identity, and more.
 
-1. If you need the Terraform configuration of those resources, export them using the export workflow of Azure Terraform Resource Provider. For more information, see [Overview of the Azure Terraform Resource Provider](/azure/developer/terraform/azure-terraform-resource-provider/resource-provider-overview).
+1. If you need the Terraform configuration of those resources, export them using the export workflow of the Azure Terraform Resource Provider. For more information, see [Overview of the Azure Terraform Resource Provider](/azure/developer/terraform/azure-terraform-resource-provider/resource-provider-overview).
 
 ## Tutorial
 

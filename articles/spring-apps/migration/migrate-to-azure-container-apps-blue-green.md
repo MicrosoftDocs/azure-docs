@@ -6,7 +6,7 @@ ms.author: karler
 ms.reviewer: dingmeng-xue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article
-ms.date: 03/13/2025
+ms.date: 03/17/2025
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
@@ -69,7 +69,7 @@ az containerapp revision label add \
     --revision <green-revision-name>
 ```
 
-Here, `<blue-revision-name>` is `<app-name>--<blue-suffix>`, and `<green-revision-name>` is `<app-name>--<green-suffix>`. A label can only be assigned to one revision at a time.
+Here, `<blue-revision-name>` is `<app-name>--<blue-suffix>`, and `<green-revision-name>` is `<app-name>--<green-suffix>`. You can only assign a label to one revision at a time.
 
 Initially, the revision with the blue `commitId` takes 100% of production traffic, while the newly deployed revision with the green `commitId` doesn't take any production traffic.
 
@@ -93,9 +93,9 @@ curl -s https://$GREEN_DOMAIN
 Use the following commands to test with the label-specific fully qualified domain name (FQDN):
 
 ```azurecli
-# Get the containerapp environment default domain
 export APP_NAME=<app-name>
 
+# Get the containerapp environment default domain
 export APP_ENVIRONMENT_DOMAIN=$(az containerapp env show \
     --resource-group <resource-group> \
     --name <app-environment-name> \
