@@ -75,33 +75,25 @@ Each rule can define up to 10 blob index tag conditions. For example, if you wan
 
 ### Actions
 
-Actions are applied to the filtered blobs when the run condition is met. You must define at least one action for each rule. If you define more than one action on the same blob, then lifecycle management applies the least expensive action to the blob. For example, a **delete** action is cheaper than the **tierToArchive** action and the **tierToArchive** action is cheaper than the **tierToCool** action.
+You must define at least one action for each rule. Actions are applied to the filtered blobs when the run condition is met. To learn more about run conditions, see the [Action run conditions](#action-run-conditions) section of this article. The following table describes each action that is available in a policy definition.
 
-#### Transitioning blobs between access tiers
+| Action | Description | Support |
+|---|---|---|
+| **TierToCool** | Set a blob to the cool access tier | Supported only for block blobs and not for append and page blobs<br><br>Not supported for blobs in a premium block blob storage account |
+| **TierToCold** | Set a blob to the cold access tier | Supported only for block blobs and not for append and page blobs<br><br>Not supported for blobs in a premium block blob storage account   |
+| **TierToArchive** | Set a blob to the archive access tier | Supported only for block blobs and not for append and page blobs<br><br>Not supported for blobs in a premium block blob storage account <br><br>Not supported for blobs that use an encryption scope |
+| **enableAutoTierToHotFromCool** | If a blob is set to the cool tier, this action automatically moves that blob into the hot tier when the blob is accessed. | Available only when used with the **daysAfterLastAccessTimeGreaterThan** run condition<br><br> Works only with current blob versions, not previous versions or snapshots |
+| **Delete** | Deletes a blob | Not supported for page blobs or blobs in an immutable container |
 
-To move blobs to a cooler the tier, use the **tierToCool**, **tierToCold**, or **tierToArchive** action. If a blob is set to the cool tier, then you can use a special action named **enableAutoTierToHotFromCool** to automatically move that blob into the hot tier when the blob is accessed. This action is available only when used with the **daysAfterLastAccessTimeGreaterThan** run. To view example policy definitions, see [Configure a lifecycle management policy for access tiers](lifecycle-management-policy-access-tiers).
+If you define more than one action on the same blob, then lifecycle management applies the least expensive action to the blob. For example, a **delete** action is cheaper than the **tierToArchive** action and the **tierToArchive** action is cheaper than the **tierToCool** action.
 
-Tier change actions have the following limitations:
-
-- The **tierToArchive** action can't be used for blobs that use an encryption scope.
-
-- Tier change actions are supported for tier of an append blob or a page blob, or a block blob that is located in a premium block blob storage account.
-
-- The **enableAutoTierToHotFromCool** action works only with current blob versions. It won't work with previous versions or snapshots. 
-
-#### Deleting blobs
-
-To delete blobs, use the **delete** action. To view example policy definitions, see [Configure a lifecycle management policy to delete data](lifecycle-management-policy-delete.md).
+#### Delete action in accounts that have a hierarchical namespace
 
 When applied to an account with a hierarchical namespace enabled, a delete action removes empty directories. If the directory isn't empty, then the delete action removes objects that meet the policy conditions within the first lifecycle policy execution cycle. If that action results in an empty directory that also meets the policy conditions, then that directory will be removed within the next execution cycle, and so on.
 
+#### Delete action on blobs that have versions and snapshots
+
 A lifecycle management policy will not delete the current version of a blob until any previous versions or snapshots associated with that blob have been deleted. If blobs in your storage account have previous versions or snapshots, then you must include previous versions and snapshots when you specify a delete action as part of the policy.
-
-Delete actions have the following limitations:
-
-- The **delete** action is not supported with page blobs.
-
-- The **delete** action won't work with any blob in an immutable container.
 
 ### Action run conditions
 
