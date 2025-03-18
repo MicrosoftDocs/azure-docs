@@ -25,8 +25,6 @@ Azure VMware Solution on native is directly hosted on Azure Virtual Network, unl
 
 Azure VMware Solution creates the following read-only management subnets within the hosted virtual network to host required SDDC components. These Management Subnets are allocated from the management address block specified for SDDC creation. The following  are sample subnets derived from an SDDC with a 10.74.64.0/22 address block.
 
-![Sample virtual network address space page updated with Azure VMware Solution NSX advertised routes](path/to/image)
-
 ## Connectivity to other virtual networks
 
 Azure VMware Solution's native connectivity to nonlocal virtual networks follows the same procedure as Azure virtual network users use to connect their workloads between virtual networks. Azure VMware Solution on native virtual network can be connected to other nonlocal virtual networks using Azure virtual network peering as described in the following [Azure documentation](/azure/virtual-network/virtual-network-peering-overview).
