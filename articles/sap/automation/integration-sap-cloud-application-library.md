@@ -25,7 +25,7 @@ The benefits of this integration include:
 
 - Access to the latest S/4 HANA installation to ensure that you have the most up-to-date SAP software.
 - The fastest installation experience with Azure and SAP CAL integration to streamline the deployment process.
-- Elimination of the need to maintain a Bill of Materials file for Ansible, which simplifies the management and setup process.
+- Elimination of the need to maintain a bill of materials file for Ansible, which simplifies the management and setup process.
 
 This integration brings together the best of Azure infrastructure capabilities and SAP software deployment solutions. You gain a comprehensive and efficient approach to deploy SAP systems on Azure.
 
@@ -51,7 +51,7 @@ This integration brings together the best of Azure infrastructure capabilities a
     - Read about [Azure Key Vault certificates](/azure/key-vault/certificates/about-certificates).
     - Learn about [certificate creation methods](/azure/key-vault/certificates/create-certificate).
     - Create a certificate in Key Vault by using the [Azure portal](/azure/key-vault/certificates/quick-create-portal), the [Azure CLI](/azure/key-vault/certificates/quick-create-cli), or [Azure PowerShell](/azure/key-vault/certificates/quick-create-powershell).
-    - See [Azure authentication with service principal](/azure/developer/java/sdk/identity-service-principal-auth).
+    - See the article [Azure authentication with service principal](/azure/developer/java/sdk/identity-service-principal-auth).
 
 1. Collect the following information for the next step: Subscription ID, Microsoft Entra tenant ID, application (client) ID, and client secret or certificate.
 
