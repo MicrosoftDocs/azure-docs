@@ -211,7 +211,7 @@ Conditions:
 - Active subscriptions
   
 > [!NOTE]
-> If you have an [Entra Free subscirption](https://learn.microsoft.com/azure/cost-management-billing/manage/microsoft-entra-id-free) inside your billing account you cannot delete or detach the last payment method on file. To remove the last payment method, you must delete the tenant. [Learn more](https://learn.microsoft.com/entra/identity/users/directory-delete-howto#delete-the-organization).
+> If you have an [Entra Free subscription](microsoft-entra-id-free.md) inside your billing account you cannot delete or detach the last payment method on file. To remove the last payment method, you must delete the tenant. For more information about deleting a tenant, see [Delete the organization](/entra/identity/users/directory-delete-howto#delete-the-organization).
 
 When you fully satisfy all the conditions, you can detach the payment method from the billing profile.
 
