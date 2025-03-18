@@ -17,7 +17,7 @@ Azure Firewall offers three versions to meet various customer needs:
 - **Azure Firewall Standard**: Suitable for customers requiring Layer 3–Layer 7 firewall capabilities with autoscaling to manage peak traffic up to 30 Gbps. It includes enterprise features like threat intelligence, DNS proxy, custom DNS, and web categories.
 - **Azure Firewall Basic**: Designed for SMB customers with throughput requirements up to 250 Mbps.
 
-## Feature Comparison
+## Feature comparison
 
 Compare the features of the three Azure Firewall versions:
 
@@ -35,7 +35,7 @@ Compare the features of the three Azure Firewall versions:
 |  | Policy analytics (rule management over time) | ✓ | ✓ | ✓ |
 | **Enterprise integration** | Full logging including SIEM integration | ✓ | ✓ | ✓ |
 |  | Service tags and FQDN tags for easy policy management | ✓ | ✓ | ✓ |
-|  | Easy DevOps integration using REST/PS/CLI/templates/Terraform | ✓ | ✓ | ✓ |
+|  | Easy DevOps integration using REST/PowerShell/CLI/templates/Terraform | ✓ | ✓ | ✓ |
 |  | Web content filtering (web categories) |  | ✓ | ✓ |
 |  | DNS proxy + custom DNS |  | ✓ | ✓ |
 | **Advanced threat protection** | Threat intelligence-based filtering (known malicious IP address/domains) | Alert | ✓ | ✓ |
@@ -45,7 +45,7 @@ Compare the features of the three Azure Firewall versions:
 |  | URL filtering (full path - including SSL termination) |  |  | ✓ |
 
 
-## Flow Chart
+## Flow chart
 
 Use the following flow chart to determine the best Azure Firewall version for your needs.
 
