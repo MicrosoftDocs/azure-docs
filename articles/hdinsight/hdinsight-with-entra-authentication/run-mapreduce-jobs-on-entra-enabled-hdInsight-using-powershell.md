@@ -51,7 +51,7 @@ https://login.microsoftonline.com/{Tenant_ID}/oauth2/v2.0/token
 | grant_type | Must be set to "client_credentials" | Yes |
 | client_id | Application (client) ID from Entra App registration | Yes |
 | client_secret | Generated client secret or certificate | Yes |
-| scope | Resource URL with .default suffix | Yes |
+| scope | Resource URL with `.default` suffix | Yes |
 
 ### **cURL Request**
 
