@@ -779,9 +779,7 @@ To find the fully qualified domain names (FQDNs) for these connections, follow t
 
    **`"<connection-name>-ConnectionRuntimeUrl": <connection-runtime-URL>`**
 
-1. Copy and save this connection property value somewhere safe so that you can set up your firewall with this information.
-
-For example, suppose you have a sample **local.settings.json** file that contains these connections: an Office 365 connection and an AS2 connection. These connections use the following respective sample values for the **`<connection-name>-ConnectionRuntimeUrl`** properties:
+   For example, suppose you have a sample **local.settings.json** file that contains these connections: an Office 365 connection and an AS2 connection. These connections use the following respective sample values for the **`<connection-name>-ConnectionRuntimeUrl`** properties:
 
    - Office 365: **`"office365-ConnectionRuntimeUrl": https://A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u.00.common.logic-<Azure-region>.azure-apihub.net/apim/office365/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1"`**
 
@@ -810,7 +808,9 @@ For example, suppose you have a sample **local.settings.json** file that contain
    }
    ```
 
-1. Set up your firewall using the values that you saved. For more information, see the following documentation:
+1. Copy and save these connection runtime URLs somewhere safe so that you can set up your firewall with this information.
+
+1. When you're ready, set up your firewall using the saved URLs. For more information, see the following documentation:
 
    - [Azure Firewall Manager Policy overview](/azure/firewall-manager/policy-overview)
    - [Deploy and configure Azure Firewall using the Azure portal - classic](/azure/firewall/tutorial-firewall-deploy-portal).
