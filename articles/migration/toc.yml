@@ -1,0 +1,61 @@
+- name: Microsoft Azure Migration Guide
+  href: ./index.yml
+  items:
+  - name: Migration mindset
+    href: ./placeholder.md
+  - name: Evaluation - Source workload
+    items:
+    - name: Resource orgranization
+      href: ./placeholder.md
+    - name: Identity and access management
+      href: ./placeholder.md
+    - name: Deployment
+      href: ./placeholder.md
+    - name: Monitoring
+      href: ./placeholder.md
+    - name: Dependencies
+      items:
+      - name: Example - Organizational
+        href: ./placeholder.md  
+      - name: Example - External
+        href: ./placeholder.md
+    - name: Governance
+      href: ./placeholder.md             
+    - name: Measurement - business requirements
+      items:
+      - name: Cost of ownership
+        href: ./placeholder.md
+      - name: Reliability objectives
+        href: ./placeholder.md
+      - name: Performance targets 
+        href: ./placeholder.md
+  - name: Migration operations
+    items:
+    - name: Design
+      href: ./placeholder.md    
+    - name: Process
+      href: ./placeholder.md
+    - name: Tools 
+      href: ./placeholder.md    
+  - name: Evaluation - End-state on Azure
+    href: ./placeholder.md
+  - name: Case studies
+    items:
+    - name: Migrate an eCommerce workload from AWS to Azure
+      href: ./placeholder.md    
+    - name: Migrate an analytics workload from GCP to Azure
+      href: ./placeholder.md
+    - name: Migrate a hybrid workload from Oracle Cloud to Azure
+      href: ./placeholder.md       
+    - name: Migrate a mission-critical workload from AWS to Azure
+      href: ./placeholder.md
+    - name: Migrate a regulatory workload from sovereign cloud to Azure
+      href: ./placeholder.md                           
+  - name: Service catalog
+    items:
+    - name: Service portability reference
+      href: ./placeholder.md  
+    - name: Azure Functions migration guide
+      href: ../azure-functions/migration/toc.yml
+    - name: Virtual Machines migration guide 
+      href: /azure/virtual-machines                   
