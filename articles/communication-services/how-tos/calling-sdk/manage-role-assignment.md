@@ -47,6 +47,8 @@ You create a 'Call' instance when you join the Teams meeting or Room with callin
 - Consumer
 - Collaborator
 
+To learn about the roles and capabilities in Rooms please see more [here](./../../concepts/rooms/room-concept.md#predefined-participant-roles-and-permissions-in-virtual-rooms-calls). 
+
 ```js
 const role = meetingCall.role;
 ```
