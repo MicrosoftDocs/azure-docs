@@ -132,7 +132,7 @@ If you aren't already connected to your Azure account, follow these steps to con
 
 ## Add blank workflow to project (Standard logic app only)
 
-Your Standard logic app can include multiple workflows. To add a new empty workflow to your project, follow these steps:
+While a Consumption logic app can have only one workflow, a Standard logic app can have multiple workflows. To add a new empty workflow to your project, follow these steps:
 
 1. In Visual Studio Code, open your Standard logic app project, if not already open.
 
