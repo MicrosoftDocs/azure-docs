@@ -4,7 +4,7 @@ description: Assign a custom role for authentication
 author: ddouglas-msft
 services: azure-communication-services
 ms.author: ddouglas
-ms.date: 10/18/2023
+ms.date: 3/18/2025
 ms.topic: include
 ms.service: azure-communication-services
 ---
