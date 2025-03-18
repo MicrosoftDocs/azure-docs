@@ -33,12 +33,8 @@ Set up a new project in an Azure subscription.
 
     :::image type="content" source="./media/create-manage-projects/create-project.png" alt-text="Screenshot shows how to create project.":::
 
-4. In **Servers, databases and web apps**, select **Create project**.
-
-    :::image type="content" source="./media/create-manage-projects/create-project-inline.png" alt-text="Screenshot of button to start creating a project." lightbox="./media/create-manage-projects/create-project-expanded.png":::
-
-5. In **Create project**, select the Azure subscription and resource group. Create a resource group if you don't have one.
-6. In **Project Details**, specify the project name and the geography in which you want to create the project.
+4. In **Create project**, select the Azure subscription and resource group. Create a resource group if you don't have one.
+5. In **Project Details**, specify the project name and the geography in which you want to create the project.
     - The region is only used to store the metadata gathered from on-premises servers. You can assess or migrate servers for any target region regardless of the selected region.
     - Review supported regions for [public](supported-geographies.md#public-cloud) and [government clouds](supported-geographies.md#azure-government). 
 
@@ -47,7 +43,7 @@ Set up a new project in an Azure subscription.
 
 7. Select **Create**.
 
-     :::image type="content" source="./media/create-manage-projects/project-details.png" alt-text="Image of Azure Migrate page to input project settings.":::
+     :::image type="content" source="./media/create-manage-projects/create-project-subscription.png" alt-text="Image of Azure Migrate page to create project.":::
 
 Wait for a few minutes for the project to deploy.
 

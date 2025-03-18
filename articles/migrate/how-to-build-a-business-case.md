@@ -76,9 +76,9 @@ To build a business case, follow these steps:
 1. Select the Scope of business case. 
     1. Select **Entire datacenter** your business case is created for all discovered workloads.
     
-    :::image type="content" source="./media/how-to-build-a-business-case/entire-datacenter.png" alt-text="Screenshot shows how to select the entire datacenter.":::
+    :::image type="content" source="./media/how-to-build-a-business-case/entire-data-center.png" alt-text="Screenshot shows how to select the entire data center.":::
 
-1. Seledt the **Selected Workloads**, you can create a business case for a specific set of workloads.
+1. Select the **Selected Workloads**, you can create a business case for a specific set of workloads.
 1. Select **Add Workloads** and then select the workloads you want to include in your business case. You can filter and select based on the tags and criteria you’ve set.
 1. Select Next to proceed.
 
