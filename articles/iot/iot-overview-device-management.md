@@ -23,16 +23,11 @@ The following diagram shows a high-level view of the components in a typical edg
 
 In an edge-based IoT solution, asset management refers to processes such as registering assets and defining asset endpoints. Asset management includes the following tasks:
 
-<!-- - Creating logical entities that represent a physical or virtual asset.
-- Asset registration in a single unified registry that enables edge and cloud management.
-- Defining the asset endpoints that connect assets to your edge runtime environment.
-- Defining asset tags and events to enable data flow from OPC UA servers to the MQTT broker.
- -->
-
 - Asset endpoint creation
 - Asset, tags and events creation
+- Data flow endpoint creation
+- Asset and data flow endpoints secrets management
 - Asset updates
-- Asset endpoints secrets management
 - Asset monitoring
 - Enabling and disabling assets
 
@@ -45,9 +40,28 @@ In an edge-based IoT solution, an MQTT broker enables bidirectional edge/cloud c
 
 ## Primitives
 
+An edge-based IoT solution can use the following primitives for asset management and control:
+
+- *Asset endpoints* to describe southbound edge connectivity information for one or more assets.
+- *Asset tags* to describe a data point that can be collected from an asset.
+- *Asset events* that inform you about state changes to your asset.
+- *Data flows* to connect various data sources and perform data operations, simplifying the setup of data paths to move, transform, and enrich data.
+- *Operations experience web UI* that lets you create and configure assets in your solution. The web UI simplifies the task of managing assets.
+- *Unified registry* that enables the cloud and edge management of assets. Azure Device Registry projects assets defined in your edge environment as Azure resources in the cloud. It provides a single unified registry so that all apps and services that interact with your assets can connect to a single source. Device Registry also manages the synchronization between assets in the cloud and assets as custom resources in Kubernetes on the edge.
+- *Schema registry* that lets you define and manage the schema for your assets. Data flows use schemas to deserialize and serialize messages.
+- *Akri services* that let you deploy and configure connectivity protocols, such as OPC UA and ONVIF, at the edge. Akri services use the asset and asset endpoint resources in Azure Device Registry to model the different device and protocol connections in your environment.
+- *Secret Store extension* to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets. Azure IoT Operations uses Azure Key Vault as the managed vault solution on the cloud, and uses [Azure Key Vault Secret Store extension for Kubernetes](/azure/azure-arc/kubernetes/secret-store-extension) to sync the secrets.
+
+To learn more, see [What is asset management in Azure IoT Operations](../iot-operations/discover-manage-assets/overview-manage-assets.md) and [Configure data flows in Azure IoT Operations](../iot-operations/connect-to-cloud/howto-create-dataflow.md).
+
 ## Asset endpoint creation
 
+- Defining the asset endpoints that connect assets to your edge runtime environment.
+
 ## Asset, tags and events creation
+
+- Asset registration in a single unified registry that enables edge and cloud management.
+- Defining asset tags and events to enable data flow from OPC UA servers to the MQTT broker.
 
 ## Asset endpoint secrets management
 
