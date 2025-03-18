@@ -4,9 +4,9 @@ ms.topic: include
 ms.date: 03/10/2025
 ms.author: kkendrick
 ---
-#### Install a Datadog agent
+#### Install an agent
 
-To install a Datadog agent:
+To install an agent:
 
 1. Choose the resource you would like to monitor.
 
@@ -14,12 +14,12 @@ To install a Datadog agent:
 
 1. Select **OK**.
 
-After the Datadog agent is installed, the status changes to *Installed*.
+After the agent is installed, the status changes to *Installed*.
 The service restarts once installation is complete.
 
-#### Uninstall a Datadog agent
+#### Uninstall an agent
 
-To uninstall a Datadog agent:
+To uninstall an agent:
 
 1. Choose a resource.
 
