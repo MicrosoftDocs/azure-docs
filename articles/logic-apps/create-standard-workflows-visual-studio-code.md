@@ -640,7 +640,7 @@ To test your workflow, follow these steps to run a debugging session and find th
 
    1. Copy and save the **Callback URL**, which looks similar to the following URL for the **When an HTTP request is received** trigger in this example:
 
-      **`http://localhost:7071/api/<workflow-name>/triggers/manual/invoke?api-version=2020-05-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<shared-access-signature>`
+      **`http://localhost:7071/api/<workflow-name>/triggers/manual/invoke?api-version=2020-05-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<shared-access-signature>`**
 
       :::image type="content" source="media/create-standard-workflows-visual-studio-code/find-callback-url.png" alt-text="Screenshot shows workflow overview page with callback URL.":::
 
@@ -781,9 +781,9 @@ To find the fully qualified domain names (FQDNs) for these connections, follow t
 
    The following example **connections.json** file contains two connections, an Office 365 connection and an AS2 connection. Both use managed identities for authentication and have the following **`connectionRuntimeUrl`** values, respectively:
 
-   - Office 365: **`"connectionRuntimeUrl": https://A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u.00.common.logic-<Azure-region>.azure-apihub.net/apim/office365/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1`
+   - Office 365: **`"connectionRuntimeUrl": https://A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u.00.common.logic-<Azure-region>.azure-apihub.net/apim/office365/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1`**
 
-   - AS2: **`"connectionRuntimeUrl": https://A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u.00.common.logic-<Azure-region>.azure-apihub.net/apim/as2/b1b1b1b1-cccc-dddd-eeee-f2f2f2f2f2f2`
+   - AS2: **`"connectionRuntimeUrl": https://A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u.00.common.logic-<Azure-region>.azure-apihub.net/apim/as2/b1b1b1b1-cccc-dddd-eeee-f2f2f2f2f2f2`**
 
    ```json
    {
@@ -1175,7 +1175,7 @@ When you try to open the designer, you get this error, **"Workflow design time c
 
 ### New triggers and actions are missing from the designer picker for previously created workflows
 
-Single-tenant Azure Logic Apps supports built-in actions for Azure Function Operations, Liquid Operations, and XML Operations, such as **XML Validation** and **Transform XML**. However, for previously created logic apps, these actions might not appear in the designer picker for you to select if Visual Studio Code uses an outdated version of the extension bundle, **`Microsoft.Azure.Functions.ExtensionBundle.Workflows`.
+Single-tenant Azure Logic Apps supports built-in actions for Azure Function Operations, Liquid Operations, and XML Operations, such as **XML Validation** and **Transform XML**. However, for previously created logic apps, these actions might not appear in the designer picker for you to select if Visual Studio Code uses an outdated version of the extension bundle, **`Microsoft.Azure.Functions.ExtensionBundle.Workflows`**.
 
 Also, the **Azure Function Operations** connector and actions don't appear in the designer picker unless you enabled or selected **Use connectors from Azure** when you created your logic app. If you didn't enable the Azure-deployed connectors at app creation time, you can enable them from your project in Visual Studio Code. Open the **workflow.json** shortcut menu, and select **Use Connectors from Azure**.
 
@@ -1191,13 +1191,13 @@ To fix the outdated bundle, follow these steps to delete the outdated bundle, wh
 
 1. On your computer, browse to the following folder, which contains versioned folders for the existing bundle:
 
-   **`...\Users\<user-name>\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows`
+   **`...\Users\<user-name>\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows`**
 
 1. Delete the version folder for the earlier bundle, for example, if you have a folder for version 1.1.3, delete that folder.
 
 1. Now, browse to the following folder, which contains versioned folders for required NuGet package:
 
-   **`...\Users\<user-name>\.nuget\packages\microsoft.azure.workflows.webjobs.extension`
+   **`...\Users\<user-name>\.nuget\packages\microsoft.azure.workflows.webjobs.extension`**
 
 1. Delete the version folder for the earlier package.
 
