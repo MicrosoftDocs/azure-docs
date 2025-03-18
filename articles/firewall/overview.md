@@ -49,8 +49,6 @@ For more information, see [Azure Firewall Premium features](premium-features.md)
 
 ## Feature comparison
 
-## Feature comparison
-
 To compare all Azure Firewall SKU features, see [Choose the right Azure Firewall SKU to meet your needs](choose-firewall-sku.md).
 
 ## Azure Firewall Manager
