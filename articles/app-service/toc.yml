@@ -42,7 +42,7 @@
   href: quickstart-custom-container.md
 - name: Deploy using ARM template
   displayName: Resource Manager
-    href: quickstart-arm-template.md
+  href: quickstart-arm-template.md
 - name: Deployment and configuration
   items:
     - name: Deployment best practices
