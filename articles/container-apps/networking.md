@@ -7,7 +7,7 @@ ms.service: azure-container-apps
 ms.custom:
   - ignite-2024
 ms.topic:  conceptual
-ms.date: 02/07/2025
+ms.date: 03/18/2025
 ms.author: cshoe
 ---
 
@@ -234,7 +234,7 @@ Azure creates a default route table for your virtual networks upon create. By im
 User defined routes are only supported in a workload profiles environment. The following application or network rules must be added to the allowlist for your firewall depending on which resources you're using.
 
 > [!NOTE]
-> You don't need to configure both application rules and network rules at the same time. You can choose whichever type of rule is most appropriate based on your system’s requirements
+> You only need to configure either application rules or network rules, depending on your system’s requirements. Configuring both at the same time is not necessary.
 
 > [!NOTE]
 > For a guide on how to set up UDR with Container Apps to restrict outbound traffic with Azure Firewall, visit the [how to for Container Apps and Azure Firewall](./user-defined-routes.md).
@@ -245,7 +245,7 @@ Application rules allow or deny traffic based on the application layer. The foll
 
 | Scenarios | FQDNs | Description |
 |--|--|--|
-| All scenarios | `mcr.microsoft.com`, `*.data.mcr.microsoft.com` | These FQDNs for Microsoft Container Registry (MCR) are used by Azure Container Apps and the application rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. |
+| All scenarios | `mcr.microsoft.com`, `*.data.mcr.microsoft.com` | These FQDNs for Microsoft Container Registry (MCR) are used by Azure Container Apps. Either these application rules or the network rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. |
 | Azure Container Registry (ACR) | *Your-ACR-address*, `*.blob.core.windows.net`, `login.microsoft.com` | These FQDNs are required when using Azure Container Apps with ACR and Azure Firewall. |
 | Azure Key Vault | *Your-Azure-Key-Vault-address*, `login.microsoft.com` | These FQDNs are required in addition to the service tag required for the network rule for Azure Key Vault. |
 | Managed Identity | `*.identity.azure.net`, `login.microsoftonline.com`, `*.login.microsoftonline.com`, `*.login.microsoft.com` | These FQDNs are required when using managed identity with Azure Firewall in Azure Container Apps.
@@ -257,7 +257,7 @@ Network rules allow or deny traffic based on the network and transport layer. Th
 
 | Scenarios | Service Tag | Description |
 |--|--|--|
-| All scenarios | `MicrosoftContainerRegistry`, `AzureFrontDoorFirstParty`  | These Service Tags for Microsoft Container Registry (MCR) are used by Azure Container Apps and the network rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. |
+| All scenarios | `MicrosoftContainerRegistry`, `AzureFrontDoorFirstParty`  | These Service Tags for Microsoft Container Registry (MCR) are used by Azure Container Apps. Either these network rules or the application rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. |
 | Azure Container Registry (ACR) | `AzureContainerRegistry`, `AzureActiveDirectory` | When using ACR with Azure Container Apps, you need to configure these network rules used by Azure Container Registry. |
 | Azure Key Vault | `AzureKeyVault`, `AzureActiveDirectory` | These service tags are required in addition to the FQDN for the network rule for Azure Key Vault. |
 | Managed Identity | `AzureActiveDirectory` | When using Managed Identity with Azure Container Apps, you need to configure these network rules used by Managed Identity. | 
