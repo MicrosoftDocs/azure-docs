@@ -35,7 +35,7 @@ Billing and payment for the service is done through Azure. Payment for Oracle Da
 
 ## Integration with Azure Monitor 
 
-Metrics monitoring for Oracle databases running on dedicated Exadata Infrastructure, Exascale Infrastructure and Autonomous database service is now available through Azure Monitor. This powerful capability enables comprehensive monitoring and insights to ensure optimal performance and reliability.
+Metrics monitoring for Oracle databases running on dedicated Exadata Infrastructure, Exascale Infrastructure, and Autonomous database service is now available through Azure Monitor. This powerful capability enables comprehensive monitoring and insights to ensure optimal performance and reliability.
 
 For detailed information on the list of supported metrics, please refer to the following:
 - [Oracle Exadata Database Service running on dedicated ExaData Infrastructure](/azure/azure-monitor/reference/supported-metrics/oracle-database-cloudvmclusters-metrics).
