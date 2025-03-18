@@ -11,7 +11,7 @@ ms.devlang: azurecli
 #customer intent: As a lab user, I want to use PowerShell or Azure CLI commands to start and stop VMs so I can support automated workflows and save costs.
 ---
 
-# Use command lines to start and stop DevTest Labs VMs
+# Use commands to start and stop DevTest Labs VMs
 
 This article shows how you can use PowerShell or Azure CLI commands to script or automate start or stop for Azure DevTest Labs VMs. For example, you can use start or stop commands to:
 

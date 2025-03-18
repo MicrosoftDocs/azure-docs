@@ -16,12 +16,12 @@ ms.custom: UpdateFrequency2
 
 In this article, you learn how to use Azure Storage Explorer to upload a virtual hard disk (VHD) file to a lab storage account in Azure DevTest Labs. Storage Explorer is a standalone app that runs on Windows, macOS, and Linux. After you upload your VHD file to your lab, you can create a custom image from the uploaded file and use the image to create lab virtual machines (VMs).
 
-Storage Explorer supports several connection options. This article describes how to connect to a storage account that's associated with your Azure subscription. For information about other Storage Explorer connection options, see [Get started with Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+Storage Explorer supports several connection options. This article describes how to connect to a storage account associated with your Azure subscription. For information about other Storage Explorer connection options, see [Get started with Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
 ## Prerequisites
 
 - Write access to a lab in DevTest Labs.
-- A VHD or VHDX virtual hard disk file to upload.
+- A VHD or virtual hard disk v2 (VHDX) virtual hard disk file to upload.
 - The [latest version of Storage Explorer](https://www.storageexplorer.com) installed.
 
 ## Upload a VHD file to a lab
@@ -59,7 +59,7 @@ When you open Storage Explorer, the Explorer pane shows all the Azure subscripti
 
    :::image type="content" source="media/devtest-lab-upload-vhd-using-storage-explorer/upload-dir.png" alt-text="Screenshot that shows the expanded Blob Containers node with the uploads directory.":::
 
-1. In the Storage Explorer right pane, on the blob editor toolbar, select **Upload**, and then select **Upload Files**.
+1. In the Storage Explorer right pane, on the blob editor toolbar, select **Upload** > **Upload Files**.
 
    :::image type="content" source="media/devtest-lab-upload-vhd-using-storage-explorer/upload-button.png" alt-text="Screenshot that shows the Upload button and Upload Files.":::
 
@@ -73,7 +73,7 @@ When you open Storage Explorer, the Explorer pane shows all the Azure subscripti
 
    :::image type="content" source="media/devtest-lab-upload-vhd-using-storage-explorer/upload-status.png" alt-text="Screenshot that shows the Activities pane with upload status.":::
 
-After you upload the VHD file, you can see it in your lab storage account in the Azure portal. 
+After the VHD file uploads, you can see it in your lab storage account in the Azure portal.
 
 1. Open your lab storage account by searching for and selecting it in the Azure Search bar, or by selecting it from **Storage accounts**.
 1. On the storage account's **Overview** page, select **Data storage** > **Containers** from the left navigation.

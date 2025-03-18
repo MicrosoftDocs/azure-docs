@@ -1,5 +1,5 @@
 ---
-title: Create and add a virtual machine to a lab
+title: Create and add a VM to a lab
 description: Learn how to use the Azure portal to add a virtual machine (VM) to a lab in Azure DevTest Labs. Configure basic settings, artifacts, and advanced settings.
 ms.topic: how-to
 ms.author: rosemalcolm
@@ -12,9 +12,7 @@ ms.custom: UpdateFrequency2
 
 # Create lab VMs in Azure DevTest Labs
 
-This article describes how to create Azure virtual machines (VMs) in Azure DevTest Labs by using the Azure portal.
-
-You can also create DevTest Labs VMs by using [PowerShell](devtest-lab-vm-powershell.md), [Azure CLI](devtest-lab-vmcli.md), an [ARM template](devtest-lab-use-resource-manager-template.md), or from a [shared image gallery](add-vm-use-shared-image.md).
+This article describes how to create Azure virtual machines (VMs) in Azure DevTest Labs by using the Azure portal. You can also create DevTest Labs VMs by using [PowerShell](devtest-lab-vm-powershell.md), [Azure CLI](devtest-lab-vmcli.md), an [ARM template](devtest-lab-use-resource-manager-template.md), or from a [shared image gallery](add-vm-use-shared-image.md).
 
 ## Prerequisite
 
@@ -51,17 +49,17 @@ You can also create DevTest Labs VMs by using [PowerShell](devtest-lab-vm-powers
 
 The default **Virtual machine size** that appears in **Basic Settings** depends on the **Image Base** architecture and the lab's **Allowed virtual machine** sizes.
 
-- If the lab's **Configuration and policies** > **Allowed virtual machine sizes** policy allows **All sizes**:
-  - For an image base with x64 architecture, the default size is **D4s_v5**.
-  - For an image base with ARM64 architecture, the default size is **D4pls_v5**.
+If the lab's **Configuration and policies** > **Allowed virtual machine sizes** policy allows **All sizes**:
+- For an image base with x64 architecture, the default size is **D4s_v5**.
+- For an image base with Arm64 architecture, the default size is **D4pls_v5**.
 
-- If the lab's **Configuration and policies** > **Allowed virtual machine sizes** policy allows only limited **Selected sizes**:
-  - If **D4s_v5** VM size is allowed, the default size is **D4s_v5** for an image base with x64 architecture.
-  - If **D4pls_v5** VM size is allowed, the default size is **D4pls_v5** for an image base with ARM64 architecture.
-  - If **D4s_v5** size isn't allowed for x64 architectures, or **D4pls_v5** size isn't allowed for ARM64 architectures:
-    - If a 4-core non-premium CPU size is available, the first available 4-core non-premium CPU size is selected.
-    - If no 4-core non-premium CPU size is available, the first available 4-core CPU size is selected.
-    - If no 4-core CPU size is available, the first available CPU size is selected.
+If the lab's **Configuration and policies** > **Allowed virtual machine sizes** policy allows only limited **Selected sizes**:
+- If **D4s_v5** VM size is allowed, the default size is **D4s_v5** for an image base with x64 architecture.
+- If **D4pls_v5** VM size is allowed, the default size is **D4pls_v5** for an image base with Arm64 architecture.
+- If **D4s_v5** size isn't allowed for x64 architectures, or **D4pls_v5** size isn't allowed for Arm64 architectures:
+  - If a 4 core nonpremium CPU size is available, the first available 4 core nonpremium CPU size is selected.
+  - If no 4 core nonpremium CPU size is available, the first available 4 core CPU size is selected.
+  - If no 4 core CPU size is available, the first available CPU size is selected.
 
 <a name="add-artifacts-during-installation"></a>
 <a name="add-optional-artifacts"></a>
@@ -84,7 +82,7 @@ To add or configure artifacts during VM creation:
 
 To add artifacts to VMs after VM creation, see [Add artifacts to VMs after creation](add-artifact-vm.md#add-artifacts-to-vms-from-the-azure-portal). For more information about adding artifacts, see [Add artifacts to DevTest Labs VMs](add-artifact-vm.md).
 
-<a name="configure-optional-advanced-settings></a>
+<a name="configure-optional-advanced-settings"></a>
 ## Configure advanced settings
 
 1. Optionally, select the **Advanced Settings** tab on the **Create lab resource** screen, and change any of the following values:
@@ -95,7 +93,7 @@ To add artifacts to VMs after VM creation, see [Add artifacts to VMs after creat
    - **Expiration date**: Leave at **Will not expire**, or [set an expiration date](devtest-lab-use-resource-manager-template.md#set-vm-expiration-date) and time for the VM.
    - **Make this machine claimable**: Leave at **No** to keep yourself as the owner of the VM. Select **Yes** to make the VM claimable by any lab user after creation. For more information, see [Create and manage claimable VMs](devtest-lab-add-claimable-vm.md).
    - **Number of instances**: To create more than one VM with this configuration, enter the number of VMs to create.
-   - **View ARM template**: Select this button to view and save the VM configuration as an Azure Resource Manager (ARM) template. You can use the ARM template to [deploy new VMs](/azure/azure-resource-manager/templates/overview.md).
+   - **View ARM template**: Select this button to view and save the VM configuration as an Azure Resource Manager (ARM) template. You can use the ARM template to [deploy new VMs](/azure/azure-resource-manager/templates/overview).
 
    :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-vm-advanced-settings.png" alt-text="Screenshot that shows the VM Advanced Settings page.":::
 
@@ -113,7 +111,7 @@ Or, if you chose **Make this machine claimable** during VM creation, select **Cl
 
 When you create a VM in DevTest Labs, you automatically have permission to access that VM, and you can see the VM listed both on the lab **Overview** page and the **All resources** page.
 
-DevTest Labs users in the **Owner** and **Contributor** roles can see all lab VMs on the lab's **All Resources** page. Users in the **DevTest Labs User** role don't automatically have read access to VM resources that other users have created, so they don't see those VMs on the **All resources** page.
+DevTest Labs users in the **Owner** and **Contributor** roles can see all lab VMs on the lab's **All Resources** page. Users in the **DevTest Labs User** role can't automatically access VM resources that other users created, so they don't see those VMs on the **All resources** page.
 
 ## Copy existing Azure VMs into a lab
 
@@ -123,9 +121,8 @@ You can copy existing VMs to DevTest Labs as follows:
 1. Use the VHD file to [create a custom image](devtest-lab-create-template.md) in your lab.
 1. Create a lab VM from your custom image.
 
-<a name="add-artifacts-after-installation"></a>
 ## Related content
 
 - For information about creating labs, see [Create a lab in the Azure portal](devtest-lab-create-lab.md).
-- Explore the DevTest Labs public repositories of [artifacts](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), [environments](https://github.com/Azure/azure-devtestlab/tree/master/Environments), and [QuickStart ARM templates](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).
+- Explore the [artifacts](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), [environments](https://github.com/Azure/azure-devtestlab/tree/master/Environments), and [QuickStart ARM templates](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)DevTest Labs public repositories.
 

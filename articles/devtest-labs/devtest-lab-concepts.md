@@ -29,7 +29,7 @@ A DevTest Labs lab is the infrastructure that encompasses a group of resources s
 
 ### Roles
 
-[Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) defines DevTest Labs access and roles. DevTest Labs has three roles that define lab member permissions: **Owner**, **Contributor**, and **DevTest Labs User**.
+[Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) defines DevTest Labs access and roles. DevTest Labs has three roles that define lab member permissions: **Owner**, **Contributor**, and **DevTest Labs User**.
 
 - Lab **Owners** can do all lab tasks, including creating labs and managing policies and users. For more information about managing user access and roles, see [Add lab owners, contributors, and users](devtest-lab-add-devtest-user.md).
 
@@ -53,7 +53,7 @@ You can use ARM templates to create and update DevTest Labs labs, environments, 
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)] For more information about ARM template structure and properties, see [Template format](/azure/azure-resource-manager/templates/syntax#template-format).
 
-For more information about using ARM templates in DevTestLabs, see:
+For more information about using ARM templates in DevTest Labs, see:
 
 - [Create labs from ARM templates](create-lab-windows-vm-template.md)
 - [Create environments from ARM templates](devtest-lab-create-environment-from-arm.md)
@@ -105,6 +105,6 @@ For more information about custom images and formulas, see [Compare custom image
 
 ## Environments
 
-A DevTest Labs environment is a collection of Azure platform-as-a-service (PaaS) resources, such as an Azure Web App or a SharePoint farm, that's defined by an ARM template. Lab administrators can add public or privately created environment tamplates to labs, and lab users can use them to quickly create environments. For more information, see [Use ARM templates to create DevTest Labs environments](devtest-lab-create-environment-from-arm.md).
+A DevTest Labs environment is a collection of Azure platform-as-a-service (PaaS) resources, such as an Azure Web App or a SharePoint farm, that an ARM template defines. Lab administrators can add public or privately created environment templates to labs, and lab users can use them to quickly create environments. For more information, see [Use ARM templates to create DevTest Labs environments](devtest-lab-create-environment-from-arm.md).
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
