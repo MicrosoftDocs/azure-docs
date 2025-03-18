@@ -8,7 +8,10 @@ ms.topic: how-to
 ms.date: 03/18/2025
 ---
 
-# How to configure TLS policy on a Front Door custom domain onboarded on Front Door
+# How to configure TLS policy on a Front Door custom domain onboarded on Front Door (preview)
+
+> [!IMPORTANT]
+> TLS policy is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Azure Front Door offers two mechanisms for controlling TLS policy. You can use either a predefined policy or a custom policy per your own needs.
 
@@ -39,8 +42,7 @@ If you're using Azure to host your [DNS domains](/azure/dns/dns-overview), you m
 
 ## Verify TLS policy configurations
 
-1. Once the custom domain with TLS policy is deployed successfully, you can test it in your browser. 
-1. View the supported cipher suite of your domain via <https://www.ssllabs.com/ssltest/analyze.html?d=p2c1test.bugbash.dev.azfdtest.xyz&latest> or use the sslscan tool.
+View the supported cipher suit of your domain via https://www.ssllabs.com/ssltest/ or use the sslscan tool.
 
 ## Related content
 

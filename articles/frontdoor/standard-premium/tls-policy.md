@@ -8,7 +8,10 @@ ms.topic: concept-article
 ms.date: 03/18/2025
 ---
 
-# Azure Front Door TLS policy 
+# Azure Front Door TLS policy (preview)
+
+> [!IMPORTANT]
+> TLS policy is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Azure Front Door supports [end-to-end TLS encryption](../end-to-end-tls.md). When you add a custom domain to Azure Front Door, HTTPS is required, and you need to define a TLS policy which includes control of the TLS protocol version as well as the cipher suites and the order in which ciphers are used during a TLS handshake. 
 
@@ -32,16 +35,14 @@ Azure Front Door offers several predefined TLS policies. You can configure your 
 
 The following table shows the list of cipher suites and minimum protocol version support for each predefined policy. The ordering of the cipher suites determines the priority order during TLS negotiation.
 
-By default, TLSv1.2_2023 will be selected. TLSv1.2_2022 maps to the minimum TLS 1.2 version in previous design, while TLSv1.1/1.0_2019 maps to minimum TLS 1.0/1.1 in previous design.
+By default, TLSv1.2_2023 will be selected. TLSv1.2_2022 maps to the minimum TLS 1.2 version in previous design.
 
 | **OpenSSL** | **Cipher** **Suite** | **TLSv1.2_2023** | **TLSv1.2_2022** |
 |---|---|---|---|
 | **Minimum Protocol version** | | **1.2** | **1.2** |
 | **Supported Protocols** | | **1.3/1.2** | **1.3./1.2** |
-| **Minimum TLS1.3** | | | |
 | **TLS_AES_256_GCM_SHA384** | TLS_AES_256_GCM_SHA384 | Yes | Yes |
 | **TLS_AES_128_GCM_SHA256** | TLS_AES_128_GCM_SHA256 | Yes | Yes |
-| **Minimum TLS1.2** | | | |
 | **ECDHE-RSA-AES256-GCM-SHA384** | TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 | Yes | Yes |
 | **ECDHE-RSA-AES128-GCM-SHA256** | TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 | Yes | Yes | 
 | **AES256-GCM-SHA384** | TLS_RSA_WITH_AES_256_GCM_SHA384 | | Yes | 
