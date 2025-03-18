@@ -105,6 +105,39 @@ When the storage pool is created, Azure Container Storage will create a storage 
 
 If you have Azure managed disks that are already provisioned, you can create a pre-provisioned storage pool using those disks. Because the disks are already provisioned, you don't need to specify the skuName or storage capacity when creating the storage pool.
 
+Follow these steps to prepare before creating pre-provisioned storage pool for Azure Disks. 
+
+1. Pre-provisioned Azure managed disks need to be in the same zone of system node pool. Follow these steps to check zones of disks and system node pool. 
+
+ ```bash 
+
+$ systemNodepoolName=$(az aks nodepool list -g <resourceGroup> --cluster-name <clusterName> --query "[?mode=='System'].name" -o tsv)  
+$ az aks nodepool show --resource-group <resourceGroup> --cluster-name <clusterName> --name $systemNodepoolName --query "availabilityZones" -o tsv 
+1 
+$ az disk show --resource-group <resourceGroup> --name <diskName> --query "zones" -o tsv 
+1 
+```
+ 
+1. Find cluster managed identity 
+
+```bash 
+$ az aks show --resource-group <resourceGroup> --name <clusterName> --query "identity" -o tsv 
+a972fa43-1234-5678-1234-c040eb546ec5 
+```
+
+1. Grant “Contributor” role of the disk to the cluster managed identity. Go to: Portal > Your disk > Access control (IAM) > Add role assignment > Select “Contributor” role and assign to the identity. It’s not required when your disk is created under AKS managed resource group (Example: MC_myResourceGroup_myAKSCluster_eastus). 
+
+1. Find identity of the system node pool 
+
+```bash 
+$ nodeResourceGroup=$(az aks show --resource-group <resourceGroup> --name <clusterName> --query nodeResourceGroup -o tsv) 
+$ agentPoolIdentityName="<clusterName>-agentpool" 
+$ az identity show --resource-group $nodeResourceGroup --output tsv --subscription $subscriptionId --name $agentPoolIdentityName --query 'principalId' 
+eb25d20f-1234-4ed5-1234-cef16f5bfe93 
+``` 
+
+1. Grant “Disk Pool Operator” role on your disk, to the identity. Go to: Portal > Your Disk > Access control (IAM) > Add role assignment > Select “Disk Pool Operator” role and assign to the identity.
+
 Follow these steps to create a pre-provisioned storage pool for Azure Disks.
 
 1. Sign in to the Azure portal.
