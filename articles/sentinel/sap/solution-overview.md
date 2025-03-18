@@ -30,10 +30,6 @@ The Microsoft Sentinel solution for SAP applications continuously monitor SAP sy
 
 - **Security orchestration, automation and response (SOAR)**: Build automated response processes that interact with your SAP systems to stop active security threats.
 
-For example, the following image shows a sample environment where the Microsoft Sentinel solution for SAP applications is deployed. This sample architecture uses a multi-SID SAP landscape with a split between productive and nonproductive systems. All of the systems in this image are onboarded to Microsoft Sentinel for the SAP solution.
-
-:::image type="content" source="media/deployment-overview/sap-sentinel-multi-sid-overview.png" alt-text="Diagram of a multi-SID SAP landscape with Microsoft Sentinel." lightbox="media/deployment-overview/sap-sentinel-multi-sid-overview.png" border="false":::
-
 Microsoft Sentinel also offers the [Microsoft Sentinel solution for SAP BTP](sap-btp-solution-overview.md), which offers threat monitoring and detection for SAP Business Technology Platform (BTP).
 
 ## Threat detection coverage
