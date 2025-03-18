@@ -8,7 +8,6 @@ ms.author: ddouglas
 ms.date: 10/18/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-smtp-role-assignment
 ---
 
 # Assign a role to a Microsoft Entra application for SMTP authentication
