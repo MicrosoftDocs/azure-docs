@@ -753,6 +753,14 @@ groups:
     title: Android
   - id: programming-language-rest
     title: REST
+- id: acs-smtp-role-assignment
+  title: SMTP Role Assignment
+  prompt: Choose the role assignment
+  pivots:
+  - id: smtp-acs-builtin-role
+    title: Assign the built-in role
+  - id: smtp-acs-custom-role
+    title: Assign a custom role
 - id: acs-smtp-sending-method
   title: SMTP Sending Method
   prompt: Choose a sending method
