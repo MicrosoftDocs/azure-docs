@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 03/14/2025
+ms.date: 03/18/2025
 
 #CustomerIntent: As an Azure administrator, I want to learn how to use Connection Troubleshoot to diagnose outbound connectivity issues in Azure using the Azure portal, Powershell, or Azure CLI.
 ---
@@ -1126,7 +1126,7 @@ Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/a
                          {
                            "Type": "Source",
                            "Id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
-                           "Address": "10.1.0.4",
+                           "Address": "10.0.0.4",
                            "ResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
                            "NextHopIds": [
                              "bbbbbbbb-1111-2222-3333-cccccccccccc"
@@ -1165,7 +1165,7 @@ Test-AzNetworkWatcherConnectivity -Location 'eastus' -SourceId '/subscriptions/a
                          {
                            "Type": "Destination",
                            "Id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
-                           "Address": "10.0.0.4",
+                           "Address": "10.10.10.10",
                            "NextHopIds": [],
                            "Issues": []
                          }
