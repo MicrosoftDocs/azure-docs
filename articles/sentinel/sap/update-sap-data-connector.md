@@ -24,7 +24,7 @@ The automatic or manual updates described in this article are relevant to the SA
 Content in this article is relevant for your **security**, **infrastructure**, and  **SAP BASIS** teams. 
 
 > [!NOTE]
-> This article is relevant only for the data connector agent, and isn't relevant for the [SAP agentless solution](deployment-overview.md#data-connector) (Preview).
+> This article is relevant only for the data connector agent, and isn't relevant for the [SAP agentless data connector](deployment-overview.md#data-connector) (Preview).
 >
 
 ## Prerequisites

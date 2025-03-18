@@ -21,7 +21,7 @@ This article includes troubleshooting steps to help you ensure accurate and time
 
 :::zone pivot="connection-agentless"
 
-When working with the agentless solution, most troubleshooting is done directly in the SAP Integration Suite, where the message log displays errors indicating the nature of the issue encountered.
+When working with the agentless data connector, most troubleshooting is done directly in the SAP Integration Suite, where the message log displays errors indicating the nature of the issue encountered.
 
 Starting my examining the message processing logs. For more information, see the [SAP documentation](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/monitor-message-processing-monitor). The error messages there can help you diagnose issues with missing permissions, connectivity errors, and other misconfigurations. 
 
@@ -29,7 +29,7 @@ If you don't see a related error to your issue, turn on trace logging for more i
 
 ## Check for prerequisites
 
-The agentless solution package, deployed while [performing the initial connector configuration](preparing-sap.md#perform-initial-connector-configuration), includes a tool to help SAP admins diagnose and fix issues related to the SAP environment configuration. 
+The agentless data connector package, deployed while [performing the initial connector configuration](preparing-sap.md#perform-initial-connector-configuration), includes a tool to help SAP admins diagnose and fix issues related to the SAP environment configuration. 
 
 [!INCLUDE [sap-agentless-prerequisites](../includes/sap-agentless-prerequisites.md)]
 

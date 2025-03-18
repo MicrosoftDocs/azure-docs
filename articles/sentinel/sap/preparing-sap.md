@@ -42,7 +42,7 @@ Many of the procedures in this article are typically performed by your **SAP BAS
 
 - Before you start, make sure to review the [prerequisites for deploying the Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 :::zone pivot="connection-agentless"
-- If you're working with the agentless solution, some steps are performed in Microsoft Sentinel and require that the [solution be installed first](deploy-sap-security-content.md).
+- If you're working with the agentless data connector, some steps are performed in Microsoft Sentinel and require that the [solution be installed first](deploy-sap-security-content.md).
 
 :::zone-end
 
@@ -100,7 +100,7 @@ Some installations of SAP systems might not have audit logging enabled by defaul
 We recommend that you configure auditing for *all* messages from the audit log, instead of only specific logs. Ingestion cost differences are generally minimal and the data is useful for Microsoft Sentinel detections and in post-compromise investigations and hunting.
 
 :::zone pivot="connection-agentless"
-For full monitoring coverage with the agentless solution, we recommend that you enable monitoring on all client IDs of your monitored SAP systems, including clients 000 and 066.
+For full monitoring coverage with the agentless data connector, we recommend that you enable monitoring on all client IDs of your monitored SAP systems, including clients 000 and 066.
 :::zone-end
 
 For more information, see the [SAP community](https://community.sap.com/t5/application-development-blog-posts/analysis-and-recommended-settings-of-the-security-audit-log-sm19-rsau/ba-p/13297094) and [Collect SAP HANA audit logs in Microsoft Sentinel](collect-sap-hana-audit-logs.md).
@@ -116,7 +116,7 @@ In a production environment, we strongly recommend that your consult with SAP ad
 When configuring SNC:
 
 - If the client certificate was issued by an enterprise certification authority, transfer the issuing CA and root CA certificates to the system where you plan to create the data connector agent.
-- If you're using the data connector agent, make sure to also enter the relevant values and use the relevant procedures when [configuring the SAP data connector agent container](deploy-data-connector-agent-container.md). If you're using the agentless solution, the SNC configuration is done in the SAP Cloud Connector.
+- If you're using the data connector agent, make sure to also enter the relevant values and use the relevant procedures when [configuring the SAP data connector agent container](deploy-data-connector-agent-container.md). If you're using the agentless data connector, the SNC configuration is done in the SAP Cloud Connector.
 
 
 For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
