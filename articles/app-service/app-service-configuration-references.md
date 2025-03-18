@@ -45,17 +45,17 @@ This configuration applies to all references from this app.
 
 ## Grant your app access to referenced key vaults
 
-In addition to storing raw configuration values, Azure App Configuration has its own format for storing [key vault references][app-config-key-vault-references]. If the value of an App Configuration reference is a key vault reference in the App Configuration store, your app also must have permissions to access the key vault that's specified in the reference.
+In addition to storing raw configuration values, Azure App Configuration has its own format for storing [key vault references][app-config-key-vault-references]. If the value of an App Configuration reference is a key vault reference in the App Configuration store, your app also must have permissions to access the key vault that is specified in the reference.
 
 > [!NOTE]
-> The [App Configuration key vault references concept][app-config-key-vault-references] should not be confused with [the App Service and Azure Functions key vault references concept][app-service-key-vault-references]. Your app can use any combination of these references, but there are some important differences. If your vault needs to be network restricted or if you need the app to periodically update to latest versions, consider using the App Service and Azure Functions direct approach instead of using an App Configuration reference.
+> The [App Configuration key vault references concept][app-config-key-vault-references] shouldn't be confused with [the App Service and Azure Functions key vault references concept][app-service-key-vault-references]. Your app can use any combination of these references, but there are some important differences. If your vault needs to be network restricted or if you need the app to periodically update to latest versions, consider using the App Service and Azure Functions direct approach instead of using an App Configuration reference.
 
 [app-config-key-vault-references]: ../azure-app-configuration/use-key-vault-references-dotnet-core.md
 [app-service-key-vault-references]: app-service-key-vault-references.md
 
 1. Identify the identity that you used for the App Configuration reference. You must grant vault access to the same identity.
 
-1. Create an [access policy in Key Vault](/azure/key-vault/general/security-features#privileged-access) for that identity. Enable the *Get* secret permission on this policy. Do not configure the *authorized application* or the `applicationId` settings because they aren't compatible with a managed identity.
+1. Create an [access policy in Key Vault](/azure/key-vault/general/security-features#privileged-access) for that identity. Enable the *Get* secret permission on this policy. Don't configure the *authorized application* or the `applicationId` settings because they aren't compatible with a managed identity.
 
 ## Reference syntax
 
@@ -84,7 +84,7 @@ Here's an example that doesn't include `Label`:
 Any configuration change to the app that results in a site restart causes an immediate refetch of all referenced key-value pairs from the App Configuration store.
 
 > [!NOTE]
-> Automatic refresh and refetch of these values when the key-value pairs have been updated in App Configuration is currently not supported.
+> Automatic refresh and refetch of these values when the key-value pairs are updated in App Configuration currently isn't supported.
 
 ## Source application settings from App Configuration
 
@@ -102,7 +102,7 @@ Apps can use the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` application setting 
 If you use App Configuration references for this setting, this validation check fails by default because the connection itself can't be resolved while the platform processes the incoming request. To avoid this issue, you can skip the validation by setting `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` to `1`. This setting bypasses all checks, and the content share isn't automatically created. You must ensure that the share is created in advance.
 
 > [!CAUTION]
-> If you skip validation and either the connection string or the content share are invalid, the app can't start properly and serves only HTTP 500 errors.
+> If you skip validation and either the connection string or the content share is invalid, the app can't start properly and serves only HTTP 500 errors.
 
 As part of creating the site, mounting the content share might fail if managed identity permissions aren't propagated or if the virtual network integration isn't set up. You can defer setting up Azure Files until later in the deployment template to accommodate for the required setup. For more information, see [Azure Resource Manager deployment](#azure-resource-manager-deployment). App Service uses only a default file system until Azure Files is set up, and files aren't copied over. Ensure that no deployment attempts occur during the interim period before Azure Files is mounted.
 
@@ -241,7 +241,7 @@ Here's a demonstration template for a function app that has App Configuration re
 
 If a reference isn't resolved properly, the reference value is used instead. For an application setting in this scenario, an environment variable that uses the syntax `@Microsoft.AppConfiguration(...)` is created. The reference might cause an error because the application was expecting a configuration value.
 
-This error most commonly is the result of a misconfiguration of the [App Configuration access policy](#grant-app-access-to-app-configuration). But it also might occur if there's a syntax error in the reference or if the configuration key-value pair does not exist in the store.
+This error most commonly is the result of a misconfiguration of the [App Configuration access policy](#grant-app-access-to-app-configuration). But it also might occur if there's a syntax error in the reference or if the configuration key-value pair doesn't exist in the store.
 
 ## Related content
 

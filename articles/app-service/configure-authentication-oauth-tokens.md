@@ -30,7 +30,7 @@ From your server code, the provider-specific tokens are injected into the reques
 From your client code (such as a mobile app or in-browser JavaScript), send an HTTP `GET` request to `/.auth/me` ([token store](overview-authentication-authorization.md#token-store) must be enabled). The returned JSON has the provider-specific tokens.
 
 > [!NOTE]
-> Access tokens are for accessing provider resources, so they are present only if you configure your provider with a client secret. To see how to get refresh tokens, see the next section.
+> Access tokens are for accessing provider resources, so they're present only if you configure your provider with a client secret. To see how to get refresh tokens, see the next section.
 
 ## Refresh auth tokens
 
@@ -75,13 +75,13 @@ function refreshTokens() {
 }
 ```
 
-If a user revokes the permissions granted to your app, your call to `/.auth/me` may fail with a `403 Forbidden` response. To diagnose errors, check your application logs for details.
+If a user revokes the permissions granted to your app, your call to `/.auth/me` might fail with a `403 Forbidden` response. To diagnose errors, check your application logs for details.
 
 ## Extend session token expiration grace period
 
-The authenticated session expires after 8 hours. After an authenticated session expires, there is a 72-hour grace period by default. Within this grace period, you're allowed to refresh the session token with App Service without reauthenticating the user. You can just call `/.auth/refresh` when your session token becomes invalid, and you don't need to track token expiration yourself. Once the 72-hour grace period lapses, the user must sign in again to get a valid session token.
+The authenticated session expires after 8 hours. After an authenticated session expires, a 72-hour grace period follows by default. Within this grace period, you're allowed to refresh the session token with App Service without reauthenticating the user. You can just call `/.auth/refresh` when your session token becomes invalid, and you don't need to track token expiration yourself. When the 72-hour grace period lapses, the user must sign in again to get a valid session token.
 
-If 72 hours isn't enough time for you, you can extend this expiration window. Extending the expiration over a long period could have significant security implications (such as when an authentication token is leaked or stolen). So you should leave it at the default 72 hours or set the extension period to the smallest value.
+If 72 hours isn't enough time for you, you can extend this expiration window. Extending the expiration over a long period could have significant security implications (such as when an authentication token is leaked or stolen). We recommend that you leave the setting at the default 72 hours or set the extension period to the smallest value.
 
 To extend the default expiration window, run the following command in the [Cloud Shell](../cloud-shell/overview.md).
 
@@ -90,7 +90,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 ```
 
 > [!NOTE]
-> The grace period only applies to the App Service authenticated session, not the tokens from the identity providers. There is no grace period for the expired provider tokens.
+> The grace period only applies to the App Service authenticated session, not the tokens from the identity providers. No grace period exists for expired provider tokens.
 >
 
 ## Related content

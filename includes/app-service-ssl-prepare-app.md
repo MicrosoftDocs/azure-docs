@@ -1,10 +1,8 @@
 ---
-title: "include file"
-description: "include file"
 services: app-service
 author: cephalin
 ms.service: azure-app-service
-ms.topic: "include"
+ms.topic: include
 ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: "include file"
@@ -30,9 +28,9 @@ To create custom TLS/SSL bindings or enable client certificates for your App Ser
 
 1. On the resource menu for your web app, in the **Settings** section, select **Scale up (App Service plan)**.
 
-   ![Screenshot of web app menu, "Settings" section, and "Scale up (App Service plan)" selected.](./media/app-service-ssl-prepare-app/scale-up-menu.png)
+   ![Screenshot of the web app menu, "Settings" section, and "Scale up (App Service plan)" selected.](./media/app-service-ssl-prepare-app/scale-up-menu.png)
 
-1. Make sure that your web app isn't in the **F1** or **D1** tier, which don't support custom TLS/SSL.
+1. Make sure that your web app isn't in the **F1** or **D1** tier. These tiers don't support custom TLS/SSL.
 
 1. If you need to scale up, follow the steps in the next section. Otherwise, close the **Scale up** pane, and skip the [Scale up your App Service plan section](#scale-up-your-app-service-plan).
 

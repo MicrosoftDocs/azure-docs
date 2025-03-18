@@ -89,9 +89,9 @@ You can securely access on-premises resources, such as databases, in three ways:
 
 ## Application secrets
 
-Don't store application secrets like database credentials, API tokens, and private keys in your code or configuration files. The commonly accepted approach is to access them as [environment variables](https://wikipedia.org/wiki/Environment_variable) by using the standard pattern in your language of choice. In App Service, the way to define environment variables is through [app settings](configure-common.md#configure-app-settings) (and, especially for .NET applications, [connection strings](configure-common.md#configure-connection-strings)). App settings and connection strings are stored encrypted in Azure, and they're decrypted only before they are injected into your app's process memory when the app starts. The encryption keys are rotated regularly.
+Don't store application secrets like database credentials, API tokens, and private keys in your code or configuration files. The commonly accepted approach is to access them as [environment variables](https://wikipedia.org/wiki/Environment_variable) by using the standard pattern in your language of choice. In App Service, the way to define environment variables is through [app settings](configure-common.md#configure-app-settings) (and, especially for .NET applications, [connection strings](configure-common.md#configure-connection-strings)). App settings and connection strings are stored encrypted in Azure, and they're decrypted only before they're injected into your app's process memory when the app starts. The encryption keys are rotated regularly.
 
-Alternatively, you can integrate your App Service app with [Azure Key Vault](/azure/key-vault/) for advanced secrets management. By [accessing the Key Vault with a managed identity](/azure/key-vault/general/tutorial-net-create-vault-azure-web-app), your App Service app can securely access the secrets you need.
+Alternatively, you can integrate your App Service app with [Azure Key Vault](/azure/key-vault/) for advanced secrets management. By [accessing the key vault with a managed identity](/azure/key-vault/general/tutorial-net-create-vault-azure-web-app), your App Service app can securely access the secrets you need.
 
 ## Network isolation
 

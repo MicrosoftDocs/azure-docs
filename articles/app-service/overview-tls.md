@@ -70,10 +70,10 @@ Azure App Service uses a secure set of TLS 1.2 cipher suites to ensure encrypted
 
 ### TLS 1.0 and TLS 1.1
 
-TLS 1.0 and 1.1 are considered **legacy protocols** and are no longer considered secure. They are supported on App Service only for backward compatibility and should be avoided when possible. The default minimum TLS version for new apps is **TLS 1.2**, and we recommend migrating apps that still use TLS 1.0 or 1.1.
+TLS 1.0 and TLS 1.1 are considered *legacy protocols* and are no longer considered secure. They are supported on App Service only for backward compatibility and should be avoided when possible. The default minimum TLS version for new apps is *TLS 1.2*, and we recommend that you migrate apps that still use TLS 1.0 or TLS 1.1.
 
 > [!IMPORTANT]
-> Incoming requests to web apps and incoming requests to Azure are treated differently. App Service will continue to support TLS 1.0 and 1.1 for incoming requests to the web apps. For incoming requests directly to the Azure control plane, for example through ARM or API calls, it's not recommended to use TLS 1.0 or 1.1.
+> Incoming requests to web apps and incoming requests to Azure are treated differently. App Service continues to support TLS 1.0 and TLS 1.1 for incoming requests to the web apps. For incoming requests made directly to the Azure control plane, for example through Azure Resource Manager or API calls, we recommend that you don't use use TLS 1.0 or TLS 1.1.
 
 ## Minimum TLS cipher suite
 
@@ -93,7 +93,7 @@ For App Service Environments (ASE) with the `FrontEndSSLCipherSuiteOrder` cluste
 - `TLS_AES_256_GCM_SHA384`
 - `TLS_AES_128_GCM_SHA256`
 
-Once you update your cluster setting, **you must restart your front-end** for the changes to take effect. Also, remember that **you must still include the two required cipher suites as mentioned in the documentation**, even when updating to support TLS 1.3. If you are already using `FrontEndSSLCipherSuiteOrder`, it is **not recommended to also enable Minimum TLS Cipher Suite for your web app**, as this could lead to conflicting configurations. **Only one** of these should be configured for managing cipher suite preferences.
+After you update your cluster setting, *you must restart your front end* for the changes to take effect. Also, remember that *you must still include the two required cipher suites as mentioned in the documentation*, even when you update to support TLS 1.3. If you already use `FrontEndSSLCipherSuiteOrder`, we *do not recommend that you also enable Minimum TLS Cipher Suite for your web app*. The result might be conflicting configurations. Configure *only one* of these options to manage cipher suite preferences.
 
 ## End-to-end TLS encryption
 
@@ -101,8 +101,8 @@ End-to-end (E2E) TLS encryption ensures that **front-end to worker communication
 
 E2E TLS helps ensure **full encryption of traffic** between:
 
-- Clients and App Service front ends.
-- App Service front ends and worker processes hosting the application.
+- Clients and App Service front ends
+- App Service front ends and worker processes hosting the application
 
 This feature is available on:
 
