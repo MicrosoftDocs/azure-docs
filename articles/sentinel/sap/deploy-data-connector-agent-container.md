@@ -375,10 +375,7 @@ This procedure is only relevant when you want to customize the SAP agentless dat
         - **To customize settings across all SAP systems**, add value mappings for the **global** bi-directional mapping agency.
         - **To customize settings for specific SAP systems**, add new bi-directional mapping agencies for each SAP system, and then add value mappings for each one. Name your agencies to exactly match the name of the RFC destination that you want to customize, such as myRfc, key, myRfc, value.
 
-        For more information, see:
-
-        - [SAP documentation on configuring Value Mappings](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/configuring-value-mappings)
-        - [Reference of customizable parameters](#reference-of-customizable-parameters)
+        For more information, see [SAP documentation on configuring Value Mappings](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/configuring-value-mappings)
 
     Make sure to deploy the artifact when you're done customizing to activate the updated settings.
 
