@@ -26,7 +26,7 @@ In this quickstart, you create a new instance of Dynatrace.
 
 ### Basics tab
 
-The *Basics* tab has three sections:
+The *Basics* tab has four sections:
 
 - Project details
 - Azure resource details
