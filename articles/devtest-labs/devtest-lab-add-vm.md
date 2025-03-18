@@ -47,7 +47,7 @@ This article describes how to create Azure virtual machines (VMs) in Azure DevTe
 
 ### VM sizes
 
-The default **Virtual machine size** that appears in **Basic Settings** depends on the **Image Base** architecture and the lab's **Allowed virtual machine** sizes.
+The default **Virtual machine size** that appears in **Basic Settings** depends on the chosen **Image Base** architecture and the lab's **Allowed virtual machine** sizes policy setting. For more information, see [Set allowed virtual machine sizes](devtest-lab-set-lab-policy.md#set-allowed-virtual-machine-sizes).
 
 If the lab's **Configuration and policies** > **Allowed virtual machine sizes** policy allows **All sizes**:
 - For an image base with x64 architecture, the default size is **D4s_v5**.
@@ -57,9 +57,9 @@ If the lab's **Configuration and policies** > **Allowed virtual machine sizes** 
 - If **D4s_v5** VM size is allowed, the default size is **D4s_v5** for an image base with x64 architecture.
 - If **D4pls_v5** VM size is allowed, the default size is **D4pls_v5** for an image base with Arm64 architecture.
 - If **D4s_v5** size isn't allowed for x64 architectures, or **D4pls_v5** size isn't allowed for Arm64 architectures:
-  - If a 4 core nonpremium CPU size is available, the first available 4 core nonpremium CPU size is selected.
-  - If no 4 core nonpremium CPU size is available, the first available 4 core CPU size is selected.
-  - If no 4 core CPU size is available, the first available CPU size is selected.
+  - If a 4-core nonpremium CPU size is available, the first available 4-core nonpremium CPU size is selected.
+  - If no 4-core nonpremium CPU size is available, the first available 4-core CPU size is selected.
+  - If no 4-core CPU size is available, the first available CPU size is selected.
 
 <a name="add-artifacts-during-installation"></a>
 <a name="add-optional-artifacts"></a>
