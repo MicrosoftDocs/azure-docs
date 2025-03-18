@@ -3,7 +3,7 @@ title: Create monitoring resources by using Bicep
 description: Describes how to create monitoring resources by using Bicep.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 09/26/2024
+ms.date: 03/17/2025
 ---
 
 # Create monitoring resources by using Bicep
@@ -41,7 +41,7 @@ resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2023-09-01' exis
   name: logAnalyticsWorkspace
 }
 
-resource appServicePlan 'Microsoft.Web/serverfarms@2023-12-01' = {
+resource appServicePlan 'Microsoft.Web/serverfarms@2024-04-01' = {
   name: appPlanName
   location: location
   sku: {
@@ -148,7 +148,7 @@ param location string = resourceGroup().location
 
 var actionGroupEmail = 'oncallteam@contoso.com'
 
-resource supportTeamActionGroup 'Microsoft.Insights/actionGroups@2023-01-01' = {
+resource supportTeamActionGroup 'Microsoft.Insights/actionGroups@2024-10-01-preview' = {
   name: actionGroupName
   location: location
   properties: {
@@ -174,41 +174,7 @@ Alert processing rules (previously referred to as action rules) allow you to app
 Each alert processing rule has a scope, which could be a list of one or more specific resources, a specific resource group or your entire Azure subscription. When you define alert processing rules in Bicep, you define a list of resource IDs in the *scope* property, which targets those resources for the alert processing rule.
 
 ```bicep
-param alertRuleName string = 'AlertRuleName'
-param actionGroupName string = 'On-Call Team'
-param location string = resourceGroup().location
 
-resource actionGroup 'Microsoft.Insights/actionGroups@2023-09-01-preview' existing = {
-  name: actionGroupName
-}
-
-resource alertProcessingRule 'Microsoft.AlertsManagement/actionRules@2023-05-01-preview' = {
-  name: alertRuleName
-  location: location
-  properties: {
-    actions: [
-      {
-        actionType: 'AddActionGroups'
-        actionGroupIds: [
-          actionGroup.id
-        ]
-      }
-    ]
-    conditions: [
-      {
-        field: 'MonitorService'
-        operator: 'Equals'
-        values: [
-          'Azure Backup'
-        ]
-      }
-    ]
-    enabled: true
-    scopes: [
-      subscription().id
-    ]
-  }
-}
 ```
 
 In the preceding example, the `MonitorService` alert processing rule on Azure Backup Vault is defined, which is applied to the existing action group. This rule triggers alerts to the action group.
