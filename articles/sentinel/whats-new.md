@@ -22,9 +22,9 @@ The listed features were released in the last three months. For information abou
 
 - [SAP agentless solution in public preview](#sap-agentless-solution-in-public-preview)
 
-### SAP agentless solution in public preview
+### Agentless connection to SAP now in public preview
 
-The Microsoft Sentinel data connector and security content is now included, as public preview, in the solution for SAP applications. This update also includes the following enhancements for the agentless data connector:
+The Microsoft Sentinel agentless data connector for SAP and related security content is now included, as public preview, in the solution for SAP applications. This update also includes the following enhancements for the agentless data connector:
 
 - **Enhanced instructions** in the portal for deploying and configuring the data connector. [External documentation](sap/preparing-sap.md#next-step) is updated to rely on the instructions in the portal.
 - **[More data ingested](sap/sap-solution-log-reference.md)**, such as Change Docs logs and User Master data.
