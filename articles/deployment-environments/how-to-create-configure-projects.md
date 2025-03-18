@@ -7,7 +7,9 @@ ms.author: remarcia
 ms.service: azure-deployment-environments
 ms.custom: devx-track-azurecli, build-2023
 ms.topic: quickstart
-ms.date: 11/29/2023
+ms.date: 03/19/2025
+
+# 
 ---
 
 # Create and configure a project by using the Azure CLI
