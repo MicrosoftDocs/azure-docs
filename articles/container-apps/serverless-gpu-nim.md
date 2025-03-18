@@ -166,12 +166,12 @@ Next you create a container app with the NVIDIA GPU Cloud API key.
       --image $ACR_NAME.azurecr.io/$CONTAINER_AND_TAG \
       --cpu 24 \
       --memory 220 \
-      --gpu "NVIDIAA100" \
+      --target-port 8000 \
+      --ingress external \
       --secrets ngc-api-key=<PASTE_NGC_API_KEY_HERE> \
       --env-vars NGC_API_KEY=secretref:ngc-api-key \
       --registry-server $ACR_NAME.azurecr.io \
-      --registry-username <ACR_USERNAME> \
-      --registry-password <ACR_PASSWORD> \
+      --workload-profile-name LLAMA_PROFILE \
       --query properties.configuration.ingress.fqdn
     ```
 
@@ -189,8 +189,8 @@ curl -X POST \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "meta/llama3-8b-instruct",
-    "prompt": "Once upon a time",
+    "model": "meta/llama-3.1-8b-instruct",
+    "prompt":  [{"role":"user", "content":"Once upon a time..."}],
     "max_tokens": 64
   }'
 ```
