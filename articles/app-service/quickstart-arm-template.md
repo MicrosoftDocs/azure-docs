@@ -5,7 +5,7 @@ author: msangapu-msft
 ms.author: msangapu
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
-ms.date: 02/06/2024
+ms.date: 03/18/2025
 ms.custom: subject-armqs, mode-arm, devdivchpfy22, devx-track-arm-template, linux-related-content
 zone_pivot_groups: app-service-platform-windows-linux-windows-container
 adobe-target: true
@@ -154,15 +154,19 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/app-service-docs-linux/azuredeploy.json"
 ```
 
-To deploy a different language stack, update `linuxFxVersion` with appropriate values. Samples are shown in the table. To show current versions, run the following command in the Cloud Shell: `az webapp config show --resource-group myResourceGroup --name <app-name> --query linuxFxVersion`
+To deploy a different language stack, update `linuxFxVersion` with appropriate values. Samples are shown in the table. To show current versions, run the following command in the Cloud Shell:
 
-| Language    | Example                                              |
-|-------------|------------------------------------------------------|
-| **.NET**    | linuxFxVersion="DOTNETCORE&#124;3.0"                 |
-| **PHP**     | linuxFxVersion="PHP&#124;7.4"                        |
-| **Node.js** | linuxFxVersion="NODE&#124;10.15"                     |
-| **Java**    | linuxFxVersion="JAVA&#124;1.8 &#124;TOMCAT&#124;9.0" |
-| **Python**  | linuxFxVersion="PYTHON&#124;3.7"                     |
+```azurecli-interactive
+`az webapp config show --resource-group myResourceGroup --name <app-name> --query linuxFxVersion`
+```
+
+| Language    | Example                                                                            |
+|-------------|------------------------------------------------------------------------------------|
+| **.NET**    | linuxFxVersion="DOTNETCORE&#124;3.0"                                               |
+| **Java**    | linuxFxVersion="JAVA&#124;21-java21 TOMCAT&#124;10.1-java21 JBOSSEAP&#124;8-java17"|
+| **Node.js** | linuxFxVersion="NODE&#124;10.15"                                                   |
+| **Python**  | linuxFxVersion="PYTHON&#124;3.7"                                                   |
+| **PHP**     | linuxFxVersion="PHP&#124;7.4"                                                      |
 
 ---
 ::: zone-end
