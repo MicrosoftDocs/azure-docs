@@ -54,9 +54,6 @@ The scheduler internally uses a combination of in-memory and persistent storage 
 
 ## Feature highlights
 
-> [!NOTE]
-> The following features are available at the current stage of public preview with more under way. To report problems or request new features, submit an issue in the [durable task scheduler samples GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler/).
-
 ### Durable task scheduler dashboard
 
 When a scheduler resource is created, a corresponding dashboard is provided out-of-the-box. The dashboard provides an overview of all orchestrations and entity instances and allows you to quickly filter by different criteria. You can easily gather data about an orchestration instance, such as status, duration, input/output, etc. You can also drill into an instance to get data about sub-orchestrations and activities.
@@ -153,7 +150,7 @@ This benchmark showed that the durable task scheduler is roughly **five times fa
     - [Management operations using the Azure Functions Core Tools](../durable-functions-instance-management.md#azure-functions-core-tools)
 
     > [!NOTE]
-    > Feature availability is subject to change as the durable task scheduler backend approaches general availability.
+    > Feature availability is subject to change as the durable task scheduler backend approaches general availability. To report problems or request new features, submit an issue in the [durable task scheduler samples GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler/).
 
 ## Next steps
 

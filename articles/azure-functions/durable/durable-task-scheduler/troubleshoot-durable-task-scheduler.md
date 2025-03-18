@@ -1,13 +1,16 @@
 ---
-title: Troubleshoot the Azure Functions durable task scheduler dashboard (preview)
+title: Troubleshoot the Azure Functions durable task scheduler (preview)
 description: Learn how to troubleshoot error messages and issues you encounter while using the Azure Functions durable task scheduler.
 ms.topic: conceptual
 ms.date: 03/18/2025
 ---
 
-# Troubleshoot the Azure Functions durable task scheduler dashboard (preview)
+# Troubleshoot the Azure Functions durable task scheduler (preview)
 
-## Check connection string and access to durable task schedule
+> [!NOTE]
+> Microsoft support engineers are available to assist in diagnosing issues with your application. If you're not able to diagnose your problem after going through this article, you can file a support ticket by going the **Help** > **Support + troubleshooting** section of durable task scheduler resource on Azure portal.
+
+## Check connection string and access to durable task scheduler
 
 When your app isn't running as expected, first check if you have the correct connection string format and have set up authentication correctly. 
 
