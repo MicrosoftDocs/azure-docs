@@ -109,7 +109,7 @@ The following `NFDV request payload` shows an example of how a publisher can pro
 ### Other considerations with Legacy method
 Publisher should consider the following recommendations when using the legacy method: 
 * Avoid references to external registry
-* Performa manual validations
+* Perform manual validations
 * Ensure static image repository and tags
 
 #### Avoid references to external registry
@@ -167,7 +167,7 @@ global:
 ```
 
 > [!NOTE]
-> * If registryPath is left blank in underlying helm package, site network service (SNS) deployment fails while trying to download image.
+> If registryPath is left blank in underlying helm package, site network service (SNS) deployment fails while trying to download image.
 
 ### Using injectArtifactStoreDetails method
 To enable injectArtifactStoreDetails, set the installOptions parameter in the NF resource roleOverrides section to true, as shown in the following example.
@@ -209,7 +209,7 @@ global:
 ```
 
 > [!NOTE]
-> * If registryPath is left blank in underlying helm package, SNS deployment fails while trying to download image.
+> If registryPath is left blank in underlying helm package, SNS deployment fails while trying to download image.
 
 For information on using cluster registry, see the [concept documentation](get-started-with-cluster-registry.md).
 
