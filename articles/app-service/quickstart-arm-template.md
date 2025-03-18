@@ -19,7 +19,7 @@ adobe-target-content: ./quickstart-arm-template-uiex
 ::: zone pivot="platform-windows"
 Get started with [Azure App Service](overview.md) by deploying an app to the cloud using an Azure Resource Manager template (ARM template) and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. A Resource Manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. You incur no costs to complete this quickstart because you use a free App Service tier.
 
-To complete this quickstart, you'll need an Azure account with an active subscription. If you don't have an Azure account, you can [create one for free](https://azure.microsoft.com/free/).
+To complete this quickstart, you need an Azure account with an active subscription. If you don't have an Azure account, you can [create one for free](https://azure.microsoft.com/free/).
 
 ## Skip to the end
 
@@ -33,7 +33,7 @@ In the Azure portal, select **Create new** to create a new Resource Group and th
 ::: zone pivot="platform-linux"
 Get started with [Azure App Service](overview.md) by deploying an app to the cloud using an Azure Resource Manager template (ARM template) and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. A Resource Manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. You incur no costs to complete this quickstart because you use a free App Service tier.
 
-To complete this quickstart, you'll need an Azure account with an active subscription. If you don't have an Azure account, you can [create one for free](https://azure.microsoft.com/free/).
+To complete this quickstart, you need an Azure account with an active subscription. If you don't have an Azure account, you can [create one for free](https://azure.microsoft.com/free/).
 
 ## Skip to the end
 
@@ -132,7 +132,7 @@ This template contains several parameters that are predefined for your convenien
 
 Azure CLI is used here to deploy the template. You can also use the Azure portal, Azure PowerShell, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
 
-The following code creates a resource group, an App Service plan, and a web app. A default resource group, App Service plan, and location have been set for you. Replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`).
+The following code creates a resource group, an App Service plan, and a web app. A default resource group, App Service plan, and location are set for you. Replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`).
 
 ::: zone pivot="platform-windows"
 Run the following commands to deploy a .NET framework app on Windows.
