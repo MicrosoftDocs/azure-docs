@@ -4,7 +4,7 @@ description: Learn how to create and manage Azure Resource Manager (ARM) templat
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/11/2025
+ms.date: 03/18/2025
 ms.custom: UpdateFrequency2
 
 #customer intent: As a lab user, I want to know how to create, manage, and access ARM templates for creating Azure VMs, so I can use the templates to create more VMs.
@@ -125,7 +125,7 @@ Lab owners or contributors can add ARM template repositories to their labs so al
      - To use the GitHub app, select **Sign in with GitHub** and sign in if necessary. You must have the [Microsoft DevCenter GitHub App](https://github.com/apps/microsoft-devcenter) installed.
 1. Select **Save**.
 
-:::image type="content" source="media/devtest-lab-use-arm-template/repo-values-gh.png" alt-text="Screenshot that shows GitHub settings for adding a new template repository to a lab.":::
+:::image type="content" source="media/devtest-lab-use-arm-template/repo-values-github.png" alt-text="Screenshot that shows GitHub settings for adding a new template repository to a lab.":::
 
 # [Azure Repos repo](#tab/DevOpsRepo/)
 
