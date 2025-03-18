@@ -10,6 +10,7 @@ metadata:
   author: PageWriter-MSFT
   ms.date: 03/11/2025
   adobe-target: true
+  ms.custom: migration
 
 sections:
 
@@ -268,9 +269,9 @@ sections:
         Detailed guide on migrating your GCP virtual machines to Azure.
         :::column-end:::
         :::column:::
-        **[AKS for EKS Professionals](/azure/architecture/aws-professional/eks-to-aks/)**
+        **[Migrate EKS web application workloads](/azure/aks/eks-web-overview)**
     
-        Assists Amazon EKS professionals in understanding Azure Kubernetes Service (AKS) through comparisons and migration strategies.
+        Replicate an Amazon Elastic Kubernetes Service (EKS) web application with AWS Web Application Firewall (WAF) using Azure Web Application Firewall (WAF) and Azure Application Gateway in Azure Kubernetes Service (AKS).
         :::column-end:::
         :::column:::
         **[Migrate physical Machines](/azure/migrate/tutorial-migrate-physical-virtual-machines)**
