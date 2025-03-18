@@ -45,6 +45,7 @@ You create a 'Call' instance when you join the Teams meeting or Room with callin
 - Presenter
 - Organizer
 - Consumer
+- Collaborator
 
 ```js
 const role = meetingCall.role;
