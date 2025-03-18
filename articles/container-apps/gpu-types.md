@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 03/14/2025
+ms.date: 03/18/2025
 ms.author: cshoe
 ---
 
@@ -13,16 +13,20 @@ ms.author: cshoe
 
 Azure Container Apps supports serverless GPU acceleration (preview), enabling compute-intensive machine learning, and AI workloads in containerized environments. This capability allows you to use GPU hardware without managing the underlying infrastructure, following the serverless model that defines Container Apps.
 
-This article compares the Nvidia T4 and A100 GPU options available in Azure Container Apps. Understanding the technical differences between these GPU types is essential for optimizing your containerized applications for performance, cost-efficiency, and workload requirements.
+This article compares the Nvidia T4 and A100 GPU options available in Azure Container Apps. Understanding the technical differences between these GPU types is important as you optimize your containerized applications for performance, cost-efficiency, and workload requirements.
 
-## Key specifications and architectural differences
+## Key differences
 
-The fundamental difference between T4 and A100 GPU types involves the amount of compute resources available to the respective types.
+The fundamental differences between T4 and A100 GPU types involve the amount of compute resources available to the respective types.
 
 | GPU type | Description |
 |---|---|
-| T4 | delivers cost-effective acceleration ideal for inference workloads and mainstream AI applications. The GPU is built on the Turing architecture, which provides sufficient computational power for most production inference scenarios. |
-| A100 | Features performance advantages for demanding workloads that require maximum computational power. The massive memory capacity (40GB or 80GB of HBM2/HBM2e) helps you work with large language models, complex computer vision applications, or scientific simulations that wouldn't fit in the T4's more limited memory.<br><br>For AI training, the A100 enables up to 2.5x faster model development compared to the T4. |
+| T4 | Delivers cost-effective acceleration ideal for inference workloads and mainstream AI applications. The GPU is built on the Turing architecture, which provides sufficient computational power for most production inference scenarios. |
+| A100 | Features performance advantages for demanding workloads that require maximum computational power. The [massive memory capacity](#specs) helps you work with large language models, complex computer vision applications, or scientific simulations that wouldn't fit in the T4's more limited memory. |
+
+The following table provides a comparison of the technical specifications between the NVIDIA T4 and NVIDIA A100 GPUs available in Azure Container Apps. These specifications highlight the key hardware differences, performance capabilities, and optimal use cases for each GPU type.
+
+<a name="specs"></a>
 
 | Specification | NVIDIA T4 | NVIDIA A100 |
 |---------------|-----------|-------------|
