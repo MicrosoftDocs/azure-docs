@@ -75,11 +75,13 @@ If you aren't already connected to your Azure account, follow these steps to con
 
 1. In Visual Studio Code, [connect to your Azure account](#connect-azure-account), if you haven't already.
 
-1. On the Visual Studio Code Activity Bar, select the Azure icon to open the **Azure** pane.
+1. On the Activity Bar, select the Azure icon to open the **Azure** pane.
 
-1. In the **Logic Apps (Consumption)** section, expand your subscription node.
+1. In the **Logic Apps (Consumption)** section, expand your Azure subscription.
 
-   You can now view all the deployed Consumption logic apps in the selected subscription.
+   You can now view all the deployed Consumption logic apps in the selected subscription, for example:
+
+   :::image type="content" source="media/manage-logic-apps-visual-studio-code/find-deployed-logic-app-consumption.png" alt-text="Screenshot shows Visual Studio Code with Resources section and deployed Consumption logic app resource.":::
 
 1. Find and expand the node for the deployed Consumption logic app that you want.
 
@@ -102,11 +104,13 @@ If you aren't already connected to your Azure account, follow these steps to con
 
 1. In Visual Studio Code, [connect to your Azure account](#connect-azure-account), if you haven't already.
 
-1. On the Visual Studio Code Activity Bar, select the Azure icon to open the **Azure** pane.
+1. On the Activity Bar, select the Azure icon to open the **Azure** pane.
 
-1. In the **Resources** section, expand your subscription node, and then expand the **Logic App** node.
+1. In the **Resources** section, expand your subscription, and then expand **Logic App**.
 
-   You can now view all the deployed Standard logic apps in the selected subscription.
+   You can now view all the deployed Standard logic apps in the selected subscription, for example:
+
+   :::image type="content" source="media/manage-logic-apps-visual-studio-code/find-deployed-logic-app-standard.png" alt-text="Screenshot shows Visual Studio Code with Resources section and deployed Standard logic app resource.":::
 
 1. Find and expand the node for the deployed Standard logic app that you want.
 
@@ -162,9 +166,9 @@ To edit a deployed Consumption or Standard workflow using the designer, make tho
 
 ### [Consumption](#tab/consumption)
 
-1. On the Visual Studio Code Activity Bar, select the Azure icon to open the **Azure** pane.
+1. In Visual Studio Code, on the Activity Bar, select the Azure icon to open the **Azure** pane.
 
-1. Expand the Azure subscription for your Consumption logic app, and find your logic app.
+1. In the **Logic Apps (Consumption)** section, expand your Azure subscription, and find your logic app.
 
 1. Open the logic app shortcut menu, and select **Open in Editor**.
 
@@ -200,95 +204,108 @@ To edit a deployed Consumption or Standard workflow using the designer, make tho
 
 ---
 
-   > [!NOTE]
-   >
-   > The stop logic app and delete logic app operations affect workflow instances in different ways. 
-   > For more information, see [Considerations for stopping logic apps](#considerations-stop-logic-apps) and 
-   > [Considerations for deleting logic apps](#considerations-delete-logic-apps).
+<a name="disable-enable-logic-apps"></a>
 
-   ![Screenshot shows Visual Studio Code with Resources section and deployed logic app resource.](./media/manage-logic-apps-visual-studio-code/find-deployed-workflow-visual-studio-code.png)
+## Disable or enable a deployed logic app
 
+Deployed Consumption and Standard logic apps have different ways to disable and enable their activity. For considerations around how these tasks affect each logic app resource type, see the following documentation:
 
-<a name="considerations-stop-logic-apps"></a>
+- [Considerations for stopping Consumption logic apps](/azure/logic-apps/manage-logic-apps-with-azure-portal?tabs=consumption#considerations-stop-consumption-logic-apps)
+- [Considerations for stopping Standard logic apps](/azure/logic-apps/manage-logic-apps-with-azure-portal?tabs=standard#considerations-stop-standard-logic-apps)
+- [Considerations for disabling Standard workflows](/azure/logic-apps/manage-logic-apps-with-azure-portal?tabs=standard#considerations-disable-enable-standard-workflows)
 
-### Considerations for stopping logic apps
+### [Consumption](#tab/consumption)
 
-Stopping a logic app affects workflow instances in the following ways:
+1. In Visual Studio Code, on the Activity Bar, select the Azure icon to open the **Azure** pane.
 
-* Azure Logic Apps cancels all in-progress and pending runs immediately.
+1. In the **Logic Apps (Consumption)** section, expand your Azure subscription, and find your logic app.
 
-* Azure Logic Apps doesn't create or run new workflow instances.
+1. Open the logic app shortcut menu. Based on the current actvitity state, select **Disable** or **Enable**.
 
-* Triggers won't fire the next time that their conditions are met. However, trigger states remember the points where the logic app was stopped. So, if you restart the logic app, the triggers fire for all unprocessed items since the last run.
+### [Standard](#tab/standard)
 
-  To stop a trigger from firing on unprocessed items since the last run, clear the trigger state before you restart the logic app:
+In Visual Studio Code, you can stop, start, or restart a Standard logic app, which affects all workflow instances. You can also restart a Standard logic app without first stopping its activity. However, to disable and reenable individual workflows, [you must use the Azure portal](/azure/logic-apps/manage-logic-apps-with-azure-portal/stop-start-standard-workflows).
 
-  1. On the Visual Studio Code Activity Bar, select the Azure icon, which opens the **Azure** pane.
+Stopping the resource versus disabling a workflow have different effects, so review the considerations before you continue.
 
-  1. In the **Resources** section, expand your subscription, which shows all the deployed logic apps for that subscription.
+1. In Visual Studio Code, on the Activity Bar, select the Azure icon to open the **Azure** pane.
 
-  1. Expand your logic app, and then expand the **Workflows** node.
+1. In the **Resources** section, expand your Azure subscription, and find your logic app.
 
-  1. Open a workflow, and edit any part of that workflow's trigger.
+1. Open the logic app shortcut menu. Based on the current actvitity state, select **Stop** or **Start**. Or, you can select **Restart**.
 
-  1. Save your changes. This step resets the trigger's current state.
+---
 
-  1. Repeat for each workflow.
+## Post logic app stoppage
 
-  1. When you're done, restart your logic app.
+After you stop a logic app, workflow triggers won't fire the next time that their conditions are met. However, trigger states remember the points at where you stopped the logic app. When you a restart a logic app, the trigger fires for all unprocessed items since the last workflow run.
 
-<a name="considerations-delete-logic-apps"></a>
+To stop a trigger from firing on unprocessed items since the last workflow run, you must clear the trigger state before you restart a logic app by following these steps:
 
-### Considerations for deleting logic apps
+### [Consumption](#tab/consumption)
 
-Deleting a logic app affects workflow instances in the following ways:
+1. In Visual Studio Code, [open your Consumption logic app workflow](#edit-workflow), and edit any part of the workflow trigger.
 
-* Azure Logic Apps cancels in-progress and pending runs immediately, but doesn't run cleanup tasks on the storage used by the app.
+1. Save your changes. This step resets your trigger's current state.
 
-* Azure Logic Apps doesn't create or run new workflow instances.
+1. When you're done, [restart your logic app](/azure/logic-apps/manage-logic-apps-visual-studio-code?tabs=consumption#disable-enable-logic-apps).
 
-* If you delete a workflow and then recreate the same workflow, the recreated workflow doesn't have the same metadata as the deleted workflow. To refresh the metadata, you have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
+### [Standard](#tab/standard)
 
-<a name="add-workflow-portal"></a>
+1. In Visual Studio Code, [open your Standard logic app workflow](#edit-workflow), and edit any part of the workflow trigger.
 
-## Add another workflow in the portal
+1. Save your changes. This step resets the trigger's current state.
 
-Through the Azure portal, you can add blank workflows to a Standard logic app resource that you deployed from Visual Studio Code and build those workflows in the Azure portal.
+1. Repeat for each existing workflow.
 
-1. In the [Azure portal](https://portal.azure.com), select your deployed Standard logic app resource.
+1. When you're done, [restart your logic app](/azure/logic-apps/manage-logic-apps-visual-studio-code?tabs=standard#disable-enable-logic-apps).
 
-1. On the logic app resource menu, select **Workflows**. On the **Workflows** pane, select **Add**.
+---
 
-   ![Screenshot shows selected logic app's Workflows pane and toolbar with Add command selected.](./media/manage-logic-apps-visual-studio-code/add-new-workflow.png)
+<a name="delete-logic-apps"></a>
 
-1. In the **New workflow** pane, provide name for the workflow. Select either **Stateful** or **Stateless** **>** **Create**.
+## Delete logic apps
 
-   After Azure deploys your new workflow, which appears on the **Workflows** pane, select that workflow so that you can manage and perform other tasks, such as opening the designer or code view.
+Deployed Consumption and Standard logic apps have different ways to delete their resources. For considerations around how deleting affects each logic app resource type, see the following documentation:
 
-   ![Screenshot shows selected workflow with management and review options.](./media/manage-logic-apps-visual-studio-code/view-new-workflow.png)
+- [Considerations for deleting Consumption logic apps](/azure/logic-apps/manage-logic-apps-with-azure-portal?tabs=consumption#considerations-delete-consumption-logic-apps)
+- [Considerations for deleting Standard logic apps](/azure/logic-apps/manage-logic-apps-with-azure-portal?tabs=standard#considerations-delete-standard-logic-apps)
+- [Considerations for deleting Standard workflows](/azure/logic-apps/manage-logic-apps-with-azure-portal?tabs=standard#considerations-delete-standard-workflows)
 
-   For example, opening the designer for a new workflow shows a blank canvas. You can now build this workflow in the Azure portal.
+### [Consumption](#tab/consumption)
 
-   ![Screenshot shows workflow designer and blank workflow.](./media/manage-logic-apps-visual-studio-code/opened-blank-workflow-designer.png)
+1. In Visual Studio Code, on the Activity Bar, select the Azure icon to open the **Azure** pane.
 
-<a name="delete-from-designer"></a>
+1. In the **Logic Apps (Consumption)** section, expand your Azure subscription, and find your logic app.
 
-## Delete items from the designer
+1. Open the logic app shortcut menu, and select **Delete**.
 
-To delete an item in your workflow from the designer, follow any of these steps:
+### [Standard](#tab/standard)
 
-* Select the item, open the item's shortcut menu (Shift+F10), and select **Delete**. To confirm, select **OK**.
+In Visual Studio Code, you can only delete an entire Standard logic app. To delete individual workflows, [use the Azure portal](/azure/logic-apps/manage-logic-apps-with-azure-portal?tabs=standard#delete-standard-workflows).
 
-* Select the item, and press the delete key. To confirm, select **OK**.
+1. In Visual Studio Code, on the Activity Bar, select the Azure icon to open the **Azure** pane.
 
-* Select the item so that details pane opens for that item. In the pane's upper right corner, open the ellipses (**...**) menu, and select **Delete**. To confirm, select **OK**.
+1. In the **Resources** section, expand your Azure subscription, expand **Logic App**, and find your logic app.
 
-  ![Screenshot shows a selected item on designer with opened information pane plus selected ellipses button and "Delete" command.](./media/manage-logic-apps-visual-studio-code/delete-item-from-designer.png)
+1. Open the logic app shortcut menu, and select **Delete logic app**.
 
-  > [!TIP]
-  > If the ellipses menu isn't visible, expand Visual Studio Code window wide enough so that 
-  > the details pane shows the ellipses (**...**) button in the upper right corner.
+---
+
+<a name="promote-previous-versions"></a>
+
+## Promote previous versions (Consumption only)
+
+To publish an earlier Consumption logic app version, you can promote that version over the current version. Your logic app must have at least two versions to make the promote option available.
+
+1. In Visual Studio Code, on the Activity Bar, select the Azure icon to open the **Azure** pane.
+
+1. In the **Logic Apps (Consumption)** section, expand your Azure subscription, and find your logic app.
+
+1. Expand your logic app, expand **Versions**, and find the earlier version to promote.
+
+1. On the version shortcut menu, select **Promote**.
 
 ## Related content
 
-- [Create a Standard logic app workflow ]
+- [Create Standard logic app workflows in Visual Studio Code](/azure/logic-apps/create-standard-workflows-visual-studio-code)

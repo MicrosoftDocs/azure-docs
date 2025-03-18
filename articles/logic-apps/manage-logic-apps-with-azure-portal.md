@@ -103,6 +103,30 @@ When you create connections in a workflow using [connectors managed by Microsoft
 
 ---
 
+<a name="add-workflow-portal"></a>
+
+## Add a workflow to a Standard logic app
+
+You can add blank workflows to a deployed Standard logic app resource continue to build these workflows in the Azure portal.
+
+1. In the [Azure portal](https://portal.azure.com), select your deployed Standard logic app resource.
+
+1. On the logic app resource menu, under **Workflows**, select **Workflows**.
+
+1. On the **Workflows** page toolbar,  select **Add**.
+
+   ![Screenshot shows selected logic app's Workflows pane and toolbar with Add command selected.](./media/manage-logic-apps-visual-studio-code/add-new-workflow.png)
+
+1. In the **New workflow** pane, provide name for the workflow. Select either **Stateful** or **Stateless** **>** **Create**.
+
+   After Azure deploys your new workflow, which appears on the **Workflows** pane, select that workflow so that you can manage and perform other tasks, such as opening the designer or code view.
+
+   ![Screenshot shows selected workflow with management and review options.](./media/manage-logic-apps-visual-studio-code/view-new-workflow.png)
+
+   For example, opening the designer for a new workflow shows a blank canvas. You can now build this workflow in the Azure portal.
+
+   ![Screenshot shows workflow designer and blank workflow.](./media/manage-logic-apps-visual-studio-code/opened-blank-workflow-designer.png)
+
 <a name="disable-enable-logic-apps"></a>
 
 ## Disable or enable logic app resources
@@ -289,16 +313,17 @@ Stopping a Consumption logic app affects workflow instances in the following way
 
 You can [delete a single or multiple Standard logic apps at the same time](#delete-standard-logic-apps). Your single-tenant based logic app can include multiple workflows, so you can either delete the entire logic app or [delete only workflows](#delete-standard-workflows).
 
+<a name="considerations-delete-standard-logic-apps"></a>
+
+#### Considerations for deleting Standard logic apps
+
+- Deleting a Standard logic app resource cancels in-progress and pending runs immediately, but doesn't run cleanup tasks on the storage used by the app.
+
+- Although you can [manually recover deleted Standard logic apps](#recover-deleted-standard-logic-apps), using source control to manage your Standard logic apps makes recovery and redeployment much easier.
+
 <a name="delete-standard-logic-apps"></a>
 
 #### Delete Standard logic apps
-
-Deleting a Standard logic app resource cancels in-progress and pending runs immediately, but doesn't run cleanup tasks on the storage used by the app.
-
-> [!NOTE]
->
-> Although you can [manually recover deleted Standard logic apps](#recover-deleted-standard-logic-apps), 
-> using source control to manage your Standard logic apps makes recovery and redeployment much easier.
 
 1. In the [Azure portal](https://portal.azure.com) search box, enter **logic apps**, and select **Logic apps**.
 
@@ -310,9 +335,9 @@ Deleting a Standard logic app resource cancels in-progress and pending runs imme
 
 1. To confirm whether your operation succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
 
-<a name="delete-standard-workflows"></a>
+<a name="considerations-delete-standard-workflows"></a>
 
-#### Delete Standard workflows
+#### Considerations for deleting Standard workflows
 
 Deleting a Standard workflow affects workflow instances in the following ways:
 
@@ -321,6 +346,10 @@ Deleting a Standard workflow affects workflow instances in the following ways:
 * Azure Logic Apps doesn't create or run new workflow instances.
 
 * If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. To refresh the metadata, you have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an **Unauthorized** error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
+
+<a name="delete-standard-workflows"></a>
+
+#### Delete Standard workflows
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -398,11 +427,11 @@ If you're not using source control, try the following steps to recover a deleted
 
 You can [delete a single or multiple Consumption logic apps at the same time](#delete-consumption-logic-apps).
 
-> [!IMPORTANT]
->
-> You can't recover deleted Consumption logic app resources.
+<a name="considerations-delete-consumption-logic-apps"></a>
 
-Deleting a Consumption logic app affects workflow instances in the following ways:
+#### Considerations for deleting Consumption logic apps
+
+You can't recover deleted Consumption logic app resource. Deleting a Consumption logic app affects workflow instances in the following ways:
 
 * Azure Logic Apps makes a best effort to cancel any in-progress and pending runs.
 
