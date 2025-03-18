@@ -18,7 +18,6 @@ This article describes how to build a Business case for on-premises servers and 
 
 [Azure Migrate](migrate-services-overview.md) helps you to plan and execute migration and modernization projects to Azure. Azure Migrate provides a centralized hub to track discovery, assessment, and migration of on-premises infrastructure, applications, and data to Azure. The hub provides Azure tools for assessment and migration, and third-party independent software vendor (ISV) offerings.
 
-
 ## Prerequisites
 
 - Make sure you've [created](./create-manage-projects.md) an Azure Migrate project. You can also reuse an existing project to use this capability.
@@ -58,10 +57,9 @@ There are three types of migration strategies that you can choose while building
 
 To build a business case, follow these steps:
 
-1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
+1. Select your project from the **All Projects**. 
 
     :::image type="content" source="./media/how-to-build-a-business-case/all-projects.png" alt-text="Screenshot on how to build a project.":::
-
 
 1. In the overview page, select **Build business case**.
 
@@ -80,7 +78,7 @@ To build a business case, follow these steps:
 
 1. Select the **Selected Workloads**, you can create a business case for a specific set of workloads.
 1. Select **Add Workloads** and then select the workloads you want to include in your business case. You can filter and select based on the tags and criteria you’ve set.
-1. Select Next to proceed.
+1. Select **Next** to proceed.
 
 :::image type="content" source="./media/how-to-build-a-business-case/add-workloads.png" alt-text="Screenshot shows how to add workloads.":::
 
