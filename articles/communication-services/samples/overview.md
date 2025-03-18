@@ -19,6 +19,6 @@ The Azure Communication Sevices [**sample library**](https://aka.ms/acssamples) 
 
 [**Advanced samples**](https://github.com/Azure/Communication/blob/master/Sample-index.md#advanced-samples): see how capabilities come together to create more advanced communication experiences.
 
-:::image type="content" source="media/sample-library-home.png" alt-text="Screen capture of the Azure Communication Services sample library." lightbox="media/sample-library-home.png":::
+![Screen capture of the Azure Communication Services sample library](./media/sample-library-home.png)
 
 Have an idea for a helpful sample? [Request a sample 📥](https://feedback.azure.com/d365community/forum/81ff6d2b-0c25-ec11-b6e6-000d3a4f0858)
