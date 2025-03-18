@@ -78,7 +78,7 @@ To monitor multiple subscriptions:
 
 1. Select the subscriptions you want to monitor through the Datadog resource and select **Add**.
 
-    > ![IMPORTANT]
+    > [!IMPORTANT]
     > Setting separate tag rules for different subscriptions isn't supported.
 
     Diagnostics settings are automatically added to the subscription's resources that match the defined tag rules.
