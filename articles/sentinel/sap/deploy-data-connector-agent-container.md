@@ -352,11 +352,35 @@ At this stage, the system's **Health** status is **Pending**. If the agent is up
 
 ## Customize data connector behavior (optional)
 
-If the agentless data connector's default functionality doesn't fit your organization's needs, customize it using SAP Integration Suite value mapping.
+If you have an SAP agentless data connector for Microsoft Sentinel, you can use the SAP Integration Suite to customize how the agentless data connector ingests data from your SAP system into Microsoft Sentinel.
 
-Also, due to database performance issues, ingesting Change Docs logs running on Sybase isn't supported. We recommend that customers using Sybase turn off ingestion for Change Docs logs in the iflow by configuring the **collect-changedocs-logs** parameter.
+This procedure is only relevant when you want to customize the SAP agentless data connector behavior. Skip this procedure if you're satisfied with the default functionality. For example, if you're using Sybase, we recommend that you turn off ingestion for Change Docs logs in the iflow by configuring the **collect-changedocs-logs** parameter. Due to database performance issues, ingesting Change Docs logs Sybase isn't supported.
 
-For more information, see [Customize your SAP agentless data connector for Microsoft Sentinel](configure-agentless.md).
+### Prerequisites for customizing data connector behavior
+
+- You must have access to the [SAP Integration Suite](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/sap-cloud-integration), with permissions to [edit value mappings](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/working-with-mapping).
+- An SAP integration package, either existing or new, to upload the default value mapping file.
+
+### Download the configuration file and customize settings
+
+1. Download the default [**example-parameters.zip**](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/Agentless/example-parameters.zip) file, which provides settings that define default behavior and is a good starting point to start customizing.
+
+    Save the **example-parameters.zip** file to a location accessible to your SAP Integration Suite environment.
+
+1. Use the standard SAP procedures for uploading a Value Mapping file and making changes to customize your data connector settings:
+
+    1. Upload the **example-parameters.zip** file to the SAP Integration Suite as a value mapping artifact. For more information, see the [SAP documentation](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/creating-value-mapping).
+    1. Use one of the following methods to customize your settings:
+
+        - **To customize settings across all SAP systems**, add value mappings for the **global** bi-directional mapping agency.
+        - **To customize settings for specific SAP systems**, add new bi-directional mapping agencies for each SAP system, and then add value mappings for each one. Name your agencies to exactly match the name of the RFC destination that you want to customize, such as myRfc, key, myRfc, value.
+
+        For more information, see:
+
+        - [SAP documentation on configuring Value Mappings](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/configuring-value-mappings)
+        - [Reference of customizable parameters](#reference-of-customizable-parameters)
+
+    Make sure to deploy the artifact when you're done customizing to activate the updated settings.
 
 :::zone-end
 
