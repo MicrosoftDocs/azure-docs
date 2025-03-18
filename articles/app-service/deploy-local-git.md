@@ -138,6 +138,8 @@ Set-AzResource -PropertyObject $PropertiesObject -ResourceGroupName <group-name>
 
 1. In the Azure portal, go to your app to verify that the content is deployed.
 
+<a name="change-deployment-branch"></a>
+
 ## Change the deployment branch
 
 When you push commits to your App Service repository, App Service deploys the files in the `master` branch by default. Because many Git repositories are moving from `master` to `main`, ensure that you push to the correct branch in the App Service repository in one of two ways:

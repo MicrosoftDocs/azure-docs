@@ -20,7 +20,7 @@ To create custom TLS/SSL bindings or enable client certificates for your App Ser
 
    ![Screenshot of Azure portal, search box, and "App Services" selected.](./media/app-service-ssl-prepare-app/app-services.png)
 
-1. On the **App Services** page, select your web app's name.
+1. On the **App Services** pane, select your web app's name.
 
    ![Screenshot of the App Services page in Azure portal showing a list of all running web apps, with the first app in the list highlighted.](./media/app-service-ssl-prepare-app/select-app.png)
 
@@ -28,13 +28,13 @@ To create custom TLS/SSL bindings or enable client certificates for your App Ser
 
 ### Check the pricing tier
 
-1. In the left menu for your web app, under the **Settings** section, select **Scale up (App Service plan)**.
+1. On the resource menu for your web app, in the **Settings** section, select **Scale up (App Service plan)**.
 
    ![Screenshot of web app menu, "Settings" section, and "Scale up (App Service plan)" selected.](./media/app-service-ssl-prepare-app/scale-up-menu.png)
 
-1. Make sure that your web app isn't in the **F1** or **D1** tier, which doesn't support custom TLS/SSL.
+1. Make sure that your web app isn't in the **F1** or **D1** tier, which don't support custom TLS/SSL.
 
-1. If you need to scale up, follow the steps in the next section. Otherwise, close the **Scale up** page, and skip the [Scale up your App Service plan section](#scale-up-your-app-service-plan).
+1. If you need to scale up, follow the steps in the next section. Otherwise, close the **Scale up** pane, and skip the [Scale up your App Service plan section](#scale-up-your-app-service-plan).
 
 ### Scale up your App Service plan
 

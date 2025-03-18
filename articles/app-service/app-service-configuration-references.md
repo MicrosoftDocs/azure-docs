@@ -241,7 +241,7 @@ Here's a demonstration template for a function app that has App Configuration re
 
 If a reference isn't resolved properly, the reference value is used instead. For an application setting in this scenario, an environment variable that uses the syntax `@Microsoft.AppConfiguration(...)` is created. The reference might cause an error because the application was expecting a configuration value.
 
-This error most commonly is the result of a misconfiguration of the [App Configuration access policy](#granting-your-app-access-to-app-configuration). But it also might occur if there's a syntax error in the reference or if the configuration key-value pair does not exist in the store.
+This error most commonly is the result of a misconfiguration of the [App Configuration access policy](#grant-app-access-to-app-configuration). But it also might occur if there's a syntax error in the reference or if the configuration key-value pair does not exist in the store.
 
 ## Related content
 
