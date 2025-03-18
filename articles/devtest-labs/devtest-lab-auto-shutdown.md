@@ -4,10 +4,10 @@ description: Learn how to set autoshutdown schedules and policies to shut down a
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/06/2025
+ms.date: 03/18/2025
 ms.custom: UpdateFrequency2
 
-#customer intent: As a lab administrator, I want to create autoshutdown schedules and autoshutdown policies for my lab, and learn how to use webhooks to implement automatic autoshutdown notifications.
+#customer intent: As a lab administrator, I want to create autoshutdown schedules and policies for my lab, and use webhooks to send automatic autoshutdown notifications, so I can save costs and support lab users.
 ---
 
 # Configure autoshutdown for lab VMs in DevTest Labs
