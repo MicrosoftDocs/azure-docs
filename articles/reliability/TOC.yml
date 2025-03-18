@@ -67,7 +67,7 @@
       - name: Azure HDInsight
         href: reliability-hdinsight.md#availability-zone-migration
       - name: Azure Kubernetes Service
-        href: /azure/aks/availability-zones?toc=/azure/reliability
+        href: reliability-aks.md
       - name: Azure Load Balancer 
         href: migrate-load-balancer.md
       - name: Log Analytics Dedicated Cluster workspaces

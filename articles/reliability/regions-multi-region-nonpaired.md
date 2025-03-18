@@ -66,7 +66,7 @@ For geo-replication in nonpaired regions, use the [concierge pattern](/azure/iot
 
 ## Azure Kubernetes Service (AKS)
 
-Azure Backup can provide protection for AKS clusters, including a [cross-region restore (CRR)](/azure/backup/tutorial-restore-aks-backups-across-regions) feature that's currently in preview and only supports Azure Disks. Although the CRR feature relies on GRS paired regions replicas, any dependency on CRR can be avoided if the AKS cluster stores data only in external storage and avoids using "in-cluster" solutions.
+To learn about how to create multi-region solutions using Azure Kubernetes Service (AKS), see [Reliability in Azure Kubernetes Service (AKS)](./reliability-aks.md).
 
 ## Azure Monitor Logs
 
