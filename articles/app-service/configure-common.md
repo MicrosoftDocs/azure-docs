@@ -48,15 +48,13 @@ App settings are always encrypted when they're stored (encrypted at rest).
 # [Azure portal](#tab/portal)
 
 1. In the [Azure portal], search for and select **App Services**, and then select your app.
-
 1. On the app's left menu, select **Settings** > **Environment variables**. Then select **App settings**.
 
-   :::image type="content" source="./media/configure-common/open-ui.png" alt-text="Screenshot that shows selections for displaying app settings.":::
+   :::image type="content" source="./media/configure-common/open-ui.png" alt-text="Screenshot that shows selections for displaying app settings." lightbox="./media/configure-common/open-ui.png":::
 
    By default, values for app settings are hidden in the portal for security. To see a hidden value of an app setting, under **Value**, select **Show value**. To see the hidden values of all app settings, select **Show values**.
 
 1. To add a new app setting, select **Add**. To edit a setting, select the setting.
-
 1. In the dialog, you can [stick the setting to the current slot](deploy-staging-slots.md#which-settings-are-swapped).
 
    > [!NOTE]
@@ -133,9 +131,7 @@ Set-AzWebAppSlotConfigName -ResourceGroupName <group-name> -Name <app-name> -App
 # [Azure portal](#tab/portal)
 
 1. Select **Advanced edit**.
-
 1. Edit the settings in the text area.
-
 1. When you finish, select **OK**. Then select **Apply** on the **Environment variables** page.
 
 App settings have the following JSON formatting:
@@ -248,15 +244,12 @@ Connection strings are always encrypted when they're stored (encrypted at rest).
 # [Azure portal](#tab/portal)
 
 1. In the [Azure portal], search for and select **App Services**, and then select your app.
-
 1. On the app's left menu, select **Settings** > **Environment variables**. Then select **Connection strings**.
 
    By default, values for connection strings are hidden in the portal for security. To see a hidden value of a connection string, under **Value**, select **Show value**. To see the hidden values of all connection strings, select **Show values**.
 
 1. To add a new connection string, select **Add**. To edit a connection string, select the connection string.
-
 1. In the dialog, you can [stick the connection string to the current slot](deploy-staging-slots.md#which-settings-are-swapped).
-
 1. When you finish, select **Apply**. Then select **Apply** on the **Environment variables** page.
 
 # [Azure CLI](#tab/cli)
@@ -339,9 +332,7 @@ Set-AzWebAppSlotConfigName -ResourceGroupName <group-name> -Name <app-name> -Con
 # [Azure portal](#tab/portal)
 
 1. Select **Advanced edit**.
-
 1. Edit the connection strings in the text area.
-
 1. When you finish, select **Apply**. Don't forget to also select **Apply** on the **Environment variables** page.
 
 Connection strings have the following JSON formatting:
@@ -434,10 +425,9 @@ To configure general settings, follow the steps for your preferred tools.
 # [Azure portal](#tab/portal)
 
 1. In the [Azure portal], search for and select **App Services**, and then select your app.
-
 1. On the app's left menu, select **Settings** > **Configuration**. Then select **General settings**.
 
-   :::image type="content" source="./media/configure-common/open-general.png" alt-text="Screenshot that shows selections to open general settings.":::
+   :::image type="content" source="./media/configure-common/open-general.png" alt-text="Screenshot that shows selections to open general settings." lightbox="./media/configure-common/open-general.png":::
 
 Here, you can configure some common settings for the app. Some settings require you to [scale up to higher pricing tiers](manage-scale-up.md).
 
@@ -536,15 +526,13 @@ The feature of mapping a virtual directory to a physical path is available only 
 # [Azure portal](#tab/portal)
 
 1. In the [Azure portal], search for and select **App Services**, and then select your app.
-
 1. On the app's left menu, select **Settings** > **Configuration**. Then select **Path mappings**.
-
 1. Select **New virtual application or directory**. Then take one of these actions:
 
    - To map a virtual directory to a physical path, leave **Directory** selected. Specify the virtual directory and the corresponding relative (physical) path to the website root (`D:\home`).
    - To mark a virtual directory as a web application, unselect **Directory**.
 
-    :::image type="content" source="./media/configure-common/directory-check-box.png" alt-text="Screenshot that shows selections for displaying the Directory checkbox.":::
+   :::image type="content" source="./media/configure-common/directory-check-box.png" alt-text="Screenshot that shows selections for displaying the Directory checkbox." lightbox="./media/configure-common/directory-check-box.png":::
 
 1. Select **Ok**. Then select **Save** on the **Configuration** page.
 
@@ -634,7 +622,7 @@ To add a custom handler:
 
 [ASP.NET SignalR]: https://www.asp.net/signalr
 [Azure portal]: https://portal.azure.com/
-[Map an existing custom DNS name to Azure App Service]: ./app-service-web-tutorial-custom-domain.md
+[Set up an existing custom domain in Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Set up staging environments in Azure App Service]: ./deploy-staging-slots.md
 [Azure App Service quotas and alerts]: ./web-sites-monitor.md
 [Scale up an app in Azure App Service]: ./manage-scale-up.md
