@@ -19,15 +19,15 @@ Azure Front Door offers two mechanisms for controlling TLS policy. You can use e
 
 - If a TLS policy needs to be configured for your own business and security requirements, you can use a Custom TLS policy. With a custom TLS policy, you have complete control over the minimum TLS protocol version to support, as well as the supported cipher suites.
 
-In this document, you will learn how to configure TLS policy on a Front Door custom domain.
+In this article, you learn how to configure TLS policy on a Front Door custom domain.
 
 ## Prerequisites
 
-Before you can complete the steps in this tutorial, you must first create a Front Door. For more information, see [Quickstart: Create a Front Door](/azure/frontdoor/quickstart-create-front-door).
+- A Front Door. For more information, see [Quickstart: Create a Front Door](/azure/frontdoor/quickstart-create-front-door).
 
-If you don't already have a custom domain, you must first purchase one with a domain provider. For example, see [Buy a custom domain name](/azure/app-service/manage-custom-dns-buy-domain).
+- A custom domain. If you don't have a custom domain, you must first purchase one with a domain provider. For more information, see [Buy a custom domain name](/azure/app-service/manage-custom-dns-buy-domain).
 
-If you're using Azure to host your [DNS domains](/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS. For more information, see [Delegate a domain to Azure DNS](/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using a domain provider to handle your DNS domain, continue to [Create a CNAME DNS record](/azure/frontdoor/front-door-custom-domain).
+- If you're using Azure to host your [DNS domains](/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS. For more information, see [Delegate a domain to Azure DNS](/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using a domain provider to handle your DNS domain, see [Create a CNAME DNS record](/azure/frontdoor/front-door-custom-domain).
 
 ## Configure TLS policy
 
@@ -38,11 +38,11 @@ If you're using Azure to host your [DNS domains](/azure/dns/dns-overview), you m
 3. For **TLS policy**, choose the predefined policy from the dropdown listor Custom  to customize the cipher suites per your needs. You can also view the supported cipher suites by clicking **View policy details**. When you choose **Custom**, you can choose the Minimum TLS version and the corresponding cipher suites. 
 
 > [!NOTE]
-> You can reuse the custom TLS policy setting from other domains in portal by selecting the domain in **Reuse setting from other domain**. 
+> You can reuse the custom TLS policy setting from other domains in the portal by selecting the domain in **Reuse setting from other domain**. 
 
 ## Verify TLS policy configurations
 
-View the supported cipher suit of your domain via https://www.ssllabs.com/ssltest/ or use the sslscan tool.
+View the supported cipher suit of your domain via [www.ssllabs.com/ssltest](https://www.ssllabs.com/ssltest/) or use the sslscan tool.
 
 ## Related content
 
