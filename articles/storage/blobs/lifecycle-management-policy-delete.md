@@ -1,7 +1,7 @@
 ---
 title: Lifecycle management policies that deletes blobs
 titleSuffix: Azure Blob Storage
-description: Configure a lifecycle management policy to automatically delete data during the data lifecycle.
+description: This article shows examples of how to configure a lifecycle management policy to delete blobs.
 author: normesta
 
 ms.author: normesta
@@ -121,5 +121,4 @@ For data that is modified and accessed regularly throughout its lifetime, you ca
 
 - [Azure Blob Storage lifecycle management overview](lifecycle-management-overview.md)
 - [Lifecycle management policies that transition blobs between tiers](lifecycle-management-policy-access-tiers.md)
-- [Known issues and limitations for lifecycle management policies](lifecycle-management-overview.md#known-issues-and-limitations)
 - [Access tiers for blob data](access-tiers-overview.md)

@@ -80,13 +80,21 @@ Each rule can define up to 10 blob index tag conditions. For example, if you wan
 
 You must define at least one action for each rule. Actions are applied to the filtered blobs when the run condition is met. To learn more about run conditions, see the [Action run conditions](#action-run-conditions) section of this article. The following table describes each action that is available in a policy definition.
 
-| Action | Description | Not supported |
+| Action | Description |
 |---|---|----|
-| **TierToCool**  | Set a blob to the cool access tier. | <ul><li>Append blobs<br>Page blobs<li></li>Blobs in a premium block blob storage account</li></ul> |
-| **TierToCold** | Set a blob to the cold access tier. | <ul><li>Append blobs<li></li>Page blobs<li></li>Blobs in a premium block blob storage account</li></ul>  |
-| **TierToArchive**  | Set a blob to the archive access tier. | <ul><li>Append blobs<li></li>Page blobs<li></li>Blobs in a premium block blob storage account<li></li>Blobs that use an encryption scope<li></li>Blobs in accounts that are configured for Zone-redundant storage (ZRS), geo-zone-redundant storage (GZRS) / read-access geo-zone-redundant storage (RA-GZRS).</li></ul>  |
-| **enableAutoTierToHotFromCool** | If a blob is set to the cool tier, this action automatically moves that blob into the hot tier when the blob is accessed.<br>This action is available only when used with the **daysAfterLastAccessTimeGreaterThan** run condition.| <ul><li>Previous versions<li></li>Snapshots</li></ul>  |
-| **Delete** | Deletes a blob. | <ul><li>Page blobs<li></li>Blobs in an immutable container</li></ul>  |
+| **TierToCool**<sup>1</sup>  | Set a blob to the cool access tier. |
+| **TierToCold**<sup>1</sup> | Set a blob to the cold access tier. | 
+| **TierToArchive**<sup>1,2</sup>  | Set a blob to the archive access tier. |   |
+| **enableAutoTierToHotFromCool**<sup>3</sup> | If a blob is set to the cool tier, this action automatically moves that blob into the hot tier when the blob is accessed.<br>This action is available only when used with the **daysAfterLastAccessTimeGreaterThan** run condition.| 
+| **Delete**<sup>4</sup> | Deletes a blob. | 
+
+<sup>1</sup>    Not supported with append blobs, page blobs, or with blobs in a premium block blob storage account.
+
+<sup>2</sup>   Not supported with blobs that use an encryption scope or with blobs in accounts that are configured for Zone-redundant storage (ZRS), geo-zone-redundant storage (GZRS) / read-access geo-zone-redundant storage (RA-GZRS).
+
+<sup>3</sup>   Not supported with previous versions or snapshots.
+
+<sup>4</sup>   Not supported with page blobs or blobs in an immutable container. 
 
 If you define more than one action on the same blob, then lifecycle management applies the least expensive action to the blob. For example, a **delete** action is cheaper than the **tierToArchive** action and the **tierToArchive** action is cheaper than the **tierToCool** action.
 
@@ -100,14 +108,18 @@ A lifecycle management policy will not delete the current version of a blob unti
 
 ### Action run conditions
 
-All run conditions are based on age. Current versions use the last modified time or last access time, previous versions use the version creation time, and blob snapshots use the snapshot creation time to track age. The following table describes each action run condition.
+All run conditions are based on age. If the number of days that have transpired exceeds the number specified for the condition, then the associated action can execute. 
+
+Current versions use the last modified time or last access time, previous versions use the version creation time, and blob snapshots use the snapshot creation time to track age. 
+
+The following table describes each action run condition.
 
 | Condition name                                     | Type    | Description                                                                                                                                                                                                                                                |
 |----------------------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **daysAfterModificationGreaterThan**               | Integer | The age in days after the last modified time.<br>The condition for actions on a current version of a blob. <br>Any operation that modifies the blob, including an update of the blob's metadata or properties, changes the last-modified time of the blob.                                                                                                                                                |
-| **daysAfterCreationGreaterThan**                   | Integer | The age in days after the creation time.<br>The condition for actions on the current version or previous version of a blob or a blob snapshot.                                                                                                             |
-| **daysAfterLastAccessTimeGreaterThan** | Integer | Indicates the age in days after the last access time or in some cases, when the date when the policy was enabled. To learn more, see the [Access time tracking](#access-time-tracking) section below.<br>The condition for a current version of a blob when access tracking is enabled.                                                                                                                     |
-| **daysAfterLastTierChangeGreaterThan**             | Integer | Indicates the age in days after last blob tier change time.<br>The minimum duration in days that a rehydrated blob is kept in hot, cool or cold tiers before being returned to the archive tier. This condition applies only to **tierToArchive** actions. |
+| **daysAfterModificationGreaterThan**               | Integer | The age in days after the last modified time blob. Applies to actions on a current version of a blob.                                                                                                                                                 |
+| **daysAfterCreationGreaterThan**                   | Integer | The age in days after the creation time. Applies to actions on the current version of a blob, the previous version of a blob or a blob snapshot.                                                                                                             |
+| **daysAfterLastAccessTimeGreaterThan** | Integer | The age in days after the last access time or in some cases, when the date when the policy was enabled. To learn more, see the [Access time tracking](#access-time-tracking) section below. Applies to actions on the current version of a blob when access tracking is enabled.                                                                                                                     |
+| **daysAfterLastTierChangeGreaterThan**             | Integer | The age in days after last blob tier change time. The minimum duration in days that a rehydrated blob is kept in hot, cool or cold tiers before being returned to the archive tier. Applies only to **tierToArchive** actions. |
 
 ### Access time tracking
 
@@ -142,7 +154,7 @@ Learn more about [Lifecycle Management Performance Characteristics](lifecycle-ma
 
 ## Events
 
-The **LifecyclePolicyCompleted** event is generated when the actions defined by a lifecycle management policy are performed. A summary section appears for each action that is included in the policy definition. For an example of the **LifecyclePolicyCompleted** event, and for a description of each field, see [Microsoft.Storage.LifecyclePolicyCompleted event](../../event-grid/event-schema-blob-storage.md#microsoftstoragelifecyclepolicycompleted-event?toc=/azure/storage/blobs/toc.json). 
+The **LifecyclePolicyCompleted** event is generated when the actions defined by a lifecycle management policy are performed. A summary section appears for each action that is included in the policy definition. For an example of the **LifecyclePolicyCompleted** event, and for a description of each field, see [Microsoft.Storage.LifecyclePolicyCompleted event](../../event-grid/event-schema-blob-storage.md?toc=/azure/storage/blobs/toc.json#microsoftstoragelifecyclepolicycompleted-event). 
 
 ## Pricing and billing
 
@@ -156,10 +168,10 @@ For more information about pricing, see [Block Blob pricing](https://azure.micro
 
 - [I created a new policy. Why do the actions not run immediately?](storage-blob-faq.yml#i-created-a-new-policy--why-do-the-actions-not-run-immediately-)
 - [If I update an existing policy, how long does it take for the actions to run?](storage-blob-faq.yml#if-i-update-an-existing-policy--how-long-does-it-take-for-the-actions-to-run-)
-- [The run completes but doesn't move or delete some blobs](storage-blob-faq.yml#the-run-completes-but-doesn-t-move-or-delete-some-blobs-)
-- [I don't see capacity changes even though the policy is executing and deleting the blobs](storage-blob-faq.yml#i-don-t-see-capacity-changes-even-though-the-policy-is-executing-and-deleting-the-blobs-)
+- [The run completes but doesn't move or delete some blobs](storage-blob-faq.yml#the-run-completes-but-doesn-t-move-or-delete-some-blobs)
+- [I don't see capacity changes even though the policy is executing and deleting the blobs](storage-blob-faq.yml#i-don-t-see-capacity-changes-even-though-the-policy-is-executing-and-deleting-the-blobs)
 - [I rehydrated an archived blob. How do I prevent it from being moved back to the Archive tier temporarily?](storage-blob-faq.yml#i-rehydrated-an-archived-blob--how-do-i-prevent-it-from-being-moved-back-to-the-archive-tier-temporarily-)
-- [The blob prefix match string didn't apply the policy to the expected blobs](storage-blob-faq.yml#the-blob-prefix-match-string-didn-t-apply-the-policy-to-the-expected-blobs-)
+- [The blob prefix match string didn't apply the policy to the expected blobs](storage-blob-faq.yml#the-blob-prefix-match-string-didn-t-apply-the-policy-to-the-expected-blobs)
 - [Is there a way to identify the time at which the policy will be executing?](storage-blob-faq.yml#is-there-a-way-to-identify-the-time-at-which-the-policy-will-be-executing-)
 
 ## Next steps
