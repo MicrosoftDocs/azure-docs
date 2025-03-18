@@ -30,11 +30,11 @@ To run these connector operations in stateful mode, you must enable this capabil
 - An Azure virtual network with a subnet to integrate with your logic app. If you don't have these items, see the following documentation:
 
   - [Quickstart: Create a virtual network with the Azure portal](/azure/virtual-network/quick-create-portal)
-  - [Add, change, or delete a virtual network subnet](/azurevirtual-network/virtual-network-manage-subnet?tabs=azure-portal)
+  - [Add, change, or delete a virtual network subnet](/azure/virtual-network/virtual-network-manage-subnet?tabs=azure-portal)
 
 ## Enable stateful mode in the Azure portal
 
-If you use network security groups in your virtual network, stateful mode requires that you open [ports 20,000 to 30,000](../app-service/overview-vnet-integration.md#private-ports).
+If you use network security groups in your virtual network, stateful mode requires that you open [ports 20,000 to 30,000](/azure/app-service/overview-vnet-integration#private-ports).
 
 1. In the [Azure portal](https://portal.azure.com), open the Standard logic app resource where you want to enable stateful mode for these connector operations.
 
@@ -54,9 +54,9 @@ If you use network security groups in your virtual network, stateful mode requir
 
       :::image type="content" source="media/enable-stateful-affinity-built-in-connectors/enable-virtual-network-integration.png" alt-text="Screenshot shows Azure portal, Standard logic app resource, Networking page with selected virtual network and subnet.":::
 
-   For general information about enabling virtual network integration with your app, see [Enable virtual network integration in Azure App Service](../app-service/configure-vnet-integration-enable.md).
+   For general information about enabling virtual network integration with your app, see [Enable virtual network integration in Azure App Service](/azure/app-service/configure-vnet-integration-enable).
 
-1. Next, update your logic app's underlying website configuration (**<*logic-app-name*>.azurewebsites.net**) by using either of the following tools:
+1. Next, update your logic app's underlying website configuration (**<logic-app-name>.azurewebsites.net**) by using either of the following tools:
 
 ## Update website configuration for logic app
 
@@ -105,10 +105,10 @@ Updates a resource by using the specified resource ID:
 | Element | Value  |
 |---------|--------|
 | HTTP request method | **PATCH** |
-| <*resource-ID*> | **`subscriptions/<Azure-subscription-ID>/resourcegroups/<resource-group>/providers/Microsoft.Web/sites/<website-name>/config/web`** |
-| <*Azure-subscription-ID*> | The ID for your Azure subscription |
-| <*resource-group*> | The resource group that contains your logic app resource, which is **My-Standard-RG** in this example |
-| <*website-name*> | The name for your logic app resource, which is **mystandardlogicapp** in this example |
+| **<resource-ID>** | **`subscriptions/<Azure-subscription-ID>/resourcegroups/<resource-group>/providers/Microsoft.Web/sites/<website-name>/config/web`** |
+| **<Azure-subscription-ID>** | The ID for your Azure subscription |
+| **<resource-group>** | The resource group that contains your logic app resource, which is **My-Standard-RG** in this example |
+| **<website-name>** | The name for your logic app resource, which is **mystandardlogicapp** in this example |
 | HTTP request body | **`{"properties": {"vnetPrivatePortsCount": "2"}}`** |
 
 #### Example
@@ -138,10 +138,10 @@ For more information, see the following documentation:
 
 | Element | Value  |
 |---------|--------|
-| <*Azure-subscription-ID*> | The ID for your Azure subscription |
-| <*resource-ID*> | **`subscriptions/<Azure-subscription-ID>/resourcegroups/<resource-group>/providers/Microsoft.Web/sites/<website-name>/config/web`** |
-| <*resource-group*> | The resource group that contains your logic app resource, which is **My-Standard-RG** in this example |
-| <*website-name*> | The name for your logic app resource, which is **mystandardlogicapp** in this example |
+| **<Azure-subscription-ID>** | The ID for your Azure subscription |
+| **<resource-ID>** | **`subscriptions/<Azure-subscription-ID>/resourcegroups/<resource-group>/providers/Microsoft.Web/sites/<website-name>/config/web`** |
+| **<resource-group>** | The resource group that contains your logic app resource, which is **My-Standard-RG** in this example |
+| **<website-name>** | The name for your logic app resource, which is **mystandardlogicapp** in this example |
 
 #### Example
 
@@ -156,7 +156,7 @@ If you get an error that says **Reserved instance count is invalid**, use the fo
 ```powershell
 $webConfig.Properties.preWarmedInstanceCount = $webConfig.Properties.reservedInstanceCount
 $webConfig.Properties.reservedInstanceCount = $null
-$webConfig | Set-AzResource -ResourceId {resourceId}
+$webConfig | Set-AzResource -ResourceId <resource-ID>
 ```
 
 Error example:
