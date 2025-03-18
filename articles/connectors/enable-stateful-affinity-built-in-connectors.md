@@ -25,18 +25,16 @@ To run these connector operations in stateful mode, you must enable this capabil
 
 - An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- The Standard logic app resource where you plan to create the workflow that uses the stateful mode-enabled connector operations. If you don't have this resource, [create your Standard logic app resource now](../logic-apps/create-single-tenant-workflows-azure-portal.md).
+- The Standard logic app resource where you plan to create the workflow that uses the stateful mode-enabled connector operations. If you don't have this resource, [create your Standard logic app resource now](/azure/logic-apps/create-single-tenant-workflows-azure-portal).
 
 - An Azure virtual network with a subnet to integrate with your logic app. If you don't have these items, see the following documentation:
 
-  - [Quickstart: Create a virtual network with the Azure portal](../virtual-network/quick-create-portal.md)
-  - [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md?tabs=azure-portal)
+  - [Quickstart: Create a virtual network with the Azure portal](/azure/virtual-network/quick-create-portal)
+  - [Add, change, or delete a virtual network subnet](/azurevirtual-network/virtual-network-manage-subnet?tabs=azure-portal)
 
 ## Enable stateful mode in the Azure portal
 
-> [!NOTE]
-> If you use network security groups in your virtual network, stateful mode requires that
-> you open [ports 20,000 to 30,000](../app-service/overview-vnet-integration.md#private-ports).
+If you use network security groups in your virtual network, stateful mode requires that you open [ports 20,000 to 30,000](../app-service/overview-vnet-integration.md#private-ports).
 
 1. In the [Azure portal](https://portal.azure.com), open the Standard logic app resource where you want to enable stateful mode for these connector operations.
 
@@ -100,22 +98,22 @@ OAuth authorization and the bearer token are required. To get the bearer token, 
 
 Updates a resource by using the specified resource ID:
 
-`PATCH https://management.azure.com/{resourceId}?api-version=2021-04-01`
+**`PATCH https://management.azure.com/<resource-ID>?api-version=2021-04-01`**
 
 #### Parameter values
 
 | Element | Value  |
 |---------|--------|
 | HTTP request method | **PATCH** |
-| <*resourceId*> | **subscriptions/{yourSubscriptionID}/resourcegroups/{yourResourceGroup}/providers/Microsoft.Web/sites/{websiteName}/config/web** |
-| <*yourSubscriptionId*> | The ID for your Azure subscription |
-| <*yourResourceGroup*> | The resource group that contains your logic app resource |
-| <*websiteName*> | The name for your logic app resource, which is **mystandardlogicapp** in this example |
-| HTTP request body | **{"properties": {"vnetPrivatePortsCount": "2"}}** |
+| <*resource-ID*> | **`subscriptions/<Azure-subscription-ID>/resourcegroups/<resource-group>/providers/Microsoft.Web/sites/<website-name>/config/web`** |
+| <*Azure-subscription-ID*> | The ID for your Azure subscription |
+| <*resource-group*> | The resource group that contains your logic app resource, which is **My-Standard-RG** in this example |
+| <*website-name*> | The name for your logic app resource, which is **mystandardlogicapp** in this example |
+| HTTP request body | **`{"properties": {"vnetPrivatePortsCount": "2"}}`** |
 
 #### Example
 
-`https://management.azure.com/subscriptions/XXxXxxXX-xXXx-XxxX-xXXX-XXXXxXxXxxXX/resourcegroups/My-Standard-RG/providers/Microsoft.Web/sites/mystandardlogicapp/config/web?api-version=2021-02-01`
+**`https://management.azure.com/subscriptions/XXxXxxXX-xXXx-XxxX-xXXX-XXXXxXxXxxXX/resourcegroups/My-Standard-RG/providers/Microsoft.Web/sites/mystandardlogicapp/config/web?api-version=2021-02-01`**
 
 ### Azure PowerShell
 
@@ -124,10 +122,10 @@ To complete this task with Azure PowerShell, review the following requirements, 
 #### Syntax
 
 ```powershell
-Set-AzContext -Subscription {yourSubscriptionID}
-$webConfig = Get-AzResource -ResourceId {resourceId}
+Set-AzContext -Subscription <Azure-subscription-ID>
+$webConfig = Get-AzResource -ResourceId <resource-ID>
 $webConfig.Properties.vnetPrivatePortsCount = 2
-$webConfig | Set-AzResource -ResourceId {resourceId}
+$webConfig | Set-AzResource -ResourceId <resource-ID>
 ```
 
 For more information, see the following documentation:
@@ -140,14 +138,14 @@ For more information, see the following documentation:
 
 | Element | Value  |
 |---------|--------|
-| <*yourSubscriptionID*> | The ID for your Azure subscription |
-| <*resourceId*> | **subscriptions/{yourSubscriptionID}/resourcegroups/{yourResourceGroup}/providers/Microsoft.Web/sites/{websiteName}/config/web** |
-| <*yourResourceGroup*> | The resource group that contains your logic app resource |
-| <*websiteName*> | The name for your logic app resource, which is **mystandardlogicapp** in this example |
+| <*Azure-subscription-ID*> | The ID for your Azure subscription |
+| <*resource-ID*> | **`subscriptions/<Azure-subscription-ID>/resourcegroups/<resource-group>/providers/Microsoft.Web/sites/<website-name>/config/web`** |
+| <*resource-group*> | The resource group that contains your logic app resource, which is **My-Standard-RG** in this example |
+| <*website-name*> | The name for your logic app resource, which is **mystandardlogicapp** in this example |
 
 #### Example
 
-`https://management.azure.com/subscriptions/XXxXxxXX-xXXx-XxxX-xXXX-XXXXxXxXxxXX/resourcegroups/My-Standard-RG/providers/Microsoft.Web/sites/mystandardlogicapp/config/web?api-version=2021-02-01`
+**`https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourcegroups/My-Standard-RG/providers/Microsoft.Web/sites/mystandardlogicapp/config/web?api-version=2021-02-01`**
 
 #### Troubleshoot errors
 
@@ -199,15 +197,15 @@ Set-AzResource :
 
 Resource scale-in events might cause the loss of context for built-in connectors with stateful mode enabled. To prevent this potential loss before such events can happen, fix the number of instances available for your logic app resource. This way, no scale-in events can happen to cause this potential context loss.
 
-1. On your logic app resource menu, under **Settings**, select **Scale out**.
+1. On your logic app resource menu, under **Settings**, select **Scale out (App Service plan)**.
 
-1. On the **Scale out** page, in the **App Scale out** section, follow these steps:
+1. On the **Scale out (App Service plan)** page, in the **App Scale out** section, follow these steps:
 
-   1. Set **Enforce Scale Out Limit** to **Yes**, which shows the **Maximum Scale Out Limit**.
+   1. Set **Enforce Scale Out Limit** to **Yes**, which shows the **Maximum Scale Out Limit** property.
 
    1. Set **Always Ready Instances** to the same number as **Maximum Scale Out Limit** and **Maximum Burst**, which appears in the **Plan Scale out** section, for example:
 
-   :::image type="content" source="media/enable-stateful-affinity-built-in-connectors/scale-in-settings.png" alt-text="Screenshot shows Azure portal, Standard logic app resource, Scale out page, and Always Ready Instances number set to match Maximum Burst and Maximum Scale Out Limit.":::
+      :::image type="content" source="media/enable-stateful-affinity-built-in-connectors/scale-in-settings.png" alt-text="Screenshot shows Azure portal, Standard logic app resource, Scale out page, and Always Ready Instances number set to match Maximum Burst and Maximum Scale Out Limit.":::
 
 1. When you're done, on the **Scale out** toolbar, select **Save**.
 
