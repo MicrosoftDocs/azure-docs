@@ -34,7 +34,7 @@ When the command runs, it executes on each bare metal machine in the Cluster wit
 The BMCs support a maximum number of 12 users. Users are defined on a per Cluster basis and applied to each bare metal machine. Attempts to add more than 12 users results in an error. Delete a user before adding another one when 12 already exists.
 
 > [!WARNING]
-> Using an Entra Group ID with greater than 5,000 users isn't recommended. Reconciling a large number of users can result in timeouts.
+> Using an Entra Group ID with greater than 5,000 users isn't recommended. Reconciling a large number of users can result in timeouts, blocking access and causing login issues.
 
 ## Prerequisites
 
