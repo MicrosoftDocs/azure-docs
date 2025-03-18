@@ -124,7 +124,7 @@ It takes a few minutes for the bastion host and firewall to deploy. When the vir
 
 Use [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) to create a resource group.
 
-```powershell
+```azurepowershell
 # Create resource group
 $rgParams = @{
     Name = 'test-rg'
@@ -135,7 +135,7 @@ New-AzResourceGroup @rgParams
 
 Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create the hub virtual network.
 
-```powershell
+```azurepowershell
 # Create hub virtual network
 $vnetParams = @{
     ResourceGroupName = 'test-rg'
@@ -148,7 +148,7 @@ $hubVnet = New-AzVirtualNetwork @vnetParams
 
 Use [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) to create a subnet for Azure Firewall and Azure Bastion.
 
-```powershell
+```azurepowershell
 # Create subnet for Azure Firewall
 $subnetParams = @{
     Name = 'AzureFirewallSubnet'
@@ -168,14 +168,14 @@ Add-AzVirtualNetworkSubnetConfig @subnetParams
 
 Use [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) to update the virtual network.
 
-```powershell
+```azurepowershell
 # Create the virtual network
 $hubVnet | Set-AzVirtualNetwork
 ```
 
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a public IP for Azure Bastion.
 
-```powershell
+```azurepowershell
 # Create public IP for Azure Bastion
 $publicIpBastionParams = @{
     ResourceGroupName = 'test-rg'
@@ -190,7 +190,7 @@ $publicIpBastion = New-AzPublicIpAddress @publicIpBastionParams
 
 Use [New-AzBastion](/powershell/module/az.network/new-azbastion) to create Azure Bastion.
 
-```powershell
+```azurepowershell
 # Create Azure Bastion
 $bastionParams = @{
     ResourceGroupName = "test-rg"
@@ -205,7 +205,7 @@ New-AzBastion @bastionParams
 
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a public IP for Azure Firewall.
 
-```powershell
+```azurepowershell
 # Create public IP for Azure Firewall
 $publicIpFirewallParams = @{
     ResourceGroupName = 'test-rg'
@@ -220,7 +220,7 @@ $publicIpFirewall = New-AzPublicIpAddress @publicIpFirewallParams
 
 Use [New-AzFirewallPolicy](/powershell/module/az.network/new-azfirewallpolicy) to create a firewall policy.
 
-```powershell
+```azurepowershell
 # Create firewall policy
 $firewallPolicyParams = @{
     ResourceGroupName = 'test-rg'
@@ -232,7 +232,7 @@ $firewallPolicy = New-AzFirewallPolicy @firewallPolicyParams
 
 Use [New-AzFirewall](/powershell/module/az.network/new-azfirewall) to create Azure Firewall.
 
-```powershell
+```azurepowershell
 # Create Azure Firewall
 $firewallParams = @{
     ResourceGroupName = 'test-rg'
@@ -244,7 +244,6 @@ $firewallParams = @{
 }
 $firewall = New-AzFirewall @firewallParams
 ```
-
 
 ### [CLI](#tab/cli)
 
@@ -373,7 +372,7 @@ All outbound internet traffic traverses the NAT gateway to the internet. Use the
 
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a public IP for the NAT gateway.
 
-```powershell
+```azurepowershell
 # Create public IP for NAT gateway
 $publicIpNatParams = @{
     ResourceGroupName = 'test-rg'
@@ -387,7 +386,7 @@ $publicIpNat = New-AzPublicIpAddress @publicIpNatParams
 
 Use [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create the NAT gateway.
 
-```powershell
+```azurepowershell
 $natGatewayParams = @{
     ResourceGroupName = 'test-rg'
     Name = 'nat-gateway'
@@ -401,7 +400,7 @@ $natGateway = New-AzNatGateway @natGatewayParams
 
 Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) to associate NAT gateway with AzureFirewallSubnet.
 
-```powershell
+```azurepowershell
 # Associate NAT gateway with AzureFirewallSubnet
 $subnetParams = @{
     VirtualNetwork = $hubVnet
@@ -414,7 +413,7 @@ Set-AzVirtualNetworkSubnetConfig @subnetParams
 
 Use [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) to update the virtual network.
 
-```powershell
+```azurepowershell
 # Update the virtual network
 $hubVnet | Set-AzVirtualNetwork
 ```
@@ -507,7 +506,7 @@ The spoke virtual network contains the test virtual machine used to test the rou
 
 Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create the spoke virtual network.
 
-```powershell
+```azurepowershell
 # Create spoke virtual network
 $vnetParams = @{
     ResourceGroupName = 'test-rg'
@@ -520,7 +519,7 @@ $spokeVnet = New-AzVirtualNetwork @vnetParams
 
 Use [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) to create a subnet for the spoke virtual network.
 
-```powershell
+```azurepowershell
 # Create subnet in spoke virtual network
 $subnetParams = @{
     Name = 'subnet-private'
@@ -532,7 +531,7 @@ Add-AzVirtualNetworkSubnetConfig @subnetParams
 
 Use [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) to update the spoke virtual network.
 
-```powershell
+```azurepowershell
 # Create the virtual network
 $spokeVnet | Set-AzVirtualNetwork
 ```
@@ -596,7 +595,7 @@ A virtual network peering is used to connect the hub to the spoke and the spoke 
 
 Use [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering) to create a peering from the hub to the spoke.
 
-```powershell
+```azurepowershell
 # Create peering from hub to spoke
 $peeringParams = @{
     Name = 'vnet-hub-to-vnet-spoke'
@@ -609,7 +608,7 @@ Add-AzVirtualNetworkPeering @peeringParams
 
 Use [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering) to create a peering from the spoke to the hub.
 
-```powershell
+```azurepowershell
 # Create peering from spoke to hub
 $peeringParams = @{
     Name = 'vnet-spoke-to-vnet-hub'
@@ -666,7 +665,7 @@ The private IP address of the firewall is needed for the route table created lat
 
 Use [Get-AzFirewall](/powershell/module/az.network/get-azfirewall) to obtain the private IP address of the firewall.
 
-```powershell
+```azurepowershell
 # Get the private IP address of the firewall
 $firewallParams = @{
     ResourceGroupName = 'test-rg'
@@ -752,7 +751,7 @@ Create a route table to force all inter-spoke and internet egress traffic throug
 
 Use [New-AzRouteTable](/powershell/module/az.network/new-azroutetable) to create the route table.
 
-```powershell
+```azurepowershell
 # Create route table
 $routeTableParams = @{
     ResourceGroupName = 'test-rg'
@@ -764,7 +763,7 @@ $routeTable = New-AzRouteTable @routeTableParams
 
 Use [Add-AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) to create a route in the route table.
 
-```powershell
+```azurepowershell
 # Create route
 $routeConfigParams = @{
     Name = 'route-to-hub'
@@ -778,14 +777,14 @@ Add-AzRouteConfig @routeConfigParams
 
 Use [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable) to update the route table.
 
-```powershell
+```azurepowershell
 # Update the route table
 $routeTable | Set-AzRouteTable
 ```
 
 Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) to associate the route table with the spoke subnet.
 
-```powershell
+```azurepowershell
 # Associate route table with subnet
 $subnetConfigParams = @{
     VirtualNetwork = $spokeVnet
@@ -798,7 +797,7 @@ Set-AzVirtualNetworkSubnetConfig @subnetConfigParams
 
 Use [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) to update the spoke virtual network.
 
-```powershell
+```azurepowershell
 # Update the virtual network
 $spokeVnet | Set-AzVirtualNetwork
 ```
@@ -878,7 +877,7 @@ Traffic from the spoke through the hub must be allowed through and firewall poli
 
 Use [New-AzFirewallPolicyRuleCollectionGroup](/powershell/module/az.network/new-azfirewallpolicyrulecollectiongroup) to create a rule collection group.
 
-```powershell
+```azurepowershell
 $firewallPolicyParams = @{
     Name = 'firewall-policy'
     ResourceGroupName = 'test-rg'
@@ -903,7 +902,7 @@ $networkrulecollectiongroup = Get-AzFirewallPolicyRuleCollectionGroup @networkRu
 
 Use [New-AzFirewallPolicyNetworkRule](/powershell/module/az.network/new-azfirewallpolicynetworkrule) to create a network rule.
 
-```powershell
+```azurepowershell
 $networkRuleParams = @{
     Name = 'allow-web'
     SourceAddress = '10.1.0.0/24'
@@ -916,7 +915,7 @@ $networkrule = New-AzFirewallPolicyNetworkRule @networkRuleParams
 
 Use [New-AzFirewallPolicyFilterRuleCollection](/powershell/module/az.network/new-azfirewallpolicyfilterrulecollection) to create a rule collection.
 
-```powershell
+```azurepowershell
 $newRuleCollectionConfigParams = @{
     Name = 'rule-collection'
     Priority = 1000
@@ -929,7 +928,7 @@ $newrulecollection = $networkrulecollectiongroup.Properties.RuleCollection.Add($
 
 Use [Set-AzFirewallPolicyRuleCollectionGroup](/powershell/module/az.network/set-azfirewallpolicyrulecollectiongroup) to update the rule collection group.
 
-```powershell
+```azurepowershell
 $setRuleCollectionGroupParams = @{
     Name = 'DefaultNetworkRuleCollectionGroup'
     Priority = 200
@@ -1018,6 +1017,30 @@ Wait for the virtual machine to finishing deploying before proceeding to the nex
 
 ### [PowerShell](#tab/powershell)
 
+Use [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) to create the network security group.
+
+```azurepowershell
+$nsgParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "nsg-1"
+    Location = "southcentralus"
+}
+New-AzNetworkSecurityGroup @nsgParams
+```
+
+Use [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) to create the network interface.
+
+```azurepowershell
+$nicParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "nic-1"
+    SubnetId = (Get-AzVirtualNetwork -ResourceGroupName "test-rg" -Name "vnet-spoke").Subnets[1].Id
+    NetworkSecurityGroupId = (Get-AzNetworkSecurityGroup -ResourceGroupName "test-rg" -Name "nsg-1").Id
+    Location = "southcentralus"
+}
+New-AzNetworkInterface @nicParams
+```
+
 Use [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) to set a user name and password for the VM and store them in the `$cred` variable.
 
 ```azurepowershell
@@ -1027,65 +1050,63 @@ $cred = Get-Credential
 > [!NOTE]
 > A username is required for the VM. The password is optional and won't be used if set. SSH key configuration is recommended for Linux VMs.
 
-Use [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) to create a network security group.
+Use [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) to define a VM.
 
-```powershell
-# Create network security group
-$nsgParams = @{
-    ResourceGroupName = 'test-rg'
-    Location = 'South Central US'
-    Name = 'nsg-1'
-}
-$nsg = New-AzNetworkSecurityGroup @nsgParams
-```
-
-Use [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) to create a network interface.
-
-```powershell
-# Create network interface
-$nicParams = @{
-    ResourceGroupName = 'test-rg'
-    Location = 'South Central US'
-    Name = 'vm-spoke-nic'
-    SubnetId = $spokeVnet.Subnets[0].Id
-    NetworkSecurityGroupId = $nsg.Id
-}
-$nic = New-AzNetworkInterface @nicParams
-```
-
-Use [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) to create a virtual machine configuration.
-
-```powershell
-# Create virtual machine configuration
+```azurepowershell
 $vmConfigParams = @{
-    VMName = 'vm-spoke'
-    VMSize = 'Standard_DS1_v2'
-}
-
-$vmOSConfig = @{
-    ComputerName = 'vm-spoke'
-    Credential = $cred
-}
-
-$vmSourceImage = @{
-    PublisherName = 'Canonical'
-    Offer = 'UbuntuServer'
-    Skus = '24_04-lts-gen2'
-    Version = 'latest'
-}
-$vmConfig = New-AzVMConfig @vmConfigParams | Set-AzVMOperatingSystem @vmOSconfig -Linux | Set-AzVMSourceImage @vmSourceImage | Add-AzVMNetworkInterface -Id $nic.Id
+    VMName = "vm-spoke"
+    VMSize = "Standard_DS4_v2"
+    }
+$vmConfig = New-AzVMConfig @vmConfigParams
 ```
 
-Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the virtual machine.
+Use [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) and [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage) to create the rest of the VM configuration. The following example creates an Ubuntu Server virtual machine:
 
-```powershell
-# Create virtual machine
-$vmParams = @{
-    ResourceGroupName = 'test-rg'
-    Location = 'South Central US'
+```azurepowershell
+$osParams = @{
     VM = $vmConfig
-}
-New-AzVM @vmParams
+    ComputerName = "vm-spoke"
+    Credential = $cred
+    }
+$vmConfig = Set-AzVMOperatingSystem @osParams -Linux -DisablePasswordAuthentication
+
+$imageParams = @{
+    VM = $vmConfig
+    PublisherName = "Canonical"
+    Offer = "ubuntu-24_04-lts"
+    Skus = "server"
+    Version = "latest"
+    }
+$vmConfig = Set-AzVMSourceImage @imageParams
+```
+
+Use [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface) to attach the NIC that you previously created to the VM.
+
+```azurepowershell
+# Get the network interface object
+$nicParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "nic-1"
+    }
+$nic = Get-AzNetworkInterface @nicParams
+
+$vmConfigParams = @{
+    VM = $vmConfig
+    Id = $nic.Id
+    }
+$vmConfig = Add-AzVMNetworkInterface @vmConfigParams
+```
+
+Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the VM. The command will generate SSH keys for the virtual machine for login. Make note of the location of the private key. The private key is needed in later steps for connecting to the virtual machine with Azure Bastion.
+
+```azurepowershell
+$vmParams = @{
+    VM = $vmConfig
+    ResourceGroupName = "test-rg"
+    Location = "southcentralus"
+    SshKeyName = "ssh-key"
+    }
+New-AzVM @vmParams -GenerateSshKey
 ```
 
 ### [CLI](#tab/cli)
@@ -1145,7 +1166,7 @@ Obtain the NAT gateway public IP address for verification of the steps later in 
 
 Use [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) to obtain the public IP address of the NAT gateway.
 
-```powershell
+```azurepowershell
 # Get the public IP address of the NAT gateway
 $publicIpNatParams = @{
     ResourceGroupName = 'test-rg'
@@ -1202,7 +1223,7 @@ az network public-ip show \
 
 Use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group.
 
-```powershell
+```azurepowershell
 # Remove resource group
 $rgParams = @{
     Name = 'test-rg'
