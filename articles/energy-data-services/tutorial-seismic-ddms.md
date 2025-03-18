@@ -110,6 +110,7 @@ API: **Service Verification** > **Check Status**
 curl --request GET \
   --url http://{base_url}/seistore-svc/api/v3/svcstatus \
   --header 'Content-Type: application/json' \
+  --header 'Authorization: Bearer {access_token}' \
   --header 'data-partition-id: {data_partition_id}'
 ```
 
