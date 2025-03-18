@@ -83,7 +83,7 @@ Run the `Set-VMStoragePolicy` cmdlet to modify vSAN-based storage policies on a 
 
 
 > [!NOTE]
-> You cannot use the vSphere Client to change the default storage policy or any existing storage policies for a VM.
+> You can't use the vSphere Client to change the default storage policy or any existing storage policies for a VM.
 
 1. Select **Run command** > **Packages** > **Set-VMStoragePolicy**.
 
@@ -104,7 +104,7 @@ Run the `Set-VMStoragePolicy` cmdlet to modify vSAN-based storage policies on a 
 Run the `Set-LocationStoragePolicy` cmdlet to Modify vSAN based storage policies on all VMs in a location where a location is the name of a cluster, resource pool, or folder. For example, if you have 3 VMs in Cluster-3, supplying "Cluster-3" would change the storage policy on all three VMs.
 
 > [!NOTE]
-> You cannot use the vSphere Client to change the default storage policy or any existing storage policies for a VM.
+> You can't use the vSphere Client to change the default storage policy or any existing storage policies for a VM.
 
 1. Select **Run command** > **Packages** > **Set-LocationStoragePolicy**.
 
@@ -141,14 +141,14 @@ Run the `Set-ClusterDefaultStoragePolicy` cmdlet to specify default storage poli
 
 1. Check **Notifications** to see the progress.
 > [!NOTE]
-> Changing the default cluster policy will only affect new VM's.  Existing VM's will retain the policy they are currently configured/deployed with.
+> Changing the default cluster policy will only affect new VMs.  Existing VMs will retain the policy they're currently configured/deployed with.
 
 ## Create custom AVS storage policy
 
 Run the `New-AVSStoragePolicy` cmdlet to create or overwrite an existing policy.
 This function creates a new or overwrites an existing vSphere Storage Policy. Non vSAN-Based, vSAN Only, VMEncryption Only, Tag Only based and/or any combination of these policy types are supported.
 > [!NOTE]
-> You cannot modify existing AVS default storage policies.
+> You can't modify existing AVS default storage policies.
 > Certain options enabled in storage policies will produce warnings to associated risks.
 > Modifying existing storage policies will make existing associated vsan objects (vms/vmdks/iso/etc) appear as 'out of compliance'.
 > This simply means existing objects are running against premodified policy settings.  Reapply storage policy to objects to update to match modified policy settings.
