@@ -2,8 +2,6 @@
 title: Optimize for cluster advisor recommendations
 titleSuffix: Azure HDInsight
 description: Optimize Apache HBase for cluster advisor recommendations in Azure HDInsight.
-author: yeturis
-ms.author: sairamyeturi
 ms.service: azure-hdinsight
 ms.topic: conceptual
 author: apurbasroy

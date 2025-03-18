@@ -2,8 +2,6 @@
 title: Use the Apache HBase HBCK2 tool
 description: Learn how to use the HBase HBCK2 tool.
 services: hdinsight
-author: robinroy
-ms.author: robinroy
 ms.service: azure-hdinsight
 ms.custom: troubleshooting
 ms.topic: conceptual
