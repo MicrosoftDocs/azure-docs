@@ -72,7 +72,7 @@ For a detailed comparison of AWS Lambda concepts, resources, properties, and the
 
 | AWS Lambda feature  | Azure Functions feature   |
 |---|---|
-| https://<url-id>.lambda-url.<region>.on.aws  | - <appname>.azurewebsites.net (original, global default hostname)  <appname>-<randomhash>.<Region>.azurewebsites.net (new, unique default hostname)  |
+| `https://<url-id>.lambda-url.<region>.on.aws`  | - `<appname>.azurewebsites.net` (original, global default hostname) </br> - `<appname>-<randomhash>.<Region>.azurewebsites.net` (new, unique default hostname)  |
 
 ### Networking 
 
