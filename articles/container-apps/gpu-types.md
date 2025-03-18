@@ -7,6 +7,7 @@ ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 03/18/2025
 ms.author: cshoe
+ai-usage: ai-generated
 ---
 
 # Comparing GPU types in Azure Container Apps
