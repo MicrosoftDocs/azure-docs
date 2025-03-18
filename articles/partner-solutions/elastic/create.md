@@ -56,11 +56,13 @@ Enter the names and values for each *Action* listed under Metrics and Logs.
 
 Select the **Next: Azure OpenAI configuration** button at the bottom of the page.
 
-### Azure OpenAI configuration
+### Azure OpenAI configuration tab
 
-If you wish, select an existing **Azure OpenAI Resource** and **Azure OpenAI Deployment** from the dropdown fields.
+1. Select an existing **Azure OpenAI Resource**.
 
-Select the **Next: Tags** button at the bottom of the page.
+1. Select an existing **Azure OpenAI Deployment**.
+
+1. Select the **Next: Tags** button at the bottom of the page.
 
 ### Tags tab (optional)
 
