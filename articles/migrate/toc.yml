@@ -336,9 +336,7 @@ items:
       href: troubleshoot-discovery.md
 #   - name: Spring Boot discovery
 #     href: troubleshoot-spring-boot-discovery.md
-  - name: Action Center
-    href: centralized-issue-tracking.md
-  - name: Dependency analysis
+ - name: Dependency analysis
     items:
     - name: Troubleshoot dependency visualization
       href: troubleshoot-dependencies.md
