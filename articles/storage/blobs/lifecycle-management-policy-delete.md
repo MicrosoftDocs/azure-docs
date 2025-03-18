@@ -13,9 +13,7 @@ ms.topic: conceptual
 
 # Configure a lifecycle management policy to delete data
 
-You can use Lifecycle management policies to transition blobs to delete blob at the end of their lifecycle. 
-
-This article contains examples of policy definitions that delete blobs.
+You can use Lifecycle management policies to transition blobs to delete blob at the end of their lifecycle.To learn more, see [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md). This article contains examples of policy definitions that delete blobs.
 
 ### Expire data based on age
 

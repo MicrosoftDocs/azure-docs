@@ -1,5 +1,5 @@
 ---
-title: Lifecycle management policy tiers
+title: Configure a lifecycle management policy to move blobs between access tiers
 titleSuffix: Azure Blob Storage
 description: Configure a lifecycle management policy to automatically move data between hot, cool, cold, and archive tiers during the data lifecycle.
 author: normesta
@@ -11,11 +11,9 @@ ms.topic: conceptual
 
 ---
 
-# Configure a lifecycle management policy for access tiers
+# Configure a lifecycle management policy to move blobs between access tiers
 
-You can use Lifecycle management policies to transition blobs to cost-efficient access tiers based on their use patterns. A policy can operate on current versions, previous versions and snapshots. A policy does not operate on blobs in system containers such as as the **$logs** or **$web** containers. To learn more about Blob Storage Lifecycle management policies, see [Azure Blob Storage lifecycle management overview](lifecycle-management-policy-overview.md).
-
-This article contains examples of policy definitions that transition blobs between tiers.
+You can use Lifecycle management policies to transition blobs to cost-efficient access tiers based on their use patterns. To learn more, see [Azure Blob Storage lifecycle management overview](lifecycle-management-policy-overview.md). This article contains examples of policy definitions that transition blobs between tiers.
 
 ## Move aging data to a cooler tier
 
@@ -84,8 +82,6 @@ In the following example, blobs are moved to cool storage if they haven't been a
 ## Archiving data
 
 Some data stays idle in the cloud and is rarely, if ever, accessed. The following lifecycle policy is configured to archive data shortly after it's ingested. This example transitions block blobs in a container named `archivecontainer` into an archive tier. The transition is accomplished by acting on blobs 0 days after last modified time. 
-
-Only storage accounts that are configured for LRS, GRS, or RA-GRS support moving blobs to the archive tier. The archive tier isn't supported for ZRS, GZRS, or RA-GZRS accounts. This action gets listed based on the redundancy configured for the account. 
 
 > [!IMPORTANT]
 > If a data set needs to be readable, do not set a policy to move blobs to the archive tier. Blobs in the archive tier cannot be read unless they are first rehydrated, a process which may be time-consuming and expensive. For more information, see [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md). If a data set needs to be read often, do not set a policy to move blobs to the cool or cold tiers as this might result in higher transaction costs.
