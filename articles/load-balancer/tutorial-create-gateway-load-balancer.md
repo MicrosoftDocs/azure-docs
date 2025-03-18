@@ -1,0 +1,438 @@
+---
+title: 'Tutorial: Create a gateway load balancer'
+titleSuffix: Azure Load Balancer
+description: Use this tutorial to learn how to create a gateway load balancer using the Azure portal, Azure PowerShell, and Azure LCI.
+author: mbender-ms
+ms.author: mbender
+ms.service: azure-load-balancer
+ms.topic: tutorial
+ms.date: 03/21/2025
+ms.custom: template-tutorial
+---
+
+# Tutorial: Create a gateway load balancer
+
+Azure Load Balancer consists of Standard, Basic, and Gateway SKUs. Gateway Load Balancer is used for transparent insertion of Network Virtual Appliances (NVA). Use Gateway Load Balancer for scenarios that require high performance and high scalability of NVAs.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Create virtual network.
+> * Create network security group.
+> * Create a gateway load balancer.
+> * Chain a load balancer frontend to gateway load balancer.
+
+You can choose to create a gateway load balancer using the Azure portal, Azure CLI, or Azure PowerShell.
+
+## Prerequisites
+
+# [Azure portal](#tab/azureportal)
+
+- An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- Two **standard** sku Azure Load Balancers with backend pools deployed in two different Azure regions.
+    - For information on creating a regional standard load balancer and virtual machines for backend pools, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md).
+
+# [Azure CLI](#tab/azurecli/)
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+
+- This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+
+- An Azure account with an active subscription.[Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- An existing public standard SKU Azure Load Balancer. For more information on creating a load balancer, see **[Create a public load balancer using the Azure CLI](quickstart-load-balancer-standard-public-cli.md)**.
+    - For the purposes of this tutorial, the existing load balancer in the examples is named **myLoadBalancer**.
+
+# [Azure PowerShell](#tab/azurepowershell/)
+
+- An Azure account with an active subscription.[Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An existing public standard SKU Azure Load Balancer. For more information on creating a load balancer, see **[Create a public load balancer using Azure PowerShell](quickstart-load-balancer-standard-public-powershell.md)**.
+    - For the purposes of this tutorial, the existing load balancer in the examples is named **myLoadBalancer**.
+- Azure PowerShell installed locally or Azure Cloud Shell
+
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+
+---
+
+## Create a virtual network and associated resources
+
+In this section, you create a virtual network and associated resources. Along with the virtual network, you create a bastion host and a network security group. 
+
+# [Azure portal](#tab/azureportal)
+
+[!INCLUDE [load-balancer-create-no-gateway](../../includes/load-balancer-create-no-gateway.md)]
+
+# [Azure CLI](#tab/azurecli/)
+
+## Create a resource group
+
+An Azure resource group is a logical container into which Azure resources are deployed and managed.
+
+Create a resource group with [az group create](/cli/azure/group#az-group-create):
+
+```azurecli-interactive
+  az group create \
+    --name TutorGwLB-rg \
+    --location eastus
+
+```
+
+## Configure virtual network
+
+A virtual network is needed for the resources that are in the backend pool of the gateway load balancer.  
+
+### Create virtual network
+
+Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to create the virtual network.
+
+```azurecli-interactive
+  az network vnet create \
+    --resource-group TutorGwLB-rg \
+    --location eastus \
+    --name myVNet \
+    --address-prefixes 10.1.0.0/16 \
+    --subnet-name myBackendSubnet \
+    --subnet-prefixes 10.1.0.0/24
+```
+
+### Create bastion public IP address
+
+Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public IP address for the Azure Bastion host
+
+```azurecli-interactive
+az network public-ip create \
+    --resource-group TutorGwLB-rg \
+    --name myBastionIP \
+    --sku Standard \
+    --zone 1 2 3
+```
+
+### Create bastion subnet
+
+Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create the bastion subnet.
+
+```azurecli-interactive
+az network vnet subnet create \
+    --resource-group TutorGwLB-rg \
+    --name AzureBastionSubnet \
+    --vnet-name myVNet \
+    --address-prefixes 10.1.1.0/27
+```
+
+### Create bastion host
+
+Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to deploy a bastion host for secure management of resources in virtual network.
+
+```azurecli-interactive
+az network bastion create \
+    --resource-group TutorGwLB-rg \
+    --name myBastionHost \
+    --public-ip-address myBastionIP \
+    --vnet-name myVNet \
+    --location eastus
+```
+
+It can take a few minutes for the Azure Bastion host to deploy.
+
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
+
+>
+
+## Configure NSG
+
+Use the following example to create a network security group. You'll configure the NSG rules needed for network traffic in the virtual network created previously.
+
+### Create NSG
+
+Use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) to create the NSG.
+
+```azurecli-interactive
+  az network nsg create \
+    --resource-group TutorGwLB-rg \
+    --name myNSG
+```
+
+### Create NSG Rules
+
+Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) to create rules for the NSG.
+
+```azurecli-interactive
+  az network nsg rule create \
+    --resource-group TutorGwLB-rg \
+    --nsg-name myNSG \
+    --name myNSGRule-AllowAll \
+    --protocol '*' \
+    --direction inbound \
+    --source-address-prefix '0.0.0.0/0' \
+    --source-port-range '*' \
+    --destination-address-prefix '0.0.0.0/0' \
+    --destination-port-range '*' \
+    --access allow \
+    --priority 100
+
+  az network nsg rule create \
+    --resource-group TutorGwLB-rg \
+    --nsg-name myNSG \
+    --name myNSGRule-AllowAll-TCP-Out \
+    --protocol 'TCP' \
+    --direction outbound \
+    --source-address-prefix '0.0.0.0/0' \
+    --source-port-range '*' \
+    --destination-address-prefix '0.0.0.0/0' \
+    --destination-port-range '*' \
+    --access allow \
+    --priority 100
+```
+
+# [Azure PowerShell](#tab/azurepowershell/)
+
+---
+
+# Create and configure a gateway load balancer
+In this section, you create a gateway load balancer and configure it with a backend pool and frontend IP configuration. The backend pool is associated with the existing load balancer created in the prerequisites.
+
+# [Azure portal](#tab/azureportal)
+
+# [Azure CLI](#tab/azurecli/)
+
+## Configure Gateway Load Balancer
+
+In this section, you'll create the configuration and deploy the gateway load balancer.  
+
+### Create Gateway Load Balancer
+
+To create the load balancer, use [az network lb create](/cli/azure/network/lb#az-network-lb-create).
+
+```azurecli-interactive
+  az network lb create \
+    --resource-group TutorGwLB-rg \
+    --name myLoadBalancer-gw \
+    --sku Gateway \
+    --vnet-name myVNet \
+    --subnet myBackendSubnet \
+    --backend-pool-name myBackendPool \
+    --frontend-ip-name myFrontEnd
+```
+
+### Create tunnel interface
+
+An internal interface is automatically created with Azure CLI with the **`--identifier`** of **900** and **`--port`** of **10800**.
+
+You'll use [az network lb address-pool tunnel-interface add](/cli/azure/network/lb/address-pool/tunnel-interface#az-network-lb-address-pool-tunnel-interface-add) to create external tunnel interface for the load balancer. 
+
+```azurecli-interactive
+  az network lb address-pool tunnel-interface add \
+    --address-pool myBackEndPool \
+    --identifier '901' \
+    --lb-name myLoadBalancer-gw \
+    --protocol VXLAN \
+    --resource-group TutorGwLB-rg \
+    --type External \
+    --port '10801'
+```
+
+### Create health probe
+A health probe is required to monitor the health of the backend instances in the load balancer. Use [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create) to create the health probe.
+
+```azurecli-interactive
+  az network lb probe create \
+    --resource-group TutorGwLB-rg \
+    --lb-name myLoadBalancer-gw \
+    --name myHealthProbe \
+    --protocol http \
+    --port 80 \
+    --path '/' \
+    --interval '5' \
+    --threshold '2'
+    
+```
+
+### Create load-balancing rule
+
+Traffic destined for the backend instances is routed with a load-balancing rule. Use [az network lb rule create](/cli/azure/network/lb/probe#az-network-lb-rule-create)  to create the load-balancing rule.
+
+```azurecli-interactive
+  az network lb rule create \
+    --resource-group TutorGwLB-rg \
+    --lb-name myLoadBalancer-gw \
+    --name myLBRule \
+    --protocol All \
+    --frontend-port 0 \
+    --backend-port 0 \
+    --frontend-ip-name myFrontEnd \
+    --backend-pool-name myBackEndPool \
+    --probe-name myHealthProbe
+```
+
+# [Azure PowerShell](#tab/azurepowershell/)
+
+---
+
+## Add network virtual appliances to the Gateway Load Balancer backend pool
+
+# [Azure portal](#tab/azureportal)
+
+Deploy NVAs through the Azure Marketplace. Once deployed, add the NVA virtual machines to the backend pool of the gateway load balancer. To add the virtual machines, go to the backend pools tab of your gateway load balancer.
+
+# [Azure CLI](#tab/azurecli/)
+
+Deploy NVAs through the Azure Marketplace. Once deployed, add the virtual machines to the backend pool with [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az-network-nic-ip-config-address-pool-add).
+
+# [Azure PowerShell](#tab/azurepowershell/)
+
+---
+
+## Chain load balancer frontend to Gateway Load Balancer
+
+# [Azure portal](#tab/azureportal)
+
+In this example, you'll chain the frontend of a standard load balancer to the gateway load balancer. 
+
+You add the frontend to the frontend IP of an existing load balancer in your subscription.
+
+1. In the search box in the Azure portal, enter **Load balancer**. In the search results, select **Load balancers**.
+
+2. In **Load balancers**, select **load-balancer** or your existing load balancer name.
+
+3. In the load balancer page, select **Frontend IP configuration** in **Settings**.
+
+4. Select the frontend IP of the load balancer. In this example, the name of the frontend is **lb-frontend-IP**.
+
+    :::image type="content" source="./media/tutorial-gateway-portal/frontend-ip.png" alt-text="Screenshot of frontend IP configuration." border="true":::
+
+5. Select **lb-frontend-IP (10.1.0.4)** in the pull-down box next to **Gateway load balancer**.
+
+6. Select **Save**.
+
+    :::image type="content" source="./media/tutorial-gateway-portal/select-gateway-load-balancer.png" alt-text="Screenshot of addition of gateway load balancer to frontend IP." border="true":::
+
+# [Azure CLI](#tab/azurecli/)
+
+In this example, you'll chain the frontend of a standard load balancer to the gateway load balancer. 
+
+You'll add the frontend to the frontend IP of an existing load balancer in your subscription.
+
+Use [az network lb frontend-ip show](/cli/azure/network/lb/frontend-ip#az-az-network-lb-frontend-ip-show) to place the resource ID of your gateway load balancer frontend into a variable.
+
+Use [az network lb frontend-ip update](/cli/azure/network/lb/frontend-ip#az-network-lb-frontend-ip-update) to chain the gateway load balancer frontend to your existing load balancer.
+
+```azurecli-interactive
+  feid=$(az network lb frontend-ip show \
+    --resource-group TutorGwLB-rg \
+    --lb-name myLoadBalancer-gw \
+    --name myFrontend \
+    --query id \
+    --output tsv)
+
+  az network lb frontend-ip update \
+    --resource-group CreatePubLBQS-rg \
+    --name myFrontendIP \
+    --lb-name myLoadBalancer \
+    --public-ip-address myPublicIP \
+    --gateway-lb $feid
+
+```
+
+# [Azure PowerShell](#tab/azurepowershell/)
+
+---
+
+## Chain virtual machine to Gateway Load Balancer
+
+# [Azure portal](#tab/azureportal)
+
+Alternatively, you can chain a VM's NIC IP configuration to the gateway load balancer.
+
+You add the gateway load balancer's frontend to an existing VM's NIC IP configuration.
+
+> [!IMPORTANT]
+> A virtual machine must have a public IP address assigned before attempting to chain the NIC configuration to the frontend of the gateway load balancer.
+
+1. In the search box in the Azure portal, enter **Virtual machine**. In the search results, select **Virtual machines**.
+
+2. In **Virtual machines**, select the virtual machine that you want to add to the gateway load balancer. In this example, the virtual machine is named **myVM1**.
+
+3. In the overview of the virtual machine, select **Networking** in **Settings**.
+
+4. In **Networking**, select the name of the network interface attached to the virtual machine. In this example, it's **myvm1229**.
+
+    :::image type="content" source="./media/tutorial-gateway-portal/vm-nic.png" alt-text="Screenshot of virtual machine networking overview." border="true":::
+
+5. In the network interface page, select **IP configurations** in **Settings**.
+
+6. Select **lb-frontend-IP** in **Gateway Load balancer**.
+
+    :::image type="content" source="./media/tutorial-gateway-portal/vm-nic-gw-lb.png" alt-text="Screenshot of nic IP configuration." border="true":::
+
+7. Select **Save**.
+
+# [Azure CLI](#tab/azurecli/)
+
+Alternatively, you can chain a VM's NIC IP configuration to the gateway load balancer. 
+
+You'll add the gateway load balancer's frontend to an existing VM's NIC IP configuration.
+
+Use [az network lb frontend-ip show](/cli/azure/network/lb/frontend-ip#az-az-network-lb-frontend-ip-show) to place the resource ID of your gateway load balancer frontend into a variable.
+
+Use [az network lb frontend-ip update](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update) to chain the gateway load balancer frontend to your existing VM's NIC IP configuration.
+
+```azurecli-interactive
+ feid=$(az network lb frontend-ip show \
+    --resource-group TutorGwLB-rg \
+    --lb-name myLoadBalancer-gw \
+    --name myFrontend \
+    --query id \
+    --output tsv)
+    
+  az network nic ip-config update \
+    --resource-group MyResourceGroup
+    --nic-name MyNIC 
+    --name MyIPconfig 
+    --gateway-lb $feid
+
+```
+
+# [Azure PowerShell](#tab/azurepowershell/)
+
+---
+
+## Clean up resources
+
+When you no longer need the resources created in this tutorial, delete the resource group. This also deletes the virtual network and all other resources in the resource group.
+
+# [Azure portal](#tab/azureportal)
+
+When no longer needed, delete the resource group, load balancer, and all related resources. To do so, select the resource group **load-balancer-rg** that contains the resources and then select **Delete**.
+
+# [Azure CLI](#tab/azurecli/)
+
+When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, load balancer, and the remaining resources.
+
+```azurecli-interactive
+  az group delete \
+    --name TutorGwLB-rg
+```
+
+# [Azure PowerShell](#tab/azurepowershell/)
+
+---
+
+## Next steps
+
+Create Network Virtual Appliances in Azure. 
+
+When creating the NVAs, choose the resources created in this tutorial:
+
+* Virtual network
+
+* Subnet
+
+* Network security group
+
+* Gateway load balancer
+
+Advance to the next article to learn how to create a cross-region Azure Load Balancer.
+> [!div class="nextstepaction"]
+> [Cross-region load balancer](tutorial-cross-region-portal.md)
