@@ -69,7 +69,7 @@ You can run an unsupported version of Python by building your own container imag
 
 ## Customize build automation
 > [!NOTE]
-> When Python applications are deployed with build automation, content will be deployed to and served from `/tmp/<uid>`, not under `/home/site/wwwroot`. This content directory can be access through the `APP_PATH` environment variable. Any additional files created at runtime should be written to a location under `/home` or using [Bring Your Own Storage](https://learn.microsoft.com/en-us/azure/app-service/configure-connect-to-azure-storage?tabs=basic%2Cportal&pivots=container-linux) for persistence. More information on this behavior can be found [here](https://github.com/Azure-App-Service/KuduLite/wiki/Python-Build-Changes).
+> When Python applications are deployed with build automation, content will be deployed to and served from `/tmp/<uid>`, not under `/home/site/wwwroot`. This content directory can be access through the `APP_PATH` environment variable. Any additional files created at runtime should be written to a location under `/home` or using [Bring Your Own Storage](https://learn.microsoft.com/azure/app-service/configure-connect-to-azure-storage?tabs=basic%2Cportal&pivots=container-linux) for persistence. More information on this behavior can be found [here](https://github.com/Azure-App-Service/KuduLite/wiki/Python-Build-Changes).
 
 App Service's build system, called Oryx, performs the following steps when you deploy your app, if the app setting `SCM_DO_BUILD_DURING_DEPLOYMENT` is set to `1`:
 
