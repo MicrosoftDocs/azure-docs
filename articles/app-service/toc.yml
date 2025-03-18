@@ -1,37 +1,48 @@
 - name: App Service Documentation
   href: index.yml
-- name: Get started
+- name: Overview
   items:
-  - name: Getting started
-    href: getting-started.md
   - name: About App Service
-    href: overview.md
+    href: overview.md 
   - name: About App Service Environments
     href: environment/overview.md
-  - name: Compare web hosting options
+- name: Compare web hosting options
     href: /azure/architecture/guide/technology-choices/compute-decision-tree?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
-  - name: Compare JBoss EAP options
-    href: /azure/developer/java/ee/jboss-on-azure?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
-- name: Quickstarts
-  expanded: true
+- name: Get started
   items:
-    - name: Deploy ASP.NET
+  - name: Get started
+    href: getting-started.md
+  - name: .NET
+    items:
+    - name: Quickstart
       href: quickstart-dotnetcore.md
-    - name: Deploy Java
-      href: quickstart-java.md
-    - name: Deploy Node.js
+  - name: Java
+    items:
+    - name: Quickstart
+      href: quickstart.java.md
+    - name: Compare JBoss EAP options
+      href: /azure/developer/java/ee/jboss-on-azure?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
+  - name: Node.js
+    items:
+    - name: Quickstart
       href: quickstart-nodejs.md
-    - name: Deploy Python
+  - name: Python
+    items:
+    - name: Quickstart
       href: quickstart-python.md
-    - name: Deploy PHP
+  - name: PHP
+    items:
+    - name: Quickstart 
       href: quickstart-php.md
-    - name: Deploy WordPress
+  - name: WordPress
+    items:
+    - name: Quickstart
       href: quickstart-wordpress.md
-    - name: Deploy a custom container
-      href: quickstart-custom-container.md
-    - name: Deploy using ARM template
-      displayName: Resource Manager
-      href: quickstart-arm-template.md
+- name: Deploy a custom container
+  href: quickstart-custom-container.md
+- name: Deploy using ARM template
+  displayName: Resource Manager
+    href: quickstart-arm-template.md
 - name: Deployment and configuration
   items:
     - name: Deployment best practices
