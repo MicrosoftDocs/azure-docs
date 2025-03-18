@@ -53,6 +53,9 @@ To learn about the roles and capabilities in Rooms please see more [here](./../.
 const role = meetingCall.role;
 ```
 
+> [!NOTE]
+> Collaborator is only available in beta for Azure Communication Services Calling Web SDK version 1.34.1-beta.1 or higher.
+
 ## Subscribe to role changes
 
 During the Teams meeting or Room, your role can be changed. To learn about the change, subscribe to an event, `roleChanged`, on the `Call` object.
