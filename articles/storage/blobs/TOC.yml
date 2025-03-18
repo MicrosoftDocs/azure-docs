@@ -237,6 +237,8 @@ items:
         href: storage-blobs-static-site-github-actions.md
       - name: 'Tutorial: Host a static website'
         href: storage-blob-static-website-host.md
+    - name: Create a Managed Application to Store Blob Digests
+      href: /azure/confidential-ledger/create-blob-managed-app?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Security and networking
     items:
     - name: Security recommendations
@@ -384,10 +386,8 @@ items:
         items:
         - name: Overview
           href: anonymous-read-access-overview.md
-        - name: Remediate anonymous access (Azure Resource Manager deployments)
+        - name: Remediate anonymous access
           href: anonymous-read-access-prevent.md
-        - name: Remediate anonymous access (classic deployments)
-          href: anonymous-read-access-prevent-classic.md
         - name: Configure anonymous access
           href: anonymous-read-access-configure.md
     - name: Microsoft Defender for Storage

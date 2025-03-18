@@ -434,7 +434,7 @@ Enabling private connectivity to meet your needs can be challenging, depending o
 | **[Presidio](https://www.presidio.com/subpage/1107/microsoft-azure)** | North America |
 | **[sol-tec](https://www.advania.co.uk/our-services/azure-and-cloud/)** | Europe |
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | South America |
-| **[Vigilant.IT](https://vigilant.it/networking-services/microsoft-azure-networking/)** | Australia |
+| **Vigilant.IT** | Australia |
 
 ## Next steps
 
