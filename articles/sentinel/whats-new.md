@@ -20,7 +20,7 @@ The listed features were released in the last three months. For information abou
 
 ## February 2025
 
-- [SAP agentless solution in public preview](#sap-agentless-solution-in-public-preview)
+- [Agentless connection to SAP now in public preview](#agentless-connection-to-sap-now-in-public-preview)
 
 ### Agentless connection to SAP now in public preview
 

@@ -27,7 +27,7 @@ This procedure is only relevant when you want to customize the SAP agentless dat
 
 ## Download the configuration file and customize settings
 
-1. Download the default [**example-parameters.zip**](https://raw.githubusercontent.com/Azure/Azure-Sentinel/sap-agentless/Solutions/SAP/Agentless/example-parameters.zip)) file, which provides settings that define default behavior and is a good starting point to start customizing.
+1. Download the default [**example-parameters.zip**](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/Agentless/example-parameters.zip) file, which provides settings that define default behavior and is a good starting point to start customizing.
 
     Save the **example-parameters.zip** file to a location accessible to your SAP Integration Suite environment.
 
