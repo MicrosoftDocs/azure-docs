@@ -79,11 +79,12 @@ You must define at least one action for each rule. Actions are applied to the fi
 
 | Action | Description | Not supported |
 |---|---|----|
-| **TierToCool**  | Set a blob to the cool access tier. | Append blobs<br><br>Page blobs<br><br>blobs in a premium block blob storage account |
-| **TierToCold** | Set a blob to the cold access tier. | Append blobs<br><br>Page blobs<br><br>blobs in a premium block blob storage account |
-| **TierToArchive**  | Set a blob to the archive access tier. | Append blobs<br><br>Page blobs<br><br>blobs in a premium block blob storage account<br><br>Blobs that use an encryption scope<br><br>Blobs in accounts that are configured for Zone-redundant storage (ZRS), geo-zone-redundant storage (GZRS) / read-access geo-zone-redundant storage (RA-GZRS). |
-| **enableAutoTierToHotFromCool** | If a blob is set to the cool tier, this action automatically moves that blob into the hot tier when the blob is accessed. This action is available only when used with the **daysAfterLastAccessTimeGreaterThan** run condition | Previous versions<br><br>Snapshots |
-| **Delete** | Deletes a blob. | Page blobs<br><br>Blobs in an immutable container |
+| **TierToCool**  | Set a blob to the cool access tier. | -Append blobs<br>Page blobs<br>-Blobs in a premium block blob storage account |
+| **TierToCold** | Set a blob to the cold access tier. | -Append blobs<br>-Page blobs<br>-Blobs in a premium block blob storage account |
+| **TierToArchive**  | Set a blob to the archive access tier. | -Append blobs<br>-Page blobs<br>-Blobs in a premium block blob storage account<br>-Blobs that use an encryption scope<br>-Blobs in accounts that are configured for Zone-redundant storage (ZRS), geo-zone-redundant storage (GZRS) / read-access geo-zone-redundant storage (RA-GZRS). |
+| **enableAutoTierToHotFromCool** | If a blob is set to the cool tier, this action automatically moves that blob into the hot tier when the blob is accessed. This action is available only when used with the **daysAfterLastAccessTimeGreaterThan** run condition | -Previous versions-<br>-Snapshots |
+| **Delete** | Deletes a blob. | -Page blobs<br>-Blobs in an immutable container |
+| **Test** | Description | <li>test</li>|
 
 If you define more than one action on the same blob, then lifecycle management applies the least expensive action to the blob. For example, a **delete** action is cheaper than the **tierToArchive** action and the **tierToArchive** action is cheaper than the **tierToCool** action.
 
