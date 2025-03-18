@@ -11,7 +11,7 @@ ms.custom: mvc, subject-rbac-steps, engagement-fy24
 #Customer intent: As a server admin I want to discover my GCP instances.
 ---
 
-# Tutorial: Discover Google Cloud Platform (GCP) instances with Azure Migrate: Discovery and assessment
+# Tutorial: Discover Google Cloud Platform (GCP) instances with Azure Migrate
 
 As part of your migration journey to Azure, you discover your servers for assessment and migration.
 
