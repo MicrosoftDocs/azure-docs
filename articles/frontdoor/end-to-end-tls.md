@@ -38,7 +38,7 @@ You can configure the minimum TLS version in Azure Front Door in the custom doma
 
 > [!NOTE]
 > - Clients with TLS 1.3 enabled are required to support one of the Microsoft SDL compliant EC Curves, including Secp384r1, Secp256r1, and Secp521, in order to successfully make requests with Azure Front Door using TLS 1.3.
-> - It is recommended that clients use one of these curves as their preferred curve during requests to avoid increased TLS handshake latency, which may result from multiple round trips to negotiate the supported EC curve.
+> - It's recommended that clients use one of these curves as their preferred curve during requests to avoid increased TLS handshake latency, which might result from multiple round trips to negotiate the supported EC curve.
 
 ## Supported certificates
 
@@ -55,9 +55,9 @@ OCSP stapling is supported by default in Azure Front Door and no configuration i
 For HTTPS connections, Azure Front Door expects that your origin presents a certificate from a valid certificate authority (CA) with a subject name matching the origin *hostname*. As an example, if your origin hostname is set to `myapp-centralus.contoso.net` and the certificate that your origin presents during the TLS handshake doesn't have `myapp-centralus.contoso.net` or `*.contoso.net` in the subject name, then Azure Front Door refuses the connection and the client sees an error.
 
 > [!NOTE]
-> The certificate must have a complete certificate chain with leaf and intermediate certificates. The root CA must be part of the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT). If a certificate without complete chain is presented, the requests which involve that certificate are not guaranteed to work as expected.
+> The certificate must have a complete certificate chain with leaf and intermediate certificates. The root CA must be part of the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT). If a certificate without complete chain is presented, the requests which involve that certificate aren't guaranteed to work as expected.
 
-In certain use cases, such as testing, you can disable certificate subject name checks for your Azure Front Door as a workaround for resolving failing HTTPS connections. Note that the origin must still present a certificate with a valid, trusted chain, but it doesn't need to match the origin hostname.
+In certain use cases, such as testing, you can disable certificate subject name checks for your Azure Front Door as a workaround for resolving failing HTTPS connections. The origin must still present a certificate with a valid, trusted chain, but it doesn't need to match the origin hostname.
 
 ::: zone pivot="front-door-standard-premium"
 
