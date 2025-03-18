@@ -26,74 +26,51 @@ In this quickstart, you use the Azure portal to integrate an instance of Elastic
 
 ### Basics tab
 
-1. On the **Create Elastic Resource** basics page, provide the following values.
+The *Basics* tab has one section:
 
-    :::image type="content" source="media/create/create-resource.png" alt-text="Form to set up Elastic resource.":::
+- Plan details
+ 
+:::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create Elastic resource in Azure options inside of the Azure portal's working pane with the Basics tab displayed.":::
 
-    | Property | Description |
-    | ---- | ---- |
-    | **Subscription** | From the drop-down, select an Azure subscription where you have owner access. |
-    | **Resource group** | Specify whether you want to create a new resource group or use an existing resource group. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../azure-resource-manager/management/overview.md). |
-    | **Elastic account name** | Provide the name for the Elastic account you want to create |
-    | **Region** | Select the region you want to deploy to. |
-    | **Pricing Plan** | **Pay as you go**. |
-    | **Price** | Specified based on the selected Elastic plan. |
+There are required fields (identified with a red asterisk) in each section that you need to fill out.
 
-   When you've finished, select **Next: Logs and Metrics**.
+1. Enter the values for each required setting under *Plan details*.
 
-1. On **Logs & metrics**, specify which logs to send to Elastic.
+    | Field               | Action                                                    |
+    |---------------------|-----------------------------------------------------------|
+    | Subscription        | Select a subscription from your existing subscriptions.   |
+    | Resource group      | Use an existing resource group or create a new one.       |
+    | Resource name       | Specify a unique name for the resource.                   |
+    | Region              | Select a region to deploy your resource.                  |
 
-    :::image type="content" source="media/create/configure-logs.png" alt-text="Select logs to send.":::
+1. Select the **Next: Logs & metrics** button at the bottom of the page.
 
-   There are two types of logs that can be emitted from Azure to Elastic.
+### Logs & metrics tab (optional)
 
-   **Subscription logs** provide insights into the operations on each Azure resource in the subscription from the [management plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). The logs also provide updates on Service Health events. Use the activity log to determine what, who, and when for any write operations (PUT, POST, DELETE) on the resources in your subscription. There's a single activity log for each Azure subscription.
+If you wish, you can configure resources to send metrics/logs to Elastic.
 
-   **Azure resource logs** provide insights into operations that happen within the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a key vault or making a request to a database are data plane activities. The content of resource logs varies by the Azure service and resource type. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](/azure/azure-monitor/essentials/resource-logs-categories).
+- Select **Send subscription activity logs**.
+- Select **Send Azure resource logs for all defined sources**.
 
-   To filter the Azure resources that send logs to Elastic, use resource tags. The tag rules for sending logs are:
+Enter the names and values for each *Action* listed under Metrics and Logs.
 
-   - By default, logs are collected for all resources.
-   - Resources with _Include_ tags send logs to Elastic.
-   - Resources with _Exclude_ tags don't send logs to Elastic.
-   - If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
+Select the **Next: Azure OpenAI configuration** button at the bottom of the page.
 
-   Select **Next: Azure OpenAI configuration** to create and configure Azure OpenAI connector that can be used within Elastic's AI Assistant.
+### Azure OpenAI configuration
 
-1. On **Azure OpenAI configuration**, specify the Azure OpenAI resource and the deployment that would be required to configure the connector. The details of the deployment (url, API keys etc.) are passed on to Elastic to prepare the connector to be used with Elastic's AI Assistant.
+If you wish, select an existing **Azure OpenAI Resource** and **Azure OpenAI Deployment** from the dropdown fields.
 
-    :::image type="content" source="media/create/configure-aoai-connector.png" alt-text="Screenshot of how to configure Azure OpenAI Connector.":::
+Select the **Next: Tags** button at the bottom of the page.
 
-   >[!Note]
-   >Only deployments of text/chat completion models (like gpt4) are supported currently. Learn more about Elastic Connectors [here](https://www.elastic.co/guide/en/kibana/current/openai-action-type.html).
+### Tags tab (optional)
 
-   Select **Next: Tags** to set up tags for the new Elastic resource.
+[!INCLUDE [tags](../includes/tags.md)]
 
-1. In **Tags**, add custom tags for the new Elastic resource. Each tag consists of a name and value. When you've finished adding tags, select **Next: Review+Create** to navigate to the final step for resource creation.
+### Review + create tab
 
-   :::image type="content" source="media/create/add-tags.png" alt-text="Screenshot of add tags to Elastic resource.":::
-
-1. On **Review + create**, your configuration is validated. You can review the selections you made in the earlier forms. You can also review the terms for this offering.
-
-   :::image type="content" source="media/create/review-validation.png" alt-text="Review and validation selections":::
-
-   After validation has succeeded and you've reviewed the terms, select **Create**.
-
-1. Azure starts the deployment.
-
-   :::image type="content" source="media/create/deployment-in-progress.png" alt-text="Deployment status":::
-
-1. After the deployment is finished, select **Go to resource** to view the deployed resource.
-
-    :::image type="content" source="media/create/deployment-complete.png" alt-text="Screenshot of view status of deployment.":::
+[!INCLUDE [review-create](../includes/review-create.md)]
 
 ## Next steps
 
-- [Manage the Elastic resource](manage.md)
-- Get started with Elastic Cloud (Elasticsearch) - An Azure Native ISV Service on
-
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Elastic%2Fmonitors)
-
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp?tab=Overview)
+> [!div class="nextstepaction"]
+> [Manage Elastic resources](manage.md)
