@@ -4,7 +4,7 @@ description: An article that teaches you what are the IP addresses used in diffe
 ms.service: azure-synapse-analytics
 ms.topic: concept-article
 ms.subservice: security 
-ms.date: 12/20/2024
+ms.date: 03/18/2025
 author: ilijazagorac
 ms.author: ilijazagorac 
 ms.custom: references_regions 
@@ -15,11 +15,14 @@ ms.custom: references_regions
 The table below lists the individual Gateway IP addresses and also Gateway IP address ranges per region.
 
 Periodically, we'll retire Gateways using old hardware and migrate the traffic to new Gateways as per the process outlined at [Azure SQL Database traffic migration to newer Gateways](/azure/azure-sql/database/gateway-migration).
+
 We strongly encourage customers to move away from relying on **any individual Gateway IP address** (since these will be retired in the future). Instead, allow network traffic to reach both the individual Gateway IP addresses and Gateway IP address subnets in a region.
 
 > [!IMPORTANT]  
 > - Logins for SQL Database or dedicated SQL pools (formerly SQL DW) in Azure Synapse can land on **any of the individual Gateway IP addresses or Gateway IP address subnets in a region**. For consistent connectivity to SQL Database or dedicated SQL pools (formerly SQL DW) in Azure Synapse, allow network traffic to and from **all the individual Gateway IP addresses and Gateway IP address subnets in a region**.
-> - Use the individual Gateway IP addresses and Gateway IP address subnets in this section if you're using a Proxy connection policy to connect to Azure SQL Database. If you're using the Redirect connection policy, refer to the [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) for a list of your region's IP addresses to allow. 
+> - The connection policy for Synapse SQL in Azure Synapse Analytics is set to **Default**. You cannot change the connection policy for dedicated SQL pools in Azure Synapse Analytics. Refer to the [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) for a list of your region's IP addresses to allow. 
+
+<!-- matches sql-docs\azure-sql\database\connectivity-architecture.md -->
 
 | Region name          | Gateway IP addresses | Gateway IP address subnets |
 | --- | --- | --- |
