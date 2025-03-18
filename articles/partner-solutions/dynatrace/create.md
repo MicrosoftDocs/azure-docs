@@ -68,9 +68,6 @@ If you wish, you can configure resources to send metrics/logs to Dynatrace.
 - Select **Subscription activity logs** to send subscription-level logs to Dynatrace.
 - Select **Azure resource logs** to send Azure resource lots to Dynatrace. 
 
-> [!IMPORTANT]
-> When the checkbox for Azure resource logs is selected, logs are forwarded for all resources by default.
-
 Select the **Next** button at the bottom of the page.
 
 ### Single sign-on tab (optional)
