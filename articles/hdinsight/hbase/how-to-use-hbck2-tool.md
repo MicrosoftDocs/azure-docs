@@ -7,7 +7,10 @@ ms.author: robinroy
 ms.service: azure-hdinsight
 ms.custom: troubleshooting
 ms.topic: conceptual
-ms.date: 06/15/2024
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: nijelsf
+ms.date:  06/15/2024
 ---
 # Use the Apache HBase HBCK2 tool
 
