@@ -193,7 +193,7 @@ For more information, see the [SAP documentation](https://help.sap.com/docs/inte
 
 This procedure starts in Microsoft Sentinel and requires that the solution be installed before you start.
 
-1. In Microsoft Sentinel, go to the **Configuration > Data connectors** page and locate the **Microsoft Sentinel for SAP - agent-less (Preview) (Preview)** data connector.
+1. In Microsoft Sentinel, go to the **Configuration > Data connectors** page and locate the **Microsoft Sentinel for SAP - agent-less (Preview)** data connector.
 
 1. In the **Configuration** area, expand and follow the instructions in the **Initial connector configuration - Run the steps below once:** area. These steps will require a mixture of your Security and SAP BASIS teams.
 

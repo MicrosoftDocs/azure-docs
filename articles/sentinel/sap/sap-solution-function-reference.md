@@ -379,7 +379,7 @@ The **SAPUsersGetVIP** function returns the following output:
 | The *SAP_User_Config* watchlist | User on-premises SID |  | |
 | The *SAP_User_Config* watchlist | User principal name |  | |
 | The *SAP_User_Config* watchlist | `TagsList` | A list of tags assigned to user | `ChangeUserMasterDataOK`;`RunObsoleteProgOK` |
-| Logic | TagsIntersect | A set of tags that matched `SearchForTags` | ["ChangeUserMasterDataOK","RunObsoleteProgOK"]  |
+| Logic | TagsIntersect | A set of tags that matched `SearchForTags` | `["ChangeUserMasterDataOK","RunObsoleteProgOK"]`  |
 | Logic | SpecialFocusTagged | Special focus indication | `True`, `False`  |
 | Logic | IntersectionSize | The number of intersected tags | |
 
@@ -419,7 +419,7 @@ The **SAPUsersHeader** function returns the following output:
 | SAP audit log | LastSeen | A timestamp | Last audit event observed for the user  |
 | SAP audit log | LastSeenDaysAgo | Days passed since `LastSeen` | |
 | SAP audit log | PrimaryIP | Most frequently used IP address | `ChangeUserMasterDataOK`;`RunObsoleteProgOK`  |
-| SAP audit log | LastKnownIP | Most recently used IP address | ["ChangeUserMasterDataOK","RunObsoleteProgOK"]  |
+| SAP audit log | LastKnownIP | Most recently used IP address | `["ChangeUserMasterDataOK","RunObsoleteProgOK"]`  |
 | SAP audit log | PrimaryEmail | Most frequently used email address | `True`, `False`  |
 | SAP audit log | KnownIPs | List of known IP addresses | Sorted by most frequent first  |
 | SAP audit log | KnownEmails | List of known email addresses | Sorted by most frequent first  |
@@ -430,7 +430,7 @@ The **SAPUsersHeader** function returns the following output:
 
 ## TH_SERVER_LIST (Preview)
 
-The **TH_SERVER_LIST** function function is relevant when your SAP system is an older system using XAL, and lists active SAP application servers.
+The **TH_SERVER_LIST** function is relevant when your SAP system is an older system using XAL, and lists active SAP application servers.
 
 The **TH_SERVER_LIST** function is supported only with the SAP agentless data connector. For more information, see [Install a Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md?pivots=connection-agentless).
 

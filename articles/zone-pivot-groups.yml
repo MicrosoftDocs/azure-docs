@@ -1838,7 +1838,7 @@ groups:
 # Owner: bagol
 - id: sentinel-sap-connection
   title: Connection
-  prompt: Choose an connection type
+  prompt: Choose a connection type
   pivots:
   - id: connection-agentless
     title: Agentless data connector (Preview)

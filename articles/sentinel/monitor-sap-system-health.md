@@ -64,7 +64,7 @@ This procedure describes how to check your data connector's connection status fr
         |---------|---------|
         |**Production**     |  The system is defined by the SAP admin as a production system.       |
         |**Unknown (Production)**     | Microsoft Sentinel couldn't retrieve the system status. Microsoft Sentinel regards this type of system as a production system for both security and billing purposes.  <br><br>In such cases, we recommend that you check the Microsoft Sentinel role definitions and permissions on the SAP system, and validate that the system allows Microsoft Sentinel to read the content of the T000 table. Next, consider [updating the SAP connector](sap/update-sap-data-connector.md) to the latest version.       |
-        |**Non production**     | Indicates roles like developing, testing, and customizing.        |
+        |**Non-production**     | Indicates roles like developing, testing, and customizing.        |
 
     - **Agent name**. Unique ID of the installed data connector agent.
 

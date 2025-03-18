@@ -23,7 +23,7 @@ This article includes troubleshooting steps to help you ensure accurate and time
 
 When working with the agentless data connector, most troubleshooting is done directly in the SAP Integration Suite, where the message log displays errors indicating the nature of the issue encountered.
 
-Starting my examining the message processing logs. For more information, see the [SAP documentation](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/monitor-message-processing-monitor). The error messages there can help you diagnose issues with missing permissions, connectivity errors, and other misconfigurations. 
+Start by examining the message processing logs. For more information, see the [SAP documentation](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/monitor-message-processing-monitor). The error messages there can help you diagnose issues with missing permissions, connectivity errors, and other misconfigurations. 
 
 If you don't see a related error to your issue, turn on trace logging for more in-depth troubleshooting. For more information, see the [SAP documentation](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/setting-log-levels).
 
