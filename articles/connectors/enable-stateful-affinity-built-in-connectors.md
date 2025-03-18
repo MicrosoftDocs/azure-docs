@@ -113,7 +113,7 @@ Updates a resource by using the specified resource ID:
 
 #### Example
 
-**`https://management.azure.com/subscriptions/XXxXxxXX-xXXx-XxxX-xXXX-XXXXxXxXxxXX/resourcegroups/My-Standard-RG/providers/Microsoft.Web/sites/mystandardlogicapp/config/web?api-version=2021-02-01`**
+**`https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourcegroups/My-Standard-RG/providers/Microsoft.Web/sites/mystandardlogicapp/config/web?api-version=2021-02-01`**
 
 ### Azure PowerShell
 
@@ -211,6 +211,6 @@ Resource scale-in events might cause the loss of context for built-in connectors
 
 ## Next steps
 
-- [Connect to Azure Service Bus](connectors-create-api-servicebus.md)
-- [Connect to SAP](../logic-apps/logic-apps-using-sap-connector.md)
-- [Connect to IBM MQ](connectors-create-api-mq.md)
+- [Connect to Azure Service Bus](/azure/connectors/connectors-create-api-servicebus)
+- [Connect to SAP](/azure/logic-apps/connectors/sap)
+- [Connect to IBM MQ](/azure/connectors/connectors-create-api-mq)
