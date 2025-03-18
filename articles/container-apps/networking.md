@@ -387,19 +387,19 @@ You can enable mTLS in the ARM template for Container Apps environments using th
 
 ---
 
-### Path-based routing (preview)
+### App routing (preview)
 
-With path-based routing, you create a fully qualified domain name (FQDN) on your container apps environment. You then use rules to route requests to this FQDN to different container apps, depending on the path of each request. This offers the following benefits.
+With app routing, you create a fully qualified domain name (FQDN) on your container apps environment. You then use rules to route requests to this FQDN to different container apps, depending on the path of each request. This offers the following benefits.
 
 - Isolation: By routing different paths to different container apps, you can deploy and update individual components without affecting the entire application.
 
-- Scalability: With path-based routing, you can scale individual container apps independently based on the traffic each container app receives.
+- Scalability: With app routing, you can scale individual container apps independently based on the traffic each container app receives.
 
 - Custom Routing Rules: You can, for example, redirect users to different versions of your application or implement A/B testing.
 
 - Security: You can implement security measures tailored to each container app. This helps you to reduce the attack surface of your application.
 
-To learn how to configure path-based routing on your container apps environment, see [Use path-based routing](path-based-routing.md) and the [Path-based routing sample repository](https://github.com/Tratcher/HttpRouteConfigBicep/tree/master).
+To learn how to configure app routing on your container apps environment, see [Use app routing](app-routing.md).
 
 ## DNS
 

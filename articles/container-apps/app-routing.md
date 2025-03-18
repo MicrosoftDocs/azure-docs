@@ -268,7 +268,6 @@ az group delete --name my-container-apps
 
 ## Related content
 
-- [Sample repository](https://github.com/Azure-Samples/HttpRouteConfigBicep)
 - [Azure CLI reference](/cli/azure/containerapp/env/http-route-config)
 - [Bicep reference](/azure/templates/microsoft.app/2024-10-02-preview/managedenvironments/httprouteconfigs?pivots=deployment-language-bicep)
 - [ARM template reference](/azure/templates/microsoft.app/2024-10-02-preview/managedenvironments/httprouteconfigs?pivots=deployment-language-arm-template)
