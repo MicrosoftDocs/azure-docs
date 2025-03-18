@@ -19,7 +19,7 @@ items:
       href: architecture-native-design-considerations.md
   - name: Networking
     items:
-    - name: Connectivity to Azure VNETs
+    - name: Connectivity to Azure virtual networks
       href: native-network-connectivity.md
     - name: Connect to On-premises environment
       href: native-connect-on-premises.md
