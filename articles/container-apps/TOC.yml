@@ -276,6 +276,8 @@
   items:
     - name: Serverless GPUs
       href: gpu-serverless-overview.md
+    - name: GPU types
+      href: gpu-types.md
     - name: Tutorials
       items:
       - name: Generate images with serverless GPUs
