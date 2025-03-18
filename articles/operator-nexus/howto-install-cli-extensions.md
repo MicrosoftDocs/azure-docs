@@ -14,7 +14,7 @@ ms.date: 09/05/2024
 
 This how-to guide explains the steps for installing the required az CLI and extensions required to interact with Operator Nexus.
 
-Azure CLI is required to be installed before the extensions installations. Follow [Install Azure CLI][installation-instruction] instuctions to install it.
+Azure CLI is required to be installed before the extensions installations. Follow [Install Azure CLI][installation-instruction] instructions to install it.
 
 Installations of the following CLI extensions are required:
 - `networkcloud` for Microsoft.NetworkCloud APIs
@@ -28,7 +28,7 @@ Installations of the following CLI extensions are required:
 
 ## Install `networkcloud` CLI extension
 
-- For list of available versions, see [the networkcloud extension release history][az-cli-networkcloud-cli-versions].
+- For list of available versions, see [the extension release history][az-cli-networkcloud-cli-versions].
 
 - Upgrade any previously installed version of the extension
 
@@ -45,7 +45,7 @@ Installations of the following CLI extensions are required:
 
 ## Install `managednetworkfabric` CLI extension
 
-- For list of available versions, see [the managednetworkfabric extension release history][az-cli-managednetworkfabric-cli-versions].
+- For list of available versions, see [the extension release history][az-cli-managednetworkfabric-cli-versions].
 
 - Upgrade any previously installed version of the extension
 
