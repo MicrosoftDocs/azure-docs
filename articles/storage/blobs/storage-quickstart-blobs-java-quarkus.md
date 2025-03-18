@@ -136,7 +136,7 @@ Next, you walk through the sample code to understand how it works.
 
 Working with any Azure resource using the SDK begins with creating a client object. The Quarkus extension for Azure Blob Storage automatically injects a client object with authorized access using `DefaultAzureCredential`.
 
-To successfully inject a client object, first you need to add the extensions `quarkus-arc` and `quarkus-azure-storage-blob` to your **pom.xml** file as a dependencies:
+To successfully inject a client object, first you need to add the extensions `quarkus-arc` and `quarkus-azure-storage-blob` to your **pom.xml** file as dependencies:
 
 ```xml
 <properties>
