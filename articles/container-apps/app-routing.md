@@ -1,19 +1,19 @@
 ---
-title: Use path-based routing in Azure Container Apps (preview)
-description: Learn how to use path-based routing Azure Container Apps.
+title: Use app routing in Azure Container Apps (preview)
+description: Learn how to use app routing in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, devx-track-bicep
 ms.topic: how-to
-ms.date: 02/24/2025
+ms.date: 03/18/2025
 ms.author: cshoe
 zone_pivot_groups: azure-cli-bicep
 ---
 
-# Use path-based routing with Azure Container Apps (preview)
+# Use app routing with Azure Container Apps (preview)
 
-In this article, you learn how to use path-based routing with Azure Container Apps. With path-based routing, you create a fully qualified domain name (FQDN) on your container apps environment. You then use rules to route requests to this FQDN to different container apps, depending on the path of each request.
+In this article, you learn how to use app routing with Azure Container Apps. With app routing, you create a fully qualified domain name (FQDN) on your container apps environment. You then use rules to route requests to this FQDN to different container apps, depending on the path of each request.
 
 ## Prerequisites
 
