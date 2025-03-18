@@ -204,6 +204,15 @@ To detach a payment method, you must meet a list of conditions. If you don't mee
 - Instructions on how to meet the condition.
 - A link that takes you to the location where you can resolve the problem.
 
+Conditions:
+- Outstanding charges
+- Recurring charges
+- Pending charges
+- Active subscriptions
+  
+> [!NOTE]
+> If you have an [Entra Free subscirption](https://learn.microsoft.com/azure/cost-management-billing/manage/microsoft-entra-id-free) inside your billing account you cannot delete or detach the last payment method on file. To remove the last payment method, you must delete the tenant. [Learn more](https://learn.microsoft.com/entra/identity/users/directory-delete-howto#delete-the-organization).
+
 When you fully satisfy all the conditions, you can detach the payment method from the billing profile.
 
 > [!NOTE]
