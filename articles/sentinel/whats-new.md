@@ -18,7 +18,7 @@ The listed features were released in the last three months. For information abou
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-## February 2025
+## March 2025
 
 - [Agentless connection to SAP now in public preview](#agentless-connection-to-sap-now-in-public-preview)
 
