@@ -1,4 +1,4 @@
-    ---
+---
 title: Resources for Azure Spring Apps | Microsoft Docs
 description: Azure Spring Apps resource list
 author: KarlErickson
