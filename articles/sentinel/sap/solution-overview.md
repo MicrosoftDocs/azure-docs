@@ -22,7 +22,7 @@ An SAP system breach could result in stolen files, exposed data, or a disrupted 
 
 To help close this gap, Microsoft Sentinel offers Microsoft Sentinel [solutions](../sentinel-solutions-deploy.md) for SAP applications, which use components at every level of Microsoft Sentinel to offer end-to-end detection, analysis, investigation, and response to threats in your SAP environment.
 
-## SIEM and SOAR features and sample architecture
+## SIEM and SOAR features
 
 The Microsoft Sentinel solution for SAP applications continuously monitor SAP systems for threats at all layers - business logic, application, database, and OS. It allows you to:
 
