@@ -68,7 +68,7 @@ This article assumes the following prerequisites:
    * **Tunnel type:** OpenVPN (SSL)
    * **Authentication type**: Microsoft Entra ID
 
-   For **Microsoft Entra ID** values, use the following guidelines for **Tenant**, **Audience**, and **Issuer** values. Replace {Microsoft ID Entra Tenant ID} with your tenant ID, taking care to remove **{}** from the examples when you replace this value.
+   For **Microsoft Entra ID** values, use the following guidelines for **Tenant**, **Audience**, and **Issuer** values. Replace {Microsoft ID Entra Tenant ID} with your tenant ID, taking care to **remove {} from the examples** when you replace this value.
 
    * **Tenant:** TenantID for the Microsoft Entra ID tenant. Enter the tenant ID that corresponds to your configuration. Make sure the Tenant URL doesn't have a `\` (backslash) at the end. Forward slash is permissible.
 
