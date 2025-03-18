@@ -34,7 +34,7 @@ Follow these steps to create and attach a new managed data disk for a DevTest La
 
    - For **Name**, enter a unique name.
    - For **Disk type**, select a [disk type](/azure/virtual-machines/disks-types) from the dropdown list.
-   - For **Size (GiB)**, enter a size in gigabytes.
+   - For **Size (GiB)**, enter the disk size in gigabytes.
 
 1. Select **OK**.
 
@@ -76,7 +76,7 @@ Follow these steps to detach an attached data disk from a running VM.
 
    :::image type="content" source="./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-button.png" alt-text="Screenshot of selecting a data disk to detach.":::
 
-1. On the data disk's page, select **Detach**, and respond **OK** to **Are you sure you want to detach it**.
+1. On the data disk's page, select **Detach**, then respond **OK** to **Are you sure you want to detach it**.
 
    :::image type="content" source="./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-data-disk-2.png" alt-text="Screenshot showing Detach on the Data disk page.":::
 
@@ -84,7 +84,7 @@ The disk detaches, and is available to reattach to this or another VM.
 
 ### Detach or delete a data disk from the lab page
 
-You can also detach or delete a data disk from the lab's page instead of the VM's page.
+You can also detach or delete a data disk by using the lab's **Overview** page.
 
 1. On the lab **Overview** page in the Azure portal, select **My data disks** under **My Lab** in the left navigation.
 
@@ -92,11 +92,11 @@ You can also detach or delete a data disk from the lab's page instead of the VM'
 
    - Select the ellipsis (**...**) next to the disk you want to detach, select **Detach** from the context menu, and then select **Yes**.
 
-   - Or, select the disk name, and on the disk's page, select **Detach**, and then select **OK**.
+   - Or, select the disk name, and on the disk's page, select **Detach** and then select **OK**.
 
    :::image type="content" source="./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-data-disk.png" alt-text="Screenshot of detaching a data disk from the listing's context menu.":::
 
-To delete a detached data disk, select **Delete** from the context menu on the **My data disks** page, or select **Delete** on the disk's page. Deleting a data disk removes it from storage, and you can no longer reattach it.
+To delete a detached data disk, select **Delete** from the context menu on the **My data disks** page, or select **Delete** on the disk's page. Deleting a data disk removes it from storage. You can reattach the disk only by readding it as a new disk.
 
 ## Related content
 
