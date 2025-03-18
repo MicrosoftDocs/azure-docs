@@ -282,7 +282,7 @@ Custom images (including images uploaded to [Azure Compute gallery](/azure/virtu
 | Oracle Linux 7.x, 8x, 9x |
 | Red Hat Enterprise 7, 8, 9 |
 | SUSE Linux Enterprise Server 12.x, 15.0-15.4 |
-| Ubuntu 16.04 LTS, 18.04 LTS, 20.04 LTS, 22.04 LTS 24.04 LTS |
+| Ubuntu 16.04 LTS, 18.04 LTS, 20.04 LTS, 22.04 LTS, 24.04 LTS |
 | Common Base Linux Mariner 1, 2|
 | Rocky Linux 9|
 | Debian 10,11|
