@@ -55,7 +55,7 @@ In this quickstart, you get started with Azure Managed Grafana by creating an Az
         - the box **Include myself** under **Grafana administrator role** is checked. This option grants you the Grafana administrator role, and lets you manage access rights. Optionally select **Add** to share this right with team members.
     - If you're not a subscription Owner or a User Access Administrator, you can either:
         - ask a subscription Owner or a User Access Administrator to assign you the Grafana Admin role
-        - or enable **Creator can admin (Preview)** as a temporary workaround. This option available in preview grants you the required permissions to access and manage the Grafana resource.
+        - or enable **Creator can admin (Preview)**. This option available in preview grants you the required permissions to access and manage the Grafana resource.
 
         > [!NOTE]
         > The **Creator can admin (Preview)** option can only be enabled when creating the workspace. Later on, it can be disabled from the **Configuration** menu if the workspace creator doesn't need this level of access anymore. Once disabled, it cannot be enabled again. If this option is disabled and the user needs to access this Grafana instance again, they will need [a Grafana role](how-to-manage-access-permissions-users-identities.md).
