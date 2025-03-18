@@ -86,7 +86,6 @@ docker --version
 
    ENTRYPOINT ["java", "-Dserver.port=80", "-jar", "/tmp/appservice/parkingpage.jar"]
    ```
-   ---
 
    # [Node.js](#tab/node)
 
@@ -116,6 +115,7 @@ docker --version
 
    ENTRYPOINT ["gunicorn", "--timeout", "600", "--access-logfile", "'-'", "--error-logfile", "'-'", "--chdir=/opt/defaultsite", "application:app"]
    ```
+   ---
 
 1. [Open the Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette), and type **Docker Images: Build Image**. Select **Enter** to run the command.
 
