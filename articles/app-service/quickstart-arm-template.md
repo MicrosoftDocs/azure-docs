@@ -157,7 +157,7 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 To deploy a different language stack, update `linuxFxVersion` with appropriate values. Samples are shown in the table. To show current versions, run the following command in the Cloud Shell:
 
 ```azurecli-interactive
-`az webapp config show --resource-group myResourceGroup --name <app-name> --query linuxFxVersion`
+az webapp config show --resource-group myResourceGroup --name <app-name> --query linuxFxVersion
 ```
 
 | Language    | Example                                                                            |
