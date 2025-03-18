@@ -1,6 +1,6 @@
 ---
 title: IoT asset and device management and control
-description: An overview of asset and device management and control options in an Azure IoT solution including device updates.
+description: An overview of asset and device management and control options in an Azure IoT solution.
 ms.service: azure-iot
 services: iot
 author: asergaz
@@ -21,6 +21,38 @@ The following diagram shows a high-level view of the components in a typical edg
 <!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-device-management/iot-edge-management-architecture.svg" alt-text="Diagram that shows the high-level IoT edge-based solution architecture highlighting asset management areas." border="false" lightbox="media/iot-overview-device-management/iot-edge-management-architecture.svg":::
 
+In an edge-based IoT solution, asset management refers to processes such as registering assets and defining asset endpoints. Asset management includes the following tasks:
+
+<!-- - Creating logical entities that represent a physical or virtual asset.
+- Asset registration in a single unified registry that enables edge and cloud management.
+- Defining the asset endpoints that connect assets to your edge runtime environment.
+- Defining asset tags and events to enable data flow from OPC UA servers to the MQTT broker.
+ -->
+
+- Asset endpoint creation
+- Asset, tags and events creation
+- Asset updates
+- Asset endpoints secrets management
+- Asset monitoring
+- Enabling and disabling assets
+
+In an edge-based IoT solution, an MQTT broker enables bidirectional edge/cloud communication, and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge. For example, you can:
+
+- Control the cameras pan, tilt, and zoom.
+- Capture snapshots from a video stream and publish them to an MQTT topic.
+- Publish OPC UA machine status events to the MQTT broker.
+- Shut down the lights of a building to save energy.
+
+## Primitives
+
+## Asset endpoint creation
+
+## Asset, tags and events creation
+
+## Asset endpoint secrets management
+
+## Asset monitoring
+
 ### [Cloud-based solution](#tab/cloud)
 
 The following diagram shows a high-level view of the components in a typical cloud-based IoT solution. This article focuses on the device management and control components of a cloud-based IoT solution:
@@ -30,32 +62,25 @@ The following diagram shows a high-level view of the components in a typical clo
 
 IoT Central applications use the IoT Hub and the Device Provisioning Service (DPS) services internally. Therefore, the concepts in a cloud-based IoT solution apply whether you're using IoT Central or IoT Hub.
 
----
+In a cloud-based IoT solution, device management refers to processes such as provisioning and updating devices. Device management includes the following tasks:
 
-In Azure IoT, asset and device management refers to processes such as provisioning and updating assets or devices. Asset and device management includes the following tasks:
+- Device registration.
+- Device provisioning.
+- Device deployment.
+- Device updates.
+- Device key management and rotation.
+- Device monitoring.
+- Enabling and disabling devices.
 
-- Asset or device registration.
-- Asset or device provisioning.
-- Asset or device deployment.
-- Asset or device updates.
-- Asset or device key management and rotation.
-- Asset or device monitoring.
-- Enabling and disabling assets or devices.
-- Define the asset endpoints that connect assets to your edge runtime environment.
-- Define asset tags and events to enable data flow from OPC UA servers to the MQTT broker.
-
-In Azure IoT, *command and control* refers to the processes that let you send commands to assets and devices and receive responses from them. For example, you can send a command to:
+In a cloud-based IoT solution, *command and control* refers to the processes that let you send commands to devices and receive responses from them. For example, you can send a command to a device to:
 
 - Set a target temperature.
 - Request maximum and minimum temperature values for the last two hours.
 - Set the sensor data interval to 10 seconds.
-- Control the camera pan, tilt, and zoom.
-- Capture snapshots from a video stream and publish them to an MQTT topic.
-- Shut down the lights of a building to save energy.
 
 ## Primitives
 
-Azure IoT solutions can use the following primitives for both device management and command and control:
+A cloud-based IoT solution can use the following primitives for both device management and command and control:
 
 - *Device twins* to share and synchronize state data with the cloud. For example, a device can use the device twin to report the current state of a valve it controls to the cloud and to receive a desired target temperature from the cloud.
 - *Digital twins* to represent a device in the digital world. For example, a digital twin can represent a device's physical location, its capabilities, and its relationships with other devices. To learn more about the differences between device twins and digital twins, see [Understand IoT Plug and Play digital twins](concepts-digital-twin.md).
@@ -66,7 +91,7 @@ To learn more, see [Cloud-to-device communications guidance](../iot-hub/iot-hub-
 
 ## Device registration
 
-Before a device can connect to an IoT hub, it must be registered. Device registration is the process of creating a device identity in the cloud. Each IoT hub has its own internal device registry. The device identity is used to authenticate the device when it connects to Azure IoT. A device registration entry includes the following properties:
+Before a device can connect to an IoT hub, it must be registered. Device registration is the process of creating a device identity in the cloud. Each IoT hub has its own internal device registry. The device identity is used to authenticate the device when it connects to IoT Hub. A device registration entry includes the following properties:
 
 - A unique device ID.
 - Authentication information such as symmetric keys or X.509 certificates.
@@ -88,7 +113,7 @@ To learn more, see [Device provisioning service overview](../iot-dps/about-iot-d
 
 ## Device deployment
 
-In Azure IoT, device deployment typically refers to the process of installing software on an IoT Edge device. When an IoT Edge device connects to an IoT hub, it receives a *deployment manifest* that contains details of the modules to run on the device. The deployment manifest also contains configuration information for the modules. There are a number of standard modules available for IoT Edge devices. You can also create your own custom modules.
+In a cloud-based IoT solution, device deployment typically refers to the process of installing software on an IoT Edge device. When an IoT Edge device connects to an IoT hub, it receives a *deployment manifest* that contains details of the modules to run on the device. The deployment manifest also contains configuration information for the modules. There are a number of standard modules available for IoT Edge devices. You can also create your own custom modules.
 
 To learn more, see [What is Azure IoT Edge?](../iot-edge/about-iot-edge.md)
 
@@ -150,9 +175,11 @@ To learn more, see:
 - [Schedule jobs on multiple devices (IoT Hub)](../iot-hub/iot-hub-devguide-jobs.md)
 - [Manage devices in bulk in your Azure IoT Central application](../iot-central/core/howto-manage-devices-in-bulk.md)
 
+---
+
 ## Next steps
 
-Now that you've seen an overview of device management and control in Azure IoT solutions, some suggested next steps include:
+Now that you've seen an overview of asset and device management and control in a typical Azure IoT solution, some suggested next steps include:
 
 - [Process and route messages](iot-overview-message-processing.md)
 - [Extend your IoT solution](iot-overview-solution-extensibility.md)
