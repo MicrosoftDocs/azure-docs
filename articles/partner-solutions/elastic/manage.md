@@ -15,6 +15,30 @@ This article shows how to manage the settings for Elastic
 
 [!INCLUDE [manage](../includes/manage.md)]
 
+:::image type="content" source="media/manage/resource-overview.png" alt-text="A screenshot of a DElastic resource in the Azure portal with the overview displayed in the working pane.":::
+
+The details include:
+
+- Resource group
+- Status
+- Region
+- Version
+- Size
+- Tags
+- Subscription
+- Advanced Settings
+- Elasticsearch endpoint
+- Deployment URL
+- Billing term
+
+To manage your resource, select the links next to corresponding details.
+
+Below the essentials, you can navigate to other details about your resource by selecting the links.
+
+- **Ingest logs and metrics from Azure Services** allows you to send logs and metrics from your Azure services resources.
+- **Add more data sources in Elastic** allows you to configure additional data sources in Elastic.
+- **View and manage your data in Elastic** allows you to create interactive dashboards to visualize your data in real time. 
+
 ## Reconfigure rules for metrics and logs
 
 When you created the Elastic resource, you configured which logs are sent to Elastic. If you need to change those settings, select **Metrics and Logs** in the left pane. Make the needed changes to how logs are sent to Elastic.
