@@ -849,14 +849,14 @@ groups:
   - id: backend
     title: Back end (Azure Container App)
 # Owner: farazgis
-- id: azure-maps-coverage
-  title: Azure Maps coverage
-  prompt: Choose the API version
+- id: azure-maps-route-coverage
+  title: Azure Maps Routing coverage
+  prompt: Choose the Route API version
   pivots:
-  - id: route-v1
-    title: Route
-  - id: route-v2
-    title: Route v2
+  - id: route-previous
+    title: Previous
+  - id: route-latest
+    title: Latest
 # Owner: richbrun
 - id: azure-maps-android
   title: Programming languages
