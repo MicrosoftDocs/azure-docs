@@ -190,18 +190,18 @@ items:
   #       href: tutorial-assess-aws.md
         - name: Migrate
           href: tutorial-migrate-aws-virtual-machines.md
-    - name: Migrate Spring Boot applications
-      items:
-      - name: Discover Spring Boot apps
-        href: tutorial-discover-spring-boot.md
-      - name: Assess Spring Boot web apps for migration
-        href: tutorial-assess-spring-boot.md
-    - name: Migrate SAP applications
-      items:
-      - name: Discover SAP systems (preview)
-        href: tutorial-discover-sap-systems.md
-      - name: Assess SAP systems for migration (preview)
-        href: tutorial-assess-sap-systems.md
+  #  - name: Migrate Spring Boot applications
+  #    items:
+  #   - name: Discover Spring Boot apps
+  #     href: tutorial-discover-spring-boot.md
+  #   - name: Assess Spring Boot web apps for migration
+  #     href: tutorial-assess-spring-boot.md
+  # - name: Migrate SAP applications
+  #   items:
+  #  - name: Discover SAP systems (preview)
+  #    href: tutorial-discover-sap-systems.md
+  #   - name: Assess SAP systems for migration (preview)
+  #     href: tutorial-assess-sap-systems.md
     - name: Use Azure Migrate with private endpoints 
       items:
       - name: Support requirements and considerations
