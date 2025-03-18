@@ -137,7 +137,7 @@ Review the summary, and then select **Create**. This process takes a few minutes
 
 After the deployment finishes, note the private IP address of the virtual machine. You need this IP address later when configuring the firewall. Select the virtual machine name, go to **Overview**, and under **Networking**, note the private IP address.
 
-> [!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Deploy the firewall
 
