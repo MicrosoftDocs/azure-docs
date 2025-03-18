@@ -121,22 +121,22 @@ items:
           href: assessment-properties.md
         - name: Review assessment report
           href: review-web-app-assessment.md
-      - name: AVS assessment
-        items:
-        - name: Create an AVS assessment
-          href: tutorial-assess-vmware-azure-vmware-solution.md
-        - name: Customize assessment settings
-          href: assessment-properties.md
-        - name: Review assessment report
-          href: review-azure-vmware-solution-assessment.md
-      - name: SAP assessment
-        items:
-        - name: Create a SAP assessment
-          href: tutorial-assess-sap-systems.md
-        - name: Customize assessment settings
-          href: assessment-properties.md
-        - name: Review assessment report
-          href: review-sap-assessment.md
+#     - name: AVS assessment
+#       items:
+#       - name: Create an AVS assessment
+#         href: tutorial-assess-vmware-azure-vmware-solution.md
+#       - name: Customize assessment settings
+#         href: assessment-properties.md
+#       - name: Review assessment report
+#         href: review-azure-vmware-solution-assessment.md
+#      - name: SAP assessment
+#       items:
+#       - name: Create a SAP assessment
+#         href: tutorial-assess-sap-systems.md
+#       - name: Customize assessment settings
+#         href: assessment-properties.md
+#       - name: Review assessment report
+#         href: review-sap-assessment.md
 - name: Migrate workloads
   items:
   - name: Migrate
