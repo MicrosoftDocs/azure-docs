@@ -420,10 +420,10 @@ It's not possible to edit connection strings in bulk by using a JSON file with A
 ## Configure language stack settings
 
 - [ASP.NET Core](configure-language-dotnetcore.md)
-- [Node.js](configure-language-nodejs.md)
-- [PHP](configure-language-php.md)
-- [Python](configure-language-python.md)
 - [Java](configure-language-java-deploy-run.md)
+- [Node.js](configure-language-nodejs.md)
+- [Python](configure-language-python.md)
+- [PHP](configure-language-php.md)
 
 <a name="alwayson"></a>
 
