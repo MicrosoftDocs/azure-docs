@@ -283,5 +283,4 @@ As an alternative user experience to Postman, you can use the sdutil command-lin
 
 > [!div class="nextstepaction"]
 > [Use sdutil to load data into Seismic Store](./tutorial-seismic-ddms-sdutil.md)
-
 > For more information on the Seismic REST APIs in Azure Data Manager for Energy, see the OpenAPI specifications available in the [adme-samples](https://microsoft.github.io/adme-samples/) GitHub repository.
