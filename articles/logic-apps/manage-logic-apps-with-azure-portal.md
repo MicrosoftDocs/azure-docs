@@ -76,7 +76,7 @@ This guide shows how to manage Consumption or Standard logic app workflows using
 
 ## View connections
 
-When you create connections in a workflow using [connectors managed by Microsoft](../connectors/managed.md), these connections are actually separate Azure resources with their own resource definitions and are hosted in global, multitenant Azure. Standard logic app workflows can also use [built-in service provider connectors](/azure/logic-apps/connectors/built-in/reference/) that natively run and are powered by the single-tenant Azure Logic Apps runtime. To view and manage these connections, follow these steps, based on the logic app resource type:
+When you create connections in a workflow using [connectors managed by Microsoft](../connectors/managed.md), these connections are separate Azure resources with their own resource definitions and are hosted in global, multitenant Azure. Standard logic app workflows can also use [built-in service provider connectors](/azure/logic-apps/connectors/built-in/reference/) that natively run and are powered by the single-tenant Azure Logic Apps runtime. To view and manage these connections, follow these steps, based on the logic app resource type:
 
 ### [Consumption](#tab/consumption)
 
@@ -141,7 +141,7 @@ Stopping a Consumption logic app affects all workflow instances in the following
 
 * You can resubmit workflow runs while the logic app is stopped.
 
-* The workflow trigger doesn't fire while the logic app is stopped. However, the trigger state remembers the point where you stopped the logic app. When you restart the logic app, the trigger fires for all unprocessesd items since the last workflow run.
+* The workflow trigger doesn't fire while the logic app is stopped. However, the trigger state remembers the point where you stopped the logic app. When you restart the logic app, the trigger fires for all unprocessed items since the last workflow run.
 
   To stop the trigger from firing on all unprocessed items since the last workflow run, you must [clear the trigger state](#post-stoppage).
 
@@ -187,7 +187,7 @@ Stopping a Standard logic app affects all its workflow instances in the followin
 
 * You can resubmit workflow runs while the logic app is stopped.
 
-* Workflow triggers don't fire while the logic app is stopped. However, the trigger states remember the point where you stopped the logic app. When you restart the logic app, the triggers fire for all unprocessesd items since the last time that the corresponding workflows ran.
+* Workflow triggers don't fire while the logic app is stopped. However, the trigger states remember the point where you stopped the logic app. When you restart the logic app, the triggers fire for all unprocessed items since the last time that the corresponding workflows ran.
 
   To stop the triggers from firing on all unprocessed items since the last time that the workflows ran, you must [clear the trigger state for each workflow](#post-stoppage).
 
@@ -261,7 +261,7 @@ Disabling a workflow affects all its workflow instances in the following ways:
 
 * You can resubmit workflow runs while the workflow is disabled.
 
-* The workflow trigger doesn't fire while the logic app is stopped or the workflow is disabled. However, the trigger state remembers the point where you disabled the workflow. When you restart the logic app or re-enable the workflow, the trigger fires for all unprocessesd items since the last workflow run.
+* The workflow trigger doesn't fire while the logic app is stopped or the workflow is disabled. However, the trigger state remembers the point where you disabled the workflow. When you restart the logic app or re-enable the workflow, the trigger fires for all unprocessed items since the last workflow run.
 
   To stop the trigger from firing on all unprocessed items since the last workflow run, you must [clear the trigger state](#post-stoppage).
 
@@ -363,7 +363,7 @@ Deleting a Standard logic app affects all its workflow instances in the followin
 
 * Although you can [manually recover deleted Standard logic apps](#recover-deleted-standard-logic-apps), using source control to manage your Standard logic apps makes recovery and redeployment much easier.
 
-* If you don't use source control, and you might have to later recover a deleted Standard logic app, make sure to save any custom settings that you need for recovery before you delete the logic app logic app.
+* If you don't use source control, and you might have to later recover a deleted Standard logic app, make sure to save any custom settings that you need for recovery before you delete the logic app.
 
   1. In the [Azure portal](https://portal.azure.com), go to the Standard logic app.
 
@@ -373,7 +373,7 @@ Deleting a Standard logic app affects all its workflow instances in the followin
 
   1. On the logic app menu, under **Settings**, select **Configuration**.
 
-  1. On the each settings tab, find, and note any custom settings that you need for later recovery.
+  1. On each settings tab, note any custom settings that you need for later recovery.
 
 * If you delete a logic app and its workflows, but you then recreate the same logic app and workflows, the recreated logic app and workflows don't have the same metadata as the deleted resources.
 
@@ -508,7 +508,7 @@ To recover a deleted Standard logic app that uses the **Workflow Service Plan** 
 
 1. Return to your replacement logic app.
 
-1. If you have custom settings to restore, on the logic app menu, under **Settings**, select **Environment variables** or **Configuration**, based on the types of settings that you have.
+1. If you have custom settings to restore, on the logic app menu, under Settings, selects **Environment variables** or **Configuration**, based on the types of settings that you have.
 
 1. When you're done, restart your logic app.
 

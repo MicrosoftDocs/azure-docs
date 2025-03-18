@@ -307,8 +307,6 @@ To create your workflow, start your workflow with a trigger, and then initially 
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
-If you need to delete an item from the designer, [follow these steps for deleting items from the designer](/azure/logic-apps/manage-standard-workflows-visual-studio-code#delete-from-designer).
-
 ### Add the Office 365 Outlook action
 
 1. On the designer, under the **Request** trigger, [follow these general steps to add the **Office 365 Outlook** action named **Send an email (V2)**](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-action).
@@ -519,7 +517,7 @@ In specific scenarios, your workflow might include operations that require depen
 | Maps | **.xslt** | For more information, see [Add maps for transformations in workflows](/azure/logic-apps/logic-apps-enterprise-integration-maps?tabs=standard#visual-studio-code-1). |
 | Schemas | **.xsd** | For more information, see [Add schemas for validation](/azure/logic-apps/logic-apps-enterprise-integration-schemas?tabs=standard#visual-studio-code). |
 | Rules | **.xml** | For more information, see [Create an Azure Logic Apps Rules Engine project](/azure/logic-apps/rules-engine/create-rules-engine-project#create-an-azure-logic-apps-rules-engine-project). |
-| Assemblies | - **.dll** (.NET Framework or .NET 8) <br><br>- **.jar** (Java) | A Standard logic app resource can use or reference specific kinds of assemblies, which you can upload to your project in Visual Studio Code. However, you must add them to specific project folders. For more information, see [Add referenced assemblies](azure/logic-apps/logic-apps-enterprise-integration-maps?tabs=standard#visual-studio-code-1). <br><br>**Note**: If you have a NuGet package-based (.NET) logic app project before assemblies support became available, see [Migrate NuGet package-based projects to use assemblies in the **lib** folder](#migrate-nuget-assemblies). |
+| Assemblies | - **.dll** (.NET Framework or .NET 8) <br><br>- **.jar** (Java) | A Standard logic app resource can use or reference specific kinds of assemblies, which you can upload to your project in Visual Studio Code. However, you must add them to specific project folders. For more information, see [Add referenced assemblies](/azure/logic-apps/logic-apps-enterprise-integration-maps?tabs=standard#visual-studio-code-1). <br><br>**Note**: If you have a NuGet package-based (.NET) logic app project before assemblies support became available, see [Migrate NuGet package-based projects to use assemblies in the **lib** folder](#migrate-nuget-assemblies). |
 
 <a name="convert-project-nuget"></a>
 

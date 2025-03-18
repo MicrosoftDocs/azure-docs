@@ -198,7 +198,7 @@ To edit a deployed Consumption or Standard workflow using the designer, make tho
 
    - Open the **workflow.json** file, and make your changes in the underlying JSON definition.
 
-1. When you're done, [publish your updated Standard logic app](/azure/logic-apps/create-standard-workflows-visual-studio-code#publish-new-logic-app).
+1. When you're done, [publish your updated Standard logic app](create-standard-workflows-visual-studio-code.md#publish-new-logic-app).
 
 1. If your workflow is disabled, remember to reenable your workflow.
 
@@ -224,7 +224,7 @@ Deployed Consumption and Standard logic apps have different ways to disable and 
 
 ### [Standard](#tab/standard)
 
-In Visual Studio Code, you can stop, start, or restart a Standard logic app, which affects all workflow instances. You can also restart a Standard logic app without first stopping its activity. However, to disable and reenable individual workflows, [you must use the Azure portal](/azure/logic-apps/manage-logic-apps-with-azure-portal/stop-start-standard-workflows).
+In Visual Studio Code, you can stop, start, or restart a Standard logic app, which affects all workflow instances. You can also restart a Standard logic app without first stopping its activity. However, to disable and reenable individual workflows, [you must use the Azure portal](/azure/logic-apps/manage-logic-apps-with-azure-portal#stop-start-standard-workflows).
 
 Stopping the resource versus disabling a workflow have different effects, so review the considerations before you continue.
 
@@ -248,7 +248,7 @@ To stop a trigger from firing on unprocessed items since the last workflow run, 
 
 1. Save your changes. This step resets your trigger's current state.
 
-1. [Restart your logic app](/azure/logic-apps/manage-logic-apps-visual-studio-code?tabs=consumption#disable-enable-logic-apps).
+1. [Restart your logic app](manage-logic-apps-visual-studio-code.md?tabs=consumption#disable-enable-logic-apps).
 
 ### [Standard](#tab/standard)
 
@@ -258,7 +258,7 @@ To stop a trigger from firing on unprocessed items since the last workflow run, 
 
 1. Repeat for each existing workflow.
 
-1. [Restart your logic app](/azure/logic-apps/manage-logic-apps-visual-studio-code?tabs=standard#disable-enable-logic-apps).
+1. [Restart your logic app](manage-logic-apps-visual-studio-code.md?tabs=standard#disable-enable-logic-apps).
 
 ---
 
