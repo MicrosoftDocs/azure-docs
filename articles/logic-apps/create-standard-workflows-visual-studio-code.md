@@ -16,7 +16,7 @@ ms.custom: engagement-fy23, devx-track-dotnet
 
 This guide shows how to locally create an example Standard logic app workflow that you can run in single-tenant Azure Logic Apps when you use Visual Studio Code with the **Azure Logic Apps (Standard)** extension.
 
-In this guide, you'll create a Standard logic app workspace and project, build your workflow, and ultimately deploy your project as a Standard logic app resource in Azure where your workflow can run in single-tenant Azure Logic Apps or in App Service Environment v3 (Windows-based App Service plans only). You can also deploy and run your workflow anywhere that Kubernetes can run, such as Azure, Azure Kubernetes Service, on premises, or even other cloud providers, due to the containerized runtime for Azure Logic Apps (Standard).
+In this guide, you create a Standard logic app workspace and project, build your workflow, and deploy your project as a Standard logic app resource in Azure where your workflow can run in single-tenant Azure Logic Apps or in App Service Environment v3 (Windows-based App Service plans only). You can also deploy and run your workflow anywhere that Kubernetes can run, such as Azure, Azure Kubernetes Service, on premises, or even other cloud providers, due to the containerized runtime for Azure Logic Apps (Standard).
 
 Here are just some benefits that Standard logic apps provide:
 
@@ -908,7 +908,7 @@ Deployment for the Standard logic app resource requires a hosting plan and prici
 
    1. For the option to use SQL storage in this example, select **No**.
 
-      If you already set up a SQL database to use for storage by following [Set up SQL database storage for Standard logic app workflows](/azure/logic-apps/set-up-sql-db-storage-single-tenant-standard-workflows), you can select **Yes**.
+      If you already set up an SQL database to use for storage by following [Set up SQL database storage for Standard logic app workflows](/azure/logic-apps/set-up-sql-db-storage-single-tenant-standard-workflows), you can select **Yes**.
 
    1. For the Application Insights resource, which enables diagnostic logging and tracing for your logic app, choose from the following options:
 
@@ -1149,7 +1149,7 @@ After Application Insights opens, you can review various metrics for your logic 
 
 ### Designer fails to open
 
-When you try to open the designer, you get this error, **"Workflow design time could not be started"**. If you previously tried to open the designer, and then discontinued or deleted your project, the extension bundle might not correctly download. To check whether this reason is the cause, follow these steps:
+When you try to open the designer, you get this error, **"Workflow design time could not be started"**. If you previously tried to open the designer, but you discontinued or deleted your project, the extension bundle might not correctly download. To check whether this reason is the cause, follow these steps:
 
   1. In Visual Studio Code, open the Output window. From the **View** menu, select **Output**.
 
@@ -1213,7 +1213,7 @@ The missing triggers and actions now appear in the designer.
 
 When a run fails, and you inspect the run in monitoring view, this error might appear on a trigger or action that has a longer name, which causes the underlying Uniform Resource Identifier (URI) to exceed the default character limit.
 
-To resolve this problem and adjust for the longer URI, edit the **`UrlSegmentMaxCount`** and **`UrlSegmentMaxLength`** registry keys on your computer by following the steps below. These key's default values are described in this topic, [Http.sys registry settings for Windows](/troubleshoot/iis/httpsys-registry-windows).
+To resolve this problem and adjust for the longer URI, edit the **`UrlSegmentMaxCount`** and **`UrlSegmentMaxLength`** registry keys on your computer by following these steps. These key's default values are described in this article, [Http.sys registry settings for Windows](/troubleshoot/iis/httpsys-registry-windows).
 
 > [!IMPORTANT]
 >
@@ -1252,7 +1252,7 @@ To resolve this problem and adjust for the longer URI, edit the **`UrlSegmentMax
 
 When you try to start a debugging session, you get the error, **"Error exists after running preLaunchTask 'generateDebugSymbols'"**. To resolve this problem, edit the **tasks.json** file in your project to skip symbol generation.
 
-1. In your project, expand the **.vscode** folder, and open the **tasks.json** file.
+1. In your project, expand the.vscode** folder, and open the **tasks.json** file.
 
 1. In the following task, delete the line, **`"dependsOn: "generateDebugSymbols"`**, along with the comma that ends the preceding line, for example:
 

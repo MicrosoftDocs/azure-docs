@@ -447,6 +447,8 @@ items:
     items:
     - name: Manage logic apps - Azure portal
       href: manage-logic-apps-with-azure-portal.md
+    - name: Manage logic apps - Visual Studio Code
+      href: manage-logic-apps-visual-studio-code.md
     - name: Manage logic apps - Visual Studio
       href: manage-logic-apps-with-visual-studio.md
     - name: Manage integration accounts
