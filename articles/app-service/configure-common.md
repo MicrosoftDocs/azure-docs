@@ -1,20 +1,22 @@
 ---
 title: Configure an App Service App
-description: Learn how to configure common settings for an Azure App Service app, including app settings, app configuration, connection strings, platform, language stack, and containers.
+description: Learn how to configure common settings for an Azure App Service app. You can use the Azure portal, Azure CLI, or Azure PowerShell.
 keywords: azure app service, web app, app settings, environment variables
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: how-to
-ms.date: 10/03/2024
+ms.date: 03/19/2025
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, AppServiceConnectivity
 ms.devlang: azurecli
 author: cephalin
 ms.author: cephalin
+#customer intent: As an app developer, I want to understand how to configure settings in Azure App Service, including command line options.
 ---
+
 # Configure an App Service app
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 This article explains how to configure common settings for web apps, a mobile back end, or an API app. For Azure Functions, see [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md).
+
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 ## Configure app settings
 
@@ -27,7 +29,7 @@ For example, to set an environment variable in App Service for Linux with the va
 
 For Linux apps and custom containers, App Service passes app settings to the container by using the `--env` flag to set the environment variable in the container. In either case, they're injected into your app environment at app startup. When you add, remove, or edit app settings, App Service triggers an app restart.
 
-For ASP.NET and ASP.NET Core developers, configuring app settings in App Service is like configuring them in `<appSettings>` in `Web.config` or `appsettings.json`. But the values in App Service override the ones in `Web.config` or `appsettings.json`. You can keep development settings (for example, local MySQL password) in `Web.config` or `appsettings.json` and production secrets (for example, Azure MySQL database password) safely in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when it's deployed to Azure.
+For ASP.NET and ASP.NET Core developers, configuring app settings in App Service is like configuring them in `<appSettings>` in `Web.config` or `appsettings.json`. The values in App Service override the ones in `Web.config` or `appsettings.json`. You can keep development settings, such as local MySQL password, in `Web.config` or `appsettings.json`. You can keep production secrets, such as Azure MySQL database password, safely in App Service. The same code uses your development settings when you debug locally. It uses your production secrets when you deploy it to Azure.
 
 Other language stacks get the app settings as environment variables at runtime. For steps that are specific to each language stack, see:
 
@@ -41,35 +43,33 @@ Other language stacks get the app settings as environment variables at runtime. 
 App settings are always encrypted when they're stored (encrypted at rest).
 
 > [!NOTE]
-> If you store secrets in app settings, consider using [Azure Key Vault references](app-service-key-vault-references.md). If your secrets are for connectivity to back-end resources, consider connectivity options that are more secure and that don't require secrets at all. For more information, see [Secure connectivity to Azure services and databases from Azure App Service](tutorial-connect-overview.md).
+> If you store secrets in app settings, consider using [Azure Key Vault references](app-service-key-vault-references.md). If your secrets are for connectivity to back-end resources, consider connectivity options that are more secure and that don't require secrets. For more information, see [Secure connectivity to Azure services and databases from Azure App Service](tutorial-connect-overview.md).
 
 # [Azure portal](#tab/portal)
 
 1. In the [Azure portal], search for and select **App Services**, and then select your app.
 
-    :::image type="content" source="./media/configure-common/search-for-app-services.png" alt-text="Screenshot that shows a search for app services.":::
+1. On the app's left menu, select **Settings** > **Environment variables**. Then select **App settings**.
 
-1. On the app's left menu, select **Environment variables**. Then select **App settings**.
+   :::image type="content" source="./media/configure-common/open-ui.png" alt-text="Screenshot that shows selections for displaying app settings.":::
 
-    :::image type="content" source="./media/configure-common/open-ui.png" alt-text="Screenshot that shows selections for displaying app settings.":::
-
-    By default, values for app settings are hidden in the portal for security. To see a hidden value of an app setting, select its **Value** field. To see the hidden values of all app settings, select the **Show values** button.
+   By default, values for app settings are hidden in the portal for security. To see a hidden value of an app setting, under **Value**, select **Show value**. To see the hidden values of all app settings, select **Show values**.
 
 1. To add a new app setting, select **Add**. To edit a setting, select the setting.
 
 1. In the dialog, you can [stick the setting to the current slot](deploy-staging-slots.md#which-settings-are-swapped).
 
-    > [!NOTE]
-    > In a default Linux app service or a custom Linux container, any nested JSON key structure in the app setting name needs to be configured differently for the key name. Replace any colon (`:`) with a double underscore (`__`), and replace any period (`.`) with a single underscore (`_`). For example, `ApplicationInsights:InstrumentationKey` needs to be configured in App Service as `ApplicationInsights__InstrumentationKey` for the key name.
+   > [!NOTE]
+   > In a default Linux app service or a custom Linux container, any nested JSON key structure in the app setting name needs to be configured differently for the key name. Replace any colon (`:`) with a double underscore (`__`). Replace any period (`.`) with a single underscore (`_`). For example, `ApplicationInsights:InstrumentationKey` needs to be configured in App Service as `ApplicationInsights__InstrumentationKey` for the key name.
 
-1. When you finish, select **Apply**. Don't forget to also select **Apply** on the **Environment variables** page.
+1. When you finish, select **Apply**. Then select **Apply** on the **Environment variables** page.
 
 # [Azure CLI](#tab/cli)
 
 Add or edit an app setting by using [az webapp config app settings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set):
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app-name> --resource-group <group-name> --settings <setting-name>="<value>"
+az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings <setting-name>="<value>"
 ```
 
 Replace `<setting-name>` with the name of the setting. Replace `<value>` with the value to assign to the setting.
@@ -77,13 +77,13 @@ Replace `<setting-name>` with the name of the setting. Replace `<value>` with th
 Show all settings and their values by using [az webapp config appsettings list](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-list):
 
 ```azurecli-interactive
-az webapp config appsettings list --name <app-name> --resource-group <group-name>
+az webapp config appsettings list --resource-group <group-name> --name <app-name>
 ```
 
 Remove one or more settings by using [az webapp config app settings delete](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-delete):
 
 ```azurecli-interactive
-az webapp config appsettings delete --name <app-name> --resource-group <group-name> --setting-names {<setting-name1>,<setting-name2>,...}
+az webapp config appsettings delete --resource-group <group-name> --name <app-name> --setting-names {<setting-name1>,<setting-name2>,...}
 ```
 
 # [Azure PowerShell](#tab/ps)
@@ -132,11 +132,11 @@ Set-AzWebAppSlotConfigName -ResourceGroupName <group-name> -Name <app-name> -App
 
 # [Azure portal](#tab/portal)
 
-1. Select the **Advanced edit** button.
+1. Select **Advanced edit**.
 
 1. Edit the settings in the text area.
 
-1. When you finish, select **OK**. Don't forget to also select **Apply** on the **Environment variables** page.
+1. When you finish, select **OK**. Then select **Apply** on the **Environment variables** page.
 
 App settings have the following JSON formatting:
 
@@ -183,11 +183,11 @@ The necessary file format is a JSON array of settings where the slot setting fie
 ]
 ```
 
-For convenience, you can save existing settings in a JSON file by using [az webapp config appsettings list](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-list). You can run the following example in Bash.
+For convenience, you can save existing settings in a JSON file by using [az webapp config appsettings list](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-list).
 
 ```azurecli-interactive
 # Save the settings
-az webapp config appsettings list --name <app-name> --resource-group <group-name> > settings.json
+az webapp config appsettings list --resource-group <group-name> --name <app-name>  > settings.json
 
 # Edit the JSON file
 ...
@@ -204,14 +204,16 @@ It's not possible to edit app settings in bulk by using a JSON file with Azure P
 
 ## Configure connection strings
 
+This section describes how to configure connection strings.
+
 > [!NOTE]
-> Consider connectivity options that are more secure and that don't require connection secrets at all. For more information, see [Secure connectivity to Azure services and databases from Azure App Service](tutorial-connect-overview.md).
+> Consider connectivity options that are more secure and that don't require connection secrets. For more information, see [Secure connectivity to Azure services and databases from Azure App Service](tutorial-connect-overview.md).
 
-For ASP.NET and ASP.NET Core developers, setting connection strings in App Service is like setting them in `<connectionStrings>` in `Web.config`. But the values that you set in App Service override the ones in `Web.config`. You can keep development settings (for example, a database file) in `Web.config` and production secrets (for example, SQL database credentials) safely in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when it's deployed to Azure.
+For ASP.NET and ASP.NET Core developers, setting connection strings in App Service is like setting them in `<connectionStrings>` in `Web.config`. The values that you set in App Service override the ones in `Web.config`. You can keep development settings, such as a database file, in `Web.config`. You can keep production secrets, such as SQL database credentials, safely in App Service. The same code uses your development settings when you debug locally. It uses your production secrets when you deploy it to Azure.
 
-For other language stacks, it's better to use [app settings](#configure-app-settings) instead, because connection strings require special formatting in the variable keys to access the values.
+For other language stacks, it's better to use [app settings](#configure-app-settings) instead. Connection strings require special formatting in the variable keys to access the values.
 
-There is one case where you might want to use connection strings instead of app settings for non-.NET languages. Certain Azure database types are backed up along with the app *only* if you configure a connection string for the database in your App Service app. For more information, see [Create a custom backup](manage-backup.md#create-a-custom-backup). If you don't need this automated backup, use app settings.
+There's one case where you might want to use connection strings instead of app settings for non-.NET languages. Certain Azure database types are backed up along with the app *only* if you configure a connection string for the database in your App Service app. For more information, see [Create a custom backup](manage-backup.md#create-a-custom-backup). If you don't need this automated backup, use app settings.
 
 At runtime, connection strings are available as environment variables, prefixed with the following connection types:
 
@@ -247,40 +249,36 @@ Connection strings are always encrypted when they're stored (encrypted at rest).
 
 1. In the [Azure portal], search for and select **App Services**, and then select your app.
 
-    :::image type="content" source="./media/configure-common/search-for-app-services.png" alt-text="Screenshot that shows a search for app services.":::
+1. On the app's left menu, select **Settings** > **Environment variables**. Then select **Connection strings**.
 
-1. On the app's left menu, select **Environment variables**. Then select **Connection strings**.
-
-    :::image type="content" source="./media/configure-common/open-ui-connection-strings.png" alt-text="Screenshot that shows selections for displaying connection strings.":::
-
-    By default, values for connection strings are hidden in the portal for security. To see a hidden value of a connection string, select its **Value** field. To see the hidden values of all connection strings, select the **Show value** button.
+   By default, values for connection strings are hidden in the portal for security. To see a hidden value of a connection string, under **Value**, select **Show value**. To see the hidden values of all connection strings, select **Show values**.
 
 1. To add a new connection string, select **Add**. To edit a connection string, select the connection string.
 
 1. In the dialog, you can [stick the connection string to the current slot](deploy-staging-slots.md#which-settings-are-swapped).
 
-1. When you finish, select **Apply**. Don't forget to also select **Apply** on the **Environment variables** page.
+1. When you finish, select **Apply**. Then select **Apply** on the **Environment variables** page.
 
 # [Azure CLI](#tab/cli)
 
 Add or edit an app setting by using [az webapp config connection-string set](/cli/azure/webapp/config/connection-string#az-webapp-config-connection-string-set):
 
 ```azurecli-interactive
-az webapp config connection-string set --name <app-name> --resource-group <group-name> --connection-string-type <type> --settings <string-name>='<value>'
+az webapp config connection-string set --resource-group <group-name> --name <app-name> --connection-string-type <type> --settings <string-name>='<value>'
 ```
 
-Replace `<string-name>` with the name of the connection string. Replace `<value>` with the value to assign to the connection string. For possible values of `<type>` (for example, `SQLAzure`), see the [CLI command documentation](/cli/azure/webapp/config/connection-string#az-webapp-config-connection-string-set).
+Replace `<string-name>` with the name of the connection string. Replace `<value>` with the value to assign to the connection string. For possible values of `<type>` such as `SQLAzure`, see the [CLI command documentation](/cli/azure/webapp/config/connection-string#az-webapp-config-connection-string-set).
 
 Show all connection strings and their values by using [az webapp config connection-string list](/cli/azure/webapp/config/connection-string#az-webapp-config-connection-string-list):
 
 ```azurecli-interactive
-az webapp config connection-string list --name <app-name> --resource-group <group-name>
+az webapp config connection-string list --resource-group <group-name> --name <app-name>
 ```
 
 Remove one or more connection strings by using [az webapp config connection-string delete](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-delete):
 
 ```azurecli-interactive
-az webapp config connection-string delete --name <app-name> --resource-group <group-name> --setting-names {<string-name1>,<string-name2>,...}
+az webapp config connection-string delete --resource-group <group-name>  --name <app-name>--setting-names {<string-name1>,<string-name2>,...}
 ```
 
 # [Azure PowerShell](#tab/ps)
@@ -315,8 +313,8 @@ ForEach ($item in $webapp.SiteConfig.ConnectionStrings) {
 }
 
 # Add or edit one or more connection strings
-$connStrings['<string-name1>'] = @{value='<connection-string1>', type='<type>'}
-$connStrings['<string-name2>'] = @{value='<connection-string2>', type='<type>'}
+$connStrings['<string-name1>'] = @{value='<connection-string1>'; type='<type>'}
+$connStrings['<string-name2>'] = @{value='<connection-string2>'; type='<type>'}
 
 # Save changes
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -ConnectionStrings $connStrings
@@ -340,7 +338,7 @@ Set-AzWebAppSlotConfigName -ResourceGroupName <group-name> -Name <app-name> -Con
 
 # [Azure portal](#tab/portal)
 
-1. Select the **Advanced edit** button.
+1. Select **Advanced edit**.
 
 1. Edit the connection strings in the text area.
 
@@ -396,7 +394,7 @@ The necessary file format is a JSON array of connection strings where the slot s
 ]
 ```
 
-For convenience, you can save existing connection strings in a JSON file by using [az webapp config connection-string list](/cli/azure/webapp/config/connection-string#az-webapp-config-connection-string-list). You can run the following example in Bash.
+For convenience, you can save existing connection strings in a JSON file by using [az webapp config connection-string list](/cli/azure/webapp/config/connection-string#az-webapp-config-connection-string-list).
 
 ```azurecli-interactive
 # Save the connection strings
@@ -419,6 +417,8 @@ It's not possible to edit connection strings in bulk by using a JSON file with A
 
 ## Configure language stack settings
 
+To configure language stack settings, see these resources:
+
 - [ASP.NET Core](configure-language-dotnetcore.md)
 - [Node.js](configure-language-nodejs.md)
 - [PHP](configure-language-php.md)
@@ -429,28 +429,31 @@ It's not possible to edit connection strings in bulk by using a JSON file with A
 
 ## Configure general settings
 
+To configure general settings, follow the steps for your preferred tools.
+
 # [Azure portal](#tab/portal)
 
 1. In the [Azure portal], search for and select **App Services**, and then select your app.
 
-1. On the app's left menu, select **Configuration**. Then select **General settings**.
+1. On the app's left menu, select **Settings** > **Configuration**. Then select **General settings**.
 
-    :::image type="content" source="./media/configure-common/open-general.png" alt-text="Screenshot that shows selections to open general settings.":::
+   :::image type="content" source="./media/configure-common/open-general.png" alt-text="Screenshot that shows selections to open general settings.":::
 
 Here, you can configure some common settings for the app. Some settings require you to [scale up to higher pricing tiers](manage-scale-up.md).
 
 - **Stack settings**: Configure settings for the software stack to run the app, including the language and SDK versions.
 
-    For Linux apps, you can select the language runtime version and set an optional startup command.
-
-    :::image type="content" source="./media/configure-common/open-general-linux.png" alt-text="Screenshot that shows stack settings for Linux containers.":::
+  For Linux apps, you can select the language runtime version and set an optional startup command.
 
 - **Platform settings**: Configure settings for the hosting platform, including:
-  - **Platform bitness**: Choose 32-bit or 64-bit. For Windows apps only.
+
+  - **Platform**: Choose 32-bit or 64-bit. For Windows apps only.
   - **FTP state**: Allow only FTPS, or disable FTP altogether.
   - **HTTP version**: Set to **2.0** to enable support for the [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) protocol.
+
     > [!NOTE]
-    > Most modern browsers support the HTTP/2 protocol over TLS only, while unencrypted traffic continues to use HTTP/1.1. To ensure that client browsers connect to your app with HTTP/2, secure your custom DNS name. For more information, see [Provide security for a custom DNS name with a TLS/SSL binding in App Service](configure-ssl-bindings.md).
+    > Most modern browsers support the HTTP/2 protocol over TLS only. Unencrypted traffic continues to use HTTP/1.1. To ensure that client browsers connect to your app with HTTP/2, secure your custom DNS name. For more information, see [Provide security for a custom DNS name with a TLS/SSL binding in App Service](configure-ssl-bindings.md).
+
   - **Web sockets**: Configure for [ASP.NET SignalR] or [socket.io](https://socket.io/), for example.
   - **Always On**: Turn on if you want to keep the app loaded even when there's no traffic.
   
@@ -458,11 +461,13 @@ Here, you can configure some common settings for the app. Some settings require 
 
     When **Always On** is turned on, the front-end load balancer sends a `GET` request to the application root every five minutes. The continuous ping prevents the app from being unloaded.
 
-    Always On is required for continuous WebJobs or for WebJobs that are triggered by a Cron expression.
+    Always On is required for continuous WebJobs or for WebJobs that a cron expression triggers.
+
   - **Session affinity**: In a multiple-instance deployment, ensure that the client is routed to the same instance for the life of the session. You can set this option to **Off** for stateless applications.
-  - **Session affinity proxy**: Turn on if your app is behind a reverse proxy (like Azure Application Gateway or Azure Front Door) and you're using the default host name. The domain for the session affinity cookie will align with the forwarded host name from the reverse proxy.
+  - **Session affinity proxy**: Turn on if your app is behind a reverse proxy (like Azure Application Gateway or Azure Front Door) and you're using the default host name. The domain for the session affinity cookie aligns with the forwarded host name from the reverse proxy.
   - **HTTPS Only**: Enable if you want to redirect all HTTP traffic to HTTPS.
   - **Minimum TLS version**: Select the minimum TLS encryption version that your app requires.
+
 - **Debugging**: Enable remote debugging for [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure), or [Node.js](configure-language-nodejs.md#debug-remotely) apps. This option turns off automatically after 48 hours.
 - **Incoming client certificates**: Require client certificates in [mutual authentication](app-service-web-configure-tls-mutual-auth.md).
 
@@ -471,7 +476,7 @@ Here, you can configure some common settings for the app. Some settings require 
 You can set many of the common configurable options by using [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set). The following example shows a subset of the configurable options:
 
 ```azurecli-interactive
-az webapp config set --resource-group <group-name> --name <app-name> --use-32bit-worker-process [true|false] --web-sockets-enabled [true|false] --always-on [true|false]--http20-enabled --auto-heal-enabled [true|false] --remote-debugging-enabled [true|false] --number-of-workers
+az webapp config set --resource-group <group-name> --name <app-name>  --use-32bit-worker-process [true|false] --web-sockets-enabled [true|false] --always-on [true|false]--http20-enabled --auto-heal-enabled [true|false] --remote-debugging-enabled [true|false] --number-of-workers
 ```
 
 To show the existing settings, use the [az webapp config show](/cli/azure/webapp/config#az-webapp-config-show) command.
@@ -481,12 +486,13 @@ To show the existing settings, use the [az webapp config show](/cli/azure/webapp
 You can set many of the common configurable options by using [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp). The following example shows a subset of the configurable options:
 
 ```azurecli-interactive
-Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -Use32BitWorkerProcess [True|False] -WebSocketsEnabled [True|False] -AlwaysOn [True|False] -NumberOfWorkers
+Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -Use32BitWorkerProcess [$True|$False] -WebSocketsEnabled [$True|$False] -AlwaysOn [$True|$False] -NumberOfWorkers
 ```
 
 To show the existing settings, use the [Get-AzWebApp](/powershell/module/az.websites/get-azwebapp) command.
 
 -----
+
 ## Configure default documents
 
 The default document is the webpage that appears at the root URL of an App Service app. The first matching file in the list is used. If the app uses modules that route based on URL instead of serving static content, there's no need for default documents.
@@ -497,9 +503,6 @@ The setting to configure default documents is only for Windows apps.
 
 1. In the [Azure portal], search for and select **App Services**, and then select your app.
 1. On the app's left menu, select **Configuration**. Then select **Default documents**.
-
-    :::image type="content" source="./media/configure-common/open-documents.png" alt-text="Screenshot that shows selections for displaying default documents.":::
-
 1. To add a default document, select **New document**. To remove a default document, select **Delete** to its right.
 
 # [Azure CLI](#tab/cli)
@@ -534,20 +537,20 @@ The feature of mapping a virtual directory to a physical path is available only 
 
 1. In the [Azure portal], search for and select **App Services**, and then select your app.
 
-1. On the app's left menu, select **Configuration**. Then select **Path mappings**.
+1. On the app's left menu, select **Settings** > **Configuration**. Then select **Path mappings**.
 
 1. Select **New virtual application or directory**. Then take one of these actions:
 
-    - To map a virtual directory to a physical path, leave the **Directory** checkbox selected. Specify the virtual directory and the corresponding relative (physical) path to the website root (`D:\home`).
-    - To mark a virtual directory as a web application, clear the **Directory** checkbox.
+   - To map a virtual directory to a physical path, leave **Directory** selected. Specify the virtual directory and the corresponding relative (physical) path to the website root (`D:\home`).
+   - To mark a virtual directory as a web application, unselect **Directory**.
 
     :::image type="content" source="./media/configure-common/directory-check-box.png" alt-text="Screenshot that shows selections for displaying the Directory checkbox.":::
 
-1. Select **OK**. Don't forget to select **Save** on the **Configuration** page.
+1. Select **Ok**. Then select **Save** on the **Configuration** page.
 
 # [Azure CLI](#tab/cli)
 
-The following example sets the root path `/` to the `public` subdirectory (which works for Laravel). It also adds a second virtual application at the `/app2` path. To run it, create a file called `json.txt` with the following contents:
+The following example sets the root path `/` to the `public` subdirectory, which works for Laravel. It also adds a second virtual application at the `/app2` path. To run it, create a file called `json.txt` with the following contents:
 
 ```txt
 [
@@ -574,7 +577,7 @@ az resource update --resource-group <group-name> --resource-type Microsoft.Web/s
 
 # [Azure PowerShell](#tab/ps)
 
-The following example sets the root path `/` to the `public` subdirectory (which works for Laravel). It also adds a second virtual application at the `/app2` path. To run it, change `<group-name>` and `<app-name>`.
+The following example sets the root path `/` to the `public` subdirectory, which works for Laravel. It also adds a second virtual application at the `/app2` path. To run it, change `<group-name>` and `<app-name>`.
 
 ```azurepowershell-interactive
 $webapp=Get-AzWebApp -ResourceGroupName <group-name> -Name <app-name>
@@ -602,17 +605,14 @@ For Windows apps, you can customize the IIS handler mappings and virtual applica
 To add a custom handler:
 
 1. In the [Azure portal], search for and select **App Services**, and then select your app.
-1. On the app's left menu, select **Configuration**. Then select **Path mappings**.
-
-    :::image type="content" source="./media/configure-common/open-path.png" alt-text="Screenshot that shows selections for displaying path mappings.":::
-
+1. On the app's left menu, select **Settings** > **Configuration**. Then select **Path mappings**.
 1. Select **New handler mapping**. Configure the handler as follows:
 
-    - **Extension**. The file extension that you want to handle, such as `*.php` or `handler.fcgi`.
-    - **Script processor**. The absolute path of the script processor to you. The script processor processes requests to files that match the file extension. Use the path `D:\home\site\wwwroot` to refer to your app's root directory.
-    - **Arguments**. Optional command-line arguments for the script processor.
+   - **Extension**. The file extension that you want to handle, such as `*.php` or `handler.fcgi`.
+   - **Script processor**. The absolute path of the script processor to you. The script processor processes requests to files that match the file extension. Use the path `D:\home\site\wwwroot` to refer to your app's root directory.
+   - **Arguments**. Optional command-line arguments for the script processor.
 
-1. Select **OK**. Don't forget to select **Save** on the **Configuration** page.
+1. Select **Ok**. Then select **Save** on the **Configuration** page.
 
 ## Configure custom containers
 
@@ -622,9 +622,9 @@ To add a custom handler:
 ## Related content
 
 - [Environment variables and app settings in Azure App Service](reference-app-settings.md)
-- [Map an existing custom DNS name to Azure App Service]
+- [Set up an existing custom domain in Azure App Service]
 - [Set up staging environments in Azure App Service]
-- [Provide security for a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)
+- [Enable HTTPS for a custom domain in Azure App Service](configure-ssl-bindings.md)
 - [Enable diagnostics logging for apps in Azure App Service](troubleshoot-diagnostic-logs.md)
 - [Scale up an app in Azure App Service]
 - [Azure App Service quotas and alerts]
