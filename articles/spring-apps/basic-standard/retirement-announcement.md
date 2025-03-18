@@ -81,7 +81,7 @@ Azure Spring Apps Basic, Standard, and Enterprise plans won't accept new custome
 
 For the Azure Spring Apps Consumption and dedicated plan, if you created an Azure Spring Apps service instance before Sep 30, 2024, you're considered an existing customer. If you never created an Azure Spring Apps service instance before that date, you're considered a new customer.
 
-For Azure Spring Apps basic, standard and enterprise plans, if you created an Azure Spring Apps service instance before March 17, 2025, you're considered an existing customer. If you never created an Azure Spring Apps service instance before that date or have not had an Azure Spring Apps service instance in the past 3 months, you're considered a new customer.
+For Azure Spring Apps Basic, Standard, and Enterprise plans, if you created an Azure Spring Apps service instance before March 17, 2025, you're considered an existing customer. If you never created an Azure Spring Apps service instance before that date or have not had an Azure Spring Apps service instance in the past 3 months, you're considered a new customer.
 
 ### Will Microsoft continue to support my current workloads?
 
