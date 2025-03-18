@@ -4,7 +4,7 @@ description: Learn about guidance to run an API Management self-hosted gateway o
 author: tomkerkhove
 manager: mrcarlosdev
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: concept-article
 ms.author: tomkerkhove
 ms.date: 01/17/2023
 ---
@@ -208,7 +208,7 @@ securityContext:
 > When using local CA certificates, the self-hosted gateway must run with user ID (UID) `1001` in order to manage the CA certificates otherwise the gateway will not start up.
 
 
-## Next steps
+## Related content
 
 * To learn more about the self-hosted gateway, see [Self-hosted gateway overview](self-hosted-gateway-overview.md).
 * Learn [how to deploy API Management self-hosted gateway to Azure Arc-enabled Kubernetes clusters](how-to-deploy-self-hosted-gateway-azure-arc.md).

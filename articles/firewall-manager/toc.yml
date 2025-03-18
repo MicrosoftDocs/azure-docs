@@ -60,6 +60,9 @@
     items:
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-firewall-manager-security-baseline?toc=/azure/firewall-manager/toc.json
+    - name: Network security blog
+      href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
+- name: Deploy
 - name: How-to guides
   items:
   - name: Deploy security partner providers
@@ -96,6 +99,8 @@
     href: ../azure-resource-manager/management/overview.md
 - name: Resources
   items:
+  - name: Networking blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
   - name: Author templates
     href: ../azure-resource-manager/templates/syntax.md
   - name: Community templates

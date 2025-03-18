@@ -283,47 +283,35 @@ sections:
         Use Azure Migrate to assess your Hyper-V environment for migration readiness.
         :::column-end:::
         :::column:::
-        **[Azure VMWare Solution](/azure/migrate/vmware/server-migrate-overview?context=%2Fazure%2Fmigrate%2Fcontext%2Fmigrate-context)**
+        **[Azure VMware Solution](/azure/migrate/vmware/server-migrate-overview?context=%2Fazure%2Fmigrate%2Fcontext%2Fmigrate-context)**
         
-        Options for migrating VMWare VMs to Azure.
+        Options for migrating VMware VMs to Azure.
         :::column-end:::
       :::row-end:::
 
       #### [Databases](#tab/databases)
 
       :::row:::
-        ### Migrate SQL Server databases
-      :::row:::
         :::column:::
-        **[Azure Database Migration Guide](/azure/dms/dms-overview)**
+        **[Migrate Amazon RDS PostgreSQL to Azure](/azure/postgresql/migrate/migration-service/tutorial-migration-service-aws-offline)**
         
-        Comprehensive guide to migrate SQL Server databases to Azure SQL Database.
+        How to migrate Amazon RDS PostgreSQL database to Azure Database for PostgreSQL.
         :::column-end:::
         :::column:::
-        **[Data Migration from SQL Server](/data-migration/sql-server/overview)**
+        **[Migrate Amazon Aurora PostgreSQL to Azure](/azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-offline)**
         
-        Options for migrating from SQL Server to Azure SQL.
-        :::column-end:::
-      :::row-end:::
-
-      :::row:::
-        ### Migrate PostgreSQL databases
-      :::row:::
-        :::column:::
-        **[Migrate AWS RDS PostgreSQL to Azure](/azure/postgresql/migrate/migration-service/tutorial-migration-service-aws-online)**
-        
-        How to migrate an AWS RDS PostgreSQL database to Azure Database for PostgreSQL, covering setup and migration steps.
+        How to migrate AWS Aurora PostgreSQL database to Azure Database for PostgreSQL.
         :::column-end:::
         :::column:::
-        **[Migrate Amazon Aurora PostgreSQL to Azure Database for PostgreSQL](/azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-online)**
+        **[Migrate Amazon RDS MySQL to Azure](/azure/mysql/flexible-server/how-to-migrate-rds-mysql-data-in-replication)**
         
-        How to migrate an AWS Aurora PostgreSQL database to Azure Database for PostgreSQL, covering setup and migration steps.
+        How to migrate Amazon RDS MySQL database to Azure Database for MySQL.
         :::column-end:::
-      :::row-end:::
-
-      :::row:::
-        ### Migrate Amazon DynamoDB
-      :::row:::
+        :::column:::
+        **[Migrate Amazon RDS SQL Server to Azure](/data-migration/sql-server/database/guide)**
+        
+        Learn how to migrate your Amazon RDS SQL Server instance to Azure SQL Database.
+        :::column-end:::
         :::column:::
         **[Migrate from DynamoDB to Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/dynamodb-data-migration-cosmos-db)**
         
@@ -492,7 +480,7 @@ sections:
         src: images/azure-migrate.svg
     - componentType: icon-card
       title: "Mastering secure migration: Essentials for modernizing and innovating on Azure"
-      summary: "A three-step process for secure migration to Azure: establishing readiness, designing with governance, and managing deployments, emphasizing planning and security to optimize performance and resilience."
+      summary: "A three-step process for secure migration to Azure: Establishing readiness, designing with governance, and managing deployments, emphasizing planning and security to optimize performance and resilience."
       url: https://techcommunity.microsoft.com/blog/azuremigrationblog/mastering-secure-migration-essentials-for-modernizing-and-innovating-on-azure/4284215
       icon:
         componentType: image

@@ -406,8 +406,6 @@
       href: ip-addresses.md
     - name: Custom handlers
       href: functions-custom-handlers.md
-- name: Migration guide
-  href: ./migration/toc.yml
 - name: Languages
   items:
     - name: Supported languages
@@ -487,8 +485,6 @@
                   href: functions-create-function-app-portal.md
                 - name: Kotlin using IntelliJ
                   href: functions-create-maven-kotlin-intellij.md
-                - name: Linux App Service plan
-                  href: create-function-app-linux-app-service-plan.md
                 - name: Consumption plan
                   href: ./scripts/functions-cli-create-app-service-plan.md
                 - name: Premium plan
