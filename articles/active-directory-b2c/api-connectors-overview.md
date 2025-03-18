@@ -85,7 +85,7 @@ Using Azure AD B2C, you can add your own business logic to a user journey by cal
 ![Diagram of a RESTful service claims exchange](media/api-connectors-overview/restful-service-claims-exchange.png)
 
 > [!NOTE]
-> If there is slow or no response from the RESTful service to Azure AD B2C, the timeout is 30 seconds and the retry count is two times (meaning there are 3 tries in total). In April 2025 timeout durations and retries will be based on an execution policy with 10 second timeouts being the longest. Timeout duration and retries can be updated through tenant metadata settings.
+> If there is slow or no response from the RESTful service to Azure AD B2C, the timeout is 30 seconds and the retry count is two times (meaning there are 3 tries in total). Starting in **April 2025**, timeout durations and retries will be based on an execution policy, with the longest timeout being 10 seconds. You’ll be able to update timeout durations and retries through tenant setting.
 
 ## Calling a RESTful service
 
