@@ -26,8 +26,6 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 - An Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [network-security-perimeter-add-preview](../../includes/network-security-perimeter-add-preview.md)]
-
 ## Review the template
 
 This template creates a private endpoint for an instance of Azure SQL Database.

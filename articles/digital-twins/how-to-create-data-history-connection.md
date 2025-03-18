@@ -171,6 +171,8 @@ This command also creates three tables in your Azure Data Explorer database to s
 
 # [CLI](#tab/cli) 
 
+[!INCLUDE [digital-twins-cli-issue](../../includes/digital-twins-cli-issue.md)]
+
 Use the command in this section to create a data history connection and the tables in Azure Data Explorer. The command always creates a table for historized twin property updates, and it includes parameters to create the tables for relationship lifecycle and twin lifecycle events.
 
 >[!NOTE]

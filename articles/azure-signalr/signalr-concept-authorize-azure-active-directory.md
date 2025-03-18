@@ -1,14 +1,14 @@
 ---
 title: Authorize access with Microsoft Entra ID for Azure SignalR Service
-description: This article provides information on authorizing access to Azure SignalR Service resources by using Microsoft Entra ID.
-author: vicancy
-ms.author: lianwei
-ms.date: 09/06/2021
+description: This article explains how to authorize requests to Azure SignalR Service resources using Microsoft Entra ID. 
+author: terencefan
+ms.author: tefa
+ms.date: 03/12/2025
 ms.service: azure-signalr-service
 ms.topic: conceptual
 ---
 
-# Authorize access with Microsoft Entra ID for Azure SignalR Service
+# Microsoft Entra ID for Azure SignalR Service
 
 Azure SignalR Service supports Microsoft Entra ID for authorizing requests to its resources. With Microsoft Entra ID, you can use role-based access control (RBAC) to grant permissions to a *security principal*. A security principal is a user/resource group, an application, or a service principal such as system-assigned identities and user-assigned identities.
 
@@ -86,12 +86,20 @@ You can scope access to Azure SignalR Service resources at the following levels,
 
 ## Next steps
 
-- To learn how to create an Azure application and use Microsoft Entra authorization, see [Authorize requests to Azure SignalR Service resources with Microsoft Entra applications](./signalr-howto-authorize-application.md).
+- To learn how to configure Microsoft Entra authorization, see:
 
-- To learn how to configure a managed identity and use Microsoft Entra authorization, see [Authorize requests to Azure SignalR Service resources with Microsoft Entra managed identities](./signalr-howto-authorize-managed-identity.md).
+  - [Authorize requests to Azure SignalR Service resources with Microsoft Entra applications](./signalr-howto-authorize-application.md).
+  - [Authorize requests to Azure SignalR Service resources with Managed identities for Azure resources](./signalr-howto-authorize-managed-identity.md).
 
-- To learn more about roles and role assignments, see [What is Azure role-based access control (Azure RBAC)?](../role-based-access-control/overview.md).
+- To learn more about roles-based access control and role, see:
 
-- To learn how to create custom roles, see [Steps to create a custom role](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
+  - [What is Azure role-based access control (Azure RBAC)?](../role-based-access-control/overview.md).
+  - [Steps to create a custom role](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
 
-- To learn how to use only Microsoft Entra authentication, see [Disable local authentication](./howto-disable-local-auth.md).
+- To learn how to configure cross tenant authorization with Microsoft Entra, see:
+
+  - [How to configure cross tenant authorization with Microsoft Entra](signalr-howto-authorize-cross-tenant.md)
+
+- To learn how to disable connection string and use only Microsoft Entra authentication, see:
+
+  - [How to disable local authentication](./howto-disable-local-auth.md).

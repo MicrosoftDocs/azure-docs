@@ -3,7 +3,7 @@ title: Authorize requests to Azure SignalR Service resources with Microsoft Entr
 description: This article provides information about authorizing requests to Azure SignalR Service resources with Microsoft Entra applications.
 author: terencefan
 ms.author: tefa
-ms.date: 03/14/2023
+ms.date: 03/12/2023
 ms.service: azure-signalr-service
 ms.topic: how-to
 ms.devlang: csharp
@@ -194,6 +194,7 @@ In the Azure portal, add settings as follows:
 
 See the following related articles:
 
-- [Authorize access with Microsoft Entra ID for Azure SignalR Service](signalr-concept-authorize-azure-active-directory.md)
-- [Authorize requests to Azure SignalR Service resources with Microsoft Entra managed identities](signalr-howto-authorize-managed-identity.md)
-- [Disable local authentication](./howto-disable-local-auth.md)
+- [Microsoft Entra ID for Azure SignalR Service](signalr-concept-authorize-azure-active-directory.md)
+- [Authorize requests to Azure SignalR Service resources with Managed identities for Azure resources](./signalr-howto-authorize-managed-identity.md)
+- [How to configure cross tenant authorization with Microsoft Entra](signalr-howto-authorize-cross-tenant.md)
+- [How to disable local authentication](./howto-disable-local-auth.md)
