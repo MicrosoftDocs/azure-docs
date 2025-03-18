@@ -36,11 +36,11 @@
   - name: limitations
     href: concept-limitations.md
   - name: IP address management
-    links:
+    items:
     - name: IP address management overview
       href: concept-ip-address-management.md
     - name: Automate IP address management
-      href: automate-ip-address-management-sample.md
+      href: automate-ip-address-management-ipam-sample.md
   - name: Scope
     href: concept-network-manager-scope.md
   - name: Network groups
