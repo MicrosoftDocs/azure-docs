@@ -46,7 +46,7 @@ items:
           href: /azure/migrate/tutorial-migrate-aws-virtual-machines
         - name: Migrate virtual machine images to Azure Managed Disks
           href: /azure/virtual-machines/windows/on-prem-to-azure
-      - name: Migrate VMWare Services to Azure
+      - name: Migrate VMware Services to Azure
         href: /azure/migrate/vmware/migrate-support-matrix-vmware
     - name: Databases and data
       items:
