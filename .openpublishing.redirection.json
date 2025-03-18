@@ -2820,6 +2820,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/bastion/quickstart-developer-sku.md",
+      "redirect_url": "/azure/bastion/quickstart-developer",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/bastion/bastion-connect-vm-rdp.md",
       "redirect_url": "/azure/bastion/bastion-connect-vm-rdp-windows",
       "redirect_document_id": false
