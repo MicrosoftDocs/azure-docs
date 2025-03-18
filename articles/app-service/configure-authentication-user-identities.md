@@ -1,7 +1,7 @@
 ---
-title: User Identities in AuthN/AuthZ
+title: Work with User Identities in AuthN/AuthZ
 description: Learn how to access user identities when you use the built-in authentication and authorization in Azure App Service.
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/29/2021
 ms.custom: AppServiceIdentity
 author: cephalin

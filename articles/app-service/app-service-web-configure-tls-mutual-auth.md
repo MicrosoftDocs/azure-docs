@@ -4,8 +4,7 @@ description: Learn how to set up TLS mutual authentication in Azure App Service 
 keywords: TLS mutual authentication, Azure App Service security, secure client-server communication
 author: msangapu-msft
 ms.author: msangapu
-ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/14/2025
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python

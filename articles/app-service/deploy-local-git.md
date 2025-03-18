@@ -8,7 +8,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: cephalin
 ms.author: cephalin
 ---
-# Local Git deployment to Azure App Service
+# Deploy to Azure App Service by using local Git
 
 This article shows you how to deploy your app to [Azure App Service](overview.md) from a Git repository on your local computer.
 

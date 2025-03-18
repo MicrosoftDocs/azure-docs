@@ -2,13 +2,13 @@
 title: Language Runtime Support Policy
 description: Learn about the language runtime support policy for Azure App Service.
 author: jeffwmartinez
-ms.topic: article
+ms.topic: concept-article
 ms.date: 05/06/2024
 ms.author: jefmarti
 ms.custom: devx-track-extended-java
 ---
 
-# Language runtime support policy for App Service
+# Language runtime support policy for Azure App Service
 
 This article describes the language runtime support policy for updating existing stacks and retiring end-of-support stacks in Azure App Service. This policy clarifies existing practices and doesn't represent a change to customer commitments.
 

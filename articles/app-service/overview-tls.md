@@ -2,7 +2,7 @@
 title: Overview of TLS/SSL for Azure App Service
 description: Get an overview of TLS/SSL certificates in Azure App Service and understand how they secure your custom domains.
 keywords: TLS/SSL certificates, Azure App Service security, HTTPS overview, domain encryption
-ms.topic: concept-article
+ms.topic: overview
 ms.date: 02/18/2025
 ms.author: msangapu
 author: msangapu-msft
