@@ -22,7 +22,9 @@ The **Communication and Email Service Owner** role gives access to all Communica
     :::image type="content" source="../../media/smtp-custom-role-clone.png" alt-text="Screenshot that shows cloning a role.":::
 1. Click the **Basics** tab and give a name to the new role.
     :::image type="content" source="../../media/smtp-custom-role-basics.png" alt-text="Screenshot that shows creating a name for a new custom role.":::
-1. Click the **Permissions** tab and click **Add permissions**. Search for **Microsoft.Communication** and select **Azure Communication Services**
+1. Click the **Permissions** tab and click **Add permissions**.
+    :::image type="content" source="../../media/smtp-custom-role-addpermissions.png" alt-text="Screenshot that shows how to add permissions to custom role.":::
+1. Search for **Microsoft.Communication** and select **Azure Communication Services**
     :::image type="content" source="../../media/smtp-custom-role-permissions.png" alt-text="Screenshot that shows adding permissions for a new custom role.":::
 1. Select the **Microsoft.Communication/CommunicationServices** **Read**, **Microsoft.Communication/CommunicationServices** **Write**, and the **Microsoft.Communication/EmailServices** **Write** permissions. Click **Add**.
     :::image type="content" source="../../media/smtp-custom-role-add-permissions.png" alt-text="Screenshot that shows adding Azure Communication Services' permissions.":::
