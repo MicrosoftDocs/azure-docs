@@ -386,10 +386,8 @@ items:
         items:
         - name: Overview
           href: anonymous-read-access-overview.md
-        - name: Remediate anonymous access (Azure Resource Manager deployments)
+        - name: Remediate anonymous access
           href: anonymous-read-access-prevent.md
-        - name: Remediate anonymous access (classic deployments)
-          href: anonymous-read-access-prevent-classic.md
         - name: Configure anonymous access
           href: anonymous-read-access-configure.md
     - name: Microsoft Defender for Storage
