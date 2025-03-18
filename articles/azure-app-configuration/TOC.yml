@@ -6,14 +6,16 @@
     href: overview.md
   - name: Best practices
     href: howto-best-practices.md
-  - name: FAQ
+  - name: Frequently asked questions
     href: faq.yml
   expanded: true
 - name: Get started
   items:
   - name: Create an App Configuration store
     href: quickstart-azure-app-configuration-create.md
-  - name: Manage feature flags
+  - name: Import or export configuration data
+    href: howto-import-export-data.md
+  - name: Create and manage feature flags
     href: manage-feature-flags.md
   - name: ASP.NET Core
     items:
@@ -108,7 +110,6 @@
       href: quickstart-resource-manager.md
   - name: .NET App in Visual Studio
     href: /visualstudio/azure/vs-azure-tools-connected-services-app-configuration
-  expanded: true
 - name: Concepts
   items:
   - name: Keys and values
@@ -117,13 +118,13 @@
       href: concept-key-value.md
     - name: Point-in-time key-values
       href: concept-point-time-snapshot.md
-    - name: Use labels for per-environment configuration
+    - name: Per-environment configuration
       href: howto-labels-aspnet-core.md
   - name: Snapshots
     items:
     - name: Overview
       href: concept-snapshots.md
-    - name: Manage and use snapshots
+    - name: Create and use snapshots
       href: howto-create-snapshots.md
   - name: Push notifications
     items:
@@ -141,7 +142,7 @@
     items:
     - name: Overview
       href: concept-soft-delete.md
-    - name: Recover or purge deleted App Configuration stores
+    - name: Recover or purge deleted stores
       href: howto-recover-deleted-stores-in-azure-app-configuration.md
 - name: Feature management
   items:
@@ -217,8 +218,6 @@
     href: monitor-app-configuration-reference.md
 - name: How-to guides
   items:
-  - name: Import or export configuration data
-    href: howto-import-export-data.md
   - name: Use JSON content-type for key-values
     href: howto-leverage-json-content-type.md
   - name: Update to the New Spring Boot Library
@@ -245,7 +244,7 @@
       href: howto-disable-public-access.md
   - name: Data encryption
     items:
-    - name: Add Managed Identities to your store
+    - name: Add Managed Identities
       href: overview-managed-identity.md
     - name: Encrypt data using customer-managed keys
       href: concept-customer-managed-keys.md
@@ -255,16 +254,16 @@
     href: /security/benchmark/azure/baselines/azure-app-configuration-security-baseline?toc=/azure/azure-app-configuration/TOC.json
 - name: Reliability
   items:
-  - name: Availability zone support
-    href: ../reliability/migrate-app-configuration.md
-  - name: Resiliency and disaster recovery
-    href: concept-disaster-recovery.md
   - name: Geo-replication
     items:
     - name: Overview
       href: concept-geo-replication.md
     - name: Enable geo-replication
       href: howto-geo-replication.md
+  - name: Resiliency and disaster recovery
+    href: concept-disaster-recovery.md
+  - name: Availability zone support
+    href: ../reliability/migrate-app-configuration.md
 - name: Samples
   items:
   - name: Azure CLI
