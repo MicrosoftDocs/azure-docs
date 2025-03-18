@@ -70,18 +70,16 @@ Use the following example as a template to create or update a DCR:
 
 ### Request URL and header  
 
-```rest
-
-PUT 
-
-    https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dataCollectionRuleName}?api-version=2019-11-01-preview 
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dataCollectionRuleName}?api-version=2019-11-01-preview
 ```
  
 ### Request body
 
-```rest
-
+```json
 {
+    "location": "eastus2",
+    "kind" : "Windows",
     "properties": {
         "dataSources": {
             "windowsEventLogs": [],
@@ -113,9 +111,9 @@ PUT
         "destinations": {
             "logAnalytics": [
                 {
-                    "workspaceResourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.OperationalInsights/workspaces/{sentinelWorkspaceName}",
-                    "workspaceId": {WorkspaceGuid}",
-                    "name": "WorkspaceDestination"
+                    "name" : "WorkspaceDestination",
+                    "workspaceId" : "{WorkspaceGuid}",
+                    "workspaceResourceId" : "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.OperationalInsights/workspaces/{sentinelWorkspaceName}"
                 }
             ]
         },
@@ -125,17 +123,12 @@ PUT
                     "Microsoft-ASimDnsActivityLogs"
                 ],
                 "destinations": [
-                    " WorkspaceDestination "
+                    "WorkspaceDestination"
                 ]
             }
         ],
     },
-    "location": "eastus2",
-    "tags": {},
-    "kind": "Windows",
-    "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Insights/dataCollectionRules/{workspaceName}-microsoft-sentinel-asimdnsactivitylogs ",
-    "name": " {workspaceName}-microsoft-sentinel-asimdnsactivitylogs ",
-    "type": "Microsoft.Insights/dataCollectionRules",
+    "tags" : {}
 }
 ```
 
@@ -203,7 +196,7 @@ This filter instructs the connector not to collect EventID 256 or EventID 257 or
 
 **Using the API**:
 
-```rest
+```json
 "Filters": [
     {
         "FilterName": "SampleFilter",
@@ -260,32 +253,20 @@ To define different values in a single field, use the **OR** operator.
 
 Review these considerations for [using wildcards](#use-wildcards). 
 
-```rest
+```json
 "Filters": [ 
-
     { 
-
         "FilterName": "SampleFilter", 
-
         "Rules": [ 
-
             { 
-
                 "Field": "DnsQuery", 
-
                 "FieldValues": [ 
-
                     "*.microsoft.com", "*.google.com", "facebook.com", "*.amazon.com","center.local"                                                                               
-
-                ] 
-
-            }, 
-
-         } 
-
-    } 
-
-] 
+                ]
+            }
+        ]
+    }
+]
 ```
 
 ## Normalization using ASIM
