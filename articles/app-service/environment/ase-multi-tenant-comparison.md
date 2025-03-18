@@ -128,8 +128,3 @@ To get started with App Service Environment v3, see [Azure App Service landing z
 ### How do I get started with the App Service public multitenant offering?
 
 To get started with the App Service public multitenant offering, see [Getting started with Azure App Service](../../app-service/getting-started.md).
-
-## Related content
-
-- [Getting started with Azure App Service](../../app-service/getting-started.md)
-- [Azure App Service landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator)
