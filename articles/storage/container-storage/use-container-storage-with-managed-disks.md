@@ -158,8 +158,8 @@ Follow these steps to create a pre-provisioned storage pool for Azure Disks.
      poolType:
        azureDisk:
          disks:
-           - reference <resource-id1>
-           - reference <resource-id2>
+           - reference: <resource-id1>
+           - reference: <resource-id2>
    ```
 
 1. Apply the YAML manifest file to create the storage pool.
