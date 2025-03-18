@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 01/14/2025
+ms.date: 03/18/2025
 ms.author: anfdocs
 ---
 # Manage a manual QoS capacity pool
