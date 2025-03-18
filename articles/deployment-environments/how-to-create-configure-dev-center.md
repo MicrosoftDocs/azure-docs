@@ -1,27 +1,29 @@
 ---
 title: Create and configure a dev center for Azure Deployment Environments by using the Azure CLI
 titleSuffix: Azure Deployment Environments
-description: Learn how to create and access a dev center for Azure Deployment Environments project using the Azure CLI.
+description: Learn how to create and configure a dev center for an Azure Deployment Environments project by using the Azure CLI.
 author: renato-marciano
 ms.author: remarcia
 ms.service: azure-deployment-environments
 ms.custom: devx-track-azurecli, build-2023
 ms.topic: quickstart
 ms.date: 03/20/2025
+
+#customer intent: As a platform engineer, I want to create and configure a dev center so that my teams can deploy applications.
 ---
 
 # Create and configure a dev center for Azure Deployment Environments by using the Azure CLI
 
-This quickstart guide shows you how to create and configure a dev center in Azure Deployment Environments.
+In this quickstart, you create and configure a dev center in Azure Deployment Environments.
 
 A platform engineering team typically sets up a dev center, attaches external catalogs to the dev center, creates projects, and provides access to development teams. Development teams can then create [environments](concept-environments-key-concepts.md#environments) by using [environment definitions](concept-environments-key-concepts.md#environment-definitions), connect to individual resources, and deploy applications.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Azure role-based access control role with permissions to create and manage resources in the subscription, such as [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Owner](../role-based-access-control/built-in-roles.md#owner).
-- Install the [Azure CLI devcenter extension](how-to-install-devcenter-cli-extension.md).
-- A GitHub account and a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) with repo access.
+|Category|Requirements|
+|-|-|
+|Azure|- An [Azure subscription](https://azure.microsoft.com/free/).<br>- An Azure role-based access control role that has permissions to create and manage resources in the subscription, such as [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Owner](../role-based-access-control/built-in-roles.md#owner).<br>-The [Azure CLI devcenter extension](how-to-install-devcenter-cli-extension.md).|
+|GitHub|A GitHub account and a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) with repo access.| 
 
 ## Create a dev center
 
@@ -45,7 +47,7 @@ To create and configure a dev center in Azure Deployment Environments:
    az account set --subscription <subscriptionName>
    ```
 
-1. Configure the default location where you want to create the dev center. Make sure to choose an [available region for Azure Deployment Environments](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=deployment-environments&regions=all):
+1. Configure the default location where you want to create the dev center. Make sure to choose a [region that supports Azure Deployment Environments](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=deployment-environments&regions=all).
 
    ```azurecli
    az configure --defaults location=eastus
@@ -106,6 +108,11 @@ You need an Azure Key Vault to store the GitHub personal access token (PAT) that
    > You might get the following error: 
    `Code: VaultAlreadyExists Message: The vault name 'kv-devcenter-unique' is already in use. Vault names are globally unique so it is possible that the name is already taken.` You must use a globally unique key vault name.
 
+1. Assign yourself the Key Vault Secrets Officer RBAC role:
+
+   ```azurecli
+   az role assignment create --assignee <YourPrincipalId> --role "Key Vault Secrets Officer" --scope /subscriptions/<YourSubscriptionId>/resourceGroups/<YourResourceGroupName>/providers/Microsoft.KeyVault/vaults/<YourKeyVaultName>
+   
 1. Add the GitHub PAT to Key Vault as a secret:
 
    ```azurecli
@@ -128,20 +135,11 @@ To attach a system-assigned managed identity to your dev center:
 
 ### Give the system-assigned managed identity access to the key vault secret
 
-Make sure that the identity has access to the key vault secret that contains the GitHub PAT to access your repository. Key Vaults support two methods of access; Azure role-based access control or vault access policy. In this quickstart, you use a vault access policy.
+Make sure that the identity has access to the key vault secret that contains the GitHub PAT to access your repository. Key Vaults support two methods of access; Azure role-based access control (RBAC) or vault access policy. In this quickstart, you use RBAC:
 
-1. Retrieve the Object ID of your dev center's identity:
-
-    ```azurecli
-   OID=$(az ad sp list --display-name <devcenterName> --query [].id -o tsv)
-   echo $OID
-   ```
-
-1. Add a Key Vault policy to allow the dev center to get secrets from Key Vault:
-
-   ```azurecli
-   az keyvault set-policy -n <keyvaultName> --secret-permissions get --object-id $OID
-   ```
+```azurecli
+az role assignment create --role "Key Vault Secrets Officer" --assignee <devCenterManagedIdentityObjectID> --scope /subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName/providers/Microsoft.KeyVault/vaults/<keyVaultName>
+```
 
 ## Add a catalog to the dev center
 
