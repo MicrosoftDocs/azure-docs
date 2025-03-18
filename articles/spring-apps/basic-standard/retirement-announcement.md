@@ -75,13 +75,13 @@ You might also consider the following alternative solutions:
 
 Azure Spring Apps Standard consumption and dedicated plan (preview) isn't accepting new customers. Existing customers will remain operational until these plans are retired on March 31, 2025.
 
-Azure Spring Apps Basic, Standard, and Enterprise plans won't accept new customers after March 17, 2025. Existing customers can continue using the service, including creating, updating or deleting instances, until the plans are phased out on March 31, 2028.
+Azure Spring Apps Basic, Standard, and Enterprise plans won't accept new customers after March 17, 2025. Existing customers can continue using the service, including creating, updating or deleting instances within the same tenant, until the plans are phased out on March 31, 2028.
 
 ### How do you distinguish between new and existing customers for Azure Spring Apps?
 
 For the Azure Spring Apps Consumption and dedicated plan, if you created an Azure Spring Apps service instance before Sep 30, 2024, you're considered an existing customer. If you never created an Azure Spring Apps service instance before that date, you're considered a new customer.
 
-For Azure Spring Apps basic, standard and enterprise plans, if you created an Azure Spring Apps service instance before March 17, 2025, you're considered an existing customer. You can create a new service instance in the subscriptions of the same tenant. If you never created an Azure Spring Apps service instance before that date or have not had an Azure Spring Apps service instance in the past 3 months, you're considered a new customer.
+For Azure Spring Apps basic, standard and enterprise plans, if you created an Azure Spring Apps service instance before March 17, 2025, you're considered an existing customer. If you never created an Azure Spring Apps service instance before that date or have not had an Azure Spring Apps service instance in the past 3 months, you're considered a new customer.
 
 ### Will Microsoft continue to support my current workloads?
 
