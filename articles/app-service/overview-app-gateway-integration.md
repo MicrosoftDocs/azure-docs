@@ -1,9 +1,8 @@
 ---
-title: Application Gateway integration - Azure App Service | Microsoft Learn
+title: Application Gateway integration with App Service
 description: Learn how Application Gateway integrates with Azure App Service.
 services: app-service
 author: madsd
-ms.assetid: 073eb49c-efa1-4760-9f0c-1fecd5c251cc
 ms.service: azure-app-service
 ms.topic: article
 ms.date: 01/07/2025
@@ -18,7 +17,7 @@ This article walks through how to configure Application Gateway with App Service
 
 ## Integration with App Service
 
-You can use private endpoints to secure traffic between Application Gateway and your App Service app. You need to ensure that Application Gateway can use DNS to resolve the private IP address of the App Service apps. Alternatively, you can use the private IP address in the back-end pool and override the host name in the HTTP settings.
+You can use private endpoints to secure traffic between Application Gateway and your App Service app. You need to ensure that Application Gateway can use Domain Name System (DNS) to resolve the private IP address of the App Service apps. Alternatively, you can use the private IP address in the back-end pool and override the host name in the HTTP settings.
 
 :::image type="content" source="./media/overview-app-gateway-integration/private-endpoint-appgw.png" alt-text="Diagram that shows traffic flowing to an application gateway through a private endpoint to instances of apps in App Service.":::
 
@@ -46,9 +45,9 @@ The second part is to set an access restriction on the specific web app to ensur
 With the Azure portal, you follow four steps to create and configure the setup of App Service and Application Gateway. If you have existing resources, you can skip the first steps.
 
 1. Create an App Service instance by using one of the quickstarts in the App Service documentation. One example is the [.NET Core quickstart](./quickstart-dotnetcore.md).
-2. Create an application gateway by using the [portal quickstart](../application-gateway/quick-create-portal.md), but skip the section about adding back-end targets.
-3. Configure [App Service as a back end in Application Gateway](../application-gateway/configure-web-app.md?tabs=defaultdomain), but skip the section about restricting access.
-4. Create the [access restriction by using service endpoints](../app-service/app-service-ip-restrictions.md#set-a-service-endpoint-based-rule).
+1. Create an application gateway by using the [portal quickstart](../application-gateway/quick-create-portal.md), but skip the section about adding back-end targets.
+1. Configure [App Service as a back end in Application Gateway](../application-gateway/configure-web-app.md?tabs=defaultdomain), but skip the section about restricting access.
+1. Create the [access restriction by using service endpoints](../app-service/app-service-ip-restrictions.md#set-a-service-endpoint-based-rule).
 
 You can now access App Service through Application Gateway. If you try to access App Service directly, you should receive a 403 HTTP error that says the web app is blocking your access.
 
@@ -119,10 +118,8 @@ You can also configure `clientAffinityProxyEnabled` by using the following comma
 az resource update --resource-group myRG --name myWebApp --resource-type "Microsoft.Web/sites" --set properties.clientAffinityProxyEnabled=true
 ```
 
-## Next steps
+## Related content
 
-For more information on App Service Environments, see the [App Service Environment documentation](./environment/index.yml).
-
-To further secure your web app, you can find information about Azure Web Application Firewall on Application Gateway in the [Azure Web Application Firewall documentation](../web-application-firewall/ag/ag-overview.md).
-
-To deploy a secure, resilient site with a custom domain on App Service by using either Azure Front Door or Application Gateway, see [this tutorial](https://azure.github.io/AppService/2021/03/26/Secure-resilient-site-with-custom-domain).
+- Get more information about [App Service Environments](./environment/index.yml).
+- Learn how to help secure your web app by using [Azure Web Application Firewall](../web-application-firewall/ag/ag-overview.md).
+- Complete a [tutorial](https://azure.github.io/AppService/2021/03/26/Secure-resilient-site-with-custom-domain) to deploy a secure, resilient site with a custom domain on App Service by using either Azure Front Door or Application Gateway.

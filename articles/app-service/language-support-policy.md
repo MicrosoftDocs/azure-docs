@@ -70,7 +70,7 @@ To learn more about how to update language versions for your App Service applica
 
 ### JDK versions and maintenance
 
-Microsoft and Adoptium builds of OpenJDK are provided and supported on App Service for Java 21, 17, 11, and 8. These binaries are provided as a no-cost, multiplatform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and running Java SE applications. For local development or testing, you can install the Microsoft build of OpenJDK from the [downloads page](/java/openjdk/download).
+Microsoft and Adoptium builds of OpenJDK are provided and supported on App Service for Java 21, 17, 11, and 8. These binaries are provided as a no-cost, multiplatform, production-ready distribution of OpenJDK for Azure. The binaries contain all the components for building and running Java SE applications. For local development or testing, you can [download the Microsoft build of OpenJDK](/java/openjdk/download).
 
 # [Linux](#tab/linux)
 
@@ -99,7 +99,7 @@ Microsoft and Adoptium builds of OpenJDK are provided and supported on App Servi
 | JBoss 7.4 Java 11       | Ubuntu        | MSFT OpenJDK 11           |
 | JBoss 7.4 Java 17       | Ubuntu        | MSFT OpenJDK 17           |
 
-\* Alpine 3.16 is the last supported Alpine distribution in App Service. You should pin to a version to avoid switching over to Ubuntu automatically. Make sure you test and switch to Java offering supported by Ubuntu based distributions when possible.
+\* Alpine 3.16 is the last supported Alpine distribution in App Service. You should pin to a version to avoid switching over to Ubuntu automatically. Make sure that you test and switch to a Java offering that is supported by Ubuntu-based distributions when possible.
 
 # [Windows](#tab/windows)
 
@@ -125,33 +125,33 @@ Microsoft and Adoptium builds of OpenJDK are provided and supported on App Servi
 
 -----
 
-If you're [pinned](configure-language-java-deploy-run.md#choosing-a-java-runtime-version) to an earlier minor version of Java, your app might be using the deprecated [Azul Zulu for Azure](https://devblogs.microsoft.com/java/end-of-updates-support-and-availability-of-zulu-for-azure/) binaries provided through [Azul Systems](https://www.azul.com/). You can keep using these binaries for your app, but any security patches or improvements are available only in more recent versions of OpenJDK. In this scenario, we recommend that you periodically update your web apps to a more recent version of Java.
+If you're [pinned](configure-language-java-deploy-run.md#choosing-a-java-runtime-version) to an earlier minor version of Java, your app might be using the deprecated [Azul Zulu for Azure](https://devblogs.microsoft.com/java/end-of-updates-support-and-availability-of-zulu-for-azure/) binaries that are provided through [Azul Systems](https://www.azul.com/). You can keep using these binaries for your app, but any security patches or improvements are available only in more recent versions of OpenJDK. In this scenario, we recommend that you periodically update your web apps to a more recent version of Java.
 
-Major version updates are provided through new runtime options in Azure App Service. Customers update to these later versions of Java by configuring their App Service deployment and are responsible for testing and ensuring the major update meets their needs.
+Major version updates are provided through new runtime options in Azure App Service. Update to these later versions of Java by configuring your App Service deployment. You are responsible for testing and ensuring the major update meets your needs.
 
 Supported JDKs are automatically patched on a quarterly basis in January, April, July, and October of each year. For more information, see [Java on Azure](/azure/developer/java/fundamentals/java-support-on-azure).
 
 ### Security updates
 
-Patches and fixes for major security vulnerabilities are released as soon as they become available in Microsoft builds of OpenJDK. A "major" vulnerability has a base score of 9.0 or higher on the [NIST Common Vulnerability Scoring System, version 2](https://nvd.nist.gov/vuln-metrics/cvss).
+Patches and fixes for major security vulnerabilities are released as soon as they become available in Microsoft builds of OpenJDK. A *major vulnerability* is a vulnerability that has a base score of 9.0 or higher on the [NIST Common Vulnerability Scoring System, version 2](https://nvd.nist.gov/vuln-metrics/cvss).
 
-Tomcat 8.5 reached [End of Life as of March 31, 2024](https://tomcat.apache.org/tomcat-85-eol.html) and Tomcat 10.0 reached [End of Life as of October 31, 2022](https://tomcat.apache.org/tomcat-10.0-eol.html).
+Tomcat 8.5 reached [end of support as of March 31, 2024](https://tomcat.apache.org/tomcat-85-eol.html) and Tomcat 10.0 reached [end of support as of October 31, 2022](https://tomcat.apache.org/tomcat-10.0-eol.html).
 
 Although the runtimes are still available on Azure App Service, Tomcat 10 and Tomcat 8.5 don't receive security updates.
 
-When possible, migrate your applications to Tomcat 9.0 or Tomcat 10.1. Tomcat 9.0 and Tomcat 10.1 are available on Azure App Service. For more information, see the [official Tomcat site](https://tomcat.apache.org/whichversion.html).
+When possible, migrate your applications to Tomcat 9.0 or Tomcat 10.1. Tomcat 9.0 and Tomcat 10.1 are available on Azure App Service. For more information, see the [Apache Tomcat documentation](https://tomcat.apache.org/whichversion.html).
 
-Community support for Java 7 ended on July 29, 2022 and [Java 7 was retired from App Service](https://azure.microsoft.com/updates/transition-to-java-11-or-8-by-29-july-2022/). If you have a web app running on Java 7, upgrade to Java 8 or 11 immediately.
+Community support for Java 7 ended on July 29, 2022 and [Java 7 was retired from App Service](https://azure.microsoft.com/updates/transition-to-java-11-or-8-by-29-july-2022/). If you have a web app running on Java 7, upgrade to Java 8 or Java 11 immediately.
 
 ### Deprecation and retirement
 
-If a supported Java runtime is retired, Azure developers using the affected runtime receive a deprecation notice at least six months before the runtime is retired.
+If a supported Java runtime is retired, Azure developers who use the affected runtime receive a deprecation notice at least six months before the runtime is retired.
 
 - [Reasons to move to Java 11](/java/openjdk/reasons-to-move-to-java-11?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/fundamentals/toc.json)
 - [Java 7 migration guide](/java/openjdk/transition-from-java-7-to-java-8?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/fundamentals/toc.json)
 
 ### Local development
 
-Developers can download the Microsoft build of OpenJDK for local development from [our download site](/java/openjdk/download).
+Developers can [download](/java/openjdk/download) the Microsoft build of OpenJDK for local development.
 
-Product support for the [Microsoft build of OpenJDK](/java/openjdk/download) is available through Microsoft when developing for Azure or [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) with a [qualified Azure support plan](https://azure.microsoft.com/support/plans/).
+Product support for the [Microsoft build of OpenJDK](/java/openjdk/download) is available through Microsoft when you develop for Azure or [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) with a [qualified Azure support plan](https://azure.microsoft.com/support/plans/).
