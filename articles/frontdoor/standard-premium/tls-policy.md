@@ -13,16 +13,19 @@ ms.date: 03/18/2025
 > [!IMPORTANT]
 > TLS policy is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure Front Door supports [end-to-end TLS encryption](../end-to-end-tls.md). When you add a custom domain to Azure Front Door, HTTPS is required, and you need to define a TLS policy which includes control of the TLS protocol version as well as the cipher suites and the order in which ciphers are used during a TLS handshake. 
+Azure Front Door supports [end-to-end TLS encryption](../end-to-end-tls.md). When you add a custom domain to Azure Front Door, HTTPS is required, and you need to define a TLS policy which includes control of the TLS protocol version as well as the cipher suites during a TLS handshake. 
 
-Azure Front Door supports two versions of the TLS protocol: TLS versions 1.2 and 1.3. Although TLS 1.2 introduced client/mutual authentication in RFC 5246, Azure Front Door currently doesn't support client/mutual authentication (mTLS).
+Azure Front Door supports two versions of the TLS protocol: TLS versions 1.2 and 1.3. Currently, Azure Front Door doesn't support client/mutual authentication (mTLS).
+
+> [!NOTE]
+> TLS 1.0 and 1.1 have been disallowed for new enablement since March 1, 2025. If you haven’t disabled TLS 1.0 and 1.1 on legacy settings before March 1, 2025, TLS 1.0 and 1.1 still work, but they will be disabled in the upcoming weeks.
 
 Azure Front Door offers two mechanisms for controlling TLS policy. You can use either a predefined policy or a custom policy per your own needs.
 
 - Azure Front Door offers several predefined TLS policies. You can configure your AFD with any of these policies to get the appropriate level of security. These predefined policies are configured keeping in mind the best practices and recommendations from the Microsoft Security team. We recommend that you use the newest TLS policies to ensure the best TLS security.
 - If a TLS policy needs to be configured for your own business and security requirements, you can use a Custom TLS policy. With a custom TLS policy, you have complete control over the minimum TLS protocol version to support, and the supported cipher suites.
 
-For minimum TLS version 1.2, the negotiation will attempt to establish TLS 1.3 and then TLS 1.2. The client must support at least one of the supported ciphers to establish an HTTPS connection with Azure Front Door. Azure Front Door chooses a cipher in the listed order from the client-supported ciphers.
+For a minimum TLS version 1.2, the negotiation will attempt to establish TLS 1.3 and then TLS 1.2. The client must support at least one of the supported ciphers to establish an HTTPS connection with Azure Front Door. Azure Front Door chooses a cipher in the listed order from the client-supported ciphers.
 
 When Azure Front Door initiates TLS traffic to the origin, it will attempt to negotiate the best TLS version that the origin can reliably and consistently accept. Supported TLS versions for origin connections are TLS 1.2, and TLS 1.3. 
 
