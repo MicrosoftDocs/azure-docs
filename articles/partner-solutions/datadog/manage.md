@@ -10,7 +10,7 @@ ms.custom:
   - ai-gen-title
 ---
 
-# Manage your Datadog resources
+# Manage Datadog resources
 
 This article shows how to manage the settings for Datadog.
 

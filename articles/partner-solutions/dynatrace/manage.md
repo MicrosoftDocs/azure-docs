@@ -7,7 +7,7 @@ ms.date: 3/13/2025
 
 ---
 
-# Manage your Dynatrace resources
+# Manage Dynatrace resources
 
 This article describes how to manage the settings for Dynatrace for Azure.
 

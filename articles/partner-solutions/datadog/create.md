@@ -110,5 +110,5 @@ Select the **Next** button at the bottom of the page.
 
 ## Next steps
 
-- [Manage the Datadog resource](manage.md)
+- [Manage Datadog resources](manage.md)
 

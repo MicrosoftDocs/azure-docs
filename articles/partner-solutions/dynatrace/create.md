@@ -85,6 +85,6 @@ Select the **Next** button at the bottom of the page.
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Manage a Dynatrace resource](manage.md)
+> [Manage Dynatrace resources](manage.md)
 
 
