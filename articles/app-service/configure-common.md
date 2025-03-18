@@ -232,10 +232,10 @@ At runtime, connection strings are available as environment variables, prefixed 
 For example, a MySQL connection string named *connectionstring1* can be accessed as the environment variable `MYSQLCONNSTR_connectionString1`. For steps that are specific to each language stack, see:
 
 - [ASP.NET Core](configure-language-dotnetcore.md#access-environment-variables)
-- [Node.js](configure-language-nodejs.md#access-environment-variables)
-- [PHP](configure-language-php.md#access-environment-variables)
-- [Python](configure-language-python.md#access-environment-variables)
 - [Java](configure-language-java-data-sources.md)
+- [Node.js](configure-language-nodejs.md#access-environment-variables)
+- [Python](configure-language-python.md#access-environment-variables)
+- [PHP](configure-language-php.md#access-environment-variables)
 - [Custom containers](configure-custom-container.md#configure-environment-variables)
 
 Connection strings are always encrypted when they're stored (encrypted at rest).
