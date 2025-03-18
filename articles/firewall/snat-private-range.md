@@ -17,7 +17,7 @@ Azure Firewall provides SNAT capability for all outbound traffic to public IP ad
 This logic works well when you route traffic directly to the Internet. However, there are scenarios where you may want to override the default SNAT behavior.
 
 - If you've enabled [forced tunneling](forced-tunneling.md), Internet-bound traffic is SNATed to one of the firewall private IP addresses in AzureFirewallSubnet, hiding the source from your on-premises firewall.
-- If your organization uses registered IP address ranges outside of IANA RFC 1918 or IANA RFC 6598 for private networks, Azure Firewall SNATs the traffic to one of the firewall private IP addresses in AzureFirewallSubnet. However, you can configure Azure Firewall to **not** SNAT your public IP address range. For example, to specify an individual IP address you can specify it like this: `192.168.1.10`. To specify a range of IP addresses, you can specify it like this: `192.168.1.0/24`.
+- If your organization uses registered IP address ranges outside of IANA RFC 1918 or IANA RFC 6598 for private networks, Azure Firewall SNATs the traffic to one of the firewall private IP addresses in AzureFirewallSubnet. However, you can configure Azure Firewall to **not** SNAT your public IP address range. For example, to specify an individual IP address you can specify it as a single IP address `x.x.x.x`. To specify a range of IP addresses, you can specify it like this: `x.x.x.x/24`.
 
 Azure Firewall SNAT behavior can be changed in the following ways:
 
