@@ -196,9 +196,11 @@ The following table provides detailed capabilities mapped to the roles. At a hig
 | **Dial-out to PSTN participants from the client-side** | | | |
 | - Dial-out to PSTN participants from Virtual Rooms calls | ✔️ | ❌ | ❌ | ❌ |
 
-\* Only available on the web calling SDK. Not available on iOS and Android calling SDKs.
+\* Only available on the web calling SDK. 
 
+<!-- Commented out as we have no need to label anything in public preview at the moment
 \*\* Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+-->
 
 ## Event handling
 
