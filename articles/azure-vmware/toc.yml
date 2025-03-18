@@ -22,7 +22,7 @@ items:
     - name: Connectivity to Azure virtual networks
       href: native-network-connectivity.md
     - name: Connect to On-premises environment
-      href: native-connect-on-premises.md
+      href: native-connect-onpremises.md
     - name: Internet connectivity design considerations for Azure VMware Solution on native private cloud
       href: native-internet-connectivity-design-considerations.md
     - name: Connect multiple Azure VMware Solution on native private clouds
