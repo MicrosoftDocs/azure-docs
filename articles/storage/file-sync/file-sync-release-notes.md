@@ -76,18 +76,10 @@ Perform one of the following options for your Windows Server 2012 R2 servers pri
 The following release notes are for Azure File Sync version 20.0.0.0 (released Febuary 10, 2024). This release contains improvements for the Azure File Sync service and agent. 
 
 ### Improvements and issues that are fixed
-**Managed identities preview improvements**  
-Azure File Sync support for managed identities preview was announced in November 2024.  
-Since the preview was announced, we've made the following improvements: 
- - You can now use the portal to configure your Azure File Sync deployment to use managed identities.
+**General Availability: Managed Identities support for Azure File Sync service and servers**
+Azure File Sync now supports system-assigned managed identities for authentication, eliminating the need for shared keys and simplifying security management with Microsoft Entra ID. With this release, you can configure managed identities directly from the Azure portal, making deployment easier and more secure. Additionally, storage account key access and Azure services on the trusted services list are no longer required and can be disabled, providing greater control over access management. The portal experience for general availability will gradually roll out to all regions in the coming weeks. For more information, see: [How to use managed identities with Azure File Sync (preview)](file-sync-managed-identities.md).
 > [!NOTE]
 > The portal experience will be gradually enabled in all regions within the next few weeks.
- - The following settings on your storage account are no longer required and can be disabled:
-    - Allow storage account key access
-    - Allow Azure services on the trusted services list to access this storage account 
-
-For more information, see: [How to use managed identities with Azure File Sync (preview)](file-sync-managed-identities.md).
-
 **Miscellaneous reliability and telemetry improvements for cloud tiering and sync**
 ### Evaluation Tool
 Before deploying Azure File Sync, you should evaluate whether it's compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported OS version. For installation and usage instructions, see [Evaluation Tool](file-sync-planning.md#evaluation-cmdlet) section in the planning guide.
