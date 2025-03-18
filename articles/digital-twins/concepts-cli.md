@@ -30,6 +30,8 @@ Some of the actions you can do using the command set include:
 
 The command set is called `az dt`, and is part of the [Azure IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension). You can view the full list of commands and their usage as part of the reference documentation for the `az iot` command set: [az dt command reference](/cli/azure/dt).
 
+[!INCLUDE [digital-twins-cli-issue](../../includes/digital-twins-cli-issue.md)]
+
 ## Uses (deploy and validate)
 
 Apart from generally managing your instance, the CLI is also a useful tool for deployment and validation.
