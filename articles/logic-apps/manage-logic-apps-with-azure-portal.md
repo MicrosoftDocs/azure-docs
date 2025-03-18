@@ -313,17 +313,71 @@ To stop the trigger from firing on all unprocessed items since the last workflow
 
 ## Delete logic apps
 
+### [Consumption](#tab/consumption)
+
+<a name="considerations-delete-consumption-logic-apps"></a>
+
+#### Considerations for deleting Consumption logic apps
+
+You can't recover a deleted Consumption logic app resource. Deleting a Consumption logic app affects all its workflow instances in the following ways:
+
+* Azure Logic Apps makes a best effort to cancel any in-progress and pending workflow runs.
+
+  Even with a large volume or backlog, most runs are canceled before they finish or start. However, the cancellation process might take time to complete. Meanwhile, some runs might get picked up for execution while the service works through the cancellation process.
+
+* Azure Logic Apps doesn't create or run new workflow instances.
+
+* If you delete a logic app and workflow, but you then recreate the same logic app and workflow, the recreated workflow doesn't have the same metadata as the deleted workflow.
+
+  [!INCLUDE [refresh-metadata-caller-workflow](includes/refresh-metadata-caller-workflow.md)]
+
+<a name="delete-consumption-logic-apps"></a>
+
+#### Delete Consumption logic apps
+
+You can delete one or multiple Consumption logic apps at the same time.
+
+1. In the [Azure portal](https://portal.azure.com) search box, enter **logic apps**, and select **Logic apps**.
+
+1. On the **Logic apps** page, view only the Consumption logic apps using the **Plan** filter.
+
+1. In the checkbox column, select one or multiple logic apps to delete. On the toolbar, select **Delete**.
+
+1. When the confirmation box appears, enter **yes**, and select **Delete**.
+
+1. To check whether your task succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
+
 ### [Standard](#tab/standard)
 
-You can [delete a single or multiple Standard logic apps at the same time](#delete-standard-logic-apps). Your single-tenant based logic app can include multiple workflows, so you can either delete the entire logic app or [delete only workflows](#delete-standard-workflows).
+You can delete one or multiple Standard logic apps at the same time. A Standard logic app can have multiple workflows, so you can either delete the entire logic app or delete individual workflows.
 
 <a name="considerations-delete-standard-logic-apps"></a>
 
 #### Considerations for deleting Standard logic apps
 
-- Deleting a Standard logic app resource cancels in-progress and pending runs immediately, but doesn't run cleanup tasks on the storage used by the app.
+Deleting a Standard logic app affects all its workflow instances in the following ways:
 
-- Although you can [manually recover deleted Standard logic apps](#recover-deleted-standard-logic-apps), using source control to manage your Standard logic apps makes recovery and redeployment much easier.
+* Azure Logic Apps immediately cancels any in-progress and pending workflow runs. However, the platform doesn't run cleanup tasks on the storage used by the logic app.
+
+* Azure Logic Apps doesn't create or run new workflow instances.
+
+* Although you can [manually recover deleted Standard logic apps](#recover-deleted-standard-logic-apps), using source control to manage your Standard logic apps makes recovery and redeployment much easier.
+
+* If you don't use source control, and you might have to later recover a deleted Standard logic app, make sure to save any custom settings that you need for recovery before you delete the logic app logic app.
+
+  1. In the [Azure portal](https://portal.azure.com), go to the Standard logic app.
+
+  1. On the logic app menu, under **Settings**, select **Environment variables**.
+
+  1. On the **App settings** tab, find, copy, and save any custom app settings and values that you need for later recovery.
+
+  1. On the logic app menu, under **Settings**, select **Configuration**.
+
+  1. On the each settings tab, find, and note any custom settings that you need for later recovery.
+
+* If you delete a logic app and its workflows, but you then recreate the same logic app and workflows, the recreated logic app and workflows don't have the same metadata as the deleted resources.
+
+  [!INCLUDE [refresh-metadata-caller-workflow](includes/refresh-metadata-caller-workflow.md)]
 
 <a name="delete-standard-logic-apps"></a>
 
@@ -333,23 +387,25 @@ You can [delete a single or multiple Standard logic apps at the same time](#dele
 
 1. On the **Logic apps** page, view only the Standard logic apps using the **Plan** filter.
 
-1. In the checkbox column, select a single or multiple logic apps to delete. On the toolbar, select **Delete**.
+1. In the checkbox column, select one or multiple logic apps to delete. On the toolbar, select **Delete**.
 
 1. When the confirmation box appears, enter **yes**, and select **Delete**.
 
-1. To confirm whether your operation succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
+1. To check whether your task succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
 
 <a name="considerations-delete-standard-workflows"></a>
 
 #### Considerations for deleting Standard workflows
 
-Deleting a Standard workflow affects workflow instances in the following ways:
+You can delete one or multiple Standard workflows at the same time. Deleting a Standard workflow affects its workflow instances in the following ways:
 
-* Azure Logic Apps cancels in-progress and pending runs immediately, but runs cleanup tasks on the storage used by the workflow.
+* Azure Logic Apps immediately cancels any in-progress and pending workflow runs. The platform also performs cleanup tasks on the storage used by the workflow.
 
 * Azure Logic Apps doesn't create or run new workflow instances.
 
-* If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. To refresh the metadata, you have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an **Unauthorized** error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
+* If you delete a workflow, but you then recreate the same workflow, the recreated workflow doesn't have the same metadata as the deleted workflow.
+
+  [!INCLUDE [refresh-metadata-caller-workflow](includes/refresh-metadata-caller-workflow.md)]
 
 <a name="delete-standard-workflows"></a>
 
@@ -365,9 +421,9 @@ Deleting a Standard workflow affects workflow instances in the following ways:
 
 <a name="recover-deleted-standard-logic-apps"></a>
 
-#### Recover deleted Standard logic apps
+## Recover a deleted Standard logic app
 
-Provided that you use source control, you can seamlessly recover a deleted Standard logic app resource that uses the **Workflow Standard** hosting option in single-tenant Azure Logic Apps by redeploying your app. However, to recover a deleted Standard logic app resource that uses the App Service Environment v3 hosting option, before you delete your app, you have to first download the Standard logic app artifacts from the Azure portal. For more information, see [Download Standard logic app artifacts from portal](/azure/logic-apps/set-up-devops-deployment-single-tenant-azure-logic-apps?tabs=github#download-standard-logic-app-artifacts-from-portal).
+The steps to recover a deleted Standard logic app vary based on whether you use source control and the hosting option for your logic app.
 
 Before you try to recover a deleted logic app, review the following considerations:
 
@@ -375,89 +431,86 @@ Before you try to recover a deleted logic app, review the following consideratio
 
 * If your workflow starts with the **Request** trigger, the callback URL for the recovered logic app differs from the URL for the deleted logic app.
 
-If you're not using source control, try the following steps to recover a deleted Standard logic app that uses the **Workflow Standard** hosting option in single-tenant Azure Logic Apps:
+#### With source control
 
-1. Confirm that your logic app's storage account still exists. If the storage account was deleted, you have to [first recover the deleted storage account](../storage/common/storage-account-recover.md).
+If you use source control, you can recover a deleted Standard logic app resource, based on the hosting option:
 
-1. On the storage account menu, under **Security + networking**, select **Access keys**.
+| Hosting option | Prerequisites | Recovery steps |
+|----------------|---------------|----------------|
+| **Workflow Service Plan** | None | Redeploy your logic app. |
+| **App Service Environment V3** | Before you delete your app, download the Standard logic app from the Azure portal. For more information, see [Download Standard logic app artifacts from portal](/azure/logic-apps/set-up-devops-deployment-single-tenant-azure-logic-apps?tabs=github#download-standard-logic-app-artifacts-from-portal). | Redeploy your logic app. |
 
-1. On the **Access keys** page, copy the account's primary connection string, and save for later use, for example:
+#### Without source control
+
+To recover a deleted Standard logic app that uses the **Workflow Service Plan** hosting option and runs in single-tenant Azure Logic Apps, try the following steps:
+
+##### 1. Get storage metadata 
+
+1. In the [Azure portal](https://portal.azure.com), confirm that the storage account used by your logic app still exists. If the storage account is deleted, you have to [first recover the deleted storage account](/azure/storage/common/storage-account-recover).
+
+   1. To identify the storage account name, open your logic app.
+
+   1. On the logic app menu, under **Settings**, select **Environment variables**.
+
+   1. On the **Environment variables** page, under **App settings**, find the app setting named [**AzureWebJobsStorage**](/azure/logic-apps/edit-app-settings-host-settings?tabs=azure-portal#reference-for-app-settings---localsettingsjson).
+
+1. Go to the storage account. On the storage account menu, under **Security + networking**, select **Access keys**.
+
+1. On the **Access keys** page, copy and save the primary connection string somewhere secure for later use in this guide.
+
+   The connection string uses the following format:
 
    **DefaultEndpointsProtocol=https;AccountName=<*storage-account-name*>;AccountKey=<*access-key*>;EndpointSuffix=core.windows.net**
 
-1. On the storage account menu, under **Data storage**, select **File shares**, copy the name for the file share associated with your logic app, and save for later use.
+1. On the storage account menu, under **Data storage**, select **File shares**. Copy and save the file share name for later use in this guide.
 
-1. Create a new Standard logic app resource using the same hosting plan and pricing tier. You can either use a new name or reuse the name from the deleted logic app.
+> [!IMPORTANT]
+>
+> When you handle sensitive information, such as connection strings that include usernames, passwords, 
+> access keys, and so on, make sure that you use the most secure authentication flow available.
+>
+> For example, Standard logic app workflows don't support secure data types, such as **`securestring`** 
+> and **`secureobject`**, aren't supported. Microsoft recommends that you authenticate access to Azure 
+> resources with a [managed identity](/entra/identity/managed-identities-azure-resources/overview) 
+> when possible, and assign a role with the least necessary privilege.
+>
+> If the managed identity capability is unavailable, secure your connection strings through other measures, 
+> such as [Azure Key Vault](/azure/key-vault/general/overview), which you can use with 
+> [app settings](/azure/logic-apps/edit-app-settings-host-settings?tabs=azure-portal#reference-for-app-settings---localsettingsjson) in your Standard logic app resource. 
+> You can then [directly reference these secure strings](/azure/app-service/app-service-key-vault-references). 
+>
+> Similar to ARM templates, where you can define environment variables at deployment time, you can define app 
+> settings in your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). You can then 
+> capture dynamically generated infrastructure values, such as connection endpoints, storage strings, and so on. 
+> For more information, see [Application types for the Microsoft identity platform](/entra/identity-platform/v2-app-types).
 
-1. Before you continue, stop the logic app. From the logic app menu, select **Overview**. On the **Overview** page toolbar, select **Stop**.
+##### 2. Create new Standard logic app
 
-1. From the logic app menu, under **Settings**, select **Configuration**.
+1. In the [Azure portal](https://portal.azure.com), create a new Standard logic app resource with the same hosting option and pricing tier. You can use either a new name or reuse the name from the deleted logic app.
 
-1. On the **Configuration** page, update the following application setting values, and remember to save your changes when finished.
+1. Before you continue, [stop the new logic app](#disable-or-enable-a-deployed-standard-logic-app).
+
+1. On the logic app menu, under **Settings**, select **Environment variables**. On the **App settings** tab, update the following values. Make sure to save your changes when you finish.
 
    | App setting | Replacement value |
    |-------------|-------------------|
    | **AzureWebJobsStorage** | Replace the existing value with the previously copied connection string from your storage account. |
-   | **WEBSITE_CONTENTAZUREFILECONNECTIONSTRING** | Replace the existing value with the previously copied string from your storage account. |
+   | **WEBSITE_CONTENTAZUREFILECONNECTIONSTRING** | Replace the existing value with the previously copied connection string from your storage account. |
    | **WEBSITE_CONTENTSHARE** | Replace the existing value with the previously copied file share name. |
-
-   > [!IMPORTANT]
-   >
-   > When you have sensitive information, such as connection strings that include usernames and passwords, 
-   > make sure to use the most secure authentication flow available. For example, in Standard logic app workflows, 
-   > secure data types, such as `securestring` and `secureobject`, aren't supported. Microsoft recommends that you 
-   > authenticate access to Azure resources with a [managed identity](/entra/identity/managed-identities-azure-resources/overview) 
-   > when possible, and assign a role that has the least privilege necessary.
-   >
-   > If this capability is unavailable, make sure to secure connection strings through other measures, such as 
-   > [Azure Key Vault](/azure/key-vault/general/overview), which you can use with [app settings](edit-app-settings-host-settings.md). 
-   > You can then [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection 
-   > strings and keys. Similar to ARM templates, where you can define environment variables at deployment time, you can define 
-   > app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). 
-   > You can then capture dynamically generated infrastructure values, such as connection endpoints, storage strings, and more. 
-   > For more information, see [Application types for the Microsoft identity platform](/entra/identity-platform/v2-app-types).
 
 1. On your logic app menu, under **Workflows**, select **Connections**.
 
-1. Open each connection and under **Settings**, select **Access policies**.
+1. Open each connection. On the connection menu, under **Settings**, select **Access policies**.
 
-1. Delete the access policy for the deleted logic app, and then add a new access policy for the replacement logic app.
+1. In the **Action** column, select **Delete** to delete the access policy for the deleted logic app.
 
-1. Return to the logic app's **Configuration** page, and add any custom settings that existed on the deleted logic app.
+1. On the **Access policies** toolbar, select **Add** so you can add a new access policy, and select your replacement logic app.
+
+1. Return to your replacement logic app.
+
+1. If you have custom settings to restore, on the logic app menu, under **Settings**, select **Environment variables** or **Configuration**, based on the types of settings that you have.
 
 1. When you're done, restart your logic app.
-
-### [Consumption](#tab/consumption)
-
-You can [delete a single or multiple Consumption logic apps at the same time](#delete-consumption-logic-apps).
-
-<a name="considerations-delete-consumption-logic-apps"></a>
-
-#### Considerations for deleting Consumption logic apps
-
-You can't recover deleted Consumption logic app resource. Deleting a Consumption logic app affects workflow instances in the following ways:
-
-* Azure Logic Apps makes a best effort to cancel any in-progress and pending runs.
-
-  Even with a large volume or backlog, most runs are canceled before they finish or start. However, the cancellation process might take time to complete. Meanwhile, some runs might get picked up for execution while the service works through the cancellation process.
-
-* Azure Logic Apps doesn't create or run new workflow instances.
-
-* If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. You have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
-
-<a name="delete-consumption-logic-apps"></a>
-
-#### Delete Consumption logic apps
-
-1. In the [Azure portal](https://portal.azure.com) search box, enter **logic apps**, and select **Logic apps**.
-
-1. On the **Logic apps** page, view only the Consumption logic apps using the **Plan** filter.
-
-1. In the checkbox column, select a single or multiple logic apps to delete. On the toolbar, select **Delete**.
-
-1. When the confirmation box appears, enter **yes**, and select **Delete**.
-
-1. To confirm whether your operation succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
 
 ---
 
@@ -465,48 +518,46 @@ You can't recover deleted Consumption logic app resource. Deleting a Consumption
 
 ## Manage logic app versions (Consumption only)
 
-For Consumption logic apps, you can use the Azure portal for version control. For example, you can find your logic app's version history and publish previous versions, if any exist.
+When you save changes to your Consumption logic app workflow, Azure saves the version before you made your changes, and your edited version becomes the current version. You can view these previous versions, select a previous version to promote over the current version, and edit the selected version before you finish the promotion process.
 
 <a name="find-version-history"></a>
 
-### Find and view previous versions
+### View previous versions
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app.
 
 1. On the logic app menu, under **Development Tools**, select **Versions**.
 
-   ![Screenshot shows Azure portal and Consumption logic app menu with Versions selected, and list of previous logic app versions.](./media/manage-logic-apps-with-azure-portal/logic-apps-menu-versions.png)
+   :::image type="content" source="media/manage-logic-apps-with-azure-portal/logic-apps-menu-versions.png" alt-text="Screenshot shows Azure portal, Consumption logic app menu with Versions selected, and previous logic app versions.":::
 
-1. From the **Version** list, select the logic app version to manage.
+1. From the **Version** list, select the workflow version that you want.
 
-   To filter the list, in the **Versions** page search bar, enter the version ID.
+   To filter the list, in the **Versions** page search bar, enter the version ID, if you know the ID.
 
-   The **History version** page shows the previous version's details in read-only mode. You can select between designer view and code view.
+   The **History version** page shows the selected version in read-only mode. You can change between the designer view and code view.
 
-   ![Screenshot shows history version page with designer view and code view options.](./media/manage-logic-apps-with-azure-portal/history-version.png)
+   :::image type="content" source="media/manage-logic-apps-with-azure-portal/history-version.png" alt-text="Screenshot shows history version page with designer view and code view options.":::
 
 <a name="promote-previous-versions"></a>
 
-### Promote previous versions
+### Promote a previous version over the current version
 
-To publish a previous version of your Consumption logic app, you can promote that version over the current version.
+1. In the [Azure portal](https://portal.azure.com), [view the previous version that you want to promote](#find-version-history).
 
-1. In your logic app's version history, [find and select the version that you want to promote](#find-version-history).
+1. On the **History version** toolbar, select **Promote**.
 
-1. On the **History version** page, select **Promote**.
+   :::image type="content" source="media/manage-logic-apps-with-azure-portal/promote-button.png" alt-text="Screenshot shows History version page toolbar with selected Promote button.":::
 
-   ![Screenshot shows logic app's version history with selected Promote button.](./media/manage-logic-apps-with-azure-portal/promote-button.png)
+   The workflow designer opens the selected workflow version.
 
-1. After the workflow designer opens, make any necessary edits to the version that you want to promote.
+1. Optionally make any edits that you want to the workflow.
 
-   You can switch between **Designer** and **Code view** modes. You can also update **Parameters**, **Templates**, and **Connectors**.
-
-   ![Screenshot shows workflow designer with designer and code view options.](./media/manage-logic-apps-with-azure-portal/promote-page.png)
+   You can change between **Designer** and **Code view**. You can also update the **Parameters**.
 
 1. To save any updates and finish promotion, on the designer toolbar, select **Save**. To cancel your changes, select **Discard**.
 
-When you next [view your logic app's version history](#find-version-history), the promoted version appears at the top of the list and has a new identifier.
+When you view your logic app version history again, the promoted version now appears first in the list with a new identifier.
 
-## Next steps
+## Related content
 
 * [Monitor logic apps](monitor-logic-apps.md)
