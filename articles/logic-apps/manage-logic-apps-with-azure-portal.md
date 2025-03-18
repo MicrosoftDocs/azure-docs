@@ -133,15 +133,15 @@ Deployed Consumption and Standard logic apps have different ways to disable and 
 
 #### Considerations for disabling a deployed Consumption logic app
 
-Stopping a Consumption logic app affects all workflow instances in the following ways:
+Disabling a Consumption logic app affects all workflow instances in the following ways:
 
 * Azure Logic Apps continues all in-progress and pending workflow instances until they finish running. Based on the volume or backlog, this process might take time to complete.
 
 * Azure Logic Apps doesn't create or run new workflow instances.
 
-* You can resubmit workflow runs while the logic app is stopped.
+* You can resubmit workflow runs while the logic app is disabled.
 
-* The workflow trigger doesn't fire while the logic app is stopped. However, the trigger state remembers the point where you stopped the logic app. When you restart the logic app, the trigger fires for all unprocessed items since the last workflow run.
+* The workflow trigger doesn't fire while the logic app is disabled. However, the trigger state remembers the point where you disabled the logic app. When you restart the logic app, the trigger fires for all unprocessed items since the last workflow run.
 
   To stop the trigger from firing on all unprocessed items since the last workflow run, you must [clear the trigger state](#post-stoppage).
 
@@ -172,28 +172,28 @@ You can stop, start, or restart a Standard logic app, which affects all workflow
 
 Stopping a Standard logic app versus disabling a child workflow have different effects, so review the following considerations before you continue:
 
-- [Considerations for stopping Standard logic apps](#considerations-stop-standard-logic-apps)
+- [Considerations for disabling Standard logic apps](#considerations-stop-standard-logic-apps)
 - [Considerations for disabling a Standard workflow](#considerations-disable-enable-standard-workflows)
 
 <a name="considerations-stop-standard-logic-apps"></a>
 
-#### Considerations for stopping Standard logic apps
+#### Considerations for disabling Standard logic apps
 
-Stopping a Standard logic app affects all its workflow instances in the following ways:
+Disabling a Standard logic app affects all its workflow instances in the following ways:
 
 * Azure Logic Apps immediately cancels all in-progress and pending workflow runs.
 
 * Azure Logic Apps doesn't create or run new workflow instances.
 
-* You can resubmit workflow runs while the logic app is stopped.
+* You can resubmit workflow runs while the logic app is disabled.
 
-* Workflow triggers don't fire while the logic app is stopped. However, the trigger states remember the point where you stopped the logic app. When you restart the logic app, the triggers fire for all unprocessed items since the last time that the corresponding workflows ran.
+* Workflow triggers don't fire while the logic app is disabled. However, the trigger states remember the point where you disabled the logic app. When you re-enable the logic app, the triggers fire for all unprocessed items since the last time that the corresponding workflows ran.
 
   To stop the triggers from firing on all unprocessed items since the last time that the workflows ran, you must [clear the trigger state for each workflow](#post-stoppage).
 
 <a name="disable-enable-standard-logic-apps"></a>
 
-#### Disable or enable a deployed Standard logic app
+#### Disable or enable deployed Standard logic apps
 
 You can disable or enable one or multiple Standard logic apps at the same time.
 
@@ -214,7 +214,7 @@ You can disable or enable one or multiple Standard logic apps at the same time.
 
 <a name="restart-standard-logic-app"></a>
 
-#### Restart a deployed Standard logic app without stopping
+#### Restart a deployed Standard logic app without disabling
 
 You can restart a single Standard logic app at any time.
 
@@ -228,7 +228,7 @@ You can restart a single Standard logic app at any time.
 
 <a name="considerations-disable-enable-standard-workflows"></a>
 
-#### Considerations for disabling a Standard workflow
+#### Considerations for disabling Standard workflows
 
 Disabling a workflow affects all its workflow instances in the following ways:
 
@@ -255,7 +255,7 @@ Disabling a workflow affects all its workflow instances in the following ways:
 
 * You can resubmit workflow runs while the workflow is disabled.
 
-* The workflow trigger doesn't fire while the logic app is stopped or the workflow is disabled. However, the trigger state remembers the point where you disabled the workflow. When you restart the logic app or re-enable the workflow, the trigger fires for all unprocessed items since the last workflow run.
+* The workflow trigger doesn't fire while the logic app or workflow is disabled. However, the trigger state remembers the point where you disabled the workflow. When you restart the logic app or enable the workflow, the trigger fires for all unprocessed items since the last workflow run.
 
   To stop the trigger from firing on all unprocessed items since the last workflow run, you must [clear the trigger state](#post-stoppage).
 
@@ -263,10 +263,7 @@ Disabling a workflow affects all its workflow instances in the following ways:
 
 #### Disable or enable Standard workflows
 
-#### Disable or enable a Standard workflow
-
 To stop the trigger from firing the next time when the trigger condition is met, disable your workflow. You can disable or enable one or multiple Standard logic apps at the same time.
-
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -487,7 +484,7 @@ To recover a deleted Standard logic app that uses the **Workflow Service Plan** 
 
 1. In the [Azure portal](https://portal.azure.com), create a new Standard logic app resource with the same hosting option and pricing tier. You can use either a new name or reuse the name from the deleted logic app.
 
-1. Before you continue, [stop the new logic app](#disable-or-enable-a-deployed-standard-logic-app).
+1. Before you continue, [disable the new logic app](#disable-enable-standard-logic-apps).
 
 1. On the logic app menu, under **Settings**, select **Environment variables**. On the **App settings** tab, update the following values. Make sure to save your changes when you finish.
 
