@@ -27,16 +27,14 @@ In an edge-based IoT solution, asset management refers to processes such as regi
 - Asset, tags and events creation
 - Data flow endpoint creation
 - Asset and data flow endpoints secrets management
-- Asset updates
-- Asset monitoring
 - Enabling and disabling assets
 
-In an edge-based IoT solution, an MQTT broker enables bidirectional edge/cloud communication, and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge. For example, you can:
+In an edge-based IoT solution, *command and control* refers to the processes that let you send commands to assets and receive responses from them. For example, you can:
 
 - Control the cameras pan, tilt, and zoom.
 - Capture snapshots from a video stream and publish them to an MQTT topic.
 - Publish OPC UA machine status events to the MQTT broker.
-- Shut down the lights of a building to save energy.
+- Turn off the lights of a building to save energy.
 
 ## Primitives
 
@@ -51,6 +49,7 @@ An edge-based IoT solution can use the following primitives for asset management
 - *Schema registry* that lets you define and manage the schema for your assets. Data flows use schemas to deserialize and serialize messages.
 - *Akri services* that let you deploy and configure connectivity protocols, such as OPC UA and ONVIF, at the edge. Akri services use the asset and asset endpoint resources in Azure Device Registry to model the different device and protocol connections in your environment.
 - *Secret Store extension* to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets. Azure IoT Operations uses Azure Key Vault as the managed vault solution on the cloud, and uses [Azure Key Vault Secret Store extension for Kubernetes](/azure/azure-arc/kubernetes/secret-store-extension) to sync the secrets.
+- *Sites* that group Azure IoT Operations instances by physical location and make it easier for OT users to locate and manage assets. Your IT administrator creates sites and assigns Azure IoT Operations instances to them. To learn more, see [What is Azure Arc site manager (preview)?](/azure/azure-arc/site-manager/overview).
 
 To learn more, see [What is asset management in Azure IoT Operations](../iot-operations/discover-manage-assets/overview-manage-assets.md) and [Configure data flows in Azure IoT Operations](../iot-operations/connect-to-cloud/howto-create-dataflow.md).
 
@@ -63,9 +62,13 @@ To learn more, see [What is asset management in Azure IoT Operations](../iot-ope
 - Asset registration in a single unified registry that enables edge and cloud management.
 - Defining asset tags and events to enable data flow from OPC UA servers to the MQTT broker.
 
-## Asset endpoint secrets management
+## Data flow endpoint creation
 
-## Asset monitoring
+## Asset and data flow endpoints secrets management
+
+## Command and control
+
+The MQTT broker enables bidirectional edge/cloud communication, and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge. 
 
 ### [Cloud-based solution](#tab/cloud)
 
