@@ -17,6 +17,12 @@ ms.author: kesheth
 
 Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+## March 2025
+**Improved Error Handling for $export**: Added retry logic for certain export queries that previously would not be retried.
+
+**Billing for API for FHIR**: An issue was discovered that may have caused subscriptions to be underbilled in several regions, including North Europe, East US 2, Australia East, West Europe, Central India, Southeast Asia, and UK South. We corrected the billing error on March 1, 2025. If you were affected by this error, you won't be responsible for any missed charges prior to your March bill.
+
+
 ## February 2025
 
 **Date Search Logic Update**: When searching for a date, the logic now ensures that any date range containing the searched date is included in the results. Previously, it only matched a date if the entire range was inside the searched date.

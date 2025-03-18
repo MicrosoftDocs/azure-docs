@@ -35,7 +35,7 @@ Azure Media Services provides [integrated CDN](https://azure.microsoft.com/updat
 You can use Azure portal or Azure Media Services APIs to configure cache header values.
 
 1. To configure cache headers using Azure portal, refer to [How to Manage Streaming Endpoints](/azure/media-services/latest/stream-streaming-endpoint-concept) section Configuring the Streaming Endpoint.
-2. Azure Media Services REST API, [StreamingEndpoint](/rest/api/media/operations/streamingendpoint#StreamingEndpointCacheControl).
+2. Azure Media Services REST API, [StreamingEndpoint](/sql/reporting-services/developer/rest-api?view=sql-server-ver16#StreamingEndpointCacheControl).
 3. Azure Media Services .NET SDK, [StreamingEndpointCacheControl Properties](/dotnet/api/microsoft.windowsazure.mediaservices.client.streamingendpointcachecontrol).
 
 ## Cache configuration precedence order

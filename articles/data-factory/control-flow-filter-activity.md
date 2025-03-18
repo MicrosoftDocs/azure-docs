@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: The Filter activity filters the inputs to Azure Data Factory and Synapse Analytics pipelines. 
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual

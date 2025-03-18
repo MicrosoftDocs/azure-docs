@@ -3,7 +3,7 @@ title: "Pricing example: Data integration in Azure Data Factory Managed VNET"
 description: This article shows how to estimate pricing for Azure Data Factory to perform data integration using Managed VNET.
 author: jianleishen
 ms.author: jianleishen
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: pricing
 ms.topic: conceptual
 ms.date: 01/05/2024
