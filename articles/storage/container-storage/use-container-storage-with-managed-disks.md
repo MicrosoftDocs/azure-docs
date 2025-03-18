@@ -125,7 +125,7 @@ $ az aks show --resource-group <resourceGroup> --name <clusterName> --query "ide
 a972fa43-1234-5678-1234-c040eb546ec5 
 ```
 
-1. Grant **Contributor** role of the disk to the cluster managed identity. Go to: Portal > Your disk > Access control (IAM) > Add role assignment, and select **Contributor** role and assign to the identity. It’s not required when your disk is created under AKS managed resource group (Example: MC_myResourceGroup_myAKSCluster_eastus). 
+1. Grant **Contributor** role of the disk to the cluster managed identity. Go to: Portal > Your disk > Access control (IAM) > Add role assignment, and select **Contributor** role and assign to the identity. When your disk is created under AKS managed resource group (Example: MC_myResourceGroup_myAKSCluster_eastus), you can skip this step.
 
 1. Find identity of the system node pool 
 
@@ -195,7 +195,7 @@ When creating your storage pool, you must define the CMK parameters. The require
 - **keyVaultUri** is the uniform resource identifier of the Azure Key Vault, for example `https://user.vault.azure.net`
 - **Identity** specifies a managed identity with access to the vault, for example `/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourcegroups/MC_user-acstor-westus2-rg_user-acstor-westus2_westus2/providers/Microsoft.ManagedIdentity/userAssignedIdentities/user-acstor-westus2-agentpool`
 
-Follow these steps to create a storage pool using your own encryption key. All persistent volumes created from this storage pool will be encrypted using the same key.
+Follow these steps to create a storage pool using your own encryption key. All persistent volumes created from this storage pool are encrypted using the same key.
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool-cmk.yaml`.
 
@@ -249,7 +249,7 @@ When the storage pool is ready to use, you must select a storage class to define
 Run `kubectl get sc` to display the available storage classes. You should see a storage class called `acstor-<storage-pool-name>`.
 
 > [!IMPORTANT]
-> Don't use the storage class that's marked **internal**. It's an internal storage class that's needed for Azure Container Storage to work.
+> Make sure NOT to use the storage class marked as **internal**. It's an internal storage class that's needed for Azure Container Storage to work.
 
 ### 3. Create a persistent volume claim
 
