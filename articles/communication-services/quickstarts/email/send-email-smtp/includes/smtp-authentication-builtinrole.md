@@ -21,7 +21,7 @@ Assign the **Communication and Email Service Owner** role to a Microsoft Entra a
 1. On the **Members** tab, choose **User, group, or service principal** and then click **+Select members**.
     :::image type="content" source="../../media/email-smtp-builtin-select-members.png" alt-text="Screenshot that shows choosing select members for the built-in role.":::
 1. Use the search box to find the **Microsoft Entra** application that you'll use for authentication and select it. Then click **Select**.
-    :::image type="content" source="..././media/email-smtp-builtin-select-entra.png" alt-text="Screenshot that shows selecting the Microsoft Entra application that will get the built-in role.":::
+    :::image type="content" source="../../media/email-smtp-builtin-select-entra.png" alt-text="Screenshot that shows selecting the Microsoft Entra application that will get the built-in role.":::
 1. After confirming the selection, click **Next**.
     :::image type="content" source="../../media/email-smtp-builtin-select-review.png" alt-text="Screenshot that shows reviewing the assignment for the built-in role.":::
 1. After confirming the scope and members, click **Review + assign**.
