@@ -12,7 +12,7 @@ ms.devlang: azurecli
 
 # Tutorial: Deploy an NVIDIA Llama3 NIM to Azure Container Apps
 
-NVIDIA Inference Microservices (NIMs) are optimized, containerized AI inference microservices designed to simplify and accelerate the deployment of AI models. When you use Azure Container Apps with serverless GPUs, you can run these NIMs efficiently without having to manage the underlying infrastructure.​
+NVIDIA Inference Microservices (NIMs) are optimized, containerized AI inference microservices which simplify and accelerate the development of AI applications and agentic AI workflows with pre-packaged, scalable, and performance-tuned models that can be deployed as secure inference endpoints on Azure Container Apps. When you use Azure Container Apps with serverless GPUs, you can run these NIMs efficiently without having to manage the underlying infrastructure.​
 
 In this tutorial, you learn to deploy a Llama3 NVIDIA NIM to Azure Container Apps using serverless GPUs.
 
@@ -38,7 +38,7 @@ This tutorial uses a premium instance of Azure Container Registry to improve col
     Next, generate a unique container registry name.
 
     ```bash
-    SUFFIX=$(head /dev/urandom | tr -dc 'A-Za-z0-9' | head -c 6)
+    SUFFIX=$(head /dev/urandom | tr -dc 'a-z0-9' | head -c 6)
     ACR_NAME="mygpututorialacr${SUFFIX}"
     ```
 
@@ -72,7 +72,7 @@ This tutorial uses a premium instance of Azure Container Registry to improve col
 Next, pull the image from NVIDIA GPU Cloud and push to Azure Container Registry.
 
 > [!NOTE]
-> NVIDIA NICs each has their own hardware requirements. Make sure the GPU type you select supports the [NIM](link) of your choice. The Llama3 NIM used in this tutorial can run on NVIDIA A100 GPUs.
+> NVIDIA NICs each has their own hardware requirements. Make sure the GPU type you select supports the [NIM](https://build.nvidia.com/models?filters=nimType%3Anim_type_run_anywhere&q=llama) of your choice. The Llama3 NIM used in this tutorial can run on NVIDIA A100 GPUs.
 
 1. Authenticate to the NVIDIA container registry.
 
@@ -110,7 +110,7 @@ Next, pull the image from NVIDIA GPU Cloud and push to Azure Container Registry.
 
 ## Enable artifact streaming (recommended but optional)
 
-Many of the NIM images are large, and your container app can take a long time to start if you don't enable artifact streaming. Use the following steps to enable artifact streaming.
+When your container app runs, it pulls the container from your container registry. When you have larger images like in the case of AI workloads, this image pull may take some time. By enabling artifact streaming, you reduce the time needed , and your container app can take a long time to start if you don't enable artifact streaming. Use the following steps to enable artifact streaming.
 
 > [!NOTE]
 > The following commands can take a few minutes to complete.
