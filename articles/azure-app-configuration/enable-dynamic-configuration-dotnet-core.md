@@ -118,12 +118,10 @@ In the previous code, you're manually saving an instance of `IConfigurationRefre
 
 ## Build and run the app locally
 
-## Build and run the app locally
-
 1. Set an environment variable.
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
-    Set the environment variable named **Endpoint** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
+    Set an environment variable named **Endpoint** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
 
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
@@ -144,7 +142,7 @@ In the previous code, you're manually saving an instance of `IConfigurationRefre
     ```
 
     ### [Connection string](#tab/connection-string)
-    Set the environment variable named **ConnectionString** to the read-only connection string of your App Configuration store found under **Access settings** of your store in the Azure portal.
+    Set an environment variable named **ConnectionString** to the read-only connection string of your App Configuration store found under **Access settings** of your store in the Azure portal.
 
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
