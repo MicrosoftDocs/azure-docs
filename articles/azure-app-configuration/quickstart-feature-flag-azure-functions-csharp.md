@@ -166,7 +166,7 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
 
         // Read feature flag
         string featureName = "Beta";
-        bool featureEnabled = await _featureManager.IsEnabledAsync(featureName);
+        bool featureEnabled = await _featureManager.IsEnabledAsync(featureName, req.HttpContext.RequestAborted);
 
         return new OkObjectResult(featureEnabled
             ? $"The Feature Flag '{featureName}' is turned ON!"
