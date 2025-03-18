@@ -101,6 +101,8 @@ After designing models, you need to upload them to your Azure Digital Twins inst
     
     The output from each command will show information about the successfully uploaded model.
 
+    [!INCLUDE [digital-twins-cli-issue](../../includes/digital-twins-cli-issue.md)]
+
     >[!TIP]
     >You can also upload all models within a directory at the same time, by using the `--from-directory` option for the model create command. For more information, see [Optional parameters for az dt model create](/cli/azure/dt/model#az-dt-model-create-optional-parameters).
 

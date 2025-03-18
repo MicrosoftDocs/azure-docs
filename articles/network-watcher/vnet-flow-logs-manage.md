@@ -6,12 +6,12 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 03/14/2025
+ms.date: 03/18/2025
 
 #CustomerIntent: As an Azure administrator, I want to log my virtual network IP traffic using Network Watcher VNet flow logs so that I can analyze it later.
 ---
 
-# Create, change, enable, disable, or delete virtual network flow logs using
+# Create, change, enable, disable, or delete virtual network flow logs
 
 Virtual network flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an Azure virtual network. For more information about virtual network flow logging, see [Virtual network flow logs overview](vnet-flow-logs-overview.md).
 
@@ -21,7 +21,7 @@ In this article, you learn how to create, change, enable, disable, or delete a v
 
 # [**Portal**](#tab/portal)
 
- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - Insights provider. For more information, see [Register Insights provider](#register-insights-provider).
 
@@ -190,38 +190,37 @@ Use [New-AzNetworkWatcherFlowLog](/powershell/module/az.network/new-aznetworkwat
 
 Use [az network watcher flow-log create](/cli/azure/network/watcher/flow-log#az-network-watcher-flow-log-create) command to create a virtual network flow log. 
 
-### Enable virtual network flow logs without traffic analytics
+- Enable virtual network flow logs without traffic analytics
 
-```azurecli-interactive
-# Create a VNet flow log.
-az network watcher flow-log create --location 'eastus' --resource-group 'myResourceGroup' --name 'myVNetFlowLog' --vnet 'myVNet' --storage-account 'myStorageAccount'
-```
+    ```azurecli-interactive
+    # Create a VNet flow log.
+    az network watcher flow-log create --location 'eastus' --resource-group 'myResourceGroup' --name 'myVNetFlowLog' --vnet 'myVNet' --storage-account 'myStorageAccount'
+    ```
+    
+    ```azurecli-interactive
+    # Create a VNet flow log (storage account is in a different resource group from the virtual network).
+    az network watcher flow-log create --location 'eastus' --resource-group 'myResourceGroup' --name 'myVNetFlowLog' --vnet 'myVNet' --storage-account '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/StorageRG/providers/Microsoft.Storage/storageAccounts/myStorageAccount'
+    ```
 
-```azurecli-interactive
-# Create a VNet flow log (storage account is in a different resource group from the virtual network).
-az network watcher flow-log create --location 'eastus' --resource-group 'myResourceGroup' --name 'myVNetFlowLog' --vnet 'myVNet' --storage-account '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/StorageRG/providers/Microsoft.Storage/storageAccounts/myStorageAccount'
-```
+- Enable virtual network flow logs and traffic analytics
 
-### Enable virtual network flow logs and traffic analytics
-
-```azurecli-interactive
-# Create a traffic analytics workspace.
-az monitor log-analytics workspace create --name 'myWorkspace' --resource-group 'myResourceGroup' --location 'eastus'
-
-# Create a VNet flow log.
-az network watcher flow-log create --location 'eastus' --name 'myVNetFlowLog' --resource-group 'myResourceGroup' --vnet 'myVNet' --storage-account 'myStorageAccount' --traffic-analytics true --workspace 'myWorkspace' --interval 10
-```
-
-```azurecli-interactive
-# Create a traffic analytics workspace.
-az monitor log-analytics workspace create --name 'myWorkspace' --resource-group 'myResourceGroup' --location 'eastus'
-
-# Create a VNet flow log (storage account and traffic analytics workspace are in different resource groups from the virtual network).
-az network watcher flow-log create --location 'eastus' --name 'myVNetFlowLog' --resource-group 'myResourceGroup' --vnet 'myVNet' --storage-account '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/StorageRG/providers/Microsoft.Storage/storageAccounts/myStorageAccount' --traffic-analytics true --workspace '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/WorkspaceRG/providers/Microsoft.OperationalInsights/workspaces/myWorkspace' --interval 10
-```
+    ```azurecli-interactive
+    # Create a traffic analytics workspace.
+    az monitor log-analytics workspace create --name 'myWorkspace' --resource-group 'myResourceGroup' --location 'eastus'
+    
+    # Create a VNet flow log.
+    az network watcher flow-log create --location 'eastus' --name 'myVNetFlowLog' --resource-group 'myResourceGroup' --vnet 'myVNet' --storage-account 'myStorageAccount' --traffic-analytics true --workspace 'myWorkspace' --interval 10
+    ```
+    
+    ```azurecli-interactive
+    # Create a traffic analytics workspace.
+    az monitor log-analytics workspace create --name 'myWorkspace' --resource-group 'myResourceGroup' --location 'eastus'
+    
+    # Create a VNet flow log (storage account and traffic analytics workspace are in different resource groups from the virtual network).
+    az network watcher flow-log create --location 'eastus' --name 'myVNetFlowLog' --resource-group 'myResourceGroup' --vnet 'myVNet' --storage-account '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/StorageRG/providers/Microsoft.Storage/storageAccounts/myStorageAccount' --traffic-analytics true --workspace '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/WorkspaceRG/providers/Microsoft.OperationalInsights/workspaces/myWorkspace' --interval 10
+    ```
 
 ---
-
 
 ## Enable or disable traffic analytics
 
@@ -276,6 +275,7 @@ $workspace = Get-AzOperationalInsightsWorkspace -Name 'myWorkspace' -ResourceGro
 
 # Update the VNet flow log.
 Set-AzNetworkWatcherFlowLog -Enabled $true -Name 'myVNetFlowLog' -NetworkWatcherName 'NetworkWatcher_eastus' -ResourceGroupName 'NetworkWatcherRG' -StorageId $storageAccount.Id -TargetResourceId $vnet.Id -FormatVersion 2 -EnableTrafficAnalytics -TrafficAnalyticsWorkspaceId $workspace.ResourceId -TrafficAnalyticsInterval 10
+```
 
 To disable traffic analytics on the flow log resource and continue to generate and save virtual network flow logs to storage account, use [Set-AzNetworkWatcherFlowLog](/powershell/module/az.network/set-aznetworkwatcherflowlog) cmdlet.
 
@@ -295,7 +295,6 @@ Set-AzNetworkWatcherFlowLog -Enabled $true -Name 'myVNetFlowLog' -NetworkWatcher
 To enable traffic analytics on a flow log resource, use [az network watcher flow-log update](/cli/azure/network/watcher/flow-log#az-network-watcher-flow-log-update) command.
 
 ```azurecli-interactive
-
 # Update the VNet flow log.
 az network watcher flow-log update --location 'eastus' --name 'myVNetFlowLog' --resource-group 'myResourceGroup' --vnet 'myVNet' --storage-account 'myStorageAccount' --traffic-analytics true --workspace 'myWorkspace' --interval 10
 ```
@@ -407,7 +406,7 @@ You can download the flow logs data from the storage account that you saved the 
 
 # [**PowerShell**](#tab/powershell)
 
-To download virtual network flow logs from your storage account, use [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent) cmdlet.
+To download virtual network flow logs from your storage account, use [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent) cmdlet. For more information, see [Download a blob](../storage/blobs/storage-quickstart-blobs-powershell.md#download-blobs).
 
 Virtual network flow log files are saved to the storage account at the following path:
 
@@ -417,7 +416,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-flowlogfloweven
 
 # [**Azure CLI**](#tab/cli)
 
-To download virtual network flow logs from your storage account, use the [az storage blob download](/cli/azure/storage/blob#az-storage-blob-download) command.
+To download virtual network flow logs from your storage account, use the [az storage blob download](/cli/azure/storage/blob#az-storage-blob-download) command. For more information, see [Download a blob](../storage/blobs/storage-quickstart-blobs-cli.md#download-a-blob).
 
 Virtual network flow log files are saved to the storage account at the following path:
 
@@ -428,7 +427,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-flowlogfloweven
 ---
 
 > [!NOTE]
-> As an alternative way to access and download flow logs from your storage account, you can use Azure Storage Explorer. For more information, see [Get started with Storage Explorer](../storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer.md).
+> As an alternative way to access and download flow logs from your storage account, you can use Azure Storage Explorer. For more information, see [Get started with Storage Explorer](../storage/storage-explorer/vs-azure-tools-storage-manage-with-storage-explorer.md) and [Download blobs using Storage Explorer](../storage/blobs/quickstart-storage-explorer.md#download-blobs).
 
 For information about the structure of a flow log, see [Log format of virtual network flow logs](vnet-flow-logs-overview.md#log-format).
 
