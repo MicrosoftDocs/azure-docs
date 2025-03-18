@@ -101,7 +101,7 @@ items:
           href: how-to-create-assessment.md
         - name: Customize assessment settings
           href: vm-assessment-properties.md
-        - name: Performance-based assessment vs. As-is on-premises assessment
+        - name: Target right sizing
           href: target-right-sizing.md
         - name: Review assessment report
           href: review-assessment.md
@@ -184,8 +184,10 @@ items:
           href: tutorial-migrate-physical-virtual-machines.md
     - name: Migrate servers hosted on public cloud
       items:
-        - name: Discover inventory
+        - name: Discover AWS inventory
           href: tutorial-discover-aws.md
+        - name: Discover GCP inventory
+          href: tutorial-discover-gcp.md
   #     - name: Create Business case and assessment
   #       href: tutorial-assess-aws.md
         - name: Migrate
