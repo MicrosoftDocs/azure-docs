@@ -27,7 +27,7 @@ For example, to set an environment variable in App Service for Linux with the va
 
 For Linux apps and custom containers, App Service passes app settings to the container by using the `--env` flag to set the environment variable in the container. In either case, they're injected into your app environment at app startup. When you add, remove, or edit app settings, App Service triggers an app restart.
 
-For ASP.NET and ASP.NET Core developers, configuring app settings in App Service is like configuring them in `<appSettings>` in `Web.config` or `appsettings.json`. But the values in App Service override the ones in `Web.config` or `appsettings.json`. You can keep development settings (for example, local MySQL password) in `Web.config` or `appsettings.json` and production secrets (for example, Azure MySQL database password) safely in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when it's deployed to Azure.
+For ASP.NET and ASP.NET Core developers, configuring app settings in App Service is like configuring them in `<appSettings>` in `Web.config` or `appsettings.json`. But the values in App Service override the ones in `Web.config` or `appsettings.json`. You can keep development settings (for example, local MySQL password) in `Web.config` or `appsettings.json` and production secrets (for example, Azure MySQL database password) safely in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when it deploys to Azure.
 
 Other language stacks get the app settings as environment variables at runtime. For steps that are specific to each language stack, see:
 
@@ -207,11 +207,11 @@ It's not possible to edit app settings in bulk by using a JSON file with Azure P
 > [!NOTE]
 > Consider connectivity options that are more secure and that don't require connection secrets at all. For more information, see [Secure connectivity to Azure services and databases from Azure App Service](tutorial-connect-overview.md).
 
-For ASP.NET and ASP.NET Core developers, setting connection strings in App Service is like setting them in `<connectionStrings>` in `Web.config`. But the values that you set in App Service override the ones in `Web.config`. You can keep development settings (for example, a database file) in `Web.config` and production secrets (for example, SQL database credentials) safely in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when it's deployed to Azure.
+For ASP.NET and ASP.NET Core developers, setting connection strings in App Service is like setting them in `<connectionStrings>` in `Web.config`. But the values that you set in App Service override the ones in `Web.config`. You can keep development settings (for example, a database file) in `Web.config` and production secrets (for example, SQL database credentials) safely in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when it deploys to Azure.
 
 For other language stacks, it's better to use [app settings](#configure-app-settings) instead, because connection strings require special formatting in the variable keys to access the values.
 
-There is one case where you might want to use connection strings instead of app settings for non-.NET languages. Certain Azure database types are backed up along with the app *only* if you configure a connection string for the database in your App Service app. For more information, see [Create a custom backup](manage-backup.md#create-a-custom-backup). If you don't need this automated backup, use app settings.
+There's one case where you might want to use connection strings instead of app settings for non-.NET languages. Certain Azure database types are backed up along with the app *only* if you configure a connection string for the database in your App Service app. For more information, see [Create a custom backup](manage-backup.md#create-a-custom-backup). If you don't need this automated backup, use app settings.
 
 At runtime, connection strings are available as environment variables, prefixed with the following connection types:
 
@@ -458,9 +458,9 @@ Here, you can configure some common settings for the app. Some settings require 
 
     When **Always On** is turned on, the front-end load balancer sends a `GET` request to the application root every five minutes. The continuous ping prevents the app from being unloaded.
 
-    Always On is required for continuous WebJobs or for WebJobs that are triggered by a Cron expression.
+    Continuous WebJobs or WebJobs triggered by a Cron expression require Always On.
   - **Session affinity**: In a multiple-instance deployment, ensure that the client is routed to the same instance for the life of the session. You can set this option to **Off** for stateless applications.
-  - **Session affinity proxy**: Turn on if your app is behind a reverse proxy (like Azure Application Gateway or Azure Front Door) and you're using the default host name. The domain for the session affinity cookie will align with the forwarded host name from the reverse proxy.
+  - **Session affinity proxy**: Turn on if your app is behind a reverse proxy (like Azure Application Gateway or Azure Front Door) and you're using the default host name. The domain for the session affinity cookie aligns with the forwarded host name from the reverse proxy.
   - **HTTPS Only**: Enable if you want to redirect all HTTP traffic to HTTPS.
   - **Minimum TLS version**: Select the minimum TLS encryption version that your app requires.
 - **Debugging**: Enable remote debugging for [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure), or [Node.js](configure-language-nodejs.md#debug-remotely) apps. This option turns off automatically after 48 hours.
