@@ -45,9 +45,14 @@ When you created the Elastic resource, you configured which logs are sent to Ela
 
 ## View monitored resources
 
-To see a list of resources sending logs to Elastic, select **Monitored Resources** in the left pane.
+To view the list of resources emitting logs to Datadog, select **Elastic deployment configuration > Monitored resources** in the Resource menu.
 
-- Region isn't supported. The Azure resource is in a region that doesn't currently send logs to Elastic.
+> [!TIP]
+> You can filter the list of resources by type, subscription, resource group , region, and whether the resource is sending logs to Elastic. 
+
+## Monitor resources with Elastic agents
+
+You can install Datadog agents on virtual machines. 
 
 ## Monitor virtual machines using Elastic agent
 
