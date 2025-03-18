@@ -84,7 +84,7 @@ items:
     - name: Cost and savings calculations # provide details about cost calculations, Reservations & savings plan calculations, Environment based calculations, license cost.
       href: cost-estimation.md   
     - name: Target right sizing # help users understand how perf data is used in depth
-      href: target-rigt-sizing.md
+      href: target-right-sizing.md
     - name: Confidence rating
       href: confidence-ratings.md
     - name: Application assessment
@@ -315,7 +315,7 @@ items:
     - name: Onboard on-premises servers in VMware virtual environment to Azure Arc
       href: onboard-to-azure-arc-with-azure-migrate.md
     - name: Manage migration projects with Azure Lighthouse
-      href: ../lighthouse/how-to/migration-at-scale.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
+      href: /lighthouse/how-to/migration-at-scale.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
 - name: Troubleshoot
   items:
   - name: Azure Migrate Project
