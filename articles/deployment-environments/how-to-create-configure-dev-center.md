@@ -203,7 +203,7 @@ Use an environment type to help you define the different types of environments y
    az devcenter admin environment-type list -d <devcenterName> -o table 
    ```
 
-## Next steps
+## Next step
 
 In this quickstart, you created a dev center and configured it with an identity, a catalog, and an environment type. To learn how to create and configure a project, go to the next quickstart:
 
