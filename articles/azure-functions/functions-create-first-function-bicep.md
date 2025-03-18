@@ -3,7 +3,7 @@ title: Create your function app resources in Azure using Bicep
 description: Create and deploy to Azure a simple HTTP triggered serverless function using Bicep.
 author: ggailey777
 ms.author: glenga
-ms.date: 03/11/2025
+ms.date: 03/17/2025
 ms.topic: quickstart
 ms.service: azure-functions
 zone_pivot_groups: programming-languages-set-functions
@@ -32,19 +32,11 @@ The Bicep file used in this quickstart is from an [Azure Quickstart Template](ht
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.web/function-app-flex-managed-identities/main.bicep":::
 
-You use this file to create these Azure resources:
+This deployment file creates these Azure resources needed by a function app that securely connects to Azure services:
 
-+ [**microsoft.Insights/components**](/azure/templates/microsoft.insights/components): creates an Application Insights instance for monitoring your app.
-+ [**Microsoft.OperationalInsights/workspaces**](/azure/templates/microsoft.operationalinsights/workspaces): creates a workspace required by Application Insights.
-+ [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts): create an Azure Storage account, which is required by Functions.
-+ [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): create a serverless Flex Consumption hosting plan for the function app.
-+ [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create a function app.
+[!INCLUDE [functions-azure-resources-list](../../includes/functions-azure-resources-list.md)]
 
-
-Deployment considerations:
-
-+ The storage account is used to store important app data, including the application code deployment package. This deployment creates a storage account that is accessed using Microsoft Entra ID authentication and managed identities. Identity access is granted on a least-permissions basis.
-+ The Bicep file defaults to creating a C# app that uses .NET 8 in an isolated process. For other languages, use the `functionAppRuntime` and `functionAppRuntimeVersion` parameters to specify the specific language and version on which to run your app. Make sure to select your programming language at the [top](#top) of the article.
+[!INCLUDE [functions-deployment-considerations-infra](../../includes/functions-deployment-considerations-infra.md)]
 
 ## Deploy the Bicep file
 
@@ -52,7 +44,7 @@ Deployment considerations:
 
 1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
 
-    ### [CLI](#tab/CLI)
+    ### [Azure CLI](#tab/azure-cli)
     ::: zone pivot="programming-language-csharp"  
     ```azurecli
     az group create --name exampleRG --location <SUPPORTED_REGION>
@@ -83,7 +75,7 @@ Deployment considerations:
     az deployment group create --resource-group exampleRG --template-file main.bicep --parameters functionAppRuntime=powerShell functionAppRuntimeVersion=7.4
     ```
     ::: zone-end 
-    ### [PowerShell](#tab/PowerShell)
+    ### [Azure PowerShell](#tab/azure-powershell)
 
     ::: zone pivot="programming-language-csharp"  
     ```azurepowershell
@@ -126,13 +118,13 @@ Deployment considerations:
 
 Use Azure CLI or Azure PowerShell to validate the deployment.
 
-### [CLI](#tab/CLI)
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az resource list --resource-group exampleRG
 ```
 
-### [PowerShell](#tab/PowerShell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Get-AzResource -ResourceGroupName exampleRG
@@ -144,47 +136,9 @@ Get-AzResource -ResourceGroupName exampleRG
 
 ## Clean up resources
 
-Now that you have deployed a function app and related resources to Azure, can continue to the next step of publishing project code to your app. Otherwise, use these commands to delete the resources, when you no longer need them. 
-
-### [CLI](#tab/CLI)
-
-```azurecli-interactive
-az group delete --name exampleRG
-```
-
-### [PowerShell](#tab/PowerShell)
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name exampleRG
-```
-
----
-
-You can also remove resources by using the [Azure portal](https://portal.azure.com). 
+[!INCLUDE [functions-cleanup-resources-infra](../../includes/functions-cleanup-resources-infra.md)]
 
 ## Next steps
 
-You can now deploy a code project to the function app resources you created in Azure. 
-
-You can create, verify, and deploy a code project to your new function app from these local environments:
-
-### [Command prompt](#tab/core-tools)
-
-1. [Create the local code project](./functions-run-local.md#create-your-local-project)
-1. [Verify locally](./functions-run-local.md#run-a-local-function)
-1. [Publish to Azure](./functions-run-local.md#publish)
-
-### [Visual Studio Code](#tab/vs-code)
-
-1. [Create the local code project](./functions-develop-vs-code.md#create-an-azure-functions-project)
-1. [Verify locally](./functions-develop-vs-code.md#run-functions-locally)
-1. [Publish to Azure](./functions-develop-vs-code.md#republish-project-files)
- 
-### [Visual Studio](#tab/vs)
-
-1. [Create the local code project](./functions-develop-vs.md#create-an-azure-functions-project)
-1. [Verify locally](./functions-develop-vs.md#run-functions-locally)
-1. [Publish to Azure](./functions-develop-vs.md#publish-to-azure)
-
----
+[!INCLUDE [functions-quickstarts-infra-next-steps](../../includes/functions-quickstarts-infra-next-steps.md)]
 
