@@ -35,7 +35,7 @@ For more information, see [Azure Firewall Basic features](basic-features.md).
 
 Azure Firewall Standard offers L3-L7 filtering and threat intelligence feeds directly from Microsoft Cyber Security. It can alert and block traffic from/to known malicious IP addresses and domains, updated in real-time to protect against new and emerging threats.
 
-![Firewall Standard overview](media/overview/firewall-standard.png)
+:::image type="content" source="media/overview/firewall-standard.png" alt-text="Diagram showing Firewall Standard.":::
 
 For more information, see [Azure Firewall Standard features](features.md).
 
@@ -43,7 +43,7 @@ For more information, see [Azure Firewall Standard features](features.md).
 
 Azure Firewall Premium provides advanced capabilities, including signature-based IDPS for rapid attack detection by identifying specific patterns. These patterns can include byte sequences in network traffic or known malicious instruction sequences used by malware. With over 67,000 signatures in more than 50 categories, updated in real-time, it protects against new and emerging exploits such as malware, phishing, coin mining, and Trojan attacks.
 
-![Firewall Premium overview](media/overview/firewall-premium.png)
+:::image type="content" source="media/overview/firewall-premium.png" alt-text="Diagram showing Firewall Premium.":::
 
 For more information, see [Azure Firewall Premium features](premium-features.md).
 
