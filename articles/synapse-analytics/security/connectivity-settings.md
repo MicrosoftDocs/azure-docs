@@ -16,7 +16,7 @@ This article explains connectivity settings in Azure Synapse Analytics and how t
 
 For connection strings to Azure Synapse Analytics pools, see [Connect to Synapse SQL](../sql/connect-overview.md).
 
-The capabilites and Azure portal appearance of configuring a dedicated SQL pool depend on whether it is in a logical SQL server or an Azure Synapse Analytics workspace.
+The capabilities and Azure portal appearance of configuring a dedicated SQL pool depend on whether it is in a logical SQL server or an Azure Synapse Analytics workspace.
 
 ### [Dedicated SQL pools in a workspace](#tab/workspace)
 
