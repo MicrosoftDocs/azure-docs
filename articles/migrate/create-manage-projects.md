@@ -31,7 +31,7 @@ Set up a new project in an Azure subscription.
 2. In **Services**, select **Azure Migrate**.
 3. In **Get started**, select **Discover, assess and migrate**.
 
-    :::image type="content" source="./media/create-manage-projects/create-project.png" alt-text="Screenshot shows how to create project.":::
+    :::image type="content" source="./media/create-manage-projects/create-project.png" alt-text="Screenshot shows how to create project." lightbox="./media/create-manage-projects/create-project.png:::
 
 4. In **Create project**, select the Azure subscription and resource group. Create a resource group if you don't have one.
 5. In **Project Details**, specify the project name and the geography in which you want to create the project.
@@ -43,7 +43,7 @@ Set up a new project in an Azure subscription.
 
 7. Select **Create**.
 
-     :::image type="content" source="./media/create-manage-projects/create-project-subscription.png" alt-text="Image of Azure Migrate page to create project.":::
+    :::image type="content" source="./media/create-manage-projects/create-project-subscription.png" alt-text="Image of Azure Migrate page to create project." lightbox="./media/create-manage-projects/create-project-subscription.png":::
 
 Wait for a few minutes for the project to deploy.
 
