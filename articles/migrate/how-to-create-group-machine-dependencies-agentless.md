@@ -31,7 +31,7 @@ This article describes how to set up agentless dependency analysis using Azure M
 
 ## Before you start
 
-The existing users can follow steps provided [here](./how-to-create-group-machine-depndencies-agentless.md#switch-to-new-visualization).
+The existing users can follow steps provided [here](how-to-create-group-machine-dependencies-agentless.md#switch-to-new-visualization)
 
 The new users need to follow the steps given below:
 
@@ -178,7 +178,7 @@ If you are an existing user who has already set up an Azure Migrate project, per
 5. Select proceed to create a new resource in the same Resource Group as the project. Ensure that you have atleast "Contributor" role on the Resource Group else this step will not complete.
 
 > [!NOTE]
-> Even if the new resource creation goes through, you may not see the new visualization until you the discovery agent version (on Azure Migrate appliance) requirement is not met. Ensure that auto-update service on the appliance is enabled. [Learn more](/migrate-appliance.md#appliance-upgrades)
+> Even if the new resource creation goes through, you may not see the new visualization until you the discovery agent version (on Azure Migrate appliance) requirement is not met. Ensure that auto-update service on the appliance is enabled. [Learn more](migrate-appliance.md#appliance-upgrades)
 
 After you have performed the required steps to upgrade to the new dependency visualization, there are 2 ways in which you can see server dependencies in the new visualization.
 
@@ -281,8 +281,7 @@ You need to follow the same steps to export the discovered servers as mentioned 
 
    In the following example, dependency analysis is being enabled on the list of servers in the input file ContosoDemo_VMs_Enable.csv.
 
-    ```
-    PowerShell
+    ```PowerShell
     Set-AzMigDependencyMappingAgentless -Enable -InputCsvFile .\ContosoDemo_VMs_Enable.csv [-AutoEnabledDepMap] 
 
     ```
