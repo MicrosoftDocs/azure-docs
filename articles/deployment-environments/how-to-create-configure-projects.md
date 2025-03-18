@@ -123,7 +123,7 @@ To configure a project, add a [project environment type](how-to-configure-projec
     az configure --defaults group=<resourceGroupName>
     ```
 
-1. Show allowed environment type for the project:
+1. Show allowed environment types for the project:
 
     ```azurecli
     az devcenter admin project-allowed-environment-type list --project <projectName> --query [].name
