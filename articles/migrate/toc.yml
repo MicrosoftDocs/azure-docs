@@ -7,7 +7,7 @@ items:
     href: migrate-services-overview.md
   - name: What's new
     href: whats-new.md
-- name: Get Started
+- name: Quickstarts
   items:
   - name: Create an Azure Migrate project
     href: create-manage-projects.md
