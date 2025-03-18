@@ -186,8 +186,8 @@ items:
       items:
         - name: Discover inventory
           href: tutorial-discover-aws.md
-        - name: Create Business case and assessment
-          href: tutorial-assess-aws.md
+  #     - name: Create Business case and assessment
+  #       href: tutorial-assess-aws.md
         - name: Migrate
           href: tutorial-migrate-aws-virtual-machines.md
     - name: Migrate Spring Boot applications
