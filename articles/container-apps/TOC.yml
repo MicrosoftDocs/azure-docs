@@ -280,6 +280,8 @@
       items:
       - name: Generate images with serverless GPUs
         href: gpu-image-generation.md
+      - name: Deploy an NVIDIA Llama3 NIM
+        href: serverless-gpu-nim.md
 - name: Microservices
   items:
     - name: Developing with Dapr
@@ -390,10 +392,10 @@
       - name: Launch your first Java app
         items:
         - name: Dockerfile
-          href: /azure/developer/java/toolkit-for-intellij/java-get-started-dockerfile.md
+          href: /azure/developer/java/toolkit-for-intellij/java-get-started-dockerfile
           displayName: java
         - name: Github repository
-          href: /azure/developer/java/toolkit-for-intellij/java-get-started-github-repository.md
+          href: /azure/developer/java/toolkit-for-intellij/java-get-started-github-repository
           displayName: java
         - name: IntelliJ
           href: /azure/developer/java/toolkit-for-intellij/create-container-apps-intellij?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json

@@ -134,6 +134,8 @@
       href: virtual-network-manage-peering.md
     - name: Update the address space for a peered virtual network
       href: update-virtual-network-peering-address-space.yml
+    - name: Configure subnet peering
+      href: how-to-configure-subnet-peering.md
   - name: Routing
     items: 
     - name: Manage route tables

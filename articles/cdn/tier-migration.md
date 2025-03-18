@@ -2,11 +2,11 @@
 title: About Azure CDN from Microsoft (classic) to Azure Front Door migration
 description: This article explains the migration process and changes expected when changing from Azure CDN from Microsoft (classic) to Azure Front Door Standard or Premium tier.
 services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 06/25/2024
-ms.author: duau
 ---
 
 # About Azure CDN from Microsoft (classic) to Azure Front Door migration
