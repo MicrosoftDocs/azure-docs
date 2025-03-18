@@ -226,15 +226,9 @@ You can restart a single Standard logic app at any time.
 
 1. To check whether your task succeeded or failed, on main Azure toolbar, open the **Notifications** list (bell icon).
 
-<a name="stop-start-standard-workflows"></a>
-
-#### Disable or enable a Standard workflow
-
-To stop the trigger from firing the next time when the trigger condition is met, disable your workflow. You can disable or enable one or multiple Standard logic apps at the same time.
-
 <a name="considerations-disable-enable-standard-workflows"></a>
 
-##### Considerations for disabling a Standard workflow
+#### Considerations for disabling a Standard workflow
 
 Disabling a workflow affects all its workflow instances in the following ways:
 
@@ -267,7 +261,12 @@ Disabling a workflow affects all its workflow instances in the following ways:
 
 <a name="disable-enable-standard-workflows"></a>
 
-##### Disable or enable Standard workflows
+#### Disable or enable Standard workflows
+
+#### Disable or enable a Standard workflow
+
+To stop the trigger from firing the next time when the trigger condition is met, disable your workflow. You can disable or enable one or multiple Standard logic apps at the same time.
+
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
