@@ -2,14 +2,14 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: mrayyan
+author: mayssamm
 manager: alexokun
 
 ms.service: azure-communication-services
-ms.date: 07/20/2023
+ms.date: 02/27/2025
 ms.topic: include
 ms.custom: include file
-ms.author: t-siddiquim
+ms.author: mayssamm
 ---
 
 ## Prerequisites
@@ -248,11 +248,11 @@ To add or update participants to a `room`, use the `addOrUpdateParticipants` met
 
 List<RoomParticipant> participantsToAddAOrUpdate = new ArrayList<>();
 
-// Adding new participant
- participantsToAddAOrUpdate.add(participant_3.setRole(ParticipantRole.CONSUMER));
-
 // Updating current participant
-participantsToAddAOrUpdate.add(participant_2.setRole(ParticipantRole.PRESENTER));
+participantsToAddAOrUpdate.add(participant_1.setRole(ParticipantRole.PRESENTER));
+
+// Adding new participant
+ participantsToAddAOrUpdate.add(participant_3.setRole(ParticipantRole.COLLABORATOR));
 
 AddOrUpdateParticipantsResult addOrUpdateParticipantsResult = roomsClient.addOrUpdateParticipants(roomId, participantsToAddAOrUpdate);
 
@@ -379,8 +379,9 @@ Updated room with validFrom: 2023-05-11T22:11:46.784Z, validUntil: 2023-05-11T22
 Participant(s) added/updated
 
 Participants:
-8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7c76-35f3-343a0d00e901 (Attendee)
+8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7c76-35f3-343a0d00e901 (Presenter)
 8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7c76-35f3-343a0d00e902 (Consumer)
+8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7c76-35f3-343a0d00e903 (Collaborator)
 
 Participant(s) removed
 
