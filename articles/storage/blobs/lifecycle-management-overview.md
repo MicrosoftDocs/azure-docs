@@ -15,7 +15,10 @@ ms.custom: references_regions, engagement-fy23
 
 You can use Lifecycle management policies to transition blobs to cost-efficient access tiers based on their use patterns or delete them entirely at the end of their lifecycle. A policy can operate on current versions, previous versions and snapshots. A policy does not operate on blobs in system containers such as as the **$logs** or **$web** containers. 
 
-This article describes the elements of a lifecycle management policy and how to apply them to optimize the storage and transaction costs of your blobs.
+This article describes the elements of a lifecycle management policy. For policy examples, see the following articles:
+
+- [Lifecycle management policies that transition blobs between tiers](lifecycle-management-policy-access-tiers.md)
+- [Lifecycle management policies that deletes blobs](lifecycle-management-policy-delete.md)
 
 > [!TIP]
 > While lifecycle management helps you perform data operations in a single account, you can use Azure Storage Actions to accomplish these tasks at scale across multiple accounts. To learn more, see [What is Azure Storage Actions?](../../storage-actions/overview.md).
@@ -44,7 +47,7 @@ A lifecycle management policy is a collection of rules in a JSON document. The f
 
 | Parameter name | Parameter type | Notes |
 |----------------|----------------|-------|
-| **rules**        | An array of rule objects | At least one rule is required in a policy. You can define up to 100 rules in a policy.|
+| **rules**        | An array of rule objects | At least one rule is required in a policy. You can define up to 100 rules in a policy. |
 
 Each rule within the policy has several parameters, described in the following table:
 
@@ -79,11 +82,11 @@ You must define at least one action for each rule. Actions are applied to the fi
 
 | Action | Description | Not supported |
 |---|---|----|
-| **TierToCool**  | Set a blob to the cool access tier. See [examples](lifecycle-management-policy-access-tiers.md).| <li>Append blobs<br>Page blobs<li></li>Blobs in a premium block blob storage account</li> |
-| **TierToCold** | Set a blob to the cold access tier. See [examples](lifecycle-management-policy-access-tiers.md)| <li>Append blobs<li></li>Page blobs<li></li>Blobs in a premium block blob storage account</li> |
-| **TierToArchive**  | Set a blob to the archive access tier. See [examples](lifecycle-management-policy-access-tiers.md)| <li>Append blobs<li></li>Page blobs<li></li>Blobs in a premium block blob storage account<li></li>Blobs that use an encryption scope<li></li>Blobs in accounts that are configured for Zone-redundant storage (ZRS), geo-zone-redundant storage (GZRS) / read-access geo-zone-redundant storage (RA-GZRS).</li> |
-| **enableAutoTierToHotFromCool** | If a blob is set to the cool tier, this action automatically moves that blob into the hot tier when the blob is accessed.<br>This action is available only when used with the **daysAfterLastAccessTimeGreaterThan** run condition See [examples](lifecycle-management-policy-access-tiers.md)| <li>Previous versions<li></li>Snapshots</li> |
-| **Delete** See [examples](lifecycle-management-policy-delete.md).| Deletes a blob. | <li>Page blobs<li></li>Blobs in an immutable container</li> |
+| **TierToCool**  | Set a blob to the cool access tier. | <ul><li>Append blobs<br>Page blobs<li></li>Blobs in a premium block blob storage account</li></ul> |
+| **TierToCold** | Set a blob to the cold access tier. | <ul><li>Append blobs<li></li>Page blobs<li></li>Blobs in a premium block blob storage account</li></ul>  |
+| **TierToArchive**  | Set a blob to the archive access tier. | <ul><li>Append blobs<li></li>Page blobs<li></li>Blobs in a premium block blob storage account<li></li>Blobs that use an encryption scope<li></li>Blobs in accounts that are configured for Zone-redundant storage (ZRS), geo-zone-redundant storage (GZRS) / read-access geo-zone-redundant storage (RA-GZRS).</li></ul>  |
+| **enableAutoTierToHotFromCool** | If a blob is set to the cool tier, this action automatically moves that blob into the hot tier when the blob is accessed.<br>This action is available only when used with the **daysAfterLastAccessTimeGreaterThan** run condition.| <ul><li>Previous versions<li></li>Snapshots</li></ul>  |
+| **Delete** | Deletes a blob. | <ul><li>Page blobs<li></li>Blobs in an immutable container</li></ul>  |
 
 If you define more than one action on the same blob, then lifecycle management applies the least expensive action to the blob. For example, a **delete** action is cheaper than the **tierToArchive** action and the **tierToArchive** action is cheaper than the **tierToCool** action.
 
@@ -101,7 +104,7 @@ All run conditions are based on age. Current versions use the last modified time
 
 | Condition name                                     | Type    | Description                                                                                                                                                                                                                                                |
 |----------------------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **daysAfterModificationGreaterThan**               | Integer | The age in days after the last modified time.<br>The condition for actions on a current version of a blob.                                                                                                                                                 |
+| **daysAfterModificationGreaterThan**               | Integer | The age in days after the last modified time.<br>The condition for actions on a current version of a blob. <br>Any operation that modifies the blob, including an update of the blob's metadata or properties, changes the last-modified time of the blob.                                                                                                                                                |
 | **daysAfterCreationGreaterThan**                   | Integer | The age in days after the creation time.<br>The condition for actions on the current version or previous version of a blob or a blob snapshot.                                                                                                             |
 | **daysAfterLastAccessTimeGreaterThan** | Integer | Indicates the age in days after the last access time or in some cases, when the date when the policy was enabled. To learn more, see the [Access time tracking](#access-time-tracking) section below.<br>The condition for a current version of a blob when access tracking is enabled.                                                                                                                     |
 | **daysAfterLastTierChangeGreaterThan**             | Integer | Indicates the age in days after last blob tier change time.<br>The minimum duration in days that a rehydrated blob is kept in hot, cool or cold tiers before being returned to the archive tier. This condition applies only to **tierToArchive** actions. |
@@ -162,6 +165,8 @@ For more information about pricing, see [Block Blob pricing](https://azure.micro
 ## Next steps
 
 - [Configure a lifecycle management policy](lifecycle-management-policy-configure.md)
-- [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md)
+- [Access tiers for blob data](access-tiers-overview.md)
+- [Lifecycle management policies that transition blobs between tiers](lifecycle-management-policy-access-tiers.md)
+- [Lifecycle management policies that deletes blobs](lifecycle-management-policy-delete.md)
 - [Manage and find data on Azure Blob Storage with blob index](storage-manage-find-blobs.md)
 - [Best practices for using blob access tiers](access-tiers-best-practices.md)

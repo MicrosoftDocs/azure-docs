@@ -1,5 +1,5 @@
 ---
-title: Configure a lifecycle management policy to move blobs between access tiers
+title: Lifecycle management policies that transition blobs between tiers
 titleSuffix: Azure Blob Storage
 description: Configure a lifecycle management policy to automatically move data between hot, cool, cold, and archive tiers during the data lifecycle.
 author: normesta
@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 ---
 
-# Configure a lifecycle management policy to move blobs between access tiers
+# Lifecycle management policies that transition blobs between tiers
 
 You can use Lifecycle management policies to transition blobs to cost-efficient access tiers based on their use patterns. To learn more, see [Azure Blob Storage lifecycle management overview](lifecycle-management-policy-overview.md). This article contains examples of policy definitions that transition blobs between tiers.
 
@@ -153,6 +153,7 @@ For data that is modified and accessed regularly throughout its lifetime, you ca
 
 ## See also
 
-- [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md)
+- [Azure Blob Storage lifecycle management overview](lifecycle-management-overview.md)
+- [Lifecycle management policies that delete blobs](lifecycle-management-policy-delete.md)
 - [Known issues and limitations for lifecycle management policies](lifecycle-management-overview.md#known-issues-and-limitations)
 - [Access tiers for blob data](access-tiers-overview.md)
