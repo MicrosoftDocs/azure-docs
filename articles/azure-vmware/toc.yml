@@ -9,8 +9,6 @@ items:
     href: introduction-native.md
   - name: What's new
     href: azure-vmware-solution-native-updates.md
-  - name: Known issues
-    href: azure-vmware-solution-native-known-issues.md
   - name: Tutorial
     items:
     - name: Create an Azure VMware Solution on Native Private Cloud (Public Preview)
@@ -21,8 +19,18 @@ items:
       href: architecture-native-design-considerations.md
   - name: Networking
     items:
-    - name: Virtual network
-      href: native-network.md    
+    - name: Connectivity to Azure VNETs
+      href: native-network-connectivity.md
+    - name: Connect to On-premises environment
+      href: native-connect-on-premises.md
+    - name: Internet connectivity design considerations for Azure VMware Solution on native private cloud
+      href: native-internet-connectivity-design-considerations.md
+    - name: Connect multiple Azure VMware Solution on native private clouds
+      href: native-connect-multiple-private-clouds.md
+    - name: Connect Azure VMware Solution on Native private cloud to previous edition of Azure VMware Solution private cloud
+      href: native-connect-previous-edition.md
+    - name: DNS forward lookup zone for Azure VMware Solution on native private cloud
+      href: native-dns-forward-lookup-zone.md
 - name: Azure VMware Solution
   items:
   - name: What's Azure VMware Solution
