@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Set up the IoT resources you need for IoT Plug and Play | Microsoft Docs
+title: Tutorial - Set up the IoT resources you need for IoT Plug and Play
 description: Tutorial - Create an IoT Hub and Device Provisioning Service instance to use with the IoT Plug and Play quickstarts and tutorials.
 author: dominicbetts
 ms.author: dobett

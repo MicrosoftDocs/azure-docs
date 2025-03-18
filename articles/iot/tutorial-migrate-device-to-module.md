@@ -1,9 +1,9 @@
 ---
-title: Tutorial - Connect a generic Azure IoT Plug and Play module | Microsoft Docs
+title: Tutorial - Connect a generic Azure IoT Plug and Play module
 description: Tutorial - Use sample C# IoT Plug and Play device code in a generic module.
 author: dominicbetts
 ms.author: dobett
-ms.date: 1/23/2024
+ms.date: 03/18/2025
 ms.topic: tutorial
 ms.service: azure-iot
 
@@ -268,7 +268,7 @@ The output from the module client shows the command handler's response:
 
 ## Convert to an IoT Edge module
 
-To convert this sample to work as an IoT Plug and Play IoT Edge module, you must containerize the application. You don't need to make any further code changes. The connection string environment variable is injected by the IoT Edge runtime at startup. To learn more, see [Use Visual Studio 2019 to develop and debug modules for Azure IoT Edge](../iot-edge/how-to-visual-studio-develop-module.md).
+To convert this sample to work as an IoT Plug and Play IoT Edge module, you must containerize the application. You don't need to make any further code changes. The IoT Edge runtime IoT Edge runtime injects the connection string environment variable at startup. To learn more, see [Use Visual Studio to develop and debug modules for Azure IoT Edge](../iot-edge/how-to-visual-studio-develop-module.md).
 
 To learn how to deploy your containerized module, see:
 

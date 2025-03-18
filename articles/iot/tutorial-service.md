@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Interact with an IoT Plug and Play device connected to your Azure IoT solution | Microsoft Docs
+title: Tutorial - Interact with an IoT Plug and Play device connected to your Azure IoT solution
 description: Tutorial - Use C#, JavaScript, Java, or Python to connect to and interact with an IoT Plug and Play device that's connected to your Azure IoT solution.
 author: dominicbetts
 ms.author: dobett

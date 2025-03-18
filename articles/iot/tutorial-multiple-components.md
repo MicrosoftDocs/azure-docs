@@ -1,9 +1,9 @@
 ---
-title: Tutorial - Connect an IoT Plug and Play multiple component device applications to IoT Hub | Microsoft Docs
+title: Tutorial - Connect an IoT Plug and Play multiple component device applications to IoT Hub
 description: Tutorial - Build and run IoT Plug and Play sample device code that uses multiple components and connects to an IoT hub. The tutorial shows you how to use C, C#, Java, JavaScript, or Python. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
 author: dominicbetts
 ms.author: dobett
-ms.date: 1/23/2024
+ms.date: 03/18/2025
 ms.topic: tutorial
 ms.service: azure-iot
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, linux-related-content

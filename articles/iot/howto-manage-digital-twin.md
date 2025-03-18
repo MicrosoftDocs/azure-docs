@@ -3,7 +3,7 @@ title: How to manage IoT Plug and Play digital twins
 description: How to manage an IoT Plug and Play device by using the digital twin APIs
 author: dominicbetts
 ms.author: dobett
-ms.date: 1/23/2024
+ms.date: 03/18/2025
 ms.topic: how-to
 ms.service: azure-iot
 ---
@@ -187,4 +187,3 @@ Now that you've learned about digital twins, here are some more resources:
 
 - [Interact with a device from your solution](tutorial-service.md)
 - [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)
-- [Azure IoT explorer](../iot/howto-use-iot-explorer.md)

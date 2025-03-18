@@ -1,9 +1,9 @@
 ---
-title: Convert an existing device to use IoT Plug and Play | Microsoft Docs
+title: Convert an existing device to use IoT Plug and Play
 description: This article describes how to convert your existing device code to work with IoT Plug and Play by creating a device model and then sending the model ID when the device connects.
 author: dominicbetts
 ms.author: dobett
-ms.date: 1/23/2024
+ms.date: 03/18/2025
 ms.topic: how-to
 ms.service: azure-iot
 ---
