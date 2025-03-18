@@ -12,7 +12,7 @@ ms.service: azure-operator-service-manager
 Helm is a package manager for Kubernetes that helps to simplify application lifecycle management. Helm packages are called charts and consist of YAML configuration and template files. Upon execution of a Helm operation, the charts are rendered into Kubernetes manifest files to trigger the appropriate application lifecycle actions. For most efficient integration with Azure Operator Service Manager (AOSM), publisher's should consider certain best-practices when developing Helm charts.
 
 ## Considerations for registryPath and imagePullSecrets
-Every Helm chart generally requires a registryPath and imagePullSecrets. Most commonly, a publisher exposes these parameters in the values.yaml. At first, AOSM depended upon the publisher managing these values in a very strict manner (legacy approach), to be substituted for the proper Azure values during deployment. Overtime, it was found that not all publishers could easily comply with the strict management of these values. Some charts hide registryPath and/or imagePullSecrets behind conditionals, or other values restrictions, which were not always met. Some charts don't declare registryPath and/or imagePullSecrets as the expected named string, instead as an array. To reduce the strict compliance requirements on publishers, AOSM  introduced two improved methods, injectArtifactStoreDetail and cluster registry. These newer methods do not depend upon the registryPath or imagePullSecrets which appear in the Helm package. Instead, these methods use a webhook to inject proper Azure values directly into pod operations.
+Every Helm chart generally requires a registryPath and imagePullSecrets. Most commonly, a publisher exposes these parameters in the values.yaml. At first, AOSM depended upon the publisher managing these values in a strict manner (legacy approach), to be substituted for the proper Azure values during deployment. Overtime, it was found that not all publishers could easily comply with the strict management of these values. Some charts hide registryPath and/or imagePullSecrets behind conditionals, or other values restrictions, which were not always met. Some charts don't declare registryPath and/or imagePullSecrets as the expected named string, instead as an array. To reduce the strict compliance requirements on publishers, AOSM  introduced two improved methods, injectArtifactStoreDetail and cluster registry. These newer methods do not depend upon the registryPath or imagePullSecrets which appear in the Helm package. Instead, these methods use a webhook to inject proper Azure values directly into pod operations.
 
 ### Method summary for registryPath and imagePullSecrets
 All three methods are presently supported as described in this article. A publisher should choose the best option for their (network function) NF and use-case. 
@@ -27,7 +27,7 @@ All three methods are presently supported as described in this article. A publis
 
 **Cluster Registry** 
 * Uses a webhook to inject registryPath & imagePullSecrets directly into pod operations, with no dependency on helm.
-* Images are hosted in the local NFO extension cluster registry.
+* Images are hosted in the local network function operator (NFO) extension cluster registry.
 
 > [!NOTE]
 > In all three cases, AOSM is substituting Azure values for whatever values a publisher exposes in templates. The only difference is method of substitution.
@@ -167,7 +167,7 @@ global:
 ```
 
 > [!NOTE]
-> * If  registryPath is left blank in underlying helm package, SNS deployment will fail while trying to download image.
+> * If registryPath is left blank in underlying helm package, site network service (SNS) deployment fails while trying to download image.
 
 ### Using injectArtifactStoreDetails method
 To enable injectArtifactStoreDetails, set the installOptions parameter in the NF resource roleOverrides section to true, as shown in the following example.
@@ -198,7 +198,7 @@ resource networkFunction 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' =
 > The helm chart package must still expose properly formatted registryPath and imagePullSecrets values.
 
 ## Cluster registry requirements for registryPath and imagePullSecrets 
-With cluster registery, images are copied from the publisher ACR to a local docker repository on the NAKS cluster. When enabled, a webhook method is used to inject the proper registryPath and imagePullSecrets dynamically during the pod operations. This overrides the values which are configured in the helm package. A publisher still must use legal dummy values where registryPath and imagePullSecrets are referenced, usually in global section of values.yaml. 
+With cluster registry, images are copied from the publisher ACR to a local docker repository on the nexus AKS (NAKS) cluster. When enabled, a webhook method is used to inject the proper registryPath and imagePullSecrets dynamically during the pod operations. This overrides the values which are configured in the helm package. A publisher still must use legal dummy values where registryPath and imagePullSecrets are referenced, usually in global section of values.yaml. 
 
 The following `values.yaml` shows an example of how a publisher can provide the registryPath and imagePullSecretsvalue values for compatibility with cluster registry approach. 
 
@@ -209,9 +209,9 @@ global:
 ```
 
 > [!NOTE]
-> * If  registryPath is left blank in underlying helm package, SNS deployment will fail while trying to download image.
+> * If registryPath is left blank in underlying helm package, SNS deployment fails while trying to download image.
 
-For information on using cluster registry, please see the [concept documentation](get-started-with-cluster-registry.md).
+For information on using cluster registry, see the [concept documentation](get-started-with-cluster-registry.md).
 
 ## Chart immutability restrictions
 Immutability restrictions prevent changes to a file or directory. For example, an immutable file can't be changed or renamed. Users should avoid using mutable tags such as latest, dev, or stable. For example, if deployment.yaml used 'latest' for the .Values.image.tag the deployment would fail.
