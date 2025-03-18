@@ -26,7 +26,7 @@ Before you configure backup of Azure PostgreSQL database:
 - [Allow access permissions for PostgreSQL server](backup-azure-database-postgresql-overview.md#access-permissions-on-the-azure-postgresql-server).
 - [Create a back up policy](backup-azure-database-postgresql.md#create-backup-policy).
 
-Learn more about the [supported scenarios](backup-azure-database-postgresql-support-matrix.md) and  [frequently asked questions](backup-azure-database-postgresql-server-faq.md) to back up Azure Database for PostgreSQL Database.
+Learn more about the [supported scenarios](backup-azure-database-postgresql-support-matrix.md) and  [frequently asked questions](/azure/backup/backup-azure-database-postgresql-server-faq) to back up Azure Database for PostgreSQL Database.
 
 ## Configure backup on the database
 

@@ -13,7 +13,7 @@ ms.author: jsuri
 
 This article explains how to back up [Azure PostgreSQL database](/azure/postgresql/overview#azure-database-for-postgresql---single-server) using Azure CLI.
 
-Learn more about the [supported scenarios](backup-azure-database-postgresql-support-matrix.md) and  [frequently asked questions](backup-azure-database-postgresql-server-faq.md) to back up Azure Database for PostgreSQL Database.
+Learn more about the [supported scenarios](backup-azure-database-postgresql-support-matrix.md) and  [frequently asked questions](/azure/backup/backup-azure-database-postgresql-server-faq) to back up Azure Database for PostgreSQL Database.
 
 ## Create a Backup vault
 

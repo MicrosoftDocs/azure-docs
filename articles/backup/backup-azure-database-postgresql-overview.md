@@ -195,5 +195,5 @@ You can add new databases and database users to the server. For database users, 
 
 ## Next steps
 
-- [Frequently asked questions](backup-azure-database-postgresql-server-faq.md).
+- [Frequently asked questions](/azure/backup/backup-azure-database-postgresql-server-faq).
 - [Back up Azure Database for PostgreSQL](backup-azure-database-postgresql.md).

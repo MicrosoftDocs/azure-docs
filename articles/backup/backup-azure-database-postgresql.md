@@ -10,7 +10,7 @@ ms.author: jsuri
 
 # Azure Database for PostgreSQL backup with long-term retention
 
-This article describes how to back up Azure Database for PostgreSQL server. Before you begin, review the [supported configurations, feature considerations, known limitations](./backup-azure-database-postgresql-support-matrix.md), and [frequently asked questions](backup-azure-database-postgresql-server-faq.md).
+This article describes how to back up Azure Database for PostgreSQL server. Before you begin, review the [supported configurations, feature considerations, known limitations](./backup-azure-database-postgresql-support-matrix.md), and [frequently asked questions](/azure/backup/backup-azure-database-postgresql-server-faq).
 
 ## Configure backup on Azure PostgreSQL databases
 
