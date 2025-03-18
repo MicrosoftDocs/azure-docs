@@ -34,10 +34,12 @@ items:
       href: storage-quickstart-blobs-dotnet.md
     - name: Java
       items:
-      - name: Java
+      - name: Java SE
         href: storage-quickstart-blobs-java.md
-      - name: Spring
+      - name: Spring Boot
         href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage?toc=/azure/storage/blobs/toc.json
+      - name: Quarkus
+        href: storage-quickstart-blobs-java-quarkus.md
     - name: Python
       href: storage-quickstart-blobs-python.md
     - name: JavaScript
