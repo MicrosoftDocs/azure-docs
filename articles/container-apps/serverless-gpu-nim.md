@@ -197,7 +197,7 @@ curl -X POST \
 
 ## (Optional) Improving performance with volume mounts
 
-When starting up and using artifact streaming with Azure Container Registry, your NIMs will still be pulling the images from the container registry at startup. This can add cold start even with the optimized artifact streaming. For even faster cold start times, many of the NIMs provide a volume mount path to mount a cache directory. You can use this cache directory to store the model weights and other files that the NIM needs to run. To set up a volume mount for the Llama3 NIM, you will need to set a volume mount on the `./opt/nim/.cache` as specified in the [NVIDIA Llama-3.1-8b documentation](https://build.nvidia.com/meta/llama-3_1-8b-instruct/deploy). To do so, follow the steps in the [volume mounts tutorial](./storage-mounts-azure-files.md) and set the volume mount path to `/opt/nim/.cache`.
+When starting up and using artifact streaming with Azure Container Registry, Azure Container Apps will still be pulling the images from the container registry at startup. This incurs cold start even with the optimized artifact streaming. For even faster cold start times, many of the NIMs provide a volume mount path to store your image in a cache directory. You can use this cache directory to store the model weights and other files that the NIM needs to run. To set up a volume mount for the Llama3 NIM, you will need to set a volume mount on the `./opt/nim/.cache` as specified in the [NVIDIA Llama-3.1-8b documentation](https://build.nvidia.com/meta/llama-3_1-8b-instruct/deploy). To do so, follow the steps in the [volume mounts tutorial](./storage-mounts-azure-files.md) and set the volume mount path to `/opt/nim/.cache`.
 
 ## Clean up resources
 
