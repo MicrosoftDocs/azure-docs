@@ -1,45 +1,33 @@
 ---
-title: Manage Elastic Cloud (Elasticsearch) - An Azure Native ISV Service
-description: This article describes management of Elastic Cloud (Elasticsearch) on the Azure portal. How to configure diagnostic settings and delete the resource.
+title: Manage settings for your Elastic resource via Azure portal
+description: Manage settings, view resources, reconfigure metrics/logs, and more for your Elastic resource via Azure portal.
 ms.topic: how-to
 ms.date: 10/06/2023
 
 
 ---
 
-# Manage Elastic Cloud (Elasticsearch) - An Azure Native ISV Service
+# Manage settings for your Elastic resource via Azure portal
 
-This article describes how to manage your integration of Elastic with Azure. It shows how to configure the diagnostic settings and delete the Elastic resource.
+This article shows how to manage the settings for Elastic
+
+## Resource overview
+
+[!INCLUDE [manage](../includes/manage.md)]
 
 ## Reconfigure rules for metrics and logs
 
 When you created the Elastic resource, you configured which logs are sent to Elastic. If you need to change those settings, select **Metrics and Logs** in the left pane. Make the needed changes to how logs are sent to Elastic.
 
-For more information about the two types of logs, see [QuickStart: Get started with Elastic](create.md).
-
-:::image type="content" source="media/manage/reconfigure-logs.png" alt-text="Change log settings":::
-
 ## View monitored resources
 
 To see a list of resources sending logs to Elastic, select **Monitored Resources** in the left pane.
 
-:::image type="content" source="media/manage/monitored-resources.png" alt-text="View monitored resources":::
-
-You can filter the list by resource type, resource group name, location, and whether the resource is sending logs.
-
-The **Logs to Elastic** column indicates whether the resource is sending Logs to Elastic. If the resource isn't sending logs, this field specifies why logs aren't being sent. The reasons could be:
-
-- Resource doesn't support sending logs. Only Azure resource logs for all resources types and log categories defined here can be configured to send logs to Elastic
-- Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings).
-- An error is blocking the logs from being sent to Elastic.
-- Logs aren't configured for the resource. Only resources that have the appropriate resource tags are sent to Elastic. You specified the tag rules in the log configuration.
 - Region isn't supported. The Azure resource is in a region that doesn't currently send logs to Elastic.
 
 ## Monitor virtual machines using Elastic agent
 
 You can install Elastic agents on virtual machines as an extension. To see the available virtual machines in your subscription, select **Virtual Machines** from the left pane of your Elastic resource.
-
-:::image type="content" source="media/manage/vm-agents.png" alt-text="Screenshot showing  a list of virtual machines where you can install the Elastic VM extension and status information.":::
 
 For each virtual machine, the following data is displayed:
 
@@ -51,8 +39,6 @@ For each virtual machine, the following data is displayed:
 - Sending logs – Whether the Elastic agent is sending logs to Elastic.
 
 To install the Elastic agent, select a virtual machine and select **Install Extension**.
-
-:::image type="content" source="media/manage/elastic-install-extension.png" alt-text="Screenshot showing a virtual machine selected for an installation of the Elastic VM extension.":::
 
 The portal asks for confirmation that you want to install the agent with the default authentication. Select **OK** to begin installation. The portal shows the status as **Installing** until the agent is installed and provisioned.
 
@@ -68,13 +54,9 @@ To configure the diagnostic settings for a resource, select that resource. In th
 
 In the destination details section, check the option to send to partner solutions to select Elastic as a destination target. The option is only available after an Elastic resource has been created.
 
-:::image type="content" source="media/manage/diagnostic-settings.png" alt-text="Screenshot of configure diagnostic settings.":::
-
 ## Configure Azure OpenAI Connector
 
 If not configured already while creating the resource, you can navigate to the **Azure OpenAI configuration** blade under the Elastic deployment configuration section. Click on **Add** to select the Azure OpenAI resource and a deployment of a text/chat completion model(like gpt4). This makes it seamless for you to have your connector ready without having to switch contexts between the AOAI resource(in Azure portal) and the Connectors page in Elastic portal, thus avoiding having to copy and paste urls and keys.
-
-:::image type="content" source="media/manage/add-aoai-config.png" alt-text="Screenshot of Configure Azure OpenAI Connector.":::
 
 Click on **Create**.
 
@@ -127,13 +109,8 @@ To delete the resource in Azure, select your Elastic resource. In **Overview**, 
 
 When the Elastic resource is deleted, logs are no longer sent to Elastic. All billing stops for Elastic through the Azure Marketplace.
 
-## Next steps
+## Related content
 
-- For help with troubleshooting, see [Troubleshooting Elastic integration with Azure](troubleshoot.md).
-- Get started with Elastic Cloud (Elasticsearch) - An Azure Native ISV Service on
+- [Troubleshooting Elastic integration with Azure](troubleshoot.md)
+- [Elastic OpenAI Connectors](https://www.elastic.co/guide/en/kibana/current/openai-action-type.html)
 
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Elastic%2Fmonitors)
-
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp?tab=Overview)
