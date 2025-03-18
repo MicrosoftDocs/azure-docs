@@ -281,10 +281,10 @@ You need to follow the same steps to export the discovered servers as mentioned 
 
    In the following example, dependency analysis is being enabled on the list of servers in the input file ContosoDemo_VMs_Enable.csv.
 
-    ```PowerShell
+```PowerShell
     Set-AzMigDependencyMappingAgentless -Enable -InputCsvFile .\ContosoDemo_VMs_Enable.csv [-AutoEnabledDepMap] 
 
-    ```
+```
 
 ## Visualize network connections in Power BI
 
