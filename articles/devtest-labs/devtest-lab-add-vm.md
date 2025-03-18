@@ -113,13 +113,13 @@ When you create a VM in DevTest Labs, you automatically have permission to acces
 
 DevTest Labs users in the **Owner** and **Contributor** roles can see all lab VMs on the lab's **All Resources** page. Users in the **DevTest Labs User** role can't automatically access VM resources that other users created, so they don't see those VMs on the **All resources** page.
 
-## Copy existing Azure VMs into a lab
+## Copy existing VMs into a lab
 
 You can copy existing VMs to DevTest Labs as follows:
 
 1. Use a [PowerShell script](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/Scripts/CopyVirtualMachines/CopyAzVHDFromVMToLab.ps1) to copy your existing VM's virtual hard disk (VHD) file to the lab.
 1. Use the VHD file to [create a custom image](devtest-lab-create-template.md) in your lab.
-1. Create a lab VM from your custom image.
+1. [Create a lab VM]((add-vm-use-shared-image.md) from your custom image.
 
 ## Related content
 
