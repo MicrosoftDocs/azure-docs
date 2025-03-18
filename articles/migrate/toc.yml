@@ -83,7 +83,8 @@ items:
       href: assessment-prerequisites.md
     - name: Cost and savings calculations # provide details about cost calculations, Reservations & savings plan calculations, Environment based calculations, license cost.
       href: cost-estimation.md   
-    - name: Performance-based assessments # help users understand how perf data is used in depth
+    - name: Target right sizing # help users understand how perf data is used in depth
+      href: target-rigt-sizing.md
     - name: Confidence rating
       href: confidence-ratings.md
     - name: Application assessment
@@ -162,16 +163,16 @@ items:
       items:
         - name: Discover inventory
           href: tutorial-discover-vmware.md
-        - name: Create Business case and assessment
-          href: tutorial-discover-import.md
+#       - name: Create Business case and assessment
+#         href: tutorial-discover-import.md
         - name: Migrate
           href: tutorial-migrate-vmware.md
     - name: Migrate servers hosted in Hyper-V
       items:
         - name: Discover inventory
           href: tutorial-discover-hyper-v.md
-        - name: Create Business case and assessment
-          href: tutorial-assess-hyper-v.md
+#       - name: Create Business case and assessment
+#         href: tutorial-assess-hyper-v.md
         - name: Migrate
           href: tutorial-migrate-hyper-v.md
     - name: Migrate physical servers
@@ -204,16 +205,16 @@ items:
   #    href: tutorial-discover-sap-systems.md
   #   - name: Assess SAP systems for migration (preview)
   #     href: tutorial-assess-sap-systems.md
-    - name: Use Azure Migrate with private endpoints 
-      items:
-      - name: Support requirements and considerations
-        href: how-to-use-azure-migrate-with-private-endpoints.md
-      - name: Discover and assess using Azure Private Link
-        href: discover-and-assess-using-private-endpoints.md
-      - name: Migrate servers to Azure using Private Link
-        href: migrate-servers-to-azure-using-private-link.md
-      - name: Troubleshoot network connectivity
-        href: troubleshoot-network-connectivity.md
+  # - name: Use Azure Migrate with private endpoints 
+  #   items:
+  #   - name: Support requirements and considerations
+  #     href: how-to-use-azure-migrate-with-private-endpoints.md
+  #   - name: Discover and assess using Azure Private Link
+  #     href: discover-and-assess-using-private-endpoints.md
+  #   - name: Migrate servers to Azure using Private Link
+  #     href: migrate-servers-to-azure-using-private-link.md
+  #   - name: Troubleshoot network connectivity
+  #     href: troubleshoot-network-connectivity.md
     - name: Modernize applications 
       items:
       - name: Containerize ASP.NET apps and migrate to AKS
@@ -266,16 +267,16 @@ items:
     items:
     - name: Enable application and code assessment
       href: appcat/index.yml
-    - name: Assess a SQL Server database
-      href: /sql/dma/dma-assess-sql-data-estate-to-sqldb
-    - name: Create SQL assessment
-      href: how-to-create-sql-assessment.md
-    - name: Review SQL assessment
-      href: how-to-review-sql-assessment.md
-    - name: Customize an assessment
-      href: how-to-modify-assessment.md
-    - name: Recalculate an assessment
-    - name: Scale assessment
+#   - name: Assess a SQL Server database
+#     href: /sql/dma/dma-assess-sql-data-estate-to-sqldb
+#   - name: Create SQL assessment
+#     href: how-to-create-sql-assessment.md
+#   - name: Review SQL assessment
+#     href: how-to-review-sql-assessment.md
+#   - name: Customize an assessment
+#     href: how-to-modify-assessment.md
+#   - name: Recalculate an assessment
+#   - name: Scale assessment
       items:
       - name: Assess large number of servers in VMware environment
         href: scale-vmware-assessment.md
@@ -329,10 +330,12 @@ items:
       href: troubleshoot-network-connectivity.md
   - name: Workload discovery
     items:
+  - name: Action Center
+    href: centralized-issue-tracking.md
     - name: Server discovery
       href: troubleshoot-discovery.md
-    - name: Spring Boot discovery
-      href: troubleshoot-spring-boot-discovery.md
+#   - name: Spring Boot discovery
+#     href: troubleshoot-spring-boot-discovery.md
   - name: Action Center
     href: centralized-issue-tracking.md
   - name: Dependency analysis
@@ -653,8 +656,8 @@ items:
 #         href: how-to-automate-migration.md
 #   - name: Manage
 #     items:
-#     - name: Delete an Azure Migrate project
-#       href: how-to-delete-project.md
+      - name: Manage projects
+        href: create-manage-projects.md
 #     - name: Work with previous version of Azure Migrate
 #       href: migrate-v1.md
 #     - name: Onboard on-premises servers in VMware virtual environment to Azure Arc
