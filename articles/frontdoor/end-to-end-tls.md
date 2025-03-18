@@ -9,7 +9,7 @@ ms.date: 03/18/2025
 zone_pivot_groups: front-door-tiers
 ---
 
-# About TLS encryption with Azure Front Door
+# TLS encryption with Azure Front Door
 
 Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), is the standard security technology for establishing an encrypted link between a web server and a client, like a web browser. This link ensures that all data passed between the server and the client remain private and encrypted.
 
