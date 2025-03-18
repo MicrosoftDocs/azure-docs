@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 03/17/2025
-ms.custom: engagement-fy23, devx-track-dotnet
+ms.custom: devx-track-dotnet
 # Customer intent: As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
 ---
 
@@ -769,54 +769,48 @@ Before you deploy your Standard logic app to the Azure portal, review this secti
 
 ### Set up firewall access
 
-If your environment has strict network requirements or firewalls that limit traffic, you have to set up permissions for any connections in your workflow.
+If your environment has strict network requirements or firewalls that limit traffic, you have to set up permissions for any connections created by [Azure managed, hosted, and shared connectors](/azure/connectors/managed) and used in your workflow.
 
 To find the fully qualified domain names (FQDNs) for these connections, follow these steps:
 
-1. In your logic app project, open the **connections.json** file, and find the **`managedApiConnections`** object.
+1. In your logic app project, open the **local.settings.json** file.
 
-   The **connections.json** file is created after you add the first connection-based trigger or action to your workflow.
+1. For each connection that you created, find the property named **`<connection-name>-ConnectionRuntimeUrl`**, which uses the following syntax:
 
-1. For each connection that you created, copy and save the **`connectionRuntimeUrl`** property value somewhere safe so that you can set up your firewall with this information.
+   **`"<connection-name>-ConnectionRuntimeUrl": <connection-runtime-URL>`**
 
-   The following example **connections.json** file contains two connections, an Office 365 connection and an AS2 connection. Both use managed identities for authentication and have the following **`connectionRuntimeUrl`** values, respectively:
+1. Copy and save this connection property value somewhere safe so that you can set up your firewall with this information.
 
-   - Office 365: **`"connectionRuntimeUrl": https://A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u.00.common.logic-<Azure-region>.azure-apihub.net/apim/office365/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1`**
+For example, suppose you have a sample **local.settings.json** file that contains these connections: an Office 365 connection and an AS2 connection. These connections use the following respective sample values for the **`<connection-name>-ConnectionRuntimeUrl`** properties:
 
-   - AS2: **`"connectionRuntimeUrl": https://A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u.00.common.logic-<Azure-region>.azure-apihub.net/apim/as2/b1b1b1b1-cccc-dddd-eeee-f2f2f2f2f2f2`**
+   - Office 365: **`"office365-ConnectionRuntimeUrl": https://A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u.00.common.logic-<Azure-region>.azure-apihub.net/apim/office365/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1"`**
+
+   - AS2: **`"as2-ConnectionRuntimeUrl": https://A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u.00.common.logic-<Azure-region>.azure-apihub.net/apim/as2/b1b1b1b1-cccc-dddd-eeee-f2f2f2f2f2f2`**
+
+   The sample **local.settings.json** file looks similar to the following version:
 
    ```json
    {
-      "managedApiConnections": {
-         "as2": {
-            "api": {
-               "id": "/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/locations/<Azure-region>/managedApis/as2"
-            },
-            "connection": {
-               "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group>/providers/Microsoft.Web/connections/<connection-resource-name>"
-            },
-            "connectionRuntimeUrl": https://A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u.00.common.logic-<Azure-region>.azure-apihub.net/apim/as2/b1b1b1b1-cccc-dddd-eeee-f2f2f2f2f2f2,
-            "authentication": {
-               "type":"ManagedServiceIdentity"
-            }
-         },
-         "office365": {
-            "api": {
-               "id": "/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/locations/<Azure-region>/managedApis/office365"
-            },
-            "connection": {
-               "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group>/providers/Microsoft.Web/connections/<connection-resource-name>"
-            },
-            "connectionRuntimeUrl": https://A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u.00.common.logic-<Azure-region>.azure-apihub.net/apim/office365/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1,
-            "authentication": {
-               "type":"ManagedServiceIdentity"
-            }
-         }
+      "IsEncrypted": false,
+      "Values": {
+         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+         "FUNCTIONS_WORKER_RUNTIME": "node",
+         "APP_KIND": "workflowapp",
+         "ProjectDirectoryPath": "c:\\Users\\<local-username>\\Desktop\\Visual Studio Code projects\\Azure Logic Apps\fabrikam-workflows\\Fabrikam-Workflows\\Fabrikam-Workflows",
+         "WORKFLOWS_TENANT_ID": "<Microsoft-Entra-tenant-ID>",
+         "WORKFLOWS_SUBSCRIPTION_ID": "<Azure-subscription-ID>",
+         "WORKFLOWS_RESOURCE_GROUP_NAME": "Fabrikam-Workflows-RG",
+         "WORKFLOWS_LOCATION_NAME": "westcentralus",
+         "WORKFLOWS_MANAGEMENT_BASE_URI": "https://management.azure.com/",
+         "as2-connectionKey": "<connection-key>",
+         "as2-ConnectionRuntimeUrl": "https://A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u.00.common.logic-<Azure-region>.azure-apihub.net/apim/as2/b1b1b1b1-cccc-dddd-eeee-f2f2f2f2f2f2",
+         "office365-connectionKey": "<connection-key>",
+         "office365-ConnectionRuntimeUrl": "https://A1bC2dE3fH4iJ5kL6mN7oP8qR9sT0u.00.common.logic-<Azure-region>.azure-apihub.net/apim/office365/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1",
       }
    }
    ```
 
-1. Set up your firewall using the values that you saved. For example, see the following documentation:
+1. Set up your firewall using the values that you saved. For more information, see the following documentation:
 
    - [Azure Firewall Manager Policy overview](/azure/firewall-manager/policy-overview)
    - [Deploy and configure Azure Firewall using the Azure portal - classic](/azure/firewall/tutorial-firewall-deploy-portal).
