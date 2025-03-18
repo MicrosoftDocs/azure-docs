@@ -55,7 +55,7 @@ landingContent:
           - text: Advanced Bicep
             url: /training/paths/advanced-bicep/
           - text: Use deployment stacks
-            url: /training/paths/use-deployment-stacks/
+            url: /training/modules/introduction-to-deployment-stacks/
 
   # Card
   - title: Author Bicep files
