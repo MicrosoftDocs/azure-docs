@@ -44,6 +44,8 @@ Use these values in the following [az dt command](/cli/azure/dt) to create the i
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> --resource-group <your-resource-group> --location <region>
 ```
 
+[!INCLUDE [digital-twins-cli-issue](../../includes/digital-twins-cli-issue.md)]
+
 There are several optional parameters that can be added to the command to specify additional things about your resource during creation, including creating a managed identity for the instance or enabling/disabling public network access. For a full list of supported parameters, see the [az dt create](/cli/azure/dt#az-dt-create) reference documentation.
 
 ### Create the instance with a managed identity

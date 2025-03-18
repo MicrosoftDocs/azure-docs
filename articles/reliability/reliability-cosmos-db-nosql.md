@@ -4,7 +4,7 @@ description: Learn about high availability (Reliability) in Azure Cosmos DB for 
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
-ms.custom: subject-reliability, references_regions
+ms.custom: subject-reliability
 ms.service: azure-cosmos-db
 ms.date: 05/06/2024 
 ---

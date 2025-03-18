@@ -311,7 +311,7 @@ When the custom policy runs:
 
 - **Orchestration Step 6** -  This step invokes the *UserInputMessageClaimGenerator* technical profile to assemble the user’s greeting message.
 
-- **Orchestration Step 7** - Finally, step 8 assembles and returns the JWT token at the end of the policy’s execution.
+- **Orchestration Step 7** - Finally, step 8 assembles and returns the JWT at the end of the policy’s execution.
 
 ## Step 4 - Upload policy
 

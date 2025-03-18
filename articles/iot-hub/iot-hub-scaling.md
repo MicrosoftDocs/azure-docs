@@ -1,9 +1,9 @@
 ---
 title: Azure IoT Hub scaling
 description: How to choose the correct IoT hub tier and size to support your anticipated message throughput and desired features.
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 04/08/2024

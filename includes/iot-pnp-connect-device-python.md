@@ -3,12 +3,14 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot
 ms.topic: include
-ms.date: 11/17/2022
+ms.date: 02/14/2025
 ---
 
 This tutorial shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the telemetry it sends. The sample application is written for Python and is included in the Azure IoT Hub Device SDK for Python. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 [![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/v2/samples/pnp)
+
+[!INCLUDE [iot-authentication-device-connection-string](iot-authentication-device-connection-string.md)]
 
 ## Prerequisites
 
@@ -28,7 +30,7 @@ In your local Python environment, install the package as follows:
 pip install azure-iot-device
 ```
 
-Clone the Python SDK IoT repository: 
+Clone the Python SDK IoT repository:
 
 ```cmd/sh
 git clone --branch v2 https://github.com/Azure/azure-iot-sdk-python

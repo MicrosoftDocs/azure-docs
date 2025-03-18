@@ -40,12 +40,12 @@
       href: quickstart-feature-flag-dotnet-background-service.md
     - name: Java Spring
       href: quickstart-feature-flag-spring-boot.md
-    - name: Azure Functions
-      href: quickstart-feature-flag-azure-functions-csharp.md
     - name: Python
       href: quickstart-feature-flag-python.md
     - name: Node.js
       href: quickstart-feature-flag-javascript.md
+    - name: Azure Functions
+      href: quickstart-feature-flag-azure-functions-csharp.md
     - name: Azure Kubernetes Service
       href: quickstart-feature-flag-azure-kubernetes-service.md
   - name: Service integration
@@ -84,14 +84,14 @@
       href: enable-dynamic-configuration-dotnet.md
     - name: .NET Background Service
       href: enable-dynamic-configuration-dotnet-background-service.md
-    - name: Azure Functions
-      href: enable-dynamic-configuration-azure-functions-csharp.md
     - name: Spring Boot
       href: enable-dynamic-configuration-java-spring-app.md
     - name: Python
       href: enable-dynamic-configuration-python.md
     - name: Node.js
       href: enable-dynamic-configuration-javascript.md
+    - name: Azure Functions
+      href: enable-dynamic-configuration-azure-functions-csharp.md
     - name: Azure Kubernetes Service
       href: enable-dynamic-configuration-azure-kubernetes-service.md
   - name: Enable dynamic configuration using push model
@@ -300,30 +300,49 @@
           href: ./rest-api-throttling.md
         - name: Versioning
           href: ./rest-api-versioning.md
-  - name: Client libraries
+  - name: Configuration providers
     items:
-    - name: .NET provider
-      href: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
-    - name: .NET Framework builder
-      href: https://go.microsoft.com/fwlink/?linkid=2074663
-    - name: Java Spring provider
-      href: https://go.microsoft.com/fwlink/?linkid=2180917
-    - name: Python provider
-      href: https://pypi.org/project/azure-appconfiguration-provider/
-    - name: JavaScript provider
-      href: ./reference-javascript-provider.md
-    - name: Azure SDK for .NET
-      href: https://go.microsoft.com/fwlink/?linkid=2092056
-    - name: Azure SDK for Java
-      href: https://go.microsoft.com/fwlink/?linkid=2098196
-    - name: Azure SDK for Python
-      href: https://go.microsoft.com/fwlink/?linkid=2103727
-    - name: Azure SDK for JavaScript
-      href: https://go.microsoft.com/fwlink/?linkid=2103664
-    - name: Azure SDK for Go
-      href: https://go.microsoft.com/fwlink/?linkid=2270866
+    - name: Overview
+      href: ./configuration-provider-overview.md
+    - name: .NET
+      items:
+      - name: API reference
+        href: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
+      - name: Azure SDK for .NET
+        href: https://go.microsoft.com/fwlink/?linkid=2092056
+      - name: .NET Framework builder
+        href: https://go.microsoft.com/fwlink/?linkid=2074663
+    - name: Java Spring
+      items:
+      - name: Feature reference
+        href: https://go.microsoft.com/fwlink/?linkid=2180917
+      - name: Azure SDK for Java
+        href: https://go.microsoft.com/fwlink/?linkid=2098196
+    - name: Python
+      items:
+      - name: Feature reference
+        href: https://pypi.org/project/azure-appconfiguration-provider/
+      - name: Azure SDK for Python
+        href: https://go.microsoft.com/fwlink/?linkid=2103727
+    - name: JavaScript
+      items:
+      - name: Feature reference
+        href: ./reference-javascript-provider.md
+      - name: Azure SDK for JavaScript
+        href: https://go.microsoft.com/fwlink/?linkid=2103664
+    - name: Kubernetes
+      items:
+      - name: Feature reference
+        href: ./reference-kubernetes-provider.md
+    - name: Go
+      items:
+      - name: Azure SDK for Go
+        href: https://go.microsoft.com/fwlink/?linkid=2270866
+
   - name: Feature management
     items:
+    - name: Overview
+      href: ./feature-management-overview.md
     - name: .NET
       items:
       - name: Feature reference
@@ -340,6 +359,10 @@
         href: ./feature-management-python-reference.md
       - name: API reference
         href: https://microsoft.github.io/FeatureManagement-Python/html/index.html
+    - name: JavaScript
+      items:
+      - name: Feature reference
+        href: ./feature-management-javascript-reference.md
   - name: Deployment
     items:
     - name: ARM template
@@ -352,8 +375,6 @@
     href: /cli/azure/appconfig
   - name: Azure PowerShell
     href: /powershell/module/az.appconfiguration/
-  - name: Kubernetes provider
-    href: reference-kubernetes-provider.md
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md

@@ -3,7 +3,7 @@ title: What's new in the Azure Virtual Desktop SxS Network Stack? - Azure
 description: New features and product updates for the Azure Virtual Desktop SxS Network Stack.
 author: sipastak
 ms.topic: release-notes
-ms.date: 02/05/2025
+ms.date: 03/06/2025
 ms.author: sipastak
 ms.custom: references_regions
 ---
@@ -31,8 +31,16 @@ Here's information about the SxS Network Stack.
 
 | Release | Latest version |
 |--|--|
-| Production | 1.0.2409.29800  |
+| Production | 1.0.2409.29850  |
 | Validation | 1.0.2409.29600  |
+
+## Version 1.0.2409.29850
+
+*Published: March 2025*
+
+In this release, we've made the following changes:
+
+- A fix has been implemented to resolve a deadlock issue that was causing session hosts to stop accepting new Azure Virtual Desktop connections. 
 
 ## Version 1.0.2409.29800
 

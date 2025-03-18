@@ -53,6 +53,10 @@ Transferring a subscription requires downtime to complete the process. Depending
 - Re-create the resources and copy data to the target directory and subscription.
 - Adopt a multi-directory architecture and leave the subscription in the source directory. Use Azure Lighthouse to delegate resources so that users in the target directory can access the subscription in the source directory. For more information, see [Azure Lighthouse in enterprise scenarios](/azure/lighthouse/concepts/enterprise).
 
+### How to block subscription transfers
+
+Depending on your organization, you might want to **block** the transfer of subscriptions to different directories in your organization. If you want to instead block the transfer of subscriptions, you can configure a subscription policy. For more information, see [Manage Azure subscription policies](../cost-management-billing/manage/manage-azure-subscription-policy.md).
+
 ### Understand the impact of transferring a subscription
 
 Several Azure resources have a dependency on a subscription or a directory. Depending on your situation, the following table lists the known impact of transferring a subscription. By performing the steps in this article, you can re-create some of the resources that existed prior to the subscription transfer.
@@ -91,10 +95,6 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 > If you're using encryption at rest for a resource, such as a storage account or SQL database, that has a dependency on a key vault that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
 
 To get a list of some of the Azure resources that are impacted when you transfer a subscription, you can also run a query in [Azure Resource Graph](../governance/resource-graph/overview.md). For a sample query, see [List impacted resources when transferring an Azure subscription](../governance/resource-graph/samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription).
-
-### How to block subscription transfers
-
-Depending on your organization, you might want to **block** the transfer of subscriptions to different directories in your organization. If you want to instead block the transfer of subscriptions, you can configure a subscription policy. For more information, see [Manage Azure subscription policies](../cost-management-billing/manage/manage-azure-subscription-policy.md).
 
 ## Prerequisites
 

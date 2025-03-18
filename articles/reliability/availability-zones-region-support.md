@@ -2,7 +2,7 @@
 title: Azure regions with availability zone support
 description: Learn which Azure regions offer availability zone support
 ms.service: azure
-ms.subservice: azure-availability-zones
+ms.subservice: azure-reliability
 ms.topic: conceptual
 ms.date: 01/16/2025
 ms.author: anaharris
@@ -18,17 +18,17 @@ The following regions currently support availability zones:
 
 | Americas | Europe | Middle East | Africa | Asia Pacific |
 |---|---|---|---|---|
-| Brazil South | France Central | Qatar Central | South Africa North | Australia East |
-| Canada Central | Italy North | UAE North | | Central India |
-| Central US |  Germany West Central | Israel Central | | Japan East |
-| East US | Norway East | | | *Japan West |
-| East US 2 | North Europe  | | | Southeast Asia |
-| South Central US | UK South | | | East Asia |
-| US Gov Virginia | West Europe  | | | China North 3 |
-| West US 2 | Sweden Central | | |Korea Central  | 
-| West US 3 | Switzerland North | | | New Zealand North |
-| Mexico Central | Poland Central ||||
-||Spain Central ||||
+| Brazil South | France Central | Israel Central | South Africa North | Australia East |
+| Canada Central | Germany West Central | Qatar Central | | Central India |
+| Central US | Italy North | UAE North | | China North 3 |
+| East US | North Europe | | | East Asia |
+| East US 2 | Norway East | | | Indonesia Central* |
+| Mexico Central | Poland Central | | | Japan East |
+| South Central US | Spain Central | | | Japan West |
+| US Gov Virginia | Sweden Central | | | Korea Central |
+| West US 2 | Switzerland North | | | New Zealand North |
+| West US 3 | UK South | | | Southeast Asia |
+| | West Europe | | | |
 
 \* To learn more about availability zones and available services support in these regions, contact your Microsoft sales or customer representative. For upcoming regions that support availability zones, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 

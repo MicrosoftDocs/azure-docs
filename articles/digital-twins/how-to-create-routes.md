@@ -37,6 +37,8 @@ Next, follow the instructions below if you intend to use the Azure CLI while fol
 
 [!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
+[!INCLUDE [digital-twins-cli-issue](../../includes/digital-twins-cli-issue.md)]
+
 ## Create an event route
 
 After [creating an endpoint](how-to-create-endpoints.md), you'll need to define an *event route* to actually send data to the endpoint. These routes let developers wire up event flow, throughout the system and to downstream services. A single route can allow multiple notifications and event types to be selected. Read more about event routes in [Endpoints and event routes](concepts-route-events.md).
@@ -79,6 +81,8 @@ For the route to be enabled, you must also **Add an event route filter** of at l
 When finished, select the **Save** button to create your event route.
 
 # [CLI](#tab/cli2)
+
+[!INCLUDE [digital-twins-cli-issue](../../includes/digital-twins-cli-issue.md)]
 
 Routes can be managed using the [az dt route](/cli/azure/dt/route) commands for the Azure Digital Twins CLI. 
 

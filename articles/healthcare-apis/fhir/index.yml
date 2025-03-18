@@ -10,8 +10,8 @@ metadata:
   ms.subservice: fhir
   ms.topic: landing-page 
 
-  author: msjasteppe
-  ms.author: jasteppe
+  author: EXPEkesheth
+  ms.author: kesheth
   ms.date: 09/01/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -40,8 +40,8 @@ landingContent:
             url: fhir-service-access-token-validation.md
       - linkListType: tutorial
         links:
-          - text: Access using Postman
-            url: ./../fhir/use-postman.md
+          - text: Access using REST Client
+            url: ./../fhir/using-rest-client.md
   - title: FHIR search capabilities
     linkLists:
       - linkListType: overview

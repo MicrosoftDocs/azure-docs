@@ -5,7 +5,7 @@ author: sethmanheim
 ms.author: sethm
 ms.service: azure-notification-hubs
 ms.topic: reliability-article
-ms.custom: subject-reliability, references_regions
+ms.custom: subject-reliability
 ms.date: 03/06/2024
 
 ---

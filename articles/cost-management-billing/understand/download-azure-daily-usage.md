@@ -20,6 +20,8 @@ If you have a Microsoft Customer Agreement (MCA), you must be a billing profile 
 
 Based on the type of subscription that you use, options to download your usage and charges vary.
 
+Your cost and usage data files show unrounded data. For more information about rounding, see [Cost rounding](../costs/understand-cost-mgt-data.md#cost-rounding).
+
 If you want to get cost and usage data using the Azure CLI, see [Get usage data with the Azure CLI](../automate/get-usage-data-azure-cli.md).
 
 ## Download usage for MOSP billing accounts

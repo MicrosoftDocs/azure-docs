@@ -677,7 +677,7 @@ You can use the **Compute** transform to apply a formula to the source data. Thi
     | Last known value   | Optionally, use the last known value if the current value isn't available.                       |
 
 
-    You can enter or edit a formula in the **Formula** field. The formula can use the fields in the source data. Enter `@` or select **Ctrl + Space** to choose datapoints from a dropdown.
+    You can enter or edit a formula in the **Formula** field. The formula can use the fields in the source data. Enter `@` or select **Ctrl + Space** to choose datapoints from a dropdown. For built-in formulas, select the `<dataflow>` placeholder to see the list of available datapoints.
 
     You can enter MQTT metadata properties using the format `@$metadata.user_properties.<property>` or `@$metadata.topic`. You can also enter $metadata headers using the format `@$metadata.<header>`. The `$metadata` syntax is only needed for MQTT properties that are part of the message header. For more information, see [field references](concept-dataflow-mapping.md#field-references).
 
@@ -701,10 +701,7 @@ You can rename a datapoint using the **Rename** transform. This operation is use
     | New datapoint name | Enter the new name for the datapoint.                                                                   |
     | Description        | Provide a description for the transformation.                                                           |
 
-    Enter `@` or select **Ctrl + Space** to choose datapoints from a dropdown.
-
     You can enter MQTT metadata properties using the format `@$metadata.user_properties.<property>` or `@$metadata.topic`. You can also enter $metadata headers using the format `@$metadata.<header>`. The `$metadata` syntax is only needed for MQTT properties that are part of the message header. For more information, see [field references](concept-dataflow-mapping.md#field-references).
-
 
 1. Select **Apply**.
 

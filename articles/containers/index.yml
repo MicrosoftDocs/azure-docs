@@ -149,18 +149,18 @@ conceptualContent:
     # Card
     - title: Managed OpenShift service
       links:
-        - url: ../openshift/intro-openshift.md
+        - url: /azure/openshift/intro-openshift
           itemType: overview
           text: What is Azure Red Hat OpenShift?
-        - url: ../openshift/tutorial-create-cluster.md
+        - url: /azure/openshift/tutorial-create-cluster
           itemType: tutorial
           text: Create an Azure Red Hat OpenShift cluster
-        - url: ../openshift/tutorial-connect-cluster.md
+        - url: /azure/openshift/tutorial-connect-cluster
           itemType: tutorial
           text: Connect to an Azure Red Hat OpenShift cluster
       # footerLink (optional)
       footerLink:
-        url: ../openshift/index.yml
+        url: /azure/openshift/
         text: See more
     # Card
     - title: Serverless application development

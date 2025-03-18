@@ -452,12 +452,12 @@ groups:
   pivots:
   - id: stack-net
     title: .NET
-  - id: stack-python
-    title: Python
-  - id: stack-nodejs
-    title: Node.js
   - id: stack-java
     title: Java
+  - id: stack-nodejs
+    title: Node.js
+  - id: stack-python
+    title: Python
   - id: stack-php
     title: PHP
 - id: programming-languages-spring-apps
@@ -521,6 +521,22 @@ groups:
   title: Programming languages
   prompt: Choose a programming language
   pivots:
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+- id: acs-js-csharp-java-python-azcli-ps
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-azcli
+    title: Azure CLI
+  - id: programming-language-powershell
+    title: Azure PowerShell
   - id: programming-language-csharp
     title: C#
   - id: programming-language-javascript
@@ -792,6 +808,15 @@ groups:
     title: Linux
   - id: github-actions-containers-windows
     title: Windows
+    # Owner: jefmarti
+- id: app-service-bicep
+  title: App Service Bicep
+  prompt: Choose a platform
+  pivots:
+  - id: app-service-bicep-linux
+    title: Linux
+  - id: app-service-bicep-windows-container
+    title: Windows container
 # Owner: msangapu
 - id: app-spaces-component-types
   title: App Spaces components
@@ -1800,6 +1825,16 @@ groups:
     title: Android
   - id: platform-ios
     title: iOS
+- id: acs-plat-windows-android-ios
+  title: Platforms
+  prompt: Choose a platform
+  pivots:
+  - id: platform-windows
+    title: Windows
+  - id: platform-android
+    title: Android
+  - id: platform-ios
+    title: iOS
 # Owner: bagol
 - id: sentinel-sap-connection
   title: Connection
@@ -1850,3 +1885,12 @@ groups:
     title: Azure CLI in PowerShell script
   - id: platform-azclipython
     title: Azure CLI in Python script
+#owner: shaas
+- id: data-box-sku
+  title: Data Box SKUs
+  prompt: Choose a Data Box SKU
+  pivots:
+  - id: dbx-ng
+    title: Data Box Next Gen
+  - id: dbx
+    title: Data Box

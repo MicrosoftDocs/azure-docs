@@ -2,12 +2,12 @@
 title: Analyze edge node performance in Azure CDN
 description: Analyze edge node performance in Microsoft Azure CDN. Edge Performance Analytics provides granular information traffic and bandwidth usage for the CDN.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
-ms.author: duau
 ---
 
 # Analyze edge node performance in Microsoft Azure CDN
@@ -45,8 +45,6 @@ This dashboard consists of:
 ### Accessing the edge performance dashboard
 
 1. From the CDN profile page, select the **Manage** button.
-
-    :::image type="content" source="./media/cdn-edge-performance/cdn-manage-btn.png" alt-text="Screenshot of the manage button from an Azure CDN profile.":::
 
     The CDN management portal opens.
 2. Hover over the **Analytics** tab, then hover over the **Edge Performance Analytics** flyout. Select on **Dashboard**.

@@ -85,18 +85,6 @@ The archive tier for Blob Storage isn't currently supported for ZRS, GZRS, or RA
 
 For more information about which regions support ZRS, see [Azure regions with availability zones](../../reliability/availability-zones-region-support.md).
 
-#### Premium file share accounts
-
-ZRS is supported for premium file shares (Azure Files) through the `FileStorage` storage account kind.
-
-For a list of regions that support zone-redundant storage (ZRS) for premium file share accounts, see [Azure Files zone-redundant storage for premium file shares](../files/redundancy-premium-file-shares.md).
-
-#### Managed disks
-
-ZRS is supported for managed disks with the following [limitations](/azure/virtual-machines/disks-redundancy#limitations).
-
-For a list of regions that support zone-redundant storage (ZRS) for managed disks, see [regional availability](/azure/virtual-machines/disks-redundancy#regional-availability).
-
 ## Redundancy in a secondary region
 
 Redundancy options can help provide high durability for your applications. In many regions, you can copy the data within your storage account to a secondary region located hundreds of miles away from the primary region. Copying your storage account to a secondary region ensures that your data remains durable during a complete regional outage or a disaster in which the primary region isn't recoverable.

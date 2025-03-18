@@ -162,7 +162,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-security-architecture.md",
-      "redirect_url": "/azure/iot/iot-security-architecture",
+      "redirect_url": "/azure/well-architected/service-guides/azure-iot-hub#security",
       "redirect_document_id": false
     },
     {
@@ -177,7 +177,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-security-ground-up.md",
-      "redirect_url": "/azure/iot/iot-security-architecture",
+      "redirect_url": "/azure/well-architected/service-guides/azure-iot-hub#security",
       "redirect_document_id": false
     },
     {

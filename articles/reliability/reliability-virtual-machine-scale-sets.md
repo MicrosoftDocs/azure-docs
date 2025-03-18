@@ -3,7 +3,7 @@ title: Reliability in Azure Virtual Machine Scale Sets
 description: Learn about reliability in Azure Virtual Machine Scale Sets. 
 author: anaharris-ms
 ms.author: anaharris
-ms.topic: overview
+ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-virtual-machine-scale-sets
 ms.date: 10/31/2024

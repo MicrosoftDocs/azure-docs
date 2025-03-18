@@ -6,7 +6,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, kewear, azla
 ms.topic: how-to
-ms.date: 01/31/2025
+ms.date: 02/12/2025
 # Customer intent: As a developer, I want to convert data between different formats for a Standard workflow in Azure Logic Apps by creating a map with Visual Studio Code.
 ---
 
@@ -34,11 +34,15 @@ This how-to guide shows how to create an empty data map, choose your source and 
 
 - The layout and item positions in Data Mapper are currently automatic and read only.
 
+- The **Filter** function correctly processes numeric conditions that are enclosed by double quotation marks, for example, **">=10"**. However, this function currently doesn't consistently behave for string comparisons such as a check on whether an item name is **"= 'Pen'"**.
+
 - When you create a mapping between the parent array elements in the source and target schemas, the mapper automatically adds a loop to iterate through the array item elements. However, you must still explicitly create mappings between the source and target array item elements.
 
 - To call maps created with Data Mapper, you can only use the **Data Mapper Operations** action named **Transform using Data Mapper XSLT**. [For maps created by any other tool, use the **XML Operations** action named **Transform XML**](logic-apps-enterprise-integration-transform.md).
 
 - To use the maps that you create with Data Mapper with workflows in the Azure portal, you must [add them directly to your Standard logic app resource](logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource).
+
+- Custom functions currently aren't supported in this release.
 
 ## Prerequisites
 

@@ -19,19 +19,11 @@ You can enrich data by using the *contextualization datasets* function. When inc
 
 To load sample data into the state store, use the [state store CLI](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tools/statestore-cli).
 
-For example, consider the following dataset with a few records, represented as JSON records:
+For example, consider the following dataset with a few records, using the [JSON lines format](https://jsonlines.org/):
 
 ```json
-{
-  "Position": "Analyst",
-  "BaseSalary": 70000,
-  "WorkingHours": "Regular"
-},
-{
-  "Position": "Receptionist",
-  "BaseSalary": 43000,
-  "WorkingHours": "Regular"
-}
+{ "Position": "Analyst", "BaseSalary": 70000, "WorkingHours": "Regular" }
+{ "Position": "Receptionist", "BaseSalary": 43000, "WorkingHours": "Regular" }
 ```
 
 The mapper accesses the reference dataset stored in the Azure IoT Operations [state store](../create-edge-apps/concept-about-state-store-protocol.md) by using a key value based on a *condition* specified in the mapping configuration. Key names in the state store correspond to a dataset in the data flow configuration.

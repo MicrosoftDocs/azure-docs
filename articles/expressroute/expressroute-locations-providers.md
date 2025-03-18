@@ -123,7 +123,7 @@ The following table shows connectivity locations and the service providers for e
 | **Paris** | [Interxion PAR5](https://www.interxion.com/Locations/paris/) | 1 | France Central | &check; | British Telecom<br/>CenturyLink Cloud Connect<br/>Colt<br/>Equinix<br/>euNetworks<br/>Intercloud<br/>Interxion<br/>Jaguar Network<br/>Megaport<br/>Orange<br/>Telia Carrier<br/>Zayo<br/>Verizon |
 | **Paris2** | [Equinix](https://www.equinix.com/data-centers/europe-colocation/france-colocation/paris-data-centers/pa4) | 1 | France Central | &check; | Equinix<br/>InterCloud<br/>Megaport<br/>Orange |
 | **Perth** | [NextDC P1](https://www.nextdc.com/data-centres/p1-perth-data-centre) | 2 | &cross; | &check; | Equinix<br/>Megaport<br/>NextDC |
-| **Phoenix** | [EdgeConneX PHX01](https://www.cyrusone.com/data-centers/north-america/arizona/phx1-phx8-phoenix) | 1 | West US 3 | &check; | AT&T NetBond<br/>Cox Business Cloud Port<br/>CenturyLink Cloud Connect<br/>DE-CIX<br/>Megaport<br/>Zayo |
+| **Phoenix** | [EdgeConneX PHX01](https://www.cyrusone.com/data-centers/north-america/chandler-arizona) | 1 | West US 3 | &check; | AT&T NetBond<br/>Cox Business Cloud Port<br/>CenturyLink Cloud Connect<br/>DE-CIX<br/>Megaport<br/>Zayo |
 | **Phoenix2** | [PhoenixNAP](https://phoenixnap.com/) | 1 | West US 3 | &check; | Digital Realty |
 | **Portland** | [EdgeConnex POR01](https://www.edgeconnex.com/locations/north-america/portland-or/) | 1 | West US 2 | &check; |  |
 | **Pune** | [STT GDC Pune DC1](https://www.sttelemediagdc.in/our-data-centres-in-india) | 2 | Central India | &check; | Airtel<br/>Lightstorm<br/>SIFY<br/>Tata Communications |
@@ -137,7 +137,7 @@ The following table shows connectivity locations and the service providers for e
 | Location | Address | Zone | Local Azure regions | ER Direct | Service providers |
 |--|--|--|--|--|--|
 | **Rio de Janeiro** | [Equinix-RJ2](https://www.equinix.com/locations/americas-colocation/brazil-colocation/rio-de-janeiro-data-centers/rj2/) | 3 | Brazil Southeast | &check; | Cirion Technologies<br/>Equinix |
-| **San Antonio** | [CyrusOne SA1](https://cyrusone.com/locations/texas/san-antonio-texas/) | 1 | South Central US | &check; | CenturyLink Cloud Connect<br/>Megaport<br/>Zayo |
+| **San Antonio** | [CyrusOne SA1](https://www.cyrusone.com/data-centers/north-america/san-antonio-texas-sat1) | 1 | South Central US | &check; | CenturyLink Cloud Connect<br/>Megaport<br/>Zayo |
 | **Santiago** | [EdgeConnex SCL](https://www.edgeconnex.com/locations/south-america/santiago/) | 3 | &cross; | &check; | Cirion Technologies<br/>Equinix<br/>PitChile |
 | **Sao Paulo** | [Equinix SP2](https://www.equinix.com/locations/americas-colocation/brazil-colocation/sao-paulo-data-centers/sp2/) | 3 | Brazil South | &check; | Aryaka Networks<br/>Ascenty Data Centers<br/>British Telecom<br/>Equinix<br/>InterCloud<br/>Level 3 Communications<br/>Neutrona Networks<br/>Orange<br/>RedCLARA<br/>Tata Communications<br/>Telefonica<br/>UOLDIVEO |
 | **Sao Paulo2** | [TIVIT TSM](https://www.tivit.com/en/tivit/) | 3 | Brazil South | &check; | Ascenty Data Centers<br/>Tivit |
@@ -164,7 +164,7 @@ The following table shows connectivity locations and the service providers for e
 | **Tokyo** | [Equinix TY4](https://www.equinix.com/locations/asia-colocation/japan-colocation/tokyo-data-centers/ty4/) | 2 | Japan East | &check; | Aryaka Networks<br/>AT&T NetBond<br/>BBIX<br/>British Telecom<br/>CenturyLink Cloud Connect<br/>Colt<br/>Equinix<br/>Intercloud<br/>Internet Initiative Japan Inc. - IIJ<br/>Megaport<br/>NTT Communications<br/>NTT EAST<br/>Orange<br/>Softbank<br/>Telehouse - KDDI<br/>Verizon </br></br> |
 | **Tokyo2** | [AT TOKYO](https://www.attokyo.com/) | 2 | Japan East | &check; | AT TOKYO<br/>BBIX<br/>China Telecom Global<br/>China Unicom Global<br/>Colt<br/>DE-CIX<br/>Digital Realty<br/>Equinix<br/>IPC<br/>IX Reach<br/>Megaport<br/>PCCW Global Limited<br/>Tokai Communications |
 | **Tokyo3** | [NEC](https://www.nec.com/en/global/solutions/cloud/inzai_datacenter.html) | 2 | Japan East | &check; | NEC<br/>SCSK |
-| **Toronto** | [Cologix TOR1](https://www.cologix.com/data-centers/toronto/tor1/) | 1 | Canada Central | &check; | AT&T NetBond<br/>Bell Canada<br/>CenturyLink Cloud Connect<br/>Cologix<br/>Equinix<br/>IX Reach Megaport<br/>Orange<br/>Telus<br/>Verizon<br/>Zayo |
+| **Toronto** | [Cologix TOR1](https://www.cologix.com/data-centers/toronto/tor1/) | 1 | Canada Central | &check; | AT&T NetBond<br/>Bell Canada<br/>CenturyLink Cloud Connect<br/>Cologix<br/>Equinix<br/>IX Reach<br/>Megaport<br/>Orange<br/>Telus<br/>Verizon<br/>Zayo |
 | **Toronto2** | [Allied REIT](https://www.alliedreit.com/property/905-king-st-w/) | 1 | Canada Central | &check; | Fibrenoire<br/>Megaport<br/>Zayo |
 | **Vancouver** | [Cologix VAN1](https://www.cologix.com/data-centers/vancouver/van1/) | 1 | &cross; | &check; | Bell Canada<br/>Cologix<br/>Megaport<br/>Telus<br/>Zayo |
 | **Vienna** | [Digital Realty VIE1](https://www.digitalrealty.com/data-centers/emea/vienna/vie1) | 1 | &cross; | &check; | Digital Realty |
@@ -189,8 +189,8 @@ Azure national clouds are isolated from each other and from global commercial Az
 | **Chicago** | [Equinix CH1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/chicago-data-centers/ch1/) | &cross; | &check; | AT&T NetBond<br/>British Telecom<br/>Equinix<br/>Level 3 Communications<br/>Verizon |
 | **Dallas** | [Equinix DA3](https://www.equinix.com/locations/americas-colocation/united-states-colocation/dallas-data-centers/da3/) | &cross; | &check; | Equinix<br/>Internet2<br/>Megaport<br/>Verizon |
 | **New York** | [Equinix NY5](https://www.equinix.com/locations/americas-colocation/united-states-colocation/new-york-data-centers/ny5/) | &cross; | &check; | Equinix<br/>CenturyLink Cloud Connect<br/>Verizon |
-| **Phoenix** | [CyrusOne Chandler](https://www.cyrusone.com/data-centers/north-america/arizona/phx1-phx8-phoenix) | US Gov Arizona | &check; | AT&T NetBond<br/>CenturyLink Cloud Connect<br/>Megaport |
-| **San Antonio** | [CyrusOne SA2](https://cyrusone.com/locations/texas/san-antonio-texas-ii/) | US Gov Texas | &check; | CenturyLink Cloud Connect<br/>Megaport |
+| **Phoenix** | [CyrusOne Chandler](https://www.cyrusone.com/data-centers/north-america/chandler-arizona) | US Gov Arizona | &check; | AT&T NetBond<br/>CenturyLink Cloud Connect<br/>Megaport |
+| **San Antonio** | [CyrusOne SA2](https://www.cyrusone.com/data-centers/north-america/texas/sat2-san-antonio) | US Gov Texas | &check; | CenturyLink Cloud Connect<br/>Megaport |
 | **Silicon Valley** | [Equinix SV4](https://www.equinix.com/locations/americas-colocation/united-states-colocation/silicon-valley-data-centers/sv4/) | &cross; | &check; | AT&T<br/>Equinix<br/>Level 3 Communications<br/>Verizon |
 | **Seattle** | [Equinix SE2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/seattle-data-centers/se2/) | &cross; | &check; | Equinix<br/>Megaport |
 | **Washington DC** | [Equinix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | US DoD East<br/>US Gov Virginia | &check; | AT&T NetBond<br/>CenturyLink Cloud Connect<br/>Equinix<br/>Level 3 Communications<br/>Megaport<br/>Verizon |

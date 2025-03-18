@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, kewear, rohithah, archidda, azla
 ms.topic: overview
-ms.date: 01/04/2024
+ms.date: 02/19/2025
 #Customer intent: As a developer, I want to learn about automated Azure Arc-enabled logic app workflows that can run anywhere that Kubernetes can run.
 ---
 

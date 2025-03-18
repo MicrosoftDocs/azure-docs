@@ -2,8 +2,8 @@
 title: Use jobs to schedule tasks for groups of devices
 titleSuffix: Azure IoT Hub
 description: How to use the service SDK to schedule a job that invokes a device direct method and updates desired device twin properties.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 manager: lizross
 ms.service: azure-iot-hub
 ms.devlang: csharp

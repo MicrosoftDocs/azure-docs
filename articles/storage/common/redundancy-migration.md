@@ -259,7 +259,7 @@ To track the current migration status of the conversion initiated on your storag
 ```azurecli-interactive
 az storage account migration show \
     --account-name <string> \
-    - g <sting> \
+    - g <string> \
     -n "default"
 ```
 
@@ -371,7 +371,7 @@ The following table provides an overview of redundancy options available for sto
 | ZRS Classic<sup>4</sup><br /><sub>(available in standard general purpose v1 accounts)</sub> | &#x2705; |  |  |  |                           |
 
 
-<sup>1</sup> Customer-initiated conversion for premium file shares can be undertaken using either [PowerShell](redundancy-migration.md?tabs=powershell#customer-initiated-conversion) or the [Azure CLI](redundancy-migration.md?tabs=azure-cli#customer-initiated-conversion). You can also [open a support request](#support-initiated-conversion).<br />
+<sup>1</sup> Customer-initiated conversion for premium file shares can be undertaken using the [Azure Portal](../common/redundancy-migration.md?tabs=portal#customer-initiated-conversion), [PowerShell](redundancy-migration.md?tabs=powershell#customer-initiated-conversion), or the [Azure CLI](redundancy-migration.md?tabs=azure-cli#customer-initiated-conversion). You can also [open a support request](#support-initiated-conversion).<br />
 <sup>2</sup> Managed disks are available for LRS and ZRS, though ZRS disks have some [limitations](/azure/virtual-machines/disks-redundancy#limitations). If an LRS disk is regional (no zone specified), it can be converted by [changing the SKU](/azure/virtual-machines/disks-convert-types). If an LRS disk is zonal, then it can only be manually migrated by following the process in [Migrate your managed disks](../../reliability/migrate-vm.md#migrate-your-managed-disks). You can store snapshots and images for standard SSD managed disks on standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For information about integration with availability sets, see [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview#integration-with-availability-sets).<br />
 <sup>3</sup> If your storage account is v1, you need to upgrade it to v2 before performing a conversion. To learn how to upgrade your v1 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md).<br />
 <sup>4</sup> ZRS Classic storage accounts are deprecated. For information about converting ZRS Classic accounts, see [Converting ZRS Classic accounts](#converting-zrs-classic-accounts).<br />
@@ -436,7 +436,7 @@ You can't convert storage accounts to zone-redundancy (ZRS, GZRS, or RA-GZRS) if
 - NFSv3 protocol support is enabled for Azure Blob Storage
 - The storage account contains Azure Files NFSv4.1 shares with public endpoint access enabled
 
-Converting NFSv4.1 shares with public endpoints enabled isn't supported. To change redundancy for NFS shares with public endpoints, follow these steps in order:
+**Converting NFSv4.1 shares with public endpoints enabled isn't supported.** To change redundancy for NFS shares with public endpoints, follow these steps in order:
 
 1. [Disable access](../files/storage-files-networking-endpoints.md#restrict-public-endpoint-access) to the storage account's public endpoint.
 1. Submit the conversion request to change redundancy of the given storage account.

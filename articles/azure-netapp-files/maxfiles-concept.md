@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 02/11/2025
+ms.date: 02/28/2025
 ms.author: anfdocs
 ---
 # Understand `maxfiles` limits in Azure NetApp Files
@@ -18,7 +18,9 @@ Azure NetApp Files volumes have a value called `maxfiles` that refers to the max
 - Each inode uses roughly 288 bytes of capacity in the volume. Having many inodes in a volume can consume a non-trivial amount of physical space overhead on top of the capacity of the actual data.
     - If a file is less than 64 bytes in size, it's stored in the inode itself and doesn't use additional capacity. This capacity is only used when files are actually allocated to the volume.
     - Files larger than 64 bytes do consume additional capacity on the volume. For instance, if there are one million files greater than 64 bytes in an Azure NetApp Files volume, then approximately 274 MiB of capacity would belong to the inodes.
-
+    
+    >[!NOTE]
+    >Snapshots contribute to the total `maxfiles` count.
 
 The following table shows examples of the relationship `maxfiles` values based on volume sizes for regular volumes. 
 

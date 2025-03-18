@@ -2,7 +2,8 @@
 title: Deprecation of Tanzu Components
 description: Learn about the deprecation of Tanzu components.
 author: KarlErickson
-ms.author: dixue
+ms.author: karler
+ms.reviewer: dixue
 ms.service: azure-spring-apps
 ms.topic: overview
 ms.date: 01/29/2025

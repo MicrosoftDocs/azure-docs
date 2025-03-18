@@ -12,6 +12,9 @@ ms.author: chrupa
 
 # Quickstart: Choose a deployment method for the MedTech service
 
+> [!IMPORTANT]
+> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
+
 The MedTech service provides multiple methods for deployment into Azure. Each deployment method has different advantages that allow you to customize your deployment to suit your needs and use cases.
 
 In this quickstart, learn about these deployment methods:

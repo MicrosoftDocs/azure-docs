@@ -6,7 +6,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/19/2024
 ms.author: noakuper
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 ms.subservice: logs
 ---
 
