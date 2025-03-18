@@ -83,3 +83,9 @@ Keep in mind the following exceptions when you're selecting a GPU type:
 - **Plan for growth**: Even if you plan on starting with small models, if you expect to grow into needing more resources, consider starting with the A100 despite its higher initial cost. The continuity in your set-up might prove worth any extra costs you incur as you grow. Future-proofing like this is important to research organizations and AI-focused companies where model complexity tends to increase over time.
 
 - **Hybrid deployments**: Using both T4 and A100 workload profiles can help you split work into the most cost effective destinations. You might decide to use A100 GPUs for training and development while you deploy inference workloads on T4 GPUs.
+
+## Related content
+
+- [Serverless GPUs](gpu-serverless-overview.md)
+- [Tutorial: Generate images with serverless GPUs](gpu-image-generation.md)
+- [Tutorial: Deploy an NVIDIA Llama3 NIM](serverless-gpu-nim.md)
