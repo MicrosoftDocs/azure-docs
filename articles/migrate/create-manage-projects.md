@@ -64,7 +64,7 @@ Follow the steps to find a project:
 1. Select **All Projects** from the upper left.
 1. Filter and select the project of your choice.
 
-    :::image type="content" source="./media/create-manage-projects/filter-and-select-project.png" alt-text="Screenshot shows to filter and select the project." lightbox="./media/create-manage-projects/filter-and-select.png":::
+    :::image type="content" source="./media/create-manage-projects/filter-and-select-project.png" alt-text="Screenshot shows to filter and select the project." lightbox="./media/create-manage-projects/filter-and-select-project.png" :::
 
 ## Delete a project
 
