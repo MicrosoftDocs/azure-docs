@@ -2,7 +2,7 @@
 title: Create Elastic application
 description: This article describes how to use the Azure portal to create an instance of Elastic.
 ms.topic: quickstart
-ms.date: 06/01/2023
+ms.date: 03/18/2025
 
 
 
@@ -14,26 +14,17 @@ In this quickstart, you use the Azure portal to integrate an instance of Elastic
 
 ## Prerequisites
 
-- Subscription owner - The Elastic integration with Azure can only be created by users who have _Owner_ or _Contributor_ permissions on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md) before starting the setup.
-- Single sign-on app - The ability to automatically navigate between the Azure portal and Elastic Cloud is enabled via single sign-on (SSO). This option is automatically enabled and turned on for all Azure users.
+[!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
+- You must [subscribe to Elastic](overview.md#subscribe-to-elastic).
 
-## Find offer
+> [!NOTE]
+> The ability to automatically navigate between the Azure portal and Elastic Cloud is enabled via single sign-on (SSO). This option is automatically enabled and turned on for all Azure users.
 
-Use the Azure portal to find the Elastic application.
+## Create an Elastic resource
 
-1. In a web browser, go to the [Azure portal](https://portal.azure.com/) and sign in.
+[!INCLUDE [create-resource](../includes/create-resource.md)]
 
-1. If you've visited the **Marketplace** in a recent session, select the icon from the available options. Otherwise, search for _Marketplace_.
-
-1. Search for _Elastic_ and select **Elastic Cloud (Elasticsearch) - An Azure Native ISV Service** from the available offerings.
-
-1. Select **Set up + subscribe**.
-
-   :::image type="content" source="media/create/set-up.png" alt-text="select offer.":::
-
-## Create resource
-
-After you've selected the offer for Elastic, you're ready to set up the application.
+### Basics tab
 
 1. On the **Create Elastic Resource** basics page, provide the following values.
 
