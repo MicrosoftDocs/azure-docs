@@ -1,10 +1,11 @@
 ---
-title: "Quickstart: Quarkus extension for Azure Blob Storage"
+title: "Quickstart: Quarkus Extension for Azure Blob Storage"
 description: In this quickstart, you learn how to use the Quarkus extension for Azure Blob Storage to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: KarlErickson
-ms.author: jiangma
-ms.custom: devx-track-java, mode-api, passwordless-java, devx-track-extended-java, devx-track-extended-azdevcli, devx-track-javaee-quarkus, devx-track-javaee-quarkus-storage-blob
-ms.date: 01/15/2025
+ms.author: karler
+ms.reviewer: jiangma
+ms.custom: devx-track-java, mode-api, passwordless-java, devx-track-extended-azdevcli, devx-track-javaee-quarkus, devx-track-javaee-quarkus-storage-blob
+ms.date: 03/18/2025
 ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: java
@@ -49,7 +50,7 @@ Application requests to Azure Blob Storage must be authorized. Using `DefaultAzu
 
 The order and locations in which `DefaultAzureCredential` looks for credentials can be found in the [Azure Identity library overview](/java/api/overview/azure/identity-readme#defaultazurecredential).
 
-In this quickstart, your app authenticates using your Azure CLI sign-in credentials when running locally. Once it's deployed to Azure, your app can then use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). This transition between environments doesn't require any code changes.
+In this quickstart, your app authenticates using your Azure CLI sign-in credentials when running locally. After it's deployed to Azure, your app can then use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). This transition between environments doesn't require any code changes.
 
 ### Assign roles to your Microsoft Entra user account
 
@@ -65,18 +66,18 @@ You can authorize access to data in your storage account using the following ste
    az login
    ```
 
-2. Make sure you provide the endpoint of your Azure Blob Storage account. The following example shows how to set the endpoint using the environment variable `QUARKUS_AZURE_STORAGE_BLOB_ENDPOINT` via the Azure CLI. Replace `<RESOURCE_GROUP_NAME>` and `<STORAGE_ACCOUNT_NAME>` with your resource group and storage account names before running the command:
+2. Make sure you provide the endpoint of your Azure Blob Storage account. The following example shows how to set the endpoint using the environment variable `QUARKUS_AZURE_STORAGE_BLOB_ENDPOINT` via the Azure CLI. Replace `<resource-group-name>` and `<storage-account-name>` with your resource group and storage account names before running the command:
 
    ```azurecli 
    export QUARKUS_AZURE_STORAGE_BLOB_ENDPOINT=$(az storage account show \
-       --resource-group <RESOURCE_GROUP_NAME> \
-       --name <STORAGE_ACCOUNT_NAME> \
+       --resource-group <resource-group-name> \
+       --name <storage-account-name> \
        --query 'primaryEndpoints.blob' \
        --output tsv)
    ```
 
 > [!NOTE]
-> When deployed to Azure, you'll need to enable managed identity on your app, and configure your storage account to allow that managed identity to connect. For detailed instructions on configuring this connection between Azure services, see the [Auth from Azure-hosted apps](/azure/developer/java/sdk/identity-azure-hosted-auth) tutorial.
+> When deployed to Azure, you need to enable managed identity on your app, and configure your storage account to allow that managed identity to connect. For more information on configuring this connection between Azure services, see [Authenticate Azure-hosted Java applications](/azure/developer/java/sdk/identity-azure-hosted-auth).
 
 ## Run the sample
 
@@ -88,9 +89,9 @@ The code example performs the following actions:
 - Lists the blobs in the container.
 - Downloads the blob data to the local file system.
 - Deletes the blob and container resources created by the app.
-- Deleting the local source and downloaded files.
+- Deletes the local source and downloaded files.
 
-Run the application in JVM mode using the following command:
+Run the application in JVM mode by using the following command:
 
 ```bash
 mvn package
@@ -118,7 +119,7 @@ Done
 
 Before you begin the cleanup process, check your data folder for the two files. You can compare them and observe that they're identical.
 
-Optionally, you can run the sample in native mode. To do this, you need to have GraalVM installed, or use a builder image to build the native executable. For more information, see the [Building a Native Executable](https://quarkus.io/guides/building-native-image). This quickstart uses Docker as container runtime to build a Linux native executable. If you haven't installed Docker, you can download it from the [Docker website](https://www.docker.com/products/docker-desktop).
+Optionally, you can run the sample in native mode. To do this, you need to have GraalVM installed, or use a builder image to build the native executable. For more information, see [Building a Native Executable](https://quarkus.io/guides/building-native-image). This quickstart uses Docker as container runtime to build a Linux native executable. If you haven't installed Docker, you can download it from the [Docker website](https://www.docker.com/products/docker-desktop).
 
 Run the following command to build and execute the native executable in a Linux environment:
 
@@ -135,7 +136,7 @@ Next, you walk through the sample code to understand how it works.
 
 Working with any Azure resource using the SDK begins with creating a client object. The Quarkus extension for Azure Blob Storage automatically injects a client object with authorized access using `DefaultAzureCredential`.
 
-To successfully inject a client object, first you need to add the extensions `quarkus-arc` and `quarkus-azure-storage-blob` to your `pom.xml` file as a dependencies:
+To successfully inject a client object, first you need to add the extensions `quarkus-arc` and `quarkus-azure-storage-blob` to your **pom.xml** file as a dependencies:
 
 ```xml
 <properties>
@@ -183,14 +184,14 @@ Next, you can inject the client object into your application code using the `@In
 BlobServiceClient blobServiceClient;
 ```
 
-This is all you need to code to get a client object using the Quarkus extension for Azure Blob Storage. To make sure the client object is authorized to access your storage account at runtime, you need to follow steps in the previous section [Authenticate to Azure and authorize access to blob data](#authenticate-to-azure-and-authorize-access-to-blob-data) before running the application.
+That's all you need to code to get a client object using the Quarkus extension for Azure Blob Storage. To make sure the client object is authorized to access your storage account at runtime, you need to follow steps in the previous section [Authenticate to Azure and authorize access to blob data](#authenticate-to-azure-and-authorize-access-to-blob-data) before running the application.
 
 ### Manage blobs and containers
 
-The following code snippet shows how to create a container, upload a blob, list blobs in a container, and download a blob.
+The following code example shows how to create a container, upload a blob, list blobs in a container, and download a blob.
 
 > [!NOTE]
-> Writing to the local filesystem is considered a bad practice in cloud native applications. However, the sample uses the local filesystem to illustrate the use of blob storage in a way that is easy to for the user to verify. If taking an application to production, review your storage options and choose the best option for your needs. See [Review your storage options](/azure/architecture/guide/technology-choices/storage-options).
+> Writing to the local filesystem is considered a bad practice in cloud native applications. However, the example uses the local filesystem to illustrate the use of blob storage in a way that is easy to for the user to verify. When you take an application to production, review your storage options and choose the best option for your needs. For more information, see [Review your storage options](/azure/architecture/guide/technology-choices/storage-options).
 
 ```java
 // Create a unique name for the container
@@ -258,7 +259,7 @@ downloadedFile.delete();
 System.out.println("Done");
 ```
 
-These operations are similar to the [Quickstart: Azure Blob Storage client library for Java](storage-quickstart-blobs-java.md). For more detailed code explanations, see the following sections in that quickstart:
+These operations are similar to the ones described in [Quickstart: Azure Blob Storage client library for Java SE](storage-quickstart-blobs-java.md). For more detailed code explanations, see the following sections in that quickstart:
 
 - [Create a container](storage-quickstart-blobs-java.md#create-a-container)
 - [Upload blobs to a container](storage-quickstart-blobs-java.md#upload-blobs-to-a-container)
