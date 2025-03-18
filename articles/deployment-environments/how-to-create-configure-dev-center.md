@@ -71,7 +71,7 @@ To create and configure a dev center in Azure Deployment Environments:
    az devcenter admin devcenter create -n <devcenterName>
    ```
 
-   After a few minutes, the output indicates that it was created:
+   After a few minutes, the output indicates that the dev center was created:
 
    ```output
    {
@@ -100,13 +100,13 @@ You need an Azure Key Vault to store the GitHub personal access token (PAT) that
 1. Create a key vault:
 
    ```azurecli
-   # Change the name to something Globally unique
+   # Use a globally unique name
    az keyvault create -n <keyvaultName>
    ```
 
    > [!NOTE]
    > You might get the following error: 
-   `Code: VaultAlreadyExists Message: The vault name 'kv-devcenter-unique' is already in use. Vault names are globally unique so it is possible that the name is already taken.` You must use a globally unique key vault name.
+   `Code: VaultAlreadyExists Message: The vault name 'kv-devcenter' is already in use. Vault names are globally unique so it is possible that the name is already taken.` You must use a globally unique key vault name.
 
 1. Assign yourself the Key Vault Secrets Officer RBAC role:
 
@@ -121,29 +121,29 @@ You need an Azure Key Vault to store the GitHub personal access token (PAT) that
 
 ## Attach an identity to the dev center
 
-After you create a dev center, attach an [identity](concept-environments-key-concepts.md#identities) to the dev center. You can attach either a system-assigned managed identity or a user-assigned managed identity. Learn about the two [types of identities](how-to-configure-managed-identity.md#add-a-managed-identity).
+After you create a dev center, attach an [identity](concept-environments-key-concepts.md#identities) to the dev center. You can attach either a system-assigned managed identity or a user-assigned managed identity. For information, see [Add a managed identity](how-to-configure-managed-identity.md#add-a-managed-identity).
 
 In this quickstart, you configure a system-assigned managed identity for your dev center. 
 
 ### Attach a system-assigned managed identity
 
-To attach a system-assigned managed identity to your dev center:
+Attach a system-assigned managed identity to your dev center:
 
    ```azurecli
    az devcenter admin devcenter update -n <devcenterName> --identity-type SystemAssigned
    ```
 
-### Give the system-assigned managed identity access to the key vault secret
+### Grant the system-assigned managed identity access to the key vault secret
 
-Make sure that the identity has access to the key vault secret that contains the GitHub PAT to access your repository. Key Vaults support two methods of access; Azure role-based access control (RBAC) or vault access policy. In this quickstart, you use RBAC:
+Make sure that the identity has access to the key vault secret that contains the GitHub PAT for accessing your repository. Key vaults support two methods of access: Azure role-based access control (RBAC) and vault access policy. In this quickstart, you use RBAC:
 
 ```azurecli
-az role assignment create --role "Key Vault Secrets Officer" --assignee <devCenterManagedIdentityObjectID> --scope /subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName/providers/Microsoft.KeyVault/vaults/<keyVaultName>
+az role assignment create --role "Key Vault Secrets Officer" --assignee <devCenterManagedIdentityObjectID> --scope /subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/Microsoft.KeyVault/vaults/<keyVaultName>
 ```
 
 ## Add a catalog to the dev center
 
-Azure Deployment Environments supports attaching Azure DevOps repositories and GitHub repositories. You can store a set of curated IaC templates in a repository. Attaching the repository to a dev center as a catalog gives your development teams access to the templates and allows them to quickly create consistent environments.
+Azure Deployment Environments supports attaching Azure DevOps repositories and GitHub repositories. You can store a set of curated IaC templates in a repository. Attaching the repository to a dev center as a catalog grants your development teams access to the templates and allows them to quickly create consistent environments.
 
 In this quickstart, you attach a GitHub repository that contains samples created and maintained by the Azure Deployment Environments team.
 
@@ -160,7 +160,7 @@ You can use this [sample catalog](https://github.com/Azure/deployment-environmen
 
 1. Navigate to your repository, select **<> Code**, and then copy the clone URL.
 1. Make a note of the branch that you're working in.
-1. Take a note of the folder that contains your environment definitions. 
+1. Make a note of the folder that contains your environment definitions. 
 
      :::image type="content" source="media/how-to-create-configure-dev-center/github-info.png" alt-text="Screenshot that shows the GitHub repo with branch, copy URL, and folder highlighted." lightbox="media/how-to-create-configure-dev-center/github-info.png":::
 
@@ -173,11 +173,11 @@ You can use this [sample catalog](https://github.com/Azure/deployment-environmen
    echo $SECRETID
    ```
 
-1. Add the catalog.
+1. Add the catalog:
 
    ```azurecli
    # Sample catalog example
-   REPO_URL="https://github.com/Azure/deployment-environments.git"
+   REPO_URL="<clone URL that you copied earlier>"
    az devcenter admin catalog create --git-hub path="/Environments" branch="main" secret-identifier=$SECRETID uri=$REPO_URL -n <catalogName> -d <devcenterName>
    ```
 
@@ -205,7 +205,7 @@ Use an environment type to help you define the different types of environments y
 
 ## Next steps
 
-In this quickstart, you created a dev center and configured it with an identity, a catalog, and an environment type. To learn how to create and configure a project, advance to the next quickstart.
+In this quickstart, you created a dev center and configured it with an identity, a catalog, and an environment type. To learn how to create and configure a project, go to the next quickstart:
 
 > [!div class="nextstepaction"]
 > [Create and configure a project by using the Azure CLI](how-to-create-configure-projects.md)
