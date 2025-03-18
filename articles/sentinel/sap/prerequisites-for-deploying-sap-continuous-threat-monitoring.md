@@ -91,7 +91,7 @@ Typically, Azure prerequisites are managed by your **security** teams.
 | Prerequisite | Description |Required/optional |
 | ---- | ----------- |----------- |
 | **Permissions to create Azure resources** | You must have: <br><br>- The necessary permissions to deploy solutions from the Microsoft Sentinel content hub. For more information, see [Prerequisites for deploying Microsoft Sentinel solutions](../sentinel-solutions-deploy.md#prerequisites) and [Microsoft Entra built-in roles](/entra/identity/role-based-access-control/permissions-reference#application-administrator). <br>Owner on the Microsoft Sentinel resource group , required for:<br><br>- Creation of data collection rule and data collection endpoint.<br><br>- Monitoring Metrics Publisher role assignment on data collection rule. |Required |
-| **Read permissions to shared keys for the workspace** | For more information, see [Install Log Analytics agent on Windows computers](/azure/azure-monitor/platform/agent-windows). | Required |
+| **Read permissions to shared keys for the workspace** | For more information, see [Install Log Analytics agent on Windows computers](/azure/azure-monitor/platform/agent-windows##workspace-id-and-key). | Required |
 | **Permissions in Microsoft Entra**|You must have permissions in Microsoft Entra ID required to create app registrations. This permission can be obtained through membership of built-in Microsoft Entra ID role:<br><br>- Application Developer.|Required |
 
 ## SAP prerequisites for the agentless data connector
