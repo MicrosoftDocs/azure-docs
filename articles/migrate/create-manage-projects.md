@@ -54,7 +54,7 @@ If you already have a project and you want to create an additional project, do t
 1. On the Azure Migrate dashboard, select **All Projects** on the upper left.
 1. Select a **Create Project**. 
 
-   :::image type="content" source="./media/create-manage-projects/create-a-project.png" alt-text="Screenshot shows how to create a project by selecting the create project button."" lightbox="./media/create-manage-projects/create-a-project.png" :::
+   :::image type="content" source="./media/create-manage-projects/create-a-project.png" alt-text="Screenshot shows how to create a project by selecting the create project button." lightbox="./media/create-manage-projects/create-a-project.png" :::
 
 ## Find a project
 
@@ -64,7 +64,7 @@ Follow the steps to find a project:
 1. Select **All Projects** from the upper left.
 1. Filter and select the project of your choice.
 
-    :::image type="content" source="./media/create-manage-projects/filter-and-select-project.png" alt-text="Screenshot shows to filter and select the project." lightbox="./media/create-manage-projects/filter-and-select.png" :::
+    :::image type="content" source="./media/create-manage-projects/filter-and-select-project.png" alt-text="Screenshot shows to filter and select the project." lightbox="./media/create-manage-projects/filter-and-select.png":::
 
 ## Delete a project
 
