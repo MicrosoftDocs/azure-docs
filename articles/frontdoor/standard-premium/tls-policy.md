@@ -13,12 +13,12 @@ ms.date: 03/18/2025
 > [!IMPORTANT]
 > TLS policy is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure Front Door supports [end-to-end TLS encryption](../end-to-end-tls.md). When you add a custom domain to Azure Front Door, HTTPS is required, and you need to define a TLS policy which includes control of the TLS protocol version as well as the cipher suites during a TLS handshake. 
+Azure Front Door supports [end-to-end TLS encryption](../end-to-end-tls.md). When you add a custom domain to Azure Front Door, HTTPS is required, and you need to define a TLS policy which includes control of the TLS protocol version and the cipher suites during a TLS handshake. 
 
 Azure Front Door supports two versions of the TLS protocol: TLS versions 1.2 and 1.3. Currently, Azure Front Door doesn't support client/mutual authentication (mTLS).
 
 > [!NOTE]
-> TLS 1.0 and 1.1 have been disallowed for new enablement since March 1, 2025. If you haven’t disabled TLS 1.0 and 1.1 on legacy settings before March 1, 2025, TLS 1.0 and 1.1 still work, but they will be disabled in the upcoming weeks.
+> TLS 1.0 and 1.1 are disallowed on Azure Front Doors created after March 1, 2025. If you didn't disable TLS 1.0 and 1.1 on legacy settings before March 1, 2025, they'll still work temporarily but will be disabled in the future.
 
 Azure Front Door offers two mechanisms for controlling TLS policy. You can use either a predefined policy or a custom policy per your own needs.
 
