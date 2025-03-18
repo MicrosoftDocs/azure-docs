@@ -10,7 +10,7 @@ ms.custom:
   - ai-gen-title
 ---
 
-# Manage settings for your Datadog resource via Azure portal
+# Manage your Datadog resources
 
 This article shows how to manage the settings for Datadog.
 
