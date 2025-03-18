@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ---
 # Sample library
 
-The Azure Communication Sevices [**sample library**](https://aka.ms/acssamples) (GitHub) includes basic and advanced code examples demonstrating common communication use cases. 
+The Azure Communication Services [**sample library**](https://aka.ms/acssamples) (GitHub) includes basic and advanced code examples demonstrating common communication use cases. 
 
 [**Basic samples**](https://github.com/Azure/Communication/blob/master/Sample-index.md#basic-samples): understand the fundamentals of Azure Communication Services.
 
