@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, edwardhe, azla
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.date: 01/10/2024
+ms.date: 03/18/2025
 ---
 
 # Enable stateful mode for stateless built-in connectors in Azure Logic Apps
@@ -73,9 +73,16 @@ After you enable virtual network integration for your logic app, you must update
 To configure virtual network private ports using the Azure portal, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), find and open your Standard logic app resource.
+
 1. On the logic app menu, under **Settings**, select **Configuration**.
+
 1. On the **Configuration** page, select **General settings**.
+
+   :::image type="content" source="media/enable-stateful-affinity-built-in-connectors/general-settings.png" alt-text="Screenshot shows Azure portal, Standard logic app menu, Settings, and Configuration with general settings tab selected.":::
+
 1. Under **Platform settings**, in the **VNet Private Ports** box, enter the ports that you want to use.
+
+   :::image type="content" source="media/enable-stateful-affinity-built-in-connectors/vnet-private-ports.png" alt-text="Screenshot shows Azure portal, Standard logic app menu, Settings, and Configuration with general settings tab selected, and highlighted property named VNet Private Ports.":::
 
 ### Azure Resource Management API
 
