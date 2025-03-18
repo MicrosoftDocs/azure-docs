@@ -26,7 +26,7 @@ This article describes the impact on agent-based dependency analysis because of 
 > - **OS Support:** Support for new Linux or Windows distros, including service packs, won't be added after the deprecation of the legacy agents.
 
 > [!Note]
->  Starting July 1, 2024, [Standard Log Analytics charges](https://go.microsoft.com/fwlink/?linkid=2278207) are applicable for Agent-based dependency visualization. We suggest moving to [agentless dependency analysis](how-to-create-group-machine-dependencies-agentless.md) for a seamless experience.
+>  Starting July 1, 2024, [Standard Log Analytics charges](https://go.microsoft.com/fwlink/?linkid=2278207) are applicable for Agent-based dependency visualization. We suggest moving to [agentless dependency analysis] for a seamless experience.
 
 > [!Note]
 > The pricing estimation has been covered in [Estimate the price change](#estimate-the-price-change) section.
