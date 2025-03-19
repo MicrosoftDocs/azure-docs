@@ -41,7 +41,7 @@ Specifically, this Teradata connector supports:
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
-### For version 2.0
+### For version 2.0 (Preview)
 
  You need to [install .NET Data Provider](https://downloads.teradata.com/download/connectivity/net-data-provider-teradata) with version 20.00.03.00 or above on your self-hosted integration runtime if you use it.
 ### For version 1.0
@@ -80,14 +80,14 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The Teradata connector now supports version 2.0. Refer to this [section](#upgrade-the-teradata-connector) to upgrade your Teradata connector version from version 1.0. For the property details, see the corresponding sections.
+The Teradata connector now supports version 2.0 (Preview). Refer to this [section](#upgrade-the-teradata-connector) to upgrade your Teradata connector version from version 1.0. For the property details, see the corresponding sections.
 
-- [Version 2.0 (preview)](#version-20-preview)
+- [Version 2.0 (Preview)](#version-20-preview)
 - [Version 1.0](#version-10)
 
-### Version 2.0 (preview)
+### Version 2.0 (Preview)
 
-The Teradata linked service supports the following properties when apply version 2.0:
+The Teradata linked service supports the following properties when apply version 2.0 (Preview):
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -391,7 +391,7 @@ You are suggested to enable parallel copy with data partitioning especially when
 
 When you copy data from Teradata, the following mappings apply from Teradata's data types to the internal data types used by the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-| Teradata data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) |
+| Teradata data type | Interim service data type (for version 2.0 (Preview)) | Interim service data type (for version 1.0) |
 |:--- |:--- |:--- |
 | BigInt | Int64 | Int64 | 
 | Blob | Byte[] | Byte[] | 
@@ -442,18 +442,18 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 Here are steps that help you upgrade the Teradata connector:
 
-1. In **Edit linked service** page, select 2.0 version and configure the linked service by referring to [linked service version 2.0 (preview) properties](#version-20-preview).
+1. In **Edit linked service** page, select 2.0 version and configure the linked service by referring to [linked service version 2.0 (Preview) properties](#version-20-preview).
 
-2. The data type mapping for the Teradata linked service version 2.0 (preview) is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Teradata](#data-type-mapping-for-teradata).
+2. The data type mapping for the Teradata linked service version 2.0 (Preview) is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Teradata](#data-type-mapping-for-teradata).
 
 
-## Differences between Teradata connector version 2.0 (preview) and version 1.0
+## Differences between Teradata connector version 2.0 (Preview) and version 1.0
 
-The Teradata connector version 2.0 (preview) offers new functionalities and is compatible with most features of version 1.0. The following table shows the feature differences between version 2.0 (preview) and version 1.0.
+The Teradata connector version 2.0 (Preview) offers new functionalities and is compatible with most features of version 1.0. The following table shows the feature differences between version 2.0 (Preview) and version 1.0.
 
-| Version 2.0 (preview)  | Version 1.0 | 
+| Version 2.0 (Preview)  | Version 1.0 | 
 | :----------- | :------- |
-| The following mappings are used from Teradata data types to interim service data type.<br><br>Date -> Date<br>Time With Time Zone -> String <br>Timestamp With Time Zone -> DateTimeOffset <br>Graphic -> String<br>Interval Day  -> TimeSpan<br>Interval Day To Hour -> TimeSpan<br>Interval Day To Minute -> TimeSpan<br>Interval Day To Second -> TimeSpan<br>Interval Hour -> TimeSpan<br>Interval Hour To Minute -> TimeSpan<br>Interval Hour To Second -> TimeSpan<br>Interval Minute -> TimeSpan<br>Interval Minute To Second -> TimeSpan<br>Interval Month -> String<br>Interval Second -> TimeSpan<br>Interval Year -> String<br>Interval Year To Month -> String<br>Number -> Double<br>Period (Date) -> String<br>Period (Time) -> String<br>Period (Time With Time Zone) -> String<br>Period (Timestamp) -> String<br>Period (Timestamp With Time Zone) -> String<br>VarGraphic -> String<br>Xml -> String | The following mappings are used from Teradata data types to interim service data type.<br><br>Date -> DateTime<br>Time With Time Zone ->  TimeSpan    <br>Timestamp With Time Zone -> DateTime <br>Other mappings supported by version 2.0 (preview) are not supported by version 1.0. Please apply an explicit cast in the source query.   |  
+| The following mappings are used from Teradata data types to interim service data type.<br><br>Date -> Date<br>Time With Time Zone -> String <br>Timestamp With Time Zone -> DateTimeOffset <br>Graphic -> String<br>Interval Day  -> TimeSpan<br>Interval Day To Hour -> TimeSpan<br>Interval Day To Minute -> TimeSpan<br>Interval Day To Second -> TimeSpan<br>Interval Hour -> TimeSpan<br>Interval Hour To Minute -> TimeSpan<br>Interval Hour To Second -> TimeSpan<br>Interval Minute -> TimeSpan<br>Interval Minute To Second -> TimeSpan<br>Interval Month -> String<br>Interval Second -> TimeSpan<br>Interval Year -> String<br>Interval Year To Month -> String<br>Number -> Double<br>Period (Date) -> String<br>Period (Time) -> String<br>Period (Time With Time Zone) -> String<br>Period (Timestamp) -> String<br>Period (Timestamp With Time Zone) -> String<br>VarGraphic -> String<br>Xml -> String | The following mappings are used from Teradata data types to interim service data type.<br><br>Date -> DateTime<br>Time With Time Zone ->  TimeSpan    <br>Timestamp With Time Zone -> DateTime <br>Other mappings supported by version 2.0 (Preview) are not supported by version 1.0. Please apply an explicit cast in the source query.   |  
 
 
 ## Related content
