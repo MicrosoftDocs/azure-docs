@@ -41,7 +41,7 @@ This code is based on Session Initiation Protocol (SIP) response codes. For more
   
 A key factor in troubleshooting Azure Communication Services PSTN calls is determining whether the final SIP response code for the call came from a Microsoft process or the user's/operator's session border controller (SBC). An easy way to determine where the code originated is to look at the `ParticipantEndSubCode` response.
 
-If the `ParticipantEndSubCode` value starts with 560 or 540, it indicates that the user's/operator's SBC generated the response code. This is particularly useful for troubleshooting Direct Routing calls, as the subcode can help determine whether the error is from your SBC or the Microsoft service. A subcode starting with 560 represents an outbound call, while a subcode starting with 540 represents an inbound call. In either case, you should check the SBC logs.
+If the `ParticipantEndSubCode` value starts with 560 or 540, it indicates that the user's/operator's SBC generated the response code. This is useful for troubleshooting Direct Routing calls, as the subcode can help determine whether the error is from your SBC or the Microsoft service. A subcode starting with 560 represents an outbound call, while a subcode starting with 540 represents an inbound call. In either case, check the SBC logs.
 
 For example, if the `ParticipantEndSubCode` value is `560403`, it means that it was an outbound call, the SBC generated the final response code, and the SIP response code from the SBC was 403. You should start troubleshooting the calls by checking your SBC logs.
 
