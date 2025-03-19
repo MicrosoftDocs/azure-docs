@@ -185,7 +185,7 @@ Deployments with multiple storage appliances support selecting the storage appli
     --extended-location name="<ClusterCustomLocationId >" type="CustomLocation" \
     --location "<ClusterAzureRegion>" \
     --additional-egress-endpoints "[{\"category\":\"<YourCategory >\",\"endpoints\":[{\"<domainName1 >\":\"< endpoint1 >\",\"port\":<portnumber1 >}]}]"
-    --tags "storageApplianceName": "<YourStorageApplianceName>""
+    --tags "nexusSharedStorageApplianceName": "<YourStorageApplianceName>""
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -201,7 +201,7 @@ $additionalEgressEndpoint = New-AzNetworkCloudEgressEndpointObject `
   -Category "YourCategory" `
   -Endpoint $endpointList
 $endpointEgressList+= $additionalEgressEndpoint
-$tags @{"storageApplianceName"="<YourStorageApplianceName>"}
+$tags @{"nexusSharedStorageApplianceName"="<YourStorageApplianceName>"}
 
 New-AzNetworkCloudServicesNetwork -CloudServicesNetworkName "<YourCloudServicesNetworkName>" `
 -ResourceGroupName "<YourResourceGroupName>" `
