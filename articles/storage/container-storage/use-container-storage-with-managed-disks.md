@@ -136,7 +136,7 @@ $ az identity show --resource-group $nodeResourceGroup --output tsv --subscripti
 eb25d20f-1234-4ed5-1234-cef16f5bfe93 
 ``` 
 
-1. Grant **Disk Pool Operator** role on your disk, to the identity. Go to: Portal > Your Disk > Access control (IAM) > Add role assignment, and select **Disk Pool Operator** role and assign to the identity.
+1. Grant **Disk Pool Operator** role on your disk to the identity. Sign in to the Azure portal and navigate to your disk. From the service menu, select **Access control (IAM)** > **Add role assignment**, and then select **Disk Pool Operator** role and assign to the identity.
 
 Follow these steps to create a pre-provisioned storage pool for Azure Disks.
 
