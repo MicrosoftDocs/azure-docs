@@ -4,8 +4,6 @@ titleSuffix: Azure HDInsight
 description: Troubleshoot Hive LLAP Workload Management issues
 ms.service: azure-hdinsight
 ms.topic: troubleshooting
-author: reachnijel
-ms.author: nijelsf
 author: abhishjain002
 ms.author: abhishjain
 ms.reviewer: nijelsf
