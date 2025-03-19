@@ -2,7 +2,7 @@
 title: Environment Variables and App Settings Reference
 description: This article describes the commonly used environment variables in Azure App Service, and which ones can be modified with app settings.
 ms.topic: conceptual
-ms.date: 10/16/2024
+ms.date: 03/19/2025
 author: cephalin
 ms.author: cephalin
 ---
@@ -171,7 +171,7 @@ This section shows the configurable runtime settings for each supported language
 | `WEBSITE_JAVA_JAR_FILE_NAME` | The .jar file to use. Appends `.jar` if the string doesn't end in `.jar`. Defaults to `app.jar`. |
 | `WEBSITE_JAVA_WAR_FILE_NAME` | The .war file to use. Appends `.war` if the string doesn't end in `.war`. Defaults to `app.war`. |
 | `JAVA_ARGS` | `JAVA_OPTS` value required by a different Java web server. Defaults to `-noverify -Djava.net.preferIPv4Stack=true`. |
-| `JAVA_WEBSERVER_PORT_ENVIRONMENT_VARIABLES` | Environment variables used by popular Java web frameworks for server ports. Frameworks include Spring, Micronaut, Grails, MicroProfile Thorntail, Helidon, Ratpack, and Quarkus. |
+| `JAVA_WEBSERVER_PORT_ENVIRONMENT_VARIABLES` | Environment variables used by popular Java web frameworks for server ports. Frameworks include Spring, Micronaut, Grails, Helidon, Ratpack, and Quarkus. |
 | `JAVA_TMP_DIR` | Added to Java arguments as `-Dsite.tempdir`. Defaults to `TEMP`. |
 | `WEBSITE_SKIP_LOCAL_COPY` | By default, the deployed `app.jar` file is copied from `/home/site/wwwroot` to a local location. To disable this behavior and load `app.jar` directly from `/home/site/wwwroot`, set this variable to `1` or `true`. This setting has no effect if local cache is enabled. |
 | `TOMCAT_USE_STARTUP_BAT` | Native Windows apps only. By default, the Tomcat server is started with its `startup.bat` file. To set the Tomcat server to start by using its `catalina.bat` file instead, set the value to `0` or `False`.<br/><br/>Example: `%LOCAL_EXPANDED%\tomcat` |
