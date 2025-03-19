@@ -9,7 +9,7 @@ ms.author: mubatra
 
 ---
 
-# Use App Configuration references for App Service and Azure Functions
+# Use App Configuration references for Azure App Service and Azure Functions
 
 This article shows you how to work with configuration data in your Azure App Service or Azure Functions application without making any code changes. [Azure App Configuration](../azure-app-configuration/overview.md) is an Azure service you can use to centrally manage application configuration. It's also an effective audit tool for your configuration values over time or across releases.
 

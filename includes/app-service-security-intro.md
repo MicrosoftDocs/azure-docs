@@ -12,6 +12,6 @@ The platform components of Azure App Service, including Azure virtual machines (
 - Communication of secrets (such as connection strings) between your app and other Azure resources (such as [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)) stays within Azure and doesn't cross any network boundaries. Secrets are always encrypted when stored.
 - All communication over the App Service connectivity features, such as [hybrid connection](/azure/app-service/app-service-hybrid-connections), is encrypted.
 - Connections with remote management tools like Azure PowerShell, the Azure CLI, Azure SDKs, and REST APIs, are all encrypted.
-- 24-hour threat management protects the infrastructure and platform against malware, distributed denial-of-service (DDoS) attacks, man-in-the-middle (MITM) attacks, and other threats.
+- 24-hour threat management protects the infrastructure and platform against malware, distributed denial-of-service (DDoS), man-in-the-middle attacks, and other threats.
 
 For more information on infrastructure and platform security in Azure, see the [Azure Trust Center](https://azure.microsoft.com/overview/trusted-cloud/).

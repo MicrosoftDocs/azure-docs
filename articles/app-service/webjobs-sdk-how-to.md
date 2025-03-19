@@ -38,7 +38,7 @@ For more information, see [Compare the WebJobs SDK and Azure Functions](../azure
 
 The WebJobs host is a runtime container for functions. The host listens for triggers and calls functions. In version 3.*x*, the host is an implementation of `IHost`. In version 2.*x*, you use the `JobHost` object. You create a host instance in your code and write code to customize its behavior.
 
-This architectural change is a key difference between using the WebJobs SDK directly and using it indirectly through Azure Functions. In Azure Functions, the service controls the host. You can't customize the host by writing code. Azure Functions lets you customize host behavior through settings in the *host.json* file. Those settings are strings, not code, and use of these strings limits the kinds of customizations you can do.
+This architectural change is a key difference between using the WebJobs SDK directly and using it indirectly through Azure Functions. In Azure Functions, the service controls the host. You can't customize the host by writing code. In Azure Functions, you customize host behavior through settings in the *host.json* file. Those settings are strings, not code, and use of these strings limits the kinds of customizations you can do.
 
 ### Host connections
 
@@ -285,7 +285,7 @@ The `QueueTrigger` attribute tells the runtime to call the function whenever a q
 
 ### Manual triggers
 
-To trigger a function manually, use the `NoAutomaticTrigger` attribute, as shown here:
+To trigger a function manually, use the `NoAutomaticTrigger` attribute:
 
 ```csharp
 [NoAutomaticTrigger]
@@ -350,7 +350,7 @@ The process for installing and managing binding types depends on whether you're 
 
 #### Version 3.*x*
 
-In version 3.*x*, the storage bindings are included in the `Microsoft.Azure.WebJobs.Extensions.Storage` package. Call the `AddAzureStorage` extension method in the `ConfigureWebJobs` method, as shown here:
+In version 3.*x*, the storage bindings are included in the `Microsoft.Azure.WebJobs.Extensions.Storage` package. Call the `AddAzureStorage` extension method in the `ConfigureWebJobs` method:
 
 ```csharp
 static async Task Main()
@@ -414,7 +414,7 @@ To use the Files binding, install `Microsoft.Azure.WebJobs.Extensions` and call 
 
 ### ExecutionContext
 
-WebJobs lets you bind to an [ExecutionContext]. With this binding, you can access the [ExecutionContext] as a parameter in your function signature. For example, the following code uses the context object to access the invocation ID, which you can use to correlate all logs produced by a given function invocation.  
+In WebJobs, you can bind to an [ExecutionContext] instance. With this binding, you can access [ExecutionContext] as a parameter in your function signature. For example, the following code uses the context object to access the invocation ID, which you can use to correlate all logs produced by a given function invocation.  
 
 ```csharp
 public class Functions
@@ -428,7 +428,7 @@ public class Functions
 }
 ```
 
-The process for binding to the [ExecutionContext] depends on your SDK version.
+The process for binding to [ExecutionContext] depends on your SDK version.
 
 #### Version 3.*x*
 
@@ -453,7 +453,7 @@ static async Task Main()
 
 #### Version 2.*x*
 
-The `Microsoft.Azure.WebJobs.Extensions` package mentioned earlier also provides a special binding type that you can register by calling the `UseCore` method. This binding lets you define an [ExecutionContext] parameter in your function signature, which is enabled like this:
+The `Microsoft.Azure.WebJobs.Extensions` package mentioned earlier also provides a special binding type that you can register by calling the `UseCore` method. You can use the binding to define an [ExecutionContext] parameter in your function signature:
 
 ```csharp
 class Program
@@ -645,7 +645,7 @@ For more information, see [Service Bus binding](../azure-functions/functions-bin
 
 ### Configuration for other bindings
 
-Some trigger and binding types define their own custom configuration types. For example, the File trigger lets you specify the root path to monitor, as in the following examples.
+Some trigger and binding types define their own custom configuration types. For example, you can use the File trigger to specify the root path to monitor, as in the following examples.
 
 #### Version 3.*x*
 
@@ -704,7 +704,7 @@ For more information about binding expressions, see [Binding expressions and pat
 
 Sometimes you want to specify a queue name, a blob name or container, or a table name in code rather than hard-coding it. For example, you might want to specify the queue name for the `QueueTrigger` attribute in a configuration file or environment variable.
 
-You can do this by passing a custom name resolver during configuration. You include placeholders in trigger or binding attribute constructor parameters, and your resolver code provides the actual values to be used in place of those placeholders. You identify placeholders by surrounding them with percent (`%`) signs, as shown here:
+You can assign a queue name to the attribute by passing a custom name resolver during configuration. You include placeholders in trigger or binding attribute constructor parameters, and your resolver code provides the actual values to be used in place of those placeholders. You identify placeholders by surrounding them with percent (`%`) signs:
 
 ```csharp
 public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
@@ -713,11 +713,11 @@ public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
 }
 ```
 
-This code lets you use a queue named `logqueuetest` in the test environment and one named `logqueueprod` in production. Instead of a hard-coded queue name, you specify the name of an entry in the `appSettings` collection.
+In this code, you use a queue named `logqueuetest` in the test environment and a queue named `logqueueprod` in production. Instead of a hard-coded queue name, you specify the name of an entry in the `appSettings` collection.
 
 A default resolver takes effect if you don't provide a custom one. The default gets values from app settings or environment variables.
 
-Starting in .NET Core 3.1, the [ConfigurationManager](/dotnet/api/system.configuration.configurationmanager) you use requires the [System.Configuration.ConfigurationManager NuGet package](https://www.nuget.org/packages/System.Configuration.ConfigurationManager). The sample requires the following `using` statement:
+Starting in .NET Core 3.1, the [ConfigurationManager](/dotnet/api/system.configuration.configurationmanager) instance you use requires the [System.Configuration.ConfigurationManager NuGet package](https://www.nuget.org/packages/System.Configuration.ConfigurationManager). The sample requires the following `using` statement:
 
 ```csharp
 using System.Configuration;
@@ -743,7 +743,7 @@ You configure the resolver by using dependency injection. These samples require 
 using Microsoft.Extensions.DependencyInjection;
 ```
 
-You add the resolver by calling the [ConfigureServices] extension method on  [HostBuilder](/dotnet/api/microsoft.extensions.hosting.hostbuilder), as in this example:
+You add the resolver by calling the [ConfigureServices] extension method on [HostBuilder](/dotnet/api/microsoft.extensions.hosting.hostbuilder), as in this example:
 
 ```csharp
 static async Task Main(string[] args)
@@ -820,7 +820,7 @@ With these attributes, you can control function triggering, cancel functions, an
 
 ### Disable attribute
 
-The [Disable](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) attribute lets you control whether a function can be triggered.
+Use the [Disable](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) attribute to control whether a function can be triggered.
 
 In the following example, if the app setting `Disable_TestJob` has a value of `1` or `True` (not case specific), the function doesn't run. In that scenario, the runtime creates the log message *Function 'Functions.TestJob' is disabled*.
 
@@ -1036,7 +1036,7 @@ using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.ApplicationInsights.Channel;
 ```
 
-The following custom implementation of [ITelemetryInitializer] lets you add your own [ITelemetry](/dotnet/api/microsoft.applicationinsights.channel.itelemetry) to the default [TelemetryConfiguration].
+You can use the following custom implementation of [ITelemetryInitializer] to add your own [ITelemetry](/dotnet/api/microsoft.applicationinsights.channel.itelemetry) instance to the default [TelemetryConfiguration].
 
 ```csharp
 internal class CustomTelemetryInitializer : ITelemetryInitializer
@@ -1048,7 +1048,7 @@ internal class CustomTelemetryInitializer : ITelemetryInitializer
 }
 ```
 
-Call [ConfigureServices] in the builder to add your custom [ITelemetryInitializer] to the pipeline.
+Call [ConfigureServices] in the builder to add a custom [ITelemetryInitializer] instance to the pipeline.
 
 ```csharp
 static async Task Main()
@@ -1083,17 +1083,17 @@ static async Task Main()
 }
 ```
 
-When the [TelemetryConfiguration] is constructed, all registered types of [ITelemetryInitializer] are included. To learn more, see [Application Insights API for custom events and metrics](/azure/azure-monitor/app/api-custom-events-metrics).
+When [TelemetryConfiguration] is constructed, all registered types of [ITelemetryInitializer] are included. For more information, see [Application Insights API for custom events and metrics](/azure/azure-monitor/app/api-custom-events-metrics).
 
-In version 3.*x*, you no longer have to flush the [TelemetryClient] when the host stops. The .NET Core dependency injection system automatically disposes of the registered `ApplicationInsightsLoggerProvider`, which flushes the [TelemetryClient].
+In version 3.*x*, you don't have to flush [TelemetryClient] when the host stops. The .NET Core dependency injection system automatically disposes of the registered `ApplicationInsightsLoggerProvider` instance, which flushes the [TelemetryClient].
 
 #### Version 2.*x*
 
-In version 2.*x*, the [TelemetryClient] created internally by the Application Insights provider for the WebJobs SDK uses [ServerTelemetryChannel](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/.publicApi/Microsoft.AI.ServerTelemetryChannel.dll). When the Application Insights endpoint is unavailable or throttling incoming requests, this channel [saves requests in the web app's file system and resubmits them later](https://apmtips.com/posts/2015-09-03-more-telemetry-channels/).
+In version 2.*x*, the [TelemetryClient] instance created internally by the Application Insights provider for the WebJobs SDK uses [ServerTelemetryChannel](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/.publicApi/Microsoft.AI.ServerTelemetryChannel.dll). When the Application Insights endpoint is unavailable or is throttling incoming requests, this channel [saves requests in the web app's file system and resubmits them later](https://apmtips.com/posts/2015-09-03-more-telemetry-channels/).
 
-The [TelemetryClient] is created by a class that implements `ITelemetryClientFactory`. By default, this is the [DefaultTelemetryClientFactory](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/).
+[TelemetryClient] is created by a class that implements `ITelemetryClientFactory`. By default, this class is [DefaultTelemetryClientFactory](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/).
 
-If you want to modify any part of the Application Insights pipeline, you can supply your own `ITelemetryClientFactory`. The host then uses your class to construct a [TelemetryClient]. For example, this code overrides `DefaultTelemetryClientFactory` to modify a property of `ServerTelemetryChannel`:
+If you want to modify any part of the Application Insights pipeline, you can supply your own instance of `ITelemetryClientFactory`. The host then uses your class to construct [TelemetryClient]. For example, this code overrides `DefaultTelemetryClientFactory` to modify a property of `ServerTelemetryChannel`:
 
 ```csharp
 private class CustomTelemetryClientFactory : DefaultTelemetryClientFactory
@@ -1115,7 +1115,7 @@ private class CustomTelemetryClientFactory : DefaultTelemetryClientFactory
 }
 ```
 
-The `SamplingPercentageEstimatorSettings` object configures [adaptive sampling](/azure/azure-monitor/app/sampling). This means that in certain high-volume scenarios, Applications Insights sends a selected subset of telemetry data to the server.
+The `SamplingPercentageEstimatorSettings` object configures [adaptive sampling](/azure/azure-monitor/app/sampling). In this scenario, in certain high-volume scenarios, Applications Insights sends a selected subset of telemetry data to the server.
 
 After you create the telemetry factory, you pass it in to the Application Insights logging provider:
 

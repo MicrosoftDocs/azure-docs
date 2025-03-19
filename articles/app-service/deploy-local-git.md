@@ -1,5 +1,5 @@
 ---
-title: Deploy from a Local Git Repository
+title: Deploy From a Local Git Repository
 description: Learn how to enable local Git deployment to Azure App Service. One of the simplest ways to deploy code is from your local computer.
 ms.topic: how-to
 ms.date: 02/29/2024

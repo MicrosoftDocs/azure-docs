@@ -1,5 +1,5 @@
 ---
-title: Work with OAuth tokens in AuthN/AuthZ
+title: Work with OAuth Tokens in AuthN/AuthZ
 description: Learn how to retrieve tokens, refresh tokens, and extend sessions when you use the built-in authentication and authorization in Azure App Service.
 ms.topic: how-to
 ms.date: 03/29/2021

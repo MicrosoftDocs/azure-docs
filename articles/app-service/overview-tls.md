@@ -1,5 +1,5 @@
 ---
-title: TLS and SSL overview
+title: TLS and SSL Overview
 description: Learn how TLS and SSL work in Azure App Service, including TLS version support, certificate management, bindings, and mutual authentication to protect web app traffic.
 keywords: Azure App Service, SSL, TLS, HTTPS, certificate management, TLS mutual authentication, secure bindings, SSL certificates, App Service Certificates, SSL in code, TLS versions
 ms.topic: overview

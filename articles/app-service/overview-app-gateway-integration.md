@@ -1,5 +1,5 @@
 ---
-title: Overview of Application Gateway integration
+title: Application Gateway Integration Overview
 description: Learn how Application Gateway integrates with Azure App Service.
 services: app-service
 author: madsd
