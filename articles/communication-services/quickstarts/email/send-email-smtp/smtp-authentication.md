@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
-# Assign a role to a Microsoft Entra application for SMTP authentication
+# Create credentials for Simple Mail Transfer Protocol (SMTP) authentication
 
 This article describes how to use a Microsoft Entra application to create the authentication credentials for using Simple Mail Transfer Protocol (SMTP) to send an email using Azure Communication Services.
 
