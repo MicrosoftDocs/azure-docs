@@ -13,7 +13,7 @@ metadata:
   ms.topic: landing-page
   author: jyothisuri
   ms.author: jsuri
-  ms.date: 03/05/2025
+  ms.date: 03/19/2025
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -58,6 +58,10 @@ landingContent:
             url: tutorial-backup-windows-server-to-azure.md
           - text: Back up SAP HANA databases in an Azure VM
             url: tutorial-backup-sap-hana-db.md
+          - text: Configure SAP HANA database instance snapshot backup
+            url: tutorial-configure-sap-hana-database-instance-snapshot-backup.md 
+          - text: Configure item-level backup for an AKS cluster  
+            url: tutorial-configure-backup-aks.md
   # Card
   - title: Learn about the latest features in Azure Backup
     linkLists:
