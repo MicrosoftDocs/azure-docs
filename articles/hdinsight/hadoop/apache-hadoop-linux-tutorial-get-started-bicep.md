@@ -1,8 +1,6 @@
 ---
 title: 'Quickstart: Create Apache Hadoop cluster in Azure HDInsight using Bicep'
 description: In this quickstart, you create Apache Hadoop cluster in Azure HDInsight using Bicep
-author: reachnijel
-ms.author: nijelsf 
 ms.service: azure-hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep, linux-related-content
