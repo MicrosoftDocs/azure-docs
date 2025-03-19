@@ -105,7 +105,7 @@ When the storage pool is created, Azure Container Storage creates a storage clas
 
 If you have Azure managed disks that are already provisioned, you can create a pre-provisioned storage pool using those disks. Because the disks are already provisioned, you don't need to specify the skuName or storage capacity when creating the storage pool.
 
-Follow these steps to prepare before creating pre-provisioned storage pool for Azure Disks. 
+Follow these steps to prepare before creating a pre-provisioned storage pool for Azure Disks. 
 
 1. Pre-provisioned Azure managed disks need to be in the same zone of system node pool. Follow these steps to check zones of disks and system node pool. 
 
