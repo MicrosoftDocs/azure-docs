@@ -9,7 +9,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 ms.topic: tutorial
-ms.date: 02/20/2024
+ms.date: 03/19/2025
 ms.author: malev
 #Customer intent: I want to dynamically update my .NET app to use the latest configuration data in App Configuration.
 ---
@@ -118,10 +118,7 @@ In the previous code, you're manually saving an instance of `IConfigurationRefre
 
 ## Build and run the app locally
 
-1. Set an environment variable.
-
-    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
-    Set an environment variable named **Endpoint** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
+1. Set an environment variable named **Endpoint** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
 
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
@@ -140,28 +137,6 @@ In the previous code, you're manually saving an instance of `IConfigurationRefre
     ```bash
     export Endpoint='<endpoint-of-your-app-configuration-store>'
     ```
-
-    ### [Connection string](#tab/connection-string)
-    Set an environment variable named **ConnectionString** to the read-only connection string of your App Configuration store found under **Access settings** of your store in the Azure portal.
-
-    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
-
-    ```cmd
-    setx ConnectionString "<connection-string-of-your-app-configuration-store>"
-    ```
-
-   If you use PowerShell, run the following command:
-
-    ```powershell
-    $Env:ConnectionString = "<connection-string-of-your-app-configuration-store>"
-    ```
-
-    If you use macOS or Linux, run the following command:
-
-    ```bash
-    export ConnectionString='<connection-string-of-your-app-configuration-store>'
-    ```
-    ---
 
 1. Run the following command to build the console app:
 
