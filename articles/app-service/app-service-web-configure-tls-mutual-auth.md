@@ -11,10 +11,10 @@ ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-trac
 ---
 # Configure TLS mutual authentication in Azure App Service
 
-You can restrict access to your Azure App Service app by enabling different types of authentication for it. One way to set up authentication is to request a client certificate when the client request is over TLS/SSL and to validate the certificate. This mechanism is called Transport Layer Security (TLS) mutual authentication or client certificate authentication. This article shows how to set up your app to use client certificate authentication.
+You can restrict access to your Azure App Service app by enabling different types of authentication for the app. One way to set up authentication is to request a client certificate when the client request is sent by using Transport Layer Security (TLS)/Secure Sockets Layer (SSL) and to validate the certificate. This mechanism is called *mutual authentication* or *client certificate authentication*. This article shows you how to set up your app to use client certificate authentication.
 
 > [!NOTE]
-> Your app code is responsible for validating the client certificate. App Service doesn't do anything with this client certificate other than forwarding it to your app.
+> Your app code is responsible for validating the client certificate. App Service doesn't do anything with this client certificate other than forward it to your app.
 >
 > If you access your site over HTTP and not HTTPS, you don't receive any client certificates. If your application requires client certificates, you shouldn't allow requests to your application over HTTP.
 
@@ -102,7 +102,7 @@ When you enable mutual auth for your application, all paths under the root of yo
 > [!NOTE]
 > Using any client certificate exclusion path triggers TLS renegotiation for incoming requests to the app.
 
-1. On the left menu of your app's management pane, select **Configuration** > **General Settings**.
+1. On the left menu of your app management page, select **Configuration** > **General Settings**.
 
 1. Next to **Certificate exclusion paths**, select the edit icon.
 
@@ -112,7 +112,7 @@ When you enable mutual auth for your application, all paths under the root of yo
 
 In the following screenshot, any path for your app that starts with `/public` doesn't request a client certificate. Path matching isn't case specific.
 
-![Certificate Exclusion Paths][exclusion-paths]
+:::image type="content" source="media/app-service-web-configure-tls-mutual-auth/exclusion-paths.png" alt-text="Screenshot that shows setting a certificate exclusion path.":::
 
 ## Client certificate and TLS renegotiation
 
@@ -126,7 +126,7 @@ For some client certificate settings, App Service requires TLS renegotiation to 
 
 To disable TLS renegotiation and to have the app negotiate client certificates during TLS handshake, you must configure your app with *all* these settings:
 
-1. Set client certificate mode to "Required" or "Optional."
+1. Set the client certificate mode to **Required** or **Optional**.
 1. Remove all client certificate exclusion paths.
 
 ### Upload large files with TLS renegotiation
@@ -136,7 +136,7 @@ Client certificate configurations that use TLS renegotiation can't support incom
 To address the 100-KB limit, consider these alternative solutions:
 
 1. Disable TLS renegotiation. Update your app's client certificate configurations with *all* these settings:
-    - Set the client certificate mode to either "Required" or "Optional."
+    - Set the client certificate mode to **Required** or **Optional**.
     - Remove all client certificate exclusion paths.
 1. Send a HEAD request before the PUT/POST request. The HEAD request handles the client certificate.
 1. Add the header `Expect: 100-Continue` to your request. This causes the client to wait until the server responds with a `100 Continue` before sending the request body, which bypasses the buffers.
@@ -166,7 +166,7 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllersWithViews();
-        // Configure the application to use the protocol and client ip address forwarded by the frontend load balancer
+        // Configure the application to use the protocol and client ip address forwarded by the front-end load balancer
         services.Configure<ForwardedHeadersOptions>(options =>
         {
             options.ForwardedHeaders =
@@ -176,7 +176,7 @@ public class Startup
             options.KnownProxies.Clear();
         });       
         
-        // Configure the application to client certificate forwarded the frontend load balancer
+        // Configure the application to client certificate forwarded the front-end load balancer
         services.AddCertificateForwarding(options => { options.CertificateHeader = "X-ARR-ClientCert"; });
 
         // Add certificate authentication so when authorization is performed the user will be created from the certificate
@@ -623,4 +623,3 @@ def hellocert(request):
 
 ---
 
-[exclusion-paths]: ./media/app-service-web-configure-tls-mutual-auth/exclusion-paths.png
