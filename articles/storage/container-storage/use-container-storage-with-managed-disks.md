@@ -125,7 +125,7 @@ $ az aks show --resource-group <resourceGroup> --name <clusterName> --query "ide
 a972fa43-1234-5678-1234-c040eb546ec5 
 ```
 
-1. Grant **Contributor** role of the disk to the cluster managed identity. Go to: Portal > Your disk > Access control (IAM) > Add role assignment, and select **Contributor** role and assign to the identity. When your disk is created under AKS managed resource group (Example: MC_myResourceGroup_myAKSCluster_eastus), you can skip this step.
+1. Grant **Contributor** role of the disk to the cluster managed identity. Sign in to the Azure portal and navigate to your disk. From the service menu, select **Access control (IAM)** > **Add role assignment**, and then select **Contributor** role and assign to the identity. If you created your disk under an AKS managed resource group (example: MC_myResourceGroup_myAKSCluster_eastus), you can skip this step.
 
 1. Find identity of the system node pool 
 
