@@ -2,11 +2,7 @@
 author: stevenmatthew
 ms.service: azure-databox
 ms.topic: include
-<<<<<<< HEAD
-ms.date: 03/18/2025
-=======
-ms.date: 03/13/2025
->>>>>>> 88449a19694728c64d88c292fbdcb2f0ca82f49a
+ms.date: 10/21/2021
 ms.author: shaas
 ---
 
