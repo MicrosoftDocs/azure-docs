@@ -22,7 +22,10 @@ For information about general Microsoft product availability, refer to [Products
 > Please transition your workloads to another Azure Health Data Services region before 31 October 2025.
 
 <br> **Key**:
-&check; General Availability &nbsp; &nbsp; &nbsp; - Not Available &nbsp; &nbsp; &nbsp;  &rarr; Future Availability &nbsp; &nbsp; &nbsp; &copysr; In Preview
+
+- &check; - General Availability
+- FA - Future Availability
+- Preview - In Preview
 
 ## Services and features available by region
 
@@ -30,22 +33,22 @@ For information about general Microsoft product availability, refer to [Products
 
 | Region | FHIR service | Azure API for FHIR | DICOM service | MedTech service | De-Identification service | Events |
 |--------|--------------|---------------|---------------|-----------------|---------------------------|--------|
-| South Africa North | - | &check; | - | - | - | - |
+| South Africa North |   | &check; |   |   |   |   |
 
 ### Asia
 
 | Region | FHIR service | Azure API for FHIR | DICOM service | MedTech service | De-Identification service | Events |
 |--------|--------------|---------------|---------------|-----------------|---------------------------|--------|
-| Central India | &check; | &check; | - | - | - | - |
-| Japan East | &check; | &check; | - | - | - | - |
-| Korea Central | &check; | &check; | - | - | - | - |
-| Southeast Asia | &check; | &check; | - | - | - | - |
+| Central India | &check; | &check; |   |   |   |   |
+| Japan East | &check; | &check; |   |   |   |   |
+| Korea Central | &check; | &check; |   |   |   |   |
+| Southeast Asia | &check; | &check; |   |   |   |   |
 
 ### Australia
 
 | Region | FHIR service | Azure API for FHIR | DICOM service | MedTech service | De-Identification service | Events |
 |--------|--------------|---------------|---------------|-----------------|---------------------------|--------|
-| Australia East | &check; | &check; | - | - | - | - |
+| Australia East | &check; | &check; |   |   |   |   |
 
 ### Canada
 
@@ -57,14 +60,14 @@ For information about general Microsoft product availability, refer to [Products
 
 | Region | FHIR service | Azure API for FHIR | DICOM service | MedTech service | De-Identification service | Events |
 |--------|--------------|---------------|---------------|-----------------|---------------------------|--------|
-| France Central | &check; | &check; | - | - | - | - |
-| Germany West Central | &check; | &check; | - | - | - | - |
-| North Europe | &check; | &check; | - | - | - | - |
-| Sweden Central | &check; | &check; | - | - | - | - |
-| Switzerland North | &check; | &check; | - | - | - | - |
-| UK South | &check; | &check; | - | - | - | - |
-| UK West | &check; | &check; | - | - | - | - |
-| West Europe | &check; | &check; | - | - | - | - |
+| France Central | &check; | &check; |   |   |   |   |
+| Germany West Central | &check; | &check; |   |   |   |   |
+| North Europe | &check; | &check; |   |   |   |   |
+| Sweden Central | &check; | &check; |   |   |   |   |
+| Switzerland North | &check; | &check; |   |   |   |   |
+| UK South | &check; | &check; |   |   |   |   |
+| UK West | &check; | &check; |   |   |   |   |
+| West Europe | &check; | &check; |   |   |   |   |
 
 ### Qatar
 
@@ -74,7 +77,7 @@ For information about general Microsoft product availability, refer to [Products
 
 | Region | FHIR service | Azure API for FHIR | DICOM service | MedTech service | De-Identification service | Events |
 |--------|--------------|---------------|---------------|-----------------|---------------------------|--------|
-| Qatar Central | &check; | Private Preview | - | - | - | - |
+| Qatar Central | &check; | Private Preview |   |   |   |   |
 
 ### United States
 
@@ -82,11 +85,11 @@ For information about general Microsoft product availability, refer to [Products
 |--------|--------------|---------------|---------------|-----------------|---------------------------|--------|
 | East US | &check; | &check; | &check; | &check; | &check; | &check; |
 | East US2 | &check; | &check; | &check; | &check; | &check; | &check; |
-| South Central US | &check; | &check; | - | - | - | - |
-| North Central US | &check; | &check; | - | - | - | - |
-| West Central US | &check; | &check; | - | - | - | - |
-| West US2 | &check; | &check; | - | - | - | - |
-| West US3 | &check; | &check; | - | - | - | - |
+| South Central US | &check; | &check; |   |   |   |   |
+| North Central US | &check; | &check; |   |   |   |   |
+| West Central US | &check; | &check; |   |   |   |   |
+| West US2 | &check; | &check; |   |   |   |   |
+| West US3 | &check; | &check; |   |   |   |   |
 
 ## Next steps
 
