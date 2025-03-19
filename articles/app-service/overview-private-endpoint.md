@@ -1,5 +1,5 @@
 ---
-title: Use Private Endpoints for Azure App Service Apps
+title: Use Private Endpoints for Apps
 description: Learn how to connect privately to Azure App Service apps using a private endpoint over Azure Private Link.
 author: madsd
 ms.author: madsd

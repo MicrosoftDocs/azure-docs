@@ -1,5 +1,5 @@
 ---
-title: Back Up an App in App Service
+title: Back Up an App
 description: Learn how to restore backups of your apps or configure custom backups in Azure App Service. Customize backups by including the linked database.
 author: msangapu-msft
 ms.author: msangapu

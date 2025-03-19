@@ -1,5 +1,5 @@
 ---
-title: Disable Basic Authentication for Azure App Service Deployment
+title: Disable Basic Authentication for Deployment
 description: Learn how to secure App Service deployment by disabling basic authentication.
 author: cephalin
 ms.author: cephalin

@@ -1,5 +1,5 @@
 ---
-title: Configure CI/CD with Azure Pipelines
+title: Configure CI/CD with Pipelines
 description: Learn how to deploy your code to Azure App Service from a CI/CD pipeline by using Azure Pipelines.
 author: cephalin
 ms.author: jukullam
