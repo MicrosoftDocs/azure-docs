@@ -139,11 +139,11 @@ In the **CONNECT** packet, the device should use the following values:
   > [!NOTE]
   > If you use X.509 certificate authentication, SAS token passwords aren't required. For more information, see [Tutorial: Create and upload certificates for testing](../iot-hub/tutorial-x509-test-certs.md) and follow code instructions in the [TLS/SSL configuration section](#tlsssl-configuration).
 
-  For more information about how to generate SAS tokens, see the [Use SAS tokens as a device](../iot-hub/authenticate-authorize-sas.md#use-sas-tokens-from-devices) section of [Control access to IoT Hub with shared access signatures](../iot-hub/authenticate-authorize-sas.md).
+  For more information about how to generate SAS tokens, see the [Use SAS tokens from devices](../iot-hub/authenticate-authorize-sas.md#use-sas-tokens-from-devices) section of [Control access to IoT Hub with shared access signatures](../iot-hub/authenticate-authorize-sas.md).
 
   You can also use the cross-platform [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) or the CLI extension command [az iot hub generate-sas-token](/cli/azure/iot/hub#az-iot-hub-generate-sas-token) to quickly generate a SAS token. You can then copy and paste the SAS token into your own code for testing purposes.
 
-For a tutorial on using MQTT directly, see [Use MQTT to develop an IoT device client without using a device SDK](./tutorial-use-mqtt.md).
+For a tutorial on using MQTT directly, see [Tutorial - Use MQTT to develop an IoT device client without using a device SDK](./tutorial-use-mqtt.md).
 
 ### Using the Azure IoT Hub extension for Visual Studio Code
   
@@ -444,7 +444,7 @@ For more information, see [Understand and invoke direct methods from IoT Hub](..
 To learn more about using MQTT, see: 
 
 * [MQTT documentation](https://mqtt.org/)
-* [Use MQTT to develop an IoT device client without using a device SDK](./tutorial-use-mqtt.md)
+* [Tutorial - Use MQTT to develop an IoT device client without using a device SDK](./tutorial-use-mqtt.md)
 * [MQTT application samples](https://github.com/Azure-Samples/MqttApplicationSamples)
 
 To learn more about using IoT device SDKS, see:
