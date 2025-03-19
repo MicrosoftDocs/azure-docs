@@ -3256,6 +3256,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/databox/data-box-next-gen-safety.md",
+      "redirect_url": "/azure/databox/data-box-safety?pivots=dbx-ng",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox/data-box-next-gen-security.md",
+      "redirect_url": "/azure/databox/data-box-security?pivots=dbx-ng",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/ddos-protection/ddos-disaster-recovery-guidance.md",
       "redirect_url": "../reliability/reliability-ddos.md",
       "redirect_document_id": false

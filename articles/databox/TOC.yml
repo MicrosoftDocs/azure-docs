@@ -58,8 +58,8 @@
     - name: Concepts
       items:
       - name: Read safety guidelines
-        href: data-box-next-gen-safety.md?pivots=dbx-ng
-      - name: Review tracking and logging?pivots=dbx-ng
+        href: data-box-safety.md?pivots=dbx-ng
+      - name: Review tracking and logging
         items:
         - name: For import orders
           href: data-box-logs.md?pivots=dbx-ng
@@ -82,7 +82,7 @@
         - name: Security controls by Azure Policy
           href: ./security-controls-policy.md?pivots=dbx-ng
         - name: Review security
-          href: data-box-next-gen-security.md?pivots=dbx-ng
+          href: data-box-security.md?pivots=dbx-ng
       - name: Transfer ACLs and metadata
         href: data-box-file-acls-preservation.md?pivots=dbx-ng
       - name: FAQ

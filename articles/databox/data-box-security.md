@@ -6,7 +6,7 @@ author: stevenmatthew
 
 ms.service: azure-databox
 ms.topic: overview
-ms.date: 03/11/2025
+ms.date: 03/14/2025
 ms.author: shaas
 zone_pivot_groups: data-box-sku
 ---
@@ -28,11 +28,11 @@ The Microsoft Azure Data Box solution consists of four main components that inte
 
 The following diagram indicates the flow of data through the Azure Data Box solution from on-premises to Azure and the various security features in place as the data flows through the solution. This flow is for an import order for your Data Box.
 
-![Data Box import security](media/data-box-security/data-box-security-import.png)
+:::image type="content" source="media/data-box-security/data-box-security-import.png" alt-text="Diagram explaining Data Box import security.":::
 
 The following diagram is for the export order for your Data Box.
 
-![Data Box export security](media/data-box-security/data-box-security-export.png)
+:::image type="content" source="media/data-box-security/data-box-security-export.png" alt-text="Diagram explaining Data Box export security.":::
 
 As the data flows through this solution, events are logged and logs are generated. For more information, go to:
 
@@ -73,7 +73,7 @@ The Data Box device is protected by the following features:
 
 ### Establish trust with the device via certificates
 
-A Data Box device lets you bring your own certificates and install those to be used for connecting to the local web UI and blob storage. For more information, see [Use your own certificates with Data Box and Data Box Heavy devices](data-box-bring-your-own-certificates.md).
+A Data Box device lets you bring your own certificates and install those to be used for connecting to the local web UI and blob storage. For more information, see [Use your own certificates with Data Box devices](data-box-bring-your-own-certificates.md).
 
 ### Data Box data protection
 
