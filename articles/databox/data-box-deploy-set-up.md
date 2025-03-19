@@ -13,19 +13,19 @@ zone_pivot_groups: data-box-sku
 # Customer intent: As an IT admin, I need to be able to set up Data Box to upload on-premises data from my server onto Azure.
 ---
 
-::: zone target="docs"
+<!--::: zone target="docs"-->
 
 # Tutorial: Cable and connect to your Azure Data Box
 
-::: zone-end
+<!--::: zone-end-->
 
-::: zone target="chromeless"
+<!--::: zone target="chromeless"
 
 ## Cable and connect to your device
 
-::: zone-end
+::: zone-end-->
 
-::: zone target="docs"
+<!--::: zone target="docs"-->
 
 This tutorial describes how to cable, connect, and turn on your Azure Data Box.
 
@@ -118,9 +118,9 @@ Perform the following steps to cable your device.
 
 
 
-::: zone-end
+<!--::: zone-end-->
 
-::: zone target="chromeless"
+<!--::: zone target="chromeless"
 
 After you have received the device, you need to cable and connect to your device. 
 
@@ -145,9 +145,9 @@ After you have received the device, you need to cable and connect to your device
     3. Use the SFP+ Twinax copper cable to connect at least one 10 Gbps (preferred over 1 Gbps) network interface, DATA 1 or DATA 2 for data. 
     4. Turn on the device. The power button is on the front panel of the device.
 
-::: zone-end
+::: zone-end-->
 
-::: zone target="docs"
+<!--::: zone target="docs"-->
 
 
 ## Connect to your device
@@ -171,9 +171,9 @@ Once the data network interfaces are configured, you can also use the IP address
 
 After the device setup is complete, you can connect to the device shares and copy the data. 
 
-::: zone-end
+<!--::: zone-end-->
 
-::: zone target="chromeless"
+<!--::: zone target="chromeless"
 
 ## Connect your device
 
@@ -182,10 +182,10 @@ After the device setup is complete, you can connect to the device shares and cop
 1. Sign in using the password from the Azure portal. You see an error indicating a problem with the website’s security certificate. Follow the browser-specific instructions to proceed to the web page.
 1. By default, the network settings for the 10 Gbps data interface (or 1 Gbps) are configured as DHCP. If needed, you can configure this interface as static and provide an IP address. 
 
-::: zone-end
+::: zone-end-->
 
 
-::: zone target="docs"
+<!--::: zone target="docs"-->
 
 ## Next steps
 
@@ -205,5 +205,5 @@ Or
 > [!div class="nextstepaction"]
 > [Copy your data from Azure Data Box for export order](./data-box-deploy-export-copy-data.md)
 
-::: zone-end
+<!--::: zone-end-->
 

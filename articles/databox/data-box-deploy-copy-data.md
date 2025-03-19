@@ -13,19 +13,19 @@ zone_pivot_groups: data-box-sku
 # Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
 
-::: zone target="docs"
+<!--::: zone target="docs"-->
 
 # Tutorial: Copy data to Azure Data Box via SMB
 
-::: zone-end
+<!--::: zone-end-->
 
-::: zone target="chromeless"
+<!--::: zone target="chromeless"
 
 ## Copy data to Azure Data Box
 
-::: zone-end
+::: zone-end-->
 
-::: zone target="docs"
+<!--::: zone target="docs"-->
 
 > [!IMPORTANT]
 > Azure Data Box now supports access tier assignment at the blob level. The steps contained within this tutorial reflect the updated data copy process and are specific to block blobs. 
@@ -297,9 +297,9 @@ To ensure data integrity, checksum is computed inline as the data is copied. Onc
 
 ![Verify free and used space on dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
-::: zone-end
+<!--::: zone-end-->
 
-::: zone target="chromeless"
+<!--::: zone target="chromeless"
 
 You can copy data from your source server to your Data Box via SMB, NFS, REST, data copy service or to managed disks.
 
@@ -359,9 +359,9 @@ To copy data managed disks:
 
 For step-by-step instructions, go to [Tutorial: Use Data Box to import data as managed disks in Azure](data-box-deploy-copy-data-from-vhds.md).
 
-::: zone-end
+::: zone-end-->
 
-::: zone target="docs"
+<!--::: zone target="docs"-->
 
 ## Next steps
 
@@ -378,4 +378,4 @@ Advance to the next tutorial to learn how to ship your Data Box back to Microsof
 > [!div class="nextstepaction"]
 > [Ship your Azure Data Box to Microsoft](./data-box-deploy-picked-up.md)
 
-::: zone-end
+<!--::: zone-end-->
