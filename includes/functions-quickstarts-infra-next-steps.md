@@ -1,3 +1,11 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 03/17/2025
+ms.author: glenga
+---
+
 You can now deploy a code project to the function app resources you created in Azure. 
 
 You can create, verify, and deploy a code project to your new function app from these local environments:
