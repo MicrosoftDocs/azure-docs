@@ -98,11 +98,11 @@ If you need to store state within your cluster by using Azure disks, use Azure z
 
 ### Zone-down experience
 
-**Detection and response**:In the event of a zone outage, the control plane automatically fails over. If your node pools use availability zones and follow [zone resiliency best practices](#considerations), you can expect AKS to bring up nodes and replicas in the zones that are up and running. This is done automatically when using managed solutions like cluster autoscaler or NAP. Without autoscaling, they remain in the *Pending* state and wait for manual intervention to scale up the node pool. AKS also attempts to rebalance the pods across the healthy zones. If you choose to manually scale your node pool in a zone down scenario, your pods might be left in the *Pending* state when there are no nodes available in the healthy zones. Along with this, scaling out in the remaining zones is also subject to the availability of quota and capacity for the VM SKU you use.
+**Detection and response**: In the event of a zone outage, the control plane automatically fails over. If your node pools use availability zones and follow [zone resiliency best practices](#considerations), you can expect AKS to bring up nodes and replicas in the zones that are up and running. This is done automatically when using managed solutions like cluster autoscaler or NAP. Without autoscaling, they remain in the *Pending* state and wait for manual intervention to scale up the node pool. AKS also attempts to rebalance the pods across the healthy zones. If you choose to manually scale your node pool in a zone down scenario, your pods might be left in the *Pending* state when there are no nodes available in the healthy zones. Along with this, scaling out in the remaining zones is also subject to the availability of quota and capacity for the VM SKU you use.
 
 **Notification**: AKS doesn't currently notify you when a zone is down. You can use your node or pod health metrics to monitor the health of your nodes and pods.
 
-**Active requests**: In the event of a zone outage, any active requests might experience disruptions, as some requests can fail and latency might increase while your workload fails over to another zone.
+**Active requests**: Any active requests might experience disruptions. Some requests can fail, and latency might increase while your workload fails over to another zone.
 
 **Expected data loss**: If you store state within your cluster by using Azure disks, and you use zone-redundant storage, then a zone failure isn't expected to cause any data loss.
 
