@@ -38,7 +38,7 @@ https://login.microsoftonline.com/{Tenant_ID}/oauth2/v2.0/token
 | grant_type | Must be set to "client_credentials" | ✅ |
 | client_id | Application (client) ID from Entra App registration | ✅ |
 | client_secret | Generated client secret or certificate | ✅ |
-| scope | Resource URL with .default suffix | ✅ |
+| scope | Resource URL with `.default` suffix | ✅ |
 
 ### cURL Request
 
@@ -158,7 +158,7 @@ curl -k -v -H "Authorization: Bearer " -X DELETE "https://mysparkcluster.azurehd
 
 Livy provides high-availability for Spark jobs running on the cluster. Here is a couple of examples.
 
-- If the Livy service goes down after you've submitted a job remotely to a Spark cluster, the job continues to run in the background. When Livy is back up, it restores the status of the job and reports it back.
+- If the Livy service goes down after you've submitted a job remotely to a Spark cluster, the job continues to run in the background. When Livy is restored, it restores the status of the job and reports it back.
 - Jupyter Notebooks for HDInsight are powered by Livy in the backend. If a notebook is running a Spark job and the Livy service gets restarted, the notebook continues to run the code cells.
 
 ## Show me an example
@@ -300,7 +300,7 @@ Perform the following steps:
     
     ```
     
-    The last line of the output shows that the batch was successfully deleted. Deleting a job, while it's running, also kills the job. If you delete a job that has completed, successfully or otherwise, it deletes the job information completely.
+    The last line of the output shows that the batch was successfully deleted. If you delete a job, while it's running, also kills the job. If you delete a job that has completed, successfully or otherwise, it deletes the job information completely.
     
 
 ## Updates to Livy configuration starting with HDInsight 3.5 version
