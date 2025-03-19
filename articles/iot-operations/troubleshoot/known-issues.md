@@ -4,8 +4,6 @@ description: Known issues for the MQTT broker, Layered Network Management (previ
 author: dominicbetts
 ms.author: dobett
 ms.topic: troubleshooting-known-issue
-ms.custom:
-  - ignite-2023
 ms.date: 03/19/2025
 ---
 
