@@ -149,7 +149,7 @@ Azure Data Factory supports Microsoft-managed failover for data factories in *pa
 
 For data factories in *nonpaired regions* or in Brazil South or Southeast Asia, Microsoft doesn't perform regional failover on your behalf. If you need to be resilient to region outages, see [alternative multi-region approaches](#alternative-multi-region-approaches).
 
->![IMPORTANT]
+>[!IMPORTANT]
 >Due to data residency requirements in Brazil South and Southeast Asia, Azure Data Factory data is stored in the local region only by using [Azure Storage zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). For Southeast Asia, all data is stored in Singapore. For Brazil South, all data is stored in Brazil. 
 
 #### Failover of integration runtimes
