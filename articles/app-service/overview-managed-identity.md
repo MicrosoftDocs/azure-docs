@@ -1,42 +1,39 @@
 ---
 title: Use managed identities for App Service and Azure Functions
-description: Learn how managed identities work in Azure App Service and Azure Functions, along with how to configure a managed identity and generate a token for a back-end resource.
+description: Learn how managed identities work in Azure App Service and Azure Functions and how to configure a managed identity and generate a token for a back-end resource.
 ms.topic: how-to
-ms.date: 09/30/2024
+ms.date: 03/20/2025
 ms.reviewer: yevbronsh,mahender
 author: cephalin
 ms.author: cephalin
 ms.custom: devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli, AppServiceConnectivity, ai-video-demo
 ai-usage: ai-assisted
+#customer intent: As an App developer, I want to understand how to manager system-assigned and user-assigned identities for apps in Azure App Service.
 ---
 
 # Use managed identities for App Service and Azure Functions
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 This article shows you how to create a managed identity for Azure App Service and Azure Functions applications, and how to use it to access other resources.
+
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 [!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
 
 The managed identity configuration is specific to the slot. To configure a managed identity for a deployment slot in the portal, go to the slot first. To find the managed identity for your web app or deployment slot in your Microsoft Entra tenant from the Azure portal, search for it directly from the **Overview** page of your tenant. Usually, the slot name is similar to `<app-name>/slots/<slot-name>`.
 
-The following video complements the steps in this article by illustrating how to use managed identities for App Service.
-
-> [!VIDEO 4fdf7a78-b3ce-48df-b3ce-cd7796d0ad5a]
-
 > [!NOTE]
-> Managed identities are not available for [apps deployed in Azure Arc](overview-arc-integration.md).
+> Managed identities aren't available for [apps deployed in Azure Arc](overview-arc-integration.md).
 >
-> Because [managed identities don't support cross-directory scenarios](../active-directory/managed-identities-azure-resources/managed-identities-faq.md#can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant), they won't behave as expected if your app is migrated across subscriptions or tenants. To re-create the managed identities after such a move, see [Will managed identities be re-created automatically if I move a subscription to another directory?](../active-directory/managed-identities-azure-resources/managed-identities-faq.md#will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory). Downstream resources also need to have access policies updated to use the new identity.
+> Because [managed identities don't support cross-directory scenarios](../active-directory/managed-identities-azure-resources/managed-identities-faq.md#can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant), they don't behave as expected if your app is migrated across subscriptions or tenants. To re-create the managed identities after such a move, see [Will managed identities be re-created automatically if I move a subscription to another directory?](../active-directory/managed-identities-azure-resources/managed-identities-faq.md#will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory). Downstream resources also need to have access policies updated to use the new identity.
 
 ## Prerequisites
 
 To perform the steps in this article, you must have a minimum set of permissions over your Azure resources. The specific permissions that you need vary based on your scenario. The following table summarizes the most common scenarios:
 
 | Scenario | Required permission | Example built-in roles |
-|-|-|-|
+|:-|:-|:-|
 | [Create a system-assigned identity](#add-a-system-assigned-identity) | `Microsoft.Web/sites/write` over the app, or `Microsoft.Web/sites/slots/write` over the slot | [Website Contributor] |
-| [Create a user-assigned identity][create-user-assigned] | `Microsoft.ManagedIdentity/userAssignedIdentities/write` over the resource group in which the identity will be created | [Managed Identity Contributor] |
+| [Create a user-assigned identity][create-user-assigned] | `Microsoft.ManagedIdentity/userAssignedIdentities/write` over the resource group in which to create the identity | [Managed Identity Contributor] |
 | [Assign a user-assigned identity to your app](#add-a-user-assigned-identity) | `Microsoft.Web/sites/write` over the app, `Microsoft.Web/sites/slots/write` over the slot, or <br/>`Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action` over the identity | [Website Contributor] and [Managed Identity Operator] |
 | [Create Azure role assignments][role-assignment] | `Microsoft.Authorization/roleAssignments/write` over the target resource scope | [Role Based Access Control Administrator] or [User Access Administrator] |
 
@@ -48,18 +45,16 @@ To enable a system-assigned managed identity, use the following instructions.
 
 1. In the [Azure portal](https://portal.azure.com), go to your app's page.
 
-1. On the left menu, under **Settings**, select **Identity**.
+1. On the left menu, select **Settings** > **Identity**.
 
 1. On the **System assigned** tab, switch **Status** to **On**. Then select **Save**.
-
-![Screenshot that shows selections for turning on a system-assigned managed identity in the portal.](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
 # [Azure CLI](#tab/cli)
 
 Run the `az webapp identity assign` command:
 
 ```azurecli-interactive
-az webapp identity assign --name myApp --resource-group myResourceGroup
+az webapp identity assign --resource-group <group-name> --name myApp 
 ```
 
 # [Azure PowerShell](#tab/ps)
@@ -69,7 +64,7 @@ az webapp identity assign --name myApp --resource-group myResourceGroup
 Run the `Set-AzWebApp -AssignIdentity` command:
 
 ```azurepowershell-interactive
-Set-AzWebApp -AssignIdentity $true -Name <app-name> -ResourceGroupName <group-name> 
+Set-AzWebApp -AssignIdentity $true -ResourceGroupName <group-name>  -Name <app-name>
 ```
 
 #### For Functions
@@ -77,7 +72,7 @@ Set-AzWebApp -AssignIdentity $true -Name <app-name> -ResourceGroupName <group-na
 Run the `Update-AzFunctionApp -IdentityType` command:
 
 ```azurepowershell-interactive
-Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupName -IdentityType SystemAssigned
+Update-AzFunctionApp -ResourceGroupName <group-name> -Name <function-app-name>  -IdentityType SystemAssigned
 ```
 
 # [ARM template](#tab/arm)
@@ -118,7 +113,7 @@ For example, a web app's template might look like the following JSON:
 }
 ```
 
-When the site is created, it has the following additional properties:
+When the site is created, it includes the following properties:
 
 ```json
 "identity": {
@@ -128,9 +123,9 @@ When the site is created, it has the following additional properties:
 }
 ```
 
-The `tenantId` property identifies what Microsoft Entra tenant the identity belongs to. The `principalId` property is a unique identifier for the application's new identity. Within Microsoft Entra ID, the service principal has the same name that you gave to your App Service or Azure Functions instance.
+The `tenantId` property identifies what Microsoft Entra tenant the identity belongs to. The `principalId` property is a unique identifier for the application's new identity. In Microsoft Entra ID, the service principal has the same name that you gave to your App Service or Azure Functions instance.
 
-If you need to reference these properties in a later stage in the template, use the [`reference()` template function](../azure-resource-manager/templates/template-functions-resource.md#reference) with the `'Full'` flag, as in this example:
+If you need to refer to these properties in a later stage in the template, use the [`reference()` template function](../azure-resource-manager/templates/template-functions-resource.md#reference) with the `'Full'` option, as in this example:
 
 ```json
 {
@@ -143,19 +138,17 @@ If you need to reference these properties in a later stage in the template, use 
 
 ## Add a user-assigned identity
 
-Creating an app with a user-assigned identity requires that you create the identity and then add its resource identifier to your app configuration.
+To create an app with a user-assigned identity, create the identity and then add its resource identifier to your app configuration.
 
 # [Azure portal](#tab/portal)
 
 1. Create a user-assigned managed identity resource according to [these instructions][create-user-assigned].
 
-1. On the left menu for your app's page, under **Settings**, select **Identity**.
+1. On the left menu for your app's page, select **Settings** > **Identity**.
 
-1. Select **User assigned** > **Add**.
+1. Select **User assigned**, then select **Add**.
 
 1. Search for the identity that you created earlier, select it, and then select **Add**.
-
-:::image type="content" source="media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png" alt-text="Screenshot that shows selections for adding a user-assigned managed identity in the portal.":::
 
 After you finish these steps, the app restarts.
 
@@ -185,7 +178,7 @@ Adding a user-assigned identity in App Service by using Azure PowerShell is curr
 
     ```azurepowershell-interactive
     Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease
-    $userAssignedIdentity = New-AzUserAssignedIdentity -Name $userAssignedIdentityName -ResourceGroupName <group-name>
+    $userAssignedIdentity = New-AzUserAssignedIdentity -Name <identity-name> -ResourceGroupName <group-name> -Location <region>
     ```
 
 1. Run the `Update-AzFunctionApp -IdentityType UserAssigned -IdentityId` command to assign the identity in Functions:
@@ -242,7 +235,7 @@ For example, a web app's template might look like the following JSON:
 }
 ```
 
-When the site is created, it has the following additional properties:
+When the site is created, it includes the following properties:
 
 ```json
 "identity": {
@@ -264,9 +257,9 @@ The `principalId` property is a unique identifier for the identity that's used f
 
 You need to configure the target resource to allow access from your app. For most Azure services, you configure the target resource by [creating a role assignment][role-assignment].
 
-Some services use mechanisms other than Azure role-based access control (RBAC). To understand how to configure access by using an identity, refer to the documentation for each target resource. To learn more about which resources support Microsoft Entra tokens, see [Azure services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Some services use mechanisms other than Azure role-based access control. To understand how to configure access by using an identity, refer to the documentation for each target resource. To learn more about which resources support Microsoft Entra tokens, see [Azure services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-For example, if you [request a token](#connect-to-azure-services-in-app-code) to access a secret in Azure Key Vault, you must also create a role assignment that allows the managed identity to work with secrets in the target vault. Otherwise, your calls to Key Vault will be rejected, even if you use a valid token. The same is true for Azure SQL Database and other services.
+For example, if you [request a token](#connect-to-azure-services-in-app-code) to access a secret in Azure Key Vault, you must also create a role assignment that allows the managed identity to work with secrets in the target vault. Otherwise, Key Vault rejects your calls even if you use a valid token. The same is true for Azure SQL Database and other services.
 
 > [!IMPORTANT]
 > The back-end services for managed identities maintain a cache per resource URI for around 24 hours. It can take several hours for changes to a managed identity's group or role membership to take effect. It's currently not possible to force a managed identity's token to be refreshed before its expiration. If you change a managed identity's group or role membership to add or remove permissions, you might need to wait several hours for the Azure resource that's using the identity to have the correct access.
@@ -275,7 +268,7 @@ For example, if you [request a token](#connect-to-azure-services-in-app-code) to
 
 ## Connect to Azure services in app code
 
-With its managed identity, an app can obtain tokens for Azure resources that Microsoft Entra ID helps protect, such as Azure SQL Database, Azure Key Vault, and Azure Storage. These tokens represent the application that accesses the resource, and not any specific user of the application.
+With its managed identity, an app can get tokens for Azure resources that Microsoft Entra ID helps protect, such as Azure SQL Database, Azure Key Vault, and Azure Storage. These tokens represent the application that accesses the resource, and not any specific user of the application.
 
 App Service and Azure Functions provide an internally accessible [REST endpoint](#rest-endpoint-reference) for token retrieval. You can access the REST endpoint from within the app by using a standard HTTP `GET` request. You can implement the request with a generic HTTP client in every language.
 
@@ -306,14 +299,14 @@ Content-Type: application/json
 }
 ```
 
-This response is the same as the [response for the Microsoft Entra service-to-service access token request](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#successful-response). To access Key Vault, you add the value of `access_token` to a client connection with the vault.
+This response is the same as the [response for the Microsoft Entra service-to-service access token request](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#successful-response). To access Key Vault, add the value of `access_token` to a client connection with the vault.
 
 # [.NET](#tab/dotnet)
 
 > [!NOTE]
-> When you're connecting to Azure SQL data sources by using [Entity Framework Core](/ef/core/), consider using [Microsoft.Data.SqlClient](/sql/connect/ado-net/sql/azure-active-directory-authentication). That namespace provides special connection strings for managed identity connectivity. For an example, see [Tutorial: Secure an Azure SQL Database connection from App Service by using a managed identity](tutorial-connect-msi-sql-database.md).
+> When you connect to Azure SQL data sources by using [Entity Framework Core](/ef/core/), consider using [Microsoft.Data.SqlClient](/sql/connect/ado-net/sql/azure-active-directory-authentication). That namespace provides special connection strings for managed identity connectivity. For an example, see [Tutorial: Secure an Azure SQL Database connection from App Service by using a managed identity](tutorial-connect-msi-sql-database.md).
 
-For .NET apps and functions, the simplest way to work with a managed identity is through the [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme?). For detailed guidance, see [Tutorial: Connect to Azure databases from App Service without secrets by using a managed identity](tutorial-connect-msi-azure-database.md).
+For .NET apps and functions, the simplest way to work with a managed identity is through the [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme?). For more information, see [Tutorial: Connect to Azure databases from App Service without secrets by using a managed identity](tutorial-connect-msi-azure-database.md).
 
 For more information, see the respective documentation headings of the client library:
 
@@ -321,11 +314,11 @@ For more information, see the respective documentation headings of the client li
 - [Access an Azure service by using a system-assigned identity](/dotnet/api/overview/azure/identity-readme#authenticate-with-defaultazurecredential)
 - [Access an Azure service by using a user-assigned identity](/dotnet/api/overview/azure/identity-readme#specify-a-user-assigned-managed-identity-with-defaultazurecredential)
 
-The linked examples use [`DefaultAzureCredential`](/dotnet/api/overview/azure/identity-readme#defaultazurecredential). It's useful for the majority of the scenarios because the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
+The linked examples use [DefaultAzureCredential](/dotnet/api/overview/azure/identity-readme#defaultazurecredential). The same pattern works in Azure with managed identities and on your local machine without managed identities.
 
 # [JavaScript](#tab/javascript)
 
-For Node.js apps and JavaScript functions, the simplest way to work with a managed identity is through the [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme?). For detailed guidance, see [Tutorial: Connect to Azure databases from App Service without secrets by using a managed identity](tutorial-connect-msi-azure-database.md).
+For Node.js apps and JavaScript functions, the simplest way to work with a managed identity is through the [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme?). For more information, see [Tutorial: Connect to Azure databases from App Service without secrets by using a managed identity](tutorial-connect-msi-azure-database.md).
 
 For more information, see the respective documentation headings of the client library:
 
@@ -333,13 +326,13 @@ For more information, see the respective documentation headings of the client li
 - [Access an Azure service by using a system-assigned identity](/javascript/api/overview/azure/identity-readme#authenticate-with-defaultazurecredential)
 - [Access an Azure service by using a user-assigned identity](/javascript/api/overview/azure/identity-readme#specify-a-user-assigned-managed-identity-with-defaultazurecredential)
 
-The linked examples use [`DefaultAzureCredential`](/javascript/api/overview/azure/identity-readme#defaultazurecredential). It's useful for the majority of the scenarios because the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
+The linked examples use [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential). The same pattern works in Azure with managed identities and on your local machine without managed identities.
 
 For more code examples of the Azure Identity client library for JavaScript, see [Azure Identity examples](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/identity_2.0.1/sdk/identity/identity/samples/AzureIdentityExamples.md).
 
 # [Python](#tab/python)
 
-For Python apps and functions, the simplest way to work with a managed identity is through the [Azure Identity client library for Python](/python/api/overview/azure/identity-readme). For detailed guidance, see [Tutorial: Connect to Azure databases from App Service without secrets by using a managed identity](tutorial-connect-msi-azure-database.md).
+For Python apps and functions, the simplest way to work with a managed identity is through the [Azure Identity client library for Python](/python/api/overview/azure/identity-readme). For more information, see [Tutorial: Connect to Azure databases from App Service without secrets by using a managed identity](tutorial-connect-msi-azure-database.md).
 
 For more information, see the respective documentation headings of the client library:
 
@@ -347,11 +340,11 @@ For more information, see the respective documentation headings of the client li
 - [Access an Azure service by using a system-assigned identity](/python/api/overview/azure/identity-readme#authenticate-with-defaultazurecredential)
 - [Access an Azure service by using a user-assigned identity](/python/api/overview/azure/identity-readme#authenticate-with-a-user-assigned-managed-identity)
 
-The linked examples use [`DefaultAzureCredential`](/python/api/overview/azure/identity-readme#defaultazurecredential). It's useful for the majority of the scenarios because the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
+The linked examples use [DefaultAzureCredential](/python/api/overview/azure/identity-readme#defaultazurecredential). The same pattern works in Azure with managed identities and on your local machine without managed identities.
 
 # [Java](#tab/java)
 
-For Java apps and functions, the simplest way to work with a managed identity is through the [Azure Identity client library for Java](/java/api/overview/azure/identity-readme). For detailed guidance, see [Tutorial: Connect to Azure databases from App Service without secrets by using a managed identity](tutorial-connect-msi-azure-database.md).
+For Java apps and functions, the simplest way to work with a managed identity is through the [Azure Identity client library for Java](/java/api/overview/azure/identity-readme). For more information, see [Tutorial: Connect to Azure databases from App Service without secrets by using a managed identity](tutorial-connect-msi-azure-database.md).
 
 For more information, see the respective documentation headings of the client library:
 
@@ -359,7 +352,7 @@ For more information, see the respective documentation headings of the client li
 - [Access an Azure service by using a system-assigned identity](/java/api/overview/azure/identity-readme#authenticate-with-defaultazurecredential)
 - [Access an Azure service by using a user-assigned identity](/java/api/overview/azure/identity-readme#authenticate-a-user-assigned-managed-identity-with-defaultazurecredential)
 
-The linked examples use [`DefaultAzureCredential`](/azure/developer/java/sdk/identity-azure-hosted-auth#default-azure-credential). It's useful for the majority of the scenarios because the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
+The linked examples use [`DefaultAzureCredential`](/azure/developer/java/sdk/identity-azure-hosted-auth#default-azure-credential). The same pattern works in Azure with managed identities and on your local machine without managed identities.
 
 For more code examples of the Azure Identity client library for Java, see [Azure Identity examples](https://github.com/Azure/azure-sdk-for-java/wiki/Azure-Identity-Examples).
 
@@ -368,7 +361,7 @@ For more code examples of the Azure Identity client library for Java, see [Azure
 Use the following script to retrieve a token from the local endpoint by specifying a resource URI of an Azure service:
 
 ```powershell
-$resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
+$resourceURI = "https://<Entra-resource-URI-for-resource-to-obtain-token>"
 $tokenAuthURI = $env:IDENTITY_ENDPOINT + "?resource=$resourceURI&api-version=2019-08-01"
 $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"X-IDENTITY-HEADER"="$env:IDENTITY_HEADER"} -Uri $tokenAuthURI
 $accessToken = $tokenResponse.access_token
@@ -384,25 +377,25 @@ When you remove a system-assigned identity, it's deleted from Microsoft Entra ID
 
 # [Azure portal](#tab/portal)
 
-1. On the left menu for your app's page, under **Settings**, select **Identity**.
+1. On the left menu for your app's page, select **Settings** > **Identity**.
 
 1. Follow the steps based on the identity type:
 
-    - For a system-assigned identity: On the **System assigned** tab, switch **Status** to **Off**. Then select **Save**.
-    - For a user-assigned identity: Select the **User assigned** tab, select the checkbox for the identity, and then select **Remove**. Select **Yes** to confirm.
+   - For a system-assigned identity: On the **System assigned** tab, switch **Status** to **Off**. Then select **Save**.
+   - For a user-assigned identity: Select the **User assigned** tab, select the checkbox for the identity, and then select **Remove**. Select **Yes** to confirm.
 
 # [Azure CLI](#tab/cli)
 
 To remove the system-assigned identity, use this command:
 
 ```azurecli-interactive
-az webapp identity remove --name <app-name> --resource-group <group-name>
+az webapp identity remove --resource-group <group-name> --name <app-name>
 ```
 
 To remove one or more user-assigned identities, use this command:
 
 ```azurecli-interactive
-az webapp identity remove --name <app-name> --resource-group <group-name> --identities <identity-id1> <identity-id2> ...
+az webapp identity remove --resource-group <group-name> --name <app-name> --identities <identity-id1> <identity-id2> ...
 ```
 
 You can also remove the system-assigned identity by specifying `[system]` in `--identities`.
@@ -423,7 +416,7 @@ To remove all identities in Azure PowerShell (Azure Functions only), run this co
 
 ```azurepowershell-interactive
 # Update an existing function app to have IdentityType "None".
-Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupName -IdentityType None
+Update-AzFunctionApp -Name <function-app-name> -ResourceGroupName <group-name> -IdentityType None
 ```
 
 # [ARM template](#tab/arm)
@@ -450,24 +443,26 @@ An app with a managed identity makes this endpoint available by defining two env
 
 The `IDENTITY_ENDPOINT` variable is a local URL from which your app can request tokens. To get a token for a resource, make an HTTP `GET` request to this endpoint. Include the following parameters:
 
-> | Parameter name    | In     | Description                                                                                                                                                                                                                                                                                                                                |
-> |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+> | Parameter name      | In     | Description |
+> |:--------------------|:-------|:------------|
 > | `resource`          | Query  | The Microsoft Entra resource URI of the resource for which a token should be obtained. This resource could be one of the [Azure services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) or any other resource URI.    |
-> | `api-version`       | Query  | The version of the token API to be used. Use `2019-08-01`.                                                                                                                                                                                                                                                                 |
-> | `X-IDENTITY-HEADER` | Header | The value of the `IDENTITY_HEADER` environment variable. This header is used to help mitigate SSRF attacks.                                                                                                                                                                                                    |
-> | `client_id`         | Query  | (Optional) The client ID of the user-assigned identity to be used. It can't be used on a request that includes `principal_id`, `mi_res_id`, or `object_id`. If all ID parameters  (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used.                                             |
+> | `api-version`       | Query  | The version of the token API to be used. Use `2019-08-01`.   |
+> | `X-IDENTITY-HEADER` | Header | The value of the `IDENTITY_HEADER` environment variable. This header is used to help mitigate SSRF attacks. |
+> | `client_id`         | Query  | (Optional) The client ID of the user-assigned identity to be used. It can't be used on a request that includes `principal_id`, `mi_res_id`, or `object_id`. If all ID parameters  (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used. |
 > | `principal_id`      | Query  | (Optional) The principal ID of the user-assigned identity to be used. The `object_id` parameter is an alias that can be used instead. It can't be used on a request that includes `client_id`, `mi_res_id`, or `object_id`. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`)  are omitted, the system-assigned identity is used. |
-> | `mi_res_id`         | Query  | (Optional) The Azure resource ID of the user-assigned identity to be used. It can't be used on a request that includes `principal_id`, `client_id`, or `object_id`. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used.                                      |
+> | `mi_res_id`         | Query  | (Optional) The Azure resource ID of the user-assigned identity to be used. It can't be used on a request that includes `principal_id`, `client_id`, or `object_id`. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used. |
 
 > [!IMPORTANT]
-> If you're trying to obtain tokens for user-assigned identities, you must include one of the optional properties. Otherwise, the token service will try to obtain a token for a system-assigned identity, which might or might not exist.
+> If you're trying to get tokens for user-assigned identities, include one of the optional properties. Otherwise, the token service tries to get a token for a system-assigned identity, which might or might not exist.
 
 ## Related content
 
-- [Connect to SQL Database from App Service without secrets by using a managed identity](tutorial-connect-msi-sql-database.md)
-- [Access Azure Storage by using a managed identity](scenario-secure-app-access-storage.md)
-- [Call Microsoft Graph by using a managed identity](scenario-secure-app-access-microsoft-graph-as-app.md)
-- [Connect to services by using Key Vault secrets](tutorial-connect-msi-key-vault.md)
+Consider the following tutorials:
+
+- [Connect to SQL Database from .NET App Service without secrets using a managed identity](tutorial-connect-msi-sql-database.md)
+- [Access Azure services from a .NET web app](scenario-secure-app-access-storage.md)
+- [Access Microsoft Graph from a secured .NET app as the app](scenario-secure-app-access-microsoft-graph-as-app.md)
+- [Secure Cognitive Service connection from .NET App Service using Key Vault](tutorial-connect-msi-key-vault.md)
 
 [create-user-assigned]: /entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity
 [role-assignment]: ../role-based-access-control/role-assignments-steps.md
