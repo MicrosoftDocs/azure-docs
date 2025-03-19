@@ -22,7 +22,7 @@ The following regions currently support availability zones:
 | Canada Central | Germany West Central | Qatar Central | | Central India |
 | Central US | Italy North | UAE North | | China North 3 |
 | East US | North Europe | | | East Asia |
-| East US 2 | Norway East | | | Indonesia Central* |
+| East US 2 | Norway East | | | Indonesia Central |
 | Mexico Central | Poland Central | | | Japan East |
 | South Central US | Spain Central | | | Japan West |
 | US Gov Virginia | Sweden Central | | | Korea Central |
