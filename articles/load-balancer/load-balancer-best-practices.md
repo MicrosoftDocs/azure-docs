@@ -58,7 +58,7 @@ The following best practices are recommended to ensure the reliability of your G
 
 #### Chain your Gateway Load Balancer to a Standard Public Load Balancer
 
-Chaining your Gateway Load Balancer to a Standard Public Load Balancer is recommended. This configuration provides high availability and redundancy on both the NVA and application layer. For more information, see [Tutorial: Create a gateway load balancer](./tutorial-gateway-portal.md)
+Chaining your Gateway Load Balancer to a Standard Public Load Balancer is recommended. This configuration provides high availability and redundancy on both the NVA and application layer. For more information, see [Tutorial: Create a gateway load balancer](./tutorial-create-gateway-load-balancer.md)
 
 #### Use a Gateway load balancer when using NVAs instead of a dual load balancer set-up.
 

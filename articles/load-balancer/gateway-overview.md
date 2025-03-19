@@ -85,6 +85,6 @@ For pricing, see [Load Balancer pricing](https://azure.microsoft.com/pricing/det
 
 ## Next steps
 
-- See [Create a Gateway Load Balancer using the Azure portal](tutorial-gateway-portal.md) to create a gateway load balancer.
+- See [Create a Gateway Load Balancer using the Azure portal](tutorial-create-gateway-load-balancer.md) to create a gateway load balancer.
 - Learn how to use [Gateway Load Balancer for outbound connectivity scenarios](tutorial-gateway-outbound-connectivity.md).
 - Learn more about [Azure Load Balancer](load-balancer-overview.md).
