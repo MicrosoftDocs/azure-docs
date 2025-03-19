@@ -74,7 +74,7 @@ The new users need to follow steps given below:
  
 ## Review All inventory
 
-You can start by selecting the count of workloads on **Overview** of your project or select **All inventory** under **Explore inventory** from the menu on the left to see the list of workloads, discovered from your environment either by using [Azure Migrate appliance](/migrate-appliance.md) or using [CSV import]().
+You can start by selecting the count of workloads on **Overview** of your project or select **All inventory** under **Explore inventory** from the menu on the left to see the list of workloads, discovered from your environment either by using [Azure Migrate appliance](/migrate-appliance.md) or using [CSV import](/azure/migrate/how-to-review-discovered-inventory?).
 
 **All Inventory** view helps you review all the workloads discovered from your datacentre including servers (VMware VMs/Hyper-V VMs/Physical servers/servers running in other public clouds), databases, and web applications which can be found inline by expanding the server. 
 
@@ -183,7 +183,7 @@ HADR configuration |
 
 ## Review Infrastructure inventory
 
-You can select **Infrastructure inventory** under **Explore inventory** from the menu on the left to see the list of infrastructure workloads, discovered from your environment either by using [Azure Migrate appliance](/migrate-appliance.md) or using [CSV import]().
+You can select **Infrastructure inventory** under **Explore inventory** from the menu on the left to see the list of infrastructure workloads, discovered from your environment either by using [Azure Migrate appliance](/migrate-appliance.md) or using [CSV import](/azure/migrate/how-to-review-discovered-inventory?).
 
 **Infrastruture Inventory** view helps you review all the servers discovered from your datacentre including VMware VMs/Hyper-V VMs/Physical servers/servers running in other public clouds.
 
