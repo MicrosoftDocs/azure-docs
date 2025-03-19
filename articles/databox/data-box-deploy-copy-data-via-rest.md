@@ -9,6 +9,7 @@ ms.service: azure-databox
 ms.topic: tutorial
 ms.date: 03/25/2024
 ms.author: shaas
+zone_pivot_groups: data-box-sku
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 
 ---
@@ -29,16 +30,31 @@ In this tutorial, you learn how to:
 > * Copy data to Data Box
 
 ## Prerequisites
-
+:::zone pivot="dbx"
 Before you begin, make sure that:
 
-1. You complete the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
-2. You receive your Data Box and the order status in the portal is **Delivered**.
+1. You've completed the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
+2. You've received your Data Box and the order status in the portal is **Delivered**.
 3. You review the [system requirements for Data Box Blob storage](data-box-system-requirements-rest.md) and are familiar with supported versions of APIs, SDKs, and tools.
-4. You have access to a host computer that has the data that you want to copy over to Data Box. Your host computer must:
-    * Run a [Supported operating system](data-box-system-requirements.md).
-    * Be connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. You can use a 1-GbE data link if a 10-GbE connection isn't available, though copy speeds are impacted.
+4. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must:
+   * Run a [Supported operating system](data-box-system-requirements.md).
+   * Be connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, use a 1-GbE data link but the copy speeds are impacted.
 5. [Download AzCopy V10](../storage/common/storage-use-azcopy-v10.md) on your host computer. AzCopy is used to copy data to Azure Data Box Blob storage from your host computer.
+
+:::zone-end
+
+:::zone pivot="dbx-ng"
+Before you begin, make sure that:
+
+1. You've completed the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
+2. You've received your Data Box and the order status in the portal is **Delivered**.
+3. You review the [system requirements for Data Box Blob storage](data-box-system-requirements-rest.md) and are familiar with supported versions of APIs, SDKs, and tools.
+4. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must:
+   * Run a [Supported operating system](data-box-system-requirements.md).
+   * Be connected to a high-speed network. We strongly recommend that you have at least one 100-GbE connection. If a 100-GbE connection isn't available, use a 10-GbE or 1-GbE data link but the copy speeds are impacted.
+5. [Download AzCopy V10](../storage/common/storage-use-azcopy-v10.md) on your host computer. AzCopy is used to copy data to Azure Data Box Blob storage from your host computer.
+
+:::zone-end
 
 ## Connect via http or https
 

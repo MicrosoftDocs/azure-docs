@@ -8,8 +8,6 @@ ms.author: shaas
 
 ## Cross-region data transfer for Data Box devices
 
-Previous releases of Data Box SKUs didn’t support cross-region data transfer. With the exception of transfers both originating and terminating between the United Kingdom (UK) and the European Union (EU), data couldn’t cross commerce boundaries.
-
 ### Direct upload from any source to any Azure destination region
 
 Customers can now select a given source to any Azure destination region for a direct upload from the DataBox device. This capability allows you to copy your data from a local source and transfer it to a destination within a different country, region, or boundary. For example, data stored on-premises in a source country like India can be directly uploaded to an Azure region in a different country, such as the United States. This feature provides flexibility and convenience for organizations with distributed data storage needs. It's important to note that the DataBox device isn't shipped across commerce boundaries. Instead, it's transported to an Azure data center within the originating country or region. Data transfer between the source country and the destination region takes place using the Azure network and incurs no additional cost.
