@@ -1,5 +1,5 @@
 ---
-title: Provide administrative access to Azure Deployment Environments projects
+title: Grant administrative access to Azure Deployment Environments projects
 titleSuffix: Azure Deployment Environments
 description: Learn how to configure administrative access for dev team leads by using the DevCenter Project Admin built-in role.
 ms.service: azure-deployment-environments
@@ -7,17 +7,19 @@ ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/21/2025
 ms.topic: how-to
+
+#customer intent: As a platform engineer, I want to assign permissions to dev team leads so that they can peform the appropriate actions.
 ---
 
 # Provide access to projects for dev team leads
 
-This guide explains how to assign permissions to dev team leads for a project in Azure Deployment Environments.
+This article explains how to assign permissions to dev team leads for a project in Azure Deployment Environments.
 
-You can create multiple projects associated with the dev center to align with each team's requirements. By using the built-in DevCenter Project Admin role, you can delegate project administration to a member of a team. DevCenter Project Admin users can configure [project environment types](concept-environments-key-concepts.md#project-environment-types) to enable developers to create various types of [environments](concept-environments-key-concepts.md#environments) and apply settings to each environment type.
+You can create multiple projects that are associated with your dev center to align with each team's requirements. By using the built-in DevCenter Project Admin role, you can delegate project administration to a member of a team. DevCenter Project Admin users can configure [project environment types](concept-environments-key-concepts.md#project-environment-types) to enable developers to create various types of [environments](concept-environments-key-concepts.md#environments) and apply settings to each environment type.
 
-You can assign the DevCenter Project Admin role to a dev team lead at either the project level or the environment type level. Based on the scope of access that you allow, a DevCenter Project Admin user can:
+You can assign the DevCenter Project Admin role to a dev team lead at either the project level or the environment-type level. Based on the scope of access that you allow, a DevCenter Project Admin user can:
 
-* View, add, update, disable, or delete the project environment types.
+* View, add, update, disable, or delete project environment types.
 * Create an environment.
 * Read, write, delete, or perform actions (like deploy or reset) on their own environment.
 * Read, delete, or perform actions (like deploy or reset) on environments that other users created.
@@ -27,8 +29,8 @@ When you assign the role at the project level, the user can perform the precedin
 ## Assign permissions to dev team leads for a project
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to Azure Deployment Environments.
-1. Select **Projects**, then choose the project that you want your development team members to be able to access.
-1. Select **Access control (IAM)** from the left menu.
+1. In the left menu, select **Projects**, and then choose the project that you want your development team members to be able to access.
+1. Select **Access control (IAM)** in the left menu.
 1. Select **Add** > **Add role assignment**.
 1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
