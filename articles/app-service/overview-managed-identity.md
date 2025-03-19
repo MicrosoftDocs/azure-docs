@@ -54,7 +54,7 @@ To enable a system-assigned managed identity, use the following instructions.
 Run the `az webapp identity assign` command:
 
 ```azurecli-interactive
-az webapp identity assign --resource-group <group-name> --name myApp 
+az webapp identity assign --resource-group <group-name> --name <app-name> 
 ```
 
 # [Azure PowerShell](#tab/ps)
