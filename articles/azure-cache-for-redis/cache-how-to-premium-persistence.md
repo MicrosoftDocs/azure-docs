@@ -12,7 +12,7 @@ ms.date: 02/21/2025
 
 > [!IMPORTANT]
 >
-> The data persistence functionality provides resilience for unexpected Redis node failures. Data persistence isn't a data backup or point in time recovery (PITR) feature. If corrupted data is written to the Redis instance, th corrupted data is also persisted. To make backups of your Redis instance, use the [export feature](cache-how-to-import-export-data.md).  
+> The data persistence functionality provides resilience for unexpected Redis node failures. Data persistence isn't a data backup or point in time recovery (PITR) feature. If corrupted data is written to the Redis instance, the corrupted data is also persisted. To make backups of your Redis instance, use the [export feature](cache-how-to-import-export-data.md).  
 >
 
 > [!WARNING]

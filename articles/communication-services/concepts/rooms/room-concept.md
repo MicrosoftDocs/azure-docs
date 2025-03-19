@@ -45,7 +45,7 @@ Following table shows when to use Virtual Rooms.
 | When user roles and permissions are needed to conduct well-managed communications. | ✔️ |
 | When solution requires Teams interoperability.* | ❌ |
 
-\* If the solution requires interoperability between Teams and Azure Communication Services, use [Teams interoperability calls](../interop/calling-chat.md)
+\* If the solution requires interoperability between Teams and Azure Communication Services, use [Teams interoperability calls](../interop/teams-user-calling.md)
 
 ## How to conduct calls in Virtual Rooms
 

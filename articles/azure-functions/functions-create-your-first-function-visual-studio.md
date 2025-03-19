@@ -77,9 +77,9 @@ Your function definition should now look like the following code:
 
 ```csharp
 [Function("HttpExample")]
-public IActionResult Run([HttpTrigger(AuthorizationLevel.AuthLevelValue, "get", "post")] HttpRequest req)
+public IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequest req)
 {
-    return new OkObjectResult("Welcome to Azure Functions!");
+    return new OkObjectResult("Hello, functions");
 }
 ```
 

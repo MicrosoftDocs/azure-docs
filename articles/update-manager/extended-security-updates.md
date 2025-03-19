@@ -4,7 +4,7 @@ description: Information on enrolling and managing Extended Security Updates (ES
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 02/26/2025
+ms.date: 03/13/2025
 ms.topic: overview
 ---
 
@@ -12,7 +12,20 @@ ms.topic: overview
 
 This article provides information on ESU on Azure VMs and Azure Arc machines.
 
-ESUs are available by default to Azure Virtual machines Azure ESU. Using Azure Update Manager, you can deploy Extended Security Updates for your Azure Arc-enabled Windows Server 2012 / R2 machines. 
+## What are Extended Security Updates 
+
+Extended Security Updates for Windows Server include security updates and bulletins rated *critical* and *important* for a maximum period of time from the end of extended support, depending on the version.  
+
+Extended Security Updates doesn't include new features, customer-requested non-security hotfixes, or design change requests. For more information, see [Overview of Extended Security Updates for Windows Server 2008, 2008 R2, 2012, 2012 R2](/windows-server/get-started/extended-security-updates-overview#what-are-extended-security-updates).
+
+### Azure virtual machines
+
+ESUs are available free of charge and by default for servers hosted in Azure.
+
+### Azure Arc enabled machines
+
+ESUs are available to purchase for servers not hosted in Azure. Using Azure Update Manager, you can deploy Extended Security Updates for your Azure Arc-enabled Windows Server 2012 / R2 machines. 
+
 
 ## Enroll Windows Server 2012 ESU on Arc machines
 

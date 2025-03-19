@@ -3,7 +3,7 @@ author: baanders
 description: include file describing how to configure an Azure function to work with Azure Digital Twins - CLI instructions
 ms.service: azure-digital-twins
 ms.topic: include
-ms.date: 6/16/2022
+ms.date: 03/13/2025
 ms.author: baanders
 ---
 
@@ -13,9 +13,9 @@ Run the following commands in [Azure Cloud Shell](https://shell.azure.com) or a 
 
 #### Assign an access role
 
-The Azure function requires a bearer token to be passed to it. To make sure the bearer token is passed, grant the function app the **Azure Digital Twins Data Owner** role for your Azure Digital Twins instance, which will give the function app permission to perform data plane activities on the instance.
+The Azure function requires a bearer token to be passed to it. To make sure the bearer token is passed, grant the function app the **Azure Digital Twins Data Owner** role for your Azure Digital Twins instance, which gives the function app permission to perform data plane activities on the instance.
 
-1. Use the following command to create a [system-managed identity](../articles/active-directory/managed-identities-azure-resources/overview.md) for your function (if the function already has one, this command will print its details). Take note of the `principalId` field in the output. You'll use this ID to refer to the function so that you can grant it permissions in the next step.
+1. Use the following command to create a [system-managed identity](../articles/active-directory/managed-identities-azure-resources/overview.md) for your function (if the function already has one, this command prints its details). Take note of the `principalId` field in the output. You'll use this ID to refer to the function so that you can grant it permissions in the next step.
 
     ```azurecli-interactive	
     az functionapp identity assign --resource-group <your-resource-group> --name <your-function-app-name>	
@@ -34,7 +34,7 @@ Next, make the URL of your Azure Digital Twins instance accessible to your funct
 > [!TIP]
 > The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your instance's host name. To see the host name, along with all the properties of your instance, run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
 
-The following command sets an environment variable for your instance's URL that your function will use whenever it needs to access the instance.
+The following command sets an environment variable for your instance's URL that your function uses whenever it needs to access the instance.
 
 ```azurecli-interactive	
 az functionapp config appsettings set --resource-group <your-resource-group> --name <your-function-app-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
