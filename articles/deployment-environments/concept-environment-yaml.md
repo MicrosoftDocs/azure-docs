@@ -138,7 +138,7 @@ parameters:
     default: 'dotnet-isolated'
 ```
 
-## Related content
+## Related resources
 
 - [Add and configure an environment definition in Azure Deployment Environments](configure-environment-definition.md)
 - [Parameters in ARM templates](../azure-resource-manager/templates/parameters.md)
