@@ -222,7 +222,7 @@ items:
         href: lifecycle-management-overview.md
       - name: Create and manage a policy
         href: lifecycle-management-policy-configure.md
-      - name: 'Examples: Transitioning blobs between access tiers' 
+      - name: 'Examples: Tiering blobs' 
         href: lifecycle-management-policy-access-tiers.md
       - name: 'Examples: Deleting blobs'
         href: lifecycle-management-policy-delete.md
