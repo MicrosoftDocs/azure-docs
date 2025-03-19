@@ -31,8 +31,6 @@ This article describes the new experience to review inventory discovered using A
 
 The existing users who have already created an Azure Migrate project and performed discovery of their datacenter assests can switch to the new Overview by using the prompt in their existing project. From the new Overview, you can select the count of workloads to review the discovered inventory across your datacenter.
 
-:::image type="content" source="./media/how-to-review-discovered-inventory/switch-to-new-view.png" alt-text="Switch to new inventory view":::
-
 ### New users
 
 The new users need to follow steps given below:
@@ -82,7 +80,7 @@ You can start by selecting the count of workloads on **Overview** of your projec
 
 While the default view shows databases and web applications on expanding a server in a hierarchical list, you can also choose to see a flat list of all workloads by switching to that view from the action on top right of the page. 
 
-:::image type="content" source="./media/how-to-review-discovered-inventory/switch-to-flat-list.png" alt-text="Switch from hierarchical to flat view":::
+:::image type="content" source="./media/how-to-review-discovered-inventory/switch-to-flat-list.png" alt-text="Switch to flat list view":::
 
 You can navigate across pages to review the entire inventory from a single view or choose to go to separate views for **Infrastruture, Databases and Web apps** inventory from the menu on the left.
 

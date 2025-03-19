@@ -187,14 +187,10 @@ After you have performed the required steps to upgrade to the new dependency vis
 1. Go to the existing inventory view in your project and switch to the new inventory view using the prompt. 
 2. Select **View dependencies** for the desired server in the new inventory view to get to the new visualization directly.
 
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/switch-to-new-inv.png" alt-text="Switch to new inventory view.":::
-
 ### Option 2
 
 1. Go to the old inventory view, select **View dependencies** on a server.  
 2. In the old dependency view, select the prompt to get to the new enhanced visualization. 
-
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/switch-to-new-dep.png" alt-text="Switch to new dependency view.":::
 
 > [!NOTE]
 > It is recommended to use **Option 1** above to switch to the new inventory view as you will be able to filter servers where dependency analysis was auto-enabled and then directly review the dependency visualization. Old inventory view will only provide option to visualize dependencies for servers where you had manually enabled the feature.
