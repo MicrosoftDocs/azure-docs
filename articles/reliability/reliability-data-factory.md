@@ -52,7 +52,6 @@ To avoid duplicate records being inserted after a transient fault, you can emplo
 -  *Upsert strategy* is an option for connectors that support upsert. Use this approach to check whether a record already exists before inserting. If it does exist, update it. If it doesn't exist, insert it. For example, SQL commands like `MERGE` or `ON DUPLICATE KEY UPDATE` use this upsert approach.
 - *Use copy action strategies* that are discussed in the [data consistency verification in copy activities article.](../data-factory/copy-activity-data-consistency.md)
 
-
 ### Retry policies
 
 With retry policies, you can configure parts of your pipeline to retry if there's a problem, such as when a resource you connect to has a transient fault. In Azure Data Factory, you can configure retry policies on the following pipeline object types:
@@ -89,7 +88,7 @@ Zone-redundant Azure Data Factory resources can be deployed in [any region that 
 **Integration runtimes:** Cost for zone redundancy differs depending on the type of integration runtime you use:
 
 - *Azure integration runtime* includes zone redundancy at no additional cost.
-- *Azure-SSIS integration runtime* requires that you deploy at least two nodes to achieve zone redundancy.
+- *Azure-SSIS integration runtime* requires that you deploy at least two nodes to achieve zone redundancy. For more information about how each node is billed, see [Pricing example: Run SSIS packages on Azure-SSIS integration runtime](../data-factory/pricing-examples-ssis-on-azure-ssis-integration-runtime.md#pricing-model-for-azure-ssis-integration-runtime).
 - *Self-hosted integration runtime* requires that you deploy and manage the compute infrastructure. To achieve zone resiliency you need to spread your compute resources across multiple zones. Depending on how many nodes you deploy and how you configure them, you might incur additional costs from the underlying compute services and other supporting services. There's no additional charge to run the self-hosted integration runtime on multiple nodes.
 
 ### Configure availability zone support
@@ -140,17 +139,16 @@ Azure Data Factory resources are deployed into a single Azure region. If the reg
 
 ### Microsoft-managed failover to a paired region
 
-Azure Data Factory supports Microsoft-managed failover for data factories in *paired regions* (except Brazil South and Southeast Asia), Azure Data Factory data is replicated to the paired region to protect against metadata loss. In the unlikely event of a prolonged region failure, Microsoft might elect to initiate a regional failover of your Azure Data Factory instance.
-	 
+Azure Data Factory supports Microsoft-managed failover for data factories in *paired regions* (except Brazil South and Southeast Asia). In the unlikely event of a prolonged region failure, Microsoft might elect to initiate a regional failover of your Azure Data Factory instance.
+
+Due to data residency requirements in Brazil South and Southeast Asia, Azure Data Factory data is stored in the local region only by using [Azure Storage zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). For Southeast Asia, all data is stored in Singapore. For Brazil South, all data is stored in Brazil. 
+
+For data factories in *nonpaired regions*, or in Brazil South or Southeast Asia, Microsoft doesn't perform regional failover on your behalf.
+
 > [!IMPORTANT]
-> Microsoft-managed failover is triggered by Microsoft. It's likely to happen after a significant delay and is done on a best-effort basis. There are also some exceptions to this process. Failover of Azure Data Factory resources might happen at a different time to any failover of other Azure services.
+> Microsoft-managed failover is triggered by Microsoft. It's likely to happen after a significant delay and is done on a best-effort basis. There are also some exceptions to this process. You might experience some loss of your data factory metadata. Failover of Azure Data Factory resources might happen at a different time to any failover of other Azure services.
 >
-> If you need to be resilient to region outages, see [alternative multi-region approaches](#alternative-multi-region-approaches).
-
-For data factories in *nonpaired regions* or in Brazil South or Southeast Asia, Microsoft doesn't perform regional failover on your behalf. If you need to be resilient to region outages, see [alternative multi-region approaches](#alternative-multi-region-approaches).
-
->[!IMPORTANT]
->Due to data residency requirements in Brazil South and Southeast Asia, Azure Data Factory data is stored in the local region only by using [Azure Storage zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). For Southeast Asia, all data is stored in Singapore. For Brazil South, all data is stored in Brazil. 
+> If you need to be resilient to region outages, consider using one of the [alternative multi-region approaches](#alternative-multi-region-approaches).
 
 #### Failover of integration runtimes
 
