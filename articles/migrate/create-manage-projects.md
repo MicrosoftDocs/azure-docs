@@ -64,7 +64,7 @@ Follow the steps to find a project:
 1. Select **All Projects** from the upper left.
 1. Filter and select the project of your choice.
 
-    :::image type="content" source="./media/create-manage-projects/filter-and-select-project.png" alt-text="Screenshot shows to filter and select the project." lightbox="./media/create-manage-projects/filter-and-select-project.png" :::
+    :::image type="content" source="./media/create-manage-projects/filter-and-select-project.png" alt-text="Screenshot shows how to filter and select the project." lightbox="./media/create-manage-projects/filter-and-select-project.png" :::
 
 ## Delete a project
 
@@ -75,7 +75,7 @@ Follow the steps to delete a project:
 1. Find the project you want to delete.
 1. Select **More options** and then select **Delete Project**.
 
-:::image type="content" source="./media/create-manage-projects/delete-a-project.png" alt-text="Screenshot shows on how to delete a project." lightbox="./media/create-manage-projects/delete-a-project.png" :::
+:::image type="content" source="./media/create-manage-projects/delete-a-project.png" alt-text="Screenshot shows how to delete a project." lightbox="./media/create-manage-projects/delete-a-project.png" :::
 
 1. The window appears to **Delete project**.
 
