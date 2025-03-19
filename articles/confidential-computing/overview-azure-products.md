@@ -25,7 +25,9 @@ Azure provides the broadest support for hardened technologies such as [AMD SEV-S
 
 - [Confidential VM AKS Worker Nodes](/azure/confidential-computing/confidential-node-pool-aks) allows lift-and-shift of containers to AKS clusters using worker nodes based on AMD SEV-SNP hardware and helps protect data from the cloud operator with worker-node level confidentiality with the configuration flexibility of Azure Kubernetes Service (AKS).
 
-- [Confidential Containers on ACI](/azure/container-instances/container-instances-confidential-overview) allows lift-and-shift of containers to the serverless Azure Container Instances service running on AMD SEV-SNP hardware. Confidential containers support container-level integrity and attestation via [confidential computing enforcement (CCE) policies](azure/container-instances/container-instances-confidential-overview#confidential-computing-enforcement-policies) that prescribe the components that are allowed to run within the container group, which the container runtime enforces. This helps protect data from the cloud operator and internal threat actors with container-level confidentiality.
+- [Confidential Containers on ACI](/azure/container-instances/container-instances-confidential-overview) allows lift-and-shift of containers to the serverless Azure Container Instances service running on AMD SEV-SNP hardware. Confidential containers support container-level integrity and attestation via [confidential computing enforcement (CCE) policies](/azure/container-instances/container-instances-confidential-overview#confidential-computing-enforcement-policies) that prescribe 
+
+- the components that are allowed to run within the container group, which the container runtime enforces. This helps protect data from the cloud operator and internal threat actors with container-level confidentiality.
 
 - [App-enclave aware containers](enclave-aware-containers.md) running on Azure Kubernetes Service (AKS). Confidential computing nodes on AKS use Intel SGX to create isolated enclave environments in the nodes between each container application.
 
