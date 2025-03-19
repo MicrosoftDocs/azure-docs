@@ -2,14 +2,14 @@
 title: Manage expiration of web content in Azure Content Delivery Network
 description: Learn how to manage expiration of Azure Web Apps/Cloud Services, ASP.NET, or IIS content in Azure Content Delivery Network.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: how-to
 ms.date: 03/20/2024
-ms.author: duau
 ---
 
 # Manage expiration of web content in Azure Content Delivery Network
@@ -44,11 +44,7 @@ The preferred method for setting a web server's `Cache-Control` header is to use
 
 1. In the left pane under Settings, select **Caching rules**.
 
-   ![Screenshot of the content delivery network caching rules button.](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-rules-btn.png)
-
    The **Caching rules** page appears.
-
-   ![Screenshot of the content delivery network caching page.](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-page.png)
 
 **To set a web server's Cache-Control headers by using global caching rules:**
 

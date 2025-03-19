@@ -79,8 +79,6 @@ items:
 
   - name: Concepts
     items:
-      - name: Security architecture
-        href: iot-security-architecture.md
       - name: IoT device development
         items:
         - name: What is IoT device development

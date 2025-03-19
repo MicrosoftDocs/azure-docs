@@ -45,7 +45,7 @@ Following table shows when to use Virtual Rooms.
 | When user roles and permissions are needed to conduct well-managed communications. | ✔️ |
 | When solution requires Teams interoperability.* | ❌ |
 
-\* If the solution requires interoperability between Teams and Azure Communication Services, use [Teams interoperability calls](../interop/calling-chat.md)
+\* If the solution requires interoperability between Teams and Azure Communication Services, use [Teams interoperability calls](../interop/teams-user-calling.md)
 
 ## How to conduct calls in Virtual Rooms
 
@@ -115,7 +115,7 @@ Follow these steps to add a PSTN number to a room call using Call Automation SDK
 
 Use the [Calling SDKs](../voice-video-calling/calling-sdk-features.md) to join the room call. Room calls can be joined using the Web, iOS, or Android Calling SDKs. You can find quick start samples for joining room calls [here](../../quickstarts/rooms/join-rooms-call.md).
 
-Rooms can also be accessed using the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/rooms--page). The UI Library enables developers to add a call client that is Rooms-enabled into their application with only a couple lines of code.
+Rooms can also be accessed using the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/concepts-rooms--docs). The UI Library enables developers to add a call client that is Rooms-enabled into their application with only a couple lines of code.
 
 ### Client initiated PSTN Dial-out using Calling client SDK
 
@@ -168,7 +168,7 @@ The following table provides detailed capabilities mapped to the roles. At a hig
 | - Show if a participant is muted | ✔️ | ✔️ | ✔️ |
 | - Show the reason why a participant left a call | ✔️ | ✔️ | ✔️ |
 | - Start call captions | ✔️ | ✔️ | ✔️ |
-| - Change captions language | ✔️ | ✔️ | ❌ |
+| - Change captions language | ✔️ | ✔️ | ✔️ |
 | - Invite to join a Virtual Room participant to a call | ✔️ | ❌ | ❌ |
 | **Screen sharing** | | |
 | - Share screen | ✔️ *  | ❌ | ❌ |

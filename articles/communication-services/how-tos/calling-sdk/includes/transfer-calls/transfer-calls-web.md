@@ -146,3 +146,16 @@ transfer.on('stateChanged', () => {
    }
 });
 ```
+
+### Initial Caller and Transferor information
+In case of call transfer or forward scenario incoming call object contains information about initial caller and transferor agents.
+Transferor agent could be Azure Communication Calling user or Teams user or Voice Application (Call Queue and etc.)
+```js
+const incomingCallHandler = async (args: { incomingCall: IncomingCall }) => {
+    const incomingCall = args.incomingCall;
+    // Get information about initial caller
+    const callerInfo = incomingCall.callerInfo
+    // Get information about initial caller
+    const transferorInfo = incomingCall.transferorInfo
+};
+```

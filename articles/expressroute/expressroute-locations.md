@@ -213,7 +213,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Telus](https://www.telus.com)** | &check; | &check; | Montreal<br/>Quebec City<br/>Seattle<br/>Toronto<br/>Vancouver |
 | **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** | &check; | &check; | Cape Town<br/>Johannesburg |
 | **[TIME dotCom](https://www.time.com.my/enterprise/connectivity/direct-cloud)** | &check; | &check; | Kuala Lumpur |
-| **[Tivit](https://tivit.com/en/home-ingles/)** |&check; |&check; | Sao Paulo2 |
+| **[Tivit](https://onecloud.tivit.com/en/home-en/)** |&check; |&check; | Sao Paulo2 |
 | **[Tokai Communications](https://www.tokai-com.co.jp/en/)** | &check; | &check; | Osaka<br/>Tokyo2 |
 | **TPG Telecom**| &check; | &check; | Melbourne<br/>Sydney |
 | **[T-Mobile/Sprint](https://www.t-mobile.com/business/solutions/networking/cloud-networking)** |&check; |&check; | Chicago<br/>Silicon Valley<br/>Washington DC |
@@ -247,7 +247,7 @@ Azure national clouds are isolated from each other and from the Azure public clo
 | **[Internet2](https://internet2.edu/services/microsoft-azure-expressroute/)** |&check; |&check; |Dallas |
 | **[Level 3 Communications](https://www.lumen.com/en-us/edge-cloud/cloud-connect.html)** |&check; |&check; |Chicago<br/>Silicon Valley<br/>Washington DC |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |&check; | &check; | Chicago<br/>Dallas<br/>San Antonio<br/>Seattle<br/>Washington DC |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |&check; |&check; |Chicago<br/>Dallas<br/>New York<br/>Silicon Valley<br/>Washington DC |
+| **[Verizon](https://www.verizon.com/about/news/verizon-expands-cloud-solutions-secure-cloud-interconnect-0)** |&check; |&check; |Chicago<br/>Dallas<br/>New York<br/>Silicon Valley<br/>Washington DC |
 
 #### [China cloud](#tab/china-cloud)
 
@@ -379,7 +379,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 
 | Provider | Exchange |
 | --- | --- |
-| **[CyrusOne](https://www.cyrusone.com/cloud-solutions/microsoft-azure)** | Megaport<br/>PacketFabric |
+| **[CyrusOne](https://www.megaport.com/connectivity/connect-cyrusone-azure/)** | Megaport<br/>PacketFabric |
 | **[Cyxtera](https://centersquaredc.com/products)** | Megaport<br/>PacketFabric |
 | **[Databank](https://www.databank.com/platforms/connectivity/cloud-direct-connect/)** | Megaport |
 | **[DataFoundry](https://www.datafoundry.com/services/cloud-connect/)** | Megaport |
@@ -387,7 +387,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[EdgeConnex](https://www.edgeconnex.com/services/edge-data-centers-proximity-matters/)** | Megaport<br/>PacketFabric |
 | **[Flexential](https://www.flexential.com/connectivity/cloud-connect-microsoft-azure-expressroute)** | IX Reach<br/>Megaport<br/>PacketFabric |
 | **[QTS Data Centers](https://www.qtsdatacenters.com/hybrid-solutions/connectivity/azure-cloud)** | Megaport<br/>PacketFabric |
-| **[Stream Data Centers](https://www.streamdatacenters.com/products-services/network-cloud/)** | Megaport |
+| **[Stream Data Centers](https://www.streamdatacenters.com/solutions/)** | Megaport |
 | **RagingWire Data Centers** | IX Reach<br/>Megaport<br/>PacketFabric |
 | **[T5 Datacenters](https://t5datacenters.com/)** | IX Reach |
 | **vXchnge** | IX Reach<br/>Megaport |
@@ -434,7 +434,7 @@ Enabling private connectivity to meet your needs can be challenging, depending o
 | **[Presidio](https://www.presidio.com/subpage/1107/microsoft-azure)** | North America |
 | **[sol-tec](https://www.advania.co.uk/our-services/azure-and-cloud/)** | Europe |
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | South America |
-| **[Vigilant.IT](https://vigilant.it/networking-services/microsoft-azure-networking/)** | Australia |
+| **Vigilant.IT** | Australia |
 
 ## Next steps
 

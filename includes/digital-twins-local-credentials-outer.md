@@ -3,7 +3,7 @@ author: baanders
 description: include file for setting up local authentication for DefaultAzureCredential in Azure Digital Twins samples - with intro
 ms.service: azure-digital-twins
 ms.topic: include
-ms.date: 10/22/2020
+ms.date: 03/04/2025
 ms.author: baanders
 ---
 

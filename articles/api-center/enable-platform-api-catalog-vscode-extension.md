@@ -60,8 +60,8 @@ First, configure an app registration in your Microsoft Entra ID tenant. The app 
 1. On the **Configure platforms** page, select **Mobile and desktop applications**.
 1. On the **Configure Desktop + devices** page, enter the following redirect URI and select **Configure**:
 
-    `https://vscode.dev/redirect`
-      
+    `https://vscode.dev/redirect` , `http://localhost` and `ms-appx-web://Microsoft.AAD.BrokerPlugin/<application-client-id>`
+   
 1. In the left menu, under **Manage**, select **API permissions** > **+ Add a permission**. 
 1. On the **Request API permissions** page, do the following:
     1. Select the **APIs my organization uses** tab. 

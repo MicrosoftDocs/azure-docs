@@ -123,7 +123,8 @@ The following table summarizes port requirements for assessment.
 Device | Connection
 --- | ---
 Appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app by using the URL ``` https://<appliance-ip-or-name>:44368 ```.<br/><br/> Outbound connections on ports 443 (HTTPS) to send discovery and performance metadata to Azure Migrate and Modernize.
-Physical servers | **Windows**: Inbound connection on WinRM port 5985 (HTTP) to pull configuration and performance metadata from Windows servers. <br/><br/> **Linux**: Inbound connections on port 22 (TCP) to pull configuration and performance metadata from Linux servers. |
+Physical servers | **Windows**: Inbound connections on the WinRM port 5986 (HTTPS) are used to pull configuration and performance metadata from Windows servers. <br/><br/> If the HTTPS prerequisites aren't configured on the target Hyper-V servers, the appliance communication will fall back to WinRM port 5985 (HTTP).<br/><br/> To enforce HTTPS communication without fallback, toggle the Appliance Config Manager. <br/><br/> After enabling, ensure that the prerequisites are configured on the target servers. <br/><br/> - If certificates aren't configured on the target servers, discovery will fail on both the currently discovered servers and the newly added servers. <br/><br/> - WinRM HTTPS requires a local computer Server Authentication certificate with a common name (CN) matching the hostname. The certificate must not be expired, revoked, or self-signed. Refer to the [article](/troubleshoot/windows-client/system-management-components/configure-winrm-for-https) for configuring WinRM for HTTPS. <br/><br/> 
+**Linux**: Inbound connections on port 22 (TCP) to pull configuration and performance metadata from Linux servers. |
 
 ## Software inventory requirements
 

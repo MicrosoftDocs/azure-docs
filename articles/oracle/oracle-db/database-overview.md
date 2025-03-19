@@ -76,7 +76,8 @@ See [Contact Microsoft Azure Support](https://support.microsoft.com/topic/contac
 
 ## Next steps
 - [Onboard with Oracle Database@Azure](onboard-oracle-database.md)
-- [Provision and manage Oracle Database@Azure](provision-oracle-database.md)
+- [Exadata Services for Oracle Database@Azure](https://docs.oracle.com/en-us/iaas/Content/database-at-azure-exadata/odexa-exadata-services.html)
+- [Autonomous Database Services for Oracle Database@Azure](https://docs.oracle.com/en-us/iaas/Content/database-at-azure-autonomous/odadb-autonomous-database-services.html)
 - [Oracle Database@Azure support information](oracle-database-support.md)
 - [Network planning for Oracle Database@Azure](oracle-database-network-plan.md)
 - [Groups and roles for Oracle Database@Azure](oracle-database-groups-roles.md)

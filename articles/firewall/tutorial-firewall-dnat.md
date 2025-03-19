@@ -2,11 +2,11 @@
 title: Filter inbound Internet or intranet traffic with Azure Firewall DNAT using the portal
 description: In this article, you learn how to deploy and configure Azure Firewall DNAT using the Azure portal. 
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 08/31/2023
-ms.author: victorh
+ms.author: duau
 ms.custom: mvc
 #Customer intent: As an administrator, I want to deploy and configure Azure Firewall DNAT so that I can control inbound Internet access to resources located in a subnet.
 ---

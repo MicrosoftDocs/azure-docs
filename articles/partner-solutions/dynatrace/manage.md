@@ -3,7 +3,7 @@ title: Manage your Azure Native Dynatrace Service integration
 description: This article describes how to manage Dynatrace on the Azure portal. 
 
 ms.topic: how-to
-ms.date: 11/07/2024
+ms.date: 02/12/2025
 
 ---
 
@@ -106,6 +106,27 @@ To install the Dynatrace OneAgent, select the App Service and select **Install E
 
 > [!NOTE]
 > This screen currently only shows App Services of type Web App. Managing agents for Function apps is not supported at this time.
+
+## Monitor Arc enabled servers using Dynatrace OneAgent
+ 
+Azure Arc delivers a consistent multicloud and on-premises management platform, allowing users to manage applications and services extending across data centers, multiple clouds and edge. 
+ 
+You can install Dynatrace OneAgent to monitor Azure Arc-enabled servers as an extension. Select ARC Machine Extension under Dynatrace environment config in the Resource menu. In the working pane, you see a list of all Arc-enabled servers in the subscription. Filters include _Resource Group, Subscription, Resource Status and Agent Status_.
+ 
+For each Arc-enabled server, the following information is displayed:
+
+| Column     | Description   |
+|------------|------------|
+| **Resource Name** | Name of the Azure Arc-enabled server. |
+| **Resource Group** | Name of the resource group containing the Arc-enabled server. |
+| **Susbscription** | Name of the subscription containing the Arc-enabled server. |
+| **Resource Status** | Indicates whether the Arc-enabled server is stopped or running. |
+| **Auto-update** | Whether autoupdate is enabled for the OneAgent. |
+| **Agent Status** | Indicates whether Dynatrace OneAgent is running on the Arc-enabled server. |
+| **Agent Version** | Version of Dynatrace OneAgent. |
+ 
+To install OneAgent, choose the Arc-enabled servers you would like to monitor and click on **Install Extension**. Select **OK** to begin the installation process for Dynatrace OneAgent. After the agent is installed, the agent status changes to Installed.
+You can uninstall Dynatrace OneAgent on an Arc server by selecting the resource and clicking on **Uninstall Extension**.
 
 ## Reconfigure single sign-on
 

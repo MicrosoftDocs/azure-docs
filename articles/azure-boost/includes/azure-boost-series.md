@@ -15,7 +15,7 @@ ms.custom:
 |:-:|:-:|:-:|
 | [Mbsv3](/azure/virtual-machines/sizes/memory-optimized/mbsv3-mbdsv3-series)    | Memory Optimized | Preview   |
 | [Mbdsv3](/azure/virtual-machines/sizes/memory-optimized/mbsv3-mbdsv3-series)    | Memory Optimized | Preview   |
-| [Easv6](/azure/virtual-machines/sizes/memory-optimized/easv6-series)            | Memory Optimized | Preview   |
+| [Easv6](/azure/virtual-machines/sizes/memory-optimized/easv6-series)            | Memory Optimized | Production   |
 | [Eadsv6](/azure/virtual-machines/sizes/memory-optimized/eadsv6-series)          | Memory Optimized | Production   |
 | [Epdsv6](/azure/virtual-machines/sizes/memory-optimized/epdsv6-series)          | Memory Optimized | Production    |
 | [Epsv6](/azure/virtual-machines/sizes/memory-optimized/epsv6-series)      | Memory Optimized | Production    |

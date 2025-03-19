@@ -161,7 +161,7 @@ The change takes effect approximately two minutes after you save the file. You d
 
 ### Incorrect workspace ID or key in key vault
 
-If you realize that you entered an incorrect workspace ID or key in your deployment script, update the credentials stored in Azure key vault.
+If you realize that you entered an incorrect workspace ID or key in your deployment script, update the credentials stored in Azure Key Vault.
 
 After verifying your credentials in Azure KeyVault, restart the container:
 

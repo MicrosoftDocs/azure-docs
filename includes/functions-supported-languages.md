@@ -75,7 +75,7 @@ The following table shows the language versions supported for Java functions.
 
 | Supported version | Support level | Supported until |
 | ---- | ---- |--- |
-| **Java 21** (Linux-only) | Preview | See the [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
+| **Java 21** (Linux-only) | GA | See the [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
 | **Java 17** | GA | See the [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
 | **Java 11** | GA |See the [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
 | **Java 8** | GA | See this [Temurin support page](https://adoptium.net/support/). |
@@ -100,7 +100,6 @@ The following table shows the language version supported for PowerShell function
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
 | [PowerShell 7.4](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | GA | November 10, 2026 |
-| [PowerShell 7.2](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | GA | November 8, 2024 |
 
 For more information, see [Azure Functions PowerShell developer guide](../articles/azure-functions/functions-reference-powershell.md).
 ::: zone-end
@@ -109,10 +108,10 @@ The following table shows the language versions supported for Python functions.
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
+| Python 3.12 | Preview | October 2028 |
 | Python 3.11 | GA | October 2027 |
 | Python 3.10 | GA | October 2026 |
 | Python 3.9 | GA | October 2025 |
-| Python 3.8 | GA | October 2024 |
 
 For more information, see [Azure Functions Python developer guide](../articles/azure-functions/functions-reference-python.md#python-version).
 ::: zone-end

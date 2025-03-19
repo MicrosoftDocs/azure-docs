@@ -609,7 +609,7 @@ Create a new agent pool to run the self-hosted runner.
 
 To run a self-hosted runner, you need to create a personal access token (PAT) in Azure DevOps. The PAT is used to authenticate the runner with Azure DevOps. It's also used by the scale rule to determine the number of pending pipeline runs and trigger new job executions.
 
-[!NOTE]
+> [!NOTE]
 > Personal Access Tokens (PATs) have an expiration date. Regularly rotate your tokens to ensure they remain valid (not expired) to maintain uninterrupted service.
 
 1. In Azure DevOps, select *User settings* next to your profile picture in the upper-right corner.

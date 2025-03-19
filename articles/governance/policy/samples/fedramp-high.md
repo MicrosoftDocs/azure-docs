@@ -1,8 +1,8 @@
 ---
 title: Regulatory Compliance details for FedRAMP High
 description: Details of the FedRAMP High Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 02/10/2025
-ms.topic: sample
+ms.date: 03/17/2025
+ms.topic: generated-reference
 ms.custom: generated
 ---
 # Details of the FedRAMP High Regulatory Compliance built-in initiative

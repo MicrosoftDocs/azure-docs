@@ -16,9 +16,6 @@ This article lists recent features added for Microsoft Sentinel, and new feature
 
 The listed features were released in the last three months. For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
-Get notified when this page is updated by copying and pasting the following URL into your feed reader:
-`https://aka.ms/sentinel/rss`
-
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## January 2025
@@ -158,7 +155,7 @@ For more information, see:
 
 ### Microsoft Sentinel workbooks now available to view directly in the Microsoft Defender portal
 
-Microsoft Sentinel workbooks are now available for viewing directly in the Microsoft Defender portal with Microsoft's unified security operations (SecOps) platform. Now, in the Defender portal, when you select **Microsoft Sentinel > Threat management> Workbooks**, you remain in the Defender portal instead of a new tab being opened for workbooks in the Azure portal. Continue tabbing out to the Azure portal only when you need to edit your workbooks.
+Microsoft Sentinel workbooks are now available for viewing directly in the Microsoft Defender portal for unified security operations (SecOps). Now, in the Defender portal, when you select **Microsoft Sentinel > Threat management> Workbooks**, you remain in the Defender portal instead of a new tab being opened for workbooks in the Azure portal. Continue tabbing out to the Azure portal only when you need to edit your workbooks.
 
 Microsoft Sentinel workbooks are based on Azure Monitor workbooks, and help you visualize and monitor the data ingested to Microsoft Sentinel. Workbooks add tables and charts with analytics for your logs and queries to the tools already available.
 

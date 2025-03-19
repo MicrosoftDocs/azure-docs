@@ -103,6 +103,8 @@ This list shows the commands you can use. Commands in `*italics*` can't have `ar
 - `uname`
 - _`ulimit -a`_
 - `uptime`
+- `timedatectl status`
+- `hostnamectl status`
 - `nc-toolbox nc-toolbox-runread ipmitool channel authcap`
 - `nc-toolbox nc-toolbox-runread ipmitool channel info`
 - `nc-toolbox nc-toolbox-runread ipmitool chassis status`

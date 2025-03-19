@@ -2,8 +2,8 @@
 title: Get started with Azure IoT Hub device twins
 titleSuffix: Azure IoT Hub
 description: How to use the Azure IoT SDKs to create device and backend service application code for device twins.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 manager: lizross
 ms.service: azure-iot-hub
 ms.devlang: csharp

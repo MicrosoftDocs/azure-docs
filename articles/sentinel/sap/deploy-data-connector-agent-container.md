@@ -202,7 +202,7 @@ Now that you created a VM and a Key Vault, your next step is to create a new age
 
 This procedure describes how to create a new agent and connect it to your SAP system using the Azure or Defender portals. We recommend that your **security** team perform this procedure with help from the **SAP BASIS** team.
 
-Deploying the data connector agent from the portal is supported from both the Azure portal, and the Defender portal if you onboarded your workspace to the unified security operations platform.
+Deploying the data connector agent from the portal is supported from both the Azure portal, and the Defender portal when Microsoft Sentinel is onboarded to the Defender portal.
 
 While deployment is also supported from the command line, we recommend that you use the portal for typical deployments. Data connector agents deployed using the command line can be managed only via the command line, and not via the portal. For more information, see [Deploy an SAP data connector agent from the command line](deploy-command-line.md).
 

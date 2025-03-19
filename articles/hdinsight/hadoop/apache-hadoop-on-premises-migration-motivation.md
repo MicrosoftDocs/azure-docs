@@ -119,7 +119,7 @@ This section provides template questionnaires to help gather important informati
 |Programming Languages|Python, Scala, Java||
 |Scripting|Shell, Python||
 |**Topic**: **Data**|||
-|Data sources|Flat files, Json, Kafka, RDBMS||
+|Data sources|Flat files, JSON, Kafka, RDBMS||
 |Data orchestration|Oozie workflows, Airflow||
 |In memory lookups|Apache Ignite, Redis||
 |Data destinations|HDFS, RDBMS, Kafka, MPP ||

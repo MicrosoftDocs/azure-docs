@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 11/18/2024
+ms.date: 3/7/2025
 ms.author: greglin
 ---
 
@@ -29,7 +29,7 @@ More details on cert-manager and Let's Encrypt with AKS in general may be found 
   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate the header rewrite.
 
    ```bash
-   kubectl apply -f https://learn.microsoft.com/azure/application-gateway/for-containers/examples/traffic-split-scenario/deployment.yaml
+   kubectl apply -f https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/refs/heads/main/articles/application-gateway/for-containers/examples/traffic-split-scenario/deployment.yaml
    ```
   
    This command creates the following on your cluster:
@@ -175,7 +175,7 @@ helm install \
   cert-manager jetstack/cert-manager \
   --namespace cert-manager \
   --create-namespace \
-  --version v1.16.0 \
+  --version v1.17.1 \
   --set config.enableGatewayAPI=true \
   --set crds.enabled=true
 ```

@@ -744,8 +744,6 @@ items:
           href: ./spark/apache-spark-32-runtime.md
         - name: Azure Synapse Apache Spark 3.1 runtime (deprecated)
           href: ./spark/apache-spark-3-runtime.md
-        - name: Azure Synapse Apache Spark 2.4 runtime (deprecated)
-          href: ./spark/apache-spark-24-runtime.md
         - name: Lifecycle and Supportability
           href: ./spark/runtime-for-apache-spark-lifecycle-and-supportability.md
     - name: Machine learning

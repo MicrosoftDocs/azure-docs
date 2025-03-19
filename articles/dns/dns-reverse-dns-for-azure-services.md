@@ -32,12 +32,12 @@ A third party shouldn't have access to create reverse DNS records for Azure serv
 
 Validation is only done when the reverse DNS record is set or modified. Periodic revalidation isn't done.
 
-For example, suppose the public IP address resource has the DNS name `contosoapp1.northus.cloudapp.azure.com` and IP address `23.96.52.53`. The reverse FQDN for the public IP address can be specified as:
+For example, suppose the public IP address resource has the DNS name `contosoapp1.northus.cloudapp.azure.com` and IP address `A.B.C.D`. The reverse FQDN for the public IP address can be specified as:
 
 * The DNS name for the public IP address: `contosoapp1.northus.cloudapp.azure.com`.
 * The DNS name for a different PublicIpAddress in the same subscription, such as: `contosoapp2.westus.cloudapp.azure.com`.
 * A vanity DNS name, such as: `app1.contoso.com`. As long as the name is *first* configured as a CNAME pointing to `contosoapp1.northus.cloudapp.azure.com`. The name can also be pointed to a different public IP address in the same subscription.
-* A vanity DNS name, such as: `app1.contoso.com`. As long as this name is *first* configured as an A record pointing to the IP address 23.96.52.53. The name can also be pointed to another IP address in the same subscription.
+* A vanity DNS name, such as: `app1.contoso.com`. As long as this name is *first* configured as an A record pointing to the IP address A.B.C.D. The name can also be pointed to another IP address in the same subscription.
 
 The same constraints apply to reverse DNS for Cloud Services.
 
