@@ -8,12 +8,12 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: cephalin
 ms.author: cephalin
 ---
-# Deploy to Azure App Service by using local Git
+# Deploy to Azure App Service by using Git locally
 
 This article shows you how to deploy your app to [Azure App Service](overview.md) from a Git repository on your local computer.
 
 > [!NOTE]
-> This deployment method requires [SCM basic authentication](configure-basic-auth-disable.md), which is less secure than [other deployment methods](deploy-authentication-types.md). When local Git deployment doesn't work, you can't configure local Git deployment in the app Deployment Center.
+> This deployment method requires [Source Control Manager (SCM) basic authentication](configure-basic-auth-disable.md), which is less secure than [other deployment methods](deploy-authentication-types.md). If local Git deployment doesn't work, you can't configure local Git deployment in the app Deployment Center.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ Learn how to [configure deployment credentials for Azure App Service](deploy-con
 
 ## Create a Git-enabled app
 
-If you already have an App Service app and you want to configure a local Git deployment for it, see [Configure an existing app](#configure-an-existing-app) instead.
+If you already have an App Service app and you want to configure a local Git deployment for the app, see [Configure an existing app](#configure-an-existing-app) instead.
 
 # [Azure CLI](#tab/cli)
 

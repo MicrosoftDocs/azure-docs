@@ -14,7 +14,9 @@ This article shows you how to work with OAuth tokens when you use the built-in [
 
 ## Retrieve tokens in app code
 
-From your server code, the provider-specific tokens are injected into the request header so that you can easily access them. The following table shows possible token header names:
+From your server code, the provider-specific tokens are injected into the request header so that you can easily access them.
+
+The following table lists possible token header names:
 
 | Provider | Header names |
 |-|-|
@@ -22,7 +24,6 @@ From your server code, the provider-specific tokens are injected into the reques
 | Facebook Token | `X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN` <br/> `X-MS-TOKEN-FACEBOOK-EXPIRES-ON` |
 | Google | `X-MS-TOKEN-GOOGLE-ID-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-ACCESS-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-EXPIRES-ON` <br/> `X-MS-TOKEN-GOOGLE-REFRESH-TOKEN` |
 | X | `X-MS-TOKEN-TWITTER-ACCESS-TOKEN` <br/> `X-MS-TOKEN-TWITTER-ACCESS-TOKEN-SECRET` |
-|||
 
 > [!NOTE]
 > Different language frameworks might present these headers to the app code in different formats, such as in lowercase or by using title case.
@@ -58,7 +59,7 @@ When your provider's access token (not the [session token](#extend-session-token
     1. Select **Put**.
 
     > [!NOTE]
-    > The scope that gives you a refresh token is [offline_access](../active-directory/develop/v2-permissions-and-consent.md#offline_access). See how it's used in [Tutorial: Authenticate and authorize users end-to-end in Azure App Service](tutorial-auth-aad.md). The other scopes are requested by default by App Service already. For information on these default scopes, see [OpenID Connect Scopes](../active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes).
+    > The scope that gives you a refresh token is [offline_access](../active-directory/develop/v2-permissions-and-consent.md#offline_access). See how it's used in [Tutorial: Authenticate and authorize users end-to-end in Azure App Service](tutorial-auth-aad.md). The other scopes are already requested by App Service by default. For information on these default scopes, see [OpenID Connect Scopes](../active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes).
 
 After your provider is configured, you can [find the refresh token and the expiration time for the access token](#retrieve-tokens-in-app-code) in the token store.
 
@@ -90,7 +91,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 ```
 
 > [!NOTE]
-> The grace period only applies to the App Service authenticated session, not the tokens from the identity providers. No grace period exists for expired provider tokens.
+> The grace period only applies to the App Service authenticated session, not to the tokens from the identity providers. No grace period exists for expired provider tokens.
 >
 
 ## Related content

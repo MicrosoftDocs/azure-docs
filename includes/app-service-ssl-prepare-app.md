@@ -10,23 +10,23 @@ ms.custom: "include file"
 
 ## Prepare your web app
 
-To create custom TLS/SSL bindings or enable client certificates for your App Service app, your [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be in the **Basic**, **Standard**, **Premium**, or **Isolated** tier. To make sure that your web app is in the supported pricing tier, follow these steps:
+To create custom TLS/SSL bindings or enable client certificates for your App Service app, your [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be in the **Basic**, **Standard**, **Premium**, or **Isolated** tiers. To make sure that your web app is in the supported pricing tier, follow these steps:
 
 ### Go to your web app
 
-1. In the [Azure portal](https://portal.azure.com) search box, find and select **App Services**.
+1. In the [Azure portal](https://portal.azure.com) search, enter and then select **App Services**.
 
-   ![Screenshot of Azure portal, search box, and "App Services" selected.](./media/app-service-ssl-prepare-app/app-services.png)
+   ![Screenshot of the Azure portal search box and App Services selected.](./media/app-service-ssl-prepare-app/app-services.png)
 
-1. On the **App Services** pane, select your web app's name.
+1. On the **App Services** pane, select your web app name.
 
-   ![Screenshot of the App Services page in Azure portal showing a list of all running web apps, with the first app in the list highlighted.](./media/app-service-ssl-prepare-app/select-app.png)
+   ![Screenshot of the App Services pane in Azure portal showing a list of all running web apps, with the first app in the list highlighted.](./media/app-service-ssl-prepare-app/select-app.png)
 
    You're now on your web app's management page.
 
 ### Check the pricing tier
 
-1. On the resource menu for your web app, in the **Settings** section, select **Scale up (App Service plan)**.
+1. On the left menu for your web app, in the **Settings** section, select **Scale up (App Service plan)**.
 
    ![Screenshot of the web app menu, "Settings" section, and "Scale up (App Service plan)" selected.](./media/app-service-ssl-prepare-app/scale-up-menu.png)
 

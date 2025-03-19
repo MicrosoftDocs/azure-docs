@@ -101,7 +101,7 @@ You can:
 
 - Serve your apps through a dedicated public endpoint, with dedicated front ends.
 - Serve internal application by using an internal load balancer (ILB), which allows access only from inside your Azure virtual network. The ILB has an IP address from your private subnet, which provides total isolation of your apps from the internet.
-- [Use an ILB behind a web application firewall (WAF)](environment/integrate-with-application-gateway.md). The WAF offers enterprise-level protection to your public-facing applications, such as protection from distributed denial-of-service (DDoS), URI filtering, and SQL injection.
+- [Use an ILB behind a web application firewall (WAF)](environment/integrate-with-application-gateway.md). The WAF offers enterprise-level protection to your public-facing applications, such as protection from a distributed denial-of-service (DDoS) attack, URI filtering, and preventing SQL injection.
 
 ## DDoS protection
 

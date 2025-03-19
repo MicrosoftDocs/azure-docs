@@ -35,7 +35,7 @@ When you enable client certificates for your app, you should select your choice 
 To set up your app to require client certificates in the Azure portal:
 
 1. Go to your app management page.
-1. On the resource menu, select **Configuration** > **General Settings**.
+1. On the left menu, select **Configuration** > **General Settings**.
 1. For **Client certificate mode**, select your choice.
 1. Select **Save**.
 
@@ -102,15 +102,15 @@ When you enable mutual auth for your application, all paths under the root of yo
 > [!NOTE]
 > Using any client certificate exclusion path triggers TLS renegotiation for incoming requests to the app.
 
-1. On the resource menu of your app's management pane, select **Configuration** > **General Settings**.
+1. On the left menu of your app's management pane, select **Configuration** > **General Settings**.
 
 1. Next to **Certificate exclusion paths**, select the edit icon.
 
-1. Select **New path**, specify a path, or a list of paths separated by `,` or `;`, and select **OK**.
+1. Select **New path**, specify a path or a list of paths separated by `,` or `;`, and then select **OK**.
 
 1. Select **Save**.
 
-In the following screenshot, any path for your app that starts with `/public` doesn't request a client certificate. Path matching is case-insensitive.
+In the following screenshot, any path for your app that starts with `/public` doesn't request a client certificate. Path matching isn't case specific.
 
 ![Certificate Exclusion Paths][exclusion-paths]
 
@@ -141,13 +141,13 @@ To address the 100-KB limit, consider these alternative solutions:
 1. Send a HEAD request before the PUT/POST request. The HEAD request handles the client certificate.
 1. Add the header `Expect: 100-Continue` to your request. This causes the client to wait until the server responds with a `100 Continue` before sending the request body, which bypasses the buffers.
 
-## Access client certificate
+## Access the client certificate
 
-In App Service, TLS termination of the request happens at the frontend load balancer. When App Service forwards the request to your app code with [client certificates enabled](#enable-client-certificates), it injects an `X-ARR-ClientCert` request header with the client certificate. App Service doesn't do anything with this client certificate other than forwarding it to your app. Your app code is responsible for validating the client certificate.
+In App Service, TLS termination of the request happens at the front-end load balancer. When App Service forwards the request to your app code with [client certificates enabled](#enable-client-certificates), it injects an `X-ARR-ClientCert` request header with the client certificate. App Service doesn't do anything with this client certificate other than forward it to your app. Your app code is responsible for validating the client certificate.
 
 For ASP.NET, the client certificate is available through the `HttpRequest.ClientCertificate` property.
 
-For other application stacks (Node.js, PHP, etc.), the client cert is available in your app through a base64-encoded value in the `X-ARR-ClientCert` request header.
+For other application stacks (Node.js, PHP), the client cert is available in your app through a base64-encoded value in the `X-ARR-ClientCert` request header.
 
 ## ASP.NET Core sample
 
@@ -387,7 +387,7 @@ export class AuthorizationHandler {
 
 ## Java sample
 
-The following Java class encodes the certificate from `X-ARR-ClientCert` to an `X509Certificate` instance. `certificateIsValid()` validates that the certificate's thumbprint matches the one given in the constructor and that certificate isn't expired.
+The following Java class encodes the certificate from `X-ARR-ClientCert` to an `X509Certificate` instance. `certificateIsValid()` validates that the certificate's thumbprint matches the one given in the constructor and that the certificate isn't expired.
 
 ```java
 import java.io.ByteArrayInputStream;

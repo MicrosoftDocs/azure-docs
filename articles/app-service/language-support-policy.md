@@ -14,7 +14,7 @@ This article describes the language runtime support policy for updating existing
 
 ## Updates to existing stacks
 
-App Service updates existing stacks from each community after they become available. App Service updates major versions of stacks but can't guarantee any specific minor versions or patch versions. The platform controls minor and patch versions. For example, App Service updates Node 18 but doesn't guarantee a specific Node 18.x.x version. If you need a specific minor or patch version, you can use a [custom container](quickstart-custom-container.md).
+App Service updates existing stacks after they become available from each community. App Service updates major versions of stacks but can't guarantee any specific minor versions or patch versions. The platform controls minor and patch versions. For example, App Service updates Node 18 but doesn't guarantee a specific Node 18.x.x version. If you need a specific minor or patch version, use a [custom container](quickstart-custom-container.md).
 
 ## Retirements
 
@@ -127,7 +127,7 @@ Microsoft and Adoptium builds of OpenJDK are provided and supported on App Servi
 
 If you're [pinned](configure-language-java-deploy-run.md#choosing-a-java-runtime-version) to an earlier minor version of Java, your app might be using the deprecated [Azul Zulu for Azure](https://devblogs.microsoft.com/java/end-of-updates-support-and-availability-of-zulu-for-azure/) binaries that are provided through [Azul Systems](https://www.azul.com/). You can keep using these binaries for your app, but any security patches or improvements are available only in more recent versions of OpenJDK. In this scenario, we recommend that you periodically update your web apps to a more recent version of Java.
 
-Major version updates are provided through new runtime options in Azure App Service. Update to these later versions of Java by configuring your App Service deployment. You are responsible for testing and ensuring the major update meets your needs.
+Major version updates are provided through new runtime options in Azure App Service. Update to these later versions of Java by configuring your App Service deployment. You're responsible for testing and ensuring the major update meets your needs.
 
 Supported JDKs are automatically patched on a quarterly basis in January, April, July, and October of each year. For more information, see [Java on Azure](/azure/developer/java/fundamentals/java-support-on-azure).
 
