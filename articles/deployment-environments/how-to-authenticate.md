@@ -6,7 +6,7 @@ ms.custom: build-2023
 ms.topic: concept-article
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 01/31/2025
+ms.date: 03/21/2025
 
 #customer intent: As a developer, I want to learn how to authenticate to Microsoft Dev Box REST APIs, so that I can securely interact with Microsoft Dev Box services.
 ---
