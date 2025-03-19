@@ -57,10 +57,3 @@ As a device builder, you can develop an IoT hardware product that supports IoT P
 1. Implement your device software or firmware such that your telemetry, properties, and commands follow the [IoT Plug and Play conventions](concepts-convention.md).
 
 1. Ensure the device announces the model ID as part of the MQTT connection. The Azure IoT SDKs include constructs to provide the model ID at connection time.
-
-## Next steps
-
-Now that you have an overview of IoT Plug and Play, the suggested next step is to try out one of the quickstarts:
-
-- [Connect a device to IoT Hub](./tutorial-connect-device.md)
-- [Interact with a device from your solution](./tutorial-service.md)

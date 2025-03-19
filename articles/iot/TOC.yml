@@ -35,10 +35,6 @@ items:
         href: iot-phone-app-how-to.md
       - name: Use IoT Explorer
         href: howto-use-iot-explorer.md
-      - name: Use IoT Plug and Play
-        items:
-        - name: Manage digital twins
-          href: howto-manage-digital-twin.md
       - name: Connect an on-premises SAP system to Azure
         href: howto-connect-on-premises-sap-to-azure.md
       - name: Enable an industrial dataspace in Azure
@@ -48,14 +44,6 @@ items:
     items:
     - name: Send telemetry to IoT Hub
       href: tutorial-send-telemetry-iot-hub.md
-    - name: Build a device solution with IoT Hub
-      items:
-      - name: Set up your environment
-        href: set-up-environment.md
-      - name: Connect a device to IoT Hub
-        href: tutorial-connect-device.md
-      - name: Interact with a device from your solution
-        href: tutorial-service.md
     - name: Embedded device development
       items:
         - name: Connect an MXCHIP AZ3166 to IoT Hub
@@ -66,10 +54,6 @@ items:
           href: tutorial-devkit-espressif-esp32-freertos-iot-hub.md
         - name: Troubleshoot embedded device tutorials
           href: troubleshoot-embedded-device-tutorials.md
-    - name: Connect a multiple component device
-      href: tutorial-multiple-components.md
-    - name: Connect a device module
-      href: tutorial-migrate-device-to-module.md
     - name: Use MQTT to connect a device
       href: tutorial-use-mqtt.md
     - name: Implement the Industrial IoT reference solution

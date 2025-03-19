@@ -366,11 +366,3 @@ content-encoding:utf-8
 
 > [!NOTE]
 > Twin change notification messages are doubled when turned on in both device and digital twin change notification.
-
-## Next steps
-
-Now that you've learned about digital twins, here are some more resources:
-
-- [How to use IoT Plug and Play digital twin APIs](howto-manage-digital-twin.md)
-- [Interact with a device from your solution](./tutorial-service.md)
-- [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)

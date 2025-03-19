@@ -30,10 +30,7 @@ Each example shows a snippet from the device model that defines the type and exa
 
 The example JSON snippets in this article use [Digital Twin Definition Language (DTDL) v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). There are also some [DTDL extensions that IoT Central](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md) uses.
 
-For sample device code that shows some of these payloads in use, see the following tutorials:
-
-* [Connect a sample IoT Plug and Play device application running on Linux or Windows to IoT Hub tutorial](./tutorial-connect-device.md)
-* [Create and connect a client application to your Azure IoT Central application](../iot-central/core/tutorial-connect-device.md).
+For sample device code that shows some of these payloads in use, see the following tutorial: [Create and connect a client application to your Azure IoT Central application](../iot-central/core/tutorial-connect-device.md).
 
 ## View raw data
 
@@ -65,7 +62,7 @@ Don't create telemetry types with the following names. IoT Central uses these re
 
 ### Telemetry in components
 
-If the telemetry is defined in a component, add a custom message property called `$.sub` with the name of the component as defined in the device model. To learn more, see [Tutorial: Connect an IoT Plug and Play multiple component device applications](tutorial-multiple-components.md). This tutorial shows how to use different programming languages to send telemetry from a component.
+If the telemetry is defined in a component, add a custom message property called `$.sub` with the name of the component as defined in the device model.
 
 > [!IMPORTANT]
 > To display telemetry from components hosted in IoT Edge modules correctly, use [IoT Edge version 1.2.4](https://github.com/Azure/azure-iotedge/releases/tag/1.2.4) or later. If you use an earlier version, telemetry from your components in IoT Edge modules displays as *_unmodeleddata*.
@@ -543,8 +540,6 @@ If the property is defined in a component, wrap the property in the component na
 }
 ```
 
-To learn more, see [Tutorial: Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md).
-
 ### Primitive types
 
 This section shows examples of primitive property types that a device sends to a service.
@@ -840,8 +835,6 @@ If the writable property is defined in a component, the desired property message
   "$version": 3
 }
 ```
-
-To learn more, see [Connect an IoT Plug and Play multiple component device applications](tutorial-multiple-components.md).
 
 The device or module should confirm that it received the property by sending a reported property. The reported property should include:
 
