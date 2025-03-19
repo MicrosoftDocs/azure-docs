@@ -13,7 +13,7 @@ The model looks like this:
 To upload this model to your twins instance, run the following Azure CLI command, which uploads the previous model as inline JSON. You can run the command in [Azure Cloud Shell](../articles/cloud-shell/overview.md) in your browser (use the Bash environment), or on your machine if you have the [CLI installed locally](/cli/azure/install-azure-cli). There's one placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance).
 
 ```azurecli-interactive
-az dt model create --dt-name <instance-hostname-or-name> --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;2",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' 
+az dt model create --dt-name <instance-hostname-or-name> --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;3",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' 
 ```
 
 >[!NOTE]
