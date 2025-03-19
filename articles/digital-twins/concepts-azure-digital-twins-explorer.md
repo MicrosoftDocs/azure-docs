@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: Azure Digital Twins Explorer (preview)
 titleSuffix: Azure Digital Twins
 description: Learn about the capabilities and purpose of Azure Digital Twins Explorer (preview) and when it can be a useful tool for visualizing digital models, twins, and graphs.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 01/27/2025
 ms.topic: conceptual
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Azure Digital Twins Explorer (preview)

@@ -3,15 +3,11 @@ title: Ingest telemetry from IoT Hub
 titleSuffix: Azure Digital Twins
 description: Learn how to ingest device telemetry messages from Azure IoT Hub to digital twins in an instance of Azure Digital Twins.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 03/13/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
 ms.custom: devx-track-azurecli
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Ingest IoT Hub telemetry into Azure Digital Twins

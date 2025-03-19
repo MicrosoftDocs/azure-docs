@@ -1,19 +1,13 @@
 ---
-# Mandatory fields.
 title: Manage the twin graph and relationships
 titleSuffix: Azure Digital Twins
 description: Learn how to manage a graph of digital twins by connecting them with relationships.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 03/10/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
 ms.custom: engagement-fy23
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Manage a graph of digital twins using relationships

@@ -1,19 +1,13 @@
 ---
-# Mandatory fields.
 title: Set up an instance and authentication (portal)
 titleSuffix: Azure Digital Twins
 description: See how to set up an instance of the Azure Digital Twins service using the Azure portal
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 2/12/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
 ms.custom: subject-rbac-steps, engagement-fy23
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Set up an Azure Digital Twins instance and authentication (portal)

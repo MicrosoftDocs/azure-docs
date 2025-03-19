@@ -3,7 +3,7 @@ title: 'Tutorial: Create a graph in Azure Digital Twins (CLI)'
 titleSuffix: Azure Digital Twins
 description: Tutorial that shows how to build an Azure Digital Twins scenario using the Azure CLI
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 1/3/2024
 ms.topic: tutorial
 ms.service: azure-digital-twins

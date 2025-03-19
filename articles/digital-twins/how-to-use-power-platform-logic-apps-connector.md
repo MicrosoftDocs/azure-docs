@@ -1,10 +1,9 @@
 ---
-# Mandatory fields.
 title: Integrate with Power Platform and Logic Apps
 titleSuffix: Azure Digital Twins
 description: Learn how to connect Power Platform and Logic Apps to Azure Digital Twins using the connector
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 03/12/2025
 ms.topic: how-to
 ms.service: azure-digital-twins

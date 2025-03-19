@@ -3,7 +3,7 @@ title: Quickstart - Get started with 3D Scenes Studio (preview)
 titleSuffix: Azure Digital Twins
 description: Learn how to use 3D Scenes Studio (preview) for Azure Digital Twins by following this demo, where you create a sample scene with elements and behaviors.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 02/24/2025
 ms.topic: quickstart
 ms.service: azure-digital-twins

@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: 'Tutorial: Create a graph in Azure Digital Twins (client app)'
 titleSuffix: Azure Digital Twins
 description: Tutorial to build an Azure Digital Twins scenario using a sample command-line application
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 2/14/2025
 ms.topic: tutorial
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Tutorial: Create an Azure Digital Twins graph using a sample client app

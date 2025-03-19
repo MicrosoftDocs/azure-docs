@@ -3,7 +3,7 @@ title: 'Tutorial: Connect an end-to-end solution'
 titleSuffix: Azure Digital Twins
 description: Follow this tutorial to learn how to build out an end-to-end Azure Digital Twins solution that's driven by device data.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 02/20/2025
 ms.topic: tutorial
 ms.service: azure-digital-twins

@@ -3,7 +3,7 @@ title: Set up twin-to-twin event handling
 titleSuffix: Azure Digital Twins
 description: Learn how to create a function in Azure for propagating events through the twin graph.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 03/10/2025
 ms.topic: how-to
 ms.service: azure-digital-twins

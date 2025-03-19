@@ -3,15 +3,11 @@ title: Create a data history connection
 titleSuffix: Azure Digital Twins
 description: See how to set up a data history connection for historizing Azure Digital Twins updates into Azure Data Explorer.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 03/07/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
 ms.custom: devx-track-azurecli
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Create a data history connection for Azure Digital Twins

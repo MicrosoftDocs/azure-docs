@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: Use Azure Digital Twins Explorer (preview)
 titleSuffix: Azure Digital Twins
 description: Learn how to use all the features of Azure Digital Twins Explorer (preview)
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 03/06/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Use Azure Digital Twins Explorer (preview)

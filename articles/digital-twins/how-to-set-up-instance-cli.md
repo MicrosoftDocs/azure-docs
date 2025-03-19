@@ -3,7 +3,7 @@ title: Set up an instance and authentication (CLI)
 titleSuffix: Azure Digital Twins
 description: See how to set up an instance of the Azure Digital Twins service using the CLI
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 11/17/2022
 ms.topic: how-to
 ms.service: azure-digital-twins
