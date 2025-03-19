@@ -12,7 +12,7 @@ ms.date: 03/18/2025
 
 # Reliability in Azure Kubernetes Service (AKS)
 
-This article describes reliability support in [Azure Kubernetes Service (AKS)](../aks/what-is-aks.md). It addresses zone resiliency, [availability zones](./availability-zones-overview.md), and multi-region deployments.
+This article describes reliability support in [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks). It addresses zone resiliency, [availability zones](./availability-zones-overview.md), and multi-region deployments.
 
 ## Reliability architecture overview
 
@@ -47,7 +47,7 @@ When you use AKS, transient faults can occur due to a variety of reasons, includ
 
 Because it's not possible to eliminate all transient faults, clients that access your AKS hosted applications should be prepared to retry failed requests and follow other transient fault handling recommendations. Meanwhile, you can still minimize the likelihood of transient faults, as well as avoid or mitigate the downtime they might cause, by following Kubernetes and Azure best practices in your deployment, such as:
 
-- **Set Pod Disruption Budgets (PDBs)** in your pod YAML to specify how many pods you need to have in a `Ready` state at any given point of time. When set, AKS ensures the availability of minimum replicas when running operations to cordon and drain the nodes. If a PDB can't be satisfied during processes like upgrades, the pod continues to function and the operation might fail. For more information, see [Pod Disruption Budgets (PDBs)](azure/aks/best-practices-app-cluster-reliability#pod-disruption-budgets-pdbs).
+- **Set Pod Disruption Budgets (PDBs)** in your pod YAML to specify how many pods you need to have in a `Ready` state at any given point of time. When set, AKS ensures the availability of minimum replicas when running operations to cordon and drain the nodes. If a PDB can't be satisfied during processes like upgrades, the pod continues to function and the operation might fail. For more information, see [Pod Disruption Budgets (PDBs)](/azure/aks/best-practices-app-cluster-reliability#pod-disruption-budgets-pdbs).
 - **Use `maxUnavailable`** to define the maximum number of replicas that can become unavailable at any given point of time. As an example, if you're performing a rolling restart, AKS ensures that no more than the `maxUnavailable` number of pods are being churned at a given point of time. For more information, see [maxUnavailable](/azure/aks/best-practices-app-cluster-reliability#maxunavailable).
 - **Follow deployment best practices.** Pod replicas can also fail due to application issues. For more information about how to handle these issues, see the [Deployment level best practices for AKS cluster reliability](/azure/aks/best-practices-app-cluster-reliability#deployment-level-best-practices).
 
@@ -138,4 +138,4 @@ AKS offers three pricing tiers for cluster management: **Free**, **Standard**, a
 
 ## Related content
 
-For more information, see [Reliability in Azure](/azure/availability-zones/overview.md).
+For more information, see [Reliability in Azure](./overview.md).
