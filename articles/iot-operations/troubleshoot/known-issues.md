@@ -6,7 +6,7 @@ ms.author: dobett
 ms.topic: troubleshooting-known-issue
 ms.custom:
   - ignite-2023
-ms.date: 03/05/2025
+ms.date: 03/19/2025
 ---
 
 # Known issues: Azure IoT Operations
@@ -145,3 +145,46 @@ kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
      If you see both log entries from the two *kubectl log* commands, the cert-manager wasn't ready or running.
   1. Run `kubectl delete pod aio-dataflow-operator-0 -n azure-iot-operations` to delete the data flow operator pod. Deleting the pod clears the crash status and restarts the pod.
   1. Wait for the operator pod to restart and deploy the data flow.
+
+## Helm package enters a stuck state
+
+When you update Azure IoT Operations, the Helm package might enter a stuck state, preventing any helm install or upgrade operations from proceeding. This results in the `operation in progress` error, blocking further upgrades. 
+
+Use the following steps to resolve the issue:
+
+1. Identify the stuck Helm release by running the following command:
+
+   ```sh
+   helm list -n azure-iot-operations --pending
+   ```
+    In the output, look for a release name that contains `<component>` and has a status of `pending-upgrade` or `pending-install`. 
+
+1. Retrieve the revision history of the stuck release. For example, for schema registry you run:
+
+   ```sh
+   helm history <schema-registry-release-name> -n azure-iot-operations
+   ```
+
+    In the output, look for the last revision that has a status of `Deployed` or `Superseded` and note the revision number.
+
+1. Rollback the Helm release to the last successful revision. For example, for schema registry you run:
+
+    ```sh
+    helm rollback <schema-registry-release-name> <revision-number> -n azure-iot-operations
+    ```
+  
+1. After the rollback is complete, reattempt the upgrade using the following command:
+
+   ```sh
+   az iot ops update
+   ```
+
+    If you receive a message stating `Nothing to upgrade or upgrade complete`, force the upgrade by appending: 
+
+    ```sh
+    az iot ops upgrade ....... --release-train stable --version 1.0.15 
+    ``` 
+
+
+
+
