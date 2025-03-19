@@ -30,7 +30,7 @@ Before you begin, you must have an Azure account with an active subscription. [C
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/function-app-create-dynamic/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/function-app-flex-managed-identities/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/function-app-flex-managed-identities/azuredeploy.json":::
 
