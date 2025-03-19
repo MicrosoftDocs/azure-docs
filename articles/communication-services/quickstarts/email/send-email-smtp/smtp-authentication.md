@@ -26,7 +26,7 @@ This article describes how to use a Microsoft Entra application to create the au
 
 Application developers who build apps that send email using the SMTP protocol need to implement secure, modern authentication. Azure Communication Services uses Microsoft Entra application service principals to provide secure authentication. Link a Microsoft Entra application to the Communication Service resource by creating an SMTP Username resource.
 
-The SMTP services uses the Microsoft Entra application information linked to the SMTP username to authenticate with Microsoft Entra on the user's behalf to ensure a secure and seamless email transmission. SMTP Username resources are user-defined and can use either email format or freeform. If an SMTP username uses the email format, the domain must be one of the Communication Service resource's linked domains.
+The SMTP service uses the Microsoft Entra application information linked to the SMTP username to authenticate with Microsoft Entra on the user's behalf to ensure a secure and seamless email transmission. SMTP username resources are user-defined and can use either email format or freeform. If an SMTP username uses the email format, the domain must be one of the Communication Service resource's linked domains.
 
 ## Assign a role to the Microsoft Entra application
 
@@ -44,8 +44,8 @@ Assign the **Communication and Email Service Owner** role to a Microsoft Entra a
     :::image type="content" source="../media/email-smtp-builtin-select-role.png" alt-text="Screenshot that shows selecting the built-in role.":::
 1. On the **Members** tab, choose **User, group, or service principal** and then click **+Select members**.
     :::image type="content" source="../media/email-smtp-builtin-select-members.png" alt-text="Screenshot that shows choosing select members for the built-in role.":::
-1. Use the search box to find the **Microsoft Entra** application that you'll use for authentication and select it. Then click **Select**.
-    :::image type="content" source="../media/email-smtp-builtin-select-entra.png" alt-text="Screenshot that shows selecting the Microsoft Entra application that will get the built-in role.":::
+1. Use the search box to find the Microsoft Entra application that you use for authentication and select it. Then click Select.
+    :::image type="content" source="../media/email-smtp-builtin-select-entra.png" alt-text="Screenshot that shows selecting the Microsoft Entra application that gets the built-in role.":::
 1. After confirming the selection, click **Next**.
     :::image type="content" source="../media/email-smtp-builtin-select-review.png" alt-text="Screenshot that shows reviewing the assignment for the built-in role.":::
 1. After confirming the scope and members, click **Review + assign**.
@@ -74,7 +74,7 @@ The **Communication and Email Service Owner** role gives access to all Communica
 1. Review the permissions for the new role. Click **Review + create** and then **Create** on the next page.
     :::image type="content" source="../media/smtp-custom-role-review.png" alt-text="Screenshot that shows reviewing the new custom role.":::
 
-When assigning the Microsoft Entra application a role for the Azure Communication Services Resource, the new custom role will be available. For more information on creating custom roles, see [Create or update Azure custom roles using the Azure portal](../../../../role-based-access-control/custom-roles-portal.md)
+When you assign the Microsoft Entra application a role for the Azure Communication Services Resource, the new custom role is now available. For more information about creating custom roles, see [Create or update Azure custom roles using the Azure portal](../../../../role-based-access-control/custom-roles-portal.md).
 
 #### Assign the custom email role to the Microsoft Entra application
 1. In the portal, navigate to the subscription, resource group, or Azure Communication Service Resource where you want the custom role to be assignable and then open **Access control (IAM)**.
@@ -97,7 +97,7 @@ When assigning the Microsoft Entra application a role for the Azure Communicatio
 ## Create an SMTP Username using the Azure Portal
 1. In the portal, navigate to the Azure Communication Service Resource and then open **SMTP Usernames**.
     :::image type="content" source="../media/smtpusernames-1-usernameblade.png" alt-text="Screenshot that shows SMTP Usernames.":::
-1. Click **+Add* SMTP Username* and then select the Microsoft Entra application. If the Microsoft Entra application does not appear in the drop-down, see the previous steps to assign a role. The username can be custom text or an email address.
+1. Click **+Add SMTP Username** and then select the Microsoft Entra application. If the Microsoft Entra application doesn't appear in the drop-down, see the previous steps to assign a role. The username can be custom text or an email address.
     :::image type="content" source="../media/smtpusernames-2-addsmtpusername.png" alt-text="Screenshot that shows adding an SMTP username.":::
 1. Verify the SMTP Username is in the list. The status changes to **Ready to use** once all of the requirements for sending an email using the username and SMTP are met.
     :::image type="content" source="../media/smtpusernames-3-list.png" alt-text="Screenshot that shows newly created SMTP username in the list.":::
@@ -108,7 +108,7 @@ The password is one of the Microsoft Entra application's client secrets.
 
 ## Requirements for SMTP AUTH client submission
 
-- **Authentication**: Username and password authentication is supported using an SMTP username linked to a Microsoft Entra application details. The Azure Communication Services SMTP service use the Microsoft Entra application details to get an access token on behalf of the user and use that to submit the email.
+- **Authentication**: Username and password authentication is supported using an SMTP username linked to a Microsoft Entra application details. The Azure Communication Services SMTP service uses the Microsoft Entra application users details to get an access token on behalf of the user and uses that to submit the email.
 - **Azure Communication Service**: An Azure Communication Services Resource with a connected Azure Communication Email Resource and domain is required.
 - **Transport Layer Security (TLS)**: Your device must be able to use TLS version 1.2 and above.
 - **Port**: Port 587 (recommended) or port 25 is required and must be unblocked on your network. Some network firewalls or ISPs block ports because that's the port that email servers use to send mail.
