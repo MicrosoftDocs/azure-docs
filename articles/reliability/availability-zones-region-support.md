@@ -4,7 +4,7 @@ description: Learn which Azure regions offer availability zone support
 ms.service: azure
 ms.subservice: azure-reliability
 ms.topic: conceptual
-ms.date: 01/16/2025
+ms.date: 03/19/2025
 ms.author: anaharris
 author: anaharris-ms
 ms.custom: references_regions, subject-reliability
