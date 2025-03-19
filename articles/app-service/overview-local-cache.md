@@ -1,5 +1,5 @@
 ---
-title: Local Cache in Azure App Service
+title: Local Cache
 description: Learn how a local cache works in Azure App Service, and how to enable, resize, and query the status of your app's local cache.
 tags: optional
 

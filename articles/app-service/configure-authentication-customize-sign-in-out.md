@@ -1,5 +1,5 @@
 ---
-title: Customize Sign-ins and Sign-outs in App Service Authentication
+title: Customize Sign-ins and Sign-outs
 description: Use the built-in authentication and authorization in Azure App Service and at the same time customize the sign-in and sign-out behavior.
 ms.topic: how-to
 ms.date: 07/08/2024

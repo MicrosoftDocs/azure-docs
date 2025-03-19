@@ -1,5 +1,5 @@
 ---
-title: Configure a PHP app for Azure App Service
+title: Configure a PHP App
 description: Learn how to configure a PHP app in a prebuilt PHP container in Azure App Service. This article shows the most common configuration tasks.
 ms.devlang: php
 ms.topic: how-to

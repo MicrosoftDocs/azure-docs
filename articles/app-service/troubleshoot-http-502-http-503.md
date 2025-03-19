@@ -1,5 +1,5 @@
 ---
-title: Fix HTTP 502 and HTTP 503 Errors in Azure App Service
+title: Fix HTTP 502 and HTTP 503 Errors
 description: Troubleshoot 502 Bad Gateway and 503 Service Unavailable errors in your app hosted in Azure App Service.
 tags: top-support-issue
 keywords: 502 bad gateway, 503 service unavailable, error 503, error 502

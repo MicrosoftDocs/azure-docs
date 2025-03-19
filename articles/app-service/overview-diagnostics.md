@@ -1,5 +1,5 @@
 ---
-title: Diagnostics in Azure App Service
+title: Diagnostics
 description: Learn how you can troubleshoot problems with your app in Azure App Service by using the diagnostics tool in the Azure portal. 
 keywords: app service, azure app service, diagnostics, support, web app, troubleshooting, self-help
 
