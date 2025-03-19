@@ -5,7 +5,7 @@ description: Learn how to configure administrative access for dev team leads by 
 ms.service: azure-deployment-environments
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 12/04/2023
+ms.date: 03/21/2025
 ms.topic: how-to
 ---
 
@@ -68,6 +68,6 @@ The users can now view the project and manage only the specific environment type
 
 [!INCLUDE [note-deployment-environments-user](includes/note-deployment-environments-user.md)]
 
-## Related content
+## Related resources
 
 * [Provide access for developers to projects](./how-to-configure-deployment-environments-user.md)
