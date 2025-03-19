@@ -89,7 +89,7 @@ In this section, you upload public root certificate data to Azure. Once the publ
    :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/public-certificate-data.png" alt-text="Screenshot of certificate data field." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/public-certificate-data.png":::
 
 1. Additional routes aren't necessary for this exercise. For more information about the custom routing feature, see [Advertise custom routes](vpn-gateway-p2s-advertise-custom-routes.md).
-1. Select **Save** at the top of the page to save all of the configuration settings.
+1. Select **Save** at the top of the page to save all of the configuration settings. After the configuration settings deployment completes, you can generate and download the VPN client configuration package.
 
 ## <a name="profile-files"></a>Generate VPN client profile configuration files
 

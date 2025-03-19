@@ -29,15 +29,15 @@ These commands include:
 - [Create Bicep Configuration File](#create-bicep-configuration-file-command)
 - [Decompile into Bicep](#decompile-into-bicep-command)
 - [Deploy Bicep File](#deploy-bicep-file-command)
-- [Generate Parameters File](#generate-parameters-file-command) 
+- [Generate Parameters File](#generate-parameters-file-command)
 - [Import Azure Kubernetes Manifest (EXPERIMENTAL)](#import-aks-manifest-preview-command)
-- [Insert Resource](#insert-resource-command) 
+- [Insert Resource](#insert-resource-command)
 - [Open Bicep Visualizer](#open-bicep-visualizer-command)
 - [Open Bicep Visualizer to the Side](#open-bicep-visualizer-command)
-- [Paste JSON as Bicep](#paste-json-as-bicep-command) 
-- [Restore Bicep Modules (Force)](#restore-bicep-modules-command) 
-- [Show Deployment Pane](#show-deployment-pane-command) 
-- [Show Deployment Pane to the Side](#show-deployment-pane-command) 
+- [Paste JSON as Bicep](#paste-json-as-bicep-command)
+- [Restore Bicep Modules (Force)](#restore-bicep-modules-command)
+- [Show Deployment Pane](#show-deployment-pane-command)
+- [Show Deployment Pane to the Side](#show-deployment-pane-command)
 
 These commands are also shown in the context menu when you right-click a Bicep file:
 
@@ -191,13 +191,11 @@ You can undo the decompilation by pressing **<kbd>Ctrl+Z</kbd>**. The original J
 
 ### Restore Bicep Modules command
 
-When your Bicep file uses modules that are published to a registry, the `restore` command gets copies of all the required modules from the registry. It stores those copies in a local cache. See [restore](./bicep-cli.md#restore) for more information and an example.
+When your Bicep file uses modules that are published to a registry, the `restore` command gets copies of all the required modules from the registry. It stores those copies in a local cache. For more information and an example, see [restore](./bicep-cli.md#restore).
 
 ### Show Deployment Pane command
 
-The Deployment Pane is an experimental feature in Visual Studio Code. See [Using the Deployment Pane (Experimental!)](https://github.com/Azure/bicep/blob/main/docs/experimental/deploy-ui.md) to learn more.
-
-You can open the Deployment Pane side by side with the Bicep file.
+See [Deployment pane](#deployment-pane).
 
 ## Use quick fix suggestions
 
@@ -247,9 +245,40 @@ When defining a [module](./modules.md) and regardless of the type of file that's
 
 ## Deployment pane
 
-The Deployment Pane in VSCode is a UI panel that lets you connect to your Azure subscription and perform validate, deploy, and what-if operations, providing instant feedback without leaving the editor.
+The Deployment Pane is a UI panel that lets you connect to your Azure subscription and perform validate, deploy, and what-if operations, providing instant feedback without leaving the editor.
 
+To use deployment pane:
 
+1. Open a `.bicep` or `.bicepparam` file in VS Code.
+1. Select the show deployment pane button on the upper right corner as shown in the following screenshot:  
+
+  :::image type="content" source="./media/visual-studio-code/visual-studio-code-open-deployment-pane.png" alt-text="Sceenshot of the open deployment pane button.":::
+
+  By default, VS Code opens the deployment pane on the side. To open it in a new tab, hold <kbd>Alt</kbd> while selecting the button.
+
+  Another way to open the deployment pane is through the command palette. Press <kbd>Ctrl</kdb>+<kbd>Shift</kbd>+<kbd>P</kbd>), then select either **Show Deployment Pane** or **Show Deployment Pane to the Side**.
+
+  :::image type="content" source="./media/visual-studio-code/visual-studio-code-show-deployment-pane.png" alt-text="Sceenshot of show deployment pane in command palette.":::
+
+  The following screenshot shows a successful deployment with the Bicep file validation results.
+
+  :::image type="content" source="./media/visual-studio-code/visual-studio-code-show-deployment-pane.png" alt-text="Sceenshot of show deployment pane in command palette.":::
+
+1. Select **Change Scope** to define the deployment scope. After authentication, you're able to select the subscription and the resource group of your desired deployment.
+1. Select **Pick JSON Parameters File** to select a JSON parameter file.  
+1. Select your desired action - **Deploy**, **Validate**, or **What-if**.  
+
+  - **Deploy**: deploys to Azure, and the result including the defined output are shown in the deployment pane.
+  - **Validate**: verifies that all declared variables and parameters are used, ensures no sensitive information is returned, and detects any hard-coded values. In the preceding screenshot, the validation was successful.
+  - **What-if**: executes a **What-If** analysis directly from the deployment pane. This performs the same function as that in Azure PowerShell and Azure CLI. The pane displays the results, showing any planned changes.
+
+  For more information, see one of the following articles:
+
+  - [Bicep deployment what-if operation](./deploy-what-if.md)
+  - [Deploy Bicep files with Visual Studio Code](./deploy-vscode.md)
+  - [Deploy Bicep files with Azure CLI](./deploy-cli.md)
+  - [Deploy Bicep files with Azure PowerShell](./deploy-powershell.md)
+  - [Deploy Bicep files with Azure cloud shell](./deploy-cloud-shell.md)
 
 ## Troubleshoot
 

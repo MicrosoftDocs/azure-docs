@@ -5,7 +5,7 @@ description: Learn how to configure VPN clients for P2S configurations that use 
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 01/28/2025
+ms.date: 03/12/2025
 ms.author: cherylmc
 ---
 
@@ -21,7 +21,7 @@ Before beginning client configuration steps, verify that you're on the correct V
 
 ### Prerequisites
 
-This article assumes that you've already performed the following prerequisites:
+This article assumes that you already completed the following prerequisites:
 
 * You created and configured your VPN gateway for point-to-site certificate authentication and the OpenVPN tunnel type. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](point-to-site-certificate-gateway.md) for steps.
 * You generated and downloaded the VPN client configuration files. See [Generate VPN client profile configuration files](point-to-site-certificate-gateway.md#profile-files) for steps.
@@ -33,7 +33,7 @@ To connect to Azure, each connecting client computer requires the following item
 
 * The Azure VPN Client software must be installed on each client computer.
 * The Azure VPN Client profile is configured using the settings contained in the downloaded **azurevpnconfig.xml** or **azurevpnconfig_cert.xml** configuration file.
-* The client computer must have a client certificate that's installed locally.
+* The client computer must have a client certificate installed locally.
 
 ## Generate and install client certificates
 
@@ -65,11 +65,17 @@ If you don't see either file, or you don't have an **AzureVPN** folder, verify t
 
 [!INCLUDE [Configure the Azure VPN client](../../includes/vpn-gateway-vwan-configure-azure-vpn-client-certificate.md)]
 
-### Optional settings for the Azure VPN Client
+If you experience connection issues, if you're running the v4.0.0.0 version of the Azure VPN Client or later, you can click the **...** at the bottom of the Azure VPN Client page and select **Prerequisites**. On the **Test Application Prerequisites** page, select **Run Prerequisites Test**. Fix any issues and try connecting again. For more information, see [Azure VPN Client prerequisites check](azure-vpn-client-prerequisites-check.md).
 
-The following sections discuss optional configuration settings that are available for the Azure VPN Client.
+### Azure VPN Client settings
 
-#### Secondary Profile
+The following sections discuss configuration settings that are available for the Azure VPN Client. For information about Azure VPN Client versions, see the [Azure VPN Client versions](azure-vpn-client-versions.md) article.
+
+#### System tray
+
+[!INCLUDE [Azure VPN Client system tray](../../includes/vpn-gateway-vwan-azure-vpn-client-tray.md)]
+
+#### Secondary profile
 
 [!INCLUDE [Secondary profile](../../includes/vpn-gateway-azure-vpn-client-secondary-profile.md)]
 
