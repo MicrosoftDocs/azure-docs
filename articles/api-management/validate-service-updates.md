@@ -1,17 +1,48 @@
 ---
-title: Validate Azure API Management service updates
-description: Apply the Azure safe deployment approach with your Azure API Management instances to validate service updates and avoid disruptions to your production environments.
+title: Configure API Management settings for service updates
+description: Learn how to configure settings for applying service updates to your Azure API Management instance. Settings include the upgrade group and the maintenance window.
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 02/25/2022
+ms.date: 03/18/2025
 ms.author: danlep
 ---
 
-# Validate service updates to avoid disruption to your production API Management instances 
+# Configure service update settings for your API Management instances 
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
+This article shows you how to configure service update settings in your API Management instance. From time to time, Azure applies service updates automatically to API Management instances, using a phased rollout approach that takes from several days to several weeks. These updates include new features, security enhancements, and reliability improvements. 
+
+You can't control exactly when Azure updates each instance, but API Management lets you select an *update group* for your instance, and also a *maintenance window* during the day when you want your instance to receive updates. 
+
+* **Update group** - A set of instances that receive updates during a production rollout. Choose from:
+    * Early - Receive updates early. Updates may include preview builds.
+    * Default - Receive updates according to the usual phased rollout.
+    * Late - Receive updates later. Updates include the most stable builds.
+
+    > [!NOTE]
+    > Azure deploys all updates using a [safe deployment practices (SDP) framework](https://azure.microsoft.com/blog/advancing-safe-deployment-practices/). However, updates released earlier in a rollout may be less stable and may be replaced later by stable releases. All instances are eventually updated to the most stable release builds.
+
+    For example, you might want to add a test instance to the Early update group. This instance would receive updates before your production instances, which you put in the Late update group. You can then monitor the test instance for any issues caused by the updates before they reach your production instances. [Learn more about canary deployments](#canary-deployment-strategies) with API Management
+
+ * **Maintenance window** - An 8-hour daily period when you want your instance to receive updates. By default, the maintenance window is 10 PM to 6 AM in the instance's time zone. 
+
+    Although service disruptions are rare during an update, you might want to reduce risk by selecting times of low service use. For example, you might want to set a maintenance window during weekday evenings and weekend mornings for your production instances. 
+
+
+## Configure service update settings
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to your API Management instance.
+1. In the left menu, select **Deployment + infrastructure ** > **Service update settings**.
+1. Under **Update group**, review the current setting and select **Edit** to change it.
+    > [!NOTE]
+    > Only the Early update group is available for API Management instances in the Developer tier.
+
+1. Under **Maintenance window**, review the current settings and select **Edit** to change them. For each day you can select the default window, a different standard window, or a custom window by day.
+ 
+
+<!---
 *"One of the value propositions of the cloud is that it’s continually improving, delivering new capabilities and features, as well as security and reliability enhancements. But since the platform is continuously evolving, change is inevitable."* - Mark Russinovich, CTO, Azure
 
 Microsoft uses a safe deployment practices framework to thoroughly test, monitor, and validate service updates, and then deploy them to Azure regions using a phased approach. Even so, service updates that reach your API Management instances could introduce unanticipated risks to your production workloads and disrupt your API consumers. Learn how you can apply our safe deployment approach to reduce risks by validating the updates before they reach your production API Management environments.
@@ -39,6 +70,8 @@ Deployment phases include:
 
     * After an observation period in the pilot region, the service updates are gradually introduced to remaining regions, broadening customers' exposure. 
 
+
+
 ## How do I safely deploy updates to my API Management instances? 
 
 As an Azure customer, you're not able to control when to apply service updates to your API Management instances - updates are applied automatically. However, to minimize risk, you can use a strategy to deploy your noncritical instances to regions that receive updates before the regions running your production instances.
@@ -54,9 +87,10 @@ As an Azure customer, you're not able to control when to apply service updates t
 
 See [example strategies](#canary-deployment-strategies) to create and use a canary deployment of API Management, later in this article.
 
+--->
 ## Know when your instances are receiving updates 
 
-As a first step, ensure that you know about service updates that are expected or are in progress. 
+Here is how to know about service updates that are expected or are in progress. 
 
 * API Management updates are announced on the [API Management GitHub repo](https://github.com/Azure/API-Management/releases). We recommend that you subscribe to receive notifications from this repository to know when update rollouts begin. 
 
@@ -77,7 +111,9 @@ As a first step, ensure that you know about service updates that are expected or
   
 Here are example strategies to use an API Management instance as a canary deployment that receives updates earlier than your production instances.
 
-* **Deploy in EUAP region** - If you have access to an Azure EUAP region, you can use an instance there to validate updates as soon as they're released to the production pipeline. Learn about the [Azure region access request process](/troubleshoot/azure/general/region-access-request-process).
+* **Add instance to Early update group** - If you have an API Management instance in the Early update group, you can use it to validate updates early in the production pipeline. This instance is effectively your canary deployment. 
+
+* **Deploy in canary region** - If you have access to an Azure EUAP region, you can use an instance there to validate updates as soon as they're released to the production pipeline. Learn about the [Azure region access request process](/troubleshoot/azure/general/region-access-request-process).
 
     > [!NOTE]
     > Because of capacity constraints in EUAP regions, you might not be able to scale API Management instances as needed.  
