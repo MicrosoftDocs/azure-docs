@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting the new version of Azure VM extension for SAP solutions | Microsoft Docs
+title: Troubleshooting the Azure VM Extension for SAP | Microsoft Docs
 description: Learn how to troubleshoot the new VM Extension for SAP.
 services: virtual-machines-linux,virtual-machines-windows
 author: imnotfromhere
@@ -14,7 +14,7 @@ ms.date: 06/22/2021
 ms.author: mareusch
 ---
 
-# New Version of Azure VM extension for SAP solutions - Troubleshooting
+# Troubleshooting the Azure VM Extension for SAP
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [configure]:vm-extension-for-sap-new.md#configure (Configure the Azure VM extension for SAP solutions)
 
