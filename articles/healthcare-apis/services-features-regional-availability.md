@@ -24,7 +24,6 @@ For information about general Microsoft product availability, refer to [Products
 <br> **Key**:
 
 - &check; - General Availability
-- FA - Future Availability
 - Preview - In Preview
 
 ## Services and features available by region
