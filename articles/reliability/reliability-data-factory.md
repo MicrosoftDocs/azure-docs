@@ -6,7 +6,7 @@ ms.author: jburchel
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-data-factory
-ms.date: 03/13/2025
+ms.date: 03/19/2025
 #Customer intent: As an engineer responsible for business continuity, I want to understand how Azure Data Factory works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow in different situations.
 ---
 
@@ -52,11 +52,10 @@ To avoid duplicate records being inserted after a transient fault, you can emplo
 -  *Upsert strategy* is an option for connectors that support upsert. Use this approach to check whether a record already exists before inserting. If it does exist, update it. If it doesn't exist, insert it. For example, SQL commands like `MERGE` or `ON DUPLICATE KEY UPDATE` use this upsert approach.
 - *Use copy action strategies* that are discussed in the [data consistency verification in copy activities article.](../data-factory/copy-activity-data-consistency.md)
 
-You can also use strategies that are discussed in the [data consistency verification in copy activities article.](../data-factory/copy-activity-data-consistency.md)
 
 ### Retry policies
 
-With, retry policies, you can configure parts of your pipeline to retry if there's a problem, such as when a resource you connect to has a transient fault. In Azure Data Factory, you can configure retry policies on the following pipeline object types:
+With retry policies, you can configure parts of your pipeline to retry if there's a problem, such as when a resource you connect to has a transient fault. In Azure Data Factory, you can configure retry policies on the following pipeline object types:
 
 - [Tumbling window triggers](../data-factory/concepts-pipeline-execution-triggers.md#tumbling-window-trigger).
 - [Execution activities](../data-factory/concepts-pipelines-activities.md#execution-activities).
@@ -95,12 +94,12 @@ Zone-redundant Azure Data Factory resources can be deployed in [any region that 
 
 ### Configure availability zone support
 
-**Core service:** The Azure Data Factory core service automatically supports zone redundancy, so no configuration is required.
+**Azure Data Factory core service:** No configuration required. Azure Data Factory core service automatically supports zone redundancy,
 
 **Integration runtimes:**
 
-- *Azure integration runtime* automatically enables zone redundancy, so no configuration is required.
-- *Azure-SSIS integration runtime* automatically enables zone redundancy when it's deployed with two or more nodes.
+- *Azure integration runtime:* No configuration required. Azure integration runtime automatically enables zone redundancy.
+- *Azure-SSIS integration runtime:* No configuration required. Azure-SSIS integration runtime automatically enables zone redundancy when it's deployed with two or more nodes.
 - *Self-hosted integration runtime* requires you to configure your own resiliency, including spreading your nodes across multiple availability zones.
 
 ### Capacity planning and management
@@ -121,7 +120,7 @@ During normal operations, Azure Data Factory automatically distributes pipeline 
 
 **Detection and response.** The Azure Data Factory platform is responsible for detecting a failure in an availability zone and responding. You don't need to do anything to initiate a zone failover in your pipelines or other components.
 
-**Active requests.** Any pipelines and triggers in progress will continue to execute, and you won't notice a zone failure. However, activities in progress during a zone failure might fail and be restarted. It's important to design activities to be idempotent, which helps them to recover from zone failures as well as other faults. For more information, see [Transient faults](#transient-faults).
+**Active requests.** Any pipelines and triggers in progress continue to execute, and you won't notice a zone failure. However, activities in progress during a zone failure might fail and be restarted. It's important to design activities to be idempotent, which helps them to recover from zone failures as well as other faults. For more information, see [Transient faults](#transient-faults).
 
 ### Failback
 
@@ -148,14 +147,14 @@ Azure Data Factory supports Microsoft-managed failover for data factories in *pa
 >
 > If you need to be resilient to region outages, see [alternative multi-region approaches](#alternative-multi-region-approaches).
 
-For data factories in *nonpaired regions* or in Brazil South or Southeast Asia, Microsoft won't perform regional failover on your behalf. If you need to be resilient to region outages, see [alternative multi-region approaches](#alternative-multi-region-approaches).
+For data factories in *nonpaired regions* or in Brazil South or Southeast Asia, Microsoft doesn't perform regional failover on your behalf. If you need to be resilient to region outages, see [alternative multi-region approaches](#alternative-multi-region-approaches).
 
 >![IMPORTANT]
->Due to data residency requirements in Brazil South, and Southeast Asia, Azure Data Factory data is stored in the local region only by using [Azure Storage zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). For Southeast Asia, all the data are stored in Singapore. For Brazil South, all data are stored in Brazil. 
+>Due to data residency requirements in Brazil South and Southeast Asia, Azure Data Factory data is stored in the local region only by using [Azure Storage zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). For Southeast Asia, all data is stored in Singapore. For Brazil South, all data is stored in Brazil. 
 
 #### Failover of integration runtimes
 
-To properly prepare for a failover, there may be some additional considerations depending on the integration runtime you use:
+To prepare for a failover, there may be some additional considerations depending on the integration runtime you use:
 
 - *Azure integration runtime* can be configured to automatically resolve the region it uses. If the region is set to *auto resolve* and there's an outage in the primary region, the Azure integration runtime fails over automatically to the paired region, subject to the failover limitations described in [Microsoft-managed failover to a paired region](#microsoft-managed-failover-to-a-paired-region). To configure the Azure integration runtime region for your activity execution or dispatch in the integration runtime setup, set the region to *auto resolve*.
 - *Azure-SSIS integration runtime* failover is managed separately to Microsoft-managed failover of the data factory. To learn more, see [alternative multi-region approaches](#alternative-multi-region-approaches).
@@ -171,7 +170,7 @@ However, you might need to perform some reconfiguration for integration runtimes
 
 If you need your pipelines to be resilient to regional outages and you need control over the failover process, consider using a metadata-driven pipeline:
 
-- ** Set up source control for your Azure Data Factory** to track and audit any changes made to your metadata. With this approach, you can also access your metadata JSON files for pipelines, datasets, linked services, and triggers. Azure Data Factory supports different Git repository types (Azure DevOps and GitHub). To learn how to set up source control in Azure Data Factory, see [Source control in Azure Data Factory](../data-factory/source-control.md).
+- **Set up source control for your Azure Data Factory** to track and audit any changes made to your metadata. With this approach, you can also access your metadata JSON files for pipelines, datasets, linked services, and triggers. Azure Data Factory supports different Git repository types (Azure DevOps and GitHub). To learn how to set up source control in Azure Data Factory, see [Source control in Azure Data Factory](../data-factory/source-control.md).
 
 - **Use a continuous integration and delivery (CI/CD) system**, such as Azure DevOps, to manage your pipeline metadata and deployments. With CI/CD, you can quickly restore operations to an instance in another region. If a region is unavailable, you can provision a new data factory manually or through automation. Once the new data factory has been created, you can restore your pipelines, datasets, and linked services JSON from the existing Git repository. For more information, see [BCDR for Azure Data Factory and Azure Synapse Analytics pipelines](/azure/architecture/example-scenario/analytics/pipelines-disaster-recovery).
 
@@ -183,7 +182,7 @@ Depending on the integration runtime you use, there might be additional consider
 
     For more information, see [Configure Azure-SSIS integration runtime for business continuity and disaster recovery (BCDR)](../data-factory/configure-bcdr-azure-ssis-integration-runtime.md)
 
-- **Self-hosted integration runtime* runs on infrastructure that you manage. If the self-hosted integration runtime is deployed to an Azure virtual machine, you can use [Azure Site Recovery](../site-recovery/site-recovery-overview.md) to trigger [virtual machine failover](../site-recovery/azure-to-azure-architecture.md) to another region.
+- *Self-hosted integration runtime* runs on infrastructure that you manage. If the self-hosted integration runtime is deployed to an Azure virtual machine, you can use [Azure Site Recovery](../site-recovery/site-recovery-overview.md) to trigger [virtual machine failover](../site-recovery/azure-to-azure-architecture.md) to another region.
 
 ## Backup and restore
 
