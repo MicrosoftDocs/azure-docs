@@ -115,5 +115,10 @@
       "redirect_url": "/previous-versions/azure/iot/iot-mqtt-5-preview-reference",
       "redirect_document_id": false
     }
+    {
+      "source_path": "articles/iot/howto-convert-to-pnp.md",
+      "redirect_url": "/azure/iot/overview-iot-plug-and-play",
+      "redirect_document_id": false
+    }
   ]
 }
