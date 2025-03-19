@@ -5,8 +5,8 @@ ms.service: azure-hdinsight
 ms.topic: how-to
 author: apurbasroy
 ms.author: apsinhar
-ms.reviewer: nijesf
-ms.date: 03/18/2025
+ms.reviewer: nijelsf
+ms.date: 03/19/2025
 ---
 
 # Run MapReduce jobs with Apache Hadoop on Entra enabled HDInsight using PowerShell
@@ -15,8 +15,8 @@ This document provides an example of using Azure PowerShell to run a MapReduce j
 
 ## Prerequisites
 
-* An Entra enabled Apache Hadoop cluster on HDInsight. See [Create Apache Hadoop clusters using the Azure portal](https://learn.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-portal).
-* The PowerShell [Az Module](https://learn.microsoft.com/en-us/powershell/azure/) installed.
+* An Entra enabled Apache Hadoop cluster on HDInsight. See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
+* The PowerShell [Az Module](/powershell/azure/) installed.
 
 ## Run a MapReduce job
 
@@ -183,7 +183,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your En
     
     **Note**
     
-    If the **ExitCode** is a value other than 0, see [**Troubleshooting**](https://learn.microsoft.com/en-us/azure/hdinsight/hadoop/apache-hadoop-use-mapreduce-powershell#troubleshooting).
+    If the **ExitCode** is a value other than 0, see [**Troubleshooting**](../hadoop/apache-hadoop-use-mapreduce-powershell.md#troubleshooting).
     
     This example also stores the downloaded files to an **output.txt** file in the directory that you run the script from.
     
