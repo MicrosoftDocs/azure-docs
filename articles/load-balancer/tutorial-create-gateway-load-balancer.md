@@ -56,15 +56,13 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ## Create a virtual network and associated resources
 
-In this section, you create a virtual network and associated resources. Along with the virtual network, you create a bastion host and a network security group. 
-
 # [Azure portal](#tab/azureportal)
 
 [!INCLUDE [load-balancer-create-no-gateway](../../includes/load-balancer-create-no-gateway.md)]
 
 # [Azure CLI](#tab/azurecli/)
 
-## Create a resource group
+### Create a resource group
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
@@ -77,11 +75,9 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
 
 ```
 
-## Configure virtual network
+## Create virtual network
 
 A virtual network is needed for the resources that are in the backend pool of the gateway load balancer.  
-
-### Create virtual network
 
 Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to create the virtual network.
 
@@ -95,7 +91,7 @@ Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to 
     --subnet-prefixes 10.1.0.0/24
 ```
 
-### Create bastion public IP address
+## Create bastion public IP address
 
 Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public IP address for the Azure Bastion host
 
@@ -107,7 +103,7 @@ az network public-ip create \
     --zone 1 2 3
 ```
 
-### Create bastion subnet
+## Create bastion subnet
 
 Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create the bastion subnet.
 
@@ -119,7 +115,7 @@ az network vnet subnet create \
     --address-prefixes 10.1.1.0/27
 ```
 
-### Create bastion host
+## Create bastion host
 
 Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to deploy a bastion host for secure management of resources in virtual network.
 
@@ -140,11 +136,9 @@ It can take a few minutes for the Azure Bastion host to deploy.
 
 >
 
-## Configure NSG
+## Create NSG
 
-Use the following example to create a network security group. You'll configure the NSG rules needed for network traffic in the virtual network created previously.
-
-### Create NSG
+Use the following example to create a network security group. You'll configure the NSG rules needed for network traffic in the virtual network created previou
 
 Use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) to create the NSG.
 
@@ -154,7 +148,7 @@ Use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) to cre
     --name myNSG
 ```
 
-### Create NSG Rules
+## Create NSG Rules
 
 Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) to create rules for the NSG.
 
@@ -304,17 +298,93 @@ New-AzNetworkSecurityGroup @nsg
 ---
 
 ## Create and configure a gateway load balancer
-In this section, you create a gateway load balancer and configure it with a backend pool and frontend IP configuration. The backend pool is associated with the existing load balancer created in the prerequisites.
 
 # [Azure portal](#tab/azureportal)
 
+In this section, you create the configuration and deploy the gateway load balancer. 
+
+1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
+
+1. In the **Load Balancer** page, select **Create**.
+
+1. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
+
+    | **Setting** | **Value** |
+    | ---                     | ---  |
+    | **Project details** |   |
+    | Subscription               | Select your subscription. |    
+    | Resource group         | Select **load-balancer-rg**. |
+    | **Instance details** |   |
+    | Name                   | Enter **gateway-load-balancer** |
+    | Region         | Select **(US) East US**. |
+    | SKU           | Select **Gateway**. |
+    | Type          | Select **Internal**. |
+
+    :::image type="content" source="./media/tutorial-gateway-portal/create-load-balancer.png" alt-text="Screenshot of create standard load balancer basics tab." border="true":::
+
+1. Select **Next: Frontend IP configuration** at the bottom of the page.
+
+1. In **Frontend IP configuration**, select **+ Add a frontend IP**.
+1. In **Add frontend IP configuration**, enter or select the following information:
+   
+    | **Setting** | **Value** |
+    | ------- | ----- |
+    | Name | Enter **lb-frontend-IP**. |
+    | Virtual network | Select **lb-vnet**. |
+    | Subnet | Select **backend-subnet**. |
+    | Assignment | Select **Dynamic** |
+
+1. Select **Save**.
+
+1.  Select **Next: Backend pools** at the bottom of the page.
+
+1.  In the **Backend pools** tab, select **+ Add a backend pool**.
+
+5.  In **Add backend pool**, enter or select the following information.
+
+    | **Setting** | **Value** |
+    | ------- | ----- |
+    | Name | Enter **lb-backend-pool**. |
+    | Backend Pool Configuration | Select **NIC**. |
+    | **Gateway load balancer configuration** |   |
+    | Type | Select **Internal and External**. |
+    | Internal port | Leave the default of **10800**. |
+    | Internal identifier | Leave the default of **800**. |
+    | External port | Leave the default of **10801**. |
+    | External identifier | Leave the default of **801**. |
+
+6.  Select **Save**.
+
+7.  Select the **Next: Inbound rules** button at the bottom of the page.
+
+8.  In **Load balancing rule** in the **Inbound rules** tab, select **+ Add a load balancing rule**.
+
+9.  In **Add load balancing rule**, enter or select the following information:
+
+    | **Setting** | **Value** |
+    | ------- | ----- |
+    | Name | Enter **lb-rule** |
+    | IP Version | Select **IPv4** or **IPv6** depending on your requirements. |
+    | Frontend IP address | Select **lb-frontend-IP**. |
+    | Backend pool | Select **lb-backend-pool**. |
+    | Health probe | Select **Create new**. </br> In **Name**, enter **lb-health-probe**. </br> Select **TCP** in **Protocol**. </br> Leave the rest of the defaults, and select **Save**. |
+    | Session persistence | Select **None**. |
+    | Enable TCP reset | Leave default of unchecked. |
+    | Enable floating IP | Leave default of unchecked. |
+
+    :::image type="content" source="./media/tutorial-gateway-portal/add-load-balancing-rule.png" alt-text="Screenshot of create load-balancing rule." border="true":::
+
+10. Select **Save**.
+
+11. Select the blue **Review + create** button at the bottom of the page.
+
+12. Select **Create**.
+
 # [Azure CLI](#tab/azurecli/)
 
-## Configure Gateway Load Balancer
+In this section, you create a gateway load balancer and configure it with a backend pool and frontend IP configuration. The backend pool is associated with the existing load balancer created in the prerequisites.
 
-In this section, you'll create the configuration and deploy the gateway load balancer.  
-
-### Create Gateway Load Balancer
+## Create Gateway Load Balancer
 
 To create the load balancer, use [az network lb create](/cli/azure/network/lb#az-network-lb-create).
 
@@ -329,7 +399,7 @@ To create the load balancer, use [az network lb create](/cli/azure/network/lb#az
     --frontend-ip-name myFrontEnd
 ```
 
-### Create tunnel interface
+## Create tunnel interface
 
 An internal interface is automatically created with Azure CLI with the **`--identifier`** of **900** and **`--port`** of **10800**.
 
@@ -346,7 +416,7 @@ You'll use [az network lb address-pool tunnel-interface add](/cli/azure/network/
     --port '10801'
 ```
 
-### Create health probe
+## Create health probe
 A health probe is required to monitor the health of the backend instances in the load balancer. Use [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create) to create the health probe.
 
 ```azurecli-interactive
@@ -362,7 +432,7 @@ A health probe is required to monitor the health of the backend instances in the
     
 ```
 
-### Create load-balancing rule
+## Create load-balancing rule
 
 Traffic destined for the backend instances is routed with a load-balancing rule. Use [az network lb rule create](/cli/azure/network/lb/probe#az-network-lb-rule-create)  to create the load-balancing rule.
 
@@ -717,8 +787,6 @@ $config | Set-AzNetworkInterface
 ---
 
 ## Clean up resources
-
-When you no longer need the resources created in this tutorial, delete the resource group. This also deletes the virtual network and all other resources in the resource group.
 
 # [Azure portal](#tab/azureportal)
 
