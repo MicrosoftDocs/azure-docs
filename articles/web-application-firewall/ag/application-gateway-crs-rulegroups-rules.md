@@ -120,11 +120,11 @@ For example, a single *Critical* rule match is enough for the WAF to block a req
 
 Each rule is asigned in a specific Paranoia Level (PL). Rules configured in Paranoia Level 1 (PL1) are less aggressive and hardly ever trigger a false positive. They provide baseline security with minimal need for fine tuning. Rules in PL2 detect more attacks, but they are expected to trigger false positives which should be fine-tuned.
 
-By default, DRS 2.1 and CRS 3.2 rulese versions are pre-configured in Paranoia Level 2, including rules assinged in both PL1 and in PL2.
-If you wish to use WAF with PL1 entirely, you can disable any or all PL2 rules, or change their action to 'log'. Using PL3 or PL4 is currently not supported with Azure WAF.
+By default, DRS 2.1 and CRS 3.2 rule versions are pre-configured in Paranoia Level 2, including rules assigned in both PL1 and in PL2.
+If you want to use WAF exclusively with PL1, you can disable any or all PL2 rules or change their action to 'log'. PL3 and PL4 are currently not supported in Azure WAF.
 
 > [!NOTE]
-> CRS 3.2 ruleset includes rules in PL3 and PL4, but these rules are always inactive and cannot be enabled, regardless of their configured state and action.
+> CRS 3.2 ruleset includes rules in PL3 and PL4, but these rules are always inactive and can't be enabled, regardless of their configured state or action.
 
 ### Upgrading or changing ruleset version
 
