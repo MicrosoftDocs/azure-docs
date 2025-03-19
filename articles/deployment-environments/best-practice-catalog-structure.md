@@ -26,16 +26,20 @@ The following diagram shows the recommended structure for a repo. Each template 
 :::image type="content" source="media/best-practice-catalog-structure/deployment-environments-catalog-structure.png" alt-text="Diagram that shows the recommended folder structure for an Azure Deployment Environments catalog." lightbox="media/best-practice-catalog-structure/deployment-environments-catalog-structure.png":::
 
 ## Linked environment definitions
-In a linked environment definitions scenario, multiple .json files can point to a single template. ADE checks linked  environment definitions sequentially and retrieves the linked files and  environment definitions from the repository. For best performance, these interactions should be minimized. 
 
-## Update  environment definitions and sync changes
-Over time, environment definitions need updates. You make those updates in your Git repository, and then you must manually sync the catalog up to update the changes to ADE. 
+In a linked environment definitions scenario, multiple .json files can point to a single template. Azure Deployment Environments checks linked environment definitions sequentially and retrieves the linked files and  environment definitions from the repository. For best performance, these interactions should be minimized. 
 
-## Files outside recommended structure
-In the following example, the Azuredeploy.json file is above the environment.yaml file in the folder structure. This structure is not valid Azure Deployment Environments catalogs. Environment definitions cannot reference content outside of the catalog item folder.
+## Update environment definitions and sync changes
 
-:::image type="content" source="media/best-practice-catalog-structure/deployment-environments-catalog-structure-not-supported.png" alt-text="Diagram that shows a nonsupported structure for an Azure Deployment Environments catalog, with a json file in a folder above the environment.yaml file." lightbox="media/best-practice-catalog-structure/deployment-environments-catalog-structure-not-supported.png":::
+Over time, environment definitions need updates. You make those updates in your Git repository. You must then manually sync the catalog to update the changes to Azure Deployment Environments. 
+
+## Files outside of the recommended structure
+
+In the following example, the Azuredeploy.json file is above the manifest.yaml file in the folder structure. This structure isn't valid. Environment definitions can't reference content outside of the catalog item folder.
+
+:::image type="content" source="media/best-practice-catalog-structure/deployment-environments-catalog-structure-not-supported.png" alt-text="Diagram that shows an unsupported structure for an Azure Deployment Environments catalog." lightbox="media/best-practice-catalog-structure/deployment-environments-catalog-structure-not-supported.png":::
 
 ## Related content
+
 - [Add and configure a catalog from GitHub or Azure DevOps in Azure Deployment Environments](/azure/deployment-environments/how-to-configure-catalog?tabs=DevOpsRepoMSI)
 - [Add and configure an environment definition in Azure Deployment Environments](/azure/deployment-environments/configure-environment-definition)
