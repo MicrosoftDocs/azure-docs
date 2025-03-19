@@ -6,7 +6,7 @@ ms.service: azure-deployment-environments
 ms.custom: build-2023
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 12/04/2023
+ms.date: 03/20/2025
 ms.topic: how-to
 ---
 
