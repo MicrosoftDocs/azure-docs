@@ -12,7 +12,7 @@ ms.author: junbchen
 
 # Azure App Configuration Kubernetes Provider reference
 
-The following reference outlines the properties supported by the Azure App Configuration Kubernetes Provider `v2.2.1`. See [release notes](https://github.com/Azure/AppConfiguration/blob/main/releaseNotes/KubernetesProvider.md) for more information on the change.
+The following reference outlines the properties supported by the Azure App Configuration Kubernetes Provider `v2.1.0` or later. See [release notes](https://github.com/Azure/AppConfiguration/blob/main/releaseNotes/KubernetesProvider.md) for more information on the change.
 
 ## Properties
 
