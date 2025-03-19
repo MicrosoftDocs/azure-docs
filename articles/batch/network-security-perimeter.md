@@ -1,12 +1,12 @@
 ---
-title: Configure network security perimeter for Azure Batch accounts
+title: Associate Azure Batch accounts with network security perimeter
 description: Learn how to associate an Azure Batch account with network security perimeter
 ms.topic: how-to
 ms.date: 3/17/2025
 ms.custom: references_regions
 ---
 
-# Network security perimeter
+# Associate Azure Batch accounts with network security perimeter
 
 The [network security perimeter (NSP)](../private-link/network-security-perimeter-concepts.md) provided by Azure networking serves as a comprehensive tool for customers to ensure optimal security when utilizing PaaS resources. It allows customers to establish logical boundaries for network isolation and collectively manage public access controls for numerous PaaS resources.
 
