@@ -14,7 +14,7 @@ ms.author: cephalin
 
 # Deploy and configure a Java SE, Tomcat, or JBoss EAP app in Azure App Service
 
-This article shows you the most common deployment and runtime configuration for Java apps in App Service. If you've never used Azure App Service, you should read through the [Java quickstart](quickstart-java.md) first. General questions about using App Service that aren't specific to Java development are answered in the [App Service FAQ](faq-configuration-and-management.yml).
+This article shows you the most common deployment and runtime configuration for Java apps in App Service. If you are new to Azure App Service, you should read through the [Java quickstart](quickstart-java.md) first. General questions about using App Service that aren't specific to Java development are answered in the [App Service FAQ](faq-configuration-and-management.yml).
 
 [!INCLUDE [java-variants](includes/configure-language-java/java-variants.md)]
 
@@ -103,7 +103,7 @@ With the [Maven Plugin for Azure Web Apps](https://github.com/microsoft/azure-ma
 mvn com.microsoft.azure:azure-webapp-maven-plugin:2.13.0:config
 ```
 
-This command adds an `azure-webapp-maven-plugin` plugin and related configuration by prompting you to select an existing Azure Web App or create a new one. During configuration, it attempts to detect whether your application should be deployed to Java SE, Tomcat, or (Linux only) JBoss EAP. Then you can deploy your Java app to Azure using the following command:
+This command adds an `azure-webapp-maven-plugin` plugin and related configuration by prompting you to select an existing Azure Web App or create a new one. During configuration, it attempts to detect whether your application should be deployed to Java Standard Edition (SE), Tomcat, or (Linux only) JBoss Enterprise Application Platform (EAP). Then you can deploy your Java app to Azure using the following command:
 
 ```shell
 mvn package azure-webapp:deploy
@@ -184,7 +184,7 @@ Here's a sample configuration, for details, refer to this [document](https://git
 
 ### IDEs
 
-Azure provides seamless Java App Service development experience in popular Java IDEs, including:
+Azure provides seamless Java App Service development experience in popular Java Integrated Development Environments (IDEs), including:
 
 - *VS Code*: [Java Web Apps with Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp#_deploy-web-apps-to-the-cloud)
 - *IntelliJ IDEA*:[Create a Hello World web app for Azure App Service using IntelliJ](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app)
@@ -261,7 +261,7 @@ The built-in Java images are based on the [Alpine Linux](https://alpine-linux.re
 
 ### Java Profiler
 
-All Java runtimes on Azure App Service come with the JDK Flight Recorder for profiling Java workloads. You can use it to record JVM, system, and application events and troubleshoot problems in your applications.
+All Java runtimes on Azure App Service come with the Java Development Kit (JDK) Flight Recorder for profiling Java workloads. You can use it to record Java Virtual Machine (JVM), system, and application events and troubleshoot problems in your applications.
 
 To learn more about the Java Profiler, visit the [Azure Application Insights documentation](/azure/azure-monitor/app/java-standalone-profiler).
 
@@ -280,7 +280,7 @@ Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
 116 /home/site/wwwroot/app.jar
 ```
 
-Execute the following command to start a 30-second recording of the JVM. It profiles the JVM and creates a JFR file named *jfr_example.jfr* in the home directory. (Replace 116 with the pid of your Java app.)
+Execute the following command to start a 30-second recording of the JVM. It profiles the JVM and creates a Java Flight Recorder (JFR) file named *jfr_example.jfr* in the home directory. (Replace 116 with the pid of your Java app.)
 
 ```shell
 jcmd 116 JFR.start name=MyRecording settings=profile duration=30s filename="/home/jfr_example.jfr"
@@ -318,7 +318,7 @@ jcmd <pid> JFR.start name=TimedRecording settings=profile duration=30s filename=
 
 #### Analyze `.jfr` files
 
-Use [FTPS](deploy-ftp.md) to download your JFR file to your local machine. To analyze the JFR file, download and install [Java Mission Control](https://www.oracle.com/java/technologies/javase/products-jmc8-downloads.html). For instructions on Java Mission Control, see the [JMC documentation](https://docs.oracle.com/en/java/java-components/jdk-mission-control/) and the [installation instructions](https://www.oracle.com/java/technologies/javase/jmc8-install.html).
+Use [FTPS](deploy-ftp.md) to download your JFR file to your local machine. To analyze the JFR file, download and install [Java Mission Control](https://www.oracle.com/java/technologies/javase/products-jmc8-downloads.html). For instructions on JDK Mission Control (JMC), see the [JMC documentation](https://docs.oracle.com/en/java/java-components/jdk-mission-control/) and the [installation instructions](https://www.oracle.com/java/technologies/javase/jmc8-install.html).
 
 ### App logging
 
@@ -549,7 +549,7 @@ See respective sections below for details as well as opportunities to customize 
 - The Keystore of the Java runtime is updated with any public and private certificates defined in Azure portal. 
     - Public certificates are provided by the platform in the */var/ssl/certs* directory, and they're loaded to *$JRE_HOME/lib/security/cacerts*.
     - Private certificates are provided by the platform in the */var/ssl/private* directory, and they're loaded to *$JRE_HOME/lib/security/client.jks*.
-- If any certificates are loaded in the Java keystore in this step, the properties `javax.net.ssl.keyStore`, `javax.net.ssl.keyStorePassword` and `javax.net.ssl.keyStoreType` are added to the `JAVA_OPTS` environment variable.
+- If any certificates are loaded in the Java keystore in this step, the properties `javax.net.ssl.keyStore`, `javax.net.ssl.keyStorePassword`, and `javax.net.ssl.keyStoreType` are added to the `JAVA_OPTS` environment variable.
 - Some initial JVM configuration is determined such as logging directories and Java memory heap parameters: 
     - If you provide the `–Xms` or `–Xmx` flags for memory in the app setting `JAVA_OPTS`, these values override the ones provided by the platform.
     - If you configure the app setting `WEBSITES_CONTAINER_STOP_TIME_LIMIT`, the value is passed to the runtime property `org.wildfly.sigterm.suspend.timeout`, which controls the maximum shutdown wait time (in seconds) when JBoss is being stopped.
@@ -575,7 +575,7 @@ See respective sections below for details as well as opportunities to customize 
     - Updates the binding IP addresses of the WSDL and management interfaces.
     - Adds the JBoss module `azure.appservice.easyauth` for integration with [App Service authentication](overview-authentication-authorization.md) and Microsoft Entra ID.
     - Updates the logging configuration of access logs and the name and rotation of the main server log file.
-- Unless the app setting `WEBSITE_SKIP_AUTOCONFIGURE_DATABASE` is defined, App Service autodetects JDBC URLs in the App Service app settings. If valid JDBC URLs exist for PostgreSQL, MySQL, MariaDB, Oracle, SQL Server, or Azure SQL Database, it adds the corresponding driver(s) to the server and adds a data source for each of the JDBC URL and sets the JNDI name for each data source to `java:jboss/env/jdbc/<app-setting-name>_DS`, where `<app-setting-name>` is the name of the app setting.
+- Unless the app setting `WEBSITE_SKIP_AUTOCONFIGURE_DATABASE` is defined, App Service autodetects Java Database Connectivity (JDBC) URLs in the App Service app settings. If valid JDBC URLs exist for PostgreSQL, MySQL, MariaDB, Oracle, SQL Server, or Azure SQL Database, it adds the corresponding driver(s) to the server and adds a data source for each of the JDBC URL and sets the Java Naming and Directory Interface (JNDI) name for each data source to `java:jboss/env/jdbc/<app-setting-name>_DS`, where `<app-setting-name>` is the name of the app setting.
 - If the `clustering` configuration is enabled, the console logger to be configured is checked. 
 - If there are JAR files deployed to the */home/site/libs* directory, a new global module is created with all of these JAR files.
 - At the end of the phase, App Service runs the custom startup script, if one exists. The search logic for the custom startup script as follows:
@@ -637,7 +637,7 @@ The latest versions of Tomcat have server.xml (8.5.58 and 9.0.38 onward). Older 
 * `maxConnections` is set to `WEBSITE_CATALINA_MAXCONNECTIONS`, which defaults to `10000`
  
 > [!NOTE]
-> The connectionTimeout, maxThreads and maxConnections settings can be tuned with app settings
+> The connectionTimeout, maxThreads, and maxConnections settings can be tuned with app settings
 
 Following are example CLI commands that you might use to alter the values of connectionTimeout, maxThreads, or maxConnections:
 
