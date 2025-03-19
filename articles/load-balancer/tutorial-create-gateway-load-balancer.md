@@ -62,6 +62,10 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 # [Azure CLI](#tab/azurecli/)
 
+The following sections describe how to create a virtual network and associated resources. The virtual network is needed for the resources that are in the backend pool of the gateway load balancer.
+
+The resources include a bastion host, network security group, and network security group rules.
+
 ### Create a resource group
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
@@ -131,10 +135,7 @@ az network bastion create \
 It can take a few minutes for the Azure Bastion host to deploy.
 
 > [!IMPORTANT]
-
 > [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
-
->
 
 ## Create NSG
 
@@ -181,6 +182,10 @@ Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule
 ```
 
 # [Azure PowerShell](#tab/azurepowershell/)
+
+The following sections describe how to create a virtual network and associated resources. The virtual network is needed for the resources that are in the backend pool of the gateway load balancer.
+
+The resources include a bastion host, network security group, and network security group rules.
 
 ## Create a resource group
 
@@ -417,6 +422,7 @@ You'll use [az network lb address-pool tunnel-interface add](/cli/azure/network/
 ```
 
 ## Create health probe
+
 A health probe is required to monitor the health of the backend instances in the load balancer. Use [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create) to create the health probe.
 
 ```azurecli-interactive
@@ -450,8 +456,6 @@ Traffic destined for the backend instances is routed with a load-balancing rule.
 ```
 
 # [Azure PowerShell](#tab/azurepowershell/)
-
-## Create Gateway Load Balancer
 
 In this section, you'll create the configuration and deploy the gateway load balancer. Use [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) to create the frontend IP configuration of the load balancer. 
 
