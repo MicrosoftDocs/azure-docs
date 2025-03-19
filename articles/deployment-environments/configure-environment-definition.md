@@ -73,7 +73,7 @@ To add an environment definition:
       | runner | The IaC framework that the template uses. The value can be `ARM` or `Bicep`. You can also specify a path to a template stored in a container registry. |
       | templatePath | The path to the IaC template file. |
 
-      To learn more about the options and data types you can use in *environment.yaml*, see [Parameters and data types in environment.yaml](concept-environment-yaml.md#what-is-environmentyaml).
+      To learn more about the options and data types you can use in *environment.yaml*, see [Parameters and data types in environment.yaml](concept-environment-yaml.md#what-is-manifestyaml).
 
 1. In your dev center, go to **Catalogs**, select the repository, and then select **Sync**.
 
@@ -167,7 +167,7 @@ parameters:
   required: false
 ```
 
-To learn more about the parameters and their data types that you can use in *environment.yaml*, see [Parameters and data types in environment.yaml](concept-environment-yaml.md#parameters-in-environmentyaml).
+To learn more about the parameters and their data types that you can use in *environment.yaml*, see [Parameters and data types in environment.yaml](concept-environment-yaml.md#parameters-in-manifestyaml).
 
 Developers can supply values for specific parameters for their environments through the [developer portal](https://devportal.microsoft.com).
 
