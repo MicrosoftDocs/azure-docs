@@ -156,12 +156,6 @@
         ]
       }
     ],
-    "groups": {
-      "migrate": {
-        "dest": "migrate",
-        "moniker_range": ">=migrate-classic <=migrate"
-      }
-    },
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
@@ -1311,6 +1305,10 @@
       "cyclecloud-7-group": {
         "dest": "tempdest_cyclecloud_7",
         "moniker_range": ">= cyclecloud-7"
+      },
+      "migrate": {
+        "dest": "migrate",
+        "moniker_range": ">=migrate-classic <=migrate"
       }
     },
     "dest": "azure",
