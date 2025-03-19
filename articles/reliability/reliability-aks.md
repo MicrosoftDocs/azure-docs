@@ -90,7 +90,9 @@ There's no additional charge to enable availability zone support in AKS. You pay
 
 ### Traffic routing between zones
 
-When you configure availability zone support in AKS, the Azure platform automatically configures the necessary networking components to route traffic between the zones. This includes configuring the load balancers and virtual networks to ensure that traffic is routed to the correct nodes in the correct zones. In the event of a zone outage, the load balancer redirects any new traffic to healthy pods in the remaining zones. Any active requests might experience disruptions, as some requests can fail and latency might increase.
+When you deploy an AKS cluster that uses availability zones, it's important to ensure that your networking components are also zone-resilient. Depending on the load balancers and other networking components you use, you might need to explicitly configure them to route traffic to the correct nodes in the correct zones and to respond to zone outages. To learn more, see [Zone resiliency considerations for Azure Kubernetes Service (AKS)](/azure/aks/aks-zone-resiliency).
+
+In the event of a zone outage, any active requests might experience disruptions, as some requests can fail and latency might increase while your workload fails over to another zone.
 
 ### Data replication between zones
 
