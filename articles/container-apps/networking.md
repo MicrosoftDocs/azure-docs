@@ -7,7 +7,7 @@ ms.service: azure-container-apps
 ms.custom:
   - ignite-2024
 ms.topic:  conceptual
-ms.date: 03/18/2025
+ms.date: 03/19/2025
 ms.author: cshoe
 ---
 
@@ -123,7 +123,7 @@ IP addresses are broken down into the following types:
 
 ## Subnet
 
-Virtual network integration depends on a dedicated subnet. The allocation of IP addresses in a subnet and the supported subnet sizes depend on the p[plan](plans.md) you're using in Azure Container Apps.
+Virtual network integration depends on a dedicated subnet. The allocation of IP addresses in a subnet and the supported subnet sizes depend on the [plan](plans.md) you're using in Azure Container Apps.
 
 Select your subnet size carefully. Subnet sizes can't be modified after you create a Container Apps environment.
 
