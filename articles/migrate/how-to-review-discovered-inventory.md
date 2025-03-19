@@ -1,6 +1,6 @@
 ---
 title: Review discovered inventory in Azure Migrate
-description:  Review discovered inventory across All inventory, Infrastructure, Databases and web application inventory views
+description:  Review discovered inventory across All inventory, Infrastructure, Databases, and web application inventory views
 author: vikram1988
 ms.author: vibansa
 ms.manager: ronai
@@ -16,7 +16,7 @@ This article describes the new experience to review inventory discovered using A
 
 ## What's New?
 
-- You can review the inventory of different type of workloads discovered from your datacentre along with their key attributes- all in a **single view**. 
+- You can review the inventory of different type of workloads discovered from your datacentre, along with their key attributes- all in a **single view**. 
 - You can **expand a server** and review the inventory of databases and web applications running on the server. 
 - You can use **filtering** capability to scope the list of workloads using a combination of filters.
 - You can **add and edit tags** at scale to the discovered workloads from the inventory views.
@@ -28,7 +28,7 @@ This article describes the new experience to review inventory discovered using A
 
 ### Existing users
 
-The existing users who have already created an Azure Migrate project and performed discovery of their datacenter assests can switch to the new Overview by using the prompt in their existing project. From the new Overview, you can select the count of workloads to review the discovered inventory across your datacenter.
+The existing users who has already created an Azure Migrate project and performed discovery of their datacenter assets can switch to the new Overview by using the prompt in their existing project. From the new Overview, you can select the count of workloads to review the discovered inventory across your datacenter.
 
 :::image type="content" source="./media/how-to-review-discovered-inventory/switch-to-new-view.png" alt-text="Switch to new inventory view":::
 
@@ -37,20 +37,20 @@ The existing users who have already created an Azure Migrate project and perform
 The new users need to follow steps given below:
 
 - Ensure that you have [created a project](./create-manage-projects.md) with the Azure Migrate: Discovery and assessment tool added to it.
-- Review the requirements based on your environment and the appliance you are setting up to perform inventory:
+- Review the requirements based on your environment and the appliance you're setting up to perform inventory:
 
     Environment | Requirements
     --- | ---
     Servers running in VMware environment | Review [VMware requirements](migrate-support-matrix-vmware.md#vmware-requirements) <br/> Review [appliance requirements](migrate-appliance.md#appliance---vmware)<br/> Review [port access requirements](migrate-support-matrix-vmware.md#port-access-requirements) 
     Servers running in Hyper-V environment | Review [Hyper-V host requirements](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements) <br/> Review [appliance requirements](migrate-appliance.md#appliance---hyper-v)<br/> Review [port access requirements](migrate-support-matrix-hyper-v.md#port-access)
     Physical servers or servers running on other clouds | Review [server requirements](migrate-support-matrix-physical.md#physical-server-requirements) <br/> Review [appliance requirements](migrate-appliance.md#appliance---physical)<br/> Review [port access requirements](migrate-support-matrix-physical.md#port-access)
-- Review the Azure URLs that the appliance will need to access in the [public](migrate-appliance.md#public-cloud-urls) and [government clouds](migrate-appliance.md#government-cloud-urls).
+- Review the Azure URLs that the appliance need to access in the [public](migrate-appliance.md#public-cloud-urls) and [government clouds](migrate-appliance.md#government-cloud-urls).
 
 
 ## Deploy and configure the Azure Migrate appliance
 
 1. Deploy the Azure Migrate appliance to start discovery. To deploy the appliance, you can use the [deployment method](migrate-appliance.md#deployment-methods) as per your environment. After deploying the appliance, you need to register it with the project and configure it to initiate the discovery.
-2. As you configure the appliance, you need to specify the following in the appliance configuration manager:
+2. As you configure the appliance, specify the following in the appliance configuration manager:
     - The details of the source environment (vCenter Server(s)/Hyper-V host(s) or cluster(s)/physical servers) which you want to discover.
     - Server credentials, which can be domain/ Windows (non-domain)/ Linux (non-domain) credentials. [Learn more](add-server-credentials.md) about how to provide credentials and how the appliance handles them.
     - Verify the permissions required to perform agentless dependency analysis. For Windows servers, you need to provide domain or non-domain (local) account with administrative permissions. For Linux servers, provide a sudo user account with permissions to execute ls and netstat commands or create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files. If you're providing a sudo user account, ensure that you have enabled NOPASSWD for the account to run the required commands without prompting for a password every time sudo command is invoked.
@@ -59,12 +59,12 @@ The new users need to follow steps given below:
 
 1. Open the appliance configuration manager, complete the prerequisite checks and registration of the appliance.
 2. Navigate to the **Manage credentials and discovery sources** panel.
-1.  In **Step 1: Provide credentials for discovery source**, click on **Add credentials** to  provide credentials for the discovery source that the appliance will use to discover servers running in your environment.
-1. In **Step 2: Provide discovery source details**, click on **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the discovery source.
+1.  In **Step 1: Provide credentials for discovery source**, select **Add credentials** to  provide credentials for the discovery source that the appliance uses to discover servers running in your environment.
+1. In **Step 2: Provide discovery source details**, select **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the discovery source.
 
     :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panel 3 on appliance configuration manager for vCenter Server details.":::
 
-1. In **Step 3: Provide server credentials to perform software inventory and agentless dependency analysis**, click **Add credentials** to provide multiple server credentials to perform guest-based discovery like software inventory, agentless dependency analysis and discovery of databases and web applications.
+1. In **Step 3: Provide server credentials to perform software inventory and agentless dependency analysis**, and select **Add credentials** to provide multiple server credentials to perform guest-based discovery like software inventory, agentless dependency analysis and discovery of databases and web applications.
 
     > [!Note]
     > If you want to perform guest based discovery features later, you can provide your intent by disabling the slider on the appliance configuration manager and proceed to start discovery of the servers from your environment.
@@ -77,13 +77,13 @@ The new users need to follow steps given below:
 ## Review All inventory
 You can start by selecting the count of workloads on **Overview** of your project or select **All inventory** under **Explore inventory** from the menu on the left to see the list of workloads, discovered from your environment either by using [Azure Migrate appliance](/migrate-appliance.md) or using [CSV import]().
 
-**All Inventory** view helps you review all the workloads discovered from your datacentre including servers (VMware VMs/Hyper-V VMs/Physical servers/servers running in other public clouds), databases and web applications which can be found inline by expanding the server. 
+**All Inventory** view helps you review all the workloads discovered from your datacentre, including servers (VMware VMs/Hyper-V VMs/Physical servers/servers running in other public clouds), databases and web applications which can be found inline by expanding the server. 
 
 While the default view shows databases and web applications on expanding a server in a hierarchical list, you can also choose to see a flat list of all workloads by switching to that view from the action on top right of the page. 
 
 :::image type="content" source="./media/how-to-review-discovered-inventory/switch-to-flat-list.png" alt-text="Switch from hierarchical to flat view":::
 
-You can navigate across pages to review the entire inventory from a single view or choose to go to separate views for **Infrastruture, Databases and Web apps** inventory from the menu on the left.
+You can navigate across pages to review the entire inventory from a single view or choose to go to separate views for **Infrastruture, Databases, and Web apps** inventory from the menu on the left.
 
 ### Default columns
 
@@ -91,31 +91,31 @@ The default view shows the inventoried workloads along with a set of attributes 
 
 **Attribute name** | **Details**
 --- | --- 
-Workload | Name of the Server, Database or Web application 
-Category | Category of the inventoried asset across Server, Database and Web app
-Type | Type of workload <br/> *For instance a Server can be Windows server/Linux server, a Database can be SQL Server and Web app can be .NET/IIS*
-Edition | Edition of the Server, Database or Web app
-Version | Version of the Server, Database or Web app
-Dependencies | Netowork dependencies of the server <br/> *Dependency analysis will be auto-enabled on upto 1000 servers per appliance if the validation checks succeed. [Learn more]()*
+Workload | Name of the Server, Database, or Web application 
+Category | Category of the inventoried asset across Server, Database, and Web app
+Type | Type of workload <br/> *For instance a Server can be Windows server/Linux server, a Database can be SQL Server, and Web app can be .NET/IIS*
+Edition | Edition of the Server, Database, or Web app
+Version | Version of the Server, Database, or Web app
+Dependencies | Netowork dependencies of the server <br/> *Dependency analysis is auto-enabled on upto 1000 servers per appliance if the validation checks succeed. [Learn more]()*
 Support Status | Support status for the Servers, Databases to indicate if they are in Mainstream support, End of Support or in Extended support. [Learn more](/tutorial-discover-vmware.md#view-support-status)
 Discovery source | Source of discovery of the workload between Appliance and Import
-Tags | Tags applied to the workload. <br/> *Currently Azure Migrate supports custom tags. [Learn more]()*
+Tags | Tags applied to the workload. <br/> *Currently, Azure Migrate supports custom tags. [Learn more]()*
 
 ### Optional columns
 
-You can choose to view more attributes that are gathered by Azure Migrate as part of the discovery by selecting **Columns** from the command bar on top and choosing the additional attributes that you are interested to review. 
+You can choose to view more attributes that are gathered by Azure Migrate as part of the discovery by selecting **Columns** from the command bar on top and choosing the more attributes that you're interested to review. 
 
 :::image type="content" source="./media/how-to-review-discovered-inventory/optional-columns-list.png" alt-text="Select optional columns":::
 
  > [!Note]
- > The exhaustive list of attributes discovered by Azure Migrate are covered in the [details of exported inventory data](/how-to-review-discovered-inventory.md#export-all-inventory-data) below.
+ > The exhaustive list of attributes discovered by Azure Migrate are covered in the below[details of exported inventory data](/how-to-review-discovered-inventory.md#export-all-inventory-data).
 
 ## Perform actions
 
 ### Review individual workload
-You can select the name of a workload to see all the attributes and additional metadata discovered for that workload in a detailed view. Here you can also add tags to an individual workload.
+You can select the name of a workload to see all the attributes and other metadata discovered for that workload in a detailed view. Here you can also add tags to an individual workload.
 
-The data gathered varies as per the individual workload type. Details of each type of the workload can also be found in inventory views for Infrastructure, Databases and Web apps and can be reviewed below:
+The data gathered varies as per the individual workload type. Details of each type of the workload are found in inventory views for Infrastructure, Databases, and Web apps and can be reviewed.
 
 **Workload type** | **Details** 
 --- | --- 
@@ -140,7 +140,7 @@ You can perform any of the following actions after reviewing the inventory:
 **Action name** | **Details** 
 --- | --- 
 Discover | Discover using appliance or CSV import to inventory more workloads
-Create assessment | Create an assessment of all or scoped set of workloads to review suitability, mapped Azure services, cost and readiness analysis of your workloads.<br/> You need to select one or more workloads to perform this action. <br/> Learn how to [create an assessment]().
+Create assessment | Create an assessment of all or scoped set of workloads to review suitability, mapped Azure services, cost, and readiness analysis of your workloads.<br/> You need to select one or more workloads to perform this action. <br/> Learn how to [create an assessment]().
 Build business case | Build business case for TCO/RoI analysis for all or scoped set of workloads. <br/> You need to select one or more workloads to perform this action. <br/> Learn how to [build a business case]().
 Dependency analysis | Export dependency data for servers where gathering of dependency data was auto-enabled. Learn how to [export dependency data](how-to-create-group-machine-dependencies-agentless.md#export-dependency-data).
 Tags | Tags can be added/edited at scale by selecting all or a scoped set of workloads. <br/> You need to select one or more workloads to perform this action. <br/> You can also import tags using an exported list of all inventory and importing the tags information from that CSV file. <br/> Learn how to [add tags]().
@@ -157,15 +157,15 @@ You can export and review all inventoried workloads with associated attributes a
 --- | --- 
 ID |
 Parent ID | 
-Workload | Name of the Server, Database or Web application 
+Workload | Name of the Server, Database, or Web application 
 Category | Category of the inventoried asset across Server, Database and Web app
-Type | Type of workload.<br/> For instance a Server can be Windows server/Linux server, a Database can be SQL Server and Web app can be .NET/IIS
-Edition | Edition of the Server, Database or Web app
-Version | Version of the Server, Database or Web app
-Dependencies | Netowork dependencies of the server <br/> Shows status of the dependency analysis whether Enabled, Disabled, Failed validation etc.
+Type | Type of workload.<br/> For instance a Server can be Windows server/Linux server, a Database can be SQL Server, and Web app can be .NET/IIS
+Edition | Edition of the Server, Database, or Web app
+Version | Version of the Server, Database, or Web app
+Dependencies | Netowork dependencies of the server <br/> Shows status of the dependency analysis whether Enabled, Disabled, Failed validation, etc.
 Support Status | Support status for the Servers, Databases to indicate if they are in Mainstream support, End of Support or in Extended support.
 Discovery source | Source of dicsovery of the workload between Appliance and Import
-Tags | Tags applied to the workload. <br/> Currently Azure Migrate supports custom tags. 
+Tags | Tags applied to the workload. <br/> Currently, Azure Migrate supports custom tags. 
 Cores | Number of processor cores allocated to the server
 Memory (MBs) | Total RAM, in MB, allocated to the server
 Disks | Number of disks allocated to the server
@@ -184,7 +184,7 @@ HADR configuration |
 ## Review Infrastructure inventory
 You can select **Infrastructure inventory** under **Explore inventory** from the menu on the left to see the list of infrastructure workloads, discovered from your environment either by using [Azure Migrate appliance](/migrate-appliance.md) or using [CSV import]().
 
-**Infrastruture Inventory** view helps you review all the servers discovered from your datacentre including VMware VMs/Hyper-V VMs/Physical servers/servers running in other public clouds.
+**Infrastruture Inventory** view helps you review all the servers discovered from your datacentre, including VMware VMs/Hyper-V VMs/Physical servers/servers running in other public clouds.
 
 ### Default columns
 
@@ -195,34 +195,34 @@ The default view shows the inventoried servers along with a set of attributes as
 Server | Name of the Server
 Operating system | Name of the Server Operating system
 IPv6/IPv4 | IP address of the server
-Dependencies | Netowork dependencies of the server <br/> *Dependency analysis will be auto-enabled on upto 1000 servers per appliance if the validation checks succeed. [Learn more]()*
+Dependencies | Netowork dependencies of the server <br/> *Dependency analysis is auto-enabled on upto 1000 servers per appliance if the validation checks succeed. [Learn more]()*
 DB instances | No fo DB instances found running on the server
 Web app | No of web apps found running on the server
 Issues | No of discovery issues reported on the server
 Support Status | Support status for the Servers, Databases to indicate if they are in Mainstream support, End of Support or in Extended support. [Learn more](/tutorial-discover-vmware.md#view-support-status)
-Tags | Tags applied to the server. <br/> *Currently Azure Migrate supports custom tags. [Learn more]()*
+Tags | Tags applied to the server. <br/> *Currently, Azure Migrate supports custom tags. [Learn more]()*
 
 ### Optional columns
 
-You can choose to view more attributes that are gathered by Azure Migrate as part of the discovery by selecting **Columns** from the command bar on top and choosing the additional attributes that you are interested to review. 
+You can choose to view more attributes that are gathered by Azure Migrate as part of the discovery by selecting **Columns** from the command bar on top and choosing the more attributes that you're interested to review. 
 
 :::image type="content" source="./media/how-to-review-discovered-inventory/optional-columns-list.png" alt-text="Select optional columns":::
 
  > [!Note]
- > The exhaustive list of attributes discovered by Azure Migrate are covered in the [details of exported server data](/how-to-review-discovered-inventory.md#export-all-server-data) below.
+ > The exhaustive list of attributes discovered by Azure Migrate are covered in the below [details of exported server data](/how-to-review-discovered-inventory.md#export-all-server-data).
 
 
 ### Review server data
-You can select the name of a server to see all the attributes and additional metadata discovered for that server in a detailed view. Here you can also add tags to an individual server. Here are the details you can review for each server:
+You can select the name of a server to see all the attributes and another metadata discovered for that server in a detailed view. Here you can also add tags to an individual server. Here are the details you can review for each server:
 
 **Tab name** | **Details**
 --- | --- 
 Overview | Provides overview of the server with basic details, Storage, Network, OS & Hardware configuration 
 Software inventory | Provides a list of installed Roles & Features *(Windows Servers only)* and list of installed software on a Windows or Linux server
-DB Instances | List of DB instances found running on the server along with attributes like DB platform, Support status, user databases etc.
-Web apps | List of web apps found running on the server along with attributes like Web server, framework etc.
+DB Instances | List of DB instances found running on the server along with attributes like DB platform, Support status, user databases, etc.
+Web apps | List of web apps found running on the server along with attributes like Web server, framework, etc.
 Tags | List of custom tags applied to the server with an option to edit or delete existing tags and add new tags
-Issues | List of discovery issues encountered on the server categorized by features providing error message, possible causes and remediation steps
+Issues | List of discovery issues encountered on the server categorized by features providing error message, possible causes, and remediation steps.
 
 ### Scoping server data
 After reviewing the servers and their attributes, you can either **Select all workloads across pages** or scope the list using **Search and Filter** capabilities to perform required action on the server inventory.
@@ -279,10 +279,10 @@ Appliance name | Name of the appliance used to discover the workload
 
 You can view all the discovered Web Apps from your environment by selecting **Web apps** under **Explore Inventory** from the left menu.  
 
-**Web apps** inventory view helps you review all the discovered ASP.NET and Java web apps running on the discovered servers. The default view will show all web apps, but you can select on **ASP.NET** or **Java** to filter respective web apps by type.  
+**Web apps** inventory view helps you review all the discovered ASP.NET and Java web apps running on the discovered servers. The default view shows all web apps, but you can select on **ASP.NET** or **Java** to filter respective web apps by type.  
 
  > [!Note]
- > If you are not able to see all the webapps discovered ensure that software inventory is completed for all the servers. [Learn more](/azure/migrate/add-server-credentials?view=migrate&branch=release-migrate-new-structure).  
+ > If you're not able to see all the webapps discovered ensure that software inventory is completed for all the servers. [Learn more](/azure/migrate/add-server-credentials?view=migrate&branch=release-migrate-new-structure).  
 
 **Default columns**
 
@@ -313,11 +313,11 @@ First discovered time  | First timestamp when the web app was discovered
 
 ### Review Web app data
 
-You can select the name of a web app to see all the attributes and additional metadata discovered for that workload in a detailed view. Here you can also add tags to an individual server. Here are the details you can review for each web app: 
+You can select the name of a web app to see all the attributes and another metadata discovered for that workload in a detailed view. Here you can also add tags to an individual server. Here are the details you can review for each web app: 
 
 **Tab name ** | **Details**
 --- | --- 
-Overview    |Provides overview of the Web App with basic details like Web app name, server, protocol framework and discovery details. 
+Overview    |Provides overview of the Web App with basic details like Web app name, server, protocol framework, and discovery details. 
 Tags | List of custom tags applied to the web app with an option to edit or delete existing tags and add new tags 
 
 ### Scoping Webb app data 
@@ -333,7 +333,7 @@ You can perform following actions on all or a scoped set of web apps after revie
 **Tab name ** | **Details**
 --- | --- 
 Discover     |Discover using appliance or CSV import to inventory more workloads 
-Create assessment  | Create an assessment of all or scoped set of workloads to review suitability, mapped Azure services, cost and readiness analysis of your workloads. 
+Create assessment  | Create an assessment of all or scoped set of workloads to review suitability, mapped Azure services, cost, and readiness analysis of your workloads. 
 You need to select one or more workloads to perform this action. [Learn how to create an assessment](/azure/migrate/tutorial-assess-webapps?view=migrate&branch=release-migrate-new-structure&pivots=asp-net).
 Dependency analysis     |Export dependency data for servers where gathering of dependency data was auto-enabled. Learn how to export dependency data. 
 Tags | Tags can be added/edited at scale by selecting all or a scoped set of workloads. 
