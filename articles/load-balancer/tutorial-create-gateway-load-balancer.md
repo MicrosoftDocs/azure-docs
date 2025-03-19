@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Create a gateway load balancer'
 titleSuffix: Azure Load Balancer
-description: Use this tutorial to learn how to create a gateway load balancer using the Azure portal, Azure PowerShell, and Azure LCI.
+description: Use this tutorial to learn how to create a gateway load balancer using the Azure portal, Azure PowerShell, and Azure CLI.
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-load-balancer
@@ -83,7 +83,7 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
 
 A virtual network is needed for the resources that are in the backend pool of the gateway load balancer.  
 
-Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to create the virtual network.
+Use [az network virtual network create](/cli/azure/network/vnet#az-network-vnet-create) to create the virtual network.
 
 ```azurecli-interactive
   az network vnet create \
@@ -139,7 +139,7 @@ It can take a few minutes for the Azure Bastion host to deploy.
 
 ## Create NSG
 
-Use the following example to create a network security group. You'll configure the NSG rules needed for network traffic in the virtual network created previou
+Use the following example to create a network security group. You configure the NSG rules needed for network traffic in the virtual network created previous
 
 Use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) to create the NSG.
 
@@ -256,7 +256,7 @@ New-AzBastion @bastion -AsJob
 
 ## Create NSG
 
-Use the following example to create a network security group. You'll configure the NSG rules needed for network traffic in the virtual network created previously.
+Use the following example to create a network security group. You configure the NSG rules needed for network traffic in the virtual network created previously.
 
 Use [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) to create rules for the NSG. Use [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) to create the NSG.
 
@@ -372,7 +372,7 @@ In this section, you create the configuration and deploy the gateway load balanc
     | IP Version | Select **IPv4** or **IPv6** depending on your requirements. |
     | Frontend IP address | Select **lb-frontend-IP**. |
     | Backend pool | Select **lb-backend-pool**. |
-    | Health probe | Select **Create new**. </br> In **Name**, enter **lb-health-probe**. </br> Select **TCP** in **Protocol**. </br> Leave the rest of the defaults, and select **Save**. |
+    | Health probe | Select **Create new**.</br> In **Name**, enter **lb-health-probe**.</br> Select **TCP** in **Protocol**.</br> Leave the rest of the defaults, and select **Save**. |
     | Session persistence | Select **None**. |
     | Enable TCP reset | Leave default of unchecked. |
     | Enable floating IP | Leave default of unchecked. |
@@ -408,7 +408,7 @@ To create the load balancer, use [az network lb create](/cli/azure/network/lb#az
 
 An internal interface is automatically created with Azure CLI with the **`--identifier`** of **900** and **`--port`** of **10800**.
 
-You'll use [az network lb address-pool tunnel-interface add](/cli/azure/network/lb/address-pool/tunnel-interface#az-network-lb-address-pool-tunnel-interface-add) to create external tunnel interface for the load balancer. 
+You use [az network lb address-pool tunnel-interface add](/cli/azure/network/lb/address-pool/tunnel-interface#az-network-lb-address-pool-tunnel-interface-add) to create external tunnel interface for the load balancer. 
 
 ```azurecli-interactive
   az network lb address-pool tunnel-interface add \
@@ -457,9 +457,9 @@ Traffic destined for the backend instances is routed with a load-balancing rule.
 
 # [Azure PowerShell](#tab/azurepowershell/)
 
-In this section, you'll create the configuration and deploy the gateway load balancer. Use [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) to create the frontend IP configuration of the load balancer. 
+In this section, you create the configuration and deploy the gateway load balancer. Use [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) to create the frontend IP configuration of the load balancer. 
 
-You'll use [New-AzLoadBalancerTunnelInterface](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) to create two tunnel interfaces for the load balancer. 
+You use [New-AzLoadBalancerTunnelInterface](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) to create two tunnel interfaces for the load balancer. 
 
 Create a backend pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) for the NVAs. 
 
@@ -561,7 +561,7 @@ Deploy NVAs through the Azure Marketplace. Once deployed, add the virtual machin
 
 In this example, you'll chain the frontend of a standard load balancer to the gateway load balancer. 
 
-You'll add the frontend to the frontend IP of an existing load balancer in your subscription.
+You add the frontend to the frontend IP of an existing load balancer in your subscription.
 
 Use [Set-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/set-azloadbalancerfrontendipconfig) to chain the gateway load balancer frontend to your existing load balancer.
 
@@ -630,7 +630,7 @@ You add the frontend to the frontend IP of an existing load balancer in your sub
 
 In this example, you'll chain the frontend of a standard load balancer to the gateway load balancer. 
 
-You'll add the frontend to the frontend IP of an existing load balancer in your subscription.
+You add the frontend to the frontend IP of an existing load balancer in your subscription.
 
 Use [az network lb frontend-ip show](/cli/azure/network/lb/frontend-ip#az-az-network-lb-frontend-ip-show) to place the resource ID of your gateway load balancer frontend into a variable.
 
@@ -657,7 +657,7 @@ Use [az network lb frontend-ip update](/cli/azure/network/lb/frontend-ip#az-netw
 
 In this example, you'll chain the frontend of a standard load balancer to the gateway load balancer. 
 
-You'll add the frontend to the frontend IP of an existing load balancer in your subscription.
+You add the frontend to the frontend IP of an existing load balancer in your subscription.
 
 Use [Set-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/set-azloadbalancerfrontendipconfig) to chain the gateway load balancer frontend to your existing load balancer.
 
@@ -731,7 +731,7 @@ You add the gateway load balancer's frontend to an existing VM's NIC IP configur
 
 Alternatively, you can chain a VM's NIC IP configuration to the gateway load balancer. 
 
-You'll add the gateway load balancer's frontend to an existing VM's NIC IP configuration.
+You add the gateway load balancer's frontend to an existing VM's NIC IP configuration.
 
 Use [az network lb frontend-ip show](/cli/azure/network/lb/frontend-ip#az-az-network-lb-frontend-ip-show) to place the resource ID of your gateway load balancer frontend into a variable.
 
@@ -757,7 +757,7 @@ Use [az network lb frontend-ip update](/cli/azure/network/nic/ip-config#az-netwo
 
 Alternatively, you can chain a VM's NIC IP configuration to the gateway load balancer. 
 
-You'll add the gateway load balancer's frontend to an existing VM's NIC IP configuration.
+You add the gateway load balancer's frontend to an existing VM's NIC IP configuration.
 
 Use [Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig) to chain the gateway load balancer frontend to your existing VM's NIC IP configuration.
 
