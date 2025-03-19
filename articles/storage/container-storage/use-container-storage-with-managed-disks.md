@@ -118,7 +118,7 @@ $ az disk show --resource-group <resourceGroup> --name <diskName> --query "zones
 1 
 ```
  
-1. Find cluster managed identity 
+1. Find cluster managed identity: 
 
 ```bash 
 $ az aks show --resource-group <resourceGroup> --name <clusterName> --query "identity" -o tsv 
