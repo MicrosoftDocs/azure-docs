@@ -14,7 +14,7 @@ ms.topic: how-to
 
 # Configure environment types for a dev center
 
-In Azure Deployment Environments, you use [environment types](./concept-environments-key-concepts.md#dev-center-environment-types) to define the environments that development teams can deploy. You have the flexibility to name the environment types according to the nomenclature that your enterprise uses: for example, *sandbox*, *dev*, *test*, or *production*. You can specify deployment settings and the permissions that are available to developers per environment type and per project. 
+In Azure Deployment Environments, you use [environment types](./concept-environments-key-concepts.md#dev-center-environment-types) to define the environments that development teams can deploy. You have the flexibility to name the environment types according to the naming conventions that your enterprise uses: for example, *sandbox*, *dev*, *test*, and *production*. You can specify deployment settings and the permissions that are available to developers per environment type and per project. 
 
 In this article, you'll learn how to:
 
@@ -54,7 +54,7 @@ To delete an environment type from a dev center:
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to Azure Deployment Environments.
 1. In the left pane, under **Configure**, select **Dev centers**.
 1. On the **Dev centers** page, select your dev center. 
-1. Select **Environment types** from the left pane.
+1. Select **Environment types** in the left pane.
 1. Select the environment types that you want to delete.
 1. Select **Delete** and then confirm.
 
