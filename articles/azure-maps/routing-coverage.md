@@ -8,7 +8,7 @@ ms.date: 03/19/2025
 ms.topic: conceptual
 ms.service: azure-maps
 ms.subservice: routing
-zone_pivot_groups: azure-maps-route-coverage
+zone_pivot_groups: azure-maps-coverage
 ---
 
 # Azure Maps routing coverage
@@ -19,7 +19,7 @@ This article provides coverage information for Azure Maps routing. Upon a search
 
 The following information is available in the [Azure Maps routing coverage tables]:
 
-::: zone pivot="route-previous"
+::: zone pivot="service-previous"
 <!-----------------------------  ROUTING v1   ---------------------------------------------------------------------------->
 
 ### Calculate Route
@@ -37,7 +37,7 @@ The Matrix Routing service calculates travel time and distance between all possi
 ::: zone-end
 
 <!-----------------------------  ROUTING v2025-01-01   --------------------------------------------------------------------->
-::: zone pivot="route-latest"
+::: zone pivot="service-latest"
 
 ### Road Data / Routing (Driving and Walking)
 
@@ -65,7 +65,7 @@ The Azure Maps Truck Routing API provides travel routes that take truck attribut
 
 Azure Maps supports truck routing in the countries/regions indicated in the following tables.
 
-::: zone pivot="route-latest"
+::: zone pivot="service-latest"
 
 ### Route direction services
 
@@ -77,7 +77,7 @@ For more information about the Route Directions API, see [Azure Maps Route Servi
 
 ## Azure Maps routing coverage tables
 
-::: zone pivot="route-previous"
+::: zone pivot="service-previous"
 
 <!------------------------------------------------------------------
 ### Legend
@@ -351,7 +351,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 ::: zone-end
 
 <!-----------------------------  ROUTING v2025-01-01   --------------------------------------------------------------------->
-::: zone pivot="route-latest"
+::: zone pivot="service-latest"
 
 The Azure Maps Routing service contains different levels of geographic coverage for every country/region in the world. The following table contains details about coverage for:
 
