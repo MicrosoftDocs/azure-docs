@@ -20,7 +20,12 @@ This article explains the version details of change tracking extension.
 ### Extension version 2.29.0.0
 
 - **Windows** - For Windows Registry to work seamlessly, we recommend you to move to extension version 2.29.0.0
+- **Linux** - None
 
+### Extension version 2.27.0.0
+
+- **Windows** - None
+- **Linux** - We recommend you to move to extension version 2.29.0.0
 
 ### Extension version 2.24.0.0
 
