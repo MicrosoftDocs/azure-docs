@@ -1,11 +1,11 @@
 ---
-title: Create and manage projects
-description: Find, create, manage, and delete projects in Azure Migrate.
+title: Quickstart to create an Azure Migrate project using Portal
+description: In this quickstart, you'll learn how to create an Azure Migrate project.
 author: ankitsurkar06
-ms.author: ankitsurkar
+ms.author: v-uhabiba
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 02/03/2025
+ms.date: 03/19/2025
 ms.custom: engagement-fy23
 ---
 
@@ -63,7 +63,7 @@ PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/Migra
 ```
 After you create the project, perform the following steps to try out the new agentless dependency analysis enhancements: 
 
-Ensure that you install Az CLI to execute the required commands by following the steps provided in the documentation [here](https://learn.microsoft.com/cli/azure/install-azure-cli)
+Ensure that you install Az CLI to execute the required commands by following the steps provided in the documentation [here](/cli/azure/install-azure-cli).
 
 After you install the Az CLI (in PowerShell), open PowerShell on your system as an Administrator and execute the following commands:
 
