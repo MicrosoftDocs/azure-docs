@@ -1,12 +1,12 @@
 ---
-title: Configure Network Security Perimeter for Azure Batch accounts
-description: Learn how to associate an Azure Batch account with Network Security Perimeter
+title: Configure network security perimeter for Azure Batch accounts
+description: Learn how to associate an Azure Batch account with network security perimeter
 ms.topic: how-to
 ms.date: 3/17/2025
 ms.custom: references_regions
 ---
 
-# Network Security Perimeter
+# Network security perimeter
 
 The [network security perimeter (NSP)](../private-link/network-security-perimeter-concepts.md) provided by Azure networking serves as a comprehensive tool for customers to ensure optimal security when utilizing PaaS resources. It allows customers to establish logical boundaries for network isolation and collectively manage public access controls for numerous PaaS resources.
 
@@ -18,11 +18,11 @@ With a network security perimeter:
 > [!IMPORTANT]
 > Network security perimeter rules do not govern the private link with the [private endpoint](../private-link/private-endpoint-overview.md).
 
-## Network Security Perimeter Scenarios in Batch service
+## Network security perimeter scenarios in Batch service
 
 Azure Batch service is designed to support various scenarios that necessitate access to other PaaS resources:
 
-  - Application packages requires communication with Azure Storage. For more information, see [batch-application-packages](./batch-application-packages.md).
+  - Application packages require communication with Azure Storage. For more information, see [batch-application-packages](./batch-application-packages.md).
   - Customer managed key requires communication with Azure KeyVault. For more information, see [batch-customer-managed-key](./batch-customer-managed-key.md).
 
 Network administrators can use the network security perimeter feature to create an isolation boundary for their PaaS services. This security perimeter permits the setting up of public access controls for various PaaS resources, providing a consistent user experience and a uniform API. Setting up network security perimeter for PaaS communications supported by Batch, refer to the [Network security perimeter in Azure Storage](/azure/storage/common/storage-network-security#network-secuirty-perimeter-preview) and [Network security perimeter in Azure Key Vault](/azure/key-vault/general/network-security#network-security-perimeter-preview) for more details. 
@@ -37,7 +37,7 @@ Batch users can also use the network security perimeter to secure inbound traffi
 > Network security perimeters do not regulate nodes within Batch pools. To ensure network isolation for the pool, you may still need to create a **nodeManagement** private endpoint for [the Batch pool without public ip addresses](./simplified-node-communication-pool-no-public-ip.md).
 > To enable a node to access Azure Storage and other PaaS resources associated with a network security perimeter, ensure that relevant access rules are added to the target PaaS resource's profile. These access rules grant the node the necessary permissions to visit.
 
-## Configure Network Security Perimeter for Azure Batch account
+## Configure network security perimeter for Azure Batch account
 
 ### Prerequisite
 
@@ -50,24 +50,24 @@ Batch users can also use the network security perimeter to secure inbound traffi
 
 3. Make sure your Batch account operates only with the simplified node communication pool.
 
-### Create a Network Security Perimeter
+### Create a network security perimeter
 
 Create your own network security perimeter resource using [Azure portal](../private-link/create-network-security-perimeter-portal.md) or [PowerShell](../private-link/create-network-security-perimeter-powershell.md) or [Azure CLI](../private-link/create-network-security-perimeter-cli.md).
 
-### Associate Batch account with the Network Security Perimeter
+### Associate Batch account with the network security perimeter
 
 #### Using Azure portal
 1. Navigate to your network security perimeter resource in the Azure portal, where you should establish a profile for your Batch account to associate with. If you do not create the profile, go to **Settings** -> **Profiles** to create a network security perimeter profile initially.
 
-![Profiles](./media/network-security-perimeter/create-profile.png)
+![Screenshot of the profile creation process in the portal.](./media/network-security-perimeter/create-profile.png)
 
 2. In **Overview**, select the third option **Associate resources to your profile**
 
-![NSP Get Started](./media/network-security-perimeter/nsp-get-started.png)
+![Screenshot of associating resources to your profile in the portal.](./media/network-security-perimeter/associate-resources.png)
 
 3. Associate resources with a new profile or associate resources with an existing profile
 
-![Associate Profile](./media/network-security-perimeter/associate-profile.png)
+![Screenshot of associating resources with either a new or existing profile in the portal.](./media/network-security-perimeter/associate-resources-with-profile.png)
 
 #### Using PowerShell
 1. Create a new profile for your network security perimeter
