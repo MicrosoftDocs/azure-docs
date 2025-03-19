@@ -5,6 +5,9 @@ author: rishikeshmohanty
 ms.author: mohantyr
 ms.service: azure-hdinsight
 ms.topic: how-to
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: nijelsf
 ms.date: 01/02/2025
 ---
 

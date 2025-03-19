@@ -5,6 +5,9 @@ ms.service: azure-hdinsight
 ms.topic: quickstart
 author: yeturis
 ms.author: sairamyeturi
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: nijelsf
 ms.date: 06/14/2024
 ---
 
