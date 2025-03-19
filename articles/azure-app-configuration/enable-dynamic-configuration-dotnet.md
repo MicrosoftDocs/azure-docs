@@ -200,7 +200,7 @@ Add the following key-value to the App Configuration store and leave **Label** a
 
     ### [Connection string](#tab/connection-string)
 
-    Set an environment variable named `ConnectionString` to the read-only key connection string found under **Access keys** of your store in the Azure portal.
+    Set an environment variable named `ConnectionString` to the read-only key connection string found under **Access settings** of your store in the Azure portal.
 
     If you use the Windows command prompt, run the following command:
     ```console
