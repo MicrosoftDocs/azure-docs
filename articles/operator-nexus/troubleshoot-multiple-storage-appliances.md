@@ -17,7 +17,7 @@ This guide documents common issues encountered in Azure Operator Nexus environme
 
 There are several common misconfigurations that prevent the second storage appliance from deploying successfully. Symptoms include:
 
-- The [cluster creation](/howto-configure-cluster.md#create-a-cluster) step failing.
+- The [cluster creation](./howto-configure-cluster.md#create-a-cluster) step failing.
 - The cluster creation step succeeding, but only creating a single storage appliance resource.
 
 If you see these issues, perform these checks:
@@ -25,7 +25,7 @@ If you see these issues, perform these checks:
 - Confirm that you correctly configured the prerequisites for both storage appliances. The initial IP address configuration is different for each storage appliance. See [the platform prerequisites](./howto-platform-prerequisites.md) for the correct configuration.
 - Confirm that Network Fabric Controller and Network Fabric are successfully provisioned.
 - Confirm that you have opened a support ticket to enable Network Fabric support for the second storage appliance. Confirm the ticket has been closed.
-- Check that the Azure CLI command you ran included the configuration for the second storage appliance and specified an aggregator rack SKU that supports a second storage appliance. See [cluster creation with multiple storage appliances](/howto-configure-cluster.md#create-the-cluster-using-azure-cli---multiple-storage-appliances) for details.
+- Check that the Azure CLI command you ran included the configuration for the second storage appliance and specified an aggregator rack SKU that supports a second storage appliance. See [cluster creation with multiple storage appliances](./howto-configure-cluster.md#create-the-cluster-using-azure-cli---multiple-storage-appliances) for details.
 
 If any of the configurations was incorrect:
 

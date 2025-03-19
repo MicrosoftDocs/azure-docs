@@ -2,7 +2,7 @@
 title: Azure Operator Nexus multiple storage appliances
 description: Lean about Azure Operator Nexus support for multiple storage appliances.
 author: pjw711
-ms.author: speterwhiting
+ms.author: peterwhiting
 ms.service: azure-operator-nexus
 ms.topic: conceptual
 ms.date: 03/12/2025
@@ -26,12 +26,12 @@ Azure Operator Nexus only supports a second storage appliance for instances that
 - The instance hardware matches the 2.0.x or later bills of material (BOMs).
 - All Pure storage appliances have R4 controllers.
 
-The Azure Operator Nexus SKUs that support a second storage appliance are documented in the [supported SKUs documentation](/reference-operator-nexus-skus.md). The storage appliances don't have to have the same capacity configurations. All supported capacity configurations are listed in the [supported storage appliances](/reference-near-edge-storage.md) documentation.
+The Azure Operator Nexus SKUs that support a second storage appliance are documented in the [supported SKUs documentation](./reference-operator-nexus-skus.md). The storage appliances don't have to have the same capacity configurations. All supported capacity configurations are listed in the [supported storage appliances](./reference-near-edge-storage.md) documentation.
 
 ## Supported deployment models
 
 >[!IMPORTANT]
->Deployment of a Nexus instance with two storage appliances requires a manual step after [Network Fabric creation](/howto-configure-network-fabric.md#create-a-network-fabric) and before [Network Fabric provisioning](/howto-configure-network-fabric.md#provision-a-network-fabric). The network fabric requires manual enablement of the ports that connect to the second storage device. This step can only be performed by Microsoft support; users should [raise a support ticket to request assistance](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+>Deployment of a Nexus instance with two storage appliances requires a manual step after [Network Fabric creation](./howto-configure-network-fabric.md#create-a-network-fabric) and before [Network Fabric provisioning](./howto-configure-network-fabric.md#provision-a-network-fabric). The network fabric requires manual enablement of the ports that connect to the second storage device. This step can only be performed by Microsoft support; users should [raise a support ticket to request assistance](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 Azure Operator Nexus only supports deploying a second storage appliance at initial Nexus instance install time. There's no support for adding a second storage appliance to an existing Nexus instance. Any existing instance that requires a second storage appliance must be reinstalled.
 
@@ -87,7 +87,7 @@ You can create the shared storage service on either storage appliance when the C
 
 If no storage appliance configuration is provided at CSN creation time, the shared storage service uses the first storage appliance. If the configuration is present but doesn't match a storage appliance then the CSN creation will fail.
 
-See [Prerequisites for deploying tenant workloads](/quickstarts-tenant-workload-prerequisites.md#create-a-cloud-services-network) for instructions on creating the shared storage service on a specific storage appliance.
+See [Prerequisites for deploying tenant workloads](./quickstarts-tenant-workload-prerequisites.md#create-a-cloud-services-network) for instructions on creating the shared storage service on a specific storage appliance.
 
 #### Nexus-shared limitations
 
@@ -95,10 +95,10 @@ See [Prerequisites for deploying tenant workloads](/quickstarts-tenant-workload-
 
 ### Persistent storage for virtual machines
 
-Nexus VMs support persistent OS disks and data disks backed by the storage appliance. There's no support for placing these disks on the second storage appliance. All VM disks are placed on the storage appliance in rack slot 1. For more information, see [Azure Operator Nexus storage for virtual machines](/concepts-storage-virtual-machine.md).
+Nexus VMs support persistent OS disks and data disks backed by the storage appliance. There's no support for placing these disks on the second storage appliance. All VM disks are placed on the storage appliance in rack slot 1. For more information, see [Azure Operator Nexus storage for virtual machines](./concepts-storage-virtual-machine.md).
 
 ### Metrics, logs, and monitoring
 
-The second storage appliance appears as an independent resource in Azure, of type NetworkCloud/storageAppliance. A Nexus instance with two storage appliances have two Storage Appliance Azure Resources. These resources are functionally identical: they share an API definition; and all supported metrics, documented in [List of Metrics Collected in Azure Operator Nexus](/list-of-metrics-collected.md), function identically on both storage appliances.
+The second storage appliance appears as an independent resource in Azure, of type NetworkCloud/storageAppliance. A Nexus instance with two storage appliances have two Storage Appliance Azure Resources. These resources are functionally identical: they share an API definition; and all supported metrics, documented in [List of Metrics Collected in Azure Operator Nexus](./list-of-metrics-collected.md), function identically on both storage appliances.
 
-Nexus also makes [storage appliance logs available](/list-logs-available.md#storage-appliance). Audit and alert logs are streamed on a per-resource basis. System logs are delivered in a combined stream that includes logs from both storage appliances.
+Nexus also makes [storage appliance logs available](./list-logs-available.md#storage-appliance). Audit and alert logs are streamed on a per-resource basis. System logs are delivered in a combined stream that includes logs from both storage appliances.

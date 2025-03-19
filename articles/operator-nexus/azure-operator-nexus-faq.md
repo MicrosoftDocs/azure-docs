@@ -40,7 +40,7 @@ Updates of Management bundle may cause interruptions to provisioning activities 
 On the other hand, Runtime bundle upgrades deals with the components that require updates to the OS (Operating System) and/or workload supporting components. The update of the runtime bundle is entirely under the control of the customer and APIs can be used to perform these updates. You might observe some workload impacts during this upgrade.
 
 ### Is the storage appliance a must required device?
-For near-edge SKUs, Storage appliance is a part of the Hardware infrastructure that Operator needs to procure. You can optionally choose to deploy a second storage appliance in an Azure Operator Nexus instance. For more information, see [Multiple storage appliances](/concepts-storage-multiple-appliances.md).
+For near-edge SKUs, Storage appliance is a part of the Hardware infrastructure that Operator needs to procure. You can optionally choose to deploy a second storage appliance in an Azure Operator Nexus instance. For more information, see [Multiple storage appliances](./concepts-storage-multiple-appliances.md).
 
 ### Does Operator Nexus provide best practices or blueprints for deploying network functions on Operator Nexus?
 Yes, Operator Nexus comes with Nexus Ready program. With this program, Microsoft is working with industry leading Network Function partners to validate that their network functions to ensure they can run on Nexus platform. We validate these network functions on regular intervals to ensure that they stay compliant with newer versions of Nexus. Operators can now get consistent and scalable deployment of multi-vendor network functions with the Nexus Ready program.
