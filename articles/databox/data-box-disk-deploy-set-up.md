@@ -532,3 +532,11 @@ Advance to the next tutorial to learn how to copy data on your Data Box Disk.
 > [Copy data on your Data Box Disk](./data-box-disk-deploy-copy-data.md)
 
 ::: zone-end
+
+::: zone pivot="dbx-ng"
+
+::: zone-end
+
+::: zone pivot="dbx"
+
+::: zone-end

@@ -387,3 +387,12 @@ Verify your data by following these steps:
     For more information on data validation, see [Validate data](#validate-data). If you experience errors during validation, see [troubleshoot validation errors](data-box-disk-troubleshoot.md).
 
 ::: zone-end
+
+:::zone pivot="dbx-ng"
+
+:::zone-end
+
+:::zone pivot="dbx"
+
+:::zone-end
+
