@@ -4,7 +4,10 @@ description: In this quickstart, you learn how to use Apache Phoenix in HDInsigh
 ms.service: azure-hdinsight
 ms.custom: hdinsightactive, mode-other
 ms.topic: quickstart
-ms.date: 09/06/2024
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: nijelsf
+ms.date:  09/06/2024
 #Customer intent: As a HBase user, I want learn Apache Phoenix so that I can run HBase queries in Azure HDInsight.
 ---
 
