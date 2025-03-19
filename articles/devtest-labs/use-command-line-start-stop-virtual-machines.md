@@ -139,7 +139,7 @@ To run locally, use the appropriate syntax for setting and calling variables dep
 
    ```azurecli
    az lab vm %ACTION% --lab-name %DEVTESTLABNAME% --name %VMNAME% --resource-group %RESOURCEGROUP%
-```
+   ```
 
 ---
 
