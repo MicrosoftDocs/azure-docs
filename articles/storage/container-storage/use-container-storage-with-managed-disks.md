@@ -107,7 +107,7 @@ If you have Azure managed disks that are already provisioned, you can create a p
 
 Follow these steps to prepare before creating a pre-provisioned storage pool for Azure Disks. 
 
-1. Pre-provisioned Azure managed disks need to be in the same zone of system node pool. Follow these steps to check zones of disks and system node pool. 
+1. Pre-provisioned Azure managed disks need to be in the same zone of the system node pool. Follow these steps to check zones of disks and system node pool. 
 
  ```bash 
 
