@@ -6,8 +6,8 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.date: 01/22/2025
-ms.reviewer: sapnakeshari
-ms.author: banders
+ms.reviewer: prsaini
+ms.author: prsaini
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-bicep
 ---
 
