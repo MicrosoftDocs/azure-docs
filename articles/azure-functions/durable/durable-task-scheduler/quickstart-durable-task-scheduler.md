@@ -13,7 +13,7 @@ zone_pivot_groups: dts-runtime
 
 Write stateful functions in a serverless environment using durable functions, a feature of [Azure Functions](../../functions-overview.md). Scenarios where durable functions is useful include orchestrating microservices and workflows, stateful patterns like fan-out/fan-in, and long-running tasks.  
 
-Durable functions supports several [storage providers](../durable-functions-storage-providers.md), also known as _backends_, for storing orchestration and entity runtime state. 
+Durable functions supports several [storage providers](../durable-functions-storage-providers.md), also known as *backends*, for storing orchestration and entity runtime state. 
 
 In this quickstart, you configure a durable functions app to use the [durable task scheduler](../durable-functions-storage-providers.md#dts) as the backend and deploy the app to Azure using **Visual Studio Code**. 
 
@@ -257,7 +257,7 @@ az functionapp function list --resource-group <RESOURCE_GROUP_NAME> --name <FUNC
 
 Check the status of the orchestration instance and activity details on the durable task scheduler dashboard. Accessing the dashboard requires you to log in. 
 
-[!INCLUDE [assign-dev-identity-rbac-portal](./includes/assign-dev-identity-rbac-portal.md)]
+[!INCLUDE [assign-dev-identity-role-based-access-control-portal](./includes/assign-dev-identity-role-based-access-control-portal.md)]
 
 ## Clean up resources
 

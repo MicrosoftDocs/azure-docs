@@ -32,7 +32,7 @@ The following table explains the minimum cost and features provided with each CU
 
 Find the price of a capacity unit in a given region on the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/). 
 
-## Determining the number of Capacity Units needed
+## Determine the number of Capacity Units needed
 
 > [!NOTE]
 > Durable task scheduler supports purchasing only **one capacity unit** at the moment.  

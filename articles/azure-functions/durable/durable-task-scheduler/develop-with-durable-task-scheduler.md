@@ -1,6 +1,6 @@
 ---
 title: Develop with the Azure Functions durable task scheduler (preview)
-description: Learn how to develop with the Azure Functions durable task scheduler and task hub resources
+description: Learn how to develop with the Azure Functions durable task scheduler and task hub resources.
 author: lilyjma
 ms.topic: how-to
 ms.date: 03/19/2025
@@ -252,11 +252,11 @@ You can see all the task hubs created in a scheduler on the **Overview** of the 
 
 ::: zone pivot="az-portal"
 
-1. Open the scheduler resource on Azure portal and click "Delete": 
+1. Open the scheduler resource on Azure portal and click **Delete**: 
 
     :::image type="content" source="media/create-durable-task-scheduler/dts-delete-portal.png" alt-text="Screenshot of scheduler resource in the portal highlighting delete button.":::
 
-1. Find the scheduler with the task hub you want to delete, then click into that task hub. Click "Delete":
+1. Find the scheduler with the task hub you want to delete, then click into that task hub. Click **Delete**:
 
     :::image type="content" source="media/create-durable-task-scheduler/taskhub-delete-portal.png" alt-text="Screenshot of task hub resource in the portal highlighting delete button.":::
 
@@ -346,7 +346,7 @@ The following sections demonstrate how to grant permissions to an identity resou
 
 ::: zone pivot="az-portal"
 
-[!INCLUDE [assign-rbac-portal](./includes/assign-rbac-portal.md)]
+[!INCLUDE [assign-role-based-access-control-portal](./includes/assign-role-based-access-control-portal.md)]
 
 ::: zone-end 
 
@@ -499,7 +499,7 @@ Assign the required role to your *developer identity (email)* to gain access to 
 
 ::: zone pivot="az-portal" 
 
-[!INCLUDE [assign-dev-identity-rbac-portal](./includes/assign-dev-identity-rbac-portal.md)]
+[!INCLUDE [assign-dev-identity-role-based-access-control-portal](./includes/assign-dev-identity-role-based-access-control-portal.md)]
 
 ::: zone-end 
 

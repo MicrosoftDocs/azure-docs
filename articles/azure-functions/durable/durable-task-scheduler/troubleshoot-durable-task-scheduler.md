@@ -8,11 +8,13 @@ ms.date: 03/18/2025
 # Troubleshoot the Azure Functions durable task scheduler (preview)
 
 > [!NOTE]
-> Microsoft support engineers are available to assist in diagnosing issues with your application. If you're not able to diagnose your problem after going through this article, you can file a support ticket by going the **Help** > **Support + troubleshooting** section of durable task scheduler resource on Azure portal.
+> Microsoft support engineers are available to help diagnose issues with your application. If you're not able to diagnose your problem after going through this article, you can file a support ticket by going the **Help** > **Support + troubleshooting** section of durable task scheduler resource on Azure portal.
 
 ## Check connection string and access to durable task scheduler
 
-When your app isn't running as expected, first check if you have the correct connection string format and have set up authentication correctly. 
+When your app isn't running as expected, first check if you have:
+- The correct connection string format.
+- Authentication set up correctly. 
 
 ### Local development
 
@@ -26,11 +28,11 @@ When your app isn't running as expected, first check if you have the correct con
 
 1. Check the value of `DURABLE_TASK_SCHEDULER_CONNECTION_STRING`. Specifically, verify that the scheduler endpoint and authentication type are correct. The connection string should be formatted as follows when using: 
 
-    - *User-assigned managed identity*: `Endpoint={scheduler endpoint};Authentication=ManagedIdentity;ClientID={client id}`, where *client id* is the identity's client ID. 
+    - *User-assigned managed identity*: `Endpoint={scheduler endpoint};Authentication=ManagedIdentity;ClientID={client id}`, where `client id` is the identity's client ID. 
     - *System-assigned managed identity*: `Endpoint={scheduler endpoint};Authentication=ManagedIdentity`
 
 1. Ensure the required role-based access control (RBAC) permission is [granted to the identity](./develop-with-durable-task-scheduler.md#configure-identity-based-authentication-for-app-to-access-durable-task-scheduler) needing to access the specified task hub or scheduler. 
-  -  When accessing the dashboard, ensure permission is [assigned to your own identity (email)](./develop-with-durable-task-scheduler.md#accessing-durable-task-scheduler-dashboard).
+    -  When accessing the dashboard, ensure permission is [assigned to your own identity (email)](./develop-with-durable-task-scheduler.md#accessing-durable-task-scheduler-dashboard).
 
 1. If user-assigned managed identity is used, ensure the [identity is assigned to your app](./develop-with-durable-task-scheduler.md#assign-managed-identity-to-your-app).
 
