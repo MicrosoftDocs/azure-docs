@@ -36,7 +36,7 @@ Set up a new project in an Azure subscription.
 
 4. In **Servers, databases and web apps**, select **Create project**.
 
-    :::image type="content" source="./media/quickstart-create-project/create-project-inline.png" alt-text="Screenshot of button to start creating a project." lightbox="./media/quickstart-create-project/create-project-expanded.png":::
+    :::image type="content" source="./media/quickstart-create-project/create-project-inline.png" alt-text="Screenshot of button to start creating a project." lightbox="./media/quickstart-create-project/create-project-inline.png":::
 
 5. In **Create project**, select the Azure subscription and resource group. Create a resource group if you don't have one.
 6. In **Project Details**, specify the project name and the geography in which you want to create the project.
