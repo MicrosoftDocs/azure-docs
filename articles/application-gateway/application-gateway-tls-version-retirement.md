@@ -21,7 +21,7 @@ With deprecation of TLS versions 1.0 and 1.1, the **older Predefined TLS policie
 
 The predefined policies 20150501 and 20170401 that support TLS v1.0 and 1.1 will be discontinued and can no longer be associated with an Application Gateway resource after August 2025. It is advised to transition to one of the recommended TLS policies, 20220101 or 20220101S. Alternatively, the 20170401S policy may be used if specific cipher suites are required. 
 
-![A diagram showing predefined policies for V2 SKUs.](media/application-gateway-tls-version-retire/v2-retiring-tls-policies.png)
+![A diagram showing predefined policies for V2 SKUs.](media/application-gateway-tls-version-retirement/v2-retiring-tls-policies.png)
 
 ### Custom policies for V2 SKUs
 
@@ -46,7 +46,7 @@ Azure Application Gateway V2 SKU offers two types of custom policies: Custom and
 
 The V1 SKU will only support the 20170401S policy after the older policies with TLS versions 1.0 and 1.1 are discontinued. The newer 20220101 or 20220101S policies will not be available for the soon-to-be-retired V1 SKU.
 
-![A diagram showing predefined policies for V1 SKUs.](media/application-gateway-tls-version-retire/v1-retiring-tls-policies.png)
+![A diagram showing predefined policies for V1 SKUs.](media/application-gateway-tls-version-retirement/v1-retiring-tls-policies.png)
 
 ### Custom policies for V1 SKUs
 
