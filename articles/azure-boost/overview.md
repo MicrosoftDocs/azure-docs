@@ -6,7 +6,7 @@ ms.service: azure-virtual-machines
 ms.topic: overview
 ms.custom:
   - ignite-2023
-ms.date: 11/07/2023
+ms.date: 03/18/2025
 ms.author: mattmcinnes
 ms.reviewer: mattmcinnes
 #Customer intent: I want to improve the security and performance of my Azure virtual machines
