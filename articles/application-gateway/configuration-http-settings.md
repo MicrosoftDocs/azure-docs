@@ -47,6 +47,9 @@ You can apply this setting to all backend pool members by enabling Connection Dr
 
 The only exception to this are requests bound for deregistering instances because of gateway-managed session affinity. These requests continue to be forwarded to the deregistering instances.
 
+> [!NOTE]
+> There is a limitation where a configuration update will terminate ongoing connections after the connection draining timeout. To address this, you must increase the connection draining time-out in the backend settings to a value higher than the max expected client download time. 
+
 ## Protocol
 
 Application Gateway supports both HTTP and HTTPS for routing requests to the backend servers. If you choose HTTP, traffic to the backend servers is unencrypted. If unencrypted communication isn't acceptable, choose HTTPS.
