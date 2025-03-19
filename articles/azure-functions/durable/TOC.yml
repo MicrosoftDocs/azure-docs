@@ -112,7 +112,7 @@
   - name: Manage and monitor
     href: ./durable-task-scheduler/durable-task-scheduler-dashboard.md
   - name: Billing
-    href: ./durable-task-scheduler/dts-dedicated-sku.md  
+    href: ./durable-task-scheduler/durable-task-scheduler-dedicated-sku.md  
   - name: Troubleshooting
     href: ./durable-task-scheduler/troubleshoot-durable-task-scheduler.md
 - name: Reference
