@@ -7,6 +7,7 @@ ms.service: azure-health-data-services
 ms.topic: overview
 ms.date: 11/01/2024
 ms.author: kesheth
+ms.custom: references_regions
 ---
 
 # Regional availability of services and features 
