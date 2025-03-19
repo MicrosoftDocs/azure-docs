@@ -32,11 +32,11 @@ Set up a new project in an Azure subscription.
 2. In **Services**, select **Azure Migrate**.
 3. In **Get started**, select **Discover, assess and migrate**.
 
-    :::image type="content" source="./media/create-manage-projects/assess-migrate-servers-inline.png" alt-text="Screenshot displays the options in Overview." lightbox="./media/create-manage-projects/assess-migrate-servers-expanded.png":::
+    :::image type="content" source="./media/quickstart-create-project/assess-migrate-servers-inline.png" alt-text="Screenshot displays the options in Overview." lightbox="./media/quickstart-create-project/assess-migrate-servers-expanded.png":::
 
 4. In **Servers, databases and web apps**, select **Create project**.
 
-    :::image type="content" source="./media/create-manage-projects/create-project-inline.png" alt-text="Screenshot of button to start creating a project." lightbox="./media/create-manage-projects/create-project-expanded.png":::
+    :::image type="content" source="./media/quickstart-create-project/create-project-inline.png" alt-text="Screenshot of button to start creating a project." lightbox="./media/quickstart-create-project/create-project-expanded.png":::
 
 5. In **Create project**, select the Azure subscription and resource group. Create a resource group if you don't have one.
 6. In **Project Details**, specify the project name and the geography in which you want to create the project.
@@ -49,7 +49,7 @@ Set up a new project in an Azure subscription.
 
 7. Select **Create**.
 
-     :::image type="content" source="./media/create-manage-projects/project-details.png" alt-text="Image of Azure Migrate page to input project settings.":::
+     :::image type="content" source="./media/quickstart-create-project/project-details.png" alt-text="Image of Azure Migrate page to input project settings." lightbox="./media/quickstart-create-project/project-details.png":::
 
 
 Wait for a few minutes for the project to deploy.
@@ -67,7 +67,7 @@ Ensure that you install Az CLI to execute the required commands by following the
 
 After you install the Az CLI (in PowerShell), open PowerShell on your system as an Administrator and execute the following commands:
 
-1. Login to the Azure tenant and set the Subscription.  
+1. Log in to the Azure tenant and set the Subscription.  
    - az log in --tenant <TENANT_ID>
    - az account set --subscription <SUBSCRIPTION_ID> 
    - Output contains - **"state": "Registered"**
@@ -85,7 +85,7 @@ If you already have a project and you want to create an additional project, do t
    
 2. On the Azure Migrate dashboard, select **Servers, databases and web apps** > **Create project** on the top left.
 
-    :::image type="content" source="./media/create-manage-projects/switch-project.png" alt-text="Screenshot containing Create Project button.":::
+    :::image type="content" source="./media/quickstart-create-project/switch-project.png" alt-text="Screenshot containing Create Project button." lightbox="./media/quickstart-create-project/switch-project.png"::::::
 
 3. To create a new project, select **Click here**.
 
@@ -97,7 +97,7 @@ Find a project as follows:
 1. In the [Azure portal](https://portal.azure.com), search for *Azure Migrate*.
 2. In the Azure Migrate dashboard, select **Servers, databases and web apps** > **Current project** in the upper-right corner.
 
-    :::image type="content" source="./media/create-manage-projects/current-project.png" alt-text="Screenshot to select the current project.":::
+    :::image type="content" source="./media/quickstart-create-project/current-project.png" alt-text="Screenshot to select the current project." lightbox="./media/quickstart-create-project/current-project.png":::
 
 3. Select the appropriate subscription and project.
 
@@ -109,7 +109,7 @@ If you created the project in the [previous version](migrate-services-overview.m
 1. In the [Azure portal](https://portal.azure.com), search for *Azure Migrate*.
 2. In the Azure Migrate dashboard, if you've created a project in the previous version, a banner referencing older projects appears. Select the banner.
 
-    :::image type="content" source="./media/create-manage-projects/access-existing-projects.png" alt-text="Screenshot to access already existing projects.":::
+    :::image type="content" source="./media/quickstart-create-project/access-existing-projects.png" alt-text="Screenshot to access already existing projects." lightbox="./media/quickstart-create-project/access-existing-projects.png":::
 
 3. Review the list of old projects.
 
@@ -137,7 +137,7 @@ To delete a project, follow these steps:
 1. Browse to the Log Analytics workspace attached to the project.
 
     - If you haven't deleted the project, you can find the link to the workspace in **Essentials** > **Server Assessment**.
-    :::image type="content" source="./media/create-manage-projects/loganalytics-workspace.png" alt-text="Screenshot of the Log Analytics Workspace.":::
+    :::image type="content" source="./media/quickstart-create-project/loganalytics-workspace.png" alt-text="Screenshot of the Log Analytics Workspace." lightbox="./media/quickstart-create-project/loganalytics-workspace.png"::::::
        
     - If you've already deleted the project, select **Resource Groups** in the left pane of the Azure portal and find the workspace.
        
