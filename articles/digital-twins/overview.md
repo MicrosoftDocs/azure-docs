@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: What is Azure Digital Twins?
 titleSuffix: Azure Digital Twins
 description: Overview of the Azure Digital Twins IoT platform, including its features and value.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 01/27/2025
 ms.topic: overview
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # What is Azure Digital Twins?

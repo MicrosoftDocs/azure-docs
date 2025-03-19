@@ -9,7 +9,7 @@ ms.author: baanders
 
 ### Create the Event Grid topic
 
-[Event Grid](../articles/event-grid/overview.md) is an Azure service that helps route and deliver events from Azure services to other places within Azure. You can create an [Event Grid topic](../articles/event-grid/concepts.md) to collect certain events from a source, and then subscribers can listen on the topic to receive the events as they come through.
+[Event Grid](../../event-grid/overview.md) is an Azure service that helps route and deliver events from Azure services to other places within Azure. You can create an [Event Grid topic](../../event-grid/concepts.md) to collect certain events from a source, and then subscribers can listen on the topic to receive the events as they come through.
 
 In the Azure CLI, run the following command to create an Event Grid topic:
 
@@ -31,7 +31,7 @@ The output from this command is information about the endpoint you've created.
 
 Look for the `provisioningState` field in the output, and check that the value is "Succeeded."
 
-:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/output-endpoints.png" alt-text="Screenshot of the result of the endpoint query in the Cloud Shell of the Azure portal, showing the endpoint with a provisioningState of Succeeded." lightbox="../articles/digital-twins/media/tutorial-end-to-end/output-endpoints.png":::
+:::image type="content" source="../media/tutorial-end-to-end/output-endpoints.png" alt-text="Screenshot of the result of the endpoint query in the Cloud Shell of the Azure portal, showing the endpoint with a provisioningState of Succeeded." lightbox="../media/tutorial-end-to-end/output-endpoints.png":::
 
 It may also say "Provisioning", meaning that the endpoint is still being created. If so, wait a few seconds and run the following command to check the status of the endpoint. Repeat until the `provisioningState` shows "Succeeded."
 
@@ -48,7 +48,7 @@ Next, create an Azure Digital Twins route that sends events to the Event Grid en
 Use the following CLI command, filling in the name of your endpoint from the previous step and the other placeholder fields as needed. This command forwards all events that occur in the twin graph. 
 
 >[!TIP]
->You can limit the events to only specific ones if you want, by using [filters](../articles/digital-twins/how-to-create-routes.md?tabs=portal%2Cportal2%2Cportal3#filter-events).
+>You can limit the events to only specific ones if you want, by using [filters](../how-to-create-routes.md?tabs=portal%2Cportal2%2Cportal3#filter-events).
 
 ```azurecli-interactive
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>

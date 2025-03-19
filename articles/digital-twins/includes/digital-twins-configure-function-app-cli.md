@@ -15,7 +15,7 @@ Run the following commands in [Azure Cloud Shell](https://shell.azure.com) or a 
 
 The Azure function requires a bearer token to be passed to it. To make sure the bearer token is passed, grant the function app the **Azure Digital Twins Data Owner** role for your Azure Digital Twins instance, which gives the function app permission to perform data plane activities on the instance.
 
-1. Use the following command to create a [system-managed identity](../articles/active-directory/managed-identities-azure-resources/overview.md) for your function (if the function already has one, this command prints its details). Take note of the `principalId` field in the output. You'll use this ID to refer to the function so that you can grant it permissions in the next step.
+1. Use the following command to create a [system-managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for your function (if the function already has one, this command prints its details). Take note of the `principalId` field in the output. You'll use this ID to refer to the function so that you can grant it permissions in the next step.
 
     ```azurecli-interactive	
     az functionapp identity assign --resource-group <your-resource-group> --name <your-function-app-name>	
@@ -29,7 +29,7 @@ The Azure function requires a bearer token to be passed to it. To make sure the 
 
 #### Configure application settings
 
-Next, make the URL of your Azure Digital Twins instance accessible to your function by setting an [environment variable](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal#use-application-settings) for it.
+Next, make the URL of your Azure Digital Twins instance accessible to your function by setting an [environment variable](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal#use-application-settings) for it.
 
 > [!TIP]
 > The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your instance's host name. To see the host name, along with all the properties of your instance, run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
