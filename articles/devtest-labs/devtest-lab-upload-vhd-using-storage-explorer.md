@@ -40,11 +40,11 @@ To get the name of the lab storage account:
 
    :::image type="content" source="media/devtest-lab-upload-vhd-using-storage-explorer/upload-image-powershell.png" alt-text="Screenshot that shows the link to upload a VHD by using PowerShell.":::
 
-1. On the **Upload an image using PowerShell** page, scroll right to see the call to the `Add-AzureRmVhd` cmdlet. The `-Destination` parameter contains the URI for the blob container in the format `https://<storageAccountName>.blob.core.windows.net...`.
+1. On the **Upload an image using PowerShell** page, scroll right to see the call to the `Add-AzureRmVhd` cmdlet. The `Destination` parameter contains the URI for the blob container in the format `https://<storageAccountName>.blob.core.windows.net`.
 
    :::image type="content" source="media/devtest-lab-upload-vhd-using-storage-explorer/destination-parameter.png" alt-text="Screenshot that shows an example of a storage account name in the Add VHD box.":::
 
-1. Note the storage account name to use in the next section.
+1. Note the `<storageAccountName>` to use in the next section.
 
 ### Upload the VHD file
 
@@ -67,7 +67,7 @@ When you open Storage Explorer, the Explorer pane shows all the Azure subscripti
 1. For **Blob type**, select **Page Blob**.
 1. Select **Upload**.
 
-:::image type="content" source="media/devtest-lab-upload-vhd-using-storage-explorer/upload-file.png" alt-text="Screenshot that shows the Upload Files dialog box.":::
+   :::image type="content" source="media/devtest-lab-upload-vhd-using-storage-explorer/upload-file.png" alt-text="Screenshot that shows the Upload Files dialog box.":::
 
 1. Track the upload status in the **Activities** pane at the bottom of Storage Explorer. Uploading the VHD file might take a long time, depending on the size of the VHD file and your connection speed.
 
@@ -75,9 +75,9 @@ When you open Storage Explorer, the Explorer pane shows all the Azure subscripti
 
 After the VHD file uploads, you can see it in your lab storage account in the Azure portal.
 
-1. Open your lab storage account by searching for and selecting it in the Azure Search bar, or by selecting it from **Storage accounts**.
+1. Open your lab storage account by searching for and selecting its name in the Azure Search bar, or by selecting it from **Storage accounts**.
 1. On the storage account's **Overview** page, select **Data storage** > **Containers** from the left navigation.
-1. On the **Containers** page, open the **Uploads** folder to see the uploaded VHD file along with any other uploads to the storage account.
+1. On the **Containers** page, open the **Uploads** folder to see the uploaded VHD file and any other uploads to the storage account.
 
    :::image type="content" source="media/devtest-lab-upload-vhd-using-storage-explorer/uploads.png" alt-text="Screenshot that shows the uploaded VHD file in the Azure storage account.":::
 

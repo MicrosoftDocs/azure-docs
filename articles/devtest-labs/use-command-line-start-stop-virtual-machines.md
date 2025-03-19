@@ -20,19 +20,19 @@ This article shows how you can use PowerShell or Azure CLI commands to script or
 - Start and stop a VM when a continuous integration and continuous delivery (CI/CD) workflow begins and finishes. For an example of this workflow, see [Run an image factory from Azure DevOps](image-factory-set-up-devops-lab.md).
 
 >[!NOTE]
->You can also use the Azure portal to start, stop, or [restart](devtest-lab-restart-vm.md) DevTest Labs VMs. Lab admins can use the portal to configure [automatic startup](devtest-lab-auto-startup-vm.yml) and [automatic shutdown](devtest-lab-auto-shutdown.md) schedules and policies for lab VMs.
+>You can also start, stop, or [restart](devtest-lab-restart-vm.md) DevTest Labs VMs by using the Azure portal. Lab admins can use the portal to configure [automatic startup](devtest-lab-auto-startup-vm.yml) and [automatic shutdown](devtest-lab-auto-shutdown.md) schedules and policies for lab VMs.
 
 ## Prerequisites
 
 # [Azure PowerShell](#tab/PowerShell)
 
-- Ownership of a [lab VM in DevTest Labs](devtest-lab-add-vm.md).
-- Access to Azure PowerShell. You can [use Azure Cloud Shell](/azure/cloud-shell/quickstart?tabs=powershell) in the Azure portal, or [install Azure PowerShell](/powershell/azure/install-azure-powershell) locally. If necessary, run `Update-Module -Name Az` to update your local installation.
+- Ownership of a [lab VM](devtest-lab-add-vm.md) in DevTest Labs.
+- Access to Azure PowerShell. You can [use the PowerShell environment of Azure Cloud Shell](/azure/cloud-shell/quickstart) in the Azure portal, or [install Azure PowerShell](/powershell/azure/install-azure-powershell) to use locally. If necessary, run `Update-Module -Name Az` to update your local installation.
 
 # [Azure CLI](#tab/CLI)
 
-- Ownership of a [lab VM in DevTest Labs](devtest-lab-add-vm.md).
-- Access to Azure CLI. You can [use Azure Cloud Shell](/azure/cloud-shell/quickstart?tabs=powershell) in the Azure portal, or [install Azure CLI ](/cli/azure/install-azure-cli) locally.
+- Ownership of a [lab VM](devtest-lab-add-vm.md) in DevTest Labs.
+- Access to Azure CLI. You can [use the Bash environment of Azure Cloud Shell](/azure/cloud-shell/quickstart) in the Azure portal, or [install Azure CLI ](/cli/azure/install-azure-cli) to use locally in a Bash or Windows environment.
 
 ---
 
@@ -88,10 +88,7 @@ The following PowerShell script starts or stops a VM in a lab by using the [Invo
 
 The following script uses the Azure CLI [az lab vm start](/cli/azure/lab/vm#az-lab-vm-start) or [az lab vm stop](/cli/azure/lab/vm#az-lab-vm-stop) commands to start or stop a lab VM.
 
->[!NOTE]
->This script assumes a Bash environment. The variables and command for a Windows environment, like a command prompt, have slight variations.
-
-1. In Cloud Shell, make sure the **Bash** environment is selected.
+To run locally, use the appropriate syntax for setting and calling variables depending on whether you have a Bash or Windows environment. In Cloud Shell, use the **Bash** environment and syntax.
 
 1. Sign in to your Azure account. If you have multiple Azure subscriptions, uncomment the `az account set` line and provide a subscription ID to use.
 
@@ -103,6 +100,8 @@ The following script uses the Azure CLI [az lab vm start](/cli/azure/lab/vm#az-l
 
 1. Set variables by providing values for `<SubscriptionId>`, `<resourceGroup>`, `<lab name>`, `<VM name>`, and whether to `Start` or `Stop` the VM.
 
+   **Bash**
+
    ```azurecli
    SUBSCRIPTIONID=<SubscriptionId>
    RESOURCEGROUP=<resourceGroup>
@@ -111,18 +110,36 @@ The following script uses the Azure CLI [az lab vm start](/cli/azure/lab/vm#az-l
    ACTION=<Start or Stop>
    ```
 
-   >[!TIP]
-   >If you don't know the name of the Azure resource group that contains your lab, you can find it by providing your `<lab name>` in the following query.
+   **Windows**
 
    ```azurecli
-   az resource list --resource-type "Microsoft.DevTestLab/labs" --name "<lab name>" --query "[0].resourceGroup"
+   set SUBSCRIPTIONID=<SubscriptionId>
+   set RESOURCEGROUP=<resourceGroup>
+   set DEVTESTLABNAME=<lab name>
+   set VMNAME=<VM name>
+   set ACTION=<Start or Stop>
    ```
 
+   >[!TIP]
+   >If you don't know the name of the Azure resource group that contains your lab, you can find it by providing your `<lab name>` in the following query.
+   >
+   >```azurecli
+   >az resource list --resource-type "Microsoft.DevTestLab/labs" --name "<lab name>" --query "[0].resourceGroup"
+   >```
+
 1. Run the following Azure CLI command to start or stop the VM, based on the value passed to `ACTION`.
+
+   **Bash**
 
    ```azurecli
    az lab vm $ACTION --lab-name $DEVTESTLABNAME --name $VMNAME --resource-group $RESOURCEGROUP
    ```
+
+   **Windows**
+
+   ```azurecli
+   az lab vm %ACTION% --lab-name %DEVTESTLABNAME% --name %VMNAME% --resource-group %RESOURCEGROUP%
+```
 
 ---
 

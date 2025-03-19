@@ -7,7 +7,7 @@ author: RoseHJM
 ms.date: 03/17/2025
 ms.custom: UpdateFrequency2
 
-#customer intent: As a lab user or administrator, I want to understand basic DevTest Labs concepts so I can create, manage, or use labs, VMs, and environments.
+#customer intent: As a lab user or administrator, I want to understand basic DevTest Labs concepts so I can manage or use labs, VMs, and environments.
 ---
 
 # DevTest Labs concepts
@@ -31,17 +31,17 @@ A DevTest Labs lab is the infrastructure that encompasses a group of resources s
 
 [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) defines DevTest Labs access and roles. DevTest Labs has three roles that define lab member permissions: **Owner**, **Contributor**, and **DevTest Labs User**.
 
-- Lab **Owners** can do all lab tasks, including creating labs and managing policies and users. For more information about managing user access and roles, see [Add lab owners, contributors, and users](devtest-lab-add-devtest-user.md).
+- Lab **Owners** can do all lab tasks, including creating labs and managing policies and users. Only lab Owners can add and manage lab users and roles. For more information about managing user access and roles, see [Add lab owners, contributors, and users](devtest-lab-add-devtest-user.md).
 
-  A lab Owner must have at least Contributor rights in the Azure subscription the lab is in. Azure subscription Owners have access to all resources and user assignments in their subscriptions, so they automatically inherit the lab Owner role.
+  Lab Owners must have at least Contributor rights in the Azure subscription their lab is in. Azure subscription Owners have access to all resources and user assignments in their subscriptions, so they automatically inherit the lab Owner role.
 
   Lab Owners can also create and assign custom DevTest Labs roles. For more information, see [Grant user permissions to specific lab policies](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
 
-- Lab **Contributors** can do everything that Owners can, such as create and configure labs and policies, but can't assign or manage users and roles.
+- Lab **Contributors** can do everything that lab Owners can, such as create and configure labs and policies, but they can't assign or manage users and roles.
 
 - **DevTest Labs Users** can view all lab resources and policies and can create and modify their own VMs and environments, within policy restrictions such as number of VMs per user.
 
-  DevTest Labs Users can't modify lab policies, or change any other users' VMs. DevTest Labs Users automatically have Owner permissions on their own VMs.
+  DevTest Labs Users can't modify lab policies, or view or change any other users' VMs unless the VM or lab owner grants them permission. DevTest Labs Users automatically have Owner permissions on their own VMs.
 
 ### Policies
 
@@ -55,9 +55,9 @@ You can use ARM templates to create and update DevTest Labs labs, environments, 
 
 For more information about using ARM templates in DevTest Labs, see:
 
-- [Create labs from ARM templates](create-lab-windows-vm-template.md)
-- [Create environments from ARM templates](devtest-lab-create-environment-from-arm.md)
-- [Create ARM templates for VMs](devtest-lab-use-resource-manager-template.md)
+- [Create labs from ARM templates](create-lab-windows-vm-template.md).
+- [Create environments from ARM templates](devtest-lab-create-environment-from-arm.md).
+- [Create ARM templates for VMs](devtest-lab-use-resource-manager-template.md).
 
 ### Repositories
 
@@ -97,7 +97,7 @@ After a lab user claims a VM, the VM moves to that user's **My virtual machines*
 
 DevTest Labs custom images and formulas are mechanisms for fast VM creation and provisioning.
 
-- A custom image is a VM image created from an existing VM or virtual hard drive (VHD), which can have software and other artifacts installed. Lab users can create identical VMs from the custom image. For more information, see [Create a custom image from a VM](devtest-lab-create-custom-image-from-vm-using-portal.md).
+- A custom image is a VM image created from an existing VM or virtual hard disk (VHD), which can have software and other artifacts installed. Lab users can create identical VMs from the custom image. For more information, see [Create a custom image from a VM](devtest-lab-create-custom-image-from-vm-using-portal.md).
 
 - A formula is a list of default property values for creating a lab VM, such as base image, VM size, virtual network, and artifacts. When you create a VM from a formula, you can use the default values as-is or modify them. For more information, see [Manage Azure DevTest Labs formulas](devtest-lab-manage-formulas.md).
 

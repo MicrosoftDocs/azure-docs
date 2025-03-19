@@ -27,7 +27,7 @@ This article describes how to create Azure virtual machines (VMs) in Azure DevTe
 
    :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-add-vm.png" alt-text="Screenshot that shows the lab overview page with the Add button.":::
 
-1. On the **Choose a base** page, select an image for the VM. You can choose from Marketplace images, custom images, or formulas that the lab administrator made available. The following instructions use a Windows Server 2022 Datacenter image. Some bases might have different settings.
+1. On the **Choose a base** page, select an image for the VM. You can choose from Marketplace images, custom images, or formulas that the lab administrator made available. The following instructions use a Windows 11 Pro image. Some bases might have different settings.
 
 1. On the **Basic Settings** tab of the **Create lab resource** screen, provide the following information:
 
@@ -113,9 +113,9 @@ When you create a VM in DevTest Labs, you automatically have permission to acces
 
 DevTest Labs users in the **Owner** and **Contributor** roles can see all lab VMs on the lab's **All Resources** page. Users in the **DevTest Labs User** role can't automatically access VM resources that other users created, so they don't see those VMs on the **All resources** page.
 
-## Copy existing VMs into a lab
+## Copy existing Azure VMs into a lab
 
-You can copy existing VMs to DevTest Labs as follows:
+You can copy existing Azure VMs to DevTest Labs as follows:
 
 1. Use a [PowerShell script](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/Scripts/CopyVirtualMachines/CopyAzVHDFromVMToLab.ps1) to copy your existing VM's virtual hard disk (VHD) file to the lab.
 1. Use the VHD file to [create a custom image](devtest-lab-create-template.md) in your lab.

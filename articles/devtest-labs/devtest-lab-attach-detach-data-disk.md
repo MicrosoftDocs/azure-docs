@@ -12,7 +12,7 @@ ms.custom: UpdateFrequency2
 
 # Attach or detach a data disk for a lab VM in Azure DevTest Labs
 
-This article explains how to attach and detach a lab virtual machine (VM) data disk in Azure DevTest Labs by using the Azure portal. You can create, attach, detach, and reattach multiple [data disks](/azure/virtual-machines/managed-disks-overview) for your lab VMs. Data disks let you manage storage or software separately from individual VMs.
+This article explains how to attach and detach a lab virtual machine (VM) data disk in Azure DevTest Labs by using the Azure portal. Depending on VM size, you can create, attach, detach, and reattach multiple [data disks](/azure/virtual-machines/managed-disks-overview). Data disks let you manage storage or software separately from individual VMs.
 
 ## Prerequisites
 
@@ -23,9 +23,7 @@ To attach or detach a data disk, you need to own the lab VM, and the VM must be 
 Follow these steps to create and attach a new managed data disk for a DevTest Labs VM.
 
 1. In the Azure portal, select your VM from the **My virtual machines** list on your lab **Overview** page.
-
 1. On the VM **Overview** page, select **Disks** under **Settings** in the left navigation.
- 
 1. On the **Disks** page, select **Attach new**.
 
    :::image type="content" source="./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-new.png" alt-text="Screenshot of Attach new on the V M's Disk page.":::
@@ -49,9 +47,7 @@ Follow these steps to create and attach a new managed data disk for a DevTest La
 Follow these steps to attach an existing available data disk to a running VM.
 
 1. In the Azure portal, select your VM from the **My virtual machines** list on the lab **Overview** page.
-
 1. On the VM **Overview** page, select **Disks** under **Settings** in the left navigation.
- 
 1. On the **Disks** page, select **Attach existing**.
 
    :::image type="content" source="./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-existing-button.png" alt-text="Screenshot of Attach existing on the VM's Disk page.":::
