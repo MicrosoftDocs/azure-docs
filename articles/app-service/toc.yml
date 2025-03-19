@@ -52,13 +52,7 @@
           href: configure-language-dotnet-framework.md
         - name: Configure ASP.NET Core
           href: configure-language-dotnetcore.md
-        - name: Configure Node.js
-          href: configure-language-nodejs.md
-        - name: Configure PHP
-          href: configure-language-php.md
-        - name: Configure Python
-          href: configure-language-python.md
-        - name: Configure Java SE, Tomcat, or JBoss
+        - name: Configure Java SE, Tomcat, or JBoss EAP
           items:
             - name: Deployment and runtime
               href: configure-language-java-deploy-run.md
@@ -68,6 +62,12 @@
               href: configure-language-java-apm.md
             - name: Security
               href: configure-language-java-security.md
+        - name: Configure Node.js
+          href: configure-language-nodejs.md
+        - name: Configure Python
+          href: configure-language-python.md
+        - name: Configure PHP
+          href: configure-language-php.md
     - name: Deployment methods
       items:
         - name: Use ZIP or WAR
