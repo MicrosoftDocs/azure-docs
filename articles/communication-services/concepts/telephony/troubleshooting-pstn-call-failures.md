@@ -43,7 +43,7 @@ A key factor in troubleshooting Azure Communication Services PSTN calls is deter
 
 If the `ParticipantEndSubCode` value starts with 560 or 540, it indicates that the user's/operator's SBC generated the response code. This is useful for troubleshooting Direct Routing calls, as the subcode can help determine whether the error is from your SBC or the Microsoft service. A subcode starting with 560 represents an outbound call, while a subcode starting with 540 represents an inbound call. In either case, check the SBC logs.
 
-For example, if the `ParticipantEndSubCode` value is `560403`, it means that it was an outbound call, the SBC generated the final response code, and the SIP response code from the SBC was 403. You should start troubleshooting the calls by checking your SBC logs.
+For example, if the `ParticipantEndSubCode` value is `560403`, it means that it was an outbound call, the SBC generated the final response code, and the SIP response code from the SBC was 403. Start troubleshooting the calls by checking your SBC logs.
 
 For `ParticipantEndSubCode` responses that don't start with 560 or 540, the Microsoft service generated the final response code.
 
