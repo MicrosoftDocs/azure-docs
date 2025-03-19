@@ -2,14 +2,14 @@
 title: Manage settings for your Elastic resource via Azure portal
 description: Manage settings, view resources, reconfigure metrics/logs, and more for your Elastic resource via Azure portal.
 ms.topic: how-to
-ms.date: 10/06/2023
+ms.date: 03/19/2025
 
 
 ---
 
 # Manage settings for your Elastic resource via Azure portal
 
-This article shows how to manage the settings for Elastic.
+This article shows how to manage the settings for Elastic resources.
 
 ## Resource overview
 
@@ -41,7 +41,9 @@ Below the essentials, you can navigate to other details about your resource by s
 
 ## Reconfigure rules for metrics and logs
 
-When you created the Elastic resource, you configured which logs are sent to Elastic. If you need to change those settings, select **Metrics and Logs** in the left pane. Make the needed changes to how logs are sent to Elastic.
+When you created the Elastic resource, you configured which logs are sent to Elastic. If you need to change those settings, select **Metrics and Logs** in the left pane. 
+
+Make the needed changes to how logs are sent to Elastic.
 
 ## View monitored resources
 
@@ -54,63 +56,53 @@ To view the list of resources emitting logs to Datadog, select **Elastic deploym
 
 You can install Datadog agents on virtual machines. 
 
-## Monitor virtual machines using Elastic agent
+### Virtual machines
 
-You can install Elastic agents on virtual machines as an extension. To see the available virtual machines in your subscription, select **Virtual Machines** from the left pane of your Elastic resource.
+To monitor resources for virtual machines, select **Elastic deployment configuration > Virtual machine agent** in the Resource menu.
 
-For each virtual machine, the following data is displayed:
+[!INCLUDE [install-datadog-agent](../includes/agent.md)]
 
-- Resource Name – Virtual machine name.
-- Resource Status – Whether the virtual machine is stopped or running. The Elastic agent can only be installed on virtual machines that are running. If the virtual machine is stopped, installing the Elastic agent is disabled.
-- Agent version – The Elastic agent version number.
-- Agent status – Whether the Elastic agent is running on the virtual machine.
-- Integrations enabled – The key metrics collected by the Elastic agent.
-- Sending logs – Whether the Elastic agent is sending logs to Elastic.
+## Connect Azure OpenAI service with Elastic
 
-To install the Elastic agent, select a virtual machine and select **Install Extension**.
+To configure Azure Open AI, select **Elastic deployment configuration > Azure OpenAI configuration**. 
 
-The portal asks for confirmation that you want to install the agent with the default authentication. Select **OK** to begin installation. The portal shows the status as **Installing** until the agent is installed and provisioned.
+1. From the working pane's command bar, select **Add**. 
 
-After the Elastic agent is installed, the status changes to **Installed**.
+1. In the *Add OpenAI Configuration* panel, select your preferred **Azure OpenAI Resource** and **Azure OpenAI Deployment**.
 
-To see that the Elastic agent is installed, select the virtual machine and navigate to **Extensions**.
+1. Select the **Create** button.
 
-To uninstall the Elastic agent on a virtual machine, select the virtual machine and **Uninstall Extension**.
+Once the Connector is created, navigate to Kibana.
 
-## Configure diagnostic settings
-
-To configure the diagnostic settings for a resource, select that resource. In the left pane, select **Diagnostic settings**.
-
-In the destination details section, check the option to send to partner solutions to select Elastic as a destination target. The option is only available after an Elastic resource is created.
-
-## Configure Azure OpenAI Connector
-
-If not configured already while creating the resource, you can navigate to **Azure OpenAI configuration** under the Elastic deployment configuration section. Select on **Add** to select the Azure OpenAI (AOAI) resource and a deployment of a text/chat completion model(like gpt4), making your connector ready without having to switch contexts between the AOAI resource (in Azure portal) and the Connectors page in Elastic portal, thus avoiding having to copy and paste urls and keys.
-
-Select on **Create**.
-
-Once the Connector is created, navigate to Kibana and search for Connectors under Stack Management. The newly created Azure OpenAI Connector should be visible there. This connector can be used within Elastic's Observability AI Assistant to help provide contextual responses to your natural language prompts on your observability data by invoking the Azure OpenAI deployment. Learn more about Elastic OpenAI Connectors [here](https://www.elastic.co/guide/en/kibana/current/openai-action-type.html).
+> [!NOTE]
+> 
+> Kiabana is a user interface that lets you visualize your Elasticsearch data and navigate the Elastic Stack. Your Connector can be used within Elastic's Observability AI Assistant to help provide contextual responses to your natural language prompts on your observability data by invoking the Azure OpenAI deployment.
 
 ## Private link management
 
-You can limit network access to a [private link](../../private-link/private-link-overview.md). To enable private link access, select **Configuration** in the left navigation. Under **Networking**, select **Private Link** and the name of the private link.
+You can limit network access to a private link.
 
-:::image type="content" source="media/manage/private-link.png" alt-text="Screenshot of enabling private link":::
+To enable private link access:
+
+1. Select **Configuration** in the left navigation.
+1. 
+1. Under **Networking**, select **Private Link** and the name of the private link.
 
 ## Traffic filters
 
-To manage how Elastic deployments can be accessed, you can set Traffic filters for Azure Private Links.
-
-:::image type="content" source="media/manage/elastic-traffic-filter.png" alt-text="Screenshot showing Traffic Filter selected in the Resource menu.":::
+To manage how Elastic deployments can be accessed, set Traffic filters for Azure Private Links.
 
 There are two types of filters available:
 
 - IP traffic filter
 - Private Link traffic filter
 
-Select **Add** to set up and automatically associate a new traffic filter to and Elastic deployment.
+Select **Add** to set up and automatically associate a new traffic filter to an Elastic deployment.
 
-To associate an already existing traffic filter to the current deployment, you select **Link**. The traffic filter must be in the same region as the deployment.
+To associate an already existing traffic filter to the current deployment, you select **Link**. 
+
+> [!IMPORTANT]
+> The traffic filter must be in the same region as the deployment.
 
 If a traffic filter is no longer needed, unlink it from deployment and then delete it.
 
@@ -118,28 +110,19 @@ If a traffic filter is no longer needed, unlink it from deployment and then dele
 
 To access all Elastic resources and deployments you created using the Azure or Elastic portal experience, go to the **Connected Elastic resources** tab in any of your Azure Elastic resources.
 
-:::image type="content" source="media/manage/connected-elastic-resources.png" alt-text="Screenshot showing Connected Elastic resources selected in the Resource menu.":::
-
 You can easily manage the corresponding Elastic deployments or Azure resources using the links, provided you have owner or contributor rights to those deployments and resources.
 
 ## Delete Elastic resource
 
-When you no longer need your Elastic resource, delete the resource in the Azure portal.
+[!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
 > [!IMPORTANT]
-> Deleting an Elastic resource stops billing only for the corresponding Elastic deployment.
-
-> [!IMPORTANT]
-> A single Azure Marketplace SaaS unifies billing for multiple Elastic deployments. If you're looking to completely stop billing for the marketplace SaaS, you need to delete all linked Elastic deployments (created from Azure or Elastic portal). Deleting the Azure subscription or resource group corresponding to marketplace SaaS doesn't guarantee billing stop and doesn't clean up corresponding Elastic deployments.
-
-To delete the resource in Azure, select your Elastic resource. In **Overview**, select **Delete**. Confirm that you want to delete Elastic resource.
-
-:::image type="content" source="media/manage/delete-elastic.png" alt-text="Screenshot of delete Elastic resource.":::
-
-When the Elastic resource is deleted, logs are no longer sent to Elastic. All billing stops for Elastic through Azure Marketplace.
+> 
+> - A single Azure Marketplace SaaS unifies billing for multiple Elastic deployments. 
+> - If you wish to completely stop billing for the marketplace SaaS, delete all linked Elastic deployments (created from Azure or Elastic portal). 
 
 ## Related content
 
 - [Troubleshooting Elastic integration with Azure](troubleshoot.md)
-- [Elastic OpenAI Connectors](https://www.elastic.co/guide/en/kibana/current/openai-action-type.html)
+- [What is Azure private link?](../../private-link/private-link-overview.md)
 
