@@ -24,11 +24,11 @@ Once you have a working [Azure Digital Twins instance](how-to-set-up-instance-po
 
 ## Prerequisites
 
-[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+[!INCLUDE [digital-twins-prereq-instance.md](includes/digital-twins-prereq-instance.md)]
 
-[!INCLUDE [digital-twins-developer-interfaces.md](../../includes/digital-twins-developer-interfaces.md)]
+[!INCLUDE [digital-twins-developer-interfaces.md](includes/digital-twins-developer-interfaces.md)]
 
-[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
+[!INCLUDE [visualizing with Azure Digital Twins explorer](includes/digital-twins-visualization.md)]
 
 :::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Screenshot of Azure Digital Twins Explorer showing sample models and twins." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
 
@@ -87,7 +87,7 @@ To import relationships in bulk, you need to structure your relationships (and a
 
 You can view an example import file and a sample project for creating these files in the [Import Jobs API introduction](concepts-apis-sdks.md#bulk-import-with-the-import-jobs-api).
 
-[!INCLUDE [digital-twins-bulk-blob.md](../../includes/digital-twins-bulk-blob.md)]
+[!INCLUDE [digital-twins-bulk-blob.md](includes/digital-twins-bulk-blob.md)]
 
 Then, the file can be used in an [Import Jobs API](/rest/api/digital-twins/dataplane/jobs) call. You provide the blob storage URL of the input file, and a new blob storage URL to indicate where you'd like the output log to be stored after the service creates it.
 
@@ -174,7 +174,7 @@ You can now call this custom method to delete a relationship like this:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseDeleteRelationship":::
 
-[!INCLUDE [digital-twins-bulk-delete-note.md](../../includes/digital-twins-bulk-delete-note.md)]
+[!INCLUDE [digital-twins-bulk-delete-note.md](includes/digital-twins-bulk-delete-note.md)]
 
 ## Create multiple graph elements at once
 
@@ -188,7 +188,7 @@ To import resources in bulk, start by creating an *NDJSON* file containing the d
 
 You can view an example import file and a sample project for creating these files in the [Import Jobs API introduction](concepts-apis-sdks.md#bulk-import-with-the-import-jobs-api).
 
-[!INCLUDE [digital-twins-bulk-blob.md](../../includes/digital-twins-bulk-blob.md)]
+[!INCLUDE [digital-twins-bulk-blob.md](includes/digital-twins-bulk-blob.md)]
 
 Then, the file can be used in an [Import Jobs API](/rest/api/digital-twins/dataplane/jobs) call. You provide the blob storage URL of the input file, and a new blob storage URL to indicate where you'd like the output log to be stored after the service creates it.
 
@@ -231,7 +231,7 @@ Then, **copy the following code** of the runnable sample into your project:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs":::
 
-[!INCLUDE [Azure Digital Twins: DefaultAzureCredential known issue note](../../includes/digital-twins-defaultazurecredential-note.md)]
+[!INCLUDE [Azure Digital Twins: DefaultAzureCredential known issue note](includes/digital-twins-defaultazurecredential-note.md)]
 
 ### Configure project
 
@@ -246,7 +246,7 @@ Next, complete the following steps to configure your project code:
       ```
 
 You also need to set up local credentials if you want to run the sample directly. The next section walks through this process.
-[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](includes/digital-twins-local-credentials-outer.md)]
 
 ### Run the sample
 

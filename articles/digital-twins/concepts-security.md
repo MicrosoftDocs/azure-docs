@@ -126,7 +126,7 @@ For instructions on how to set up Private Link for Azure Digital Twins, see [Ena
 >[!NOTE]
 > Private network access with Azure Private Link applies to accessing Azure Digital Twins through its rest APIs. This feature does not apply to egress scenarios using Azure Digital Twins's [event routing](concepts-route-events.md) feature.
 
-[!INCLUDE [digital-twins-explorer-private-note.md](../../includes/digital-twins-explorer-private-note.md)]
+[!INCLUDE [digital-twins-explorer-private-note.md](includes/digital-twins-explorer-private-note.md)]
 
 ### Design considerations 
 

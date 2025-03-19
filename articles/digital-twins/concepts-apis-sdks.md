@@ -27,13 +27,13 @@ Azure Digital Twins comes equipped with control plane APIs, data plane APIs, and
 
 ## Control plane overview
 
-[!INCLUDE [digital-twins-sdks-control-plane](../../includes/digital-twins-sdks-control-plane.md)]
+[!INCLUDE [digital-twins-sdks-control-plane](includes/digital-twins-sdks-control-plane.md)]
 
 You can also exercise the control plane APIs by interacting with Azure Digital Twins through the [Azure portal](https://portal.azure.com) and [CLI](/cli/azure/dt).
 
 ## Data plane overview
 
-[!INCLUDE [digital-twins-sdks-data-plane](../../includes/digital-twins-sdks-data-plane.md)]
+[!INCLUDE [digital-twins-sdks-data-plane](includes/digital-twins-sdks-data-plane.md)]
 
 You can also exercise the data plane APIs by interacting with Azure Digital Twins through the [CLI](/cli/azure/dt).
 

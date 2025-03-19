@@ -112,7 +112,7 @@ To learn how to set up an endpoint with dead-lettering, see [Endpoint options: D
 
 Different types of events in IoT Hub and Azure Digital Twins produce different types of notification messages, as described below.
 
-[!INCLUDE [digital-twins-notifications.md](../../includes/digital-twins-notifications.md)]
+[!INCLUDE [digital-twins-notifications.md](includes/digital-twins-notifications.md)]
 
 ## Next steps
 

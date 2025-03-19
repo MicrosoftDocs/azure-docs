@@ -31,7 +31,7 @@ You can use the Azure Digital Twins query language to retrieve digital twins acc
 
 To submit a query to the service from a client app, you'll use the Azure Digital Twins [Query API](/rest/api/digital-twins/dataplane/query). One way to use the API is through one of the [SDKs for Azure Digital Twins](concepts-apis-sdks.md#data-plane-overview).
 
-[!INCLUDE [digital-twins-query-reference.md](../../includes/digital-twins-query-reference.md)]
+[!INCLUDE [digital-twins-query-reference.md](includes/digital-twins-query-reference.md)]
 
 ## Considerations for querying
 
@@ -42,7 +42,7 @@ When writing queries for Azure Digital Twins, keep the following considerations 
   :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="EscapedSingleQuote":::
 * If you're using the Azure CLI to run queries, you may need to escape certain additional characters to meet the requirements of various shells. For more information, see [Use special characters in different shells](concepts-cli.md#use-special-characters-in-different-shells)
 
-[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
+[!INCLUDE [digital-twins-query-latency-note.md](includes/digital-twins-query-latency-note.md)]
 
 ## Querying historized twin data over time
 

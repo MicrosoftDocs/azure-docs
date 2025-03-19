@@ -9,7 +9,7 @@ ms.author: baanders
 
 Here's an example of what the embedded viewer might look like in an independent application:
 
-:::image type="content" source="../articles/digital-twins/media/concepts-3d-scenes-studio/embedded-view.png" alt-text="Screenshot of 3D Scenes Studio in embedded view." lightbox="../articles/digital-twins/media/concepts-3d-scenes-studio/embedded-view.png":::
+:::image type="content" source="../media/concepts-3d-scenes-studio/embedded-view.png" alt-text="Screenshot of 3D Scenes Studio in embedded view." lightbox="../media/concepts-3d-scenes-studio/embedded-view.png":::
 
 The 3D visualization component library is available in GitHub, in the [iot-cardboard-js](https://github.com/microsoft/iot-cardboard-js) repository. This library is an open source React component library for creating internet of things (IoT) web experiences.
 

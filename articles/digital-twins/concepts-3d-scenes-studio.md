@@ -112,7 +112,7 @@ You can use the **Elements** list to explore all the elements and active conditi
 
 3D Scenes Studio is extensible to support additional viewing needs. The [viewer component](#viewer) can be embedded into custom applications, and can work in conjunction with 3rd party components.
 
-[!INCLUDE [digital-twins-3d-embed.md](../../includes/digital-twins-3d-embed.md)]
+[!INCLUDE [digital-twins-3d-embed.md](includes/digital-twins-3d-embed.md)]
 
 ## Limits and performance
 

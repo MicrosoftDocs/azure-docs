@@ -35,7 +35,7 @@ It also contains a sample twin graph that you can use to see the historized grap
 >[!NOTE]
 > You can also use Azure Cloud Shell in the PowerShell environment instead of the Bash environment, if you prefer. The commands on this page are written for the Bash environment, so they might require some small adjustments to be run in PowerShell.
 
-[!INCLUDE [CLI setup for Azure Digital Twins](../../includes/digital-twins-cli.md)]
+[!INCLUDE [CLI setup for Azure Digital Twins](includes/digital-twins-cli.md)]
 
 ### Set up local variables for CLI session
 
@@ -171,7 +171,7 @@ This command also creates three tables in your Azure Data Explorer database to s
 
 # [CLI](#tab/cli) 
 
-[!INCLUDE [digital-twins-cli-issue](../../includes/digital-twins-cli-issue.md)]
+[!INCLUDE [digital-twins-cli-issue](includes/digital-twins-cli-issue.md)]
 
 Use the command in this section to create a data history connection and the tables in Azure Data Explorer. The command always creates a table for historized twin property updates, and it includes parameters to create the tables for relationship lifecycle and twin lifecycle events.
 

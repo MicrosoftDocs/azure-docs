@@ -31,7 +31,7 @@ Optionally, you might want to set up [automatic telemetry ingestion through IoT 
 
 To set up twin-to-twin event handling, start by creating an *endpoint* in Azure Digital Twins and a *route* to that endpoint. Twins undergoing an update use the route to send information about their update events to the endpoint (where Event Grid can pick them up later and pass them to an Azure function for processing).
 
-[!INCLUDE [digital-twins-twin-to-twin-resources.md](../../includes/digital-twins-twin-to-twin-resources.md)]
+[!INCLUDE [digital-twins-twin-to-twin-resources.md](includes/digital-twins-twin-to-twin-resources.md)]
 
 ## Create Azure function to update twins
 
@@ -63,7 +63,7 @@ az functionapp function show --resource-group <your-resource-group> --name <your
 
 Before your function can access Azure Digital Twins, it needs some information about the instance and permission to access it. In this section, you assign an access role for the function and configure the application settings so that it can find and access the instance.
 
-[!INCLUDE [digital-twins-configure-function-app-cli.md](../../includes/digital-twins-configure-function-app-cli.md)]
+[!INCLUDE [digital-twins-configure-function-app-cli.md](includes/digital-twins-configure-function-app-cli.md)]
 
 ## Connect the function to the endpoint
 

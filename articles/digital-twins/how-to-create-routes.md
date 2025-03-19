@@ -37,7 +37,7 @@ Next, follow the instructions below if you intend to use the Azure CLI while fol
 
 [!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
-[!INCLUDE [digital-twins-cli-issue](../../includes/digital-twins-cli-issue.md)]
+[!INCLUDE [digital-twins-cli-issue](includes/digital-twins-cli-issue.md)]
 
 ## Create an event route
 
@@ -82,7 +82,7 @@ When finished, select the **Save** button to create your event route.
 
 # [CLI](#tab/cli2)
 
-[!INCLUDE [digital-twins-cli-issue](../../includes/digital-twins-cli-issue.md)]
+[!INCLUDE [digital-twins-cli-issue](includes/digital-twins-cli-issue.md)]
 
 Routes can be managed using the [az dt route](/cli/azure/dt/route) commands for the Azure Digital Twins CLI. 
 

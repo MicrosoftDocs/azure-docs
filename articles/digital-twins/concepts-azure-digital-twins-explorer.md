@@ -37,7 +37,7 @@ Developers may find this tool especially useful in the following scenarios:
 
 The explorer's main purpose is to help you visualize and understand your graph, and update your graph as needed. For large-scale solutions and for work that should be repeated or automated, consider using the [APIs and SDKs](./concepts-apis-sdks.md) to interact with your instance through code instead.
 
-[!INCLUDE [digital-twins-explorer-private-note.md](../../includes/digital-twins-explorer-private-note.md)]
+[!INCLUDE [digital-twins-explorer-private-note.md](includes/digital-twins-explorer-private-note.md)]
 
 ## How to access
 
@@ -45,7 +45,7 @@ The main way to access Azure Digital Twins Explorer is through the [Azure portal
 
 To open Azure Digital Twins Explorer for an Azure Digital Twins instance, first navigate to the instance in the portal, by searching for its name in the portal search bar.
 
-[!INCLUDE [digital-twins-access-explorer.md](../../includes/digital-twins-access-explorer.md)]
+[!INCLUDE [digital-twins-access-explorer.md](includes/digital-twins-access-explorer.md)]
 
 ## Features and capabilities
 
@@ -62,7 +62,7 @@ The sections of the explorer are as follows:
 
 For detailed instructions on how to use each feature, see [Use Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md). 
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
+[!INCLUDE [digital-twins-explorer-dtdl](includes/digital-twins-explorer-dtdl.md)]
 
 ## Other considerations
 

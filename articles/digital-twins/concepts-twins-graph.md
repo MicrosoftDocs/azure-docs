@@ -28,7 +28,7 @@ Before you can create a digital twin in your Azure Digital Twins instance, you n
 
 After creating and uploading a model, your client app can create an instance of the type. This instance is a digital twin. For example, after creating a model of Floor, you may create one or several digital twins that use this type (like a Floor-type twin called GroundFloor, another called Floor2, and so on).
 
-[!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
+[!INCLUDE [digital-twins-versus-device-twins](includes/digital-twins-versus-device-twins.md)]
 
 ## Relationships: A graph of digital twins
 
@@ -38,7 +38,7 @@ For example, the model Floor might define a `contains` relationship that targets
 
 The result of this process is a set of nodes (the digital twins) connected via edges (their relationships) in a graph.
 
-[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
+[!INCLUDE [visualizing with Azure Digital Twins explorer](includes/digital-twins-visualization.md)]
 
 :::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Screenshot of Azure Digital Twins Explorer showing sample models and twins." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
 

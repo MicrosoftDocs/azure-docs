@@ -25,7 +25,7 @@ There are several types of notifications that can be generated, and notification
 
 This chart shows the different notification types:
 
-[!INCLUDE [digital-twins-notifications.md](../../includes/digital-twins-notifications.md)]
+[!INCLUDE [digital-twins-notifications.md](includes/digital-twins-notifications.md)]
 
 ## Notification structure
 

@@ -19,7 +19,7 @@ ms.service: azure-digital-twins
 
 This article describes how to create an [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) *app registration* that can access Azure Digital Twins. This article includes steps for the [Azure portal](https://portal.azure.com) and the [Azure CLI](/cli/azure/what-is-azure-cli).
 
-[!INCLUDE [digital-twins-cli-issue](../../includes/digital-twins-cli-issue.md)]
+[!INCLUDE [digital-twins-cli-issue](includes/digital-twins-cli-issue.md)]
 
 When working with Azure Digital Twins, it's common to interact with your instance through client applications. Those applications need to authenticate with Azure Digital Twins, and some of the [authentication mechanisms](how-to-authenticate-client.md) that apps can use involve an app registration.
 
@@ -242,7 +242,7 @@ The app registration should show up in the list along with the role you assigned
 
 # [CLI](#tab/cli)
 
-[!INCLUDE [digital-twins-cli-issue](../../includes/digital-twins-cli-issue.md)]
+[!INCLUDE [digital-twins-cli-issue](includes/digital-twins-cli-issue.md)]
 
 Use the [az dt role-assignment create](/cli/azure/dt/role-assignment#az-dt-role-assignment-create) command to assign the role (you must have [sufficient permissions](how-to-set-up-instance-cli.md#prerequisites-permission-requirements) in the Azure subscription). The command requires you to pass in the name of the role you want to assign, the name of your Azure Digital Twins instance, and either the name or the object ID of the app registration.
 

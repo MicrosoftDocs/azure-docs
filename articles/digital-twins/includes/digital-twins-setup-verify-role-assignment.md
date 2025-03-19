@@ -13,4 +13,4 @@ Go to your Azure Digital Twins instance in the Azure portal. To get there, you c
 
 Then, view all of its assigned roles under **Access control (IAM) > Role assignments**. Your role assignment should appear in the list. 
 
-:::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="Screenshot of the role assignments for an Azure Digital Twins instance in the Azure portal.":::
+:::image type="content" source="../media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="Screenshot of the role assignments for an Azure Digital Twins instance in the Azure portal.":::

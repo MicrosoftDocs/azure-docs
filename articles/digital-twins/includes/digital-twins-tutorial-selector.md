@@ -11,5 +11,5 @@
 ---
 
 > [!div class="op_single_selector"]
-> * [Sample client app](../articles/digital-twins/tutorial-command-line-app.md)
-> * [CLI](../articles/digital-twins/tutorial-command-line-cli.md)
+> * [Sample client app](../tutorial-command-line-app.md)
+> * [CLI](../tutorial-command-line-cli.md)

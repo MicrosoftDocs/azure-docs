@@ -26,7 +26,7 @@ The following sections describe the service limits of Azure Digital Twins.
 
 ## Limits by type
 
-[!INCLUDE [Azure Digital Twins limits](../../includes/digital-twins-limits.md)]
+[!INCLUDE [Azure Digital Twins limits](includes/digital-twins-limits.md)]
 
 ## Working with limits
 

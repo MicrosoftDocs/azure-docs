@@ -18,17 +18,17 @@ ms.custom: subject-rbac-steps, engagement-fy23
 
 # Set up an Azure Digital Twins instance and authentication (portal)
 
-[!INCLUDE [digital-twins-setup-selector.md](../../includes/digital-twins-setup-selector.md)]
+[!INCLUDE [digital-twins-setup-selector.md](includes/digital-twins-setup-selector.md)]
 
 This article covers the steps to set up a new Azure Digital Twins instance, including creating the instance and setting up authentication. After completing this article, you'll have an Azure Digital Twins instance ready to start programming against.
 
 This version of this article goes through these steps manually, one by one, using the Azure portal. The Azure portal is a web-based, unified console that provides an alternative to command-line tools.
 
-[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
+[!INCLUDE [digital-twins-setup-steps.md](includes/digital-twins-setup-steps.md)]
 
 ## Create the Azure Digital Twins instance
 
-[!INCLUDE [digital-twins-setup-portal.md](../../includes/digital-twins-setup-portal.md)]
+[!INCLUDE [digital-twins-setup-portal.md](includes/digital-twins-setup-portal.md)]
 
 3. On the following **Create Resource** page, fill in the following values:
     * **Subscription**: The Azure subscription you're using.
@@ -70,7 +70,7 @@ You now have an Azure Digital Twins instance ready to go. Next, you'll give the 
 
 ## Set up user access permissions
 
-[!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
+[!INCLUDE [digital-twins-setup-role-assignment.md](includes/digital-twins-setup-role-assignment.md)]
 
 There are two ways to create a role assignment for a user in Azure Digital Twins:
 * [During Azure Digital Twins instance creation](#assign-the-role-during-instance-creation)
@@ -80,7 +80,7 @@ They both require the same permissions.
 
 ### Prerequisites: Permission requirements
 
-[!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
+[!INCLUDE [digital-twins-setup-permissions.md](includes/digital-twins-setup-permissions.md)]
 
 ### Assign the role during instance creation
 

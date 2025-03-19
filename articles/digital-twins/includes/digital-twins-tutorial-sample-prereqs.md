@@ -21,7 +21,7 @@ The tutorial is driven by an [Azure Digital Twins end-to-end sample project writ
 
 This action takes you to the GitHub repo for the samples, which you can download as a .zip by selecting the **Code** button followed by **Download ZIP**.
 
-:::image type="content" source="../articles/digital-twins/media/includes/download-repo-zip.png" alt-text="Screenshot of the digital-twins-samples repo on GitHub, highlighting the steps to download it as a zip." lightbox="../articles/digital-twins/media/includes/download-repo-zip.png":::
+:::image type="content" source="../media/includes/download-repo-zip.png" alt-text="Screenshot of the digital-twins-samples repo on GitHub, highlighting the steps to download it as a zip." lightbox="../media/includes/download-repo-zip.png":::
 
 This action downloads a .zip folder to your machine as *digital-twins-samples-main.zip*. Unzip the folder and extract the files.
 

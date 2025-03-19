@@ -38,7 +38,7 @@ The first step in working with Azure Digital Twins is to create an Azure Digital
 
 The rest of this section walks you through the instance creation. If you already have an Azure Digital Twins instance set up from an earlier quickstart, you can skip to the [next section](#generate-sample-models-and-twins).
 
-[!INCLUDE [digital-twins-quickstart-setup.md](../../includes/digital-twins-quickstart-setup.md)]
+[!INCLUDE [digital-twins-quickstart-setup.md](includes/digital-twins-quickstart-setup.md)]
 
 ### Collect host name
 
@@ -321,7 +321,7 @@ To clean up after this quickstart, choose which Azure Digital Twins resources yo
 
 * If you plan to continue to the Azure Digital Twins tutorials, you can reuse the instance in this quickstart for those articles, and you don't need to remove it.
 
-[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
+[!INCLUDE [digital-twins-cleanup-clear-instance.md](includes/digital-twins-cleanup-clear-instance.md)]
  
 * If you don't need your Azure Digital Twins instance anymore, you can delete it using the [Azure portal](https://portal.azure.com).
     

@@ -17,7 +17,7 @@ ms.service: azure-digital-twins
 
 # Tutorial: Create an Azure Digital Twins graph using a sample client app
 
-[!INCLUDE [digital-twins-tutorial-selector.md](../../includes/digital-twins-tutorial-selector.md)]
+[!INCLUDE [digital-twins-tutorial-selector.md](includes/digital-twins-tutorial-selector.md)]
 
 In this tutorial, you build a graph in Azure Digital Twins using models, twins, and relationships. The tool for this tutorial is the sample command-line client application for interacting with an Azure Digital Twins instance. The client app is similar to the one written in [Code a client app](tutorial-code.md).
 
@@ -30,9 +30,9 @@ In this tutorial, you will...
 > * Add relationships to form a graph
 > * Query the graph to answer questions
 
-[!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
+[!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](includes/digital-twins-tutorial-sample-prereqs.md)]
 
-[!INCLUDE [Azure Digital Twins tutorial: configure the sample project](../../includes/digital-twins-tutorial-sample-configure.md)]
+[!INCLUDE [Azure Digital Twins tutorial: configure the sample project](includes/digital-twins-tutorial-sample-configure.md)]
 
 ### Run the sample project
 
@@ -68,7 +68,7 @@ In the sample project folder that you downloaded earlier, navigate into the *dig
 
 Open *Room.json* for editing, and make the following changes to the code:
 
-[!INCLUDE [digital-twins-tutorial-model-create.md](../../includes/digital-twins-tutorial-model-create.md)]
+[!INCLUDE [digital-twins-tutorial-model-create.md](includes/digital-twins-tutorial-model-create.md)]
 
 ### Upload models to Azure Digital Twins
 
@@ -125,7 +125,7 @@ To create a digital twin, you use the `CreateDigitalTwin` command. You must refe
 
 1. You can verify that the twins were created by running the `Query` command. This command queries your Azure Digital Twins instance for all the digital twins it contains. Look for the room0, room1, floor0, and floor1 twins in the results.
 
-[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
+[!INCLUDE [digital-twins-query-latency-note.md](includes/digital-twins-query-latency-note.md)]
 
 ### Modify a digital twin
 
@@ -202,7 +202,7 @@ The twins and relationships you set up in this tutorial form the following conce
 
 A main feature of Azure Digital Twins is the ability to [query](concepts-query-language.md) your twin graph easily and efficiently to answer questions about your environment. 
 
-[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
+[!INCLUDE [digital-twins-query-latency-note.md](includes/digital-twins-query-latency-note.md)]
 
 Run the following commands in the running project console to answer some questions about the sample environment.
 
@@ -269,7 +269,7 @@ After completing this tutorial, you can choose which resources you want to remov
 
 * If you want to continue using the Azure Digital Twins instance, but clear out all of its models, twins, and relationships, you can use the sample app's `DeleteAllTwins` and `DeleteAllModels` commands to clear the twins and models in your instance, respectively.
 
-[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
+[!INCLUDE [digital-twins-cleanup-basic.md](includes/digital-twins-cleanup-basic.md)]
 
 You might also want to delete the downloaded project folder from your local machine.
 

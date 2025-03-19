@@ -28,7 +28,7 @@ You can also complete a basic walkthrough in the blog post [Simplify building au
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 Sign in to the [Azure portal](https://portal.azure.com) with your account. 
 
-[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+[!INCLUDE [digital-twins-prereq-instance.md](includes/digital-twins-prereq-instance.md)]
 
 Lastly, you need to set up any [Power Platform](/power-platform) services where you want to use the connector.
 

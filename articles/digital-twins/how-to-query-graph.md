@@ -24,7 +24,7 @@ The article contains sample queries that illustrate the query language structure
 > [!NOTE]
 > If you run the following sample queries with an API or SDK call, you need to condense the query text into a single line.
 
-[!INCLUDE [digital-twins-query-reference.md](../../includes/digital-twins-query-reference.md)]
+[!INCLUDE [digital-twins-query-reference.md](includes/digital-twins-query-reference.md)]
 
 ## Show all digital twins
 

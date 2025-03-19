@@ -51,7 +51,7 @@ Azure Digital Twins also supports using a mix of v2 and v3 models within the sam
 
 You can also migrate existing v2 models to v3. For instructions on how to do this, see [Convert v2 models to v3](how-to-manage-model.md#convert-v2-models-to-v3).
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
+[!INCLUDE [digital-twins-explorer-dtdl](includes/digital-twins-explorer-dtdl.md)]
 
 ## Model overview
 
@@ -312,7 +312,7 @@ While designing models to reflect the entities in your environment, it can be us
 
 ### Validate models
 
-[!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
+[!INCLUDE [Azure Digital Twins: validate models info](includes/digital-twins-validate.md)]
 
 ### Upload and delete models in bulk
 
@@ -330,7 +330,7 @@ Or, if you want to clear out the data in an instance by deleting all the models 
 
 Once you have uploaded models into your Azure Digital Twins instance, you can use [Azure Digital Twins Explorer](https://explorer.digitaltwins.azure.net/) to view them. The explorer contains a list of all models in the instance, as well as a **model graph** that illustrates how they relate to each other, including any inheritance and model relationships.
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
+[!INCLUDE [digital-twins-explorer-dtdl](includes/digital-twins-explorer-dtdl.md)]
 
 Here's an example of what a model graph might look like:
 
