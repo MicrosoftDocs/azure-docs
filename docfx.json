@@ -1057,6 +1057,7 @@
         "articles/azure-cache-for-redis/**/*.yml": ["Azure","Cache for Redis"],
         "articles/azure-databricks/**/*.md": ["Azure","Azure Databricks"],
         "articles/azure-databricks/**/*.yml": ["Azure","Azure Databricks"],
+        "articles/azure-functions/**/*.yml": ["Azure","Azure Functions"],
         "articles/azure-monitor/**/*.md": ["Azure","Azure Monitor"],
         "articles/azure-monitor/**/*.yml": ["Azure","Azure Monitor"],
         "articles/azure-portal/**/*.md": ["Azure","Azure portal"],
