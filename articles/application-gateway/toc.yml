@@ -96,6 +96,8 @@
     href: ssl-certificate-management.md
   - name: Security baseline
     href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
+  - name: TLS 1.0 and 1.1 retirement
+    href: application-gateway-tls-version-retirement.md
 - name: Deploy
   items:
   - name: Host multiple sites
