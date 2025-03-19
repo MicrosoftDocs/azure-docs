@@ -43,7 +43,7 @@ A *sentinel key* is a key that you update after you complete the change of all o
     // Load configuration from Azure App Configuration
     builder.Configuration.AddAzureAppConfiguration(options =>
     {
-        options.Connect(new Uri(endpoint), new DefaultAzureCredential());
+        options.Connect(new Uri(endpoint), new DefaultAzureCredential())
                 // Load all keys that start with `TestApp:` and have no label
                 .Select("TestApp:*", LabelFilter.Null)
                 // Configure to reload configuration if the registered sentinel key is modified

@@ -5,7 +5,7 @@ author: reachnijel
 ms.author: nijelsf
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 01/02/2025
+ms.date: 03/11/2025
 ---
 
 # Integrate Apache Spark and Apache Hive with Hive Warehouse Connector in Azure HDInsight
@@ -57,6 +57,7 @@ Hive Warehouse Connector needs separate clusters for Spark and Interactive Query
 |:---:|:---:|---|
 | v1 | Spark 2.4 \| HDI 4.0 | Interactive Query 3.1 \| HDI 4.0 |
 | v2 | Spark 3.1 \| HDI 5.0 | Interactive Query 3.1 \| HDI 5.0 |
+| v2.1 | Spark 3.3.0 \| HDI 5.1 | Interactive Query 3.1 \| HDI 5.1 |
 
 ### Create clusters
 
@@ -170,9 +171,9 @@ This is a way to run Spark interactively through a modified version of the Scala
 
 ### Spark-submit
 
-Spark-submit is a utility to submit any Spark program (or job) to Spark clusters.
+`Spark-submit` is a utility to submit any Spark program (or job) to Spark clusters.
 
-The spark-submit job will set up and configure Spark and Hive Warehouse Connector as per our instructions, execute the program we pass to it, then cleanly release the resources that were being used.
+The `spark-submit` job will set up and configure Spark and Hive Warehouse Connector as per our instructions, execute the program we pass to it, then cleanly release the resources that were being used.
 
 Once you build the scala/java code along with the dependencies into an assembly jar, use the below command to launch a Spark application. Replace `<VERSION>`, and `<APP_JAR_PATH>` with the actual values.
 

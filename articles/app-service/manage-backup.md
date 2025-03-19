@@ -151,7 +151,7 @@ There are two types of backups in App Service. Automatic backups are created for
 ### Back up and restore a linked database
 
 > [!NOTE]  
-> Custom backups with linked databases for App Service support only **Single Server SKUs** of Azure Database for MySQL and PostgreSQL. Since Single Server SKUs are being retired, upgrading linked databases to **Flexible Server** may cause backups to fail. Use native database backup tools to prevent data loss. Standalone MySQL and PostgreSQL servers (e.g., on VMs) are unaffected by the Single Server SKU retirement. For retirement details, see [MySQL Single Server retirement](/azure/mysql/migrate/whats-happening-to-mysql-single-server.md) and [PostgreSQL Single Server retirement](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server.md).  
+> Custom backups with linked databases for App Service support only **Single Server SKUs** of Azure Database for MySQL and PostgreSQL. Since Single Server SKUs are being retired, upgrading linked databases to **Flexible Server** may cause backups to fail. Use native database backup tools to prevent data loss. Standalone MySQL and PostgreSQL servers (e.g., on VMs) are unaffected by the Single Server SKU retirement. For retirement details, see [MySQL Single Server retirement](/azure/mysql/migrate/whats-happening-to-mysql-single-server) and [PostgreSQL Single Server retirement](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server).  
 >
 > For back up and restore of Flexible Servers, see the respective database documentation: 
 >- [Azure Database for MySQL - Flexible Server: Back up and restore](/azure/mysql/flexible-server/concepts-backup-restore).
@@ -334,7 +334,7 @@ When [backing up over Azure Virtual Network](#back-up-and-restore-over-azure-vir
 ### Why is my linked database not backed up?
 
 > [!NOTE]  
-> Custom backups with linked databases for App Service support only **Single Server SKUs** of Azure Database for MySQL and PostgreSQL. Since Single Server SKUs are being retired, upgrading linked databases to **Flexible Server** may cause backups to fail. Use native database backup tools to prevent data loss. Standalone MySQL and PostgreSQL servers (e.g., on VMs) are unaffected by the Single Server SKU retirement. For retirement details, see [MySQL Single Server retirement](/azure/mysql/migrate/whats-happening-to-mysql-single-server.md) and [PostgreSQL Single Server retirement](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server.md).  
+> Custom backups with linked databases for App Service support only **Single Server SKUs** of Azure Database for MySQL and PostgreSQL. Since Single Server SKUs are being retired, upgrading linked databases to **Flexible Server** may cause backups to fail. Use native database backup tools to prevent data loss. Standalone MySQL and PostgreSQL servers (e.g., on VMs) are unaffected by the Single Server SKU retirement. For retirement details, see [MySQL Single Server retirement](/azure/mysql/migrate/whats-happening-to-mysql-single-server) and [PostgreSQL Single Server retirement](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server).  
 >
 > For back up and restore of Flexible Servers, see the respective database documentation: 
 >- [Azure Database for MySQL - Flexible Server: Back up and restore](/azure/mysql/flexible-server/concepts-backup-restore).

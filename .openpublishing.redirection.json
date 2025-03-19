@@ -1,6 +1,110 @@
 {
   "redirections": [
     {
+      "source_path": "articles/databox-online/azure-stack-edge-overview.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-deploy-prep.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-deploy-prep",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-deploy-install.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-deploy-install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-deploy-connect-setup-activate.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-deploy-add-shares.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-deploy-add-shares",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-deploy-configure-compute-advanced.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-deploy-configure-compute-advanced",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-deploy-configure-compute.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-deploy-configure-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-system-requirements.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-system-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-technical-specifications-compliance.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-technical-specifications-compliance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-create-iot-edge-module.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-create-iot-edge-module",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-manage-compute.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-manage-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-manage-shares.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-manage-shares",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-manage-users.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-manage-users",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-manage-bandwidth-schedules.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-manage-bandwidth-schedules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-manage-access-power-connectivity-mode.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-manage-access-power-connectivity-mode",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-troubleshoot.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-troubleshoot-iot-edge.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-troubleshoot-iot-edge",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-migrate-fpga-gpu.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-migrate-fpga-gpu",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-2101-release-notes.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-2101-release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-2301-release-notes.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-2301-release-notes",
+    },
+    {
+      "source_path": "articles/network-watcher/nsg-flow-logs-rest.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/nsg-flow-logs-rest",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/automation/update-management/configure-alerts.md",
       "redirect_url": "/azure/update-manager/manage-alerts",
       "redirect_document_id": false
@@ -2713,6 +2817,11 @@
     {
       "source_path_from_root": "/articles/bastion/bastion-connect-vm-rdp-linux.md",
       "redirect_url": "/azure/bastion/bastion-connect-vm-ssh-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/bastion/quickstart-developer-sku.md",
+      "redirect_url": "/azure/bastion/quickstart-developer",
       "redirect_document_id": false
     },
     {
@@ -5461,6 +5570,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/virtual-wan/azure-vpn-client-optional-configurations-windows.md",
+      "redirect_url": "/azure/virtual-wan/azure-vpn-client-optional-configurations",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-wan/openvpn-azure-ad-client.md",
       "redirect_url": "/azure/virtual-wan/point-to-site-entra-vpn-client-windows",
       "redirect_document_id": false
@@ -6188,6 +6302,346 @@
     {
       "source_path_from_root": "/articles/virtual-network/virtual-network-for-azure-services.md",
       "redirect_url": "/azure/virtual-network/vnet-integration-for-azure-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/how-to/ccws/cleanup-roles.md",
+      "redirect_url": "/azure/cyclecloud/how-to/ccws/deploy-with-cli",
+      "redirect_document_id": false      
+    },
+    {
+      "source_path": "articles/cloud-services/applications-dont-support-tls-1-2.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/applications-dont-support-tls-1-2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/automation-manage-cloud-services.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/automation-manage-cloud-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-allocation-failures.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-allocation-failures",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-certs-create.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-certs-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-choose-me.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-choose-me",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-configure-ssl-certificate-portal.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-configure-ssl-certificate-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-connect-to-custom-domain.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-connect-to-custom-domain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-custom-domain-name-portal.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-custom-domain-name-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-diagnostics-powershell.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-diagnostics-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-disaster-recovery-guidance.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-disaster-recovery-guidance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-dotnet-diagnostics-trace-flow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-dotnet-diagnostics.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-dotnet-diagnostics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-dotnet-get-started.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-dotnet-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-dotnet-install-dotnet.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-dotnet-install-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-enable-communication-role-instances.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-enable-communication-role-instances",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-guestos-family-2-3-4-retirement.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-guestos-family-2-3-4-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-guestos-family1-retirement.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-guestos-family1-retirement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-guestos-msrc-releases.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-guestos-msrc-releases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-guestos-retirement-policy.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-guestos-retirement-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-guestos-update-matrix.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-guestos-update-matrix",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-how-to-configure-portal.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-how-to-configure-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-how-to-create-deploy-portal.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-how-to-create-deploy-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-how-to-manage-portal.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-how-to-manage-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-how-to-monitor.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-how-to-monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-how-to-scale-portal.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-how-to-scale-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-how-to-scale-powershell.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-how-to-scale-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-model-and-package.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-model-and-package",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-nodejs-chat-app-socketio.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-nodejs-chat-app-socketio",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-nodejs-develop-deploy-app.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-nodejs-develop-deploy-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-nodejs-develop-deploy-express-app.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-nodejs-develop-deploy-express-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-performance-testing-visual-studio-profiler.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-performance-testing-visual-studio-profiler",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-php-create-web-role.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-php-create-web-role",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-powershell-create-cloud-container.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-powershell-create-cloud-container",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-python-how-to-use-service-management.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-python-how-to-use-service-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-python-ptvs.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-python-ptvs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-role-config-xpath.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-role-config-xpath",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-role-enable-remote-desktop-new-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-role-enable-remote-desktop-powershell.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-role-enable-remote-desktop-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-role-enable-remote-desktop-visual-studio.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-role-enable-remote-desktop-visual-studio",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-role-lifecycle-dotnet.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-role-lifecycle-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-sizes-specs.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-sizes-specs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-startup-tasks-common.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-startup-tasks-common",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-startup-tasks.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-startup-tasks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-troubleshoot-common-issues-which-cause-roles-recycle",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-troubleshoot-constrained-allocation-failed.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-troubleshoot-constrained-allocation-failed",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-troubleshoot-default-temp-folder-size-too-small-web-worker-role.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-troubleshoot-default-temp-folder-size-too-small-web-worker-role",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-troubleshoot-deployment-problems.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-troubleshoot-deployment-problems",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-troubleshoot-fabric-internal-server-error.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-troubleshoot-fabric-internal-server-error",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-troubleshoot-location-not-found-for-role-size.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-troubleshoot-location-not-found-for-role-size",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-troubleshoot-overconstrained-allocation-request.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-troubleshoot-overconstrained-allocation-request",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-troubleshoot-roles-that-fail-start.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-troubleshoot-roles-that-fail-start",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-update-azure-service.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-update-azure-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-workflow-process.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-workflow-process",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/diagnostics-extension-to-storage.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/diagnostics-extension-to-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/diagnostics-performance-counters.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/diagnostics-performance-counters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/mitigate-se.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/mitigate-se",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/resource-health-for-cloud-services.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/resource-health-for-cloud-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/schema-cscfg-file.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/schema-cscfg-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/schema-cscfg-networkconfiguration.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/schema-cscfg-networkconfiguration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/schema-cscfg-role.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/schema-cscfg-role",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/schema-csdef-file.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/schema-csdef-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/schema-csdef-loadbalancerprobe.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/schema-csdef-loadbalancerprobe",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/schema-csdef-networktrafficrules.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/schema-csdef-networktrafficrules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/schema-csdef-webrole.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/schema-csdef-webrole",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/schema-csdef-workerrole.md",
+      "redirect_url": "/previous-versions/azure/cloud-services/schema-csdef-workerrole",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/migrate-sql-managed-instance.md",
+      "redirect_url": "/azure/azure-sql/managed-instance/instance-zone-redundancy-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operational-excellence/relocation-managed-identity.md",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/how-to-managed-identity-regional-move",
       "redirect_document_id": false
     }
   ]

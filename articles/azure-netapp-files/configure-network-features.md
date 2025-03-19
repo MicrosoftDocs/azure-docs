@@ -104,8 +104,6 @@ You can edit the network features option of existing volumes from *Basic* to *St
 1. Select **Change network features**. 
 1. The **Edit network features** window displays the volumes that are in the same network sibling set. Confirm whether you want to modify the network features option. 
 
-    :::image type="content" source="./media/configure-network-features/edit-network-features.png" alt-text="Screenshot showing the Edit Network Features window." lightbox="./media/configure-network-features/edit-network-features.png":::
-
 ### Update Terraform-managed Azure NetApp Files volume from Basic to Standard 
 
 If your Azure NetApp Files volume is managed using Terraform, editing the network features requires additional steps. Terraform-managed Azure resources store their state in a local file, which is in your Terraform module or in Terraform Cloud. 

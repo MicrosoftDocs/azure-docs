@@ -104,7 +104,7 @@ Redeployment with data migration for Azure Database for PostgreSQL is based on l
     1. Stop all database activity on the source server.
     1. Replace credentials information, source server, target server, and database name in the following script:
 
-      ```sql
+      ```bash
           export USER=admin_username
           export PGPASSWORD=admin_password
           export SOURCE=pgsql-arpp-source.postgres.database.azure.com
