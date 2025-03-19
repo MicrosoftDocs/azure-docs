@@ -7,22 +7,22 @@ ms.service: azure-deployment-environments
 ms.topic: concept-article
 ms.date: 03/20/2025
 
-# Customer intent: As a developer, I want to know which parameters I can assign for parameters in manifest.yaml.
+# Customer intent: As a developer, I want to know the properties and parameters that I can use in manifest.yaml.
 
 ---
 
-# Parameters and data types in manifest.yaml
+# Properties and parameters in manifest.yaml
 
-ADE environment definitions are infrastructure as code (IaC), written in Bicep or Terraform, stored in repositories. Environment definitions can be modified and adapted for your specific requirements and then used to create a deployment environment on Azure. The manifest.yaml schema defines and describes the types of Azure resources included in environment definitions.
+Azure Deployment Environments environment definitions are infrastructure as code (IaC) that are written in Bicep or Terraform and stored in repositories. You can modify and adapt environment definitions for your requirements and then use them to create a deployment environment on Azure. The manifest.yaml schema defines and describes the types of Azure resources included in environment definitions.
 
 
 ## What is manifest.yaml?
 
-The manifest.yaml file acts as a manifest, describing the resources used and the template location for the environment definition.
+The manifest.yaml file describes the resources used and the template location for the environment definition.
 
 ### Sample manifest.yaml
 
-The following script is an example of a manifest.yaml required for your environment definition.
+The following script is an example of the manifest.yaml that's required for your environment definition.
 
 ```yml
 name: WebApp
@@ -49,7 +49,7 @@ The following table describes the properties that you can use in manifest.yaml.
 
 ## Parameters in manifest.yaml
 
-Parameters enable you to reuse an environment definition in different scenarios. For example, you might want developers in different regions to deploy the same environment. You can define a location parameter to prompt the developer to enter the desired location as they create their environment. 
+Parameters enable you to reuse an environment definition in different scenarios. For example, you might want developers in different regions to deploy the same environment. You can define a location parameter to prompt developers to enter the desired location as they create their environments. 
 
 ### Sample manifest.yaml with parameters
 
@@ -82,20 +82,20 @@ The following table describes the data types that you can use in manifest.yaml. 
 
 Each parameter can use any of the following properties:
 
-| Property| Type| Description   | Additional settings   |
+| Parameter| Type| Description   | Additional settings   |
 | ----| --- |---------------------- |-------------------- |
 | `id `            | string         | A unique ID of the parameter.                     |                                        |
 | `name`           | string         | A display name for the parameter.                  |                                        |
 | `description`    | string         | A description of the parameter.                   |                                        |
 | `default` | array </br> boolean </br> integer </br> number </br> object </br> string | The default value of the parameter. |                                        |
-| `type`| array </br> boolean </br> integer </br> number </br> object </br> string | The data type of the parameter.  This data type must match the parameter data type that has the corresponding parameter name in the ARM template, BICEP file, or Terraform file. | **Default type:** string |
+| `type`| array </br> boolean </br> integer </br> number </br> object </br> string | The data type of the parameter.  This data type must match the parameter data type that has the corresponding parameter name in the ARM template, Bicep file, or Terraform file. | **Default type:** string |
 | `readOnly`| boolean  | Whether the parameter is read-only.     |            |
 | `required`       | boolean        | Whether the parameter is required.  |   |
 | `allowed`  | array  | An array of allowed values.  | "items": { </br> "type": "string" </br> }, </br> "minItems": 1, </br> "uniqueItems": true, |
 
 ## YAML schema
 
-There's a defined schema for Azure Deployment Environments manifest.yaml files, which can make editing these files a little easier. You can add the schema definition to the beginning of your manifest.yaml file:
+There's a defined schema for Azure Deployment Environments manifest.yaml files. It can make editing these files a little easier. You can add the schema definition to the beginning of your manifest.yaml file:
 
 ```yml
 # yaml-language-server: $schema=https://github.com/Azure/deployment-environments/releases/download/2022-11-11-preview/manifest.schema.json
