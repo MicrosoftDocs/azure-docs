@@ -2,10 +2,10 @@
 title: 'Quickstart: Use the Azure CLI to create a Batch account and run a job'
 description: Follow this quickstart to use the Azure CLI to create a Batch account, a pool of compute nodes, and a job that runs basic tasks on the pool.
 ms.topic: quickstart
-ms.date: 04/12/2023
+ms.date: 03/19/2025
 ms.custom: mvc, devx-track-azurecli, mode-api, linux-related-content, innovation-engine
-author: (preserved)
-ms.author: (preserved)
+author: padmalathas
+ms.author: padmalathas
 ---
 
 # Quickstart: Use the Azure CLI to create a Batch account and run a job
