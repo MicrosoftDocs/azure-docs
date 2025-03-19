@@ -15,18 +15,16 @@ ms.author: oldoll
 ---
 
 # New Version of Azure VM extension for SAP solutions 
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
 [std-extension]:vm-extension-for-sap-standard.md (Standard Version of Azure VM extension for SAP solutions)
 [configure]:vm-extension-for-sap-new.md#configure (Configure the New Azure VM extension for SAP solutions with PowerShell)
-[troubleshoot-windows]:vm-extension-for-sap-new.md#dee9099b-7b8a-4cdd-86a2-3f6ee964266f (Troubleshooting for Windows)
-[troubleshoot-linux]:vm-extension-for-sap-new.md#02783aa4-5443-43f5-bc11-7af19ebf0c36 (Troubleshooting for Linux)
 [deployment-guide-4.1]:vm-extension-for-sap-new.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 (Deploying Azure PowerShell cmdlets)
 [azure-cli-2]:/cli/azure/install-azure-cli
 [health-check]:vm-extension-for-sap-new.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Health checks)
 [1031096]:https://launchpad.support.sap.com/#/notes/1031096
-[readiness-check]:vm-extension-for-sap-new.md#5774c1db-1d3c-4b34-8448-3afd0b0f18ab (Readiness check)
+[readiness-check]:vm-extension-for-sap-new.md#readiness-check (Readiness check)
+[troubleshooting]:vm-extension-for-sap-troubleshooting.md
 
 ## Prerequisites
 
@@ -70,7 +68,7 @@ az --version
  
 ## <a name="configure"></a>Configure the Azure VM extension for SAP solutions 
 
-### [<a name="configure">](#tab/powershell2)
+### [PowerShell](#tab/powershell2)
  
 The new VM Extension for SAP uses a managed identity that's assigned to the VM to access monitoring and configuration data of the VM. To install the new Azure Extension for SAP by using PowerShell, you first have to assign such an identity to the VM and grant that identity access to all resources that are in use by that VM, for example, disks and network interfaces.
 
@@ -353,7 +351,7 @@ If the preceding check was not successful, run these additional checks:
 
 If you already have an SAP NetWeaver ABAP application server installed, open transaction ST06 and check whether monitoring is enabled.
 
-If any of these checks fail, and for detailed information about how to redeploy the extension, see [Troubleshooting for Windows][troubleshoot-windows] or [Troubleshooting for Linux][troubleshoot-linux]
+If any of these checks fail, and for detailed information about how to redeploy the extension, see [Troubleshooting][troubleshooting]
  
 ## <a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Health checks
 
@@ -372,7 +370,7 @@ If some of the infrastructure data is not delivered correctly as indicated by th
    ```
 1. The script tests the configuration of the virtual machine you selected.
 
-Make sure that every health check result is **OK**. If some checks do not display **OK**, run the update cmdlet as described in [Configure the Azure VM extension for SAP solutions with Azure CLI][configure] o. Repeat the checks described in [Readiness check][readiness-check] and this chapter. If the checks still indicate a problem with some or all counters, see [Troubleshooting for Linux][troubleshoot-linux] or [Troubleshooting for Windows][troubleshoot-windows].
+Make sure that every health check result is **OK**. If some checks do not display **OK**, run the update cmdlet as described in [Configure the Azure VM extension for SAP solutions][configure] o. Repeat the checks described in [Readiness check][readiness-check] and this chapter. If the checks still indicate a problem with some or all counters, see [Troubleshooting][troubleshooting].
 
 ### [Azure CLI](#tab/cli5)
 
@@ -395,7 +393,7 @@ To run the health check for the Azure VM Extension for SAP by using Azure CLI:
    ```
 The script tests the configuration of the virtual machine you select.
 
-Make sure that every health check result is **OK**. If some checks do not display **OK**, run the update cmdlet as described in [Configure the Azure VM extension for SAP solutions][configure]. Repeat the checks described in [Readiness check][readiness-check] and this chapter. If the checks still indicate a problem with some or all counters, see [Troubleshooting for Linux][troubleshoot-linux] or [Troubleshooting for Windows][troubleshoot-windows].
+Make sure that every health check result is **OK**. If some checks do not display **OK**, run the update cmdlet as described in [Configure the Azure VM extension for SAP solutions][configure]. Repeat the checks described in [Readiness check][readiness-check] and this chapter. If the checks still indicate a problem with some or all counters, see [Troubleshooting][troubleshooting].
 
 
 ## Next steps

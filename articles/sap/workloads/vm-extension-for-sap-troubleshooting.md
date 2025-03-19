@@ -14,7 +14,7 @@ ms.date: 06/22/2021
 ms.author: mareusch
 ---
 
-# New Version of Azure VM extension for SAP solutions 
+# New Version of Azure VM extension for SAP solutions - Troubleshooting
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [configure]:vm-extension-for-sap-new.md#configure (Configure the Azure VM extension for SAP solutions)
 
@@ -60,9 +60,10 @@ If troubleshooting by using SAP Note [1999351] does not resolve the issue, insta
 All error IDs have a unique tag in the form of a-#, where # is a number. It allows a fast search for a specific error and possible solutions.
  
 ### <a name="a-0116"></a> a-0116
+
 Error description | Solutions |
-|---|---|
-| no auth token | More info:<br />The extension cannot obtain authentication token to access VM metrics in Azure monitor. To deliver VM metrics it needs access to VM resources like VM itself, all disks and all NICs  attached to a VM<br />Solution:<br />Please enable VM managed Identity and give it a reader role for a VM resource group. When you use a setup script, the script does it for you. Normally you don’t need to enable and assign VM managed identity manually. |
+---|---|
+ no auth token | More info:<br />The extension cannot obtain authentication token to access VM metrics in Azure monitor. To deliver VM metrics it needs access to VM resources like VM itself, all disks and all NICs  attached to a VM<br />Solution:<br />Please enable VM managed Identity and give it a reader role for a VM resource group. When you use a setup script, the script does it for you. Normally you don’t need to enable and assign VM managed identity manually. |
 
 
 
