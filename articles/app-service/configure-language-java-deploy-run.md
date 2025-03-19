@@ -1,10 +1,10 @@
 ---
-title: Deploy and configure Tomcat, JBoss, or Java SE apps
-description: Learn how to deploy Tomcat, JBoss, or Java SE apps to run on Azure App Service and perform common tasks like setting Java versions and configuring logging.
+title: Deploy and configure Tomcat, JBoss EAP, or Java SE apps
+description: Learn how to deploy Tomcat, JBoss EAP, or Java SE apps to run on Azure App Service and perform common tasks like setting Java versions and configuring logging.
 keywords: azure app service, web app, windows, oss, java, tomcat, jboss, spring boot, quarkus
 ms.devlang: java
 ms.topic: article
-ms.date: 01/28/2025
+ms.date: 03/19/2025
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, linux-related-content
 zone_pivot_groups: app-service-java-hosting
 adobe-target: true
@@ -12,7 +12,7 @@ author: cephalin
 ms.author: cephalin
 ---
 
-# Deploy and configure a Tomcat, JBoss, or Java SE app in Azure App Service
+# Deploy and configure a Java SE, Tomcat, or JBoss EAP app in Azure App Service
 
 This article shows you the most common deployment and runtime configuration for Java apps in App Service. If you've never used Azure App Service, you should read through the [Java quickstart](quickstart-java.md) first. General questions about using App Service that aren't specific to Java development are answered in the [App Service FAQ](faq-configuration-and-management.yml).
 
