@@ -194,7 +194,7 @@ Azure provides seamless Java App Service development experience in popular Java 
 
 ::: zone pivot="java-javase"
 
-To deploy .jar files to Java SE, use the `/api/publish` endpoint of the Kudu site. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
+To deploy Java Archive (jar) files to Java SE, use the `/api/publish` endpoint of the Kudu site. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
 
 > [!NOTE]
 > Your .jar application must be named `app.jar` for App Service to identify and run your application. The [Maven plugin](#maven) does this for you automatically during deployment. If you don't wish to rename your JAR to *app.jar*, you can upload a shell script with the command to run your .jar app. Paste the absolute path to this script in the [Startup File](./faq-app-service-linux.yml) textbox in the Configuration section of the portal. The startup script doesn't run from the directory into which it's placed. Therefore, always use absolute paths to reference files in your startup script (for example: `java -jar /home/myapp/myapp.jar`).
