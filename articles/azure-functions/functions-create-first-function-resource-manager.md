@@ -78,7 +78,7 @@ echo "Press [ENTER] to continue ..." &&
 read
 ```
 ::: zone-end 
-::: zone pivot="python"  
+::: zone pivot="programming-language-python"  
 ```azurecli-interactive 
 read -p "Enter a supported Azure region: " location &&
 resourceGroupName=exampleRG &&
@@ -89,7 +89,7 @@ echo "Press [ENTER] to continue ..." &&
 read
 ```
 ::: zone-end  
-::: zone pivot="powershell"  
+::: zone pivot="programming-language-powershell"  
 ```azurecli-interactive 
 read -p "Enter a supported Azure region: " location &&
 resourceGroupName=exampleRG &&
