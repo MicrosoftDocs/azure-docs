@@ -587,6 +587,16 @@
           href: legacy-proxies.md
     - name: Migrate
       items:
+        - name: Migrate AWS Lambda to Azure Functions
+          items:
+            - name: Overview
+              href: /migration/aws-lambda-azure-functions-migration-overview
+            - name: Discover
+              href: /migration/aws-lambda-azure-functions-migration-discover
+            - name: Assess
+              href: /migration/aws-lambda-azure-functions-migration-assess
+            - name: Migrate
+              href: /migration/aws-lambda-azure-functions-migration-migrate      
         - name: Migrate .NET apps to the isolated model
           href: migrate-dotnet-to-isolated-model.md
         - name: Migrate v3.x to v4.x

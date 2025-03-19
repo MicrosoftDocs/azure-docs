@@ -1,46 +1,46 @@
 ---
-title: AWS Lambda to Azure Functions Migration Assess Stage
-description: Learn about the steps that you need to take during the assess stage of your AWS Lambda to Azure Functions migration.
+title: Assess Workloads to Migrate from AWS Lambda to Azure Functions
+description: Learn how to map AWS Lambda features to Azure Functions and develop a plan for your AWS Lambda to Azure Functions migration.
 author: MadhuraBharadwaj-MSFT
 ms.author: mabhar
 ms.service: azure-functions
 ms.topic: how-to
 ms.date: 03/18/2025
-#customer intent: As a developer, I want to learn about the assess stage of migration so that I can migrate serverless applications from AWS Lambda to Azure Functions efficiently.
+#customer intent: As a developer, I want to ensure compatibility between features and create a detailed migration plan so that I can migrate serverless applications from AWS Lambda to Azure Functions efficiently.
 --- 
 
-# AWS Lambda to Azure Functions migration assess stage
+# Assess workloads to migrate from AWS Lambda to Azure Functions
 
-In this stage, since we just conducted the discovery process to inventory the AWS environment, it's time to map AWS Lambda features to Azure Functions and develop a migration plan. The goal is to understand the AWS services and features your Lambda functions depend on and find their Azure equivalents. Then, you will select key workloads for a proof of concept. 
+In this stage, you map AWS Lambda features to Azure Functions and develop a migration plan. The goal is to understand the AWS services and features that your Lambda functions depend on and find their Azure equivalents. Then you can select key workloads for a proof of concept.
 
-## AWS Lambda to Azure Functions Mapping 
+## Map AWS services to their Azure Functions equivalents
 
-- Map AWS services & features to Azure equivalents
-   - Understand the specific properties and configurations of Lambda functions and find the equivalents in Azure Functions.
-   - [Compare AWS services](/azure/architecture/aws-professional) used by your Lambda functions with corresponding Azure counterparts. For example, AWS S3 to Azure Blob Storage.
-  
-- Map AWS Lambda features to Azure Functions equivalents
-   - Understand the specific properties and configurations of Lambda functions and find the equivalents in Azure Functions
-   - Azure Functions offers core serverless capabilities equivalent to AWS Lambda, while also offering unique advantages such as a unique programming model with triggers and bindings that simplify development, configurable concurrency per compute instance, Durable Functions for built-in orchestration, and built-in integration with Azure OpenAI Services enabling advanced AI-driven solutions. 
+To ensure compatibility, you need to understand the specific properties and configurations of Lambda functions and find their equivalents in Azure Functions. Both services provide core serverless capabilities. Azure Functions also provides the following unique features:
+- A unique programming model that has triggers and bindings for simplified development
+- Configurable concurrency for each compute instance
+- The Durable Functions extension for built-in orchestration
+- Built-in integration with Azure OpenAI Service to enable advanced AI-driven solutions
 
-For a detailed comparison of AWS Lambda concepts, resources, properties, and their corresponding equivalents on Azure Functions, see below.  
+You also need to [map the AWS services](/azure/architecture/aws-professional), like Amazon S3, that Lambda depends on to corresponding Azure services, like Azure Blob Storage.
 
-### Supported Languages
+The following tables compare AWS Lambda concepts, resources, and properties with their corresponding equivalents on Azure Functions.
 
-| Programming Language  | [AWS Lambda Supported versions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported)  | [Azure Functions Supported versions](/azure/azure-functions/supported-languages)    |
-|-----------------------|--------------------------------|---------------------------------------|
-| Node.js               | 22, 18, 20                     | 22, 20, 18                            |
-| Python                | 3.13, 3.12, 3.11, 3.10, 3.9    | 3.9, 3.10, 3.11                       |
-| Java                  | 21, 17, 11, 8                  | 21, 17, 11, 8                         |
-| PowerShell            | Not supported                  | 7.4                                   |
-| .NET                  | .NET 8                         | .NET 9, .NET 8, .NET Framework 4.8.1  |
-| Ruby                  | 3.3, 3.2                       | [Custom Handlers](/azure/azure-functions/functions-custom-handlers)                       |
-| Go                    | [OS-only Runtime](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-provided.html)                | [Custom Handlers](/azure/azure-functions/functions-custom-handlers)                       |
-| Rust                  | [OS-only Runtime](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-provided.html)                | [Custom Handlers](/azure/azure-functions/functions-custom-handlers)                       |
+### Supported languages
 
-### Programming model 
+| Programming language  | [AWS Lambda supported versions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported)  | [Azure Functions supported versions](/azure/azure-functions/supported-languages) |
+|---|---|---|
+| Node.js | 22, 18, 20 | 22, 20, 18 |
+| Python | 3.13, 3.12, 3.11, 3.10, 3.9 | 3.9, 3.10, 3.11 |
+| Java | 21, 17, 11, 8 | 21, 17, 11, 8 |
+| PowerShell | Not supported | 7.4 |
+| .NET | .NET 8 | .NET 9, .NET 8, .NET Framework 4.8.1 |
+| Ruby | 3.3, 3.2 | [Custom handlers](/azure/azure-functions/functions-custom-handlers) |
+| Go | [OS-only runtime](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-provided.html) | [Custom handlers](/azure/azure-functions/functions-custom-handlers) |
+| Rust | [OS-only runtime](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-provided.html) | [Custom handlers](/azure/azure-functions/functions-custom-handlers) |
 
-| Concept  | AWS Lambda feature  | Azure Functions feature   |
+### Programming model
+
+| Feature  | AWS Lambda  | Azure Functions   |
 |---|---|---|
 | Triggers  | Integrates with other AWS services via event sources. Offers automatic and programmatic ways to link Lambda functions with event sources.    | Azure Functions Triggers initiate function execution based on specific events, such as updates in a database or a new message in a queue. For instance, a Cosmos DB trigger allows functions to automatically respond to inserts and updates in a Cosmos DB container, enabling real-time processing of data changes.    Functions also integrates with Azure Event Grid, allowing them to process events from a wide variety of Azure services (e.g., Storage, Media Services) and external event sources. Event Grid serves as a centralized, extensible event routing service that complements Function triggers, enabling high scalability and broad event-source coverage.  |
 | Bindings  | Does not have bindings. Uses AWS SDKs within Lambda functions to manually manage interactions with other AWS services.  | Bindings, configured as input or output, enable declarative connections to services, minimizing the need for explicit SDK code. For example, you can configure bindings to read from Blob Storage, write to Azure Cosmos DB, or send emails via SendGrid without manually managing the integrations.  |

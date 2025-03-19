@@ -1,49 +1,49 @@
 ---
-title: AWS Lambda to Azure Functions Migration Discover Stage
-description: Learn about the steps that you need to take during the discover stage of your AWS Lambda to Azure Functions migration.
+title: Discover workloads to migrate from AWS Lambda to Azure Functions
+description: Learn how to conduct a detailed discovery process to inventory current AWS Lambda workloads, including their configuration, dependencies, and usage patterns.
 author: MadhuraBharadwaj-MSFT
 ms.author: mabhar
 ms.service: azure-functions
 ms.topic: how-to
 ms.date: 03/18/2025
-#customer intent: As a developer, I want to learn about the discover stage of migration so that I can migrate serverless applications from AWS Lambda to Azure Functions efficiently.
+#customer intent: As a developer, I want to evaluate existing AWS Lambda workloads so that I can migrate serverless applications to Azure Functions efficiently.
 --- 
 
-# AWS Lambda to Azure Functions migration discover stage
+# Discover workloads to migrate from AWS Lambda to Azure Functions
 
-In this stage, you will conduct a detailed discovery process to inventory the current workloads, including their configuration, dependencies, and usage patterns. 
+In this stage, you conduct a detailed discovery process to evaluate existing AWS Lambda workloads, including their configuration, dependencies, and usage patterns. 
 
-## Discover Your Current Workload 
+## Evaluate your current workload
 
-Compile a comprehensive inventory of your AWS Lambda functions using familiar AWS tooling like service specific SDKs, APIs, CloudTrail etc. to assess the workloads on AWS. Your inventory should include the following key aspects: 
+Compile a comprehensive inventory of your AWS Lambda functions by using familiar AWS tooling like service-specific SDKs, APIs, and CloudTrail to assess the workloads on AWS. You should understand the following key aspects of your inventory:
 
-- Understanding the Use Cases:
-   - Identify the primary business or technical purposes each Lambda function serves.
-   - Categorize functions based on their use cases, such as event-driven workflows, data processing, real-time analytics, or API backends. 
+- Use cases
+   - Identify the primary business or technical purposes that each Lambda function serves.
+   - Categorize functions based on their use cases, such as event-driven workflows, data processing, real-time analytics, or API back ends.
 
- - Understanding the Configuration:
-    - Document configuration settings for each function, including memory allocation, timeout settings, and environment variables.
-    - Note versioning details, aliases, and any deployment-specific configurations, such as language runtime and architecture (e.g., x86 or ARM). 
+ - Configuration
+    - Document configuration settings for each function, including memory allocation, time-out settings, and environment variables.
+    - Note versioning details, aliases, and any deployment-specific configurations, such as language runtime and architectures like x86 or ARM. 
 
-- Understanding Security and Networking Setup:
-   - Assess IAM roles and policies associated with each function to ensure proper access control.
-   - Identify VPC configurations, including subnets, security groups, and NAT gateway dependencies, if applicable. 
+- Security and networking setup
+   - Assess the identity and access management roles and policies associated with each function to ensure proper access control.
+   - Identify virtual private cloud configurations, including subnets, security groups, and NAT gateway dependencies, if applicable.
 
-- Understanding the Tooling:
-   - List the CI/CD tools and deployment frameworks used, such as AWS SAM, Serverless Framework, or custom pipelines.
-   - Document build and packaging tools, including testing frameworks and staging workflows. 
+- Tooling
+   - List the continuous integration and continuous delivery tools and deployment frameworks that each function uses, such as AWS SAM, Serverless Framework, or custom pipelines.
+   - Document build and packaging tools, including testing frameworks and staging workflows.
 
-- Understanding Monitoring, Logging, and Observability:
-   - Evaluate the monitoring and logging mechanisms currently in place, such as AWS CloudWatch, X-Ray, or third-party tools.
+- Monitoring, logging, and observability mechanisms
+   - Evaluate the current monitoring and logging mechanisms, such as Amazon CloudWatch, AWS X-Ray, or partner tools.
    - Identify log retention policies and patterns for troubleshooting.
-   - Document metrics and alerts being tracked, such as error rates, invocation counts, or duration trends. 
+   - Document tracked metrics and alerts, such as error rates, invocation counts, and duration trends.
 
-- Understanding dependencies
-   - Determine all AWS services (e.g., DynamoDB, S3, API Gateway) and third-party tools your Lambda functions rely on, documenting their configurations, interactions, and data flows.
-   - Map interdependencies between Lambda functions, such as shared resources or invocation chains, and evaluate potential bottlenecks or latency issues.
-   - Assess service limits, operational considerations, and monitoring tools (e.g., CloudWatch, X-Ray) to ensure a comprehensive understanding of dependency impact. 
+- Dependencies
+   - Determine which AWS services, like DynamoDB, S3, or API Gateway, and partner tools that your Lambda functions rely on. Document their configurations, interactions, and data flows.
+   - Map interdependencies, such as shared resources or invocation chains, between Lambda functions and evaluate potential bottlenecks or latency problems.
+   - Assess service limits, operational considerations, and monitoring tools like CloudWatch and X-Ray. Ensure that you understand how these dependencies affect the workload.
 
-By the end of this stage, you will have a comprehensive inventory of your AWS Lambda functions, including their use cases, configurations, security and networking setups, tooling, monitoring, logging, observability, and dependencies. This detailed inventory will serve as the foundation for the next stage, where you will assess the readiness and suitability of these functions for migration to Azure Functions.
+By the end of this stage, you should have a comprehensive inventory of your AWS Lambda functions, including their use cases, configurations, security and networking setups, tooling, monitoring, logging, and observability mechanisms, and dependencies. This detailed inventory is the foundation for the next stage, where you assess the readiness and suitability of these functions for migration to Azure Functions.
 
 ## Next step
 
