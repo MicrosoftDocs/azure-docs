@@ -43,7 +43,7 @@ ms.author: oldoll
 * Make sure to use SAP Host Agent 7.21 PL 47 or higher.
 * Make sure the virtual machine on which the extension is enabled has access to management.azure.com.
 
-### <a name="powershell_cmdlets"></a>[Deploy Azure PowerShell cmdlets](#tab1/powershell)
+### [Deploy Azure PowerShell cmdlets](#tab/powershell1)
 
 Follow the steps described in the article [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell)
 
@@ -55,7 +55,7 @@ To check the version of the Azure PowerShell cmdlets that are installed on your 
 (Get-Module Az.Compute).Version
 ```
 
-### [Deploy Azure CLI](#tab1/cli)
+### [Deploy Azure CLI](#tab/cli1)
 
 Follow the steps described in the article [Install the Azure CLI](/cli/azure/install-azure-cli)
 
@@ -69,7 +69,7 @@ az --version
  
 ## <a name="configure"></a>Configure the Azure VM extension for SAP solutions 
 
-### [PowerShell](#tab2/powershell)
+### [PowerShell](#tab/powershell2)
  
 The new VM Extension for SAP uses a managed identity that's assigned to the VM to access monitoring and configuration data of the VM. To install the new Azure Extension for SAP by using PowerShell, you first have to assign such an identity to the VM and grant that identity access to all resources that are in use by that VM, for example, disks and network interfaces.
 
@@ -96,7 +96,7 @@ The new VM Extension for SAP uses a managed identity that's assigned to the VM t
 
     Log on to the virtual machine on which you enabled the VM Extension for SAP and restart the SAP Host Agent if it was already installed. SAP Host Agent does not use the VM Extension until it is restarted. It currently cannot detect that an extension was installed after it was started.
 
-### [Azure CLI](#tab2/cli)
+### [Azure CLI](#tab/cli2)
  
 The new VM Extension for SAP uses a managed identity that is assigned to the VM to access monitoring and configuration data of the VM.
 
@@ -151,7 +151,7 @@ The extension currently supports the following configuration keys. In the exampl
 * msi_res_id: ID of the user assigned identity the extension should use to get the required information about the VM and its resources
 * proxy: URL of the proxy the extension should use to connect to the internet, for example to retrieve information about the virtual machine and its resources.
 
-### [Deploy manually with Azure PowerShell](#tab3/powershell)
+### [Deploy manually with Azure PowerShell](#tab/powershell3)
 The following code contains four examples. It shows how to deploy the extension on Windows and Linux, using a system or user assigned identity. Make sure to replace the name of the resource group, the location and VM name in the example.
 
 ``` powershell
@@ -171,7 +171,7 @@ Set-AzVMExtension -Publisher "Microsoft.AzureCAT.AzureEnhancedMonitoring" -Exten
 Set-AzVMExtension -Publisher "Microsoft.AzureCAT.AzureEnhancedMonitoring" -ExtensionType "MonitorX64Linux" -ResourceGroupName "<rg name>" -VMName "<vm name>" `
    -Name "MonitorX64Linux" -TypeHandlerVersion "1.0" -Location "<location>" -SettingString '{"cfg":[]}'
 ```
-### [Deploy manually with Azure CLI](#tab3/cli)
+### [Deploy manually with Azure CLI](#tab/cli3)
 
 The following code contains four examples. It shows how to deploy the extension on Windows and Linux, using a system or user assigned identity. Make sure to replace the name of the resource group, the location and VM name in the example.
 
@@ -193,7 +193,7 @@ az vm extension set --publisher "Microsoft.AzureCAT.AzureEnhancedMonitoring" --n
    --extension-instance-name "MonitorX64Linux" --settings '{"cfg":[]}'
 ```
 
-### [Deploy manually with Terraform](#tab3/terraform)
+### [Deploy manually with Terraform](#tab/terraform3)
 
 The following manifest contains four examples. It shows how to deploy the extension on Windows and Linux, using a system or user assigned identity. Make sure to replace the ID of the VM and ID of the user assigned identity in the example.
 
