@@ -364,5 +364,5 @@ You can create and edit graphical and graphical PowerShell Workflow runbooks usi
 
 * To learn about PowerShell runbooks, see [Tutorial: Create a PowerShell runbook](./learn/powershell-runbook-managed-identity.md).
 * To learn about PowerShell Workflow runbooks, see [Tutorial: Create a PowerShell Workflow runbook](learn/automation-tutorial-runbook-textual.md).
-* To learn about graphical runbooks, see [Tutorial: Create a graphical runbook](./learn/powershell-runbook-managed-identity.md).
+* To learn about graphical runbooks, see [Tutorial: Create a graphical runbook](https://learn.microsoft.com/en-us/azure/automation/automation-graphical-authoring-intro).
 * To learn about Python runbooks, see [Tutorial: Create a Python runbook](./learn/automation-tutorial-runbook-textual-python-3.md).
