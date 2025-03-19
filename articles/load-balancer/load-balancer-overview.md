@@ -63,7 +63,7 @@ Key scenarios that you can accomplish by using Azure Standard Load Balancer incl
 
 - Load balance TCP and UDP flow on all ports simultaneously by using [high-availability ports](./load-balancer-ha-ports-overview.md).
 
-- Chain Standard Load Balancer and [Gateway Load Balancer](./tutorial-gateway-portal.md).
+- Chain Standard Load Balancer and [Gateway Load Balancer](./tutorial-create-gateway-load-balancer.md).
 
 ### <a name="securebydefault"></a>Security by default
 

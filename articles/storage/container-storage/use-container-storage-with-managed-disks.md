@@ -109,32 +109,31 @@ Follow these steps to prepare before creating a pre-provisioned storage pool for
 
 1. Pre-provisioned Azure managed disks need to be in the same zone of the system node pool. Follow these steps to check zones of disks and system node pool. 
 
- ```bash 
-
-$ systemNodepoolName=$(az aks nodepool list -g <resourceGroup> --cluster-name <clusterName> --query "[?mode=='System'].name" -o tsv)  
-$ az aks nodepool show --resource-group <resourceGroup> --cluster-name <clusterName> --name $systemNodepoolName --query "availabilityZones" -o tsv 
-1 
-$ az disk show --resource-group <resourceGroup> --name <diskName> --query "zones" -o tsv 
-1 
-```
+   ```bash 
+   $ systemNodepoolName=$(az aks nodepool list -g <resourceGroup> --cluster-name <clusterName> --query "[?mode=='System'].name" -o tsv)  
+   $ az aks nodepool show --resource-group <resourceGroup> --cluster-name <clusterName> --name $systemNodepoolName --query "availabilityZones" -o tsv 
+   1 
+   $ az disk show --resource-group <resourceGroup> --name <diskName> --query "zones" -o tsv 
+   1 
+   ```
  
 1. Find cluster managed identity: 
 
-```bash 
-$ az aks show --resource-group <resourceGroup> --name <clusterName> --query "identity" -o tsv 
-a972fa43-1234-5678-1234-c040eb546ec5 
-```
+   ```bash 
+   $ az aks show --resource-group <resourceGroup> --name <clusterName> --query "identity" -o tsv 
+   a972fa43-1234-5678-1234-c040eb546ec5 
+   ```
 
 1. Grant **Contributor** role of the disk to the cluster managed identity. Sign in to the Azure portal and navigate to your disk. From the service menu, select **Access control (IAM)** > **Add role assignment**, and then select **Contributor** role and assign to the identity. If you created your disk under an AKS managed resource group (example: MC_myResourceGroup_myAKSCluster_eastus), you can skip this step.
 
 1. Find the identity of the system node pool: 
 
-```bash 
-$ nodeResourceGroup=$(az aks show --resource-group <resourceGroup> --name <clusterName> --query nodeResourceGroup -o tsv) 
-$ agentPoolIdentityName="<clusterName>-agentpool" 
-$ az identity show --resource-group $nodeResourceGroup --output tsv --subscription $subscriptionId --name $agentPoolIdentityName --query 'principalId' 
-eb25d20f-1234-4ed5-1234-cef16f5bfe93 
-``` 
+   ```bash 
+   $ nodeResourceGroup=$(az aks show --resource-group <resourceGroup> --name <clusterName> --query nodeResourceGroup -o tsv) 
+   $ agentPoolIdentityName="<clusterName>-agentpool" 
+   $ az identity show --resource-group $nodeResourceGroup --output tsv --subscription $subscriptionId --name $agentPoolIdentityName --query 'principalId' 
+   eb25d20f-1234-4ed5-1234-cef16f5bfe93 
+   ``` 
 
 1. Grant **Disk Pool Operator** role on your disk to the identity. Sign in to the Azure portal and navigate to your disk. From the service menu, select **Access control (IAM)** > **Add role assignment**, and then select **Disk Pool Operator** role and assign to the identity.
 
