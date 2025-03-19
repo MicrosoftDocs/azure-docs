@@ -21,45 +21,51 @@ With deprecation of TLS versions 1.0 and 1.1, the **older Predefined TLS policie
 
 The predefined policies 20150501 and 20170401 that support TLS v1.0 and 1.1 will be discontinued and can no longer be associated with an Application Gateway resource after August 2025. It is advised to transition to one of the recommended TLS policies, 20220101 or 20220101S. Alternatively, the 20170401S policy may be used if specific cipher suites are required. 
 
-![A diagram showing predefined policies that will be removed.](media/application-gateway-tls-version-retire/retiring-tls-policies.png)
+![A diagram showing predefined policies for V2 SKUs.](media/application-gateway-tls-version-retire/v2-retiring-tls-policies.png)
 
 ### Custom policies for V2 SKUs
 
 Azure Application Gateway V2 SKU offers two types of custom policies: Custom and CustomV2. The retirement of these TLS versions will affect only the “Custom” policy. The newer “CustomV2” policy comes with TLS v1.3. Beyond August 2025, the older Custom policy will support only TLS v1.2 and the following cipher suites will NOT be supported.
 
-TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
-TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
-TLS_DHE_RSA_WITH_AES_256_CBC_SHA
-TLS_DHE_RSA_WITH_AES_128_CBC_SHA
-TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
-TLS_DHE_DSS_WITH_AES_128_CBC_SHA256
-TLS_DHE_DSS_WITH_AES_256_CBC_SHA
-TLS_DHE_DSS_WITH_AES_128_CBC_SHA
-TLS_RSA_WITH_3DES_EDE_CBC_SHA
-TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
+| Unsupported cipher suites |
+| ---------- |
+| TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 |
+| TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 |
+| TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 |
+| TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 |
+| TLS_DHE_RSA_WITH_AES_256_CBC_SHA |
+| TLS_DHE_RSA_WITH_AES_128_CBC_SHA |
+| TLS_DHE_DSS_WITH_AES_256_CBC_SHA256 |
+| TLS_DHE_DSS_WITH_AES_128_CBC_SHA256 |
+| TLS_DHE_DSS_WITH_AES_256_CBC_SHA |
+| TLS_DHE_DSS_WITH_AES_128_CBC_SHA |
+| TLS_RSA_WITH_3DES_EDE_CBC_SHA |
+| TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA |
 
 ### Predefined policies for V1 SKUs
 
 The V1 SKU will only support the 20170401S policy after the older policies with TLS versions 1.0 and 1.1 are discontinued. The newer 20220101 or 20220101S policies will not be available for the soon-to-be-retired V1 SKU.
 
+![A diagram showing predefined policies for V1 SKUs.](media/application-gateway-tls-version-retire/v1-retiring-tls-policies.png)
+
 ### Custom policies for V1 SKUs
 
 Application Gateway V1 SKU only supports the older “Custom” policy. Beyond August 2025, this older Custom policy will support only TLS v1.2 and the following cipher suites will NOT be supported.
 
-TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
-TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
-TLS_DHE_RSA_WITH_AES_256_CBC_SHA
-TLS_DHE_RSA_WITH_AES_128_CBC_SHA
-TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
-TLS_DHE_DSS_WITH_AES_128_CBC_SHA256
-TLS_DHE_DSS_WITH_AES_256_CBC_SHA
-TLS_DHE_DSS_WITH_AES_128_CBC_SHA
-TLS_RSA_WITH_3DES_EDE_CBC_SHA
-TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
+| Unsupported cipher suites |
+| ---------- |
+| TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 |
+| TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 |
+| TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 |
+| TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 |
+| TLS_DHE_RSA_WITH_AES_256_CBC_SHA |
+| TLS_DHE_RSA_WITH_AES_128_CBC_SHA |
+| TLS_DHE_DSS_WITH_AES_256_CBC_SHA256 |
+| TLS_DHE_DSS_WITH_AES_128_CBC_SHA256 |
+| TLS_DHE_DSS_WITH_AES_256_CBC_SHA |
+| TLS_DHE_DSS_WITH_AES_128_CBC_SHA |
+| TLS_RSA_WITH_3DES_EDE_CBC_SHA |
+| TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA |
 
 ## Backend TLS connections
 
