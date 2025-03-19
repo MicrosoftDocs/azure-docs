@@ -104,6 +104,6 @@ This article provides troubleshooting details to for error codes that appears wh
 
 ## Related content
 
-- [Archive tier support for Azure Blob backup](blob-backup-support-matrix?tabs=operational-backup.md).
+- [Archive tier support for Azure Blob backup](blob-backup-support-matrix.md).
 - [Archive tier support for Azure Database for PostgreSQL Server using Azure PowerShell](backup-postgresql-ps.md).
 - [Troubleshoot Azure Blob backup related to Archive tier](backup-azure-troubleshoot-blob-backup.md).
