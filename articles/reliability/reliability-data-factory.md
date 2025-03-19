@@ -80,7 +80,7 @@ Zone-redundant Azure Data Factory resources can be deployed in [any region that 
 **Integration runtimes:** Zone redundancy support depends on the type of integration runtime you use:
 
 - *Azure integration runtime* supports zone redundancy, and this capability is managed by Microsoft.
-- *Azure-SSIS integration runtime* requires that you deploy at least two nodes, which are allocated into different availability zones. <!-- TODO if you deploy three instances are they spread across three zones? -->
+- *Azure-SSIS integration runtime* requires that you deploy at least two nodes, which are allocated into different availability zones automatically.
 - *Self-hosted integration runtime* gives you the responsibility for deploying the compute infrastructure to host the runtime. You can deploy multiple nodes, such as individual VMs, and configure them for high availability. You can then distribute those nodes across multiple availability zones. To learn more, see [High availability and scalability](../data-factory/create-self-hosted-integration-runtime.md#high-availability-and-scalability).
 
 ### Cost
