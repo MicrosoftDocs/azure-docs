@@ -1,7 +1,7 @@
 ---
 ms.service: azure-functions
 ms.topic: include
-ms.date: 03/14/2025
+ms.date: 03/19/2025
 ms.author: jiayma
 ms.reviewer: azfuncdf
 author: lilyjma
@@ -32,7 +32,7 @@ author: lilyjma
 
 1. Create a scheduler resource. This action automatically creates a task hub.
 
-   :::image type="content" source="../media/create-durable-task-scheduler/durable-func-tab.png" alt-text="Screenshot of creating an App Service plan Function app.":::
+   :::image type="content" source="../media/create-durable-task-scheduler/durable-functions-tab.png" alt-text="Screenshot of creating an App Service plan Function app.":::
 
    | Field | Description | 
    | ----- | ----------- | 
@@ -48,6 +48,6 @@ author: lilyjma
    - The RBAC assigned to it (*Durable Task Data Contributor*) 
    - The assignment scope (the scheduler or task hub name)
 
-       :::image type="content" source="../media/create-durable-task-scheduler/func-review-create-tab.png" alt-text="Screenshot of fields and properties chosen and in review on the Review + create tab.":::
+       :::image type="content" source="../media/create-durable-task-scheduler/functions-review-create-tab.png" alt-text="Screenshot of fields and properties chosen and in review on the Review + create tab.":::
 
 1. Click **Create** once validation passes. 

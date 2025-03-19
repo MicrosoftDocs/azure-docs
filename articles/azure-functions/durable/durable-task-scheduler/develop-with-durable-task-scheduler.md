@@ -170,7 +170,7 @@ You can create a scheduler and a task hub as part of the Function app creation o
 
 1. In the Azure portal, search for **Durable Task Scheduler** and select it from the results. 
 
-    :::image type="content" source="media/create-durable-task-scheduler/search-for-dts.png" alt-text="Screenshot of searching for the durable task scheduler in the portal.":::
+    :::image type="content" source="media/create-durable-task-scheduler/search-for-durable-task-scheduler.png" alt-text="Screenshot of searching for the durable task scheduler in the portal.":::
 
 1. Click **Create** to open the **Azure Functions: Durable Task Scheduler (preview)** pane.
 
@@ -206,7 +206,7 @@ You can create a scheduler and a task hub as part of the Function app creation o
 
 In the Azure portal, search for **Durable Task Scheduler** and select it from the results. 
 
-:::image type="content" source="media/create-durable-task-scheduler/search-for-dts.png" alt-text="Screenshot of searching for the durable task scheduler service in the portal.":::
+:::image type="content" source="media/create-durable-task-scheduler/search-for-durable-task-scheduler.png" alt-text="Screenshot of searching for the durable task scheduler service in the portal.":::
 
 You can see the list of scheduler resources created in all subscriptions you have access to. 
 
@@ -228,7 +228,7 @@ az durabletask taskhub list --resource-group <RESOURCE_GROUP_NAME> --scheduler-n
 
 You can see all the task hubs created in a scheduler on the **Overview** of the resource on Azure portal. 
 
-:::image type="content" source="media/create-durable-task-scheduler/dts-overview-portal.png" alt-text="Screenshot of overview tab of durable task scheduler in the portal.":::
+:::image type="content" source="media/create-durable-task-scheduler/durable-task-scheduler-overview-portal.png" alt-text="Screenshot of overview tab of durable task scheduler in the portal.":::
 
 ::: zone-end 
 
@@ -254,11 +254,11 @@ You can see all the task hubs created in a scheduler on the **Overview** of the 
 
 1. Open the scheduler resource on Azure portal and click **Delete**: 
 
-    :::image type="content" source="media/create-durable-task-scheduler/dts-delete-portal.png" alt-text="Screenshot of scheduler resource in the portal highlighting delete button.":::
+    :::image type="content" source="media/create-durable-task-scheduler/durable-task-scheduler-delete-portal.png" alt-text="Screenshot of scheduler resource in the portal highlighting delete button.":::
 
 1. Find the scheduler with the task hub you want to delete, then click into that task hub. Click **Delete**:
 
-    :::image type="content" source="media/create-durable-task-scheduler/taskhub-delete-portal.png" alt-text="Screenshot of task hub resource in the portal highlighting delete button.":::
+    :::image type="content" source="media/create-durable-task-scheduler/task-hub-delete-portal.png" alt-text="Screenshot of task hub resource in the portal highlighting delete button.":::
 
 ::: zone-end 
 
