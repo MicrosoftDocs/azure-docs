@@ -15,7 +15,7 @@ ms.topic: conceptual
 
 You can use lifecycle management policies to transition blobs to delete blob at the end of their lifecycle.To learn more, see [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md). This article contains examples of policy definitions that delete blobs.
 
-### Expire data based on age
+## Expire data based on age
 
 Some data is expected to expire days or months after creation. You can configure a lifecycle management policy to expire data by deletion based on data age. The following example shows a policy that deletes all block blobs that haven't been modified in the last 365 days.
 
@@ -44,7 +44,7 @@ Some data is expected to expire days or months after creation. You can configure
 > [!NOTE]
 > The **baseBlob** element in a lifecycle management policy refers to the current version of a blob.
 
-### Delete data with blob index tags
+## Delete data with blob index tags
 
 Some data should only be expired if explicitly marked for deletion. You can configure a lifecycle management policy to expire data that are tagged with blob index key/value attributes. The following example shows a policy that deletes all block blobs tagged with `Project = Contoso`. To learn more about blob index, see [Manage and find data on Azure Blob Storage with blob index](storage-manage-find-blobs.md).
 

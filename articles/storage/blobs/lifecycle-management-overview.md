@@ -81,10 +81,10 @@ Each rule can define up to 10 blob index tag conditions. For example, if you wan
 You must define at least one action for each rule. Actions are applied to the filtered blobs when the run condition is met. To learn more about run conditions, see the [Action run conditions](#action-run-conditions) section of this article. The following table describes each action that is available in a policy definition.
 
 | Action | Description |
-|---|---|----|
+|---|---|
 | **TierToCool**<sup>1</sup>  | Set a blob to the cool access tier. |
 | **TierToCold**<sup>1</sup> | Set a blob to the cold access tier. | 
-| **TierToArchive**<sup>1,2</sup>  | Set a blob to the archive access tier. |   |
+| **TierToArchive**<sup>1,2</sup>  | Set a blob to the archive access tier. |
 | **enableAutoTierToHotFromCool**<sup>3</sup> | If a blob is set to the cool tier, this action automatically moves that blob into the hot tier when the blob is accessed.<br>This action is available only when used with the **daysAfterLastAccessTimeGreaterThan** run condition.| 
 | **Delete**<sup>4</sup> | Deletes a blob. | 
 
@@ -134,7 +134,7 @@ If you apply the **daysAfterLastAccessTimeGreaterThan** run condition to a polic
 > [!NOTE]
 > To minimize the effect on read access latency, only the first read of the last 24 hours updates the last access time. Subsequent reads in the same 24-hour period don't update the last access time. If a blob is modified between reads, the last access time is the more recent of the two values.
 
-To learn how to enable access time tracking, see [Optionally enable access time tracking](lifecycle-management-policy-configure.md#optionally-enable-access-time-tracking).
+To learn how to enable access time tracking, see [Optionally enable access time tracking](lifecycle-management-policy-configure.md#enable-access-time-tracking).
 
 ## Policy execution
 

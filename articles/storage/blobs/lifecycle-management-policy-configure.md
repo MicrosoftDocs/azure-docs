@@ -17,21 +17,14 @@ ms.devlang: azurecli
 
 This article shows you how to create or manage an Azure Blob Storage lifecycle management policy. 
 
-You can use lifecycle management policies to transition blobs to cost-efficient access tiers based on their use patterns or delete them entirely at the end of their lifecycle. To learn more, see [Azure Blob Storage lifecycle management overview](lifecycle-management-policy-overview.md).
+You can use lifecycle management policies to transition blobs to cost-efficient access tiers based on their use patterns or delete them entirely at the end of their lifecycle. To learn more, see [Azure Blob Storage lifecycle management overview](lifecycle-management-overview.md).
 
 > [!NOTE]
 > A lifecycle management policy must be read or written in full. Partial updates are not supported.
 
 ## Create or manage a policy
 
-# [Portal](#tab/azure-portal)
-
-There are two ways to add a policy through the Azure portal.
-
-- [List view](#list-view)
-- [Code view](#code-view)
-
-#### List view
+### [Portal](#tab/azure-portal)
 
 1. In the Azure portal, navigate to your storage account.
 
@@ -55,46 +48,17 @@ There are two ways to add a policy through the Azure portal.
 
 7. Select **Add** to add the new policy.
 
-#### Code view
+#### Manage a policy by using the code view.
 
-1. In the Azure portal, navigate to your storage account.
+You can also define a policy by adding JSON code directly in the **Code View** tab.
 
-2. Under **Data management**, select **Lifecycle Management** to view or change lifecycle management policies.
+The following screenshot shows JSON in the **Code View** tab. This JSON defines a lifecycle policy that moves a block blob whose name begins with *log* to the cool tier if it has been more than 30 days since the blob was modified.
 
-3. Select the **Code View** tab. On this tab, you can define a lifecycle management policy in JSON.
+  > [!div class="mx-imgBorder"]
+  > ![Screenshot showing JSON in the Code View tab.](media/lifecycle-management-policy-configure/lifecycle-management-code-view.png)
 
-The following sample JSON defines a lifecycle policy that moves a block blob whose name begins with *log* to the cool tier if it has been more than 30 days since the blob was modified.
 
-   ```json
-   {
-     "rules": [
-       {
-         "enabled": true,
-         "name": "move-to-cool",
-         "type": "Lifecycle",
-         "definition": {
-           "actions": {
-             "baseBlob": {
-               "tierToCool": {
-                 "daysAfterModificationGreaterThan": 30
-               }
-             }
-           },
-           "filters": {
-             "blobTypes": [
-               "blockBlob"
-             ],
-             "prefixMatch": [
-               "sample-container/log"
-             ]
-           }
-         }
-       }
-     ]
-   }
-   ```
-
-# [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 To add a lifecycle management policy with PowerShell, use these commands:
 
@@ -144,7 +108,7 @@ Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgName `
     -Rule $rule1
 ```
 
-#### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 To add a lifecycle management policy with Azure CLI, write the policy to a JSON file, then call the [az storage account management-policy create](/cli/azure/storage/account/management-policy#az-storage-account-management-policy-create) command to create the policy.
 
@@ -157,7 +121,7 @@ az storage account management-policy create \
     --resource-group <resource-group>
 ```
 
-# [Template](#tab/template)
+### [Template](#tab/template)
 
 To define a lifecycle management policy with an Azure Resource Manager template, include the **Microsoft.Storage/storageAccounts/managementPolicies** object in your template. For configuration details, see [Microsoft.Storage/storageAccounts/managementPolicies 2021-02-01 - Bicep & ARM template reference](/azure/templates/microsoft.storage/2021-02-01/storageaccounts/managementpolicies?tabs=json). The **Microsoft.Storage/storageAccounts/managementPolicies** object is available in the Azure Storage Resource Provider REST API for versions 2018-11-01 and later.
 
