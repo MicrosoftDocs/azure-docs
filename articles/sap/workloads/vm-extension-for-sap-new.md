@@ -25,6 +25,7 @@ ms.author: oldoll
 [1031096]:https://launchpad.support.sap.com/#/notes/1031096
 [readiness-check]:vm-extension-for-sap-new.md#readiness-check (Readiness check)
 [troubleshooting]:vm-extension-for-sap-troubleshooting.md
+[powershell_cmdlets]:vm-extension-for-sap-new.md#powershell_cmdlets
 
 ## Prerequisites
 
@@ -42,7 +43,7 @@ ms.author: oldoll
 * Make sure to use SAP Host Agent 7.21 PL 47 or higher.
 * Make sure the virtual machine on which the extension is enabled has access to management.azure.com.
 
-### [Deploy Azure PowerShell cmdlets](#tab/powershell1)
+### <a name="powershell_cmdlets"></a>[Deploy Azure PowerShell cmdlets](#tab/powershell1)
 
 Follow the steps described in the article [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell)
 
@@ -77,7 +78,7 @@ The new VM Extension for SAP uses a managed identity that's assigned to the VM t
 
 1. Make sure to use SAP Host Agent 7.21 PL 47 or higher.
 1. Make sure to uninstall the standard version of the VM Extension for SAP. It is not supported to install both versions of the VM Extension for SAP on the same virtual machine.
-1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet (at least 4.3.0). For more information, see [Deploying Azure PowerShell cmdlets][deployment-guide-4.1].
+1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet (at least 4.3.0). For more information, see [Deploying Azure PowerShell cmdlets][powershell_cmdlets].
 1. Run the following PowerShell cmdlet.
     For a list of available environments, run cmdlet `Get-AzEnvironment`. If you want to use global Azure, your environment is **AzureCloud**. For Microsoft Azure operated by 21Vianet, select **AzureChinaCloud**.
 
