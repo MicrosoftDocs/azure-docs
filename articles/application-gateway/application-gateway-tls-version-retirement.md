@@ -11,7 +11,7 @@ ms.author: greglin
 
 # Managing your Application Gateway with TLS 1.0 and 1.1 retirement
 
-Starting **31st August 2025**, Azure Application Gateway will no longer support **TLS versions 1.0 and 1.1**. This change aligns with the [Azure-wide retirement](https://azure.microsoft.com/updates?id=update-retirement-tls1-0-tls1-1-versions-azure-services) of these TLS versions to enhance the security. As the owner of an Application Gateway resource, you should review both the Frontend clients and Backend servers TLS connections that may be using these older versions.
+Starting **31st August 2025**, Azure Application Gateway will no longer support **TLS (Transport Layer Security) versions 1.0 and 1.1**. This change aligns with the [Azure-wide retirement](https://azure.microsoft.com/updates?id=update-retirement-tls1-0-tls1-1-versions-azure-services) of these TLS versions to enhance the security. As the owner of an Application Gateway resource, you should review both the Frontend clients and Backend servers TLS connections that may be using these older versions.
 
 ## Frontend TLS connections
 
@@ -25,7 +25,7 @@ The predefined policies 20150501 and 20170401 that support TLS v1.0 and 1.1 will
 
 ### Custom policies for V2 SKUs
 
-Azure Application Gateway V2 SKU offers two types of custom policies: Custom and CustomV2. The retirement of these TLS versions will affect only the “Custom” policy. The newer “CustomV2” policy comes with TLS v1.3. Beyond August 2025, the older Custom policy will support only TLS v1.2 and the following cipher suites will NOT be supported.
+Azure Application Gateway V2 SKU offers two types of custom policies: Custom and CustomV2. The retirement of these TLS versions affect only the "Custom" policy. The newer "CustomV2" policy comes with TLS v1.3. Beyond August 2025, the older Custom policy will support only TLS v1.2 and the following cipher suites will NOT be supported.
 
 | Unsupported cipher suites |
 | ---------- |
@@ -50,7 +50,7 @@ The V1 SKU will only support the 20170401S policy after the older policies with 
 
 ### Custom policies for V1 SKUs
 
-Application Gateway V1 SKU only supports the older “Custom” policy. Beyond August 2025, this older Custom policy will support only TLS v1.2 and the following cipher suites will NOT be supported.
+Application Gateway V1 SKU only supports the older "Custom" policy. Beyond August 2025, this older Custom policy will support only TLS v1.2 and the following cipher suites will NOT be supported.
 
 | Unsupported cipher suites |
 | ---------- |
@@ -69,7 +69,7 @@ Application Gateway V1 SKU only supports the older “Custom” policy. Beyond A
 
 ## Backend TLS connections
 
-You need not configure anything on your Application Gateway for the backend connection's TLS version as the selection of TLS policy has no control over the backend TLS connections. After retirement, the connections to backend servers will always be with preferred TLS v1.3 and up to TLS v1.2. Hence, you must ensure that your servers in the backend pools are compatible with these updated protocol versions. This will avoid any disruptions when establishing a TLS/HTTPS connection with those backend servers.
+You need not configure anything on your Application Gateway for the backend connection's TLS version as the selection of TLS policy has no control over the backend TLS connections. After retirement, the connections to backend servers will always be with preferred TLS v1.3 and up to TLS v1.2. Hence, you must ensure that your servers in the backend pools are compatible with these updated protocol versions. This avoids any disruptions when establishing a TLS/HTTPS connection with those backend servers.
 
 
 
