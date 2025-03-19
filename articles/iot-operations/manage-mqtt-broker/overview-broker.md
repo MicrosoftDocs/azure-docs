@@ -191,7 +191,7 @@ To customize the default Broker during deployment:
 
 # [Portal](#tab/portal)
 
-When you follow the guide to [deploy IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md), in the **Configuration** section, look under **MQTT broker configuration**. Here, you can [customize cardinality and memory profile settings](./howto-configure-availability-scale.md). To configure other settings, including disk-backed message buffer and advanced MQTT client options, use the Azure CLI.
+When you follow the guide to [deploy IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md), in the **Configuration** section, look under **MQTT broker configuration**. Here, you can [customize cardinality and memory profile settings](./howto-configure-availability-scale.md). To configure other settings, including disk-backed message buffer, and advanced MQTT client options, use the Azure CLI.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -206,6 +206,9 @@ Use the Azure portal or the Azure CLI to customize the default Broker resource.
 Use the Azure portal or the Azure CLI to customize the default Broker resource.
 
 ---
+
+> [!IMPORTANT] 
+> You can't update the Broker resource after the initial deployment. Configuration changes to cardinality, memory profile, or disk buffer aren't allowed post-deployment.
 
 ### View default Broker settings
 
