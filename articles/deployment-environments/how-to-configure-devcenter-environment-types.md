@@ -16,7 +16,7 @@ ms.topic: how-to
 
 In Azure Deployment Environments, you use [environment types](./concept-environments-key-concepts.md#dev-center-environment-types) to define the environments that development teams can deploy. You have the flexibility to name the environment types according to the naming conventions that your enterprise uses: for example, *sandbox*, *dev*, *test*, and *production*. You can specify deployment settings and the permissions that are available to developers per environment type and per project. 
 
-In this article, you'll learn how to:
+In this article, you learn how to:
 
 * Add a new environment type to a dev center.
 * Delete an environment type from a dev center.
