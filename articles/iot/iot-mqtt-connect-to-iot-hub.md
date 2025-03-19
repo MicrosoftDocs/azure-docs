@@ -37,7 +37,7 @@ The following table summarizes the differences in MQTT support between the two s
 | IoT Hub | Event Grid |
 | ------- | ---------- |
 | Client-server model with tight coupling between devices and cloud apps. | Publish-subscribe model that decouples publishers and subscribers. |
-| Limited feature support for MQTT v3.1.1, and limited feature support for [MQTT v5 in preview](./iot-mqtt-5-preview.md). More feature support isn't planned. | MQTT v3.1.1 and v5 protocol support, with more feature support and industry compliance planned. |
+| Limited feature support for MQTT v3.1.1. More feature support isn't planned. | MQTT v3.1.1 and v5 protocol support, with more feature support and industry compliance planned. |
 | Static, predefined topics. | Custom hierarchical topics with wildcard support. |
 | No support for cloud-to-device broadcasts or device-to-device communication. | Supports device-to-cloud, high fan-out cloud-to-device broadcasts, and device-to-device communication patterns. |
 | 256-KB max message size. | 512-KB max message size. |

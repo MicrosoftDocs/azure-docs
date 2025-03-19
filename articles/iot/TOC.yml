@@ -119,12 +119,6 @@ items:
           href: iot-mqtt-connect-to-iot-hub.md
         - name: Use MQTT with DPS
           href: iot-mqtt-connect-to-iot-dps.md
-        - name: MQTT 5 support (preview)
-          items:
-          - name: MQTT 5 overview
-            href: iot-mqtt-5-preview.md
-          - name: MQTT 5 API reference
-            href: iot-mqtt-5-preview-reference.md
 
   - name: Resources
     items:
