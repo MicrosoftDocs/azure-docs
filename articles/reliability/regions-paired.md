@@ -67,8 +67,9 @@ The table below lists Azure region pairs:
 | **United States** | East US | West US |
 | | East US 2 | Central US |
 | | North Central US | South Central US |
-| | West US 2 | West Central US |
-| | West US 3 | East US |
+| West US 2 | Switzerland North | | | Malaysia West* |
+| West US 3 | UK South | | | New Zealand North |
+| | West Europe | | | Southeast Asia|
 | **United Arab Emirates** | UAE North | UAE Central\* |
 | **US Department of Defense** | US DoD East\* | US DoD Central\* |
 | **US Government** | US Gov Arizona\* | US Gov Texas\* |
@@ -98,6 +99,7 @@ The table below lists Azure regions without a region pair:
 |Indonesia|Indonesia Central (coming soon)|
 | Israel | Israel Central|
 | Italy | Italy North|
+| Malaysia | Malaysia West (coming soon) |
 | Mexico | Mexico Central |
 | New Zealand | New Zealand North |
 | Poland | Poland Central |
