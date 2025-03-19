@@ -110,7 +110,7 @@
       href: quickstart-resource-manager.md
   - name: .NET App in Visual Studio
     href: /visualstudio/azure/vs-azure-tools-connected-services-app-configuration
-- name: Concepts
+- name: Understand basics
   items:
   - name: Keys and values
     items:
@@ -120,6 +120,8 @@
       href: concept-point-time-snapshot.md
     - name: Per-environment configuration
       href: howto-labels-aspnet-core.md
+    - name: JSON content-type
+      href: howto-leverage-json-content-type.md
   - name: Snapshots
     items:
     - name: Overview
@@ -216,12 +218,8 @@
     href: monitor-app-configuration.md
   - name: Reference for monitoring data
     href: monitor-app-configuration-reference.md
-- name: How-to guides
+- name: Resource management
   items:
-  - name: Use JSON content-type for key-values
-    href: howto-leverage-json-content-type.md
-  - name: Update to the New Spring Boot Library
-    href: howto-convert-to-the-new-spring-boot.md
   - name: Move a resource between Azure regions
     href: howto-move-resource-between-regions.md
 - name: Security
@@ -344,6 +342,8 @@
         href: https://go.microsoft.com/fwlink/?linkid=2180917
       - name: Azure SDK for Java
         href: https://go.microsoft.com/fwlink/?linkid=2098196
+      - name: Migration guide to version 4.7
+        href: howto-convert-to-the-new-spring-boot.md
     - name: Python
       items:
       - name: Feature reference
