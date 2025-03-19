@@ -183,9 +183,9 @@ This section shows the configurable runtime settings for each supported language
 | `WEBSITE_SKIP_FILTERS` | To disable all servlet filters that App Service added, set to `1`. |
 | `IGNORE_CATALINA_BASE` | By default, App Service checks if the Tomcat variable `CATALINA_BASE` is defined. If not, it looks for the existence of `%HOME%\tomcat\conf\server.xml`. If the file exists, it sets `CATALINA_BASE` to `%HOME%\tomcat`. To disable this behavior and remove `CATALINA_BASE`, set this variable to `1` or `true`. |
 | `PORT` | Read-only. For Linux apps, the port that the Java runtime listens to in the container. |
-| `WILDFLY_VERSION` | Read-only. For JBoss (Linux) apps, the WildFly version. |
+| `WILDFLY_VERSION` | Read-only. For JBoss EAP (Linux) apps, the WildFly version. |
 | `TOMCAT_VERSION` | Read-only. For Linux Tomcat apps, the Tomcat version. |
-| `JBOSS_HOME` | Read-only. For JBoss (Linux) apps, the path of the WildFly installation. |
+| `JBOSS_HOME` | Read-only. For JBoss EAP (Linux) apps, the path of the WildFly installation. |
 | `AZURE_JETTY9_CMDLINE` | Read-only. For native Windows apps, the command-line arguments for starting Jetty 9. |
 | `AZURE_JETTY9_HOME` | Read-only. For native Windows apps, the path to the Jetty 9 installation. |
 | `AZURE_JETTY93_CMDLINE` | Read-only. For native Windows apps, specifies the command-line arguments for starting Jetty 9.3. |
@@ -199,7 +199,7 @@ This section shows the configurable runtime settings for each supported language
 | `AZURE_TOMCAT90_CMDLINE` | Read-only. For native Windows apps, specifies the command-line arguments for starting Tomcat 9. |
 | `AZURE_TOMCAT90_HOME` | Read-only. For native Windows apps, the path to the Tomcat 9 installation. |
 | `AZURE_SITE_HOME` | Value added to the Java arguments as `-Dsite.home`. The default is the value of `HOME`. |
-| `HTTP_PLATFORM_PORT` | Added to Java arguments as `-Dport.http`. The following environment variables used by different Java web frameworks are also set to this value: `SERVER_PORT`, `MICRONAUT_SERVER_PORT`, `THORNTAIL_HTTP_PORT`, `RATPACK_PORT`, `QUARKUS_HTTP_PORT`, `PAYARAMICRO_PORT`. |
+| `HTTP_PLATFORM_PORT` | Added to Java arguments as `-Dport.http`. The following environment variables used by different Java web frameworks are also set to this value: `SERVER_PORT`, `MICRONAUT_SERVER_PORT`, `RATPACK_PORT`, `QUARKUS_HTTP_PORT`, `PAYARAMICRO_PORT`. |
 | `AZURE_LOGGING_DIR` | For Windows Apps, added to Java arguments as `-Dsite.logdir`. The default is `%HOME%\LogFiles\`. Default value in Linux is `AZURE_LOGGING_DIR=/home/LogFiles`. |
 
 <!-- 
