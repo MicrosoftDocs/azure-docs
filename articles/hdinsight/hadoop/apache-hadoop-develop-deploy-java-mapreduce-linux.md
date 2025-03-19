@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-java, devx-track-extended-java, linux-related-content
 author: hareshg
 ms.author: hgowrisankar
-ms.reviewer: nijelsf 
+ms.reviewer: nijelsf
 ms.date: 06/14/2024
 ---
 

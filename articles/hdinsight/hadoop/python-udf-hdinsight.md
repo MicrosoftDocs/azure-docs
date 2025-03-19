@@ -5,7 +5,7 @@ ms.service: azure-hdinsight
 ms.topic: how-to
 author: hareshg
 ms.author: hgowrisankar
-ms.reviewer: nijelsf 
+ms.reviewer: nijelsf
 ms.date: 09/06/2024
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python, devx-track-azurepowershell
 ---

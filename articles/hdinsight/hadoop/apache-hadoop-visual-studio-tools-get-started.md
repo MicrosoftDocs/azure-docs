@@ -7,7 +7,7 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 author: hareshg
 ms.author: hgowrisankar
-ms.reviewer: nijelsf 
+ms.reviewer: nijelsf
 ms.date: 03/23/2024
 ---
 

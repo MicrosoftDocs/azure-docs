@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.custom: hdinsightactive, linux-related-content
 author: hareshg
 ms.author: hgowrisankar
-ms.reviewer: nijelsf 
+ms.reviewer: nijelsf
 ms.date: 07/12/2024
 ---
 

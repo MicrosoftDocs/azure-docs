@@ -5,7 +5,7 @@ ms.service: azure-hdinsight
 ms.topic: how-to
 author: hareshg
 ms.author: hgowrisankar
-ms.reviewer: nijelsf 
+ms.reviewer: nijelsf
 ms.date: 12/02/2024
 ---
 

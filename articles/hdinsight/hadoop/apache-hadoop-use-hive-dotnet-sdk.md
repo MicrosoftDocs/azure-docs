@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp, devx-track-dotnet
 author: hareshg
 ms.author: hgowrisankar
-ms.reviewer: nijelsf 
+ms.reviewer: nijelsf
 ms.date: 05/23/2024
 ---
 

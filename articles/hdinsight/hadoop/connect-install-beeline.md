@@ -5,7 +5,7 @@ ms.service: azure-hdinsight
 ms.topic: how-to
 author: hareshg
 ms.author: hgowrisankar
-ms.reviewer: nijelsf 
+ms.reviewer: nijelsf
 ms.date: 06/14/2024
 ---
 # Connect to HiveServer2 using Beeline or install Beeline locally to connect from your local

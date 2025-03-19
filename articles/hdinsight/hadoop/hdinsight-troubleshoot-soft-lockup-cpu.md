@@ -5,7 +5,7 @@ ms.service: azure-hdinsight
 ms.topic: troubleshooting
 author: hareshg
 ms.author: hgowrisankar
-ms.reviewer: nijelsf 
+ms.reviewer: nijelsf
 ms.date: 05/09/2024
 ---
 

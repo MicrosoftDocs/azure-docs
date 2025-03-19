@@ -6,7 +6,7 @@ ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 author: hareshg
 ms.author: hgowrisankar
-ms.reviewer: nijelsf 
+ms.reviewer: nijelsf
 ms.date: 09/06/2024
 ---
 
