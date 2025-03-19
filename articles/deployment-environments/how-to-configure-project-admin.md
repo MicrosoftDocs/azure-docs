@@ -29,7 +29,7 @@ When you assign the role at the project level, the user can perform the precedin
 ## Assign permissions to dev team leads for a project
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to Azure Deployment Environments.
-1. In the left menu, select **Projects**, and then choose the project that you want your development team members to be able to access.
+1. In the left menu, select **Projects**, and then select the project that you want your development team members to be able to access.
 1. Select **Access control (IAM)** in the left menu.
 1. Select **Add** > **Add role assignment**.
 1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
@@ -42,17 +42,16 @@ When you assign the role at the project level, the user can perform the precedin
 
     :::image type="content" source="media/configure-project-admin/add-role-assignment-admin.png" alt-text="Screenshot that shows the Add role assignment pane." lightbox="media/configure-project-admin/add-role-assignment-admin.png":::
 
-The users can now view the project and manage all the environment types that you've enabled within it. DevCenter Project Admin users can also [create environments from the Azure CLI](how-to-create-access-environments.md).
+The users can now view the project and manage all the environment types that you've enabled in it. DevCenter Project Admin users can also [create environments from the Azure CLI](how-to-create-access-environments.md).
 
 ## Assign permissions to dev team leads for an environment type
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to Azure Deployment Environments.
-1. Select **Projects**, then choose the project that you want your development team members to be able to access.
-1. Select **Environment types**, and then select the ellipsis (**...**) beside the specific environment type.
+1. In the left menu, select **Projects**, and then select the project that you want your development team members to be able to access.
+1. In the left menu, select **Environment types**. 
+1. Select the ellipsis (**...**) next to the appropriate environment type, and then select **Access control**.
 
    :::image type="content" source="media\configure-project-admin\project-environment-types.png" alt-text="Screenshot that shows the environment types associated with a project." lightbox="media\configure-project-admin\project-environment-types.png":::
-
-1. Select **Access control (IAM)** from the menu.
 
 1. Select **Add** > **Add role assignment**.
 
@@ -62,7 +61,7 @@ The users can now view the project and manage all the environment types that you
     | --- | --- |
     | **Role** | Select **DevCenter Project Admin**. |
     | **Assign access to** | Select **User, group, or service principal**. |
-    | **Members** | Select the users or groups you want to have administrative access to the environment type. |
+    | **Members** | Select the users or groups that you want to have administrative access to the environment type. |
 
     :::image type="content" source="media/configure-project-admin/add-role-assignment-admin.png" alt-text="Screenshot that shows the Add role assignment pane." lightbox="media/configure-project-admin/add-role-assignment-admin.png":::
 
