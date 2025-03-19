@@ -65,7 +65,7 @@ Follow these steps to create a multi-zone storage pool that uses Azure Disks. Fo
 
 ## Use zone-redundant storage (ZRS) disks
 
-If your workload requires storage redundancy, you can leverage disks that use [zone-redundant storage](../../virtual-machines/disks-deploy-zrs.md), which copies your data synchronously across three Azure availability zones in the primary region.
+If your workload requires storage redundancy, you can leverage disks that use [zone-redundant storage](/azure/virtual-machines/disks-deploy-zrs), which copies your data synchronously across three Azure availability zones in the primary region.
 
 You can specify the disk `skuName` as either `StandardSSD_ZRS` or `Premium_ZRS` in your storage pool definition, as in the following example.
 

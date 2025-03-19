@@ -2,11 +2,11 @@
 title: Azure Firewall DNS settings
 description: You can configure Azure Firewall with DNS server and DNS proxy settings.
 services: firewall
-author: vhorne
+author: duau
 ms.service: azure-firewall
 ms.topic: how-to
-ms.date: 06/21/2024
-ms.author: victorh 
+ms.date: 09/30/2024
+ms.author: duau
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -30,8 +30,6 @@ A DNS server maintains and resolves domain names to IP addresses. By default, Az
 3. Select **Apply**.
 
 The firewall now directs DNS traffic to the specified DNS servers for name resolution.
-
-:::image type="content" source="../firewall/media/dns-settings/dns-servers.png" alt-text="Screenshot showing settings for DNS servers.":::
 
 #### [CLI](#tab/azure-devops-cli)
 
@@ -89,7 +87,10 @@ For example, to use FQDNs in network rule, DNS proxy should be enabled. But if a
 DNS proxy configuration requires three steps:
 1. Enable the DNS proxy in Azure Firewall DNS settings.
 2. Optionally, configure your custom DNS server or use the provided default.
-3. Configure the Azure Firewall private IP address as a custom DNS address in your virtual network DNS server settings. This setting ensures DNS traffic is directed to Azure Firewall.
+3. Configure the Azure Firewall private IP address as a custom DNS address in your virtual network DNS server settings to direct DNS traffic to the Azure Firewall.
+   
+> [!NOTE]
+>  If you choose to use a custom DNS server, select any IP address within the virtual network, excluding those in the Azure Firewall subnet.
 
 #### [Portal](#tab/browser)
 
@@ -107,12 +108,10 @@ To configure DNS proxy, you must configure your virtual network DNS servers sett
 ##### Enable DNS proxy
 
 1. Select your Azure Firewall instance.
-2. Under **Settings**, select **DNS settings**.
-3. By default, **DNS Proxy** is disabled. When this setting is enabled, the firewall listens on port 53 and forwards DNS requests to the configured DNS servers.
-4. Review the **DNS servers** configuration to make sure that the settings are appropriate for your environment.
-5. Select **Save**.
-
-:::image type="content" source="../firewall/media/dns-settings/dns-proxy.png" alt-text="Screenshot showing settings for the DNS proxy.":::
+1. Under **Settings**, select **DNS settings**.
+1. By default, **DNS Proxy** is disabled. When this setting is enabled, the firewall listens on port 53 and forwards DNS requests to the configured DNS servers.
+1. Review the **DNS servers** configuration to make sure that the settings are appropriate for your environment.
+1. Select **Save**.
 
 #### [CLI](#tab/azure-devops-cli)
 
@@ -177,6 +176,16 @@ If all DNS servers are unavailable, there's no fallback to another DNS server.
 ### Health checks
 
 DNS proxy performs five-second health check loops for as long as the upstream servers report as unhealthy. The health checks are a recursive DNS query to the root name server. Once an upstream server is considered healthy, the firewall stops health checks until the next error. When a healthy proxy returns an error, the firewall selects another DNS server in the list. 
+
+## Azure Firewall with Azure Private DNS Zones
+
+When you use an Azure Private DNS zone with Azure Firewall, make sure you don’t create domain mappings that override the default domain names of the storage accounts and other endpoints created by Microsoft. If you override the default domain names, it breaks Azure Firewall management traffic access to Azure storage accounts and other endpoints. This breaks firewall updates, logging, and/or monitoring.
+
+For example, firewall management traffic requires access to the storage account with the domain name blob.core.windows.net and the firewall relies on Azure DNS for FQDN to IP address resolutions.
+
+Don’t create a Private DNS Zone with the domain name `*.blob.core.windows.net` and associate it with the Azure Firewall virtual network. If you override the default domain names, all the DNS queries are directed to the private DNS zone, and this breaks firewall operations. Instead, create a unique domain name such as `*.<unique-domain-name>.blob.core.windows.net` for the private DNS zone.
+
+Alternatively, you can enable a private link for a storage account and integrate it with a private DNS zone, see [Inspect private endpoint traffic with Azure Firewall](../private-link/tutorial-inspect-traffic-azure-firewall.md).
 
 ## Next steps
 

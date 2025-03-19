@@ -15,7 +15,7 @@ ms.custom: MVC
 This articles describes how to move Azure virtual machines to an availability zone in a different region. If you want to move to a different zone in the same region, [review this article](./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
 
 
-Availability Zones in Azure help protect your applications and data from datacenter failures. Each Availability Zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there’s a minimum of three separate zones in all enabled regions. The physical separation of Availability Zones within a region helps protect applications and data from datacenter failures. With Availability Zones, Azure offers a service-level agreement (SLA) of 99.99% for uptime of virtual machines (VMs). Availability Zones are supported in select regions, as mentioned in [Regions that support Availability Zones](../availability-zones/az-region.md).
+Availability Zones in Azure help protect your applications and data from datacenter failures. Each Availability Zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there’s a minimum of three separate zones in all enabled regions. The physical separation of Availability Zones within a region helps protect applications and data from datacenter failures. With Availability Zones, Azure offers a service-level agreement (SLA) of 99.99% for uptime of virtual machines (VMs). Availability Zones are supported in select regions, as mentioned in [Regions with availability zones](../reliability/availability-zones-region-support.md).
 
 In a scenario where your virtual machines are deployed as *single instance* into a specific region, and you want to improve your availability by moving these virtual machines into an Availability Zone, you can do so by using Azure Site Recovery. This action can further be categorized into:
 
@@ -35,7 +35,7 @@ In a scenario where your virtual machines are deployed as *single instance* into
 
 ## Check prerequisites
 
-- Check whether the target region has [support for Availability Zones](../availability-zones/az-region.md). Check that your choice of [source region/target region combination is supported](./azure-to-azure-support-matrix.md#region-support). Make an informed decision on the target region.
+- Check whether the target region has [support for availability zones](../reliability/availability-zones-region-support.md). Check that your choice of [source region/target region combination is supported](./azure-to-azure-support-matrix.md#region-support). Make an informed decision on the target region.
 - Make sure that you understand the [scenario architecture and components](azure-to-azure-architecture.md).
 - Review the [support limitations and requirements](azure-to-azure-support-matrix.md).
 - Check account permissions. If you just created your free Azure account, you're the admin of your subscription. If you aren't the subscription admin, work with the admin to assign the permissions you need. To enable replication for a virtual machine and eventually copy data to the target by using Azure Site Recovery, you must have:
@@ -49,7 +49,7 @@ In a scenario where your virtual machines are deployed as *single instance* into
 
 ## Prepare the source virtual machines
 
-1. Your virtual machines should use managed disks if you want to move them to an Availability Zone by using Site Recovery. You can convert existing Windows virtual machines that use unmanaged disks to use managed disks. Follow the steps at [Convert a Windows virtual machine from unmanaged disks to managed disks](../virtual-machines/windows/convert-unmanaged-to-managed-disks.md). Ensure that the availability set is configured as *managed*.
+1. Your virtual machines should use managed disks if you want to move them to an Availability Zone by using Site Recovery. You can convert existing Windows virtual machines that use unmanaged disks to use managed disks. Follow the steps at [Convert a Windows virtual machine from unmanaged disks to managed disks](/azure/virtual-machines/windows/convert-unmanaged-to-managed-disks). Ensure that the availability set is configured as *managed*.
 2. Check that all the latest root certificates are present on the Azure virtual machines you want to move. If the latest root certificates aren't present, the data copy to the target region can't be enabled because of security constraints.
 
 3. For Windows virtual machines, install all the latest Windows updates on the virtual machine, so that all the trusted root certificates are on the machine. In a disconnected environment, follow the standard Windows update and certificate update processes for your organization.
@@ -93,12 +93,12 @@ The following steps will guide you when using Azure Site Recovery to enable repl
 
 1. In the Azure portal, select **Virtual machines**, and select the virtual machine you want to move into Availability Zones.
 2. In **Backup + disaster recovery**, select **Disaster recovery**.
-3. In **Configure disaster recovery** > **Target region**, select the target region to which you'll replicate. Ensure this region [supports](../availability-zones/az-region.md) Availability Zones.
+3. In **Configure disaster recovery** > **Target region**, select the target region to which you'll replicate. Ensure this region [supports](../reliability/availability-zones-region-support.md) availability zones.
 4. Select **Next: Advanced settings**.
 5. Choose the appropriate values for the target subscription, target virtual machine resource group, and virtual network.
 6. In the **Availability** section, choose the Availability Zone into which you want to move the virtual machine. 
    > [!NOTE]
-   > If you don’t see the option for availability set or Availabilty Zone, ensure that the [prerequisites](#prepare-the-source-virtual-machines) are met and the [preparation](#prepare-the-source-virtual-machines) of source virtual machines is complete.
+   > If you don’t see the option for availability set or Availability Zone, ensure that the [prerequisites](#prepare-the-source-virtual-machines) are met and the [preparation](#prepare-the-source-virtual-machines) of source virtual machines is complete.
   
 
 7. Select **Enable Replication**. This action starts a job to enable replication for the virtual machine.

@@ -5,8 +5,7 @@ description: In this tutorial, you learn how to copy data to your Azure Data Box
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: pod
+ms.service: azure-databox
 ms.topic: tutorial
 ms.date: 05/28/2024
 ms.author: shaas

@@ -18,4 +18,3 @@ If you have questions, get fast answers from community experts in [Microsoft Q&A
 1. Under **Resource**, select the Azure resource that you’re creating a support request for.  
 1. For **Problem type**, select **Administration and Management**. 
 1. For **Problem subtype**, select **Upgrade, Scale or SKU Changes**. 
-

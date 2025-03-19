@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Learn how to add and localize maps to web and mobile applications by using the Map Control client-side JavaScript library in Azure Maps. 
 author: sinnypan
 ms.author: sipa
-ms.date: 06/29/2023
+ms.date: 02/11/2025
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: web-sdk
@@ -15,13 +15,11 @@ ms.custom: devx-track-js
 
 The Azure Maps Web SDK provides a [Map Control] that enables the customization of interactive maps with your own content and imagery for display in your web or mobile applications. This module is a helper library that makes it easy to use the Azure Maps REST services in web or Node.js applications by using JavaScript or TypeScript.
 
-This article uses the Azure Maps Web SDK, however the Azure Maps services work with any map control. For a list of third-party map control plug-ins, see [Azure Maps community - Open-source projects].
-
 > [!NOTE]
 >
 > **Azure Maps Web SDK Map Control v1 retirement**
 >
-> Version 1 of the Web SDK Map Control is now deprecated and will be retired on 9/19/26. To avoid service disruptions, migrate to version 3 of the Web SDK Map Control by 9/19/26. Version 3 is backwards compatible and has several benifits including [WebGL 2 Compatibility], increased performance and support for [3D terrain tiles]. For more information, see [The Azure Maps Web SDK v1 migration guide].
+> Version 1 of the Web SDK Map Control is now deprecated and will be retired on 9/19/26. To avoid service disruptions, migrate to version 3 of the Web SDK Map Control by 9/19/26. Version 3 is backwards compatible and has several benefits including [WebGL 2 Compatibility], increased performance and support for [3D terrain tiles]. For more information, see [The Azure Maps Web SDK v1 migration guide].
 
 ## Prerequisites
 
@@ -238,7 +236,7 @@ For a list of supported languages and regional views, see [Localization support 
 
 Beginning with Azure Maps Web SDK 3.0, the Web SDK includes full compatibility with [WebGL 2], a powerful graphics technology that enables hardware-accelerated rendering in modern web browsers. By using WebGL 2, developers can harness the capabilities of modern GPUs to render complex maps and visualizations more efficiently, resulting in improved performance and visual quality.
 
-![Map image showing WebGL 2 Compatibility.](./media/how-to-use-map-control/webgl-2-compatability.png)
+:::image type="content" source="./media/how-to-use-map-control/webgl-2-compatability.png" alt-text="Screenshot of a map image showing WebGL 2 Compatibility." lightbox="./media/how-to-use-map-control/webgl-2-compatability.png":::
 
 ```html
 <!DOCTYPE html>
@@ -249,7 +247,7 @@ Beginning with Azure Maps Web SDK 3.0, the Web SDK includes full compatibility w
         <title>WebGL2 - Azure Maps Web SDK Samples</title>
         <link href=https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css rel="stylesheet"/>
         <script src=https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js></script>
-        <script src="https://unpkg.com/deck.gl@latest/dist.min.js"></script>
+        <script src="https://unpkg.com/deck.gl@^8/dist.min.js"></script>
         <style>
             html,
             body {

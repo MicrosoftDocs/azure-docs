@@ -117,7 +117,7 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/adls-gen2-assign-blob-data-contributor-role.png" alt-text="Screenshot that shows how to add a role assignment.":::
 
    > [!NOTE]
-   > Make sure that you've granted your Azure Synapse workspace managed identity permissions to the Azure Data Lake Storage Gen2 storage account that's used as the landing zone. For more information, see [Grant permissions to a managed identity in an Azure Synapse workspace - Azure Synapse Analytics](../security/how-to-grant-workspace-managed-identity-permissions.md#grant-the-managed-identity-permissions-to-adls-gen2-storage-account).
+   > Make sure that you've granted your Azure Synapse workspace managed identity permissions to the Azure Data Lake Storage Gen2 storage account that's used as the landing zone. For more information, see [Grant permissions to a managed identity in an Azure Synapse workspace - Azure Synapse Analytics](../security/how-to-grant-workspace-managed-identity-permissions.md#grant-the-managed-identity-permissions-to-data-lake-storage-account).
 
 1. Open the **Manage** hub in your Azure Synapse workspace, and go to **Linked services**.
 
@@ -186,7 +186,7 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/link-connection-compute-settings.png" alt-text="Screenshot that shows where to enter the link connection settings.":::
 
    > [!NOTE]
-   > The number of cores you select here are allocated to the ingestion service for processing data loading and changes. They don't affect the target dedicated SQL pool confiruation.
+   > The number of cores you select here are allocated to the ingestion service for processing data loading and changes. They don't affect the target dedicated SQL pool configuration.
    > If you can’t connect to landing zone using generated SAS token due to limitation from your storage, you can try to use delegation SAS token to connect to landing zone as well. 
 
 1. With the new Azure Synapse Link connection open, you can now update the target table name, distribution type, and structure type.
@@ -305,6 +305,6 @@ A shared access signature token is required for the SQL change feed to get acces
 
 If you're using a database other than SQL Server 2022, see:
 
-* [Configure Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/configure-synapse-link.md?context=/azure/synapse-analytics/context/context)
+* [Configure Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/configure-synapse-link?context=/azure/synapse-analytics/context/context)
 * [Configure Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/azure-synapse-link-synapse?context=/azure/synapse-analytics/context/context)
 * [Get started with Azure Synapse Link for Azure SQL Database](connect-synapse-link-sql-database.md)

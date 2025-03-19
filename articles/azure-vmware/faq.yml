@@ -4,7 +4,7 @@ metadata:
   description: "Get answers to common questions about Azure VMware Solution."
   ms.topic: faq
   ms.service: azure-vmware
-  ms.date:  5/24/2024
+  ms.date:  3/5/2025
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
 
@@ -97,7 +97,7 @@ sections:
         answer: vRealize Automation, vRealize Operations Manager, and vRealize Network Insight are certified for use with Azure VMware Solution when those products are installed in an on-premises data center. The cloud-based versions of these products--vRealize Automation Cloud, vRealize Operations Cloud, and vRealize Network Insight Cloud--are also certified for use. Installing these products within an Azure VMware Solution private cloud isn't supported.
 
       - question: Can I migrate vSphere VMs from on-premises environments to Azure VMware Solution private clouds?
-        answer: Yes. This is possible and recommended via the VMware HCX add-on. While cross vCenter cold migration and cloning is possible, not cross vCenter vMotion, HCX is the fully-supported method.
+        answer: Yes. This is possible and recommended via the VMware HCX add-on. While cross vCenter cold migration and cloning is possible, not cross vCenter vMotion, HCX is the fully supported method.
           
       - question: Is a specific version of vSphere required in on-premises environments?
         answer: The on-premises environment must be running vSphere 6.5 or later if VMware HCX will be used to migrate VMs.
@@ -134,13 +134,13 @@ sections:
       - question: Is VMware NSX required in on-premises environments or networks that connect to a private cloud?
         answer: No, you aren't required to use VMware NSX on-premises. VMware HCX provides the necessary connectivity between on-premises vSphere and Azure VMware Solution.
 
-      - question: Is NSX Identity Firewall and distributed IDS/IPS supported with Azure VMware Solution?
-        answer: Yes with an add-on license. Azure VMware Solution supports distributed IDFW and distributed IDS/IPS with add-on firewall license. This add-on license needs to be bought from VMware and Microsoft will apply that license to the Azure VMware Solution private cloud with a support request.
+      - question: Does Azure VMware Solution support VMware vDefend with Advanced Threat Protection (ATP)?
+        answer: Azure VMware Solution will support VMware vDefend Firewall with the Advanced Threat Prevention (ATP) add-on via a BYOL model. Customers must purchase the Advanced Threat Protection (ATP) license from Broadcom. Microsoft will apply the license to the Azure VMware Solution private cloud with a support request. On Azure VMware Solution, this license only supports NSX Distributed IDS/IPS functionality and does not cover other features listed by Broadcom. 
 
-      - question: Is NSX Service Insertion supported with Azure VMware Solution?
+      - question: Is VMware NSX Service Insertion supported with Azure VMware Solution?
         answer: No.
         
-      - question: Is VMware Horizon 8 2012 compatible with Azure VMware Solution?
+      - question: Is Omnissa Horizon 8 2012 compatible with Azure VMware Solution?
         answer: Yes.
 
 
@@ -271,12 +271,20 @@ sections:
       - question: What is the RAID configuration of the disk groups?
         answer: The disk groups aren't RAID configured. Instead, they're just a bunch of disks (JBOD) and are [directly controlled by vSAN](https://core.vmware.com/vsan-learn-and-evaluate).
 
+      - question: Why does a vSphere Storage vMotion from Azure NetApp Files (ANF) to another datastore take an extended period of time?
+        answer: This is due to the use of the Data Mover agent in the ESXi kernel. The Data Mover agent requires that all the blocks in the VMDK (Virtual Machine Disk) file be read and transferred to the ESXi host regardless of content. This results in the entire size of the VMDK to be transferred from the external array through the ESXi host to the destination datastore. The entire disk must be read in order to create a complete replica at the destination. The destination format and consumed space depends upon the destination datastore capabilities, protocol and format. Since all blocks must be read from the source datastore, the time to complete this operation may be longer than expected.
+
+      - question: What Fault tolerance setting should I maintain in a standard Azure VMware Solution deployment to remain compliant with Microsoft's SLA?
+        answer: Per Microsoft's [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) when the cluster has between 3 and 5 hosts, the number of failures to tolerate = 1; and when the cluster has between 6 and 16 hosts, the number of failures to tolerate = 2. Please note storage policies are not automatically upgraded based on cluster size. 
+
+      - question: What Fault tolerance setting should I maintain in a stretched Azure VMware Solution deployment to remain compliant with Microsoft's SLA?
+        answer: Per Microsoft's [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) A minimum of 6 nodes are deployed in the cluster (3 in each availability zone), and you must have a minimum virtual machine storage policy of (i) primary level of failures to tolerate of "Dual-Site Mirroring" and (ii) a secondary level of failures to tolerate of 1 is used by the workload virtual machines
 
   - name: Hosts, clusters, and private clouds
     questions:
 
-      - question: Is there more than one type of host available?
-        answer:  No. There's only one type available.
+      - question: Is there more than one type of host available per private cloud? Is it possible to combine different host types in a cluster or private cloud?
+        answer:  With the exception of AV64 cluster requiring a separate 3-node cluster minimum of AV36, AV36P, or AV52, you cannot combine different host types in a private cloud. In all scenarios, clusters require the same host type. Multiple clusters can be deployed within a single private cloud. All hosts must be the same type within a private cloud. If different host types are required to meet use case needs, additional private clouds must be deployed.
 
       - question: Do I use the same tools that I use now to manage private cloud resources?
         answer: Yes. The Azure portal is used for deployment and several management operations. vCenter Server and NSX Manager are used to manage vSphere and NSX resources.
@@ -297,7 +305,7 @@ sections:
   - name: Identity management
     questions:
       - question: What accounts and privileges will I get with my new Azure VMware Solution private cloud?
-        answer: You're provided credentials for a cloud admin user in vCenter Server and admin access on NSX Manager. You can also use a CloudAdmin group to incorporate Microsoft Entra ID. For more information, see [Access and identity architecture](architecture-identity.md).
+        answer: You're provided credentials for a cloud admin user in vCenter Server and admin access on NSX Manager. You can also use a CloudAdmin group to incorporate Microsoft Active Directory. For more information, see [Access and identity architecture](architecture-identity.md).
           
       - question: Can have administrator access to ESXi hosts?
         answer: No, administrator access to ESXi is restricted to meet the security requirements of the solution.

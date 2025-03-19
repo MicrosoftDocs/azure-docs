@@ -5,7 +5,7 @@ services: dns
 author: greg-lindsay
 ms.service: azure-dns
 ms.topic: how-to
-ms.date: 01/10/2024
+ms.date: 09/11/2024
 ms.author: greglin
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -32,12 +32,12 @@ A third party shouldn't have access to create reverse DNS records for Azure serv
 
 Validation is only done when the reverse DNS record is set or modified. Periodic revalidation isn't done.
 
-For example, suppose the public IP address resource has the DNS name `contosoapp1.northus.cloudapp.azure.com` and IP address `23.96.52.53`. The reverse FQDN for the public IP address can be specified as:
+For example, suppose the public IP address resource has the DNS name `contosoapp1.northus.cloudapp.azure.com` and IP address `A.B.C.D`. The reverse FQDN for the public IP address can be specified as:
 
 * The DNS name for the public IP address: `contosoapp1.northus.cloudapp.azure.com`.
 * The DNS name for a different PublicIpAddress in the same subscription, such as: `contosoapp2.westus.cloudapp.azure.com`.
 * A vanity DNS name, such as: `app1.contoso.com`. As long as the name is *first* configured as a CNAME pointing to `contosoapp1.northus.cloudapp.azure.com`. The name can also be pointed to a different public IP address in the same subscription.
-* A vanity DNS name, such as: `app1.contoso.com`. As long as this name is *first* configured as an A record pointing to the IP address 23.96.52.53. The name can also be pointed to another IP address in the same subscription.
+* A vanity DNS name, such as: `app1.contoso.com`. As long as this name is *first* configured as an A record pointing to the IP address A.B.C.D. The name can also be pointed to another IP address in the same subscription.
 
 The same constraints apply to reverse DNS for Cloud Services.
 
@@ -92,7 +92,7 @@ azure network public-ip set -n PublicIp -g MyResourceGroup -d contosoapp1 -f con
 
 To update reverse DNS on a public IP address with an existing PTR:
 
-```azurecli-interacgive
+```azurecli-interactive
 az network public-ip update --resource-group MyResourceGroup --name PublicIp --reverse-fqdn contosoapp1.westus.cloudapp.azure.com.
 ```
 
@@ -241,7 +241,7 @@ No. Azure supports a single reverse DNS record for each Azure Cloud Service or P
 
 ### Can I configure reverse DNS for IPv6 PublicIpAddress resources?
 
-No. Azure currently supports reverse DNS only for IPv4 PublicIpAddress resources and Cloud Services.
+No. Azure DNS does not currently support reverse DNS (PTR records) for public IPv6 addresses.
 
 ### Can I send emails to external domains from my Azure Compute services?
 

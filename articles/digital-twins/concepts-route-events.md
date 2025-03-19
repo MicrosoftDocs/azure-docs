@@ -1,19 +1,13 @@
 ---
-# Mandatory fields.
 title: Endpoints and event routes
 titleSuffix: Azure Digital Twins
 description: Learn how to route Azure Digital Twins events, both within the service and externally to other Azure services.
 author: baanders
-ms.author: baanders # Microsoft employees only
-ms.date: 02/08/2023
+ms.author: baanders
+ms.date: 01/27/2025
 ms.topic: conceptual
 ms.service: azure-digital-twins
 ms.custom: engagement-fy23
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Route Azure Digital Twins events
@@ -34,7 +28,7 @@ The following diagram illustrates the flow of event data through a larger IoT so
 
 :::image type="content" source="media/concepts-route-events/routing-workflow.png" alt-text="Diagram of Azure Digital Twins routing data through endpoints to several downstream services." border="false":::
 
-For egress of data outside Azure Digital Twins, typical downstream targets for event routes are Time Series Insights, Azure Maps, storage, and analytics solutions. Azure Digital Twins implements *at least once* delivery for data emitted to egress services. 
+For egress of data outside Azure Digital Twins, typical downstream targets for event routes are Azure Maps, storage, and analytics solutions. Azure Digital Twins implements *at least once* delivery for data emitted to egress services. 
 
 For routing of internal digital twin events within the same Azure Digital Twins solution, continue to the next section.
 
@@ -112,7 +106,7 @@ To learn how to set up an endpoint with dead-lettering, see [Endpoint options: D
 
 Different types of events in IoT Hub and Azure Digital Twins produce different types of notification messages, as described below.
 
-[!INCLUDE [digital-twins-notifications.md](../../includes/digital-twins-notifications.md)]
+[!INCLUDE [digital-twins-notifications.md](includes/digital-twins-notifications.md)]
 
 ## Next steps
 

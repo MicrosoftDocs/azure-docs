@@ -15,6 +15,5 @@ ms.custom: include file
 > - [.NET](../../articles/storage/blobs/storage-blob-containers-list.md)
 > - [Java](../../articles/storage/blobs/storage-blob-containers-list-java.md)
 > - [JavaScript](../../articles/storage/blobs/storage-blob-containers-list-javascript.md)
-> - [TypeScript](../../articles/storage/blobs/storage-blob-containers-list-typescript.md)
 > - [Python](../../articles/storage/blobs/storage-blob-containers-list-python.md)
 > - [Go](../../articles/storage/blobs/storage-blob-containers-list-go.md)

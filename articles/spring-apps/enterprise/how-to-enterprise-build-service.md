@@ -1,8 +1,9 @@
 ---
-title: How to use Tanzu Build Service in the Azure Spring Apps Enterprise plan
+title: How to Use Tanzu Build Service in the Azure Spring Apps Enterprise Plan
 description: Learn how to use Tanzu Build Service in the Azure Spring Apps Enterprise plan.
 author: KarlErickson
-ms.author: fenzho
+ms.author: karler
+ms.reviewer: fenzho
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 11/29/2023
@@ -11,10 +12,9 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 # Use Tanzu Build Service
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article shows you how to use VMware Tanzu Build Service with the Azure Spring Apps Enterprise plan.
 
@@ -132,7 +132,7 @@ Use the following steps to enable Tanzu Build Service when provisioning an Azure
        --publisher vmware-inc
    ```
 
-1. Select a location. The location must support the Azure Spring Apps Enterprise plan. For more information, see [Azure Spring Apps FAQ](faq.md).
+1. Select a location. The location must support the Azure Spring Apps Enterprise plan. For more information, see [Azure Spring Apps FAQ](../basic-standard/faq.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 1. Use the following command to create a resource group:
 
@@ -191,7 +191,7 @@ By using Tanzu Partner Buildpacks and CA Certificates Buildpack, the Azure Sprin
 
 ## Real-time build logs
 
-A build task is triggered when an application is deployed from an Azure CLI command. Build logs are streamed in real time as part of the CLI command output. For information about using build logs to diagnose problems, see [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md).
+A build task is triggered when an application is deployed from an Azure CLI command. Build logs are streamed in real time as part of the CLI command output. For information about using build logs to diagnose problems, see [Analyze logs and metrics with diagnostics settings](../basic-standard/diagnostic-services.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 ## Build history
 

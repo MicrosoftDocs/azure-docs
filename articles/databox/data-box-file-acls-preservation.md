@@ -4,8 +4,7 @@ description: ACLs, timestamps, and attributes preserved during data copy via SMB
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: pod
+ms.service: azure-databox
 ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 11/18/2022

@@ -79,7 +79,7 @@ Defender for IoT also supports other processes, such as using Hyper-V or physica
 
    - Guest OS family: **Linux**
 
-   - Guest OS version: **Ubuntu Linux (64-bit)**
+   - Guest OS version: **Debian**
 
 1. Select **Next**.
 
@@ -356,7 +356,6 @@ Use the **Certificates** tab to deploy an SSL/TLS certificate on your OT sensor.
     For more information, see [SSL/TLS certificate requirements for on-premises resources](best-practices/certificate-requirements.md) and [Create SSL/TLS certificates for OT appliances](ot-deploy/create-ssl-certificates.md).
 
 1. Select **Finish** to complete the initial setup and open your sensor console.
-
 
 ## Next steps
 

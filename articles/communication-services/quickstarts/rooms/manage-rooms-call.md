@@ -3,11 +3,11 @@ title: Quickstart - Manage a room call
 titleSuffix: An Azure Communication Services Quickstart
 description: In this quickstart, you learn how to manage a room call using Calling SDKs and Call Automation SDKs
 services: azure-communication-services
-author: mikehang
+author: mayssamm
 manager: alexokun
 
-ms.author: mikehang
-ms.date: 07/10/2024
+ms.author: mayssamm
+ms.date: 02/27/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: mode-other
@@ -67,7 +67,7 @@ call_connection_properties = client.connect_call(call_locator=room_call_locator,
 Once successfully connected to a room call, a `CallConnect` event is notified via Callback URI. You can use `callConnectionId` to retrieve a call connection on the room call as needed. The following sample code snippets use the `callConnectionId` to demonstrate this function.
 
 
-### Add PSTN Participant
+### Add PSTN participant
 Using Call Automation you can dial out to a PSTN number and add the participant into a room call. You must, however, set up a room to enable PSTN dial-out option (`EnabledPSTNDialout` set to `true`) and the Azure Communication Services resource must have a valid phone number provisioned.
 
 For more information, see [Rooms quickstart](../../quickstarts//rooms/get-started-rooms.md?tabs=windows&pivots=platform-azcli#enable-pstn-dial-out-capability-for-a-room).
@@ -114,13 +114,13 @@ call_connection_client = call_automation_client.get_call_connection(
 )
 result = call_connection_client.add_participant(
     target,
-    opration_context="Your context",
+    operation_context="Your context",
     operationCallbackUrl="<url_endpoint>"
 )
 ```
 -----
 
-### Remove PSTN Participant
+### Remove PSTN participant
 
 ### [csharp](#tab/csharp)
 
@@ -163,7 +163,7 @@ remove_this_user = PhoneNumberIdentifier("+16044561234")
 call_connection_client = call_automation_client.get_call_connection(
     "call_connection_id"
 )
-result = call_connection_client.remove_participant(remove_this_user, opration_context="Your context", operationCallbackUrl="<url_endpoint>")
+result = call_connection_client.remove_participant(remove_this_user, operation_context="Your context", operationCallbackUrl="<url_endpoint>")
 ```
 -----
 
@@ -218,7 +218,7 @@ result = call_connection_client.send_dtmf_tones(
 ```
 -----
 
-### Call Recording
+### Call recording
 Azure Communication Services rooms support recording capabilities including `start`, `stop`, `pause`, `resume`, and so on, provided by Call Automation. See the following code snippets to start/stop/pause/resume a recording in a room call. For a complete list of actions, see [Call Automation recording](../../concepts/voice-video-calling/call-recording.md#get-full-control-over-your-recordings-with-our-call-recording-apis).
 
 ### [csharp](#tab/csharp)
@@ -315,7 +315,7 @@ stop_recording = call_automation_client.stop_recording(recording_id = recording_
 ```
 -----
 
-### Terminate a Call
+### Terminate a call
 You can use the Call Automation SDK Hang Up action to terminate a call. When the Hang Up action completes, the SDK publishes a `CallDisconnected` event.
 
 ### [csharp](#tab/csharp)
@@ -347,7 +347,7 @@ call_connection_client.hang_up(is_for_everyone=True)
 ```
 -----
 
-## Other Actions
+## Other actions
 The following in-call actions are also supported in a room call. 
 1. Add participant (ACS identifier)
 1. Remove participant (ACS identifier)

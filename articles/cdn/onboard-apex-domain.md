@@ -2,14 +2,16 @@
 title: Onboard a root or apex domain to an existing Azure CDN endpoint - Azure portal
 description: Learn how to onboard a root or apex domain to an existing Azure CDN endpoint using the Azure portal.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
-ms.author: duau
 ---
 
 # Onboard a root or apex domain to an existing Azure CDN endpoint
+
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 Azure CDN uses CNAME records to validate domain ownership for onboarding of custom domains. CDN doesn't expose the frontend IP address associated with your CDN profile. You can't map your apex domain to an IP address if your intent is to onboard it to Azure CDN.
 
@@ -49,8 +51,6 @@ You can use the Azure portal to onboard an apex domain on your CDN and enable HT
 
 5. Select **OK** to submit your changes.
 
-    :::image type="content" source="./media/onboard-apex-domain/cdn-apex-alias-record.png" alt-text="Alias record for zone apex":::
-
 6. The above step creates a zone apex record pointing to your CDN resource. A CNAME record-mapping **cdnverify** is used for onboarding the domain on your CDN profile.
     1. Example, **cdnverify.contoso.com**.
 
@@ -61,8 +61,6 @@ After you've registered your custom domain, you can then add it to your CDN endp
 1. Sign in to the [Azure portal](https://portal.azure.com/) and browse to the CDN profile containing the endpoint that you want to map to a custom domain.
 
 2. On the **CDN profile** page, select the CDN endpoint to associate with the custom domain.
-
-    :::image type="content" source="media/onboard-apex-domain/cdn-endpoint-selection.png" alt-text="CDN endpoint selection" border="true":::
 
 3. Select **+ Custom domain**.
 
@@ -79,9 +77,7 @@ After you've registered your custom domain, you can then add it to your CDN endp
 
    Azure verifies that the CNAME record exists for the custom domain name you entered. If the CNAME is correct, your custom domain is validated.
 
-   It can take some time for the new custom domain settings to propagate to all CDN edge nodes:
-    - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes.
-    - For **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles, propagation usually completes in 10 minutes.
+   It can take up to ten minutes for the new custom domain settings to propagate to all CDN edge nodes.
 
 ## Enable HTTPS on your custom domain
 

@@ -1,16 +1,16 @@
 ---
-title: 'About Azure DDoS Protection tier Comparison'
+title: 'About Azure DDoS Protection Tier Comparison'
 description: Learn about the available tiers for Azure DDoS Protection.
 author: AbdullahBell
 ms.author: Abell
 ms.service: azure-ddos-protection
-ms.topic: conceptual
-ms.date: 07/17/2024
+ms.topic: concept-article
+ms.date: 11/20/2024
 ms.custom: template-concept
 ---
 
 
-# About Azure DDoS Protection tier Comparison
+# About Azure DDoS Protection Tier Comparison
 
 
 The sections in this article discuss the resources and settings of Azure DDoS Protection.
@@ -48,11 +48,12 @@ The following table shows features and corresponding tiers.
 
 DDoS Network Protection and DDoS IP Protection have the following limitations:
 
-- PaaS services (multi-tenant), which includes Azure App Service Environment for Power Apps, Azure API Management in deployment modes other than APIM with virtual network integration (For more information, see https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-ddos-standard-protection-now-supports-apim-in-vnet/ba-p/3641671), and Azure Virtual WAN aren't currently supported. 
+- PaaS services (multi-tenant), which includes Azure App Service Environment for Power Apps, Azure API Management in deployment modes other than APIM with virtual network integration, and Azure Virtual WAN aren't currently supported. For more information, see [Azure DDoS Protection APIM in VNET Integration](https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-ddos-standard-protection-now-supports-apim-in-vnet/ba-p/3641671)
 - Protecting a public IP resource attached to a NAT Gateway isn't supported.
 - Virtual machines in Classic/RDFE deployments aren't supported.
 - VPN gateway or Virtual network gateway is protected by a DDoS policy. Adaptive tuning isn't supported at this stage. 
-- Partially supported: the Azure DDoS Protection service can protect a public load balancer with a public IP address prefix linked to its frontend. It effectively detects and mitigates DDoS attacks. However, telemetry and logging for the protected public IP addresses within the prefix range are currently unavailable. 
+- Protection of a public IP address prefix linked to a public load balancer frontend is supported with the Azure DDoS Network Protection SKU.
+- DDoS telemetry for individual virtual machine instances in Virtual Machine Scale Sets is available with Flexible orchestration mode.
 
 
 DDoS IP Protection is similar to Network Protection, but has the following additional limitation:

@@ -35,7 +35,7 @@ For more information on routing preference in Azure, see [What is routing prefer
 
 For step-by-step guidance that shows you how to configure the routing preference and route-specific endpoints, see [Configure network routing preference for Azure Storage](configure-network-routing-preference.md).
 
-You can choose between the Microsoft global network and internet routing as the default routing preference for the public endpoint of your storage account. The default routing preference applies to all traffic from clients outside Azure and affects the endpoints for Azure Data Lake Storage Gen2, Blob storage, Azure Files, and static websites. Configuring routing preference is not supported for Azure Queues or Azure Tables.
+You can choose between the Microsoft global network and internet routing as the default routing preference for the public endpoint of your storage account. The default routing preference applies to all traffic from clients outside Azure and affects the endpoints for Azure Data Lake Storage, Blob storage, Azure Files, and static websites. Configuring routing preference is not supported for Azure Queues or Azure Tables.
 
 You can also publish route-specific endpoints for your storage account. When you publish route-specific endpoints, Azure Storage creates new public endpoints for your storage account that route traffic over the desired path. This flexibility enables you to direct traffic to your storage account over a specific route without changing your default routing preference.
 
@@ -44,7 +44,7 @@ For example, publishing an internet route-specific endpoint for the 'StorageAcco
 | Storage service        | Route-specific endpoint                                  |
 | :--------------------- | :------------------------------------------------------- |
 | Blob service           | `StorageAccountA-internetrouting.blob.core.windows.net`  |
-| Data Lake Storage Gen2 | `StorageAccountA-internetrouting.dfs.core.windows.net`   |
+| Data Lake Storage | `StorageAccountA-internetrouting.dfs.core.windows.net`   |
 | File service           | `StorageAccountA-internetrouting.file.core.windows.net`  |
 | Static Websites        | `StorageAccountA-internetrouting.web.core.windows.net`   |
 
@@ -53,7 +53,7 @@ If you have a read-access geo-redundant storage (RA-GRS) or a read-access geo-zo
 | Storage service        | Route-specific read-only secondary endpoint                        |
 | :--------------------- | :----------------------------------------------------------------- |
 | Blob service           | `StorageAccountA-internetrouting-secondary.blob.core.windows.net`  |
-| Data Lake Storage Gen2 | `StorageAccountA-internetrouting-secondary.dfs.core.windows.net`   |
+| Data Lake Storage | `StorageAccountA-internetrouting-secondary.dfs.core.windows.net`   |
 | File service           | `StorageAccountA-internetrouting-secondary.file.core.windows.net`  |
 | Static Websites        | `StorageAccountA-internetrouting-secondary.web.core.windows.net`   |
 

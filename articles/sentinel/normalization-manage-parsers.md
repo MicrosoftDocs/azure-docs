@@ -5,6 +5,10 @@ author: oshezaf
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: ofshezaf
+
+
+#Customer intent: As a security analyst, I want to manage and customize ASIM parsers so that I can normalize and analyze security data from various sources effectively.
+
 --- 
 
 # Manage Advanced Security Information Model (ASIM) parsers (Public preview)
@@ -57,7 +61,7 @@ Microsoft Sentinel users cannot edit built-in unifying parsers. Instead, use the
 
 To add a custom parser, insert a line to the custom unifying parser to reference the new, custom parser. 
 
-Make sure to add both a filtering custom parser and a parameter-less custom parser. To learn more about how to edit parsers, refer to the document [Functions in Azure Monitor log queries](../azure-monitor/logs/functions.md#edit-a-function).
+Make sure to add both a filtering custom parser and a parameter-less custom parser. To learn more about how to edit parsers, refer to the document [Functions in Azure Monitor log queries](/azure/azure-monitor/logs/functions#edit-a-function).
 
 The syntax of the line to add is different for each schema:
 
@@ -72,7 +76,7 @@ When adding an additional parser to a unifying custom parser that already refere
 
 For example, the following code shows a custom unifying parser after having added the `added_parser`:
 
-```KQL
+```kusto
 union isfuzzy=true
 existing_parser(starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype),
 added_parser(starttime, endtime, srcipaddr, domain_has_any, responsecodename, response_has_ipv4, response_has_any_prefix, eventtype)
@@ -133,7 +137,7 @@ When adding an additional parser to a unifying parser, make sure you add a comma
 
 For example, the following example shows the DNS filtering unifying parser, after having added the custom `added_parser`:
 
-```KQL
+```kusto
   let Generic=(starttime:datetime=datetime(null), endtime:datetime=datetime(null) , srcipaddr:string='*' , domain_has_any:dynamic=dynamic([]) , responsecodename:string='*', response_has_ipv4:string='*' , response_has_any_prefix:dynamic=dynamic([]) , eventtype:string='lookup' ){
   let DisabledParsers=materialize(_GetWatchlist('ASimDisabledParsers') | where SearchKey in ('Any', 'imDns') | extend SourceSpecificParser=column_ifexists('SourceSpecificParser','') | distinct SourceSpecificParser);
   let imDnsBuiltInDisabled=toscalar('imDnsBuiltIn' in (DisabledParsers) or 'Any' in (DisabledParsers)); 
@@ -155,7 +159,7 @@ Microsoft Sentinel users can directly modify workspace-deployed parsers. Create 
 
 For example, the following code shows a DNS filtering unifying parser, having replaced the `vimDnsAzureFirewall` parser with a modified version:
 
-```KQL
+```kusto
   let Generic=(starttime:datetime=datetime(null), endtime:datetime=datetime(null) , srcipaddr:string='*' , domain_has_any:dynamic=dynamic([]) , responsecodename:string='*', response_has_ipv4:string='*' , response_has_any_prefix:dynamic=dynamic([]) , eventtype:string='lookup' ){
   let DisabledParsers=materialize(_GetWatchlist('ASimDisabledParsers') | where SearchKey in ('Any', 'imDns') | extend SourceSpecificParser=column_ifexists('SourceSpecificParser','') | distinct SourceSpecificParser);
   let imDnsBuiltInDisabled=toscalar('imDnsBuiltIn' in (DisabledParsers) or 'Any' in (DisabledParsers)); 

@@ -8,13 +8,12 @@ ms.topic: reference
 # Dell PowerEdge R660
 
 This article describes the Dell PowerEdge R660 appliance, supported for operational technology (OT) sensors in an enterprise deployment.
-The Dell PowerEdge R660 is also available for the on-premises management console.
 
 |Appliance characteristic  | Description|
 |---------|---------|
-|**Hardware profile** | R660 |
+|**Hardware profile** | C5600 |
 |**Performance** | Max bandwidth: 3 Gbps<br>Max devices: 12,000 |
-|**Physical Specifications** | Mounting: 1U with rail kit<br>Ports: 6x RJ45 1 GbE|
+|**Physical Specifications** | Mounting: 1U with rail kit<br>Ports: 6x RJ45 1 GbE |
 |**Status** | Supported, available as a preconfigured appliance|
 
 The following image shows a view of the Dell PowerEdge R660 front panel:
@@ -38,7 +37,7 @@ The following image shows a view of the Dell PowerEdge R660 back panel:
 |Management|iDRAC Group Manager, Disabled|
 |Rack support| ReadyRails Sliding Rails With Cable Management Arm|
 
-## Dell PowerEdge R660 - Bill of Materials
+## Dell PowerEdge R660 - Bill of materials
 
 ### Components
 
@@ -53,11 +52,11 @@ The following image shows a view of the Dell PowerEdge R660 back panel:
 |1| 338-CHQT | Processor thermal configuration | Heatsink for 2 CPU configuration (CPU less than or equal to 150 W)|
 |1| 370-AAIP | Memory configuration type | Performance Optimized |
 |1| 370-AHCL | Memory DIMM type and speed | 4800-MT/s RDIMMs |
-|4| 370-AGZP | Memory capacity | 32 GB RDIMM, 4,800 MT/s dual rank |
+|4| 370-AGZP | Memory capacity | 8 * 16 GB RDIMM, 4,800 MT/s single rank |
 |1| 780-BCDS | RAID configuration | unconfigured RAID |
 |1| 405-AAZB | RAID controller | PERC H755 SAS Front |
 |1| 750-ACFR | RAID controller | Front PERC Mechanical Parts, front load |
-|6| 161-BCBX | Hard drives | 2.4 TB Hard Drive SAS ISE 12 Gbps 10k 512e 2.5in Hot Plug |
+|8| 161-BCBX | Hard drives | 2.4 TB Hard Drive SAS ISE 12 Gbps 10k 512e 2.5in Hot Plug |
 |1| 384-BBBH | BIOS and Advanced System Configuration Settings | Power Saving BIOS Settings |
 |1| 387-BBEY | Advanced System Configurations | No Energy Star |
 |1| 384-BDJC | Fans | Standard Fan X7 |
@@ -121,4 +120,3 @@ Continue learning about the system requirements for physical or virtual applianc
 Then, use any of the following procedures to continue:
 
 - [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
-- [Download software files for an on-premises management console](../legacy-central-management/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

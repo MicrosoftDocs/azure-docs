@@ -81,7 +81,7 @@ http.request(options, onResponseCallback);
 
 # [C#](#tab/csharp)
 
-[CosmosClient](/dotnet/api/microsoft.azure.cosmos.cosmosclient) connects to an Azure Cosmos DB instance. The Azure Cosmos DB documentation recommends that you [use a singleton Azure Cosmos DB client for the lifetime of your application](../cosmos-db/performance-tips-dotnet-sdk-v3-sql.md#sdk-usage). The following example shows one pattern for doing that in a function:
+[CosmosClient](/dotnet/api/microsoft.azure.cosmos.cosmosclient) connects to an Azure Cosmos DB instance. The Azure Cosmos DB documentation recommends that you [use a singleton Azure Cosmos DB client for the lifetime of your application](/azure/cosmos-db/performance-tips-dotnet-sdk-v3-sql#sdk-usage). The following example shows one pattern for doing that in a function:
 
 ```cs
 #r "Microsoft.Azure.Cosmos"
@@ -125,7 +125,7 @@ Also, create a file named "function.proj" for your trigger and add the below con
 
 # [JavaScript](#tab/javascript)
 
-[CosmosClient](/javascript/api/@azure/cosmos/cosmosclient) connects to an Azure Cosmos DB instance. The Azure Cosmos DB documentation recommends that you [use a singleton Azure Cosmos DB client for the lifetime of your application](../cosmos-db/performance-tips.md#sdk-usage). The following example shows one pattern for doing that in a function:
+[CosmosClient](/javascript/api/@azure/cosmos/cosmosclient) connects to an Azure Cosmos DB instance. The Azure Cosmos DB documentation recommends that you [use a singleton Azure Cosmos DB client for the lifetime of your application](/azure/cosmos-db/performance-tips#sdk-usage). The following example shows one pattern for doing that in a function:
 
 ```javascript
 const cosmos = require('@azure/cosmos');

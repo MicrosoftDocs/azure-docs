@@ -12,8 +12,8 @@ ms.author: v-amallick
    If you have opted for [crash-consistent backups](../articles/backup/backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md), no agents are required in the VMs.
 
 1. During the first backup, a backup extension is installed on the VM if the VM is running.
-    - For Windows VMs, the [VMSnapshot extension](../articles/virtual-machines/extensions/vmsnapshot-windows.md) is installed.
-    - For Linux VMs, the [VMSnapshotLinux extension](../articles/virtual-machines/extensions/vmsnapshot-linux.md) is installed.
+    - For Windows VMs, the [VMSnapshot extension](/azure/virtual-machines/extensions/vmsnapshot-windows) is installed.
+    - For Linux VMs, the [VMSnapshotLinux extension](/azure/virtual-machines/extensions/vmsnapshot-linux) is installed.
 1. For Windows VMs that are running, Azure Backup coordinates with Windows Volume Shadow Copy Service (VSS) to take an app-consistent snapshot of the VM.
     - By default, Backup takes full VSS backups.
     - If Backup can't take an app-consistent snapshot, then it takes a file-consistent snapshot of the underlying storage (because no application writes occur while the VM is stopped).

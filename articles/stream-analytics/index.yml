@@ -8,9 +8,9 @@ metadata:
   description: Azure Stream Analytics is a fully managed, real-time analytics service designed to help you analyze and process fast moving streams of data that can be used to get insights, build reports or trigger alerts and actions. Learn how to use Azure Stream Analytics with our quickstarts, tutorials, and samples.
   ms.service: azure-stream-analytics
   ms.topic: landing-page
-  author: ajetasin
-  ms.author: ajetasi
-  ms.date: 11/30/2023
+  author: spelluru
+  ms.author: spelluru
+  ms.date: 12/16/2024
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:

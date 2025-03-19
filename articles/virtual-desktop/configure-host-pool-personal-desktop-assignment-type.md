@@ -1,16 +1,13 @@
 ---
 title: Configure personal desktop assignment in Azure Virtual Desktop  - Azure
 description: How to configure automatic or direct assignment for an Azure Virtual Desktop personal desktop host pool.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
-ms.date: 01/31/2024
-ms.author: helohr 
-ms.custom: devx-track-azurepowershell
+ms.date: 12/03/2024
+ms.author: daknappe
+ms.custom: devx-track-azurepowershell, docs_inherited
 ---
 # Configure personal desktop assignment
-
->[!IMPORTANT]
->This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/configure-host-pool-personal-desktop-assignment-type-2019.md).
 
 A personal host pool is a type of host pool that has personal desktops. Personal desktops have one-to-one mapping, which means a single user can only be assigned to a single personal desktop. Every time the user signs in, their user session is directed to their assigned personal desktop session host. This host pool type is ideal for customers with resource-intensive workloads because user experience and session performance will improve if there's only one session on the session host. Another benefit of this host pool type is that user activities, files, and settings persist on the virtual machine operating system (VM OS) disk after the user signs out.
 
@@ -49,30 +46,30 @@ To configure automatic assignment in the Azure portal:
 
 1. Select **Save**.
 
-#### [PowerShell](#tab/powershell)
+#### [Azure PowerShell](#tab/powershell)
 
-Here's how to configure a host pool to automatically assign users to VMs using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
+Here's how to configure a host pool to automatically assign users to VMs using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module. Be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
-2. Run the `Update-AzWvdHostPool` command in the following example to configure a host pool to automatically assign users to VMs. For more information about the parameters,see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
+2. Run the command in the following example to configure a host pool to automatically assign users to session hosts:
 
    ```powershell
-   Update-AzWvdHostPool -ResourceGroupName $resourceGroupName -Name $hostPoolName -PersonalDesktopAssignmentType Automatic
+   Update-AzWvdHostPool -ResourceGroupName <ResourceGroupName> -Name <HostPoolName> -PersonalDesktopAssignmentType Automatic
    ```
 
 #### [Azure CLI](#tab/cli)
 
-Here's how to configure a host pool to automatically assign users to VMs using the [az-desktopvirtualization-hostpool-update](/cli/azure/desktopvirtualization/hostpool#az-desktopvirtualization-hostpool-update) command.
+Here's how to configure a host pool to automatically assign users to VMs using the [desktopvirtualization](/cli/azure/desktopvirtualization) command. Be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
 
-2. Run the command in the following example to configure a host pool to automatically assign users to VMs. For more information about the parameters, see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
+2. Run the command in the following example to configure a host pool to automatically assign users to session hosts:
 
    ```azurecli
    az desktopvirtualization hostpool update \
-       --resource-group $resourceGroupName \
-       --name $hostPoolName \
+       --resource-group <ResourceGroupName> \
+       --name <HostPoolName> \
        --personal-desktop-assignment-type Automatic
    ```
 
@@ -96,30 +93,30 @@ To configure direct assignment in the Azure portal:
 
 1. Select **Save**.
 
-#### [PowerShell](#tab/powershell)
+#### [Azure PowerShell](#tab/powershell)
 
-Here's how to configure a host pool to require direct assignment of users to session hosts using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
+Here's how to configure a host pool to require direct assignment of users to session hosts using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module. Be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
-2. Run the `Update-AzWvdHostPool` command in the following example to configure a host pool to require direct assignment. For more information about the parameters, see the [Update-AzWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool) reference.
+2. Run the command in the following example to configure a host pool to require direct assignment:
 
    ```powershell
-   Update-AzWvdHostPool -ResourceGroupName $resourceGroupName -Name $hostPoolName -PersonalDesktopAssignmentType Direct
+   Update-AzWvdHostPool -ResourceGroupName <ResourceGroupName> -Name <HostPoolName> -PersonalDesktopAssignmentType Direct
    ```
 
 #### [Azure CLI](#tab/cli)
 
-Here's how to configure a host pool to automatically assign users to VMs using the [az-desktopvirtualization-hostpool-update](/cli/azure/desktopvirtualization/hostpool#az-desktopvirtualization-hostpool-update) command.
+Here's how to configure a host pool to automatically assign users to VMs using the [desktopvirtualization](/cli/azure/desktopvirtualization) command.  Be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
 
-2. Run the command in the following example to configure a host pool to automatically assign users to VMs. For more information about the parameters, see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
+2. Run the command in the following example to configure a host pool to automatically assign users to session hosts:
 
    ```azurecli
    az desktopvirtualization hostpool update \
-       --resource-group $resourceGroupName \
-       --name $hostPoolName \
+       --resource-group <ResourceGroupName> \
+       --name <HostPoolName> \
        --personal-desktop-assignment-type Direct
    ```
 
@@ -127,7 +124,7 @@ Here's how to configure a host pool to automatically assign users to VMs using t
 
 ### Directly assign users to session hosts
 
-Here's how to directly assign users to session hosts using the Azure portal or PowerShell. You can't assign users to session hosts using Azure CLI.
+Here's how to directly assign users to session hosts using the Azure portal or Azure PowerShell. You can't assign users to session hosts using Azure CLI.
 
 #### [Azure portal](#tab/azure2)
 
@@ -157,24 +154,23 @@ To directly assign a user to a session host in the Azure portal:
 
 1. When you're done, select **Select**.
 
-#### [PowerShell](#tab/powershell2)
+#### [Azure PowerShell](#tab/powershell2)
 
-Here's how to configure a host pool to assign a user to a specific session host using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
+Here's how to configure a host pool to assign a user to a specific session host using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module. Be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
 2. Run the `Update-AzWvdHostPool` command in the following example to assign a user to a session host. For more information about the parameters, see the [Update-AzWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool) reference.
 
    ```powershell
-   Update-AzWvdSessionHost -HostPoolName $hostPoolName -Name $sessionHostName -ResourceGroupName $resourceGroupName -AssignedUser $userupn
+   Update-AzWvdSessionHost -HostPoolName <HostPoolName> -Name <SessionHostName> -ResourceGroupName <ResourceGroupName> -AssignedUser <UserUPN>
    ```
-
 
 ---
 
 ## Unassign a personal desktop
 
-Here's how to unassign a personal desktop using the Azure portal or PowerShell. You can't unassign a personal desktop using Azure CLI. 
+Here's how to unassign a personal desktop using the Azure portal or Azure PowerShell. You can't unassign a personal desktop using Azure CLI. 
 
 #### [Azure portal](#tab/azure2)
 
@@ -202,9 +198,9 @@ To unassign a personal desktop in the Azure portal:
 
 1. Select **Unassign** when prompted with the warning.
 
-#### [PowerShell](#tab/powershell2)
+#### [Azure PowerShell](#tab/powershell2)
 
-Here's how to configure a host pool to unassign a personal desktop using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
+Here's how to configure a host pool to unassign a personal desktop. Be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
@@ -222,12 +218,11 @@ Here's how to configure a host pool to unassign a personal desktop using the [Az
    Invoke-AzRestMethod @unassignDesktopParams
    ```
 
-
 ---
 
 ## Reassign a personal desktop
 
-Here's how to reassign a personal desktop using the Azure portal or PowerShell. You can't reassign a personal desktop using Azure CLI. 
+Here's how to reassign a personal desktop using the Azure portal or Azure PowerShell. You can't reassign a personal desktop using Azure CLI. 
 
 #### [Azure portal](#tab/azure2)
 
@@ -256,9 +251,9 @@ To reassign a personal desktop in the Azure portal:
 
 1. When you're done, select **Select**.
 
-#### [PowerShell](#tab/powershell2)
+#### [Azure PowerShell](#tab/powershell2)
 
-Here's how to reassign a personal desktop using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
+Here's how to reassign a personal desktop using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module. Be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
@@ -290,7 +285,6 @@ Here's how to reassign a personal desktop using the [Az.DesktopVirtualization](/
 You can give personal desktops you create *friendly names* to help users distinguish them in their feeds using PowerShell. The Azure portal or Azure CLI doesn't currently have a way to give session host friendly names.
 
 [!INCLUDE [include-session-hosts-friendly-name](includes/include-session-hosts-friendly-name.md)]
-
 
 ## Next steps
 

@@ -6,16 +6,18 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 07/25/2024
+ms.date: 09/26/2024
 
 #CustomerIntent: As an Azure administrator, I want to log my virtual network IP traffic using Network Watcher NSG flow logs so that I can analyze it later.
 ---
 
 # Manage NSG flow logs using the Azure portal
 
+[!INCLUDE [NSG flow logs retirement](../../includes/network-watcher-nsg-flow-logs-retirement.md)]
+
 Network security group flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a network security group. For more information about network security group flow logging, see [NSG flow logs overview](nsg-flow-logs-overview.md).
 
-In this article, you learn how to create, change, disable, or delete an NSG flow log using the Azure portal. You can learn how to manage an NSG flow log using [PowerShell](nsg-flow-logs-powershell.md), [Azure CLI](nsg-flow-logs-cli.md), [REST API](nsg-flow-logs-rest.md), or [ARM template](nsg-flow-logs-azure-resource-manager.md).
+In this article, you learn how to create, change, disable, or delete an NSG flow log using the Azure portal. You can learn how to manage an NSG flow log using [PowerShell](nsg-flow-logs-powershell.md), [Azure CLI](nsg-flow-logs-cli.md), or [ARM template](nsg-flow-logs-template.md).
 
 ## Prerequisites
 
@@ -33,7 +35,7 @@ In this article, you learn how to create, change, disable, or delete an NSG flow
 
 1. In the search box at the top of the portal, enter *subscriptions*. Select **Subscriptions** from the search results.
 
-    :::image type="content" source="./media/nsg-flow-logs-portal/subscriptions.png" alt-text="Screenshot that shows how to search for Subscriptions in the Azure portal." lightbox="./media/nsg-flow-logs-portal/subscriptions.png":::
+    :::image type="content" source="./media/subscriptions-portal-search.png" alt-text="Screenshot that shows how to search for Subscriptions in the Azure portal." lightbox="./media/subscriptions-portal-search.png":::
 
 1. Select the Azure subscription that you want to enable the provider for in **Subscriptions**.
 
@@ -88,7 +90,7 @@ Create a flow log for your network security group. This NSG flow log is saved in
     :::image type="content" source="./media/nsg-flow-logs-portal/create-nsg-flow-log-analytics.png" alt-text="Screenshot that shows how to enable traffic analytics for a new flow log in the Azure portal.":::
 
     > [!NOTE]
-    > To create and select a Log Analytics workspace other than the default one, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md?toc=/azure/network-watcher/toc.json)
+    > To create and select a Log Analytics workspace other than the default one, see [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace?toc=/azure/network-watcher/toc.json)
 
 1. Select **Review + create**.
 

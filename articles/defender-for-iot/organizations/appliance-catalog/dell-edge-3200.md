@@ -7,7 +7,7 @@ ms.topic: reference
 
 # Dell Edge Gateway 3200
 
-This article describes the Dell Edge Gateway 3200 appliance for operational technology (OT) sensors monitoring production lines. The Dell Edge Gateway 3200 is also available for the on-premises management console.
+This article describes the Dell Edge Gateway 3200 appliance for operational technology (OT) sensors monitoring production lines.
 
 |Appliance characteristic  | Description|
 |---------|---------|
@@ -32,7 +32,7 @@ The following image shows a view of the Dell Edge Gateway 3200 back panel:
 |Dimensions| Height: 60 mm <br>Width: 162 cm<br>Depth: 108 mm |
 |Processor| Intel Atom x6425RE |
 |Memory|16 GB |
-|Storage| 500 GB Hard Drive |
+|Storage| 512 GB Hard Drive |
 |Network controller| Ports: 2* 1 GbE RJ45 |
 |Management|iDRAC Group Manager, Disabled |
 |Rack support| Wall mount/ DIN rail support |
@@ -103,4 +103,3 @@ Continue learning about the system requirements for physical or virtual applianc
 Then, use any of the following procedures to continue:
 
 - [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
-- [Download software files for an on-premises management console](../legacy-central-management/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

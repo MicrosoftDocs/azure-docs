@@ -17,10 +17,10 @@ ms.custom: H1Hack27Feb2017, linux-related-content
 Azure provides different types of storage that are suitable for Azure VMs that are running SAP HANA. The **SAP HANA certified Azure storage types** that can be considered for SAP HANA deployments list like: 
 
 - Azure premium SSD or premium storage v1/v2
-- [Ultra disk](../../virtual-machines/disks-enable-ultra-ssd.md)
+- [Ultra disk](/azure/virtual-machines/disks-enable-ultra-ssd)
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 
 
-To learn about these disk types, see the article [Azure Storage types for SAP workload](./planning-guide-storage.md) and [Select a disk type](../../virtual-machines/disks-types.md)
+To learn about these disk types, see the article [Azure Storage types for SAP workload](./planning-guide-storage.md) and [Select a disk type](/azure/virtual-machines/disks-types)
 
 Azure offers two deployment methods for VHDs on Azure Standard and premium storage v1/v2. We expect you to take advantage of [Azure managed disk](https://azure.microsoft.com/services/managed-disks/) for Azure block storage deployments. 
 
@@ -32,7 +32,7 @@ For a list of storage types and their SLAs in IOPS and storage throughput, revie
 
 The minimum SAP HANA certified conditions for the different storage types are: 
 
-- Azure premium storage v1 - **/hana/log** is required to be supported by Azure [Write Accelerator](../../virtual-machines/how-to-enable-write-accelerator.md). The **/hana/data** volume could be placed on premium storage v1 without Azure Write Accelerator or on Ultra disk. Azure premium storage v2 or Azure premium SSD v2 is not supporting the usage of Azure Write Accelerator
+- Azure premium storage v1 - **/hana/log** is required to be supported by Azure [Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator). The **/hana/data** volume could be placed on premium storage v1 without Azure Write Accelerator or on Ultra disk. Azure premium storage v2 or Azure premium SSD v2 is not supporting the usage of Azure Write Accelerator
 - Azure Ultra disk at least for the **/hana/log** volume. The **/hana/data** volume can be placed on either premium storage v1/v2 without Azure Write Accelerator or in order to get faster restart times Ultra disk
 - **NFS v4.1** volumes on top of Azure NetApp Files for **/hana/log and /hana/data**. The volume of /hana/shared can use NFS v3 or NFS v4.1 protocol
 
@@ -49,8 +49,8 @@ Given that low storage latency is critical for DBMS systems, even as DBMS, like 
 
 Some guiding principles in selecting your storage configuration for HANA can be listed like:
 
-- Decide on the type of storage based on [Azure Storage types for SAP workload](./planning-guide-storage.md) and [Select a disk type](../../virtual-machines/disks-types.md)
-- The overall VM I/O throughput and IOPS limits in mind when sizing or deciding for a VM. Overall VM storage throughput is documented in the article [Memory optimized virtual machine sizes](../../virtual-machines/sizes-memory.md)   
+- Decide on the type of storage based on [Azure Storage types for SAP workload](./planning-guide-storage.md) and [Select a disk type](/azure/virtual-machines/disks-types)
+- The overall VM I/O throughput and IOPS limits in mind when sizing or deciding for a VM. Overall VM storage throughput is documented in the article [Memory optimized virtual machine sizes](/azure/virtual-machines/sizes-memory)   
 - When deciding for the storage configuration, try to stay below the overall throughput of the VM with your **/hana/data** volume configuration. SAP HANA writing savepoints, HANA can be aggressive issuing I/Os. It's easily possible to push up to throughput limits of your **/hana/data** volume when writing a savepoint. If your disk(s) that build the **/hana/data** volume have a higher throughput than your VM allows, you could run into situations where throughput utilized by the savepoint writing is interfering with throughput demands of the redo log writes. A situation that can impact the application throughput
 - If you're considering using HANA System Replication, the storage used for **/hana/data** on each replica must be same and the storage type used for **/hana/log** on each replica must be same. For example, using Azure premium storage v1 for **/hana/data** with one VM and Azure Ultra disk for **/hana/data** in another VM running a replica of the same HANA System replication configuration, isn't supported
 

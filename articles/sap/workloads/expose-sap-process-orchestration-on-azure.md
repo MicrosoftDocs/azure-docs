@@ -168,7 +168,7 @@ To determine which integration scenarios described in this article best fit your
 
 - [Azure Firewall](../../firewall/features.md) for non-HTTP integrations
 
-- [High availability](../../virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios.md) and [disaster recovery](/azure/cloud-adoption-framework/scenarios/sap/eslz-business-continuity-and-disaster-recovery) for VM-based SAP integration workloads
+- [High availability](/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios) and [disaster recovery](/azure/cloud-adoption-framework/scenarios/sap/eslz-business-continuity-and-disaster-recovery) for VM-based SAP integration workloads
 
 - Modern [authentication mechanisms like OAuth2](../../api-management/sap-api.md#production-considerations), where applicable
 

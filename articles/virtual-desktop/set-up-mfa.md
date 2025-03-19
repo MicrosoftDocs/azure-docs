@@ -1,10 +1,11 @@
 ---
 title: Enforce Microsoft Entra multifactor authentication for Azure Virtual Desktop using Conditional Access - Azure
 description: How to enforce Microsoft Entra multifactor authentication for Azure Virtual Desktop using Conditional Access to help make it more secure.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
-ms.date: 09/24/2024
-ms.author: helohr
+ms.date: 12/11/2024
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 
 # Enforce Microsoft Entra multifactor authentication for Azure Virtual Desktop using Conditional Access
@@ -42,38 +43,37 @@ Here's how to create a Conditional Access policy that requires multifactor authe
 1. Under the **Include** tab, select **Select users and groups** and check **Users and groups**, then under **Select**, select **0 users and groups selected**.
 1. On the new pane that opens, search for and choose the group that contains your Azure Virtual Desktop users as group members, then select **Select**.
 1. Under **Assignments** > **Target resources**, select **No target resources selected**.
-1. Under the **Include** tab, select **Select apps**, then under **Select**, select **None**.
+1. For the drop-down list **Select what this policy applies to**, leave the default of **Resources (formerly cloud apps)**. Under the **Include** tab, select **Select resources**, then under **Select**, select **None**.
 1. On the new pane that opens, search for and select the necessary apps based on the resources you're trying to protect. Select the relevant tab for your scenario. When searching for an application name on Azure, use search terms that begin with the application name in order instead of keywords the application name contains out of order. For example, when you want to use Azure Virtual Desktop, you need to enter '*Azure Virtual*', in that order. If you enter '*virtual*' by itself, the search doesn't return the desired application.
 
    # [Azure Virtual Desktop](#tab/avd)
 
    For Azure Virtual Desktop (based on Azure Resource Manager), you can configure MFA on these different apps:
 
-   - **Azure Virtual Desktop** (app ID 9cdead84-a844-4324-93f2-b2e6bb768d07), which applies when the user subscribes to Azure Virtual Desktop, authenticates to the Azure Virtual Desktop Gateway during a connection, and when diagnostics information is sent to the service from the user's local device.
+   - **Azure Virtual Desktop** (app ID `9cdead84-a844-4324-93f2-b2e6bb768d07`), which applies when the user subscribes to Azure Virtual Desktop, authenticates to the Azure Virtual Desktop Gateway during a connection, and when diagnostics information is sent to the service from the user's local device.
 
-        > [!TIP]
-        > The app name was previously *Windows Virtual Desktop*. If you registered the *Microsoft.DesktopVirtualization* resource provider before the display name changed, the application will be named **Windows Virtual Desktop** with the same app ID as Azure Virtual Desktop.
+      > [!TIP]
+      > The app name was previously *Windows Virtual Desktop*. If you registered the *Microsoft.DesktopVirtualization* resource provider before the display name changed, the application will be named **Windows Virtual Desktop** with the same app ID as Azure Virtual Desktop.
 
-      - **Microsoft Remote Desktop** (app ID a4a365df-50f1-4397-bc59-1a1564b8bb9c) and **Windows Cloud Login** (app ID 270efc09-cd0d-444b-a71f-39af4910ec45). These apply when the user authenticates to the session host when [single sign-on](configure-single-sign-on.md) is enabled. It's recommended to match conditional access policies between these apps and the Azure Virtual Desktop app, except for the [sign-in frequency](#configure-sign-in-frequency).
+   - **Microsoft Remote Desktop** (app ID `a4a365df-50f1-4397-bc59-1a1564b8bb9c`) and **Windows Cloud Login** (app ID `270efc09-cd0d-444b-a71f-39af4910ec45`). These apply when the user authenticates to the session host when [single sign-on](configure-single-sign-on.md) is enabled. We recommended you match conditional access policies between these apps and the Azure Virtual Desktop app, except for the [sign-in frequency](#configure-sign-in-frequency).
 
       > [!IMPORTANT]
-      > The clients used to access Azure Virtual Desktop use the **Microsoft Remote Desktop** Entra ID app to authenticate to the session host today. An upcoming change will transition the authentication to the **Windows Cloud Login** Entra ID app. To ensure a smooth transition, you need to add both Entra ID apps to your CA policies.
-
-   > [!IMPORTANT]
-   > Don't select the app called Azure Virtual Desktop Azure Resource Manager Provider (app ID 50e95039-b200-4007-bc97-8d5790743a63). This app is only used for retrieving the user feed and shouldn't have multifactor authentication.   
+      > - The clients used to access Azure Virtual Desktop use the **Microsoft Remote Desktop** Entra ID app to authenticate to the session host today. An upcoming change will transition the authentication to the **Windows Cloud Login** Entra ID app. To ensure a smooth transition, you need to add both Entra ID apps to your CA policies.
+      >
+      > - Don't select the app called Azure Virtual Desktop Azure Resource Manager Provider (app ID `50e95039-b200-4007-bc97-8d5790743a63`). This app is only used for retrieving the user feed and shouldn't have multifactor authentication.   
 
    # [Azure Virtual Desktop (classic)](#tab/avd-classic)
 
    For Azure Virtual Desktop (classic), you configure MFA on these apps:
        
-   - **Windows Virtual Desktop** (app ID 5a0aa725-4958-4b0c-80a9-34562e23f3b7).
+   - **Windows Virtual Desktop** (app ID `5a0aa725-4958-4b0c-80a9-34562e23f3b7`).
 
-   - **Windows Virtual Desktop Client** (app ID fa4345a4-a730-4230-84a8-7d9651b86739), which lets you set policies on the web client.
+   - **Windows Virtual Desktop Client** (app ID `fa4345a4-a730-4230-84a8-7d9651b86739`), which lets you set policies on the web client.
 
-   - **Azure Virtual Desktop/Windows Virtual Desktop** (app ID 9cdead84-a844-4324-93f2-b2e6bb768d07). Not adding this app ID blocks feed discovery of Azure Virtual Desktop (classic) resources.
+   - **Azure Virtual Desktop/Windows Virtual Desktop** (app ID `9cdead84-a844-4324-93f2-b2e6bb768d07`). Not adding this app ID blocks feed discovery of Azure Virtual Desktop (classic) resources.
 
    > [!IMPORTANT]
-   > Don't select the app called Azure Virtual Desktop Azure Resource Manager Provider (app ID 50e95039-b200-4007-bc97-8d5790743a63). This app is only used for retrieving the user feed and shouldn't have multifactor authentication.
+   > Don't select the app called Azure Virtual Desktop Azure Resource Manager Provider (app ID `50e95039-b200-4007-bc97-8d5790743a63`). This app is only used for retrieving the user feed and shouldn't have multifactor authentication.
 
 1. Once you selected your apps, select **Select**.
 

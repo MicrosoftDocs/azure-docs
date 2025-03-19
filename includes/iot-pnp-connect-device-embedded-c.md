@@ -1,21 +1,21 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-develop
+ms.service: azure-iot
 ms.topic: include
-ms.date: 11/17/2022
+ms.date: 02/14/2025
 ---
 
 If you're developing for *constrained devices*, you can use IoT Plug and Play with:
 
 - The [Azure SDK for Embedded C IoT client libraries](https://aka.ms/embeddedcsdk).
-- [Eclipse ThreadX](https://github.com/eclipse-threadx)..
+- [Eclipse ThreadX](https://github.com/eclipse-threadx).
 
 This article includes links and resources for these constrained scenarios.
 
 ## Prerequisites
 
-Many of the samples below require a specific hardware device and the prerequisites are different for each of the samples. Follow the link to the relevant sample for detailed prerequisites, configuration, and build instructions.
+Many of the samples in this article require a specific hardware device and the prerequisites are different for each of the samples. Follow the link to the relevant sample for detailed prerequisites, configuration, and build instructions.
 
 ## Use the SDK for Embedded C
 

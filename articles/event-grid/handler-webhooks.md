@@ -1,8 +1,9 @@
 ---
 title: Webhooks as event handlers for Azure Event Grid events
-description: Describes how you can use webhooks as event handlers for Azure Event Grid events. Azure Automation runbooks and logic apps are supported as event handlers via webhooks. 
-ms.topic: conceptual
-ms.date: 01/10/2024
+description: Learn how to use webhooks as event handlers for Azure Event Grid events. Azure Automation runbooks and logic apps are supported as event handlers via webhooks. 
+ms.topic: concept-article
+ms.date: 02/12/2025
+# Customer intent: As a developer or architect, I want to learn how to use Webhooks, Logic Apps, and Azure Automation runbooks as events handlers for Azure Event Grid events.
 ---
 
 # Webhooks, Automation runbooks, Logic Apps as event handlers for Azure Event Grid events
@@ -18,7 +19,7 @@ See the following articles for an overview and examples of using webhooks as eve
 |---------|---------|
 | Quickstart: create and route custom events with - [Azure CLI](custom-event-quickstart.md), [PowerShell](custom-event-quickstart-powershell.md), and [portal](custom-event-quickstart-portal.md). | Shows how to send custom events to a WebHook. |
 | Quickstart: route Blob storage events to a custom web endpoint with - [Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json), [PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json), and [portal](blob-event-quickstart-portal.md). | Shows how to send blob storage events to a WebHook. |
-| [Quickstart: send container registry events](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Shows how to use Azure CLI to send Container Registry events. |
+| [Quickstart: send container registry events](/azure/container-registry/container-registry-event-grid-quickstart?toc=%2fazure%2fevent-grid%2ftoc.json) | Shows how to use Azure CLI to send Container Registry events. |
 | [Overview: receive events to an HTTP endpoint](receive-events.md) | Describes how to validate an HTTP endpoint to receive events from an event subscription, and receive and deserialize events. |
 
 
@@ -60,5 +61,5 @@ Use **Logic Apps** to implement business processes to process Event Grid events.
 }
 ```
 
-## Next steps
+## Related content
 See the [Event handlers](event-handlers.md) article for a list of supported event handlers. 

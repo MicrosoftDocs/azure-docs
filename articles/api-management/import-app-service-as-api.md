@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: danlep
 
@@ -132,8 +132,3 @@ You can test the path `/api/TodoItems` as follows.
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Transform and protect a published API](transform-api.md)

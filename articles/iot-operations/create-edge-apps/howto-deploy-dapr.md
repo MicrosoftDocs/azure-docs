@@ -6,33 +6,32 @@ ms.author: patricka
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
-ms.date: 07/02/2024
+ms.date: 10/22/2024
+ms.service: azure-iot-operations
 ---
 
 # Deploy Dapr pluggable components
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
 The Distributed Application Runtime (Dapr) is a portable, serverless, event-driven runtime that simplifies the process of building distributed applications. Dapr lets you build stateful or stateless apps without worrying about how the building blocks function. Dapr provides several [building blocks](https://docs.dapr.io/developing-applications/building-blocks/): pub/sub, state management, service invocation, actors, and more.  
 
-Azure IoT Operations supports two of these building blocks, powered by [MQTT broker](../manage-mqtt-broker/overview-iot-mq.md):
+Azure IoT Operations supports two of these building blocks, powered by [MQTT broker](../manage-mqtt-broker/overview-broker.md):
 
 - Publish and subscribe
 - State management
 
-To use the Dapr pluggable components, define the component spec for each of the APIs and then [register this to the cluster](https://docs.dapr.io/operations/components/pluggable-components-registration/). The Dapr components listen to a Unix domain socket placed on the shared volume. The Dapr runtime connects with each socket and discovers all services from a given building block API that the component implements.
+To use the Dapr pluggable components, define the component spec for each of the APIs and then [register with the cluster](https://docs.dapr.io/operations/components/pluggable-components-registration/). The Dapr components listen to a Unix domain socket placed on the shared volume. The Dapr runtime connects with each socket and discovers all services from a given building block API that the component implements.
 
 ## Install Dapr runtime
 
 To install the Dapr runtime, use the following Helm command:
 
 > [!NOTE]
-> If you completed the provided Azure IoT Operations Preview [quickstart](../get-started-end-to-end-sample/quickstart-deploy.md), you already installed the Dapr runtime and the following steps are not required.
+> If you completed the provided Azure IoT Operations [quickstart](../get-started-end-to-end-sample/quickstart-deploy.md), you already installed the Dapr runtime and the following steps are not required.
 
 ```bash
 helm repo add dapr https://dapr.github.io/helm-charts/
 helm repo update
-helm upgrade --install dapr dapr/dapr --version=1.13 --namespace dapr-system --create-namespace --wait
+helm upgrade --install dapr dapr/dapr --version=1.14 --namespace dapr-system --create-namespace --wait
 ```
 
 ## Register MQTT broker pluggable components
@@ -44,15 +43,15 @@ To create the yaml file, use the following component definitions:
 > [!div class="mx-tdBreakAll"]
 > | Component | Description |
 > |-|-|
-> | `metadata.name` | The component name is important and is how a Dapr application references the component. |
-> | `metadata.annotations` | Component annotations used by Dapr sidecar injector, defining the image location and required volume mounts
-> | `spec.type` | [The type of the component](https://docs.dapr.io/operations/components/pluggable-components-registration/#define-the-component), which needs to be declared exactly as shown |
-> | `spec.metadata.keyPrefix` | Defines the key prefix used when communicating to the statestore backend. See the [Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-share-state) for more information |
-> | `spec.metadata.hostname` | The MQTT broker hostname. Defaults to `aio-mq-dmqtt-frontend` |
-> | `spec.metadata.tcpPort` | The MQTT broker port number. Default is `8883` |
-> | `spec.metadata.useTls` |  Define if TLS is used by the MQTT broker. Defaults to `true` |
-> | `spec.metadata.caFile` | The certificate chain path for validating the MQTT broker. Required if `useTls` is `true`. This file must be mounted in the pod with the specified volume name |
-> | `spec.metadata.satAuthFile ` | The Service Account Token (SAT) file is used to authenticate the Dapr components with the MQTT broker.  This file must be mounted in the pod with the specified volume name |
+> | `metadata:name` | The component name is important and is how a Dapr application references the component. |
+> | `metadata:annotations:dapr.io/component-container` | Component annotations used by Dapr sidecar injector, defining the image location, volume mounts and logging configuration |
+> | `spec:type` | [The type of the component](https://docs.dapr.io/operations/components/pluggable-components-registration/#define-the-component), which needs to be declared exactly as shown |
+> | `spec:metadata:keyPrefix` | Defines the key prefix used when communicating to the statestore backend. See more information, see [Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-share-state) for more information |
+> | `spec:metadata:hostname` | The MQTT broker hostname. Default is `aio-broker` |
+> | `spec:metadata:tcpPort` | The MQTT broker port number. Default is `18883` |
+> | `spec:metadata:useTls` |  Define if TLS is used by the MQTT broker. Default is `true` |
+> | `spec:metadata:caFile` | The certificate chain path for validating the MQTT broker. Required if `useTls` is `true`. This file must be mounted in the pod with the specified volume name |
+> | `spec:metadata:satAuthFile ` | The Service Account Token (SAT) file is used to authenticate the Dapr components with the MQTT broker.  This file must be mounted in the pod with the specified volume name |
 
 1. Save the following yaml, which contains the Azure IoT Operations component definitions, to a file named `components.yaml`:
 
@@ -69,7 +68,12 @@ To create the yaml file, use the following component definitions:
             "image": "ghcr.io/azure/iot-operations-dapr-components:latest",
             "volumeMounts": [
               { "name": "mqtt-client-token", "mountPath": "/var/run/secrets/tokens" },
-              { "name": "aio-ca-trust-bundle", "mountPath": "/var/run/certs/aio-mq-ca-cert" }
+              { "name": "aio-ca-trust-bundle", "mountPath": "/var/run/certs/aio-internal-ca-cert" }
+            ],
+            "env": [
+                { "name": "pubSubLogLevel", "value": "Information" },
+                { "name": "stateStoreLogLevel", "value": "Information" },
+                { "name": "defaultLogLevel", "value": "Warning" }
             ]
           }
     spec:
@@ -77,13 +81,13 @@ To create the yaml file, use the following component definitions:
       version: v1
       metadata:
       - name: hostname
-        value: aio-mq-dmqtt-frontend
+        value: aio-broker
       - name: tcpPort
-        value: 8883
+        value: 18883
       - name: useTls
         value: true
       - name: caFile
-        value: /var/run/certs/aio-mq-ca-cert/ca.crt
+        value: /var/run/certs/aio-internal-ca-cert/ca.crt
       - name: satAuthFile
         value: /var/run/secrets/tokens/mqtt-client-token
     ---
@@ -97,18 +101,18 @@ To create the yaml file, use the following component definitions:
       version: v1
       metadata:
       - name: hostname
-        value: aio-mq-dmqtt-frontend
+        value: aio-broker
       - name: tcpPort
-        value: 8883
+        value: 18883
       - name: useTls
         value: true
       - name: caFile
-        value: /var/run/certs/aio-mq-ca-cert/ca.crt
+        value: /var/run/certs/aio-internal-ca-cert/ca.crt
       - name: satAuthFile
         value: /var/run/secrets/tokens/mqtt-client-token    
     ```
 
-1. Apply the component yaml to your cluster by running the following command:
+1. Apply the Component to your cluster by running the following command:
 
     ```bash
     kubectl apply -f components.yaml
@@ -131,7 +135,7 @@ To configure authorization policies to MQTT broker, first you create a [BrokerAu
 1. Save the following yaml, which contains a BrokerAuthorization definition, to a file named `aio-dapr-authz.yaml`:
 
     ```yml
-    apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+    apiVersion: mqttbroker.iotoperations.azure.com/v1
     kind: BrokerAuthorization
     metadata:
       name: my-dapr-authz-policies
@@ -155,7 +159,7 @@ To configure authorization policies to MQTT broker, first you create a [BrokerAu
                   - "clients/{principal.clientId}/services/statestore/#"
     ```
 
-1. Apply the BrokerAuthorizaion definition to the cluster:
+1. Apply the BrokerAuthorization definition to the cluster:
 
     ```bash
     kubectl apply -f aio-dapr-authz.yaml
@@ -163,4 +167,4 @@ To configure authorization policies to MQTT broker, first you create a [BrokerAu
 
 ## Next steps
 
-Now that you have deployed the Dapr components, you can [Use Dapr to develop distributed applications](howto-develop-dapr-apps.md).
+Now that the Dapr components are deployed to the cluster, you can [Use Dapr to develop distributed applications](howto-develop-dapr-apps.md).

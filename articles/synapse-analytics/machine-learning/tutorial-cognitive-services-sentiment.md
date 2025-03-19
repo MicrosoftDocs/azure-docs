@@ -5,16 +5,16 @@ ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
 ms.reviewer: whhender, garye
-ms.date: 11/20/2020
+ms.date: 12/20/2024
 author: nelgson
 ms.author: negust
 ---
 
 # Tutorial: Sentiment analysis with Azure AI services
 
-In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics with [Azure AI services](../../ai-services/index.yml). You'll use the [Azure AI Language](../../ai-services/language-service/index.yml) text analytics capabilities to perform sentiment analysis. 
+In this tutorial, you learn how to enrich your data in Azure Synapse Analytics with [Azure AI services](/azure/ai-services/). You'll use the [Azure AI Language](/azure/ai-services/language-service/) text analytics capabilities to perform sentiment analysis. 
 
-A user in Azure Synapse can simply select a table that contains a text column to enrich with sentiments. These sentiments can be positive, negative, mixed, or neutral. A probability will also be returned.
+A user in Azure Synapse can select a table that contains a text column to enrich with sentiments. These sentiments can be positive, negative, mixed, or neutral. A probability will also be returned.
 
 This tutorial covers:
 
@@ -28,7 +28,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 - [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage. You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
 - Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](../quickstart-create-sql-pool-studio.md).
-- Pre-configuration steps described in the tutorial [Configure Azure AI services in Azure Synapse](tutorial-configure-cognitive-services-synapse.md).
+- Preconfiguration steps described in the tutorial: [Configure Azure AI services in Azure Synapse](tutorial-configure-cognitive-services-synapse.md).
 
 ## Sign in to the Azure portal
 
@@ -38,7 +38,9 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 You'll need a Spark table for this tutorial.
 
-1. Download the [FabrikamComments.csv](https://github.com/aghonaim/datasets/blob/master/FabrikamComments.csv) file, which contains a dataset for text analytics. 
+1. Download the [FabrikamComments.csv](https://github.com/aghonaim/datasets/blob/master/FabrikamComments.csv) file, which contains a dataset for text analytics.
+
+1. In Synapse analytics, open your storage account under **Data** and **Linked**.
 
 1. Upload the file to your Azure Synapse storage account in Data Lake Storage Gen2.
   
@@ -48,7 +50,7 @@ You'll need a Spark table for this tutorial.
 
    ![Screenshot that shows selections for creating a Spark table.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00b.png)
 
-1. Name the table in the code cell and run the notebook on a Spark pool. Remember to set `header=True`.
+1. Set `header=True` and name the table in the code cell. Then run the notebook on a Spark pool.
 
    ![Screenshot that shows running a notebook.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00c.png)
 
@@ -65,11 +67,12 @@ You'll need a Spark table for this tutorial.
 
 ## Open the Azure AI services wizard
 
-1. Right-click the Spark table created in the previous procedure. Select **Machine Learning** > **Predict with a model** to open the wizard.
+1. In the **Workspace** tab on the data page, under your default lake table, right-click the Spark table created in the previous procedure. 
+1. Select **Machine Learning** > **Predict with a model** to open the wizard.
 
    ![Screenshot that shows selections for opening the scoring wizard.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00d.png)
 
-2. A configuration panel appears, and you're asked to select a pre-trained model. Select **Sentiment Analysis**.
+1. A configuration panel appears, and you're asked to select a pretrained model. Select **Sentiment Analysis**.
 
    ![Screenshot that shows selection of a pre-trained sentiment analysis model.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-choose.png)
 
@@ -90,11 +93,12 @@ The notebook that you just opened uses the [SynapseML library](https://github.co
 
  You can now run all cells to enrich your data with sentiments. Select **Run all**. 
 
-The sentiments are returned as **positive**, **negative**, **neutral**, or **mixed**. You also get probabilities per sentiment. [Learn more about sentiment analysis in Azure AI services](../../ai-services/language-service/sentiment-opinion-mining/overview.md).
+The sentiments are returned as **positive**, **negative**, **neutral**, or **mixed**. You also get probabilities per sentiment. [Learn more about sentiment analysis in Azure AI services](/azure/ai-services/language-service/sentiment-opinion-mining/overview).
 
 ![Screenshot that shows sentiment analysis.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-notebook.png)
 
-## Next steps
+## Related content
+
 - [Tutorial: Anomaly detection with Azure AI services](tutorial-cognitive-services-anomaly.md)
 - [Tutorial: Machine learning model scoring in Azure Synapse dedicated SQL pools](tutorial-sql-pool-model-scoring-wizard.md)
 - [Machine Learning capabilities in Azure Synapse Analytics](what-is-machine-learning.md)

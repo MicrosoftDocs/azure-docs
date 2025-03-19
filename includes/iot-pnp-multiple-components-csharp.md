@@ -1,7 +1,7 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-develop
+ms.service: azure-iot
 ms.topic: include
 ms.date: 11/17/2022
 ---
@@ -25,7 +25,7 @@ In this tutorial, you:
 You can run this tutorial on Linux or Windows. The shell commands in this tutorial follow the Linux convention for path separators '`/`', if you're following along on Windows be sure to swap these separators for '`\`'.
 
 * The latest [.NET SDK](https://dotnet.microsoft.com/download) for your platform.
-* [Git](https://git-scm.com/download/).
+* [Git](https://git-scm.com/downloads).
 
 ### Clone the SDK repository with the sample code
 
@@ -116,7 +116,7 @@ await SendTemperatureAsync(Thermostat1, cancellationToken);
 await SendTemperatureAsync(Thermostat2, cancellationToken);
 ```
 
-The `SendTemperatureTelemetryAsync` method uses the `PnpHhelper` class to create messages for each component:
+The `SendTemperatureTelemetryAsync` method uses the `PnpHelper` class to create messages for each component:
 
 ```csharp
 using Message msg = PnpHelper.CreateIothubMessageUtf8(telemetryName, JsonConvert.SerializeObject(currentTemperature), componentName);

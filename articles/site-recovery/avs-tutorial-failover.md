@@ -49,7 +49,7 @@ Before you run a failover, check the VM properties to make sure that the VMs mee
    * Azure name
    * Resource group
    * Target size
-   * [Availability set](../virtual-machines/windows/tutorial-availability-sets.md)
+   * [Availability set](/azure/virtual-machines/windows/tutorial-availability-sets)
    * Managed disk settings
 
    You can also view and modify network settings, including:
@@ -85,7 +85,7 @@ In some scenarios, failover requires additional processing that takes around 8 t
 If you want to connect to an Azure VM after failover by using Remote Desktop Protocol (RDP) and Secure Shell (SSH):
 
 1. Verify that you meet [the requirements](failover-failback-overview.md#connect-to-azure-after-failover).
-2. After failover, go to the VM and validate by [connecting](../virtual-machines/windows/connect-logon.md) to it.
+2. After failover, go to the VM and validate by [connecting](/azure/virtual-machines/windows/connect-logon) to it.
 3. Use **Change recovery point** if you want to use a different recovery point after failover. After you commit the failover in the next step, this option will no longer be available.
 4. After validation, select **Commit** to finalize the recovery point of the VM after failover.
 

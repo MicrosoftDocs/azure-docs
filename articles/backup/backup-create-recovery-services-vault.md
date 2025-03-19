@@ -2,15 +2,16 @@
 title: Create and configure Recovery Services vaults
 description: Learn how to create and configure Recovery Services vaults, and how to restore in a secondary region by using Cross Region Restore.
 ms.topic: how-to
-ms.date: 08/14/2023
+ms.date: 01/17/2025
 ms.custom: references_regions, engagement-fy23
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Create and configure a Recovery Services vault
 
-This article describes how to create and configure an Azure Backup Recovery Services vault that stores backups and recovery points. You can also use Cross Region Restore to restore in a secondary region.
+This article describes how to create and configure an Azure Backup Recovery Services vault that stores backups and recovery points. You can use Cross Region Restore to restore in a secondary region. To create a Recovery Services vault using REST API, see [this article](backup-azure-arm-userestapi-createorupdatevault.md).
+
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -43,7 +44,7 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
 
 ## Set Cross Region Restore
 
-The Cross Region Restore option allows you to restore data in a secondary, [Azure paired region](../availability-zones/cross-region-replication-azure.md). You can use Cross Region Restore to conduct drills when there's an audit or compliance requirement. You can also use it to restore the data if there's a disaster in the primary region.
+The Cross Region Restore option allows you to restore data in a secondary, [Azure paired region](../reliability/cross-region-replication-azure.md). You can use Cross Region Restore to conduct drills when there's an audit or compliance requirement. You can also use it to restore the data if there's a disaster in the primary region.
 
 Before you begin, consider the following information:
 
@@ -60,7 +61,7 @@ Before you begin, consider the following information:
 A vault created with GRS redundancy includes the option to configure the Cross Region Restore feature. Every GRS vault has a banner that links to the documentation. 
 
 >[!Note]
->Cross-region restore is currently not supported for machines running on Ultra disks. [Learn more about Ultra disk backup supportability](backup-support-matrix-iaas.md#ultra-disk-backup).
+>Cross-region restore is also supported for machines running on Ultra disks. [Learn more about Ultra disk backup supportability](backup-support-matrix-iaas.md#ultra-disk-backup).
 
 ![Screenshot that shows the banner about backup configuration.](./media/backup-azure-arm-restore-vms/banner.png)
 

@@ -122,7 +122,7 @@ Configure an integration between your on-premises management console and Active 
 
 For example, use Active Directory when you have a large number of users that you want to assign Read Only access to, and you want to manage those permissions at the group level.
 
-For more information, see [Microsoft Entra ID support on sensors and on-premises management consoles](../manage-users-overview.md#microsoft-entra-id-support-on-sensors-and-on-premises-management-consoles).
+For more information, see [Microsoft Entra ID support on sensors and on-premises management consoles](../manage-users-overview.md#microsoft-entra-id-support-on-sensors).
 
 **Prerequisites**: This procedure is available for the *support* and *cyberx* users only, or any user with an **Admin** role.
 
@@ -249,8 +249,8 @@ For more information, see [Work with Defender for IoT CLI commands](../reference
     session_expiration_admin_seconds = 1800
     session_expiration_security_analyst_seconds = 1800
     session_expiration_read_only_users_seconds = 1800
-    certifcate_validation = true
-    CRL_timeout_secounds = 3
+    certificate_validation = true
+    CRL_timeout_seconds = 3
     CRL_retries = 1
 
     ```

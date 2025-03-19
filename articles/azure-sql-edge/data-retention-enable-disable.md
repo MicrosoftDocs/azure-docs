@@ -3,8 +3,8 @@ title: Enable and disable data retention policies - Azure SQL Edge
 description: Learn how to enable and disable data retention policies in Azure SQL Edge
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
-ms.service: sql-edge
+ms.date: 09/21/2024
+ms.service: azure-sql-edge
 ms.topic: conceptual
 keywords:
   - SQL Edge
@@ -12,7 +12,9 @@ keywords:
 ---
 # Enable and disable data retention policies
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 This article describes how to enable and disable data retention policies for a database and a table.
@@ -132,7 +134,7 @@ Data retention can be disabled on a table by using [ALTER DATABASE](/sql/t-sql/s
 ALTER DATABASE [<DatabaseName>] SET DATA_RETENTION OFF;
 ```
 
-## Next steps
+## Related content
 
 - [Data Retention and Automatic Data Purging](data-retention-overview.md)
 - [Manage historical data with retention policy](data-retention-cleanup.md)

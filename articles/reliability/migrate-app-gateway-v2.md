@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/28/2022
 ms.author: anaharris 
 ms.reviewer: anaharris
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 ---
 
 # Migrate Application Gateway and WAF deployments to availability zone support
  
-[Application Gateway Standard v2](../application-gateway/overview-v2.md) and Application Gateway with [WAF v2](../web-application-firewall/ag/ag-overview.md) supports zonal and zone redundant deployments. For more information about zone redundancy, see [Azure services and regions that support availability zones](availability-zones-service-support.md). 
+[Application Gateway Standard v2](../application-gateway/overview-v2.md) and Application Gateway with [WAF v2](../web-application-firewall/ag/ag-overview.md) supports zonal and zone redundant deployments. For more information about zone redundancy, see [What are availability zones?](availability-zones-overview.md). 
 
 If you previously deployed **Azure Application Gateway Standard v2** or **Azure Application Gateway Standard v2 + WAF v2** without zonal support, you must redeploy these services to enable zone redundancy. Two migration options to redeploy these services are described in this article.
 
@@ -67,4 +67,7 @@ Learn more about:
 > [Scaling and Zone-redundant Application Gateway v2](../application-gateway/application-gateway-autoscaling-zone-redundant.md)
 
 > [!div class="nextstepaction"]
-> [Azure services and regions that support availability zones](availability-zones-service-support.md)
+> [Azure services that support availability zones](availability-zones-service-support.md)
+
+> [!div class="nextstepaction"]
+> [Azure regions that support availability zones](availability-zones-region-support.md)

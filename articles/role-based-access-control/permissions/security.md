@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -23,10 +23,10 @@ Azure service: [App Compliance Automation Tool for Microsoft 365](/microsoft-365
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.AppComplianceAutomation/onboard/action | Onboard given subscriptions to Microsoft.AppComplianceAutomation provider. |
-> | Microsoft.AppComplianceAutomation/triggerEvaluation/action | Trigger evaluation for given resourceIds to get quick compliance result. |
+> | Microsoft.AppComplianceAutomation/triggerEvaluation/action | Trigger quick evaluation for the given subscriptions. |
 > | Microsoft.AppComplianceAutomation/listInUseStorageAccounts/action | List the storage accounts which are in use by related reports |
 > | Microsoft.AppComplianceAutomation/checkNameAvailability/action | action checkNameAvailability |
-> | Microsoft.AppComplianceAutomation/getCollectionCount/action | Get the resource count. |
+> | Microsoft.AppComplianceAutomation/getCollectionCount/action | Get the count of reports. |
 > | Microsoft.AppComplianceAutomation/getOverviewStatus/action | Get the resource overview status. |
 > | Microsoft.AppComplianceAutomation/register/action | Register the subscription for Microsoft.AppComplianceAutomation |
 > | Microsoft.AppComplianceAutomation/unregister/action | Unregister the subscription for Microsoft.AppComplianceAutomation |
@@ -38,9 +38,10 @@ Azure service: [App Compliance Automation Tool for Microsoft 365](/microsoft-365
 > | Microsoft.AppComplianceAutomation/reports/write | Create a new AppComplianceAutomation report or update an exiting AppComplianceAutomation report. |
 > | Microsoft.AppComplianceAutomation/reports/delete | Delete an AppComplianceAutomation report. |
 > | Microsoft.AppComplianceAutomation/reports/write | Update an exiting AppComplianceAutomation report. |
-> | Microsoft.AppComplianceAutomation/reports/syncCertRecord/action | Synchronize attestation record from app compliance. |
 > | Microsoft.AppComplianceAutomation/reports/checkNameAvailability/action | Checks the report's nested resource name availability, e.g: Webhooks, Evidences, Snapshots. |
 > | Microsoft.AppComplianceAutomation/reports/fix/action | Fix the AppComplianceAutomation report error. e.g: App Compliance Automation Tool service unregistered, automation removed. |
+> | Microsoft.AppComplianceAutomation/reports/getScopingQuestions/action | Fix the AppComplianceAutomation report error. e.g: App Compliance Automation Tool service unregistered, automation removed. |
+> | Microsoft.AppComplianceAutomation/reports/syncCertRecord/action | Synchronize attestation record from app compliance. |
 > | Microsoft.AppComplianceAutomation/reports/verify/action | Verify the AppComplianceAutomation report health status. |
 > | Microsoft.AppComplianceAutomation/reports/evidences/read | Returns a paginated list of evidences for a specified report. |
 > | Microsoft.AppComplianceAutomation/reports/evidences/read | Get the evidence metadata |
@@ -54,6 +55,8 @@ Azure service: [App Compliance Automation Tool for Microsoft 365](/microsoft-365
 > | Microsoft.AppComplianceAutomation/reports/snapshots/read | Get the AppComplianceAutomation snapshot list. |
 > | Microsoft.AppComplianceAutomation/reports/snapshots/read | Get the AppComplianceAutomation snapshot and its properties. |
 > | Microsoft.AppComplianceAutomation/reports/snapshots/download/action | Download compliance needs from snapshot, like: Compliance Report, Resource List. |
+> | Microsoft.AppComplianceAutomation/reports/snapshots/controls/read | Get the AppComplianceAutomation control list. |
+> | Microsoft.AppComplianceAutomation/reports/snapshots/controls/read | Get the AppComplianceAutomation control and its properties. |
 > | Microsoft.AppComplianceAutomation/reports/webhooks/read | Get the AppComplianceAutomation webhook list. |
 > | Microsoft.AppComplianceAutomation/reports/webhooks/read | Get the AppComplianceAutomation webhook and its properties. |
 > | Microsoft.AppComplianceAutomation/reports/webhooks/write | Create a new AppComplianceAutomation webhook or update an exiting AppComplianceAutomation webhook. |
@@ -126,7 +129,7 @@ Azure service: Data Protection
 > | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/read | The Get ResourceGuard operation gets an object representing the Azure resource of type 'ResourceGuard' |
 > | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/delete | The Delete ResourceGuard operation deletes the specified Azure resource of type 'ResourceGuard' |
 > | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/read | Gets list of ResourceGuards in a Resource Group |
-> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/write | Update ResouceGuard operation updates an Azure resource of type 'ResourceGuard' |
+> | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/write | Update ResourceGuard operation updates an Azure resource of type 'ResourceGuard' |
 > | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/{operationName}/read | Gets ResourceGuard operation request info |
 > | Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/{operationName}/read | Gets ResourceGuard default operation request info |
 
@@ -319,6 +322,7 @@ Azure service: [Security Center](/azure/security-center/)
 > | Microsoft.Security/deviceSecurityGroups/write | Creates or updates IoT device security groups |
 > | Microsoft.Security/deviceSecurityGroups/delete | Deletes IoT device security groups |
 > | Microsoft.Security/deviceSecurityGroups/read | Gets IoT device security groups |
+> | Microsoft.Security/externalSecuritySolutions/read | Gets the external security solutions |
 > | Microsoft.Security/governanceRules/read | Get governance rules for managing security posture |
 > | Microsoft.Security/governanceRules/write | Create or update governance rules for managing security posture |
 > | Microsoft.Security/informationProtectionPolicies/read | Gets the information protection policies for the resource |
@@ -352,16 +356,21 @@ Azure service: [Security Center](/azure/security-center/)
 > | Microsoft.Security/iotSite/read | Gets IoT site |
 > | Microsoft.Security/iotSite/write | Creates or updates IoT site |
 > | Microsoft.Security/iotSite/delete | Deletes IoT site |
+> | Microsoft.Security/jitNetworkAccessPolicies/read | Gets the just-in-time network access policies |
 > | Microsoft.Security/locations/read | Gets the security data location |
 > | Microsoft.Security/locations/alerts/read | Gets all available security alerts |
 > | Microsoft.Security/locations/alerts/dismiss/action | Dismiss a security alert |
 > | Microsoft.Security/locations/alerts/activate/action | Activate a security alert |
 > | Microsoft.Security/locations/alerts/resolve/action | Resolve a security alert |
 > | Microsoft.Security/locations/alerts/simulate/action | Simulate a security alert |
+> | Microsoft.Security/locations/externalSecuritySolutions/read | Gets the external security solutions |
 > | Microsoft.Security/locations/jitNetworkAccessPolicies/read | Gets the just-in-time network access policies |
 > | Microsoft.Security/locations/jitNetworkAccessPolicies/write | Creates a new just-in-time network access policy or updates an existing one |
 > | Microsoft.Security/locations/jitNetworkAccessPolicies/delete | Deletes the just-in-time network access policy |
 > | Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action | Initiates a just-in-time network access policy request |
+> | Microsoft.Security/locations/securitySolutions/read | Gets the security solutions |
+> | Microsoft.Security/locations/securitySolutions/write | Creates a new security solution or updates an existing one |
+> | Microsoft.Security/locations/securitySolutions/delete | Deletes a security solution |
 > | Microsoft.Security/locations/tasks/read | Gets all available security recommendations |
 > | Microsoft.Security/locations/tasks/start/action | Start a security recommendation |
 > | Microsoft.Security/locations/tasks/resolve/action | Resolve a security recommendation |
@@ -537,10 +546,14 @@ Azure service: [Microsoft Sentinel](/azure/sentinel/)
 > | Microsoft.SecurityInsights/ConfidentialWatchlists/read | Gets Confidential Watchlists |
 > | Microsoft.SecurityInsights/ConfidentialWatchlists/write | Creates Confidential Watchlists |
 > | Microsoft.SecurityInsights/ConfidentialWatchlists/delete | Deletes Confidential Watchlists |
-> | Microsoft.SecurityInsights/ContentPackages/read | Read available Content Packages. |
-> | Microsoft.SecurityInsights/ContentPackages/write | Install or uninstall Content Packages. |
+> | Microsoft.SecurityInsights/ContentPackages/read | Read Installed Content Packages. |
+> | Microsoft.SecurityInsights/ContentPackages/write | Install Content Packages. |
+> | Microsoft.SecurityInsights/ContentPackages/delete | Delete Installed Content Packages. |
+> | Microsoft.SecurityInsights/ContentProductPackages/read | Read Available Product Packages |
+> | Microsoft.SecurityInsights/ContentProductTemplates/read | Read Available Product Templates |
+> | Microsoft.SecurityInsights/ContentTemplates/write | Install Content Templates. |
 > | Microsoft.SecurityInsights/ContentTemplates/read | Read installed Content Templates. |
-> | Microsoft.SecurityInsights/ContentTemplates/delete | Delete installed Content Templates. |
+> | Microsoft.SecurityInsights/ContentTemplates/delete | Delete Installed Content Templates. |
 > | Microsoft.SecurityInsights/dataConnectors/read | Gets the data connectors |
 > | Microsoft.SecurityInsights/dataConnectors/write | Updates a data connector |
 > | Microsoft.SecurityInsights/dataConnectors/delete | Deletes a data connector |
@@ -589,7 +602,6 @@ Azure service: [Microsoft Sentinel](/azure/sentinel/)
 > | Microsoft.SecurityInsights/Metadata/read | Read Metadata for Sentinel content. |
 > | Microsoft.SecurityInsights/Metadata/write | Write Metadata for Sentinel content. |
 > | Microsoft.SecurityInsights/Metadata/delete | Delete Metadata for Sentinel content. |
-> | Microsoft.SecurityInsights/MitreCoverageRecords/read | Read Products Mitre Coverage |
 > | Microsoft.SecurityInsights/officeConsents/read | Gets consents from Microsoft Office |
 > | Microsoft.SecurityInsights/officeConsents/delete | Deletes consents from Microsoft Office |
 > | Microsoft.SecurityInsights/onboardingStates/read | Gets an onboarding state |

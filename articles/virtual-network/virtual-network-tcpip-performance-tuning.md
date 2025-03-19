@@ -21,7 +21,7 @@ This article discusses common TCP/IP performance tuning techniques and some thin
 
 #### MTU
 
-The maximum transmission unit (MTU) is the largest size frame (packet), specified in bytes, that can be sent over a network interface. The MTU is a configurable setting. The default MTU used on Azure VMs, and the default setting on most network devices globally, is 1,500 bytes.
+The maximum transmission unit (MTU) is the largest size frame (packet plus network access headers), specified in bytes, that can be sent over a network interface. The MTU is a configurable setting. The default MTU used on Azure VMs, and the default setting on most network devices globally, is 1,500 bytes.
 
 #### Fragmentation
 
@@ -43,11 +43,11 @@ The same thing happens when the packet is reassembled. The network device must s
 
 Fragmented packets in Azure are not processed by Accelerated Networking. When a VM receives a fragmented packet, it will be processed via the non-accelerated path. This means fragmented packets will not get the benefits of Accelerated Networking (lower latency, reduced jitter, and higher packets per second). For this reason, we recommend avoiding fragmentation if possible.
 
-By default, Azure will drop out of order fragments, that is, fragmented packets that don't arrive at the VM in the order that they were transmitted from the source endpoint. This may happen when packets are transmitted over the internet or other large WANs. Out of order fragment reordering can be enabled in some cases. If an application requires this, open a support case.
+By default, Azure will drop out of order fragments, that is, fragmented packets that don't arrive at the VM in the order that they were transmitted from the source endpoint. This may happen when packets are transmitted over the internet or other large WANs.
 
 #### Tune the MTU
 
-We don't recommend customers increase the MTU on VM NICs. If the VM needs to communicate with destinations that are not in the Virtual Network that have a similar MTU set, fragmentation will likely occur which will decrease performance.
+You may be able to increase intra Virtual Network throughput performance by increasing MTU for your VM's traffic. If the VM needs to communicate with destinations that are not in the Virtual Network that have a similar MTU set, fragmentation will likely occur which will decrease performance. See [Configure Maximum Transmission Unit (MTU) for virtual machines in Azure](./how-to-virtual-machine-mtu.md) for more information about MTU tuning in Azure. 
 
 #### Large send offload
 
@@ -79,7 +79,7 @@ The PMTUD process is inefficient and affects network performance. When packets a
 
 If you use VMs that perform encapsulation (like IPsec VPNs), there are some additional considerations regarding packet size and MTU. VPNs add more headers to packets, which increases the packet size and requires a smaller MSS.
 
-For Azure, we recommend that you set TCP MSS clamping to 1,350 bytes and tunnel interface MTU to 1,400. For more information, see the [VPN devices and IPSec/IKE parameters page](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
+For Azure, we recommend that you set TCP MSS clamping to 1,350 bytes and tunnel interface MTU to 1,400. For more information, see the [VPN devices and IPsec/IKE parameters page](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
 
 ### Latency, round-trip time, and TCP window scaling
 
@@ -240,7 +240,7 @@ Accelerated networking is designed to improve network performance, including lat
 
 Azure virtual machines have at least one network interface attached to them. They might have several. The bandwidth allocated to a virtual machine is the sum of all outbound traffic across all network interfaces attached to the machine. In other words, the bandwidth is allocated on a per-virtual machine basis, regardless of how many network interfaces are attached to the machine.
 
-Expected outbound throughput and the number of network interfaces supported by each VM size are detailed in [Sizes for Windows virtual machines in Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). To see maximum throughput, select a type, like **General purpose**, and then find the section about the size series on the resulting page (for example, "Dv2-series"). For each series, there's a table that provides networking specifications in the last column, which is titled "Max NICs / Expected network bandwidth (Mbps)."
+Expected outbound throughput and the number of network interfaces supported by each VM size are detailed in [Sizes for Windows virtual machines in Azure](/azure/virtual-machines/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). To see maximum throughput, select a type, like **General purpose**, and then find the section about the size series on the resulting page (for example, "Dv2-series"). For each series, there's a table that provides networking specifications in the last column, which is titled "Max NICs / Expected network bandwidth (Mbps)."
 
 The throughput limit applies to the virtual machine. Throughput is not affected by these factors:
 
@@ -258,7 +258,7 @@ For more information, see [Virtual machine network bandwidth](./virtual-machine-
 
 As discussed throughout this article, factors on the internet and outside the control of Azure can affect network performance. Here are some of those factors:
 
-- **Latency**: The round-trip time between two destinations can be affected by issues on intermediate networks, by traffic that doesn't take the "shortest" distance path, and by suboptimal peering paths.
+- **Latency**: The round-trip time between two endpoints can be affected by issues on intermediate networks, by traffic that doesn't take the "shortest" distance path, and by suboptimal peering paths.
 
 - **Packet loss**: Packet loss can be caused by network congestion, physical path issues, and underperforming network devices.
 
@@ -270,7 +270,7 @@ Traceroute is a good tool for measuring network performance characteristics (lik
 
 Along with the considerations discussed earlier in this article, the topology of a virtual network can affect the network's performance. For example, a hub-and-spoke design that backhauls traffic globally to a single-hub virtual network will introduce network latency, which will affect overall network performance.
 
-The number of network devices that network traffic passes through can also affect overall latency. For example, in a hub-and-spoke design, if traffic passes through a spoke network virtual appliance and a hub virtual appliance before transiting to the internet, the network virtual appliances can introduce latency.
+The number of network devices that network traffic passes through can also affect overall latency. For example, in a hub-and-spoke design, if traffic passes through a spoke network virtual appliance and a hub virtual appliance before transiting to the internet, the network virtual appliances will introduce some latency.
 
 ### Azure regions, virtual networks, and latency
 
@@ -278,7 +278,7 @@ Azure regions are made up of multiple datacenters that exist within a general ge
 
 For example, two VMs that are in the same virtual network and subnet might be in different racks, rows, or even datacenters. They could be separated by feet of fiber optic cable or by kilometers of fiber optic cable. This variation could introduce variable latency (a few milliseconds difference) between different VMs.
 
-The geographic placement of VMs, and the potential resulting latency between two VMs, can be influenced by the configuration of availability sets and Availability Zones. But the distance between datacenters in a region is region-specific and primarily influenced by datacenter topology in the region.
+The geographic placement of VMs, and the potential resulting latency between two VMs, can be influenced by the configuration of availability sets, proximity placement groups, and availability zones. But the distance between datacenters in a region is region-specific and primarily influenced by datacenter topology in the region.
 
 ### Source NAT port exhaustion
 
@@ -296,6 +296,8 @@ A number of the performance maximums in this article are related to the network 
 
 TCP performance relies heavily on RTT and packet Loss. The PING utility available in Windows and Linux provides the easiest way to measure RTT and packet loss. The output of PING will show the minimum/maximum/average latency between a source and destination. It will also show packet loss. PING uses the ICMP protocol by default. You can use PsPing to test TCP RTT. For more information, see [PsPing](/sysinternals/downloads/psping).
 
+Neither ICMP nor TCP pings measure the accelerated networking datapath. To measure this, please read about Latte and SockPerf in [this article](./virtual-network-test-latency.md).
+
 ### Measure actual bandwidth of a virtual machine
 
 To accurately measure the bandwidth of Azure VMs, follow [this guidance](./virtual-network-bandwidth-testing.md).
@@ -308,7 +310,7 @@ For more details on testing other scenarios, see these articles:
 
 ### Detect inefficient TCP behaviors
 
-In packet captures, Azure customers might see TCP packets with TCP flags (SACK, DUP ACK, RETRANSMIT, and FAST RETRANSMIT) that could indicate network performance problems. These packets specifically indicate network inefficiencies that result from packet loss. But packet loss isn't necessarily caused by Azure performance problems. Performance problems could be the result of application problems, operating system problems, or other problems that might not be directly related to the Azure platform.
+In packet captures, Azure customers might see TCP packets with TCP flags (SACK, DUP ACK, RETRANSMIT, and FAST RETRANSMIT) that could indicate network performance problems. These packets specifically indicate network inefficiencies that result from packet loss. But packet loss isn't necessarily caused by Azure performance problems. Performance issues could be the result of application, operating system, or other problems that might not be directly related to the Azure platform.
 
 Also, keep in mind that some retransmission and duplicate ACKs are normal on a network. TCP protocols were built to be reliable. Evidence of these TCP packets in a packet capture doesn't necessarily indicate a systemic network problem, unless they're excessive.
 

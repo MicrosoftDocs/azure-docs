@@ -1,42 +1,28 @@
 ---
-title: "Tutorial: Deploy a Dapr application to Azure Container Apps with an Azure Resource Manager or Bicep template"
+title: "Quickstart: Deploy a Dapr application to Azure Container Apps with an Azure Resource Manager or Bicep template"
 description: Deploy a Dapr application to Azure Container Apps with an Azure Resource Manager or Bicep template.
 services: container-apps
-author: asw101
+author: hhunter-ms
 ms.service: azure-container-apps
-ms.topic: conceptual
-ms.date: 06/29/2022
+ms.topic: quickstart
+ms.date: 02/03/2025
 ms.author: cshoe
 ms.custom: devx-track-bicep, devx-track-arm-template, devx-track-azurepowershell
 zone_pivot_groups: container-apps
 ---
 
-# Tutorial: Deploy a Dapr application to Azure Container Apps with an Azure Resource Manager or Bicep template
+# Quickstart: Deploy a Dapr application to Azure Container Apps with an Azure Resource Manager or Bicep template
 
-[Dapr](https://dapr.io/) (Distributed Application Runtime) is a runtime that helps you build resilient stateless and stateful microservices. In this tutorial, a sample Dapr solution is deployed to Azure Container Apps via an Azure Resource Manager (ARM) or Bicep template.
-
-You learn how to:
+[Dapr](./dapr-overview.md) (Distributed Application Runtime) helps developers build resilient, reliable microservices. In this quickstart, you enable Dapr sidecars to run alongside two container apps that produce and consume messages, stored in an Azure Blob Storage state store. Using either Azure Resource Manager or Bicep templates,  you'll:
 
 > [!div class="checklist"]
 >
-> - Create an Azure Blob Storage for use as a Dapr state store
-> - Deploy a Container Apps environment to host container apps
-> - Deploy two dapr-enabled container apps: one that produces orders and one that consumes orders and stores them
-> - Assign a user-assigned identity to a container app and supply it with the appropiate role assignment to authenticate to the Dapr state store
-> - Verify the interaction between the two microservices.
-
-With Azure Container Apps, you get a [fully managed version of the Dapr APIs](./dapr-overview.md) when building microservices. When you use Dapr in Azure Container Apps, you can enable sidecars to run next to your microservices that provide a rich set of capabilities.
-
-In this tutorial, you deploy the solution from the Dapr [Hello World](https://github.com/dapr/quickstarts/tree/master/tutorials/hello-world) quickstart.
-
-The application consists of:
-
-- A client (Python) container app to generate messages.
-- A service (Node) container app to consume and persist those messages in a state store
-
-The following architecture diagram illustrates the components that make up this tutorial:
+> - Pass Azure CLI commands to [deploy a template](https://github.com/Azure-Samples/Tutorial-Deploy-Dapr-Microservices-ACA) that launches everything you need to run microservices.  
+> - Verify the interaction between the two microservices in the Azure portal.
 
 :::image type="content" source="media/microservices-dapr/azure-container-apps-microservices-dapr.png" alt-text="Architecture diagram for Dapr Hello World microservices on Azure Container Apps":::
+
+This quickstart mirrors the applications you deploy in the open-source Dapr [Hello World](https://github.com/dapr/quickstarts/tree/master/tutorials/hello-world) quickstart.
 
 ## Prerequisites
 
@@ -74,17 +60,6 @@ git clone https://github.com/$GITHUB_USERNAME/Tutorial-Deploy-Dapr-Microservices
 
 ## Deploy
 
-The template deploys:
-
-- a Container Apps environment
-- a Log Analytics workspace associated with the Container Apps environment
-- an Application Insights resource for distributed tracing
-- a blob storage account and a default storage container
-- a Dapr component for the blob storage account
-- the node, Dapr-enabled container app with a user-assigned managed identity: [hello-k8s-node](https://hub.docker.com/r/dapriosamples/hello-k8s-node)
-- the python, Dapr-enabled container app: [hello-k8s-python](https://hub.docker.com/r/dapriosamples/hello-k8s-python)
-- a Microsoft Entra ID role assignment for the node app used by the Dapr component to establish a connection to blob storage
-
 Navigate to the _acadapr-templates_ directory and run the following command:
 
 ::: zone pivot="container-apps-arm"
@@ -98,12 +73,11 @@ az deployment group create \
   --parameters environment_name="$CONTAINERAPPS_ENVIRONMENT"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 $params = @{
   environment_name = $ContainerAppsEnvironment
-
 }
 
 New-AzResourceGroupDeployment `
@@ -128,7 +102,7 @@ az deployment group create \
   --parameters environment_name="$CONTAINERAPPS_ENVIRONMENT"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 $params = @{
@@ -149,11 +123,15 @@ New-AzResourceGroupDeployment `
 
 This command deploys:
 
-- the Container Apps environment and associated Log Analytics workspace for hosting the hello world Dapr solution
-- an Application Insights instance for Dapr distributed tracing
-- the `nodeapp` app server running on `targetPort: 3000` with Dapr enabled and configured using: `"appId": "nodeapp"` and `"appPort": 3000`, and a user-assigned identity with access to the Azure Blob storage via a Storage Data Contributor role assignment
-- A Dapr component of `"type": "state.azure.blobstorage"` scoped for use by the `nodeapp` for storing state
-- the Dapr-enabled, headless `pythonapp` that invokes the `nodeapp` service using Dapr service invocation
+- The Container Apps environment and associated Log Analytics workspace for hosting the hello world Dapr solution.
+- An Application Insights instance for Dapr distributed tracing.
+- The `nodeapp` app server running on `targetPort: 3000` with Dapr enabled and configured using: 
+   - `"appId": "nodeapp"`
+   - `"appPort": 3000`
+   - A user-assigned identity with access to the Azure Blob storage via a Storage Data Contributor role assignment
+- A Dapr component of `"type": "state.azure.blobstorage"` scoped for use by the `nodeapp` for storing state.
+- The Dapr-enabled, headless `pythonapp` that invokes the `nodeapp` service using Dapr service invocation.
+- A Microsoft Entra ID role assignment for the Node.js app used by the Dapr component to establish a connection to Blob storage.
 
 ## Verify the result
 
@@ -165,7 +143,7 @@ You can confirm that the services are working correctly by viewing data in your 
 
 1. Go to the newly created storage account in your resource group.
 
-1. Select **Containers** from the menu on the left side.
+1. Select **Data Storage** > **Containers** from the menu on the left side.
 
 1. Select the created container.
 
@@ -179,7 +157,7 @@ You can confirm that the services are working correctly by viewing data in your 
 
 ### View Logs
 
-Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or from the command line. Wait a few minutes for the analytics to arrive for the first time before you query the logged data.
+Logs from container apps are stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or via the CLI. There may be a small delay initially for the table to appear in the workspace.
 
 Use the following command to view logs in bash or PowerShell.
 
@@ -196,7 +174,7 @@ az monitor log-analytics query \
   --out table
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 $WorkspaceId = (Get-AzContainerAppManagedEnv -ResourceGroupName $ResourceGroupName -EnvName $ContainerAppsEnvironment).LogAnalyticConfigurationCustomerId
@@ -223,7 +201,9 @@ nodeapp               Got a new order! Order ID: 63    PrimaryResult  2021-10-22
 
 ## Clean up resources
 
-Once you're done, run the following command to delete your resource group along with all the resources you created in this tutorial.
+Since `pythonapp` continuously makes calls to `nodeapp` with messages that get persisted into your configured state store, it's important to complete these cleanup steps to avoid ongoing billable operations.
+
+If you'd like to delete the resources created as a part of this walkthrough, run the following command.
 
 # [Bash](#tab/bash)
 
@@ -232,16 +212,11 @@ az group delete \
   --resource-group $RESOURCE_GROUP
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
 ```
-
----
-
-> [!NOTE]
-> Since `pythonapp` continuously makes calls to `nodeapp` with messages that get persisted into your configured state store, it is important to complete these cleanup steps to avoid ongoing billable operations.
 
 ---
 
@@ -251,4 +226,4 @@ Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Application lifecycle management](application-lifecycle-management.md)
+> [Learn more about Dapr components in Azure Container Apps](dapr-components.md)

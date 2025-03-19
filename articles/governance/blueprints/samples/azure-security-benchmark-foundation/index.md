@@ -36,7 +36,7 @@ management jump boxes.
 This blueprint deploys several Azure services to provide a secure, monitored, enterprise-ready
 foundation. This environment is composed of:
 
-- [Azure Monitor Logs](../../../../azure-monitor/logs/data-platform-logs.md)
+- [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs)
   and an Azure storage account to ensure resource logs, activity logs, metrics, and networks traffic
   flows are stored in a central location for easy querying, analytics, archival, and alerting.
 - [Azure Security Center](../../../../security-center/security-center-introduction.md)

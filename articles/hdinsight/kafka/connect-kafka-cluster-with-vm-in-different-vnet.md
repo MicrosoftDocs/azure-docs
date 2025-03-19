@@ -4,6 +4,9 @@ description: Learn how to connect Apache Kafka cluster with VM in different VNet
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 04/11/2024
 ---
 
@@ -22,16 +25,13 @@ This Document lists steps that must be followed to set up connectivity between V
    
 1. After the above steps are completed, we can create HDInsight Kafka cluster in one VNet. For more information, see [Create an Apache Kafka cluster](./apache-kafka-get-started.md#create-an-apache-kafka-cluster)
 
-1. Create a Virtual Machine in the second VNet. While creating the VM, specify the second VNet name where this virtual machine must be deployed. For more information, see [Create a Linux virtual machine in the Azure portal](../../virtual-machines/linux/quick-create-portal.md)
+1. Create a Virtual Machine in the second VNet. While creating the VM, specify the second VNet name where this virtual machine must be deployed. For more information, see [Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal)
 
 1. After this step, we can copy the entries of the file /etc/host from Kafka headnode to VM.
    
    :::image type="content" source="./media/connect-kafka-cluster-with-different-vnet/etc-host-output.png" alt-text="Screenshot showing host file output." border="true":::
    
-1. Remove the `headnodehost` string entries from the file. For example, the above image has `headnodehost` entry for the ip 10.0.0.16. After removal, it will be as
-
-   :::image type="content" source="./media/connect-kafka-cluster-with-different-vnet/modified-etc-hosts-output.png" alt-text="Screenshot showing modified host file output." border="true":::
-
+1. Remove the `headnodehost` string entries from the file. For example, the above image has `headnodehost` entry for the ip 10.0.0.16. 
 1. After these entries are made, try to reach the Kafka Ambari dashboard using the curl command using the hn0 or hn1 FQDN as
    
    From Linux VM

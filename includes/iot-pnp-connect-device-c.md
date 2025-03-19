@@ -1,20 +1,22 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-develop
+ms.service: azure-iot
 ms.topic: include
-ms.date: 11/17/2022
+ms.date: 02/14/2025
 ---
 
 This tutorial shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the telemetry it sends. The sample application is written in C and is included in the Azure IoT device SDK for C. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 [![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/pnp)
 
+[!INCLUDE [iot-authentication-device-connection-string](iot-authentication-device-connection-string.md)]
+
 ## Prerequisites
 
 [!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]
 
-You can run this tutorial on Linux or Windows. The shell commands in this tutorial follow the Linux convention for path separators '`/`', if you're following along on Windows be sure to swap these separators for '`\`'.
+You can run this tutorial on Linux or Windows. The shell commands in this tutorial follow the Linux convention for path separators `/`, if you're following along on Windows be sure to swap these separators for `\`.
 
 The prerequisites differ by operating system:
 
@@ -31,7 +33,7 @@ sudo apt-get update
 sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
 ```
 
-Verify the version of `cmake` is above **2.8.12** and the version of **GCC** is above **4.4.7**.
+Verify the version of `cmake` is **2.8.12** or greater and the version of **GCC** is **4.4.7** or greater.
 
 ```sh
 cmake --version
@@ -43,7 +45,7 @@ gcc --version
 To complete this tutorial on Windows, install the following software in your local Windows environment:
 
 * [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure you include the **Desktop Development with C++** workload when you [install](/cpp/build/vscpp-step-0-installation?preserve-view=true&view=vs-2019) Visual Studio.
-* [Git](https://git-scm.com/download/).
+* [Git](https://git-scm.com/downloads).
 * [CMake](https://cmake.org/download/).
 
 ## Download the code
@@ -96,7 +98,7 @@ You can build and run the code using Visual Studio or `cmake` at the command lin
 1. To trace the code execution in Visual Studio, add a breakpoint to the `main` function in the *pnp_simple_thermostat.c* file.
 1. You can now run and debug the sample from the **Debug** menu.
 
-The device is now ready to receive commands and property updates, and has started sending telemetry data to the hub. Keep the sample running as you complete the next steps.
+The device is now ready to receive commands and property updates, and is sending telemetry data to the hub. Keep the sample running as you complete the next steps.
 
 ### Use cmake to build the code
 
@@ -142,7 +144,7 @@ cd iothub_client\samples\pnp\pnp_simple_thermostat\Debug
 > [!TIP]
 > To trace the code execution in Visual Studio on Windows, add a break point to the `main` function in the _pnp_simple_thermostat.c_ file.
 
-The device is now ready to receive commands and property updates, and has started sending telemetry data to the hub. Keep the sample running as you complete the next steps.
+The device is now ready to receive commands and property updates, and is sending telemetry data to the hub. Keep the sample running as you complete the next steps.
 
 ## Use Azure IoT explorer to validate the code
 

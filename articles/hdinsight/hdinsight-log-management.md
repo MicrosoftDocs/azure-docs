@@ -4,12 +4,12 @@ description: Determine the types, sizes, and retention policies for HDInsight ac
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 01/04/2024
+ms.date: 01/02/2025
 ---
 
 # Manage logs for an HDInsight cluster
 
-An HDInsight cluster produces various log files. For example, Apache Hadoop and related services, such as Apache Spark, produce detailed job execution logs. Log file management is part of maintaining a healthy HDInsight cluster. There can also be regulatory requirements for log archiving.  Due to the number and size of log files, optimizing log storage and archiving helps with service cost management.
+ HDInsight cluster produces various log files. For example, Apache Hadoop and related services, such as Apache Spark, produce detailed job execution logs. Log file management is part of maintaining a healthy HDInsight cluster. There can also be regulatory requirements for log archiving.  Due to the number and size of log files, optimizing log storage and archiving helps with service cost management.
 
 Managing HDInsight cluster logs includes retaining information about all aspects of the cluster environment. This information includes all associated Azure Service logs, cluster configuration, job execution information, any error states, and other data as needed.
 
@@ -96,8 +96,6 @@ log4j.logger.alerts=DEBUG,alerts
 ## Step 3: Manage the cluster job execution log files
 
 The next step is reviewing the job execution log files for the various services.  Services could include Apache HBase, Apache Spark, and many others. A Hadoop cluster produces a large number of verbose logs, so determining which logs are useful (and which aren't) can be time-consuming.  Understanding the logging system is important for targeted management of log files.  The following image is an example log file.
-
-:::image type="content" source="./media/hdinsight-log-management/hdi-log-file-example.png" alt-text="HDInsight example log file sample output.":::
 
 ### Access the Hadoop log files
 

@@ -5,11 +5,15 @@ author: oshezaf
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: ofshezaf
+
+
+#Customer intent: As a security analyst, I want to use ASIM parsers to normalize and query security data so that I can efficiently analyze and correlate information from various sources.
+
 --- 
 
 # The Advanced Security Information Model (ASIM) parsers (Public preview)
 
-In Microsoft Sentinel, parsing and [normalizing](normalization.md) happen at query time. Parsers are built as [KQL user-defined functions](/azure/data-explorer/kusto/query/functions/user-defined-functions) that transform data in existing tables, such as **CommonSecurityLog**, custom logs tables, or Syslog, into the normalized schema.
+In Microsoft Sentinel, parsing and [normalizing](normalization.md) happen at query time. Parsers are built as [KQL user-defined functions](/kusto/query/functions/user-defined-functions?view=microsoft-sentinel&preserve-view=true) that transform data in existing tables, such as **CommonSecurityLog**, custom logs tables, or Syslog, into the normalized schema.
 
 Users [use Advanced Security Information Model (ASIM) parsers](normalization-about-parsers.md) instead of table names in their queries to view data in a normalized format, and to include all data relevant to the schema in your query. 
 

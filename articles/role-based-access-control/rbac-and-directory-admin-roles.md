@@ -6,7 +6,7 @@ manager: amycolannino
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
 ms.service: role-based-access-control
 ms.topic: overview
-ms.date: 03/15/2024
+ms.date: 03/12/2025
 ms.author: rolyon
 ms.custom: it-pro;
 ---
@@ -94,7 +94,9 @@ Several Microsoft Entra roles span Microsoft Entra ID and Microsoft 365, such as
 ## Classic subscription administrator roles
 
 > [!IMPORTANT]
-> Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Starting April 3, 2024, you won't be able to add new Co-Administrators. This date was recently extended. Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
+> As of **August 31, 2024**, Azure classic administrator roles (along with Azure classic resources and Azure Service Manager) are retired and no longer supported. Starting on **April 30, 2025**, any Co-Administrator or Service Administrator role assignments will lose access. If you still have active Co-Administrator or Service Administrator role assignments, convert these role assignments to Azure RBAC immediately.
+>
+> For more information, see [Azure classic subscription administrators](classic-administrators.md).
 
 Account Administrator, Service Administrator, and Co-Administrator are the three classic subscription administrator roles in Azure. Classic subscription administrators have full access to the Azure subscription. They can manage resources using the Azure portal, Azure Resource Manager APIs, and the classic deployment model APIs. The account that is used to sign up for Azure is automatically set as both the Account Administrator and Service Administrator. Then, additional Co-Administrators can be added. The Service Administrator and the Co-Administrators have the equivalent access of users who have been assigned the Owner role (an Azure role) at the subscription scope. The following table describes the differences between these three classic subscription administrative roles.
 

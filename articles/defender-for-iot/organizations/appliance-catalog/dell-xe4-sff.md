@@ -12,8 +12,8 @@ This article describes the **DELL XE4 SFF** appliance deployment and installatio
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | L500 |
-|**Performance** | Max bandwidth: 25 Mbps <br> 1x RJ45 monitoring port |
-|**Physical specifications** | Mounting: Small Form Factor <br> Ports: 1x1Gbps (builtin) and optional expansion PCIe cards for copper and SFP connectors|
+|**Performance** | Max bandwidth: 25 Mbps <br> Max devices: 1,000 |
+|**Physical specifications** | Mounting: Small Form Factor <br> Ports: 1x1Gbps (builtin) and optional expansion PCIe cards for copper and SFP connectors <br> 1x RJ45 monitoring port|
 |**Status** | Supported, available preconfigured |
 
 The following image shows a sample of the DELL XE4 SFF front panel:
@@ -161,4 +161,3 @@ Continue understanding system requirements for physical or virtual appliances. F
 Then, use any of the following procedures to continue:
 
 - [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
-- [Download software files for an on-premises management console](../legacy-central-management/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

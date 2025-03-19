@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -202,53 +202,6 @@ Create and manage data factories, as well as child resources within them.
 }
 ```
 
-## Data Purger
-
-Delete private data from a Log Analytics workspace.
-
-[Learn more](/azure/azure-monitor/logs/personal-data-mgmt)
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/components/*/read |  |
-> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/components/purge/action | Purging data from Application Insights |
-> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/*/read | View log analytics data |
-> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/purge/action | Delete specified data by query from workspace. |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | *none* |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Can purge analytics data",
-  "id": "/providers/Microsoft.Authorization/roleDefinitions/150f5e0c-0603-4f03-8c7f-cf70034c4e90",
-  "name": "150f5e0c-0603-4f03-8c7f-cf70034c4e90",
-  "permissions": [
-    {
-      "actions": [
-        "Microsoft.Insights/components/*/read",
-        "Microsoft.Insights/components/purge/action",
-        "Microsoft.OperationalInsights/workspaces/*/read",
-        "Microsoft.OperationalInsights/workspaces/purge/action"
-      ],
-      "notActions": [],
-      "dataActions": [],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Data Purger",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
 ## HDInsight Cluster Operator
 
 Lets you read and modify HDInsight cluster configurations.
@@ -351,28 +304,50 @@ Can Read, Create, Modify and Delete Domain Services related operations needed fo
 }
 ```
 
-## Log Analytics Contributor
+## HDInsight on AKS Cluster Admin
 
-Log Analytics Contributor can read all monitoring data and edit monitoring settings. Editing monitoring settings includes adding the VM extension to VMs; reading storage account keys to be able to configure collection of logs from Azure Storage; adding solutions; and configuring Azure diagnostics on all Azure resources.
+Grants a user/group the ability to create, delete and manage clusters within a given cluster pool. Cluster Admin can also run workloads, monitor, and manage all user activity on these clusters.
 
-[Learn more](/azure/azure-monitor/logs/manage-access)
+[Learn more](/azure/hdinsight-aks/hdinsight-on-aks-manage-authorization-profile)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | */read | Read resources of all types, except secrets. |
-> | [Microsoft.ClassicCompute](../permissions/compute.md#microsoftclassiccompute)/virtualMachines/extensions/* |  |
-> | [Microsoft.ClassicStorage](../permissions/storage.md#microsoftclassicstorage)/storageAccounts/listKeys/action | Lists the access keys for the storage accounts. |
-> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/extensions/* |  |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/write | Installs or Updates an Azure Arc extensions |
-> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
-> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/diagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
-> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/* |  |
-> | [Microsoft.OperationsManagement](../permissions/monitor.md#microsoftoperationsmanagement)/* |  |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/* |  |
-> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/listKeys/action | Returns the access keys for the specified storage account. |
-> | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/read | Get details about HDInsight on AKS Cluster |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/write | Create or Update HDInsight on AKS Cluster |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/delete | Delete a HDInsight on AKS cluster |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/resize/action | Resize a HDInsight on AKS Cluster |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterpools/clusters/instanceviews/read | Get details about HDInsight on AKS Cluster Instance View |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/jobs/read | List HDInsight on AKS Cluster Jobs |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/runjob/action | Run HDInsight on AKS Cluster Job |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterpools/clusters/serviceconfigs/read | Get details about HDInsight on AKS Cluster Service Configurations |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/availableupgrades/read | Get Available Upgrades for HDInsight on AKS Cluster |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/upgrade/action | Upgrade HDInsight on AKS Cluster |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/rollback/action | Rollback HDInsight on AKS Cluster Upgrade |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/upgradehistories/read | Read HDInsight on AKS Cluster Upgrade Histories |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/libraries/read | Read HDInsight on AKS Cluster Libraries |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/managelibraries/action | Manage HDInsight on AKS Cluster Libraries |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/*/read |  |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Gets or lists deployments. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/write | Creates or updates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/exportTemplate/action | Export template for a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/operations/read | Gets or lists deployment operations. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/read | Gets or lists deployments. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Write | Create or update a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Delete | Delete a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Read | Read a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Activated/Action | Classic metric alert activated |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Resolved/Action | Classic metric alert resolved |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Throttled/Action | Classic metric alert rule throttled |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Incidents/Read | Read a classic metric alert incident |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metrics/read | Read metrics |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/logs/read | Reading data from all your logs |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -385,52 +360,100 @@ Log Analytics Contributor can read all monitoring data and edit monitoring setti
   "assignableScopes": [
     "/"
   ],
-  "description": "Log Analytics Contributor can read all monitoring data and edit monitoring settings. Editing monitoring settings includes adding the VM extension to VMs; reading storage account keys to be able to configure collection of logs from Azure Storage; adding solutions; and configuring Azure diagnostics on all Azure resources.",
-  "id": "/providers/Microsoft.Authorization/roleDefinitions/92aaf0da-9dab-42b6-94a3-d43ce8d16293",
-  "name": "92aaf0da-9dab-42b6-94a3-d43ce8d16293",
+  "description": "Grants a user/group the ability to create, delete and manage clusters within a given cluster pool. Cluster Admin can also run workloads, monitor, and manage all user activity on these clusters.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/fd036e6b-1266-47a0-b0bb-a05d04831731",
+  "name": "fd036e6b-1266-47a0-b0bb-a05d04831731",
   "permissions": [
     {
       "actions": [
-        "*/read",
-        "Microsoft.ClassicCompute/virtualMachines/extensions/*",
-        "Microsoft.ClassicStorage/storageAccounts/listKeys/action",
-        "Microsoft.Compute/virtualMachines/extensions/*",
-        "Microsoft.HybridCompute/machines/extensions/write",
-        "Microsoft.Insights/alertRules/*",
-        "Microsoft.Insights/diagnosticSettings/*",
-        "Microsoft.OperationalInsights/*",
-        "Microsoft.OperationsManagement/*",
-        "Microsoft.Resources/deployments/*",
-        "Microsoft.Resources/subscriptions/resourcegroups/deployments/*",
-        "Microsoft.Storage/storageAccounts/listKeys/action",
-        "Microsoft.Support/*"
+        "Microsoft.Authorization/*/read",
+        "Microsoft.HDInsight/clusterPools/clusters/read",
+        "Microsoft.HDInsight/clusterPools/clusters/write",
+        "Microsoft.HDInsight/clusterPools/clusters/delete",
+        "Microsoft.HDInsight/clusterPools/clusters/resize/action",
+        "Microsoft.HDInsight/clusterpools/clusters/instanceviews/read",
+        "Microsoft.HDInsight/clusterPools/clusters/jobs/read",
+        "Microsoft.HDInsight/clusterPools/clusters/runjob/action",
+        "Microsoft.HDInsight/clusterpools/clusters/serviceconfigs/read",
+        "Microsoft.HDInsight/clusterPools/clusters/availableupgrades/read",
+        "Microsoft.HDInsight/clusterPools/clusters/upgrade/action",
+        "Microsoft.HDInsight/clusterPools/clusters/rollback/action",
+        "Microsoft.HDInsight/clusterPools/clusters/upgradehistories/read",
+        "Microsoft.HDInsight/clusterPools/clusters/libraries/read",
+        "Microsoft.HDInsight/clusterPools/clusters/managelibraries/action",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Resources/deployments/operations/read",
+        "Microsoft.Resources/deployments/*/read",
+        "Microsoft.Resources/deployments/read",
+        "Microsoft.Resources/deployments/validate/action",
+        "Microsoft.Resources/deployments/write",
+        "Microsoft.Resources/deployments/exportTemplate/action",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Insights/AlertRules/Write",
+        "Microsoft.Insights/AlertRules/Delete",
+        "Microsoft.Insights/AlertRules/Read",
+        "Microsoft.Insights/AlertRules/Activated/Action",
+        "Microsoft.Insights/AlertRules/Resolved/Action",
+        "Microsoft.Insights/AlertRules/Throttled/Action",
+        "Microsoft.Insights/AlertRules/Incidents/Read",
+        "Microsoft.Insights/metrics/read",
+        "Microsoft.Insights/logs/read"
       ],
       "notActions": [],
       "dataActions": [],
       "notDataActions": []
     }
   ],
-  "roleName": "Log Analytics Contributor",
+  "roleName": "HDInsight on AKS Cluster Admin",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-## Log Analytics Reader
+## HDInsight on AKS Cluster Pool Admin
 
-Log Analytics Reader can view and search all monitoring data as well as and view monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources.
+Can read, create, modify and delete HDInsight on AKS cluster pools and create clusters
 
-[Learn more](/azure/azure-monitor/logs/manage-access)
+[Learn more](/azure/hdinsight-aks/hdinsight-on-aks-manage-authorization-profile)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | */read | Read resources of all types, except secrets. |
-> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/analytics/query/action | Search using new engine. |
-> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/search/action | Executes a search query |
-> | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/read | Get details about HDInsight on AKS Cluster |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/clusters/write | Create or Update HDInsight on AKS Cluster |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/delete | Delete a HDInsight on AKS Cluster Pool |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/read | Get details about HDInsight on AKS Cluster Pool |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/write | Create or Update HDInsight on AKS Cluster Pool |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterpools/availableupgrades/read | Get Available Upgrades for HDInsight on AKS Cluster Pool |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterpools/upgrade/action | Upgrade HDInsight on AKS Cluster Pool |
+> | [Microsoft.HDInsight](../permissions/analytics.md#microsofthdinsight)/clusterPools/upgradehistories/read | Read HDInsight on AKS Cluster Pool Upgrade Histories |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/*/read |  |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Gets or lists deployments. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/write | Creates or updates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/exportTemplate/action | Export template for a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/operations/read | Gets or lists deployment operations. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/read | Gets or lists deployments. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Write | Create or update a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Delete | Delete a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Read | Read a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Activated/Action | Classic metric alert activated |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Resolved/Action | Classic metric alert resolved |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Throttled/Action | Classic metric alert rule throttled |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Incidents/Read | Read a classic metric alert incident |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metrics/read | Read metrics |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/logs/read | Reading data from all your logs |
 > | **NotActions** |  |
-> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/sharedKeys/read | Retrieves the shared keys for the workspace. These keys are used to connect Microsoft Operational Insights agents to the workspace. |
+> | *none* |  |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -441,25 +464,49 @@ Log Analytics Reader can view and search all monitoring data as well as and view
   "assignableScopes": [
     "/"
   ],
-  "description": "Log Analytics Reader can view and search all monitoring data as well as and view monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources.",
-  "id": "/providers/Microsoft.Authorization/roleDefinitions/73c42c96-874c-492b-b04d-ab87d138a893",
-  "name": "73c42c96-874c-492b-b04d-ab87d138a893",
+  "description": "Can read, create, modify and delete HDInsight on AKS cluster pools and create clusters",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/7656b436-37d4-490a-a4ab-d39f838f0042",
+  "name": "7656b436-37d4-490a-a4ab-d39f838f0042",
   "permissions": [
     {
       "actions": [
-        "*/read",
-        "Microsoft.OperationalInsights/workspaces/analytics/query/action",
-        "Microsoft.OperationalInsights/workspaces/search/action",
-        "Microsoft.Support/*"
+        "Microsoft.Authorization/*/read",
+        "Microsoft.HDInsight/clusterPools/clusters/read",
+        "Microsoft.HDInsight/clusterPools/clusters/write",
+        "Microsoft.HDInsight/clusterPools/delete",
+        "Microsoft.HDInsight/clusterPools/read",
+        "Microsoft.HDInsight/clusterPools/write",
+        "Microsoft.HDInsight/clusterpools/availableupgrades/read",
+        "Microsoft.HDInsight/clusterpools/upgrade/action",
+        "Microsoft.HDInsight/clusterPools/upgradehistories/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Resources/deployments/operations/read",
+        "Microsoft.Resources/deployments/validate/action",
+        "Microsoft.Resources/deployments/*/read",
+        "Microsoft.Resources/deployments/read",
+        "Microsoft.Resources/deployments/write",
+        "Microsoft.Resources/deployments/exportTemplate/action",
+        "Microsoft.Resources/deployments/validate/action",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Insights/AlertRules/Write",
+        "Microsoft.Insights/AlertRules/Delete",
+        "Microsoft.Insights/AlertRules/Read",
+        "Microsoft.Insights/AlertRules/Activated/Action",
+        "Microsoft.Insights/AlertRules/Resolved/Action",
+        "Microsoft.Insights/AlertRules/Throttled/Action",
+        "Microsoft.Insights/AlertRules/Incidents/Read",
+        "Microsoft.Insights/metrics/read",
+        "Microsoft.Insights/logs/read"
       ],
-      "notActions": [
-        "Microsoft.OperationalInsights/workspaces/sharedKeys/read"
-      ],
+      "notActions": [],
       "dataActions": [],
       "notDataActions": []
     }
   ],
-  "roleName": "Log Analytics Reader",
+  "roleName": "HDInsight on AKS Cluster Pool Admin",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

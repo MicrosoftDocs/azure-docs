@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -19,6 +19,8 @@ This article lists the Azure built-in roles in the Security category.
 ## App Compliance Automation Administrator
 
 Create, read, download, modify and delete reports objects and related other resource objects.
+
+[!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
 
 [Learn more](/microsoft-365-app-certification/docs/automate-certification-with-acat)
 
@@ -52,7 +54,7 @@ Create, read, download, modify and delete reports objects and related other reso
 > | [Microsoft.Security](../permissions/security.md#microsoftsecurity)/automations/write | Creates or updates the automation for the scope |
 > | [Microsoft.Security](../permissions/security.md#microsoftsecurity)/register/action | Registers the subscription for Azure Security Center |
 > | [Microsoft.Security](../permissions/security.md#microsoftsecurity)/unregister/action | Unregisters the subscription from Azure Security Center |
-> | */read | Read resources of all types, except secrets. |
+> | */read | Read control plane information for all Azure resources. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -115,12 +117,14 @@ Create, read, download, modify and delete reports objects and related other reso
 
 Read, download the reports objects and related other resource objects.
 
+[!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
+
 [Learn more](/microsoft-365-app-certification/docs/automate-certification-with-acat)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | */read | Read resources of all types, except secrets. |
+> | */read | Read control plane information for all Azure resources. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -207,6 +211,7 @@ Can read the attestation provider properties
 > | Actions | Description |
 > | --- | --- |
 > | Microsoft.Attestation/attestationProviders/attestation/read | Gets the attestation service status. |
+> | Microsoft.Attestation/attestationProviders/read | Gets the attestation service status. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -225,7 +230,8 @@ Can read the attestation provider properties
   "permissions": [
     {
       "actions": [
-        "Microsoft.Attestation/attestationProviders/attestation/read"
+        "Microsoft.Attestation/attestationProviders/attestation/read",
+        "Microsoft.Attestation/attestationProviders/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -416,6 +422,8 @@ Perform any action on the certificates of a key vault, except manage permissions
 Manage key vaults, but does not allow you to assign roles in Azure RBAC, and does not allow you to access secrets, keys, or certificates.
 
 [Learn more](/azure/key-vault/general/security-features)
+
+[!INCLUDE [contributor-role-warning.md](~/reusable-content/ce-skilling/azure/includes/key-vault/includes/key-vault-contributor-role-warning.md)]
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1343,7 +1351,7 @@ View and update permissions for Microsoft Defender for Cloud. Same permissions a
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Security](../permissions/security.md#microsoftsecurity)/* | Create and manage security components and policies |
 > | [Microsoft.IoTSecurity](../permissions/internet-of-things.md#microsoftiotsecurity)/* |  |
-> | Microsoft.IoTFirmwareDefense/* |  |
+> | [Microsoft.IoTFirmwareDefense](../permissions/internet-of-things.md#microsoftiotfirmwaredefense)/* |  |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
@@ -1547,6 +1555,48 @@ View permissions for Microsoft Defender for Cloud. Can view recommendations, ale
     }
   ],
   "roleName": "Security Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+## Locks Contributor
+
+Manage locks operations.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/locks/read | Gets locks at the specified scope |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/locks/write | Add locks at the specified scope |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/locks/delete | Delete locks at the specified scope |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can Manage Locks Operations.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/28bf596f-4eb7-45ce-b5bc-6cf482fec137",
+  "name": "28bf596f-4eb7-45ce-b5bc-6cf482fec137",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/locks/read",
+        "Microsoft.Authorization/locks/write",
+        "Microsoft.Authorization/locks/delete"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Locks Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

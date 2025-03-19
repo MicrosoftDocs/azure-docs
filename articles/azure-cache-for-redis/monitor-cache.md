@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: conceptual
 author: robb
 ms.author: robb
-ms.service: azure-cache-redis
+
 ---
 
 # Monitor Azure Cache for Redis
@@ -121,7 +121,7 @@ In contrast, for clustered caches, use the metrics with the suffix `Instance Bas
 ### Log Analytics queries
 
 > [!NOTE]
-> For a tutorial on how to use Azure Log Analytics, see [Overview of Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-overview.md). Remember that it may take up to 90 minutes before logs show up in Log Analtyics.
+> For a tutorial on how to use Azure Log Analytics, see [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview). Remember that it may take up to 90 minutes before logs show up in Log Analytics.
 
 Here are some basic queries to use as models.
 
@@ -167,7 +167,7 @@ REDConnectionEvents
 // For particular IP range filtering, add '| where ipv4_is_in_range(ClientIp, IpRange)'
 // IP range can be defined like this 'let IpRange = "10.1.1.0/24";' at the top of query.
 | where EventType == "auth"
-| summarize AuthencationRequestsCount = count() by TimeRange = bin(EventTime, 1h)
+| summarize AuthenticationRequestsCount = count() by TimeRange = bin(EventTime, 1h)
 ```
 
 - Unique Redis client IP addresses that have connected to the cache:

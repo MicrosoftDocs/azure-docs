@@ -3,7 +3,7 @@ title: Retire your Amazon Web Services (AWS) connector
 description: This article helps you transition away from the Connector for AWS and it helps you remove it from Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/25/2024 
+ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management

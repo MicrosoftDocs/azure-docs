@@ -2,7 +2,7 @@
 author: clemensv
 ms.service: azure-relay
 ms.topic: include
-ms.date: 01/04/2024
+ms.date: 12/10/2024
 ms.author: samurp
 ---
 
@@ -259,4 +259,5 @@ In Visual Studio, create a new **Console App (.NET Framework)** project.
         }
     }
     ```
+
 

@@ -3,8 +3,8 @@ title: Manage historical data with retention policy - Azure SQL Edge
 description: Learn how to manage historical data with retention policy in Azure SQL Edge
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
-ms.service: sql-edge
+ms.date: 09/21/2024
+ms.service: azure-sql-edge
 ms.topic: conceptual
 keywords:
   - SQL Edge
@@ -12,7 +12,9 @@ keywords:
 ---
 # Manage historical data with retention policy
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 After the data retention policy is defined for a database and the underlying table, a background time timer task runs to remove any obsolete records from the table enabled for data retention. Identification of matching rows and their removal from the table occur transparently, in the background task scheduled and run by the system. Age condition for the table rows is checked based on the `filter_column` column specified in the table definition. If retention period is set to one week, for instance, table rows eligible for cleanup satisfy either of the following condition:
@@ -80,7 +82,7 @@ The following Extended Events help track the state of the cleanup operations.
 
 Additionally, a new ring buffer type named `RING_BUFFER_DATA_RETENTION_CLEANUP` has been added to the `sys.dm_os_ring_buffers` dynamic management view. This view can be used to monitor the data retention cleanup operations.
 
-## Next steps
+## Related content
 
 - [Data Retention Policy](data-retention-overview.md)
 - [Enable and Disable Data Retention Policies](data-retention-enable-disable.md)

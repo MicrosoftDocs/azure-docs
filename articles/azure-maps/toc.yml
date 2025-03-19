@@ -32,12 +32,12 @@ items:
       href: tutorial-load-geojson-file-android.md
   - name: REST API Tutorials
     items:
-    - name: Spatial analytics
-      href: tutorial-iot-hub-maps.md
-    - name: EV routing using Azure Notebooks (Python)
+    - name: EV routing using Jupyter Notebooks
       href: tutorial-ev-routing.md
-    - name: Analyze weather data using Azure Notebooks (Python)
+    - name: Analyze weather data using Jupyter Notebooks
       href: weather-service-tutorial.md
+    - name: Analyze trip data using Snap to Roads
+      href: tutorial-snap-to-Road.md
 - name: Concepts
   items:
   - name: Authentication with Azure Maps
@@ -46,10 +46,10 @@ items:
     href: authentication-best-practices.md
   - name: Azure Maps Event Grid integration
     href: azure-maps-event-grid-integration.md
-  - name: Choose the right pricing tier
-    href: choose-pricing-tier.md
   - name: Azure Maps geographic scope
     href: geographic-scope.md
+  - name: Consent management
+    href: consent-management.md
   - name: Creator for Indoor maps
     items:
     - name: Indoor map concepts
@@ -143,7 +143,11 @@ items:
     - name: Migrate an Android app
       href: migrate-from-google-maps-android-app.md
     - name: Migrate a web service
-      href: migrate-from-google-maps-web-services.md          
+      href: migrate-from-google-maps-web-services.md
+  - name: Migrate from previous versions
+    items:
+    - name: Migrate Azure Maps Route 1.0 APIs
+      href: migrate-route-v1-api.md
   - name: Manage Maps accounts
     items:
     - name: Create account with ARM template
@@ -259,6 +263,8 @@ items:
         href: clustering-point-data-web-sdk.md
       - name: Use data-driven style expressions
         href: data-driven-style-expressions-web-sdk.md
+      - name: Add custom protocol PMTiles
+        href: add-custom-protocol-pmtiles.md
       - name: How to use image templates
         href: how-to-use-image-templates-web-sdk.md
       - name: Reacting to events
@@ -415,6 +421,8 @@ items:
       href: power-bi-visual-add-reference-layer.md
     - name: Add a tile layer
       href: power-bi-visual-add-tile-layer.md
+    - name: Add a path layer
+      href: power-bi-visual-add-path-layer.md
     - name: Add a filled map
       href: power-bi-visual-filled-map.md
     - name: On-object interaction
@@ -433,6 +441,8 @@ items:
     href: how-to-use-feedback-tool.md
   - name: Show right attribution
     href: how-to-show-attribution.md
+  - name: Manage consent
+    href: how-to-manage-consent.md
 - name: Reference
   items:
   - name: Creator Indoor Maps
@@ -507,8 +517,6 @@ items:
     href: /shows/
   - name: Open source projects
     href: open-source-projects.md
-  - name: Azure Maps case studies
-    href: https://aka.ms/AzureMapsCaseStudies
   - name: Azure Maps glossary
     href: glossary.md
   - name: Service updates

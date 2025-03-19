@@ -4,10 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: The Until activity in Azure Data Factory and Synapse Analytics pipelines executes a set of activities in a loop until the condition associated with the activity evaluates to true or it times out. 
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 09/26/2024
 ms.custom: devx-track-azurepowershell, synapse
 ---
 

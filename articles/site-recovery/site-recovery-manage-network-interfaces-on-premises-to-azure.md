@@ -3,7 +3,7 @@ title: Manage network adapters for on-premises disaster recovery with Azure Site
 description: Describes how to manage network interfaces for on-premises disaster recovery to Azure with Azure Site Recovery
 author: ankitaduttaMSFT
 ms.service: azure-site-recovery
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/27/2024
 ms.author: ankitadutta
 

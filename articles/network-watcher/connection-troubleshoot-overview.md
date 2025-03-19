@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 02/22/2024
+ms.date: 01/27/2025
 
 #CustomerIntent: As an Azure administrator, I want to learn what connectivity problems I can use Connection troubleshoot to diagnose so that I can use it to resolve those problems.
 ---
@@ -34,13 +34,13 @@ Connection troubleshoot provides the capability to check TCP or ICMP connections
 - Virtual machines
 - Virtual machine scale sets
 - Azure Bastion instances
-- Application gateways (except v1)
+- Application gateways v2 with the exception of gateways enrolled in the [Private Application Gateway deployment](../application-gateway/application-gateway-private-deployment.md)
 
 > [!IMPORTANT]
-> Connection troubleshoot requires that the virtual machine you troubleshoot from has the *Network Watcher agent VM extension* installed. The extension is not required on the destination virtual machine.
-> - To install the extension on a Windows VM, see [Azure Network Watcher agent VM extension for Windows](../virtual-machines/extensions/network-watcher-windows.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json).
-> - To install the extension on a Linux VM, see [Azure Network Watcher agent VM extension for Linux](../virtual-machines/extensions/network-watcher-linux.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json).
-> - To update an already installed extension, see [Update Network Watcher agent VM extension to the latest version](../virtual-machines/extensions/network-watcher-update.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json).
+> Connectivity test of connection troubleshoot requires that the virtual machine you run the test from has the ***Network Watcher agent VM extension*** installed.  This extension is not required for running other connection troubleshoot tests or on the destination virtual machine.
+> - To install the extension on a Windows virtual machine, see [Network Watcher agent VM extension for Windows](network-watcher-agent-windows.md).
+> - To install the extension on a Linux virtual machine, see [Network Watcher agent VM extension for Linux](network-watcher-agent-linux.md).
+> - To update an already installed extension, see [Update Network Watcher agent VM extension to the latest version](network-watcher-agent-update.md).
 
 Connection troubleshoot can test connections to any of these destinations:
 

@@ -1,7 +1,7 @@
 ---
-author: kgremban
-ms.author: kgremban
-ms.service: iot-hub
+author: SoniaLopezBravo
+ms.author: sonialopez
+ms.service: azure-iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: include

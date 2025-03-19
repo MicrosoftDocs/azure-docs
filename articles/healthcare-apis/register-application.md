@@ -27,9 +27,9 @@ In this article, you'll learn how to register a client application in Microsoft 
 
 After registering a new application, you can find the application (client) ID and Directory (tenant) ID from the overview menu option. Make a note of the values for use later.
 
-[ ![Screenshot of client ID overview panel.](media/register-application-three.png) ](media/register-application-three.png#lightbox)
+[![Screenshot of client ID overview panel.](media/register-application-three.png) ](media/register-application-three.png#lightbox)
 
-[ ![Screenshot of client ID](media/register-application-four.png) ](media/register-application-four.png#lightbox)
+[![Screenshot of client ID.](media/register-application-four-fix-nov-24.png) ](media/register-application-four-fix-nov-24.png#lightbox)
 
 ## Authentication setting: confidential vs. public
 
@@ -45,9 +45,7 @@ For tools that require a redirect URL, select **Add a platform** to configure th
 
 [ ![Screenshot of add a platform.](media/register-application-five-alpha.png) ](media/register-application-five-alpha.png#lightbox)
 
-For Postman, select **Mobile and desktop applications**. Enter "https://www.getpostman.com/oauth2/callback" in the **Custom redirect URIs** section. Select the **Configure** button to save the setting.
-
-[ ![Screenshot of configure other services.](media/register-application-five-bravo.png) ](media/register-application-five-bravo.png#lightbox)
+[ ![Screenshot of configure other services.](media/register-application-five-bravo-fix-nov-24.png) ](media/register-application-five-bravo-fix-nov-24.png#lightbox)
 
 ## Certificates & secrets
 
@@ -83,12 +81,12 @@ The following steps are required for the DICOM service, but optional for the FHI
 
    If you're referencing a different resource application, select your DICOM API Resource Application Registration that you created previously under **APIs my organization**.
 
-3. Select scopes (permissions) that the confidential client application will ask for on behalf of a user. Select **user_impersonation**, and then select **Add permissions**.
+3. Select scopes (permissions) that the confidential client application will ask for on behalf of a user. Select **Dicom.ReadWrite**, and then select **Add permissions**.
 
-   [ ![Screenshot of scopes (permissions) that the client application will ask for on behalf of a user.](dicom/media/dicom-select-scopes.png) ](dicom/media/dicom-select-scopes.png#lightbox)
+   [ ![Screenshot of scopes (permissions) that the client application will ask for on behalf of a user.](dicom/media/dicom-select-scope.png) ](dicom/media/dicom-select-scope.png#lightbox)
 
 >[!NOTE]
->Use  grant_type of client_credentials when trying to obtain an access token for the FHIR service using tools such as Postman or REST Client. For more details, visit [Access using Postman](./fhir/use-postman.md) and [Accessing Azure Health Data Services using the REST Client Extension in Visual Studio Code](./fhir/using-rest-client.md).
+>Use  grant_type of client_credentials when trying to obtain an access token for the FHIR service using tools such as REST Client. For more details, visit [Accessing Azure Health Data Services using the REST Client Extension in Visual Studio Code](./fhir/using-rest-client.md).
 >>Use  grant_type of client_credentials or authentication_code when trying to obtain an access token for the DICOM service. For more details, visit [Using DICOM with cURL](dicom/dicomweb-standard-apis-curl.md).
 
 Your application registration is now complete.

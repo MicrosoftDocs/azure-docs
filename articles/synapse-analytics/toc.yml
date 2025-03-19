@@ -8,8 +8,6 @@ items:
   - name: What is Azure Synapse?
     href: overview-what-is.md
     displayName: overview
-  - name: What's new?
-    href: whats-new.md
   - name: Terminology 
     href: overview-terminology.md
   - name: FAQ 
@@ -55,6 +53,8 @@ items:
     displayName: get, started
 - name: Workspace
   items:
+  - name: What's the difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics workspaces?
+    href: sql/overview-difference-between-formerly-sql-dw-workspace.md
   - name: Quickstarts
     items:
     - name: Create a workspace
@@ -527,6 +527,10 @@ items:
       items:
       - name: Into the data warehouse
         items:
+        - name: Load external data using Entra ID
+          href: ./sql/tutorial-load-data-using-entra-id.md  
+        - name: Load external data using a Managed Identity
+          href: ./sql/tutorial-external-tables-using-managed-identity.md
         - name: Azure Data Lake Storage
           href: ./sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md?context=/azure/synapse-analytics/context/context
         - name: Data Factory
@@ -576,7 +580,7 @@ items:
       - name: Query folders and multiple files
         href: sql/query-folders-multiple-csv-files.md
         displayName: csv
-      - name: Query partitioned files using file metadata
+      - name: Use file metadata in queries
         href: sql/query-specific-files.md
       - name: Create and use views
         href: sql/create-use-views.md
@@ -740,8 +744,6 @@ items:
           href: ./spark/apache-spark-32-runtime.md
         - name: Azure Synapse Apache Spark 3.1 runtime (deprecated)
           href: ./spark/apache-spark-3-runtime.md
-        - name: Azure Synapse Apache Spark 2.4 runtime (deprecated)
-          href: ./spark/apache-spark-24-runtime.md
         - name: Lifecycle and Supportability
           href: ./spark/runtime-for-apache-spark-lifecycle-and-supportability.md
     - name: Machine learning
@@ -839,7 +841,7 @@ items:
   - name: Overview
     items:
     - name: Synapse Link for Azure Cosmos DB
-      href: ../cosmos-db/synapse-link.md?context=/azure/synapse-analytics/context/context
+      href: /azure/cosmos-db/synapse-link?context=/azure/synapse-analytics/context/context
     - name: Synapse Link for SQL
       href: ./synapse-link/sql-synapse-link-overview.md
     - name: Synapse Link for Dataverse
@@ -853,13 +855,13 @@ items:
     - name: Azure Cosmos DB
       items:
       - name: Analytical Store Overview
-        href: ../cosmos-db/analytical-store-introduction.md?context=/azure/synapse-analytics/context/context
+        href: /azure/cosmos-db/analytical-store-introduction?context=/azure/synapse-analytics/context/context
       - name: Synapse Link supported features
         href: ./synapse-link/concept-synapse-link-cosmos-db-support.md
       - name: Azure Cosmos DB FAQ
-        href: ../cosmos-db/synapse-link-frequently-asked-questions.yml?context=/azure/synapse-analytics/context/context
+        href: /azure/cosmos-db/synapse-link-frequently-asked-questions?context=/azure/synapse-analytics/context/context
       - name: Synapse Link use cases
-        href: ../cosmos-db/synapse-link-use-cases.md?context=/azure/synapse-analytics/context/context
+        href: /azure/cosmos-db/synapse-link-use-cases?context=/azure/synapse-analytics/context/context
     - name: SQL Database
       items:
       - name: Synapse Link for Azure SQL Database
@@ -887,13 +889,13 @@ items:
     - name: Azure Cosmos DB
       items:
       - name: Configure Synapse Link
-        href: ../cosmos-db/configure-synapse-link.md?context=/azure/synapse-analytics/context/context
+        href: /azure/cosmos-db/configure-synapse-link?context=/azure/synapse-analytics/context/context
       - name: Connect to Azure Synapse Link for Azure Cosmos DB
         href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
       - name: Synapse Link and integrated Power BI
-        href: ../cosmos-db/integrated-power-bi-synapse-link.md?context=/azure/synapse-analytics/context/context
+        href: /azure/cosmos-db/integrated-power-bi-synapse-link?context=/azure/synapse-analytics/context/context
       - name: Use Power BI and serverless SQL pool to analyze Azure Cosmos DB
-        href: ../cosmos-db/synapse-link-power-bi.md?context=/azure/synapse-analytics/context/context
+        href: /azure/cosmos-db/synapse-link-power-bi?context=/azure/synapse-analytics/context/context
       - name: Query Azure Cosmos DB analytical store with Apache Spark 3
         href: ./synapse-link/how-to-query-analytical-store-spark-3.md
       - name: Query Azure Cosmos DB analytical store with Apache Spark 2
@@ -1521,14 +1523,6 @@ items:
       - name: With Apache Spark MLlib
         displayName: train model
         href: ./spark/apache-spark-machine-learning-mllib-notebook.md
-      - name: With automated machine learning (deprecated)
-        items:
-        - name: Code-free (deprecated)
-          displayName: train model, automated machine learning, automated ml, automl
-          href: ./machine-learning/tutorial-automl.md
-        - name: In Python (deprecated)
-          displayName: train model, automated machine learning, automated ml, automl
-          href: ./spark/apache-spark-azure-machine-learning-tutorial.md
       - name: With Horovod and Petastorm (deprecated)
         items:
         - name: Train a model with Horovod and PyTorch (deprecated)
@@ -1757,8 +1751,6 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Questions & Answers
     href: /answers/questions/topics/single/25423.html
-  - name: Monthly updates archive
-    href: whats-new-archive.md
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=sql-data-warehouse
   - name: Stack Overflow

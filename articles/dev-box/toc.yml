@@ -7,6 +7,9 @@ items:
     - name: What is Microsoft Dev Box?
       displayName: DevBox, VDI
       href: overview-what-is-microsoft-dev-box.md
+    - name: Roadmap for Microsoft Dev Box
+      displayName: roadmap, future, features, enhancements, coming soon, in development
+      href: dev-box-roadmap.md
 - name: Quickstarts
   expanded: true
   items:
@@ -18,6 +21,8 @@ items:
     - name: Spin up a new dev box
       displayName: connect, access dev box
       href: quickstart-create-dev-box.md
+    - name: Use Team Customizations
+      href: quickstart-team-customizations.md
 - name: Concepts
   expanded: true
   items:
@@ -66,24 +71,24 @@ items:
     href: how-to-customize-devbox-azure-image-builder.md
 - name: Customize dev boxes
   items:
-  - name: Create reusable customizations
-    href: how-to-customize-dev-box-setup-tasks.md
-  - name: Use Dev Home to manage dev boxes
-    href: how-to-use-dev-home-customize-dev-box.md
+  - name: What are Team Customizations
+    href: concept-what-are-team-customizations.md
+  - name: Write a customization file
+    href: how-to-write-customization-file.md
+  - name: Configure imaging for Customizations
+    href: how-to-configure-customization-imaging.md
+  - name: Create customization tasks
+    href: how-to-create-customization-tasks-catalog.md
 - name: Create & connect to dev boxes
   items:
   - name: Manage a dev box through developer portal
+    displayName: Windows App, connect, access dev box, RDP, iPad   
     href: how-to-create-dev-boxes-developer-portal.md
   - name: Connect with Windows App
-    displayName: connect, access dev box, RDP, iPad 
-    href: /windows-app/get-started-connect-devices-desktops-apps?context=/azure/dev-box/context/context&pivots=dev-box
-  - name: Connect with Remote Desktop
-    displayName: connect, access dev box, RDP, iPad 
-    href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
+    displayName: Windows App, connect, access dev box, RDP, iPad 
+    href: how-to-create-dev-boxes-developer-portal.md#connect-through-the-windows-app
   - name: Use multiple monitors
-    href: tutorial-configure-multiple-monitors.md
-  - name: Troubleshoot dev box connectivity issues
-    href: how-to-troubleshoot-repair-dev-box.md
+    href: how-to-create-dev-boxes-developer-portal.md#configure-multiple-monitors
 - name: Security
   items:
   - name: Provide access to project admins
@@ -112,6 +117,40 @@ items:
     href: how-to-configure-stop-on-disconnect.md
   - name: Skip or delay an automatic shutdown
     href: how-to-skip-delay-stop.md
+- name: Connect devices to dev boxes
+  items:
+  - name: Connect physical devices to a dev box
+    displayName: USB, devices, connect, physical, peripherals, android
+    href: how-to-connect-devices-to-dev-box.md
+  - name: Configure virtual switch
+    displayName: connect, devices, switch
+    href: how-to-connect-dev-box-virtual-switch.md
+  - name: Drives and storage
+    displayName: drives, storage, connect, physical, peripherals, android, switch
+    href: /azure/virtual-desktop/redirection-configure-drives-storage?tabs=group-policy&pivots=dev-box
+  - name: USB redirection
+    displayName: USB, devices, connect, physical, peripherals, android, switch
+    href: /azure/virtual-desktop/redirection-configure-usb?tabs=intune&pivots=dev-box
+- name: Snapshot and restore
+  items:
+    - name: Restore from snapshot
+      displayName: backup, restore, snapshot
+      href: how-to-restore-from-snapshot.md
+- name: Troubleshooting
+  items: 
+  - name: Automatically repair connectivity issues
+    displayName: Troubleshoot & repair, troubleshooter, fix, wizard  
+    href: how-to-troubleshoot-repair-dev-box.md
+  - name: Troubleshoot dev box connectivity issues
+    displayName: Troubleshoot & repair, troubleshooter, fix
+    href: how-to-troubleshoot-remote-desktop-connectivity.md
+  - name: Resolve dev box connectivity issues
+    displayName: Troubleshoot & repair, troubleshooter, fix
+    href: how-to-resolve-dev-box-connectivity-issues.md
+  - name: Troubleshoot Task view issues
+    href: how-to-troubleshoot-dev-box-task-view.md
+  - name: Get support for Microsoft Dev Box
+    href: how-to-get-help.md    
 - name: Reference
   items:
     - name: Install Azure CLI devcenter extension
@@ -133,8 +172,6 @@ items:
       href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=dev-box
     - name: FAQ
       href: dev-box-faq.yml
-    - name: Get support for Microsoft Dev Box
-      href: how-to-get-help.md
     - name: Report a problem
       href: https://aka.ms/devbox/report
     - name: Suggest a feature

@@ -4,7 +4,10 @@ description: Learn how to use Apache Sqoop to import and export between Apache H
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, linux-related-content
-ms.date: 08/21/2023
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
+ms.date: 09/06/2024
 ---
 
 # Use Apache Sqoop to import and export data between Apache Hadoop on HDInsight and Azure SQL Database
@@ -38,7 +41,7 @@ Learn how to use Apache Sqoop to import and export between an Apache Hadoop clus
 
 
     export SERVER_CONNECT="jdbc:sqlserver://$SQL_SERVER.database.windows.net:1433;user=sqluser;password=$PASSWORD"
-    export SERVER_DB_CONNECT="jdbc:sqlserver://$SQL_SERVER.database.windows.net:1433;user=sqluser;password=$PASSWORD;database=$DABATASE"
+    export SERVER_DB_CONNECT="jdbc:sqlserver://$SQL_SERVER.database.windows.net:1433;user=sqluser;password=$PASSWORD;database=$DATABASE"
     ```
 
 ## Sqoop export
@@ -138,9 +141,9 @@ From SQL to Azure storage.
 
 * Both HDInsight and SQL Server must be on the same Azure Virtual Network.
 
-    For an example, see the [Connect HDInsight to your on-premises network](./../connect-on-premises-network.md) document.
+    For an example, see [How to connect HDInsight to your on-premises network](./../connect-on-premises-network.md) document.
 
-    For more information on using HDInsight with an Azure Virtual Network, see the [Extend HDInsight with Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md) document. For more information on Azure Virtual Network, see the [Virtual Network Overview](../../virtual-network/virtual-networks-overview.md) document.
+    For more information on using HDInsight with an Azure Virtual Network, see [how to extend HDInsight with Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md) document. For more information on Azure Virtual Network, see the [Virtual Network Overview](../../virtual-network/virtual-networks-overview.md) document.
 
 * SQL Server must be configured to allow SQL authentication. For more information, see the [Choose an Authentication Mode](/sql/relational-databases/security/choose-an-authentication-mode) document.
 

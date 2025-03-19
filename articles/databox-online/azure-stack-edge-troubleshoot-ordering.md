@@ -4,8 +4,7 @@ description: Describes how to troubleshoot Azure Stack Edge ordering issues.
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: troubleshooting
 ms.date: 06/21/2021
 ms.author: alkohli

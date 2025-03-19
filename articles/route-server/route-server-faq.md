@@ -1,11 +1,11 @@
 ---
 title: Azure Route Server frequently asked questions (FAQ)
-description: Find answers to frequently asked questions about Azure Route Server.
+description: In this article, you find answers to the most frequently asked questions about Azure Route Server.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: faq
-ms.date: 08/18/2023
+ms.date: 09/11/2024
 ---
 
 # Azure Route Server frequently asked questions (FAQ)
@@ -18,11 +18,16 @@ Azure Route Server is a fully managed service that allows you to easily manage r
 
 ### Is Azure Route Server just a virtual machine?
 
-No. Azure Route Server is a service designed with high availability. Your route server has zone-level redundancy if you deploy it in an Azure region that supports [Availability Zones](../availability-zones/az-overview.md).
+No. Azure Route Server is a service designed with high availability. Your route server has zone-level redundancy if you deploy it in an Azure region that supports [Availability Zones](../reliability/availability-zones-overview.md).
 
 ### Do I need to peer each NVA with both Azure Route Server instances?
 
-Yes, to ensure that virtual network routes are successfully advertised over the target NVA connections, and to configure High Availability, we recommend peering each NVA instance with both instances of Route Server.
+Yes, to ensure that routes are successfully advertised to Route Server and to configure high availability, it is required to peer each NVA instance with both instances of Route Server and advertise the same routes to both instances. It is also recommended to peer at least 2 NVA instances with both instances of Route Server. 
+
+>[!NOTE]
+> During Route Server maintenance events, BGP peering may go down between your NVA and one of Route Server's instances. As a result, if you configure your NVA to peer with both instances of Route Server, then your connectivity will remain up and running during maintenance events. 
+> 
+
 
 ### Does Azure Route Server store customer data?
 
@@ -36,12 +41,16 @@ Yes, if you peer a virtual network hosting the Azure Route Server to another vir
 
 These public endpoints are required for Azure's underlying SDN and management platform to communicate with Azure Route Server. Because Route Server is considered part of the customer's private network, Azure's underlying platform is unable to directly access and manage Route Server via its private endpoints due to compliance requirements. Connectivity to Route Server's public endpoints is authenticated via certificates, and Azure conducts routine security audits of these public endpoints. As a result, they do not constitute a security exposure of your virtual network.
 
+> [!NOTE]
+> These certificates are signed by an internal certificate authority, so this certificate chain will appear to not be signed by a known trusted authority. As a result, this does not represent an SSL vulnerability.
+>
+
 ### Does Azure Route Server support IPv6?
 
-No. We'll add IPv6 support in the future. If you have deployed a virtual network with an IPv6 address space and later deploy an Azure Route Server in the same virtual network, this will break connectivity for IPv6 traffic.
+No. If you have deployed a virtual network with an IPv6 address space and later deploy an Azure Route Server in the same virtual network, this will break connectivity for IPv6 traffic. 
 
-> [!WARNING]
-> If you have deployed a virtual network with an IPv6 address space and later deploy an Azure Route Server in the same virtual network, this will also break connectivity for IPv4 traffic. This issue will be fixed in our next release to ensure IPv4 traffic continues to work as expected.
+You can peer a virtual network with an IPv6 address space to Route Server's virtual network, and IPv4 connectivity with this peered dual-stack virtual network will continue to function. IPv6 connectivity with this peered virtual network is not supported. 
+
 
 ## Routing
 
@@ -53,9 +62,13 @@ No. Azure Route Server only exchanges BGP routes with your network virtual appli
 
 Azure Route Server supports only Border Gateway (BGP) Protocol. Your network virtual appliance (NVA) must support multi-hop external BGP because you need to deploy the Route Server in a dedicated subnet in your virtual network. When you configure the BGP on your NVA, the ASN you choose must be different from the Route Server ASN.
 
-### Does Azure Route Server preserve the BGP AS Path of the route it receives?
+### Does Azure Route Server preserve the BGP AS path of the route it receives?
 
-Yes, Azure Route Server propagates the route with the BGP AS Path intact.
+Yes, Azure Route Server propagates the route with the BGP AS path intact.
+
+### If AS path prepend is configured on an NVA towards the route server, will the ExpressRoute circuit pass the AS path prepend information to on-premises?
+
+When ExpressRoute advertises routes to on-premises, it removes the private BGP ASN information. On-premises receives the prefix with [AS 12076](../expressroute/expressroute-routing.md#autonomous-system-numbers-asn).
 
 ### Does Azure Route Server preserve the BGP communities of the route it receives?
 
@@ -75,7 +88,7 @@ Yes. If a VNet peering is created between your hub VNet and spoke VNet, Azure Ro
 
 ### How is the 1000 route limit calculated on a BGP peering session between an NVA and Azure Route Server?
 
-Today, Route Server can accept a maximum of 1000 routes from a single BGP peer. When processing BGP route updates, this limit is calculated as the number of current routes learnt from a BGP peer plus the number of routes coming in the BGP route update. For example, if an NVA initially advertises 501 routes to Route Server and later re-advertises these 501 routes in a BGP route update, Route Server will calculate this as 1002 routes and tear down the BGP session. 
+Currently, Route Server can accept a maximum of 1000 routes from a single BGP peer. When processing BGP route updates, this limit is calculated as the number of current routes learnt from a BGP peer plus the number of routes coming in the BGP route update. For example, if an NVA initially advertises 501 routes to Route Server and later re-advertises these 501 routes in a BGP route update, the route server calculates this as 1002 routes and tear down the BGP session. 
 
 ### What Autonomous System Numbers (ASNs) can I use?
 
@@ -97,7 +110,7 @@ If the route has the same AS path length, Azure Route Server will program multip
 
 ### Does creating a Route Server affect the operation of existing virtual network gateways (VPN or ExpressRoute)?
 
-Yes. When you create or delete a Route Server in a virtual network that contains a virtual network gateway (ExpressRoute or VPN), expect downtime until the operation is complete. If you have an ExpressRoute circuit connected to the virtual network where you're creating or deleting the Route Server, the downtime doesn't affect the ExpressRoute circuit or its connections to other virtual networks.
+Yes. When you create or delete a Route Server in a virtual network that contains a virtual network gateway (ExpressRoute or VPN), downtime is expected to last 10 minutes. It may take 30-60 minutes for the actual Route Server deployment to complete, and so we recommend scheduling a maintenance window of 60 minutes for deployment. If you have an ExpressRoute circuit connected to the virtual network where you're creating or deleting the Route Server, the downtime doesn't affect the ExpressRoute circuit's connections to other virtual networks.
 
 ### Does Azure Route Server exchange routes by default between NVAs and the virtual network gateways (VPN or ExpressRoute)?
 
@@ -105,7 +118,7 @@ No. By default, Azure Route Server doesn't propagate routes it receives from an 
 
 ### When the same route is learned over ExpressRoute, VPN or SDWAN, which network is preferred?
 
-By default, the route that's learned over ExpressRoute is preferred over the ones learned over VPN or SDWAN. You can configure routing preference to influence Route Server route selection. For more information, see [Routing preference (preview)](hub-routing-preference.md)
+By default, the route that's learned over ExpressRoute is preferred over the ones learned over VPN or SDWAN. You can configure routing preference to influence Route Server route selection. For more information, see [Routing preference](hub-routing-preference.md).
 
 ### What are the requirements for an Azure VPN gateway to work with Azure Route Server?
 
@@ -156,6 +169,12 @@ Azure Route Server has the following limits (per deployment).
 [!INCLUDE [route server limits](../../includes/route-server-limits.md)]
 
 For information on troubleshooting routing problems in a virtual machine, see [Diagnose an Azure virtual machine routing problem](../virtual-network/diagnose-network-routing-problem.md).
+
+### Why am I seeing an error about invalid scope and authorization to perform operations on Route Server resources?
+
+If you see an error in the below format, then please make sure you have the following permissions configured: [Route Server Roles and Permissions](roles-permissions.md).
+
+Error message format: "The client with object id {} does not have authorization to perform action {} over scope {} or the scope is invalid. For details on the required permissions, please visit {}. If access was recently granted, please refresh your credentials."
 
 ## Next steps
 

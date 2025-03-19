@@ -30,7 +30,7 @@ Call transfers involve three parties:
 
 1. There's already a connected call between the *transferor* and the *transferee*. The *transferor* decides to transfer the call from the *transferee* to the *transfer target*.
 1. The *transferor* calls the `transfer` API.
-1. The *transfer target* receives an incoming call only if the *transferee* accepts the transfer request.
+1. The *transfer target* receives an incoming call.
 
 To transfer a current call, you can use the `transfer` API. `transfer` takes the optional `transferCallOptions`, which allows you to set a `disableForwardingAndUnanswered` flag:
 
@@ -53,7 +53,7 @@ const transfer = callTransferApi.transfer({targetParticipant: id});
 2. There's already a connected call between the *transferor* and the *transfer target*.
 3. The *transferor* decides to transfer the call with the *transferee* to the call with *transfer target*.
 4. The *transferor* calls the `transfer` API.
-6. The *transfer target* receives an incoming call only if the *transferee* accepts the transfer request.
+6. The *transfer target* receives an incoming call.
 
 To transfer a current call, you can use the `transfer` API.
 
@@ -145,4 +145,17 @@ transfer.on('stateChanged', () => {
        call.hangUp();
    }
 });
+```
+
+### Initial Caller and Transferor information
+In case of call transfer or forward scenario incoming call object contains information about initial caller and transferor agents.
+Transferor agent could be Azure Communication Calling user or Teams user or Voice Application (Call Queue and etc.)
+```js
+const incomingCallHandler = async (args: { incomingCall: IncomingCall }) => {
+    const incomingCall = args.incomingCall;
+    // Get information about initial caller
+    const callerInfo = incomingCall.callerInfo
+    // Get information about initial caller
+    const transferorInfo = incomingCall.transferorInfo
+};
 ```

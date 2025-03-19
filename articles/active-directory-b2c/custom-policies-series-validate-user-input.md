@@ -6,14 +6,14 @@ description: Learn how to validate user inputs by using Azure Active Directory B
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 01/11/2024
+ms.date: 10/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer using Azure Active Directory B2C, I want to validate user inputs by using custom policies, so that I can ensure that the data entered by users is accurate and meets the required criteria.
@@ -39,7 +39,7 @@ Azure Active Directory B2C (Azure AD B2C) custom policy not only allows you to m
 
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
-- [Register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant). For the Redirect URI, use https://jwt.ms. 
+- [Register a web application](tutorial-register-applications.md).
 
 - You must have [Visual Studio Code (VS Code)](https://code.visualstudio.com/) installed in your computer. 
 
@@ -357,7 +357,7 @@ Follow the steps in [Upload custom policy file](custom-policies-series-hello-wor
 
     You must correct your inputs before you continue.
 
-1. Enter correct values as suggested by the error messages, and then select **Continue** button again. After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT token. The token looks similar to the following JWT token snippet: 
+1. Enter correct values as suggested by the error messages, and then select **Continue** button again. After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT. The token looks similar to the following JWT snippet: 
 
 ```json
     {
@@ -482,7 +482,7 @@ Use the following steps to learn how to validate user input by using validation 
     1. For **Email Address**, enter an invalid email address such as *maurice@fourthcoffee.com*.
     1. Enter the rest of the details as required and select **Continue**
     
-    Since *maurice@fourthcoffee.com* isn't a valid email, you'll see an error similar to the one shown in the screenshot below. You must use a valid email address to successfully run the custom policy and receive a JWT token. 
+    Since *maurice@fourthcoffee.com* isn't a valid email, you'll see an error similar to the one shown in the screenshot below. You must use a valid email address to successfully run the custom policy and receive a JWT. 
 
     :::image type="content" source="media/custom-policies-series-validate-user-input/screenshot-of-error-due-to-invalid-email-address.png" alt-text="screenshot of error due to invalid email address.":::
 

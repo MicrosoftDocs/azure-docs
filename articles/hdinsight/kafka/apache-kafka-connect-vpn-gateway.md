@@ -4,6 +4,9 @@ description: Learn how to directly connect to Kafka on HDInsight through an Azur
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-python, devx-track-azurepowershell
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 06/14/2024
 ---
 
@@ -35,7 +38,7 @@ HDInsight does not allow direct connection to Kafka over the public internet. In
 * Connect individual machines to the virtual network using a VPN gateway and VPN client. To enable this configuration, perform the following tasks:
 
   1. Create a virtual network.
-  2. Create a VPN gateway that uses a point-to-site configuration. This configuration can be used with both Windows and MacOS clients.
+  2. Create a VPN gateway that uses a point-to-site configuration. This configuration can be used with both Windows and macOS clients.
   3. Create a Kafka on HDInsight cluster in the virtual network.
   4. Configure Kafka for IP advertising. This configuration allows the client to connect using broker IP addresses instead of domain names.
   5. Download and use the VPN client on the development system.
@@ -364,7 +367,7 @@ For more information on using HDInsight with a virtual network, see the [Plan a 
 
 For more information on creating an Azure Virtual Network with Point-to-Site VPN gateway, see the following documents:
 
-* [Configure a Point-to-Site connection using the Azure portal](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+* [Configure a Point-to-Site connection using the Azure portal](../../vpn-gateway/point-to-site-certificate-gateway.md)
 
 * [Configure a Point-to-Site connection using Azure PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 

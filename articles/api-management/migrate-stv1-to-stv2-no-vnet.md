@@ -16,7 +16,7 @@ ms.author: danlep
 
 This article provides steps to migrate an API Management instance hosted on the `stv1` compute platform in-place to the `stv2` platform when the instance *is not* injected (deployed) in an external or internal VNet. For this scenario, migrate your instance using the Azure portal or the [Migrate to stv2](/rest/api/apimanagement/current-ga/api-management-service/migratetostv2) REST API. [Find out if you need to do this](compute-infrastructure.md#how-do-i-know-which-platform-hosts-my-api-management-instance).  
 
-If you need to migrate a *VNnet-injected* API Management hosted on the `stv1` platform, see [Migrate a VNet-injected API Management instance to the stv2 platform](migrate-stv1-to-stv2-vnet.md).
+If you need to migrate a *VNet-injected* API Management hosted on the `stv1` platform, see [Migrate a VNet-injected API Management instance to the stv2 platform](migrate-stv1-to-stv2-vnet.md).
 
 [!INCLUDE [api-management-migration-alert](../../includes/api-management-migration-alert.md)]
 
@@ -45,11 +45,16 @@ API Management platform migration from `stv1` to `stv2` involves updating the un
 
 ## Migrate the instance to stv2 platform
 
+### Public IP address options 
 You can choose whether the virtual IP address of API Management will change, or whether the original VIP address is preserved.
 
 * **New virtual IP address** - If you choose this mode, API requests remain responsive during migration. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 30 minutes. After migration, you'll need to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address. 
 
 * **Preserve IP address** - If you preserve the VIP address, API requests will be unresponsive for approximately 15 minutes while the IP address is migrated to the new infrastructure. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 45 minutes. No further configuration is required after migration.
+
+[!INCLUDE [api-management-migration-precreated-ip](../../includes/api-management-migration-precreated-ip.md)]
+
+### Migration steps
 
 #### [Portal](#tab/portal)
 
@@ -69,22 +74,7 @@ You can choose whether the virtual IP address of API Management will change, or 
 
 #### [Azure CLI](#tab/cli)
 
-Run the following Azure CLI commands, setting variables where indicated with the name of your API Management instance and the name of the resource group in which it was created.
-> [!NOTE]
-> The Migrate to `stv2` REST API is available starting in API Management REST API version `2022-04-01-preview`.
-> [!NOTE]
-> The following script is written for the bash shell. To run the script in PowerShell, prefix the variable names with the `$` character. Example: `$APIM_NAME`.
-
-```azurecli
-APIM_NAME={name of your API Management instance}
-RG_NAME={name of your resource group}
-# Get resource ID of API Management instance
-APIM_RESOURCE_ID=$(az apim show --name $APIM_NAME --resource-group $RG_NAME --query id --output tsv)
-# Call REST API to migrate to stv2 and change VIP address
-az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2023-03-01-preview" --body '{"mode": "NewIp"}'
-# Alternate call to migrate to stv2 and preserve VIP address
-# az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2023-03-01-preview" --body '{"mode": "PreserveIp"}'
-```
+[!INCLUDE [api-management-migration-cli-steps](../../includes/api-management-migration-cli-steps.md)]
 ---
 
 [!INCLUDE [api-management-validate-migration-to-stv2](../../includes/api-management-validate-migration-to-stv2.md)]

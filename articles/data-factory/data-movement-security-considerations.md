@@ -5,7 +5,7 @@ ms.author: susabat
 author: ssabat
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ---
 
 # Security considerations for data movement in Azure Data Factory
@@ -133,27 +133,27 @@ By default, when remote access from intranet is enabled, PowerShell uses port 80
 
 All data transfers are via secure channel HTTPS and TLS over TCP to prevent man-in-the-middle attacks during communication with Azure services.
 
-You can also use [IPSec VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md) or [Azure ExpressRoute](../expressroute/expressroute-introduction.md) to further secure the communication channel between your on-premises network and Azure.
+You can also use [IPsec VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md) or [Azure ExpressRoute](../expressroute/expressroute-introduction.md) to further secure the communication channel between your on-premises network and Azure.
 
-Azure Virtual Network is a logical representation of your network in the cloud. You can connect an on-premises network to your virtual network by setting up IPSec VPN (site-to-site) or ExpressRoute (private peering).
+Azure Virtual Network is a logical representation of your network in the cloud. You can connect an on-premises network to your virtual network by setting up IPsec VPN (site-to-site) or ExpressRoute (private peering).
 
 The following table summarizes the network and self-hosted integration runtime configuration recommendations based on different combinations of source and destination locations for hybrid data movement.
 
 | Source      | Destination                              | Network configuration                    | Integration runtime setup                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| On-premises | Virtual machines and cloud services deployed in virtual networks | IPSec VPN (point-to-site or site-to-site) | The self-hosted integration runtime should be installed on an Azure virtual machine in the virtual network.  |
+| On-premises | Virtual machines and cloud services deployed in virtual networks | IPsec VPN (point-to-site or site-to-site) | The self-hosted integration runtime should be installed on an Azure virtual machine in the virtual network.  |
 | On-premises | Virtual machines and cloud services deployed in virtual networks | ExpressRoute (private peering)           | The self-hosted integration runtime should be installed on an Azure virtual machine in the virtual network.  |
 | On-premises | Azure-based services that have a public endpoint | ExpressRoute (Microsoft peering)            | The self-hosted integration runtime can be installed on-premises or on an Azure virtual machine. |
 
-The following images show the use of self-hosted integration runtime for moving data between an on-premises database and Azure services by using ExpressRoute and IPSec VPN (with Azure Virtual Network):
+The following images show the use of self-hosted integration runtime for moving data between an on-premises database and Azure services by using ExpressRoute and IPsec VPN (with Azure Virtual Network):
 
 #### Express Route
 
 :::image type="content" source="media/data-movement-security-considerations/express-route-for-gateway.png" alt-text="Use ExpressRoute with gateway"::: 
 
-#### IPSec VPN
+#### IPsec VPN
 
-:::image type="content" source="media/data-movement-security-considerations/ipsec-vpn-for-gateway.png" alt-text="IPSec VPN with gateway":::
+:::image type="content" source="media/data-movement-security-considerations/ipsec-vpn-for-gateway.png" alt-text="IPsec VPN with gateway":::
 
 ### Firewall configurations and allow list setting up for IP addresses
 
@@ -191,7 +191,7 @@ The following cloud data stores require that you allow the IP address of the sel
 * [Azure SQL Database](/azure/azure-sql/database/firewall-configure)
 * [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
-* [Azure Cosmos DB](../cosmos-db/how-to-configure-firewall.md)
+* [Azure Cosmos DB](/azure/cosmos-db/how-to-configure-firewall)
 * [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## Frequently asked questions

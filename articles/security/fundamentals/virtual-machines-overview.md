@@ -3,7 +3,7 @@ title: Security features used with Azure VMs
 titleSuffix: Azure security
 description: This article provides an overview of the core Azure security features that can be used with Azure Virtual Machines.
 services: security
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
 
 ms.assetid: 467b2c83-0352-4e9d-9788-c77fb400fe54
@@ -11,7 +11,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 06/27/2024
-ms.author: terrylan
+ms.author: mbaldwin
 
 ---
 # Azure Virtual Machines security overview
@@ -77,8 +77,8 @@ The solution is integrated with Azure Key Vault to help you control and manage t
 
 Learn more:
 
-* [Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md) and [Azure Disk Encryption for Windows VMs](../../virtual-machines/windows/disk-encryption-overview.md)
-* [Quickstart: Encrypt a Linux IaaS VM with Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
+* [Azure Disk Encryption for Linux VMs](/azure/virtual-machines/linux/disk-encryption-overview) and [Azure Disk Encryption for Windows VMs](/azure/virtual-machines/windows/disk-encryption-overview)
+* [Quickstart: Encrypt a Linux IaaS VM with Azure PowerShell](/azure/virtual-machines/linux/disk-encryption-powershell-quickstart)
 
 ## Virtual machine backup
 

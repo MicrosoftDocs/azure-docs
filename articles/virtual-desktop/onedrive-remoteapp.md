@@ -1,28 +1,23 @@
 ---
-title: Use Microsoft OneDrive with a RemoteApp (preview) - Azure Virtual Desktop
-description: Learn how to use Microsoft OneDrive with a RemoteApp in Azure Virtual Desktop.
+title: Launch Microsoft OneDrive with a RemoteApp - Azure Virtual Desktop
+description: Learn how to launch Microsoft OneDrive with a RemoteApp in Azure Virtual Desktop.
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 10/11/2023
+ms.date: 11/26/2024
 ---
 
-# Use Microsoft OneDrive with a RemoteApp in Azure Virtual Desktop (preview)
+# Launch Microsoft OneDrive with a RemoteApp in Azure Virtual Desktop 
 
-> [!IMPORTANT]
-> Using Microsoft OneDrive with a RemoteApp in Azure Virtual Desktop is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+You can Launch Microsoft OneDrive alongside a RemoteApp in Azure Virtual Desktop, allowing users to access and synchronize their files while using a RemoteApp. When a user connects to a RemoteApp, OneDrive can automatically launch as a companion to the RemoteApp.
 
-You can use Microsoft OneDrive alongside a RemoteApp in Azure Virtual Desktop (preview), allowing users to access and synchronize their files while using a RemoteApp. When a user connects to a RemoteApp, OneDrive can automatically launch as a companion to the RemoteApp. This article describes how to configure OneDrive to automatically launch alongside a RemoteApp in Azure Virtual Desktop.
+In the settings for OneDrive, there's the option **Start OneDrive when I sign in to Windows**, which ordinarily starts OneDrive when a user signs in. However, this setting doesn't work with RemoteApp in Azure Virtual Desktop. Instead, you configure OneDrive to launch by configuring a registry value. You also enable an enhanced shell experience for RemoteApp sessions, offering support for default file associations, `Run/RunOnce` registry keys, and more.
 
-> [!IMPORTANT]
-> - You should only use OneDrive with a RemoteApp for testing purposes as it requires an Insider Preview build of Windows 11 for your session hosts.
->
-> - You can't use the setting **Start OneDrive automatically when I sign in to Windows** in the OneDrive preferences, which starts OneDrive when a user signs in. Instead, you need to configure OneDrive to launch by configuring a registry value, which is described in this article.
+This article describes how to configure OneDrive to automatically launch alongside a RemoteApp in Azure Virtual Desktop.
 
 ## User experience
 
-Once configured, when a user launches a RemoteApp, the OneDrive icon is integrated in the taskbar of their local Windows device. If a user launches another RemoteApp from the same host pool on the same session host, the same instance of OneDrive is used and another doesn't start.
+When a user launches a RemoteApp, OneDrive is also launched and the OneDrive icon is integrated in the taskbar of their local Windows device. If a user launches another RemoteApp from the same host pool on the same session host, it uses the same instance of OneDrive and another doesn't start.
 
 If your session hosts are joined to Microsoft Entra ID, you can [silently configure user accounts](/sharepoint/use-silent-account-configuration) so users are automatically signed in to OneDrive and start synchronizing straight away. Otherwise, users need to sign in to OneDrive on first use.
 
@@ -32,25 +27,35 @@ When a user closes or disconnects from the last RemoteApp they're using on the s
 
 ## Prerequisites
 
-Before you can use OneDrive with a RemoteApp in Azure Virtual Desktop, you need:
+Before you can use OneDrive with a RemoteApp in Azure Virtual Desktop:
 
-- A pooled host pool that is configured as a [validation environment](configure-validation-environment.md).
+- Your session hosts must be running Windows 11 Enterprise, version 24H2, or version 22H2 or 23H2 with the [2024-07 Cumulative Update for Windows 11 (KB5040442)](https://support.microsoft.com/kb/KB5040442) or later installed.
 
-- Session hosts in the host pool that:
+- If you're using FSLogix, install the latest version of FSLogix on your session hosts. For more information, see [Install FSLogix applications](/fslogix/how-to-install-fslogix).
 
-   - Are running Windows 11 Insider Preview Enterprise multi-session, version 22H2, build 25905 or later. To get Insider Preview builds for multi-session, you need to start with a non-Insider build, join session hosts to the Windows Insider Program, then install the preview build. For more information on the Windows Insider Program, see [Get started with the Windows Insider Program](/windows-insider/get-started) and [Manage Insider Preview builds across your organization](/windows-insider/business/manage-builds). Intune [doesn't support update rings with multi-session](/mem/intune/fundamentals/azure-virtual-desktop-multi-session#additional-configurations-that-arent-supported-on-windows-10-or-windows-11-enterprise-multi-session-vms). 
-   
-   - Have the latest version of FSLogix installed. For more information, see [Install FSLogix applications](/fslogix/how-to-install-fslogix).
+- Use Windows App on Windows or the Remote Desktop client on Windows to connect to a remote session. Other platforms aren't supported.
 
 ## Configure OneDrive to launch with a RemoteApp
 
-To configure OneDrive to launch with a RemoteApp in Azure Virtual Desktop, follow these steps:
+To configure OneDrive to launch with a RemoteApp in Azure Virtual Desktop, you need to enable an enhanced shell experience for RemoteApp sessions using Group Policy and set a registry value to launch OneDrive when a user connects to a RemoteApp. The Group Policy setting isn't available in Microsoft Intune.
 
 1. Download and install the latest version of the [OneDrive sync app](https://www.microsoft.com/microsoft-365/onedrive/download) per-machine on your session hosts. For more information, see [Install the sync app per-machine](/sharepoint/per-machine-installation).
 
 1. If your session hosts are joined to Microsoft Entra ID, [silently configure user accounts](/sharepoint/use-silent-account-configuration) for OneDrive on your session hosts, so users are automatically signed in to OneDrive.
 
-1. On your session hosts, set the following registry value:
+1. The Group Policy settings are only available in Windows 11, version 22H2 or 23H2 with the [2024-07 Cumulative Update for Windows 11 (KB5040442)](https://support.microsoft.com/kb/KB5040442) or later installed. You need to copy the administrative template files `C:\Windows\PolicyDefinitions\terminalserver.admx` and `C:\Windows\PolicyDefinitions\en-US\terminalserver.adml` from a session host to the same location on your domain controllers or the [Group Policy Central Store](/troubleshoot/windows-client/group-policy/create-and-manage-central-store), depending on your environment. In the file path for `terminalserver.adml` replace `en-US` with the appropriate language code if you're using a different language.
+
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
+
+1. Create or edit a policy that targets the computers providing a remote session you want to configure.
+
+1. Navigate to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Remote Session Environment**.
+
+   :::image type="content" source="media/onedrive-remoteapp/remote-session-environment-group-policy.png" alt-text="A screenshot showing the remote session environment options in the Group Policy editor." lightbox="media/onedrive-remoteapp/remote-session-environment-group-policy.png":::
+
+1. Double-click the policy setting **Enable enhanced shell experience for RemoteApp** to open it. Select **Enabled**, then select **OK**. 
+
+1. Set the following registry value:
 
    - **Key**: `HKLM\Software\Microsoft\Windows\CurrentVersion\Run`
    - **Type**: `REG_SZ`
@@ -62,12 +67,32 @@ To configure OneDrive to launch with a RemoteApp in Azure Virtual Desktop, follo
    ```powershell
    New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Name OneDrive -PropertyType String -Value '"C:\Program Files\Microsoft OneDrive\OneDrive.exe" /background' -Force
    ```
+    
+1. Ensure the side-by-side stack on the session host is version 1.0.2404.16770 or higher. To check the version, run the following command from Command Prompt or PowerShell.
+
+   ```cmd
+   qwinsta
+   ```
+
+   The output includes a line beginning with `rdp-sxs` followed by a number, where the number correlates to the version number of the side-by-side stack, as shown in the following example. You can find a list of the version numbers at [What's new in the Azure Virtual Desktop SxS Network Stack](whats-new-sxs.md).
+
+   ```output
+   SESSIONNAME               USERNAME                 ID  STATE   TYPE        DEVICE
+   services                                            0  Disc
+   console                                             1  Conn
+   rdp-tcp                                         65537  Listen
+   rdp-sxs240705700                                65538  Listen
+   ```
+
+1. Restart the session hosts to apply the changes.
 
 ## Test OneDrive with a RemoteApp
 
 To test OneDrive with a RemoteApp, follow these steps:
 
-1. Connect to a RemoteApp from the host pool and check that the OneDrive icon can be seen on the task bar of your local Windows device.
+1. Use a supported version of Windows App or the Remote Desktop client to connect to a RemoteApp from the host pool withe the session hosts you configured.
+
+1. Check that the OneDrive icon can be seen on the task bar of your local Windows device. Hover over the icon to show the tooltip and ensure it includes the word **Remote**, which differentiates it from a local instance of OneDrive.
 
 1. Check that OneDrive is synchronizing files by opening the OneDrive Action Center. Sign in to OneDrive if you weren't automatically signed in.
 

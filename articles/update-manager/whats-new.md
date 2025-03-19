@@ -5,14 +5,26 @@ ms.service: azure-update-manager
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 07/24/2024
+ms.date: 11/01/2024
 ---
 
 # What's new in Azure Update Manager
 
 [Azure Update Manager](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Azure Update Manager.
 
+## November 2024
+
+### Hotpatching (preview) on Arc-enabled machines
+
+Public preview: Azure Update Manager now supports Hotpatching on Arc enabled servers.  [Learn more](manage-hot-patching-arc-machines.md).
+
+
 ## August 2024
+
+### Support for 35 CIS images added along with 59 other images
+
+Azure Update Manager now supports CIS images along with 59 other popular images. For more information, see the [latest list of supported images](support-matrix-updates.md#custom-images).
+
 
 ### Pre and Post events
 
@@ -20,15 +32,15 @@ General Availability: Azure Update Manager now supports creating and managing pr
 
 ## July 2024
 
-### Support for Windows IoT Enterprise on Arc enabled IaaS VMs
+### Support for Windows IoT Enterprise on Arc enabled servers
 
-Public preview: Azure Update Manager now supports Windows IoT Enterprise on Arc enabled IaaS VMs. For more information, see [supported Windows IoT enterprise releases](/azure/update-manager/support-matrix?tabs=winio-arc%2Cpublic%2Cthird-party-win#support-for-check-for-updatesone-time-updateperiodic-assessment-and-scheduled-patching).
+Public preview: Azure Update Manager now supports Windows IoT Enterprise on Arc enabled servers. For more information, see [supported Windows IoT enterprise releases](/azure/update-manager/support-matrix?tabs=winio-arc%2Cpublic%2Cthird-party-win#support-for-check-for-updatesone-time-updateperiodic-assessment-and-scheduled-patching).
 
 ## June 2024
 
 ### New region support
 
-General Availability: Azure Update Manager is now supported in US Government and Microsoft Azure operated by 21Vianet. [Learn more](support-matrix.md#supported-regions).
+General Availability: Azure Update Manager is now supported in US Government and Microsoft Azure operated by 21Vianet. [Learn more](supported-regions.md).
 
 ## May 2024
 
@@ -49,7 +61,7 @@ Support for ubuntu pro 22.04 gen1 and gen2, redhat 8.8, centos-hpc 7.1 and 7.3, 
  
 ### New region support
 
-Azure Update Manager (preview) is now supported in US Government and Microsoft Azure operated by 21Vianet. [Learn more](support-matrix.md#supported-regions)
+Azure Update Manager (preview) is now supported in US Government and Microsoft Azure operated by 21Vianet. [Learn more](supported-regions.md)
 
 
 ## February 2024
@@ -78,15 +90,15 @@ Azure Update Manager allows you to create and manage pre and post events on sche
 ### Alerting (preview)
 Azure Update Manager allows you to enable alerts to address events as captured in updates data. [Learn more](manage-alerts.md).
 
-### Azure Stack HCI patching
+### Azure Local patching
 
-Azure Update Manager allows you to patch Azure Stack HCI cluster. [Learn more](/azure-stack/hci/update/azure-update-manager-23h2?toc=/azure/update-manager/toc.json&bc=/azure/update-manager/breadcrumb/toc.json)
+Azure Update Manager allows you to patch Azure Local instance. [Learn more](/azure-stack/hci/update/azure-update-manager-23h2?toc=/azure/update-manager/toc.json&bc=/azure/update-manager/breadcrumb/toc.json)
 
 ## October 2023
 
 ### Azure Migrate, Azure Backup, Azure Site Recovery VMs support
 
-Azure Update Manager now supports [specialized](../virtual-machines/linux/imaging.md#specialized-images) VMs including the VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery. [Learn more](manage-updates-customized-images.md).
+Azure Update Manager now supports [specialized](/azure/virtual-machines/linux/imaging#specialized-images) VMs including the VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery. [Learn more](manage-updates-customized-images.md).
 
 ## September 2023
 
@@ -102,7 +114,7 @@ Update management center is now rebranded as Azure Update Manager.
 
 ### New region support
 
-Azure Update Manager is now available in Canada East and Sweden Central regions for Arc-enabled servers. [Learn more](support-matrix.md#supported-regions).
+Azure Update Manager is now available in Canada East and Sweden Central regions for Arc-enabled servers. [Learn more](supported-regions.md).
 
 ### SQL Server patching
 
@@ -119,7 +131,7 @@ Dynamic scope is an advanced capability of schedule patching. You can now create
 
 ### Customized image support
 
-Update Manager now supports [generalized](../virtual-machines/linux/imaging.md#generalized-images) custom images, and a combination of offer, publisher, and SKU for Marketplace/PIR images. See the [list of supported operating systems](support-matrix.md#supported-operating-systems). 
+Update Manager now supports [generalized](/azure/virtual-machines/linux/imaging#generalized-images) custom images, and a combination of offer, publisher, and SKU for Marketplace/PIR images. See the [list of supported operating systems](support-matrix-updates.md#azure-marketplacepir-images). 
 
 ### Multi-subscription support
 
@@ -129,7 +141,7 @@ The limit on the number of subscriptions that you can manage to use the Update M
 
 ### New prerequisite for scheduled patching
 
-A new patch orchestration - **Customer Managed Schedules (Preview)** is introduced as a prerequisite to enable scheduled patching on Azure VMs. The new patch enables the *Azure-orchestrated* and *BypassPlatformSafteyChecksOnUserSchedule* VM properties on your behalf after receiving the consent. [Learn more](prerequsite-for-schedule-patching.md).
+A new patch orchestration - **Customer Managed Schedules (Preview)** is introduced as a prerequisite to enable scheduled patching on Azure VMs. The new patch enables the *Azure-orchestrated* and *BypassPlatformSafetyChecksOnUserSchedule* VM properties on your behalf after receiving the consent. [Learn more](prerequsite-for-schedule-patching.md).
 
 > [!IMPORTANT]
 > For a seamless scheduled patching experience, we recommend that for all Azure VMs, you update the patch orchestration to **Customer Managed Schedules (Preview)** by **30th June 2023**. If you fail to update the patch orchestration by **30th June 2023**, you can experience a disruption in business continuity because the schedules will fail to patch the VMs.
@@ -139,7 +151,7 @@ A new patch orchestration - **Customer Managed Schedules (Preview)** is introduc
 
 ### New region support
 
-Update Manager now supports new five regions for Azure Arc-enabled servers. [Learn more](support-matrix.md#supported-regions).
+Update Manager now supports new five regions for Azure Arc-enabled servers. [Learn more](supported-regions.md).
 
 ## October 2022
 

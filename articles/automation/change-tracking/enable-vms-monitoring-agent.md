@@ -3,8 +3,12 @@ title: Enable Azure Automation Change Tracking for single machine and multiple m
 description: This article tells how to enable the Change Tracking feature for single machine and multiple machines at scale from the Azure portal.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 06/03/2024
-ms.topic: conceptual
+ms.date: 02/18/2025
+ms.topic: how-to
+ms.service: azure-automation
+ms.author: sudhirsneha
+author: SnehaSudhirG
+zone_pivot_groups: enable-change-tracking-inventory-using-monitoring-agent
 ---
 
 # Enable Change Tracking and Inventory using Azure Monitoring Agent
@@ -17,11 +21,15 @@ This article describes how you can enable [Change Tracking and Inventory](overvi
 ## Prerequisites
 
 - An Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A [virtual machine](../../virtual-machines/windows/quick-create-portal.md) configured in the specified region.
+- A [virtual machine](/azure/virtual-machines/windows/quick-create-portal) configured in the specified region.
 
 ## Enable Change Tracking and Inventory
 
-This section provides detailed procedure on how you can enable change tracking on a single VM and multiple VMs.
+::: zone pivot="single-portal"
+
+### Enable change tracking and inventory for single VM from Azure portal
+
+This section provides detailed procedure on how you can enable change tracking on a single Azure VM and Arc-enabled VM.
 
 #### [Single Azure VM -portal](#tab/singlevm)
 
@@ -39,7 +47,34 @@ This section provides detailed procedure on how you can enable change tracking o
    It will initiate the deployment and the notification appears on the top right corner of the screen.
    
    :::image type="content" source="media/enable-vms-monitoring-agent/deployment-success-inline.png" alt-text="Screenshot showing the notification of deployment." lightbox="media/enable-vms-monitoring-agent/deployment-success-expanded.png":::
+    
+> [!NOTE]
+> - When you enable Change Tracking in the Azure portal using the Azure Monitoring Agent, the process automatically creates a Data Collection Rule (DCR). This rule will appear in the resource group with a name in the format ct-dcr-aaaaaaaaa. After the rule is created, add the required resources.
+> - It usually takes up to two to three minutes to successfully onboard and enable the virtual machine(s). After you enable a virtual machine for change tracking, you can make changes to the files, registries, or software for the specific VM.
 
+#### [Single Azure Arc VM - portal](#tab/singlearcvm)
+
+1. Sign in to [Azure portal](https://portal.azure.com). Search for and select **Machines-Azure Arc**.
+
+   :::image type="content" source="media/enable-vms-monitoring-agent/select-arc-machines-portal.png" alt-text="Screenshot showing how to select Azure Arc machines from the portal." lightbox="media/enable-vms-monitoring-agent/select-arc-machines-portal.png":::
+
+1. Select the Azure-Arc machine for which you want to enable Change Tracking.
+1. Under **Operations**, select **Change tracking** to view the change tracking and inventory page.
+1. In the **Stay up-to-date with all changes** layout, select **Enable using AMA agent (Recommended)** option and **Enable**. 
+
+   :::image type="content" source="media/enable-vms-monitoring-agent/select-change-tracking-arc-vm.png" alt-text="Screenshot showing to select change tracking option for a single Azure arc virtual machine from the portal." lightbox="media/enable-vms-monitoring-agent/select-change-tracking-arc-vm.png":::
+
+   It will initiate the deployment and the notification appears on the top right corner of the screen.
+
+---
+
+:::zone-end
+
+::: zone pivot="multiple-portal-cli"
+
+### Enable change tracking and inventory for multiple VMs using Azure portal and Azure CLI
+
+This section provides detailed procedure on how you can enable change tracking and inventory on multiple Azure VMs and Azure Arc-enabled VMs.
 
 #### [Multiple Azure VMs - portal](#tab/multiplevms)
 
@@ -52,7 +87,7 @@ This section provides detailed procedure on how you can enable change tracking o
    :::image type="content" source="media/enable-vms-monitoring-agent/select-change-tracking-multiple-vms-inline.png" alt-text="Screenshot showing how to select multiple virtual machines from the portal." lightbox="media/enable-vms-monitoring-agent/select-change-tracking-multiple-vms-expanded.png":::
 
    > [!NOTE]
-   > You can select upto 250 virtual machines at a time to enable this feature.
+   > You can select up to 250 virtual machines at a time to enable this feature.
 
 1. In **Enable Change Tracking** page, select the banner at the top of the page, **Click here to try new change tracking and inventory with Azure Monitoring Agent (AMA) experience**.
 
@@ -99,11 +134,13 @@ Follow these steps to associate the data collection rule to the Arc-enabled VMs:
    az connectedmachine extension create  --name ChangeTracking-Windows  --publisher Microsoft.Azure.ChangeTrackingAndInventory --type-handler-version 2.20  --type ChangeTracking-Windows  --machine-name XYZ --resource-group XYZ-RG  --location X --enable-auto-upgrade
    ```   
 --- 
+:::zone-end
 
->[!NOTE]
->It usually takes up to two to three minutes to successfully onboard and enable the virtual machine(s). After you enable a virtual machine for change tracking, you can make changes to the files, registries, or software for the specific VM.
+::: zone pivot="at-scale-policy"
 
-## Enable Change Tracking at scale using Azure Monitoring Agent
+### Enable Change Tracking at scale using policy
+
+This section provides detailed procedure on how you can enable change tracking and inventory at scale using policy.
 
 ### Prerequisite
 - You must [create the Data collection rule](#create-data-collection-rule).
@@ -155,15 +192,17 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
    1. Provide the **Data Collection Rule Resource id**. Learn more on [how to obtain the Data Collection Rule Resource ID after you create the Data collection rule](#create-data-collection-rule).
    1. Select **Review + create**.
 
+:::zone-end
 
 ### Create data collection rule
+
 1. Download [CtDcrCreation.json](change-tracking-data-collection-rule-creation.md) file on your machine.
 1. Go to Azure portal and in the search, enter *Deploy a custom template*.
 1. In the **Custom deployment** page > **select a template**, select **Build your own template in the editor**.
    :::image type="content" source="media/enable-vms-monitoring-agent/build-template.png" alt-text="Screenshot to get started with building a template.":::
 1. In the **Edit template**, select **Load file** to upload the *CtDcrCreation.json* file.
 1. Select **Save**.
-1. In the **Custom deployment** > **Basics** tab, provide **Subscription** and **Resource group** where you want to deploy the Data Collection Rule. The **Data Collection Rule Name** is optional. The resource group must be same as the resource group associated with the Log Analytic workspace id chosen here.
+1. In the **Custom deployment** > **Basics** tab, provide **Subscription** and **Resource group** where you want to deploy the Data Collection Rule. The **Data Collection Rule Name** is optional. The resource group must be same as the resource group associated with the Log Analytic workspace ID chosen here.
 
    :::image type="content" source="media/enable-vms-monitoring-agent/build-template-basics.png" alt-text="Screenshot to provide subscription and resource group details to deploy data collection rule.":::
    
@@ -175,6 +214,9 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
 1. After the deployment is complete, select **CtDcr-Deployment** to see the DCR Name. Use the **Resource ID** of the newly created Data Collection Rule for Change tracking and inventory deployment through policy.
  
    :::image type="content" source="media/enable-vms-monitoring-agent/deployment-confirmation.png" alt-text="Screenshot of deployment notification.":::
+
+> [!NOTE]
+> After creating the Data Collection Rule (DCR) using the Azure Monitoring Agent's change tracking schema, ensure that you don't add any Data Sources to this rule. This can cause Change Tracking and Inventory to fail. You must only add new Resources in this section.
 
 ## Next steps
 

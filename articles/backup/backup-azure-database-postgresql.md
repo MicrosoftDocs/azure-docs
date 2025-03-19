@@ -2,15 +2,15 @@
 title: Back up Azure Database for PostgreSQL 
 description: Learn about Azure Database for PostgreSQL backup with long-term retention
 ms.topic: how-to
-ms.date: 06/19/2024
+ms.date: 03/18/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Azure Database for PostgreSQL backup with long-term retention
 
-This article describes how to back up Azure Database for PostgreSQL server. Before you begin, review the [supported configurations, feature considerations and known limitations](./backup-azure-database-postgresql-support-matrix.md)
+This article describes how to back up Azure Database for PostgreSQL server. Before you begin, review the [supported configurations, feature considerations, known limitations](./backup-azure-database-postgresql-support-matrix.md), and [frequently asked questions](/azure/backup/backup-azure-database-postgresql-server-faq).
 
 ## Configure backup on Azure PostgreSQL databases
 
@@ -39,7 +39,7 @@ You can configure backup on multiple databases across multiple Azure PostgreSQL 
    :::image type="content" source="./media/backup-azure-database-postgresql/choose-an-azure-postgresql-server-inline.png" alt-text="Screenshot showing how to choose an Azure PostgreSQL server." lightbox="./media/backup-azure-database-postgresql/choose-an-azure-postgresql-server-expanded.png":::
 
 
-1. **Assign Azure Key Vault** that stores the credentials to connect to the selected database. You should have already [created the relevant secrets](#create-secrets-in-the-key-vault) in the key vault. To assign the key vault at the individual row level, click **Select a key vault and secret**.. You can also assign the key vault by multi-selecting the rows and click **Assign key vault** in the top menu of the grid. 
+1. **Assign Azure Key Vault** that stores the credentials to connect to the selected database. You should have already [created the relevant secrets](#create-secrets-in-the-key-vault) in the key vault. To assign the key vault at the individual row level, click **Select a key vault and secret**. You can also assign the key vault by multi-selecting the rows and click **Assign key vault** in the top menu of the grid. 
 
    :::image type="content" source="./media/backup-azure-database-postgresql/assign-azure-key-vault-inline.png" alt-text="Screenshot showing how to assign Azure Key Vault." lightbox="./media/backup-azure-database-postgresql/assign-azure-key-vault-expanded.png"::: 
 
@@ -89,9 +89,9 @@ You can configure backup on multiple databases across multiple Azure PostgreSQL 
 
    :::image type="content" source="./media/backup-azure-database-postgresql/user-credentials-to-run-test-connection-inline.png" alt-text="Screenshot showing how to provide user credentials to run the test." lightbox="./media/backup-azure-database-postgresql/user-credentials-to-run-test-connection-expanded.png":::      
 
-1. Keep the records with backup readiness as Success to proceed to last step of submitting the operation.
+1. Keep the records with back-up readiness as Success to proceed to last step of submitting the operation.
 
-   :::image type="content" source="./media/backup-azure-database-postgresql/backup-readiness-as-success-inline.png" alt-text="Screenshot showing the backup readiness is successful." lightbox="./media/backup-azure-database-postgresql/backup-readiness-as-success-expanded.png":::      
+   :::image type="content" source="./media/backup-azure-database-postgresql/backup-readiness-as-success-inline.png" alt-text="Screenshot showing the back-up readiness is successful." lightbox="./media/backup-azure-database-postgresql/backup-readiness-as-success-expanded.png":::      
 
    :::image type="content" source="./media/backup-azure-database-postgresql/review-backup-configuration-details-inline.png" alt-text="Screenshot showing the backup configuration review page." lightbox="./media/backup-azure-database-postgresql/review-backup-configuration-details-expanded.png":::      
 
@@ -107,7 +107,7 @@ You can create a Backup policy on the go during the configure backup flow. Alter
 
    :::image type="content" source="./media/backup-azure-database-postgresql/enter-name-for-new-policy-inline.png" alt-text="Screenshot showing the process to enter a name for the new policy." lightbox="./media/backup-azure-database-postgresql/enter-name-for-new-policy-expanded.png":::
 
-1. Define the Backup schedule.
+1. Define the Back-up schedule.
 
    Currently, only Weekly backup option is available. However, you can schedule the backups on multiple days of the week.
 
@@ -170,11 +170,11 @@ Azure Backup service creates a job for scheduled backups or if you trigger on-de
 
    It shows the jobs dashboard with operation and status for the past seven days.
 
-   :::image type="content" source="./media/backup-azure-database-postgresql/postgre-jobs-dashboard-inline.png" alt-text="Screenshot showing the Jobs dashboard." lightbox="./media/backup-azure-database-postgresql/postgre-jobs-dashboard-expanded.png":::
+   :::image type="content" source="./media/backup-azure-database-postgresql/postgre-jobs-dashboard.png" alt-text="Screenshot showing the Jobs dashboard." lightbox="./media/backup-azure-database-postgresql/postgre-jobs-dashboard.png":::
 
 1. To view the status of the backup job, select **View all** to see ongoing and past jobs of this backup instance.
 
-   :::image type="content" source="./media/backup-azure-database-postgresql/postgresql-jobs-view-all-inline.png" alt-text="Screenshot showing to select the View all option." lightbox="./media/backup-azure-database-postgresql/postgresql-jobs-view-all-expanded.png":::
+   :::image type="content" source="./media/backup-azure-database-postgresql/postgresql-jobs-view-all.png" alt-text="Screenshot showing to select the View all option." lightbox="./media/backup-azure-database-postgresql/postgresql-jobs-view-all.png":::
 
 1. Review the list of backup and restore jobs and their status. Select a job from the list of jobs to view job details.
 

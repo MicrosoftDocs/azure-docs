@@ -21,7 +21,7 @@ You can find the completed code for this tutorial on [GitHub](https://github.com
 -	An Azure Communication Services phone number. [Get a phone number](../../quickstarts/telephony/get-phone-number.md). You need to [verify your phone number](../../quickstarts/sms/apply-for-toll-free-verification.md) so it can send messages with URLs. 
 -	Deployed [AzUrlShortener](https://github.com/microsoft/AzUrlShortener). Click [Deploy to Azure](https://github.com/microsoft/AzUrlShortener/wiki/How-to-deploy-your-AzUrlShortener) button for quick deploy.
     -  [*Optional*] Deploy the [Admin web app](https://github.com/microsoft/AzUrlShortener/blob/main/src/Cloud5mins.ShortenerTools.TinyBlazorAdmin/README.md) to manage and monitor links in UI.
--	For this tutorial, SMS requests are routed to an Azure Function. You could always use an existing service, different framework like express or just run the tutorial as a Node.JS console app. To follow this tutorial with an Azure Function, see instructions to set it up: [Azure Function for TypeScript](/azure/azure-functions/create-first-function-vs-code-typescript).
+-	For this tutorial, SMS requests are routed to an Azure Function. You could always use an existing service, different framework like express or just run the tutorial as a Node.js console app. To follow this tutorial with an Azure Function, see instructions to set it up: [Azure Function for TypeScript](/azure/azure-functions/create-first-function-vs-code-typescript).
 
 ## Architecture overview
 
@@ -171,7 +171,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
 ## Test locally
 
 >[!NOTE]
-> You need to [verify your phone number](../../quickstarts/sms/apply-for-toll-free-verification.md) to send SMS messages with URLs. Once your verification applications is set to pending state (1-2 days), the phone number to be enabled to send URLs. The full verification will take 5-6 weeks. For more information on toll-free number verification, see [Toll Free Veritifcation FAQ](../../concepts/sms/sms-faq.md#toll-free-verification).
+> You need to [verify your phone number](../../quickstarts/sms/apply-for-toll-free-verification.md) to send SMS messages with URLs. Once your verification applications is set to pending state (1-2 days), the phone number to be enabled to send URLs. The full verification will take 5-6 weeks. For more information on toll-free number verification, see [Toll Free Verification FAQ](../../concepts/sms/sms-faq.md#toll-free-verification).
 
 You can now run your Azure Function locally by pressing `F5` in Visual Studio Code or by running the following command in the terminal:
 

@@ -3,6 +3,8 @@ metadata:
   title: Azure NAT Gateway frequently asked questions
   description: Answers to common questions about using Azure NAT Gateway.
   ms.topic: faq
+  ms.service: azure-nat-gateway
+  ms.date: 12/10/2024
 
 title: Frequently asked questions for Azure NAT Gateway
 summary: |
@@ -21,7 +23,7 @@ sections:
 
       - question: What are the known limits of Azure NAT Gateway?
         answer: |
-          See [Azure NAT Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md#nat-gateway-limits). 
+          See [Azure NAT Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-nat-gateway-limits). 
 
       - question: How many NAT gateway resources are allowed per subscription?
         answer: | 
@@ -41,10 +43,11 @@ sections:
 
       - question: How can I obtain logs for my NAT gateway resource?
         answer: |
-          Network security group (NSG) flow logs can be used to monitor traffic flow from a resource in a subnet/virtual network by using a NAT gateway to go outbound.
-          
-          Use Azure Security Center and follow the network protection recommendations to help secure your Azure network resources. Enable NSG flow logs and send the logs to an Azure Storage account for auditing. You can also send the flow logs to a Log Analytics workspace and then use Traffic Analytics to provide insights into traffic patterns in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity, identify hot spots and security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
+          [Virtual network (VNet) flow logs](../network-watcher/vnet-flow-logs-overview.md) are a feature of Azure Network Watcher that logs information about IP traffic flowing through a virtual network. Flow data from virtual network flow logs is sent to Azure Storage. From there, you can access the data and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS).
 
+          VNet flow logs provide connection information for your virtual machines. The connection information contains the source IP and port and the destination IP and port and the state of the connection. The traffic flow direction and the size of the traffic in number of packets and bytes sent is also logged. The source IP and port specified in the VNet flow log is for the virtual machine and not the NAT gateway.
+          
+          For general guidance to create and manage virtual network flow logs, see [Manage virtual network flow logs](../network-watcher/vnet-flow-logs-portal.md).
       - question: How do I delete a NAT gateway resource?
         answer: |
           To delete a NAT gateway resource, the resource must first be disassociated from the subnet. After the NAT gateway resource is disassociated from all subnets, it can be deleted. For guidance, see [Remove a NAT gateway resource from an existing subnet and delete the resource](./manage-nat-gateway.md?tabs=manage-nat-portal#remove-a-nat-gateway-from-an-existing-subnet-and-delete-the-resource).
@@ -93,6 +96,18 @@ sections:
       - question: What does it mean when I see an IP being used to connect outbound that's different from my NAT gateway public IP?
         answer: |
           There are a few possible reasons for why you could be seeing a different IP being used to connect outbound than the one associated to your NAT gateway. To help troubleshoot, refer to the [Azure NAT Gateway connectivity troubleshooting guide](/azure/nat-gateway/troubleshoot-nat-connectivity#nat-gateway-public-ip-isnt-used-to-connect-outbound).
+
+      - question: Does NAT Gateway work with active FTP mode?
+        answer: |
+         No, NAT Gateway isn't compatible with active FTP mode. When NAT gateway is configured, the client channel and data channel for active FTP mode will use different IPs, so the FTP server will see the connection as invalid. For more information, see the NAT Gateway connectivity troubleshooting guide on [connection failures for FTP active or passive mode](/azure/nat-gateway/troubleshoot-nat-connectivity#connection-failures-at-ftp-server-for-active-or-passive-mode). 
+
+      - question: Does NAT Gateway work with Passive FTP mode?
+        answer: |
+          NAT Gateway can be used with passive FTP mode, but only when one public IP address is configured to the NAT gateway. FTP passive mode doesn't work with a NAT Gateway configured with either a public IP prefix or multiple public IP addresses. When a NAT gateway with multiple public IP addresses sends traffic outbound, it randomly selects one of its public IP addresses for the source IP address. FTP passive mode fails when data and control channels use different source IP addresses. For more information, see the NAT Gateway connectivity troubleshooting guide on [connection failures for FTP active or passive mode](/azure/nat-gateway/troubleshoot-nat-connectivity#connection-failures-at-ftp-server-for-active-or-passive-mode).
+
+      - question: Can I use NAT Gateway to connect to a storage account public endpoint in the same region?
+        answer: |
+          No, NAT gateway public IPs will not be used to connect to storage accounts in the same region. Services deployed in the same region as an Azure storage account use private Azure IP addresses for communication. You can't restrict access to specific Azure services based on their public outbound IP address range. For more information, see restrictions for [IP network rules](/azure/storage/common/storage-network-security?tabs=azure-portal#restrictions-for-ip-network-rules).
           
   - name: Traffic routes
     questions:
@@ -132,7 +147,7 @@ sections:
       
       - question: Can public IP addresses with DDoS protection enabled be used with a NAT gateway? 
         answer: |
-          No, a NAT gateway doesn't support public IP addresses with DDoS protection enabled. For more information, see [DDoS limitations](../ddos-protection/ddos-protection-sku-comparison.md#limitations). 
+          No, a NAT gateway doesn't support public IP addresses with DDoS protection enabled. DDoS protected IPs are generally more critical for inbound traffic, since most DDoS attacks are designed to overwhelm the target's resources by flooding them with a large volume of incoming traffic. For more information on DDoS protected IPs, see [DDoS limitations](../ddos-protection/ddos-protection-sku-comparison.md#limitations).
       
       - question: Can public IPs of an existing NAT gateway be changed? 
         answer: |
@@ -191,6 +206,12 @@ sections:
           - To upgrade a basic public IP to standard, see [Upgrade a public IP address](../virtual-network/ip-services/public-ip-upgrade-portal.md).
           - To upgrade a basic public IP with an attached VM to standard, see [Upgrade a basic public IP address with an attached VM](../virtual-network/ip-services/public-ip-upgrade-vm.md).
       
+  - name: Azure NAT Gateway and default outbound access
+    questions:
+      - question: Is there any downtime expected when I add NAT gateway to my subnet where I have default outbound access?
+        answer: |
+          No, there is no downtime when adding NAT gateway to a subnet where default outbound access is being used. After NAT gateway is added to the subnet, all new connections will start using NAT gateway instead of default outbound access. Any existing connections with default outbound access will persist until the connections are closed.
+      
   - name: Connection timeouts and timers
     questions:
       - question: What is the idle timeout for a NAT gateway?
@@ -213,6 +234,10 @@ sections:
         answer: |
           Yes. For more information about NAT gateway integration with Azure Kubernetes Service, see [Managed NAT Gateway](/azure/aks/nat-gateway).
 
+      - question: When is NAT gateway used to connect from my AKS cluster to the AKS API server?
+        answer: |
+          To manage an AKS cluster, the cluster interacts with its API server. In non-private clusters, API server cluster traffic is routed and processed through the cluster's [outbound type](/azure/aks/egress-outboundtype#outbound-types-in-aks). When the cluster outbound type is set to NAT Gateway, the API server traffic is processed as public traffic through the NAT gateway. To prevent API server traffic from being processed as public traffic, consider using a [private cluster](/azure/aks/private-clusters) or use the [API Server VNet Integration](/azure/aks/api-server-vnet-integration) feature (in preview).
+      
       - question: Can I use a NAT gateway with Azure Firewall?
         answer: |
           Yes, a NAT gateway can be used with Azure Firewall. When Azure Firewall is used with a NAT gateway, it should be in a zonal configuration. A NAT gateway works with a zone-redundant firewall, but we don't recommend the deployment at this time. For more information about NAT gateway integration with Azure Firewall, see [Scale SNAT ports with a NAT gateway](../firewall/integrate-with-nat-gateway.md).

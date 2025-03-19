@@ -1,0 +1,67 @@
+items:
+  - name: De-identification service documentation
+    href: index.yml
+  - name: Overview
+    expanded: true
+    items:
+      - name: What is the de-identification service?
+        href: overview.md
+      - name: Transparency Note
+        href: transparency-note.md
+  - name: Quickstarts
+    expanded: true
+    items:
+      - name: Portal
+        href: quickstart.md
+      - name: ARM template
+        displayName: ARM,Resource Manager,Template
+        href: quickstart-arm.md
+      - name: Bicep
+        href: quickstart-bicep.md
+        displayName: Resource Manager,ARM,template
+      - name: Azure CLI
+        href: quickstart-azure-cli.md
+        displayName: Resource Manager,Azure CLI, az deidservice
+      - name: Azure PowerShell
+        href: quickstart-powershell.md
+        displayName: Resource Manager
+      - name: Azure Health De-identification client library for .NET
+        href: quickstart-sdk-net.md
+  - name: Tutorials
+    expanded: true
+    items:
+      - name: Configure Azure Storage to de-identify documents
+        href: configure-storage.md
+      - name: Customize format of redacted text during de-identification
+        href: redaction-format.md
+  - name: How-to
+    expanded: true
+    items:
+      - name: Configure private endpoints
+        href: configure-private-endpoints.md
+      - name: Use managed identities
+        href: managed-identities.md
+      - name: Use Azure role-based access control
+        href: manage-access-rbac.md
+  - name: Concepts
+    expanded: true
+    items:
+      - name: Monitor the de-identification service
+        href: monitor-deidentification-service.md
+      - name: Reliability
+        href: /azure/reliability/reliability-health-data-services-deidentification
+  - name: Reference
+    expanded: true
+    items:
+      - name: REST API
+        href: /rest/api/healthdata
+      - name: .NET SDK
+        href: /dotnet/api/overview/azure/healthdeidentification
+      - name: Python SDK
+        href: /python/api/overview/azure/health-deidentification
+      - name: Java SDK
+        href: /java/api/overview/azure/health-deidentification
+      - name: JavaScript SDK
+        href: /javascript/api/overview/azure/health-deidentification
+      - name: De-identification service monitoring data reference
+        href: monitor-deidentification-service-reference.md

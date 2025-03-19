@@ -8,7 +8,7 @@ ms.devlang: csharp
 
 # Use ephemeral OS disk nodes for Azure Batch pools
 
-Some Azure virtual machine (VM) series support the use of [ephemeral OS disks](../virtual-machines/ephemeral-os-disks.md), which create the OS disk on the node virtual machine local storage. The default Batch pool configuration uses [Azure managed disks](../virtual-machines/managed-disks-overview.md) for the node OS disk, where the managed disk is like a physical disk, but virtualized and persisted in remote Azure Storage.
+Some Azure virtual machine (VM) series support the use of [ephemeral OS disks](/azure/virtual-machines/ephemeral-os-disks), which create the OS disk on the node virtual machine local storage. The default Batch pool configuration uses [Azure managed disks](/azure/virtual-machines/managed-disks-overview) for the node OS disk, where the managed disk is like a physical disk, but virtualized and persisted in remote Azure Storage.
 
 For Batch workloads, the main benefits of using ephemeral OS disks are reduced costs associated with pools, the potential for faster node start time, and improved application performance due to better OS disk performance. When choosing whether ephemeral OS disks should be used for your workload, consider the following impacts:
 
@@ -24,9 +24,9 @@ For Batch workloads, the main benefits of using ephemeral OS disks are reduced c
 
 ## VM series support
 
-To determine whether a VM series supports ephemeral OS disks, check the documentation for each VM instance. For example, the [Ddv4 and Ddsv4-series](../virtual-machines/ddv4-ddsv4-series.md) supports ephemeral OS disks.
+To determine whether a VM series supports ephemeral OS disks, check the documentation for each VM instance. For example, the [Ddv4 and Ddsv4-series](/azure/virtual-machines/ddv4-ddsv4-series) supports ephemeral OS disks.
 
-Alternately, you can programmatically query to check the 'EphemeralOSDiskSupported' capability. An example PowerShell cmdlet to query this capability is provided in the [ephemeral OS disk frequently asked questions](../virtual-machines/ephemeral-os-disks-faq.md).
+Alternately, you can programmatically query to check the 'EphemeralOSDiskSupported' capability. An example PowerShell cmdlet to query this capability is provided in the [ephemeral OS disk frequently asked questions](/azure/virtual-machines/ephemeral-os-disks-faq).
 
 ## Create a pool that uses ephemeral OS disks
 
@@ -67,6 +67,6 @@ virtualMachineConfiguration.OSDisk.EphemeralOSDiskSettings.Placement = DiffDiskP
 
 ## Next steps
 
-- See the [Ephemeral OS Disks FAQ](../virtual-machines/ephemeral-os-disks-faq.md).
+- See the [Ephemeral OS Disks FAQ](/azure/virtual-machines/ephemeral-os-disks-faq).
 - Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
 - Learn about [costs that may be associated with Azure Batch workloads](budget.md).

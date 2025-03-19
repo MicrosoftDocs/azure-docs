@@ -145,8 +145,7 @@ To learn more about how scaling works, see [Event-driven scaling in Azure Functi
 
 Functions in a Consumption plan are limited to 10 minutes for a single execution. In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make the duration unbounded for Premium plan apps, with the following limitations:
 
-+ Platform upgrades can trigger a managed shutdown and halt the function execution.
-+ Platform outages can cause an unhandled shutdown and halt the function execution.
++ Platform upgrades can trigger a managed shutdown and halt the function execution with a grace period of 10 minutes.
 + There's an idle timer that stops the worker after 60 minutes with no new executions.
 + [Scale-in behavior](event-driven-scaling.md#scale-in-behaviors) can cause worker shutdown after 60 minutes.
 + [Slot swaps](functions-deployment-slots.md) can terminate executions on the source and target slots during the swap.
@@ -249,11 +248,12 @@ These are the currently supported maximum scale-out values for a single plan in 
 |Canada Central| 100 | 100 |
 |Central India| 100 | 20 |
 |Central US| 100 | 100 |
-|China East 2| 100 | 20 |
-|China North 2| 100 | 20 |
+|China East 2| 20 | 20 |
+|China North 2| 20 | 20 |
+|China North 3| 20 | 20 |
 |East Asia| 100 | 20 |
 |East US | 100 | 100 |
-|East US 2| 100 | 100 |
+|East US 2| 80 | 100 |
 |France Central| 100 | 60 |
 |Germany West Central| 100 | 20 |
 |Israel Central| 100 | 20 |
@@ -278,9 +278,9 @@ These are the currently supported maximum scale-out values for a single plan in 
 |UAE North| 100 | 20 |
 |UK South| 100 | 100 |
 |UK West| 100 | 20 |
-|USGov Arizona| 100 | 20 |
-|USGov Texas| 100 | Not Available |
-|USGov Virginia| 100 | 20 |
+|USGov Arizona| 20 | 20 |
+|USGov Texas| 20 | Not Available |
+|USGov Virginia| 80 | 20 |
 |West Central US| 100 | 20 |
 |West Europe| 100 | 100 |
 |West India| 100 | 20 |

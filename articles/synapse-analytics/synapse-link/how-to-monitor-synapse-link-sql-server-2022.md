@@ -5,7 +5,7 @@ author: shaween18
 ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
-ms.date: 11/10/2022
+ms.date: 10/23/2024
 ms.author: sbahadur
 ms.reviewer: imotiwala, yexu
 ---
@@ -55,8 +55,6 @@ You can monitor the status of your Azure Synapse Link connection, see which tabl
 
 1. After clicking on your link connection, you'll see the tables and their corresponding table-level metrics that summarize a few details about the tables that you're replicating over in your link connection.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/studio-monitor-show-all-tables.png" alt-text="Screenshot that shows the details of each of the tables under a particular Azure Synapse Link connection." lightbox="../media/connect-synapse-link-sql-database/studio-monitor-show-all-tables.png":::
-
 1. The table-level connection grid contains the following columns: 
        
     | **Column Name** | **Description** |
@@ -67,7 +65,8 @@ You can monitor the status of your Azure Synapse Link connection, see which tabl
     | Link table ID | ID of the table in the link connection. *Helpful when troubleshooting any issues and contacting Microsoft support. |
     | Processed rows | Row counts processed by Synapse Link for SQL |
     | Processed data volume | Data volume in bytes processed by Synapse Link for SQL |
-    | Time of last processed data | Time when last processed change data arrived in the landing zone (Month, Date, Year, HH:MM:SS AM/PM) |
+    | Time of last processed data | Time when last processed change data arrived in data warehouse (Month, Date, Year, HH:MM:SS AM/PM) |
+    | Time of last data commit on source store | Time when last processed change data arrived in the landing zone (Month, Date, Year, HH:MM:SS AM/PM) |
 
 1. You need to manually select the **Refresh** button to refresh the list of tables in the link connections and their corresponding monitoring details. Autorefresh is currently not supported.
    :::image type="content" source="../media/connect-synapse-link-sql-database/studio-monitor-refresh-tables.png" alt-text="Screenshot that shows where to press the Refresh button to refresh the statuses and details of the tables under a particular Azure Synapse Link connection.":::
@@ -229,6 +228,6 @@ Now let’s step through how we can see logs for our Azure Synapse Link connecti
 
 If you're using a database other than a SQL Server 2022 instance, see:
 
-* [Configure Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/configure-synapse-link.md?context=/azure/synapse-analytics/context/context)
+* [Configure Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/configure-synapse-link?context=/azure/synapse-analytics/context/context)
 * [Configure Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/azure-synapse-link-synapse?context=/azure/synapse-analytics/context/context)
 * [Get started with Azure Synapse Link for Azure SQL Database](connect-synapse-link-sql-database.md)

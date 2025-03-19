@@ -16,16 +16,20 @@ The following comparison matrix shows basic functionality, and comparison of mig
 
 ## Supported Azure services
 
-|    | [Atempo](https://www.atempo.com/) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
-|--- |---------------------------------------------------|---------------------------------------------------|---------------------------------------|
-|  **Solution name**  | [Miria](https://www.atempo.com/solutions/miria-migration-for-hybrid-nas-and-file-storages/)|       [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    |
-| **Support provided by**             | [Atempo](https://www.atempo.com/support-en/contacting-support/)   | [Data Dynamics](https://ddsupport.datadynamicsinc.com/)<sub>1</sub> | [Komprise](https://komprise.freshdesk.com/support/home)<sub>1</sub> |
-| **Azure Files support (all tiers)** | Yes   | Yes            | Yes                            |
-| **Azure NetApp Files support**      | Yes   | Yes            | Yes                            |
-| **Azure Blob Hot / Cool support**   | Yes   | Yes            | Yes                            |
-| **Azure Blob Archive tier support** | Yes   | No             | Yes                            |
-| **Azure Data Lake Storage support** | No   | Yes             | Yes                           |
-| **Supported Sources**      | Any NAS, S3, PFS, and Swift   | Any NAS, and S3 | Any NAS, Cloud File Storage, or S3                 |
+|    | [Atempo](https://www.atempo.com/) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |[Cirrus Data](https://www.cirrusdata.com/) |
+|--- |---------------------------------------------------|---------------------------------------------------|---------------------------------------| -------- |
+|  **Solution name**| [Miria](https://www.atempo.com/solutions/miria-migration-for-hybrid-nas-and-file-storages/)|     [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview%E2%80%8B) |[Cirrus Migrate Cloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cirrusdatasolutionsinc1618222951068.cirrus-migrate-cloud-sponsored-by-azure?tab=Overview)|
+| **Support provided by**             | [Atempo](https://www.atempo.com/support-en/contacting-support/)   | [Data Dynamics](https://ddsupport.datadynamicsinc.com/)<sub>1</sub> | [Komprise](https://komprise.freshdesk.com/support/home)<sub>1</sub> |[Cirrus Data](https://customer.cirrusdata.com/)|
+| **Azure Files support (all tiers)** | Yes   | Yes            | Yes| No|
+| **Azure NetApp Files support**      | Yes   | Yes            | Yes| No|
+| **Azure Blob Hot / Cool support**   | Yes   | Yes            | Yes | No|
+| **Azure Blob Archive tier support** | Yes   | No             | Yes| No|
+| **Azure Data Lake Storage support** | No   | Yes             | Yes | No|
+| **Azure Block storage support** | No| No| No| Yes|
+| **Supported Sources**      | Any NAS, S3, PFS, and Swift   | Any NAS, and S3 | Any NAS, Cloud File Storage, or S3 |Any Block storage               |
+
+> [!TIP]
+>  As Cirrus Data specializes in SAN / Block data migrations, we have omitted them from the remainder of this document, which compares File data migration features. For more information about Cirrus Data and their Migrate Cloud solution, please review the [Cirrus Data getting Started Guide](/azure/storage/solution-integration/validated-partners/data-management/cirrus-data-migration-guide).
 
 ## Supported protocols (source / destination)
 
@@ -76,7 +80,7 @@ The following comparison matrix shows basic functionality, and comparison of mig
 
 |    | [Atempo](https://www.atempo.com/) | [Data Dynamics](https://ddsupport.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
 |--- |---------------------------------------------------|---------------------------------------------------|---------------------------------------|
-|  **Solution name**  | [Miria](https://www.atempo.com/solutions/miria-migration-for-hybrid-nas-and-file-storages/)|       [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    |
+|  **Solution name**  | [Miria](https://www.atempo.com/solutions/miria-migration-for-hybrid-nas-and-file-storages/)| [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview%E2%80%8B)    |
 | **Capacity**                        | Yes | Yes | Yes            |
 | **# of files / folders**            | Yes | Yes | Yes            |
 | **Age distribution over time**      | Yes | Yes | Yes            |
@@ -89,7 +93,7 @@ The following comparison matrix shows basic functionality, and comparison of mig
 
 |    | [Atempo](https://www.atempo.com/) | [Data Dynamics](https://ddsupport.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
 |--- |---------------------------------------------------|---------------------------------------------------|---------------------------------------|
-|  **Solution name**  | [Miria](https://www.atempo.com/solutions/miria-migration-for-hybrid-nas-and-file-storages/)|       [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    |
+|  **Solution name**  | [Miria](https://www.atempo.com/solutions/miria-migration-for-hybrid-nas-and-file-storages/)|       [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview%E2%80%8B)    |
 | **BYOL**             | Yes | Yes | Yes |
 | **Azure Commitment** | No | Yes | Yes |
 

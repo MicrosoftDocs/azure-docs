@@ -1,12 +1,12 @@
 ---
 title: High availability for Azure Cache for Redis
 description: Learn about Azure Cache for Redis high availability features and options
-author: flang-msft
 
-ms.service: azure-cache-redis
+
+
 ms.topic: conceptual
 ms.date: 08/05/2024
-ms.author: franlanglois
+
 ms.custom: references_regions
 ---
 # High availability and disaster recovery
@@ -20,7 +20,7 @@ Various high availability options are available in the Standard, Premium, and En
 | Option | Description | Availability | Standard | Premium | Enterprise |
 | ------------------- | ------- | ------- | :------: | :---: | :---: |
 | [Standard replication](#standard-replication-for-high-availability)| Dual-node replicated configuration in a single data center with automatic failover | 99.9% (see [details](https://azure.microsoft.com/support/legal/sla/cache/v1_1/)) |Yes|Yes|Yes|
-| [Zone redundancy](#zone-redundancy) | Multi-node replicated configuration across Availability Zones, with automatic failover | 99.9% in Premium; 99.99% in Enterprise (see [details](https://azure.microsoft.com/support/legal/sla/cache/v1_1/)) |No|Yes|Yes|
+| [Zone redundancy](#zone-redundancy) | Multi-node replicated configuration across Availability Zones, with automatic failover | 99.9% in Premium; 99.99% in Enterprise (see [details](https://azure.microsoft.com/support/legal/sla/cache/v1_1/)) |Yes|Yes|Yes|
 | Geo-replication | Linked cache instances in two regions, with user-controlled failover | Premium; Enterprise (see [details](https://azure.microsoft.com/support/legal/sla/cache/v1_1/)) |No| [Passive](#passive-geo-replication) | [Active](#active-geo-replication) |
 | [Import/Export](#importexport) | Point-in-time snapshot of data in cache.  | 99.9% (see [details](https://azure.microsoft.com/support/legal/sla/cache/v1_1/)) |No|Yes|Yes|
 | [Persistence](#persistence) | Periodic data saving to storage account.  | 99.9% (see [details](https://azure.microsoft.com/support/legal/sla/cache/v1_1/)) |No|Yes|Preview|
@@ -61,16 +61,16 @@ Also, Azure Cache for Redis provides more replica nodes in the Premium tier. A [
 
 ## Zone redundancy
 
-Applicable tiers: **Standard (preview)**, **Premium (preview)**, **Enterprise**, **Enterprise Flash**
+Applicable tiers: **Standard**, **Premium**, **Enterprise**, **Enterprise Flash**
 
 Recommended for: **High availability**, **Disaster recovery - intra region**
 
-Azure Cache for Redis supports zone redundant configurations in the Standard (preview), Premium (preview), and Enterprise tiers. A [zone redundant cache](cache-how-to-zone-redundancy.md) can place its nodes across different [Azure Availability Zones](../reliability/availability-zones-overview.md) in the same region. It eliminates data center or Availability Zone outage as a single point of failure and increases the overall availability of your cache.
+Azure Cache for Redis supports zone redundant configurations in the Standard, Premium, and Enterprise tiers. A [zone redundant cache](cache-how-to-zone-redundancy.md) can place its nodes across different [Azure Availability Zones](../reliability/availability-zones-overview.md) in the same region. It eliminates data center or Availability Zone outage as a single point of failure and increases the overall availability of your cache.
 
 If a cache is configured to use two or more zones as described earlier in the article, the cache nodes are created in different zones. When a zone goes down, cache nodes in other zones are available to keep the cache functioning as usual.
 
 > [!IMPORTANT]
-> You can now enable _automatic zone allocation_ for all caches in applicable tiers and regions. For more information, see [Enable zone redundancy for Azure Cache for Redis](cache-how-to-zone-redundancy.md).
+> Azure Cache For Redis by default creates zone redundant caches for Premium, Standard Tiers using _Automatic_Zonal_Allocation_ in regions that support zones. For more information, see [Enable zone redundancy for Azure Cache for Redis](cache-how-to-zone-redundancy.md). 
 
 ### Premium tier
 
@@ -99,19 +99,21 @@ When a data node becomes unavailable or a network split happens, a failover simi
 
 ### Regional availability
 
-Zone-redundant Premium tier caches are available in the following regions:
+Zone-redundant Premium, Standard tier caches are available in the following regions:
 
 | Americas | Europe | Middle East | Africa | Asia Pacific |
 |---|---|---|---|---|
 | Brazil South | France Central | Qatar Central | South Africa North | Australia East |
-| Canada Central | Germany West Central | | | Central India |
-| Central US | North Europe | | | Japan East |
-| East US | Norway East | | | Korea Central |
-| East US 2 | UK South | | | Southeast Asia |
-| South Central US | West Europe | | | East Asia |
-| US Gov Virginia | Sweden Central | | | China North 3 |
-| West US 2 | Switzerland North | | | |
-| West US 3 | Poland Central | | | |
+| Canada Central | Italy North | UAE North | | Central India |
+| Central US |  Germany West Central | Israel Central | | Japan East |
+| East US | Norway East | | | |
+| East US 2 | North Europe  | | | Southeast Asia |
+| South Central US | UK South | | | East Asia |
+| US Gov Virginia | West Europe  | | | China North 3 |
+| West US 2 | Sweden Central | | |Korea Central  | 
+| West US 3 | Switzerland North | | | New Zealand North |
+| Mexico Central | Poland Central ||||
+||Spain Central ||||
 
 Zone-redundant Enterprise and Enterprise Flash tier caches are available in the following regions:
 
@@ -130,7 +132,7 @@ Zone-redundant Enterprise and Enterprise Flash tier caches are available in the 
 
 #### Availability zone redeployment and migration
 
-Currently, the only way to convert your cache from a non-AZ configuration to an AZ configuration is to redeploy the cache. To learn how to redeploy your current cache, see [Migrate an Azure Cache for Redis instance to availability zone support](/azure/availability-zones/migrate-cache-redis).
+In the Standard and Premium tiers, you can upgrade an existing resource to use zone redundancy. To learn how to upgrade your current cache, see [Migrate an Azure Cache for Redis instance to availability zone support](/azure/reliability/migrate-cache-redis).
 
 ## Persistence
 
@@ -162,7 +164,7 @@ Applicable tiers: **Premium**
 
 Recommended for: **Disaster recovery - single region**
 
-[Geo-replication](cache-how-to-geo-replication.md) is a mechanism for linking two or more Azure Cache for Redis instances, typically spanning two Azure regions. Geo-replication is designed mainly for cross-region disaster recovery. Two Premium tier cache instances are connected through geo-replication in a way that provides reads and writes to your primary cache, and that data is replicated to the secondary cache.
+[Geo-replication](cache-how-to-geo-replication.md) is a mechanism for linking two Azure Cache for Redis instances, typically spanning two Azure regions. Geo-replication is designed mainly for cross-region disaster recovery. Two Premium tier cache instances are connected through geo-replication in a way that provides reads and writes to your primary cache, and that data is replicated to the secondary cache.
 
 For more information on how to set it up, see [Configure geo-replication for Premium Azure Cache for Redis instances](./cache-how-to-geo-replication.md).
 

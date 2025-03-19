@@ -35,7 +35,7 @@ For more information, review the following documentation:
 
 * Basic knowledge about single-tenant Azure Logic Apps, Standard logic app workflows, connectors, and how to use Visual Studio Code for creating single tenant-based workflows. For more information, review the following documentation:
 
-  * [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
+  * [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md)
 
   * [Create an integration workflow with single-tenant Azure Logic Apps (Standard) - Azure portal](create-single-tenant-workflows-azure-portal.md)
 
@@ -45,7 +45,7 @@ For more information, review the following documentation:
   >
   > This authoring capability is currently available only in Visual Studio Code.
 
-* An Azure Cosmos DB account, database, and container or collection. For more information, review [Quickstart: Create an Azure Cosmos DB account, database, container and items from the Azure portal](../cosmos-db/sql/create-cosmosdb-resources-portal.md).
+* An Azure Cosmos DB account, database, and container or collection. For more information, review [Quickstart: Create an Azure Cosmos DB account, database, container and items from the Azure portal](/azure/cosmos-db/sql/create-cosmosdb-resources-portal).
 
 ## High-level steps
 
@@ -156,7 +156,7 @@ public string GetBindingConnectionInformation(string operationId, InsensitiveDic
    return ServiceOperationsProviderUtilities
       .GetRequiredParameterValue(
          serviceId: ServiceId,
-         operationId: operationID,
+         operationId: operationId,
          parameterName: "connectionString",
          parameters: connectionParameters)?
       .ToValue<string>();
@@ -195,7 +195,7 @@ This method has a default implementation, so you don't need to explicitly implem
 
 ## Register your connector
 
-To load your custom built-in connector extension during the Azure Functions runtime start process, you have to add the Azure Functions extension registration as a startup job and register your connector as a service provider in service provider list. Based on the type of data that your built-in trigger needs as inputs, optionally add the converter. This example converts the **Document** data type for Azure Cosmos DB documents to a **JObject** array.
+To load your custom built-in connector extension during the Azure Functions runtime start process, you have to add the Azure Functions extension registration as a startup job and register your connector as a service provider in the service provider list. Based on the type of data that your built-in trigger needs as inputs, optionally add the converter. This example converts the **Document** data type for Azure Cosmos DB documents to a **JObject** array.
 
 The following sections show how to register your custom built-in connector as an Azure Functions extension.
 
@@ -222,7 +222,7 @@ The following sections show how to register your custom built-in connector as an
          public void Configure(IWebJobsBuilder builder)
          {
                // Register the extension.
-               builder.AddExtension<CosmosDbServiceProvider>)();
+               builder.AddExtension<CosmosDbServiceProvider>();
 
                // Use dependency injection (DI) for the trigger service operation provider.
                builder.Services.TryAddSingleton<CosmosDbTriggerServiceOperationsProvider>();
@@ -333,7 +333,7 @@ To add the NuGet reference from the previous section, in the extension bundle na
    If the extension for your custom built-in connector was successfully installed, you get output that looks similar to the following example:
 
    ```output
-   C:\Users\{your-user-name}\Desktop\demoproj\cdbproj>powershell - file C:\myrepo\github\logicapps-connector-extensions\src\Common\tools\add-extension.ps1 C:\myrepo\github\logicapps-connector-extensions\src\CosmosDB\bin\Debug\CosmosDB
+   C:\Users\{your-user-name}\Desktop\demoproj\cdbproj>powershell -file C:\myrepo\github\logicapps-connector-extensions\src\Common\tools\add-extension.ps1 C:\myrepo\github\logicapps-connector-extensions\src\CosmosDB\bin\Debug\CosmosDB
 
    Nuget extension path is C:\myrepo\github\logicapps-connector-extensions\src\CosmosDB\bin\Debug\
    Extension dll path is C:\myrepo\github\logicapps-connector-extensions\src\CosmosDB\bin\Debug\netcoreapp3.1\Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB.dll

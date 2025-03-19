@@ -4,7 +4,7 @@ description: Create tracking schemas to monitor B2B messages such as AS2, X12, o
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 08/10/2023
 ---
 

@@ -9,20 +9,22 @@
   - name: About App Service Environments
     href: environment/overview.md
   - name: Compare web hosting options
-    href: /azure/architecture/guide/technology-choices/compute-decision-tree
+    href: /azure/architecture/guide/technology-choices/compute-decision-tree?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
+  - name: Compare JBoss EAP options
+    href: /azure/developer/java/ee/jboss-on-azure?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
 - name: Quickstarts
   expanded: true
   items:
     - name: Deploy ASP.NET
       href: quickstart-dotnetcore.md
-    - name: Deploy Node.js
-      href: quickstart-nodejs.md
-    - name: Deploy PHP
-      href: quickstart-php.md
     - name: Deploy Java
       href: quickstart-java.md
+    - name: Deploy Node.js
+      href: quickstart-nodejs.md
     - name: Deploy Python
       href: quickstart-python.md
+    - name: Deploy PHP
+      href: quickstart-php.md
     - name: Deploy WordPress
       href: quickstart-wordpress.md
     - name: Deploy a custom container
@@ -41,7 +43,9 @@
     - name: Use settings from App Configuration
       href: app-service-configuration-references.md
     - name: App settings reference
-      href: reference-app-settings.md      
+      href: reference-app-settings.md  
+    - name: Configure error pages
+      href: configure-error-pages.md   
     - name: Configure specific languages
       items:
         - name: Configure ASP.NET
@@ -77,11 +81,7 @@
         - name: Use Azure Pipelines
           href: deploy-azure-pipelines.md
         - name: Use GitHub Actions
-          items:
-            - name: Deploy with GitHub Actions (tutorial)
-              href: app-service-sql-asp-github-actions.md
-            - name: About GitHub Actions deployment
-              href: deploy-github-actions.md
+          href: deploy-github-actions.md
         - name: Run from package
           href: deploy-run-package.md
     - name: Authentication for deployment
@@ -90,6 +90,8 @@
       href: deploy-configure-credentials.md
     - name: Create staging environments
       href: deploy-staging-slots.md
+    - name: Deploy sidecar container
+      href: tutorial-sidecar.md
     - name: Mount Azure Storage
       href: configure-connect-to-azure-storage.md
     - name: Automate provisioning
@@ -118,34 +120,44 @@
       href: overview-diagnostics.md
     - name: About quotas & alerts
       href: web-sites-monitor.md
-- name: Domains and certificates
+- name: Domain names and certificates
   items:
     - name: Domain and cert quickstart
       href: tutorial-secure-domain-certificate.md
-    - name: Custom domains
+    - name: Domain names
       items:
-        - name: Map your own custom domain
+        - name: Connect a domain name
           href: app-service-web-tutorial-custom-domain.md
-        - name: Buy App Service domain
+          displayName: Map a custom domain, connect a custom domain, custom domain
+        - name: Buy and configure App Service domain
           href: manage-custom-dns-buy-domain.md
-        - name: Map domains with Traffic Manager
+          displayName: Buy an App Service domain, custom domain
+        - name: Use Traffic Manager with a domain
           href: configure-domain-traffic-manager.md
+          displayName: Traffic Manager with custom domains, custom domain
         - name: Migrate an active domain
           href: manage-custom-dns-migrate-domain.md
+          displayName: Migrate a custom domain, custom domain
     - name: TLS/SSL certificates
       items:
-        - name: TLS overview
+        - name: Overview of TLS/SSL in App Service
           href: overview-tls.md
-        - name: Secure custom domain with TLS/SSL
+          displayName: TLS, SSL
+        - name: Secure a custom domain with HTTPS
           href: configure-ssl-bindings.md
-        - name: Add TLS/SSL cert
+          displayName: SSL
+        - name: Add and manage TLS/SSL certificates
           href: configure-ssl-certificate.md
-        - name: Buy App Service cert
+          displayName: SSL
+        - name: Create and Manage App Service certificates
           href: configure-ssl-app-service-certificate.md
-        - name: Use TLS/SSL cert in code
+          displayName: SSL
+        - name: Use TLS/SSL certificates in app code
           href: configure-ssl-certificate-in-code.md
+          displayName: SSL
         - name: Configure TLS mutual authentication
           href: app-service-web-configure-tls-mutual-auth.md
+          displayName: TLS
 - name: Database and service connection
   items:
     - name: Connectivity scenarios overview
@@ -160,16 +172,20 @@
           href: tutorial-php-mysql-app.md
         - name: Node.js with MongoDB
           href: tutorial-nodejs-mongodb-app.md
-        - name: Python with Postgres (Flask/Django)
-          href: tutorial-python-postgresql-app.md
-        - name: Python with Postgres (FastAPI)
-          href: tutorial-python-postgresql-app-fastapi.md
-        - name: Tomcat with MySQL
-          href: tutorial-java-tomcat-mysql-app.md            
+        - name: Python with Postgres
+          items:
+            - name: Using Flask
+              href: tutorial-python-postgresql-app-flask.md
+            - name: Using Django
+              href: tutorial-python-postgresql-app-django.md
+            - name: Using FastAPI
+              href: tutorial-python-postgresql-app-fastapi.md
         - name: Spring Boot with MongoDB
           href: tutorial-java-spring-cosmosdb.md
-        - name: Quarkus with Postgres
-          href: tutorial-java-quarkus-postgresql-app.md            
+        - name: Tomcat with MySQL
+          href: tutorial-java-tomcat-mysql-app.md            
+        - name: JBoss with MySQL
+          href: tutorial-java-jboss-mysql-app.md            
     - name: Connect by using secrets
       items:
         - name: Use secrets in app settings
@@ -192,6 +208,8 @@
                   href: tutorial-connect-msi-key-vault-javascript.md    
                 - name: Use PHP
                   href: tutorial-connect-msi-key-vault-php.md                            
+                - name: Use Python
+                  href: tutorial-connect-msi-key-vault-python.md                         
     - name: Connect by using app identity
       items:
         - name: Managed identity overview
@@ -206,6 +224,8 @@
                   href: tutorial-connect-msi-sql-database.md
                 - name: Connect Java Tomcat to Postgres
                   href: tutorial-java-tomcat-connect-managed-identity-postgresql-database.md
+                - name: Connect Python Flask app to Postgres
+                  href: /azure/developer/python/tutorial-python-managed-identity-cli?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
             - name: Connect to Microsoft Graph with managed identity
               items: 
                 - name: Use .NET
@@ -239,7 +259,7 @@
     - name: Scale out automatically
       href: manage-automatic-scaling.md      
     - name: Scale out with rules
-      href: ../azure-monitor/autoscale/autoscale-get-started.md?toc=/azure/app-service/toc.json
+      href: /azure/azure-monitor/autoscale/autoscale-get-started?toc=/azure/app-service/toc.json
     - name: Add CDN
       href: ../cdn/cdn-add-to-web-app.md?toc=/azure/cdn/toc.json
     - name: About high density hosting
@@ -375,8 +395,6 @@
       href: configure-custom-container.md
     - name: CI/CD to custom container
       href: deploy-ci-cd-custom-container.md
-    - name: Deploy a multi-container app
-      href: quickstart-multi-container.md
     - name: About GitHub Actions for containers
       href: deploy-container-github-action.md
     - name: End-to-end tutorials
@@ -385,16 +403,50 @@
           href: tutorial-custom-container-sidecar.md
         - name: Deploy app with Azure Container Registry
           href: tutorial-custom-container.md
-        - name: Deploy with GitHub Actions
-          href: app-service-sql-github-actions.md
         - name: Deploy with Azure Pipelines
           href: deploy-container-azure-pipelines.md
-        - name: Deploy a multi-container WordPress app
-          href: tutorial-multi-container-app.md
 - name: Integrate AI with App Service
   items:
     - name: Deploy an application that uses OpenAI on App Service
       href: deploy-intelligent-apps.md
+    - name: Run an SLM in sidecar
+      href: tutorial-sidecar-local-small-language-model.md
+    - name: Deploy a .NET app with Azure OpenAI and Azure SQL
+      href: deploy-intelligent-apps-dotnet-to-azure-sql.md
+    - name: Invoke OpenAPI app from Azure AI Agent
+      href: invoke-openapi-web-app-from-azure-ai-agent-service.md
+- name: WordPress
+  items:
+    - name: WordPress overview
+      href: overview-wordpress.md
+    - name: WordPress architecture
+      displayName: WordPress on App Service architecture
+      href: /azure/architecture/example-scenario/infrastructure/wordpress-app-service?toc=%2Fazure%2Fapp-service%2Ftoc.json&bc=%2Fazure%2Fapp-service%2Fbreadcrumb%2Ftoc.json
+    - name: Deploy WordPress
+      displayName: Create a WordPress site
+      href: quickstart-wordpress.md
+    - name: Migrate WordPress to App Service
+      displayName: Move WordPress to App Service
+      href: migrate-wordpress.md
+    - name: Configure WordPress
+      displayName: Setup WordPress
+      href: reference-app-settings.md#wordpress
+    - name: Customize API Management developer portal
+      displayName: API Management and WordPress
+      href: /azure/api-management/developer-portal-wordpress-plugin?toc=%2Fazure%2Fapp-service%2Ftoc.json&bc=%2Fazure%2Fapp-service%2Fbreadcrumb%2Ftoc.json
+    - name: WordPress FAQ
+      displayName: WordPress frequently asked questions
+      href: wordpress-faq.md
+- name: WebJobs
+  items:
+    - name: Create WebJobs
+      href: webjobs-create.md
+    - name: Develop WebJobs using VS
+      href: webjobs-dotnet-deploy-vs.md
+    - name: Get started with WebJobs SDK
+      href: webjobs-sdk-get-started.md
+    - name: Use WebJobs SDK
+      href: webjobs-sdk-how-to.md          
 - name: Reliability
   items:
   - name: Reliability in Azure App Service
@@ -436,11 +488,13 @@
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/app-service/
     - name: Quota Information
-      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits
     - name: Service Updates
       href: https://azure.microsoft.com/updates/?product=app-service
     - name: Routine maintenance
       href: routine-maintenance.md
+    - name: Routine maintenance, Restarts, and Downtime
+      href: routine-maintenance-downtime.md
     - name: Language support policy
       href: language-support-policy.md
     - name: OS functionality
@@ -459,16 +513,6 @@
           href: manage-create-arc-environment.md
         - name: Create app on Azure Arc
           href: quickstart-arc.md
-    - name: WebJobs
-      items:
-        - name: Create WebJobs
-          href: webjobs-create.md
-        - name: Develop WebJobs using VS
-          href: webjobs-dotnet-deploy-vs.md
-        - name: Get started with WebJobs SDK
-          href: webjobs-sdk-get-started.md
-        - name: Use WebJobs SDK
-          href: webjobs-sdk-how-to.md
     - name: Best practices
       href: app-service-best-practices.md
     - name: Samples
@@ -495,8 +539,6 @@
           href: /azure/developer/java/migration/migrate-weblogic-to-jboss-eap-on-azure-app-service?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
         - name: Migrate WebSphere
           href: /azure/developer/java/migration/migrate-websphere-to-jboss-eap-on-azure-app-service?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
-        - name: Migrate WordPress
-          href: migrate-wordpress.md
     - name: Cookbooks
       items:
         - name: Reference Architectures

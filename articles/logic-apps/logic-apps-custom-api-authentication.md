@@ -257,6 +257,8 @@ For example:
 
 To validate the incoming requests from your logic app workflow to your web app or API app, you can use client certificates. To set up your code, learn [how to configure TLS mutual authentication](../app-service/app-service-web-configure-tls-mutual-auth.md).
 
+[!INCLUDE [secrets-guidance](includes/secrets-guidance.md)]
+
 In the **Authorization** section, include the following properties:
 
 ```json
@@ -277,7 +279,9 @@ In the **Authorization** section, include the following properties:
 
 ### Basic authentication
 
-To validate incoming requests from your logic app to your web app or API app, you can use basic authentication, such as a username and password. Basic authentication is a common pattern, and you can use this authentication in any language used to build your web app or API app.
+To validate incoming requests from your logic app to your web app or API app, you can use basic authentication, such as a username and password. Although basic authentication is a common pattern, and you can use this authentication in any language used to build your web app or API app, in production scenarios, use the best authentication level that's available.
+
+[!INCLUDE [highest-security-level-guidance](includes/highest-security-level-guidance.md)]
 
 In the **Authorization** section, include the following properties:
 

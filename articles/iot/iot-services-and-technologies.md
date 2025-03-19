@@ -2,7 +2,7 @@
 title: Azure Internet of Things (IoT) technologies and solutions
 description: Describes the collection of technologies and services you can use to build Azure IoT PaaS and aPaaS solutions.
 author: dominicbetts
-ms.service: iot
+ms.service: azure-iot
 services: iot
 ms.topic: conceptual
 ms.date: 06/20/2024

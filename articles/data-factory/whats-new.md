@@ -5,7 +5,7 @@ author: pennyzhou-msft
 ms.author: xupzhou
 ms.topic: overview
 ms.custom: references_regions
-ms.date: 10/11/2023
+ms.date: 09/25/2024
 ---
 
 # What's new in Azure Data Factory
@@ -21,6 +21,13 @@ Azure Data Factory is improved on an ongoing basis. To stay up to date with the 
 This page is updated monthly, so revisit it regularly.  For older months' updates, refer to the [What's new archive](whats-new-archive.md).
 
 Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly update videos.
+
+## August 2024
+
+## Data movement
+
+- Azure Table Storage connector now supports two more authentication types: system-assigned managed identity authentication and user-assigned managed identity authentication. [Learn more](connector-azure-table-storage.md)
+- Azure Files connector now supports two more authentication types: system-assigned managed identity authenticatino and user-assigned managed identity authentication. [Learn more](connector-azure-file-storage.md)
 
 ## June 2024
 
@@ -51,7 +58,7 @@ Pipeline activity limit lifted to 80 activities. [Learn more](https://techcommun
 
 ### Data movement
 
-- Mysql Connector driver upgrade available for Copy activity. [Learn more](connector-mysql.md)
+- MySQL Connector driver upgrade available for Copy activity. [Learn more](connector-mysql.md)
 - MariaDB Connector driver upgrade available for Copy activity. [Learn more](connector-mariadb.md)
 - We added native UI support of parameterization for the following linked services: SAP HANA; MariaDB; Google BigQuery. [Learn more](parameterize-linked-services.md#supported-linked-service-types)
 
@@ -82,12 +89,6 @@ General Availability of Time to Live (TTL) for Managed Virtual Network [Learn mo
 ### Region expansion
 
 Azure Data Factory is generally available in Poland Central [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/continued-region-expansion-azure-data-factory-is-generally/ba-p/3965769)
-
-## September 2023
-
-### Pipelines
-
-Added support for metadata driven pipelines for dynamic full and incremental processing in Azure SQL [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/metadata-driven-pipelines-for-dynamic-full-and-incremental/ba-p/3925362)
 
 ## Related content
 

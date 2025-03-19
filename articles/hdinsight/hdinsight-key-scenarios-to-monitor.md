@@ -4,7 +4,7 @@ description: How to monitor health and performance of Apache Hadoop clusters in 
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/05/2023
+ms.date: 12/02/2024
 ---
 
 # Monitor cluster performance in Azure HDInsight
@@ -60,7 +60,7 @@ For a more detailed look at your queues, from the Ambari dashboard, select the *
 
 In the Resource Manager UI, select **Scheduler** from the left-hand menu. You see a list of your queues underneath *Application Queues*. Here you can see the capacity used for each of your queues, how well the jobs are distributed between them, and whether any jobs are resource-constrained.
 
-:::image type="content" source="./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png" alt-text="Apache HAdoop Resource Manager UI menu.":::
+:::image type="content" source="./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png" alt-text="Screenshot of the Apache Hadoop Resource Manager UI menu.":::
 
 ## Storage throttling
 

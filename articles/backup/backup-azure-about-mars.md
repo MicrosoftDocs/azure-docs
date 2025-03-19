@@ -1,12 +1,12 @@
 ---
 title: About the MARS Agent
 description: Learn how the MARS Agent supports the backup scenarios
-ms.topic: conceptual
-ms.date: 08/18/2023
+ms.topic: overview
+ms.date: 02/28/2025
 ms.service: azure-backup
-ms.custom: engagement-fy23
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.custom: engagement-fy24
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # About the Microsoft Azure Recovery Services (MARS) agent for Azure Backup
@@ -50,6 +50,8 @@ The MARS agent supports the following recovery scenarios:
 
 ## Backup process
 
+To back up files, folders, and the volume or system state from an on-premises computer to Azure using Microsoft Azure Recovery Services (MARS) agent:
+
 1. From the Azure portal, create a [Recovery Services vault](install-mars-agent.md#create-a-recovery-services-vault), and choose files, folders, and the system state from the **Backup goals**.
 2. [Configure your Recovery Services vault to securely save the backup passphrase to Azure Key vault](save-backup-passphrase-securely-in-azure-key-vault.md).
 3. [Download the Recovery Services vault credentials and agent installer](./install-mars-agent.md#download-the-mars-agent) to an on-premises machine.
@@ -59,13 +61,15 @@ The MARS agent supports the following recovery scenarios:
 
 The following diagram shows the backup flow:
 
-![Diagra shows the bacup flow of Azure Backup agent.](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
+![Diagram shows the backup flow of Azure Backup agent.](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
 
 ### Additional information
 
+To proceed with the backup operation, review the following additional details:
+
 - The **Initial Backup** (first backup) runs according to your backup settings.  The MARS agent uses VSS to take a point-in-time snapshot of the volumes selected for backup. The agent only uses the Windows System Writer operation to capture the snapshot. It doesn't use any application VSS writers, and doesn't capture app-consistent snapshots. After VSS agent takes the snapshot, the MARS agent creates a virtual hard disk (VHD) in the cache folder you specified during the backup configuration. The agent also stores checksums for each data block.
 
-- **Incremental backups** (subsequent backups) run according to the schedule you specify. During incremental backups, changed files are identified and a new VHD is created. The VHD is compressed and encrypted, and then it's sent to the vault. After the incremental backup finishes, the new VHD is merged with the VHD created after the initial replication. This merged VHD provides the latest state to be used for comparison for ongoing backup.
+- **Incremental backups** (subsequent backups) run according to the schedule you specify. During incremental backups, changed files are identified and a new VHD is created. The VHD is compressed and encrypted, and then it's sent to the vault. After the incremental backup finishes, the new VHD is merged with the VHD created after the initial replication. This merged VHD provides the latest state to be used for comparison for ongoing backup. Microsoft Azure Recovery Services (MARS) agent performs a full backup of the system state each time a backup job is run. There're no incremental backups for the system state with the MARS agent.
 
 - The MARS agent can run the backup job in **optimized mode** using the USN (Update Sequence Number) change journal, or in **unoptimized mode** by checking for changes in directories or files via scanning the entire volume. Unoptimized mode is slower because the agent has to scan each file on the volume and compare it against the metadata to determine the changed files.  The **Initial backup** will always run in unoptimized mode. If the previous backup failed, then the next scheduled backup job will run in unoptimized mode. To learn more about these modes and how to verify them, refer to [this article](backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-backup-job-running-in-unoptimized-mode).
 

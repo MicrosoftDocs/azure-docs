@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 01/04/2024
+ms.date: 12/06/2024
 ms.author: banders
 ---
 
@@ -38,7 +38,7 @@ Here's an example of the usage file showing the usage file with filters applied.
 
 :::image type="content" source="./media/determine-reservation-purchase/example-usage-file-details.png" alt-text="Screenshot showing the usage file with filters applied." lightbox="./media/determine-reservation-purchase/example-usage-file-details.png" :::
 
-If you want to analyze at the instance size family level, you can get the instance size flexibility values from [Instance size flexibility ratios](https://aka.ms/isf). Combine the values with your data to do the analysis. For more information about instance size flexibility, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
+If you want to analyze at the instance size family level, you can get the instance size flexibility values from [Instance size flexibility ratios](https://aka.ms/isf). Combine the values with your data to do the analysis. For more information about instance size flexibility, see [Virtual machine size flexibility with Reserved VM Instances](/azure/virtual-machines/reserved-vm-instance-size-flexibility).
 
 ### Analyze usage for an Azure Synapse Analytics reserved instance purchase
 
@@ -106,7 +106,7 @@ Enterprise Agreement customers can use the VM RI Coverage reports for VMs and pu
 
 Reservation purchase recommendations are available in [Azure Advisor](https://portal.azure.com/#blade/Microsoft_Azure_Expert/AdvisorMenuBlade/overview).
 
-- Advisor has only single-subscription scope recommendations. If you want to see recommendations for the entire billing scope (Billing account or billing profile), then:
+- Advisor has only single-subscription scope recommendations and do not provide recommendations for resource group, management group or shared scope. If you want to see recommendations resource group or for the entire billing scope (Billing account or billing profile), then:
 - In the Azure portal, navigate to Reservations > Add and then select the type that you want to see the recommendations for.
 - The recommendations quantity and savings are for a three-year reservation, where available. If a three-year reservation isn't sold for the service, the recommendation is calculated using the one-year reservation price.
 - The recommendation calculations include any special discounts that you might have on your on-demand usage rates.

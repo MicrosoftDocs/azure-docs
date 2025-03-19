@@ -3,8 +3,8 @@ title: Create Elastic application
 description: This article describes how to use the Azure portal to create an instance of Elastic.
 ms.topic: quickstart
 ms.date: 06/01/2023
-author: flang-msft
-ms.author: franlanglois
+
+
 
 ---
 
@@ -24,8 +24,6 @@ Use the Azure portal to find the Elastic application.
 1. In a web browser, go to the [Azure portal](https://portal.azure.com/) and sign in.
 
 1. If you've visited the **Marketplace** in a recent session, select the icon from the available options. Otherwise, search for _Marketplace_.
-
-    :::image type="content" source="media/create/marketplace.png" alt-text="Image of marketplace icon.":::
 
 1. Search for _Elastic_ and select **Elastic Cloud (Elasticsearch) - An Azure Native ISV Service** from the available offerings.
 
@@ -60,7 +58,7 @@ After you've selected the offer for Elastic, you're ready to set up the applicat
 
    **Subscription logs** provide insights into the operations on each Azure resource in the subscription from the [management plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). The logs also provide updates on Service Health events. Use the activity log to determine what, who, and when for any write operations (PUT, POST, DELETE) on the resources in your subscription. There's a single activity log for each Azure subscription.
 
-   **Azure resource logs** provide insights into operations that happen within the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a key vault or making a request to a database are data plane activities. The content of resource logs varies by the Azure service and resource type. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](../../azure-monitor/essentials/resource-logs-categories.md).
+   **Azure resource logs** provide insights into operations that happen within the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a key vault or making a request to a database are data plane activities. The content of resource logs varies by the Azure service and resource type. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](/azure/azure-monitor/essentials/resource-logs-categories).
 
    To filter the Azure resources that send logs to Elastic, use resource tags. The tag rules for sending logs are:
 

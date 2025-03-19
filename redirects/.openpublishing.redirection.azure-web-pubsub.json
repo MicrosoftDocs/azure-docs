@@ -1,0 +1,15 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/azure-web-pubsub/howto-troubleshoot-diagnostic-logs.md",
+            "redirect_url": "/azure/azure-web-pubsub/howto-troubleshoot-resource-logs",
+            "redirect_document_id": false
+        }, 
+        {
+            "source_path_from_root": "/articles/azure-web-pubsub/quickstarts-pubsub-among-mqtt-clients.md",
+            "redirect_url": "/articles/azure-web-pubsub/howto-mqtt-pubsub-among-mqtt-clients.md",
+            "redirect_document_id": false
+        }
+    ]
+}
+

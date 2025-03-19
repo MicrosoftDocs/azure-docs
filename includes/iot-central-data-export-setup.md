@@ -3,7 +3,7 @@
  description: include file
  services: iot-central
  author: dominicbetts
- ms.service: iot-central
+ ms.service: azure-iot-central
  ms.topic: include
  ms.date: 05/22/2023
  ms.author: dobett
@@ -49,7 +49,7 @@ Now that you have a destination to export your data to, set up data export in yo
     |Audit logs|N/A|
 
 1. Optionally, enrich exported messages with extra key-value pair metadata. The following enrichments are available for the telemetry, property changes, device connectivity, and device lifecycle data export types:
-<a name="DataExportEnrichmnents"></a>
+<a name="DataExportEnrichments"></a>
     - **Custom string**: Adds a custom static string to each message. Enter any key, and enter any string value.
     - **Property**, which adds to each message:
        - Device metadata such as device name, device template name, enabled, organizations, provisioned, and simulated.
@@ -67,7 +67,7 @@ Configure the export destination:
 
 ## Monitor your export
 
-In IoT Central, the **Data export** page lets you check the status of your exports. You can also use [Azure Monitor](../articles/azure-monitor/overview.md) to see how much data you're exporting and any export errors. You can access export and device health metrics in charts in the Azure portal by using, the REST API, queries in PowerShell, or the Azure CLI. Currently, you can monitor the following data export metrics in Azure Monitor:
+In IoT Central, the **Data export** page lets you check the status of your exports. You can also use [Azure Monitor](/azure/azure-monitor/overview) to see how much data you're exporting and any export errors. You can access export and device health metrics in charts in the Azure portal by using, the REST API, queries in PowerShell, or the Azure CLI. Currently, you can monitor the following data export metrics in Azure Monitor:
 
 - Number of messages incoming to export before filters are applied.
 - Number of messages that pass through filters.

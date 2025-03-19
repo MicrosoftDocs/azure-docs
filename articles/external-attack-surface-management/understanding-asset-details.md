@@ -37,7 +37,7 @@ This section includes high-level information that's key to understanding your as
 | First seen (Global Security Graph) | The date that Microsoft first scanned the asset and added it to the comprehensive Global Security Graph.  | All |
 | Last seen (Global Security Graph) | The date that Microsoft most recently scanned the asset. | All |
 | Discovered on | Indicates the creation date of the discovery group that detected the asset.  | All |
-| Country | The country of origin detected for this asset. | All |
+| Country | The country/region of origin detected for this asset. | All |
 | State/Province | The state or province of origin detected for this asset. | All |
 | City | The city of origin detected for this asset. | All |
 | Whois name | The name associated with a Whois record. | Host |
@@ -76,7 +76,7 @@ The following data is specific to IP blocks and provides contextual information 
 | Organization name | The organization name found in the registration information for the IP block. | IP block |
 | Org ID | The organization ID found in the registration information for the IP block. | IP block |
 | ASNs | The ASN associated with the IP block. | IP block |
-| Country | The country of origin as detected in the Whois registration information for the IP block. | IP block |
+| Country | The country/region of origin as detected in the Whois registration information for the IP block. | IP block |
 
 ### Subject
 
@@ -89,7 +89,7 @@ The following data is specific to the subject (that is, the protected entity) as
 | Organization name | The organization linked to the subject of the SSL certificate. | SSL certificate |
 | Organization unit | Optional metadata that indicates the department within an organization that's responsible for the certificate. | SSL certificate |
 | Locality | Denotes the city where the organization is located. | SSL certificate |
-| Country | Denotes the country where the organization is located. | SSL certificate |
+| Country | Denotes the country/region where the organization is located. | SSL certificate |
 | State/Province | Denotes the state or province where the organization is located. | SSL certificate |
 
 ### Issuer
@@ -177,7 +177,7 @@ This section displays any name servers that are running on the asset to provide 
 
 This section lists any open ports detected on the asset. Microsoft regularly scans around 230 distinct ports. This data is useful to identify any unsecured services that shouldn't be accessible from the open internet. These services include databases, IoT devices, and network services like routers and switches. It's also helpful in identifying shadow IT infrastructure or insecure remote access services.
 
-In this section, Defender EASM provides the open port number, a description of the port, the last state it was observed in, and the **First seen** and **Last seen** dates. The **Recent** column indicates whether the port was observed as open during the most recent scan.
+In this section, Defender EASM provides the open port number, a description of the port, the last state it was observed in, and the **First seen** and **Last seen** dates. The **Recent** column indicates whether the port was observed as open during the most recent scan. Defender EASM considers a port “open” when our system can successfully complete a syn-ack handshake that results in attributed banners. When we can establish a TCP connection but are unable to complete our service fingerprinting, we mark the port as “filtered”. A "closed" port is still accessible but there is no service listening on the port and thus denies connections.
 
 ![Screenshot that shows the asset details page Open ports section of the Services tab.](media/Inventory_9.png)
 
@@ -202,7 +202,7 @@ Web components are categorized based on their function.
 | Hosting Provider | hostingprovider.com |
 | Server | Apache |
 | DNS Server | ISC BIND |
-| Data stores | MySQL, ElasticSearch, MongoDB |
+| Data stores | MySQL, Elasticsearch, MongoDB |
 | Remote access | OpenSSH, Microsoft Admin Center, Netscaler Gateway |
 | Data Exchange | Pure-FTPd |
 | Internet of things (IoT) | HP Deskjet, Linksys Camera, Sonos |
@@ -222,7 +222,12 @@ The **Observation** tab displays any insights from the Attack Surface Priorities
 
 For more information on observations, see [Understanding dashboards](understanding-dashboards.md). For each observation, Defender EASM provides the name of the observation, categorizes it by type, assigns a priority, and lists both CVSS v2 and v3 scores where applicable.
 
-![Screenshot that shows the Observation tab.](media/Inventory-15.png)
+The Observations tab features two tables: Observations and Non-appliable observations. All active observations determined to be "recent" within your attack surface will be in the Observations table, whereas the Non-applicable observations table lists any observations that have either been manually marked as non-applicable or were determined by the system to no longer be applicable. To mark observations as non-applicable and therefore exclude that particular observation from dashboard counts, simply select the desired observations and click "Set as non-applicable."  The observation(s) will immediately disappear from the active Observations table and will instead appear on the "Non-applicable observations" table. You can revert this change at any time by selection the relevant observation(s) from this table and selecting "Set as applicable." 
+
+
+   ![Screenshot that shows the Observations tab with multiple CVEs selected to be marked as non-applicable.](media/cves-3.png)
+
+
 
 
 ### Connected assets 
@@ -277,7 +282,7 @@ The following fields are included in the table in the **Values** section on the 
 | City | The city listed in the street address for the registrant, if provided. |
 | State | The state listed in the street address for the registrant, if provided. |
 | Postal code | The postal code listed in the street address for the registrant, if provided. |
-| Country | The country listed in the street address for the registrant, if provided. |
+| Country | The country/region listed in the street address for the registrant, if provided. |
 | Phone | The phone number associated with a registrant contact, if provided. |
 | Name servers | Any name servers associated with the registered entity. |
 

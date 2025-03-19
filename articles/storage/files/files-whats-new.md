@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 07/23/2024
+ms.date: 02/25/2025
 ms.author: kendownie
 ---
 
@@ -12,7 +12,44 @@ ms.author: kendownie
 
 Azure Files and Azure File Sync are updated regularly to offer new features and enhancements. This article provides detailed information about what's new in Azure Files and Azure File Sync.
 
+## What's new in 2025
+
+### 2025 quarter 1 (January, February, March)
+
+#### REST API support for NFS Azure file shares is now in public preview
+
+Data plane REST API access to NFS Azure file shares will enable further development of multiple value-added services for NFS shares, such as AzCopy and Azure Backup. This enhancement also allows third-party ISV partners to implement efficient migration, backup, and disaster recovery scenarios. Additionally, the REST API support includes OAuth, providing end-to-end security and enabling access without storage account keys.
+
+#### Support for customer initiated LRS-ZRS redundancy conversion for Premium Files storage accounts
+
+Azure Files now supports customer initiated LRS to ZRS (and vice versa) redundancy conversions for premium Files storage accounts with SMB and NFS (private endpoints enabled) shares. You can easily manage the migration of your storage accounts through the Azure Portal, PowerShell, or CLI. To learn more, see [Azure Files data redundancy](files-redundancy.md).
+
 ## What's new in 2024
+
+### 2024 quarter 4 (October, November, December)
+
+#### Azure File Sync support for system-assigned managed identities is now in public preview
+
+Managed Identities eliminates the need for shared keys (storage account key, SAS keys) to authenticate to Azure Files by utilizing a system-assigned managed identity provided by Microsoft Entra ID. 
+
+When managed identities are configured for an Azure File Sync deployment, system-assigned managed identities are used for the following scenarios: 
+
+-	Storage Sync Service authentication to Azure file share
+-	Registered server authentication to Azure file share 
+-	Registered server authentication to Storage Sync Service
+
+Public preview is available in all Azure Public and Gov regions supported by Azure File Sync. There's no additional cost to configure Azure File Sync to use managed identities. To learn more, see [How to use managed identities with Azure File Sync (preview)](../file-sync/file-sync-managed-identities.md).
+
+#### Azure File Sync v19 release
+
+The Azure File Sync v19 release improves performance, security, and adds support for Windows Server 2025: 
+- Faster server provisioning and improved disaster recovery for Azure File Sync server endpoints
+- Sync performance improvements
+- Preview: Managed Identities support for Azure File Sync service and servers
+- Azure File Sync agent support for Windows Server 2025
+
+To learn more, see the [Azure File Sync release notes](../file-sync/file-sync-release-notes.md#version-19100). 
+
 
 ### 2024 quarter 3 (July, August, September)
 
@@ -101,7 +138,8 @@ Nconnect is a client-side Linux mount option that increases performance at scale
 
 Azure File Sync is now a zone-redundant service, which means an outage in a zone has limited impact while improving the service resiliency to minimize customer impact. To fully leverage this improvement, configure your storage accounts to use zone-redundant storage (ZRS) or geo-zone redundant storage (GZRS) replication. To learn more about different redundancy options for your storage accounts, see [Azure Files redundancy](files-redundancy.md).
 
-Note: Azure File Sync is zone-redundant in all regions that [support zones](../../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support) except US Gov Virginia.
+> [!NOTE]
+> Azure File Sync is zone-redundant in all regions that [support availability zones](../../reliability/availability-zones-region-support.md) except US Gov Virginia.
 
 ## What's new in 2022
 
@@ -111,7 +149,7 @@ This [feature](storage-files-identity-auth-hybrid-identities-enable.md) builds o
 
 ### 2022 quarter 2 (April, May, June)
 #### SUSE Linux support for SAP HANA System Replication (HSR) and Pacemaker
-Azure customers can now [deploy a highly available SAP HANA system in a scale-out configuration](../../virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-suse.md) with HSR and Pacemaker on Azure SUSE Linux Enterprise Server virtual machines (VMs), using NFS Azure file shares for a shared file system.
+Azure customers can now [deploy a highly available SAP HANA system in a scale-out configuration](/azure/virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-suse) with HSR and Pacemaker on Azure SUSE Linux Enterprise Server virtual machines (VMs), using NFS Azure file shares for a shared file system.
 
 ### 2022 quarter 1 (January, February, March)
 #### Azure File Sync TCO improvements
@@ -135,7 +173,7 @@ Formula changes:
 | Burst limit | `MIN(MAX(4000, 3 * ProvisionedGiB), 100000)` | `MIN(MAX(10000, 3 * ProvisionedGiB), 100000)` |
 
 For more information, see:
-- [The provisioned model for premium Azure file shares](understanding-billing.md#provisioned-model)
+- [The provisioned model for premium Azure file shares](understanding-billing.md#provisioned-v1-model)
 - [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
 
 #### NFSv4.1 protocol support is generally available
@@ -144,7 +182,7 @@ Premium Azure file shares now support either the SMB or the NFSv4.1 protocols. N
 For more information, see:
 
 - [NFS file shares in Azure Files](files-nfs-protocol.md)
-- [High availability for SAP NetWeaver on Azure VMs with NFS on Azure Files](../../virtual-machines/workloads/sap/high-availability-guide-suse-nfs-azure-files.md)
+- [High availability for SAP NetWeaver on Azure VMs with NFS on Azure Files](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs-azure-files)
 - [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
 
 #### Symmetric throughput for premium file shares
@@ -157,7 +195,7 @@ Formula changes:
 | Throughput (MiB/sec) | <ul><li>Ingress: `40 + CEILING(0.04 * ProvisionedGiB)`</li><li>Egress: `60 + CEILING(0.06 * ProvisionedGiB)`</li></ul> | `100 + CEILING(0.04 * ProvisionedGiB) + CEILING(0.06 * ProvisionedGiB)` |
 
 For more information, see:
-- [The provisioned model for premium Azure file shares](understanding-billing.md#provisioned-model)
+- [The provisioned model for premium Azure file shares](understanding-billing.md#provisioned-v1-model)
 - [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
 
 ### 2021 quarter 3 (July, August, September)
@@ -201,7 +239,7 @@ The experience for domain joining an Azure storage account has been improved to 
 For more information, see:
 
 - [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md)
-- [Overview - on-premises Active Directory Domain Services authentication over SMB for Azure file shares](storage-files-identity-auth-active-directory-enable.md)
+- [Overview - on-premises Active Directory Domain Services authentication over SMB for Azure file shares](storage-files-identity-ad-ds-overview.md)
 
 ### 2021 quarter 1 (January, February, March)
 #### Azure Files management now available through the control plane

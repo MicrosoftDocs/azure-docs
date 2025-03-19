@@ -2,16 +2,17 @@
 title: Troubleshooting Azure Content Delivery Network endpoints - 404 status code
 description: Learn how to troubleshoot issues with Azure Content Delivery Network endpoints that return 404 HTTP response status codes.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
-ms.assetid: b588a1eb-ab69-4fc7-ae4d-157c3e46f4a8
 ms.service: azure-cdn
 ms.topic: troubleshooting
 ms.date: 03/20/2024
-ms.author: duau
 ---
 
 # Troubleshooting Azure Content Delivery Network endpoints that return a 404 status code
+
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 This article enables you to troubleshoot issues with Azure Content Delivery Network endpoints that return 404 HTTP response status codes.
 
@@ -33,9 +34,7 @@ There are several possible causes, including:
 ## Troubleshooting steps
 
 > [!IMPORTANT]
-> After creating a content delivery network endpoint, it will not immediately be available for use, as it takes time for the registration to propagate through the content delivery network:
-> - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in ten minutes.
-> - For **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles, propagation usually completes within 90 minutes.
+> After creating an endpoint, it won't immediately be available for use, as it can take up to ten minutes for the registration to propagate through the content delivery network.
 >
 > If you complete the steps in this document and you're still getting 404 responses, consider waiting a few hours to check again before opening a support ticket.
 
@@ -53,11 +52,7 @@ First, verify that the file to cache is available on the origin server and is pu
 
 After you've verified the file is publicly available on the internet, verify your origin settings. In the [Azure portal](https://portal.azure.com), browse to your content delivery network profile and select the endpoint you're troubleshooting. From the resulting **Endpoint** page, select the origin.
 
-![Endpoint page with origin highlighted](./media/cdn-troubleshoot-endpoint/cdn-endpoint.png)
-
 The **Origin** page appears.
-
-![Origin page](./media/cdn-troubleshoot-endpoint/cdn-origin-settings.png)
 
 #### Origin type and hostname
 
@@ -76,8 +71,6 @@ On the **Endpoint** page, select the **Configure** button.
 ![Endpoint page with configure button highlighted](./media/cdn-troubleshoot-endpoint/cdn-endpoint-configure-button.png)
 
 The content delivery network endpoint **Configure** page appears.
-
-![Configure page](./media/cdn-troubleshoot-endpoint/cdn-configure.png)
 
 #### Protocols
 

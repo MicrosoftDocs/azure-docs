@@ -99,7 +99,7 @@ There are several tools available to help you diagnose problems.
 ### Durable Functions and Durable Task Framework Logs
 
 #### Durable Functions Extension
-The Durable extension emits tracking events that allow you to trace the end-to-end execution of an orchestration. These tracking events can be found and queried using the [Application Insights Analytics](../../azure-monitor/logs/log-query-overview.md) tool in the Azure portal. The verbosity of tracking data emitted can be configured in the `logger` (Functions 1.x) or `logging` (Functions 2.0) section of the host.json file. See [configuration details](durable-functions-diagnostics.md#functions-10). 
+The Durable extension emits tracking events that allow you to trace the end-to-end execution of an orchestration. These tracking events can be found and queried using the [Application Insights Analytics](/azure/azure-monitor/logs/log-query-overview) tool in the Azure portal. The verbosity of tracking data emitted can be configured in the `logger` (Functions 1.x) or `logging` (Functions 2.0) section of the host.json file. See [configuration details](durable-functions-diagnostics.md#functions-10). 
         
 #### Durable Task Framework
 Starting in v2.3.0 of the Durable extension, logs emitted by the underlying Durable Task Framework (DTFx) are also available for collection. See [details on how to enable these logs](durable-functions-diagnostics.md#durable-task-framework-logging).  

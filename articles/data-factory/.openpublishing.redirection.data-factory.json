@@ -1093,7 +1093,12 @@
           },
           {
             "source_path_from_root": "/articles/data-factory/memory-optimized-compute.md",
-            "redirect_url": "azure/data-factory/control-flow-execute-data-flow-activity#type-properties",
+            "redirect_url": "/azure/data-factory/control-flow-execute-data-flow-activity#type-properties",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/lab-data-flow-data-share.md",
+            "redirect_url": "/azure/data-factory/data-factory-tutorials",
             "redirect_document_id": false
           }           
     ]

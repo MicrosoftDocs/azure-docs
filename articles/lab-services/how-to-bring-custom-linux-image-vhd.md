@@ -4,8 +4,8 @@ description: Learn how to import a Linux custom image from your physical lab env
 services: lab-services
 ms.service: azure-lab-services
 ms.custom: linux-related-content
-author: ntrogh
-ms.author: nicktrog
+author: RoseHJM
+ms.author: rosemalcolm
 ms.date: 05/22/2023
 ms.topic: how-to
 ---

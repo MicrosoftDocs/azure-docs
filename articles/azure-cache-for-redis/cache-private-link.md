@@ -1,13 +1,9 @@
 ---
 title: Azure Cache for Redis with Azure Private Link
-description: Learn how to create an Azure Cache, an Azure Virtual Network, and a Private Endpoint using the Azure portal.  
-author: flang-msft
-
-ms.author: franlanglois
-ms.service: azure-cache-redis
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+description: Learn how to create an Azure Cache, an Azure Virtual Network, and a Private Endpoint using the Azure portal.
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, ignite-2024
 ms.topic: conceptual
-ms.date: 01/12/2024
+ms.date: 11/12/2024
 
 ---
 
@@ -30,9 +26,9 @@ You can restrict public access to the private endpoint of your cache by disablin
 
 ## Scope of availability
 
-|Tier      | Basic, Standard, Premium |Enterprise, Enterprise Flash  |
-|--------- |:------------------:|:---------:|
-|Available | Yes          |  Yes  |
+|Tier      | Basic, Standard, Premium |Enterprise, Enterprise Flash  | Azure Managed Redis (preview)
+|--------- |:------------------:|:---------:|:---------:|
+|Available | Yes          |  Yes  | Yes |
 
 ## Prerequisites
 
@@ -43,7 +39,7 @@ You can restrict public access to the private endpoint of your cache by disablin
 >
 
 > [!IMPORTANT]
-> When using private link, you cannot export or import data to a to a storage account that has firewall enabled unless you're using a Premium tier cache with [managed identity to autenticate to the storage account](cache-managed-identity.md).
+> When using private link, you cannot export or import data to a to a storage account that has firewall enabled unless you're using a Premium tier cache with [managed identity to authenticate to the storage account](cache-managed-identity.md).
 > For more information, see [What if I have firewall enabled on my storage account?](cache-how-to-import-export-data.md#what-if-i-have-firewall-enabled-on-my-storage-account)
 >
 
@@ -351,7 +347,7 @@ az network private-endpoint delete --name MyPrivateEndpoint --resource-group MyR
 
 For **Basic, Standard, and Premium tier** caches, your application should connect to `<cachename>.redis.cache.windows.net` on port `6380`. A private DNS zone, named `*.privatelink.redis.cache.windows.net`, is automatically created in your subscription. The private DNS zone is vital for establishing the TLS connection with the private endpoint.  We recommend avoiding the use of `<cachename>.privatelink.redis.cache.windows.net` in configuration or connection string.
 
-For **Enterprise and Enterprise Flash** tier caches, your application should connect to `<cachename>.<region>.redisenterprise.cache.azure.net` on port `10000`.
+For **Enterprise and Enterprise Flash** tier caches, your application should connect to `<cachename>.<region>.redisenterprise.cache.azure.net` on port `10000`. If you're using OSS clustering, then your client library also creates connections to your Redis Enterprise instance on ports 8500 - 8599 as your application needs to connect to each shard individually in OSS clustering configuration.
 
 For more information, see [Azure services DNS zone configuration](../private-link/private-endpoint-dns.md).
 
@@ -359,9 +355,9 @@ For more information, see [Azure services DNS zone configuration](../private-lin
 
 - Private endpoints can't be used with your cache instance if your cache is already a VNet injected cache.
   
-- For Basic, Standard, and Premium tier caches, you are limited to 100 private links. 
+- For Basic, Standard, and Premium tier caches, you're limited to 100 private links. 
 
-- On Premium tier caches using clustering, you are limited to one private link.
+- On Premium tier caches using clustering, you're limited to one private link.
   
 - Enterprise and Enterprise Flash tier caches are limited to 84 private links.
 
@@ -373,7 +369,7 @@ For more information, see [Azure services DNS zone configuration](../private-lin
 
 - Trying to connect from the Azure portal console is an unsupported scenario where you see a connection failure.
 
-- Private links can't be added to caches that are already using [passive geo-replication](cache-how-to-geo-replication.md) in the Premium tier. To add a private link to a geo-replicated cache: 1. Unlink the geo-replication. 2. Add a Private Link. 3. Last, relink the geo-replication. (Enterprise tier caches using [active geo-replication](cache-how-to-active-geo-replication.md) do not have this restriction.)
+- Private links can't be added to caches that are already using [passive geo-replication](cache-how-to-geo-replication.md) in the Premium tier. To add a private link to a geo-replicated cache: 1. Unlink the geo-replication. 2. Add a Private Link. 3. Last, relink the geo-replication. (Enterprise tier caches using [active geo-replication](cache-how-to-active-geo-replication.md) don't have this restriction.)
 
 ### How do I verify if my private endpoint is configured correctly?
 
@@ -388,7 +384,7 @@ When set to `Enabled`, this flag is allows both public and private endpoint acce
 
 To change the value in the Azure portal, follow these steps:
 
-  1. In the Azure portal, search for **Azure Cache for Redis**.  Then, press enter or select it from the search suggestions.
+  1. In the Azure portal, search for **Azure Cache for Redis**. Then, press enter or select it from the search suggestions.
 
   1. Select the cache instance you want to change the public network access value.
 
@@ -423,7 +419,7 @@ Once you delete the private endpoints on your cache, your cache instance can bec
 
 ### Are network security groups (NSG) enabled for private endpoints?
 
-No, they're disabled for private endpoints. While subnets containing the private endpoint can have NSG associated with it, the rules aren't effective on traffic processed by the private endpoint. You must have [network policies enforcement disabled](../private-link/disable-private-endpoint-network-policy.md) to deploy private endpoints in a subnet. NSG is still enforced on other workloads hosted on the same subnet. Routes on any client subnet will be using an /32 prefix, changing the default routing behavior requires a similar UDR.
+No, they're disabled for private endpoints. While subnets containing the private endpoint can have NSG associated with it, the rules aren't effective on traffic processed by the private endpoint. You must have [network policies enforcement disabled](../private-link/disable-private-endpoint-network-policy.md) to deploy private endpoints in a subnet. NSG is still enforced on other workloads hosted on the same subnet. Routes on any client subnet use an /32 prefix, changing the default routing behavior requires a similar UDR.
 
 Control the traffic by using NSG rules for outbound traffic on source clients. Deploy individual routes with /32 prefix to override private endpoint routes. NSG Flow logs and monitoring information for outbound connections are still supported and can be used.
 

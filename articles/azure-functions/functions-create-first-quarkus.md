@@ -2,7 +2,8 @@
 title: Deploy serverless Java apps with Quarkus on Azure Functions
 description: Learn how to develop, build, and deploy a serverless Java app by using Quarkus on Azure Functions.
 author: KarlErickson
-ms.author: edburns
+ms.author: karler
+ms.reviewer: edburns
 ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 01/10/2023
@@ -72,7 +73,6 @@ The resource group is not necessary for this part of the instructions, but it's 
 1. Invoke Quarkus dev mode:
 
     ```bash
-    cd functions-azure
     mvn -DskipTests -DresourceGroup=<yourResourceGroupName> quarkus:dev
     ```
 
@@ -305,7 +305,7 @@ Now that you've opened your Azure function in the portal, here are more features
 
 ## Clean up resources
 
-If you don't need these resources, you can delete them by running the following command in Azure Cloud Shell or on your local terminal:
+If you don't need these resources, you can delete them by running the following command:
 
 ```azurecli
 az group delete --name <yourResourceGroupName> --yes

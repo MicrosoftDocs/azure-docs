@@ -1,17 +1,20 @@
 ---
-title: How to deploy large CPU and memory applications in Azure Spring Apps in the Enterprise plan
+title: How to Deploy Large CPU and Memory Applications in Azure Spring Apps in the Enterprise Plan
 description: Learn how to deploy large CPU and memory applications in the Enterprise plan for Azure Spring Apps.
 author: KarlErickson
-ms.author: haital
+ms.author: karler
+ms.reviewer: haital
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 03/17/2023
+ms.date: 08/28/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Deploy large CPU and memory applications in Azure Spring Apps in the Enterprise plan
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
+
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article shows how to deploy large CPU and memory applications in Azure Spring Apps to support CPU intensive or memory intensive workloads. Support for large applications is currently available only in the Enterprise plan, which supports the CPU and memory combinations as shown in the following table.
 
@@ -104,4 +107,4 @@ az spring app scale \
 
 ## Next steps
 
-- [Scale an application in Azure Spring Apps](how-to-scale-manual.md)
+- [Scale an application in Azure Spring Apps](../basic-standard/how-to-scale-manual.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)

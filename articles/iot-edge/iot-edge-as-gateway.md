@@ -6,7 +6,7 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 06/04/2024
 ms.topic: conceptual
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ms.custom:  [amqp, mqtt]
 ---

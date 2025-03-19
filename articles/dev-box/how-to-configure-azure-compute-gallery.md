@@ -26,8 +26,8 @@ Advantages of using a gallery include:
 
 To learn more about Azure Compute Gallery and how to create galleries, see:
 
-- [Store and share images in Azure Compute Gallery](../virtual-machines/shared-image-galleries.md)
-- [Create a gallery for storing and sharing resources](../virtual-machines/create-gallery.md#create-a-gallery-for-storing-and-sharing-resources)
+- [Store and share images in Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries)
+- [Create a gallery for storing and sharing resources](/azure/virtual-machines/create-gallery#create-a-gallery-for-storing-and-sharing-resources)
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ To learn more about Azure Compute Gallery and how to create galleries, see:
 
 ## Compute gallery image requirements 
 
-A gallery used to configure dev box definitions must have at least [one image definition and one image version](../virtual-machines/image-version.md).
+A gallery used to configure dev box definitions must have at least [one image definition and one image version](/azure/virtual-machines/image-version).
 
 When you create a virtual machine (VM) image, select an image from the Azure Marketplace that's compatible with Microsoft Dev Box. The following are examples of compatible images:
 - [Visual Studio 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019plustools?tab=Overview)
@@ -52,8 +52,7 @@ The image version must meet the following requirements:
 - Generation 2
 - Hyper-V v2
 - Windows OS
-    - Windows 10 Enterprise version 20H2 or later
-    - Windows 11 Enterprise 21H2 or later
+    - Supported versions of [Windows 10 or Windows 11 Enterprise](/windows/release-health/supported-versions-windows-client).
 - Generalized VM image
     - For more information about creating a generalized image, see [Reduce provisioning and startup times](#reduce-provisioning-and-startup-times) for more information.
 - Single-session VM image (Multiple-session VM images aren't supported.)
@@ -61,7 +60,7 @@ The image version must meet the following requirements:
     - For information about how to remove a recovery partition, see the [Windows Server command: delete partition](/windows-server/administration/windows-commands/delete-partition).
 - Default 64-GB OS disk size
     - The OS disk size is automatically adjusted to the size specified in the SKU description of the Windows 365 license.
-- The image definition must have [trusted launch enabled as the security type](../virtual-machines/trusted-launch.md). You configure the security type when you create the image definition.
+- The image definition must have [trusted launch enabled as the security type](/azure/virtual-machines/trusted-launch). You configure the security type when you create the image definition.
 
    :::image type="content" source="media/how-to-configure-azure-compute-gallery/image-definition.png" alt-text="Screenshot that shows Windows 365 image requirement settings.":::
 
@@ -91,11 +90,11 @@ When you create a generalized VM to capture to an image, the following issues ca
  
 1. Run `defrag` and `chkdsk` during image creation, then disable the `chkdisk` and `defrag` scheduled tasks. 
 
-## Provide permissions for services to access a gallery
+## Configure permissions to access a gallery
 
-When you use an Azure Compute Gallery image to create a dev box definition, the Windows 365 service validates the image to ensure that it meets the requirements to be provisioned for a dev box. Microsoft Dev Box replicates the image to the regions specified in the attached network connections, so the images are present in the region required for dev box creation.
+When you use an Azure Compute Gallery image to create a dev box definition, Microsoft Dev Box validates the image to ensure that it meets the requirements to be provisioned for a dev box. It also replicates the image to the regions specified in the attached network connections, so the images are present in the region required for dev box creation.
 
-To allow the services to perform these actions, you must provide permissions to your gallery as follows.
+To allow the service to perform these actions, you must provide permissions to your gallery as follows.
 
 ### Add a user-assigned identity to the dev center
 
@@ -118,27 +117,9 @@ To allow the services to perform these actions, you must provide permissions to 
 Microsoft Dev Box behaves differently depending how you attach your gallery:
 
 - When you use the Azure portal to attach the gallery to your dev center, the Dev Box service creates the necessary role assignments automatically after you attach the gallery.
-- When you use the Azure CLI to attach the gallery to your dev center, you must manually create the Windows 365 service principal and the dev center's managed identity role assignments before you attach the gallery.
+- When you use the Azure CLI to attach the gallery to your dev center, you must manually create the dev center's managed identity role assignments before you attach the gallery.
 
-Use the following steps to manually assign each role.
-
-#### Windows 365 service principal
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In the search box, enter **Azure Compute Gallery**. In the list of results, select the gallery that you want to attach to the dev center.
-
-1. On the left menu, select **Access Control (IAM)**.
-
-1. Select **Add** > **Add role assignment**.
-
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
-
-   | Setting | Value |
-   | --- | --- |
-   | **Role** | Select **Reader**. |
-   | **Assign access to** | Select **User, group, or service principal**. |
-   | **Members** | Search for and select **Windows 365**. |
+Use the following steps to manually assign the role.
 
 #### Managed identity for the dev center
 
@@ -156,7 +137,7 @@ Use the following steps to manually assign each role.
    | **Assign access to** | Select **Managed Identity**. |
    | **Members** | Search for and select the user-assigned managed identity that you created when you [added a user-assigned identity to the dev center](#add-a-user-assigned-identity-to-the-dev-center). |
 
-You can use the same managed identity in multiple dev centers and compute galleries. Any dev center with the managed identity added has the necessary permissions to the images in the gallery that has the Owner role assignment added.
+You can use the same managed identity in multiple dev centers and compute galleries. Any dev center with the managed identity added has the necessary permissions to the images in the gallery that has the Contributor role assignment added.
 
 ## Attach a gallery to a dev center
 

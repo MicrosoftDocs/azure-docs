@@ -3,9 +3,9 @@ title: Authenticate with namespaces using JSON Web Tokens
 description: This article shows you how to authenticate with Azure Event Grid namespace using JSON Web Tokens.
 ms.topic: how-to
 ms.custom: build-2024, devx-track-azurecli
-ms.date: 05/21/2024
-author: george-guirguis
-ms.author: geguirgu
+ms.date: 01/27/2025
+author: Connected-Seth
+ms.author: seshanmugam
 ---
 
 # Authenticate with namespaces using JSON Web Tokens
@@ -17,7 +17,7 @@ Azure Event Grid's MQTT broker supports custom JWT authentication, which enables
 
 To use custom JWT authentication for namespaces, you need to have the following prerequisites: 
 
-- Identity provider that can issue Json Web Tokens. 
+- Identity provider that can issue JSON Web Tokens. 
 - CA certificate that includes your public keys used to validate the client tokens. 
 - Azure Key Vault account to host the CA certificate that includes your public keys. 
 
@@ -49,7 +49,7 @@ For information configuring system and user-assigned identities using the Azure 
 1. Use the following command to create an Azure Key Vault account: 
  
     ```azurecli-interactive
-    az keyvault create --name "<your-unique-keyvault-name>" --resource-group "<resource group name>" --location "centraluseaup" 
+    az keyvault create --name "<your-unique-keyvault-name>" --resource-group "<resource group name>" --location "centraluseuap" 
     ```
 2. Use the following command to import a certificate to the Azure Key Vault 
 
@@ -90,7 +90,7 @@ In this step, you configure custom authentication settings on your Event Grid na
 1. On the **Event Grid Namespace** page, select **Configuration** on the left menu. 
 1. In the **Custom JWT authentication** section, specify values for the following properties:  
     1. Select **Enable custom JWT authentication**. 
-    1. **Token Issuer**: Enter the value of the issuer claims of the JWT tokens, presented by the MQTT clients. 
+    1. **Token Issuer**: Enter the value of the issuer claims of the JWTs, presented by the MQTT clients. 
     1. Select **Add issuer certificate**
     
         :::image type="content" source="./media/authenticate-with-namespaces-using-json-web-tokens/configuration-custom-authentication.png" alt-text="Screenshot that shows the Custom JWT authentication section of the Configuration page for an Event Grid namespace." lightbox="./media/authenticate-with-namespaces-using-json-web-tokens/configuration-custom-authentication.png":::
@@ -110,7 +110,25 @@ Use the following command to update your namespace with the custom JWT authentic
 
   
 ```azurecli-interactive
-az resource update --resource-type Microsoft.EventGrid/namespaces --api-version 2024-06-01-preview --ids /subscriptions/69f9e5ac-ca07-42cc-98d2-4718d033bcc5/resourceGroups/dummy-cd-test/providers/Microsoft.EventGrid/namespaces/dummy-cd-test2 --set properties.topicSpacesConfiguration.clientAuthentication='{\"customJwtAuthentication\":{\"tokenIssuer\":\"dmpypin-issuer\",\"issuerCertificates\":[{\"certificateUrl\":\"https://dummyCert-cd-test.vault.azure.net/certificates/dummy-cd-test/4f844b284afd487e9bba0831191087br1\",\"identity\":{\"type\":\"SystemAssigned\"}}]}}' 
+az resource update \
+  --resource-type Microsoft.EventGrid/namespaces \
+  --api-version 2024-06-01-preview \
+  --ids /subscriptions/1111a1a1-bb2b-cc3c-dd4d-ffffee5e5e5e/resourceGroups/sample-rg/providers/Microsoft.EventGrid/namespaces/sample-namespace \
+  --set properties.topicSpacesConfiguration.clientAuthentication='{
+    \"customJwtAuthentication\":{
+      \"tokenIssuer\":\"sample-issuer\",
+      \"issuerCertificates\":[
+        {
+          \"certificateUrl\":\"https://sample-vault.vault.azure.net/certificates/sample-cert/12345abcdef67890\",
+          \"identity\":{
+            \"type\":\"UserAssigned\",
+            \"userAssignedIdentity\":\"/subscriptions/1111a1a1-bb2b-cc3c-dd4d-ffffee5e5e5e/resourceGroups/sample-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sample-identity\"
+          }
+        }
+      ]
+    }
+  }'
+ 
 ```
 ## JSON Web Token format
 Json Web Tokens are divided into the JWT Header and JWT payload sections.
@@ -168,3 +186,4 @@ Event Grid maps all claims to client attributes if they have one of the followin
 
 ## Related content
 - [MQTT client authentication](mqtt-client-authentication.md)
+- [Authenticate client using custom JWT](mqtt-client-custom-jwt.md)

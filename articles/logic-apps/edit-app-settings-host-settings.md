@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/08/2024
+ms.date: 01/14/2024
 ms.custom: fasttrack-edit
 ---
 
@@ -16,6 +16,8 @@ ms.custom: fasttrack-edit
 In *single-tenant* Azure Logic Apps, the *app settings* for a Standard logic app specify the global configuration options that affect *all the workflows* in that logic app. However, these settings apply *only* when these workflows run in your *local development environment*. Locally running workflows can access these app settings as *local environment variables*, which are used by local development tools for values that can often change between environments. For example, these values can contain connection strings. When you deploy to Azure, app settings are ignored and aren't included with your deployment.
 
 Your logic app also has *host settings*, which specify the runtime configuration settings and values that apply to *all the workflows* in that logic app, for example, default values for throughput, capacity, data size, and so on, *whether they run locally or in Azure*.
+
+Settings are *key-value* pairs that define the setting name and value.
 
 <a name="app-settings-parameters-deployment"></a>
 
@@ -42,7 +44,7 @@ For more information about setting up your logic apps for deployment, see the fo
 
 ## Visual Studio Code project structure
 
-[!INCLUDE [Visual Studio Code - logic app project structure](../../includes/logic-apps-single-tenant-project-structure-visual-studio-code.md)]
+[!INCLUDE [Visual Studio Code - logic app project structure](includes/logic-apps-single-tenant-project-structure-visual-studio-code.md)]
 
 <a name="reference-local-settings-json"></a>
 
@@ -52,23 +54,30 @@ In Visual Studio Code, at your logic app project's root level, the **local.setti
 
 App settings in Azure Logic Apps work similarly to app settings in Azure Functions or Azure Web Apps. If you've used these other services before, you might already be familiar with app settings. For more information, review [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) and [Work with Azure Functions Core Tools - Local settings file](../azure-functions/functions-develop-local.md#local-settings-file).
 
-| Setting | Default value | Description |
-|---------|---------------|-------------|
-| `AzureWebJobsStorage` | None | Sets the connection string for an Azure storage account. For more information, see [AzureWebJobsStorage](../azure-functions/functions-app-settings.md#azurewebjobsstorage) |
-| `FUNCTIONS_WORKER_RUNTIME` | `node` | Sets the language worker runtime to use with your logic app resource and workflows. However, this setting is no longer necessary due to automatically enabled multi-language support. <br><br>For more information, see [FUNCTIONS_WORKER_RUNTIME](../azure-functions/functions-app-settings.md#functions_worker_runtime). |
-| `ServiceProviders.Sftp.FileUploadBufferTimeForTrigger` | `00:00:20` <br>(20 seconds) | Sets the buffer time to ignore files that have a last modified timestamp that's greater than the current time. This setting is useful when large file writes take a long time and avoids fetching data for a partially written file. |
-| `ServiceProviders.Sftp.OperationTimeout` | `00:02:00` <br>(2 min) | Sets the time to wait before timing out on any operation. |
-| `ServiceProviders.Sftp.ServerAliveInterval` | `00:30:00` <br>(30 min) | Sends a "keep alive" message to keep the SSH connection active if no data exchange with the server happens during the specified period. |
-| `ServiceProviders.Sftp.SftpConnectionPoolSize` | `2` connections | Sets the number of connections that each processor can cache. The total number of connections that you can cache is *ProcessorCount* multiplied by the setting value. |
-| `ServiceProviders.MaximumAllowedTriggerStateSizeInKB` | `10` KB, which is ~1,000 files | Sets the trigger state entity size in kilobytes, which is proportional to the number of files in the monitored folder and is used to detect files. If the number of files exceeds 1,000, increase this value. |
-| `ServiceProviders.Sql.QueryTimeout` | `00:02:00` <br>(2 min) | Sets the request timeout value for SQL service provider operations. |
-| `WEBSITE_LOAD_ROOT_CERTIFICATES` | None | Sets the thumbprints for the root certificates to be trusted. |
-| `Workflows.Connection.AuthenticationAudience` | None | Sets the audience for authenticating a managed (Azure-hosted) connection. |
-| `Workflows.CustomHostName` | None | Sets the host name to use for workflow and input-output URLs, for example, "logic.contoso.com". For information to configure a custom DNS name, see [Map an existing custom DNS name to Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md) and [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../app-service/configure-ssl-bindings.md). |
-| `Workflows.<workflowName>.FlowState` | None | Sets the state for <*workflowName*>. |
-| `Workflows.<workflowName>.RuntimeConfiguration.RetentionInDays` | None | Sets the amount of time in days to keep the run history for <*workflowName*>. |
-| `Workflows.RuntimeConfiguration.RetentionInDays` | `90` days | Sets the amount of time in days to keep workflow run history after a run starts. |
-| `Workflows.WebhookRedirectHostUri` | None | Sets the host name to use for webhook callback URLs. |
+For your workflow to run properly, some app settings are required.
+
+| Setting | Required | Value | Description |
+|---------|----------|-------|-------------|
+| `APP_KIND` | Yes | `workflowApp` | Required to set the app type for the Standard logic app resource. The value must be set to **`workflowApp`**. <br><br>**Note**: In some scenarios, this app setting might be missing, for example, due to automation using Azure Resource Manager templates or other scenarios where the setting isn't included. If certain actions don't work, such as the **Execute JavaScript Code** action, or if the workflow stops working, check that the **APP_KIND** app setting exists and is set to **`workflowApp`**. |
+| `AZURE_AUTHORITY_HOST` | No | None | Sets the Standard logic app's default authority to use for OAuth authentication. |
+| `AzureWebJobsStorage` | Yes | None | Required to set the connection string for an Azure storage account. For more information, see [AzureWebJobsStorage](../azure-functions/functions-app-settings.md#azurewebjobsstorage). |
+| `FUNCTIONS_EXTENSION_VERSION` | Yes | `~4` | Required to set the Azure Functions version. For more information, see [FUNCTIONS_EXTENSION_VERSION](/azure/azure-functions/functions-app-settings#functions_extension_version). |
+| `FUNCTIONS_WORKER_RUNTIME` | Yes | `dotnet` | Required to set the language worker runtime for your logic app resource and workflows. <br><br>**Note**: This setting's value was previously set to **`node`**, but now the required value is **`dotnet`** for all new and existing deployed Standard logic apps. This change shouldn't affect your workflow's runtime, so everything should work the same way as before. <br><br>For more information, see [FUNCTIONS_WORKER_RUNTIME](../azure-functions/functions-app-settings.md#functions_worker_runtime). |
+| `ServiceProviders.Sftp.FileUploadBufferTimeForTrigger` | No | `00:00:20` <br>(20 seconds) | Sets the buffer time to ignore files that have a last modified timestamp that's greater than the current time. This setting is useful when large file writes take a long time and avoids fetching data for a partially written file. |
+| `ServiceProviders.Sftp.OperationTimeout` | No | `00:02:00` <br>(2 min) | Sets the time to wait before timing out on any operation. |
+| `ServiceProviders.Sftp.ServerAliveInterval` | No | `00:30:00` <br>(30 min) | Sends a "keep alive" message to keep the SSH connection active if no data exchange with the server happens during the specified period. |
+| `ServiceProviders.Sftp.SftpConnectionPoolSize` | No | `2` connections | Sets the number of connections that each processor can cache. The total number of connections that you can cache is *ProcessorCount* multiplied by the setting value. |
+| `ServiceProviders.MaximumAllowedTriggerStateSizeInKB` | No | `10` KB, which is ~1,000 files | Sets the trigger state entity size in kilobytes, which is proportional to the number of files in the monitored folder and is used to detect files. If the number of files exceeds 1,000, increase this value. |
+| `ServiceProviders.Sql.QueryTimeout` | No | `00:02:00` <br>(2 min) | Sets the request timeout value for SQL service provider operations. |
+| `WEBSITE_CONTENTSHARE` | Yes | Dynamic | Required to set the name for the file share that Azure Functions uses to store function app code and configuration files and is used with [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](/azure/azure-functions/functions-app-settings#website_contentazurefileconnectionstring). The default is a unique string generated by the runtime. For more information, see [WEBSITE_CONTENTSHARE](/azure/azure-functions/functions-app-settings#website_contentshare). |
+| `WEBSITE_LOAD_ROOT_CERTIFICATES` | No | None | Sets the thumbprints for the root certificates to be trusted. |
+| `WEBSITE_NODE_DEFAULT_VERSION` | Yes | **~**<*version*> | Sets the Node.js version when running your logic app workflows on Windows. Use a tilde (~) to have the Azure Logic Apps runtime use the latest available version of the targeted major version. For example, if set to **~18**, the latest version of Node.js 18 is used. When you use a tilde with a major version, you don't have to manually update the minor version. <br><br>For more information, see [**WEBSITE_NODE_DEFAULT_VERSION** - Azure Functions](/azure/azure-functions/functions-app-settings#website_node_default_version). |
+| `Workflows.Connection.AuthenticationAudience` | No | None | Sets the audience for authenticating a managed (Azure-hosted) connection. |
+| `Workflows.CustomHostName` | No | None | Sets the host name to use for workflow and input-output URLs, for example, "logic.contoso.com". For information to configure a custom DNS name, see [Map an existing custom DNS name to Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md) and [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../app-service/configure-ssl-bindings.md). |
+| `Workflows.<workflowName>.FlowState` | No | None | Sets the state for <*workflowName*>. |
+| `Workflows.<workflowName>.RuntimeConfiguration.RetentionInDays` | No | `90` days | Sets the amount of time in days to keep the run history for <*workflowName*>. <br><br>- Minimum: 7 days <br>- Maximum: 365 days |
+| `Workflows.RuntimeConfiguration.RetentionInDays` | No | `90` days | Sets the amount of time in days to keep workflow run history after a run starts. <br><br>- Minimum: 7 days <br>- Maximum: 365 days |
+| `Workflows.WebhookRedirectHostUri` | No | None | Sets the host name to use for webhook callback URLs. |
 
 <a name="manage-app-settings"></a>
 
@@ -88,15 +97,17 @@ To add, update, or delete app settings, select and review the following sections
 
    For more information about these settings, review the [reference guide for available app settings - local.settings.json](#reference-local-settings-json).
 
-1. To view all values, select **Show Values**. Or, to view a single value, in the **Value** column, next to the value, select the "eye".
+1. To view all values, on the page toolbar, select **Show Values**. Or, to view a single value, in the **Value** column, select **Show value** (eye icon).
 
 ##### Add an app setting in the portal
 
-1. On the **App settings** tab, at the bottom of the list, in the **Name** column, enter the *key* or name for your new setting.
+1. On the **App settings** tab, on the toolbar, select **Add**.
+
+1. On the **Add/Edit application setting** pane, for **Name**, enter the *key* or name for your new setting.
 
 1. For **Value**, enter the value for your new setting.
 
-1. When you're ready to create your new *key-value* pair, select **Apply**.
+1. When you're done, select **Apply**.
 
    :::image type="content" source="./media/edit-app-settings-host-settings/portal-app-settings-values.png" alt-text="Screenshot shows Azure portal with app settings page and values for a Standard logic app resource." lightbox="./media/edit-app-settings-host-settings/portal-app-settings-values.png":::
 
@@ -174,12 +185,12 @@ Both of the following settings are used to manually stop and immediately delete 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `Jobs.CleanupJobPartitionPrefixes` | None | Immediately deletes all the run jobs for the specified workflows. |
-| `Jobs.SuspendedJobPartitionPartitionPrefixes` | None | Stops the run jobs for the specified workflows. |
+| `Jobs.SuspendedJobPartitionPrefixes` | None | Stops the run jobs for the specified workflows. |
 
 The following example shows the syntax for these settings where each workflow ID is followed by a colon (**:**) and separated by a semicolon (**;**):
 
 ```json
-"Jobs.CleanupJobPartitionPrefixes": "<workflow-ID-1>:; <workflow-ID-2:",
+"Jobs.CleanupJobPartitionPrefixes": "<workflow-ID-1>:; <workflow-ID-2>:",
 "Jobs.SuspendedJobPartitionPrefixes": "<workflow-ID-1>:; <workflow-ID-2>:"
 ```
 
@@ -256,7 +267,7 @@ The following settings work only for workflows that start with a recurrence-base
 | `Runtime.FlowRunEngine.ForeachMaximumItemsForContentInlining` | `20` items | When a `For each` loop is running, each item's value is stored either inline with other metadata in table storage or separately in blob storage. Sets the number of items to store inline with other metadata. |
 | `Runtime.FlowRunRetryableActionJobCallback.MaximumPagesForContentInlining` | `20` pages | Sets the maximum number of pages to store as inline content in table storage before storing in blob storage. |
 | `Runtime.FlowTriggerSplitOnJob.MaximumItemsForContentInlining` | `40` items | When the `SplitOn` setting debatches array items into multiple workflow instances, each item's value is stored either inline with other metadata in table storage or separately in blob storage. Sets the number of items to store inline. |
-| `Runtime.ScaleUnit.MaximumCharactersForContentInlining` | `8192` characters | Sets the maximum number of operation input and output characters to store inline in table storage before storing in blob storage. |
+| `Runtime.ScaleUnit.MaximumCharactersForContentInlining` | `32384` characters | Sets the maximum number of operation input and output characters to store inline in table storage before storing in blob storage. |
 
 <a name="for-each-loop"></a>
 
@@ -427,19 +438,7 @@ To review the host settings for your single-tenant based logic app in the Azure 
 
 1. In the [Azure portal](https://portal.azure.com/) search box, find and open your logic app.
 
-1. On your logic app menu, under **Development Tools**, select **Advanced Tools**.
-
-1. On the **Advanced Tools** page, select **Go**, which opens the **Kudu** environment for your logic app.
-
-1. On the Kudu toolbar, from the **Debug console** menu, select **CMD**.
-
-1. In the Azure portal, stop your logic app.
-
-   1. On your logic app menu, select **Overview**.
-
-   1. On the **Overview** pane's toolbar, select **Stop**.
-
-1. On your logic app menu, under **Development Tools**, select **Advanced Tools**.
+1. On the resource menu, under **Development Tools**, select **Advanced Tools**.
 
 1. On the **Advanced Tools** pane, select **Go**, which opens the Kudu environment for your logic app.
 
@@ -459,10 +458,13 @@ To add a setting, follow these steps:
 
 1. Before you add or edit settings, stop your logic app in the Azure portal.
 
-   1. On your logic app menu, select **Overview**.
+   1. On the resource menu, select **Overview**.
+
    1. On the **Overview** pane's toolbar, select **Stop**.
 
-1. Return to the **host.json** file. Under the `extensionBundle` object, add the `extensions` object, which includes the `workflow` and `settings` objects, for example:
+1. If the **host.json** file is already open, return to the **host.json** file. Otherwise, follow the preceding steps to open the **host.json** file.
+
+1. Under the `extensionBundle` object, add the `extensions` object, which includes the `workflow` and `settings` objects, for example:
 
    ```json
    {

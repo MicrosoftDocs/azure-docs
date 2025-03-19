@@ -307,7 +307,7 @@ To deploy Cloud Services (extended support) by using a template:
           "type": "string",
           "defaultValue": "[concat(parameters('cloudServiceName'), 'VNet')]",
           "metadata": {
-            "description": "Name of vitual network"
+            "description": "Name of virtual network"
           }
         },
         "publicIPName": {

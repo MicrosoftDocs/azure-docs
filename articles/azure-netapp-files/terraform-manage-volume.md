@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: devx-track-terraform
 ms.topic: how-to
-ms.date: 12/20/2023
+ms.date: 03/20/2024
 ms.author: anfdocs
 ---
 # Update Terraform-managed Azure resources outside of Terraform

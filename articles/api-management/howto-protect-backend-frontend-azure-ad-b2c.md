@@ -62,7 +62,7 @@ Here's a quick overview of the steps:
 1. Build the Function API
 1. Configure the Function API to enable EasyAuth with the new Azure AD B2C Client IDs and Keys and lock down to APIM VIP
 1. Build the API Definition in API Management
-1. Set up Oauth2 for the API Management API configuration
+1. Set up OAuth2 for the API Management API configuration
 1. Set up the **CORS** policy and add the **validate-jwt** policy to validate the OAuth token for every incoming request
 1. Build the calling application to consume the API
 1. Upload the JS SPA Sample
@@ -199,7 +199,7 @@ Open the Azure AD B2C blade in the portal and do the following steps.
    >
    > We still have no IP security applied, if you have a valid key and OAuth2 token, anyone can call this from anywhere - ideally we want to force all requests to come via API Management.
    >
-   > If you're using the API Management Consumption, Basic v2, and Standard v2 tiers then [there isn't a dedicated Azure API Management Virtual IP](./api-management-howto-ip-addresses.md#ip-addresses-of-consumption-basic-v2-and-standard-v2-tier-api-management-service) to allow-list with the functions access-restrictions. In the Azure API Management classic (dedicated) tiers [the VIP is single tenant and for the lifetime of the resource](./api-management-howto-ip-addresses.md#changes-to-the-ip-addresses). For the tiers that run on shared infrastructure, you can lock down your API calls via the shared secret function key in the portion of the URI you copied above. Also, for these tiers - steps 12-17 below do not apply.
+   > If you're using the API Management Consumption, Basic v2, Standard v2, and Premium v2 tiers, then [there isn't a dedicated Azure API Management Virtual IP](./api-management-howto-ip-addresses.md#ip-addresses-of-consumption-basic-v2-standard-v2-and-premium-v2-tier-api-management-service) to allow-list with the functions access-restrictions. In the Azure API Management classic (dedicated) tiers [the VIP is single tenant and for the lifetime of the resource](./api-management-howto-ip-addresses.md#changes-to-the-ip-addresses). For the tiers that run on shared infrastructure, you can lock down your API calls via the shared secret function key in the portion of the URI you copied above. Also, for these tiers - steps 12-17 below do not apply.
 
 1. Close the 'Authentication' blade from the App Service / Functions portal.
 1. Open the *API Management blade of the portal*, then open *your instance*.
@@ -221,7 +221,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 1. Click Browse, choose the function app you're hosting the API inside, and click select. Next, click select again.
 1. Give the API a name and description for API Management's internal use and add it to the ‘unlimited’ Product.
 1. Copy and record the API's 'base URL' and click 'create'.
-1. Click the 'settings' tab, then under subscription - switch off the 'Subscription Required' checkbox as we'll use the Oauth JWT token in this case to rate limit. Note that if you're using the consumption tier, this would still be required in a production environment.
+1. Click the 'settings' tab, then under subscription - switch off the 'Subscription Required' checkbox as we'll use the OAuth JWT token in this case to rate limit. Note that if you're using the consumption tier, this would still be required in a production environment.
 
    > [!TIP]
    > If using the consumption tier of APIM the unlimited product won't be available as an out of the box. Instead, navigate to "Products" under "APIs" and hit "Add".
@@ -456,7 +456,7 @@ Now we have a simple app with a simple secured API, let's test it.
 
 The steps above can be adapted and edited to allow many different uses of Azure AD B2C with API Management.
 
-## Next steps
+## Related content
 
 * Learn more about [Microsoft Entra ID and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
 * Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.

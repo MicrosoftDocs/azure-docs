@@ -6,26 +6,22 @@ ms.author: sunishvohra
 ms.manager: vijain
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 07/05/2024
-ms.custom: engagement-fy24
+ms.date: 12/04/2024
+ms.custom: engagement-fy25
 ---
 
 # Prepare on-premises machines for migration to Azure
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
-This article describes how to prepare on-premises machines before you migrate them to Azure using the [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) tool.
+This article describes how to prepare on-premises machines before you migrate them to Azure using the [Migration and modernization](/azure/migrate/common-questions-server-migration) tool.
 
 In this article, you:
-> [!div class="checklist"]
 > * Review migration limitations.
 > * Select a method for migrating VMware vSphere VMs.
 > * Check hypervisor and operating system requirements for machines you want to migrate.
 > * Review URL and port access for machines you want to migrate.
 > * Review changes you might need to make before you begin migration.
 > * Check Azure VMs requirements for migrated machines.
-> * Prepare machines so you can connect to the Azure VMs after migration.
+> * Prepare machines so you can connect to the Azure VMs after migration. 
 
 
 ## Verify migration limitations
@@ -54,7 +50,7 @@ Verify supported operating systems for migration:
 
 - If you're migrating VMware vSphere VMs or Hyper-V VMs, verify VMware vSphere VM requirements for [agentless](migrate-support-matrix-vmware-migration.md#vm-requirements-agentless), and [agent-based](migrate-support-matrix-vmware-migration.md#vm-requirements-agent-based) migration, and requirements for [Hyper-V VMs](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms).
 - Verify [Windows operating systems](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) are supported in Azure.
-- Verify [Linux distributions](../virtual-machines/linux/endorsed-distros.md) supported in Azure.
+- Verify [Linux distributions](/azure/virtual-machines/linux/endorsed-distros) supported in Azure.
 
 ## Review URL and port access
 
@@ -112,12 +108,12 @@ Configure this setting manually as follows:
 
 Azure Migrate completes these actions automatically for these versions
 
-- Red Hat Enterprise Linux  8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x (Azure Linux VM agent is also installed automatically during migration)
-- Cent OS 8.x, 7.7, 7.6, 7.5, 7.4, 6.x (Azure Linux VM agent is also installed automatically during migration)
-- SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11 SP4, 11 SP3
-- Ubuntu 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS (Azure Linux VM agent is also installed automatically during migration)
-- Debian 10, 9, 8, 7
-- Oracle Linux 8, 7.7-CI, 7.7, 6
+- Red Hat Enterprise Linux  9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x (Azure Linux VM agent is also installed automatically during migration)
+- CentOS Stream (Azure Linux VM agent is also installed automatically during migration)
+- SUSE Linux Enterprise Server 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3
+- Ubuntu 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS (Azure Linux VM agent is also installed automatically during migration)
+- Debian 11, 10, 9, 8, 7
+- Oracle Linux 9, 8, 7.7-CI, 7.7, 6
 
 For other versions, prepare machines as summarized in the table. 
 > [!Note]
@@ -133,14 +129,14 @@ For other versions, prepare machines as summarized in the table.
 **Remove udev rule** | Remove any udev rules that reserves interface names based on mac address etc. | Remove manually for all versions except those called out above.
 **Update network interfaces** | Update network interfaces to receive IP address based on DHCP.nst | Update manually for all versions except those called out above.
 **Enable ssh** | Ensure ssh is enabled and the sshd service is set to start automatically on reboot.<br/><br/> Ensure that incoming ssh connection requests are not blocked by the OS firewall or scriptable rules.| Enable manually for all versions except those called out above.
-**Install the Linux Azure Guest Agent** | The Microsoft Azure Linux Agent (waagent) is a secure, lightweight process that manages Linux & FreeBSD provisioning, and VM interaction with the Azure Fabric Controller.| Enable manually for all versions except those called out above.  <br> Follow instructions to [install the Linux Agent manually](../virtual-machines/extensions/agent-linux.md#installation) for other OS versions. Review the list of [required packages](../virtual-machines/extensions/agent-linux.md#requirements) to install Linux VM agent. 
+**Install the Linux Azure Guest Agent** | The Microsoft Azure Linux Agent (waagent) is a secure, lightweight process that manages Linux & FreeBSD provisioning, and VM interaction with the Azure Fabric Controller.| Enable manually for all versions except those called out above.  <br> Follow instructions to [install the Linux Agent manually](/azure/virtual-machines/extensions/agent-linux#installation) for other OS versions. Review the list of [required packages](/azure/virtual-machines/extensions/agent-linux#requirements) to install Linux VM agent. 
 
 [Learn more](./prepare-for-agentless-migration.md#changes-performed-on-linux-servers) on the changes performed on Linux servers for agentless VMware vSphere migrations.
 
 The following table summarizes the steps performed automatically for the operating systems listed above.
 
 
-| Action                                      | Agent\-Based VMware vSphere Migration | Agentless VMware vSphere Migration | Agentless Hyper\-V Migration   |
+| Action                                      | Agent-based VMware vSphere Migration | Agentless VMware vSphere Migration | Agentless Hyper\-V Migration   |
 |---------------------------------------------|-------------------------------|----------------------------|------------|
 | Update kernel image with Hyper\-V Linux Integration Services. <br> (The LIS drivers should be present on the kernel.) | Yes                           | Yes                        | Yes |
 | Enable Azure Serial Console logging         | Yes                           | Yes                        | Yes        |
@@ -151,16 +147,15 @@ The following table summarizes the steps performed automatically for the operati
 | Enable ssh                                  | No                            | No                         | No         |    
 | Install Azure VM Linux agent                | Yes                           | Yes                        | Yes        |
 
-Learn more about steps for [running a Linux VM on Azure](../virtual-machines/linux/create-upload-generic.md), and get instructions for some of the popular Linux distributions.
+Learn more about steps for [running a Linux VM on Azure](/azure/virtual-machines/linux/create-upload-generic), and get instructions for some of the popular Linux distributions.
 
-Review the list of [required packages](../virtual-machines/extensions/agent-linux.md#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for  RHEL 8.x/7.x/6.x, Ubuntu 14.04/16.04/18.04/19.04/19.10/20.04, SUSE 15 SP0/15 SP1/12/11 SP4/11 SP3, Debian 9/8/7, and Oracle 7 when using the agentless method of VMware migration.
+Review the list of [required packages](/azure/virtual-machines/extensions/agent-linux#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for  RHEL 8.x, Ubuntu 20.04, SUSE 15 and Oracle 7 when using the agentless method of VMware migration.
 
 ## Check Azure VM requirements
 
 On-premises machines that you replicate to Azure must comply with Azure VM requirements for the operating system and architecture, the disks, network settings, and VM naming.
 
 Before migrating, review the Azure VMs requirements for [VMware](migrate-support-matrix-vmware-migration.md#azure-vm-requirements), [Hyper-V](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements), and [physical server](migrate-support-matrix-physical-migration.md#azure-vm-requirements) migration.
-
 
 
 ## Prepare to connect after migration
@@ -172,10 +167,10 @@ Azure VMs are created during migration to Azure. After migration, you must be ab
 On on-premises Windows machines:
 
 1. Configure Windows settings. Settings include removing any static persistent routes or WinHTTP proxy.
-2. Make sure [required services](../virtual-machines/windows/prepare-for-upload-vhd-image.md#check-the-windows-services) are running.
-3. Enable remote desktop (RDP) to allow remote connections to the on-premises machine. Learn how to [use PowerShell to enable RDP](../virtual-machines/windows/prepare-for-upload-vhd-image.md#update-remote-desktop-registry-settings).
+2. Make sure [required services](/azure/virtual-machines/windows/prepare-for-upload-vhd-image#check-the-windows-services) are running.
+3. Enable remote desktop (RDP) to allow remote connections to the on-premises machine. Learn how to [use PowerShell to enable RDP](/azure/virtual-machines/windows/prepare-for-upload-vhd-image#update-remote-desktop-registry-settings).
 4. To access an Azure VM over the internet after migration, in Windows Firewall on the on-premises machine, allow TCP and UDP in the Public profile, and set RDP as an allowed app for all profiles.
-5. If you want to access an Azure VM over a site-to-site VPN after migration, in Windows Firewall on the on-premises machine, allow RDP for the Domain and Private profiles. Learn how to [allow RDP traffic](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules).
+5. If you want to access an Azure VM over a site-to-site VPN after migration, in Windows Firewall on the on-premises machine, allow RDP for the Domain and Private profiles. Learn how to [allow RDP traffic](/azure/virtual-machines/windows/prepare-for-upload-vhd-image#configure-windows-firewall-rules).
 6. Make sure there are no Windows updates pending on the on-premises VM when you migrate. If there are, updates might start installing on the Azure VM after migration, and you won't be able to sign into the VM until updates finish.
 
 

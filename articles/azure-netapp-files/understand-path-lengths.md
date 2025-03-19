@@ -11,7 +11,7 @@ ms.author: anfdocs
 
 # Understand path lengths in Azure NetApp Files 
 
-File and path length refers to the number of Unicode characters in a file path, including directories. This limit is a factor in the individual character lengths, which are determined by the size of the character in bytes. For instance, NFS and SMB allow path components of 255 bytes. The file encoding format of ASCII uses 8-bit encoding, meaning file path components (such as a file or folder name) in ASCII can be up to 255 characters since ASCII characters are 1 byte in size. 
+File and path length refers to the number of Unicode characters in a file path, including directories. This limit is a factor in the individual character lengths, which are determined by the size of the character in bytes. For instance, NFS and SMB allow path components of 255 bytes. The file encoding format of American Standard Code for Information Interchange (ASCII) uses 8-bit encoding, meaning file path components (such as a file or folder name) in ASCII can be up to 255 characters since ASCII characters are 1 byte in size. 
 
 The following table shows the supported component and path lengths in Azure NetApp Files volumes:
 
@@ -184,13 +184,13 @@ The path length max can be queried using the `getconf PATH_MAX /NFSmountpoint` c
 
 ## Dual-protocol volume considerations 
 
-When using Azure NetApp Files for dual-protocol access, the difference in how path lengths are handled in NFS and SMB protocols can create incompatibilities across file and folders. For instance, Windows SMB supports up to 32,767 characters in a path (provided the long path feature is enabled on the SMB client), but NFS support can exceed that amount. As such, if a path length is created in NFS that exceeds the support of SMB, clients are unable to access the data once the path length maximums have been reached. In those cases, either take care to consider the lower end limits of file path lengths across protocols when creating file and folder names (and folder path depth) or map SMB shares closer to the desired folder path to reduce the path length.
+When using Azure NetApp Files for dual-protocol access, the difference in how path lengths are handled in NFS and SMB protocols can create incompatibilities across files and folders. For instance, Windows SMB supports up to 32,767 characters in a path (provided the long path feature is enabled on the SMB client), but NFS support can exceed that amount. As such, if a path length is created in NFS that exceeds the support of SMB, clients are unable to access the data once the path length maximums have been reached. In those cases, either take care to consider the lower end limits of file path lengths across protocols when creating file and folder names (and folder path depth) or map SMB shares closer to the desired folder path to reduce the path length.
 
 Instead of mapping the SMB share to the top level of the volume to navigate down to a path of `\\share\folder1\folder2\folder3\folder4`, consider mapping the SMB share to the entire path of `\\share\folder1\folder2\folder3\folder4`. As a result, a drive letter mapping to `Z:` lands in the desired folder and reduces the path length from `Z:\folder1\folder2\folder3\folder4\file` to `Z:\file`.
 
 ### Special character considerations
 
-Azure NetApp Files volumes use a language type of [C.UTF-8](/cpp/build/reference/utf-8-set-source-and-executable-character-sets-to-utf-8), which covers many countries and languages including German, Cyrillic, Hebrew, and most Chinese/Japanese/Korean (CJK). Most common text characters in Unicode are 3 bytes or less. Special characters--such as emojis, musical symbols, and mathematical symbols--are often larger than 3 bytes. Some use [UTF-16 surrogate pair logic](/windows/win32/intl/surrogates-and-supplementary-characters). 
+Azure NetApp Files volumes use a language type of [C.UTF-8](/cpp/build/reference/utf-8-set-source-and-executable-character-sets-to-utf-8), which covers many countries/regions and languages including German, Cyrillic, Hebrew, and most Chinese/Japanese/Korean (CJK). Most common text characters in Unicode are 3 bytes or less. Special characters--such as emojis, musical symbols, and mathematical symbols--are often larger than 3 bytes. Some use [UTF-16 surrogate pair logic](/windows/win32/intl/surrogates-and-supplementary-characters). 
 
 If you use a character that Azure NetApp Files doesn't support, you might see a warning requesting a different file name. 
 

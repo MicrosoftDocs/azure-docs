@@ -1,7 +1,6 @@
 ---
 author: stevenmatthew
-ms.service: databox  
-ms.subservice: disk
+ms.service: azure-data-box-disk
 ms.topic: include
 ms.date: 12/16/2021
 ms.author: shaas

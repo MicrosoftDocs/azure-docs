@@ -2,12 +2,11 @@
 title: 'Connect Azure Front Door Premium to an internal load balancer origin with Private Link'
 titleSuffix: Azure Private Link
 description: Learn how to connect your Azure Front Door Premium to an internal load balancer.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 06/01/2023
-ms.author: duau
+ms.date: 08/12/2024
 ---
 
 # Connect Azure Front Door Premium to an internal load balancer origin with Private Link
@@ -17,7 +16,7 @@ This article guides you through how to configure Azure Front Door Premium to con
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Review [Secure your origin with Private Link](../private-link.md) to understand how Private Link works with Azure Front Door.
+* Review the [Secure your origin with Private Link](../private-link.md) documentation to better understand how Private Link works with Azure Front Door.
 * Create a [Private Link](../../private-link/create-private-link-service-portal.md) service for your origin web servers.
 
 ## Enable private connectivity to an internal load balancer
@@ -28,14 +27,12 @@ In this section, you map the Private Link service to a private endpoint created 
 
 1. Navigate to your Azure Front Door Premium profile, then select **Origin groups** from under *Settings* in the left side menu pane.
 
-1. Select an existing or create a new origin group to add an internal load balancer origin.
+1. Select an existing origin group or create a new one to add to an internal load balancer origin.
 
 1. Select **+ Add an origin** to add new origin. Select or enter the following settings to configure the internal load balancer origin. 
 
     > [!NOTE] 
-    > The hostname must be a valid domain name, IPv4 or IPv6. The hostname can be the private IP of the internal load balancer or a domain name. 
-
-    :::image type="content" source="../media/how-to-enable-private-link-internal-load-balancer/private-endpoint-internal-load-balancer-ip.png" alt-text="Screenshot of enabling private link to an internal load balancer using an IP address.":::
+    > The hostname must be a valid domain name, IPv4 or IPv6. The hostname can be the private IP of the internal load balancer or a domain name.
 
     * **Name** - Enter a name to identify this origin.
     * **Origin type** - Select the **Custom** origin type.
@@ -49,9 +46,7 @@ In this section, you map the Private Link service to a private endpoint created 
     * **Private link** - Select the checkbox to enable private link for this origin.
     * **Select a private link**:
         * **In my directory** - Select this option if you want to use your own private link service.
-            :::image type="content" source="../media/how-to-enable-private-link-internal-load-balancer/in-directory.png" alt-text="Screenshot of selecting a private link service in your own directory.":::
         * **By ID or alias** - Select this option if you want to use a private link service that is shared with you. You need to enter the resource ID of the private link service.
-            :::image type="content" source="../media/how-to-enable-private-link-internal-load-balancer/by-id-or-alias.png" alt-text="Screenshot of selecting a private link service using a resource ID.":::
     * **Region** - Select the region that is the same or closest to your origin.
     * **Request message** - This message is sent to the resource owner to assist them in the connection management process.
     * **Status** - Leave checked to enable the origin.
@@ -62,19 +57,14 @@ In this section, you map the Private Link service to a private endpoint created 
 
 1. Go to the Private Link Center and select **Private link services**. Then select the private link service you created for the internal load balancer.
 
-    :::image type="content" source="../media/how-to-enable-private-link-internal-load-balancer/list.png" alt-text="Screenshot of private link list.":::
-
 1. Select **Private endpoint connections** from under *Settings* in the left side menu pane.
-
-    :::image type="content" source="../media/how-to-enable-private-link-internal-load-balancer/overview.png" alt-text="Screenshot of private link overview page.":::
 
 1. Select the *pending* private endpoint request from Azure Front Door then select **Approve**. When prompted, select **Yes** to confirm you want to establish this connection.
 
     :::image type="content" source="../media/how-to-enable-private-link-internal-load-balancer/private-endpoint-pending-approval.png" alt-text="Screenshot of pending approval for private link.":::
 
-1. The *connection state* should change to **Approved**. It may take a couple of minutes for the connection to fully establish. You can now access your internal load balancer from Azure Front Door.
+1. The *connection state* should change to **Approved**. It might take a couple of minutes for the connection to fully establish. You can now access your internal load balancer from Azure Front Door.
 
-    :::image type="content" source="../media/how-to-enable-private-link-storage-account/private-endpoint-approved.png" alt-text="Screenshot of approved private link request.":::
 
 ## Next steps
 

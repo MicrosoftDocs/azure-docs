@@ -4,7 +4,7 @@ titlesuffix: Azure NAT Gateway
 description: Get started creating a NAT gateway using Azure PowerShell.
 author: asudbring
 ms.author: allensu
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: quickstart 
 ms.date: 06/21/2023
 ms.custom: template-quickstart, devx-track-azurepowershell

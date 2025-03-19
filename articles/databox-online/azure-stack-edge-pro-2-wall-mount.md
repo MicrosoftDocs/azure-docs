@@ -4,8 +4,7 @@ description: This article contains instructions on how to rack the Azure Stack E
 services: databox
 author: sipastak
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 02/23/2022
 ms.author: sipastak 

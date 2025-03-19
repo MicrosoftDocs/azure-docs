@@ -1,14 +1,14 @@
 ---
-title: What are Azure Extended Zones (Preview)?
-description: Learn about Azure Extended Zones.
+title: What are Azure Extended Zones?
+description: Learn about Azure Extended Zones and how they can help you run latency-sensitive and throughput-intensive applications close to end users.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-extended-zones
 ms.topic: overview
-ms.date: 08/02/2024
+ms.date: 12/04/2024
 ---
 
-# What are Azure Extended Zones (Preview)?
+# What are Azure Extended Zones?
 
 Azure Extended Zones are small-footprint extensions of Azure placed in metros, industry centers, or a specific jurisdiction to serve low latency and data residency workloads. Azure Extended Zones supports virtual machines (VMs), containers, storage, and a selected set of Azure services and can run latency-sensitive and throughput-intensive applications close to end users and within approved data residency boundaries.
  
@@ -37,15 +37,29 @@ The following diagram shows how Azure services are deployed at the Azure Extende
 
 The following table lists key services that are available in Azure Extended Zones:
 
-| Service category | Available services |
+| Service category | Available Azure services and features |
 | ------------------ | ------------------- |
-| **Compute** | Azure virtual machines (general purpose: A, B, D, E, and F series and GPU NVadsA10 v5 series) <br> Virtual Machine Scale Sets <br> Azure Kubernetes Service |
-| **Networking** | Azure Private Link <br> Standard public IP <br> Virtual networks <br> Virtual network peering <br> ExpressRoute <br> Azure Standard Load Balancer <br> DDoS (Standard protection) |
-| **Storage** | Azure managed disks <br> Azure Premium Page Blobs <br> Azure Premium Block Blobs <br> Azure Premium Files <br>  Azure Data Lake Storage Gen2<br> Hierarchical Namespace <br>Azure Data Lake Storage Gen2 Flat Namespace <br> Change Feed <br> Blob Features <br> - SFTP <br> - NFS |
-| **BCDR** | Azure Site Recovery <br> Azure Backup |
+| **Compute** | [Azure Kubernetes Service](/azure/aks/extended-zones?tabs=azure-resource-manager)* <br> [Azure Virtual Desktop](../virtual-desktop/azure-extended-zones.md)* <br> [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) <br> [Virtual machines](/azure/virtual-machines/overview) (general purpose: A, B, D, E, and F series and GPU NVadsA10 v5 series) |
+| **Networking** | [DDoS](../ddos-protection/ddos-protection-overview.md) (Standard protection) <br> [ExpressRoute](../expressroute/expressroute-introduction.md)* <br> [Private Link](../private-link/private-link-overview.md) <br> [Standard Load Balancer](../load-balancer/load-balancer-overview.md) <br> [Standard public IP](../virtual-network/ip-services/public-ip-addresses.md) <br> [Virtual Network](../virtual-network/virtual-networks-overview.md) <br> [Virtual network peering](../virtual-network/virtual-network-peering-overview.md) |
+| **Storage** | [Managed disks](/azure/virtual-machines/managed-disks-overview) <br> [Premium Page Blobs](../storage/blobs/storage-blob-pageblob-overview.md) <br> [Premium Block Blobs](../storage/blobs/storage-blob-block-blob-premium.md) <br> [Premium Files](../storage/files/storage-files-introduction.md) <br> [Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) <br> [Hierarchical Namespace](../storage/blobs/data-lake-storage-namespace.md) <br>Data Lake Storage Gen2 Flat Namespace <br> [Change Feed](/azure/cosmos-db/change-feed) <br> Blob Features <br> - [SFTP](../storage/blobs/secure-file-transfer-protocol-support.md) <br> - [NFS](../storage/files/files-nfs-protocol.md) |
+| **BCDR** | [Azure Site Recovery](../site-recovery/site-recovery-overview.md)* <br> [Azure Backup](../backup/backup-overview.md) |
+
+\* While these services are GA in Azure Regions, they are currently in Preview in Azure Extended Zones. 
+
+## Availability and access
+
+Currently, Los Angeles is the only available Extended Zone. See [Request access to Azure Extended Zones](request-access.md) to request access to Los Angeles Extended Zone.
+
+## Pricing
+
+The pricing and billing process of Los Angeles Azure Extended Zone is consistent with the West US Region. Resources created in the Los Angeles Extended Zone follow the same billing pricing as those created in the West US Region.
+
+## Frequently asked questions (FAQ)
+
+To get answers to most frequently asked questions about Azure Extended Zones, see [Azure Extended Zones FAQ](faq.md).
 
 ## Related content
 
-- [Quickstart: Deploy a virtual machine in an Extended Zone](deploy-vm-portal.md).
-- [Tutorial: Back up an Azure Extended Zone virtual machine](backup-virtual-machine.md).
-- [Azure Extended Zones frequently asked questions (FAQ)](faq.md).
+- [Quickstart: Deploy a virtual machine in an Extended Zone](deploy-vm-portal.md)
+- [Tutorial: Back up an Azure Extended Zone virtual machine](backup-virtual-machine.md)
+- [Azure Extended Zones frequently asked questions (FAQ)](faq.md)

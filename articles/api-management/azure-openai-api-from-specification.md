@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 05/10/2024
+ms.date: 01/23/2025
 ms.collection: ce-skilling-ai-copilot
 ms.custom: template-how-to, build-2024
 ---
@@ -16,13 +16,17 @@ ms.custom: template-how-to, build-2024
 
 This article shows two options to import an [Azure OpenAI Service](/azure/ai-services/openai/overview) API into an Azure API Management instance as a REST API:
 
-- [Import an Azure OpenAI API directly from Azure OpenAI Service](#option-1-import-api-from-azure-openai-service)
+- [Import an Azure OpenAI API directly from Azure OpenAI Service](#option-1-import-api-from-azure-openai-service) (recommended)
 - [Download and add the OpenAPI specification](#option-2-add-an-openapi-specification-to-api-management) for Azure OpenAI and add it to API Management as an OpenAPI API.
+
+Learn more about managing AI APIs in API Management:
+
+* [Generative AI gateway capabilities in Azure API Management](genai-gateway-capabilities.md)
 
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
-- An Azure OpenAI resource with a model deployed. For more information about model deployment, see the [resource deployment guide](../ai-services/openai/how-to/create-resource.md).
+- An Azure OpenAI resource with a model deployed. For more information about model deployment, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
 
     Make a note of the ID (name) of the deployment. You'll need it when you test the imported API in API Management.
 - Permissions to grant access to the Azure OpenAI resource from the API Management instance.
@@ -134,10 +138,5 @@ In addition to the `azure-openai-token-limit` and `azure-openai-emit-token-metri
 * `azure-openai-semantic-cache-store`
 * `azure-openai-semantic-cache-lookup` 
 
-## Related content
-
-* [API Management policy reference](api-management-policies.md)
-* [Azure OpenAI Service as a central capability with Azure API Management](/samples/azure/enterprise-azureai/enterprise-azureai/)
-* [Azure API Management - Azure OpenAI sample](https://github.com/galiniliev/apim-azure-openai-sample)
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]

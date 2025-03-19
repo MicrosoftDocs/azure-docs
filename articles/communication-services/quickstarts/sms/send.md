@@ -1,7 +1,7 @@
 ---
-title: Quickstart - Send an SMS message
+title: Send an SMS message
 titleSuffix: Azure Communication Services
-description: "In this quickstart, you learn how to send an SMS message by using Azure Communication Services. See code examples in C#, JavaScript, Java, and Python."
+description: This article describes how to send an SMS message using Azure Communication Services. See code examples in C#, JavaScript, Java, and Python.
 author: tophpalmer
 manager: chpalm
 services: azure-communication-services
@@ -13,7 +13,8 @@ ms.subservice: sms
 ms.custom: tracking-python, devx-track-js, mode-other, kr2b-contr-experiment, devx-track-extended-java, devx-track-python
 zone_pivot_groups: acs-azcli-js-csharp-java-python-logic-apps
 ---
-# Quickstart: Send an SMS message
+
+# Send an SMS message
 
 > [!IMPORTANT]
 > SMS capabilities depend on the phone number you use and the country/region that you're operating within as determined by your Azure billing address. For more information, see [Subscription eligibility](../../concepts/numbers/sub-eligibility-number-capability.md).
@@ -58,7 +59,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Toll-free verification
 
-To utilize a new toll-free number for sending SMS messages, it is mandatory to undergo a toll-free verification process. For guidance on how to complete the verification of your toll-free number, please refer to the [Quickstart for submitting a toll-free verification](./apply-for-toll-free-verification.md). Note that only toll-free numbers that have been fully verified are authorized to send out SMS traffic. Any SMS traffic from unverified toll-free numbers directed to US and CA phone numbers will be blocked.
+To use a new toll-free number for sending SMS messages, you must complete a toll-free verification process. For guidance on how to complete the verification of your toll-free number, see the [Quickstart for submitting a toll-free verification](./apply-for-toll-free-verification.md). Only fully verified toll-free numbers are authorized to send out SMS traffic. Any SMS traffic from unverified toll-free numbers directed to US and CA phone numbers are blocked.
 
 ## Next steps
 

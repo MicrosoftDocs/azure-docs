@@ -1,9 +1,9 @@
 ---
 title: Deploy Azure Site Recovery replication appliance - Modernized
-description: This article describes how to replicate appliance for VMware disaster recovery to Azure with Azure Site Recovery - Modernized
+description: This article describes how to replicate appliance for VMware disaster recovery to Azure with Azure Site Recovery - Modernized.
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 04/04/2024
+ms.date: 01/24/2025
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -12,9 +12,11 @@ author: ankitaduttaMSFT
 
 >[!NOTE]
 > The information in this article applies to Azure Site Recovery - Modernized. For information about configuration server requirements in Classic releases, [see this article](vmware-azure-configuration-server-requirements.md).
-
->[!NOTE]
+>
 > Ensure you create a new and exclusive Recovery Services vault for setting up the ASR replication appliance. Don't use an existing vault.
+
+> [!IMPORTANT]
+> Microsoft recommends that you use roles with the fewest permissions. This helps improve security for your organization. Global Administrator is a highly privileged role that should be limited to emergency scenarios when you can't use an existing role. 
 
 You deploy an on-premises replication appliance when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs or physical servers to Azure.
 
@@ -33,14 +35,13 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 ## Required permissions
 
-**Here are the required key vault permissions**:
+**Here are the required permissions**:
 
 - Microsoft.OffAzure/*
-- Microsoft.KeyVault/register/action
-- Microsoft.KeyVault/vaults/read
-- Microsoft.KeyVault/vaults/keys/read
-- Microsoft.KeyVault/vaults/secrets/read
 - Microsoft.Recoveryservices/*
+
+> [!NOTE]
+> In case different users are configuring the appliances registered to a single recovery services vault, each of the user should be added as an owner to AAD app of that vault. To do so, in Azure portal, navigate to **App registrations**, search for the AAD app > **Manage** > **Owners** > **Add Owners** and select the user to add them as an owner to the AAD app.
 
 **Follow these  steps to assign the required permissions**:
 

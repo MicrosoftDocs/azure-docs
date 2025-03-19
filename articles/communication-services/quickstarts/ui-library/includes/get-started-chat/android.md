@@ -8,16 +8,15 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
 
-Get the sample Android application for this [quickstart](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-chat) in the open source Azure Communication Services [UI Library for Android](https://github.com/Azure/communication-ui-library-android).
+Get the sample Android application for this [quickstart](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-chat) in the open-source Azure Communication Services [UI Library for Android](https://github.com/Azure/communication-ui-library-android).
 
 ## Prerequisites
 
 - An Azure account and an active Azure subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An OS running [Android Studio](https://developer.android.com/studio).
-- A deployed [Azure Communication Services resource](../../../create-communication-resource.md), note the endpoint URL.
+- A deployed [Azure Communication Services resource](../../../create-communication-resource.md). Note the endpoint URL.
 - An Azure Communication Services [access token](../../../identity/quick-create-identity.md) and user identifier.
-- An Azure Communication Services [chat thread](../../../chat/get-started.md) with above user added to it.
-
+- An Azure Communication Services [chat thread](../../../chat/get-started.md) with the user from the previous step added to it.
 
 ## Set up the project
 
@@ -25,17 +24,17 @@ Complete the following sections to set up the quickstart project.
 
 ### Create a new Android project
 
-In Android Studio, create a new project:
+In Android Studio, create a new project.
 
-1. In the **File** menu, select **New** > **New Project**.
+1. On the **File** menu, select **New** > **New Project**.
 
-1. In **New Project**, select the **Empty Activity** project template.
+1. On **New Project**, select the **Empty Activity** project template.
 
    :::image type="content" source="../../media/composite-android-new-project.png" alt-text="Screenshot that shows the New Project dialog in Android Studio with Empty Activity selected.":::
 
 1. Select **Next**.
 
-1. In **Empty Activity**, name the project **UILibraryQuickStart**. For language, select **Java/Kotlin**. For the minimum SDK, select **API 23: Android 6.0 (Marshmallow)** or later.
+1. On **Empty Activity**, name the project **UILibraryQuickStart**. For language, select **Java/Kotlin**. For the minimum SDK, select **API 23: Android 6.0 (Marshmallow)** or later.
 
 1. Select **Finish**.
 
@@ -59,11 +58,11 @@ dependencies {
 
 ### Add Maven repositories
 
-The Azure package repository is required to integrate the library:
+The Azure package repository is required to integrate the library.
 
 To add the repository:
 
-1. In your project Gradle scripts, ensure that the following repositories are added. For Android Studio (2020.\*), `repositories` is in `settings.gradle`, under `dependencyResolutionManagement(Gradle version 6.8 or greater)`.  For earlier versions of Android Studio (4.\*), `repositories` is in the project-level `build.gradle`, under `allprojects{}`.
+1. In your project Gradle scripts, ensure that the following repositories are added. For Android Studio (2020.\*), `repositories` is in `settings.gradle`, under `dependencyResolutionManagement(Gradle version 6.8 or greater)`. For earlier versions of Android Studio (4.\*), `repositories` is in the project-level `build.gradle`, under `allprojects{}`.
 
     ```groovy
     // dependencyResolutionManagement
@@ -110,7 +109,7 @@ To initialize the composite:
 
 1. Go to `MainActivity`.
 
-1. Add the following code to initialize your composite components for calling. Replace the string values for properties (kotlin) or functions (java) for `endpoint`, `acsIdentity`, `displayName`, `accessToken` and `ThreadId`. Replace `endpoint` with the URL for your resource as provided by Azure Communication Services. Replace `acsIdentity` and `accessToken` with the values provided by Azure Communication Services when you created the access token and use a relevant displayName. Replace `ThreadId` with the value returned when you created the thread. Remember to add the user to the thread via REST API call, or the az command line interface client before you try to run the quick start sample or the client will be denied access to join the thread.
+1. Add the following code to initialize your composite components for calling. Replace the string values for properties (`kotlin`) or functions (`java`) for `endpoint`, `acsIdentity`, `displayName`, `accessToken`, and `ThreadId`. Replace `endpoint` with the URL for your resource as provided by Azure Communication Services. Replace `acsIdentity` and `accessToken` with the values provided by Azure Communication Services when you created the access token, and use a relevant `displayName`. Replace `ThreadId` with the value returned when you created the thread. Add the user to the thread via REST API call or the az command-line interface client before you try to run the quickstart sample. Otherwise, the client is denied access to join the thread.
 
 #### [Kotlin](#tab/kotlin)
 
@@ -335,10 +334,10 @@ public class MainActivity extends AppCompatActivity {
 
 ## Run the code
 
-In Android Studio, build and start the application:
+In Android Studio, build and start the application.
 
 1. Select **Start Experience**.
-1. The chat client will join the chat thread and you can start typing and sending messages
-1. If the client is not able to join the thread, and you see chatJoin failed errors, verify that your user's access token is valid and that the user has been added to the chat thread by REST API call, or by using the `az` command line interface.
+1. The chat client joins the chat thread, and you can start typing and sending messages.
+1. If the client can't join the thread and you see `chatJoin` failed errors, verify that your user's access token is valid and that the user was added to the chat thread by REST API call or by using the `az` command-line interface.
 
 :::image type="content" source="../../media/quickstart-chat.gif" alt-text="GIF animation that shows an example of how the project runs on an Android device.":::

@@ -4,12 +4,16 @@ description: This article displays the Microsoft Sentinel entity types and their
 author: yelevin
 ms.author: yelevin
 ms.topic: reference
-ms.date: 06/09/2024
+ms.date: 10/16/2024
+
+
+#Customer intent: As a security analyst, I want to understand the entity types and identifiers in Microsoft Sentinel so that I can effectively track and investigate alerts and incidents.
+
 ---
 
 # Microsoft Sentinel entity types reference
 
-This document contains two sets of information regarding entities and entity types in Microsoft Sentinel and the [Microsoft unified security operations platform](microsoft-sentinel-defender-portal.md).
+This document contains two sets of information regarding entities and entity types in Microsoft Sentinel in the Azure portal and [Microsoft Sentinel in the Defender portal](microsoft-sentinel-defender-portal.md).
 - The [**Entity types and identifiers**](#entity-types-and-identifiers) table shows the different types of [entities](entities.md) that can be identified in alerts and incidents, allowing you to [track and investigate them](entity-pages.md). The table also shows, for each entity type, the different identifiers that can be used to identify an entity.
 - The [**Entity schema**](#entity-type-schemas) section shows the data structure and schema for entities in general and for each entity type in particular.
 
@@ -49,6 +53,7 @@ You can currently use up to three identifiers for a given entity when creating a
 - \* These identifiers appear in the list of identifiers that can be used in entity mapping, but strictly speaking they are not part of the entity schema.
 - \*\* These identifiers are considered strong only under certain conditions. Follow the asterisks' links to see the conditions that apply, under the relevant entity's listing in the [entity schemas section below](#entity-type-schemas).
 - *Italicized identifier names* (without an asterisk) represent internal entities, which means that one entity type can have other entity types as attributes (see the [entity schemas section below](#entity-type-schemas)). Follow the identifier's link to see the internal entity's own schema.
+- Other entities may be present in the schema, which is a general schema that supports many things besides Microsoft Sentinel. Only those entities available in Microsoft Sentinel are listed in this article.
 
 ## Entity type schemas
 
@@ -166,7 +171,7 @@ The following section contains a more in-depth look at the full schemas of each 
 - **NetBiosName + DnsDomain**
 - **AzureID**
 - **OMSAgentID**
-- ***IoTDevice***
+- **IoTDevice**
 
 #### Weak identifiers of a host entity
 
@@ -192,7 +197,7 @@ The following section contains a more in-depth look at the full schemas of each 
 - **Address**  
 \*\* Address alone is a unique, strong identifier when the IP address is a global address.
 - **Address + AddressScope**  
-\*\* For private/internal, non-global IP addresses, the AddressScope component is required to make this a strong identifer.
+\*\* For private/internal, non-global IP addresses, the AddressScope component is required to make this a strong identifier.
 
 [Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 

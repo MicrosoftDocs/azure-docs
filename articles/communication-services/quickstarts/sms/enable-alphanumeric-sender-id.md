@@ -26,10 +26,10 @@ ms.custom: mode-other
 Alphanumeric Sender IDs are displayed as a custom alphanumeric phrase like the company’s name (CONTOSO, MyCompany) on the recipient handset. Alphanumeric sender IDs can be used for various use cases like one-time passcodes, marketing alerts, and flight status notifications.
 
 There are two types of alphanumeric sender IDs:
-- Dynamic alphanumeric sender ID: Supported in countries that don't require registration for use. Dynamic alphanumeric sender IDs can be instantly provisioned.
-- Preregistered alphanumeric sender ID: Supported in countries that require registration for use. Preregistered alphanumeric sender IDs are typically provisioned in 4-5 weeks.
+- Dynamic alphanumeric sender ID: Supported in countries/regions that don't require registration for use. Dynamic alphanumeric sender IDs can be instantly provisioned.
+- Preregistered alphanumeric sender ID: Supported in countries/regions that require registration for use. Preregistered alphanumeric sender IDs are typically provisioned in 4-5 weeks.
 
-Refer to [SMS overview page](../../concepts/sms/concepts.md) for list of countries that are supported.
+Refer to [SMS overview page](../../concepts/sms/concepts.md) for list of countries/regions that are supported.
 
 ## Enable dynamic alphanumeric sender ID
 To enable dynamic alphanumeric sender ID, go to your Communication Services resource on the [Azure portal](https://portal.azure.com).

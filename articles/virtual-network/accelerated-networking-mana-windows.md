@@ -66,8 +66,6 @@ Ethernet 3                Microsoft Azure Network Adapter #2            8 Up    
 1. Open Device Manager.
 2. Expand **Network adapters**, and then select **Microsoft Azure Network Adapter**. The properties for the adapter show that the device is working properly.
 
-   ![Screenshot of Windows Device Manager that shows an MANA network card successfully detected.](media/accelerated-networking-mana/device-manager-mana.png)
-
 ## Install drivers
 
 If your VM has both portal and hardware support for MANA but doesn't have drivers installed, you can [download the Windows drivers](https://aka.ms/manawindowsdrivers).
@@ -89,5 +87,5 @@ Ethernet 5                       1230513627217            22739256679 ...7245765
 ## Next steps
 
 - [TCP/IP performance tuning for Azure VMs](./virtual-network-tcpip-performance-tuning.md)
-- [Proximity placement groups](../virtual-machines/co-location.md)
+- [Proximity placement groups](/azure/virtual-machines/co-location)
 - [Monitoring Azure virtual networks](./monitor-virtual-network.md)

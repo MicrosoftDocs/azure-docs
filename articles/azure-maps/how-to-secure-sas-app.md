@@ -41,7 +41,7 @@ The following example scenario uses two Azure Resource Manager (ARM) template de
 1. Create a user-assigned managed identity.
 1. Assign Azure role-based access control (RBAC) **Azure Maps Data Reader** role to the user-assigned managed identity.
 1. Create an Azure Maps account with a [Cross Origin Resource Sharing (CORS) configuration](azure-maps-authentication.md#cross-origin-resource-sharing-cors), and attach the user-assigned managed identity.
-1. Create and save a SAS token in the Azure key vault.
+1. Create and save a SAS token in the Azure Key Vault.
 1. Retrieve the SAS token secret from the key vault.
 1. Create an Azure Maps REST API request that uses the SAS token.
 
@@ -272,7 +272,7 @@ The following steps describe how to create and configure an Azure Maps account w
                 "defaultValue": "primaryKey",
                 "allowedValues": [
                     "primaryKey",
-                    "seconaryKey"
+                    "secondaryKey"
                 ],
                 "metadata": {
                     "description": "The specified signing key which will be used to create the SAS token."
@@ -412,7 +412,7 @@ az rest --method GET --url 'https://us.atlas.microsoft.com/search/address/json?a
 
 ## Real-world example
 
-You can run requests to Azure Maps APIs from most clients, like C#, Java, or JavaScript. [Postman](https://learning.postman.com/docs/sending-requests/generate-code-snippets) converts an API request into a basic client code snippet in almost any programming language or framework you choose. You can use this generated code snippet in your front-end applications.
+You can run requests to Azure Maps APIs from most clients, like C#, Java, or JavaScript. API development platforms like [bruno](https://www.usebruno.com) or [Postman](https://learning.postman.com/docs/sending-requests/generate-code-snippets) can convert an API request into a basic client code snippet in almost any programming language or framework you choose. You can use the generated code snippets in your front-end applications.
 
 The following small JavaScript code example shows how you could use your SAS token with the JavaScript [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#supplying_request_options) to get and return Azure Maps information. The example uses [Get Search Address](/rest/api/maps/search/get-search-address) API version 1.0. Supply your own value for `<your SAS token>`.
 

@@ -83,7 +83,7 @@ You can use these features without writing any code, or you can add custom code 
 :::image type="content" source="../media/7-beyond-data-warehouse-migration/azure-data-factory-pipeline.png" border="true" alt-text="Screenshot of an example of a Data Factory pipeline." lightbox="../media/7-beyond-data-warehouse-migration/azure-data-factory-pipeline-lrg.png":::
 
 >[!TIP]
->Data Factory lets you to build scalable data integration pipelines without code.
+>Data Factory lets you build scalable data integration pipelines without code.
 
 Implement Data Factory pipeline development from any of several places, including:
 
@@ -236,12 +236,12 @@ Azure Machine Learning studio is a fully managed cloud service that lets you bui
 
 #### Azure Machine Learning
 
-Azure Machine Learning provides an SDK and services for Python that supports can help you quickly prepare data and also train and deploy machine learning models. You can use Azure Machine Learning in Azure notebooks using Jupyter Notebook, with open-source frameworks, such as PyTorch, TensorFlow, scikit-learn, or Spark MLlib&mdash;the machine learning library for Spark. Azure Machine Learning provides an AutoML capability that automatically tests multiple algorithms to identify the most accurate algorithms to expedite model development. 
+Azure Machine Learning provides an SDK and services for Python that supports can help you quickly prepare data and also train and deploy machine learning models. You can use Azure Machine Learning in Azure notebooks using Jupyter Notebook, with open-source frameworks, such as PyTorch, TensorFlow, scikit-learn, or Spark MLlib&mdash;the machine learning library for Spark.
 
 >[!TIP]
 >Azure Machine Learning provides an SDK for developing machine learning models using several open-source frameworks.
 
-You can also use Azure Machine Learning to build machine learning pipelines that manage end-to-end workflow, programmatically scale in the cloud, and deploy models both to the cloud and the edge. Azure Machine Learning contains [workspaces](../../../machine-learning/concept-workspace.md), which are logical spaces that you can programmatically or manually create in the Azure portal. These workspaces keep compute targets, experiments, data stores, trained machine learning models, Docker images, and deployed services all in one place to enable teams to work together. You can use Azure Machine Learning in Visual Studio with the Visual Studio for AI extension.
+You can also use Azure Machine Learning to build machine learning pipelines that manage end-to-end workflow, programmatically scale in the cloud, and deploy models both to the cloud and the edge. Azure Machine Learning contains [workspaces](/azure/machine-learning/concept-workspace), which are logical spaces that you can programmatically or manually create in the Azure portal. These workspaces keep compute targets, experiments, data stores, trained machine learning models, Docker images, and deployed services all in one place to enable teams to work together. You can use Azure Machine Learning in Visual Studio with the Visual Studio for AI extension.
 
 >[!TIP]
 >Organize and manage related data stores, experiments, trained models, Docker images, and deployed services in workspaces.

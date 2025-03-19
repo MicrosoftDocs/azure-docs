@@ -4,8 +4,8 @@ titleSuffix: Azure Lab Services
 description: In this tutorial, learn how to register for a lab in Azure Lab Services and connect to the lab virtual machine from the Azure Lab Services website.
 services: lab-services
 ms.service: azure-lab-services
-author: ntrogh
-ms.author: nicktrog
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: tutorial
 ms.date: 06/29/2023
 ---

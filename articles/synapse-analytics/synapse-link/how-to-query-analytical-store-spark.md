@@ -16,10 +16,10 @@ ms.custom: cosmos-db, mode-other
 > [!NOTE]
 > For Azure Synapse Link for Azure Cosmos DB using Spark 3, refer to this article [Azure Synapse Link for Azure Cosmos DB on Spark 3](how-to-query-analytical-store-spark-3.md)
 
-In this article, you'll learn how to interact with Azure Cosmos DB using Synapse Apache Spark 2. With its full support for Scala, Python, SparkSQL, and C#, Synapse Apache Spark is central to analytics, data engineering, data science, and data exploration scenarios in [Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/synapse-link.md).
+In this article, you'll learn how to interact with Azure Cosmos DB using Synapse Apache Spark 2. With its full support for Scala, Python, SparkSQL, and C#, Synapse Apache Spark is central to analytics, data engineering, data science, and data exploration scenarios in [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link).
 
 The following capabilities are supported while interacting with Azure Cosmos DB:
-* Synapse Apache Spark allows you to analyze data in your Azure Cosmos DB containers that are enabled with Azure Synapse Link in near real-time without impacting the performance of your transactional workloads. The following two options are available to query the Azure Cosmos DB [analytical store](../../cosmos-db/analytical-store-introduction.md) from Spark:
+* Synapse Apache Spark allows you to analyze data in your Azure Cosmos DB containers that are enabled with Azure Synapse Link in near real-time without impacting the performance of your transactional workloads. The following two options are available to query the Azure Cosmos DB [analytical store](/azure/cosmos-db/analytical-store-introduction) from Spark:
     + Load to Spark DataFrame
     + Create Spark table
 * Synapse Apache Spark also allows you to ingest data into Azure Cosmos DB. It is important to note that data is always ingested into Azure Cosmos DB containers through the transactional store. When Synapse Link is enabled, any new inserts, updates, and deletes are then automatically synced to the analytical store.
@@ -29,7 +29,7 @@ The following sections walk you through the syntax of above capabilities. You ca
 
 > [!IMPORTANT]
 > You should be aware of some constraints in the analytical schema that could lead to the unexpected behavior in data loading operations.
-> As an example, only first 1000 properties from transactional schema are available in the analytical schema, properties with spaces are not available, etc. If you are experiencing some unexpected results, check the [analytical store schema constraints](../../cosmos-db/analytical-store-introduction.md#schema-constraints) for more details.
+> As an example, only first 1000 properties from transactional schema are available in the analytical schema, properties with spaces are not available, etc. If you are experiencing some unexpected results, check the [analytical store schema constraints](/azure/cosmos-db/analytical-store-introduction#schema-constraints) for more details.
 
 ## Query Azure Cosmos DB analytical store
 
@@ -43,10 +43,10 @@ On the other hand, in the case of **creating a Spark table**, the metadata of th
 
 Thus, you can choose between loading to Spark DataFrame and creating a Spark table based on whether you want your Spark analysis to be evaluated against a fixed snapshot of the analytical store or against the latest snapshot of the analytical store respectively.
 
-If your analytical queries have frequently used filters, you have the option to partition based on these fields for better query performance. You can periodically execute partitioning job from an Azure Synapse Spark notebook, to trigger partitioning on analytical store. This partitioned store points to the ADLS Gen2 primary storage account that is linked to your Azure Synapse workspace. To learn more, see the [introduction to custom partitioning](../../cosmos-db/custom-partitioning-analytical-store.md) and [how to configure custom partitioning](../../cosmos-db/configure-custom-partitioning.md) articles.
+If your analytical queries have frequently used filters, you have the option to partition based on these fields for better query performance. You can periodically execute partitioning job from an Azure Synapse Spark notebook, to trigger partitioning on analytical store. This partitioned store points to the ADLS Gen2 primary storage account that is linked to your Azure Synapse workspace. To learn more, see the [introduction to custom partitioning](/azure/cosmos-db/custom-partitioning-analytical-store) and [how to configure custom partitioning](/azure/cosmos-db/configure-custom-partitioning) articles.
 
 > [!NOTE]
-> To query Azure Cosmos DB for MongoDB accounts, learn more about the [full fidelity schema representation](../../cosmos-db/analytical-store-introduction.md#analytical-schema) in the analytical store and the extended property names to be used.
+> To query Azure Cosmos DB for MongoDB accounts, learn more about the [full fidelity schema representation](/azure/cosmos-db/analytical-store-introduction#analytical-schema) in the analytical store and the extended property names to be used.
 
 > [!NOTE]
 > Please note that all `options` in the commands below are case sensitive. For example, you must use `Gateway` while `gateway` will return an error.

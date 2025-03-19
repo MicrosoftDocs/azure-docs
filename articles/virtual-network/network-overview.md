@@ -4,14 +4,14 @@ titlesuffix: Azure Virtual Network
 description: Learn about networking as it relates to virtual machines in Azure.
 author: asudbring
 ms.service: azure-virtual-network
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/16/2023
 ms.author: allensu
 ---
 
 # Virtual networks and virtual machines in Azure
 
-When you create a virtual machine (VM), you create a [virtual network](../virtual-network/virtual-networks-overview.md) or use an existing one. Decide how your virtual machines are intended to be accessed on the virtual network. It's important to [plan before creating resources](../virtual-network/virtual-network-vnet-plan-design-arm.md) and make sure you understand the [limits of networking resources](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
+When you create a virtual machine (VM), you create a [virtual network](../virtual-network/virtual-networks-overview.md) or use an existing one. Decide how your virtual machines are intended to be accessed on the virtual network. It's important to [plan before creating resources](../virtual-network/virtual-network-vnet-plan-design-arm.md) and make sure you understand the [limits of networking resources](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-networking-limits).
 
 In the following figure, virtual machines are represented as web servers and application servers. Each set of virtual machines is assigned to separate subnets in the virtual network.
 
@@ -35,7 +35,7 @@ Additionally, consider these optional resources:
 
 ## Network interfaces
 
-A [network interface (NIC)](../virtual-network/virtual-network-network-interface.md) is the interconnection between a virtual machine and a virtual network. A virtual machine must have at least one NIC. A virtual machine can have more than one NIC, depending on the size of the VM you create. To learn about the number of NICs each virtual machine size supports, see [VM sizes](../virtual-machines/sizes.md).
+A [network interface (NIC)](../virtual-network/virtual-network-network-interface.md) is the interconnection between a virtual machine and a virtual network. A virtual machine must have at least one NIC. A virtual machine can have more than one NIC, depending on the size of the VM you create. To learn about the number of NICs each virtual machine size supports, see [VM sizes](/azure/virtual-machines/sizes).
 
 You can create a VM with multiple NICs, and add or remove NICs through the lifecycle of a VM. Multiple NICs allow a VM to connect to different subnets.
 
@@ -46,8 +46,8 @@ This table lists the methods that you can use to create a network interface.
 | Method | Description |
 | ------ | ----------- |
 | [Azure portal](https://portal.azure.com) | When you create a VM in the Azure portal, a network interface is automatically created for you. The portal creates a VM with only one NIC. If you want to create a VM with more than one NIC, you must create it with a different method. |
-| [Azure PowerShell](../virtual-machines/windows/multiple-nics.md) | Use [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) with the **`-PublicIpAddressId`** parameter to provide the identifier of the public IP address that you previously created. |
-| [Azure CLI](../virtual-machines/linux/multiple-nics.md) | To provide the identifier of the public IP address that you previously created, use [az network nic create](/cli/azure/network/nic) with the **`--public-ip-address`** parameter. |
+| [Azure PowerShell](/azure/virtual-machines/windows/multiple-nics) | Use [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) with the **`-PublicIpAddressId`** parameter to provide the identifier of the public IP address that you previously created. |
+| [Azure CLI](/azure/virtual-machines/linux/multiple-nics) | To provide the identifier of the public IP address that you previously created, use [az network nic create](/cli/azure/network/nic) with the **`--public-ip-address`** parameter. |
 | [Template](../virtual-network/template-samples.md) | For information on deploying a networking interface using a template, see [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/nic-publicip-dns-vnet). |
 
 ## IP addresses
@@ -228,10 +228,10 @@ This table lists the methods that you can use to create a VM in a VNet.
 
 | Method | Description |
 | ------ | ----------- |
-| [Azure portal](../virtual-machines/windows/quick-create-portal.md) | Uses the default network settings that were previously mentioned to create a VM with a single NIC. To create a VM with multiple NICs, you must use a different method. |
-| [Azure PowerShell](../virtual-machines/windows/tutorial-manage-vm.md) | Includes the use of [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface) to add the NIC that you previously created to the VM configuration. |
-| [Azure CLI](../virtual-machines/linux/create-cli-complete.md) | Create and connect a VM to a virtual network, subnet, and NIC that builds as individual steps. |
-| [Template](../virtual-machines/windows/ps-template.md) | Use [Very simple deployment of a Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-windows) as a guide for deploying a VM using a template. |
+| [Azure portal](/azure/virtual-machines/windows/quick-create-portal) | Uses the default network settings that were previously mentioned to create a VM with a single NIC. To create a VM with multiple NICs, you must use a different method. |
+| [Azure PowerShell](/azure/virtual-machines/windows/tutorial-manage-vm) | Includes the use of [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface) to add the NIC that you previously created to the VM configuration. |
+| [Azure CLI](/azure/virtual-machines/linux/create-cli-complete) | Create and connect a VM to a virtual network, subnet, and NIC that builds as individual steps. |
+| [Template](/azure/virtual-machines/windows/ps-template) | Use [Very simple deployment of a Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-windows) as a guide for deploying a VM using a template. |
 
 ## NAT Gateway
 
@@ -274,7 +274,7 @@ This table lists the methods you can use to create an Azure Bastion deployment.
 
 ## Next steps
 
-For VM-specific steps on how to manage Azure virtual networks for VMs, see the [Windows](../virtual-machines/windows/tutorial-virtual-network.md) or [Linux](../virtual-machines/linux/tutorial-virtual-network.md) tutorials.
+For VM-specific steps on how to manage Azure virtual networks for VMs, see the [Windows](/azure/virtual-machines/windows/tutorial-virtual-network) or [Linux](/azure/virtual-machines/linux/tutorial-virtual-network) tutorials.
 
 There are also quickstarts on how to load balance VMs and create highly available applications using the [CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md) or [PowerShell](../load-balancer/quickstart-load-balancer-standard-public-powershell.md)
 

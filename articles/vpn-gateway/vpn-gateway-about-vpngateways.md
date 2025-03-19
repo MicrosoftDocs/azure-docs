@@ -85,7 +85,7 @@ You pay for two things: the hourly compute costs for the virtual network gateway
 * If you're sending traffic between virtual networks in different regions, the pricing is based on the region.
 * If you're sending traffic only between virtual networks that are in the same region, there are no data costs. Traffic between VNets in the same region is free.
 
-## <a name="new"></a>What's new?
+## <a name="new"></a>What's new in VPN Gateway?
 
 Azure VPN Gateway is updated regularly. To stay current with the latest announcements, see the [What's new?](whats-new.md) article. The article highlights the following points of interest:
 
@@ -94,7 +94,7 @@ Azure VPN Gateway is updated regularly. To stay current with the latest announce
 * Known issues
 * Deprecated functionality (if applicable)
 
-You can also subscribe to the RSS feed and view the latest VPN Gateway feature updates on the [Azure Updates](https://azure.microsoft.com/updates/?category=networking&query=VPN%20Gateway) page.
+You can also subscribe to the RSS feed and view the latest VPN Gateway feature updates on the [Azure Updates](https://azure.microsoft.com/updates?filters=%5B%22VPN+Gateway%22%5D) page.
 
 ## <a name="faq"></a>FAQ
 
@@ -105,4 +105,4 @@ For frequently asked questions about VPN gateway, see the [VPN Gateway FAQ](vpn-
 * [Tutorial: Create and manage a VPN Gateway](tutorial-create-gateway-portal.md).
 * [Learn module: Introduction to Azure VPN Gateway](/training/modules/intro-to-azure-vpn-gateway).
 * [Learn module: Connect your on-premises network to Azure with VPN Gateway](/training/modules/connect-on-premises-network-with-vpn-gateway/).
-* [Subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#vpn-gateway-limits).
+* [Subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-vpn-gateway-limits).

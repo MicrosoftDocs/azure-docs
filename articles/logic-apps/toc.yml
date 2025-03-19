@@ -32,6 +32,8 @@ items:
     items:
     - name: Portal
       href: create-single-tenant-workflows-azure-portal.md
+    - name: Portal - Templates gallery
+      href: create-single-tenant-workflows-templates.md
     - name: Visual Studio Code
       href: create-single-tenant-workflows-visual-studio-code.md
 - name: Tutorials
@@ -68,12 +70,18 @@ items:
     href: logic-apps-serverless-overview.md
   - name: Business rules engine integration
     href: rules-engine/rules-engine-overview.md
+  - name: AI playbook and solution development
+    href: ai-resources.md
   - name: B2B integration & EDI processing
     href: logic-apps-enterprise-integration-overview.md
   - name: Mainframe modernization
     href: mainframe-modernization-overview.md
-  - name: Business continuity and disaster recovery
-    href: business-continuity-disaster-recovery-guidance.md
+  - name: Reliability
+    items:
+    - name: Reliability in Azure Logic Apps
+      href: ../reliability/reliability-logic-apps.md?toc=/azure/logic-apps/toc.json
+    - name: Multi-region deployments for disaster recovery
+      href: multi-region-disaster-recovery.md
   - name: Security
     items:
     - name: Security controls by Azure Policy
@@ -91,16 +99,36 @@ items:
       href: designer-overview.md
     - name: Built-in versus Azure connector operations
       href: ../connectors/compare-built-in-azure-connectors.md
-    - name: Create Standard workflows - Portal
-      href: create-single-tenant-workflows-azure-portal.md
-    - name: Get AI-powered help from the workflow assistant
-      href: workflow-assistant-standard.md
-    - name: Create Standard workflows - Visual Studio Code
-      href: create-single-tenant-workflows-visual-studio-code.md
     - name: Estimate storage costs
       href: estimate-storage-costs.md
     - name: Set up SQL storage
       href: set-up-sql-db-storage-single-tenant-standard-workflows.md
+    - name: Create Standard workflows - Portal
+      href: create-single-tenant-workflows-azure-portal.md
+    - name: Create Standard workflows from templates - Portal
+      href: create-single-tenant-workflows-templates.md
+    - name: Get AI-powered help from the workflow assistant
+      href: workflow-assistant-standard.md
+    - name: Create Standard workflows - Visual Studio Code
+      href: create-single-tenant-workflows-visual-studio-code.md
+    - name: Export Standard from portal to Visual Studio Code
+      href: export-standard-logic-app-to-visual-studio-code.md
+    - name: Create and run .NET code
+      href: create-run-custom-code-functions.md
+    - name: Add and run C# scripts
+      href: add-run-csharp-scripts.md
+    - name: Add and run PowerShell scripts
+      href: add-run-powershell-scripts.md
+    - name: Parse or chunk content
+      href: parse-document-chunk-text.md
+    - name: Edit app and host settings
+      href: edit-app-settings-host-settings.md
+    - name: Enable stateful mode for stateless built-in connectors
+      href: ../connectors/enable-stateful-affinity-built-in-connectors.md
+    - name: Create custom built-in connectors
+      href: create-custom-built-in-connector-standard.md
+    - name: Create and publish workflow templates
+      href: create-publish-workflow-templates.md
     - name: Secure traffic between Standard workflows and virtual networks
       href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
     - name: Develop for rules engine integration
@@ -125,14 +153,6 @@ items:
         href: rules-engine/test-rulesets.md
       - name: Create a rules engine project
         href: rules-engine/create-rules-engine-project.md
-    - name: Create and run .NET code
-      href: create-run-custom-code-functions.md
-    - name: Edit app and host settings
-      href: edit-app-settings-host-settings.md
-    - name: Enable stateful mode for stateless built-in connectors
-      href: ../connectors/enable-stateful-affinity-built-in-connectors.md
-    - name: Create custom built-in connectors
-      href: create-custom-built-in-connector-standard.md
     - name: Set up deployment slots
       href: set-up-deployment-slots.md
     - name: DevOps deployment
@@ -147,6 +167,12 @@ items:
       href: export-from-consumption-to-standard-logic-app.md
     - name: Export from integration service environment to Standard logic app
       href: export-from-ise-to-standard-logic-app.md
+  - name: Hybrid deployment for Azure Logic Apps
+    items:
+    - name: Set up requirements for hybrid deployment
+      href: set-up-standard-workflows-hybrid-deployment-requirements.md
+    - name: Create Standard workflows for hybrid deployment
+      href: create-standard-workflows-hybrid-deployment.md
   - name: Azure Arc-enabled Logic Apps
     items:
     - name: About Azure Arc-enabled Logic Apps
@@ -155,14 +181,16 @@ items:
       href: azure-arc-enabled-logic-apps-create-deploy-workflows.md
   - name: Migrate
     items:
-    - name: Migrate from BizTalk to Azure
+    - name: Migration from Power Automate
+      href: power-automate-migration.md
+    - name: Migration from BizTalk Server
       items:
       - name: Why migrate from BizTalk Server?
-        href: biztalk-server-to-azure-integration-services-overview.md
+        href: biztalk-server-migration-overview.md
       - name: Which integration services to choose
         href: azure-integration-services-choose-capabilities.md
       - name: Migration options and best practices
-        href: biztalk-server-azure-integration-services-migration-approaches.md
+        href: biztalk-server-migration-approaches.md
   - name: Develop
     items:
     - name: Build your workflow with a trigger or action
@@ -183,8 +211,6 @@ items:
       href: logic-apps-create-variables-store-values.md
     - name: Perform data operations
       href: logic-apps-perform-data-operations.md
-    - name: Add and run C# scripts
-      href: add-run-csharp-scripts.md
     - name: Add and run JavaScript snippets
       href: add-run-javascript.md
     - name: Create cross-environment parameters for workflows
@@ -225,18 +251,10 @@ items:
       href: support-non-unicode-character-encoding.md
     - name: Troubleshoot errors
       href: logic-apps-diagnosing-failures.md
-  - name: Access Azure virtual networks
-    items:
-    - name: Access to Azure virtual networks
-      href: connect-virtual-network-vnet-isolated-environment-overview.md
-    - name: Set up access for multiple integration service environments
-      href: connect-virtual-network-vnet-set-up-single-ip-address.md
-    - name: Add resources to integration service environments
-      href: add-artifacts-integration-service-environment-ise.md
   - name: Access on-premises data sources
     items:
     - name: Install on-premises data gateway
-      href: install-on-premises-data-gateway.md
+      href: install-on-premises-data-gateway-workflows.md
     - name: Connect to on-premises data sources
       href: connect-on-premises-data-sources.md
   - name: Develop for B2B scenarios
@@ -297,10 +315,14 @@ items:
       items:
       - name: Create maps in Visual Studio Code
         href: create-maps-data-transformation-visual-studio-code.md
-      - name: Transform XML
-        href: logic-apps-enterprise-integration-transform.md
       - name: Process XML
         href: logic-apps-enterprise-integration-xml.md
+      - name: Parse XML
+        href: logic-apps-enterprise-integration-xml-parse.md
+      - name: Compose XML
+        href: logic-apps-enterprise-integration-xml-compose.md
+      - name: Transform XML
+        href: logic-apps-enterprise-integration-transform.md
       - name: Validate XML
         href: logic-apps-enterprise-integration-xml-validation.md
       - name: Transform JSON
@@ -324,7 +346,7 @@ items:
     - name: Azure Event Hubs
       href: ../connectors/connectors-create-api-azure-event-hubs.md
     - name: Azure Functions
-      href: logic-apps-azure-functions.md
+      href: call-azure-functions-from-workflows.md
     - name: Azure Logic Apps
       href: logic-apps-http-endpoint.md
     - name: Azure Monitor Application Insights
@@ -429,8 +451,6 @@ items:
       href: manage-logic-apps-with-visual-studio.md
     - name: Manage integration accounts
       href: logic-apps-enterprise-integration-create-integration-account.md
-    - name: Manage integration service environments
-      href: ise-manage-integration-service-environment.md
     - name: Plan and manage costs
       href: plan-manage-costs.md
     - name: Manage Azure resources with automation tasks
@@ -473,13 +493,13 @@ items:
         href: tracking-schemas-as2-x12-custom.md
       - name: Create monitoring and tracking queries
         href: create-monitoring-tracking-queries.md
-  - name: Business continuity and disaster recovery
+  - name: Reliability
     items:
-    - name: Set up zone redundant logic apps
+    - name: Enable zone redundancy
       href: set-up-zone-redundancy-availability-zones.md
-    - name: Replicate Azure resources for business continuity and disaster recovery
+    - name: Create replication tasks for Azure resources
       href: create-replication-tasks-azure-resources.md
-    - name: Build a B2B business continuity and disaster recovery plan
+    - name: Set up cross-region disaster recovery for integration accounts
       href: logic-apps-enterprise-integration-b2b-business-continuity.md
   - name: Examples, scenarios, and walkthroughs
     href: logic-apps-examples-and-scenarios.md

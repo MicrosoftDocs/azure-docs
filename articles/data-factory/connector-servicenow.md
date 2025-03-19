@@ -1,24 +1,23 @@
 ---
-title: Copy data from ServiceNow
+title: Copy data from ServiceNow V2
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from ServiceNow to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
+description: Learn how to copy data from ServiceNow V2 to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/17/2024
+ms.date: 10/23/2024
 ---
 
-# Copy data from ServiceNow using Azure Data Factory or Synapse Analytics
+# Copy data from ServiceNow V2 using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from ServiceNow. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
->[!IMPORTANT]
->The new ServiceNow connector provides improved native ServiceNow support. If you are using the legacy ServiceNow connector in your solution, supported as-is for backward compatibility only, refer to [ServiceNow connector (legacy)](connector-servicenow-legacy.md) article.
-
+> [!IMPORTANT]
+> The [ServiceNow V2 connector](connector-servicenow.md) provides improved native ServiceNow support. If you are using the [ServiceNow V1 connector](connector-servicenow-legacy.md) in your solution, you are recommended to [upgrade your ServiceNow connector](#upgrade-your-servicenow-linked-service) at your earliest convenience. Refer to this [section](#differences-between-servicenow-and-servicenow-legacy) for details on the difference between V2 and V1.
 
 ## Supported capabilities
 
@@ -34,6 +33,13 @@ This ServiceNow connector is supported for the following capabilities:
 For a list of data stores that are supported as sources/sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
 
 The service provides a built-in driver to enable connectivity. Therefore you don't need to manually install any driver using this connector.
+
+**Please use the actual value instead of the displayed value in ServiceNow.**
+
+
+## Prerequisite
+
+To use this connector, you need to have a role with at least read access to *sys_db_object* and *sys_dictionary* tables in ServiceNow.
 
 ## Getting started
 
@@ -111,9 +117,6 @@ To copy data from ServiceNow, set the type property of the dataset to **ServiceN
 | type | The type property of the dataset must be set to: **ServiceNowV2Object** | Yes |
 | tableName | Name of the table. | Yes |
 
-> [!Note]
-> In copy activities, the tableName in dataset will be the name of the table instead of the label in ServiceNow.
-
 **Example**
 
 ```json
@@ -144,13 +147,12 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **ServiceNowV2Source** | Yes |
-| expression| Use the expression to read data. You can configure the expression in **Query builder**. It has the same usage as the condition builder in ServiceNow. For instructions on how to use it, see this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/concept/c_ConditionBuilder.html). | No |
+| expression| Use the expression to read data. You can configure the expression in **Query builder**. It has the same usage as the condition builder in ServiceNow. For instructions on how to use it, see this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/concept/c_ConditionBuilder.html). You can also [use expression parameters](#using-expression-parameters).| No |
 | *Under `expression`* |  |  |
-| type | The expression type. Values can be Constant (default), Unary, Binary, and Field.  | No  |
+| type | The expression type. Values can be Constant (default), Unary, Binary, Field and Nary.  | No  |
 | value | The constant value. |Yes when the expression type is Constant or Field |
 | operators | The operator value. For more information about operators, see *Operators available for choice fields containing strings* section in this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/reference/r_OpAvailableFiltersQueries.html).| Yes when the expression type is Unary or Binary |
 | operands | List of expressions on which operator is applied.| Yes when the expression type is Unary or Binary |
-
 
 **Example:**
 
@@ -199,22 +201,80 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
 ]
 ```
 
+### Using expression parameters
+
+You can configure the expression parameter in **Query builder** by selecting **Add dynamic content**. The parameter type should be **Object**, and the value should follow the format shown in the example JSON below:
+
+```json
+ {
+	"type": "Nary",
+	"operators": [
+		"="
+	],
+	"operands": [
+		{
+			"type": "Field",
+			"value": "col"
+		},
+		{
+			"type": "Constant",
+			"value": "val"
+		}
+	]
+}
+```
+
+Here is an example of the source JSON using the expression parameter:
+
+```json
+"activities": [
+    {
+        "name": "CopyFromServiceNow",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<ServiceNow input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "ServiceNowV2Source",
+                "expression": {
+                    "type": "Expression",
+                    "value": "@pipeline().parameters.expressionParameter"
+                }
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade your ServiceNow linked service
+## <a name="upgrade-your-servicenow-linked-service"></a> Upgrade the ServiceNow connector
 
-Here are the steps that help you to upgrade your ServiceNow linked service:
+Here are the steps that help you to upgrade your ServiceNow connector:
 
 1. Create a new linked service by referring to [Linked service properties](#linked-service-properties).
 2. **Query** in source is upgraded to **Query builder**, which has the same usage as the condition builder in ServiceNow. Learn how to configure it referring to [ServiceNow as source](#servicenow-as-source).
 
-## Differences between ServiceNow and ServiceNow (legacy)
+## <a name="differences-between-servicenow-and-servicenow-legacy"></a> Differences between ServiceNow V2 and V1
 
-The ServiceNow connector offers new functionalities and is compatible with most features of ServiceNow (legacy) connector. The table below shows the feature differences between ServiceNow and ServiceNow (legacy).
+The ServiceNow V2 connector offers new functionalities and is compatible with most features of ServiceNow V1 connector. The table below shows the feature differences between V2 and V1.
 
-| ServiceNow | ServiceNow (legacy) | 
+| ServiceNow V2| ServiceNow V1 | 
 |:--- |:--- |
 | useEncryptedEndpoints, useHostVerification and usePeerVerification are not supported in the linked service. | Support useEncryptedEndpoints, useHostVerification and usePeerVerification in the linked service. | 
 | Support **Query builder** in the source. | **Query builder** is not supported in the source. | 

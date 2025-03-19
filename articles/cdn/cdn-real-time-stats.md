@@ -4,7 +4,6 @@ description: Real-time statistics provides real-time data about the performance 
 services: cdn
 author: zhangmanling
 manager: erikre
-ms.assetid: c7989340-1172-4315-acbb-186ba34dd52a
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
@@ -28,12 +27,9 @@ The following graphs are available:
 
 ## Accessing real-time status
 
-1. In the [Azure Portal](https://portal.azure.com), browse to your CDN profile.
+1. In the [Azure portal](https://portal.azure.com), browse to your CDN profile.
 
-    ![CDN profile blade](./media/cdn-real-time-stats/cdn-profile-blade.png)
 2. From the CDN profile blade, click the **Manage** button.
-
-    ![CDN profile blade manage button](./media/cdn-real-time-stats/cdn-manage-btn.png)
 
     The CDN management portal opens.
 3. Hover over the **Analytics** tab, then hover over the **Real-Time Stats** flyout. Click on **HTTP Large Object**.
