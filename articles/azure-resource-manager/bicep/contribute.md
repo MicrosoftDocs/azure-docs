@@ -1,12 +1,9 @@
 ---
 title: Contribute to Bicep
 description: Describes how to submit open source contributions to Bicep.
-
-author: johndowns
-ms.author: jodowns
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/23/2023
+ms.date: 03/17/2025
 ---
 
 # Contribute to Bicep
