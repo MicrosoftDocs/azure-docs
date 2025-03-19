@@ -4,6 +4,9 @@ description: Learn how to use Kafka on HDInsight from container images hosted in
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 12/02/2024
 ---
 
