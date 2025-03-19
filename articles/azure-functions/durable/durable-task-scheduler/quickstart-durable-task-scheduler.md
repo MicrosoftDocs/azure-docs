@@ -11,7 +11,7 @@ zone_pivot_groups: dts-runtime
 
 # Quickstart: Set a durable functions app to use Azure Functions durable task scheduler (preview)
 
-Use durable functions, a feature of [Azure Functions](../../functions-overview.md), to write stateful functions in a serverless environment. Scenarios where durable functions is useful include orchestrating microservices and workflows, stateful patterns like fan-out/fan-in, and long-running tasks.  
+Write stateful functions in a serverless environment using durable functions, a feature of [Azure Functions](../../functions-overview.md). Scenarios where durable functions is useful include orchestrating microservices and workflows, stateful patterns like fan-out/fan-in, and long-running tasks.  
 
 Durable functions supports several [storage providers](../durable-functions-storage-providers.md), also known as _backends_, for storing orchestration and entity runtime state. 
 
@@ -27,7 +27,7 @@ In this quickstart, you configure a durable functions app to use the [durable ta
 
 ## Prerequisites
 
-This quickstart assumes you alredy have an Azure Functions project on your local computer with:
+This quickstart assumes you already have an Azure Functions project on your local computer with:
 - Durable functions added to your project including:
   - An [orchestrator function](../durable-functions-bindings.md#orchestration-trigger). 
   - A [client function](../durable-functions-bindings.md#orchestration-client) that triggers the durable functions app.
@@ -50,7 +50,7 @@ If you don't meet these prerequisites, we recommend that you begin with one of t
 
 ::: zone-end 
 
-You'll also need:
+You also need:
 - [Docker](https://docs.docker.com/engine/install/) installed to run the durable task scheduler emulator. 
 - [Azurite](../../../storage/common/storage-use-azurite.md#run-azurite) installed.
 - An [HTTP test tool](../../functions-develop-local.md#http-test-tools) that keeps your data secure.
@@ -84,7 +84,7 @@ func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask
 func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask --version 3.0.4
 ```
 
-These commands should automatically generate a *extensions.csproj* file. If the package references are not added to the file, check to ensure that `net8.0` is the target framework and run the commands again. The file should have content similar to the following:
+These commands should automatically generate a *extensions.csproj* file. If the package references aren't added to the file, check to ensure that `net8.0` is the target framework and run the commands again. The file should have content similar to the following example:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -156,7 +156,8 @@ Get the durable task scheduler emulator port number in [the next step](#set-up-d
    docker run -itP mcr.microsoft.com/dts/dts-emulator:v0.0.5
    ```
    
-   The following indicates the emulator started successfully.
+   The following output indicates the emulator started successfully.
+
      :::image type="content" source="media/quickstart-durable-task-scheduler/emulator-started.png" alt-text="Screenshot showing emulator started successfully on terminal.":::
 
 1. Make note of the ports exposed on Docker desktop. These static ports are exposed by the container and mapped dynamically by default. The scheduler exposes multiple ports for different purposes:  
@@ -168,7 +169,7 @@ Get the durable task scheduler emulator port number in [the next step](#set-up-d
 
 1. Update the connection string in *local.settings.json* with the gRPC endpoint port number. 
 
-   In the example above, port `55000` is mapped to the gRPC `8080` endpoint, so the connection string should be `Endpoint=http://localhost:55000;Authentication=None`.
+   In the previous example, port `55000` is mapped to the gRPC `8080` endpoint, so the connection string should be `Endpoint=http://localhost:55000;Authentication=None`.
 
 ## Test locally 
 
@@ -184,7 +185,7 @@ Get the durable task scheduler emulator port number in [the next step](#set-up-d
    func start
    ```
 
-   You should see a list of the functions in your app. If you created your app following one of the durable functions quickstarts, you should see something similar to the following:
+   You should see a list of the functions in your app. If you created your app following one of the durable functions quickstarts, you should see something similar to the following output:
 
    :::image type="content" source="media/quickstart-durable-task-scheduler/function-list.png" alt-text="Screenshot of functions listed when running app locally.":::
 
@@ -254,11 +255,9 @@ az functionapp function list --resource-group <RESOURCE_GROUP_NAME> --name <FUNC
 
 ### Check orchestration status
 
-Check the status of the orchestration instance and activity details on the durable task scheduler dashboard. Accessing the dashboard requires you to login. Follow the instructions below to assign the required role-based access control (RBAC) permission to your identity. 
+Check the status of the orchestration instance and activity details on the durable task scheduler dashboard. Accessing the dashboard requires you to log in. 
 
 [!INCLUDE [assign-dev-identity-rbac-portal](./includes/assign-dev-identity-rbac-portal.md)]
-
-Finally, click **Overview** on the left menu of the task hub resource and navigate to the dashboard URL located at the top *Essentials* section. 
 
 ## Clean up resources
 

@@ -27,7 +27,7 @@ ms.date: 03/17/2025
 
 1. For **Members**, click **+ Select members**.
 
-1. In the **Select managed identities** pane, expand the **Managed identity** drop down and select **User-assigned managed identity**.
+1. In the **Select managed identities** pane, expand the **Managed identity** drop-down and select **User-assigned managed identity**.
 
     :::image type="content" source="../media/configure-durable-task-scheduler/members-tab.png" alt-text="Screenshot of selecting the user-assigned managed identity type you're going to use in the portal.":::
 

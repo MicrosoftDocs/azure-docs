@@ -3,7 +3,7 @@ title: Develop with the Azure Functions durable task scheduler (preview)
 description: Learn how to develop with the Azure Functions durable task scheduler and task hub resources
 author: lilyjma
 ms.topic: how-to
-ms.date: 03/17/2025
+ms.date: 03/19/2025
 ms.author: jiayma
 ms.reviewer: azfuncdf
 zone_pivot_groups: dts-devexp
@@ -11,7 +11,7 @@ zone_pivot_groups: dts-devexp
 
 # Develop with the Azure Functions durable task scheduler (preview)
 
-The Azure Functions durable task scheduler is a highly performant, fully-managed backend provider for durable functions with an [out-of-the-box monitoring dashboard](./durable-task-scheduler-dashboard.md). In this article, you'll learn how to:
+The Azure Functions durable task scheduler is a highly performant, fully managed backend provider for durable functions with an [out-of-the-box monitoring dashboard](./durable-task-scheduler-dashboard.md). In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create a scheduler and task hub. 
@@ -28,7 +28,7 @@ Learn more about durable task scheduler [features](./durable-task-scheduler.md#f
 
 ## Set up the CLI
 
-1. Login to the Azure CLI and make sure you have the latest installed.
+1. Log in to the Azure CLI and make sure you have the latest installed.
 
     ```azurecli
     az login
@@ -41,7 +41,7 @@ Learn more about durable task scheduler [features](./durable-task-scheduler.md#f
     az extension add --name durabletask
     ```
 
-1. If you've already installed the durable task scheduler CLI extension, upgrade to the latest version.
+1. If you already installed the durable task scheduler CLI extension, upgrade to the latest version.
 
     ```azurecli
     az extension add --upgrade --name durabletask
@@ -62,7 +62,7 @@ Learn more about durable task scheduler [features](./durable-task-scheduler.md#f
    docker run -itP mcr.microsoft.com/dts/dts-emulator:v0.0.5
    ```
 
-    The command above exposes a single task hub named `default`. If you need more than one task hub, you can set the environment variable `DTS_TASK_HUB_NAMES` on the container to a comma-delimited list of task hub names like below:
+    This command exposes a single task hub named `default`. If you need more than one task hub, you can set the environment variable `DTS_TASK_HUB_NAMES` on the container to a comma-delimited list of task hub names like in the following command:
 
     ```bash
     docker run -itP -e DTS_TASK_HUB_NAMES=taskhub1,taskhub2,taskhub3 mcr.microsoft.com/dts/dts-emulator:v0.0.5
@@ -194,7 +194,7 @@ You can create a scheduler and a task hub as part of the Function app creation o
     az durabletask scheduler list --subscription <SUBSCRIPTION_ID>
     ```
 
-1. You can narrow results down to a specific resource group by adding the `--resource-group` flag.
+1. You can narrow down results to a specific resource group by adding the `--resource-group` flag.
 
     ```azurecli
     az durabletask scheduler list --subscription <SUBSCRIPTION_ID> --resource-group <RESOURCE_GROUP_NAME>
@@ -264,18 +264,18 @@ You can see all the task hubs created in a scheduler on the **Overview** of the 
 
 ## Configure identity-based authentication for app to access durable task scheduler
 
-Durable task scheduler **only** supports either *user-assigned* or *system-assigned* managed identity authentication. **User-assigned identities are recommended,** as they aren't tied to the lifecycle of the app and can be reused after the app is de-provisioned.
+Durable task scheduler **only** supports either *user-assigned* or *system-assigned* managed identity authentication. **User-assigned identities are recommended,** as they aren't tied to the lifecycle of the app and can be reused after the app is deprovisioned.
 
 The following are the durable task scheduler related roles you can grant to an identity:
 
  - **Durable Task Data Contributor**: Role for all data access operations. This role is a superset of all other roles. 
  - **Durable Task Worker**: Role used by worker applications to interact with the durable task scheduler. Assign this role if your app is used *only* for processing orchestrations, activities, and entities. 
- - **Durable Task Data Reader**: Role to read all durable task scheduler data. Assign this role if you only need listing of orchestrations and entities payloads. 
+ - **Durable Task Data Reader**: Role to read all durable task scheduler data. Assign this role if you only need a list of orchestrations and entities payloads. 
 
 > [!NOTE]
 > Most durable functions apps would require the Durable Task Data Contributor role. 
 
-The sections below demonstrate how to grant permissions to an identity resource and configure your durable functions app to use the identity for access to schedulers and task hubs. 
+The following sections demonstrate how to grant permissions to an identity resource and configure your durable functions app to use the identity for access to schedulers and task hubs. 
 
 ### Assign RBAC (role-based access control) to managed identity resource 
 
@@ -384,7 +384,7 @@ Now that the identity has the required RBAC to access durable task scheduler, yo
 
 Add these two environment variables to app setting:
   - `TASKHUB_NAME`: name of task hub
-  - `DURABLE_TASK_SCHEDULER_CONNECTION_STRING`: the format of the string is `"Endpoint={scheduler point};Authentication=ManagedIdentity;ClientID={client id}"`, where *endpoint* is the scheduler endpoint and *client id* is the identity's client ID. 
+  - `DURABLE_TASK_SCHEDULER_CONNECTION_STRING`: the format of the string is `"Endpoint={scheduler point};Authentication=ManagedIdentity;ClientID={client id}"`, where `Endpoint` is the scheduler endpoint and `client id` is the identity's client ID. 
 
 ::: zone pivot="az-cli"
 
@@ -395,7 +395,7 @@ Add these two environment variables to app setting:
     az durabletask scheduler show --resource-group RESOURCE_GROUP_NAME --name DTS_NAME --query 'properties.endpoint' --output tsv
     ```
 
-    To get client id of managed identity.
+    To get the client ID of managed identity.
     ```azurecli
     az identity show --name MANAGED_IDENTITY_NAME --resource-group RESOURCE_GROUP_NAME --query 'clientId' --output tsv
     ```
@@ -434,7 +434,7 @@ Add these two environment variables to app setting:
 
 ## Accessing durable task scheduler dashboard
 
-First, follow instructions below to gain access to the [durable task scheduler dashboard](./durable-task-scheduler-dashboard.md) by assigning the required role to your *developer identity (email)*. After granting access, go to `https://dashboard.durabletask.io/` and fill out the required information about your scheduler and task hub to see the dashboard. 
+Assign the required role to your *developer identity (email)* to gain access to the [durable task scheduler dashboard](./durable-task-scheduler-dashboard.md). 
 
 ::: zone pivot="az-cli" 
 
@@ -493,6 +493,8 @@ First, follow instructions below to gain access to the [durable task scheduler d
     }
     ```
 
+1. After granting access, go to `https://dashboard.durabletask.io/` and fill out the required information about your scheduler and task hub to see the dashboard. 
+ 
 ::: zone-end 
 
 ::: zone pivot="az-portal" 

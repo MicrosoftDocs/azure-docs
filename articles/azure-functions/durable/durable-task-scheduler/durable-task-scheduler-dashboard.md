@@ -7,11 +7,11 @@ ms.date: 03/17/2025
 
 # Debug and manage orchestrations using the Azure Functions durable task scheduler dashboard (preview)
 
-Observe, manage, and debug your task hub or scheduler's orchestations effectively using the durable task scheduler dashboard. The dashboard is available when you run the [durable task scheduler emulator](./durable-task-scheduler.md#emulator-for-local-development) locally or create a scheduler resource on Azure. 
+Observe, manage, and debug your task hub or scheduler's orchestrations effectively using the durable task scheduler dashboard. The dashboard is available when you run the [durable task scheduler emulator](./durable-task-scheduler.md#emulator-for-local-development) locally or create a scheduler resource on Azure. 
 - **Running locally** doesn't require authentication. 
 - **Creating a scheduler resource on Azure** requires that you [assign the *Durable Task Data Contributor* role to your identity](./develop-with-durable-task-scheduler.md#accessing-durable-task-scheduler-dashboard). You can then access the dashboard via either:
   - The task hub's dashboard endpoint URL in the Azure portal
-  - Navigate to `https://dashboard.durabletask.io/` and your task hub endpoint to connect to it.  
+  - Navigate to `https://dashboard.durabletask.io/` combined with your task hub endpoint.  
 
 ## Monitor orchestration progress and execution history
 
@@ -25,9 +25,9 @@ View orchestration inputs and outputs:
 
 ## Detailed view of orchestration execution
 
-You can drill into orchestration instances to view execution details and activity progress, which can help in diagnosing problems or gaining visibility into the status of an orchestration.
+You can drill into orchestration instances to view execution details and activity progress. This view helps you diagnose problems or gain visibility into the status of an orchestration.
 
-For example, the following shows the *Timeline* view of an orchestration execution. In this "ProcessDocument" orchestration, the "WriteDoc" activity retried three times (unsuccessfully) with five seconds in between retry.
+In the following image, the *Timeline* view of an orchestration execution. In this "ProcessDocument" orchestration, the "WriteDoc" activity retried three times (unsuccessfully) with five seconds in between retry.
 
 :::image type="content" source="media/durable-task-scheduler-dashboard/orchestration-timeline.png" alt-text="Screenshot of the dashboard showing the orchestration execution timeline.":::
 

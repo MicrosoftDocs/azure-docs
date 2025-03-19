@@ -36,5 +36,6 @@ author: lilyjma
 
 1. Click **Review + assign** to finish assigning the role. 
 
+1. Once the role is assigned, click **Overview** on the left menu of the task hub resource and navigate to the dashboard URL located at the top *Essentials* section. 
 
 

@@ -2,7 +2,7 @@
 title: Azure Functions durable task scheduler backend for durable functions (preview)
 description: Learn about the characteristics of the Azure Functions durable task scheduler backend.
 ms.topic: conceptual
-ms.date: 03/17/2025
+ms.date: 03/19/2025
 ms.author: azfuncdf
 author: hhunter-ms
 ms.subservice: durable
@@ -32,9 +32,9 @@ The following diagram shows the architecture of the durable task scheduler backe
 
 The durable task scheduler runs in Azure as a separate resource from the app. This separation allows the scheduler to scale independently of the app and provides better isolation between the two components. This isolation is important for several reasons:
 
-- **Reduced resource consumption:** BYO storage providers can consume a significant amount of CPU and memory resources. This resource consumption is due to the overhead of managing partitions and other complex state store interactions. By using a managed scheduler instead of a BYO storage provider, your app instances can run more efficiently and with less resource contention.
+- **Reduced resource consumption:** BYO storage providers can consume a significant amount of CPU and memory resources. This resource consumption is due to the overhead of managing partitions and other complex state store interactions. Using a managed scheduler instead of a BYO storage provider allows your app instances to run more efficiently and with less resource contention.
 
-- **Fault isolation:** Stability or availability issues in the durable task scheduler will not affect the stability or availability of your connected apps. With BYO storage providers, instability in the backend provider (which is a complex component) can create instability in the app logic. By separating the scheduler from the app, you can reduce the risk of cascading failures and improve overall reliability.
+- **Fault isolation:** Stability or availability issues in the durable task scheduler won't affect the stability or availability of your connected apps. With BYO storage providers, instability in the backend provider (which is a complex component) can create instability in the app logic. By separating the scheduler from the app, you can reduce the risk of cascading failures and improve overall reliability.
 
 - **Independent scaling:** The scheduler resource can be scaled independently of the app, allowing for better infrastructure resource management and cost optimization. For example, multiple apps can share the same scheduler resource, improving overall resource utilization. This capability is especially useful for organizations with multiple teams or projects that require durable functions.
 
@@ -44,7 +44,7 @@ The durable task scheduler runs in Azure as a separate resource from the app. Th
 
 Your durable function apps connect to the scheduler resource via a gRPC connection. The endpoint address is in the form `{scheduler-name}.{region}.durabletask.io`. For example, `myscheduler-123.westus2.durabletask.io`. The connection is secured using TLS and the app's identity is used to authenticate the connection.
 
-Work items are streamed from the scheduler to the app using a push model, removing the need for polling and improving end-to-end latency. Your apps can process multiple work items in parallel and will send responses back to the scheduler when the corresponding orchestration, activity, or entity task is complete.
+Work items are streamed from the scheduler to the app using a push model, removing the need for polling and improving end-to-end latency. Your apps can process multiple work items in parallel and send responses back to the scheduler when the corresponding orchestration, activity, or entity task is complete.
 
 ### State management
 
@@ -133,7 +133,7 @@ This benchmark showed that the durable task scheduler is roughly **five times fa
 
 - **Scheduler quota:** You can currently create up to **five schedulers per region** per subscription.
 
-- **Max payload size:** The durable task scheduler has a maximum payload size restrictions for the following JSON-serialized data types:
+- **Max payload size:** The durable task scheduler has a maximum payload size restriction for the following JSON-serialized data types:
   
     | Data type | Max size |
     | --------- | -------- |

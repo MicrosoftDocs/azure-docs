@@ -10,7 +10,7 @@ ms.author: azfuncdf
 
 # Durable Functions storage providers
 
-Durable Functions is a set of Azure Functions triggers and bindings that are internally powered by the [Durable Task Framework](https://github.com/Azure/durabletask) (DTFx). DTFx supports various backend storage providers, including the Azure Storage provider used by Durable Functions. Starting in Durable Functions **v2.5.0**, users can configure their function apps to use DTFx storage providers other than the Azure Storage provider.
+Durable Functions is a set of Azure Functions triggers and bindings that are internally powered by the [Durable Task Framework](https://github.com/Azure/durabletask) (DTFx). DTFx supports various backend storage providers, including the Azure Storage provider used by Durable Functions. As of Durable Functions **v2.5.0**, users can configure their function apps to use DTFx storage providers other than the Azure Storage provider.
 
 > [!NOTE]
 > The default Azure Storage provider for Durable Functions is the easiest to use since it requires no extra configuration. However, there are cost, scalability, and data management tradeoffs that may favor the use of an alternate backend provider.
@@ -22,11 +22,11 @@ Durable Functions supports two types of backend providers: "Bring your own (BYO)
 
 ## <a name="dts"></a>Durable task scheduler (preview)
 
-The durable task scheduler is a fuly managed, high performance backend provider for Durable Functions. It was designed and built from scratch with help from Microsoft Research. This new provider aims to provide the best user experience in aspects such as management, observability, performance, and security.  
+The durable task scheduler is a fully managed, high performance backend provider for Durable Functions. It was designed and built from scratch with help from Microsoft Research. This new provider aims to provide the best user experience in aspects such as management, observability, performance, and security.  
 
 The key benefits of the durable task scheduler include:
 
-* Significantly lower management and operation overhead compared to BYO backend providers
+* Lower management and operation overhead compared to BYO backend providers
 * First-class observability and management [dashboard](./durable-task-scheduler/durable-task-scheduler-dashboard.md) provided out-of-the-box. 
 * Supports the highest throughput of all backends today.
 * Support for authentication using managed identity.
@@ -50,15 +50,15 @@ The key benefits of the Azure Storage provider include:
 The source code for the DTFx components of the Azure Storage storage provider can be found in the [Azure/durabletask](https://github.com/Azure/durabletask/tree/main/src/DurableTask.AzureStorage) GitHub repo.
 
 > [!NOTE]
-> Standard general purpose Azure Storage accounts are required when using the Azure Storage provider. All other storage account types are not supported. We highly recommend using legacy v1 general purpose storage accounts because the newer v2 storage accounts can be significantly more expensive for Durable Functions workloads. For more information on Azure Storage account types, see the [Storage account overview](../../storage/common/storage-account-overview.md) documentation.
+> Standard general purpose Azure Storage accounts are required when using the Azure Storage provider. All other storage account types are not supported. We highly recommend using legacy v1 general purpose storage accounts because the newer v2 storage accounts can be more expensive for Durable Functions workloads. For more information on Azure Storage account types, see the [Storage account overview](../../storage/common/storage-account-overview.md) documentation.
 
 ## <a name="netherite"></a>Netherite
 
-The Netherite storage backend was designed and developed by [Microsoft Research](https://www.microsoft.com/research). It uses [Azure Event Hubs](../../event-hubs/event-hubs-about.md) and the [FASTER](https://www.microsoft.com/research/project/faster/) database technology on top of [Azure Page Blobs](../../storage/blobs/storage-blob-pageblob-overview.md). The design of Netherite enables significantly higher-throughput processing of orchestrations and entities compared to other providers. In some benchmark scenarios, throughput was shown to increase by more than an order of magnitude when compared to the default Azure Storage provider.
+The Netherite storage backend was designed and developed by [Microsoft Research](https://www.microsoft.com/research). It uses [Azure Event Hubs](../../event-hubs/event-hubs-about.md) and the [FASTER](https://www.microsoft.com/research/project/faster/) database technology on top of [Azure Page Blobs](../../storage/blobs/storage-blob-pageblob-overview.md). The design of Netherite enables higher-throughput processing of orchestrations and entities compared to other providers. In some benchmark scenarios, throughput was shown to increase by more than an order of magnitude when compared to the default Azure Storage provider.
 
 The key benefits of the Netherite storage provider include:
 
-* Significantly higher throughput at lower cost compared to other storage providers.
+* Higher throughput at lower cost compared to other storage providers.
 * Supports price-performance optimization, allowing you to scale-up performance as-needed.
 * Supports up to 32 data partitions with Event Hubs Basic and Standard SKUs.
 * More cost-effective than other providers for high-throughput workloads.
