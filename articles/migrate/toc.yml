@@ -13,6 +13,8 @@ items:
     href: create-manage-projects.md
   - name: Create a project - ARM template
     href: quickstart-create-migrate-project.md
+  - name: Create a project - Portal
+    href: quickstart-create-project.md
   - name: Create a business case using imported inventory
     href: how-to-build-a-business-case.md
     
