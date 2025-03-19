@@ -110,7 +110,6 @@ You can choose to view more attributes that are gathered by Azure Migrate as par
  > [!Note]
  > The exhaustive list of attributes discovered by Azure Migrate are covered in the [details of exported inventory data](/how-to-review-discovered-inventory.md#export-all-inventory-data) below.
 
-
 ## Perform actions
 
 ### Review individual workload
