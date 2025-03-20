@@ -242,17 +242,18 @@ Dependency analysis is auto-enabled on all discovered servers which have passed 
     Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "ContosoDemoRG" -ProjectName "ContosoDemoProject" -Filter @{"Dependencies"="Enabled"} -OutputCsvFile "ContosoDemo_VMs.csv" [-AutoEnabledDepMap]
     ```
 
-    The different filters available for use in the command above are:
-    **Filter name** | **Values**
-    --- | --- 
-    ServerName | Provide name you want to filter with
-    Source | Appliance/ Import-based
-    Dependencies | Enabled/Disabled
-    PowerStatus | On/Off
-    
-    Some of the other fields are IP Address, osType, osName, osArchitecture, osVersion
+The different filters available for use in the command above are:
 
-    You can find discovered servers for a specific appliance by using the command:
+**Field name** | **Details**
+--- | --- 
+ServerName | Provide name you want to filter with
+Source |  Appliance/ Import-based
+Dependencies | Enabled/Disabled
+PowerStatus |  On/Off
+
+Some of the other fields are IP Address, osType, osName, osArchitecture, osVersion
+
+You can find discovered servers for a specific appliance by using the command:
 
       ```PowerShell
     Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "ContosoDemoRG" -ProjectName "ContosoDemoProject" -Filter @{"Dependencies"="Enabled"} -ApplianceName "ContosoApp" -OutputCsvFile "ContosoDemo_VMs.csv" [-AutoEnabledDepMap]
