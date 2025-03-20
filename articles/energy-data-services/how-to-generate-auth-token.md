@@ -163,7 +163,7 @@ The first step to get an access token for many OpenID Connect (OIDC) and OAuth 2
    |session_state|A unique value that identifies the current user session. This value is a GUID, but it should be treated as an opaque value that's passed without examination.|
 
 > [!WARNING]
-> Running the URL in Postman won't work because it requires extra configuration for token retrieval.
+> Running the URL in other GUI-based API clients won't work because they require extra configuration for token retrieval.
 
 ### Get an auth token and a refresh token
 
