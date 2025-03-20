@@ -321,7 +321,7 @@ Multiple personal desktop assignment allows you to assign more than one personal
 >
 >- You should [Give session hosts in a personal host pool a friendly name](#give-session-hosts-in-a-personal-host-pool-a-friendly-name) so that your users can distinguish between the multiple personal desktops you assigned to them.
 >
->- Once a host pool is enabled for multiple personal desktop assignments, it can't be disabled.
+>- Once a host pool is enabled for multiple personal desktop assignment, it can't be disabled.
 
 ### Enable multiple personal desktop assignment
 
