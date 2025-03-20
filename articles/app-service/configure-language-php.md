@@ -363,7 +363,7 @@ Then, go to the Azure portal and add an Application Setting to scan the "ini" di
 1. Go to the [Azure portal](https://portal.azure.com) and select your App Service Linux PHP application.
 2. Select Application Settings for the app.
 3. Under the Application settings section, select **+ Add new setting**.
-4. For the App Setting Name, enter "PHP_INI_SCAN_DIR" and for value, enter "/home/site/wwwroot/ini".
+4. For the App Setting Name, enter "PHP_INI_SCAN_DIR" and for value, enter ":/home/site/wwwroot/ini".
 5. Select the save button.
 
 > [!NOTE]

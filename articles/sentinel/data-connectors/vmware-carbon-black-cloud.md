@@ -115,7 +115,7 @@ Use the following step-by-step instructions to deploy the VMware Carbon Black co
 **1. Create a Function App**
 
 1.  From the Azure Portal, navigate to [Function App](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp), and select **+ Add**.
-2. In the **Basics** tab, ensure Runtime stack is set to **Powershell Core**. 
+2. In the **Basics** tab, ensure Runtime stack is set to **PowerShell Core**. 
 3. In the **Hosting** tab, ensure the **Consumption (Serverless)** plan type is selected.
 4. Make other preferable configuration changes, if needed, then click **Create**.
 

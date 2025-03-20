@@ -1,8 +1,8 @@
 ---
 title: Deployment overview
 description: Learn about the components that are included in an Azure IoT Operations deployment and the different deployment options to consider for your scenario.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.topic: conceptual
 ms.custom:
 ms.date: 11/06/2024

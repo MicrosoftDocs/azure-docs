@@ -16,7 +16,7 @@ Find out what's new in Azure Managed Redis (preview).
 
 ### Azure Managed Redis (preview)
 
-Azure Managed Redis (preview) is now available to create and use managed caches. Azure Managed Redis runs on the [Redis Enterprise](https://redis.io/redis-enterprise/advantages/) stack, which offers significant advantages over the community edition of Redis. 
+Azure Managed Redis (preview) is now available to create and use managed caches. Azure Managed Redis runs on the [Redis Enterprise](https://redis.io/technology/advantages/) stack, which offers significant advantages over the community edition of Redis. 
 
 Three tiers are for in-memory data:
 

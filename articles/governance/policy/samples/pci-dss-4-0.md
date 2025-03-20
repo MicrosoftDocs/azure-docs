@@ -1,8 +1,8 @@
 ---
 title: Regulatory Compliance details for PCI DSS v4.0
 description: Details of the PCI DSS v4.0 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 02/10/2025
-ms.topic: sample
+ms.date: 03/17/2025
+ms.topic: generated-reference
 ms.custom: generated
 ---
 # Details of the PCI DSS v4.0 Regulatory Compliance built-in initiative

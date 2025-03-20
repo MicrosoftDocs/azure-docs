@@ -4,7 +4,7 @@ description: Learn about file shares hosted in Azure Files using the Server Mess
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 11/04/2024
+ms.date: 03/19/2025
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell
 ---
@@ -57,9 +57,9 @@ Azure Files offers multiple settings that affect the behavior, performance, and 
 SMB Multichannel enables an SMB 3.x client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on premium file shares (file shares in the FileStorage storage account kind). There is no additional cost for enabling SMB Multichannel in Azure Files. SMB Multichannel is now enabled by default in all Azure regions.
 
 # [Portal](#tab/azure-portal)
-To view the status of SMB Multichannel, navigate to the storage account containing your premium file shares and select **File shares** under the **Data storage** heading in the storage account table of contents. The status of the SMB Multichannel can be seen under the **File share settings** section.
+To view the status of SMB Multichannel, navigate to the storage account containing your premium file shares and select **File shares** under the **Data storage** heading in the storage account table of contents. You should see the status of SMB Multichannel under the **File share settings** section. If you don't see it, make sure your storage account is of the FileStorage account kind.
 
-![A screenshot of the file shares section with in the storage account highlighting the SMB Multichannel setting](./media/files-smb-protocol/1-smb-multichannel-enable.png)
+:::image type="content" source="media/files-smb-protocol/smb-multichannel-enabled.png" alt-text="A screenshot of the file shares section within the storage account highlighting the SMB Multichannel setting." lightbox="media/files-smb-protocol/smb-multichannel-enabled.png":::
 
 To enable or disable SMB Multichannel, select the current status (**Enabled** or **Disabled** depending on the status). The resulting dialog provides a toggle to enable or disable SMB Multichannel. Select the desired state and select **Save**.
 
@@ -198,13 +198,13 @@ You can view and change the SMB security settings using the Azure portal, PowerS
 # [Portal](#tab/azure-portal)
 To view or change the SMB security settings using the Azure portal, follow these steps:
 
-1. Search for **Storage accounts** and select the storage account for which you want to view the security settings.
+1. Sign in to the Azure portal and search for **Storage accounts**. Select the storage account for which you want to view or change the SMB security settings.
 
-1. Select **Data storage** > **File shares**.
+1. From the service menu, select **Data storage** > **File shares**.
 
 1. Under **File share settings**, select the value associated with **Security**. If you haven't modified the security settings, this value defaults to **Maximum compatibility**.
 
-   :::image type="content" source="media/files-smb-protocol/file-share-settings.png" alt-text="A screenshot showing where to change SMB security settings.":::
+   :::image type="content" source="media/files-smb-protocol/file-share-settings.png" alt-text="A screenshot showing where to view and change SMB security settings.":::
 
 1. Under **Profile**, select **Maximum compatibility**, **Maximum security**, or **Custom**. Selecting **Custom** allows you to create a custom profile for SMB protocol versions, SMB channel encryption, authentication mechanisms, and Kerberos ticket encryption.
 

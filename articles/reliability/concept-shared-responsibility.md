@@ -2,7 +2,7 @@
 title: Shared responsibility for reliability
 description: Learn about the shared responsibility model for reliability on the Azure cloud platform.
 ms.service: azure
-ms.subservice: azure-availability-zones
+ms.subservice: azure-reliability
 ms.topic: conceptual
 ms.date: 12/14/2024
 ms.author: anaharris

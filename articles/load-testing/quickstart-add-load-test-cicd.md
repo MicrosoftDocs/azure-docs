@@ -29,11 +29,11 @@ If you want to automate your load test with GitHub Actions, learn how to [manual
 
 - Your Azure DevOps organization needs to have the [Azure Load Testing](https://marketplace.visualstudio.com/items?itemName=AzloadTest.AzloadTesting) extension installed.
 
-- A load testing resource, which contains a test. Create a [URL-based load test](./quickstart-create-and-run-load-test.md) or [use an existing JMeter script](./how-to-create-and-run-load-test-with-jmeter-script.md) to create a load test.
+- A load testing resource, which contains a test. Create a [URL-based load test](./quickstart-create-and-run-load-test.md), [use an existing JMeter script](./how-to-create-and-run-load-test-with-jmeter-script.md), or [use an existing Locust script](./quickstart-create-run-load-test-with-locust.md) to create a load test.
 
 ## Configure a CI/CD pipeline
 
-In this section, you'll create a CI/CD pipeline in Azure Pipelines to run an existing load test. The test files like JMeter script and [test configuration YAML](/azure/load-testing/reference-test-config-yaml) will be committed to your repository.
+In this section, you'll create a CI/CD pipeline in Azure Pipelines to run an existing load test. The test files like test script and [test configuration YAML](/azure/load-testing/reference-test-config-yaml) will be committed to your repository.
 
 1. In the [Azure portal](https://portal.azure.com/), go to your Azure load testing resource.
 
@@ -66,7 +66,7 @@ In this section, you'll create a CI/CD pipeline in Azure Pipelines to run an exi
 
     - Create a new service connection of type [Azure Resource Manager](/azure/devops/pipelines/library/service-endpoints#azure-resource-manager-service-connection) in the Azure DevOps project. The service principal is automatically assigned the *Load Test Contributor* role on the Azure load testing resource.
 
-    - Commit the JMeter script and test configuration YAML to the source code repository.
+    - Commit the test script and test configuration YAML to the source code repository.
 
     - Create a pipeline definition that invokes the Azure load testing resource and runs the load test.
 

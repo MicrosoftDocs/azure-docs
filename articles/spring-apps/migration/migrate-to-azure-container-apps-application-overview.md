@@ -2,7 +2,8 @@
 title: Overview of Application Migration
 description: Provides an overview of an app migration approach from Azure Spring Apps to Azure Container Apps.
 author: KarlErickson
-ms.author: dixue
+ms.author: karler
+ms.reviewer: dixue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article
 ms.date: 01/29/2025
