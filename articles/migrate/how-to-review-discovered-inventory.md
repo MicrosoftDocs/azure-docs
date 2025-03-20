@@ -74,13 +74,13 @@ The new users need to follow steps given below:
  
 ## Review All inventory
 
-You can start by selecting the count of workloads on **Overview** of your project or select **All inventory** under **Explore inventory** from the menu on the left to see the list of workloads, discovered from your environment either by using [Azure Migrate appliance](/azure/migrate/migrate-appliance?view=migrate&branch=release-migrate-new-structure) or using [CSV import](/azure/migrate/how-to-review-discovered-inventory?).
+You can start by selecting the count of workloads on **Overview** of your project or select **All inventory** under **Explore inventory** from the menu on the left to see the list of workloads, discovered from your environment either by using [Azure Migrate appliance](migrate-appliance.md) or using CSV import.
 
 **All Inventory** view helps you review all the workloads discovered from your datacentre including servers (VMware VMs/Hyper-V VMs/Physical servers/servers running in other public clouds), databases, and web applications which can be found inline by expanding the server. 
 
 While the default view shows databases and web applications on expanding a server in a hierarchical list, you can also choose to see a flat list of all workloads by switching to that view from the action on top right of the page. 
 
-:::image type="content" source="./media/how-to-review-discovered-inventory/switch-to-flat-list.png" alt-text="Switch to flat list view":::
+:::image type="content" source="./media/how-to-review-discovered-inventory/switch-to-flat-list.png" alt-text="Switch to flat list view.":::
 
 You can navigate across pages to review the entire inventory from a single view or choose to go to separate views for **Infrastruture, Databases and Web apps** inventory from the menu on the left.
 
@@ -95,10 +95,10 @@ Category | Category of the inventoried asset across Server, Database, and Web ap
 Type | Type of workload <br/> *For instance a Server can be Windows server/Linux server, a Database can be SQL Server, and Web app can be .NET/IIS*
 Edition | Edition of the Server, Database, or Web app
 Version | Version of the Server, Database, or Web app
-Dependencies | Netowork dependencies of the server <br/> *Dependency analysis is auto-enabled on upto 1000 servers per appliance if the validation checks succeed. [Learn more]()*
-Support Status | Support status for the Servers, Databases to indicate if they're in Mainstream support, End of Support, or in Extended support. [Learn more](/tutorial-discover-vmware.md#view-support-status).
+Dependencies | Netowork dependencies of the server <br/> *Dependency analysis is auto-enabled on upto 1000 servers per appliance if the validation checks succeed.
+Support Status | Support status for the Servers, Databases to indicate if they're in Mainstream support, End of Support, or in Extended support. [Learn more](vmware/tutorial-discover-vmware.md#view-support-status).|
 Discovery source | Source of discovery of the workload between Appliance and Import
-Tags | Tags applied to the workload. <br/> *Currently, Azure Migrate supports custom tags. [Learn more]()*
+Tags | Tags applied to the workload. <br/> Currently, Azure Migrate supports custom tags. 
 
 ### Optional columns
 
@@ -107,7 +107,7 @@ You can choose to view more attributes that are gathered by Azure Migrate as par
 :::image type="content" source="./media/how-to-review-discovered-inventory/optional-columns-list.png" alt-text="Select optional columns":::
 
  > [!Note]
- > The exhaustive list of attributes discovered by Azure Migrate are covered in the [details of exported inventory data](/how-to-review-discovered-inventory.md#export-all-inventory-data) below.
+ > The exhaustive list of attributes discovered by Azure Migrate are covered in the [details of exported inventory data](#export-all-inventory-data)
 
 ## Perform actions
 
@@ -119,9 +119,9 @@ The data gathered varies as per the individual workload type. Details of each ty
 
 **Workload type** | **Details** 
 --- | --- 
-Server | [Server details](/how-to-review-discovered-inventory.md#review-server-data)
-Databases | [Database details](/how-to-review-discovered-inventory.md#review-database-data)
-Web apps | [Web app details](/how-to-review-discovered-inventory.md#review-webapp-data)
+Server | [Server details](#review-server-data)
+Databases | [Database details](#review-databases-inventory)
+Web apps | [Web app details](#review-web-apps-inventory)
 
 After reviewing the workloads and their attributes, you can either **Select all workloads across pages** or scope the list using **Search and Filter** capabilities to perform required action on the inventory.
 
@@ -144,7 +144,7 @@ Create assessment | Create an assessment of all or scoped set of workloads to re
 Build business case | Build business case for TCO/RoI analysis for all or scoped set of workloads. <br/> You need to select one or more workloads to perform this action. <br/> Learn how to [build a business case]().
 Dependency analysis | Export dependency data for servers where gathering of dependency data was auto-enabled. Learn how to [export dependency data](how-to-create-group-machine-dependencies-agentless.md#export-dependency-data).
 Tags | Tags can be added/edited at scale by selecting all or a scoped set of workloads. <br/> You need to select one or more workloads to perform this action. <br/> You can also import tags using an exported list of all inventory and importing the tags information from that CSV file. <br/> Learn how to [add tags]().
-Export data | Export the inventory data for all workloads. <br/> Review [exported data](/how-to-review-discovered-inventory.md#export-all-inventory-data).
+Export data | Export the inventory data for all workloads. <br/> Review [exported data](#export-all-inventory-data).
 Columns | Choose optional attributes for the discovered workloads
 Refresh | Refresh the view to review any updates in discovery
 Feedback | Provide your feedback about the view and its utility
@@ -183,7 +183,7 @@ HADR configuration |
 
 ## Review Infrastructure inventory
 
-You can select **Infrastructure inventory** under **Explore inventory** from the menu on the left to see the list of infrastructure workloads, discovered from your environment either by using [Azure Migrate appliance](/migrate-appliance.md) or using [CSV import](/azure/migrate/how-to-review-discovered-inventory?).
+You can select **Infrastructure inventory** under **Explore inventory** from the menu on the left to see the list of infrastructure workloads, discovered from your environment either by using [Azure Migrate appliance](/migrate-appliance.md) or using CSV import.
 
 **Infrastruture Inventory** view helps you review all the servers discovered from your datacentre including VMware VMs/Hyper-V VMs/Physical servers/servers running in other public clouds.
 
@@ -200,15 +200,15 @@ Dependencies | Netowork dependencies of the server <br/> *Dependency analysis is
 DB instances | No fo DB instances found running on the server
 Web app | No of web apps found running on the server
 Issues | No of discovery issues reported on the server
-Support Status | Support status for the Servers, Databases to indicate if they are in Mainstream support, End of Support, or in Extended support. [Learn more](/tutorial-discover-vmware.md#view-support-status)
-Tags | Tags applied to the server. <br/> *Currently, Azure Migrate supports custom tags. [Learn more]()*
+Support Status | Support status for the Servers, Databases to indicate if they are in Mainstream support, End of Support, or in Extended support. [Learn more](vmware/tutorial-discover-vmware.md#view-support-status)
+Tags | Tags applied to the server. <br/> *Currently, Azure Migrate supports custom tags. 
 
 ### Optional columns
 
 You can choose to view more attributes that are gathered by Azure Migrate as part of the discovery by selecting **Columns** from the command bar on top and choosing the additional attributes that you're interested to review. 
 
  > [!Note]
- > The exhaustive list of attributes discovered by Azure Migrate are covered in the [details of exported server data](/how-to-review-discovered-inventory.md#export-all-server-data) below.
+ > The exhaustive list of attributes discovered by Azure Migrate are covered in the [details of exported server data](#export-all-inventory-data) below.
 
 ### Review server data
 
@@ -231,7 +231,7 @@ You can scope the list in Infrastructure inventory view by searching for name of
 
 ### User actions on server inventory
 
-You can perform actions on all or a scoped set of servers, similar to those listed for [All inventory](/how-to-review-discovered-inventory.md#user-actions-on-all-inventory) above.
+You can perform actions on all or a scoped set of servers, similar to those listed for [All inventory](#user-actions-on-all-inventory) above.
 
  > [!Note]
  > When creating assessment for discovered servers, you can create assessment for Azure VMs and Azure VMware Solution (AVS) [Learn more]().
@@ -297,15 +297,14 @@ You can perform following actions on all or a scoped set of web apps after revie
 
 **Tab name** | **Details**
 --- | --- 
-Discover     |Discover using appliance or CSV import to inventory more workloads  
-Create assessment  | Create an assessment of all or scoped set of workloads to review suitability, mapped Azure services, cost, and readiness analysis of your workloads. 
-You need to select one or more workloads to perform this action. Learn [how to create an assessment](/azure/migrate/tutorial-assess-webapps?view=migrate&branch=release-migrate-new-structure&pivots=asp-net).    
+Discover     |Discover using appliance or CSV import to inventory more workloads  |
+Create assessment  | Create an assessment of all or scoped set of workloads to review suitability, mapped Azure services, cost, and readiness analysis of your workloads. You need to select one or more workloads to perform this action. [Learn more](how-to-create-assessment.md).    
 Dependency analysis     |Export dependency data for servers where gathering of dependency data was auto-enabled. Learn how to export dependency data. 
 Tags  |Tags can be added/edited at scale by selecting all or a scoped set of workloads.<br/><br/> 
 You need to select one or more workloads to perform this action. <br/><br/> You can also import tags using an exported list of all inventory and importing the tags information from that CSV file <br/> <br/>.
 Export data     |Export the inventory data for all web apps. 
 Columns  | Choose optional attributes for the discovered workloads 
-Refresh     |Refresh the view to review any updates in discovery  
+Refresh     |Refresh the view to review any updates in discovery  |
 
 ## Next steps
 
