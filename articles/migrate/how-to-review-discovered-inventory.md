@@ -24,9 +24,6 @@ This article describes the new experience to review inventory discovered using A
 - You can **export** the inventory of your entire datacenter to review the details offline.
 - You can also review discovered inventory specifically for your **infrastructure (servers), databases, and web applications** by switching to these inventory views. 
 
-
-## Before you start
-
 ### Existing users
 
 The existing users who have already created an Azure Migrate project and performed discovery of their datacenter assets can switch to the new Overview by using the prompt in their existing project. From the new Overview, you can select the count of workloads to review the discovered inventory across your datacenter.
@@ -274,8 +271,6 @@ Discovery source | Source of discovery between appliance and import
 Support ends in (Days) | Number of days for support to end
 Appliance name | Name of the appliance used to discover the workload.
 
-## Review Databases inventory
-
 ## Review Web apps inventory
 
 You can select the name of a web app to see all the attributes and another metadata discovered for that workload in a detailed view. Here you can also add tags to an individual server. Here are the details you can review for each web app: 
@@ -294,17 +289,18 @@ You can scope the list in Web apps view by searching for name of the web app or 
 ### User actions on server inventory 
 
 You can perform following actions on all or a scoped set of web apps after reviewing the inventory: 
-
 **Tab name** | **Details**
 --- | --- 
-Discover     |Discover using appliance or CSV import to inventory more workloads  |
-Create assessment  | Create an assessment of all or scoped set of workloads to review suitability, mapped Azure services, cost, and readiness analysis of your workloads. You need to select one or more workloads to perform this action. [Learn more](how-to-create-assessment.md).    
-Dependency analysis     |Export dependency data for servers where gathering of dependency data was auto-enabled. Learn how to export dependency data. 
-Tags  |Tags can be added/edited at scale by selecting all or a scoped set of workloads.<br/><br/> 
-You need to select one or more workloads to perform this action. <br/><br/> You can also import tags using an exported list of all inventory and importing the tags information from that CSV file <br/> <br/>.
-Export data     |Export the inventory data for all web apps. 
-Columns  | Choose optional attributes for the discovered workloads 
-Refresh     |Refresh the view to review any updates in discovery  |
+Discover | Discover using appliance or CSV import to inventory more workloads
+Create assessment   |Create an assessment of all or scoped set of workloads to review suitability, mapped Azure services, cost, and readiness analysis of your workloads. You need to select one or more workloads to perform this action. [Learn more](how-to-create-assessment.md). 
+Dependency analysis      | Export dependency data for servers where gathering of dependency data was auto-enabled. Learn how to export dependency data. 
+Tags   | Tags can be added/edited at scale by selecting all or a scoped set of workloads.<br/><br/> 
+You need to select one or more workloads to perform this action. <br/><br/> You can also import tags using an exported list of all inventory and importing the tags information from that CSV file.
+Export data      | Export the inventory data for all web apps. 
+Columns         | Choose optional attributes for the discovered workloads 
+Refresh       | Refresh the view to review any updates in discovery  
+
+
 
 ## Next steps
 
