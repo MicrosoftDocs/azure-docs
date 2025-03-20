@@ -4,8 +4,9 @@ description: Lists Azure Policy built-in policy definitions for Azure HDInsight.
 ms.date: 02/03/2025
 ms.topic: reference
 ms.service: azure-hdinsight
-ms.custom: subject-policy-reference
----
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf---
 # Azure Policy built-in definitions for Azure HDInsight
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
