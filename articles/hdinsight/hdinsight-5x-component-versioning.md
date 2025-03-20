@@ -4,6 +4,9 @@ description: Learn about the open-source components and versions in Azure HDInsi
 ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.date: 10/17/2024
+author: anuj1905
+ms.author: anujsharda
+ms.reviewer: nijelsf
 ---
 
 # HDInsight 5.x component versions

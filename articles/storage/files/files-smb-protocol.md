@@ -4,7 +4,7 @@ description: Learn about file shares hosted in Azure Files using the Server Mess
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 02/27/2025
+ms.date: 03/19/2025
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell
 ---
@@ -198,13 +198,13 @@ You can view and change the SMB security settings using the Azure portal, PowerS
 # [Portal](#tab/azure-portal)
 To view or change the SMB security settings using the Azure portal, follow these steps:
 
-1. Search for **Storage accounts** and select the storage account for which you want to view the security settings.
+1. Sign in to the Azure portal and search for **Storage accounts**. Select the storage account for which you want to view or change the SMB security settings.
 
-1. Select **Data storage** > **File shares**.
+1. From the service menu, select **Data storage** > **File shares**.
 
 1. Under **File share settings**, select the value associated with **Security**. If you haven't modified the security settings, this value defaults to **Maximum compatibility**.
 
-   :::image type="content" source="media/files-smb-protocol/file-share-settings.png" alt-text="A screenshot showing where to change SMB security settings.":::
+   :::image type="content" source="media/files-smb-protocol/file-share-settings.png" alt-text="A screenshot showing where to view and change SMB security settings.":::
 
 1. Under **Profile**, select **Maximum compatibility**, **Maximum security**, or **Custom**. Selecting **Custom** allows you to create a custom profile for SMB protocol versions, SMB channel encryption, authentication mechanisms, and Kerberos ticket encryption.
 
