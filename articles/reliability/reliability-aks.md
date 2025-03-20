@@ -161,4 +161,4 @@ AKS offers three pricing tiers for cluster management: **Free**, **Standard**, a
 
 ## Related content
 
-For more information, see [Reliability in Azure](./overview.md).
+- [Reliability in Azure](./overview.md).
