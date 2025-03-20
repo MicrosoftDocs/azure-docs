@@ -3,7 +3,7 @@ title: Azure Automation Change Tracking extension version details and known issu
 description: This article describes the Change Tracking extension version details and known issues.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 03/19/2025
+ms.date: 03/21/2025
 ms.topic: overview
 ms.service: azure-automation
 ---
@@ -24,8 +24,8 @@ This article explains the version details of change tracking extension.
 
 ### Extension version 2.27.0.0
 
-- **Windows** - None
-- **Linux** - We recommend you to move to extension version 2.29.0.0
+- **Windows** - Removed some security vulnerabilities.
+- **Linux** - Removed some security vulnerabilities.
 
 ### Extension version 2.24.0.0
 
