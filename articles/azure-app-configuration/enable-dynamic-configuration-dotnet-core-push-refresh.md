@@ -112,7 +112,7 @@ namespace TestConsole
                         refresh
                             .Register("TestApp:Settings:Message")
                             // Important: Reduce poll frequency
-                            .SetCacheExpiration(TimeSpan.FromDays(1))  
+                            .SetRefreshInterval(TimeSpan.FromDays(1))  
                     );
 
                     _refresher = options.GetRefresher();

@@ -78,7 +78,7 @@ Add the following key-value to the App Configuration store and leave **Label** a
                     .ConfigureRefresh(refresh =>
                     {
                         refresh.Register("TestApp:Settings:Message")
-                               .SetCacheExpiration(TimeSpan.FromSeconds(10));
+                               .SetRefreshInterval(TimeSpan.FromSeconds(10));
                     });
 
             _refresher = options.GetRefresher();
@@ -89,7 +89,7 @@ Add the following key-value to the App Configuration store and leave **Label** a
     }
     ```
 
-    In the `ConfigureRefresh` method, a key within your App Configuration store is registered for change monitoring. The `Register` method has an optional boolean parameter `refreshAll` that can be used to indicate whether all configuration values should be refreshed if the registered key changes. In this example, only the key *TestApp:Settings:Message* will be refreshed. The `SetCacheExpiration` method specifies the minimum time that must elapse before a new request is made to App Configuration to check for any configuration changes. In this example, you override the default expiration time of 30 seconds, specifying a time of 10 seconds instead for demonstration purposes.
+    In the `ConfigureRefresh` method, a key within your App Configuration store is registered for change monitoring. The `Register` method has an optional boolean parameter `refreshAll` that can be used to indicate whether all configuration values should be refreshed if the registered key changes. In this example, only the key *TestApp:Settings:Message* will be refreshed. The `SetRefreshInterval` method specifies the minimum time that must elapse before a new request is made to App Configuration to check for any configuration changes. In this example, you override the default expiration time of 30 seconds, specifying a time of 10 seconds instead for demonstration purposes.
 
 1. Add a method called `PrintMessage()` that triggers a refresh of configuration data from App Configuration.
 
@@ -139,7 +139,7 @@ Add the following key-value to the App Configuration store and leave **Label** a
     ![App refresh local](./media/dotnet-app-run-refresh.png)
     
     > [!NOTE]
-    > Since the cache expiration time was set to 10 seconds using the `SetCacheExpiration` method while specifying the configuration for the refresh operation, the value for the configuration setting will only be updated if at least 10 seconds have elapsed since the last refresh for that setting.
+    > Since the cache expiration time was set to 10 seconds using the `SetRefreshInterval` method while specifying the configuration for the refresh operation, the value for the configuration setting will only be updated if at least 10 seconds have elapsed since the last refresh for that setting.
 
 ## Clean up resources
 

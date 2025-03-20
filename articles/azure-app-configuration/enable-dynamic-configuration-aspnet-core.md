@@ -57,7 +57,7 @@ A *sentinel key* is a key that you update after you complete the change of all o
     In the `ConfigureRefresh` method, you register keys you want to monitor for changes in your App Configuration store. The `refreshAll` parameter to the `Register` method indicates that all configurations you specified by the `Select` method will be reloaded if the registered key changes.
 
     > [!TIP]
-    > You can add a call to the `refreshOptions.SetCacheExpiration` method to specify the minimum time between configuration refreshes. In this example, you use the default value of 30 seconds. Adjust to a higher value if you need to reduce the number of requests made to your App Configuration store.
+    > You can add a call to the `refreshOptions.SetRefreshInterval` method to specify the minimum time between configuration refreshes. In this example, you use the default value of 30 seconds. Adjust to a higher value if you need to reduce the number of requests made to your App Configuration store.
 
 1. Add Azure App Configuration middleware to the service collection of your app.
 
