@@ -3,7 +3,7 @@ title: Set up twin-to-twin event handling
 titleSuffix: Azure Digital Twins
 description: Learn how to create a function in Azure for propagating events through the twin graph.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 03/10/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
@@ -31,7 +31,7 @@ Optionally, you might want to set up [automatic telemetry ingestion through IoT 
 
 To set up twin-to-twin event handling, start by creating an *endpoint* in Azure Digital Twins and a *route* to that endpoint. Twins undergoing an update use the route to send information about their update events to the endpoint (where Event Grid can pick them up later and pass them to an Azure function for processing).
 
-[!INCLUDE [digital-twins-twin-to-twin-resources.md](../../includes/digital-twins-twin-to-twin-resources.md)]
+[!INCLUDE [digital-twins-twin-to-twin-resources.md](includes/digital-twins-twin-to-twin-resources.md)]
 
 ## Create Azure function to update twins
 
@@ -63,7 +63,7 @@ az functionapp function show --resource-group <your-resource-group> --name <your
 
 Before your function can access Azure Digital Twins, it needs some information about the instance and permission to access it. In this section, you assign an access role for the function and configure the application settings so that it can find and access the instance.
 
-[!INCLUDE [digital-twins-configure-function-app-cli.md](../../includes/digital-twins-configure-function-app-cli.md)]
+[!INCLUDE [digital-twins-configure-function-app-cli.md](includes/digital-twins-configure-function-app-cli.md)]
 
 ## Connect the function to the endpoint
 

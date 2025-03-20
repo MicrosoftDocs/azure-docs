@@ -379,6 +379,21 @@
             "source_path_from_root": "/articles/load-balancer/upgrade-internalbasic-to-publicstandard.md",
             "redirect_url": "/azure/load-balancer/upgrade-basic-standard-with-powershell",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/tutorial-gateway-portal.md",
+            "redirect_url": "/azure/load-balancer/tutorial-create-gateway-load-balancer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/tutorial-gateway-cli.md",
+            "redirect_url": "/azure/load-balancer/tutorial-create-gateway-load-balancer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/tutorial-gateway-powershell.md",
+            "redirect_url": "/azure/load-balancer/tutorial-create-gateway-load-balancer",
+            "redirect_document_id": false
         }
     ]
 }

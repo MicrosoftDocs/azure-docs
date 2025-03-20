@@ -4,10 +4,8 @@ description: Learn how to configure virtual networks in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom:
-  - ignite-2024
 ms.topic:  conceptual
-ms.date: 08/29/2023
+ms.date: 03/20/2025
 ms.author: cshoe
 ---
 
@@ -46,7 +44,7 @@ Container Apps has two different [environment types](environment.md#types), whic
 
 ## Virtual IP
 
-Depending on your virtual IP configuration, you can control whether your container app environment allows public ingress or ingress only from within your VNet at the environment level. This configuration cannot be changed after your environment is created.
+Depending on your virtual IP configuration, you can control whether your container app environment allows public ingress or ingress only from within your VNet at the environment level. This configuration can't be changed after your environment is created.
 
 | Accessibility level | Description |
 |---|---|
@@ -75,7 +73,7 @@ As you begin to design the network around your container app, refer to [Plan vir
 :::image type="content" source="media/networking/azure-container-apps-virtual-network.png" alt-text="Diagram of how Azure Container Apps environments use an existing V NET, or you can provide your own.":::
 
 > [!NOTE]
-> Moving VNets among different resource groups or subscriptions is not allowed if the VNet is in use by a Container Apps environment.
+> Moving VNets among different resource groups or subscriptions isn't allowed if the VNet is in use by a Container Apps environment.
 
 ## HTTP edge proxy behavior
 
@@ -123,7 +121,7 @@ IP addresses are broken down into the following types:
 
 ## Subnet
 
-Virtual network integration depends on a dedicated subnet. How IP addresses are allocated in a subnet and what subnet sizes are supported depends on which [plan](plans.md) you're using in Azure Container Apps.
+Virtual network integration depends on a dedicated subnet. The allocation of IP addresses in a subnet and the supported subnet sizes depend on the [plan](plans.md) you're using in Azure Container Apps.
 
 Select your subnet size carefully. Subnet sizes can't be modified after you create a Container Apps environment.
 
@@ -137,7 +135,7 @@ Different environment types have different subnet requirements:
 
 - When using an external environment with external ingress, inbound traffic routes through the infrastructure’s public IP rather than through your subnet.
 
-- Container Apps automatically reserves 12 IP addresses for integration with the subnet. The number of IP addresses required for infrastructure integration doesn't vary based on the scale demands of the environment. Additional IP addresses are allocated according to the following rules depending on the type of workload profile you are using more IP addresses are allocated depending on your environment's workload profile:
+- Container Apps automatically reserves 12 IP addresses for integration with the subnet. The number of IP addresses required for infrastructure integration doesn't vary based on the scale demands of the environment. Additional IP addresses are allocated according to the following rules depending on the type of workload profile you're using more IP addresses are allocated depending on your environment's workload profile:
 
   - [Dedicated workload profile](workload-profiles-overview.md#profile-types): As your container app scales out, each node has one IP address assigned.
 
@@ -231,7 +229,10 @@ Azure creates a default route table for your virtual networks upon create. By im
 
 #### Configuring UDR with Azure Firewall
 
-User defined routes are only supported in a workload profiles environment. The following application and network rules must be added to the allowlist for your firewall depending on which resources you're using.
+User defined routes are only supported in a workload profiles environment. The following application or network rules must be added to the allowlist for your firewall depending on which resources you're using.
+
+> [!NOTE]
+> You only need to configure either application rules or network rules, depending on your system’s requirements. Configuring both at the same time is not necessary.
 
 > [!NOTE]
 > For a guide on how to set up UDR with Container Apps to restrict outbound traffic with Azure Firewall, visit the [how to for Container Apps and Azure Firewall](./user-defined-routes.md).
@@ -242,7 +243,7 @@ Application rules allow or deny traffic based on the application layer. The foll
 
 | Scenarios | FQDNs | Description |
 |--|--|--|
-| All scenarios | `mcr.microsoft.com`, `*.data.mcr.microsoft.com` | These FQDNs for Microsoft Container Registry (MCR) are used by Azure Container Apps and either these application rules or the network rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. |
+| All scenarios | `mcr.microsoft.com`, `*.data.mcr.microsoft.com` | These FQDNs for Microsoft Container Registry (MCR) are used by Azure Container Apps. Either these application rules or the network rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. |
 | Azure Container Registry (ACR) | *Your-ACR-address*, `*.blob.core.windows.net`, `login.microsoft.com` | These FQDNs are required when using Azure Container Apps with ACR and Azure Firewall. |
 | Azure Key Vault | *Your-Azure-Key-Vault-address*, `login.microsoft.com` | These FQDNs are required in addition to the service tag required for the network rule for Azure Key Vault. |
 | Managed Identity | `*.identity.azure.net`, `login.microsoftonline.com`, `*.login.microsoftonline.com`, `*.login.microsoft.com` | These FQDNs are required when using managed identity with Azure Firewall in Azure Container Apps.
@@ -254,13 +255,13 @@ Network rules allow or deny traffic based on the network and transport layer. Th
 
 | Scenarios | Service Tag | Description |
 |--|--|--|
-| All scenarios | `MicrosoftContainerRegistry`, `AzureFrontDoorFirstParty`  | These Service Tags for Microsoft Container Registry (MCR) are used by Azure Container Apps and either these network rules or the application rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. |
-| Azure Container Registry (ACR) | `AzureContainerRegistry`, `AzureActiveDirectory` | When using ACR with Azure Container Apps, you need to configure these application rules used by Azure Container Registry. |
-| Azure Key Vault | `AzureKeyVault`, `AzureActiveDirectory` | These service tags are required in addition to the FQDN for the application rule for Azure Key Vault. |
-| Managed Identity | `AzureActiveDirectory` | When using Managed Identity with Azure Container Apps, you'll need to configure these application rules used by Managed Identity. | 
+| All scenarios | `MicrosoftContainerRegistry`, `AzureFrontDoorFirstParty`  | These Service Tags for Microsoft Container Registry (MCR) are used by Azure Container Apps. Either these network rules or the application rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. |
+| Azure Container Registry (ACR) | `AzureContainerRegistry`, `AzureActiveDirectory` | When using ACR with Azure Container Apps, you need to configure these network rules used by Azure Container Registry. |
+| Azure Key Vault | `AzureKeyVault`, `AzureActiveDirectory` | These service tags are required in addition to the FQDN for the network rule for Azure Key Vault. |
+| Managed Identity | `AzureActiveDirectory` | When using Managed Identity with Azure Container Apps, you need to configure these network rules used by Managed Identity. | 
 
 > [!NOTE]
-> For Azure resources you are using with Azure Firewall not listed in this article, please refer to the [service tags documentation](../virtual-network/service-tags-overview.md#available-service-tags).
+> For Azure resources you're using with Azure Firewall not listed in this article, refer to the [service tags documentation](../virtual-network/service-tags-overview.md#available-service-tags).
 
 <a name="nat"></a>
 
@@ -277,7 +278,7 @@ The public network access setting determines whether your container apps environ
 | Virtual IP | Supported public network access | Description |
 |--|--|--|
 | External | `Enabled`, `Disabled`  | The container apps environment was created with an Internet-accessible endpoint. The public network access setting determines whether traffic is accepted through the public endpoint or only through private endpoints, and the public network access setting can be changed after creating the environment. |
-| Internal | `Disabled` | The container apps environment was created without an Internet-accessible endpoint. The public network access setting cannot be changed to accept traffic from the Internet. |
+| Internal | `Disabled` | The container apps environment was created without an Internet-accessible endpoint. The public network access setting can't be changed to accept traffic from the Internet. |
 
 In order to create private endpoints on your Azure Container App environment, public network access must be set to `Disabled`.
 
@@ -286,7 +287,7 @@ Azure networking policies are supported with the public network access flag.
 ### <a name="private-endpoint"></a>Private endpoint (preview)
 
 > [!NOTE]
-> This feature is supported for all public regions. Government and China regions are not supported.
+> This feature is supported for all public regions. Government and China regions aren't supported.
 
 Azure private endpoint enables clients located in your private network to securely connect to your Azure Container Apps environment through Azure Private Link. A private link connection eliminates exposure to the public internet. Private endpoints use a private IP address in your Azure virtual network address space. 
 
@@ -297,7 +298,7 @@ This feature is supported for both Consumption and Dedicated plans in workload p
 - Private link connectivity with Azure Front Door is supported for Azure Container Apps. Refer to [create a private link with Azure Front Door](how-to-integrate-with-azure-front-door.md) for more information.
 
 #### Considerations
-- Private endpoints on Azure Container Apps only support inbound HTTP traffic. TCP traffic is not supported.
+- Private endpoints on Azure Container Apps only support inbound HTTP traffic. TCP traffic isn't supported.
 - To use a private endpoint with a custom domain and an *Apex domain* as the *Hostname record type*, you must configure a private DNS zone with the same name as your public DNS. In the record set, configure your private endpoint's private IP address instead of the container app environment's IP address. When you configure your custom domain with CNAME, the setup is unchanged. For more information, see [Set up custom domain with existing certificate](custom-domains-certificates.md).
 - Your private endpoint's VNet can be separate from the VNet integrated with your container app.
 - You can add a private endpoint to both new and existing workload profile environments.
@@ -325,7 +326,7 @@ You can fully secure your ingress and egress networking traffic workload profile
 
 ## <a name="peer-to-peer-encryption"></a> Peer-to-peer encryption in the Azure Container Apps environment
 
-Azure Container Apps supports peer-to-peer TLS encryption within the environment. Enabling this feature encrypts all network traffic within the environment with a private certificate that is valid within the Azure Container Apps environment scope. These certificates are automatically managed by Azure Container Apps. 
+Azure Container Apps supports peer-to-peer TLS encryption within the environment. Enabling this feature encrypts all network traffic within the environment with a private certificate that is valid within the Azure Container Apps environment scope. Azure Container Apps automatically manage these certificates.
 
 > [!NOTE]
 > By default, peer-to-peer encryption is disabled. Enabling peer-to-peer encryption for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
@@ -389,13 +390,13 @@ You can enable mTLS in the ARM template for Container Apps environments using th
 
 ## DNS
 
-- **Custom DNS**: If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) uses this IP address to resolve requests. When configuring your NSG or firewall, don't block the `168.63.129.16` address, otherwise, your Container Apps environment won't function correctly.
+- **Custom DNS**: If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) uses this IP address to resolve requests. When configuring your NSG or firewall, don't block the `168.63.129.16` address, otherwise, your Container Apps environment doesn't function correctly.
 
 - **VNet-scope ingress**: If you plan to use VNet-scope [ingress](ingress-overview.md) in an internal environment, configure your domains in one of the following ways:
 
-    1. **Non-custom domains**: If you don't plan to use a custom domain, create a private DNS zone that resolves the Container Apps environment's default domain to the static IP address of the Container Apps environment. You can use [Azure Private DNS](../dns/private-dns-overview.md) or your own DNS server. If you use Azure Private DNS, create a private DNS Zone named as the Container App environment’s default domain (`<UNIQUE_IDENTIFIER>.<REGION_NAME>.azurecontainerapps.io`), with an `A` record. The `A` record contains the name `*<DNS Suffix>` and the static IP address of the Container Apps environment. For more information see [Create and configure an Azure Private DNS zone](waf-app-gateway.md#create-and-configure-an-azure-private-dns-zone).
+    1. **Non-custom domains**: If you don't plan to use a custom domain, create a private DNS zone that resolves the Container Apps environment's default domain to the static IP address of the Container Apps environment. You can use [Azure Private DNS](../dns/private-dns-overview.md) or your own DNS server. If you use Azure Private DNS, create a private DNS Zone named as the Container App environment’s default domain (`<UNIQUE_IDENTIFIER>.<REGION_NAME>.azurecontainerapps.io`), with an `A` record. The `A` record contains the name `*<DNS Suffix>` and the static IP address of the Container Apps environment. For more information, see [Create and configure an Azure Private DNS zone](waf-app-gateway.md#create-and-configure-an-azure-private-dns-zone).
 
-    1. **Custom domains**: If you plan to use custom domains and are using an external Container Apps environment, use a publicly resolvable domain to [add a custom domain and certificate](./custom-domains-certificates.md#add-a-custom-domain-and-certificate) to the container app. If you are using an internal Container Apps environment, there is no validation for the DNS binding, as the cluster can only be accessed from within the virtual network. Additionally, create a private DNS zone that resolves the apex domain to the static IP address of the Container Apps environment. You can use [Azure Private DNS](../dns/private-dns-overview.md) or your own DNS server. If you use Azure Private DNS, create a Private DNS Zone named as the apex domain, with an `A` record that points to the static IP address of the Container Apps environment.
+    1. **Custom domains**: If you plan to use custom domains and are using an external Container Apps environment, use a publicly resolvable domain to [add a custom domain and certificate](./custom-domains-certificates.md#add-a-custom-domain-and-certificate) to the container app. If you're using an internal Container Apps environment, there's no validation for the DNS binding, as the cluster can only be accessed from within the virtual network. Additionally, create a private DNS zone that resolves the apex domain to the static IP address of the Container Apps environment. You can use [Azure Private DNS](../dns/private-dns-overview.md) or your own DNS server. If you use Azure Private DNS, create a Private DNS Zone named as the apex domain, with an `A` record that points to the static IP address of the Container Apps environment.
 
 The static IP address of the Container Apps environment is available in the Azure portal in  **Custom DNS suffix** of the container app page or using the Azure CLI `az containerapp env list` command.
 

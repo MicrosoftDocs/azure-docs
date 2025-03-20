@@ -6,7 +6,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/30/2024
 ms.author: danlep
 ms.custom: engagement-fy23
@@ -140,7 +140,7 @@ The following example shows how to check the thumbprint of a client certificate 
 > Client certificate deadlock issue described in this [article](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) can manifest itself in several ways, e.g. requests freeze, requests result in `403 Forbidden` status code after timing out, `context.Request.Certificate` is `null`. This problem usually affects `POST` and `PUT` requests with content length of approximately 60KB or larger.
 > To prevent this issue from occurring turn on "Negotiate client certificate" setting for desired hostnames on the "Custom domains" blade as shown in the first image of this document. This feature is not available in the Consumption tier.
 
-## Next steps
+## Related content
 
 -   [How to secure backend services using client certificate authentication](./api-management-howto-mutual-certificates.md)
 -   [How to add a custom CA certificate in Azure API Management](./api-management-howto-ca-certificates.md)

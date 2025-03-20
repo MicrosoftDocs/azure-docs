@@ -11,7 +11,7 @@
     href: virtual-wan-faq.md
   - name: About Virtual WAN pricing
     href: pricing-concepts.md
-  - name: Quickstarts
+  - name: Quickstarts & Tutorials
     expanded: true
     items:
     - name: Configure a site-to-site connection
@@ -36,7 +36,7 @@
       items:
       - name: Deploy Virtual WAN with routing intent and routing policies
         href: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/virtual-wan-routing-intent
-- name: Design and architecture
+- name: Design & architecture
   items: 
   - name: Migrate to Virtual WAN
     href: migrate-from-hub-spoke-topology.md
@@ -50,11 +50,11 @@
     href: ../azure-netapp-files/configure-virtual-wan.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
   - name: Interconnect with China
     href: interconnect-china.md
-  - name: Virtual Hub third-party integrations
+  - name: Virtual hub third-party integrations
     items:
     - name: Overview of third-party integrations  
       href: third-party-integrations.md
-    - name: Integrated NVAs in the Virtual Hub
+    - name: Integrated NVAs in the virtual hub
       href: about-nva-hub.md
     - name: Software-as-a-service(SaaS)
       href: how-to-palo-alto-cloud-ngfw.md
@@ -100,15 +100,27 @@
     href: scenario-365-expressroute-private.md
 - name: Virtual WAN and virtual hub settings
   items:
-  - name: Virtual hub settings
-    href: hub-settings.md
+  - name: Virtual WAN gateway settings
+    href: gateway-settings.md
+  - name: Upgrade from Basic virtual WAN to Standard
+    href: upgrade-virtual-wan.md
   - name: Roles and permissions
     href: roles-permissions.md
-  - name: Gateway settings
-    href: gateway-settings.md
-  - name: Install Azure Firewall in a hub
+  - name: Virtual hub settings
+    href: hub-settings.md
+  - name: Connect a VNet to a virtual hub
+    href: howto-connect-vnet-hub.md
+  - name: Secured hub - install Azure Firewall in a hub
     href: howto-firewall.md
-- name: Configure site-to-site connections
+  - name: Integrated NVA in a virtual hub
+    items:
+    - name: Create an NVA in a virtual hub
+      href: how-to-nva-hub.md
+    - name: Restart an NVA in a virtual hub
+      href: how-to-network-virtual-appliance-restart.md
+    - name: Configure DNAT/Internet inbound
+      href: how-to-network-virtual-appliance-inbound.md
+- name: Site-to-site (S2S) connections
   items:
   - name: Create a site-to-site connection
     items:
@@ -132,7 +144,7 @@
       href: nat-rules-vpn-gateway-powershell.md
   - name: Multiple ISP links - Azure path selection
     href: path-selection-multiple-links.md
-- name: Configure User VPN (P2S) connections
+- name: User VPN point-to-site (P2S) connections
   items:
   - name: About point-to-site concepts
     href: point-to-site-concepts.md
@@ -191,9 +203,9 @@
           - name: .pem files
             items:
             - name: Linux - OpenSSL
-              href: ../vpn-gateway/point-to-site-certificates-linux-openssl.md
+              href: point-to-site-certificates-linux-openssl.md
             - name: Linux - strongSwan
-              href: ../vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md
+              href: point-to-site-certificates-linux-strongswan.md
         - name: Install client certificates
           href: install-client-certificates.md
   - name: Configure P2S - Microsoft Entra ID authentication
@@ -234,6 +246,8 @@
     items:
     - name: Configure optional settings
       href: azure-vpn-client-optional-configurations.md
+    - name: Run Prerequisites Test
+      href: azure-vpn-client-prerequisites-check.md
     - name: Azure VPN Client versions
       href: azure-vpn-client-versions.md
   - name: Assign IP addresses to specific User Groups
@@ -252,7 +266,7 @@
       href: howto-always-on-device-tunnel.md
   - name: Configure P2S forced tunneling
     href: how-to-forced-tunnel.md
-- name: Configure ExpressRoute connections 
+- name: ExpressRoute connections 
   items:
   - name: About ExpressRoute in Virtual WAN
     href: virtual-wan-expressroute-about.md
@@ -324,7 +338,7 @@
     href: /security/benchmark/azure/baselines/virtual-wan-security-baseline?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
   - name: Install Azure Firewall in a hub
     href: howto-firewall.md
-  - name: Inter-hub and branch-to-branch inspection
+  - name: Inter-hub & branch-to-branch inspection
     href: how-to-routing-policies.md
   - name: Software-as-a-service (SaaS)
     href: how-to-palo-alto-cloud-ngfw.md
@@ -334,7 +348,7 @@
     href: manage-secure-access-resources-spoke-p2s.md
   - name: Azure Security blog
     href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
-- name: Monitoring and maintenance
+- name: Monitoring & maintenance
   items:
   - name: Monitor Virtual WAN
     href: monitor-virtual-wan.md
@@ -374,7 +388,7 @@
     href: /answers/tags/34/azure-virtual-wan
   - name: Networking feedback
     href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789
-  - name: Subscription and service limits
+  - name: Subscription & service limits
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/virtual-wan/toc.json
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/virtual-wan
