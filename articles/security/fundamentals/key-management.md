@@ -12,7 +12,11 @@ ms.collection:
   - zerotrust-extra
 ---
 
-# In Azure, encryption keys can be either platform managed or customer managed.
+# Key management in Azure
+
+[!INCLUDE [Zero Trust principles ](~/reusable-content/ce-skilling/azure/includes/security/zero-trust-principles-key-management.md)]
+
+In Azure, encryption keys can be either platform managed or customer managed.
 
 Platform-managed keys (PMKs) are encryption keys generated, stored, and managed entirely by Azure. Customers do not interact with PMKs. The keys used for [Azure Data Encryption-at-Rest](encryption-atrest.md), for instance, are PMKs by default.  
 
