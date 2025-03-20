@@ -321,7 +321,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Palecek Consulting Group](https://www.pcgit.net)|
 |[Pangea Group Inc.](http://www.pangea-group.com)|
 |[Paragon Software Solutions, Inc.](http://www.paragonhq.com/)|
-|[Patrocinium Systems, Inc.](https://www.patrocinium.com)|
+|[Patrocinium Systems, Inc.](https://www.linkedin.com/company/patrocinium-systems)|
 |[PCM](https://www.pcm.com/)|
 |[Peerless Tech Solutions](https://www.getpeerless.com)|
 |[People Services Inc. DBA CATCH Intelligence](https://catchintelligence.com)|

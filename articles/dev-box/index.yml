@@ -62,8 +62,10 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Use Dev Home to manage dev boxes
-            url: how-to-use-dev-home-customize-dev-box.md 
+          - text: Connect with Windows App
+            url: how-to-create-dev-boxes-developer-portal.md#connect-through-the-windows-app
+          - text: Use multiple monitors with your dev box 
+            url: how-to-create-dev-boxes-developer-portal.md#configure-multiple-monitors
       - linkListType: how-to-guide
         links:
           - text: Use the Troubleshoot and Repair tool

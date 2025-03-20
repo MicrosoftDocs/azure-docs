@@ -2,7 +2,7 @@
 title: Support Matrix for Azure files backup by using Azure Backup
 description: Provides a summary of support settings and limitations when backing up Azure files.
 ms.topic: reference
-ms.date: 03/06/2025
+ms.date: 03/11/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
@@ -35,10 +35,6 @@ Cross Region Restore is currently supported in the following regions: Australia 
 Migration of  File Shares protected with snapshot backup to vaulted backup is supported in the following regions: UK South, UK West, Southeast Asia, East Asia, West Central US, and India Central.
 
 ---
-
-### Supported regions for Cross Subscription Backup (preview)
-
-Cross Subscription Backup (CSB) for Azure Files (preview) is currently available in the following regions: East Asia, Southeast Asia, UK South, UK West, Central India.
 
 ## Supported storage accounts
 

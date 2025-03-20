@@ -6,6 +6,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/logic-apps/monitor-b2b-messages-log-analytics.md",
+            "redirect_url": "/azure/logic-apps/monitor-track-b2b-messages-consumption",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/tracking-schemas-as2-x12-custom.md",
+            "redirect_url": "/azure/logic-apps/tracking-schemas-consumption",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/install-on-premises-data-gateway.md",
             "redirect_url": "/data-integration/gateway/service-gateway-install",
             "redirect_document_id": false
@@ -557,17 +567,17 @@
         },
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-track-integration-account-as2-tracking-shemas.md",
-            "redirect_url": "/azure/logic-apps/tracking-schemas-as2-x12-custom",
+            "redirect_url": "/azure/logic-apps/tracking-schemas-consumption",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-track-integration-account-custom-tracking-shema.md",
-            "redirect_url": "/azure/logic-apps/tracking-schemas-as2-x12-custom",
+            "redirect_url": "/azure/logic-apps/tracking-schemas-consumption",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/app-service-logic/app-service-logic-track-integration-account-x12-tracking-shemas.md",
-            "redirect_url": "/azure/logic-apps/tracking-schemas-as2-x12-custom",
+            "redirect_url": "/azure/logic-apps/tracking-schemas-consumption",
             "redirect_document_id": false
         },
         {
@@ -972,17 +982,17 @@
         },
         {
             "source_path_from_root": "/articles/logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md",
-            "redirect_url": "/azure/logic-apps/tracking-schemas-as2-x12-custom",
+            "redirect_url": "/azure/logic-apps/tracking-schemas-consumption",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md",
-            "redirect_url": "/azure/logic-apps/tracking-schemas-as2-x12-custom",
+            "redirect_url": "/azure/logic-apps/tracking-schemas-consumption",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md",
-            "redirect_url": "/azure/logic-apps/tracking-schemas-as2-x12-custom",
+            "redirect_url": "/azure/logic-apps/tracking-schemas-consumption",
             "redirect_document_id": false
         }
     ]

@@ -115,10 +115,10 @@ The `Complete`, `DeadLetter`, or `RenewLock` operations might fail due to networ
 
 If `Complete` fails, which occurs typically at the very end of message handling and in some cases after minutes of processing work, the receiving application can decide whether to preserve the state of the work and ignore the same message when it's delivered a second time, or whether to toss out the work result and retries as the message is redelivered.
 
-The typical mechanism for identifying duplicate message deliveries is by checking the message-id, which can and should be set by the sender to a unique value, possibly aligned with an identifier from the originating process. A job scheduler would likely set the message-id to the identifier of the job it's trying to assign to a worker with the given worker, and the worker would ignore the second occurrence of the job assignment if that job is already done.
+The typical mechanism for identifying duplicate message deliveries is by checking the `message-id`, which can and should be set by the sender to a unique value, possibly aligned with an identifier from the originating process. A job scheduler would likely set the `message-id` to the identifier of the job it's trying to assign to a worker with the given worker, and the worker would ignore the second occurrence of the job assignment if that job is already done.
 
 > [!IMPORTANT]
-> It is important to note that the lock that PeekLock or SessionLock acquires on the message is volatile and may be lost in the following conditions
+> It's important to note that the lock that PeekLock or SessionLock acquires on the message is volatile and can be lost in the following conditions
 >   * Service Update
 >   * OS update
 >   * Changing properties on the entity (Queue, Topic, Subscription) while holding the lock.
@@ -127,7 +127,7 @@ The typical mechanism for identifying duplicate message deliveries is by checkin
 > When the lock is lost, Azure Service Bus will generate a MessageLockLostException or SessionLockLostException, which will surface in the client application. In this case, the client's default retry logic should automatically kick in and retry the operation. Moreover, the delivery count of the message will not be incremented.
 
 ## Renew locks
-The default value for the lock duration is **1 minute**. You can specify a different value for the lock duration at the queue or subscription level. The client owning the lock can renew the message lock by using methods on the receiver object. Instead, you can use the automatic lock-renewal feature where you can specify the time duration for which you want to keep getting the lock renewed. 
+The default value for the lock duration is **1 minute**. You can specify a different value for the lock duration at the [queue](/dotnet/api/azure.messaging.servicebus.administration.createqueueoptions.lockduration) or [subscription](/dotnet/api/azure.messaging.servicebus.administration.createsubscriptionoptions.lockduration) level. The client owning the lock can renew the message lock by using methods on the receiver object. Instead, you can use the automatic lock-renewal feature where you can specify the time duration for which you want to keep getting the lock renewed. 
 
 It's best to set the lock duration to something higher than your normal processing time, so you don't have to renew the lock. The maximum value is 5 minutes, so you need to renew the lock if you want to have it longer. Having a longer lock duration than needed has some implications as well. For example, when your client stops working, the message will only become available again after the lock duration has passed.
 
