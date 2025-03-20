@@ -99,7 +99,7 @@ The following services are in scope for DoD IL5 PA in US DoD regions (US DoD Cen
 - [Service Bus](https://azure.microsoft.com/services/service-bus/)
 - [SQL Server Stretch Database](https://azure.microsoft.com/services/sql-server-stretch-database/)
 - [Storage: Blobs](https://azure.microsoft.com/services/storage/blobs/) (incl. [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md))
-- [Storage: Disks](https://azure.microsoft.com/services/storage/disks/) (incl. [managed disks](../virtual-machines/managed-disks-overview.md))
+- [Storage: Disks](https://azure.microsoft.com/services/storage/disks/) (incl. [managed disks](/azure/virtual-machines/managed-disks-overview))
 - [Storage: Files](https://azure.microsoft.com/services/storage/files/)
 - [Storage: Queues](https://azure.microsoft.com/services/storage/queues/)
 - [Storage: Tables](https://azure.microsoft.com/services/storage/tables/)

@@ -6,12 +6,12 @@ description: Learn how to add single-page sign-in using the OAuth 2.0 implicit f
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: concept-article
-ms.date: 01/11/2024
+ms.date: 10/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer building a single-page application (SPA) with a JavaScript framework, I want to implement OAuth 2.0 implicit flow for sign-in using Azure AD B2C, so that I can securely authenticate users without server-to-server exchange and handle user flows like sign-up and profile management.
@@ -28,7 +28,8 @@ Many modern applications have a single-page app (SPA) front end that is written 
 
 - Full-page browser redirects away from the app can be invasive to the user experience.
 
-The recommended way of supporting SPAs is [OAuth 2.0 Authorization code flow (with PKCE)](./authorization-code-flow.md).
+> [!WARNING]
+> Microsoft recommends you do *not* use the implicit grant flow. The recommended way of supporting SPAs is [OAuth 2.0 Authorization code flow (with PKCE)](./authorization-code-flow.md). Certain configurations of this flow requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows aren't viable. For more information, see the [security concerns with implicit grant flow](/entra/identity-platform/v2-oauth2-implicit-grant-flow#security-concerns-with-implicit-grant-flow).
 
 Some frameworks, like [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib), only support the implicit grant flow. In these cases, Azure Active Directory B2C (Azure AD B2C) supports the OAuth 2.0 authorization implicit grant flow. The flow is described in [section 4.2 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). In implicit flow, the app receives tokens directly from the Azure AD B2C authorize endpoint, without any server-to-server exchange. All authentication logic and session handling are done entirely in the JavaScript client with either a page redirect or a pop-up box.
 
@@ -46,13 +47,13 @@ In this request, the client indicates the permissions that it needs to acquire f
 
 - `{tenant}` with the name of your Azure AD B2C tenant.
 
-- `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` with the app ID of the application you've registered in your tenant. 
+- `00001111-aaaa-2222-bbbb-3333cccc4444` with the app ID of the application you've registered in your tenant. 
 
 - `{policy}` with the name of a policy you've created in your tenant, for example `b2c_1_sign_in`.
 
 ```http
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
-client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
+client_id=00001111-aaaa-2222-bbbb-3333cccc4444
 &response_type=id_token+token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 &response_mode=fragment
@@ -87,7 +88,7 @@ GET https://aadb2cplayground.azurewebsites.net/#
 access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &token_type=Bearer
 &expires_in=3599
-&scope="90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access",
+&scope="00001111-aaaa-2222-bbbb-3333cccc4444 offline_access",
 &id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=arbitrary_data_you_sent_earlier
 ```
@@ -174,7 +175,7 @@ In a typical web app flow, you would make a request to the `/token` endpoint. Ho
 
 ```http
 https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
-client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
+client_id=00001111-aaaa-2222-bbbb-3333cccc4444
 &response_type=token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 &scope=https%3A%2F%2Fapi.contoso.com%2Ftasks.read

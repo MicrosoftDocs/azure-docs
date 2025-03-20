@@ -485,7 +485,7 @@ Follow the [SAP BOBI platform](https://help.sap.com/viewer/product/SAP_BUSINESSO
 
 For multi-instance deployment, run the installation setup on a second host (`azusbosl2`). For  **Select Install Type**, select **Custom / Expand**, which will expand the existing BOBI setup.
 
-In Azure Database for MySQL, a gateway redirects the connections to server instances. After the connection is established, the MySQL client displays the version of MySQL set in the gateway, not the actual version running on your MySQL server instance. To determine the version of your MySQL server instance, use the `SELECT VERSION();` command at the MySQL prompt. For more details, see [Supported Azure Database for MySQL server versions](/azure/mysql/concepts-supported-versions).
+In Azure Database for MySQL, a gateway redirects the connections to server instances. After the connection is established, the MySQL client displays the version of MySQL set in the gateway, not the actual version running on your MySQL server instance. To determine the version of your MySQL server instance, use the `SELECT VERSION();` command at the MySQL prompt. For more details, see [Supported Azure Database for MySQL server versions](/azure/mysql/flexible-server/concepts-supported-versions).
 
 ![Screenshot that shows SAP BOBI Deployment on Linux - CMC Settings.](media/businessobjects-deployment-guide/businessobjects-deployment-linux-sql-cmc.png)
 
@@ -619,7 +619,7 @@ You can achieve high availability for application servers by employing redundanc
 
 To reduce the impact of downtime due to [planned and unplanned events](./sap-high-availability-architecture-scenarios.md#planned-and-unplanned-maintenance-of-virtual-machines), it's a good idea to follow the [high availability architecture guidance](./sap-high-availability-architecture-scenarios.md).
 
-For more information, see [Manage the availability of Linux virtual machines](../../virtual-machines/availability.md).
+For more information, see [Manage the availability of Linux virtual machines](/azure/virtual-machines/availability).
 
 > [!IMPORTANT]
 >

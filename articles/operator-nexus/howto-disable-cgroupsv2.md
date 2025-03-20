@@ -1,8 +1,8 @@
 ---
 title: "Azure Operator Nexus: Disable cgroupsv2 on a Nexus Kubernetes Node"
 description: How-to guide for disabling support for cgroupsv2 on a Nexus Kubernetes Node
-author: jaypipes
-ms.author: jaypipes
+author: dramasamy
+ms.author: dramasamy
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 09/18/2023
@@ -65,7 +65,7 @@ Before proceeding with this how-to guide, it's recommended that you:
 > If you perform this step on a Kubernetes cluster that already has workloads
 > running on it, any workloads that are running on Kubernetes cluster nodes
 > will be terminated because the `Daemonset` reboots the host machine.
-> Therefore it is highly recommmended that you apply this `Daemonset` on a new
+> Therefore it is highly recommended that you apply this `Daemonset` on a new
 > Nexus Kubernetes cluster before workloads are scheduled on it.
 
 Copy the following `Daemonset` definition to a file on a computer where you can
@@ -118,7 +118,17 @@ spec:
               CGROUP_VERSION=`stat -fc %T /sys/fs/cgroup/`
               if [ "$CGROUP_VERSION" == "cgroup2fs" ]; then
                 echo "Using v2, reverting..."
-                sed -i 's/systemd.unified_cgroup_hierarchy=1 cgroup_no_v1=all/systemd.unified_cgroup_hierarchy=0/' /boot/grub2/grub.cfg
+                if uname -r | grep -q "cm2"; then
+                  echo "Detected Azure Linux OS version older than v3"
+                  sed -i 's/systemd.unified_cgroup_hierarchy=1 cgroup_no_v1=all/systemd.unified_cgroup_hierarchy=0/' /boot/grub2/grub.cfg
+                else
+                  sed -i 's/systemd.unified_cgroup_hierarchy=1 cgroup_no_v1=all/systemd.unified_cgroup_hierarchy=0/' /etc/default/grub
+                  grub2-mkconfig -o /boot/grub2/grub.cfg
+                  if ! grep -q systemd.unified_cgroup_hierarchy=0 /boot/grub2/grub.cfg; then
+                    echo "failed to update grub2 config"
+                    exit 1
+                  fi
+                fi
                 reboot
               fi
 

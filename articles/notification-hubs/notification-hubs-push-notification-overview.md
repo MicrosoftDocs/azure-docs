@@ -2,10 +2,7 @@
 title: What is Azure Notification Hubs?
 description: Learn how to add push notification capabilities with Azure Notification Hubs.
 author: sethmanheim
-manager: femila
-editor: tjsomasundaram
 services: notification-hubs
-
 ms.assetid: fcfb0ce8-0e19-4fa8-b777-6b9f9cdda178
 ms.service: azure-notification-hubs
 ms.tgt_pltfrm: multiple

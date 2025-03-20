@@ -11,13 +11,19 @@ ms.author: andrsmith
 
 # Quickstart: Enable Azure Automanage for virtual machines using Java
 
+> [!CAUTION]
+> On September 30, 2027, the Azure Automanage Best Practices service will be retired. As a result, attempting to create a new configuration profile or onboarding a new subscription to the service will result in an error. Learn more [here](https://aka.ms/automanagemigration/) about how to migrate to Azure Policy before that date. 
+
+> [!CAUTION]
+> Starting February 1st 2025, Azure Automanage will begin rolling out changes to halt support and enforcement for all services dependent on the deprecated Microsoft Monitoring Agent (MMA). To continue using Change Tracking and Management, VM Insights, Update Management, and Azure Automation, [migrate to the new Azure Monitor Agent (AMA)](https://aka.ms/mma-to-ama/).
+
 Azure Automanage allows users to seamlessly apply Azure best practices to their virtual machines. This quickstart guide will help you apply a Best Practices Configuration profile to an existing virtual machine using the [azure-sdk-for-java repo](https://github.com/Azure/azure-sdk-for-java).
 
 ## Prerequisites 
 
 - [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/downloads/#java8) version 8+
 - An active [Azure Subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/)
-- An existing [Virtual Machine](../virtual-machines/windows/quick-create-portal.md)
+- An existing [Virtual Machine](/azure/virtual-machines/windows/quick-create-portal)
 
 > [!NOTE]
 > Free trial accounts do not have access to the virtual machines used in this tutorial. Please upgrade to a Pay-As-You-go subscription.

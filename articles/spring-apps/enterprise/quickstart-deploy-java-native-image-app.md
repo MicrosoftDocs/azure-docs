@@ -1,23 +1,20 @@
 ---
-title: Quickstart - Deploy your first Java Native Image application to Azure Spring Apps
+title: Quickstart - Deploy Your First Java Native Image Application to Azure Spring Apps
 description: Describes how to deploy a Java Native Image application to Azure Spring Apps.
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 08/29/2023
+ms.date: 08/28/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, engagement-fy23, references_regions
-ms.author: yili7
+ms.author: karler
+ms.reviewer: yili7
 ---
 
 # Quickstart: Deploy your first Java Native Image application to Azure Spring Apps
 
-> [!NOTE]
-> The first 50 vCPU hours and 100 GB hours of memory are free each month. For more information, see [Price Reduction - Azure Spring Apps does more, costs less!](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/price-reduction-azure-spring-apps-does-more-costs-less/ba-p/3614058) on the [Apps on Azure Blog](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/bg-p/AppsonAzureBlog).
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
-
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This quickstart shows how to deploy a Spring Boot application to Azure Spring Apps as a Native Image.
 
@@ -130,19 +127,19 @@ az group delete --name ${RESOURCE_GROUP}
 > [How to deploy Java Native Image apps in the Azure Spring Apps Enterprise plan](./how-to-enterprise-deploy-polyglot-apps.md#deploy-java-native-image-applications-preview)
 
 > [!div class="nextstepaction"]
-> [Structured application log for Azure Spring Apps](./structured-app-log.md)
+> [Structured application log for Azure Spring Apps](../basic-standard/structured-app-log.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Map an existing custom domain to Azure Spring Apps](./how-to-custom-domain.md)
+> [Map an existing custom domain to Azure Spring Apps](../basic-standard/how-to-custom-domain.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Set up Azure Spring Apps CI/CD with GitHub Actions](./how-to-github-actions.md)
+> [Set up Azure Spring Apps CI/CD with GitHub Actions](../basic-standard/how-to-github-actions.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Set up Azure Spring Apps CI/CD with Azure DevOps](./how-to-cicd.md)
+> [Set up Azure Spring Apps CI/CD with Azure DevOps](../basic-standard/how-to-cicd.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Use managed identities for applications in Azure Spring Apps](./how-to-use-managed-identities.md)
+> [Use managed identities for applications in Azure Spring Apps](../basic-standard/how-to-use-managed-identities.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
 > [Create a service connection in Azure Spring Apps with the Azure CLI](../../service-connector/quickstart-cli-spring-cloud-connection.md)

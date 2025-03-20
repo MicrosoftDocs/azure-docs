@@ -1,9 +1,9 @@
 ---
 title: Create and manage function apps in a Flex Consumption plan
 description: "Learn how to create function apps hosted in the Flex Consumption plan in Azure Functions and how to modify specific settings for an existing function app."
-ms.date: 05/21/2024
+ms.date: 12/29/2024
 ms.topic: how-to
-ms.custom: build-2024, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
+ms.custom: build-2024, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts, ignite-2024
 zone_pivot_groups: programming-languages-set-functions
 #customer intent: As an Azure developer, I want learn how to create and manage function apps in the Flex Consumption plan so that I can take advantage of the beneficial features of this plan.
 ---
@@ -14,8 +14,6 @@ This article shows you how to create function apps hosted in the [Flex Consumpti
 
 Function app resources are langauge-specific. Make sure to choose your preferred code development language at the beginning of the article.
 
-[!INCLUDE [functions-flex-preview-note](../../includes/functions-flex-preview-note.md)]
-
 ## Prerequisites
 
 + An Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -24,7 +22,7 @@ Function app resources are langauge-specific. Make sure to choose your preferred
 
 + **[Visual Studio Code](./functions-develop-vs-code.md)**: used to create and develop apps, create Azure resources, and deploy code projects to Azure. When using Visual Studio Code, make sure to also install the latest [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). You can also install the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack). 
 
-+ While not required to create a Flex Consumption plan app, you need a code project to be able to deploy to and validate a new function app. Complete the first part of one of these quickstart articles, where you creat a code project with an HTTP triggered function:
++ While not required to create a Flex Consumption plan app, you need a code project to be able to deploy to and validate a new function app. Complete the first part of one of these quickstart articles, where you create a code project with an HTTP triggered function:
 
     ::: zone pivot="programming-language-csharp"  
     + [Create an Azure Functions project from the command line](create-first-function-cli-csharp.md)   
@@ -124,7 +122,7 @@ To support your function code, you need to create three resources:
     ::: zone-end 
     In this example, replace both `<RESOURCE_GROUP>` and `<STORAGE_NAME>` with the resource group and the name of the account you used in the previous step, respectively. Also replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default domain name server (DNS) domain for the function app. The [`az functionapp create`] command creates the function app in Azure.
 
-    This command creates a function app running in the Flex Consumption plan. The specific language runtime version used is one that is currently supported in the preview. 
+    This command creates a function app running in the Flex Consumption plan. 
 
     Because you created the app without specifying [always ready instances](#set-always-ready-instance-counts), your app only incurs costs when actively executing functions. The command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md).
     ```
@@ -150,7 +148,7 @@ To support your function code, you need to create three resources:
     | Prompt |  Selection |
     | ------ |  ----------- |
     | Enter a globally unique name for the new function app. | Type a globally unique name that identifies your new function app and then select Enter. Valid characters for a function app name are `a-z`, `0-9`, and `-`. |
-    | Select a hosting plan. | Choose **Flex Consumption (Preview)**. |
+    | Select a hosting plan. | Choose **Flex Consumption**. |
     | Select a runtime stack. | Choose one of the supported language stack versions. |
     | Select a resource group for new resources. | Choose **Create new resource group** and type a resource group name, like `myResourceGroup`, and then select enter. You can also select an existing resource group. |
     | Select a location for new resources. | Select a location in a supported [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. Unsupported regions aren't displayed. For more information, see [View currently supported regions](#view-currently-supported-regions).|
@@ -244,7 +242,7 @@ You can enable virtual network integration by running the [`az functionapp creat
     az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime <RUNTIME_NAME> --runtime-version <RUNTIME_VERSION> --vnet <VNET_RESOURCE_ID> --subnet <SUBNET_NAME>
     ```
 
-    The `<VNET_RESOURCE_ID>` value is the resource ID for the virtual network, which is in the format: `/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCER_GROUP>/providers/Microsoft.Network/virtualNetworks/<VNET_NAME>`. You can use this command to get a list of virtual network IDs, filtered by `<RESOURCE_GROUP>`: `az network vnet list --resource-group <RESOURCE_GROUP> --output tsv --query "[]".id`. 
+    The `<VNET_RESOURCE_ID>` value is the resource ID for the virtual network, which is in the format: `/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Network/virtualNetworks/<VNET_NAME>`. You can use this command to get a list of virtual network IDs, filtered by `<RESOURCE_GROUP>`: `az network vnet list --resource-group <RESOURCE_GROUP> --output tsv --query "[]".id`. 
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -272,8 +270,8 @@ You can't currently enable virtual networking when you use Visual Studio Code to
 
 For end-to-end examples of how to create apps in Flex Consumption with virtual network integration see these resources:
 
-+ [Flex Consumption: HTTP to Event Hubs using VNET Integration](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/E2E/HTTP-VNET-EH/README.md)
-+ [Flex Consumption: triggered from Service Bus using VNET Integration](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/E2E/SB-VNET/README.md)
++ [Flex Consumption: HTTP to Event Hubs using VNET Integration](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/README.md)
++ [Flex Consumption: triggered from Service Bus using VNET Integration](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/README.md)
 
 To modify or delete virtual network integration in an existing app:
 
@@ -333,6 +331,7 @@ A customized deployment source should meet this criteria:
 
 When configuring deployment storage authentication, keep these considerations in mind:
 
++ As a security best practice, you should use managed identities when connecting to Azure Storage from your apps. For more information, see [Connections](./functions-reference.md#connections). 
 + When you use a connection string to connect to the deployment storage account, the application setting that contains the connection string must already exist.
 + When you use a user-assigned managed identity, the provided identity gets linked to the function app. The `Storage Blob Data Contributor` role scoped to the deployment storage account also gets assigned to the identity.
 + When you use a system-assigned managed identity, an identity gets created when a valid system-assigned identity doesn't already exist in your app. When a system-assigned identity does exists, the `Storage Blob Data Contributor` role scoped to the deployment storage account also gets assigned to the identity.
@@ -353,7 +352,7 @@ Use the [`az functionapp create`] command and supply these additional options th
 This example creates a function app in the Flex Consumption plan with a separate deployment storage account and user assigned identity:
 
 ```azurecli
-az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage <STORAGE_NAME> --runtime dotnet-isolated --runtime-version 8.0 --flexconsumption-location "<REGION>" --deployment-storage-name <DEPLOYMENT_ACCCOUNT_NAME> --deployment-storage-container-name <DEPLOYMENT_CONTAINER_NAME> --deployment-storage-auth-type UserAssignedIdentity --deployment-storage-auth-value <MI_RESOURCE_ID>
+az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage <STORAGE_NAME> --runtime dotnet-isolated --runtime-version 8.0 --flexconsumption-location "<REGION>" --deployment-storage-name <DEPLOYMENT_ACCOUNT_NAME> --deployment-storage-container-name <DEPLOYMENT_CONTAINER_NAME> --deployment-storage-auth-type UserAssignedIdentity --deployment-storage-auth-value <MI_RESOURCE_ID>
 ```
 
 ### [Azure portal](#tab/azure-portal)
@@ -375,7 +374,7 @@ You can also modify the deployment storage configuration for an existing app.
 Use the [`az functionapp deployment config set`](/cli/azure/functionapp/deployment/config#az-functionapp-deployment-config-set) command to modify the deployment storage configuration: 
 
 ```azurecli
-az functionapp deployment config set --resource-group <RESOURCE_GROUP> --name <APP_NAME> --deployment-storage-name <DEPLOYMENT_ACCCOUNT_NAME> --deployment-storage-container-name <DEPLOYMENT_CONTAINER_NAME>
+az functionapp deployment config set --resource-group <RESOURCE_GROUP> --name <APP_NAME> --deployment-storage-name <DEPLOYMENT_ACCOUNT_NAME> --deployment-storage-container-name <DEPLOYMENT_CONTAINER_NAME>
 ```
 
 ### [Azure portal](#tab/azure-portal)
@@ -494,7 +493,7 @@ az functionapp scale config always-ready set --resource-group <RESOURCE_GROUP> -
 To remove always ready instances, use the [`az functionapp scale config always-ready delete`](/cli/azure/functionapp/scale/config/always-ready#az-functionapp-scale-config-always-ready-delete) command, as in this example that removes all always ready instances from both the HTTP triggers group and also a function named `hello_world`:
 
 ```azurecli
-az functionapp scale config always-ready delete --resource-group <RESOURCE_GROUP> --name <APP_NAME> --setting-names http hello_world
+az functionapp scale config always-ready delete --resource-group <RESOURCE_GROUP> --name <APP_NAME> --setting-names http function:hello_world
 ```
 
 ### [Azure portal](#tab/azure-portal)
@@ -543,7 +542,7 @@ You can't currently set HTTP concurrency limits using Visual Studio Code.
 
 ## View currently supported regions
 
-During the preview, you're only able to run on the Flex Consumption plan only in selected regions. To view the list of regions that currently support Flex Consumption plans: 
+To view the list of regions that currently support Flex Consumption plans: 
 
 [!INCLUDE [functions-flex-supported-regions-cli](../../includes/functions-flex-supported-regions-cli.md)]
 

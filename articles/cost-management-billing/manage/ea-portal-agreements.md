@@ -3,7 +3,7 @@ title: Azure EA agreements and amendments
 description: The article describes how Azure EA agreements and amendments might affect your access, use, and payments for Azure services.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/25/2024
+ms.date: 01/13/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -39,7 +39,7 @@ An enrollment has one of the following status values. Each value determines how 
 
 EA credit expires when the EA enrollment ends for all programs except the EU program.
 
-**Expired** - The EA enrollment expires when it reaches the enterprise agreement end date and is opted out of the extended term. Sign a new enrollment contract as soon as possible. Although your service isn't disabled immediately, there's a risk of it getting disabled.
+**Expired** - The EA enrollment expires when it reaches the enterprise agreement end date and is opted out of the extended term. Sign a new enrollment contract as soon as possible. Although your service isn't disabled immediately, there's a risk of it getting disabled. Additionally, you won't be able to see any billing and usage data generated after the enrollment end date.
 
 As of August 1, 2019, new opt-out forms aren't accepted for Azure commercial customers. Instead, all enrollments go into indefinite extended term. If you want to stop using Azure services, close your subscription in the [Azure portal](https://portal.azure.com). Or, your partner can submit a termination request. There's no change for customers with government agreement types.
 
@@ -51,7 +51,7 @@ As of August 1, 2019, new opt-out forms aren't accepted for Azure commercial cus
 
 In the Azure portal, Partner Price Markup helps to enable better cost reporting for customers. The Azure portal shows usage and prices configured by partners for their customers.
 
-Markup allows partner administrators to add a percentage markup to their indirect enterprise agreements. Percentage markup applies to all Microsoft first party service information in the Azure portal such as: meter rates, Azure Prepayment, and orders. After the partner publishes the markup, the customer sees Azure costs in the Azure portal. For example, usage summary, price lists, and downloaded usage reports.
+Markup allows partner administrators to add a percentage markup to their indirect enterprise agreements. Percentage markup applies to all Microsoft first party service information in the Azure portal such as: meter rates, Azure Prepayment, and orders. After the partner publishes the markup, the customer sees Azure costs in the Azure portal. For example, usage summary, price lists, and downloaded usage reports. Percentage markup isn't applied to Azure Marketplace.
 
 Starting in September 2019, partners can apply markup anytime during a term. They don't need to wait until the term next anniversary to apply markup.
 
@@ -59,7 +59,7 @@ Microsoft doesn't access or utilize the provided markup and associated prices fo
 
 ### How the calculation works
 
-The Licensing Solution Partners (LSP) provides a single percentage number in the Azure portal. All commercial information on the portal gets uplifted with the percentage provided by the LSP. Example:
+The Licensing Solution Partners (LSP) provides a single percentage number in the Azure portal. All Microsoft first party service information on the portal gets uplifted with the percentage provided by the LSP. Example:
 
 - Customer signs an EA with Azure Prepayment of USD 100,000.
 - The meter rate for Service A is USD 10 / Hour.
@@ -114,18 +114,22 @@ Let's look at an example. Assume that a customer enters an Azure Savings Plan co
 
 ### How to add a price markup
 
-You can add price markup on Azure portal with the following steps:
+You can add price markup in the Azure portal with the following steps:
  
 1. In the Azure portal, sign in as a partner administrator.
 1. Search for **Cost Management + Billing** and select it.
 1. In the left navigation menu, select **Billing scopes** and then select the billing account that you want to work with.
-1. In the left navigation menu, select **Billing Profile** and then select the billing profile that you want to work with.
-1. In the left navigation menu, select **Markup**.
-1. To add markup, select **Set markup**.
+1. In the left navigation menu, select **Billing profiles** and then select the billing profile that you want to work with.
+1. In the left navigation menu, expand **Settings** and then select **Markup**.
+1. To add markup, select **+ Add** under **Markup** **Percentage**.
 1. Enter the markup percentage and select **Preview**.
 1. Review the credit and usage charges before and after markup update.
-1. Accept the disclaimer and select **Publish** to publish the markup.
+1. Read the disclaimer and agree to prompt and then select **Publish** to publish the markup.
 1. The customer can now view credits and charges details.
+
+Here's an example showing price markup in the Azure portal:
+
+:::image type="content" source="./media/ea-portal-agreements/billing-profile-markup.png" border="true" alt-text="Screenshot showing price markup in the Azure portal." lightbox="./media/ea-portal-agreements/billing-profile-markup.png" :::
 
 ### Which enrollments have a markup enabled?
 
@@ -151,7 +155,7 @@ Partners can use the markup feature in the Azure portal after a Change of Channe
 
 EA administrators receive various types of notifications from different services. Notifications allow enterprise administrators to enroll their team members to receive usage notifications and user management notifications without giving them billing account access in the Azure portal. For more information, see [Manage notification contacts](direct-ea-administration.md#manage-notification-contacts).
 
-Customers with indirect enrollment receive usage notifications containing quantity but not cost if markup is not defined for the enrollment by partner.
+Customers with an indirect enrollment receive usage notifications containing quantity but not cost when a partner doesn't define enrollment markup.
 
 ## Resource Prepayment and requesting quota increases
 

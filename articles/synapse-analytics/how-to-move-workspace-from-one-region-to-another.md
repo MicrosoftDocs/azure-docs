@@ -69,7 +69,7 @@ $regionName="<YourTargetRegionName>"
 $containerName="<YourFileSystemName>" # This is the file system name
 $workspaceName="<YourTargetRegionWorkspaceName>"
 
-$sourcRegionWSName="<Your source region workspace name>"
+$sourceRegionWSName="<Your source region workspace name>"
 $sourceRegionRGName="<YourSourceRegionResourceGroupName>"
 $sqlUserName="<SQLUserName>"
 $sqlPassword="<SQLStrongPassword>"
@@ -92,7 +92,6 @@ New-AzStorageAccount -ResourceGroupName $resourceGroupName `
   -Kind StorageV2 `
   -EnableHierarchicalNamespace $true 
 ```
-
 
 #### Create an Azure Synapse workspace
 
@@ -147,7 +146,7 @@ if($StorageAccountNameAvailable)
 Write-Host "Storage account Name is available to be used...creating storage account"
 
 #Creating a Data Lake Storage Gen2 account
-$storgeAccountProvisionStatus=az storage account create `
+$storageAccountProvisionStatus=az storage account create `
   --name $storageAccountName `
   --resource-group $resourceGroupName `
   --location $regionName `
@@ -155,7 +154,7 @@ $storgeAccountProvisionStatus=az storage account create `
   --kind StorageV2 `
   --enable-hierarchical-namespace $true
 
-($storgeAccountProvisionStatus| ConvertFrom-Json).provisioningState
+($storageAccountProvisionStatus| ConvertFrom-Json).provisioningState
 }
 else
 {
@@ -321,7 +320,7 @@ Transform the Azure Synapse SQL pool resource ID to SQL database ID because curr
 For example: `/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Sql/servers/<WorkspaceName>/databases/<DatabaseName>`
 
 ```powershell
-$pool = Get-AzSynapseSqlPool -ResourceGroupName $sourceRegionRGName -WorkspaceName $sourcRegionWSName -Name $sqlPoolName
+$pool = Get-AzSynapseSqlPool -ResourceGroupName $sourceRegionRGName -WorkspaceName $sourceRegionWSName -Name $sqlPoolName
 $databaseId = $pool.Id `
     -replace "Microsoft.Synapse", "Microsoft.Sql" `
     -replace "workspaces", "servers" `
@@ -365,9 +364,7 @@ This screenshot from the Azure DevOps repo shows the workspace template files fo
 
 :::image type="content" source="media/how-to-move-workspace-from-one-region-to-another/devops-repo-workspace-publish.png" alt-text="Screenshot that shows workspace-publish.":::
 
-You can use the workspace template to deploy artifacts and pipelines to a workspace by using the Azure DevOps release pipeline as shown in the following screenshot.
-
-:::image type="content" source="media/how-to-move-workspace-from-one-region-to-another/release-pipeline.png" alt-text="Screenshot that shows synapse-release-pipeline.":::
+You can use the workspace template to deploy artifacts and pipelines to a workspace by using the Azure DevOps release pipeline.
 
 If the workspace isn't integrated with GitHub or Azure DevOps, you'll have to manually re-create or write custom PowerShell or Azure CLI scripts to deploy all the artifacts, pipelines, linked services, credentials, triggers, and Spark definitions on the target region workspace.
 
@@ -441,7 +438,7 @@ The following PowerShell script adds the Synapse Administrator role assignment t
 New-AzSynapseRoleAssignment `
    -WorkspaceName $workspaceName  `
    -RoleDefinitionName "Synapse Administrator" `
-   -ObjectId 1c02d2a6-ed3d-46ec-b578-6f36da5819c6
+   -ObjectId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 
 Get-AzSynapseRoleAssignment -WorkspaceName $workspaceName  
 ```

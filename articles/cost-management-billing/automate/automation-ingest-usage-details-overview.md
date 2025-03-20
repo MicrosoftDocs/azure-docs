@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how to use cost details records to correlate meter-based charges with the specific resources responsible for the charges. Then you can properly reconcile your bill.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/30/2024
+ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management

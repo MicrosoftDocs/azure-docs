@@ -5,14 +5,14 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 03/15/2024
+ms.date: 12/12/2024
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
 ---
 # Create a zone-redundant virtual network gateway in availability zones
 
-You can deploy VPN and ExpressRoute gateways in Azure availability zones. This brings resiliency, scalability, and higher availability to virtual network gateways. Deploying gateways in availability zones physically and logically separates gateways within a region, while protecting your on-premises network connectivity to Azure from zone-level failures. For more information, see  [About zone-redundant virtual network gateways](about-zone-redundant-vnet-gateways.md), [What are availability zones?](../reliability/availability-zones-overview.md), and [Availability zone service and regional support](../reliability/availability-zones-service-support.md).
+You can deploy VPN and ExpressRoute gateways in Azure availability zones. This brings resiliency, scalability, and higher availability to virtual network gateways. Deploying gateways in availability zones physically and logically separates gateways within a region, while protecting your on-premises network connectivity to Azure from zone-level failures. For more information, see  [About zone-redundant virtual network gateways](about-zone-redundant-vnet-gateways.md), [What are availability zones?](../reliability/availability-zones-overview.md), and [Azure regions with availability zones](../reliability/availability-zones-region-support.md).
 
 ## Azure portal workflow
 
@@ -36,10 +36,7 @@ For an ExpressRoute gateway, follow the [ExpressRoute documentation](../expressr
 
 * **SKU**: Select an "AZ" SKU from the dropdown. For example, **ErGw2AZ**. If you don't select an AZ SKU, you can't configure an availability zone setting.
 
-  :::image type="content" source="./media/create-zone-redundant-vnet-gateway/expressroute.png" alt-text="Screenshot shows the SKU selection to select an availability zone SKU." lightbox="./media/create-zone-redundant-vnet-gateway/expressroute.png":::
 * **Availability zone**: Select the Availability zone from the dropdown.
-
-  :::image type="content" source="./media/create-zone-redundant-vnet-gateway/expressroute-zone.png" alt-text="Screenshot shows the availability zone selection to select an availability zone." lightbox="./media/create-zone-redundant-vnet-gateway/expressroute-zone.png":::
 
 ## PowerShell workflow
 
@@ -47,7 +44,7 @@ For an ExpressRoute gateway, follow the [ExpressRoute documentation](../expressr
 
 ### <a name="variables"></a>1. Declare your variables
 
-Declare the variables that you want to use. Use the following sample, substituting the values for your own when necessary. If you close your PowerShell/Cloud Shell session at any point during the exercise, just copy and paste the values again to redeclare the variables. When specifying location, verify that the region you specify is supported. For more information, see [Availability zone service and regional support](../reliability/availability-zones-service-support.md).
+Declare the variables that you want to use. Use the following sample, substituting the values for your own when necessary. If you close your PowerShell/Cloud Shell session at any point during the exercise, just copy and paste the values again to redeclare the variables. When specifying location, verify that the region you specify is supported. For more information, see [Azure regions with availability zones](../reliability/availability-zones-region-support.md).
 
 ```azurepowershell-interactive
 $RG1         = "TestRG1"

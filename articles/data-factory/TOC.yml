@@ -165,10 +165,6 @@ items:
     items:
     - name: Push Data Factory lineage data to Microsoft Purview
       href: tutorial-push-lineage-to-purview.md
-  - name: End-to-end labs
-    items:
-    - name: Data integration using data factory and data share
-      href: lab-data-flow-data-share.md
   - name: Managed virtual network
     items:
     - name: Access on premises SQL Server
@@ -369,8 +365,6 @@ items:
     items:
     - name: Connector overview
       href: connector-overview.md
-    - name: Connectors to be deprecated
-      href: connector-deprecation-plan.md
     - name: Amazon Marketplace Web Service (Deprecated)
       href: connector-amazon-marketplace-web-service.md
     - name: Amazon RDS for Oracle
@@ -473,9 +467,9 @@ items:
       href: connector-google-adwords.md
     - name: Google BigQuery
       items:
-      - name: Google BigQuery
+      - name: Google BigQuery V2
         href: connector-google-bigquery.md
-      - name: Google BigQuery (Legacy)
+      - name: Google BigQuery V1
         href: connector-google-bigquery-legacy.md
     - name: Google Cloud Storage
       href: connector-google-cloud-storage.md
@@ -494,6 +488,8 @@ items:
       displayName: timeout
     - name: HubSpot
       href: connector-hubspot.md
+    - name: Iceberg format
+      href: format-iceberg.md      
     - name: Impala
       href: connector-impala.md
     - name: Informix
@@ -553,9 +549,9 @@ items:
       href: connector-phoenix.md
     - name: PostgreSQL
       items:
-      - name: PostgreSQL
+      - name: PostgreSQL V2
         href: connector-postgresql.md
-      - name: PostgreSQL (legacy)
+      - name: PostgreSQL V1
         href: connector-postgresql-legacy.md
     - name: Presto
       href: connector-presto.md
@@ -568,14 +564,15 @@ items:
       displayName: timeout
     - name: Salesforce
       items:
-      - name: Salesforce
+      - name: Salesforce V2
         href: connector-salesforce.md
-      - name: Salesforce (legacy)
+      - name: Salesforce V1
         href: connector-salesforce-legacy.md
-    - name: Salesforce Service Cloud
-      href: connector-salesforce-service-cloud.md
+    - name: Salesforce Service Cloud 
       items:
-      - name: Salesforce Service Cloud (legacy)
+      - name: Salesforce Service Cloud V2
+        href: connector-salesforce-service-cloud.md
+      - name: Salesforce Service Cloud V1
         href: connector-salesforce-service-cloud-legacy.md
     - name: Salesforce Marketing Cloud
       href: connector-salesforce-marketing-cloud.md
@@ -600,9 +597,9 @@ items:
       href: connector-sap-table.md
     - name: ServiceNow
       items:
-      - name: ServiceNow
+      - name: ServiceNow V2
         href: connector-servicenow.md
-      - name: ServiceNow (legacy)
+      - name: ServiceNow V1
         href: connector-servicenow-legacy.md
     - name: SFTP
       href: connector-sftp.md
@@ -615,9 +612,9 @@ items:
       href: connector-smartsheet.md
     - name: Snowflake
       items:
-      - name: Snowflake
+      - name: Snowflake V2
         href: connector-snowflake.md
-      - name: Snowflake (legacy)
+      - name: Snowflake V1
         href: connector-snowflake-legacy.md
     - name: Spark
       href: connector-spark.md
@@ -1104,7 +1101,7 @@ items:
     - name: Azure Machine Learning
       items:
       - name: Data ingestion
-        href: ../machine-learning/v1/how-to-data-ingest-adf.md?toc=/azure/data-factory/toc.json&bc=/azure/data-factory/breadcrumb/toc.json
+        href: /azure/machine-learning/how-to-data-ingest-adf?toc=/azure/data-factory/toc.json&bc=/azure/data-factory/breadcrumb/toc.json
     - name: Transformation using mapping data flow
       items:
       - name: Process fixed-width text files
@@ -1308,6 +1305,9 @@ items:
     - name: Diagnose connectivity in Azure-SSIS IR
       href: ssis-integration-runtime-diagnose-connectivity-faq.md
       displayName: timeout, troubleshooting
+    - name: Azure Data Factory known issues
+      href: known-issues-troubleshoot-guide.md
+      displayName: troubleshooting
 - name: SAP knowledge center
   items:
   - name: Overview
@@ -1398,6 +1398,12 @@ items:
     href: monitor-data-factory-reference.md
 - name: Resources
   items:
+  - name: Important changes coming
+    items: 
+    - name: Connector upgrades
+      href: connector-deprecation-plan.md
+    - name: Connector upgrade FAQ
+      href: connector-deprecation-frequently-asked-questions.md
   - name: Whitepapers
     href: whitepapers.md
   - name: FAQ
@@ -1422,5 +1428,5 @@ items:
   - name: Request quota increases from support
     href: quota-increase.md
   - name: Limits
-    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-data-factory-limits
 

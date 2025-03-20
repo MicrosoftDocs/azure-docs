@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 08/13/2024
+ms.date: 12/10/2024
 ms.author: anfdocs
 ---
 # Create an NFS volume for Azure NetApp Files
@@ -22,8 +22,6 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
     See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
 * A subnet must be delegated to Azure NetApp Files.  
     See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
-
-* [!INCLUDE [50 GiB volume preview](./includes/50-gib-volume.md)]
 
 ## Considerations 
 
@@ -74,7 +72,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
         If the volume is created in an auto QoS capacity pool, the value displayed in this field is (quota x service level throughput).   
 
     * **Enable Cool Access**, **Coolness Period**, and **Cool Access Retrieval Policy**      
-        These fields configure [standard storage with cool access in Azure NetApp Files](cool-access-introduction.md). For descriptions, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md). 
+        These fields configure [Azure NetApp Files storage with cool access](cool-access-introduction.md). For descriptions, see [Manage Azure NetApp Files storage with cool access](manage-cool-access.md). 
 
     * **Virtual network**  
         Specify the Microsoft Azure Virtual Network from which you want to access the volume.  
@@ -93,7 +91,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
         In supported regions, you can specify whether you want to use **Basic** or **Standard** network features for the volume. See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
 
     * **Encryption key source** 
-        You can select `Microsoft Managed Key` or `Customer Managed Key`. See [Configure customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) and [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) about using this field. 
+        You can select Microsoft Managed Key or Customer Managed Key. See [Configure customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) and [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) about using this field. 
 
     * **Availability zone**   
         This option lets you deploy the new volume in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).
@@ -112,7 +110,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
     * Specify a unique **file path** for the volume. This path is used when you create mount targets. The requirements for the path are as follows:   
         - For volumes not in an availability zone or volumes in the same availability zone, it must be unique within each subnet in the region. 
-        - For volumes in availability zones, it must be unique within each availability zone. This feature is currently in **preview** and requires you to register the feature. For more information, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md#file-path-uniqueness). 
+        - For volumes in availability zones, it must be unique within each availability zone. For more information, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md#file-path-uniqueness). 
         - It must start with an alphabetical character.
         - It can contain only letters, numbers, or dashes (`-`). 
         - The length must not exceed 80 characters.

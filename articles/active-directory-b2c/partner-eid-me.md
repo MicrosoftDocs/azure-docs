@@ -4,12 +4,12 @@ titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with eID-Me for identity verification 
 author: gargi-sinha
 manager: martinco
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 06/21/2024
 
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 # Customer intent: I'm an Azure AD B2C administrator, and I want to configure eID-Me as an identity provider (IdP). My goal is to enable users to verify their identity and sign in using eID-Me.

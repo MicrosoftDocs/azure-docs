@@ -1,12 +1,12 @@
 ---
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
-ms.topic: conceptual
-ms.date: 06/18/2024
+ms.topic: reference
+ms.date: 12/30/2024
 ms.custom: references_regions, linux-related-content
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Support matrix for Azure Backup
@@ -22,6 +22,8 @@ Other support matrices are available:
 [!INCLUDE [azure-lighthouse-supported-service](~/reusable-content/ce-skilling/azure/includes/azure-lighthouse-supported-service.md)]
 
 ## Vault support
+
+Azure Backup supports both Recovery Services vault and Backup vault, and enables you to back up and restore different datasources. You need to create the appropriate vault based on the datasource type that you want to protect. Learn more about [the supported vaults](/azure/backup/backup-azure-backup-faq#what-are-the-various-vaults-supported-for-backup-and-restore-).
 
 Azure Backup uses Recovery Services vaults to orchestrate and manage backups for the following workload types - Azure VMs, SQL in Azure VMs, SAP HANA in Azure VMs, Azure File shares and on-premises workloads using Azure Backup Agent, Azure Backup Server and System Center DPM. It also uses Recovery Services vaults to store backed-up data for these workloads.
 
@@ -200,6 +202,15 @@ The following table lists the workload specific operations supported even if zon
 | **Blob** | Recovery is successful, if the protected storage account is in ZRS. |
 | **Disk** | - Backups are successful, if the protected disk is in an active zone. <br><br> - Restore to an active zone is successful. |
 | **MARS** | Backups and restores are successful. |
+
+## Monitoring and Reporting support
+
+Azure Backup provides the following monitoring and reporting capabilities on backup operations:
+
+- Backup Alerts are available for all workloads in both Recovery Services vault and Backup vault.
+- Backup Alerts view and manage capabilities are available on Azure Monitor, Business Continuity Center, Recovery Services vault, Backup vault.
+
+Learn [about the different backup alerts currently available via Azure Monitor and the supported workload/vault types](monitoring-and-alerts-overview.md#azure-monitor-alerts-for-azure-backup).
 
 ## Next steps
 

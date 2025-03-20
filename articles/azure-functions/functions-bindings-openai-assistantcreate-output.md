@@ -9,7 +9,8 @@ ms.custom:
   - devx-track-python
   - devx-track-ts
 ms.collection: 
-  - ce-skilling-ai-copilotms.date: 05/20/2024
+  - ce-skilling-ai-copilot
+ms.date: 01/07/2025
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -19,7 +20,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 The Azure OpenAI assistant create output binding allows you to create a new assistant chat bot from your function code execution.
 
-For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about Azure OpenAI assistants, see [Azure OpenAI Assistants API](../ai-services/openai/concepts/assistants.md).
+For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about Azure OpenAI assistants, see [Azure OpenAI Assistants API](/azure/ai-services/openai/concepts/assistants).
 
 [!INCLUDE [functions-support-notes-samples-openai](../../includes/functions-support-notes-samples-openai.md)]
 
@@ -34,26 +35,20 @@ This example demonstrates the creation process, where the HTTP PUT function that
 ::: zone pivot="programming-language-java"
 This example demonstrates the creation process, where the HTTP PUT function that creates a new assistant chat bot with the specified ID. The response to the prompt is returned in the HTTP response.  
 
-:::code language="java" source="~/functions-openai-extension/samples/assistant/java/src/main/java/com/azfs/AssistantApis.java" range="33-58":::
+:::code language="java" source="~/functions-openai-extension/samples/assistant/java/src/main/java/com/azfs/AssistantApis.java" range="33-58":::  
 
-
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+This example demonstrates the creation process, where the HTTP PUT function that creates a new assistant chat bot with the specified ID. The response to the prompt is returned in the HTTP response.  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
-<!---uncomment when code example is available:
 
-{{This comes from the example code comment}} 
+:::code language="javascript" source="~/functions-openai-extension/samples/assistant/javascript/src/functions/assistantApis.js" range="6-33" :::
 
-:::code language="javascript" source="~/functions-openai-extension/samples/{{link to the correct sample.js}}" range="{{named is better than range}}":::
-
-{{Add more examples if available}}
--->
-::: zone-end  
+::: zone-end 
 ::: zone pivot="programming-language-typescript"
 
-This example demonstrates the creation process, where the HTTP PUT function that creates a new assistant chat bot with the specified ID. The response to the prompt is returned in the HTTP response.  
-
-:::code language="javascript" source="~/functions-openai-extension/samples/assistant/typescript/src/functions/assistantApis.ts" range="7-29" :::
+:::code language="typescript" source="~/functions-openai-extension/samples/assistant/typescript/src/functions/assistantApis.ts" range="4-33" :::
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  

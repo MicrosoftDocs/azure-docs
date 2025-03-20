@@ -3,7 +3,7 @@ title: Use Bicep linter
 description: Learn how to use Bicep linter.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 07/30/2024
+ms.date: 02/12/2025
 ---
 
 # Use Bicep linter
@@ -40,13 +40,13 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 - [outputs-should-not-contain-secrets](./linter-rule-outputs-should-not-contain-secrets.md)
 - [prefer-interpolation](./linter-rule-prefer-interpolation.md)
 - [prefer-unquoted-property-names](./linter-rule-prefer-unquoted-property-names.md)
+- [protect-commandtoexecute-secrets](./linter-rule-use-protectedsettings-for-commandtoexecute-secrets.md)
 - [secure-parameter-default](./linter-rule-secure-parameter-default.md)
 - [secure-params-in-nested-deploy](./linter-rule-secure-params-in-nested-deploy.md)
 - [secure-secrets-in-params](./linter-rule-secure-secrets-in-parameters.md)
 - [simplify-interpolation](./linter-rule-simplify-interpolation.md)
 - [simplify-json-null](./linter-rule-simplify-json-null.md)
 - [use-parent-property](./linter-rule-use-parent-property.md)
-- [use-protectedsettings-for-commandtoexecute-secrets](./linter-rule-use-protectedsettings-for-commandtoexecute-secrets.md)
 - [use-recent-api-versions](./linter-rule-use-recent-api-versions.md)
 - [use-recent-module-versions](./linter-rule-use-recent-module-versions.md)
 - [use-resource-id-functions](./linter-rule-use-resource-id-functions.md)
@@ -55,6 +55,7 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 - [use-secure-value-for-secure-inputs](./linter-rule-use-secure-value-for-secure-inputs.md)
 - [use-stable-resource-identifiers](./linter-rule-use-stable-resource-identifier.md)
 - [use-stable-vm-image](./linter-rule-use-stable-vm-image.md)
+- [what-if-short-circuiting](./linter-rule-what-if-short-circuiting.md)
 
 You can customize how the linter rules are applied. To overwrite the default settings, add a **bicepconfig.json** file and apply custom settings. For more information about applying those settings, see [Add custom settings in the Bicep config file](bicep-config-linter.md).
 
@@ -96,7 +97,7 @@ scriptDownloadUrl: 'https://mytools.blob.core.windows.net/...'
 
 It's good practice to add a comment explaining why the rule doesn't apply to this line.
 
-If you want to suppress a linter rule, you can change the level of the rule to `Off` in [bicepconfig.json](./bicep-config-linter.md). For example, in the following example, the `no-deployments-reesources` rule is suppressed:
+If you want to suppress a linter rule, you can change the level of the rule to `Off` in [bicepconfig.json](./bicep-config-linter.md). For example, in the following example, the `no-deployments-resources` rule is suppressed:
 
 ```json
 {

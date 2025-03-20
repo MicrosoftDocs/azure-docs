@@ -39,7 +39,7 @@ landingContent:
       - linkListType: whats-new
         links:
           - text: What's new
-            url: https://azure.microsoft.com/updates/?category=networking&query=Virtual%20Network%20NAT
+            url: https://azure.microsoft.com/updates?searchterms=NAT+Gateway
       - linkListType: video
         links:
           - text: How to get better outbound connectivity using Azure NAT Gateway

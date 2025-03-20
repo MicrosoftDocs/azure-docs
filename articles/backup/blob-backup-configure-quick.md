@@ -2,15 +2,15 @@
 title: Quickstart - Configure vaulted backup for Azure Blobs using Azure Backup
 description: In this quickstart, learn how to configure vaulted backup for Azure Blobs.
 ms.topic: quickstart
-ms.date: 07/24/2024
+ms.date: 02/12/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Quickstart: Configure vaulted backup for Azure Blobs using Azure Backup
 
-This quickstart describes how to create a backup policy and configure vaulted backup for Azure Blobs from the Azure portal.
+This quickstart describes how to create a backup policy and configure vaulted backup for Azure Blobs from the Azure portal. You can also [configure backup using REST API](backup-azure-dataprotection-use-rest-api-backup-blobs.md).
 
 [!INCLUDE [blob-vaulted-backup-introduction.md](../../includes/blob-vaulted-backup-introduction.md)]
 

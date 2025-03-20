@@ -16,6 +16,8 @@ ai-usage: ai-assisted
 
 # Quickstart: Create an Azure CDN profile and endpoint using Terraform
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 This article shows how to use Terraform to create an [Azure CDN profile and endpoint](/azure/cdn/cdn-overview) using [Terraform](/azure/developer/terraform/quickstart-configure).
 
 [!INCLUDE [Terraform abstract](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]

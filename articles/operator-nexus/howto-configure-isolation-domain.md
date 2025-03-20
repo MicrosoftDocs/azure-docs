@@ -387,7 +387,7 @@ Expected Output
 
 Use the following command to change the administrative state of an L3 isolation domain to enabled or disabled:
 
-##Note: At least one internal network should be available to change the adminstrative state of an L3 Isolation Domain. 
+##Note: At least one internal network should be available to change the administrative state of an L3 Isolation Domain. 
 
 ```azurecli
 az networkfabric l3domain update-admin-state --resource-group "ResourceGroupName" --resource-name "example-l3domain" --state Enable/Disable
@@ -475,7 +475,7 @@ The following parameters are optional for creating internal networks.
 |`ipv4ListenRangePrefixes`| BGP IPv4 listen range, maximum range allowed in /28| 10.1.0.0/26 | |
 |`ipv4NeighborAddress`| IPv4 neighbor address|10.0.0.11| |
 |`ipv6NeighborAddress`| IPv6 neighbor address|10:101:1::11| |
-|`isMonitoringEnabled`| TO enable or disbable monitoring on internal network|False| |
+|`isMonitoringEnabled`| TO enable or disable monitoring on internal network|False| |
 
 
 You need to create an internal network before you enable an L3 isolation domain. This command creates an internal network with BGP configuration and a specified peering address:
@@ -658,7 +658,7 @@ The commands for creating an external network by using Azure CLI include the fol
 
 |Parameter|Description|Example|Required|
 |---|---|---|---|
-|peeringOption |Peering using either optionA or optionb. Possible values OptionA and OptionB |OptionB| True|
+|peeringOption |Peering using either optionA or optionB. Possible values OptionA and OptionB |OptionB| True|
 |optionBProperties | OptionB properties configuration. To specify use exportIPv4/IPv6RouteTargets or importIpv4/Ipv6RouteTargets|"exportIpv4/Ipv6RouteTargets": ["1234:1234"]}}||
 |optionAProperties | Configuration of OptionA properties. Please refer to OptionA example in section below |||
 |external|This is an optional Parameter to input MPLS Option 10 (B) connectivity to external networks via Provider Edge devices. Using this Option, a user can Input Import and Export Route Targets as shown in the example| || 

@@ -1,12 +1,9 @@
 ---
-author: flang-msft
-
-ms.service: azure-cache-redis
 ms.topic: include
 ms.date: 08/16/2024
-ms.author: franlanglois
 
 ---
+
 | Resource | Limit |
 | --- | --- |
 | Cache size |1.2 TB |

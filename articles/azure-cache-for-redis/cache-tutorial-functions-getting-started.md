@@ -1,19 +1,17 @@
 ---
-title: 'Tutorial: Get started with Azure Functions triggers and bindings in Azure Cache for Redis'
-description: In this tutorial, you learn how to use Azure Functions with Azure Cache for Redis.
-author: flang-msft
+title: 'Tutorial: Get started with Azure Functions triggers and bindings in Azure Redis'
+description: In this tutorial, you learn how to use Azure Functions with Azure Cache for Redis or Azure Managed Redis.
 
-ms.author: franlanglois
-ms.service: azure-cache-redis
 ms.topic: tutorial
+ms.custom:
+  - ignite-2024
 ms.date: 04/12/2024
 #CustomerIntent: As a developer, I want a introductory example of using Azure Cache for Redis triggers with Azure Functions so that I can understand how to use the functions with a Redis cache.
-
 ---
 
-# Tutorial: Get started with Azure Functions triggers and bindings in Azure Cache for Redis
+# Tutorial: Get started with Azure Functions triggers and bindings in Azure Redis
 
-This tutorial shows how to implement basic triggers with Azure Cache for Redis and Azure Functions. It guides you through using Visual Studio Code (VS Code) to write and deploy an Azure function in C#.
+This tutorial shows how to implement basic triggers with Azure Functions and either Azure Managed Redis (preview) or Azure Cache for Redis. It guides you through using Visual Studio Code (VS Code) to write and deploy an Azure function in C#.
 
 In this tutorial, you learn how to:
 
@@ -29,8 +27,20 @@ In this tutorial, you learn how to:
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Visual Studio Code](https://code.visualstudio.com/).
 
-## Set up an Azure Cache for Redis instance
+## [Set up an Azure Managed Redis (preview) instance](#tab/AMR)
 
+Create a new Azure Cache for Redis instance by using the Azure portal or your preferred CLI tool. This tutorial uses a _Balanced B1_ instance, which is a good starting point. Make sure to select this instance when using the [quickstart guide](quickstart-create-managed-redis.md) to get started.
+
+<!-- Fran, need a new screenshot here-->
+<!--
+:::image type="content" source="media/cache-tutorial-functions-getting-started/cache-new-standard.png" alt-text="Screenshot of creating a cache in the Azure portal.":::
+-->
+
+The default settings should suffice. This tutorial uses a public endpoint for demonstration, but we recommend that you use a private endpoint for anything in production.
+
+Creating the cache can take a few minutes. You can move to the next section while the process finishes.
+
+## [Set up an Azure Cache for Redis instance](#tab/AZR)
 Create a new Azure Cache for Redis instance by using the Azure portal or your preferred CLI tool. This tutorial uses a _Standard C1_ instance, which is a good starting point. Use the [quickstart guide](quickstart-create-redis.md) to get started.
 
 :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-new-standard.png" alt-text="Screenshot of creating a cache in the Azure portal.":::
@@ -38,6 +48,8 @@ Create a new Azure Cache for Redis instance by using the Azure portal or your pr
 The default settings should suffice. This tutorial uses a public endpoint for demonstration, but we recommend that you use a private endpoint for anything in production.
 
 Creating the cache can take a few minutes. You can move to the next section while the process finishes.
+
+---
 
 ## Set up Visual Studio Code
 
@@ -85,7 +97,43 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prereleas
 > The `Microsoft.Azure.Functions.Worker.Extensions.Redis` package is used for .NET isolated worker process functions. .NET in-process functions and all other languages will use the `Microsoft.Azure.WebJobs.Extensions.Redis` package instead.
 >
 
-## Configure the cache
+## [Configure the Azure Managed Redis instance](#tab/AMR)
+
+1. Go to your newly created Azure Managed Redis instance.
+
+   <!--
+   1. Go to your cache in the Azure portal, and then:
+   
+      1. On the resource menu, select **Advanced settings**.
+   
+      1. Scroll down to the **notify-keyspace-events** box and enter **KEA**.
+   
+         **KEA** is a configuration string that enables keyspace notifications for all keys and events. For more information on keyspace configuration strings, see the [Redis documentation](https://redis.io/docs/manual/keyspace-notifications/).
+   
+      1. Select **Save** at the top of the window.
+      -->
+      <!-- Fran, need new screenshot here -->
+      <!--
+      :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-keyspace-notifications.png" alt-text="Screenshot of advanced settings for Azure Cache for Redis in the portal.":::
+   -->
+
+1. Go to your cache in the Azure portal, and locate **Access keys** on the Resource menu. Write down or copy the contents of the **Primary** box. You'll use this for creating your connection string.
+
+   <!-- Fran, AMR doesn't yet have a box with the preconfigured  connection string, so we need a new screenshot that just circles the access key box -->
+
+1. Build a _Connection String_ by using the following format: `{your-cache-hostname}:10000,password={your-access-key},ssl=True,abortConnect=False`. If you've disabled TLS/SSL, use `ssl=False` instead.
+
+1. Connect to the Redis instance using your choice of method, such as the Redis CLI or Redis Insights. For instructions on how to connect to your Redis instance using the Redis CLI, see [Use the Redis command-line tool with Azure Managed Redis](managed-redis/managed-redis-how-to-redis-cli-tool.md).
+
+1. Configure keyspace notifications using the [CONFIG SET](https://redis.io/docs/latest/commands/config-set/) command:
+
+   ```bash
+   CONFIG SET notify-keyspace-events KEA
+   ```
+
+   **KEA** is a configuration string that enables keyspace notifications for all keys and events. For more information on keyspace configuration strings, see the [Redis documentation](https://redis.io/docs/manual/keyspace-notifications/).
+
+## [Configure the Azure Cache for Redis instance](#tab/AZR)
 
 1. Go to your newly created Azure Cache for Redis instance.
 
@@ -95,15 +143,17 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prereleas
 
    1. Scroll down to the **notify-keyspace-events** box and enter **KEA**.
 
-      **KEA** is a configuration string that enables keyspace notifications for all keys and events. For more information on keyspace configuration strings, see the [Redis documentation](https://redis.io/docs/manual/keyspace-notifications/).
+       **KEA** is a configuration string that enables keyspace notifications for all keys and events. For more information on keyspace configuration strings, see the [Redis documentation](https://redis.io/docs/manual/keyspace-notifications/).
 
    1. Select **Save** at the top of the window.
 
-   :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-keyspace-notifications.png" alt-text="Screenshot of advanced settings for Azure Cache for Redis in the portal.":::
+      :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-keyspace-notifications.png" alt-text="Screenshot of advanced settings for Azure Cache for Redis in the portal.":::
 
 1. Locate **Access keys** on the Resource menu, and then write down or copy the contents of the **Primary connection string** box. This string is used to connect to the cache.
 
    :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-access-keys.png" alt-text="Screenshot that shows the primary connection string for an access key.":::
+
+---
 
 ## Set up the example code for Redis triggers
 
@@ -217,7 +267,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prereleas
       ```
 
 > [!IMPORTANT]
-> This example is simplified for the tutorial. For production use, we recommend that you use [Azure Key Vault](../service-connector/tutorial-portal-key-vault.md) to store connection string information or [authenticate to the Redis instance using EntraID](../azure-functions/functions-bindings-cache.md#redis-connection-string).
+> This example is simplified for the tutorial. For production use, we recommend that you use [Azure Key Vault](../service-connector/tutorial-portal-key-vault.md) to store connection string information or [authenticate to the Redis instance using Microsoft Entra ID](../azure-functions/functions-bindings-cache.md#redis-connection-string).
 
 ## Build and run the code locally
 
@@ -228,6 +278,10 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prereleas
 1. To test the trigger functionality, try creating and deleting the `keyspaceTest` key.
 
    You can use any way you prefer to connect to the cache. An easy way is to use the built-in console tool in the Azure Cache for Redis portal. Go to the cache instance in the Azure portal, and then select **Console** to open it.
+
+   >[!IMPORTANT]
+   >The console tool is not yet available for Azure Managed Redis. Instead, consider using the [redis-cli](managed-redis/managed-redis-how-to-redis-cli-tool.md) or a tool like [Redis Insight](https://redis.io/insight/) to run commands directly on the Redis instance.
+   >
 
    :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-console.png" alt-text="Screenshot of C-Sharp code and a connection string.":::
 
@@ -244,7 +298,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prereleas
 
 1. Confirm that the triggers are being activated in the terminal.
 
-   :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-triggers-working-lightbox.png" alt-text="Screenshot of the VS Code editor with code running." lightbox="media/cache-tutorial-functions-getting-started/cache-triggers-working.png":::
+   :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-triggers-working-lightbox.png" alt-text="Screenshot of the VS Code editor with code running." :::
 
 ## Add Redis bindings
 
@@ -329,6 +383,10 @@ Bindings add a streamlined way to read or write data stored on your Redis instan
 
 ## Add connection string information
 
+> [!IMPORTANT]
+> This example is simplified for the tutorial. For production use, we recommend that you use [Azure Key Vault](../service-connector/tutorial-portal-key-vault.md) to store connection string information or [authenticate to the Redis instance using Microsoft Entra ID](../azure-functions/functions-bindings-cache.md#redis-connection-string).
+>
+
 1. In the Azure portal, go to your new function app and select **Environment variables** from the resource menu.
 
 1. On the working pane, go to **App settings**.
@@ -353,5 +411,5 @@ Bindings add a streamlined way to read or write data stored on your Redis instan
 
 ## Related content
 
-- [Overview of Azure functions for Azure Cache for Redis](/azure/azure-functions/functions-bindings-cache?tabs=in-process&pivots=programming-language-csharp)
+- [Overview of Redis Triggers and Bindings for Azure Functions](/azure/azure-functions/functions-bindings-cache?tabs=in-process&pivots=programming-language-csharp)
 - [Build a write-behind cache by using Azure Functions](cache-tutorial-write-behind.md)

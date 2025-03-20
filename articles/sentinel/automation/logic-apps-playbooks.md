@@ -9,7 +9,8 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customer intent: As a SOC engineer, I want to understand more about how Azure Logic Apps works with Microsoft Sentinel playbooks to help me automate threat prevention and response.
+
+#Customer intent: As a security engineer, I want to manage automated workflows using Azure Logic Apps for Microsoft Sentinel so that I can efficiently respond to security incidents and alerts.
 
 ---
 

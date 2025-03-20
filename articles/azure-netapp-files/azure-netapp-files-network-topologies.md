@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: ram-kakani
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 05/10/2024
+ms.date: 03/20/2025
 ms.author: ramakk
 ms.custom: references_regions
 ---
@@ -19,7 +19,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 
 ## Configurable network features  
 
- In supported regions, you can create new volumes or modify existing volumes to use *Standard* or *Basic* network features. In regions where the Standard network features aren't supported, the volume defaults to using the Basic network features. For more information, see [Configure network features](configure-network-features.md).
+You can create new volumes or modify existing volumes to use *Standard* or *Basic* network features. For more information, see [Configure network features](configure-network-features.md).
 
 * ***Standard***  
     Selecting this setting enables higher IP limits and standard VNet features such as [network security groups](../virtual-network/network-security-groups-overview.md) and [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) on delegated subnets, and additional connectivity patterns as indicated in this article.
@@ -40,15 +40,14 @@ The following table describes what’s supported for each network features confi
 |     Number of IPs in a VNet (including immediately peered VNets) accessing volumes in an Azure NetApp Files hosting VNet    |     [Same standard limits as virtual machines (VMs)](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)    |     1000    |
 |     Azure NetApp Files delegated subnets per VNet    |     1    |     1    |
 |     [Network Security Groups](../virtual-network/network-security-groups-overview.md) (NSGs) on Azure NetApp Files delegated   subnets    |     Yes    |     No    |
+| [NSG support for private endpoints](../private-link/disable-private-endpoint-network-policy.md) | Yes | No | 
 |     [User-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) (UDRs) on Azure NetApp Files delegated subnets    |     Yes    |     No    |
-|     Connectivity to [Private Endpoints](../private-link/private-endpoint-overview.md)    |     Yes*    |     No    |
+|     Connectivity to [Private Endpoints](../private-link/private-endpoint-overview.md)    |     Yes    |     No    |
 |     Connectivity to [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)    |     Yes  |     No    |
 |     Azure policies (for example, custom naming policies) on the Azure NetApp Files interface    |     No    |     No    |
 |     Load balancers for Azure   NetApp Files traffic    |     No    |     No    |
 |     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only supported)    |     No <br> (IPv4 only supported)   |
 |    Traffic routed via NVA from peered VNet | Yes    | No |
-
-\* Applying Azure network security groups on the private link subnet to Azure Key Vault isn't supported for Azure NetApp Files customer-managed keys. Network security groups don't affect connectivity to Private Link unless Private endpoint network policy is enabled on the subnet. It's recommended to keep this option disabled.
 
 ### Supported network topologies
 
@@ -94,7 +93,7 @@ If the VNet is peered with another VNet, you can't expand the VNet address space
 >[!IMPORTANT]
 > Ensure the address space size of the Azure NetApp Files VNet is larger than its delegated subnet.
 >
-> For example, if the delegated subnet is /24, the VNet address space containing the subnet must be /23 or larger. Noncompliance with this guideline can lead to unexpected issues in some traffic patterns: traffic traversing a hub-and-spoke topology that reaches Azure NetApp Files via a Network Virtual Appliance does not function properly. Additionally, this configuration can result in failures when creating SMB and CIFS volumes if they attempt to reach DNS through hub-and-spoke network topology. 
+> For example, if the delegated subnet is /24, the VNet address space containing the subnet must be /23 or larger. Noncompliance with this guideline can lead to unexpected issues in some traffic patterns: traffic traversing a hub-and-spoke topology that reaches Azure NetApp Files via a Network Virtual Appliance does not function properly. Additionally, this configuration can result in failures when creating SMB and CIFS (Common Internet File System) volumes if they attempt to reach DNS through hub-and-spoke network topology. 
 >
 > It's also recommended that the size of the delegated subnet be at least /25 for SAP workloads and /26 for other workload scenarios.
 
@@ -111,7 +110,9 @@ Configuring UDRs on the source VM subnets with the address prefix of delegated s
 > To access an Azure NetApp Files volume from an on-premises network via a VNet gateway (ExpressRoute or VPN) and firewall, configure the route table assigned to the VNet gateway to include the `/32` IPv4 address of the Azure NetApp Files volume listed and point to the firewall as the next hop. Using an aggregate address space that includes the Azure NetApp Files volume IP address will not forward the Azure NetApp Files traffic to the firewall. 
 
 >[!NOTE]
->If you want to configure a UDR route in the VM VNet, to control the routing of packets destined for a regionally VNet-peered Azure NetApp Files standard volume, the UDR prefix must be more specific or equal to the delegated subnet size of the Azure NetApp Files volume. If the UDR prefix is of size greater than the delegated subnet size, it will not be effective. 
+> If you want to configure a route table (UDR route) to control the routing of packets through a network virtual appliance or firewall destined to an Azure NetApp Files standard volume from a source in the same VNet or a peered VNet, the UDR prefix must be more specific or equal to the delegated subnet size of the Azure NetApp Files volume. If the UDR prefix is less specific than the delegated subnet size, it isn't be effective. 
+>
+> For example, if your delegated subnet is `x.x.x.x/24`, you must configured your UDR to `x.x.x.x/24` (equal) or `x.x.x.x/32` (more specific). If you configure the UDR route to be `x.x.x.x/16`, undefined behaviors such as asymmetric routing can cause a network drop at the firewall. 
 
 ## Azure native environments
 
@@ -170,5 +171,5 @@ In the topology illustrated above, the on-premises network is connected to a hub
 * [Configure network features for an Azure NetApp Files volume](configure-network-features.md) 
 * [Virtual network peering](../virtual-network/virtual-network-peering-overview.md)
 * [Configure Virtual WAN for Azure NetApp Files](configure-virtual-wan.md)
-* [Standard storage with cool access in Azure NetApp Files](cool-access-introduction.md)
-* [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md)
+* [Azure NetApp Files storage with cool access](cool-access-introduction.md)
+* [Manage Azure NetApp Files storage with cool access](manage-cool-access.md)

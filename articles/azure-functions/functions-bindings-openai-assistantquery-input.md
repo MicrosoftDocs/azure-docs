@@ -10,7 +10,7 @@ ms.custom:
   - devx-track-ts
 ms.collection: 
   - ce-skilling-ai-copilot
-ms.date: 05/20/2024
+ms.date: 01/07/2025
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -20,7 +20,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 The Azure OpenAI assistant query input binding allows you to integrate Assistants API queries into your code executions. 
 
-For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about Azure OpenAI assistants, see [Azure OpenAI Assistants API](../ai-services/openai/concepts/assistants.md).
+For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about Azure OpenAI assistants, see [Azure OpenAI Assistants API](/azure/ai-services/openai/concepts/assistants).
 
 [!INCLUDE [functions-support-notes-samples-openai](../../includes/functions-support-notes-samples-openai.md)] 
 
@@ -41,28 +41,24 @@ This example demonstrates the creation process, where the HTTP GET function that
 
 
 ::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript" 
+This example demonstrates the creation process, where the HTTP GET function that queries the conversation history of the assistant chat bot. The response to the prompt is returned in the HTTP response.
+::: zone-end  
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
-<!---uncomment when code example is available:
 
-{{This comes from the example code comment}} 
+:::code language="javascript" source="~/functions-openai-extension/samples/assistant/javascript/src/functions/assistantApis.js" range="6-7,63-79":::  
 
-:::code language="javascript" source="~/functions-openai-extension/samples/{{link to the correct sample.js}}" range="{{named is better than range}}":::
-
-{{Add more examples if available}}
--->
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
 
 This example demonstrates the creation process, where the HTTP GET function that queries the conversation history of the assistant chat bot. The response to the prompt is returned in the HTTP response.
 
-:::code language="typescript" source="~/functions-openai-extension/samples/assistant/typescript/src/functions/assistantApis.ts" range="57-71":::
+:::code language="typescript" source="~/functions-openai-extension/samples/assistant/typescript/src/functions/assistantApis.ts" range="6-7,63-79":::
 
- ::: zone-end  
+::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 
 This example demonstrates the creation process, where the HTTP GET function that queries the conversation history of the assistant chat bot. The response to the prompt is returned in the HTTP response.
-
 
 Here's the _function.json_ file for Get Chat State:
 

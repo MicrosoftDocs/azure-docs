@@ -2,10 +2,10 @@
 title: Detect new threats using Microsoft Sentinel with Azure Web Application Firewall 
 description: This article shows you how to use Microsoft Sentinel with Azure Web Application Firewall (WAF) to detect new threats to your network.
 services: web-application-firewall
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.date: 01/19/2024
-ms.author: victorh
 ms.topic: how-to
 ---
 
@@ -51,7 +51,6 @@ Use the following steps to configure an analytic rule in Sentinel.
 
    ```
     let Threshold = 3; 
-
     AzureDiagnostics
     | where Category == "ApplicationGatewayFirewallLog"
     | where action_s == "Matched"
@@ -59,9 +58,7 @@ Use the following steps to configure an analytic rule in Sentinel.
     | where ruleGroup_s == "REQUEST-932-APPLICATION-ATTACK-RCE" or ruleGroup_s ==    "REQUEST-931-APPLICATION-ATTACK-RFI" or ruleGroup_s == "REQUEST-932-APPLICATION-ATTACK-RCE" or    ruleGroup_s == "REQUEST-933-APPLICATION-ATTACK-PHP" or ruleGroup_s ==    "REQUEST-942-APPLICATION-ATTACK-SQLI" or ruleGroup_s == "REQUEST-921-PROTOCOL-ATTACK" or ruleGroup_s    == "REQUEST-941-APPLICATION-ATTACK-XSS"
     | project transactionId_g, hostname_s, requestUri_s, TimeGenerated, clientIp_s, Message,    details_message_s, details_data_s
     | join kind = inner(
-   
     AzureDiagnostics
-   
     | where Category == "ApplicationGatewayFirewallLog"
     | where action_s == "Blocked") on transactionId_g
     | extend Uri = strcat(hostname_s,requestUri_s)
@@ -85,4 +82,4 @@ You can configure Analytic Rules in Sentinel for various web application attacks
 ## Next steps
 
 - [Learn more about Microsoft Sentinel](../sentinel/overview.md)
-- [Learn more about Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md)
+- [Learn more about Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview)

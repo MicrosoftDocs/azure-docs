@@ -86,17 +86,17 @@
   - name: Advisor
     items:
     - name: Alerts
-      href: ../../advisor/advisor-alerts-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/advisor/advisor-alerts-arm?toc=/azure/azure-resource-manager/templates/toc.json
   - name: AI+Machine Learning
     items:
     - name: Cognitive Search
-      href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/search/search-get-started-arm?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Azure AI services
-      href: ../../ai-services/create-account-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/ai-services/create-account-resource-manager-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Data Science Virtual Machine
-      href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Machine Learning
-      href: ../../machine-learning/how-to-create-workspace-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/machine-learning/how-to-create-workspace-template?toc=/azure/azure-resource-manager/templates/toc.json
   - name: Analytics
     items:
     - name: Analysis Services
@@ -128,23 +128,23 @@
     - name: Functions
       href: ../../azure-functions/functions-create-first-function-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Linux virtual machine
-      href: ../../virtual-machines/linux/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/virtual-machines/linux/quick-create-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Virtual machine scale sets - Linux
       href: /azure/virtual-machine-scale-sets/quick-create-template-linux?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Virtual machine scale sets - Windows
       href: /azure/virtual-machine-scale-sets/quick-create-template-windows?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Windows virtual machines
-      href: ../../virtual-machines/windows/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/virtual-machines/windows/quick-create-template?toc=/azure/azure-resource-manager/templates/toc.json
   - name: Containers
     items:
     - name: AKS
       href: /azure/aks/learn/quick-kubernetes-deploy-rm-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Container Instances
-      href: ../../container-instances/container-instances-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/container-instances/container-instances-quickstart-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Container Registry
-      href: ../../container-registry/container-registry-get-started-geo-replication-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/container-registry/container-registry-get-started-geo-replication-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Service Fabric
-      href: ../../service-fabric/quickstart-cluster-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/service-fabric/quickstart-cluster-template?toc=/azure/azure-resource-manager/templates/toc.json
   - name: Databases
     items:
     - name: Cache for Redis
@@ -198,7 +198,7 @@
   - name: Management and Governance
     items:
     - name: Advisor
-      href: ../../advisor/advisor-alerts-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/advisor/advisor-alerts-arm?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Automation
       href: ../../automation/quickstart-create-automation-account-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Backup
@@ -208,11 +208,11 @@
     - name: Managed Applications
       href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Monitor
-      href: ../../azure-monitor/essentials/resource-manager-diagnostic-settings.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/azure-monitor/essentials/resource-manager-diagnostic-settings?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Policy
       href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Portal
-      href: ../../azure-portal/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/azure-portal/quick-create-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Resource Graph
       href: ../../governance/resource-graph/shared-query-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Role-based access control - custom roles
@@ -220,7 +220,7 @@
     - name: Role-based access control - role assignment
       href: ../../role-based-access-control/quickstart-role-assignments-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Service Health
-      href: ../../service-health/alerts-activity-log-service-notifications-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/service-health/alerts-activity-log-service-notifications-arm?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Site Recovery
       href: ../../site-recovery/quickstart-create-vault-template.md?toc=/azure/azure-resource-manager/templates/toc.json
   - name: Networking
@@ -420,10 +420,13 @@
   - name: Export templates
     items:
     - name: Portal
+      displayName: export
       href: export-template-portal.md
     - name: Azure CLI
+      displayName: export
       href: export-template-cli.md
     - name: PowerShell
+      displayName: export
       href: export-template-powershell.md
   - name: Test templates
     items:
@@ -458,6 +461,7 @@
     - name: Visual Studio
       href: create-visual-studio-deployment-project.md
     - name: Update VS deployment script to Az module
+      displayName: Visual Studio
       href: update-visual-studio-deployment-script.md
 - name: Reference
   items:

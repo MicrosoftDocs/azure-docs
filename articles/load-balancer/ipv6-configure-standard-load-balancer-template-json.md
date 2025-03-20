@@ -7,7 +7,7 @@ author: mbender-ms
 manager: kumudD
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 12/04/2023
+ms.date: 12/06/2024
 ms.author: mbender
 ms.custom: template-how-to, devx-track-arm-template
 ROBOTS: NOINDEX

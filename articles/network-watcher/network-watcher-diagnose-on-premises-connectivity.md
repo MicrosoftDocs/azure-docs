@@ -32,7 +32,7 @@ Use the VPN troubleshoot capability of Network Watcher to diagnose and troublesh
 
 1. In the search box at the top of the portal, enter ***network watcher***. Select **Network Watcher** from the search results.
 
-    :::image type="content" source="./media/network-watcher-diagnose-on-premises-connectivity/portal-search.png" alt-text="Screenshot shows how to search for Network Watcher in the Azure portal." lightbox="./media/packet-capture-vm-portal/portal-search.png":::
+    :::image type="content" source="./media/network-watcher-portal-search.png" alt-text="Screenshot shows how to search for Network Watcher in the Azure portal." lightbox="./media/network-watcher-portal-search.png":::
 
 1. Under **Network diagnostic tools**, select **VPN troubleshoot**.
 

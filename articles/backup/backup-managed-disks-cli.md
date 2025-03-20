@@ -4,13 +4,13 @@ description: Learn how to back up Azure Managed Disks using Azure CLI.
 ms.topic: how-to
 ms.custom: devx-track-azurecli, engagement-fy24
 ms.date: 08/20/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up Azure Managed Disks using Azure CLI
 
-This article describes how to back up [Azure Managed Disk](../virtual-machines/managed-disks-overview.md) using Azure CLI.
+This article describes how to back up [Azure Managed Disk](/azure/virtual-machines/managed-disks-overview) using Azure CLI.
 
 > [!IMPORTANT]
 > Support for Azure Managed Disks backup and restore via CLI is in preview and available as an extension in Az 2.15.0 version and later. The extension is automatically installed when you run the **az dataprotection** commands. [Learn more](/cli/azure/azure-cli-extensions-overview) about extensions.
@@ -32,7 +32,7 @@ az dataprotection backup-vault create -g testBkpVaultRG --vault-name TestBkpVaul
   "eTag": null,
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/testBkpVaultRG/providers/Microsoft.DataProtection/BackupVaults/TestBkpVault",
   "identity": {
-    "principalId": "2ca1d5f7-38b3-4b61-aa45-8147d7e0edbc",
+    "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
     "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "type": "SystemAssigned"
   },
@@ -162,7 +162,7 @@ For example, if you select **Every 4 hours**, then the backups are taken at appr
 >[!IMPORTANT]
 >The time of the day indicates the backup start time and not the time when the backup completes.
 
-The time required for completing the backup operation depends on various factors including size of the disk, and churn rate between consecutive backups. However, Azure Disk Backup is an agentless backup that uses [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md), which doesn't impact the production application performance.
+The time required for completing the backup operation depends on various factors including size of the disk, and churn rate between consecutive backups. However, Azure Disk Backup is an agentless backup that uses [incremental snapshots](/azure/virtual-machines/disks-incremental-snapshots), which doesn't impact the production application performance.
 
    >[!NOTE]
    >Although the selected vault may have the global-redundancy setting, currently, Azure Disk Backup supports snapshot datastore only. All backups are stored in a resource group in your subscription and aren't copied to the Backup vault storage.

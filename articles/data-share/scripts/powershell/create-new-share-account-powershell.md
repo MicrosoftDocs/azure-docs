@@ -4,7 +4,7 @@ description: This PowerShell script creates a new Data Share account.
 author: sidontha
 ms.service: azure-data-share
 ms.topic: article
-ms.date: 12/19/2023
+ms.date: 02/12/2025
 ms.author: sidontha 
 ms.custom: devx-track-azurepowershell
 ---
@@ -34,7 +34,7 @@ This script uses the following commands:
 | [New-AzDataShareAccount](/powershell/module/az.datashare/new-azdatashareaccount) | Creates a data share account. |
 |||
 
-## Next steps
+## Related content
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/).
 

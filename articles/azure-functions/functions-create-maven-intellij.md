@@ -1,10 +1,11 @@
 ---
 title: Create a Java function in Azure Functions using IntelliJ 
 description: Learn how to use IntelliJ to create an HTTP-triggered Java function and then run it in a serverless environment in Azure.
-author: karlerickson
+author: KarlErickson
+ms.author: karler
+ms.reviewer: jialuogan
 ms.topic: quickstart
 ms.date: 05/28/2024
-ms.author: jialuogan
 ms.devlang: java
 ms.custom: mvc, devcenter, devx-track-java, devx-track-extended-java
 ---
@@ -24,7 +25,7 @@ Specifically, this article shows you:
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An [Azure supported Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-support-on-azure), version 8, 11, 17 or 21. (Java 21 is currently only supported in preview on Linux only)
+- An [Azure supported Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-support-on-azure), version 8, 11, 17 or 21. (Java 21 is currently supported on Linux only)
 - An [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) Ultimate Edition or Community Edition installed
 - [Maven 3.5.0+](https://maven.apache.org/download.cgi)
 - Latest [Function Core Tools](https://github.com/Azure/azure-functions-core-tools)
@@ -57,7 +58,7 @@ To use Azure Toolkit for IntelliJ to create a local Azure Functions project, fol
 
    :::image type="content" source="media/functions-create-first-java-intellij/create-functions-project.png" alt-text="Create function project." lightbox="media/functions-create-first-java-intellij/create-functions-project.png":::
 
-1. Select **Http Trigger**, then select **Next** and follow the wizard to go through all the configurations in the following pages. Confirm your project location, then select **Finish**. Intellj IDEA then opens your new project.
+1. Select **Http Trigger**, then select **Next** and follow the wizard to go through all the configurations in the following pages. Confirm your project location, then select **Finish**. IntelliJ IDEA then opens your new project.
 
    :::image type="content" source="media/functions-create-first-java-intellij/create-functions-project-finish.png" alt-text="Create function project finish." lightbox="media/functions-create-first-java-intellij/create-functions-project-finish.png":::
 
@@ -68,13 +69,13 @@ To run the project locally, follow these steps:
 > [!IMPORTANT]
 > You must have the JAVA_HOME environment variable set correctly to the JDK directory that is used during code compiling using Maven. Make sure that the version of the JDK is at least as high as the `Java.version` setting.
 
-1. Navigate to *src/main/java/org/example/functions/HttpTriggerFunction.java* to see the code generated. Beside line 24, you should see a green **Run** button. Select it and then select **Run 'Functions-azur...'**. You should see your function app running locally with a few logs.
+1. Navigate to *src/main/java/org/example/functions/HttpTriggerJava.java* to see the code generated. Beside line 17, you should see a green **Run** button. Select it and then select **Run 'Functions-azur...'**. You should see your function app running locally with a few logs.
 
    :::image type="content" source="media/functions-create-first-java-intellij/local-run-functions-project.png" alt-text="Local run project." lightbox="media/functions-create-first-java-intellij/local-run-functions-project.png":::
 
    :::image type="content" source="media/functions-create-first-java-intellij/local-run-functions-output.png" alt-text="Local run project output." lightbox="media/functions-create-first-java-intellij/local-run-functions-output.png":::
 
-1. You can try the function by accessing the displayed endpoint from browser, such as `http://localhost:7071/api/HttpExample?name=Azure`.
+1. You can try the function by accessing the displayed endpoint from browser, such as `http://localhost:7071/api/HttpTriggerJava?name=Azure`.
 
    :::image type="content" source="media/functions-create-first-java-intellij/local-run-functions-test.png" alt-text="Local run function test result." lightbox="media/functions-create-first-java-intellij/local-run-functions-test.png":::
 
@@ -90,7 +91,7 @@ To debug the project locally, follow these steps:
 
    :::image type="content" source="media/functions-create-first-java-intellij/local-debug-functions-button.png" alt-text="Local debug function app button." lightbox="media/functions-create-first-java-intellij/local-debug-functions-button.png":::
 
-1. Select line 20 of the file *src/main/java/org/example/functions/HttpTriggerFunction.java* to add a breakpoint. Access the endpoint `http://localhost:7071/api/HttpTrigger-Java?name=Azure` again and you should find that the breakpoint is hit. You can then try more debug features like **Step**, **Watch**, and **Evaluation**. Stop the debug session by selecting **Stop**.
+1. Select line 20 of the file *src/main/java/org/example/functions/HttpTriggerJava.java* to add a breakpoint. Access the endpoint `http://localhost:7071/api/HttpTriggerJava?name=Azure` again and you should find that the breakpoint is hit. You can then try more debug features like **Step**, **Watch**, and **Evaluation**. Stop the debug session by selecting **Stop**.
 
    :::image type="content" source="media/functions-create-first-java-intellij/local-debug-functions-break.png" alt-text="Local debug function app break." lightbox="media/functions-create-first-java-intellij/local-debug-functions-break.png":::
 

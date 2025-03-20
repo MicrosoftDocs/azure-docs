@@ -5,7 +5,7 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 08/08/2024
+ms.date: 08/21/2024
 ms.service: azure-migrate
 ms.custom: MVC, engagement-fy25
 #Customer intent: As a server admin, I want to assess my on-premises physical servers in preparation for migration to Azure.
@@ -51,14 +51,11 @@ Decide whether you want to run an assessment using sizing criteria based on serv
 
 Run an assessment as follows:
 
-1. 1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
+1. 1. In **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
    ![Location of Assess and migrate servers button.](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
 2. In **Azure Migrate: Discovery and assessment**, select **Assess** > **Azure VM**.
-
-    ![Location of the Assess button](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
-
 3. In **Assess servers** > **Assessment type**, select **Azure VM**.
 4. In **Discovery source**:
 
@@ -71,16 +68,16 @@ Run an assessment as follows:
 
 1. In **Assessment properties** > **Target Properties**:
    - In **Target location**, specify the Azure region to which you want to migrate.
-   - Size and cost recommendations are based on the location that you specify. Once you change the target location from default, you will be prompted to specify **Reserved Instances** and **VM series**.
+   - Size and cost recommendations are based on the location that you specify. Once you change the target location from default, you'll be prompted to specify **Reserved Instances** and **VM series**.
    - In Azure Government, you can target assessments in [these regions](migrate-support-matrix.md#azure-government).
    - In **Storage type**,
      - If you want to use performance-based data in the assessment, select **Automatic** for Azure Migrate to recommend a storage type, based on disk IOPS and throughput.
      - Alternatively, select the storage type you want to use for VM when you migrate it.
    - In **Savings options (compute)**, specify the savings option that you want the assessment to consider, helping to optimize your Azure compute cost. 
-     - [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.
-     - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
+     - [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (one year or three year reserved) are a good option for the most consistently running resources.
+     - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (one year or three year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of one savings option at a time. 
      - When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.
-     - You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' and 'VM uptime' properties are not applicable.
+     - You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' and 'VM uptime' properties aren't applicable.
 1. In **VM Size**:
    - In **Sizing criterion**, select if you want to base the assessment on server configuration data/metadata, or on performance-based data. If you use performance data:
      - In **Performance history**, indicate the data duration on which you want to base the assessment.
@@ -112,14 +109,14 @@ Run an assessment as follows:
 
 1. In **Select servers to assess** > **Assessment name**, specify a name for the assessment. 
 
-1. In **Select or create a group**, select **Create New** and specify a group name.   
+1. In **Select or create a group**, select **Create New**, and specify a group name.   
 
 1. Select the appliance, and select the VMs you want to add to the group. Then select **Next**.
 
 
 1. In **Review + create assessment**, review the assessment details, and select **Create Assessment** to create the group and run the assessment.
 
-1. After the assessment is created, view it in **Servers** > **Azure Migrate: Discovery and assessment** > **Assessments**.
+1. After the assessment is created, view it in **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** > **Assessments**.
 
 1. Select **Export assessment**, to download it as an Excel file.
     
@@ -137,7 +134,7 @@ An assessment describes:
 To view an assessment:
 
 1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to **Assessments**.
-2. In **Assessments**, select an assessment to open it. As an example (estimations and costs for example only): 
+2. In **Assessments**, select an assessment to open it. As an example (estimations and costs, for example,  only): 
 
     ![Assessment summary](./media/tutorial-assess-physical/assessment-summary.png)
 

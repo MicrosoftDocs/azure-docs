@@ -78,12 +78,12 @@ Before creating a peering, familiarize yourself with the [requirements and const
     :::image type="content" source="./media/virtual-network-manage-peering/add-peering.png" alt-text="Screenshot of peering configuration page.":::
 
     > [!NOTE]
-    > If you use a Virtual Network Gateway to send on-premises traffic transitively to a peered virtual network, the peered virtual network IP range for the on-premises VPN device must be set to 'interesting' traffic. You may need to add all Azure virtual network's CIDR addresses to the Site-2-Site IPSec VPN Tunnel configuration on the on-premises VPN device. CIDR addresses include resources like such as **Hub**, Spokes, and Point-2-Site IP address pools. Otherwise, your on-premises resources won't be able to communicate with resources in the peered VNet.
+    > If you use a Virtual Network Gateway to send on-premises traffic transitively to a peered virtual network, the peered virtual network IP range for the on-premises VPN device must be set to 'interesting' traffic. You may need to add all Azure virtual network's CIDR addresses to the Site-2-Site IPsec VPN Tunnel configuration on the on-premises VPN device. CIDR addresses include resources like such as **Hub**, Spokes, and Point-2-Site IP address pools. Otherwise, your on-premises resources won't be able to communicate with resources in the peered VNet.
     > Interesting traffic is communicated through Phase 2 security associations. The security association creates a dedicated VPN tunnel for each specified subnet. The on-premises and Azure VPN Gateway tier have to support the same number of Site-2-Site VPN tunnels and Azure VNet subnets. Otherwise, your on-premises resources won't be able to communicate with resources in the peered VNet.  Consult your on-premises VPN documentation for instructions to create Phase 2 security associations for each specified Azure VNet subnet. 
 
 1. Select the **Refresh** button after a few seconds, and the peering status will change from **Updating** to **Connected**.
 
-    :::image type="content" source="./media/virtual-network-manage-peering/vnet-peering-connected.png" alt-text="Screenshot of virtual network peering status on peerings page.":::
+
 
 For step-by-step instructions for implementing peering between virtual networks in different subscriptions and deployment models, see [next steps](#next-steps).
 
@@ -259,8 +259,6 @@ deselect the **Allow traffic to remote virtual network** setting if you want to 
 
 1. Select **Delete** to confirm the deletion in **Delete confirmation**.
 
-    :::image type="content" source="./media/virtual-network-manage-peering/confirm-deletion-2.png" alt-text="Screenshot of peering delete confirmation.":::
-
 # [**PowerShell**](#tab/peering-powershell)
 
 Use [Remove-AzVirtualNetworkPeering](/powershell/module/az.network/remove-azvirtualnetworkpeering) to delete virtual network peerings
@@ -337,7 +335,7 @@ az network vnet peering delete \
  
 - You can't resolve names in peered virtual networks using default Azure name resolution. To resolve names in other virtual networks, you must use [Azure Private DNS](../dns/private-dns-overview.md) or a custom DNS server. To learn how to set up your own DNS server, see [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
-- Resources in peered virtual networks in the same region can communicate with each other with the same latency as if they were within the same virtual network. The network throughput is based on the bandwidth that's allowed for the virtual machine, proportionate to its size. There isn't any extra restriction on bandwidth within the peering. Each virtual machine size has its own maximum network bandwidth. To learn more about maximum network bandwidth for different virtual machine sizes, see [Sizes for virtual machines in Azure](../virtual-machines/sizes.md).
+- Resources in peered virtual networks in the same region can communicate with each other with the same latency as if they were within the same virtual network. The network throughput is based on the bandwidth that's allowed for the virtual machine, proportionate to its size. There isn't any extra restriction on bandwidth within the peering. Each virtual machine size has its own maximum network bandwidth. To learn more about maximum network bandwidth for different virtual machine sizes, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes).
 
 - A virtual network can be peered to another virtual network, and also be connected to another virtual network with an Azure virtual network gateway. When virtual networks are connected through both peering and a gateway, traffic between the virtual networks flows through the peering configuration, rather than the gateway.
 

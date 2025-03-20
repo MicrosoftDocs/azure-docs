@@ -1,20 +1,16 @@
 ---
 title: Azure to Azure disaster recovery architecture in Azure Site Recovery
 description: Overview of the architecture used when you set up disaster recovery between Azure regions for Azure VMs, using the Azure Site Recovery service.
-services: site-recovery
 ms.service: azure-site-recovery
-ms.topic: conceptual
-ms.date: 02/29/2024
+ms.topic: concept-article
+ms.date: 12/28/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
 
-
 # Azure to Azure disaster recovery architecture
 
-
 This article describes the architecture, components, and processes used when you deploy disaster recovery for Azure virtual machines (VMs)  using the [Azure Site Recovery](site-recovery-overview.md) service. With disaster recovery setup, Azure VMs continuously replicate to a different target region. If an outage occurs, you can fail over VMs to the secondary region, and access them from there. When everything's running normally again, you can fail back and continue working in the primary location.
-
 
 
 ## Architectural components

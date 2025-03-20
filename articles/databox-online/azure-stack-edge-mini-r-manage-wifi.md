@@ -4,8 +4,7 @@ description: Describes how to use the Azure portal to manage Wi-Fi on your Azure
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 11/10/2023
 ms.author: alkohli

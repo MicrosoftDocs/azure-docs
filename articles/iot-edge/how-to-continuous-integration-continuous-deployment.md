@@ -6,7 +6,7 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 04/08/2024
 ms.topic: conceptual
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ---
 
@@ -46,7 +46,7 @@ Unless otherwise specified, the procedures in this article do not explore all th
   >[!TIP]
   >If you're creating a new solution, clone your repository locally first. Then, when you create the solution you can choose to create it directly in the repository folder. You can easily commit and push the new files from there.
 
-* A container registry where you can push module images. You can use [Azure Container Registry](../container-registry/index.yml) or a third-party registry.
+* A container registry where you can push module images. You can use [Azure Container Registry](/azure/container-registry/) or a third-party registry.
 * An active Azure [IoT hub](../iot-hub/iot-hub-create-through-portal.md) with at least two IoT Edge devices for testing the separate test and production deployment stages. You can follow the quickstart articles to create an IoT Edge device on [Linux](quickstart-linux.md) or [Windows](quickstart.md)
 
 For more information about using Azure Repos, see [Share your code with Visual Studio and Azure Repos](/azure/devops/repos/git/share-your-code-in-git-vs).

@@ -6,7 +6,7 @@ ms.reviewer: presharm
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 05/21/2024
+ms.date: 01/22/2025
 ms.author: banders
 ---
 

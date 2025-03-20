@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 07/22/2022
 ms.author: anaharris
 ms.reviewer: tomvcassidy
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 ---
 
 # Migrate Azure Container Instances to availability zone support
@@ -21,7 +21,7 @@ This guide describes how to migrate Azure Container Instances from non-availabil
 * If using PowerShell, ensure version 2.1.1-preview or later
 * If using the Java SDK, ensure version 2.9.0 or later
 * ACI API version 09-01-2021
-* Make sure the region you're migrating to supports zonal container group deployments. To view a list of supported regions, see [Resource availability for Azure Container Instances in Azure regions](../container-instances/container-instances-region-availability.md).
+* Make sure the region you're migrating to supports zonal container group deployments. To view a list of supported regions, see [Resource availability for Azure Container Instances in Azure regions](/azure/container-instances/container-instances-region-availability).
 
 ## Considerations
 
@@ -41,18 +41,21 @@ To delete and redeploy a container group:
 
 1. Delete your current container group with one of the following tools:
 
-   - [Azure CLI](../container-instances/container-instances-quickstart.md#clean-up-resources)
-   - [PowerShell](../container-instances/container-instances-quickstart.md#clean-up-resources), 
-   - [Portal](../container-instances/container-instances-quickstart-portal.md#clean-up-resources).
+   - [Azure CLI](/azure/container-instances/container-instances-quickstart#clean-up-resources)
+   - [PowerShell](/azure/container-instances/container-instances-quickstart#clean-up-resources), 
+   - [Portal](/azure/container-instances/container-instances-quickstart-portal#clean-up-resources).
 
     >[!NOTE]
     >Zonal support is not supported in the Azure portal. Even if you delete your container group through the portal, you'll still need to create your new container group using CLI or Powershell. 
     
-1. Follow the steps in [Deploy an Azure Container Instances (ACI) container group in an availability zone (preview)](../container-instances/availability-zones.md).
+1. Follow the steps in [Deploy an Azure Container Instances (ACI) container group in an availability zone (preview)](/azure/container-instances/availability-zones).
 
 
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure services and regions that support availability zones](availability-zones-service-support.md)
+> [Azure services that support availability zones](availability-zones-service-support.md)
+
+> [!div class="nextstepaction"]
+> [Azure regions that support availability zones](availability-zones-region-support.md)

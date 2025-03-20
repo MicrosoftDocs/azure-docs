@@ -1,24 +1,24 @@
 ---
-title: Quickstart - Access applications using Azure Spring Apps Standard consumption and dedicated plan in a virtual network
+title: Quickstart - Access Applications Using Azure Spring Apps Standard Consumption and Dedicated Plan in a Virtual Network
 description: Learn how to access applications in a virtual network that are using the Azure Spring Apps Standard consumption and dedicated plan.
 author: KarlErickson
-ms.author: haojianzhong
+ms.author: karler
+ms.reviewer: haojianzhong
 ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 06/21/2023
+ms.date: 08/29/2024
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Quickstart: Access applications using Azure Spring Apps Standard consumption and dedicated plan in a virtual network
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ❌ Basic/Standard ❌ Enterprise
+**This article applies to:** ✅ Standard consumption and dedicated (Preview) ❎ Basic/Standard ❎ Enterprise
 
 This article describes how to access your application in a virtual network using Azure Spring Apps Standard consumption and dedicated plan.
 
-When you create an Azure Container Apps environment in an existing virtual network, you can access all the apps inside the environment only within that virtual network. In addition, when you create an instance of Azure Spring Apps inside the Azure Container Apps environment, you can access the applications in the Azure Spring Apps instance only from the virtual network. For more information, see [Provide a virtual network to an internal Azure Container Apps environments](../../container-apps/vnet-custom-internal.md?tabs=bash&pivots=azure-portal).
+When you create an Azure Container Apps environment in an existing virtual network, you can access all the apps inside the environment only within that virtual network. In addition, when you create an instance of Azure Spring Apps inside the Azure Container Apps environment, you can access the applications in the Azure Spring Apps instance only from the virtual network. For more information, see [Provide a virtual network to an Azure Container Apps environments](../../container-apps/vnet-custom.md).
 
 ## Create a private DNS zone
 

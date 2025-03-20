@@ -36,7 +36,7 @@ As a first step, you need to configure data source and specify file format of re
 
 Data sources represent connection string information that describes where your data is placed and how to authenticate to your data source.
 
-One example of data source definition that references public [ECDC COVID 19 Azure Open Data Set](../../open-datasets/dataset-ecdc-covid-cases.md) is shown in the following example:
+One example of data source definition that references public [ECDC COVID 19 Azure Open Data Set](/azure/open-datasets/dataset-ecdc-covid-cases) is shown in the following example:
 
 ```sql
 CREATE EXTERNAL DATA SOURCE ecdc_cases WITH (
@@ -74,7 +74,7 @@ In order to access Azure Cosmos DB analytical storage, you need to define a cred
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL MyCosmosDbAccountCredential
 WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
-     SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
+     SECRET = '<yourcosmosdbaccountkey>';
 ```
 
 Any user with the Synapse Administrator role can use these credentials to access Azure Data Lake storage or Azure Cosmos DB analytical storage.
@@ -172,7 +172,7 @@ CREATE OR ALTER VIEW ecdc_cosmosdb.Ecdc
 AS SELECT *
 FROM OPENROWSET(
       PROVIDER = 'CosmosDB',
-      CONNECTION = 'Account=synapselink-cosmosdb-sqlsample;Database=covid',
+      CONNECTION = 'Account=yourcosmosdbaccount;Database=covid',
       OBJECT = 'Ecdc',
       CREDENTIAL = 'MyCosmosDbAccountCredential'
     ) WITH

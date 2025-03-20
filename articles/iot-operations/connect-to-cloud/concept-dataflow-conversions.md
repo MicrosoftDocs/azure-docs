@@ -1,22 +1,36 @@
 ---
-title: Convert data by using dataflow conversions
-description: Learn about dataflow conversions for transforming data in Azure IoT Operations.
+title: Convert data by using data flow conversions
+description: Learn about data flow conversions for transforming data in Azure IoT Operations.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 08/03/2024
+ms.date: 11/11/2024
 
-#CustomerIntent: As an operator, I want to understand how to use dataflow conversions to transform data.
+#CustomerIntent: As an operator, I want to understand how to use data flow conversions to transform data.
+ms.service: azure-iot-operations
 ---
 
-# Convert data by using dataflow conversions
+# Convert data by using data flow conversions
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
-You can use dataflow conversions to transform data in Azure IoT Operations. The *conversion* element in a dataflow is used to compute values for output fields. You can use input fields, available operations, data types, and type conversions in dataflow conversions.
+You can use data flow conversions to transform data in Azure IoT Operations. The *conversion* element in a data flow is used to compute values for output fields. You can use input fields, available operations, data types, and type conversions in data flow conversions.
 
-The dataflow conversion element is used to compute values for output fields:
+The data flow conversion element is used to compute values for output fields:
+
+# [Bicep](#tab/bicep)
+
+```bicep
+inputs: [
+  '*.Max' // - $1
+  '*.Min' // - $2
+]
+output: 'ColorProperties.*'
+expression: '($1 + $2) / 2'
+```
+
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -25,6 +39,8 @@ The dataflow conversion element is used to compute values for output fields:
   output: ColorProperties.*
   expression: ($1 + $2) / 2
 ```
+
+---
 
 There are several aspects to understand about conversions:
 
@@ -37,6 +53,21 @@ There are several aspects to understand about conversions:
 
 In conversions, formulas can operate on static values like a number such as *25* or parameters derived from input fields. A mapping defines these input fields that the formula can access. Each field is referenced according to its order in the input list:
 
+# [Bicep](#tab/bicep)
+
+```bicep
+inputs: [
+  '*.Max'      // - $1
+  '*.Min'      // - $2
+  '*.Mid.Avg'  // - $3
+  '*.Mid.Mean' // - $4
+]
+output: 'ColorProperties.*'
+expression: '($1, $2, $3, $4)'
+```
+
+# [Kubernetes (preview)](#tab/kubernetes)
+
 ```yaml
 - inputs:
   - *.Max        # - $1
@@ -47,11 +78,13 @@ In conversions, formulas can operate on static values like a number such as *25*
   expression: ($1, $2, $3, $4)
 ```
 
+---
+
 In this example, the conversion results in an array containing the values of `[Max, Min, Mid.Avg, Mid.Mean]`. The comments in the YAML file (`# - $1`, `# - $2`) are optional, but they help to clarify the connection between each field property and its role in the conversion formula.
 
 ## Data types
 
-Different serialization formats support various data types. For instance, JSON offers a few primitive types: string, number, Boolean, and null. Also included are arrays of these primitive types. In contrast, other serialization formats like Avro have a more complex type system, including integers with multiple bit field lengths and timestamps with different resolutions. Examples are milliseconds and microseconds.
+Different serialization formats support various data types. For instance, JSON offers a few primitive types: string, number, Boolean, and null. It also includes arrays of these primitive types.
 
 When the mapper reads an input property, it converts it into an internal type. This conversion is necessary for holding the data in memory until it's written out into an output field. The conversion to an internal type happens regardless of whether the input and output serialization formats are the same.
 
@@ -72,11 +105,7 @@ The internal representation utilizes the following data types:
 
 ### Input record fields
 
-When an input record field is read, its underlying type is converted into one of these internal type variants. The internal representation is versatile enough to handle most input types with minimal or no conversion. However, some input types require conversion or are unsupported. Some examples:
-
-* **Avro** `UUID` **type**: It's converted to a `string` because there's no specific `UUID` type in the internal representation.
-* **Avro** `decimal` **type**: It isn't supported by the mapper, so fields of this type can't be included in mappings.
-* **Avro** `duration` **type**: Conversion can vary. If the `months` field is set, it's unsupported. If only `days` and `milliseconds` are set, it's converted to the internal `duration` representation.
+When an input record field is read, its underlying type is converted into one of these internal type variants. The internal representation is versatile enough to handle most input types with minimal or no conversion.
 
 For some formats, surrogate types are used. For example, JSON doesn't have a `datetime` type and instead stores `datetime` values as strings formatted according to ISO8601. When the mapper reads such a field, the internal representation remains a string.
 
@@ -92,10 +121,6 @@ The mapper is designed to be flexible by converting internal types into output t
 * **Boolean values:**
   * Converted to `0`/`1` if the output field is numerical.
   * Converted to `true`/`false` if the output field is string.
-
-### Explicit type conversions
-
-Although the automatic conversions operate as you might expect based on common implementation practices, there are instances where the right conversion can't be determined automatically and results in an *unsupported* error. To address these situations, several conversion functions are available to explicitly define how data should be transformed. These functions provide more control over how data is converted and help maintain data integrity even when automatic methods fall short.
 
 ### Use a conversion formula with types
 
@@ -124,11 +149,23 @@ Arrays can be processed by using aggregation functions to compute a single value
 
 ```json
 {
-    "Measurements": [2.34, 12.3, 32.4]
+  "Measurements": [2.34, 12.3, 32.4]
 }
 ```
 
 With the mapping:
+
+# [Bicep](#tab/bicep)
+
+```bicep
+inputs: [
+  'Measurements' // - $1
+]
+output: 'Measurement'
+expression: 'min($1)'
+```
+
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -137,18 +174,26 @@ With the mapping:
   expression: min($1)
 ```
 
+---
+
 This configuration selects the smallest value from the `Measurements` array for the output field.
 
-It's also possible to use functions that result in a new array:
+Arrays can also be created from multiple single values:
 
-```yaml
-- inputs:
-  - Measurements # - $1
-  output: Measurements
-  expression: take($1, 10)  # taking at max 10 items
+# [Bicep](#tab/bicep)
+
+```bicep
+inputs: [
+  'minimum' // - - $1
+  'maximum' // - - $2
+  'average' // - - $3
+  'mean'    // - - $4
+]
+output: 'stats'
+expression: '($1, $2, $3, $4)'
 ```
 
-Arrays can also be created from multiple single values:
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 - inputs:
@@ -159,6 +204,8 @@ Arrays can also be created from multiple single values:
   output: stats
   expression: ($1, $2, $3, $4)
 ```
+
+---
 
 This mapping creates an array that contains the minimum, maximum, average, and mean.
 
@@ -173,11 +220,11 @@ Example mapping that uses a missing value:
 
 ```json
 {
-    "Employment": {      
-      "Position": "Analyst",
-      "BaseSalary": 75000,
-      "WorkingHours": "Regular"
-    }
+  "Employment": {      
+    "Position": "Analyst",
+    "BaseSalary": 75000,
+    "WorkingHours": "Regular"
+  }
 }
 ```
 
@@ -193,13 +240,28 @@ The input record contains the `BaseSalary` field, but possibly that's optional. 
 
 A mapping can check if the field is present in the input record. If the field is found, the output receives that existing value. Otherwise, the output receives the value from the context dataset. For example:
 
+# [Bicep](#tab/bicep)
+
+```bicep
+inputs: [
+  'BaseSalary' // - - - - - - - - - - - $1
+  '$context(position).BaseSalary' //  - $2
+]
+output: 'BaseSalary'
+expression: 'if($1 == (), $2, $1)'
+```
+
+# [Kubernetes (preview)](#tab/kubernetes)
+
 ```yaml
 - inputs:
   - BaseSalary  # - - - - - - - - - - $1
-  - $context(position).BaseSalary #  - $2 
+  - $context(position).BaseSalary # - $2
   output: BaseSalary
   expression: if($1 == (), $2, $1)
 ```
+
+---
 
 The `conversion` uses the `if` function that has three parameters:
 
@@ -209,17 +271,22 @@ The `conversion` uses the `if` function that has three parameters:
 
 ## Available functions
 
-Functions can be used in the conversion formula to perform various operations:
+Data flows provide a set of built-in functions that can be used in conversion formulas. These functions can be used to perform common operations like arithmetic, comparison, and string manipulation. The available functions are:
 
-* `min` to select a single item from an array
-* `if` to select between values
-* String manipulation (for example, `uppercase()`)
-* Explicit conversion (for example, `ISO8601_datetime`)
-* Aggregation (for example, `avg()`)
+| Function | Description | Examples |
+|----------|-------------|---------|
+| `min`    | Return the minimum value from an array. | `min(2, 3, 1)` returns `1`, `min($1)` returns the minimum value from the array `$1` |
+| `max`    | Return the maximum value from an array. | `max(2, 3, 1)` returns `3`, `max($1)` returns the maximum value from the array `$1` |
+| `if`     | Return between values based on a condition. | `if($1 > 10, 'High', 'Low')` returns `'High'` if `$1` is greater than `10`, otherwise `'Low'` |
+| `len`    | Return the character length of a string or the number of elements in a tuple. | `len("Azure")` returns `5`, `len(1, 2, 3)` returns `3`, `len($1)` returns the number of elements in the array `$1` |
+| `floor`  | Return the largest integer less than or equal to a number. | `floor(2.9)` returns `2` |
+| `round`  | Return the nearest integer to a number, rounding half-way cases away from 0.0. | `round(2.5)` returns `3` |
+| `ceil`   | Return the smallest integer greater than or equal to a number. | `ceil(2.1)` returns `3` |
+| `scale`  | Scale a value from one range to another. | `scale($1, 0, 10, 0, 100)` scales the input value from the range 0 to 10 to the range 0 to 100 |
 
-## Available operations
+### Conversion functions
 
-Dataflows offer a wide range of out-of-the-box conversion functions that allow users to easily perform unit conversions without the need for complex calculations. These predefined functions cover common conversions such as temperature, pressure, length, weight, and volume. The following list shows the available conversion functions, along with their corresponding formulas and function names:
+Data flows provide several built-in conversion functions for common unit conversions like temperature, pressure, length, weight, and volume. Here are some examples:
 
 | Conversion | Formula | Function name |
 | --- | --- | --- |
@@ -230,7 +297,7 @@ Dataflows offer a wide range of out-of-the-box conversion functions that allow u
 | Lbs to kg | Kg = lbs * 0.453592 | `lbToKg` |
 | Gallons to liters | Liters = gallons * 3.78541 | `galToL` |
 
-In addition to these unidirectional conversions, we also support the reverse calculations:
+Reverse conversions are also supported:
 
 | Conversion | Formula | Function name |
 | --- | --- | --- |
@@ -241,15 +308,9 @@ In addition to these unidirectional conversions, we also support the reverse cal
 | Kg to lbs | Lbs = kg / 0.453592 | `kgToLb` |
 | Liters to gallons | Gallons = liters / 3.78541 | `lToGal` |
 
-These functions are designed to simplify the conversion process. They allow users to input values in one unit and receive the corresponding value in another unit effortlessly.
+Additionally, you can define your own conversion functions using basic mathematical formulas. The system supports operators like addition (`+`), subtraction (`-`), multiplication (`*`), and division (`/`). These operators follow standard rules of precedence, which can be adjusted using parentheses to ensure the correct order of operations. This allows you to customize unit conversions to meet specific needs.
 
-We also provide a scaling function to scale the range of value to the user-defined range. For the example `scale($1,0,10,0,100)`, the input value is scaled from the range 0 to 10 to the range 0 to 100.
-
-Moreover, users have the flexibility to define their own conversion functions by using simple mathematical formulas. Our system supports basic operators such as addition (`+`), subtraction (`-`), multiplication (`*`), and division (`/`). These operators follow standard rules of precedence. For example, multiplication and division are performed before addition and subtraction. Precedence can be adjusted by using parentheses to ensure the correct order of operations. This capability empowers users to customize their unit conversions to meet specific needs or preferences, enhancing the overall utility and versatility of the system.
-
-For more complex calculations, functions like `sqrt` (which finds the square root of a number) are also available.
-
-### Available arithmetic, comparison, and Boolean operators grouped by precedence
+## Available operators by precedence
 
 | Operator | Description |
 |----------|-------------|

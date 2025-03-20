@@ -1,11 +1,9 @@
 ---
 title: Assign public IP addresses after failover with Azure Site Recovery 
 description: Describes how to set up public IP addresses with Azure Site Recovery and Azure Traffic Manager for disaster recovery and migration
-services: site-recovery
 author: ankitaduttaMSFT
-manager: rochakm
 ms.service: azure-site-recovery
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 10/31/2023
 ms.author: ankitadutta
 
@@ -14,7 +12,7 @@ ms.author: ankitadutta
 
 Public IP addresses serve two purposes in Azure. First, they allow inbound communication from Internet resources to Azure resources. Secondly, they enable Azure resources to communicate outbound to the Internet and public-facing Azure services that have an IP address assigned to the resource.
 
-- Allow inbound communication from the Internet to the resource, such as Azure Virtual Machines (VM), Azure Application Gateways, Azure Load Balancers, Azure VPN Gateways, and others. You can still communicate with some resources, such as VMs, from the Internet, if a VM doesn't have a public IP address assigned to it, as long as the VM is part of a load balancer back-end pool, and the load balancer is assigned a public IP address.
+- Allow inbound communication from the Internet to the resource, such as Azure Virtual Machines (VM), Azure Application Gateways, Azure Load Balancers, Azure VPN Gateways, and others. You can still communicate with some resources, such as virtual machines, from the Internet, if a virtual machines doesn't have a public IP address assigned to it, as long as the virtual machines is part of a load balancer back-end pool, and the load balancer is assigned a public IP address.
 - Outbound connectivity to the Internet using a predictable IP address. For example, a virtual machine can communicate outbound to the Internet without a public IP address assigned to it, but its address is network address translated by Azure to an unpredictable public address, by default. Assigning a public IP address to a resource enables you to know which IP address is used for the outbound connection. Though predictable, the address can change, depending on the assignment method chosen. For more information, see [Create a public IP address](../virtual-network/ip-services/virtual-network-public-ip-address.md#create-a-public-ip-address). To learn more about outbound connections from Azure resources, see [Understand outbound connections](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 In Azure Resource Manager, a Public IP address is a resource that has its own properties. Some of the resources you can associate a public IP address resource with are:
@@ -33,7 +31,7 @@ Public IP address of the production application **cannot be retained on failover
 The setup is as follows:
 
 - Create a [recovery plan](../site-recovery/site-recovery-create-recovery-plans.md#create-a-recovery-plan) and group your workloads as necessary into the plan.
-- Customize the plan by adding a step to attach a public IP address  using [Azure Automation runbooks](../site-recovery/site-recovery-runbook-automation.md#customize-the-recovery-plan) scripts to the failed over VM.
+- Customize the plan by adding a step to attach a public IP address  using [Azure Automation runbooks](../site-recovery/site-recovery-runbook-automation.md#customize-the-recovery-plan) scripts to the failed over virtual machines.
 
  
 ## Public endpoint switching with DNS level Routing

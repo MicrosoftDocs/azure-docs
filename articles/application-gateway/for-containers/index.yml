@@ -7,10 +7,9 @@ metadata:
   title: Azure Application Gateway for Containers documentation
   description: Learn about Azure Application Gateway for Containers, an application load balancer that enables you to manage traffic to your container workloads.
   services: application-gateway
-  ms.service: azure-application-gateway
-  ms.subservice: appgw-for-containers
+  ms.service: azure-appgw-for-containers
   ms.topic: landing-page
-  author: greglin
+  author: greg-lindsay
   ms.author: greglin
   ms.date: 02/27/2024
 
@@ -45,7 +44,7 @@ landingContent:
       - linkListType: whats-new
         links:
           - text: What's new
-            url: https://azure.microsoft.com/updates/?category=networking&query=Application%20Gateway%20for%20Containers
+            url: https://azure.microsoft.com/updates?searchterms=Application+Gateway+for+Containers
             
   # Card
   - title: Deploy Application Gateway for Containers

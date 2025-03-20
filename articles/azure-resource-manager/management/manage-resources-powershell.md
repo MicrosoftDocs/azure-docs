@@ -2,7 +2,7 @@
 title: Manage resources - Azure PowerShell
 description: Use Azure PowerShell and Azure Resource Manager to manage your resources. Shows how to deploy and delete resources. 
 ms.topic: conceptual
-ms.date: 03/19/2024
+ms.date: 02/10/2025
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 
@@ -89,7 +89,7 @@ For more information, see [Move resources to new resource group or subscription]
 
 ## Lock resources
 
-Locking prevents other users in your organization from accidentally deleting or modifying critical resources, such as Azure subscription, resource group, or resource. 
+Locking prevents other users in your organization from accidentally deleting or modifying critical resources, such as Azure subscription, resource group, or resource.
 
 The following script locks a storage account so the account can't be deleted.
 
@@ -123,7 +123,7 @@ For more information, see [Lock resources with Azure Resource Manager](lock-reso
 
 ## Tag resources
 
-Tagging helps organizing your resource group and resources logically. For information, see [Using tags to organize your Azure resources](tag-resources-powershell.md).
+Tagging helps you organize your resource group and resources logically. For information, see [Using tags to organize your Azure resources](tag-resources-powershell.md).
 
 ## Manage access to resources
 

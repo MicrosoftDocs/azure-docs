@@ -4,33 +4,350 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: yelevin
 ms.author: yelevin
 ms.topic: concept-article
-ms.date: 07/30/2024
+ms.date: 03/13/2025
+
+#Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
+
 ---
 
 # What's new in Microsoft Sentinel
 
-This article lists recent features added for Microsoft Sentinel, and new features in related services that provide an enhanced user experience in Microsoft Sentinel.
+This article lists recent features added for Microsoft Sentinel, and new features in related services that provide an enhanced user experience in Microsoft Sentinel. For new features in Microsoft's unified security operations (SecOps) platform, see the [unified SecOps platform documentation](/unified-secops-platform/whats-new).
 
 The listed features were released in the last three months. For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
- Get notified when this page is updated by copying and pasting the following URL into your feed reader:
-`https://aka.ms/sentinel/rss`
-
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+## March 2025
+
+- [Agentless connection to SAP now in public preview](#agentless-connection-to-sap-now-in-public-preview)
+
+### Agentless connection to SAP now in public preview
+
+The Microsoft Sentinel agentless data connector for SAP and related security content is now included, as public preview, in the solution for SAP applications. This update also includes the following enhancements for the agentless data connector:
+
+- **Enhanced instructions** in the portal for deploying and configuring the data connector. [External documentation](sap/preparing-sap.md#next-step) is updated to rely on the instructions in the portal.
+- **[More data ingested](sap/sap-solution-log-reference.md)**, such as Change Docs logs and User Master data.
+- **Optional parameters** to [Customize data connector behavior (optional)](sap/deploy-data-connector-agent-container.md#customize-data-connector-behavior-optional).
+- [**A new tool to verify system prerequisites and compatibility**](sap/preparing-sap.md#perform-initial-connector-configuration), recommended both before deploying and when [troubleshooting](sap/sap-deploy-troubleshoot.md#check-for-prerequisites).
+
+For more information, see:
+
+- [Microsoft Sentinel solution for SAP applications: Deployment overview](sap/deployment-overview.md)
+- [Microsoft Sentinel solution for SAP applications - functions reference](sap/sap-solution-function-reference.md)
+- [Troubleshooting your Microsoft Sentinel solution for SAP applications deployment](sap/sap-deploy-troubleshoot.md)
+
+## January 2025
+
+- [Optimize threat intelligence feeds with ingestion rules](#optimize-threat-intelligence-feeds-with-ingestion-rules)
+- [Matching analytics rule now generally available (GA)](#matching-analytics-rule-now-generally-available-ga)
+- [Threat intelligence management interface updated](#threat-intelligence-management-interface-has-moved)
+- [Unlock advanced hunting with new STIX objects by opting in to new threat intelligence tables](#unlock-advanced-hunting-with-new-stix-objects-by-opting-in-to-new-threat-intelligence-tables)
+- [Threat intelligence upload API now supports more STIX objects](#threat-intelligence-upload-api-now-supports-more-stix-objects)
+- [Microsoft Defender Threat Intelligence data connectors now generally available (GA)](#microsoft-defender-threat-intelligence-data-connectors-now-generally-available-ga)
+- [Bicep template support for repositories (Preview)](#bicep-template-support-for-repositories-preview)
+- [SOC optimization updates for unified coverage management](#soc-optimization-updates-for-unified-coverage-management)
+- [View granular solution content in the Microsoft Sentinel content hub](#view-granular-solution-content-in-the-microsoft-sentinel-content-hub)
+
+### Optimize threat intelligence feeds with ingestion rules
+
+Optimize threat intelligence feeds by filtering and enhancing objects before they're delivered to your workspace. Ingestion rules update threat intel object attributes, or filter objects out all together. Check out the blog announcement [here](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/introducing-threat-intelligence-ingestion-rules/4379019)!
+
+For more information, see [Understand threat intelligence ingestion rules](understand-threat-intelligence.md#configure-ingestion-rules).
+
+### Matching analytics rule now generally available (GA)
+
+Microsoft provides access to its premium threat intelligence through the Defender Threat Intelligence analytics rule which is now generally available (GA). For more information on how to take advantage of this rule, which generates high-fidelity alerts and incidents, see [Use matching analytics to detect threats](use-matching-analytics-to-detect-threats.md).
+
+### Threat intelligence management interface has moved
+
+Threat intelligence for Microsoft Sentinel in the Defender portal has changed! We've renamed the page **Intel management** and moved it with other threat intelligence workflows. There's no change for customers using Microsoft Sentinel in the Azure experience.
+
+:::image type="content" source="media/whats-new/intel-management-navigation.png" alt-text="Screenshot showing new menu placement for Microsoft Sentinel threat intelligence.":::
+
+Enhancements to threat intelligence capabilities are available for customers using both Microsoft Sentinel experiences. The management interface streamlines the creation and curation of threat intel with these key features:
+
+- Define relationships as you create new STIX objects.
+- Curate existing threat intelligence with the new relationship builder.
+- Create multiple objects quickly by copying common metadata from a new or existing TI object using a duplication feature.
+- Use advanced search to sort and filter your threat intelligence objects without even writing a Log Analytics query.
+
+For more information, see the following articles:
+- [New STIX objects in Microsoft Sentinel](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/announcing-public-preview-new-stix-objects-in-microsoft-sentinel/4369164)
+- [Understand threat intelligence](understand-threat-intelligence.md#create-and-manage-threat-intelligence)
+- [Uncover adversaries with threat intelligence in Microsoft's unified SecOps platform](/unified-secops-platform/threat-intelligence-overview)
+
+### Unlock advanced hunting with new STIX objects by opting in to new threat intelligence tables
+
+Tables supporting the new STIX object schema aren't available publicly. In order to query threat intelligence for STIX objects with KQL and unlock the hunting model that uses them, request to opt in with [this form](https://forms.office.com/r/903VU5x3hz?origin=lprLink). Ingest your threat intelligence into the new tables, `ThreatIntelIndicator` and `ThreatIntelObjects` alongside with or instead of the current table, `ThreatIntelligenceIndicator`, with this opt-in process.
+
+For more information, see the blog announcement [New STIX objects in Microsoft Sentinel](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/announcing-public-preview-new-stix-objects-in-microsoft-sentinel/4369164).
+
+### Threat intelligence upload API now supports more STIX objects
+
+Make the most of your threat intelligence platforms when you connect them to Microsoft Sentinel with the upload API. Now you can ingest more objects than just indicators, reflecting the varied threat intelligence available. The upload API supports the following STIX objects:
+
+- `indicator`
+- `attack-pattern`
+- `identity`
+- `threat-actor`
+- `relationship`
+
+For more information, see the following articles:
+
+- [Connect your threat intelligence platform with the upload API (Preview)](connect-threat-intelligence-upload-api.md)
+- [Import threat intelligence to Microsoft Sentinel with the upload API (Preview)](stix-objects-api.md)
+- [New STIX objects in Microsoft Sentinel](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/announcing-public-preview-new-stix-objects-in-microsoft-sentinel/4369164)
+
+### Microsoft Defender Threat Intelligence data connectors now generally available (GA)
+
+Both premium and standard Microsoft Defender Threat Intelligence data connectors are now generally available (GA) in content hub. For more information, see the following articles:
+
+- [Explore Defender Threat Intelligence licenses](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-defender-threat-intelligence#areaheading-oc8e7d)
+- [Enable the Microsoft Defender Threat Intelligence data connector](connect-mdti-data-connector.md)
+
+### Bicep template support for repositories (Preview)
+Use Bicep templates alongside or as a replacement of ARM JSON templates in Microsoft Sentinel repositories. Bicep provides an intuitive way to create templates of Azure resources and Microsoft Sentinel content items. Not only is it easier to develop new content items, Bicep makes reviewing and updating content easier for anyone that's a part of the continuous integration and delivery of your Microsoft Sentinel content.
+
+For more information, see [Plan your repository content](ci-cd-custom-content.md#plan-your-repository-content).
+
+
+### SOC optimization updates for unified coverage management
+
+In workspaces enabled for unified security operations, SOC optimizations now support both SIEM and XDR data, with detection coverage from across Microsoft Defender services. 
+
+In the Defender portal, the **SOC optimizations** and **MITRE ATT&CK** pages also now provide extra functionality for threat-based coverage optimizations to help you understand the impact of the recommendations on your environment and help you prioritize which to implement first.
+
+Enhancements include:
+
+|Area | Details|
+|-----|--------|
+|**SOC optimizations Overview page** | - A **High**, **Medium**, or **Low** score for your current detection coverage. This sort of scoring can help you decide which recommendations to prioritize at a glance. <br><br>- An indication of the number of active Microsoft Defender products (services) out of all available products. This helps you understand whether there's a whole product that you're missing in your environment. |
+| **Optimization details side pane**,<br> shown when you drill down to a specific optimization| - Detailed coverage analysis, including the number of user-defined detections, response actions, and products you have active. <br><br>- Detailed spider charts that show your coverage across different threat categories, for both user-defined and out-of-the-box detections. <br><br>- An option to jump to the specific threat scenario in the **MITRE ATT&CK** page instead of viewing MITRE ATT&CK coverage only in the side pane.<br><br>- An option to **View full threat scenario** to drill down to even further details about the security products and detections available to provide security coverage in your environment. |
+|**MITRE ATT&CK page** | - A new toggle to view coverage by threat scenario. If you've jumped to the **MITRE ATT&CK** page from either a recommendation details side pane or from the **View full threat scenario** page, the **MITRE ATT&CK** page is pre-filtered for your threat scenario. <br><br>- The technique details pane, shown on the side when you select a specific MITRE ATT&CK technique, now shows the number of active detections out of all available detections for that technique. |
+
+For more information, see [Optimize your security operations](soc-optimization/soc-optimization-access.md) and [Understand security coverage by the MITRE ATT&CK framework](mitre-coverage.md).
+
+### View granular solution content in the Microsoft Sentinel content hub
+
+Now you can view the individual content available in a specific solution directly from the **Content hub**, even before you've installed the solution. This new visibility helps you understand the content available to you, and more easily identify, plan, and install the specific solutions you need.
+
+Expand each solution in the Content hub to view included security content. For example:
+
+:::image type="content" source="media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of showing granular content.":::
+
+The granular solution content updates also include a generative AI-based search engine that helps you run more robust searches, diving deep into the solution content and returning results for similar terms.
+
+For more information, see [Discover content](sentinel-solutions-deploy.md#discover-content).
+
+## December 2024
+
+- [New SOC optimization recommendation based on similar organizations (Preview)](#new-soc-optimization-recommendation-based-on-similar-organizations-preview)
+- [Agentless deployment for SAP applications (Limited preview)](#agentless-deployment-for-sap-applications-limited-preview)
+- [Microsoft Sentinel workbooks now available to view directly in the Microsoft Defender portal](#microsoft-sentinel-workbooks-now-available-to-view-directly-in-the-microsoft-defender-portal)
+- [Unified Microsoft Sentinel solution for Microsoft Business Apps](#unified-microsoft-sentinel-solution-for-microsoft-business-apps)
+- [New documentation library for Microsoft's unified security operations platform](#new-documentation-library-for-microsofts-unified-security-operations-platform)
+- [New S3-based data connector for Amazon Web Services WAF logs (Preview)](#new-s3-based-data-connector-for-amazon-web-services-waf-logs-preview)
+
+### New SOC optimization recommendation based on similar organizations (Preview)
+
+SOC optimization now includes new recommendations for adding data sources to your workspace based on the security posture of other customers in similar industries and sectors as you, and with similar data ingestion patterns. Add the recommended data sources to improve security coverage for your organization.
+
+For more information, see [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md).
+
+### Agentless deployment for SAP applications (Limited preview)
+
+The Microsoft Sentinel solution for SAP applications now supports an agentless deployment, using SAP's own cloud platform features to provide simplified, agentless deployment and connectivity. Instead of deploying a virtual machine and containerized agent, use the SAP Cloud Connector and its existing connections to back-end ABAP systems to connect your SAP system to Microsoft Sentinel.
+
+The **Agentless solution** uses the SAP Cloud Connector and SAP Integration Suite, which are already familiar to most SAP customers. This significantly reduces deployment times, especially for those less familiar with Docker, Kubernetes, and Linux administration. By using the SAP Cloud Connector, the solution profits from already existing setups and established integration processes. This means you don't have to tackle network challenges again, as the people running your SAP Cloud Connector have already gone through that process.
+
+The **Agentless solution** is compatible with SAP S/4HANA Cloud, Private Edition RISE with SAP, SAP S/4HANA on-premises, and SAP ERP Central Component (ECC), ensuring continued functionality of existing security content, including detections, workbooks, and playbooks.
+
+> [!IMPORTANT]
+> Microsoft Sentinel's **Agentless solution** is in limited preview as a prereleased product, which may be substantially modified before it's commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here. Access to the **Agentless solution** also requires registration and is only available to approved customers and partners during the preview period. 
+
+For more information, see:
+
+- [Microsoft Sentinel for SAP goes agentless](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/microsoft-sentinel-for-sap-goes-agentless/ba-p/13960238)
+- [Sign up for the limited preview](https://aka.ms/SentinelSAPAgentlessSignUp)
+- [Microsoft Sentinel solution for SAP applications: Deployment overview](sap/deployment-overview.md)
+
+### Microsoft Sentinel workbooks now available to view directly in the Microsoft Defender portal
+
+Microsoft Sentinel workbooks are now available for viewing directly in the Microsoft Defender portal for unified security operations (SecOps). Now, in the Defender portal, when you select **Microsoft Sentinel > Threat management> Workbooks**, you remain in the Defender portal instead of a new tab being opened for workbooks in the Azure portal. Continue tabbing out to the Azure portal only when you need to edit your workbooks.
+
+Microsoft Sentinel workbooks are based on Azure Monitor workbooks, and help you visualize and monitor the data ingested to Microsoft Sentinel. Workbooks add tables and charts with analytics for your logs and queries to the tools already available.
+
+For more information, see [Visualize and monitor your data by using workbooks in Microsoft Sentinel](monitor-your-data.md) and [Connect Microsoft Sentinel to Microsoft Defender XDR](/defender-xdr/microsoft-sentinel-onboard).
+
+### Unified Microsoft Sentinel solution for Microsoft Business Apps
+
+Microsoft Sentinel now provides a unified solution for Microsoft Power Platform, Microsoft Dynamics 365 Customer Engagement, and Microsoft Dynamics 365 Finance and Operations. The solution includes data connectors and security content for all platforms.
+
+The updated solution removes the **Dynamics 365 CE Apps** and the **Dynamics 365 Finance and Operations** solutions from the Microsoft Sentinel **Content hub**. Existing customers will see that these solutions are renamed to the **Microsoft Business Applications** solution.
+
+The updated solution also removes the Power Platform Inventory data connector. While the Power Platform Inventory data connector continues to be supported on workspaces where it's already deployed, it isn't available for new deployments in other workspaces.
+
+For more information, see:
+
+- [What is the Microsoft Sentinel solution for Microsoft Business Apps?](business-applications/solution-overview.md)
+
+- Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement:
+
+    - [Connect Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement to Microsoft Sentinel](business-applications/deploy-power-platform-solution.md)
+    - [Security content reference for Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement](business-applications/power-platform-solution-security-content.md)
+
+- Microsoft Dynamics 365 Finance and Operations:
+
+    - [Deploy Microsoft Sentinel solution for Dynamics 365 Finance and Operations](dynamics-365/deploy-dynamics-365-finance-operations-solution.md)
+    - [Security content reference for Dynamics 365 Finance and Operations](dynamics-365/dynamics-365-finance-operations-security-content.md)
+
+### New documentation library for Microsoft's unified security operations platform
+
+Find centralized documentation about [Microsoft's unified SecOps platform in the Microsoft Defender portal](/unified-secops-platform/overview-unified-security). Microsoft's unified SecOps platform brings together the full capabilities of Microsoft Sentinel, Microsoft Defender XDR, Microsoft Security Exposure Management, and generative AI into the Defender portal. Learn about the features and functionality available with Microsoft's unified SecOps platform, then start to plan your deployment.
+
+### New S3-based data connector for Amazon Web Services WAF logs (Preview)
+
+Ingest logs from Amazon Web Services' web application firewall (WAF) with Microsoft Sentinel's new S3-based connector. This connector features, for the first time, a quick and easy automated setup, making use of AWS CloudFormation templates for resource creation. Send your AWS WAF logs to an S3 bucket, where our data connector retrieves and ingests them.
+
+For more details and setup instructions, see [Connect Microsoft Sentinel to Amazon Web Services to ingest AWS WAF logs](connect-aws-s3-waf.md).
+
+## November 2024
+
+- [Microsoft Sentinel availability in Microsoft Defender portal](#microsoft-sentinel-availability-in-microsoft-defender-portal)
+
+### Microsoft Sentinel availability in Microsoft Defender portal
+
+We previously announced Microsoft Sentinel is generally available within Microsoft's unified security operations platform in the Microsoft Defender portal.
+
+Now, **in preview**, Microsoft Sentinel is available in the Defender portal even without Microsoft Defender XDR or a Microsoft 365 E5 license. For more information, see:
+
+ - [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
+ - [Connect Microsoft Sentinel to the Microsoft Defender portal](/defender-xdr/microsoft-sentinel-onboard)
+
+## October 2024
+
+- [Updates for the Microsoft Sentinel solution for Microsoft Power Platform](#updates-for-the-microsoft-sentinel-solution-for-microsoft-power-platform)
+
+### Updates for the Microsoft Sentinel solution for Microsoft Power Platform
+
+Starting on October 17, 2024, audit logging data for Power Apps, Power Platform DLP, and Power Platform Connectors is routed to the `PowerPlatformAdminActivity` table instead of the `PowerAppsActivity`, `PowerPlatformDlpActivity` and `PowerPlatformConnectorActivity` tables.
+
+Security content in the Microsoft Sentinel solution for Microsoft Power Platform is updated with the new table and schemas for the Power Apps, Power Platform DLP, and Power Platform Connectors. We recommend that you update the Power Platform solution in your workspace to the latest version and apply the updated analytics rule templates to benefit from the changes. For more information, see [Install or update content](sentinel-solutions-deploy.md#install-or-update-content).
+
+Customers using deprecated data connectors for Power Apps, Power Platform DLP, and Power Platform Connectors can safely disconnect and remove these connectors from their Microsoft Sentinel workspace. All associated data flows are ingested using Power Platform Admin Activity connector.
+
+For more information, see [Message center](https://portal.office.com/adminportal/home?#/MessageCenter/:/messages/MC912045).
+- [Microsoft Sentinel availability in Microsoft Defender portal](#microsoft-sentinel-availability-in-microsoft-defender-portal)
+
+## September 2024
+
+- [Schema mapping added to the SIEM migration experience](#schema-mapping-added-to-the-siem-migration-experience)
+- [Third-party enrichment widgets to be retired in February 2025](#third-party-enrichment-widgets-to-be-retired-in-february-2025)
+- [Azure reservations now have pre-purchase plans available for Microsoft Sentinel](#pre-purchase-plans-now-available-for-microsoft-sentinel)
+- [Import/export of automation rules now generally available (GA)](#importexport-of-automation-rules-now-generally-available-ga)
+- [Google Cloud Platform data connectors are now generally available (GA)](#google-cloud-platform-data-connectors-are-now-generally-available-ga)
+- [Microsoft Sentinel now generally available (GA) in Azure Israel Central](#microsoft-sentinel-now-generally-available-ga-in-azure-israel-central)
+
+### Schema mapping added to the SIEM migration experience
+
+Since the SIEM migration experience became generally available in May 2024, steady improvements have been made to help migrate your security monitoring from Splunk. The following new features let customers provide more contextual details about their Splunk environment and usage to the Microsoft Sentinel SIEM Migration translation engine:
+
+- Schema Mapping
+- Support for Splunk Macros in translation
+- Support for Splunk Lookups in translation
+
+To learn more about these updates, see [SIEM migration experience](siem-migration.md).
+
+For more information about the SIEM migration experience, see the following articles:
+- [Become a Microsoft Sentinel ninja - migration section](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/become-a-microsoft-sentinel-ninja-the-complete-level-400/ba-p/1246310#toc-hId-111398316)
+- [SIEM migration update - Microsoft Sentinel blog](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/siem-migration-update-now-migrate-with-contextual-depth-in/ba-p/4241234)
+
+### Third-party enrichment widgets to be retired in February 2025
+
+Effective immediately, you can no longer enable the feature to create enrichment widgets that retrieve data from external, third-party data sources. These widgets are displayed on Microsoft Sentinel entity pages and in other locations where entity information is presented. This change is happening because you can no longer create the Azure key vault required to access these external data sources.
+
+If you already use any third-party enrichment widgets, that is, if this key vault already exists, you can still configure and use widgets that you weren't using before, though we don't recommend doing so.
+
+As of **February 2025**, any existing enrichment widgets that retrieve data from third-party sources will *stop being displayed*, on entity pages or anywhere else.
+
+If your organization uses third-party enrichment widgets, we recommend disabling them in advance, by deleting the key vault you created for this purpose from its resource group. The key vault's name begins with "widgets".
+
+Enrichment widgets based on first-party data sources are not affected by this change, and will continue to function as before. "First-party data sources" include any data that's already ingested into Microsoft Sentinel from external sources&mdash;in other words, anything in tables in your Log Analytics workspace&mdash;and Microsoft Defender Threat Intelligence.
+
+### Pre-purchase plans now available for Microsoft Sentinel
+
+Pre-purchase plans are a type of Azure reservation. When you buy a pre-purchase plan, you get commit units (CUs) at discounted tiers for a specific product. Microsoft Sentinel commit units (SCUs) apply towards eligible costs in your workspace. When you have predictable costs, choosing the right pre-purchase plan saves you money! 
+
+For more information, see [Optimize costs with a pre-purchase plan](billing-pre-purchase-plan.md).
+
+### Import/export of automation rules now generally available (GA)
+
+The ability to export automation rules to Azure Resource Manager (ARM) templates in JSON format, and to import them from ARM templates, is now generally available after a [short preview period](#export-and-import-automation-rules-preview).
+
+Learn more about [exporting and importing automation rules](import-export-automation-rules.md).
+
+### Google Cloud Platform data connectors are now generally available (GA)
+
+Microsoft Sentinel's [Google Cloud Platform (GCP) data connectors](connect-google-cloud-platform.md), based on our [Codeless Connector Platform (CCP)](create-codeless-connector.md), are now **generally available**. With these connectors, you can ingest logs from your GCP environment using the GCP [Pub/Sub capability](https://cloud.google.com/pubsub/docs/overview):
+
+- The **Google Cloud Platform (GCP) Pub/Sub Audit Logs connector** collects audit trails of access to GCP resources. Analysts can monitor these logs to track resource access attempts and detect potential threats across the GCP environment.
+
+- The **Google Cloud Platform (GCP) Security Command Center connector** collects findings from Google Security Command Center, a robust security and risk management platform for Google Cloud. Analysts can view these findings to gain insights into the organization's security posture, including asset inventory and discovery, detections of vulnerabilities and threats, and risk mitigation and remediation.
+
+For more information on these connectors, see [Ingest Google Cloud Platform log data into Microsoft Sentinel](connect-google-cloud-platform.md).
+
+### Microsoft Sentinel now generally available (GA) in Azure Israel Central
+
+Microsoft Sentinel is now available in the *Israel Central* Azure region, with the same feature set as all other Azure Commercial regions.
+
+For more information, see as [Microsoft Sentinel feature support for Azure commercial/other clouds](feature-availability.md) and [Geographical availability and data residency in Microsoft Sentinel](geographical-availability-data-residency.md).
 
 ## August 2024
 
+- [Log Analytics agent retirement](#log-analytics-agent-retirement)
+- [Export and import automation rules (Preview)](#export-and-import-automation-rules-preview)
+- [Microsoft Sentinel support in Microsoft Defender multitenant management (Preview)](#microsoft-sentinel-support-in-microsoft-defender-multitenant-management-preview)
 - [Premium Microsoft Defender Threat Intelligence data connector (Preview)](#premium-microsoft-defender-threat-intelligence-data-connector-preview)
 - [Unified AMA-based connectors for syslog ingestion](#unified-ama-based-connectors-for-syslog-ingestion)
 - [Better visibility for Windows security events](#better-visibility-for-windows-security-events)
 - [New Auxiliary logs retention plan (Preview)](#new-auxiliary-logs-retention-plan-preview)
 - [Create summary rules for large sets of data (Preview)](#create-summary-rules-in-microsoft-sentinel-for-large-sets-of-data-preview)
 
+### Log Analytics agent retirement
+
+As of August 31, 2024, the [Log Analytics Agent (MMA/OMS) is retired](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). 
+
+Log collection from many appliances and devices is now supported by the Common Event Format (CEF) via AMA, Syslog via AMA, or Custom Logs via AMA data connector in Microsoft Sentinel. If you've been using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you migrate to the Azure Monitor Agent (AMA). 
+
+For more information, see:
+
+- [Find your Microsoft Sentinel data connector](data-connectors-reference.md)
+- [Migrate to Azure Monitor Agent from Log Analytics agent](/azure/azure-monitor/agents/azure-monitor-agent-migration)
+- [AMA migration for Microsoft Sentinel](ama-migrate.md)
+- Blogs:
+    - [Revolutionizing log collection with Azure Monitor Agent](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/revolutionizing-log-collection-with-azure-monitor-agent/ba-p/4218129)
+    - [The power of Data Collection Rules: Collecting events for advanced use cases in Microsoft USOP](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/the-power-of-data-collection-rules-collecting-events-for/ba-p/4236486)
+
+### Export and import automation rules (Preview)
+
+Manage your Microsoft Sentinel automation rules as code! You can now export your automation rules to Azure Resource Manager (ARM) template files, and import rules from these files, as part of your program to manage and control your Microsoft Sentinel deployments as code. The export action will create a JSON file in your browser's downloads location, that you can then rename, move, and otherwise handle like any other file.
+
+The exported JSON file is workspace-independent, so it can be imported to other workspaces and even other tenants. As code, it can also be version-controlled, updated, and deployed in a managed CI/CD framework.
+
+The file includes all the parameters defined in the automation rule. Rules of any trigger type can be exported to a JSON file.
+
+Learn more about [exporting and importing automation rules](import-export-automation-rules.md).
+
+### Microsoft Sentinel support in Microsoft Defender multitenant management (Preview)
+
+If you've onboarded Microsoft Sentinel to the Microsoft unified security operations platform, Microsoft Sentinel data is now available with Defender XDR data in Microsoft Defender multitenant management. Only one Microsoft Sentinel workspace per tenant is currently supported in the Microsoft unified security operations platform. So, Microsoft Defender multitenant management shows security information and event management (SIEM) data from one Microsoft Sentinel workspace per tenant. For more information, see [Microsoft Defender multitenant management](/defender-xdr/mto-overview) and [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md).
+
 ### Premium Microsoft Defender Threat Intelligence data connector (Preview)
 
 Your premium license for Microsoft Defender Threat Intelligence (MDTI) now unlocks the ability to ingest all premium indicators directly into your workspace. The premium MDTI data connector adds more to your hunting and research capabilities within Microsoft Sentinel. 
 
-For more information, see [Understand threat intelligence](understand-threat-intelligence.md#add-threat-indicators-to-microsoft-sentinel-with-the-microsoft-defender-threat-intelligence-data-connector). 
+For more information, see [Understand threat intelligence](understand-threat-intelligence.md#add-threat-intelligence-to-microsoft-sentinel-with-the-defender-threat-intelligence-data-connector). 
 
 ### Unified AMA-based connectors for syslog ingestion
 
@@ -60,7 +377,7 @@ The new **Auxiliary logs** retention plan for Log Analytics tables allows you to
 
 To learn more about Auxiliary logs and compare with Analytics logs, see [Log retention plans in Microsoft Sentinel](log-plans.md).
 
-For more in-depth information about the different log management plans, see [**Table plans**](../azure-monitor/logs/data-platform-logs.md#table-plans) in the [Azure Monitor Logs overview](../azure-monitor/logs/data-platform-logs.md) article from the Azure Monitor documentation.
+For more in-depth information about the different log management plans, see [**Table plans**](/azure/azure-monitor/logs/data-platform-logs#table-plans) in the [Azure Monitor Logs overview](/azure/azure-monitor/logs/data-platform-logs) article from the Azure Monitor documentation.
 
 ### Create summary rules in Microsoft Sentinel for large sets of data (Preview)
 
@@ -68,248 +385,9 @@ Microsoft Sentinel now provides the ability to create dynamic summaries using [A
 
 - Access summary rule results via Kusto Query Language (KQL) across detection, investigation, hunting, and reporting activities.
 - Run high performance Kusto Query Language (KQL) queries on summarized data.
-- Use summary rule results for longer in investigations, hunting, and compliance activities.
+- Use summary rule results for longer periods in investigations, hunting, and compliance activities.
 
 For more information, see [Aggregate Microsoft Sentinel data with summary rules](summary-rules.md).
-
-## July 2024
-
-- [SOC optimizations now generally available](#soc-optimizations-now-generally-available)
-- [SAP Business Technology Platform (BTP) connector now generally available](#sap-business-technology-platform-btp-connector-now-generally-available-ga)
-- [Microsoft unified security platform now generally available](#microsoft-unified-security-platform-now-generally-available)
-
-### SOC optimizations now generally available
-
-The SOC optimization experience in both the Azure and Defender portals is now generally available for all Microsoft Sentinel customers, including both data value and threat-based recommendations.
-
-- **Use data value recommendations** to improve your data usage of ingested billable logs, gain visibility to underused logs, and discover the right detections for those logs or the right adjustments to your log tier or ingestion.
-
-- **Use threat-based recommendations** to help identify gaps in coverage against specific attacks based on Microsoft research and mitigate them by ingesting the recommended logs and adding recommended detections.
-
-The [`recommendations`](soc-optimization/soc-optimization-api.md) API is still in Preview. 
-
-For more information, see:
-
-- [Optimize your security operations](soc-optimization/soc-optimization-access.md)
-- [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md)
-
-### SAP Business Technology Platform (BTP) connector now generally available (GA)
-
-The Microsoft Sentinel Solution for SAP BTP is now generally available (GA). This solution provides visibility into your SAP BTP environment, and helps you detect and respond to threats and suspicious activities.
-
-For more information, see:
-
-- [Microsoft Sentinel Solution for SAP Business Technology Platform (BTP)](sap/sap-btp-solution-overview.md)
-- [Deploy the Microsoft Sentinel solution for SAP BTP](sap/deploy-sap-btp-solution.md)
-- [Microsoft Sentinel Solution for SAP BTP: security content reference](sap/sap-btp-security-content.md)
-
-### Microsoft unified security platform now generally available
-
-Microsoft Sentinel is now generally available within the Microsoft unified security operations platform in the Microsoft Defender portal. The Microsoft unified security operations platform brings together the full capabilities of Microsoft Sentinel, Microsoft Defender XDR, and Microsoft Copilot in Microsoft Defender. For more information, see the following resources:
-
-- Blog post: [General availability of the  Microsoft unified security operations platform](https://aka.ms/unified-soc-announcement)
-- [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
-- [Connect Microsoft Sentinel to Microsoft Defender XDR](/defender-xdr/microsoft-sentinel-onboard)
-- [Microsoft Copilot in Microsoft Defender](/defender-xdr/security-copilot-in-microsoft-365-defender)
-
-## June 2024
-
-- [Codeless Connector Platform now generally available](#codeless-connector-platform-now-generally-available)
-- [Advanced threat indicator search capability available](#advanced-threat-indicator-search-capability-available)
-
-### Codeless Connector Platform now generally available
-
-The Codeless Connector Platform (CCP), is now generally available (GA). Check out the [announcement blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/what-s-new-create-your-own-codeless-data-connector/ba-p/4174439).
-
-For more information on the CCP enhancements and capabilities, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md).
-
-### Advanced threat indicator search capability available
-
-Threat intelligence search and filtering capabilities have been enhanced, and the experience now has parity across the Microsoft Sentinel and Microsoft Defender portals. Search supports a maximum of 10 conditions with each containing up to 3 subclauses.
-
-For more information, see the updated screenshot in [View and manage your threat indicators](understand-threat-intelligence.md#view-and-manage-your-threat-indicators).
-
-## May 2024
-
-- [Optimize your security operations with SOC optimizations](#optimize-your-security-operations-with-soc-optimizations-preview)
-- [Incident and entity triggers in playbooks are now Generally Available (GA)](#incident-and-entity-triggers-in-playbooks-are-now-generally-available-ga)
-
-### Incident and entity triggers in playbooks are now Generally Available (GA)
-
-The ability to use incident and entity triggers is playbooks is now supported as GA.
-
-:::image type="content" source="media/whats-new/sentinel-triggers-ga.png" alt-text="Screenshot of the Microsoft Sentinel incident and entity options with no preview notice.":::
-
-For more information, see [Create a playbook](tutorial-respond-threats-playbook.md#create-a-playbook).
-
-### Optimize your security operations with SOC optimizations (preview)
-
-Microsoft Sentinel now provides SOC optimizations, which are high-fidelity and actionable recommendations that help you identify areas where you can reduce costs, without affecting SOC needs or coverage, or where you can add security controls and data where its found to be missing.
-
-Use SOC optimization recommendations to help you close coverage gaps against specific threats and tighten your ingestion rates against data that doesn't provide security value. SOC optimizations help you optimize your Microsoft Sentinel workspace, without having your SOC teams spend time on manual analysis and research.
-
-If your workspace is onboarded to the unified security operations platform, SOC optimizations are also available in the Microsoft Defender portal.
-
-For more information, see:
-
-- [Optimize your security operations](soc-optimization/soc-optimization-access.md)
-- [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md)
-
-
-## April 2024
-
-- [Unified security operations platform in the Microsoft Defender portal (preview)](#unified-security-operations-platform-in-the-microsoft-defender-portal-preview)
-- [Microsoft Sentinel now generally available (GA) in Azure China 21Vianet](#microsoft-sentinel-now-generally-available-ga-in-azure-china-21vianet)
-- [Two anomaly detections discontinued](#two-anomaly-detections-discontinued)
-- [Microsoft Sentinel now available in Italy North region](#microsoft-sentinel-is-now-available-in-italy-north-region)
-
-### Unified security operations platform in the Microsoft Defender portal (preview)
-
-The unified security operations platform in the Microsoft Defender portal is now available. This release brings together the full capabilities of Microsoft Sentinel, Microsoft Defender XDR, and Microsoft Copilot in Microsoft Defender. For more information, see the following resources:
-
-- Blog announcement: [​​Unified security operations platform with Microsoft Sentinel and Microsoft Defender XDR](https://aka.ms/unified-soc-announcement)
-- [Microsoft Sentinel in the Microsoft Defender portal](https://go.microsoft.com/fwlink/p/?linkid=2263690)
-- [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard)
-- [Microsoft Security Copilot in Microsoft Defender XDR](/microsoft-365/security/defender/security-copilot-in-microsoft-365-defender)
-
-### Microsoft Sentinel now generally available (GA) in Azure China 21Vianet
-
-Microsoft Sentinel is now generally available (GA) in Azure China 21Vianet. Individual features might still be in public preview, as listed on [Microsoft Sentinel feature support for Azure commercial/other clouds](feature-availability.md).
-
-For more information, see also [Geographical availability and data residency in Microsoft Sentinel](geographical-availability-data-residency.md).
-
-### Two anomaly detections discontinued
-
-The following anomaly detections are discontinued as of March 26, 2024, due to low quality of results:
-- Domain Reputation Palo Alto anomaly
-- Multi-region logins in a single day via Palo Alto GlobalProtect
-
-For the complete list of anomaly detections, see the [anomalies reference page](anomalies-reference.md).
-
-### Microsoft Sentinel is now available in Italy North region
-
-Microsoft Sentinel is now available in Italy North Azure region with the same feature set as all other Azure Commercial regions as listed on [Microsoft Sentinel feature support for Azure commercial/other clouds](feature-availability.md).
-
-For more information, see also [Geographical availability and data residency in Microsoft Sentinel](geographical-availability-data-residency.md).
-
-## March 2024
-
-- [SIEM migration experience now generally available (GA)](#siem-migration-experience-now-generally-available-ga)
-- [Amazon Web Services S3 connector now generally available (GA)](#amazon-web-services-s3-connector-now-generally-available-ga)
-- [Codeless Connector builder (preview)](#codeless-connector-builder-preview)
-- [Data connectors for Syslog and CEF based on Azure Monitor Agent now generally available (GA)](#data-connectors-for-syslog-and-cef-based-on-azure-monitor-agent-now-generally-available-ga)
-
-### SIEM migration experience now generally available (GA)
-
-At the beginning of the month, we announced the SIEM migration preview. Now at the end of the month, it's already GA! The new Microsoft Sentinel Migration experience helps customers and partners automate the process of migrating their security monitoring use cases hosted in non-Microsoft products into Microsoft Sentinel.
-- This first version of the tool supports migrations from Splunk
-
-For more information, see [Migrate to Microsoft Sentinel with the SIEM migration experience](siem-migration.md)
-
-Join our Security Community for a [webinar](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR_0A4IaJRDNBnp8pjCkWnwhUM1dFNFpVQlZJREdEQjkwQzRaV0RZRldEWC4u) showcasing the SIEM migration experience on May 2nd, 2024. 
-
-### Amazon Web Services S3 connector now generally available (GA)
-
-Microsoft Sentinel has released the AWS S3 data connector to general availability (GA). You can use this connector to ingest logs from several AWS services to Microsoft Sentinel using an S3 bucket and AWS's simple message queuing service.
-
-Concurrent with this release, this connector's configuration has changed slightly for Azure Commercial Cloud customers. User authentication to AWS is now done using an OpenID Connect (OIDC) web identity provider, instead of through the Microsoft Sentinel application ID in combination with the customer workspace ID. Existing customers can continue using their current configuration for the time being, and will be notified well in advance of the need to make any changes.
-
-To learn more about the AWS S3 connector, see [Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data](connect-aws.md)
-
-### Codeless connector builder (preview)
-
-We now have a workbook to help navigate the complex JSON involved in deploying an ARM template for codeless connector platform (CCP) data connectors. Use the friendly interface of the **codeless connector builder** to simplify your development. 
-
-See our blog post for more details, [Create Codeless Connectors with the Codeless Connector Builder (Preview)](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/create-codeless-connectors-with-the-codeless-connector-builder/ba-p/4082050).
-
-For more information on the CCP, see [Create a codeless connector for Microsoft Sentinel (Public preview)](create-codeless-connector.md).
-
-
-### Data connectors for Syslog and CEF based on Azure Monitor Agent now generally available (GA)
-
-Microsoft Sentinel has released two more data connectors based on the Azure Monitor Agent (AMA) to general availability. You can now use these connectors to deploy Data Collection Rules (DCRs) to Azure Monitor Agent-installed machines to collect Syslog messages, including those in Common Event Format (CEF).
-
-To learn more about the Syslog and CEF connectors, see [Ingest Syslog and CEF logs with the Azure Monitor Agent](connect-cef-syslog-ama.md).
-
-## February 2024
-
-- [Microsoft Sentinel solution for Microsoft Power Platform preview available](#microsoft-sentinel-solution-for-microsoft-power-platform-preview-available)
-- [New Google Pub/Sub-based connector for ingesting Security Command Center findings (Preview)](#new-google-pubsub-based-connector-for-ingesting-security-command-center-findings-preview)
-- [Incident tasks now generally available (GA)](#incident-tasks-now-generally-available-ga)
-- [AWS and GCP data connectors now support Azure Government clouds](#aws-and-gcp-data-connectors-now-support-azure-government-clouds)
-- [Windows DNS Events via AMA connector now generally available (GA)](#windows-dns-events-via-ama-connector-now-generally-available-ga)
-
-### Microsoft Sentinel solution for Microsoft Power Platform preview available
-
-The Microsoft Sentinel solution for Power Platform (preview) allows you to monitor and detect suspicious or malicious activities in your Power Platform environment. The solution collects activity logs from different Power Platform components and inventory data. It analyzes those activity logs to detect threats and suspicious activities like the following activities:
-
-- Power Apps execution from unauthorized geographies
-- Suspicious data destruction by Power Apps
-- Mass deletion of Power Apps
-- Phishing attacks made possible through Power Apps
-- Power Automate flows activity by departing employees
-- Microsoft Power Platform connectors added to the environment
-- Update or removal of Microsoft Power Platform data loss prevention policies
-
-Find this solution in the Microsoft Sentinel content hub.
-
-For more information, see:
-- [Microsoft Sentinel solution for Microsoft Power Platform overview](business-applications/power-platform-solution-overview.md)
-- [Microsoft Sentinel solution for Microsoft Power Platform: security content reference](business-applications/power-platform-solution-security-content.md)
-- [Deploy the Microsoft Sentinel solution for Microsoft Power Platform](business-applications/deploy-power-platform-solution.md)
-
-### New Google Pub/Sub-based connector for ingesting Security Command Center findings (Preview)
-
-You can now ingest logs from Google Security Command Center, using the new Google Cloud Platform (GCP) Pub/Sub-based connector (now in PREVIEW).
-
-The Google Cloud Platform (GCP) Security Command Center is a robust security and risk management platform for Google Cloud. It provides features such as asset inventory and discovery, detection of vulnerabilities and threats, and risk mitigation and remediation. These capabilities help you gain insights into and control over your organization's security posture and data attack surface, and enhance your ability to efficiently handle tasks related to findings and assets.
-
-The integration with Microsoft Sentinel allows you to have visibility and control over your entire multicloud environment from a "single pane of glass."
-
-- Learn how to [set up the new connector](connect-google-cloud-platform.md) and ingest events from Google Security Command Center.
-
-
-### Incident tasks now generally available (GA)
-
-Incident tasks, which help you standardize your incident investigation and response practices so you can more effectively manage incident workflow, are now generally available (GA) in Microsoft Sentinel.
-
-- Learn more about incident tasks in the Microsoft Sentinel documentation:
-    - [Use tasks to manage incidents in Microsoft Sentinel](incident-tasks.md)
-    - [Work with incident tasks in Microsoft Sentinel](work-with-tasks.md)
-    - [Audit and track changes to incident tasks in Microsoft Sentinel](audit-track-tasks.md)
-
-- See [this blog post by Benji Kovacevic](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/create-tasks-repository-in-microsoft-sentinel/ba-p/4038563) that shows how you can use incident tasks in combination with watchlists, automation rules, and playbooks to build a task management solution with two parts:
-    - A repository of incident tasks.
-    - A mechanism that automatically attaches tasks to newly created incidents, according to the incident title, and assigns them to the proper personnel.
-
-### AWS and GCP data connectors now support Azure Government clouds
-
-Microsoft Sentinel data connectors for Amazon Web Services (AWS) and Google Cloud Platform (GCP) now include supporting configurations to ingest data into workspaces in Azure Government clouds.
-
-The configurations for these connectors for Azure Government customers differ slightly from the public cloud configuration. See the relevant documentation for details:
-
-- [Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data](connect-aws.md)
-- [Ingest Google Cloud Platform log data into Microsoft Sentinel](connect-google-cloud-platform.md)
-
-### Windows DNS Events via AMA connector now generally available (GA)
-
-Windows DNS events can now be ingested to Microsoft Sentinel using the Azure Monitor Agent with the now generally available data connector. This connector allows you to define Data Collection Rules (DCRs) and powerful, complex filters so that you ingest only the specific DNS records and fields you need.
-
-- For more information, see [Stream and filter data from Windows DNS servers with the AMA connector](connect-dns-ama.md).
-
-## January 2024
-
-[Reduce false positives for SAP systems with analytics rules](#reduce-false-positives-for-sap-systems-with-analytics-rules)
-
-### Reduce false positives for SAP systems with analytics rules
-
-Use analytics rules together with the [Microsoft Sentinel solution for SAP applications](sap/solution-overview.md) to lower the number of false positives triggered from your SAP systems. The Microsoft Sentinel solution for SAP applications now includes the following enhancements:
-
-- The [**SAPUsersGetVIP**](sap/sap-solution-log-reference.md#sapusersgetvip) function now supports excluding users according to their SAP-given roles or profile.
-
-- The **SAP_User_Config** watchlist now supports using wildcards in the **SAPUser** field to exclude all users with a specific syntax.
-
-For more information, see [Microsoft Sentinel solution for SAP applications data reference](sap/sap-solution-log-reference.md) and [Handle false positives in Microsoft Sentinel](false-positives.md).
 
 ## Next steps
 

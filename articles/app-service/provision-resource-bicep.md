@@ -6,6 +6,7 @@ ms.author: msangapu
 ms.topic: article
 ms.custom: devx-track-bicep
 ms.date: 11/18/2022
+zone_pivot_groups: app-service-bicep
 ---
 
 # Create App Service app using Bicep
@@ -21,6 +22,8 @@ Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy
 To effectively create resources with Bicep, you'll need to set up a Bicep [development environment](../azure-resource-manager/bicep/install.md). The Bicep extension for [Visual Studio Code](https://code.visualstudio.com/) provides language support and resource autocompletion. The extension helps you create and validate Bicep files and is recommended for those developers that will create resources using Bicep after completing this quickstart.
 
 ## Review the template
+
+::: zone pivot="app-service-bicep-linux"
 
 The template used in this quickstart is shown below. It deploys an App Service plan and an App Service app on Linux and a sample Node.js "Hello World" app from the [Azure Samples](https://github.com/Azure-Samples) repo.
 
@@ -112,6 +115,82 @@ To deploy a different language stack, update `linuxFxVersion` with appropriate v
 | **Python**  | linuxFxVersion="PYTHON&#124;3.8"                     |
 
 ---
+
+::: zone-end  
+
+::: zone pivot="app-service-bicep-windows-container"
+
+The template used in this quickstart is shown below. It deploys an App Service plan and an App Service app on Windows and a sample .NET "Hello World" app from the [Azure Samples](https://github.com/Azure-Samples) repo.
+
+```bicep
+param webAppName string = uniqueString(resourceGroup().id) // generate unique name for web app
+param location string = resourceGroup().location // location for all resources
+param sku string = 'P1V3' // The SKU of App Service Plan
+param dockerContainerImage string = 'mcr.microsoft.com/dotnet/framework/samples:aspnetapp' // sample .NET app
+var appServicePlanName = toLower('ASP-${webAppName}') // generate unique name for App Service Plan
+
+resource appServicePlan 'Microsoft.Web/serverfarms@2021-02-01' = {
+  name: appServicePlanName
+  location: location
+  sku: {
+    name: sku
+  }
+  properties: {
+    hyperV: true
+  }
+}
+
+resource webApp 'Microsoft.Web/sites@2024-04-01' = {
+  name: webAppName
+  location: location
+  kind:'app,container,windows'
+  properties: {
+    serverFarmId: appServicePlan.id
+    siteConfig: {
+      windowsFxVersion: 'DOCKER|${dockerContainerImage}'
+      appCommandLine: ''
+      alwaysOn: true
+      minTlsVersion: '1.3'
+    }
+    httpsOnly: true
+  }
+}
+
+```
+
+Two Azure resources are defined in the template:
+
+* [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): create an App Service plan.
+* [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create an App Service app.
+
+This template contains several parameters that are predefined for your convenience. See the table below for parameter defaults and their descriptions:
+
+| Parameters | Type    | Default value                | Description |
+|------------|---------|------------------------------|-------------|
+| webAppName | string  | "webApp-**[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)**" | App name |
+| location   | string  | "[[resourceGroup().location](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)]" | App region |
+| sku        | string  | "P1V3"                         | Instance size  |
+| appServicePlanName        | string  | "toLower('ASP-${webAppName}')"              | App Service Plan name  |
+| dockerContainerImage    | string  | "mcr.microsoft.com/dotnet/framework/samples:aspnetapp"    | container image sample |
+
+---
+
+## Deploy the template
+
+Copy and paste the template to your preferred editor/IDE and save the file to your local working directory.
+
+Azure CLI is used here to deploy the template. You can also use the Azure portal, Azure PowerShell, and REST API. To learn other deployment methods, see [Bicep Deployment Commands](../azure-resource-manager/bicep/deploy-cli.md).
+
+The following code creates a resource group, an App Service plan, and a web app. A default resource group, App Service plan, and location have been set for you. Replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`).
+
+Open up a terminal where the Azure CLI is installed and run the code below to create a .NET app.
+
+```azurecli-interactive
+az group create --name myResourceGroup --location "southcentralus" &&
+az deployment group create --resource-group myResourceGroup --template-file <path-to-template>
+```
+
+::: zone-end 
 
 ## Validate the deployment
 

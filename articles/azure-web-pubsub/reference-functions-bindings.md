@@ -17,7 +17,7 @@ Web PubSub is an Azure-managed service that helps developers easily build web ap
 | Action | Type |
 |---------|---------|
 | Run a function when messages come from service | [Trigger binding](#trigger-binding) |
-| Bind request to target object under Http trigger for negotiation and upstream requests | [Input binding](#input-binding)
+| Bind request to target object under HTTP trigger for negotiation and upstream requests | [Input binding](#input-binding)
 | Invoke service do actions | [Output binding](#output-binding) |
 
 [Source code](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/webpubsub/) |

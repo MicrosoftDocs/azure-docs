@@ -58,7 +58,7 @@ Classic storage accounts may contain classic (unmanaged) disks, virtual machine 
 > [!IMPORTANT]
 > If you do not delete classic disk artifacts first, the migration may fail.
 
-To learn about migrating unmanaged disks to managed disks, see [Migrating unmanaged disks to managed disks](../../virtual-machines/unmanaged-disks-deprecation.md).
+To learn about migrating unmanaged disks to managed disks, see [Migrating unmanaged disks to managed disks](/azure/virtual-machines/unmanaged-disks-deprecation).
 
 # [Portal](#tab/azure-portal)
 
@@ -75,7 +75,7 @@ For more information about errors that may occur when deleting disk artifacts an
 
 # [PowerShell](#tab/azure-powershell)
 
-To learn how to locate and delete disk artifacts in classic storage accounts with PowerShell, see [Migrate to Resource Manager with PowerShell](../../virtual-machines/migration-classic-resource-manager-ps.md#step-5b-migrate-a-storage-account).
+To learn how to locate and delete disk artifacts in classic storage accounts with PowerShell, see [Migrate to Resource Manager with PowerShell](/azure/virtual-machines/migration-classic-resource-manager-ps#step-5b-migrate-a-storage-account).
 
 ---
 
@@ -97,6 +97,9 @@ For more information about the migration process, see [Understand storage accoun
 
 > [!NOTE]
 > Accounts left in a **Prepare** migration state more 30 days may have their migrations committed on your behalf. If you need more than 30 days to validate your migration to Azure Resource Manager, you can abort the current migration and restart it when you are ready.
+
+> [!IMPORTANT]
+> After migrating your classic resources to Azure Resource Manager within your subscription, ensure that all Classic Admin role assignments are converted to the Owner role in Azure RBAC. Without an assigned Owner, your subscription may become orphaned. For detailed guidance, refer to [Azure classic subscription administrators](../../role-based-access-control/classic-administrators.md).
 
 You can migrate a classic storage account to the Azure Resource Manager deployment model with the Azure portal or PowerShell.
 

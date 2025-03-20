@@ -16,7 +16,7 @@ An App Service Environment is an Azure App Service feature that provides a fully
 |Feature  |App Service Environment v3  |App Service public multitenant  |
 |---------|---------|---------|
 |Hosting environment|[Fully isolated and dedicated compute](overview.md)|[Shared environment](../../app-service/overview.md). Workers running your apps are dedicated, but the supporting infrastructure is shared with other customers. |
-|Hardware|[Virtual Machine Scale Sets](../../virtual-machine-scale-sets/overview.md)|[Virtual Machine Scale Sets](../../virtual-machine-scale-sets/overview.md)|
+|Hardware|[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview)|[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview)|
 |[Available SKUs](https://azure.microsoft.com/pricing/details/app-service/windows/) |Isolated v2        |Free, Basic, Standard, Premium v2, Premium v3        |
 |Dedicated host group|[Available](overview.md#dedicated-environment) |No |
 |Remote file storage|Fully dedicated to the App Service Environment |Remote file storage for the application is dedicated, but the storage is hosted on a shared file server |
@@ -26,7 +26,7 @@ An App Service Environment is an Azure App Service feature that provides a fully
 
 ### Scaling
 
-Both App Service Environment v3 and the public multitenant offering run on [Virtual Machine Scale Sets](../../virtual-machine-scale-sets/overview.md), which means that both offerings benefit from the capabilities that scale sets provide. However, App Service Environment v3 is a dedicated environment, which means that even though it can scale out to more instances than the public multitenant offering, scaling out to multiple instances can be slower than the public multitenant offering.
+Both App Service Environment v3 and the public multitenant offering run on [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview), which means that both offerings benefit from the capabilities that scale sets provide. However, App Service Environment v3 is a dedicated environment, which means that even though it can scale out to more instances than the public multitenant offering, scaling out to multiple instances can be slower than the public multitenant offering.
 
 |Feature  |App Service Environment v3  |App Service public multitenant  |
 |---------|---------|---------|
@@ -74,7 +74,7 @@ App Service Environment v3 tends to be more expensive than the public multitenan
 |Pricing     |[Pay per instance](overview.md#pricing)|[Pay per instance](../../app-service/overview-hosting-plans.md)|
 |Reserved instances|[Available](overview.md#pricing)|[Available](../../app-service/overview-hosting-plans.md)|
 |Savings plans|[Available](overview.md#pricing)|[Available](../../app-service/overview-hosting-plans.md)|
-|Availability zone pricing|[There's a minimum charge of 18 cores.](overview.md#pricing) There's no added charge for availability zone support if you have 18 or more cores across your App Service plan instances. If you have fewer than 18 cores across your App Service plans in the zone redundant App Service Environment, the difference between 18 cores and the sum of the cores from the running instance count is charged as Windows I1v2 instances.|[Three instance minimum enforced per App Service plan](../../reliability/reliability-app-service.md#pricing).|
+|Availability zone pricing|[There's a minimum charge of 18 cores.](overview.md#pricing) There's no added charge for availability zone support if you have 18 or more cores across your App Service plan instances. If you have fewer than 18 cores across your App Service plans in the zone redundant App Service Environment, the difference between 18 cores and the sum of the cores from the running instance count is charged as Windows I1v2 instances.|[Three instance minimum enforced per App Service plan](../../reliability/reliability-app-service.md#cost).|
 
 ### Frequently asked questions
 

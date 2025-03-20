@@ -43,7 +43,7 @@ If you restrict access to your virtual network, you need to [configure your virt
 - Your Azure account has the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role, or a parent of this role, on the virtual network. See [Check access for a user to Azure resources](/azure/role-based-access-control/check-access) to verify your permissions.
 - The subnet you use for Azure Load Testing must have enough unassigned IP addresses to accommodate the number of load test engines for your test. Learn more about [configuring your test for high-scale load](./how-to-high-scale-load.md).
 - The subnet shouldn't be delegated to any other Azure service. For example, it shouldn't be delegated to Azure Container Instances (ACI). Learn more about [subnet delegation](/azure/virtual-network/subnet-delegation-overview).
-- The subnet shouldn't have IPv6 enabled. Azure Load Testing doesn't support IPv6 enabled subnets. Learn more about [IPv6 for Azure Virtual Network].(/azure/virtual-network/ip-services/ipv6-overview)
+- The subnet shouldn't have IPv6 enabled. Azure Load Testing doesn't support IPv6 enabled subnets. Learn more about [IPv6 for Azure Virtual Network](/azure/virtual-network/ip-services/ipv6-overview)
 - Azure CLI version 2.2.0 or later (if you're using CI/CD). Run `az --version` to find the version that's installed on your computer. If you need to install or upgrade the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Configure virtual network
@@ -94,7 +94,7 @@ To configure outbound access for Azure Load Testing:
 
 ## Configure your load test script
 
-The test engine VMs, which run the JMeter script, are injected in the virtual network that contains the application endpoint. You can now refer directly to the endpoint in the JMX file by using the private IP address or use [name resolution in your network](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
+The test engine VMs, which run the test script, are injected in the virtual network that contains the application endpoint. You can now refer directly to the endpoint in the test script by using the private IP address or use [name resolution in your network](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
 
 For example, for an endpoint with IP address 10.179.0.7, in a virtual network with subnet range 10.179.0.0/18, the JMX file could have this information:
 
@@ -129,7 +129,7 @@ You can specify the virtual network configuration settings in the load test crea
 
 1. Open the load test creation/update wizard in either of two ways:
 
-    - Select **+ Create > Upload a JMeter script**, if you want to create a new test.
+    - Select **+ Create > Upload a script**, if you want to create a new test.
 
         :::image type="content" source="media/how-to-test-private-endpoint/create-new-test.png" alt-text="Screenshot that shows the Tests page, highlighting the button for creating a new test.":::
     

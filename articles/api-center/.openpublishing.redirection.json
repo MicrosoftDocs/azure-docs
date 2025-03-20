@@ -1,0 +1,10 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/api-center/use-vscode-extension.md",
+            "redirect_url": "/azure/api-center/build-register-apis-vscode-extension",
+            "redirect_document_id": false
+        }
+
+    ]
+}

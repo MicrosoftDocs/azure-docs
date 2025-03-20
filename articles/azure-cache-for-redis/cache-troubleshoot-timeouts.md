@@ -1,9 +1,9 @@
 ---
 title: Troubleshoot Azure Cache for Redis latency and timeouts
 description: Learn how to resolve common latency and timeout issues with Azure Cache for Redis, such as Redis server patching and timeout exceptions.
-author: flang-msft
-ms.author: franlanglois
-ms.service: azure-cache-redis
+
+
+
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 12/02/2023
@@ -44,7 +44,7 @@ Here's the client-side troubleshooting.
 
 Bursts of traffic combined with poor `ThreadPool` settings can result in delays in processing data already sent by the Redis server but not yet consumed on the client side. Check the metric "Errors" (Type: UnresponsiveClients) to validate if your client hosts can keep up with a sudden spike in traffic.
 
-Monitor how your `ThreadPool` statistics change over time using [an example `ThreadPoolLogger`](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). You can use  `TimeoutException` messages from StackExchange.Redis to further investigate:
+You can use  `TimeoutException` messages from StackExchange.Redis to further investigate:
 
 ```output
     System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0,
@@ -89,8 +89,6 @@ To mitigate a client's high CPU usage:
 
 Depending on the architecture of client machines, they might have limitations on how much network bandwidth they have available. If the client exceeds the available bandwidth by overloading network capacity, then data isn't processed on the client side as quickly as the server is sending it. This situation can lead to timeouts.
 
-Monitor how your Bandwidth usage change over time using [an example `BandwidthLogger`](https://github.com/JonCole/SampleCode/blob/master/BandWidthMonitor/BandwidthLogger.cs). This code might not run successfully in some environments with restricted permissions (like Azure web sites).
-
 To mitigate, reduce network bandwidth consumption or increase the client VM size to one with more network capacity. For more information, see [Large request or response size](cache-best-practices-development.md#large-request-or-response-size).
 
 ### TCP settings for Linux based client applications
@@ -99,7 +97,7 @@ Because of optimistic TCP settings in Linux, client applications hosted on Linux
 
 ### RedisSessionStateProvider retry timeout
 
-If you're using `RedisSessionStateProvider`, ensure you set the retry timeout correctly. The `retryTimeoutInMilliseconds` value should be higher than the `operationTimeoutInMilliseconds` value. Otherwise, no retries occur. In the following example, `retryTimeoutInMilliseconds` is set to 3000. For more information, see [ASP.NET Session State Provider for Azure Cache for Redis](cache-aspnet-session-state-provider.md) and [How to use the configuration parameters of Session State Provider and Output Cache Provider](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
+If you're using `RedisSessionStateProvider`, ensure you set the retry timeout correctly. The `retryTimeoutInMilliseconds` value should be higher than the `operationTimeoutInMilliseconds` value. Otherwise, no retries occur. In the following example, `retryTimeoutInMilliseconds` is set to 3000. For more information, see [ASP.NET Session State Provider for Azure Cache for Redis](cache-aspnet-session-state-provider.md) and [ASP.NET Output Cache Provider for Azure Cache for Redis](cache-aspnet-output-cache-provider.md).
 
 ```xml
 <add 

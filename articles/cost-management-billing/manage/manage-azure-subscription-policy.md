@@ -5,9 +5,9 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/21/2024
-ms.reviewer: sgautam
-ms.author: banders
+ms.date: 01/22/2025
+ms.reviewer: presharm
+ms.author: presharm
 ---
 
 # Manage Azure subscription policies

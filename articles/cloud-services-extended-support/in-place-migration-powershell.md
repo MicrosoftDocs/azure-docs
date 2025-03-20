@@ -3,7 +3,7 @@ title: Migrate to Azure Cloud Services (extended support) using PowerShell
 description: How to migrate from Azure Cloud Services (classic) to Azure Cloud Services (extended support) using PowerShell
 ms.service: azure-cloud-services-extended-support
 ms.subservice: classic-to-arm-migration
-ms.reviwer: mimckitt
+ms.reviewer: mimckitt
 ms.topic: how-to
 ms.date: 07/24/2024
 author: hirenshah1
@@ -17,7 +17,7 @@ ms.custom: devx-track-azurepowershell
 These steps show you how to use Azure PowerShell commands to migrate from [Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md) to [Cloud Services (extended support)](overview.md).
 
 ## Plan for migration
-Planning is the most important step for a successful migration experience. Review the [Cloud Services (extended support) overview](overview.md) and [Planning for migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-plan.md) before beginning any migration steps. 
+Planning is the most important step for a successful migration experience. Review the [Cloud Services (extended support) overview](overview.md) and [Planning for migration of IaaS resources from classic to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-plan) before beginning any migration steps. 
 
 ## Install the latest version of PowerShell
 There are two main options to install Azure PowerShell: [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) or [Web Platform Installer (WebPI)](https://aka.ms/webpi-azps). WebPI receives monthly updates. PowerShell Gallery receives updates on a continuous basis. This article is based on Azure PowerShell version 2.1.0.
@@ -86,7 +86,7 @@ Get-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Co
 
 Make sure that RegistrationState is `Registered` for both before you proceed.
 
-Before switching to the classic deployment model, make sure that you have enough Azure Resource Manager vCPU quota in the Azure region of your current deployment or virtual network. You can use the following PowerShell command to check the current number of vCPUs you have in Azure Resource Manager. To learn more about vCPU quotas, see [Limits and the Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#managing-limits).
+Before switching to the classic deployment model, make sure that you have enough Azure Resource Manager vCPU quota in the Azure region of your current deployment or virtual network. You can use the following PowerShell command to check the current number of vCPUs you have in Azure Resource Manager. To learn more about vCPU quotas, see [Limits and the Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-api-management-limits).
 
 This example checks the availability in the **West US** region. Replace the example region name with your own.
 

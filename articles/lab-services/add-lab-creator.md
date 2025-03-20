@@ -4,8 +4,8 @@ titleSuffix: Azure Lab Services
 description: This article shows how to add a user to the Lab Creator role for a lab plan in Azure Lab Services. Lab creators can create labs within the lab plan.
 services: lab-services
 ms.service: azure-lab-services
-author: ntrogh
-ms.author: nicktrog
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: how-to
 ms.date: 07/04/2023
 ms.custom: subject-rbac-steps

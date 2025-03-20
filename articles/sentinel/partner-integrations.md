@@ -1,10 +1,14 @@
 ---
 title: Partner integrations with Microsoft Sentinel
 description: This article describes best practices for creating your own integrations with Microsoft Sentinel.
-author: limwainstein
-ms.author: lwainstein
+author: cwatson-cat
+ms.author: cwatson
 ms.topic: conceptual
 ms.date: 01/09/2023
+
+
+#Customer intent: As a security partner, I want to create a content hub solution to integrate my product with Microsoft Sentinel so that SOC teams can leverage my data source types, detections, and automation for enhanced threat detection and response.
+
 ---
 
 # Best practices for partners integrating with Microsoft Sentinel

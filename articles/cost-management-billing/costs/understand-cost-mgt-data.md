@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article helps you better understand data included in Cost Management. It also explains how frequently data is processed, collected, shown, and closed.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/12/2024
+ms.date: 02/10/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -29,8 +29,8 @@ The following information shows the currently supported [Microsoft Azure offers]
 | **Azure Government** | Azure Government pay-as-you-go | Pay-as-you-go_2014-09-01 | MS-AZR-USGOV-0003P | October 2, 2018 |
 | **Enterprise Agreement (EA)** | Enterprise Dev/Test        | MSDNDevTest_2014-09-01 | MS-AZR-0148P | May 2014 |
 | **Enterprise Agreement (EA)** | Microsoft Azure Enterprise | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | May 2014 |
-| **Microsoft Customer Agreement** | Microsoft Azure Plan | EnterpriseAgreement_2014-09-01 | N/A | March 2019¹ |
-| **Microsoft Customer Agreement** | Microsoft Azure Plan for Dev/Test | MSDNDevTest_2014-09-01 | N/A | March 2019¹ |
+| **Microsoft Customer Agreement** | Microsoft Azure Plan | EnterpriseAgreement_2014-09-01 | MS-AZR-0017G | March 2019¹ |
+| **Microsoft Customer Agreement** | Microsoft Azure Plan for Dev/Test | MSDNDevTest_2014-09-01 | MS-AZR-0148G | March 2019¹ |
 | **Microsoft Customer Agreement supported by partners** | Microsoft Azure Plan | CSP_2015-05-01, CSP_MG_2017-12-01, and CSPDEVTEST_2018-05-01³ | N/A | October 2019 |
 | **Microsoft Developer Network (MSDN)** | MSDN Platforms² | MSDN_2014-09-01 | MS-AZR-0062P | October 2, 2018 |
 | **Pay-as-you-go** | Pay-as-you-go                  | Pay-as-you-go_2014-09-01 | MS-AZR-0003P | October 2, 2018 |
@@ -51,10 +51,11 @@ _² Historical data for credit-based and pay-in-advance subscriptions might not 
 
 _³ Quota IDs are the same across Microsoft Customer Agreement and classic subscription offers. Classic Cloud Solution Provider (CSP) subscriptions aren't supported._
 
-The following offers aren't supported yet:
+The following offers aren't supported:
 
 | **Category**  | **Offer name** | **Quota ID** | **Offer number** |
 | --- | --- | --- | --- |
+| **Enterprise Agreement (EA)** | EA Azure Sponsorship |  | MS-AZR-0136P  |
 | **Cloud Solution Provider (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **Cloud Solution Provider (CSP)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
 | **Cloud Solution Provider (CSP)** | Azure Germany in CSP for Microsoft Cloud Germany   | CSP_2015-05-01 | MS-AZR-DE-0145P |
@@ -79,7 +80,9 @@ Your billing account type, and subscriptions created under it, is based on your 
 
 ## Costs included in Cost Management
 
-The following table shows included and not included data in Cost Management. All costs are estimated until an invoice is generated. Costs shown don't include free and prepaid credits.
+The following table shows included and not included data in Cost Management. Costs shown don't include free and prepaid credits.
+
+All included costs are estimated until an invoice is generated. Estimated costs shown in Cost Management during the open month, before invoice generation, don't consider tiered pricing plans. The cost estimates calculated in this situation are based on the highest tier for a product. After an invoice is issued, charges in Cost Management are updated and they should match the invoice.
 
 | **Included** | **Not included** |
 | --- | --- |
@@ -127,7 +130,9 @@ Here are a few tips for working with tags:
 
 ## Cost and usage data updates and retention
 
-Cost and usage data is typically available in Cost Management within 8-24 hours. Keep the following points in mind as you review costs:
+For EA and MCA subscriptions, cost and usage data is typically available in Cost Management within 8-24 hours. For pay-as-you-go subscriptions, it could take up to 72 hours for cost and usage data to become available.
+
+Keep the following points in mind as you review costs:
 
 - Each Azure service (such as Storage, Compute, and SQL) emits usage at different intervals – You might see data for some services sooner than others.
 - Estimated charges for the current billing period are updated six times per day.
@@ -151,13 +156,32 @@ Whether you use the Cost Management APIs, Power BI, or the Azure portal to retri
 
 ## Cost rounding
 
-Costs shown in Cost Management are rounded. Costs returned by the Query API aren't rounded. For example:
+Costs shown in Cost Management are rounded. Costs returned by the Query API and those shown in your cost and usage data files aren't rounded. For example:
 
 - Cost analysis in the portal - Charges are rounded using standard rounding rules: values more than 0.5 and higher are rounded up, otherwise costs are rounded down. Rounding occurs only when values are shown. Rounding doesn't happen during data processing and aggregation. For example, cost analysis aggregates costs as follows:
-  -    Charge 1: $0.004
+  - Charge 1: $0.004
   - Charge 2: $0.004
-  -    Aggregate charge rendered: 0.004 + 0.004 = 0.008. The charge shown is $0.01.
+  - Aggregate charge rendered: 0.004 + 0.004 = 0.008. The charge shown is $0.01.
 - Query API - Charges are shown at eight decimal places and rounding doesn't occur.
+- Cost and usage data files - Rounding doesn't occur.
+
+### Cost rounding for Azure Commitment discount
+
+Currency rounding for Azure Commitment discount (ACD) takes place on the unit rate aspect of the effective rate. Currency rounding depends on currency *precision* (or "minimal accountable currency unit" or "minor units"). For most world currencies, the precision is 1/100. It corresponds to two digits after the decimal point.
+
+For example, assume an ACD is a 12.5% discount:
+
+- After a 0.125 discount on a $0.09 market price, it equals 0.07875. When rounded, it’s a $0.08 unit rate.
+- After a 0.125 discount on a 0.6 market price, it equals 0.525. When rounded, it’s a $0.53 unit rate.
+- The total cost equals the billable quantity, multiplied by the rounded unit rate.
+
+Charges are rounded using standard rounding rules: values of 0.5 and higher are rounded up, otherwise costs are rounded down.
+
+The *effective price* can be specified for an Azure meter per one hour, while a billable unit might be 10 hours. In such cases, currency rounding happens on unit price and effective price per hour is scaled down 10 times the value.
+
+For example, an unrounded single unit price after a 0.125 discount is applied to a per-hour price of 0.018 resulting in 0.01575000000. The billable QuantityPerUnit for the meter is 10 (hours), so Azure rounds to cents. The calculation is 10 * 0.01575 = 0.1575 and then gets rounded to $0.16. The *Quantity Per Unit* is rounded for your currency. In this example, it’s $0.16 per 10 hours. Because the EffectivePrice is per one hour, the currency-rounded unit price of 10 hours gets scaled down 10 times. Then, the Effective price per once per hour is computed and it has three digits after the decimal point. That results in $0.16 / 10 equaling $0.016.
+
+Your usage and charges file shows all of the data involved in rounding. You can download the file from the Azure portal. For more information, see [Download usage and charges data](../understand/download-azure-daily-usage.md).
 
 ## Historical data might not match invoice
 
@@ -166,7 +190,7 @@ Historical data for credit-based and pay-in-advance offers might not match your 
 For example, you get invoiced on January 5 for a service consumed in the month of December. It has a price of $86 per unit. On January 1, the unit price changed to $100. When you view your estimated charges in Cost Management, you see that your cost is the result of your consumed quantity * $100 (not $86, as shown in your  invoice).
 
 >[!NOTE]
->The price change might result in a a price decrease, not only an increase, as explained in this example.
+>The price change might result in a price decrease, not only an increase, as explained in this example.
 
 Historical data shown for the following offers might not match exactly with your invoice.
 

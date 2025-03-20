@@ -2,15 +2,17 @@
 title: Large file download optimization with Azure Content Delivery Network
 description: Learn how large file downloads can be optimized in Azure Content Delivery Network. This article includes several scenarios.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
-ms.author: duau
 ---
 
 # Large file download optimization with Azure Content Delivery Network
+
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 File sizes of content delivered over the internet continue to grow due to enhanced functionality, improved graphics, and rich media content. This growth gets driven by many factors: broadband penetration, larger inexpensive storage devices, widespread increase of high definition video, and internet-connected devices (IoT). A fast and efficient delivery mechanism for large files is critical to ensure a smooth and enjoyable consumer experience.
 
@@ -43,30 +45,6 @@ There are no limits on maximum file size.
 ### Chunked Transfer Encoding Support
 
 Microsoft content delivery network supports transfer encoding responses, but only up to a maximum content size limit of 8 MB. In the case of chunked transfer encoded responses exceeding 8 MB, the Microsoft content delivery network will only cache and serve the initial 8 MB of content.
-
-<a name='optimize-for-delivery-of-large-files-with-azure-cdn-from-verizon'></a>
-
-<a name='optimize-for-delivery-of-large-files-with-azure-cdn-from-edgio'></a>
-
-## Optimize for delivery of large files with Azure Content Delivery Network from Edgio
-
-**Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** endpoints deliver large files without a cap on file size. More features are turned on by default to make delivery of large files faster.
-
-### Complete cache fill
-
-The defaults complete cache fill feature enables the content delivery network to pull a file into the cache when an initial request is abandoned or lost.
-
-Complete cache fill is most useful for large assets. Typically, users don't download them from start to finish. They use progressive download. The default behavior forces the edge server to initiate a background fetch of the asset from the origin server. Afterward, the asset is in the edge server's local cache. After the full object is in the cache, the edge server fulfills byte-range requests to the content delivery network for the cached object.
-
-The default behavior can be disabled through the rules engine in **Azure CDN Premium from Edgio**.
-
-### Peer cache fill hot-filing
-
-The default peer cache fills hot-filing feature uses a sophisticated proprietary algorithm. It uses extra edge caching servers based on bandwidth and aggregate requests metrics to fulfill client requests for large, highly popular objects. This feature prevents a situation in which large numbers of extra requests are sent to a user's origin server.
-
-### Conditions for large file optimization
-
-Large file optimization features for **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** are turned on by default when you use the general web delivery optimization type. There are no limits on maximum file size.
 
 ## Other considerations
 

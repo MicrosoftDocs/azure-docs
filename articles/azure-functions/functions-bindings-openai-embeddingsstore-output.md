@@ -10,18 +10,17 @@ ms.custom:
   - devx-track-ts
 ms.collection: 
   - ce-skilling-ai-copilot
-ms.date: 05/20/2024
+ms.date: 01/07/2025
 zone_pivot_groups: programming-languages-set-functions
 ---
-<!--- Question: It seems like this binding uses Azure AI Search and not Azure OpenAI. Do we need to rename the article to:
-"Azure AI Search semantic output binding" or something like that?-->
+
 # Azure OpenAI embeddings store output binding for Azure Functions
 
 [!INCLUDE [preview-support](../../includes/functions-openai-support-limitations.md)]
 
 The Azure OpenAI embeddings store output binding allows you to write files to a semantic document store that can be referenced later in a semantic search.
 
-For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about semantic ranking in Azure AI Search, see [Semantic ranking in Azure AI Search](../search/semantic-search-overview.md).
+For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about semantic ranking in Azure AI Search, see [Semantic ranking in Azure AI Search](/azure/search/semantic-search-overview).
 
 [!INCLUDE [functions-support-notes-samples-openai](../../includes/functions-support-notes-samples-openai.md)]
 
@@ -30,7 +29,7 @@ For information on setup and configuration details of the Azure OpenAI extension
 ::: zone pivot="programming-language-csharp"  
 This example writes an HTTP input stream to a semantic document store at the provided URL. 
 
-:::code language="csharp" source="~/functions-openai-extension/samples/rag-aisearch/csharp-ooproc/FilePrompt.cs" range="29-61"::: 
+:::code language="csharp" source="~/functions-openai-extension/samples/rag-aisearch/csharp-ooproc/FilePrompt.cs" range="29-70"::: 
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"
@@ -39,20 +38,17 @@ This example writes an HTTP input stream to a semantic document store at the pro
 :::code language="java" source="~/functions-openai-extension/samples/rag-aisearch/java/src/main/java/com/azfs/FilePrompt.java" range="24-68":::
 
 ::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript" 
+This example writes an HTTP input stream to a semantic document store at the provided URL. 
+::: zone-end  
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
-<!---uncomment when code example is available:
-{{This comes from the example code comment}} 
 
-:::code language="javascript" source="~/functions-openai-extension/samples/{{link to the correct sample.js}}" range="{{named is better than range}}":::
+:::code language="javascript" source="~/functions-openai-extension/samples/rag-aisearch/javascript/src/app.js" range="5-37":::
 
-{{Add more examples if available}}
--->
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
-This example writes an HTTP input stream to a semantic document store at the provided URL. 
 
-:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="7-38":::
+:::code language="typescript" source="~/functions-openai-extension/samples/rag-aisearch/typescript/src/app.ts" range="4-40":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  

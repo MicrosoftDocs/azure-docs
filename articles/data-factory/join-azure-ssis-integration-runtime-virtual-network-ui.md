@@ -69,7 +69,7 @@ Use Azure portal to configure a classic virtual network before you try to join y
 
    1. On the **Add role assignment** page, enter **Microsoft Azure Batch** in the search box, select the role, and select **Next**.
 
-      :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/add-virtual-machine-contributor-role.png" alt-text="Sreenshot showing search results for the &quot;Virtual Machine Contributor&quot; role.":::
+      :::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/add-virtual-machine-contributor-role.png" alt-text="Screenshot showing search results for the &quot;Virtual Machine Contributor&quot; role.":::
 
    1. On the **Members** page, under **Members** select **+ Select members**.  Then on the **Select Members** pane, search for **Microsoft Azure Batch**, and select it from the list to add it, and click **Select**. 
 

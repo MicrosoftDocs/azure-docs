@@ -54,7 +54,7 @@ az networkfabric device update-admin-state --resource-group "resource-group-name
 
 ### Example command
 
-```azuecli
+```azurecli
 az networkfabric device update-admin-state --resource-group "resource-group-name" --resource-name "AggrRack-CE1" --state UnderMaintenance
 ```
 

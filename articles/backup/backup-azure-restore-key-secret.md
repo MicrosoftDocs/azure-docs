@@ -3,9 +3,9 @@ title: Restore Key Vault key & secret for encrypted VM
 description: Learn how to restore Key Vault key and secret in Azure Backup using PowerShell
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.date: 02/28/2023 
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 09/04/2024
+author: jyothisuri
+ms.author: jsuri
 ---
 # Restore Key Vault key and secret for encrypted VMs using Azure Backup
 
@@ -52,7 +52,7 @@ Once the JSON file is generated in the destination path mentioned above, generat
 ```powershell
 $keyDestination = 'C:\keyDetails.blob'
 [io.file]::WriteAllBytes($keyDestination, [System.Convert]::FromBase64String($encryptionObject.OsDiskKeyAndSecretDetails.KeyBackupData))
-Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile $keyDestination
+Restore-AzKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile $keyDestination
 ```
 
 ## Restore secret
@@ -127,7 +127,7 @@ Set-AzKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -Sec
 >
 > * Value for $secretname can be obtained by referring to the output of $rp1.KeyAndSecretDetails.SecretUrl and using text after secrets/ For example, the output secret URL is `https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163` and secret name is B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
 > * Value of the tag DiskEncryptionKeyFileName is same as secret name.
-> * Value for DiskEncryptionKeyEncryptionKeyURL can be obtained from key vault after restoring the keys back and using [Get-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/get-azurekeyvaultkey) cmdlet
+> * Value for DiskEncryptionKeyEncryptionKeyURL can be obtained from key vault after restoring the keys back and using [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) cmdlet
 >
 >
 

@@ -1,12 +1,11 @@
 ---
 title: Azure Front Door - Best practices
 description: This page provides information about how to configure Azure Front Door based on Microsoft's best practices.
-services: frontdoor
 author: johndowns
-ms.service: azure-frontdoor
-ms.topic: conceptual
-ms.date: 03/11/2024
 ms.author: jodowns
+ms.service: azure-frontdoor
+ms.topic: concept-article
+ms.date: 03/11/2024
 ---
 
 # Best practices for Front Door
@@ -15,7 +14,7 @@ This article summarizes best practices for using Azure Front Door.
 
 ## General best practices
 
-### Avoid combining Traffic Manager and Front Door
+### Understanding when to combine Traffic Manager and Front Door
 
 For most solutions, we recommend the use *either* Front Door *or* [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md), but not both. Azure Traffic Manager is a DNS-based load balancer. It sends traffic directly to your origin's endpoints. In contrast, Azure Front Door terminates connections at points of presence (PoPs) near to the client and establishes separate long-lived connections to the origins. The products work differently and are intended for different use cases.
 
@@ -67,6 +66,10 @@ If you decide to use your own TLS certificates, then consider setting the Key Va
 For more information, see [Select the certificate for Azure Front Door to deploy](standard-premium/how-to-configure-https-custom-domain.md#select-the-certificate-for-azure-front-door-to-deploy).
 
 ## Domain name best practices
+
+### Adopt custom domains
+
+Adopt custom domains for your Front Door endpoints to ensure better availaility and flexiility while managing your domains and traffic. Don't hardcode AFD provided domains (like *.azurefd.z01.net) in your clients/codebases/firewall. Use custom domains for such scenarios.
 
 ### Use the same domain name on Front Door and your origin
 

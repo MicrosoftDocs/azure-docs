@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 08/14/2024
+ms.date: 12/06/2024
 ms.author: banders
 ---
 
@@ -91,7 +91,7 @@ If you have questions or need help, [create a support request](https://go.micros
 To learn more about Azure Reservations, see the following articles:
 
 - [What are Azure Reservations?](save-compute-costs-reservations.md)
-- [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances](/azure/virtual-machines/prepay-reserved-vm-instances)
 - [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](/azure/azure-sql/database/reserved-capacity-overview)
 - [Manage Azure Reservations](manage-reserved-vm-instance.md)
 - [Understand how the reservation discount is applied](../manage/understand-vm-reservation-charges.md)

@@ -1,41 +1,49 @@
 ---
-title: Configure TLS mutual authentication
-description: Learn how to authenticated client certificates on TLS. Azure App Service can make the client certificate available to the app code for verification.
-
+title: Set up TLS mutual authentication
+description: Learn how to set up TLS mutual authentication in Azure App Service for secure two-way communication between client and server.
+keywords: TLS mutual authentication, Azure App Service security, secure client-server communication
 author: msangapu-msft
 ms.author: msangapu
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
-ms.date: 06/21/2024
+ms.date: 02/14/2025
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
 ---
-# Configure TLS mutual authentication for Azure App Service
+# Configure TLS mutual authentication in Azure App Service
 
-You can restrict access to your Azure App Service app by enabling different types of authentication for it. One way to do it is to request a client certificate when the client request is over TLS/SSL and validate the certificate. This mechanism is called TLS mutual authentication or client certificate authentication. This article shows how to set up your app to use client certificate authentication.
+You can restrict access to your Azure App Service app by enabling different types of authentication for it. One way to do it is to request a client certificate when the client request is over TLS/SSL and validate the certificate. This mechanism is called Transport Layer Security (TLS) mutual authentication or client certificate authentication. This article shows how to set up your app to use client certificate authentication.
 
 > [!NOTE]
+> Your app code is responsible for validating the client certificate. App Service doesn't do anything with this client certificate other than forwarding it to your app.
+> 
 > If you access your site over HTTP and not HTTPS, you will not receive any client certificate. So if your application requires client certificates, you should not allow requests to your application over HTTP.
->
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
 ## Enable client certificates
+When you enable client certificate for your app, you should select your choice of client certificate mode. Each mode defines how your app handles incoming client certificates:
 
-To set up your app to require client certificates:
+|Client certificate modes|Description|
+|-|-|
+|Required|All requests require a client certificate.|
+|Optional|Requests may or may not use a client certificate and clients are prompted for a certificate by default. For example, browser clients will show a prompt to select a certificate for authentication.|
+|Optional Interactive User|Requests may or may not use a client certificate and clients are not prompted for a certificate by default. For example, browser clients won't show a prompt to select a certificate for authentication.|
 
+### [Azure portal](#tab/azureportal)
+To set up your app to require client certificates in Azure portal:
+1. Navigate to your app's management page.
 1. From the left navigation of your app's management page, select **Configuration** > **General Settings**.
-
-1. Set **Client certificate mode** to **Require**. Select **Save** at the top of the page.
+1. Select **Client certificate mode** of choice. Select **Save** at the top of the page.
 
 ### [Azure CLI](#tab/azurecli)
-To do the same with Azure CLI, run the following command in the [Cloud Shell](https://shell.azure.com):
+With Azure CLI, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app-name> --resource-group <group-name>
 ```
-### [Bicep](#tab/bicep)
 
+### [Bicep](#tab/bicep)
 For Bicep, modify the properties `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths`. A sample Bicep snippet is provided for you:
 
 ```bicep
@@ -56,7 +64,6 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
 ```
 
 ### [ARM template](#tab/arm)
-
 For ARM templates, modify the properties `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths`. A sample ARM template snippet is provided for you:
 
 ```ARM
@@ -86,6 +93,9 @@ For ARM templates, modify the properties `clientCertEnabled`, `clientCertMode`, 
 
 When you enable mutual auth for your application, all paths under the root of your app require a client certificate for access. To remove this requirement for certain paths, define exclusion paths as part of your application configuration.
 
+> [!NOTE]
+> Using any client certificate exclusion path triggers TLS renegotiation for incoming requests to the app.
+
 1. From the left navigation of your app's management page, select **Configuration** > **General Settings**.
 
 1. Next to **Certificate exclusion paths**, select the edit icon.
@@ -97,6 +107,29 @@ When you enable mutual auth for your application, all paths under the root of yo
 In the following screenshot, any path for your app that starts with `/public` doesn't request a client certificate. Path matching is case-insensitive.
 
 ![Certificate Exclusion Paths][exclusion-paths]
+
+## Client certificate and TLS renegotiation
+For some client certificate settings, App Service requires TLS renegotiation to read a request before knowing whether to prompt for a client certificate. Any of the following settings triggers TLS renegotiation:
+1. Using "Optional Interactive User" client certificate mode.
+1. Using [client certificate exclusion path](#exclude-paths-from-requiring-authentication).
+
+> [!NOTE]
+> TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation.
+
+To disable TLS renegotiation and to have the app negotiate client certificates during TLS handshake, you must configure your app with *all* these settings:
+1. Set client certificate mode to "Required" or "Optional"
+2. Remove all client certificate exclusion paths
+
+### Uploading large files with TLS renegotiation
+Client certificate configurations that use TLS renegotiation cannot support incoming requests with large files greater than 100 kb due to buffer size limitations. In this scenario, any POST or PUT requests over 100 kb will fail with a 403 error. This limit isn't configurable and can't be increased.
+
+To address the 100 kb limit, consider these alternative solutions:
+
+1. Disable TLS renegotiation. Update your app's client certificate configurations with _all_ these settings:
+    - Set client certificate mode to either "Required" or "Optional"
+    - Remove all client certificate exclusion paths
+1. Send a HEAD request before the PUT/POST request. The HEAD request handles the client certificate.
+1. Add the header `Expect: 100-Continue` to your request. This causes the client to wait until the server responds with a `100 Continue` before sending the request body, which bypasses the buffers.
 
 ## Access client certificate
 
@@ -123,7 +156,7 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllersWithViews();
-        // Configure the application to use the protocol and client ip address forwared by the frontend load balancer
+        // Configure the application to use the protocol and client ip address forwarded by the frontend load balancer
         services.Configure<ForwardedHeadersOptions>(options =>
         {
             options.ForwardedHeaders =
@@ -288,7 +321,7 @@ public class Startup
 
                 if (!foundIssuerCN || !foundIssuerO) return false;
 
-                // 4. Check thumprint of certificate
+                // 4. Check thumbprint of certificate
                 if (String.Compare(certificate.Thumbprint.Trim().ToUpper(), "30757A2E831977D8BD9C8496E4C99AB26CB9622B") != 0) return false;
 
                 return true;

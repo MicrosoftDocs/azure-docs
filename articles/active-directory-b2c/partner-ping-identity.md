@@ -5,11 +5,11 @@ description: Learn how to integrate Azure AD B2C authentication with Ping Identi
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: I'm a developer, and I want to learn how to configure Ping Identity with Azure Active Directory B2C for secure hybrid access (SHA). I need to extend the capabilities of Azure AD B2C and enable secure hybrid access using PingAccess and PingFederate.
 ---
@@ -107,8 +107,6 @@ Use the instructions in the following sections to configure PingAccess and PingF
 
 To configure PingFederate as the token provider for PingAccess, ensure connectivity from PingFederate to PingAccess. Confirm connectivity from PingAccess to PingFederate.  
 
-For more information, see [Configure PingFederate as the token provider for PingAccess](https://docs.pingidentity.com/access/sources/dita/topic?category=pingaccess&Releasestatus_ce=Current&resourceid=pa_configure_pf_as_the_token_provider_for_pa) in the Ping Identity documentation.
-
 ### Configure a PingAccess application for header-based authentication
 
 Use the following instructions to create a PingAccess application for the target web application, for header-based authentication. 
@@ -116,7 +114,7 @@ Use the following instructions to create a PingAccess application for the target
 #### Create a virtual host
 
 >[!IMPORTANT]
->Create a virtual host for every application. For more information, see [What can I configure with PingAccess?](https://docs.pingidentity.com/access/sources/dita/topic?category=pingaccess&Releasestatus_ce=Current&resourceid=pa_what_can_I_configure_with_pa) in the Ping Identity documentation.
+>Create a virtual host for every application.
 
 To create a virtual host:
 
@@ -211,7 +209,7 @@ To create an application in PingAccess for each application in Azure that you wa
 
 Configure the PingFederate authentication policy to federate to the multiple IdPs provided by the Azure AD B2C tenants
 
-1. Create a contract to bridge the attributes between the IdPs and the SP. You should need only one contract unless the SP requires a different set of attributes from each IdP. For more information, see [Federation hub and authentication policy contracts](https://docs.pingidentity.com/access/sources/dita/topic?category=pingfederate&Releasestatus_ce=Current&resourceid=pf_fed_hub_auth_polic_contract) in the Ping Identity documentation.
+1. Create a contract to bridge the attributes between the IdPs and the SP. You should need only one contract unless the SP requires a different set of attributes from each IdP. For more information, see [Federation hub and authentication policy contracts](https://docs.pingidentity.com/pingfederate/latest/introduction_to_pingfederate/pf_fed_hub_auth_polic_contract.html) in the Ping Identity documentation.
 
 2. For each IdP, create an IdP connection between the IdP and PingFederate, the federation hub as the SP.
 

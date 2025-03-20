@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.date: 12/16/2022
+ms.date: 11/19/2024
 ms.author: radeltch
 ---
 
@@ -149,7 +149,7 @@ Update parameters in the SAP ASCS/SCS instance profile \<SID>_ASCS/SCS\<Nr>_\<Ho
 | Parameter name | Parameter value |
 | --- | --- |
 | gw/netstat_once | **0** |
-| enque/encni/set_so_keepalive  | **true** |
+| enque/encni/set_so_keepalive  | **TRUE** |
 | service/ha_check_node | **1** |
 
 Parameter `enque/encni/set_so_keepalive` is only needed if using ENSA1.  
@@ -230,7 +230,7 @@ Using DFS-N allows you to utilize individual sapmnt volumes for SAP systems depl
 * [Azure Virtual Machines deployment for SAP][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
 * To learn how to establish high availability and plan for disaster recovery of SAP 
-* HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](../../virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery.md).
+* HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery).
 * To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure VMs, see [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha]
 
 [sap-ha-guide-figure-8007A]:./media/virtual-machines-shared-sap-high-availability-guide/ha-smb-as.png

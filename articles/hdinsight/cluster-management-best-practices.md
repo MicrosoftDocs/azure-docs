@@ -4,6 +4,9 @@ description: Learn best practices for managing HDInsight clusters.
 ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 06/14/2024
 ---
 # HDInsight cluster management best practices
@@ -53,7 +56,7 @@ Learn best practices for managing HDInsight clusters.
 | Manual scaling | [Scale Azure HDInsight clusters](./hdinsight-scaling-best-practices.md) |
 | Monitoring with Ambari| [Monitor cluster performance in Azure HDInsight](./hdinsight-key-scenarios-to-monitor.md) |
 | Monitoring with Azure Monitor logs | [Use Azure Monitor logs to monitor HDInsight clusters](./hdinsight-hadoop-oms-log-analytics-tutorial.md) |
-| Service issues, planned maintenance, health & security advisories | [Subscribe to subscription specific service health alerts](../service-health/alerts-activity-log-service-notifications-portal.md) |
+| Service issues, planned maintenance, health & security advisories | [Subscribe to subscription specific service health alerts](/azure/service-health/alerts-activity-log-service-notifications-portal) |
 
 
 ## How do I check on deleted HDInsight clusters?

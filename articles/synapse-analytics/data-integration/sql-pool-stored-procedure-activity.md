@@ -7,7 +7,7 @@ ms.subservice: pipeline
 author: linda33wj
 ms.author: jingwang
 ms.reviewer: whhender
-ms.date: 05/13/2021
+ms.date: 12/11/2024
 ---
 
 # Transform data by using SQL pool stored procedure activity in Azure Synapse Analytics

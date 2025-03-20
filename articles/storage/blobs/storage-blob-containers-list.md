@@ -74,6 +74,8 @@ The Azure SDK for .NET contains libraries that build on top of the Azure REST AP
 
 [!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
 
-## See also
+### See also
 
 - [Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)
+
+[!INCLUDE [storage-dev-guide-next-steps-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-dotnet.md)]

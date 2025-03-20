@@ -1,13 +1,13 @@
 ---
 title: Import and Export data in Azure Cache for Redis
 description: Learn how to import and export data to and from blob storage with your premium Azure Cache for Redis instances
-author: flang-msft
 
-ms.service: azure-cache-redis
+
+
 ms.topic: conceptual
+ms.custom:
+  - ignite-2024
 ms.date: 06/26/2023
-ms.author: franlanglois
-
 ---
 # Import and Export data in Azure Cache for Redis
 
@@ -71,7 +71,7 @@ Use import to bring Redis compatible RDB files from any Redis server running in 
 
     :::image type="content" source="./media/cache-how-to-import-export-data/cache-import-blobs.png" alt-text="Screenshot showing the Import button to select to begin the import.":::
 
-    You can monitor the progress of the import operation by following the notifications from the Azure portal, or by viewing the events in the [activity log](../azure-monitor/essentials/activity-log.md).
+    You can monitor the progress of the import operation by following the notifications from the Azure portal, or by viewing the events in the [activity log](/azure/azure-monitor/essentials/activity-log).
 
     > [!IMPORTANT]
     > Activity log support is not yet available in the Enterprise tiers.
@@ -109,7 +109,7 @@ Export allows you to export the data stored in Azure Cache for Redis to Redis co
 
     :::image type="content" source="./media/cache-how-to-import-export-data/cache-export-data.png" alt-text="Screenshot showing a blob name prefix and an Export button.":::
 
-    You can monitor the progress of the export operation by following the notifications from the Azure portal, or by viewing the events in the [audit log](../azure-monitor/essentials/activity-log.md).
+    You can monitor the progress of the export operation by following the notifications from the Azure portal, or by viewing the events in the [audit log](/azure/azure-monitor/essentials/activity-log).
 
     :::image type="content" source="./media/cache-how-to-import-export-data/cache-export-data-export-complete.png" alt-text="Screenshot showing the export progress in the notifications area.":::
 
@@ -226,7 +226,7 @@ _Enterprise_ and _Enterprise Flash_ instances do not support importing from or e
 In the _Premium_ tier, you can import and export data from a storage account in a different subscription than your cache, but you must use [managed identity](cache-managed-identity.md) as the authentication method. You will need to select the chosen subscription holding the storage account when configuring the import or export.
 
 ### Which permissions need to be granted to the storage account container shared access signature (SAS) token to allow export?
-In order for export to an Azure storage account to work sucessfully, the [shared access signature (SAS) token](../storage/common/storage-sas-overview.md) must have the following permissions:
+In order for export to an Azure storage account to work successfully, the [shared access signature (SAS) token](../storage/common/storage-sas-overview.md) must have the following permissions:
 - `read`
 - `add`
 - `create`

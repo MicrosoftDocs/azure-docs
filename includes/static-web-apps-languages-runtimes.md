@@ -1,9 +1,9 @@
 ---
-author: craigshoemaker
 ms.service: azure-static-web-apps
 ms.topic: include
 ms.date: 05/28/2024
-ms.author: cshoe
+author: v1212
+ms.author: wujia
 ---
 
 To configure the API language runtime version, set the `apiRuntime` property in the `platform` section to one of the following supported values.

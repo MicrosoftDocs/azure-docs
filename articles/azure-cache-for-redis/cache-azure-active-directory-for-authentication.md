@@ -1,15 +1,10 @@
 ---
 title: Use Microsoft Entra for cache authentication
-titleSuffix: Azure Cache for Redis
 description: Learn how to use Microsoft Entra with Azure Cache for Redis.
-author: flang-msft
+ms.custom: references_regions, ignite-2024
 
-ms.custom: references_regions
-ms.service: azure-cache-redis
 ms.topic: conceptual
 ms.date: 07/17/2024
-ms.author: franlanglois
-
 ---
 
 # Use Microsoft Entra for cache authentication
@@ -31,7 +26,6 @@ To use the ACL integration, your client application must assume the identity of 
 ## Prerequisites and limitations
 
 - Microsoft Entra authentication is supported for SSL connections and TLS 1.2 or higher.
-- Microsoft Entra authentication isn't supported on Azure Cache for Redis instances that [depend on Azure Cloud Services](./cache-faq.yml#caches-with-a-dependency-on-cloud-services--classic).
 - Microsoft Entra authentication isn't supported in the Enterprise tiers of Azure Cache for Redis Enterprise.
 - Some Redis commands are blocked. For a full list of blocked commands, see [Redis commands not supported in Azure Cache for Redis](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis).
 
@@ -63,17 +57,21 @@ Using Microsoft Entra is the secure way to connect your cache. We recommend that
 
 When you disable access key authentication for a cache, all existing client connections are terminated, whether they use access keys or Microsoft Entra authentication. Follow the recommended Redis client best practices to implement proper retry mechanisms for reconnecting Microsoft Entra-based connections, if any.
 
-Before you disable access keys:
+### Before you disable access keys
 
-- Microsoft Entra authorization must be enabled.
+- Ensure that Microsoft Entra authentication is enabled and you have at least one Redis User configured.
+- Ensure all applications connecting to your cache instance switch to using Microsoft Entra Authentication.
+- Ensure that the metrics _Connected Clients_ and _Connected Clients Using Microsoft Entra Token_ have the same values. If the values for these two metrics aren't the same, that means there are still some connections that were created using access keys and not Microsoft Entra Token.
+- Consider disabling access during the scheduled maintenance window for your cache instance.
 - Disabling access keys is only available for Basic, Standard, and Premium tier caches.
-- For geo-replicated caches, you must:
+
+For geo-replicated caches, you must:
 
    1. Unlink the caches.
    1. Disable access keys.
    1. Relink the caches.
 
-If you have a cache where access keys are used and you want to disable access keys, follow this procedure:
+If you have a cache where you used access keys, and you want to disable access keys, follow this procedure:
 
 1. In the Azure portal, select the Azure Cache for Redis instance where you want to disable access keys.
 
@@ -144,6 +142,7 @@ The following table includes links to code samples. They demonstrate how to conn
 | Client library  | Language   | Link to sample code|
 |----|----|----|
 | StackExchange.Redis | .NET           | [StackExchange.Redis code sample](https://github.com/Azure/Microsoft.Azure.StackExchangeRedis)   |
+| go-redis            | Go             | [go-redis code sample](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#example-package-Redis) |
 | redis-py            | Python         | [redis-py code sample](https://aka.ms/redis/aad/sample-code/python)        |
 | Jedis               | Java           | [Jedis code sample](https://aka.ms/redis/aad/sample-code/java-jedis)    |
 | Lettuce             | Java           | [Lettuce code sample](https://aka.ms/redis/aad/sample-code/java-lettuce)  |
@@ -155,7 +154,7 @@ The following table includes links to code samples. They demonstrate how to conn
 
 - Configure private links or firewall rules to protect your cache from a denial of service attack.
 - Ensure that your client application sends a new Microsoft Entra token at least three minutes before token expiry to avoid connection disruption.
-- When you call the Redis server `AUTH` command periodically, consider adding a jitter so that the `AUTH` commands are staggered. In this way, your Redis server doesn't receive too many `AUTH` commands at the same time.
+- When you call the Redis server `AUTH` command periodically, consider adding a random delay so that the `AUTH` commands are staggered. In this way, your Redis server doesn't receive too many `AUTH` commands at the same time.
 
 ## Related content
 

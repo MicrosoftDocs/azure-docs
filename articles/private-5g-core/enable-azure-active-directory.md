@@ -2,8 +2,8 @@
 title: Enable Microsoft Entra ID for local monitoring tools
 titleSuffix: Azure Private 5G Core
 description: Complete the prerequisite tasks for enabling Microsoft Entra ID to access Azure Private 5G Core's local monitoring tools.
-author: robswain
-ms.author: robswain
+author: anzaman
+ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 12/29/2022
@@ -68,8 +68,8 @@ If your deployment contains multiple sites, you can use the same two redirect UR
     |---------|---------|---------|
     | **Tenant ID** | In the Azure portal, search for Microsoft Entra ID. You can find the **Tenant ID** field in the Overview page. | `tenant_id` |
     | **Application (client) ID** | Navigate to the new local monitoring app registration you just created. You can find the **Application (client) ID** field in the Overview page, under the **Essentials** heading. | `client_id` |
-    | **Authorization URL** | In the local monitoring app registration Overview page, select **Endpoints**. Copy the contents of the **OAuth 2.0 authorization endpoint (v2)** field. <br /><br /> **Note:** <br />If the string contains `organizations`, replace `organizations` with the Tenant ID value. For example, <br />`https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize`<br /> becomes <br />`https://login.microsoftonline.com/72f998bf-86f1-31af-91ab-2d7cd001db56/oauth2/v2.0/authorize`. | `auth_url` |
-    | **Token URL** |  In the local monitoring app registration Overview page, select **Endpoints**. Copy the contents of the **OAuth 2.0 token endpoint (v2)** field.  <br /><br /> **Note:** <br />If the string contains `organizations`, replace `organizations` with the Tenant ID value. For example, <br />`https://login.microsoftonline.com/organizations/oauth2/v2.0/token`<br /> becomes <br />`https://login.microsoftonline.com/72f998bf-86f1-31af-91ab-2d7cd001db56/oauth2/v2.0/token`. | `token_url` |
+    | **Authorization URL** | In the local monitoring app registration Overview page, select **Endpoints**. Copy the contents of the **OAuth 2.0 authorization endpoint (v2)** field. <br /><br /> **Note:** <br />If the string contains `organizations`, replace `organizations` with the Tenant ID value. For example, <br />`https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize`<br /> becomes <br />`https://login.microsoftonline.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/oauth2/v2.0/authorize`. | `auth_url` |
+    | **Token URL** |  In the local monitoring app registration Overview page, select **Endpoints**. Copy the contents of the **OAuth 2.0 token endpoint (v2)** field.  <br /><br /> **Note:** <br />If the string contains `organizations`, replace `organizations` with the Tenant ID value. For example, <br />`https://login.microsoftonline.com/organizations/oauth2/v2.0/token`<br /> becomes <br />`https://login.microsoftonline.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/oauth2/v2.0/token`. | `token_url` |
     | **Client secret** | You collected this when creating the client secret in the previous step. | `client_secret` |
     | **Distributed tracing redirect URI root** | Make a note of the following part of the redirect URI: **https://*\<local monitoring domain\>***. | `redirect_uri_root` |
     | **Packet core dashboards redirect URI root** | Make a note of the following part of the packet core dashboards redirect URI: **https://*\<local monitoring domain\>*/grafana**. | `root_url` |
@@ -129,7 +129,7 @@ To support Microsoft Entra ID on Azure Private 5G Core applications, you'll need
 
 You'll need to apply your Kubernetes Secret Objects if you're enabling Microsoft Entra ID for a site, after a packet core outage, or after updating the Kubernetes Secret Object YAML file.
 
-1. Sign in to [Azure Cloud Shell](../cloud-shell/overview.md) and select **PowerShell**. If this is your first time accessing your cluster via Azure Cloud Shell, follow [Access your cluster](../azure-arc/kubernetes/cluster-connect.md?tabs=azure-cli) to configure kubectl access.
+1. Sign in to [Azure Cloud Shell](../cloud-shell/overview.md) and select **PowerShell**. If this is your first time accessing your cluster via Azure Cloud Shell, follow [Access your cluster](/azure/azure-arc/kubernetes/cluster-connect?tabs=azure-cli) to configure kubectl access.
 1. Apply the Secret Object for both distributed tracing and the packet core dashboards, specifying the core kubeconfig filename.
 
     `kubectl apply -f  $HOME/secret-azure-ad-local-monitoring.yaml --kubeconfig=<core kubeconfig>`

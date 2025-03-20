@@ -4,6 +4,9 @@ description: In this quickstart, you learn how to create an Apache Kafka cluster
 ms.service: azure-hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 07/24/2024
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
@@ -144,7 +147,7 @@ Kafka stores streams of data in *topics*. You can use the `kafka-topics.sh` util
         
         In regions with three fault domains, a replication factor of 3 allows replicas to be spread across the fault domains. In regions with two fault domains, a replication factor of four spreads the replicas evenly across the domains.
         
-        For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/availability.md) document.
+        For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](/azure/virtual-machines/availability) document.
 
         Kafka isn't aware of Azure fault domains. When you create partition replicas for topics, it may not distribute replicas properly for high availability.
 

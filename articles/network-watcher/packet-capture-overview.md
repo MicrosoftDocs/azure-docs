@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 02/23/2024
+ms.date: 01/29/2025
 
 #CustomerIntent: As an administrator, I want to learn about Azure Network Watcher packet capture tool so that I can use it to capture IP packets to and from virtual machines (VMs) and scale sets to diagnose and solve network problems.
 ---
@@ -51,8 +51,9 @@ Use filters to capture only the traffic that you want to monitor. Filters are ba
 
 There's a limit of 10,000 parallel packet capture sessions per region per subscription. This limit applies only to the sessions and doesn't apply to the saved packet capture files either locally on the VM or in a storage account. See the [Network Watcher service limits page](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-network-watcher-limits) for a full list of limits. 
 
+Packet capture currently supports SAS authentication when saving completed packet captures to a storage account. SAS authentication is required if choosing to save to a storage account. If SAS authentication isn't an option, then saving to the local disk on the virtual machine where the packet capture is taken is the alternative.
+
 ## Related content
 
-- To learn how to manage packet captures in virtual machines, see [the Azure portal](packet-capture-vm-portal.md), [PowerShell](packet-capture-vm-powershell.md), or [the Azure CLI](packet-capture-vm-cli.md) guides.
-- To learn how to manage packet captures in scale sets, see [the Azure portal](network-watcher-packet-capture-manage-portal-vmss.md) or [PowerShell](network-watcher-packet-capture-manage-powershell-vmss.md) guides.
+- To learn how to manage packet captures, see [Manage packet captures with Azure Network Watcher](packet-capture-manage.md).
 - To learn how to create proactive packet captures based on virtual machine alerts, see [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md).

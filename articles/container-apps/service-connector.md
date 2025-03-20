@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 07/24/2024
+ms.date: 02/03/2025
 ms.custom: service-connector, devx-track-azurecli
 # Customer intent: As an app developer, I want to connect a containerized app to a storage account in the Azure portal using Service Connector.
 ---
@@ -36,7 +36,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
 ### [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az login
 ```
 
@@ -81,7 +81,7 @@ The following steps create a service connection using an access key or a system-
 
 1. Use the Azure CLI command `az containerapp connection list-support-types` to view all supported target services.
 
-    ```azurecli-interactive
+    ```azurecli
     az provider register -n Microsoft.ServiceLinker
     az containerapp connection list-support-types --output table
     ```
@@ -90,13 +90,13 @@ The following steps create a service connection using an access key or a system-
 
     If you're connecting with an access key, run the code below:
 
-    ```azurecli-interactive
+    ```azurecli
     az containerapp connection create storage-blob --secret
     ```
 
     If you're connecting with a system-assigned managed identity, run the code below:
 
-    ```azurecli-interactive
+    ```azurecli
     az containerapp connection create storage-blob --system-identity
     ```
 
@@ -109,7 +109,7 @@ The following steps create a service connection using an access key or a system-
     - **Name of the storage account**: the name of the storage account that contains your blob.
 
     > [!IMPORTANT]
-    > To use Managed Identity, you must have the permission to manage [Microsoft Entra role assignments](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). If you don't have this permission, you won't be able to create a connection. You can ask your subscription owner to grant you this permission or use an access key instead to create the connection.
+    > To use Managed Identity, you must have the permission to manage [Microsoft Entra role assignments](/entra/identity/role-based-access-control/manage-roles-portal). If you don't have this permission, you won't be able to create a connection. You can ask your subscription owner to grant you this permission or use an access key instead to create the connection.
 
     > [!NOTE]
     > If you don't have a Blob Storage, you can run `az containerapp connection create storage-blob --new --secret` to provision a new one.
@@ -137,7 +137,7 @@ Use the Azure CLI command `az containerapp connection list` to list all your con
 - **Source compute service resource group name**: the resource group name of the container app.
 - **Container app name**: the name of your container app.
 
-```azurecli-interactive
+```azurecli
 az containerapp connection list -g "<your-container-app-resource-group>" --name "<your-container-app-name>" --output table
 ```
 

@@ -1,11 +1,11 @@
 ---
-title: Quickstart - Create a service connection in App Service from the Azure portal
+title: 'Quickstart: Create a service connection in App Service'
 description: Quickstart showing how to create a service connection in App Service from the Azure portal
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: quickstart
-ms.date: 10/05/2023
+ms.date: 10/22/2024
 #Customer intent: As an app developer, I want to connect several services together so that I can ensure I have the right connectivity to access my Azure resources.
 ---
 
@@ -45,7 +45,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
 1. Select **Next: Authentication** to choose an authentication method.
 
-    ### [System-assigned managed identity](#tab/SMI)
+    ### [System-assigned managed identity (recommended)](#tab/SMI)
 
     System-assigned managed identity is the recommended authentication option. Select **System-assigned managed identity** to connect through an identity that's generated in Microsoft Entra ID and tied to the lifecycle of the service instance.
 
@@ -53,20 +53,25 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
     Select **User-assigned managed identity** to authenticate through a standalone identity assigned to one or more instances of an Azure service.
 
-    ### [Connection string](#tab/CS)
-
-    Select **Connection string** to generate or configure one or multiple key-value pairs with pure secrets or tokens.
-
     ### [Service principal](#tab/SP)
 
     Select **Service principal** to use a service principal that defines the access policy and permissions for the user/application in Microsoft Entra ID.
+
+    ### [Connection string](#tab/CS)
+    
+    > [!WARNING]
+    > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+    
+    Select **Connection string** to generate or configure one or multiple key-value pairs with pure secrets or tokens.
+    
+    ---
 
 1. Select **Next: Networking** to configure the network access to your target service and select **Configure firewall rules to enable access to your target service**.
 
 1. Select **Next: Review + Create**  to review the provided information. Then select **Create** to create the service connection. This operation might take a minute to complete.
 
 > [!NOTE]
-> You need enough permissions to create connection successfully, for more details, see [Permission requirements](./concept-permission.md).
+> You need enough permissions to create a connection successfully, for more details, see [Permission requirements](./concept-permission.md).
 
 ## View service connections in App Service
 

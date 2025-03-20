@@ -7,10 +7,8 @@ ms.date: 02/01/2024
 ms.author: daknappe
 ms.custom: devx-track-azurepowershell, docs_inherited
 ---
-# Customize the feed for Azure Virtual Desktop users
 
->[!IMPORTANT]
->This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/customize-feed-virtual-desktop-users-2019.md).
+# Customize the feed for Azure Virtual Desktop users
 
 You can customize the feed so the RemoteApp and remote desktop resources appear in a recognizable way for your users.
 
@@ -19,12 +17,12 @@ You can customize the feed so the RemoteApp and remote desktop resources appear 
 If you're using either the Azure portal or PowerShell method, you'll need the following things:
 
 - An Azure account assigned the [Desktop Virtualization Application Group Contributor](rbac.md#desktop-virtualization-application-group-contributor) role.
+
 - If you want to use Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
+## Customize the display name for a desktop or application 
 
-## Customize the display name for a RemoteApp or desktop 
-
-You can change the display name for a published RemoteApp or desktop to make it easier for users to identify what to connect to. 
+Select the relevant tab for your scenario.
 
 #### [Azure portal](#tab/portal)
 
@@ -49,7 +47,7 @@ Here's how to customize the display name for a published RemoteApp or desktop us
 
 ### Customize the display name for a RemoteApp
 
-Here's how to customize the display name for a RemoteApp using PowerShell. By default, the display name is the same as the name of the application identifier.
+Here's how to customize the display name for a RemoteApp using PowerShell. By default, the display name is the same as the name of the application identifier. Be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
@@ -80,7 +78,7 @@ Here's how to customize the display name for a RemoteApp using PowerShell. By de
 
 ### Customize the display name for a Remote Desktop
 
-You can change the display name for a published remote desktop for all users by setting a friendly name. If you manually created a host pool and desktop application group through PowerShell, the default friendly name is **Session Desktop**. If you created a host pool and desktop application group through the GitHub Azure Resource Manager template or the Azure Marketplace offering, the default friendly name is the same as the host pool name. If you have a personal host pool, you can also [set a friendly name for individual session hosts](#set-a-friendly-name-for-an-individual-session-host-in-a-personal-host-pool). 
+You can change the display name for a published remote desktop for all users by setting a friendly name. If you manually created a host pool and desktop application group through PowerShell, the default friendly name is **Session Desktop**. If you created a host pool and desktop application group through the GitHub Azure Resource Manager template or the Azure Marketplace offering, the default friendly name is the same as the host pool name. If you have a personal host pool, you can also [set a friendly name for individual session hosts](#set-a-friendly-name-for-an-individual-session-host-in-a-personal-host-pool). Be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 

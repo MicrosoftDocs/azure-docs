@@ -1,7 +1,7 @@
 ---
 ms.topic: include
 ms.service: azure-policy
-ms.date: 04/17/2024
+ms.date: 03/04/2025
 ms.author: davidsmatlak
 author: davidsmatlak
 ---
@@ -23,4 +23,4 @@ There's a maximum count for each object type for Azure Policy. For definitions, 
 | Remediation task | Resources | 50,000 |
 | Policy definition, initiative, or assignment request body | Bytes | 1,048,576 |
 
-Policy rules have more limits to the number of conditions and their complexity. For more information, go to [Policy rule limits](../../policy/concepts/definition-structure-policy-rule.md#policy-rule-limits) for more details.
+Policy rules have more limits to the number of conditions and their complexity. For more information, see [Policy rule limits](../../policy/concepts/definition-structure-policy-rule.md#policy-rule-limits).

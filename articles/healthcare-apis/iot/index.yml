@@ -7,7 +7,6 @@ metadata:
   title: Azure Health Data Services MedTech service
   description: MedTech service documentation for Azure Health Data Services. The MedTech service is one of the Azure Health Data Services designed to ingest device data from multiple devices, transform the device data into FHIR Observations, which are then persisted in the Azure Health Data Services FHIR service. 
   ms.service: azure-health-data-services
-  ms.subservice: data-transformation
   ms.topic: landing-page
   author: chachachachami
   ms.author: chrupa

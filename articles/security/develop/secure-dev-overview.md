@@ -1,10 +1,10 @@
 ---
 title: Secure development best practices on Microsoft Azure
 description: Best practices to help you develop more secure code and deploy a more secure application in the cloud.
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
-ms.author: terrylan
-ms.date: 09/26/2023
+ms.author: mbaldwin
+ms.date: 09/29/2024
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
@@ -54,8 +54,6 @@ applications and to help secure your applications on Azure:
 [Microsoft Security Development Lifecycle](https://www.microsoft.com/securityengineering/sdl/) (SDL) - The SDL is a software development process from Microsoft that helps developers build more secure software. It helps you address security compliance requirements while reducing development costs.
 
 [Open Worldwide Application Security Project](https://www.owasp.org/) (OWASP) - OWASP is an online community that produces freely available articles, methodologies, documentation, tools, and technologies in the field of web application security.
-
-[Pushing Left, Like a Boss](https://wehackpurple.com/pushing-left-like-a-boss-part-1/) - A series of online articles that outline different types of application security activities that developers should complete to create more secure code.
 
 [Microsoft identity platform](../../active-directory/develop/index.yml) - The Microsoft identity platform is an evolution of the Microsoft Entra identity service and developer platform. It's a full-featured platform that consists of an authentication service, open-source libraries, application registration and configuration, full developer documentation, code samples, and other developer content. The Microsoft identity platform supports industry-standard protocols like OAuth 2.0 and OpenID Connect.
 

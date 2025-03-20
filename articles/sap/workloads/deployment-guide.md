@@ -63,16 +63,16 @@ ms.author: sedusch
 [sap-templates-3-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-user-image%2Fazuredeploy.json
 [sap-templates-3-tier-user-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-user-image-md%2Fazuredeploy.json
 [storage-introduction]:../../storage/common/storage-introduction.md
-[storage-premium-storage-preview-portal]:../../virtual-machines/disks-types.md
-[virtual-machines-windows-agent-user-guide]:../../virtual-machines/extensions/agent-windows.md
-[virtual-machines-linux-agent-user-guide]:../../virtual-machines/extensions/agent-linux.md
-[virtual-machines-linux-agent-user-guide-command-line-options]:../../virtual-machines/extensions/agent-linux.md#command-line-options
-[virtual-machines-linux-capture-image]:../../virtual-machines/linux/capture-image.md
-[virtual-machines-linux-tutorial]:../../virtual-machines/linux/quick-create-cli.md
-[virtual-machines-linux-update-agent]:../../virtual-machines/linux/update-agent.md
-[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:../../virtual-machines/windows/quick-create-powershell.md
-[virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines/windows/upload-image.md
-[virtual-machines-windows-tutorial]:../../virtual-machines/windows/quick-create-portal.md
+[storage-premium-storage-preview-portal]:/azure/virtual-machines/disks-types
+[virtual-machines-windows-agent-user-guide]:/azure/virtual-machines/extensions/agent-windows
+[virtual-machines-linux-agent-user-guide]:/azure/virtual-machines/extensions/agent-linux
+[virtual-machines-linux-agent-user-guide-command-line-options]:/azure/virtual-machines/extensions/agent-linux#command-line-options
+[virtual-machines-linux-capture-image]:/azure/virtual-machines/linux/capture-image
+[virtual-machines-linux-tutorial]:/azure/virtual-machines/linux/quick-create-cli
+[virtual-machines-linux-update-agent]:/azure/virtual-machines/linux/update-agent
+[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:/azure/virtual-machines/windows/quick-create-powershell
+[virtual-machines-upload-image-windows-resource-manager]:/azure/virtual-machines/windows/upload-image
+[virtual-machines-windows-tutorial]:/azure/virtual-machines/windows/quick-create-portal
 [virtual-networks-nsg]:../../virtual-network/security-overview.md
 [virtual-networks-udr-overview]:../../virtual-network/virtual-networks-udr-overview.md
 
@@ -311,7 +311,7 @@ The following flowchart shows the SAP-specific sequence of steps for deploying a
 
 #### Create a virtual machine by using the Azure portal
 
-The easiest way to create a new virtual machine from a Managed Disk image is by using the Azure portal. For more information on how to create a Manage Disk Image, read [Capture a managed image of a generalized VM in Azure](../../virtual-machines/windows/capture-image-resource.yml)
+The easiest way to create a new virtual machine from a Managed Disk image is by using the Azure portal. For more information on how to create a Manage Disk Image, read [Capture a managed image of a generalized VM in Azure](/azure/virtual-machines/windows/capture-image-resource)
 
 1. Navigate to [Images in the Azure portal](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Compute%2Fimages). Or, in the Azure portal menu, select **Images**.
 1. Select the Managed Disk image you want to deploy and click on **Create VM**
@@ -475,7 +475,7 @@ In the Azure portal, enter the following parameters for the template:
       * [Premium Storage: High-performance storage for Azure Virtual Machine workloads][storage-premium-storage-preview-portal]
       * [Introduction to Microsoft Azure Storage][storage-introduction]
    * **OS disk VHD URI** (unmanaged disk template only): The URI of the private OS disk, for example, https://&lt;accountname>.blob.core.windows.net/vhds/osdisk.vhd.
-   * **OS disk Managed Disk ID** (managed disk template only): The ID of the Managed Disk OS disk, /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
+   * **OS disk Managed Disk ID** (managed disk template only): The ID of the Managed Disk OS disk, /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
    * **New or existing subnet**: Determines whether a new virtual network and subnet are created, or an existing subnet is used. If you already have a virtual network that is connected to your on-premises network, select **Existing**.
    * **Subnet ID**: If you want to deploy the VM into an existing VNet where you have a subnet defined the VM should be assigned to, name the ID of that specific subnet. The ID usually looks like this:
      /subscriptions/&lt;subscription id>/resourceGroups/&lt;resource group name>/providers/Microsoft.Network/virtualNetworks/&lt;virtual network name>/subnets/&lt;subnet name>
@@ -625,4 +625,4 @@ When you've prepared the VM as described in [Deployment scenarios of VMs for SAP
 
 ## Next steps
 
-Learn about [RHEL for SAP in-place upgrade](../../virtual-machines/workloads/redhat/redhat-in-place-upgrade.md#upgrade-sap-environments-from-rhel-7-vms-to-rhel-8-vms)
+Learn about [RHEL for SAP in-place upgrade](/azure/virtual-machines/workloads/redhat/redhat-in-place-upgrade#upgrade-sap-environments-from-rhel-7-vms-to-rhel-8-vms)

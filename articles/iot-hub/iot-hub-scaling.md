@@ -1,10 +1,10 @@
 ---
 title: Azure IoT Hub scaling
 description: How to choose the correct IoT hub tier and size to support your anticipated message throughput and desired features.
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
-ms.service: iot-hub
+ms.author: sonialopez
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 04/08/2024
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: Operations']
@@ -49,6 +49,9 @@ Both tiers offer the same security and authentication features.
 | [IoT Plug and Play](../iot/overview-iot-plug-and-play.md) |   | Yes |
 
 IoT Hub also offers a free tier that is meant for testing and evaluation. It has all the capabilities of the standard tier, but includes limited messaging allowances. You can't upgrade from the free tier to either the basic or standard tier.
+
+>[!NOTE]
+>The name of a free tier IoT hub might be visible to other free tier users. You can [manage access to your IoT hub by using Microsoft Entra ID and Azure RBAC](authenticate-authorize-azure-ad.md#manage-access-to-iot-hub-by-using-azure-rbac-role-assignment).
 
 ### IoT Hub REST APIs
 
@@ -97,7 +100,7 @@ Once you've chosen the tier that provides the best features for your solution, d
 
 Each IoT Hub tier is available in three sizes, based around how much data throughput they can handle in any given day. These sizes are numerically identified as 1, 2, and 3.
 
-A tier-size pair is represented as an *edition*. A basic tier IoT hub of size 2 is represented by the edition **B2**. Similarly, a standard tier IoT hub of size 3 is represented by the edition **S3**. For more information, includig pricing details, see [IoT Hub edition](https://azure.microsoft.com/pricing/details/iot-hub/)
+A tier-size pair is represented as an *edition*. A basic tier IoT hub of size 2 is represented by the edition **B2**. Similarly, a standard tier IoT hub of size 3 is represented by the edition **S3**. For more information, including pricing details, see [IoT Hub edition](https://azure.microsoft.com/pricing/details/iot-hub/)
 
 Once you choose an edition for your IoT hub, you can multiple its messaging capacity by increasing the number of *units*.
 

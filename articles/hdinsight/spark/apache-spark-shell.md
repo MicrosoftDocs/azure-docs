@@ -4,7 +4,10 @@ description: An interactive Spark Shell provides a read-execute-print process fo
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 09/13/2023
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
+ms.date: 09/06/2024
 ---
 
 # Run Apache Spark from the Spark Shell

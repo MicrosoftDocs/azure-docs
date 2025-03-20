@@ -1,6 +1,6 @@
 ---
 author: v-dalc
-ms.service: databox
+ms.service: azure-databox
 ms.author: alkohli
 ms.topic: include
 ms.date: 04/14/2021

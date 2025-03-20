@@ -2,12 +2,12 @@
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 ms.topic: conceptual
-ms.date: 02/05/2024
+ms.date: 09/26/2024
 ---
 
 # Tag support for Azure resources
 
-This article describes whether a resource type supports [tags](tag-resources.md). The column labeled **Supports tags** indicates whether the resource type has a property for the tag. The column labeled **Tag in cost report** indicates whether that resource type passes the tag to the cost report. You can view costs by tags in the [Cost Management cost analysis](../../cost-management-billing/costs/group-filter.md) and the [Azure billing invoice and daily usage data](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
+This article describes whether a resource type supports [tags](tag-resources.md). The column labeled **Supports tags** indicates whether the resource type has a property for the tag. The column labeled **Tag in cost report** indicates whether that resource type passes the tag to the cost report. You can view costs by tags in the [Cost Management cost analysis](../../cost-management-billing/costs/group-filter.md) and the [Azure billing invoice and daily usage data](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). To ensure that all the usage/cost records are tagged irrespective of whether the resource supports or emits tags, use [tag inheritance in Cost Management.](../../cost-management-billing/costs/enable-tag-inheritance.md)
 
 To get the same data as a file of comma-separated values, download [tag-support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
 
@@ -825,8 +825,8 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | availabilitySets | Yes | Yes |
-> | capacityReservationGroups | Yes | Yes |
-> | capacityReservationGroups / capacityReservations | Yes | Yes |
+> | capacityReservationGroups | No | No |
+> | capacityReservationGroups / capacityReservations | No | No |
 > | cloudServices | Yes | Yes |
 > | cloudServices / networkInterfaces | No | No |
 > | cloudServices / publicIPAddresses | No | No |
@@ -846,7 +846,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | hostGroups / hosts | Yes | Yes |
 > | images | Yes | Yes |
 > | proximityPlacementGroups | Yes | Yes |
-> | restorePointCollections | Yes | Yes |
+> | restorePointCollections | Yes | No |
 > | restorePointCollections / restorePoints | No | No |
 > | restorePointCollections / restorePoints / diskRestorePoints | No | No |
 > | sharedVMExtensions | Yes | Yes |
@@ -871,6 +871,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 
 > [!NOTE]
 > You can't add a tag to a virtual machine that has been marked as generalized. You mark a virtual machine as generalized with [Set-AzVm -Generalized](/powershell/module/Az.Compute/Set-AzVM) or [az vm generalize](/cli/azure/vm#az-vm-generalize).
+> Tags on virtual machine extensions can only be updated when the VM is running.
 
 
 ## Microsoft.ConfidentialLedger
@@ -2198,10 +2199,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | objectAnchorsAccounts | Yes | Yes |
-> | objectUnderstandingAccounts | Yes | Yes |
 > | remoteRenderingAccounts | Yes | Yes |
-> | spatialAnchorsAccounts | Yes | Yes |
 
 ## Microsoft.MobileNetwork
 
@@ -2490,21 +2488,6 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | workspaces / scopedPrivateLinkProxies | No | No |
 > | workspaces / storageInsightConfigs | No | No |
 > | workspaces / tables | No | No |
-
-## Microsoft.Orbital
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | contactProfiles | Yes | Yes |
-> | edgeSites | Yes | Yes |
-> | globalCommunicationsSites | No | No |
-> | groundStations | Yes | Yes |
-> | l2Connections | Yes | Yes |
-> | l3Connections | Yes | Yes |
-> | orbitalGateways | Yes | Yes |
-> | spacecrafts | Yes | Yes |
-> | spacecrafts / contacts | No | No |
 
 ## Microsoft.Peering
 

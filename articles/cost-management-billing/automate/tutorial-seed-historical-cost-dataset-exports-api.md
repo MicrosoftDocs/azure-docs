@@ -3,7 +3,7 @@ title: Tutorial - Seed a historical cost dataset with the Exports API
 description: This tutorial helps your seed a historical cost dataset to visualize cost trends over time.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/17/2023
+ms.date: 01/07/2025
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -30,7 +30,7 @@ You need proper permissions to successfully call the Exports API. We recommend u
 
 Additionally, you need a way to query the API directly. Some popular ways to query the API are:
 
-- [Visual studio](/aspnet/core/test/http-files)
+- [Visual Studio](/aspnet/core/test/http-files)
 - [Insomnia](https://insomnia.rest/)
 - [Bruno](https://www.usebruno.com/)
 - PowerShell’s [Invoke-RestMethod](https://powershellcookbook.com/recipe/Vlhv/interact-with-rest-based-web-apis)

@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: Azure Digital Twins high availability and disaster recovery
 titleSuffix: Azure Digital Twins
 description: Learn about high availability and disaster recovery features for Azure Digital Twins.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 6/20/2023
 ms.topic: conceptual
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Azure Digital Twins high availability and disaster recovery
@@ -35,9 +29,9 @@ Although Azure Digital Twins offers a high uptime guarantee, transient failures 
 
 It's possible, although unlikely, for a data center to experience extended outages because of power failures or other events in the region. During a rare failure event like this, the intra region HA capability described above may not be sufficient. Azure Digital Twins addresses this scenario with Microsoft-initiated failover.
 
-*Microsoft-initiated failover* is exercised in rare situations to fail over all the Azure Digital Twins instances from an affected region to the corresponding [geo-paired region](../availability-zones/cross-region-replication-azure.md). This process is a default option and will happen without any intervention from you, meaning that the customer data stored in Azure Digital Twins is replicated by default to the paired region. Microsoft reserves the right to make a determination of when this option will be exercised, and this mechanism doesn't involve user consent before the user's instance is failed over.
+*Microsoft-initiated failover* is exercised in rare situations to fail over all the Azure Digital Twins instances from an affected region to the corresponding [geo-paired region](../reliability/cross-region-replication-azure.md). This process is a default option and will happen without any intervention from you, meaning that the customer data stored in Azure Digital Twins is replicated by default to the paired region. Microsoft reserves the right to make a determination of when this option will be exercised, and this mechanism doesn't involve user consent before the user's instance is failed over.
 
-If it's important for you to keep all data within certain geographical areas, check the location of the [geo-paired region](../availability-zones/cross-region-replication-azure.md#azure-paired-regions) for the region where you're creating your instance, to ensure that it meets your data residency requirements. For regions with built-in data residency requirements, customer data is always kept within the same region.
+If it's important for you to keep all data within certain geographical areas, check the location of the [geo-paired region](../reliability/cross-region-replication-azure.md#azure-paired-regions) for the region where you're creating your instance, to ensure that it meets your data residency requirements. For regions with built-in data residency requirements, customer data is always kept within the same region.
 
 >[!NOTE]
 > Some Azure services provide an additional option called *customer-initiated failover*, which enables customers to initiate a failover just for their instance, such as to run a DR drill. This mechanism is currently not supported by Azure Digital Twins. 
@@ -46,7 +40,7 @@ If it's important for you to keep all data within certain geographical areas, ch
 
 ## Monitor service health
 
-As Azure Digital Twins instances are failed over and recovered, you can monitor the process using the [Azure Service Health](../service-health/service-health-overview.md) tool. Service Health tracks the health of your Azure services across different regions and subscriptions, and shares service-impacting communications about outages and downtimes.
+As Azure Digital Twins instances are failed over and recovered, you can monitor the process using the [Azure Service Health](/azure/service-health/service-health-overview) tool. Service Health tracks the health of your Azure services across different regions and subscriptions, and shares service-impacting communications about outages and downtimes.
 
 During a failover event, Service Health can provide an indication of when your service is down, and when it's back up.
 

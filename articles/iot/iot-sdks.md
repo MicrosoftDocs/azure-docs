@@ -3,10 +3,10 @@ title: Azure IoT device and service SDKs
 description: A list of the IoT SDKs and libraries. Includes SDKs for device development and SDKs for building service applications.
 author: dominicbetts
 ms.author: dobett
-ms.service: iot
+ms.service: azure-iot
 services: iot
 ms.topic: conceptual
-ms.date: 02/28/2024
+ms.date: 02/14/2025
 
 ---
 
@@ -82,11 +82,11 @@ Alternatives to the management SDKs include the [Azure CLI](../iot-hub/iot-hub-c
 
 ## Azure Digital Twins control plane APIs
 
-[!INCLUDE [digital-twins-sdks-control-plane](../../includes/digital-twins-sdks-control-plane.md)]
+[!INCLUDE [digital-twins-sdks-control-plane](../digital-twins/includes/digital-twins-sdks-control-plane.md)]
 
 ## Azure Digital Twins data plane APIs
 
-[!INCLUDE [digital-twins-sdks-data-plane](../../includes/digital-twins-sdks-data-plane.md)]
+[!INCLUDE [digital-twins-sdks-data-plane](../digital-twins/includes/digital-twins-sdks-data-plane.md)]
 
 ## Next steps
 

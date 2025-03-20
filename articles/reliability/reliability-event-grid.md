@@ -29,7 +29,7 @@ Event Grid resource definitions for topics, system topics, domains, and event su
  
 ### Prerequisites
 
-For availability zone support, your Event Grid resources must be in a region that supports availability zones. To review which regions support availability zones, see the [list of supported regions](availability-zones-service-support.md#azure-regions-with-availability-zone-support). 
+For availability zone support, your Event Grid resources must be in a region that supports availability zones. To review which regions support availability zones, see the [list of supported regions](availability-zones-region-support.md). 
 
 
 ### Pricing
@@ -57,7 +57,7 @@ Disaster recovery typically involves creating a backup resource to prevent inter
 
 There are different ways to recover from a severe loss of application functionality. In this section, we describe the checklist you'll need to follow to prepare your client to recover from a failure due to an unhealthy resource or region.
 
-Event Grid supports both manual and automatic geo disaster recovery (GeoDR) on the server side. You can still implement client-side disaster recovery logic if you want a greater control on the failover process. For details about automatic GeoDR, see [Server-side geo disaster recovery in Azure Event Grid](../event-grid/geo-disaster-recovery.md). For details on how to implement client-side disaster recovery, see[Client-side failover implementation in Azure Event Grid](../event-grid/custom-disaster-recovery-client-side.md).
+Event Grid supports both manual and automatic geo disaster recovery (GeoDR) on the server side. You can still implement client-side disaster recovery logic if you want a greater control on the failover process. For details about automatic GeoDR, see [Server-side geo disaster recovery in Azure Event Grid](../event-grid/geo-disaster-recovery.md). For details on how to implement client-side disaster recovery, see [Client-side failover implementation in Azure Event Grid](../event-grid/custom-disaster-recovery-client-side.md).
 
 
 The following table illustrates the client-side failover and geo disaster recovery support in Event Grid.
@@ -71,7 +71,7 @@ The following table illustrates the client-side failover and geo disaster recove
 | Namespaces          | Supported                                 | Not supported                         |
 
 
-### Event grid namespace
+### Event Grid namespace
 
 Event Grid namespace doesn't support cross-region DR. However, you can achieve cross region high availability through client-side failover implementation by creating primary and secondary namespaces.
 
@@ -104,11 +104,12 @@ You can choose between two failover options, Microsoft-initiated failover and cu
     Enable this functionality by updating the configuration for your topic or domain. Select **Regional**.
 
     :::image type="content" source="../event-grid/media/availability-zones-disaster-recovery/configuration-page.png" alt-text="Screenshot showing the Configuration page for an Event Grid custom topic.":::
-    
+
+If you use a [nonpaired region](cross-region-replication-azure.md#regions-with-availability-zones-and-no-region-pair), then regardless of the data residency configuration you select, your metadata will only be replicated within the region.
 
 ### Disaster recovery failover experience
 
-Disaster recovery is measured with two metrics, [Recovery Point Objective (RPO) and Recovery Time Objective (RTO)](./disaster-recovery-overview.md#recovery-objectives).
+Disaster recovery is measured with two metrics, Recovery Point Objective (RPO) and Recovery Time Objective (RTO). For more information, see [What are business continuity, high availability, and disaster recovery?](./concept-business-continuity-high-availability-disaster-recovery.md#disaster-recovery).
 
 Event Grid’s automatic failover has different RPOs and RTOs for your metadata (topics, domains, event subscriptions) and data (events). If you need different specification from the following ones, you can still implement your own client-side failover using the topic health APIs.
 
@@ -135,4 +136,3 @@ Event Grid’s automatic failover has different RPOs and RTOs for your metadata 
 - [Build your own client-side disaster recovery for Azure Event Grid topics](../event-grid/custom-disaster-recovery-client-side.md).
 
 - [Reliability in Azure](/azure/reliability/availability-zones-overview)
-

@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 06/06/2024
+ms.date: 02/03/2025
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -15,7 +15,7 @@ The Azure NetApp Files replication functionality provides data protection throug
 
 ## <a name="supported-region-pairs"></a>Supported cross-region replication pairs
 
-Azure NetApp Files volume replication is supported between various [Azure regional pairs](../availability-zones/cross-region-replication-azure.md#azure-paired-regions) and non-standard pairs. Azure NetApp Files volume replication is currently available between the following regions. You can replicate Azure NetApp Files volumes from Regional Pair A to Regional Pair B, and vice versa.  
+Azure NetApp Files volume replication is supported between various [Azure regional pairs](../reliability/cross-region-replication-azure.md#azure-paired-regions) and non-standard pairs. Azure NetApp Files volume replication is currently available between the following regions. You can replicate Azure NetApp Files volumes from Regional Pair A to Regional Pair B, and vice versa.  
 
 ### Azure regional pairs
 
@@ -48,13 +48,19 @@ Azure NetApp Files volume replication is supported between various [Azure region
 | Geography | Regional Pair A | Regional Pair B  |
 |:--- |:--- |:--- |
 | Australia/Southeast Asia | Australia East | Southeast Asia |
+| Israel/Sweden | Israel Central | Sweden Central | 
+| Qatar/Europe | Qatar Central | West Europe |
 | France/Europe | France Central | West Europe |
 | Germany/UK | Germany West Central | UK South |
 | Germany/Europe | Germany West Central | West Europe | 
 | Germany/France | Germany West Central | France Central |
-| Qatar/Europe | Qatar Central | West Europe |
+| Italy/Sweden | Italy North | Sweden Central | 
+| Sweden/Germany | Sweden Central | Germany West Central |
+| Spain/Sweden | Spain Central | Sweden Central |
 | North America | East US | East US 2 |
+| North America | East US | North Central US |
 | North America | East US 2| West US 2 |
+| North America | East US 2 | West US 3 |
 | North America | North Central US | East US 2|
 | North America | South Central US | East US |
 | North America | South Central US | East US 2 |

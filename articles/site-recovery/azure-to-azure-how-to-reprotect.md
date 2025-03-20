@@ -18,7 +18,7 @@ When you [fail over](site-recovery-failover.md) Azure virtual machines from one 
 
 ## Prerequisites
 
-- The virtual machine failover from the primary to secondary region must be committed.
+- The virtual machine failover from the primary to secondary region must be committed. The virtual machine status must be **Failover committed** before you start.
 - The primary target site should be available, and you should be able to access or create resources in that region.
 
 ## Reprotect a virtual machine
@@ -104,11 +104,7 @@ Let's take the example from the following screenshot, where Enable Replication f
 
    :::image type="content" source="./media/site-recovery-how-to-reprotect-azure-to-azure/estimated-reprotection.png" alt-text="Screenshot displays example duration of reprotection of a virtual machine on the Azure portal." lightbox="./media/site-recovery-how-to-reprotect-azure-to-azure/estimated-reprotection.png":::
 
-The above is a simple illustration of how to estimate the reprotection time. 
-
-When the virtual machine is re-protected from disaster recovery region to primary region (that is, after failing over from the primary region to disaster recovery region), the target virtual machine (original source virtual machine), and associated NIC(s) are deleted.
-
-However, when the virtual machine is re-protected again from the primary region to disaster recovery region after failback, we do not delete the virtual machine and associated NIC(s) in the disaster recovery region that were created during the earlier failover.
+The above is a simple illustration of how to estimate the reprotection time. When customer failover to target region and reprotect, the source virtual machine and associated resources are **not deleted**. When customer *failback* to primary region and reprotect, the VM (in the target / disaster recovery region) and associated resources are then deleted. 
 
 ## Next steps
 

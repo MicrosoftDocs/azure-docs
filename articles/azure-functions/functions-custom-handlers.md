@@ -1,8 +1,8 @@
 ---
 title: Azure Functions custom handlers
 description: Learn to use Azure Functions with any language or runtime version.
-author: anthonychu
-ms.author: antchu
+author: ggailey777
+ms.author: glenga
 ms.date: 12/1/2020
 ms.topic: article
 ms.devlang: golang
@@ -565,9 +565,7 @@ In Azure, [query Application Insights traces](analyze-telemetry-data.md#query-te
 
 ### Test custom handler in isolation
 
-Custom handler apps are a web server process, so it may be helpful to start it on its own and test function invocations by sending mock [HTTP requests](#request-payload) using one of these tools:
-
-[!INCLUDE [api-test-http-request-tools](../../includes/api-test-http-request-tools.md)]
+Custom handler apps are a web server process, so it may be helpful to start it on its own and test function invocations by sending mock [HTTP requests](#request-payload). For sending HTTP requests with payloads, make sure to choose a tool that keeps your data secure. For more information, see [HTTP test tools](functions-develop-local.md#http-test-tools).
 
 You can also use this strategy in your CI/CD pipelines to run automated tests on your custom handler.
 

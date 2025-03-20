@@ -1,80 +1,117 @@
 ---
-title: Planned connector deprecations for Azure Data Factory
-description: This page describes future deprecations for some connectors of Azure Data Factory.
-author: pennyzhou-msft
-ms.author: xupzhou
+title: Upgrade plan for Azure Data Factory connectors
+description: This article describes future upgrades for some connectors of Azure Data Factory.
+author: jianleishen
+ms.author: jianleishen
 ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 10/11/2023
+ms.date: 01/23/2025
 ---
 
-# Planned connector deprecations for Azure Data Factory
+# Upgrade plan for Azure Data Factory connectors
 
-This article describes future deprecations for some connectors of Azure Data Factory.
-
-> [!NOTE]
-> "Deprecated" means we intend to remove the connector from a future release. Unless they are in *Preview*, connectors remain fully supported until they are officially removed. This deprecation notification can span a few months or longer. After removal, the connector will no longer work. This notice is to allow you sufficient time to plan and update your code before the connector is removed.
-
-## Legacy connectors with updated connectors or drivers available now
-
-The following legacy connectors are deprecated, but new updated versions are available in Azure Data Factory. You can update existing data sources to use the new connectors moving forward.
-
-- [Google Ads/Adwords](connector-google-adwords.md)
-- [Google BigQuery](connector-google-bigquery-legacy.md)
-- [MariaDB](connector-mariadb.md)
-- [MongoDB](connector-mongodb-legacy.md)
-- [MySQL](connector-mysql.md)
-- [Salesforce (Service Cloud)](connector-salesforce-service-cloud-legacy.md)
-- [ServiceNow](connector-servicenow.md)
-- [Snowflake](connector-snowflake-legacy.md)
+This article describes future upgrades for some connectors of Azure Data Factory.
 
 > [!NOTE]
-> The [MySQL](connector-mysql.md) connector is still supported, but to continue using it, you must upgrade its legacy driver version.
+> "Deprecated" means we intend to remove the connector from a future release. Unless they are in *Preview*, connectors remain fully supported until they are officially deprecated. This deprecation notification can span a few months or longer. After removal, the connector will no longer work. This notice is to allow you sufficient time to plan and update your code before the connector is deprecated.
 
-## Use the generic ODBC connector to replace deprecated connectors
+## Overview
 
-If legacy connectors are deprecated with no updated connectors available, you can still use the generic [ODBC Connector](connector-odbc.md), which enables you to continue using these data sources with their native ODBC drivers. This can enable you to continue using them indefinitely into the future.
+| Connector|Upgrade Guidance|Release stage |End of Support Date  |Disabled Date  | 
+|:-- |:-- |:-- |:-- | :-- | 
+| [Google BigQuery (V1)](connector-google-bigquery-legacy.md)  | [Link](connector-google-bigquery.md#upgrade-the-google-bigquery-linked-service) |End of support and GA version available | October 31, 2024 | / | 
+| [MariaDB (version 1.0)](connector-mariadb.md)  | [Link](connector-mariadb.md#upgrade-the-mariadb-driver-version) | End of support and GA version available | October 31, 2024 | /| 
+| [MySQL (version 1.0)](connector-mysql.md)  | [Link](connector-mysql.md#upgrade-the-mysql-driver-version) |End of support and GA version available | October 31, 2024| /| 
+| [Salesforce (V1)](connector-salesforce-legacy.md)   | [Link](connector-salesforce.md#upgrade-the-salesforce-linked-service) | GA version available | To be determined | /| 
+| [Salesforce Service Cloud (V1)](connector-salesforce-service-cloud-legacy.md)   | [Link](connector-salesforce-service-cloud.md#upgrade-the-salesforce-service-cloud-linked-service) | GA version available | To be determined |/ | 
+| [PostgreSQL (V1)](connector-postgresql-legacy.md)   | [Link](connector-postgresql.md#upgrade-the-postgresql-linked-service)| End of support and GA version available |October 31, 2024 | /  | 
+| [ServiceNow (V1)](connector-servicenow-legacy.md)   | [Link](connector-servicenow.md#upgrade-your-servicenow-linked-service) | GA version available | To be determined | / | 
+| [Snowflake (V1)](connector-snowflake-legacy.md)   | [Link](connector-snowflake.md#upgrade-the-snowflake-linked-service) | GA version available | To be determined | /  | 
+| [Vertica (version 1.0)](connector-vertica.md)| [Link](connector-vertica.md#upgrade-the-vertica-version) | Preview version available | To be determined | /  | 
+| [Azure Database for MariaDB](connector-azure-database-for-mariadb.md) |/ | End of support |December 31, 2024 | December 31, 2024 | 
+| [Concur (Preview)](connector-concur.md) |/ | End of support | December 31, 2024 | December 31, 2024 | 
+| [Couchbase (Preview)](connector-couchbase.md) |/ | End of support | December 31, 2024 | December 31, 2024 | 
+| [Drill](connector-drill.md) |/ | End of support | December 31, 2024 | December 31, 2024 | 
+| [HBase](connector-hbase.md) |/ | End of support | December 31, 2024 | December 31, 2024 | 
+| [Magento (Preview)](connector-magento.md) |/ | End of support | December 31, 2024 | December 31, 2024 | 
+| [Marketo (Preview)](connector-marketo.md) |/ | End of support | December 31, 2024| December 31, 2024 | 
+| [Oracle Eloqua (Preview)](connector-oracle-eloqua.md) |/ | End of support | December 31, 2024 | December 31, 2024 | 
+| [Oracle Responsys (Preview)](connector-oracle-responsys.md) |/ | End of support | December 31, 2024 | December 31, 2024 | 
+| [Oracle Service Cloud (Preview)](connector-oracle-service-cloud.md) |/ | End of support | December 31, 2024 | December 31, 2024 | 
+| [PayPal (Preview)](connector-paypal.md) |/ | End of support |December 31, 2024 | December 31, 2024| 
+| [Phoenix](connector-phoenix.md) |/ | End of support | December 31, 2024 | December 31, 2024 | 
+| [Salesforce Marketing Cloud](connector-salesforce-marketing-cloud.md) |/ | End of support  | December 31, 2024 | December 31, 2024 | 
+| [Zoho (Preview)](connector-zoho.md) |/ | End of support | December 31, 2024 | December 31, 2024 | 
+| [Amazon Marketplace Web Service](connector-amazon-marketplace-web-service.md)|/ | Disabled |/  |/  | 
 
-## Connectors to be deprecated on September 30, 2024
+## Release stages and support
 
-The following connectors are scheduled for deprecation at the end of September 2024 and have no updated replacement connectors. You should plan to migrate to alternative solutions for linked services that use these connectors before the deprecation date.
+This section describes the different release stages and support for each stage.
 
-- [HubSpot](connector-hubspot.md)
-- [Vertica](connector-vertica.md)
+| Release stage |Notes  | 
+|:--  |:-- | 
+| End of Support announcement | Before the end of the lifecycle at any stage, an end of support announcement is performed.<br><br>Support Service Level Agreements (SLAs) are applicable for End of Support announced connectors, but all customers must upgrade to a new version of the connector no later than the End of Support date.<br><br>During this stage, the existing connectors function as expected, but objects such as linked service can be created only on the new version of the connector.  | 
+| End of Support | At this stage, the connector is considered as deprecated, and no longer supported. Your pipeline will not fail due to the deprecation but with below cautions:<br>&nbsp;&nbsp;• No plan to fix bugs. <br>&nbsp;&nbsp;• No plan to add any new features. <br><br> If necessary due to outstanding security issues, or other factors, **Microsoft might expedite moving into the final disabled stage at any time, at Microsoft's discretion**.| 
+|Disabled |All pipelines that are running on legacy version connectors will no longer be able to execute.| 
 
-## Connectors to be deprecated on November 30, 2024
+## V1 connectors with updated connectors or drivers available now
 
-The following connectors are scheduled for deprecation at the end of November 2024 and have no updated replacement connectors. You should plan to migrate to alternative solutions for linked services that use these connectors before the deprecation date.
+The following V1 connectors or version 1.0 will be deprecated, but new updated versions are available in Azure Data Factory. You can update existing data sources to use the new connectors moving forward.
 
-- [Square (Preview)](connector-square.md)
-- [Xero (Preview)](connector-xero.md)
+- [Google BigQuery](connector-google-bigquery.md#upgrade-the-google-bigquery-linked-service)
+- [MariaDB](connector-mariadb.md#upgrade-the-mariadb-driver-version)
+- [MySQL](connector-mysql.md#upgrade-the-mysql-driver-version)
+- [PostgreSQL](connector-postgresql.md#upgrade-the-postgresql-linked-service)
+- [Salesforce](connector-salesforce.md#upgrade-the-salesforce-linked-service)
+- [Salesforce Service Cloud](connector-salesforce-service-cloud.md#upgrade-the-salesforce-service-cloud-linked-service)
+- [ServiceNow](connector-servicenow.md#upgrade-your-servicenow-linked-service)
+- [Snowflake](connector-snowflake.md#upgrade-the-snowflake-linked-service)
+- [Vertica](connector-vertica.md#upgrade-the-vertica-version)
 
-## Connectors to be deprecated on December 31, 2024
+## Connectors that are at End of Support stage
 
-The following connectors are scheduled for deprecation at the end of December 2024 and have no updated replacement connectors. You should plan to migrate to alternative solutions for linked services that use these connectors before the deprecation date.
+The following connectors are at End of Support stage. You should migrate to [alternative solutions for linked services](#options-to-replace-deprecated-connectors) that use these connectors.
 
-- [Amazon Marketplace Web Service (MWS)](connector-amazon-marketplace-web-service.md)
 - [Azure Database for MariaDB](connector-azure-database-for-mariadb.md)
 - [Concur (Preview)](connector-concur.md)
 - [Couchbase (Preview)](connector-couchbase.md)
 - [Drill](connector-drill.md)
-- [Hbase](connector-hbase.md)
-- [Hive](connector-hive.md)
-- [Jira](connector-jira.md)
+- [HBase](connector-hbase.md)
 - [Magento (Preview)](connector-magento.md)
 - [Marketo (Preview)](connector-marketo.md)
-- [Oracle](connector-oracle.md)
 - [Oracle Eloqua (Preview)](connector-oracle-eloqua.md)
+- [Oracle Responsys (Preview)](connector-oracle-responsys.md)
 - [Oracle Service Cloud (Preview)](connector-oracle-service-cloud.md)
-- [Paypal (Preview)](connector-paypal.md)
-- [Phoenix (Preview)](connector-phoenix.md)
-- [Presto](connector-presto.md)
-- [Salesforce Marketing Cloud (Preview)](connector-salesforce-marketing-cloud.md)
-- [Spark](connector-spark.md)
-- [Teradata](connector-teradata.md)
+- [PayPal (Preview)](connector-paypal.md)
+- [Phoenix](connector-phoenix.md)
+- [Salesforce Marketing Cloud](connector-salesforce-marketing-cloud.md)
 - [Zoho (Preview)](connector-zoho.md)
+
+
+## Connectors that are deprecated
+
+The following connector was deprecated.
+
+- [Amazon Marketplace Web Service](connector-amazon-marketplace-web-service.md)
+
+## Options to replace deprecated connectors
+
+If V1 connectors are deprecated with no updated connectors available, you can still use the
+[ODBC Connector](connector-odbc.md) which enables you to continue using these data sources with their native ODBC drivers, or other alternatives. This can enable you to continue using them indefinitely into the future.
+
+## How to find your impacted objects in your data factory
+
+Here's the steps to get your objects which still rely on the deprecated connectors or connectors that have a precise end of support date. It is recommended to take action to upgrade those object to the new connector version before the end of the support date.
+
+1. Open your Azure Data Factory.
+2. Go to Manage – Linked services page.
+3. You should see the Linked Service that is still on V1 with alert behind it.
+4. Click on the number under the 'Related' column will show you the related objects that utilize this particular Linked service.
+5. To learn more about the upgrade guidance and the comparison between V1 and V2, you can navigate to the connector upgrade section within each connector page. 
+
+:::image type="content" source="media/connector-deprecation-plan/linked-services-page.png" alt-text="Screenshot of the linked services page." lightbox="media/connector-deprecation-plan/linked-services-page.png":::
 
 ## Related content
 

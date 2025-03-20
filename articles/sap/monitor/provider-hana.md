@@ -5,7 +5,7 @@ author: MightySuz
 ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.topic: how-to
-ms.date: 10/27/2022
+ms.date: 08/22/2024
 ms.author: sujaj
 #Customer intent: As a developer, I want to create an SAP HANA provider so that I can use the resource with Azure Monitor for SAP solutions.
 ---

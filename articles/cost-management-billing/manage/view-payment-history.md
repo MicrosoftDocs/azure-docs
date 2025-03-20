@@ -6,7 +6,7 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/21/2024
+ms.date: 03/06/2025
 ms.author: banders
 ---
 
@@ -44,7 +44,7 @@ To view payment history at a billing profile level:
 
    :::image type="content" source="./media/view-payment-history/payment-history-window.png" alt-text="Screenshot that shows the pane that shows payment history." lightbox="./media/view-payment-history/payment-history-window.png" :::
 
-   To download an invoice, select the invoice ID.
+To view an invoice, select the invoice ID. To download the invoice, select the download symbol.
 
 ## Related content
 

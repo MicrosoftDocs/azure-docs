@@ -97,11 +97,11 @@ Now you're ready to create an NFS file share and provide network-level security 
 
 1. Select the storage account you created.
 
-1. Select **Data storage > File shares** from the storage account pane.
+1. In the service menu, under **Data storage**, select **File shares**.
 
 1. Select **+ File Share**.
 
-1. Name the new file share *qsfileshare* and enter "100" for the minimum **Provisioned capacity**, or provision more capacity (up to 102,400 GiB) to get more performance. Select **NFS** protocol, leave **No Root Squash** selected, and select **Create**.
+1. Name the new file share *qsfileshare* and enter "100" for the minimum **Provisioned capacity**, or provision more capacity (up to 102,400 GiB) to get more performance. Select **NFS** protocol, choose a **Root Squash** setting, and select **Create**. To learn more about root squash and its security benefits for NFS file shares, see [Configure root squash for Azure Files](nfs-root-squash.md).
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/create-nfs-share.png" alt-text="Screenshot showing how to name the file share and provision capacity to create a new N F S file share." lightbox="media/storage-files-quick-create-use-linux/create-nfs-share.png" border="true":::
 
@@ -151,13 +151,13 @@ Azure Files doesn't currently support encryption-in-transit with the NFS protoco
 
 1. Select the storage account you created.
 
-1. Select **File shares** from the storage account pane.
+1. In the service menu, under **Data storage**, select **File shares**.
 
 1. Select the NFS file share that you created. Under **Secure transfer setting**, select **Change setting**.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/secure-transfer-setting.png" alt-text="Screenshot showing how to change the secure transfer setting." lightbox="media/storage-files-quick-create-use-linux/secure-transfer-setting.png" border="true":::
 
-1. Change the **Secure transfer required** setting to **Disabled**, and select **Save**. The setting change may take up to 30 seconds to take effect.
+1. Change the **Secure transfer required** setting to **Disabled**, and select **Save**. The setting change can take up to 30 seconds to take effect.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/disable-secure-transfer.png" alt-text="Screenshot showing how to disable the secure transfer setting." lightbox="media/storage-files-quick-create-use-linux/disable-secure-transfer.png" border="true":::
 
@@ -192,7 +192,7 @@ Now that you've created an NFS share, you have to mount it on your Linux client.
 
 1. Select the storage account you created.
 
-1. Select **File shares** from the storage account pane and select the NFS file share you created.
+1. In the service menu, under **Data storage**, select **File shares**, and then select the NFS file share you created.
 
 1. You should see **Connect to this NFS share from Linux** along with sample commands to use NFS on your Linux distribution and a mounting script that contains the required mount options. For other recommended mount options, see [Mount NFS Azure file share on Linux](storage-files-how-to-mount-nfs-shares.md#mount-options).
 

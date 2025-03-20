@@ -1,18 +1,18 @@
 ---
 title: Quickstart - Back up a VM with the Azure portal by using Azure Backup
 description: In this Quickstart, learn how to create a Recovery Services vault, enable protection on an Azure VM, and back up the VM,  with the Azure portal.
-ms.date: 02/26/2024
+ms.date: 01/30/2025
 ms.topic: quickstart
 ms.devlang: azurecli
 ms.custom: mvc, mode-ui, engagement-fy24
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Quickstart: Back up a virtual machine in Azure
 
-This quickstart describes how to enable backup on an existing Azure VM by using the Azure portal. If you need to create a VM, you can [create a VM with the Azure portal](../virtual-machines/windows/quick-create-portal.md).
+This quickstart describes how to enable backup on an existing Azure VM by using the Azure portal. If you need to create a VM, you can [create a VM with the Azure portal](/azure/virtual-machines/windows/quick-create-portal).
 
 Azure backups can be created through the Azure portal. This method provides a browser-based user interface to create and configure Azure backups and all related resources. You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that can be stored in geo-redundant recovery vaults. This article details how to back up a virtual machine (VM) with the Azure portal.
 
@@ -23,6 +23,9 @@ Sign in to the [Azure portal](https://portal.azure.com).
 [!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
+
+>[!Important]
+>If you have [Azure Files for protection](azure-file-share-backup-overview.md), after vault creation, [configure backup for Azure Files, and then initiate an on-demand backup](backup-azure-files.md). Learn more [about the best practices for Azure Files backup](tutorial-backup-azure-files-vault-tier-portal.md#best-practices).
 
 ## Apply a backup policy
 
@@ -149,7 +152,7 @@ Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent
 **VM** | **Details**
 --- | ---
 **Windows** | 1. [Download and install](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) the agent MSI file. <br><br> 2. Install with admin permissions on the machine. <br><br> 3. Verify the installation. In *C:\WindowsAzure\Packages* on the VM, right-click **WaAppAgent.exe** > **Properties**. On the **Details** tab, **Product Version** should be 2.6.1198.718 or higher. <br><br>  If you're updating the agent, make sure that no backup operations are running, and [reinstall the agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
-**Linux** | Install by using an RPM or a DEB package from your distribution's package repository. This is the preferred method for installing and upgrading the Azure Linux agent. All the [endorsed distribution providers](../virtual-machines/linux/endorsed-distros.md) integrate the Azure Linux agent package into their images and repositories. The agent is available on [GitHub](https://github.com/Azure/WALinuxAgent), but we don't recommend installing from there. <br><br>  If you're updating the agent, make sure no backup operations are running, and update the binaries.</li><ul>
+**Linux** | Install by using an RPM or a DEB package from your distribution's package repository. This is the preferred method for installing and upgrading the Azure Linux agent. All the [endorsed distribution providers](/azure/virtual-machines/linux/endorsed-distros) integrate the Azure Linux agent package into their images and repositories. The agent is available on [GitHub](https://github.com/Azure/WALinuxAgent), but we don't recommend installing from there. <br><br>  If you're updating the agent, make sure no backup operations are running, and update the binaries.</li><ul>
 
 ## Clean up deployment
 
@@ -180,4 +183,5 @@ If you're going to continue on to a Backup tutorial that explains how to restore
 In this quickstart, you created a Recovery Services vault, enabled protection on a VM, and created the initial recovery point. To learn more about Azure Backup and Recovery Services, continue to the tutorials.
 
 > [!div class="nextstepaction"]
-> [Back up multiple Azure VMs](./tutorial-backup-vm-at-scale.md)
+>- [Back up multiple Azure VMs](./tutorial-backup-vm-at-scale.md)
+>- [Restore an Azure VM using REST API](backup-azure-arm-userestapi-restoreazurevms.md)

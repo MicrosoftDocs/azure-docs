@@ -13,7 +13,7 @@ ms.author: namalu
 
 # Configure multiple service identity providers
 
-In addition to [Microsoft Entra ID](/entra/fundamentals/whatis), you can configure up to two additional identity providers for a FHIR service, whether the service already exists or is newly created. 
+In addition to [Microsoft Entra ID](/entra/fundamentals/whatis), you can configure up to two additional identity providers for a FHIR&reg; service, whether the service already exists or is newly created. 
 
 ## Identity providers prerequisite
 Identity providers must support OpenID Connect (OIDC), and must be able to issue JSON Web Tokens (JWT) with a `fhirUser` claim, a `azp` or `appid` claim, and an `scp` claim with [SMART on FHIR v1 Scopes](https://www.hl7.org/fhir/smart-app-launch/1.0.0/scopes-and-launch-context/index.html#scopes-for-requesting-clinical-data).
@@ -58,7 +58,7 @@ Add the `smartIdentityProviders` element to the FHIR service `authenticationConf
 
 #### Configure the `smartIdentityProviders` array
 
-If you don't need any identity providers besides Microsoft Entra ID, set the `smartIdentityProviders` array to null, or omit it from the provisioning request. Otherwise, include at least one valid identity provider configuration object in the array. You can configure up to two additional identity providers.
+If you don't need any identity providers beside Microsoft Entra ID, set the `smartIdentityProviders` array to null, or omit it from the provisioning request. Otherwise, include at least one valid identity provider configuration object in the array. You can configure up to two additional identity providers.
 
 #### Specify the `authority`
 
@@ -74,19 +74,19 @@ https://yourIdentityProvider.com/authority/v2.0/.well-known/openid-configuration
 
 #### Configure the `applications` array
 
-You must include at least one application configuration and at most two in the `applications` array. Each application configuration has values that validate access token claims and an array that defines the permissions for the application to access FHIR resources.
+You must include at least one application configuration and can add up to 25 applications in the `applications` array. Each application configuration has values that validate access token claims, and an array that defines the permissions for the application to access FHIR resources.
 
 #### Identify the application with the `clientId` string
 
-The identity provider defines the application with a unique identifier called the `clientId` string (or application ID). The FHIR service validates the access token by checking the `authorized party` (azp) or `application id` (appid) claim against the `clientId` string. The FHIR service rejects requests with a `401 Unauthorized` error code if the `clientId` string and the token claim don't match exactly.
+The identity provider defines the application with a unique identifier called the `clientId` string (or application ID). The FHIR service validates the access token by checking the `authorized party` (azp) or `application id` (appid) claim against the `clientId` string. If the `clientId` string and the token claim don't match exactly, the FHIR service rejects the request with a `401 Unauthorized` error code.
 
 #### Validate the access token with the `audience` string
 
-The `aud` claim in an access token identifies the intended recipient of the token. The `audience` string is the unique identifier for the recipient. The FHIR service validates the access token by checking the `audience` string against the `aud` claim. The FHIR service rejects requests with a `401 Unauthorized` error code if the `audience` string and the `aud` claim don't match exactly.
+The `aud` claim in an access token identifies the intended recipient of the token. The `audience` string is the unique identifier for the recipient. The FHIR service validates the access token by checking the `audience` string against the `aud` claim. If the `audience` string and the `aud` claim don't match exactly, the FHIR service rejects requests with a `401 Unauthorized` error code.
 
 #### Specify the permissions with the `allowedDataActions` array
 
-Include at least one permission string in the `allowedDataActions` array. You can include any valid permission strings, but avoid duplicates.
+Include at least one permission string in the `allowedDataActions` array. You can include any valid permission strings. Avoid duplicates.
 
 | **Valid permission string** | **Description** |
 |---|---|

@@ -1,17 +1,20 @@
 ---
 title: Experimentation in Azure App Configuration
-description: This document introduces experimentation in Azure App Configuration, scenarios for using Split Experimentation, and more.
+description: This document introduces experimentation in Azure App Configuration.
 author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.custom:
   - build-2024
 ms.topic: conceptual
-ms.date: 05/08/2024
+ms.date: 11/12/2024
 ms.collection: ce-skilling-ai-copilot
 ---
 
 # Experimentation (preview)
+
+> [!NOTE]
+> We appreciate the feedback we have received during the preview phases of Experimentation on Azure App Configuration, and our teams are using it to make updates to the feature. During this time, Experimentation Workspace will be temporarily unavailable.
 
 Experimentation is the process of systematically testing hypotheses or changes to improve user experience or software functionality. This definition also holds true for most scientific fields including technology, where all experiments have four common steps:
 
@@ -20,27 +23,13 @@ Experimentation is the process of systematically testing hypotheses or changes t
 - **Observation** of the results measured by the metrics defined in the previous step,
 - **Drawing a conclusion** regarding whether the hypothesis was validated or invalidated.
 
-[Check this video](https://aka.ms/eshopSplitDemo) for a quick demonstration of Experimentation in App Configuration, highlighting the user experience optimization use case to boost your business metrics.
-
-## Experimentation in Azure App Configuration (preview)
-
-In Azure App Configuration, the experimentation feature allows developers to easily test different variants of a feature and monitor the impact at the feature-level. Once configured, users are able to analyze new features, compare different variants of a feature, and promptly assess relevant metrics for new product changes. This capability empowers development teams with measurable insights, facilitating quicker and safer product deployments. Microsoft partners with Split Software to deliver the experimentation feature in Azure App Configuration. The Split Experimentation Workspace (preview) is a [Azure Native ISV resource](../partner-solutions/split-experimentation/index.yml) for the integration between Microsoft and Split Software.
-
-High-level data flow for experimentation in Azure.
-
-:::image type="content" source="./media/concept-experimentation/experimentation-data-flow.png" alt-text="Diagram of data flow for experimentation in Azure." lightbox="./media/concept-experimentation/experimentation-data-flow.png":::
-
-To start an experimentation, first you need to identify the feature and its variations that you want to experiment on. Next are the metrics that form the basis of the feature evaluation. To get started on your first experiment in Azure, follow the steps outlined in this [tutorial](./run-experiments-aspnet-core.md).
-
 ### Concepts related to experimentation
 
 - **Variant Feature Flags**: Represent different versions or configurations of a feature. In an experiment, the variant feature flags are compared in relevance to the metrics you're interested in and the traffic allocated for the application audience.
 
-- **Telemetry**: Telemetry is the data for the variations of a feature and the related metrics to evaluate the feature. For the setup in Azure, the feature flag evaluation/assignment data flows to the telemetry provider. Application Insights is the telemetry provider for the experimentation setup. Data for the defined metrics also flow to the same Application Insights instance.
+- **Telemetry**: Telemetry is the data for the variations of a feature and the related metrics to evaluate the feature.
 
-- **A/B testing**: A/B testing, also known as split testing, is an industry-standard method for evaluating the impact of potential changes within a technology stack.
-
-- **Sampling size**: Sampling size is the size of the sample of users under experiment. It's the number of events sent for any variation of the feature that you're experimenting on.
+- **A/B testing**: A/B testing, also known as experimentation, is an industry-standard method for evaluating the impact of potential changes within a technology stack.
 
 - **Minimum sampling size**: is the minimum number of events required per variation of the feature for the experiment to show you statistically significant results. The larger the sample size, better the statistical significance of the experiment's results.
 
@@ -63,64 +52,69 @@ The results help you to conclude the learnings and outcomes into actionable item
 
 ## Scenarios for using experimentation
 
-- **Intelligent applications (e.g., AI-based features)**
-Accelerate General AI (Gen AI) adoption and optimize AI models and use cases through rapid experimentation. Use Experimentation to iterate quickly on AI models, test different scenarios, and determine effective approaches.
-It helps enhance agility in adapting AI solutions to evolving user needs and market trends, and facilitate understanding of the most effective approaches for scaling AI initiatives.
+### Release defense
 
-- **CI, CD and continuous experimentation (Gradual feature rollouts and version updates)**
-Ensure seamless transitions and maintain or improve key metrics with each version update while managing feature releases. Utilize experimentation to gradually roll out new features to subsets of users using feature flags, monitor performance metrics, and collect feedback for iterative improvements.
-It's beneficial to reduce the risk of introducing bugs or performance issues to the entire user base. It enables data-driven decision-making during version rollouts and feature flag management, leading to improved product quality and user satisfaction.
+Objective: Ensure smooth transitions and maintain or improve key metrics with each release.
 
-- **User experience optimization (UI A/B testing)**
-Optimize business metrics by comparing different UI variations and determining the most effective design. Conduct A/B tests using experimentation to test UI elements, measure user interactions, and analyze performance metrics.
-The best return here's improved user experience by implementing UI changes based on empirical evidence.
+Approach: Employ experimentation to gradually roll out new features, monitor performance metrics, and collect feedback for iterative improvements.
 
-- **Personalization and targeting experiments**
-Deliver personalized content and experiences tailored to user preferences and behaviors. Use experimentation to test personalized content, measure engagement, and iterate on personalization strategies.
-Results are increased user engagement, conversion rates, and customer loyalty through relevant and personalized experiences. These results, in turn drive revenue growth and customer retention by targeting audiences with tailored messages and offers.
+Benefits:
 
-- **Performance optimization experiments**
-Improve application performance and provide an efficient user experience through performance optimization experiments. Conduct experiments to test performance enhancements, measure key metrics, and implement successful optimizations.
-Here, experimentation enhances application scalability, reliability, and responsiveness through proactive performance improvements. It optimizes resource utilization and infrastructure costs by implementing efficient optimizations.
+* Minimizes the risk of widespread issues by using guardrail metrics to detect and address problems early in the rollout.
+* Helps maintain or improve key performance and user satisfaction metrics by making informed decisions based on real-time data.
+ 
+### Test hypotheses
 
-## Experiment operations
+Objective: Validate assumptions and hypotheses to make informed decisions about product features, user behaviors, or business strategies.
 
-- **Create experiment**: Experiment can be created on a variant feature flag emitting telemetry. Once an experiment is created, an experiment version is created with the experiment as well. Any further edits to the feature flag result in a new experiment version getting created for that experiment.
+Approach: Use experimentation to test specific hypotheses by creating different feature versions or scenarios, then analyze user interactions and performance metrics to determine outcomes.
 
-- **Archive experiment**: Archiving an experiment puts it in an archived state. While an experiment is archived, no calculations are performed on the experiment. You can always restore the experiment later to resume the calculations and go back to active state.
+Benefits:
 
-- **Recover experiment**: Recovering an experiment puts an archived experiment in an active state, and calculations are resumed for the experiment.
+* Provides evidence-based insights that reduce uncertainty and guide strategic decision-making.
+* Enables faster iteration and innovation by confirming or refuting hypotheses with real user data.
+* Enhances product development by focusing efforts on ideas that are proven to work, ultimately leading to more successful and user-aligned features.
+  
+### A/B testing
 
-- **Delete experiment**: Deleting an experiment deletes the experiment in Split and all of its related data. It's an irreversible operation so there's no restore after deleting.
+Objective: Optimize business metrics by comparing different UX variations and determining the most effective design.
 
-- **Check experiment results**: Checking the results of an active experiment allows you to see how each variant in the experiment is performing.
+Approach: Conduct A/B tests using experimentation with different user experiences, measure user interactions, and analyze performance metrics.
 
-## Access requirements for experiment operations
+Benefits:
+* Improves user experience by implementing UX changes based on empirical evidence.
+* Increases conversion rates, engagement levels, and overall effectiveness of digital products or services.
+ 
+### For intelligent applications (for example, AI-based features)
 
-The following sections detail the roles required to perform experiment-related operations with Microsoft Entra ID.
+Objective: Accelerate Generative AI (Gen AI) adoption and optimize AI models and use cases through rapid experimentation.
 
-### Set up experimentation
+Approach: Use experimentation to iterate quickly on AI models, test different scenarios, and determine effective approaches.
 
-To set up experimentation with the required resources, including the Split Experimentation Workspace, either the Azure subscription Owner role or the combination of subscription Contributor and User Access Administrator roles is required.
+Benefits:
 
-### Create or update experiment
+* Enhances agility in adapting AI solutions to evolving user needs and market trends.
+* Facilitates understanding of the most effective approaches for scaling AI initiatives.
+* Improves accuracy and performance of AI models based on real-world data and feedback.
+ 
+### Personalization and targeting experiments
 
-To create, update, archive, or delete an experiment you would need App Configuration Data Owner role on the App Configuration store. It also requires the role of ExperimentationDataOwner in the Enterprise app managing the data access to the connected Split Experimentation Workspace.
+Objective: Deliver personalized content and experiences tailored to user preferences and behaviors.
 
-### Read experiment results
+Approach: Leverage experimentation to test personalized content, measure engagement, and iterate on personalization strategies.
 
-To check experiments, their versions, and results, you would need App Configuration Data Reader role on the App Configuration store. It also requires the role of an ExperimentationDataReader or an ExperimentationDataOwner in the Enterprise app managing the data access to the connected Split Experimentation Workspace.
+Benefits:
 
-## Billing considerations and limits
+* Increases user engagement, conversion rates, and customer loyalty through relevant and personalized experiences.
+* Drives revenue growth and customer retention by targeting audiences with tailored messages and offers.
+ 
+### Performance optimization experiments
 
-App Configuration doesn't bill specifically for experiments. Experimentation is provided via an integration with [Split Experimentation Workspace (preview)](../partner-solutions/split-experimentation/index.yml). Check the pricing plan <!--link to be updated --> for Split Experimentation for Azure App Configuration.
+Objective: Improve application performance and user experience through performance optimization experiments.
 
-Minimum sample size required for Split experimentation is 30 per variant. An experiment is required to have the minimum sample size to get the experiment results or results show "No data" in the **outcome**.
+Approach: Conduct experiments to test performance enhancements, measure key metrics, and implement successful optimizations.
 
-## Next steps
+Benefits:
 
-> [!div class="nextstepaction"]
-> [Run experiments with variant feature flags](./run-experiments-aspnet-core.md)
-
-> [!div class="nextstepaction"]
-> [Split Experimentation quickstart](../partner-solutions/split-experimentation/create.md)
+* Enhances application scalability, reliability, and responsiveness through proactive performance improvements.
+* Optimizes resource utilization and infrastructure costs by implementing efficient optimizations.

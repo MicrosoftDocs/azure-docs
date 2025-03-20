@@ -1,12 +1,12 @@
 ---
 title: Understand Azure IoT Hub endpoints
 description: This article provides information about IoT Hub device-facing and service-facing endpoints.
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
-ms.service: iot-hub
+ms.author: sonialopez
+ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 02/23/2024
+ms.date: 12/03/2024
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: System Architecture']
 ---
 
@@ -70,38 +70,36 @@ All IoT Hub endpoints use the [TLS](https://tools.ietf.org/html/rfc5246) protoco
 
 You can link existing Azure services in your Azure subscriptions to your IoT hub to act as endpoints for message routing. These endpoints act as service endpoints and are used as sinks for message routes. Devices can't write directly to these endpoints. For more information about message routing, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](../iot-hub/iot-hub-devguide-messages-d2c.md).
 
-IoT Hub currently supports the following Azure services as custom endpoints:
+IoT Hub supports the following Azure services as custom endpoints:
 
 * Storage containers
 * Event Hubs
-* Service Bus Queues
-* Service Bus Topics
+* Service Bus queues
+* Service Bus topics
 * Cosmos DB
    
 For the limits on endpoints per hub, see [Quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
 ### Built-in endpoint
 
-You can use standard [Event Hubs integration and SDKs](iot-hub-devguide-messages-read-builtin.md) to receive device-to-cloud messages from the built-in endpoint (**messages/events**). Once any route is created, data stops flowing to the built-in endpoint unless a route is created to that endpoint. Even if no routes are created, a fallback route must be enabled to route messages to the built-in endpoint. The fallback is enabled by default if you create your hub using the portal or the CLI.
+You can use standard [Event Hubs integration and SDKs](iot-hub-devguide-messages-read-builtin.md) to receive device-to-cloud messages from the built-in endpoint (**messages/events**). Once any route is created, data stops flowing to the built-in endpoint unless a route is created to the built-in endpoint. Even if no routes are created, a fallback route must be enabled to route messages to the built-in endpoint. The fallback is enabled by default if you create your hub using the portal or the CLI.
 
 ### Azure Storage as a routing endpoint
 
-There are two storage services IoT Hub can route messages to: [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) and [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (ADLS Gen2) accounts. Both of these use blobs for their storage.
+There are two storage services IoT Hub can route messages to: [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) and [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (ADLS Gen2) accounts. Both of these use blobs for their storage. To use Azure Data Lake Gen2, your storage account must have hierarchical namespaces enabled. For more information, see [Create a storage account to use with Azure Data Lake Storage](../storage/blobs/create-data-lake-storage-account.md).
 
-IoT Hub supports writing data to Azure Storage in the [Apache Avro](https://avro.apache.org/) format and the JSON format. The default is AVRO. To use JSON encoding set the contentType property to **application/json** and contentEncoding property to **UTF-8** in the message [system properties](iot-hub-devguide-routing-query-syntax.md#system-properties). Both of these values are case-insensitive. If the content encoding isn't set, then IoT Hub writes the messages in base 64 encoded format.
+IoT Hub supports writing data to Azure Storage in the [Apache Avro](https://avro.apache.org/) format and the JSON format. The default is AVRO. To use JSON encoding, set the contentType property to **application/json** and contentEncoding property to **UTF-8** in the message [system properties](iot-hub-devguide-routing-query-syntax.md#system-properties). Both of these values are case-insensitive. If the content encoding isn't set, then IoT Hub writes the messages in base 64 encoded format.
 
 The encoding format can be set only when the blob storage endpoint is configured; it can't be edited for an existing endpoint.
 
-IoT Hub batches messages and writes data to storage whenever the batch reaches a certain size or a certain amount of time has elapsed. IoT Hub defaults to the following file naming convention: `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
-
-You may use any file naming convention, but you must use all listed tokens. IoT Hub writes to an empty blob if there's no data to write.
+IoT Hub batches messages and writes data to storage whenever the batch reaches a certain size or a certain amount of time elapses. IoT Hub defaults to the following file naming convention: `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`. You can use any file naming convention, but you must use all listed tokens. IoT Hub writes to an empty blob if there's no data to write.
 
 We recommend listing the blobs or files and then iterating over them, to ensure that all blobs or files are read without making any assumptions of partition. The partition range could potentially change during a Microsoft-initiated failover or IoT Hub manual failover. You can use the [List Blobs API](/rest/api/storageservices/list-blobs) to enumerate the list of blobs or [List ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/path) for the list of files. For example:
 
 ```csharp
 public void ListBlobsInContainer(string containerName, string iothub)
 {
-    var storageAccount = CloudStorageAccount.Parse(this.blobConnectionString);
+    var storageAccount = CloudStorageAccount(Microsoft.Azure.Storage.Auth.StorageCredentials storageCredentials, bool useHttps);
     var cloudBlobContainer = storageAccount.CreateCloudBlobClient().GetContainerReference(containerName);
     if (cloudBlobContainer.Exists())
     {
@@ -113,10 +111,6 @@ public void ListBlobsInContainer(string containerName, string iothub)
     }
 }
 ```
-
-To create an Azure Data Lake Gen2-compatible storage account, create a new V2 storage account and select **Enable hierarchical namespace** from the **Data Lake Storage Gen2** section of the **Advanced** tab, as shown in the following image:
-
-:::image type="content" alt-text="Screenshot that shows how to select Azure Date Lake Gen2 storage." source="./media/iot-hub-devguide-messages-d2c/selectadls2storage.png":::
 
 ### Service Bus queues and Service Bus topics as a routing endpoint
 
@@ -130,7 +124,7 @@ Apart from the built-in-Event Hubs compatible endpoint, you can also route data 
 
 You can send data directly to Azure Cosmos DB from IoT Hub. IoT Hub supports writing to Cosmos DB in JSON (if specified in the message content-type) or as base 64 encoded binary.
 
-To support high-scale scenarios, you can enable [synthetic partition keys](/azure/cosmos-db/nosql/synthetic-partition-keys) for the Cosmos DB endpoint. As Cosmos DB is a hyperscale data store, all data/documents written to it must contain a field that represents a logical partition. Each logical partition has a maximum size of 20 GB. You can specify the partition key property name in **Partition key name**. The partition key property name is defined at the container level and can't be changed once it has been set.  
+To support high-scale scenarios, you can enable [synthetic partition keys](/azure/cosmos-db/nosql/synthetic-partition-keys) for the Cosmos DB endpoint. As Cosmos DB is a hyperscale data store, all data/documents written to it must contain a field that represents a logical partition. Each logical partition has a maximum size of 20 GB. You can specify the partition key property name in **Partition key name**. The partition key property name is defined at the container level and can't be updated.  
 
 You can configure the synthetic partition key value by specifying a template in **Partition key template** based on your estimated data volume. For example, in manufacturing scenarios, your logical partition might be expected to approach its maximum limit of 20 GB within a month. In that case, you can define a synthetic partition key as a combination of the device ID and the month. The generated partition key value is automatically added to the partition key property for each new Cosmos DB record, ensuring logical partitions are created each month for each device.
 

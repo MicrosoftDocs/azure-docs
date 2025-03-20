@@ -4,11 +4,11 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: The For Each Activity defines a repeating control flow in an Azure Data Factory or Azure Synapse Analytics pipeline. The For Each Activity is used for iterating over a collection to execute actions on each item in the collection individually.
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 03/20/2025
 ---
 
 # ForEach activity in Azure Data Factory and Azure Synapse Analytics
@@ -97,7 +97,7 @@ Property | Description | Allowed values | Required
 name | Name of the for-each activity. | String | Yes
 type | Must be set to **ForEach** | String | Yes
 isSequential | Specifies whether the loop should be executed sequentially or in parallel.  Maximum of 50 loop iterations can be executed at once in parallel). For example, if you have a ForEach activity iterating over a copy activity with 10 different source and sink datasets with **isSequential** set to False, all copies are executed at once. Default is False. <br/><br/> If "isSequential" is set to False, ensure that there is a correct configuration to run multiple executables. Otherwise, this property should be used with caution to avoid incurring write conflicts. For more information, see [Parallel execution](#parallel-execution) section. | Boolean | No. Default is False.
-batchCount | Batch count to be used for controlling the number of parallel execution (when isSequential is set to false). This is the upper concurrency limit, but the for-each activity will not always execute at this number | Integer (maximum 50) | No. Default is 20.
+batchCount | Batch count to be used for controlling the number of parallel executions (when isSequential is set to false). This is the upper concurrency limit, but the for-each activity will not always execute at this number | Integer (maximum 50) | No. Default is 20.
 Items | An expression that returns a JSON Array to be iterated over. | Expression (which returns a JSON Array) | Yes
 Activities | The activities to be executed. | List of Activities | Yes
 
@@ -214,7 +214,7 @@ In the ForEach activity, provide an array to be iterated over for the property *
 ```
 
 ## Iterate over multiple activities
-It's possible to iterate over multiple activities (for example: copy and web activities) in a ForEach activity. In this scenario, we recommend that you abstract out multiple activities into a separate pipeline. Then, you can use the [ExecutePipeline activity](control-flow-execute-pipeline-activity.md) in the pipeline with ForEach activity to invoke the separate pipeline with multiple activities. 
+It's possible to iterate over multiple activities (for example: copy and web activities) in a ForEach activity. In this scenario, we recommend that you abstract out multiple activities into a separate pipeline. Then, you can use the [ExecutePipeline activity](control-flow-execute-pipeline-activity.md) in the pipeline with ForEach activity to invoke the separate pipeline with multiple activities. If you iterate over multiple activities, there is potential delay in exiting the loop because of aggregation and cleanup work performed by the pipeline. 
 
 
 ### Syntax

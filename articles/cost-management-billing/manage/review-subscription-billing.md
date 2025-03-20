@@ -2,12 +2,12 @@
 title: Review Azure subscription billing data with REST API
 description: Learn how to use Azure REST APIs to review subscription billing details. You can use filters to help customize results.
 author: bandersmsft
-ms.reviewer: adwise
+ms.reviewer: maminn
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: article
-ms.date: 03/21/2024
-ms.author: banders
+ms.date: 01/22/2025
+ms.author: maminn
 # Customer intent: As an administrator or developer, I want to use REST APIs to review subscription billing data for a specified period.
 ---
 
@@ -76,7 +76,7 @@ Each item in **value** represents a details regarding the use of a service:
 |**subscriptionGuid** | Globally unique ID for the subscription. |
 |**startDate** | Date the use started. |
 |**endDate** | Date the use ended. |
-|**useageQuantity** | Quantity used. |
+|**usageQuantity** | Quantity used. |
 |**billableQuantity** | Quantity actually billed. |
 |**pretaxCost** | Cost invoiced, before applicable taxes. |
 |**meterDetails** | Detailed information about the use. |

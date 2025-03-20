@@ -30,7 +30,7 @@ For more information on networking concepts in Container Apps, see [Networking E
 
 ## Prerequisites
 
-- **Internal environment with custom VNet**: Have a container app that is on an internal environment and integrated with a custom virtual network. For more information on how to create a custom virtual network integrated app, see [provide a virtual network to an internal Azure Container Apps environment](./vnet-custom-internal.md).
+- **Internal environment with custom VNet**: Have a container app that is on an internal environment and integrated with a custom virtual network. For more information on how to create a custom virtual network integrated app, see [provide a virtual network to an Azure Container Apps environment](./vnet-custom.md).
 
 - **Security certificates**: If you must use TLS/SSL encryption to the application gateway, a valid public certificate that's used to bind to your application gateway is required.
 
@@ -266,7 +266,7 @@ On the *Configuration* tab, you connect the frontend and backend pool you create
 
 ## Add private link to your Application Gateway
 
-You can establish a secured connection to internal-only container app environments by levaraging private link, as it allows your Application Gateway to communicate with your Container App on the backend through the virtual network.
+You can establish a secured connection to internal-only container app environments by leveraging private link, as it allows your Application Gateway to communicate with your Container App on the backend through the virtual network.
 
 1. Once the Application Gateway is created, select **Go to resource**.
 

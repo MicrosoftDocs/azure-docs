@@ -203,7 +203,7 @@ items:
     displayName: REST, /rest/api/iot-dps/
     href: /rest/api/iot-dps/
   - name: Resource Manager template
-    href: /azure/templates/microsoft.devices/deviceprovisioning-allversions
+    href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 - name: Resources
   items:
   - name: Support and help options

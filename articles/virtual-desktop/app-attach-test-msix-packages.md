@@ -9,6 +9,9 @@ ms.date: 03/04/2024
 
 # Test MSIX packages for app attach
 
+> [!IMPORTANT]
+> MSIX App Attach will be deprecated on June 1, 2025. Make sure to move all apps to App Attach by this date.
+
 This article shows you how to mount MSIX packages outside of Azure Virtual Desktop to help test your packages for app attach. The APIs that power app attach are available for Windows 11 Enterprise and Windows 10 Enterprise. These APIs can be used outside of Azure Virtual Desktop for testing, however there's no management plane for app attach or MSIX app attach outside of Azure Virtual Desktop.
 
 For more information about app attach and MSIX app attach, see [app attach and MSIX app attach in Azure Virtual Desktop](app-attach-overview.md).
@@ -267,7 +270,7 @@ You create a script for each phase:
 
 ## Use packages offline
 
-If you're using packages from the [Microsoft Store for Business](https://businessstore.microsoft.com/) or the [Microsoft Store for Education](https://educationstore.microsoft.com/) on devices that aren't connected to the internet, you need to get the package licenses from the Microsoft Store and install them on your device to successfully run the app. If your device is online and can connect to the Microsoft Store for Business, the required licenses should download automatically, but if you're offline, you need to set up the licenses manually.
+If you're using packages on devices that aren't connected to the internet, you need to make sure the package licenses are installed on your device to successfully run the app. If your device is online, the required licenses should download automatically.
 
 To install the license files, you need to use a PowerShell script that calls the `MDM_EnterpriseModernAppManagement_StoreLicenses02_01` class in the WMI Bridge Provider.
 

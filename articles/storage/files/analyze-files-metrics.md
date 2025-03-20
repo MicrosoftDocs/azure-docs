@@ -5,7 +5,7 @@ author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/08/2024
+ms.date: 03/10/2025
 ms.author: kendownie
 ms.custom: monitoring, devx-track-azurepowershell
 ---
@@ -254,13 +254,13 @@ The following example shows how to read metric data on the metric supporting mul
 
 You can use Azure Monitor to analyze workloads that utilize Azure Files. Follow these steps.
 
-1. Go to your storage account in the [Azure portal](https://portal.azure.com). 
-1. From the left navigation, select **Data storage** > **File shares**. Select the file share you want to monitor.
-1. From the left navigation, select **Monitoring** > **Metrics**.
-1. When using Azure Monitor for Azure Files, it’s important to always select the **Files** metric namespace. Select **Add metric**.
-1. Under **Metric namespace** select **File**.
+1. Navigate to your storage account in the [Azure portal](https://portal.azure.com). 
+1. In the service menu, under **Monitoring**, select **Metrics**.
+1. Under **Metric namespace**, select **File**.
 
 :::image type="content" source="media/analyze-files-metrics/add-metric-namespace-file.png" alt-text="Screenshot showing how to select the Files metric namespace." lightbox="media/analyze-files-metrics/add-metric-namespace-file.png":::
+
+Now you can select a metric depending on what you want to monitor.
 
 ### Monitor availability
 
@@ -284,7 +284,7 @@ In comparison, the following chart shows a situation where both the client and t
 
 :::image type="content" source="media/analyze-files-metrics/latency-same-region.png" alt-text="Screenshot showing latency metrics when the client and Azure file share are located in the same region." lightbox="media/analyze-files-metrics/latency-same-region.png" border="false":::
 
-Another latency indicator to look that for might suggest a problem is an increased frequency or abnormal spikes in **Success Server Latency**.  This is commonly due to throttling due to exceeding the Azure Files [scale limits](storage-files-scale-targets.md) for standard file shares, or an under-provisioned [Azure Files Premium Share](understanding-billing.md#provisioning-method).
+Another latency indicator to look that for might suggest a problem is an increased frequency or abnormal spikes in **Success Server Latency**.  This is commonly due to throttling due to exceeding the Azure Files [scale limits](storage-files-scale-targets.md) for standard file shares, or an under-provisioned [Azure Files Premium Share](understanding-billing.md#provisioned-v1-model).
 
 For more information, see [Troubleshoot high latency, low throughput, or low IOPS](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=%2Fazure%2Fstorage%2Ffiles%2Ftoc.json&tabs=windows#high-latency-low-throughput-or-low-iops).
 
@@ -323,6 +323,30 @@ Select **Add metric** to combine the **Ingress** and **Egress metrics** on a sin
 Compared against the **Bandwidth by Max MiB/s**, we achieved 123 MiB/s at peak.
 
 :::image type="content" source="media/analyze-files-metrics/bandwidth-by-max-mibs.png" alt-text="Screenshot showing bandwidth by max MIBS." lightbox="media/analyze-files-metrics/bandwidth-by-max-mibs.png" border="false":::
+
+### Monitor utilization by metadata IOPS
+
+On Premium SSD and Standard HDD file shares, our current metadata capabilities scale up to 12K metadata IOPS. This means that running a metadata-heavy workload with a high volume of open, close, or delete operations increases the likelihood of metadata IOPS throttling. This limitation is independent of the file share's overall IOPS capacity on Standard or IOPS provisioning on Premium.
+
+Because no two metadata-heavy workloads follow the same usage pattern, it can be challenging for customers to proactively monitor their workload and set accurate alerts.
+
+To address this, we've introduced two metadata-specific metrics for Azure file shares:
+
+- **Success with Metadata Warning:** Indicates that metadata IOPS are approaching their limit and might be throttled if they remain high or continue increasing. A rise in the volume or frequency of these warnings suggests an increasing risk of metadata throttling.
+
+- **Success with Metadata Throttling:** Indicates that metadata IOPS have exceeded the file share’s capacity, resulting in throttling. While IOPS operations will never fail and will eventually succeed after retries, latency will be impacted during throttling.
+
+To view in Azure Monitor, select the **Transactions** metric and **Apply splitting** on response types. The Metadata response types will only appear in the drop-down if the activity occurs within the timeframe selected.
+
+The following chart illustrates a workload that experienced a sudden increase in metadata IOPS (transactions), triggering Success with Metadata Warnings, which indicates a risk of metadata throttling. In this example, the workload subsequently reduced its transaction volume, preventing metadata throttling from occurring.
+
+:::image type="content" source="media/analyze-files-metrics/metadata-warnings.png" alt-text="Screenshot showing Metadata Warnings by response type." lightbox="media/analyze-files-metrics/metadata-warnings.png" border="false":::
+
+If your workload encounters **Success with Metadata Warnings** or **Success with Metadata Throttling** response types, consider implementing one or more of the following recommendations:
+
+- For Premium SMB file shares, enable [Metadata Caching](smb-performance.md#metadata-caching-for-premium-smb-file-shares).
+- Distribute (shard) your workload across multiple file shares.
+- Reduce the volume of metadata IOPS.
 
 ## Related content
 

@@ -13,7 +13,7 @@ metadata:
   ms.topic: hub-page
   author: JnHs
   ms.author: jenhayes
-  ms.date: 04/17/2024
+  ms.date: 12/04/2024
   featureFlags:
   - clicktale
 highlightedContent:
@@ -24,17 +24,17 @@ highlightedContent:
       itemType: get-started
       url: /azure/developer/
     # Card
+    - title: Build skills with Microsoft Learn for Azure
+      itemType: learn
+      url: /training/azure    
+    # Card
     - title: Design your app using the Azure Architecture Center
       itemType: architecture
       url: /azure/architecture/
     # Card
-    - title: Prepare your org with the Cloud Adoption Framework
+    - title: Achieve organizational goals with the Cloud Adoption Framework
       itemType: overview
       url: /azure/cloud-adoption-framework/
-    # Card
-    - title: Build your skills with Microsoft Learn training
-      itemType: learn
-      url: /training/browse/?products=azure&resource_type=learning%20path
 
 productDirectory:
   title: Browse Azure products
@@ -47,63 +47,70 @@ productDirectory:
         - featured
         - ai-machine-learning
         - mobile
-      url: ai-services/index.yml
+      url: /azure/ai-services/
     # Card
     - title: Azure OpenAI Service
       summary: Apply advanced coding and language models to various use cases
       imageSrc: ./media/index/azure-openai.svg
       azureCategories:
         - ai-machine-learning
-      url: ai-services/openai/index.yml
+      url: /azure/ai-services/openai/
+    # Card
+    - title: Azure AI Foundry
+      summary: Build market-ready applications for your organization with AI
+      imageSrc: ./media/index/ai-studio.svg
+      azureCategories:
+        - ai-machine-learning
+      url: /azure/ai-studio/
     # Card
     - title: Speech
-      summary: Speech to text, text to speech, translation and speaker recognition
+      summary: Speech to text, text to speech, translation, and speaker recognition
       imageSrc: ./media/index/speech.svg
       azureCategories:
         - ai-machine-learning
-      url: ./ai-services/speech-service/index.yml
+      url: /azure/ai-services/speech-service/
     # Card
-    - title: Language
+    - title: Azure AI Language
       summary: Easily evaluate sentiment and topics to understand what users want
       imageSrc: ./media/index/language.svg
       azureCategories:
         - ai-machine-learning
-      url: ai-services/language-service/index.yml
+      url: /azure/ai-services/language-service/
     # Card
     - title: Translator
       summary: Easily conduct machine translation with a simple REST API call
       imageSrc: ./media/index/translator.svg
       azureCategories:
         - ai-machine-learning
-      url: ai-services/translator/index.yml
+      url: /azure/ai-services/translator/
     # Card
     - title: Vision
       summary: Distill actionable information from images
       imageSrc: ./media/index/vision.svg
       azureCategories:
         - ai-machine-learning
-      url: ai-services/computer-vision/index.yml
+      url: /azure/ai-services/computer-vision/
     # Card
-    - title: Custom Vision
+    - title: Azure AI Custom Vision
       summary: Easily customize your own state-of-the-art computer vision models for your unique use case
       imageSrc: ./media/index/custom-vision.svg
       azureCategories:
         - ai-machine-learning
-      url: ai-services/custom-vision-service/index.yml
+      url: /azure/ai-services/custom-vision-service/
     # Card
-    - title: Face
+    - title: Azure AI Face
       summary: Detect, identify, analyze, organize, and tag faces in photos
       imageSrc: ./media/index/face.svg
       azureCategories:
         - ai-machine-learning
-      url: ai-services/computer-vision/overview-identity.md
+      url: /azure/ai-services/computer-vision/overview-identity
     # Card
-    - title: Content Safety
+    - title: Azure AI Content Safety
       summary: Use AI to monitor text and image content for safety
       imageSrc: ./media/index/content-safety.svg
       azureCategories:
         - ai-machine-learning
-      url: ai-services/content-safety/index.yml
+      url: /azure/ai-services/content-safety/
     # Card
     - title: Azure AI Bot Service
       summary: Intelligent, serverless bot service that scales on demand
@@ -112,12 +119,12 @@ productDirectory:
         - ai-machine-learning
       url: /azure/bot-service/
     # Card
-    - title: Document Intelligence
+    - title: Azure AI Document Intelligence
       summary: The AI-powered document extraction service that understands your forms
       imageSrc: ./media/index/document-intelligence.svg
       azureCategories:
         - ai-machine-learning
-      url: ./ai-services/document-intelligence/index.yml
+      url: /azure/ai-services/document-intelligence/
     # Card
     - title: Azure AI Search
       summary: AI-powered cloud search service for mobile and web app development
@@ -126,7 +133,7 @@ productDirectory:
         - ai-machine-learning
         - mobile
         - web
-      url: search/index.yml
+      url: /azure/search/
     # Card
     - title: Azure AI Video Indexer
       summary: Unlock video insights
@@ -136,12 +143,12 @@ productDirectory:
         - media
       url: /azure/azure-video-indexer/
     # Card
-    - title: Immersive Reader
+    - title: Azure AI Immersive Reader
       summary: Empower users of all ages and abilities to read and comprehend text
       imageSrc: ./media/index/immersive-reader.svg
       azureCategories:
         - ai-machine-learning
-      url: ./ai-services/immersive-reader/index.yml
+      url: /azure/ai-services/immersive-reader/
     # Card
     - title: Azure Machine Learning
       summary: Bring AI to everyone with an end-to-end, scalable, trusted platform with experimentation and model management
@@ -149,7 +156,7 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
         - iot
-      url: machine-learning/index.yml
+      url: /azure/machine-learning/
     # Card
     - title: Azure Databricks
       summary: Fast, easy, and collaborative Apache Spark-based analytics platform
@@ -171,7 +178,7 @@ productDirectory:
       imageSrc: ./media/index/open-datasets.svg
       azureCategories:
         - ai-machine-learning
-      url: open-datasets/index.yml
+      url: /azure/open-datasets/
     # Card
     - title: Azure Communication Services
       summary: Build rich communication experiences with the same secure platform used by Microsoft Teams
@@ -181,28 +188,12 @@ productDirectory:
         - mobile
       url: communication-services/overview.md
     # Card
-    - title: Azure Communications Gateway
-      summary: Rapidly connect your fixed and mobile networks with Microsoft Teams
-      imageSrc: ./media/index/communications-gateway.svg
-      azureCategories:
-        - networking        
-      url: communications-gateway/index.yml
-    # Card
     - title: Data Science Virtual Machines
-      summary: Rich pre-configured environment for AI development
+      summary: Rich preconfigured environment for AI development
       imageSrc: ./media/index/virtual-machine.svg
       azureCategories:
         - ai-machine-learning
-      url: machine-learning/data-science-virtual-machine/index.yml
-    # Card
-    - title: Kinect DK
-      summary: Build computer vision and speech models using a developer kit with advanced AI sensors
-      imageSrc: ./media/index/kinect-viewer.svg
-      azureCategories:
-        - ai-machine-learning
-        - iot
-        - mixed-reality
-      url: kinect-dk/index.yml
+      url: /azure/machine-learning/data-science-virtual-machine/
     # Card
     - title: Microsoft Azure Data Manager for Energy (Preview)
       summary: Accelerate your journey to energy data modernization and digital transformation
@@ -218,13 +209,6 @@ productDirectory:
         - integration
       url: data-manager-for-agri/index.yml
     # Card
-    - title: Microsoft Genomics
-      summary: Power genome sequencing & research insights
-      imageSrc: ./media/index/genomics.svg
-      azureCategories:
-        - ai-machine-learning
-      url: genomics/index.yml
-    # Card
     - title: Azure Analysis Services
       summary: Enterprise-grade analytics engine as a service
       imageSrc: ./media/index/analysis-services.svg
@@ -238,7 +222,7 @@ productDirectory:
       azureCategories:
         - analytics
         - management-and-governance
-      url: chaos-studio/index.yml
+      url: /azure/chaos-studio/
     # Card
     - title: Azure Data Explorer
       summary: Fast and highly scalable data exploration service
@@ -314,20 +298,13 @@ productDirectory:
         - analytics
       url: hdinsight/index.yml
     # Card
-    - title: HDInsight on AKS
-      summary: Deploy Apache Spark, Apache Flink, and Trino workloads without managing and monitoring containers
-      imageSrc: ./media/index/hdinsight-aks.svg
-      azureCategories:
-        - analytics
-      url: hdinsight-aks/index.yml
-    # Card
     - title: Log Analytics
       summary: Full observability into your applications, infrastructure, and network
       imageSrc: ./media/index/log-analytics.svg
       azureCategories:
         - analytics
         - management-and-governance
-      url: azure-monitor/index.yml
+      url: /azure/azure-monitor/
     # Card
     - title: Power BI Embedded
       summary: Embed fully interactive, stunning data visualizations in your applications
@@ -360,14 +337,6 @@ productDirectory:
         - iot
       url: logic-apps/index.yml
     # Card
-    - title: API Apps
-      summary: Easily build and consume Cloud APIs
-      imageSrc: ./media/index/api-apps.svg
-      azureCategories:
-        - compute
-        - containers
-        - web
-      url: app-service/index.yml
     # Card
     - title: App Service
       summary: Quickly create powerful cloud apps for web and mobile
@@ -391,7 +360,7 @@ productDirectory:
       imageSrc: ./media/index/virtual-machine.svg
       azureCategories:
         - compute
-      url: ./virtual-machines/dedicated-hosts.md
+      url: /azure/virtual-machines/dedicated-hosts
     # Card
     - title: Azure Functions
       summary: Process events with serverless code
@@ -419,7 +388,7 @@ productDirectory:
       azureCategories:
         - compute
         - containers
-      url: kubernetes-fleet/index.yml
+      url: /azure/kubernetes-fleet/
     # Card
     - title: Azure Quantum (Preview)
       summary: Experience quantum impact today on Azure
@@ -434,7 +403,7 @@ productDirectory:
       imageSrc: ./media/index/virtual-machine.svg
       azureCategories:
         - compute
-      url: ./virtual-machines/spot-vms.md
+      url: /azure/virtual-machines/spot-vms
     # Card
     - title: Azure Spring Apps
       summary: A fully managed Spring Cloud service, built and operated with Pivotal
@@ -472,13 +441,13 @@ productDirectory:
         - compute
       url: cloud-services-extended-support/index.yml
     # Card
-    - title: Container Instances
+    - title: Azure Container Instances
       summary: Easily run containers on Azure without managing servers
       imageSrc: ./media/index/container-instances.svg
       azureCategories:
         - compute
         - containers
-      url: container-instances/index.yml
+      url: /azure/container-instances/
     # Card
     - title: Virtual Machines
       summary: Provision virtual machines for Ubuntu, Red Hat, Windows, and more
@@ -486,7 +455,7 @@ productDirectory:
       azureCategories:
         - featured
         - compute
-      url: ./virtual-machines/index.yml
+      url: /azure/virtual-machines/
     # Card
     - title: SQL Server on Virtual Machines
       summary: Host enterprise SQL Server apps in the cloud
@@ -508,7 +477,7 @@ productDirectory:
       imageSrc: ./media/index/vm-scale-sets.svg
       azureCategories:
         - compute
-      url: virtual-machine-scale-sets/index.yml
+      url: /azure/virtual-machine-scale-sets/
     # Card
     - title: Service Fabric
       summary: Develop microservices and orchestrate containers on Windows or Linux
@@ -516,16 +485,7 @@ productDirectory:
       azureCategories:
         - compute
         - containers
-      url: service-fabric/index.yml
-    # Card
-    - title: Web Apps
-      summary: Quickly create and deploy mission critical web apps at scale
-      imageSrc: ./media/index/app-service.svg
-      azureCategories:
-        - compute
-        - containers
-        - web
-      url: app-service/index.yml
+      url: /azure/service-fabric/
     # Card
     - title: Azure Virtual Desktop
       summary: The best virtual desktop experience, delivered on Azure
@@ -548,14 +508,14 @@ productDirectory:
       imageSrc: ./media/index/openshift.svg
       azureCategories:
         - containers
-      url: virtual-machines/linux/openshift-get-started.md
+      url: /azure/virtual-machines/linux/openshift-get-started
     # Card
-    - title: Container Registry
+    - title: Azure Container Registry
       summary: Store and manage container images across all types of Azure deployments
       imageSrc: ./media/index/container-registry.svg
       azureCategories:
         - containers
-      url: container-registry/index.yml
+      url: /azure/container-registry/
     # Card
     - title: Web App for Containers
       summary: Easily deploy and run containerized web apps that scale with your business
@@ -718,14 +678,6 @@ productDirectory:
         - developer-tools
       url: https://code.visualstudio.com/docs
     # Card
-    - title: Application Insights
-      summary: Full observability into your applications, infrastructure, and network
-      imageSrc: ./media/index/application-insights.svg
-      azureCategories:
-        - devops
-        - management-and-governance
-      url: azure-monitor/index.yml
-    # Card
     - title: Azure Artifacts
       summary: Create, host, and share packages with your team
       imageSrc: ./media/index/artifacts.svg
@@ -753,7 +705,7 @@ productDirectory:
       azureCategories:
         - devops
         - management-and-governance
-      url: azure-monitor/index.yml
+      url: /azure/azure-monitor/
     # Card
     - title: Azure Repos
       summary: Get unlimited, cloud-hosted private Git repos for your project
@@ -794,7 +746,7 @@ productDirectory:
       url: managed-grafana/index.yml
     # Card
     - title: GitHub Actions for Azure
-      summary: Build, test and deploy any app from GitHub to Azure
+      summary: Build, test, and deploy any app from GitHub to Azure
       imageSrc: ./media/index/github-actions-icon.svg
       azureCategories:
         - devops
@@ -814,6 +766,7 @@ productDirectory:
       summary: Synchronize on-premises directories and enable single sign-on
       imageSrc: ./media/index/active-directory.svg
       azureCategories:
+        - featured
         - hybrid
         - identity
         - security
@@ -825,7 +778,7 @@ productDirectory:
       azureCategories:
         - hybrid
         - featured
-      url: azure-arc/index.yml
+      url: /azure/azure-arc/
     # Card
     - title: Azure ExpressRoute
       summary: Dedicated private network fiber connections to Azure
@@ -843,22 +796,15 @@ productDirectory:
         - security
       url: sentinel/index.yml
     # Card
-    - title: Azure Stack
-      summary: Build and run innovative hybrid applications across cloud boundaries
-      imageSrc: ./media/index/stack.svg
+    - title: Azure Local
+      summary: Operate infrastructure across distributed locations enabled by Azure Arc
+      imageSrc: ./media/index/azure-local.svg
       azureCategories:
         - hybrid
-      url: /azure-stack/
-    # Card
-    - title: Azure Stack HCI
-      summary: Integrate hyperconverged infrastructure with Azure and hybrid services to run virtual workloads on premises
-      imageSrc: ./media/index/stack-hci.svg
-      azureCategories:
-        - hybrid
-      url: /azure-stack/hci/
+      url: /azure/azure-local/
     # Card
     - title: Azure Stack Hub
-      summary: Azure Stack Hub is sold as an integrated hardware system, with software pre-installed on validated hardware
+      summary: Azure Stack Hub is sold as an integrated hardware system, with software preinstalled on validated hardware
       imageSrc: ./media/index/stack-hub.svg
       azureCategories:
         - hybrid
@@ -943,13 +889,13 @@ productDirectory:
       url: iot-central/index.yml
     # Card
     - title: Azure IoT Hub
-      summary: Connect, monitor and manage billions of IoT assets
+      summary: Connect, monitor, and manage billions of IoT assets
       imageSrc: ./media/index/iot-hub.svg
       azureCategories:
         - iot
       url: iot-hub/index.yml
     # Card
-    - title: Azure IoT Operations (Preview)
+    - title: Azure IoT Operations
       summary: Unlock insights for intelligent local actions and global visibility
       imageSrc: ./media/index/iot-operations.svg
       azureCategories:
@@ -971,13 +917,6 @@ productDirectory:
       azureCategories:
         - iot
       url: /azure-sphere/
-    # Card
-    - title: Azure Time Series Insights
-      summary: Explore and analyze time-series data from IoT devices
-      imageSrc: ./media/index/time-series-insights-environments.svg
-      azureCategories:
-        - iot
-      url: time-series-insights/index.yml
     # Card
     - title: Notification Hubs
       summary: Send push notifications to any platform from any back end
@@ -1007,7 +946,7 @@ productDirectory:
       imageSrc: ./media/index/advisor.svg
       azureCategories:
         - management-and-governance
-      url: advisor/index.yml
+      url: /azure/advisor/
     # Card
     - title: Azure Backup
       summary: Simplify data protection and protect against ransomware
@@ -1029,7 +968,7 @@ productDirectory:
       imageSrc: ./media/index/lighthouse.svg
       azureCategories:
         - management-and-governance
-      url: lighthouse/index.yml
+      url: /azure/lighthouse/
     # Card
     - title: Azure Managed Applications
       summary: Simplify management of cloud offerings
@@ -1079,7 +1018,7 @@ productDirectory:
       imageSrc: ./media/index/service-health.svg
       azureCategories:
         - management-and-governance
-      url: service-health/index.yml
+      url: /azure/service-health/
     # Card
     - title: Azure Site Recovery
       summary: Keep your business running with built-in disaster recovery service
@@ -1109,7 +1048,7 @@ productDirectory:
       imageSrc: ./media/index/azure.svg
       azureCategories:
         - management-and-governance
-      url: azure-portal/index.yml
+      url: /azure/azure-portal/
     # Card
     - title: Azure Update Manager
       summary: Centrally manage updates and compliance at scale
@@ -1169,21 +1108,6 @@ productDirectory:
         - storage
       url: databox/index.yml
     # Card
-    - title: Object Anchors (Preview)
-      summary: Automatically align and anchor 3D content to objects in the physical world
-      imageSrc: ./media/index/object-anchors.svg
-      azureCategories:
-        - mixed-reality
-      url: object-anchors/index.yml
-    # Card
-    - title: Spatial Anchors
-      summary: Create multi-user, spatially aware mixed reality experiences
-      imageSrc: ./media/index/spatial-anchor-accounts.svg
-      azureCategories:
-        - mixed-reality
-        - mobile
-      url: spatial-anchors/index.yml
-    # Card
     - title: Azure Remote Rendering
       summary: Render high-quality, interactive 3D content, and stream it to your devices in real time
       imageSrc: ./media/index/remote-rendering.svg
@@ -1197,13 +1121,6 @@ productDirectory:
       azureCategories:
         - mobile
       url: /appcenter/
-    # Card
-    - title: Xamarin
-      summary: Create cloud-powered mobile apps faster
-      imageSrc: /media/logos/logo_xamarin.svg
-      azureCategories:
-        - mobile
-      url: /xamarin/
     # Card
     - title: Application Gateway
       summary: Build secure, scalable, and highly available web front ends in Azure
@@ -1265,19 +1182,11 @@ productDirectory:
       azureCategories:
         - networking
       url: private-link/index.yml
-    # Card
-    - title: Azure Private 5G Core
-      summary: Rapidly deploy and manage private 5G networks at the enterprise edge
-      imageSrc: ./media/index/private-5g-core.svg
-      azureCategories:
-        - networking
-      url: private-5g-core/index.yml
       # Card
     - title: Azure Operator Service Manager
       summary: Manage network services across hybrid cloud sites
       imageSrc: ./media/index/operator-service-manager.svg
       azureCategories:
-        - networking
         - hybrid
       url: operator-service-manager/index.yml
       # Card
@@ -1409,7 +1318,7 @@ productDirectory:
       imageSrc: ./media/index/disk-storage.svg
       azureCategories:
         - storage
-      url: virtual-machines/managed-disks-overview.md
+      url: /azure/virtual-machines/managed-disks-overview
     # Card
     - title: Azure Files
       summary: Simple, secure and serverless enterprise-grade cloud file shares
@@ -1459,13 +1368,6 @@ productDirectory:
       azureCategories:
         - web
       url: azure-signalr/index.yml
-    # Card
-    - title: Azure Orbital Ground Station
-      summary: Satellite ground station and scheduling services for fast down linking of data
-      imageSrc: /media/logos/logo-azureorbital.svg
-      azureCategories:
-        - networking
-      url: orbital/index.yml
     # Card
     - title: Azure Web PubSub
       summary: Easily build real-time messaging web applications using WebSockets and the publish-subscribe pattern
@@ -1623,10 +1525,10 @@ additionalContent:
     - title: Partner solutions
       items:
         # Card
-        - title: Azure Native ISV Services
-          summary: Integrated partner solutions that you can use in Azure to enhance your cloud infrastructure.
-          url: ./partner-solutions/index.yml
-        # Card
         - title: Commercial marketplace
           summary: An online marketplace of applications and services from independent software vendor (ISV) partners.
           url: ./marketplace/index.yml
+        # Card
+        - title: Azure Native ISV Services
+          summary: Integrated partner solutions that you can use in Azure to enhance your cloud infrastructure.
+          url: ./partner-solutions/index.yml

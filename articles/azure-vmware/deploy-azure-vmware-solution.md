@@ -55,7 +55,7 @@ In the planning phase, you defined whether to use an *existing* or *new* Express
 
 Ensure connectivity between the Azure Virtual Network where the ExpressRoute terminates and the Azure VMware Solution private cloud. 
 
-1. Use a [virtual machine](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine) within the Azure Virtual Network where the Azure VMware Solution ExpressRoute terminates. For more information, see [Connect to Azure Virtual Network with ExpressRoute](#connect-to-azure-virtual-network-with-expressroute).  
+1. Use a [virtual machine](/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine) within the Azure Virtual Network where the Azure VMware Solution ExpressRoute terminates. For more information, see [Connect to Azure Virtual Network with ExpressRoute](#connect-to-azure-virtual-network-with-expressroute).  
 
    1. Sign in to the Azure [portal](https://portal.azure.com).
 

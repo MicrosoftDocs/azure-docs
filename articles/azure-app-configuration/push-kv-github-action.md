@@ -125,7 +125,7 @@ jobs:
             az appconfig kv import --endpoint <your-app-configuration-store-endpoint> --auth-mode login -s file --path appsettings.json --format json --yes
 ```
 
-For more information about Azure App Configuration CLI import commands, see the [Azure AppConfifguration CLI documentation.](/cli/azure/appconfig/kv#az-appconfig-kv-import)
+For more information about Azure App Configuration CLI import commands, see the [Azure AppConfiguration CLI documentation.](/cli/azure/appconfig/kv#az-appconfig-kv-import)
 
 ### Use a dynamic label on import
 

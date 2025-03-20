@@ -2,11 +2,11 @@
 title: Create backup policies for disks using data protection REST API
 description: In this article, you'll learn how to create and manage backup policies for disks using REST API.
 ms.topic: how-to
-ms.date: 05/09/2024
+ms.date: 02/09/2025
 ms.assetid: ecc107c0-311c-42d0-a094-654d7ee30443
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy23
 ---
 
@@ -115,7 +115,7 @@ The policy says:
 >[!IMPORTANT]
 >The time formats support only DateTime. They don't support only Time. The time of the day indicates the backup start time, and not the time when the backup completes.
 
-The time required for completing the backup operation depends on various factors including size of the disk, and churn rate between consecutive backups. However, Azure Disk Backup is an agentless backup that uses [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md), which doesn't impact the production application performance.
+The time required for completing the backup operation depends on various factors including size of the disk, and churn rate between consecutive backups. However, Azure Disk Backup is an agentless backup that uses [incremental snapshots](/azure/virtual-machines/disks-incremental-snapshots), which doesn't impact the production application performance.
 
 To know more details about policy creation, refer to the [Azure Disk Backup policy](backup-managed-disks.md#create-backup-policy) document.
 
@@ -207,3 +207,4 @@ For more information on the Azure Backup REST APIs, see the following articles:
 
 - [Azure Data Protection REST API](/rest/api/dataprotection/)
 - [Get started with Azure REST API](/rest/api/azure/)
+- [Manage backup and restore jobs](backup-azure-arm-userestapi-managejobs.md)

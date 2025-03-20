@@ -5,7 +5,7 @@ description: This article provides a step-by-step guide on how to configure an "
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 10/24/2023
+ms.date: 09/06/2024
 ms.author: mbender
 ms.custom: template-how-to
 ---
@@ -31,7 +31,9 @@ This configuration provides outbound NAT for an internal load balancer scenario,
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [load-balancer-create-bastion](../../includes/load-balancer-create-bastion.md)]
+## Create a virtual network and bastion host
+
+[!INCLUDE [load-balancer-create-no-gateway](../../includes/load-balancer-create-no-gateway.md)]
 
 ## Create internal load balancer
 
@@ -57,9 +59,11 @@ In this section, you'll create the internal load balancer.
 
 1. Select **Next: Frontend IP configuration** at the bottom of the page.
 
-1. In **Frontend IP configuration**, select **+ Add a frontend IP**.
+1. In **Frontend IP configuration**, select **+ Add a frontend IP configuration**.
 
 1. Enter **lb-int-frontend** in **Name**.
+
+1. Select **lb-vnet** in **Virtual Network**.
 
 1. Select **backend-subnet** in **Subnet**.
 
@@ -68,7 +72,7 @@ In this section, you'll create the internal load balancer.
 1. Select **Zone-redundant** in **Availability zone**.
 
     > [!NOTE]
-    > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
+    > In regions with [Availability Zones](../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../reliability/availability-zones-overview.md).
 
 1. Select **Add**.
 
@@ -131,7 +135,7 @@ In this section, you'll create the public load balancer.
 1. Select **Zone-redundant** in **Availability zone**.
 
     > [!NOTE]
-    > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
+    > In regions with [Availability Zones](../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../reliability/availability-zones-overview.md).
 
 1. Leave the default of **Microsoft Network** for **Routing preference**.
 
@@ -244,7 +248,7 @@ In this section, you'll add the virtual machine you created previously to the ba
 
 1. Select **Connect**.
 
-1. Open Internet Explorer.
+1. Open Microsoft Edge browser.
 
 1.  Enter **https://whatsmyip.org** in the address bar.
 
@@ -290,7 +294,7 @@ In this section, you'll add the virtual machine you created previously to the ba
 
 1. Select **Connect**.
 
-1. Open Internet Explorer.
+1. Open Microsoft Edge browser.
 
 1. Enter **https://whatsmyip.org** in the address bar.
 

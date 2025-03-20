@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/13/2024
+ms.date: 03/04/2025
 
 ms.reviewer: nachakra
 ms.devlang: powershell
@@ -27,11 +27,9 @@ When anonymous access for the storage account is disallowed, Azure Storage rejec
 
 ## Remediation for Azure Resource Manager versus classic storage accounts
 
-This article describes how to use a DRAG (Detection-Remediation-Audit-Governance) framework to continuously manage anonymous access for storage accounts that are using the Azure Resource Manager deployment model. All general-purpose v2 storage accounts, premium block blob storage accounts, premium file share accounts, and Blob Storage accounts use the Azure Resource Manager deployment model. Some older general-purpose v1 accounts and premium page blob accounts may use the classic deployment model.
+This article describes how to use a DRAG (Detection-Remediation-Audit-Governance) framework to continuously manage anonymous access for storage accounts that are using the Azure Resource Manager deployment model. All general-purpose v2 storage accounts, premium block blob storage accounts, premium file share accounts, and Blob Storage accounts use the Azure Resource Manager deployment model.
 
-If your storage account is using the classic deployment model, we recommend that you migrate to the Azure Resource Manager deployment model as soon as possible. Azure Storage accounts that use the classic deployment model will be retired on August 31, 2024. For more information, see [Azure classic storage accounts will be retired on 31 August 2024](https://azure.microsoft.com/updates/classic-azure-storage-accounts-will-be-retired-on-31-august-2024/).
-
-If you can't migrate your classic storage accounts at this time, then you should remediate anonymous access to those accounts now. To learn how to remediate anonymous access for classic storage accounts, see [Remediate anonymous read access to blob data (classic deployments)](anonymous-read-access-prevent-classic.md). For more information about Azure deployment models, see [Resource Manager and classic deployment](../../azure-resource-manager/management/deployment-models.md).
+If your storage account is using the classic deployment model, we recommend that you [migrate](../common/classic-account-migration-process.md) to the Azure Resource Manager deployment model. Azure Storage accounts that use the classic deployment model were retired on August 31, 2024. For more information, see [Update on classic storage account retirement](https://techcommunity.microsoft.com/blog/azurestorageblog/update-on-classic-storage-account-retirement-and-upcoming-changes-for-classic-st/4282217).
 
 ## About anonymous read access
 
@@ -60,7 +58,7 @@ To understand how disallowing anonymous access may affect client applications, w
 
 ### Monitor anonymous requests with Metrics Explorer
 
-To track anonymous requests to a storage account, use Azure Metrics Explorer in the Azure portal. For more information about Metrics Explorer, see [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md).
+To track anonymous requests to a storage account, use Azure Metrics Explorer in the Azure portal. For more information about Metrics Explorer, see [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics).
 
 Follow these steps to create a metric that tracks anonymous requests:
 
@@ -86,7 +84,7 @@ After you have configured the metric, anonymous requests will begin to appear on
 
 :::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Screenshot showing aggregated anonymous requests against Blob storage":::
 
-You can also configure an alert rule to notify you when a certain number of anonymous requests are made against your storage account. For more information, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/alerts/alerts-metric.md).
+You can also configure an alert rule to notify you when a certain number of anonymous requests are made against your storage account. For more information, see [Create, view, and manage metric alerts using Azure Monitor](/azure/azure-monitor/alerts/alerts-metric).
 
 ### Analyze logs to identify containers receiving anonymous requests
 
@@ -94,26 +92,15 @@ Azure Storage logs capture details about requests made against the storage accou
 
 To log requests to your Azure Storage account in order to evaluate anonymous requests, you can use Azure Storage logging in Azure Monitor. For more information, see [Monitor Azure Storage](./monitor-blob-storage.md).
 
-Azure Storage logging in Azure Monitor supports using log queries to analyze log data. To query logs, you can use an Azure Log Analytics workspace. To learn more about log queries, see [Tutorial: Get started with Log Analytics queries](../../azure-monitor/logs/log-analytics-tutorial.md).
+Azure Storage logging in Azure Monitor supports using log queries to analyze log data. To query logs, you can use an Azure Log Analytics workspace. To learn more about log queries, see [Tutorial: Get started with Log Analytics queries](/azure/azure-monitor/logs/log-analytics-tutorial).
 
 #### Create a diagnostic setting in the Azure portal
 
-To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analytics, you must first create a diagnostic setting that indicates what types of requests and for which storage services you want to log data. To create a diagnostic setting in the Azure portal, follow these steps:
+To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analytics, you must first create a diagnostic setting that indicates what types of requests and for which storage services you want to log data. After you configure logging for your storage account, the logs are available in the Log Analytics workspace. To create a workspace, see [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/logs/quick-create-workspace).
 
-1. Create a new Log Analytics workspace in the subscription that contains your Azure Storage account. After you configure logging for your storage account, the logs will be available in the Log Analytics workspace. For more information, see [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md).
-1. Navigate to your storage account in the Azure portal.
-1. In the Monitoring section, select **Diagnostic settings**.
-1. Select **Blob** to log requests made against Blob storage.
-1. Select **Add diagnostic setting**.
-1. Provide a name for the diagnostic setting.
-1. Under **Category details**, in the **log** section, choose which types of requests to log. All anonymous requests are read requests, so select **StorageRead** to capture anonymous requests.
-1. Under **Destination details**, select **Send to Log Analytics**. Select your subscription and the Log Analytics workspace you created earlier, as shown in the following image.
+To learn how to create a diagnostic setting in the Azure portal, see [Create diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/create-diagnostic-settings).
 
-    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot showing how to create a diagnostic setting for logging requests":::
-
-After you create the diagnostic setting, requests to the storage account are subsequently logged according to that setting. For more information, see [Create diagnostic setting to collect resource logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
-
-For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs](./monitor-blob-storage-reference.md#resource-logs).
+For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs](monitor-blob-storage-reference.md#resource-logs).
 
 #### Query logs for anonymous requests
 
@@ -127,7 +114,7 @@ StorageBlobLogs
 | project TimeGenerated, AccountName, AuthenticationType, Uri
 ```
 
-You can also configure an alert rule based on this query to notify you about anonymous requests. For more information, see [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/alerts/alerts-log.md).
+You can also configure an alert rule based on this query to notify you about anonymous requests. For more information, see [Create, view, and manage log alerts using Azure Monitor](/azure/azure-monitor/alerts/alerts-log).
 
 ### Responses to anonymous requests
 
@@ -321,8 +308,8 @@ Set this parameter so that no sign-in occurs -- you must sign in first. Use this
 This command produces only STDOUT output (not standard PowerShell) with information about affect accounts.
 #>
 param(
-    [boolean]$BypassConfirmation=$false,
-    [Parameter(Mandatory=$true, ValueFromPipelineByPropertyName='SubscriptionId')]
+    [boolean]$BypassConfirmation = $false,
+    [Parameter(Mandatory = $true, ValueFromPipelineByPropertyName = 'SubscriptionId')]
     [String] $SubscriptionId,
     [switch] $ReadOnly, # Use this if you don't want to make changes, but want to get information about affected accounts
     [switch] $NoSignin # Use this if you are already signed in and don't want to be prompted again
@@ -330,48 +317,41 @@ param(
 
 begin {
     if ( ! $NoSignin.IsPresent ) {
-        login-azaccount | out-null
+        Login-AzAccount | Out-Null
     }
 }
 
 process {
     try {
-        select-azsubscription -subscriptionid $SubscriptionId -erroraction stop | out-null
-    } catch {
-        write-error "Unable to access select subscription '$SubscriptionId' as the signed in user -- ensure that you have access to this subscription." -erroraction stop
+        Select-AzSubscription -SubscriptionId $SubscriptionId -ErrorAction Stop | Out-Null
+    }
+    catch {
+        Write-Error "Unable to access select subscription '$SubscriptionId' as the signed in user -- ensure that you have access to this subscription." -ErrorAction Stop
     }
 
-    foreach ($account in Get-AzStorageAccount) 
-    {
-        if($account.AllowBlobPublicAccess -eq $null -or $account.AllowBlobPublicAccess -eq $true)
-        {
+    foreach ($account in Get-AzStorageAccount) {
+        if ($null -eq $account.AllowBlobPublicAccess -or $account.AllowBlobPublicAccess -eq $true) {
             Write-host "Account:" $account.StorageAccountName " isn't disallowing public access."
 
             if ( ! $ReadOnly.IsPresent ) {
-                if(!$BypassConfirmation)
-                {
+                if (!$BypassConfirmation) {
                     $confirmation = Read-Host "Do you wish to disallow public access? [y/n]"
                 }
-                if($BypassConfirmation -or $confirmation -eq 'y')
-                {
-                    try
-                    {
-                        set-AzStorageAccount -Name $account.StorageAccountName -ResourceGroupName $account.ResourceGroupName -AllowBlobPublicAccess $false
+                if ($BypassConfirmation -or $confirmation -eq 'y') {
+                    try {
+                        Set-AzStorageAccount -Name $account.StorageAccountName -ResourceGroupName $account.ResourceGroupName -AllowBlobPublicAccess $false
                         Write-Host "Success!"
                     }
-                    catch
-                    {
-                        Write-output $_
+                    catch {
+                        Write-Output $_
                     }
                 }
             }
         }
-        elseif($account.AllowBlobPublicAccess -eq $false)
-        {
-            Write-Host "Account:" $account.StorageAccountName " has public access disabled, no action required."
+        elseif ($account.AllowBlobPublicAccess -eq $false) {
+            Write-Host "Account:" $account.StorageAccountName "has public access disabled, no action required."
         }
-        else
-        {
+        else {
             Write-Host "Account:" $account.StorageAccountName ". Error, please manually investigate."
         }
     }
@@ -509,5 +489,4 @@ The following image shows the error that occurs if you try to create a storage a
 ## Next steps
 
 - [Overview: Remediating anonymous read access for blob data](anonymous-read-access-overview.md)
-- [Remediate anonymous read access to blob data (classic deployments)](anonymous-read-access-prevent-classic.md)
 - [Security recommendations for Blob storage](security-recommendations.md)

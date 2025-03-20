@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 08/13/2024
+ms.date: 12/11/2024
 ms.author: anfdocs
 ---
 # Create a dual-protocol volume for Azure NetApp Files
@@ -18,30 +18,13 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 
 [!INCLUDE [Delegated subnet permission](includes/create-volume-permission.md)]
 
+>[!IMPORTANT]
+>Windows Server 2025 currently doesn't work with the Azure NetApp Files SMB protocol. 
+
 * You must have already created a capacity pool.  
     See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
 * A subnet must be delegated to Azure NetApp Files.  
     See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
-* [!INCLUDE [50 GiB volume preview](./includes/50-gib-volume.md)]
-* The [non-browsable shares](#non-browsable-share) and [access-based enumeration](#access-based-enumeration) features are currently in preview. You must register each feature before you can use it:
-
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSmbNonBrowsable
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBAccessBasedEnumeration
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSmbNonBrowsable
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBAccessBasedEnumeration
-    ```
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## Considerations
 
@@ -111,7 +94,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         If the volume is created in an auto QoS capacity pool, the value displayed in this field is (quota x service level throughput).   
 
     * **Enable Cool Access**, **Coolness Period**, and **Cool Access Retrieval Policy**      
-        These fields configure [standard storage with cool access in Azure NetApp Files](cool-access-introduction.md). For descriptions, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md). 
+        These fields configure [Azure NetApp Files storage with cool access](cool-access-introduction.md). For descriptions, see [Manage Azure NetApp Files storage with cool access](manage-cool-access.md). 
 
     * **Virtual network**  
         Specify the Azure virtual network (VNet) from which you want to access the volume.  
@@ -149,7 +132,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     * Specify a unique **Volume Path**. This path is used when you create mount targets. The requirements for the path are as follows:  
 
         - For volumes not in an availability zone or volumes in the same availability zone, the volume path must be unique within each subnet in the region. 
-        - For volumes in availability zones, the volume path must be unique within each availability zone. This feature is currently in **preview** and requires you to register the feature. For more information, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md#file-path-uniqueness).
+        - For volumes in availability zones, the volume path must be unique within each availability zone. For more information, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md#file-path-uniqueness).
         - It must start with an alphabetical character.
         - It can contain only letters, numbers, or dashes (`-`). 
         - The length must not exceed 80 characters.
@@ -169,14 +152,11 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     * <a name="access-based-enumeration"></a> If you want to enable access-based enumeration, select **Enable Access Based Enumeration**.
 
-        This feature hides directories and files created under a share from users who do not have access permissions. You can still view the share. You can only enable access-based enumeration if the dual-protocol volume uses NTFS security style.
+        Access-based enumeration hides directories and files created under a share from users who do not have access permissions. You can still view the share. You can only enable access-based enumeration if the dual-protocol volume uses NTFS security style.
 
     * <a name="non-browsable-share"></a> You can enable the **non-browsable-share feature.**
 
         This feature prevents the Windows client from browsing the share. The share does not show up in the Windows File Browser or in the list of shares when you run the `net view \\server /all` command.
-
-    > [!IMPORTANT]
-    > The access-based enumeration and non-browsable shares features are currently in preview. If this is your first time using either, refer to the steps in [Before you begin](#before-you-begin) to register the features. 
 
     *  Customize **Unix Permissions** as needed to specify change permissions for the mount path. The setting does not apply to the files under the mount path. The default setting is `0770`. This default setting grants read, write, and execute permissions to the owner and the group, but no permissions are granted to other users.     
         Registration requirement and considerations apply for setting **Unix Permissions**. Follow instructions in [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md).  

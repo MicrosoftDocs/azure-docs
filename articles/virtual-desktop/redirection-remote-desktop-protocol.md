@@ -133,6 +133,8 @@ The following table lists each supported resource or peripheral class and the re
 > - Scanner redirection doesn't include TWAIN support.
 >
 > - Battery redirection is only available for Azure Virtual Desktop and Windows 365. It's automatically available and not configurable.
+>
+> - Redirecting the [bluetooth driver stack](/windows-hardware/drivers/bluetooth/bluetooth-driver-stack) isn't supported. If a peripheral is connected to the local device, such as a bluetooth keyboard, it's redirected to the remote session based on the [supported peripheral class](#supported-resources-and-peripherals).
 
 The following diagram shows the redirection methods used for each peripheral class:
 

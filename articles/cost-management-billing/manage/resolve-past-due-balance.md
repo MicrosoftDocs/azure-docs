@@ -6,7 +6,7 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/08/2024
+ms.date: 01/22/2025
 ms.author: banders
 ms.custom: references_regions
 ---

@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: how-to
 ms.date: 05/13/2024
 ms.author: yelevin
+
+
+#Customer intent: As a security engineer, I want to stream Microsoft Entra logs into Microsoft Sentinel so that analysts can monitor and analyze sign-in activities, audit logs, and provisioning logs for enhanced security and threat detection.
+
 ---
 
 # Connect Microsoft Entra data to Microsoft Sentinel
@@ -65,6 +69,8 @@ After a successful connection is established, the data appears in **Logs**, unde
 - `MSGraphActivityLogs`
 
 To query the Microsoft Entra logs, enter the relevant table name at the top of the query window.
+
+If an expected table is not available, verify the log categories are selected for your Microsoft Sentinel workspace in Microsoft Entra diagnostic settings. For more informatoin, see [Configure Microsoft Entra diagnostic settings for activity logs](/entra/identity/monitoring-health/howto-configure-diagnostic-settings).
 
 ## Next steps
 In this document, you learned how to connect Microsoft Entra ID to Microsoft Sentinel. To learn more about Microsoft Sentinel, see the following articles:

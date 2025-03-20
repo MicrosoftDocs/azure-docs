@@ -105,4 +105,4 @@ Your users should now be able to sign in to NSX Manager by using their Windows S
 
 - [Azure VMware Solution identity architecture](architecture-identity.md)
 - [Set an external identity source for vCenter Server](configure-identity-source-vcenter.md)
-- [VMware product documentation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-DB5A44F1-6E1D-4E5C-8B50-D6161FFA5BD2.html)
+- [VMware product documentation](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-1/administration-guide/authentication-and-authorization/integration-with-ldap.html)

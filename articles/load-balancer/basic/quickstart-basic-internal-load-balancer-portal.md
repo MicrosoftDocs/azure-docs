@@ -235,7 +235,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Setting | VM 2 |
     | ------- | ----- |
     | Name | **myVM2** |
-    | Availability set | Select the existing **myAvailabiltySet** |
+    | Availability set | Select the existing **myAvailabilitySet** |
     | Network security group | Select the existing **myNSG** |
 
 [!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]

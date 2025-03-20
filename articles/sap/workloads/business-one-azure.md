@@ -22,11 +22,11 @@ Regarding SQL Server, the basic deployment considerations as documented in the [
 ## Prerequisites
 To use this guide, you need basic knowledge of the following Azure components:
 
-- [Azure virtual machines on Windows](../../virtual-machines/windows/tutorial-manage-vm.md)
-- [Azure virtual machines on Linux](../../virtual-machines/linux/tutorial-manage-vm.md)
-- [Azure networking and virtual networks management with PowerShell](../../virtual-machines/windows/tutorial-virtual-network.md)
-- [Azure networking and virtual networks with CLI](../../virtual-machines/linux/tutorial-virtual-network.md)
-- [Manage Azure disks with the Azure CLI](../../virtual-machines/linux/tutorial-manage-disks.md)
+- [Azure virtual machines on Windows](/azure/virtual-machines/windows/tutorial-manage-vm)
+- [Azure virtual machines on Linux](/azure/virtual-machines/linux/tutorial-manage-vm)
+- [Azure networking and virtual networks management with PowerShell](/azure/virtual-machines/windows/tutorial-virtual-network)
+- [Azure networking and virtual networks with CLI](/azure/virtual-machines/linux/tutorial-virtual-network)
+- [Manage Azure disks with the Azure CLI](/azure/virtual-machines/linux/tutorial-manage-disks)
 
 Even if you are interested in business One only, the document [Azure Virtual Machines planning and implementation for SAP NetWeaver](./planning-guide.md) can be a good source of information.
 
@@ -99,14 +99,14 @@ For the database type, SQL Server and SAP HANA are available. Independent of the
 
 Though emphasized in the specific and generic database documents already, you should make yourself familiar with:
 
-- [Manage the availability of Windows virtual machines in Azure](../../virtual-machines/availability.md) and [Manage the availability of Linux virtual machines in Azure](../../virtual-machines/availability.md)
+- [Manage the availability of Windows virtual machines in Azure](/azure/virtual-machines/availability) and [Manage the availability of Linux virtual machines in Azure](/azure/virtual-machines/availability)
 - [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)
 
 These documents should help you to decide on the selection of storage types and high availability configuration.
 
 In principle you should:
 
-- Use Premium SSDs over Standard HDDs. To learn more about the available disk types, see our article [Select a disk type](../../virtual-machines/disks-types.md)
+- Use Premium SSDs over Standard HDDs. To learn more about the available disk types, see our article [Select a disk type](/azure/virtual-machines/disks-types)
 - Use Azure Managed disks over unmanaged disks
 - Make sure that you have sufficient IOPS and I/O throughput configured with your disk configuration
 - Combine /hana/data and /hana/log volume in order to have a cost efficient storage configuration
@@ -137,7 +137,7 @@ For SAP HANA backup and restore strategies, you should read the document [Backup
 ### Business One client server
 For these components storage considerations are not the primary concern. nevertheless, you want to have a reliable platform. Therefore, you should use Azure Premium Storage for this VM, even for the base VHD. Sizing the VM, with the data given in [SAP Business One Hardware Requirements Guide](https://help.sap.com/doc/bfa9770d12284cce8509956dcd4c5fcb/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). For Azure, you need to focus and calculate with the requirements stated in chapter 2.4 of the document. As you calculate the requirements, you need to compare them against the following documents to find the ideal VM for you:
 
-- [Sizes for Windows virtual machines in Azure](../../virtual-machines/sizes.md)
+- [Sizes for Windows virtual machines in Azure](/azure/virtual-machines/sizes)
 - [SAP Note #1928533](https://launchpad.support.sap.com/#/notes/1928533)
 
 Compare number of CPUs and memory needed to what is documented by Microsoft. Also keep network throughput in mind when choosing the VMs.

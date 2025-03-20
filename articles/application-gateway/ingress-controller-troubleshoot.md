@@ -4,7 +4,6 @@ description: This article provides documentation on how to troubleshoot common q
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.custom:
 ms.topic: troubleshooting
 ms.date: 01/31/2024
 ms.author: greglin
@@ -18,7 +17,7 @@ and AGIC installation. Launch your shell from [shell.azure.com](https://shell.az
 :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers](for-containers/overview.md).
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Quickstart: Deploy Application Gateway for Containers ALB Controller](for-containers/quickstart-deploy-application-gateway-for-containers-alb-controller.md).
 
 ## Test with a simple Kubernetes app
 
@@ -65,15 +64,17 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
 spec:
-  ingressClassName: azure-application-gateway
+  #ingressClassName: azure-application-gateway # according to the AGIC setup guide, annotations are the approach to set the class
   rules:
     - host: test.agic.contoso.com
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: test-agic-app-service
-              servicePort: 80
+              name: test-agic-app-service
+              port:
+                number: 80
 EOF
 ```
 
@@ -120,7 +121,7 @@ Application Gateway has the following configuration applied:
 Finally we can use the `cURL` command from within [Cloud Shell](https://shell.azure.com/) to establish an HTTP connection to the newly deployed app:
 
 1. Use `kubectl get ingress` to get the Public IP address of Application Gateway
-2. Use `curl -I -H 'test.agic.contoso.com' <publitc-ip-address-from-previous-command>`
+2. Use `curl -I -H 'test.agic.contoso.com' <public-ip-address-from-previous-command>`
 
 ![Screenshot of the Bash window in Azure Cloud Shell showing a cURL command successfully establishing an HTTP connection to the test app.](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
 
@@ -221,6 +222,7 @@ The following conditions must be in place for AGIC to function as expected:
     ```
 
 
+
 * Is your [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) annotated with: `kubernetes.io/ingress.class: azure/application-gateway`? AGIC only watches for Kubernetes Ingress resources that have this annotation.
 
     ```bash
@@ -279,7 +281,7 @@ appgw:
 # Specify which kubernetes namespace the ingress controller watches
 # Default value is "default"
 # Leaving this variable out or setting it to blank or empty string would
-# result in Ingress Controller observing all acessible namespaces.
+# result in Ingress Controller observing all accessible namespaces.
 #
 # kubernetes:
 #   watchNamespace: <namespace>

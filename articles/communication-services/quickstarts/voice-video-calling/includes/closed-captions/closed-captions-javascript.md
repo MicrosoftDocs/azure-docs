@@ -159,7 +159,7 @@ By default, if contoso provides no language or an unsupported language, the spok
 // bcp 47 formatted language code
 const language = 'en-us'; 
 
-// Altneratively, pass a value from the supported spoken languages array
+// Alternatively, pass a value from the supported spoken languages array
 const language = spokenLanguages[0]; 
 
 try {

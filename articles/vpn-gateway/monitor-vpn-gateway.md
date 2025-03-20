@@ -18,7 +18,7 @@ For more information about the resource types for VPN Gateway, see [Azure VPN Ga
 
 [!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for VPN Gateway are listed in [VPN Gateway monitoring data reference](monitor-vpn-gateway-reference.md).
+See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/essentials/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for VPN Gateway are listed in [VPN Gateway monitoring data reference](monitor-vpn-gateway-reference.md).
 
 > [!IMPORTANT]
 > Enabling these settings requires additional Azure services (storage account, event hub, or Log Analytics), which might increase your cost. To calculate an estimated cost, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
@@ -59,8 +59,6 @@ In the Azure portal, you can view BGP peers, learned routes, and advertised rout
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your virtual network gateway.
 1. Under **Monitoring**, select **BGP peers** to open the BGP peers page.
-
-   :::image type="content" source="./media/bgp-diagnostics/bgp-portal.jpg" alt-text="Screenshot of metrics in the Azure portal.":::
 
 #### Learned routes
 

@@ -32,7 +32,7 @@ In **Service Details**, set the cache name and these other attributes:
 
 * Location - Select one of the [supported regions](hpc-cache-overview.md#region-availability).
 
-  If that region supports [availability zones](../availability-zones/az-overview.md), select the zone that will host your cache resources. Azure HPC Cache is a zonal service.
+  If that region supports [availability zones](../reliability/availability-zones-overview.md), select the zone that will host your cache resources. Azure HPC Cache is a zonal service.
 
 * Virtual network - You can select an existing one or create a new virtual network.
 * Subnet - Choose or create a subnet with at least 64 IP addresses (/24). This subnet must be used only for this Azure HPC Cache instance.
@@ -148,7 +148,7 @@ For a complete explanation of the customer-managed key encryption process, read 
 
 Select **Customer managed** to choose customer-managed key encryption. The key vault specification fields appear. Select the Azure Key Vault to use, then select the key and version to use for this cache. The key must be a 2048-bit RSA key. You can create a new key vault, key, or key version from this page.
 
-Check the **Always use current key version** box if you want to use [automatic key rotation](../virtual-machines/disk-encryption.md#automatic-key-rotation-of-customer-managed-keys).
+Check the **Always use current key version** box if you want to use [automatic key rotation](/azure/virtual-machines/disk-encryption#automatic-key-rotation-of-customer-managed-keys).
 
 If you want to use a specific managed identity for this cache, configure it in the **Managed identities** section. Read [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md) to learn more.
 

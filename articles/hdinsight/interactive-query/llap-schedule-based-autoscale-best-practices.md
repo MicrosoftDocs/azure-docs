@@ -3,8 +3,9 @@ title: HDInsight Interactive Query Autoscale(bchedule-based) guide and best prac
 description: LLAP Autoscale Guide and Best Practices 
 ms.service: azure-hdinsight
 ms.topic: quickstart
-author: yeturis
-ms.author: sairamyeturi
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: nijelsf
 ms.date: 06/14/2024
 ---
 
@@ -35,7 +36,7 @@ Feature Supportability with HDInsight 4.0 Interactive Query(LLAP) Autoscale
 
 ```
 - Script Action: https://hdiconfigactions2.blob.core.windows.net/update-ambari-configs-for-llap-autoscale/update_ambari_configs.sh
-- Requried Parameters:<MAX CONCURRENT QUERIES> <TEZ Queue Capacity Percent> 
+- Required Parameters:<MAX CONCURRENT QUERIES> <TEZ Queue Capacity Percent> 
     - <MAX CONCURRENT QUERIES> is a parameter that sets the max concurrent queries to run, it should be set to the max largest worker node count out of the schedules. 
     - <TEZ Queue Capacity Percent> The configurations below in the example are calculated based on D14v2 worker node SKU (100GB per yarn node) I.e., we are allocating 6% (6GB) per node to launch at least one TEZ AM which is of 4GB. If we are using smaller SKU worker nodes, the above configs need to be tuned proportionately. We need to allocate enough capacity for at least one TEZ AM to run on each node. Please refer to HDInsight Interactive Query Cluster(LLAP) sizing guide | Microsoft Docs for more details.   
 
@@ -64,8 +65,8 @@ If there are running jobs while scale-down is triggered, then we can expect one 
 - Query completes successfully without any impact. 
  
 
-> [!NOTE]  
-> It is recommended to plan approprite down time with the users during the scale down schedules. 
+> [!NOTE]
+> It is recommended to plan appropriate down time with the users during the scale down schedules.
 
 
 <b>2. What happens to the running Spark jobs when using Hive Warehouse Connector to execute queries in the LLAP Cluster with Auto scale enabled?</b>
@@ -97,7 +98,7 @@ If the above guidelines didn't resolve your query, visit one of the following.
 
 * Connect with [@AzureSupport](https://x.com/azuresupport) - the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
 
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).  
+* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).  
 
 ## **Other references:**
   * [Interactive Query in Azure HDInsight](./apache-interactive-query-get-started.md)

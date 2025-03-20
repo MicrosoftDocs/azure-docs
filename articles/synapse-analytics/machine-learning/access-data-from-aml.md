@@ -17,7 +17,7 @@ To access ADLS Gen2 data in Azure Machine Learning, we will create an Azure Mach
 
 ## Prerequisites
 - An [Azure Synapse Analytics workspace](../get-started-create-workspace.md). Ensure that it has an Azure Data Lake Storage Gen2 storage account configured as the default storage. For the Data Lake Storage Gen2 file system that you work with, ensure that you're the *Storage Blob Data Contributor*.
-- An [Azure Machine Learning workspace](../../machine-learning/quickstart-create-resources.md).
+- An [Azure Machine Learning workspace](/azure/machine-learning/quickstart-create-resources).
 
 ## Install libraries
 
@@ -51,7 +51,7 @@ store = AzureDataLakeGen2Datastore(
 ml_client.create_or_update(store)
 ```
 
-You can learn more about creating and managing Azure Machine Learning datastores using this [tutorial on Azure Machine Learning data stores](../../machine-learning/concept-data.md).
+You can learn more about creating and managing Azure Machine Learning datastores using this [tutorial on Azure Machine Learning data stores](/azure/machine-learning/concept-data).
 
 ## Mount your ADLS Gen2 Storage Account
 
@@ -85,5 +85,5 @@ print(df.head(5))
 ```
 
 ## Next steps
-- [Create and manage GPUs in Azure Machine Learning](../../machine-learning/how-to-train-distributed-gpu.md)
-- [Create Automated ML jobs in Azure Machine Learning](../../machine-learning/concept-automated-ml.md)
+- [Create and manage GPUs in Azure Machine Learning](/azure/machine-learning/how-to-train-distributed-gpu)
+- [Create Automated ML jobs in Azure Machine Learning](/azure/machine-learning/concept-automated-ml)

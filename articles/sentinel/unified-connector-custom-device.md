@@ -57,25 +57,7 @@ Each application section contains the following information:
 - The outline of the procedure required to ingest data manually, without using the connector. For the details of this procedure, see [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md).
 - Specific instructions for configuring the originating applications or devices themselves, and/or links to the instructions on the providers' web sites. These steps must be taken whether using the connector or not.
 
-**The following devices' instructions are provided here:**
-
-- [Apache HTTP Server](#apache-http-server)
-- [Apache Tomcat](#apache-tomcat)
-- [Cisco Meraki](#cisco-meraki) (appliance)
-- [Jboss Enterprise Application Platform](#jboss-enterprise-application-platform)
-- [JuniperIDP](#juniperidp) (appliance)
-- [MarkLogic Audit](#marklogic-audit)
-- [MongoDB Audit](#mongodb-audit)
-- [NGINX HTTP Server](#nginx-http-server)
-- [Oracle WebLogic Server](#oracle-weblogic-server)
-- [PostgreSQL Events](#postgresql-events)
-- [SecurityBridge Threat Detection for SAP](#securitybridge-threat-detection-for-sap)
-- [SquidProxy](#squidproxy)
-- [Ubiquiti UniFi](#ubiquiti-unifi) (appliance)
-- [VMware vCenter](#vmware-vcenter) (appliance)
-- [Zscaler Private Access (ZPA)](#zscaler-private-access-zpa) (appliance)
-
-### Apache HTTP Server
+## Apache HTTP Server
 
 Follow these steps to ingest log messages from Apache HTTP Server:
 
@@ -91,9 +73,9 @@ Follow these steps to ingest log messages from Apache HTTP Server:
 
     Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the [DCR template](connect-custom-logs-ama.md?tabs=arm#create-the-data-collection-rule) with the values in steps 1 and 2. Replace the other placeholders as directed.
 
-[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
+[Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### Apache Tomcat
+## Apache Tomcat
 
 Follow these steps to ingest log messages from Apache Tomcat:
 
@@ -108,9 +90,9 @@ Follow these steps to ingest log messages from Apache Tomcat:
 
     Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the [DCR template](connect-custom-logs-ama.md?tabs=arm#create-the-data-collection-rule) with the values in steps 1 and 2. Replace the other placeholders as directed.
 
-[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
+[Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### Cisco Meraki
+## Cisco Meraki
 
 Follow these steps to ingest log messages from Cisco Meraki:
 
@@ -194,9 +176,9 @@ Follow these steps to ingest log messages from Cisco Meraki:
 
 1. Configure and connect the Cisco Meraki device(s): follow the [instructions provided by Cisco](https://documentation.meraki.com/General_Administration/Monitoring_and_Reporting/Meraki_Device_Reporting_-_Syslog%2C_SNMP%2C_and_API) for sending syslog messages. Use the IP address or hostname of the virtual machine where the Azure Monitor Agent is installed. 
 
-[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
+[Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### JBoss Enterprise Application Platform
+## JBoss Enterprise Application Platform
 
 Follow these steps to ingest log messages from JBoss Enterprise Application Platform:
 
@@ -212,9 +194,9 @@ Follow these steps to ingest log messages from JBoss Enterprise Application Plat
 
     Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the [DCR template](connect-custom-logs-ama.md?tabs=arm#create-the-data-collection-rule) with the values in steps 1 and 2. Replace the other placeholders as directed.
 
-[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
+[Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### JuniperIDP
+## JuniperIDP
 
 Follow these steps to ingest log messages from JuniperIDP:
 
@@ -277,14 +259,26 @@ Follow these steps to ingest log messages from JuniperIDP:
         ```kusto
         source | parse RawData with tmp_time " " host_s " " ident_s " " tmp_pid " " msgid_s " " extradata | extend dvc_os_s = extract("\\[(junos\\S+)", 1, extradata) | extend event_end_time_s = extract(".*epoch-time=\"(\\S+)\"", 1, extradata) | extend message_type_s = extract(".*message-type=\"(\\S+)\"", 1, extradata) | extend source_address_s = extract(".*source-address=\"(\\S+)\"", 1, extradata) | extend destination_address_s = extract(".*destination-address=\"(\\S+)\"", 1, extradata) | extend destination_port_s = extract(".*destination-port=\"(\\S+)\"", 1, extradata) | extend protocol_name_s = extract(".*protocol-name=\"(\\S+)\"", 1, extradata) | extend service_name_s = extract(".*service-name=\"(\\S+)\"", 1, extradata) | extend application_name_s = extract(".*application-name=\"(\\S+)\"", 1, extradata) | extend rule_name_s = extract(".*rule-name=\"(\\S+)\"", 1, extradata) | extend rulebase_name_s = extract(".*rulebase-name=\"(\\S+)\"", 1, extradata) | extend policy_name_s = extract(".*policy-name=\"(\\S+)\"", 1, extradata) | extend export_id_s = extract(".*export-id=\"(\\S+)\"", 1, extradata) | extend repeat_count_s = extract(".*repeat-count=\"(\\S+)\"", 1, extradata) | extend action_s = extract(".*action=\"(\\S+)\"", 1, extradata) | extend threat_severity_s = extract(".*threat-severity=\"(\\S+)\"", 1, extradata) | extend attack_name_s = extract(".*attack-name=\"(\\S+)\"", 1, extradata) | extend nat_source_address_s = extract(".*nat-source-address=\"(\\S+)\"", 1, extradata) | extend nat_source_port_s = extract(".*nat-source-port=\"(\\S+)\"", 1, extradata) | extend nat_destination_address_s = extract(".*nat-destination-address=\"(\\S+)\"", 1, extradata) | extend nat_destination_port_s = extract(".*nat-destination-port=\"(\\S+)\"", 1, extradata) | extend elapsed_time_s = extract(".*elapsed-time=\"(\\S+)\"", 1, extradata) | extend inbound_bytes_s = extract(".*inbound-bytes=\"(\\S+)\"", 1, extradata) | extend outbound_bytes_s = extract(".*outbound-bytes=\"(\\S+)\"", 1, extradata) | extend inbound_packets_s = extract(".*inbound-packets=\"(\\S+)\"", 1, extradata) | extend outbound_packets_s = extract(".*outbound-packets=\"(\\S+)\"", 1, extradata) | extend source_zone_name_s = extract(".*source-zone-name=\"(\\S+)\"", 1, extradata) | extend source_interface_name_s = extract(".*source-interface-name=\"(\\S+)\"", 1, extradata) | extend destination_zone_name_s = extract(".*destination-zone-name=\"(\\S+)\"", 1, extradata) | extend destination_interface_name_s = extract(".*destination-interface-name=\"(\\S+)\"", 1, extradata) | extend packet_log_id_s = extract(".*packet-log-id=\"(\\S+)\"", 1, extradata) | extend alert_s = extract(".*alert=\"(\\S+)\"", 1, extradata) | extend username_s = extract(".*username=\"(\\S+)\"", 1, extradata) | extend roles_s = extract(".*roles=\"(\\S+)\"", 1, extradata) | extend msg_s = extract(".*message=\"(\\S+)\"", 1, extradata) | project-away RawData
         ```
+        
+        The following screenshot shows the complete query in the preceding example in a more readable format:
+
+        :::image type="content" source="media/unified-connector-custom-device/kusto-query-screenshot.png" alt-text="Screenshot showing expanded Kusto query with line breaks for readability." lightbox="media/unified-connector-custom-device/kusto-query-screenshot.png":::
+
+        See more information on the following items used in the preceding examples, in the Kusto documentation:
+        - [***parse*** operator](/kusto/query/parse-operator?view=microsoft-sentinel&preserve-view=true)
+        - [***extend*** operator](/kusto/query/extend-operator?view=microsoft-sentinel&preserve-view=true)
+        - [***extract*** function](/kusto/query/extract-function?view=microsoft-sentinel&preserve-view=true)
+        - [***project-away*** operator](/kusto/query/project-away-operator?view=microsoft-sentinel&preserve-view=true)
+
+        [!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
 
 1. Configure the machine where the Azure Monitor Agent is installed to open the syslog ports, and configure the syslog daemon there to accept messages from external sources. For detailed instructions and a script to automate this configuration, see [Configure the log forwarder to accept logs](connect-custom-logs-ama.md#configure-the-log-forwarder-to-accept-logs).
 
 1. For the instructions to configure the Juniper IDP appliance to send syslog messages to an external server, see [SRX Getting Started - Configure System Logging.](https://supportportal.juniper.net/s/article/SRX-Getting-Started-Configure-System-Logging).
 
-[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
+[Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### MarkLogic Audit
+## MarkLogic Audit
 
 Follow these steps to ingest log messages from MarkLogic Audit:
 
@@ -308,9 +302,9 @@ Follow these steps to ingest log messages from MarkLogic Audit:
     1. Validate by selecting OK.
     1. Refer to MarkLogic documentation for [more details and configuration options](https://docs.marklogic.com/guide/admin/auditing).
 
-[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
+[Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### MongoDB Audit
+## MongoDB Audit
 
 Follow these steps to ingest log messages from MongoDB Audit:
 
@@ -332,9 +326,9 @@ Follow these steps to ingest log messages from MongoDB Audit:
     1. Set the `path` parameter to `/data/db/auditlog.json`.
     1. Refer to MongoDB documentation for [more parameters and details](https://www.mongodb.com/docs/manual/tutorial/configure-auditing/).
 
-[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
+[Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### NGINX HTTP Server
+## NGINX HTTP Server
 
 Follow these steps to ingest log messages from NGINX HTTP Server:
 
@@ -349,9 +343,9 @@ Follow these steps to ingest log messages from NGINX HTTP Server:
 
     Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the [DCR template](connect-custom-logs-ama.md?tabs=arm#create-the-data-collection-rule) with the values in steps 1 and 2. Replace the other placeholders as directed.
 
-[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
+[Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### Oracle WebLogic Server 
+## Oracle WebLogic Server 
 
 Follow these steps to ingest log messages from Oracle WebLogic Server:
 
@@ -367,9 +361,9 @@ Follow these steps to ingest log messages from Oracle WebLogic Server:
 
     Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the [DCR template](connect-custom-logs-ama.md?tabs=arm#create-the-data-collection-rule) with the values in steps 1 and 2. Replace the other placeholders as directed.
 
-[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
+[Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### PostgreSQL Events
+## PostgreSQL Events
 
 Follow these steps to ingest log messages from PostgreSQL Events:
 
@@ -390,9 +384,9 @@ Follow these steps to ingest log messages from PostgreSQL Events:
     1. Set `logging_collector=on`
     1. Refer to PostgreSQL documentation for [more parameters and details](https://www.postgresql.org/docs/current/runtime-config-logging.html).
 
-[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
+[Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### SecurityBridge Threat Detection for SAP
+## SecurityBridge Threat Detection for SAP
 
 Follow these steps to ingest log messages from SecurityBridge Threat Detection for SAP:
 
@@ -407,9 +401,9 @@ Follow these steps to ingest log messages from SecurityBridge Threat Detection f
 
     Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the [DCR template](connect-custom-logs-ama.md?tabs=arm#create-the-data-collection-rule) with the values in steps 1 and 2. Replace the other placeholders as directed.
 
-[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
+[Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### SquidProxy
+## SquidProxy
 
 Follow these steps to ingest log messages from SquidProxy:
 
@@ -425,9 +419,9 @@ Follow these steps to ingest log messages from SquidProxy:
 
     Replace the {TABLE_NAME} and {LOCAL_PATH_FILE} placeholders in the [DCR template](connect-custom-logs-ama.md?tabs=arm#create-the-data-collection-rule) with the values in steps 1 and 2. Replace the other placeholders as directed.
 
-[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
+[Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### Ubiquiti UniFi
+## Ubiquiti UniFi
 
 Follow these steps to ingest log messages from Ubiquiti UniFi:
 
@@ -493,9 +487,9 @@ Follow these steps to ingest log messages from Ubiquiti UniFi:
     1. Follow the [instructions provided by Ubiquiti](https://help.ui.com/hc/en-us/categories/6583256751383) to enable syslog and optionally debugging logs.
     1. Select Settings > System Settings > Controller Configuration > Remote Logging and enable syslog. 
 
-[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
+[Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### VMware vCenter
+## VMware vCenter
 
 Follow these steps to ingest log messages from VMware vCenter:
 
@@ -561,7 +555,7 @@ Follow these steps to ingest log messages from VMware vCenter:
 
     - Replace the `{TABLE_NAME}` and `{LOCAL_PATH_FILE}` placeholders in the [DCR template](connect-custom-logs-ama.md?tabs=arm#create-the-data-collection-rule) with the values in steps 1 and 2. Replace the other placeholders as directed.
 
-    - dataCollectionEndpointId should be populated with your DCE. If you don't have one, define a new one. See [Create a data collection endpoint](../azure-monitor/essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint) for the instructions.
+    - dataCollectionEndpointId should be populated with your DCE. If you don't have one, define a new one. See [Create a data collection endpoint](/azure/azure-monitor/essentials/data-collection-endpoint-overview#create-a-data-collection-endpoint) for the instructions.
 
 1. Configure the machine where the Azure Monitor Agent is installed to open the syslog ports, and configure the syslog daemon there to accept messages from external sources. For detailed instructions and a script to automate this configuration, see [Configure the log forwarder to accept logs](connect-custom-logs-ama.md#configure-the-log-forwarder-to-accept-logs).
 
@@ -569,9 +563,9 @@ Follow these steps to ingest log messages from VMware vCenter:
     1. Follow the [instructions provided by VMware](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-9633A961-A5C3-4658-B099-B81E0512DC21.html) for sending syslog messages.
     1. Use the IP address or hostname of the machine where the Azure Monitor Agent is installed.
 
-[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
+[Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
-### Zscaler Private Access (ZPA)
+## Zscaler Private Access (ZPA)
 
 Follow these steps to ingest log messages from Zscaler Private Access (ZPA):
 
@@ -579,7 +573,7 @@ Follow these steps to ingest log messages from Zscaler Private Access (ZPA):
 
 1. Log storage location: Create a log file on your external syslog server. Grant the syslog daemon write permissions to the file. Install the AMA on the external syslog server if it's not already installed. Enter this filename and path in the **File pattern** field in the connector, or in place of the `{LOCAL_PATH_FILE}` placeholder in the DCR.
 
-1. Configure the syslog daemon to export its vCenter log messages to a temporary text file so the AMA can collect them.
+1. Configure the syslog daemon to export its ZPA log messages to a temporary text file so the AMA can collect them.
 
     # [rsyslog](#tab/rsyslog)
 
@@ -637,7 +631,7 @@ Follow these steps to ingest log messages from Zscaler Private Access (ZPA):
     1. Follow the [instructions provided by ZPA](https://help.zscaler.com/zpa/configuring-log-receiver). Select JSON as the log template.
     1. Select Settings > System Settings > Controller Configuration > Remote Logging and enable syslog. 
 
-[Back to list](#specific-instructions-per-application-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
+[Back to top](#custom-logs-via-ama-data-connector---configure-data-ingestion-to-microsoft-sentinel-from-specific-applications)
 
 ## Related content
 

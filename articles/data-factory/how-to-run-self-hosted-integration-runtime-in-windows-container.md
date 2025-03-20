@@ -81,7 +81,6 @@ Currently we don't support the below features when running the Self-Hosted Integ
 - Daemon service 
 - Auto-update 
 
-There is a known issue when hosting an Azure Data Factory self-hosted integration runtime in Azure App Service. Azure App Service creates a new container instead of reusing existing container after restarting. This may cause self-hosted integration runtime node leak problem.
 
 ### Related content
 

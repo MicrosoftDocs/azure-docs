@@ -3,7 +3,7 @@ title: Design virtual networks with Azure NAT Gateway
 description: Learn about how to design virtual networks with Azure NAT Gateway.
 author: asudbring
 ms.author: allensu
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: concept-article #Required; leave this attribute/value as-is.
 ms.date: 04/29/2024
 ---
@@ -94,16 +94,26 @@ NAT Gateway supersedes any outbound configuration from a load-balancing rule or 
 
 The NAT gateway supersedes any outbound configuration from a load-balancing rule or outbound rules on a load balancer and instance level public IPs on a virtual machine. All virtual machines in subnets 1 and 2 use the NAT gateway exclusively for outbound and return traffic. Instance-level public IPs take precedence over load balancer. The VM in subnet 1 uses the instance level public IP for inbound originating traffic. VMSS do not have instance-level public IPs.
 
-## Monitor outbound network traffic with NSG flow logs
+## How to use service tagged public IPs with NAT Gateway
+[Service tags](/azure/virtual-network/service-tags-overview) represent a group of IP addresses from a given Azure service. Microsoft manages the address prefix encompassed by the service tag and automatically updates the service tag as addresses change, which reduces the complexity of managing network security rules. 
 
-A network security group allows you to filter inbound and outbound traffic to and from a virtual machine. To monitor outbound traffic flowing from the virtual machine behind your NAT gateway, enable NSG flow logs.
-
-For information about NSG flow logs, see [NSG flow log overview](/azure/network-watcher/network-watcher-nsg-flow-logging-overview).
-
-For guides on how to enable NSG flow logs, see [Enabling NSG flow logs](/azure/network-watcher/network-watcher-nsg-flow-logging-overview#enabling-nsg-flow-logs).
+Service tagged public IP addresses can be used with NAT gateway for providing outbound connectivity to the internet. To add a service tagged public IP to a NAT gateway, you can attach it using any of the available clients in Azure, such as the portal, CLI, or powershell. See [how to add and remove public IPs for NAT gateway](/azure/nat-gateway/manage-nat-gateway?tabs=manage-nat-portal#add-or-remove-a-public-ip-address) for detailed guidance.
 
 > [!NOTE]
-> NSG flow logs will only show the private IPs of your VM instances connecting outbound to the internet. NSG flow logs will not show you which NAT gateway public IP address the VM’s private IP has SNATed to prior to connecting outbound.
+> Public IP addresses with [routing preference "Internet"](/azure/virtual-network/ip-services/routing-preference-overview#routing-over-public-internet-isp-network) are not supported by NAT Gateway. Only public IPs that route over the Microsoft global network are supported by NAT gateway.
+
+## Monitor outbound network traffic with VNet flow logs
+
+ [Virtual network (VNet) flow logs](../network-watcher/vnet-flow-logs-overview.md) are a feature of Azure Network Watcher that logs information about IP traffic flowing through a virtual network. To monitor outbound traffic flowing from the virtual machine behind your NAT gateway, enable VNet flow logs.
+
+For guides on how to enable VNet flow logs, see [Manage virtual network flow logs](../network-watcher/vnet-flow-logs-portal.md).
+
+It is recommended to access the log data on [Log Analytics workspaces](/azure/azure-monitor/logs/log-analytics-overview) where you can also query and filter the data for outbound traffic. To learn more about using Log Analytics, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
+
+For more details on the VNet flow log schema, see [Traffic analytics schema and data aggregation](../network-watcher/traffic-analytics-schema.md).
+
+> [!NOTE]
+> Virtual network flow logs will only show the private IPs of your VM instances connecting outbound to the internet. VNet flow logs will not show you which NAT gateway public IP address the VM’s private IP has SNATed to prior to connecting outbound.
 
 ## Limitations
 

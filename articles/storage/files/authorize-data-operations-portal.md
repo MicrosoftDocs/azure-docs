@@ -4,13 +4,16 @@ description: When you access file data using the Azure portal, the portal makes 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 12/16/2024
 ms.author: kendownie
 ---
 
 # Choose how to authorize access to file data in the Azure portal
 
 When you access file data using the [Azure portal](https://portal.azure.com?azure-portal=true), the portal makes requests to Azure Files behind the scenes. These requests can be authorized using either your Microsoft Entra account or the storage account access key. The portal indicates which method you're using, and enables you to switch between the two if you have the appropriate permissions.
+
+> [!IMPORTANT]
+> Accessing a file share using storage account keys carries inherent security risks, so authenticate with Microsoft Entra when possible. For information on how to protect and manage your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
 
 You can also specify how to authorize an individual file share operation in the Azure portal. By default, the portal uses whichever method you're already using to authorize all file shares, but you have the option to change this setting for individual file shares.
 
@@ -61,7 +64,8 @@ When you attempt to access file data in the Azure portal, the portal first check
 
 You can change the authentication method for individual file shares. By default, the portal uses the current authentication method. To determine the current authentication method, follow these steps.
 
-1. Navigate to your storage account in the Azure portal and select **Data storage** > **File shares** from the left navigation.
+1. Navigate to your storage account in the Azure portal.
+1. In the service menu, under **Data storage**, select **File shares**.
 1. Select a file share.
 1. Select **Browse**.
 1. The **Authentication method** indicates whether you're currently using the storage account access key or your Microsoft Entra account to authenticate and authorize file share operations. If you're currently authenticating using the storage account access key, you'll see **Access Key** specified as the authentication method, as in the following image. If you're authenticating using your Microsoft Entra account, you'll see **Microsoft Entra user account** specified instead.

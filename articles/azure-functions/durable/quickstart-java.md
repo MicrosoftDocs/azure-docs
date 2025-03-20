@@ -36,6 +36,8 @@ To complete this quickstart, you need:
 
   For Azure Functions _4.x_, Core Tools version 4.0.4915 or later is required.
 
+* An HTTP test tool that keeps your data secure. For more information, see [HTTP test tools](../functions-develop-local.md#http-test-tools).
+ 
 * An Azure subscription. To use Durable Functions, you must have an Azure Storage account.
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
@@ -221,19 +223,19 @@ Run the following command to generate a project that contains the basic function
 # [Bash](#tab/bash)
 
 ```bash
-mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DarchetypeVersion=1.51 -Dtrigger=durablefunctions
+mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DarchetypeVersion=1.62 -Dtrigger=durablefunctions
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DarchetypeVersion=1.51" "-Dtrigger=durablefunctions"
+mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DarchetypeVersion=1.62" "-Dtrigger=durablefunctions"
 ```
 
 # [Cmd](#tab/cmd)
 
 ```cmd
-mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DarchetypeVersion=1.51" "-Dtrigger=durablefunctions"
+mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DarchetypeVersion=1.62" "-Dtrigger=durablefunctions"
 ```
 
 ---
@@ -355,9 +357,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
    :::image type="content" source="media/quickstart-java/maven-functions-run.png" alt-text="Screenshot of Azure local output.":::
 
-1. Use an HTTP test tool to send an HTTP POST request to the URL endpoint. 
-
-    [!INCLUDE [api-test-http-request-tools-caution](../../../includes/api-test-http-request-tools-caution.md)]
+1. Use an HTTP test tool to send an HTTP POST request to the URL endpoint.
 
     The response should look similar to the following example:
 

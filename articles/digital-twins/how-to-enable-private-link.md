@@ -168,6 +168,8 @@ Once a private endpoint has been created for your Azure Digital Twins instance, 
 
 For more information and examples, see the [az dt network private-endpoint reference documentation](/cli/azure/dt/network/private-endpoint).
 
+[!INCLUDE [digital-twins-cli-issue](includes/digital-twins-cli-issue.md)]
+
 ### Get more Private Link information
 
 You can get more information about the Private Link status of your instance with the [az dt network private-link](/cli/azure/dt/network/private-link) commands. Operations include:
@@ -199,6 +201,8 @@ To disable or enable public network access in the [Azure portal](https://portal.
     Select **Save**.
 
 # [CLI](#tab/cli-2)
+
+[!INCLUDE [digital-twins-cli-issue.md](includes/digital-twins-cli-issue.md)]
 
 In the Azure CLI, you can disable or enable public network access by adding a `--public-network-access` parameter to the `az dt create` command. While this command can also be used to create a new instance, you can use it to edit the properties of an existing instance by providing it the name of an instance that already exists. (For more information about this command, see its [reference documentation](/cli/azure/dt#az-dt-create) or the [general instructions for setting up an Azure Digital Twins instance](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
 
@@ -244,9 +248,11 @@ For a sample template that allows an Azure function to connect to Azure Digital 
 
 This template creates an Azure Digital Twins instance, a virtual network, an Azure function connected to the virtual network, and a Private Link connection to make the Azure Digital Twins instance accessible to the Azure function through a private endpoint.
 
-## Troubleshoot
+## Limitations and troubleshooting
 
-Here are some common issues that might arise when using Private Link with Azure Digital Twins.
+A limitation of using Private Link with Azure Digital Twins is that cross-tenant scenarios are not supported.
+
+For troubleshooting, here are some common issues that might arise:
 
 * **Issue:** When trying to access Azure Digital Twins APIs, you see an HTTP error code 403 with the following error in the response body:
     ```json

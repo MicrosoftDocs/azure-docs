@@ -2,24 +2,16 @@
 title: Back up multiple SQL Server VMs from the vault
 description: In this article, learn how to back up SQL Server databases on Azure virtual machines with Azure Backup from the Recovery Services vault
 ms.topic: how-to
-ms.date: 04/17/2024
+ms.date: 02/12/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Back up multiple SQL Server VMs from the Recovery Services vault
 
 SQL Server databases are critical workloads that require a low recovery-point objective (RPO) and long-term retention. You can back up SQL Server databases running on Azure virtual machines (VMs) by using [Azure Backup](backup-overview.md).
 
 This article shows how to back up a SQL Server database that's running on an Azure VM to an Azure Backup Recovery Services vault.
-
-In this article, you'll learn how to:
-
-> [!div class="checklist"]
->
-> * Create and configure a vault.
-> * Discover databases and set up backups.
-> * Set up auto-protection for databases.
 
 >[!Note]
 >See the [SQL backup support matrix](sql-support-matrix.md) to know more about the supported configurations and scenarios.
@@ -30,8 +22,12 @@ Before you back up a SQL Server database, check the following criteria:
 
 1. Identify or create a [Recovery Services vault](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) in the same region and subscription as the VM hosting the SQL Server instance.
 1. Verify that the VM has [network connectivity](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
-1. Make sure that the [Azure Virtual Machine Agent](../virtual-machines/extensions/agent-windows.md) is installed on the VM.
-1. Make sure that .NET 4.5.2 version or above is installed on the VM.
+1. Make sure that the [Azure Virtual Machine Agent](/azure/virtual-machines/extensions/agent-windows) is installed on the VM.
+1. Make sure that .NET 4.6.2 version or above is installed on the VM.
+
+   >[!Caution]
+   >Support for backups of SQL VMs running .NET Framework 4.6.1 is deprecated due to the end of [official support](/lifecycle/products/microsoft-net-framework). We recommend upgrading to .NET Framework 4.6.2 or above to avoid backup failures.
+
 1. Make sure that the SQL Server databases follow the [database naming guidelines for Azure Backup](#database-naming-guidelines-for-azure-backup).
 1. Ensure that the combined length of the SQL Server VM name and the resource group name doesn't exceed 84 characters for Azure Resource Manager VMs (or 77 characters for classic VMs). This limitation is because some characters are reserved by the service.
 1. Check that you don't have any other backup solutions enabled for the database. Disable all other SQL Server backups before you back up the database.
@@ -81,9 +77,12 @@ You can similarly create NSG outbound security rules for Azure Storage and Micro
 
 If you're using Azure Firewall, create an application rule by using the *AzureBackup* [Azure Firewall FQDN tag](../firewall/fqdn-tags.md). This allows all outbound access to Azure Backup.
 
+>[!Note]
+>Azure Backup currently doesn't support the *TLS inspection enabled* **Application Rule** on Azure Firewall.
+
 #### Allow access to service IP ranges
 
-If you choose to allow access service IPs, refer to the IP ranges in the JSON file available [here](https://www.microsoft.com/download/confirmation.aspx?id=56519). You'll need to allow access to IPs corresponding to Azure Backup, Azure Storage, and Microsoft Entra ID.
+If you choose to allow access service IPs, refer to the IP ranges in the JSON file available [here](https://www.microsoft.com/download/details.aspx?id=56519). You'll need to allow access to IPs corresponding to Azure Backup, Azure Storage, and Microsoft Entra ID.
 
 #### Allow access to service FQDNs
 
@@ -117,7 +116,7 @@ When you back up a SQL Server database on an Azure VM, the backup extension on t
   - Forward slash (/)
   - Percentage (%)
 
-- SQL Backup configuration doesn't support the single quotation in the database name and causes deployment failure. If there is any database with single quote, we recommend that you rename the database or take the native backup approach.
+- SQL Backup configuration doesn't support the single quotation in the database name and causes deployment failure. If there's any database with single quote, we recommend that you rename the database or take the native backup approach.
 - Aliasing is available for unsupported characters, but we recommend avoiding them. For more information, see [Understanding the Table Service Data Model](/rest/api/storageservices/understanding-the-table-service-data-model).
 
 - Multiple databases on the same SQL instance with casing difference aren't supported.
@@ -265,7 +264,7 @@ To create a backup policy:
 1. After you complete the edits to the backup policy, select **OK**.
 
 > [!NOTE]
-> Each log backup is chained to the previous full backup to form a recovery chain. This full backup will be retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume you have a weekly full backup, daily differential and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available, that is, after 30 + 7 days. For example, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd.
+> Each log backup is chained to the previous full backup to form a recovery chain. This full backup will be retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume you have a weekly full backup, daily differential, and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available, that is, after 30 + 7 days. For example, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22. Until this log is available until Dec 22, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22.
 
 ## Enable auto-protection  
 

@@ -1,22 +1,19 @@
 ---
-title: Serverless code interpreter sessions in Azure Container Apps (preview)
+title: Serverless code interpreter sessions in Azure Container Apps
 description: Learn to run a serverless code interpreter session in Azure Container Apps.
 services: container-apps
 author: anthonychu
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 05/06/2024
+ms.date: 10/24/2024
 ms.author: antchu
-ms.custom: references_regions
+ms.custom: references_regions, ignite-2024
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Serverless code interpreter sessions in Azure Container Apps (preview)
+# Serverless code interpreter sessions in Azure Container Apps
 
 Azure Container Apps [dynamic sessions](sessions.md) provides fast and scalable access to a code interpreter. Each code interpreter session is fully isolated by a Hyper-V boundary and is designed to run untrusted code.
-
-> [!NOTE]
-> The Azure Container Apps dynamic sessions feature is currently in preview. See [preview limitations](sessions.md#preview-limitations) for more information.
 
 ## Uses for code interpreter sessions
 
@@ -183,6 +180,9 @@ Content-Type: application/octet-stream
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 ```
 
+> [!NOTE]
+> The file upload limit is `128MB`. If this is exceeded a `HTTP 413` may be returned.
+
 #### Download a file from a session
 
 To download a file from a session's `/mnt/data` directory, send a `GET` request to the `file/content/{filename}` endpoint. The response includes the file data.
@@ -256,6 +256,14 @@ Authorization: Bearer <TOKEN>
     }
 }
 ```
+
+## Logging
+
+Code interpreter sessions don't support logging directly. Your application that's interacting with the sessions can log requests to the session pool management API and its responses.
+
+## Billing
+
+Code interpreter sessions are billed based on the duration of each session. See [Billing](billing.md#dynamic-sessions) for more information.
 
 ## Next steps
 
