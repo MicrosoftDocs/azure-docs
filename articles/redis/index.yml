@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Azure Managed Redis Documentation
-summary: Learn how to use the managed Redis offerings on Azure, including Azure Managed Redis and Azure Cache for Redis. Either service can be used as a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications. Additionally, Azure Managed Redis can be used for more applications, like storing embeddings vectors and as a semantic cache. These tutorials, API references, and other documentation show you how to use Redis from any application on Azure. For information about Azure Cache for Redis, see the [Azure Cache for Redis documentation](/azure/azure-cache-for-redis/index.yml).
+summary: Learn how to use the managed Redis offerings on Azure, including Azure Managed Redis (preview) and our Azure Cache for Redis. Either service can be used as a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications. Additionally, Azure Managed Redis can be used for more applications, like storing embeddings vectors and as a semantic cache. These tutorials, API references, and other documentation show you how to use Redis from any application on Azure. For information about Azure Cache for Redis, see the [Azure Cache for Redis documentation](../azure-cache-for-redis/index.yml).
 
 
 metadata:
@@ -39,20 +39,20 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          # - text: Code a .NET Framework app
-          #   url: dotnet-how-to-use-azure-redis-cache.md
-          # - text: Code a .NET Core app
-          #   url: dotnet-core-quickstart.md
+          - text: Code a .NET Framework app
+            url: dotnet-how-to-use-azure-redis-cache.md
+          - text: Code a .NET Core app
+            url: dotnet-core-quickstart.md
           - text: Code an ASP.NET web app
             url: web-app-cache-howto.md
           - text: Code an ASP.NET Core web app
             url: web-app-aspnet-core-howto.md
-          # - text: Code a Java app
-          #   url: java-get-started.md
-          # - text: Code a Node.js app
-          #   url: nodejs-get-started.md
-          # - text: Code a Python app
-          #   url: python-get-started.md
+          - text: Code a Java app
+            url: java-get-started.md
+          - text: Code a Node.js app
+            url: nodejs-get-started.md
+          - text: Code a Python app
+            url: python-get-started.md
       - linkListType: tutorial
         links:
           - text: Use session state provider
