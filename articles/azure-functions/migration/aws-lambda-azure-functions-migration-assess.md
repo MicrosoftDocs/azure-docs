@@ -42,140 +42,141 @@ The following tables compare AWS Lambda concepts, resources, and properties with
 
 | Feature  | AWS Lambda  | Azure Functions   |
 |---|---|---|
-| Triggers  | Integrates with other AWS services via event sources. Offers automatic and programmatic ways to link Lambda functions with event sources.    | Azure Functions Triggers initiate function execution based on specific events, such as updates in a database or a new message in a queue. For instance, a Cosmos DB trigger allows functions to automatically respond to inserts and updates in a Cosmos DB container, enabling real-time processing of data changes.    Functions also integrates with Azure Event Grid, allowing them to process events from a wide variety of Azure services (e.g., Storage, Media Services) and external event sources. Event Grid serves as a centralized, extensible event routing service that complements Function triggers, enabling high scalability and broad event-source coverage.  |
-| Bindings  | Does not have bindings. Uses AWS SDKs within Lambda functions to manually manage interactions with other AWS services.  | Bindings, configured as input or output, enable declarative connections to services, minimizing the need for explicit SDK code. For example, you can configure bindings to read from Blob Storage, write to Azure Cosmos DB, or send emails via SendGrid without manually managing the integrations.  |
+| Triggers  | Integrates with other AWS services via event sources. Provides automatic and programmatic ways to link Lambda functions with event sources.    | Initiates function execution based on specific events, such as updates in a database or a new message in a queue. For example, an Azure Cosmos DB trigger allows functions to automatically respond to inserts and updates in an Azure Cosmos DB container. This action enables real-time processing of data changes. <br> Functions also integrates with Azure Event Grid, so it can process events from Azure services, like Azure Storage and Azure Media Services, and external event sources. Event Grid serves as a centralized, extensible event routing service that complements Functions triggers and enables high scalability and broad event-source coverage.  |
+| Bindings  | Doesn't have bindings. Uses AWS SDKs within Lambda functions to manually manage interactions with other AWS services.  | Bindings, configured as input or output, enable declarative connections to services, which minimizes the need for explicit SDK code. For example, you can configure bindings to read from Blob Storage, write to Azure Cosmos DB, or send emails via SendGrid without manually managing the integrations.  |
 
-### Event triggers & bindings
+### Event triggers and bindings
 
-| AWS Lambda Trigger/Service  | [Azure Functions trigger](/azure/azure-functions/functions-triggers-bindings)  |  Description  |
+| AWS Lambda trigger or service  | [Azure Functions trigger](/azure/azure-functions/functions-triggers-bindings)  |  Description  |
 |---|---|---|
-| API Gateway: HTTP requests  | [HTTP Trigger](/azure/azure-functions/functions-bindings-http-webhook-trigger)  | Azure Functions' HTTP Trigger allows you to handle HTTP requests directly, just like API Gateway.  |
-| SQS (Simple Queue Service)  | [Azure Queue Storage Trigger](/azure/azure-functions/functions-bindings-storage-queue-trigger) / [Azure Service Bus Trigger](/azure/azure-functions/functions-bindings-service-bus-trigger) | Azure Queue Storage or Service Bus Trigger can process messages in queues, similar to SQS.  |
-| SNS (Simple Notification Service)  | [Azure Event Grid Trigger](/azure/azure-functions/functions-bindings-event-grid-trigger) / [Azure Service Bus Topic Trigger](/azure/azure-functions/functions-bindings-service-bus-trigger)  | Event Grid or Service Bus Topic Triggers enable processing of notifications like SNS topics.  |
-| Kinesis (Data Streams)  | [Azure Event Hubs Trigger](/azure/azure-functions/functions-bindings-event-hubs-trigger)  | Event Hubs Trigger is the Azure equivalent for consuming data streams, similar to Kinesis.  |
-| DynamoDB (Table Changes)  | [Azure Cosmos DB Change Feed Trigger](/azure/azure-functions/functions-bindings-cosmosdb-v2-trigger)  | Cosmos DB Change Feed Trigger listens for changes in Azure Cosmos DB tables, akin to DynamoDB.  |
-| CloudWatch Events/ EventBridge Scheduler  | [Timer Trigger](/azure/azure-functions/functions-bindings-timer)  | Timer Trigger in Azure Functions handles scheduled or time-based triggers like CloudWatch Events.  |
-| S3 (Object Events)  | [Azure Blob Storage Trigger](/azure/azure-functions/functions-bindings-storage-blob-trigger)  | Blob Storage Trigger reacts to events in Blob storage, like S3 object events.  |
-| Amazon RDS (Relational Database Service)  | [Azure SQL Trigger](/azure/azure-functions/functions-bindings-azure-sql-trigger)  | SQL Trigger reacts to database changes in SQL Database, like RDS database events.  |
-|  MSK (Managed Streaming for Apache Kafka)  | [Apache Kafka Trigger](/azure/azure-functions/functions-bindings-kafka-trigger)  | AWS Kafka Trigger reacts to Kafka topic messages, like MSK Kafka topic messages.  |
-| Amazon ElastiCache  | [Azure Redis Trigger](/azure/azure-functions/functions-bindings-cache)  | Azure Redis Trigger reacts to messages in Redis, offering similar functionality to Elasticache (Redis).  |
-| Amazon MQ  | [RabbitMQ trigger](/azure/azure-functions/functions-bindings-rabbitmq-trigger)  | Azure RabbitMQ Trigger reacts to messages in RabbitMQ, like Amazon MQ (RabbitMQ) messages.  |
+| API Gateway: HTTP requests  | [HTTP trigger](/azure/azure-functions/functions-bindings-http-webhook-trigger)  | These triggers allow you to handle HTTP requests directly.  |
+| Simple Queue Service (SQS)  | [Azure Queue Storage trigger](/azure/azure-functions/functions-bindings-storage-queue-trigger) or [Azure Service Bus trigger](/azure/azure-functions/functions-bindings-service-bus-trigger) | These triggers can process messages in queues.  |
+| Simple Notification Service (SNS)  | [Event Grid trigger](/azure/azure-functions/functions-bindings-event-grid-trigger) or [Service Bus trigger](/azure/azure-functions/functions-bindings-service-bus-trigger)  | These triggers enable notification processing.  |
+| Kinesis (Data Streams)  | [Event Hubs trigger](/azure/azure-functions/functions-bindings-event-hubs-trigger)  | These triggers consume data streams.  |
+| DynamoDB (Table Changes)  | [Azure Cosmos DB change feed trigger](/azure/azure-functions/functions-bindings-cosmosdb-v2-trigger)  | These triggers listen for changes in tables.  |
+| CloudWatch Events or EventBridge Scheduler  | [Timer trigger](/azure/azure-functions/functions-bindings-timer)  | These triggers handle scheduled or time-based functions.  |
+| S3 (Object Events)  | [Blob Storage trigger](/azure/azure-functions/functions-bindings-storage-blob-trigger)  | These triggers react to events in blob storage.  |
+| Amazon Relational Database Service (RDS)  | [Azure SQL trigger](/azure/azure-functions/functions-bindings-azure-sql-trigger)  | These triggers react to database changes.  |
+|  Managed Streaming for Apache Kafka (MSK)  | [Apache Kafka trigger](/azure/azure-functions/functions-bindings-kafka-trigger)  | These triggers react to Kafka topic messages.  |
+| Amazon ElastiCache  | [Azure Redis trigger](/azure/azure-functions/functions-bindings-cache)  | These triggers react to messages in Redis.  |
+| Amazon MQ  | [RabbitMQ trigger](/azure/azure-functions/functions-bindings-rabbitmq-trigger)  | These triggers react to messages in RabbitMQ.  |
 
 ### Permissions
 
-| AWS Lambda feature  | Azure Functions feature   |
+| AWS Lambda  | Azure Functions   |
 |---|---|
-| Lambda execution role - grants Lambda functions permissions to interact with other AWS services. Each Lambda function has an associated IAM role that determines the permissions the function has during execution.  | Managed Identities - Provides an identity for your Azure Function app, allowing it to authenticate with other Azure services without storing credentials in the code. Role-Based Access Control (RBAC) is used to assign appropriate roles to the managed identity in Azure Active Directory (Azure AD) to grant access to the required resources.  |
-| Resource based policy statements:   AWSLambda_FullAccess (Full access to all Lambda operations, including creating, updating, and deleting functions)  AWSLambda_ReadOnlyAccess(Read-only access to view Lambda functions and their configurations) or Custom IAM Policies  | Resource based built-in roles:  Owner role (Full access including managing access permissions)  Contributor role (Can manage everything except access, like creating and deleting function apps, configuring settings, and deploying code)  Monitoring reader role (grant read-only access to monitoring data and settings).  Can also allocate custom roles.  |
+| The Lambda execution role grants Lambda functions permissions to interact with other AWS services. Each Lambda function has an associated identity and access management (IAM) role that determines its permissions while it runs.  | Managed identities provide an identity for your function app that allows it to authenticate with other Azure services without storing credentials in the code. Role-based access control assigns appropriate roles to the managed identity in Microsoft Entra ID to grant access to the resources it requires.  |
+| Resource-based policy statements: <br> - AWSLambda_FullAccess gives full access to all Lambda operations, including creating, updating, and deleting functions. <br> - AWSLambda_ReadOnlyAccess fgives read-only access to view Lambda functions and their configurations <br> - Custom IAM policies  | Resource-based built-in roles: <br> - The Owner role gives full access, including access permissions management. <br> - The Contributor role can create and delete function apps, configure settings, and deploy code. It can't manage access. <br> - The Monitoring Reader role can grant read-only access to monitoring data and settings. It can also allocate custom roles.  |
 
-### Function URL 
+### Function URL
 
-| AWS Lambda feature  | Azure Functions feature   |
+| AWS Lambda  | Azure Functions   |
 |---|---|
 | `https://<url-id>.lambda-url.<region>.on.aws`  | - `<appname>.azurewebsites.net` (original, global default hostname) </br> - `<appname>-<randomhash>.<Region>.azurewebsites.net` (new, unique default hostname)  |
 
 ### Networking 
 
-| AWS Lambda feature  | Azure Functions feature   |
+| AWS Lambda  | Azure Functions   |
 |---|---|
-| All Lambda functions run securely inside a default system-managed virtual private cloud (VPC). You can also configure your Lambda function to access resources in a custom VPC.  |    Function apps can be network secured and can access other services inside the network. Inbound Network access: Inbound access can be restricted to only a firewall list of IP addresses, and to a specific virtual network via service endpoints or private endpoints.  Outbound Network access: This is enabled through the VNet integration feature. Function App can have all its traffic restricted to a virtual network’s subnet, and can also access other services inside that virtual network.  |
+| All Lambda functions run securely inside a default system-managed virtual private cloud (VPC). You can also configure your Lambda function to access resources in a custom VPC.  |    Function apps can be network secured and can access other services inside the network. Inbound network access can be restricted to only a firewall list of IP addresses and to a specific virtual network via service endpoints or private endpoints. Outbound network access is enabled through the virtual network integration feature. The function app can have all its traffic restricted to a virtual network's subnet and can also access other services inside that virtual network.  |
 
-### Observability & Monitoring 
+### Observability and Monitoring
 
-| AWS Lambda feature  | Azure Functions feature   |
+| AWS Lambda  | Azure Functions   |
 |---|---|
-| Amazon CloudWatch helps with monitoring and observability by collecting and tracking metrics, aggregating and analyzing logs, setting alarms, creating custom dashboards, and implementing automated responses to changes in resource performance and metrics.  | Azure Monitor, the equivalent of CloudWatch, provides comprehensive monitoring and observability for Azure Functions, particularly through its Application Insights feature. Application Insights collects telemetry data such as request rates, response times, and failure rates, visualizes application component relationships, monitors real-time performance, logs detailed diagnostics, and allows custom metric tracking. These capabilities help maintain the performance, availability, and reliability of Azure Functions, while enabling custom dashboards, alerts, and automated responses.  |
-| AWS Lambda generates telemetry data from your function executions and can export this data using OpenTelemetry semantics. You can configure your Lambda functions to send this telemetry data to any OpenTelemetry-compliant endpoint, allowing for correlation of traces and logs, consistent standards-based telemetry data, and integration with other observability tools that support OpenTelemetry.  | OpenTelemetry Support - Configure your Azure Functions app to export log and trace data in an OpenTelemetry format. You can choose to export telemetry data using OpenTelemetry to any compliant endpoint. Enabling OpenTelemetry provides benefits such as correlation of traces and logs, consistent standards-based telemetry data, and integration with other providers. OpenTelemetry can be enabled at the function app level in the host configuration and in your code project, offering an optimized experience for exporting data from your function code.  [Learn more](/azure/azure-functions/opentelemetry-howto)  |
+| Amazon CloudWatch helps with monitoring and observability by collecting and tracking metrics, aggregating and analyzing logs, setting alarms, creating custom dashboards, and implementing automated responses to changes in resource performance and metrics.  | Azure Monitor provides comprehensive monitoring and observability for Azure Functions, particularly through its Application Insights feature. <br> Application Insights collects telemetry data such as request rates, response times, and failure rates. It visualizes application component relationships, monitors real-time performance, logs detailed diagnostics, and allows custom metric tracking. These capabilities help maintain the performance, availability, and reliability of Azure Functions, while enabling custom dashboards, alerts, and automated responses.  |
+| AWS Lambda generates telemetry data from your function executions and can export this data by using OpenTelemetry semantics. You can configure your Lambda functions to send this telemetry data to any OpenTelemetry-compliant endpoint. This action allows for correlation of traces and logs, consistent standards-based telemetry data, and integration with other observability tools that support OpenTelemetry.  | Configure your functions app to export log and trace data in an OpenTelemetry format. You can choose to export telemetry data by using OpenTelemetry to any compliant endpoint. OpenTelemetry provides benefits such as correlation of traces and logs, consistent standards-based telemetry data, and integration with other providers. You can enable OpenTelemetry at the function app level in the host configuration and in your code project to optimize data exportation from your function code. For more information, see [Use OpenTelemetry with Azure Functions](/azure/azure-functions/opentelemetry-howto).  |
 
-### Scaling and Concurrency 
+### Scaling and concurrency
 
-| AWS Lambda feature  |  Azure Functions feature   |
+| AWS Lambda  |  Azure Functions   |
 |---|---|
-| On demand scaling model - Automatically scale your function execution in response to demand. Concurrency (number of requests handled by an instance) is always 1  | Instances are dynamically added and removed based on the number of incoming events and configured concurrency per instance. [Concurrency setting](/azure/azure-functions/flex-consumption-how-to#set-http-concurrency-limits) is configurable to your desired value.      |
-| Concurrency is always 1.  | Concurrency is configurable (>1)     |
-| Supports scaling to 0  | Supports scaling to 0  |
+| AWS uses an on-demand scaling model. Automatically scale your function execution in response to demand. Concurrency, or the number of requests handled by an instance, is always 1.  | Instances are dynamically added and removed based on the number of incoming events and the configured concurrency for each instance. You can configure the [concurrency setting](/azure/azure-functions/flex-consumption-how-to#set-http-concurrency-limits) to your desired value.      |
+| Concurrency is always 1.  | Concurrency is configurable (>1).     |
+| Supports scaling to 0.  | Supports scaling to 0.  |
 
-### Cold Start protection  
+### Cold-start protection
 
- | AWS Lambda feature  | Azure Functions feature   |
+ | AWS Lambda  | Azure Functions   |
 |---|---|
-| Provisioned concurrency - reduce latency and ensure predictable function performance by pre-initializing a requested number of function instances    Provisioned concurrency is useful for latency-sensitive applications and is priced separately from standard concurrency.    | Function apps allow for the configuration of concurrency per instance, which drives its scale. This means that multiple executions can happen in parallel in the same instance of the app and those subsequent executions in the instance do not incur the initial cold start.    Function Apps also has Always Ready instances – customers can specify number of pre-warmed instances to eliminate cold start latency and ensure consistent performance. Function App also scales out to additional instances based on demand, while maintaining the Always Ready instances.     |
-| Reserved concurrency - specifies the maximum number of concurrent instances a function can have, ensuring that a portion of your account's concurrency quota is set aside exclusively for that function. AWS Lambda dynamically scales out to handle incoming requests even when reserved concurrency is set, as long as the requests do not exceed the specified reserved concurrency limit. The lower limit for reserved concurrency in AWS Lambda is 1. The upper limit for reserved concurrency in AWS Lambda is determined by the account's regional concurrency quota. By default, this limit is 1,000 concurrent executions per region.  |  Azure Functions does not have an equivalent feature to reserved concurrency in AWS Lambda. To achieve similar functionality, isolate specific functions into separate function apps and set the maximum scale-out limit for each app. Azure Functions dynamically scale out (add more instances) and scale in (remove instances) within the scale-out limit set. By default, apps running in a Flex Consumption plan start with a configurable limit of 100 overall instances. The lowest maximum instance count value is 40, and the highest supported maximum instance count value is 1000.  [Regional subscription memory quotas](/azure/azure-functions/flex-consumption-plan#regional-subscription-memory-quotas) can also limit the scale out of function apps but this quota can be increased via a support call.  |
+| Provisioned concurrency reduces latency and ensures predictable function performance by pre-initializing a requested number of function instances. Provisioned concurrency suits latency-sensitive applications and is priced separately from standard concurrency.    | Function apps allow you to configure concurrency for each instance, which drives its scale. Multiple jobs can run in parallel in the same instance of the app, and subsequent jobs in the instance don't incur the initial cold start. Function apps also have *always ready* instances. Customers can specify a number of pre-warmed instances to eliminate cold-start latency and ensure consistent performance. Function apps also scale out to additional instances based on demand, while maintaining the always ready instances.     |
+| Reserved concurrency specifies the maximum number of concurrent instances a function can have. This limit ensures that a portion of your account's concurrency quota is set aside exclusively for that function. AWS Lambda dynamically scales out to handle incoming requests even when reserved concurrency is set, as long as the requests don't exceed the specified reserved concurrency limit. The lower limit for reserved concurrency in AWS Lambda is 1. The upper limit for reserved concurrency in AWS Lambda is determined by the account's regional concurrency quota. By default, this limit is 1,000 concurrent executions for each region.  |  Azure Functions doesn't have an equivalent feature to reserved concurrency. To achieve similar functionality, isolate specific functions into separate function apps and set the maximum scale-out limit for each app. Azure Functions dynamically scales out, or adds more instances, and scales in, or removes instances, within the scale-out limit set. By default, apps that run in a Flex Consumption plan start with a configurable limit of 100 overall instances. The lowest maximum instance count value is 40, and the highest supported maximum instance count value is 1,000.  [Regional subscription memory quotas](/azure/azure-functions/flex-consumption-plan#regional-subscription-memory-quotas) can also limit how much function apps can scale out, but you can increase this quota by calling support.  |
 
-### Pricing 
+### Pricing
 
-| AWS Lambda feature  | Azure Functions feature   |
+| AWS Lambda  | Azure Functions   |
 |---|---|
-| Pay per use for total execution count, and for GB/s for each instance (with fixed concurrency of 1)  1ms increments  400K Gb/s free tier    | .Pay per use for total execution count, and for GB/s of each instance (with configurable concurrent executions)  100ms increments  100K Gb/s free tier  [Read more](/azure/azure-functions/functions-consumption-costs#consumption-based-costs)  |
+| - Pay per use for the total execution count and for the GB/s for each instance (with a fixed concurrency of 1) <br> - 1 ms increments <br> - 400K Gb/s free tier    | - Pay per use for the total execution count and for the GB/s of each instance (with configurable concurrent executions) <br> - 100 ms increments <br> - 100K Gb/s free tier <br> - [Consumption-based costs](/azure/azure-functions/functions-consumption-costs#consumption-based-costs)  |
  
-### Source Code Storage 
+### Source code storage
+
+| AWS Lambda  | Azure Functions   |
+|---|---|
+| AWS Lambda manages the storage of your function code in its own managed storage system. You don't need to supply additional storage.  | Functions requires a customer-supplied Blob Storage container to maintain the deployment package that contains your app's code. You can configure the settings to use the same or a different storage account for deployments and manage authentication methods for accessing the container.  |
+ 
+### Local development
 
 | AWS Lambda feature  | Azure Functions feature   |
 |---|---|
-| AWS Lambda manages the storage of your function code in its own managed storage system without requiring users to supply additional storage.  | Requires a customer-supplied Blob Storage container to maintain the deployment package containing your app's code. You can configure settings for using the same or a different storage account for deployments and manage authentication methods for accessing the container.  |
+| - SAM CLI <br> - [LocalStack](https://github.com/localstack/localstack)  | Azure Functions core tools <br> - Visual Studio Code <br> - Visual Studio <br> - GitHub Codespaces <br> - VSCode.dev <br> - Maven <br> - [Code and test Azure Functions locally](/azure/azure-functions/functions-develop-local)  |
  
-### Local development 
+### Deployment
 
-| AWS Lambda feature  | Azure Functions feature   |
-|---|---|
-| SAM CLI, [LocalStack](https://github.com/localstack/localstack)  | Azure Functions Core Tools, Visual Studio Code, Visual Studio, GitHub Codespaces, VSCode.dev, Maven  [Learn More](/azure/azure-functions/functions-develop-local)  |
- 
-### Deployment 
-
-| Concept  | AWS Lambda feature  | Azure Functions feature  |
+| Feature  | AWS Lambda  | Azure Functions  |
 |---|---|---|
-| Deployment package  | ZIP file, container image  | ZIP file    *For container image deployment, use the dedicated or premium SKU  |
-| ZIP File Size (Console)  | Max 50 MB  | Max 500 MB (ZIP Deployment)  |
-| ZIP File Size (CLI/SDK)    | Max 250 MB (unzipped up to 500 MB)  | Max 500 MB (ZIP Deployment)  |
-| Container Image Size  | Max 10 GB  | Container support with flexible storage via Azure  |
-| Large Artifact Handling  | Use container images for larger deployments  | Attach Azure Blob Storage or Azure File shares to access large files from the app  |
-| Packaging common dependencies to functions  | Layers  |  Deployment .Zip, on demand from storage, or containers *(ACA, dedicated, EP SKUs only)  |
-| Blue green deployment/Function versioning  | Function Qualifiers allow you to reference a specific state of your function using either a version number or an alias name, enabling version management and gradual deployment strategies.  |   Use CI-CD systems for blue-green deployment.  |
+| Deployment package  | - ZIP file <br> - Container image  | ZIP file (For container image deployment, use the dedicated or premium SKU.)  |
+| ZIP file size (console)  | 50 MB maximum  | 500 MB (ZIP deployment) maximum |
+| ZIP file size (CLI/SDK)    | 250 MB (unzipped up to 500 MB) maximum | 500 MB (ZIP deployment) maximum |
+| Container image size  | 10 GB maximum | Container support with flexible storage via Azure  |
+| Large artifact handling  | Use container images for larger deployments.  | Attach Blob Storage or Azure Files shares to access large files from the app.  |
+| Packaging common dependencies to functions  | Layers  |  Deployment .Zip, on demand from storage, or containers (ACA, dedicated, EP SKUs only)  |
+| Blue-green deployment or function versioning  | Use function qualifiers to reference a specific state of your function by using either a version number or an alias name. Qualifiers enable version management and gradual deployment strategies.  |   Use continuous integration and continuous delivery systems for blue-green deployments.  |
  
-### Timeout and memory limits 
+### Time-out and memory limits
 
-| Concept   | AWS Lambda limits  | Azure Functions limits   |
+| Feature   | AWS Lambda limits  | Azure Functions limits   |
 |---|---|---|
-| Execution timeout  | 900 seconds (15 minutes)  | Default Timeout: 30 minutes.  Maximum Timeout: Unbounded. However, the grace period given to a function execution is 60 minutes during scale-in and 10 minutes during platform updates. [Learn more](/azure/azure-functions/functions-scale#timeout)  |
-| Configurable memory  | 128 MB to 10,240 MB, in 64 MB increments  |  Functions supports [2GB and 4GB](/azure/azure-functions/functions-scale#service-limits) instance sizes. Each region in a given subscription has a memory limit of 512,000 MB for all instances of apps, which can be raised with a support call. The total memory usage of all instances across all function apps in a region must stay within this quota. While 2GB and 4GB are the options for instance sizes right now, it's important to note that the concurrency per instance can be higher than 1. This means that a single instance can handle multiple concurrent executions, depending on the configuration. Configuring concurrency appropriately can help optimize resource utilization and manage performance. By balancing memory allocation and concurrency settings, you can effectively manage the resources allocated to your function apps, ensuring efficient performance and cost control. [Learn more](/azure/azure-functions/flex-consumption-plan#regional-subscription-memory-quotas)  |
+| Execution timeout  | 900 seconds (15 minutes)  | The default time-out is 30 minutes. The maximum time-out is unbounded. However, the grace period given to a function execution is 60 minutes during scale-in and 10 minutes during platform updates. For more information, see [Function app time-out duration](/azure/azure-functions/functions-scale#timeout).  |
+| Configurable memory  | 128 MB to 10,240 MB, in 64 MB increments  |  Functions supports [2 GB and 4 GB](/azure/azure-functions/functions-scale#service-limits) instance sizes. Each region in a given subscription has a memory limit of 512,000 MB for all instances of apps, which you can increase by calling support. The total memory usage of all instances across all function apps in a region must stay within this quota. Although 2 GB and 4 GB are the options for instance sizes right now, it's important to note that the concurrency for each instance can be higher than 1. Therefore, a single instance can handle multiple concurrent executions, depending on the configuration. Configuring concurrency appropriately can help optimize resource utilization and manage performance. By balancing memory allocation and concurrency settings, you can effectively manage the resources allocated to your function apps and ensure efficient performance and cost control. For more information, see [Regional subscription memory quotas](/azure/azure-functions/flex-consumption-plan#regional-subscription-memory-quotas).  |
  
-### Secret Management 
+### Secret management 
 
-| AWS Lambda feature  | Azure Functions feature   |
+| AWS Lambda  | Azure Functions   |
 |---|---|
-| AWS Secrets Manager allows you to store, manage, and retrieve secrets such as database credentials, API keys, and other sensitive information. Lambda functions can retrieve secrets using the AWS SDK.  |   Azure Functions recommends using secretless approaches like Managed Identities, enabling secure access to Azure resources without hardcoding credentials. When secrets are required—such as for third-party or legacy systems—Azure Key Vault provides a secure solution to store and manage secrets, keys, and certificates.  |
-| AWS Systems Manager Parameter Store: A service for storing configuration data and secrets. Parameters can be encrypted using AWS KMS and retrieved by Lambda functions using the AWS SDK.    Environment Variables: Lambda functions can store configuration settings in environment variables. Sensitive data can be encrypted with a KMS key for secure access.    | Environment Variables and Application Settings: Azure Functions use application settings to store configuration data, which are directly mapped to environment variables for ease of use within the function. These settings can be encrypted and securely stored in the Azure App Service configuration.    Azure App Configuration (optional): For more advanced scenarios, Azure App Configuration provides robust features for managing multiple configurations, enabling feature flagging, and supporting dynamic updates across services.    |
+| AWS Secrets Manager allows you to store, manage, and retrieve secrets such as database credentials, API keys, and other sensitive information. Lambda functions can retrieve secrets by using the AWS SDK.  |   We recommend that you use secretless approaches like managed identities to enable secure access to Azure resources without hardcoding credentials. When secrets are required, such as for partner or legacy systems, Azure Key Vault provides a secure solution to store and manage secrets, keys, and certificates.  |
+| AWS Systems Manager Parameter Store is a service that stores configuration data and secrets. Parameters can be encrypted by using AWS KMS and retrieved by Lambda functions by using the AWS SDK. <br> Lambda functions can store configuration settings in environment variables. Sensitive data can be encrypted with a KMS key for secure access.    | Azure Functions uses application settings to store configuration data. These settings map directly to environment variables for ease of use within the function. These settings can be encrypted and securely stored in the Azure App Service configuration. <br> For more advanced scenarios, Azure App Configuration provides robust features for managing multiple configurations. It enables feature flagging and supports dynamic updates across services.    |
 
-### State management 
+### State management
 
-| AWS Lambda feature  | Azure Functions feature  |
+| AWS Lambda  | Azure Functions  |
 |---|---|
-| AWS Lambda handles simple state management by leveraging services like Amazon S3 for object storage, DynamoDB for fast and scalable NoSQL state storage, and SQS for message queue handling. These services ensure data persistence and consistency across Lambda function executions.  | Azure Functions uses AzureWebJobsStorage to manage state by enabling bindings and triggers with Azure Storage services like Blob, Queue, and Table Storage, allowing functions to easily read and write state. For more complex state management, Durable Functions provide advanced workflow orchestration and state persistence capabilities, leveraging Azure Storage.  |
+| AWS Lambda handles simple state management by using services like Amazon S3 for object storage, DynamoDB for fast and scalable NoSQL state storage, and SQS for message queue handling. These services ensure data persistence and consistency across Lambda function executions.  | Azure Functions uses AzureWebJobsStorage to manage state by enabling bindings and triggers with Azure Storage services like Blob Storage, Queue Storage, and Table Storage. It allows functions to easily read and write state. For more complex state management, Durable Functions provides advanced workflow orchestration and state persistence capabilities by using Azure Storage.  |
  
-### Stateful Orchestration 
+### Stateful orchestration
 
-| AWS Lambda feature  | Azure Functions feature   |
+| AWS Lambda  | Azure Functions   |
 |---|---|
-| No native state orchestration; use AWS Step Functions for workflows  | Durable Functions help with complex state management by providing durable workflow orchestration and stateful entities, allowing for long-running operations, automatic checkpointing, and reliable state persistence. These features enable building intricate workflows, ensuring fault tolerance, and scalability for stateful applications.  |
+| No native state orchestration. Use AWS Step Functions for workflows.  | Durable Functions helps with complex state management by providing durable workflow orchestration and stateful entities. It enables long-running operations, automatic checkpointing, and reliable state persistence. These features enable building intricate workflows to ensure fault tolerance and scalability for stateful applications.  |
 
-### Other differences/considerations 
+### Other differences and considerations
 
-| Concept  | AWS Lambda feature  | Azure Functions feature  |
+| Feature  | AWS Lambda  | Azure Functions  |
 |---|---|---|
-| Grouping Functions  | Each AWS Lambda function is an independent entity.  | A Function App acts as a container for multiple functions. It provides a shared execution context and configuration for the functions it contains.     This simplifies the deployment and management of functions by handling them as a single entity.    Functions also has the concept of per-function scaling strategy, where each function is scaled independently, except for HTTP, Blob, and Durable Functions triggered functions which scale in their own groups.  |
-| Custom Domains  | Enabled via API Gateway  | [Can be configured directly on Function App or on APIM](/azure/app-service/app-service-web-tutorial-custom-domain)   |
-| Custom Container Support   | Supports custom containers via Lambda Container Image  | [Supports custom containers via Azure Functions running in Azure Container Apps](/azure/azure-functions/functions-how-to-custom-container)   |
+| Grouping functions  | Each AWS Lambda function is an independent entity.  | A function app serves as a container for multiple functions. It provides a shared execution context and configuration for the functions it contains. Treating multiple functions as a single entity simplifies deployment and management. Functions also uses a per-function scaling strategy, where each function is scaled independently, except for HTTP, Blob, and Durable Functions. These triggered functions scale in their own groups.  |
+| Custom domains  | Enabled via API Gateway  | [Can be configured directly on a function app or on APIM](/azure/app-service/app-service-web-tutorial-custom-domain)   |
+| Custom container support   | Supports custom containers via Lambda Container Image  | [Supports custom containers via Azure Functions running in Azure Container Apps](/azure/azure-functions/functions-how-to-custom-container)   |
  
+## Create a migration plan
 
-## Create a Migration Plan
+- Select key workloads for a proof of concept.
 
-- Select Key Workloads for Proof of Concept
-   - Start by selecting 1-2 medium-sized, non-critical workloads from your total inventory. These will serve as the foundation for your proof-of-concept migration. This allows you to test the process and identify potential challenges without risking major disruption to your operations.
+   Start by selecting one to two medium-sized, non-critical workloads from your total inventory. These workloads serve as the foundation for your proof-of-concept migration. You can test the process and identify potential challenges without risking major disruption to your operations.
 
-- Iterative Testing and Feedback
-   - Use the proof of concept to gather feedback, identify gaps, and fine-tune the process before scaling to larger workloads. This iterative approach ensures that by the time you move to full-scale migration, you have addressed potential challenges and refined the process. 
+- Test iteratively and gather feedback.
 
-By the end of this stage, you will have mapped AWS Lambda features and services to their Azure Functions equivalents, selected key workloads for a proof of concept. This detailed mapping and migration plan will serve as the foundation for the next stage, where you will execute the migration.
+   Use the proof of concept to gather feedback, identify gaps, and fine-tune the process before you scale to larger workloads. This iterative approach ensures that by the time you move to full-scale migration, you've addressed potential challenges and refined the process.
+
+By the end of this stage, you have mapped AWS Lambda features and services to their Azure Functions equivalents and selected key workloads for a proof of concept. This detailed mapping and migration plan serves as the foundation for the next stage, where you complete the migration.
 
 ## Next step
 
