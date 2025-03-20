@@ -354,7 +354,7 @@
           href: waf-app-gateway.md
         - name: Enable User Defined Routes (UDR)
           href: user-defined-routes.md
-        - name: Use rule-based routing (preview)
+        - name: Use rule-based routing
           href: rule-based-routing.md
         - name: Securing a custom VNET with an NSG
           href: firewall-integration.md
