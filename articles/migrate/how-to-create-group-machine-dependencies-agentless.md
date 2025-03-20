@@ -205,7 +205,6 @@ Dependency analysis is auto-enabled on all discovered servers which have passed 
 > [!NOTE]
 > Currently, it is not possible to disable dependendency analysis on servers from portal so you need to install the PowerShell module to disable for servers that you don't want.
 
-
 ### Log in to Azure
 
 1. Log in to your Azure subscription using the Connect-AzAccount cmdlet.

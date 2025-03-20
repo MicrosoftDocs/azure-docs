@@ -117,7 +117,7 @@ The data gathered varies as per the individual workload type. Details of each ty
 **Workload type** | **Details** 
 --- | --- 
 Server | [Server details](#review-server-data)
-Databases | [Database details](#review-databases-inventory)
+Databases | Database details
 Web apps | [Web app details](#review-web-apps-inventory)
 
 After reviewing the workloads and their attributes, you can either **Select all workloads across pages** or scope the list using **Search and Filter** capabilities to perform required action on the inventory.
