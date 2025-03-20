@@ -184,13 +184,13 @@
         href: /azure/service-fabric/service-fabric-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-of-the-service-fabric-cluster
   - name: Databases
     items:
-    - name: Azure SQL
+    - name: Azure SQL Database
       items:
       - name: Availability zones
         href: /azure/azure-sql/database/high-availability-sla?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Disaster recovery
         href: /azure/azure-sql/database/recovery-using-backups?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#geo-restore
-    - name: Azure SQL-Managed Instance
+    - name: Azure SQL Managed Instance
       href: /azure/azure-sql/database/auto-failover-group-sql-db?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&tabs=azure-powershell
     - name: Azure Database for MySQL
       href: /azure/mysql/single-server/concepts-business-continuity?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#recover-from-an-azure-regional-data-center-outage
