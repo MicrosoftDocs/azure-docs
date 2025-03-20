@@ -1,13 +1,13 @@
 ---
-title: DNS forward lookup zone for Azure VMware Solution on native private cloud
-description: Learn about DNS forward lookup zone for Azure VMware Solution on native private cloud.
+title: DNS forward lookup zone for Azure VMware Solution
+description: Learn about DNS forward lookup zone for Azure VMware Solution.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 3/14/2025
 ms.custom: engagement-fy25
 ---
 
-# DNS forward lookup zone for Azure VMware Solution on native private cloud
+# DNS forward lookup zone for Azure VMware Solution
 
 This article focuses on the Azure VMware Solution on native private cloud DNS forward lookup zone configuration options and associated behavior for the domain name resolution for private cloud appliances domain names.In this article, you learn to configure a DNS forward lookup zone option for Azure VMware Solution on native private cloud.
 
@@ -23,6 +23,6 @@ Azure VMware Solution allows you to configure DNS forward lookup zones in two wa
 
 ## Related content
 
-AVS DNS forward lookup zone can be configured at the time of creation, or this can be changed post SDDC creation. The configuration page for the same is shown below.
+Azure VMware Solution DNS forward lookup zone can be configured at the time of creation, or changed after SDDC creation. The following diagram shows the configuration page for the DNS forward lookup zone.
 
 :::image type="content" source="./media/native-connectivity/native-connect-dns-lookup.png" alt-text="Diagram showing an Azure VMware Solution DNS forward look up."::: 

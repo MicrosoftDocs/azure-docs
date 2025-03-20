@@ -14,11 +14,11 @@ This article focuses on how the private cloud gets connectivity to the other Azu
 
 ## Prerequisite
 
-- Have multiple Azure VMware Solution on native private cloud deployed successfully
+Have multiple Azure VMware Solution on native private cloud deployed successfully
 
 ## Connect multiple Azure VMware Solution on native private clouds
 
-Azure VMware Solution on native private cloud in different VNets can be interconnected using virtual network peering, just like how standard virtual network interconnect is done. The virtual network peering would provide the best possible throughput and latency between Azure VMware Solution private clouds in the same region. How to do Azure virtual network peering is described in the following [Azure documentation](/azure/virtual-network/virtual-network-peering-overview).
+Azure VMware Solution on native private cloud in different VNets can be interconnected using virtual network peering, just like how standard virtual network interconnect is done. The virtual network peering would provide the best possible throughput and latency between Azure VMware Solution private clouds in the same region. For more information about how to do Azure virtual network peering, see [Create, change, or delete a virtual network peering](/azure/virtual-network/virtual-network-peering-overview).
 
 Depending on the location of the private cloud locations, you would be having local virtual network peering or global virtual network peering.
 
