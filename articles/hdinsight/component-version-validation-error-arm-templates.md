@@ -5,6 +5,9 @@ ms.service: azure-hdinsight
 ms.custom: devx-track-arm-template
 ms.topic: troubleshooting-known-issue
 ms.date: 03/26/2024
+author: anuj1905
+ms.author: anujsharda
+ms.reviewer: nijelsf
 ---
 
 # Component version validation error in ARM templates
