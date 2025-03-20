@@ -3,7 +3,7 @@ title: Bicep modules
 description: This article describes how to define a module in a Bicep file and how to use module scopes.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 08/20/2024
+ms.date: 02/21/2025
 ---
 
 # Bicep modules
@@ -181,7 +181,7 @@ module <symbolic-name> 'br/public:<file-path>:<tag>' = {}
 For example:
 
 ```bicep
-module storage 'br/public:avm/res/storage/storage-account:0.9.0' = {
+module storage 'br/public:avm/res/storage/storage-account:0.18.0' = {
   name: 'myStorage'
   params: {
     name: 'store${resourceGroup().name}'
@@ -236,7 +236,7 @@ module stgModule 'br/ContosoModules:storage:v1' = {
 The public module registry has a predefined alias:
 
 ```bicep
-module storage 'br/public:avm/res/storage/storage-account:0.9.0' = {
+module storage 'br/public:avm/res/storage/storage-account:0.18.0' = {
   name: 'myStorage'
   params: {
     name: 'store${resourceGroup().name}'
@@ -306,7 +306,7 @@ To add explanation, add a description to module declarations. For example:
 
 ```bicep
 @description('Create storage accounts referencing an AVM.')
-module storage 'br/public:avm/res/storage/storage-account:0.9.0' = {
+module storage 'br/public:avm/res/storage/storage-account:0.18.0' = {
   name: 'myStorage'
   params: {
     name: 'store${resourceGroup().name}'

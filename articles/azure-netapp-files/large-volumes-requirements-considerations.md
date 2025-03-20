@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: references_regions
 ms.topic: conceptual
-ms.date: 02/18/2025
+ms.date: 03/10/2025
 ms.author: anfdocs
 ---
 # Requirements and considerations for large volumes
@@ -24,7 +24,7 @@ The following requirements and considerations apply to large volumes. For perfor
 * Large volumes are currently not supported with Azure NetApp Files backup.
 * You can't create a large volume with application volume groups.
 * Currently, large volumes aren't suited for database (HANA, Oracle, SQL Server, etc.) data and log volumes. For database workloads requiring more than a single volume’s throughput limit, consider deploying multiple regular volumes. To optimize multiple volume deployments for databases, use [application volume groups](application-volume-group-concept.md).
-* Throughput ceilings for the three performance tiers (Standard, Premium, and Ultra) of large volumes are based on the existing 100-TiB maximum capacity targets. You're able to grow to 1 PiB with the throughput ceiling per the following table:  
+* Throughput ceilings for the three performance tiers (Standard, Premium, and Ultra) of large volumes are based on the existing 100-TiB maximum capacity targets. You're able to grow to one PiB with the throughput ceiling per the following table:  
     
     <table><thead>
       <tr>
@@ -79,23 +79,38 @@ Whereas regular volumes use 32-bit file IDs, large volumes employ 64-bit file ID
 
 Support for Azure NetApp Files large volumes is available in the following regions:
 
+* Australia Central
+* Australia Central 2
 * Australia East
 * Australia Southeast
 * Brazil South
+* Brazil Southeast
 * Canada Central
+* Canada East
 * Central India
 * Central US
+* East Asia
 * East US
 * East US 2
 * France Central
+* Germany North 
 * Germany West Central
+* Italy North
 * Japan East
+* Japan West
+* Korea Central
+* Korea South
+* North Central US
 * North Europe
+* Norway East
+* Norway West
 * Qatar Central
 * South Africa North 
 * South Central US
 * Southeast Asia
+* Sweden Central
 * Switzerland North
+* Switzerland West
 * UAE North
 * UK West
 * UK South

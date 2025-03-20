@@ -35,7 +35,7 @@ In this article, you learn how to:
 
 ## Scenario overview 
 
-In [Create branching in user journey by using Azure AD B2C custom policies](custom-policies-series-branch-user-journey.md), users who select *Personal Account* need to provide a valid invitation access code to proceed. We use a static access code, but real world apps don't work this way. If the service that issues the access codes is external to your custom policy, you must make a call to that service, and pass the access code input by the user for validation. If the access code is valid, the service returns an HTTP `200 OK` response, and Azure AD B2C issues JWT token. Otherwise, the service returns an HTTP 4xx response, and the user must reenter an access code. 
+In [Create branching in user journey by using Azure AD B2C custom policies](custom-policies-series-branch-user-journey.md), users who select *Personal Account* need to provide a valid invitation access code to proceed. We use a static access code, but real world apps don't work this way. If the service that issues the access codes is external to your custom policy, you must make a call to that service, and pass the access code input by the user for validation. If the access code is valid, the service returns an HTTP `200 OK` response, and Azure AD B2C issues JWT. Otherwise, the service returns an HTTP 4xx response, and the user must reenter an access code. 
 
 :::image type="content" source="media/custom-policies-series-call-rest-api/screenshot-of-call-rest-api-call.png" alt-text="A flowchart of calling a R E S T  A P I.":::
 
@@ -228,7 +228,7 @@ Follow the steps in [Test the custom policy](custom-policies-series-validate-use
 
 1. For **Account Type**, select **Personal Account**
 1. Enter the rest of the details as required, and then select **Continue**. You see a new screen.
-1. For **Access Code**, enter *88888*, and then select **Continue**. After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT token. If you repeat the procedure, and enter a different **Access Code**, other than *88888*, you see an error, **The access code you entered is incorrect. Please try again.**
+1. For **Access Code**, enter *88888*, and then select **Continue**. After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT. If you repeat the procedure, and enter a different **Access Code**, other than *88888*, you see an error, **The access code you entered is incorrect. Please try again.**
 
 ## Step 5 - Enable debug mode
 

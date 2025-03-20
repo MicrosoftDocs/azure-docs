@@ -151,7 +151,7 @@ There are two types of backups in App Service. Automatic backups are created for
 ### Back up and restore a linked database
 
 > [!NOTE]  
-> Custom backups with linked databases for App Service support only **Single Server SKUs** of Azure Database for MySQL and PostgreSQL. Since Single Server SKUs are being retired, upgrading linked databases to **Flexible Server** may cause backups to fail. Use native database backup tools to prevent data loss. Standalone MySQL and PostgreSQL servers (e.g., on VMs) are unaffected by the Single Server SKU retirement. For retirement details, see [MySQL Single Server retirement](/azure/mysql/migrate/whats-happening-to-mysql-single-server.md) and [PostgreSQL Single Server retirement](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server.md).  
+> Custom backups with linked databases for App Service support only **Single Server SKUs** of Azure Database for MySQL and PostgreSQL. Since Single Server SKUs are being retired, upgrading linked databases to **Flexible Server** may cause backups to fail. Use native database backup tools to prevent data loss. Standalone MySQL and PostgreSQL servers (e.g., on VMs) are unaffected by the Single Server SKU retirement. For retirement details, see [MySQL Single Server retirement](/azure/mysql/migrate/whats-happening-to-mysql-single-server) and [PostgreSQL Single Server retirement](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server).  
 >
 > For back up and restore of Flexible Servers, see the respective database documentation: 
 >- [Azure Database for MySQL - Flexible Server: Back up and restore](/azure/mysql/flexible-server/concepts-backup-restore).
@@ -329,12 +329,14 @@ The following table shows which app configurations are restored when you choose 
 
 A custom backup (on-demand backup or scheduled backup) includes all content and configuration that's included in an [automatic backup](#whats-included-in-an-automatic-backup), plus any linked database, up to the allowable maximum size.
 
+Each backup contains a .zip file with backup data and an .xml file {siteName}-{dateTime}.xml, which lists the contents, including [custom domains](app-service-web-tutorial-custom-domain.md). When restoring a custom backup, custom domains from the .xml file will be added to the destination app if no DNS conflict exists (i.e., the domain is available for binding), and if the destination app has different custom domains than the .xml file's custom domain list, those custom domains will be removed.
+
 When [backing up over Azure Virtual Network](#back-up-and-restore-over-azure-virtual-network), you can't [back up the linked database](#back-up-and-restore-a-linked-database).
 
 ### Why is my linked database not backed up?
 
 > [!NOTE]  
-> Custom backups with linked databases for App Service support only **Single Server SKUs** of Azure Database for MySQL and PostgreSQL. Since Single Server SKUs are being retired, upgrading linked databases to **Flexible Server** may cause backups to fail. Use native database backup tools to prevent data loss. Standalone MySQL and PostgreSQL servers (e.g., on VMs) are unaffected by the Single Server SKU retirement. For retirement details, see [MySQL Single Server retirement](/azure/mysql/migrate/whats-happening-to-mysql-single-server.md) and [PostgreSQL Single Server retirement](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server.md).  
+> Custom backups with linked databases for App Service support only **Single Server SKUs** of Azure Database for MySQL and PostgreSQL. Since Single Server SKUs are being retired, upgrading linked databases to **Flexible Server** may cause backups to fail. Use native database backup tools to prevent data loss. Standalone MySQL and PostgreSQL servers (e.g., on VMs) are unaffected by the Single Server SKU retirement. For retirement details, see [MySQL Single Server retirement](/azure/mysql/migrate/whats-happening-to-mysql-single-server) and [PostgreSQL Single Server retirement](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server).  
 >
 > For back up and restore of Flexible Servers, see the respective database documentation: 
 >- [Azure Database for MySQL - Flexible Server: Back up and restore](/azure/mysql/flexible-server/concepts-backup-restore).
@@ -359,18 +361,22 @@ You can back up to a firewall-protected storage account if it's part of the same
 
 ### How do I restore to an app in a different subscription?
 
-1. Make a custom backup to an Azure Storage container.
-1. [Download the backup ZIP file](../storage/blobs/storage-quickstart-blobs-portal.md) to your local machine.
-1. On the **Backups** page for your target app, select **Restore** in the top menu.
-1. In **Backup details**, select **Storage** in **Source**.
-1. Select the preferred storage account.
-1. In **Zip file**, select **Upload file**.
-1. In **Name**, select **Browse** and select the downloaded ZIP file.
-1. Configure the rest of the sections as described in [Restore a backup](#restore-a-backup).
+1. Make a custom backup of the source App to an **Azure Storage container**.
+2. [Download the backup ZIP file](../storage/blobs/storage-quickstart-blobs-portal.md) and the **XML metadata file** to your local machine.
+3. Upload **both the ZIP and XML files** to the target storage account.
+4. In the **Backups** page of your target app, click **Restore** in the top menu.
+5. In the **Backup details** section, choose **Storage** as the **Source**. Select the **storage account** where you uploaded the backup files.
+6. Click **Use file in storage account** and select the **ZIP file** to restore.
+7. Configure the remaining settings as outlined in the [Restore a backup](#restore-a-backup). Confirm and start the restore process.
 
 ### How do I restore to an app in the same subscription but in a different region?
 
-The steps are the same as in [How do I restore to an app in a different subscription?](#how-do-i-restore-to-an-app-in-a-different-subscription).
+You can restore an app to a different region within the same subscription. The process follows the same steps outlined in [Restore a backup](#restore-a-backup).
+
+#### Key considerations
+Ensure that the backup storage for the source app is accessible by the target app.
+The restoration process in the Azure portal allows selecting an app in a different region as long as it remains within the same subscription.
+
 
 ### Where are the automatic backups stored?
 

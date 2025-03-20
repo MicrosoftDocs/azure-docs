@@ -2,11 +2,11 @@
 title: Scale SNAT ports with Azure NAT Gateway
 description: You can integrate Azure Firewall with a NAT gateway to increase SNAT ports.
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 01/31/2025
-ms.author: victorh 
+ms.author: duau 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create policy assignment with REST API"
 description: In this quickstart, you use REST API to create an Azure Policy assignment to identify non-compliant resources.
-ms.date: 03/26/2024
+ms.date: 03/04/2025
 ms.topic: quickstart
 ---
 

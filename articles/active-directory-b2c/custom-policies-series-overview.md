@@ -38,7 +38,7 @@ This how-to guide series consists of multiple articles. We recommend that you st
 
 |Article  | What you'll learn  |
 |---------|---------|
-|[Write your first Azure Active Directory B2C custom policy - Hello World!](custom-policies-series-hello-world.md) | Write your first Azure AD B2C custom policy. You return the message *Hello World!* in the JWT token. |
+|[Write your first Azure Active Directory B2C custom policy - Hello World!](custom-policies-series-hello-world.md) | Write your first Azure AD B2C custom policy. You return the message *Hello World!* in the JWT. |
 |[Collect and manipulate user inputs by using Azure AD B2C custom policy](custom-policies-series-collect-user-input.md) | Learn how to collect inputs from users, and how to manipulate them.|
 |[Validate user inputs by using Azure Active Directory B2C custom policy](custom-policies-series-validate-user-input.md) | Learn how to validate user inputs by using techniques such as limiting user input options, regular expressions, predicates, and validation technical profiles|
 |[Create branching in user journey by using Azure Active Directory B2C custom policy](custom-policies-series-branch-user-journey.md) | Learn how to create different user experiences for different users based on the value of a claim.|

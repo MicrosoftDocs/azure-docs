@@ -49,7 +49,7 @@ Netclean_Incidents_CL
  https://portal.azure.com/#create/netcleantechnologiesab1651557549734.netcleanlogicappnetcleanproactivelogicapp)
 2. Go to your newly created logic app 
   In your Logic app designer, click +New Step and search for “Azure Log Analytics Data Collector” click it and select “Send Data”  
- Enter the Custom Log Name: Netclean_Incidents and a dummy value in the Json request body and click save 
+ Enter the Custom Log Name: Netclean_Incidents and a dummy value in the JSON request body and click save 
  Go to code view on the top ribbon and scroll down to line ~100  it should start with "Body"  
  replace the line entirely with: 
  

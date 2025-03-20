@@ -485,8 +485,6 @@
                   href: functions-create-function-app-portal.md
                 - name: Kotlin using IntelliJ
                   href: functions-create-maven-kotlin-intellij.md
-                - name: Linux App Service plan
-                  href: create-function-app-linux-app-service-plan.md
                 - name: Consumption plan
                   href: ./scripts/functions-cli-create-app-service-plan.md
                 - name: Premium plan
@@ -835,6 +833,9 @@
               displayName: Azure Database for MySQL
             - name: Output
               href: functions-bindings-azure-mysql-output.md
+              displayName: Azure Database for MySQL
+            - name: Trigger
+              href: functions-bindings-azure-mysql-trigger.md
               displayName: Azure Database for MySQL
         - name: Azure OpenAI
           items:

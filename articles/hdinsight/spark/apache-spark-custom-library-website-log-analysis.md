@@ -4,6 +4,9 @@ description: This notebook demonstrates how to analyze log data using a custom l
 ms.service: azure-hdinsight
 ms.custom: hdinsightactive, devx-track-python
 ms.topic: how-to
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 03/23/2024
 ---
 

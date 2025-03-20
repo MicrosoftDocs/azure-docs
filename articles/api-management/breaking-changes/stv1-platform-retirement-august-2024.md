@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 08/28/2024
+ms.date: 02/19/2025
 ms.author: danlep
 ---
 
@@ -54,9 +54,8 @@ As of 1 September 2024, API Management will no longer provide any service level 
 
 Through continued use of an instance hosted on the `stv1` platform beyond the retirement date, you acknowledge that Azure does not commit to the SLA of 99.95% for the retired instances.
 
-### Automatic migration
+[!INCLUDE [api-management-automatic-migration](../../../includes/api-management-automatic-migration.md)]
 
-Starting 1 September 2024, we'll automatically migrate remaining `stv1` service instances to the `stv2` compute platform. All affected customers will be notified of the upcoming automatic migration a week in advance. Automatic migration might cause downtime for your upstream API consumers. You may still migrate your own instances before automatic migration takes place.
 
 [!INCLUDE [api-management-migration-support](../../../includes/api-management-migration-support.md)]
 
