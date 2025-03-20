@@ -4,7 +4,7 @@ description: Learn how to use the Azure portal to attach or detach a data disk f
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/17/2025
+ms.date: 03/19/2025
 ms.custom: UpdateFrequency2
 
 #customer intent: As a lab user, I want to attach and detach data disks for my DevTest Labs VMs so I can manage storage or software separately from individual VMs.
@@ -12,7 +12,7 @@ ms.custom: UpdateFrequency2
 
 # Attach or detach a data disk for a lab VM in Azure DevTest Labs
 
-This article explains how to attach and detach a lab virtual machine (VM) data disk in Azure DevTest Labs by using the Azure portal. Depending on VM size, you can create, attach, detach, and reattach multiple [data disks](/azure/virtual-machines/managed-disks-overview). Data disks let you manage storage or software separately from individual VMs.
+This article explains how to attach and detach a lab virtual machine (VM) data disk in Azure DevTest Labs by using the Azure portal. Depending on the VM size, you can create, attach, detach, and reattach multiple [data disks](/azure/virtual-machines/managed-disks-overview). Data disks let you manage storage or software separately from individual VMs.
 
 ## Prerequisites
 
@@ -92,7 +92,7 @@ You can also detach or delete a data disk by using the lab's **Overview** page.
 
    :::image type="content" source="./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-data-disk.png" alt-text="Screenshot of detaching a data disk from the listing's context menu.":::
 
-To delete a detached data disk, select **Delete** from the context menu on the **My data disks** page, or select **Delete** on the disk's page. Deleting a data disk removes it from storage. You can reattach the disk only by readding it as a new disk.
+To delete a detached data disk, select **Delete** from the context menu on the **My data disks** page, or select **Delete** on the disk's page. Deleting a data disk removes it from storage. If you want to attach the disk again, you must add it as a new disk.
 
 ## Related content
 

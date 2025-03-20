@@ -4,7 +4,7 @@ description: Walk through the steps to upload a virtual hard disk (VHD) file to 
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/17/2025
+ms.date: 03/19/2025
 ms.custom: UpdateFrequency2
 
 #customer intent: As a lab user, I want to learn how to upload a VHD to a lab storage account so I can use the VHD to create a custom image and VMs.
@@ -55,7 +55,7 @@ When you open Storage Explorer, the Explorer pane shows all the Azure subscripti
 1. Follow the prompts to sign in with the Microsoft account associated with the Azure subscription that has your lab.
 1. After you sign in, select the dropdown arrow next to the Azure subscription you want to use.
 1. The left pane shows the storage accounts associated with the selected Azure subscription. If you don't see your storage account listed, select **Refresh all**.
-1. Select the dropdown arrow next to the lab storage account name you saved earlier, expand **Blob Containers**, and then select **uploads**.
+1. Select the dropdown arrow next to the lab storage account name you noted earlier, expand **Blob Containers**, and then select **uploads**.
 
    :::image type="content" source="media/devtest-lab-upload-vhd-using-storage-explorer/upload-dir.png" alt-text="Screenshot that shows the expanded Blob Containers node with the uploads directory.":::
 

@@ -4,7 +4,7 @@ description: Learn about some basic Azure DevTest Labs concepts related to labs,
 ms.topic: conceptual
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/17/2025
+ms.date: 03/19/2025
 ms.custom: UpdateFrequency2
 
 #customer intent: As a lab user or administrator, I want to understand basic DevTest Labs concepts so I can manage or use labs, VMs, and environments.
@@ -31,9 +31,9 @@ A DevTest Labs lab is the infrastructure that encompasses a group of resources s
 
 [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) defines DevTest Labs access and roles. DevTest Labs has three roles that define lab member permissions: **Owner**, **Contributor**, and **DevTest Labs User**.
 
-- Lab **Owners** can do all lab tasks, including creating labs and managing policies and users. Only lab Owners can add and manage lab users and roles. For more information about managing user access and roles, see [Add lab owners, contributors, and users](devtest-lab-add-devtest-user.md).
+- Lab **Owners** can do all lab tasks, including reading or writing to lab resources, setting policies and configurations, adding repositories and base images, and managing users. Only lab Owners can add and manage lab users and roles. For more information about managing user access and roles, see [Add lab owners, contributors, and users](devtest-lab-add-devtest-user.md).
 
-  Lab Owners must have at least Contributor rights in the Azure subscription their lab is in. Azure subscription Owners have access to all resources and user assignments in their subscriptions, so they automatically inherit the lab Owner role.
+  Lab Owners must have at least Contributor rights in the Azure subscription their lab is in. Subscription Owners can access all subscription resources and user assignments, so they automatically inherit the Owner role for labs in their subscriptions.
 
   Lab Owners can also create and assign custom DevTest Labs roles. For more information, see [Grant user permissions to specific lab policies](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
 
@@ -41,7 +41,7 @@ A DevTest Labs lab is the infrastructure that encompasses a group of resources s
 
 - **DevTest Labs Users** can view all lab resources and policies and can create and modify their own VMs and environments, within policy restrictions such as number of VMs per user.
 
-  DevTest Labs Users can't modify lab policies, or view or change any other users' VMs unless the VM or lab owner grants them permission. DevTest Labs Users automatically have Owner permissions on their own VMs.
+  DevTest Labs Users can't modify lab policies, or view or change any other users' VMs unless the lab or VM owner grants them permission. DevTest Labs Users automatically have Owner permissions on their own VMs.
 
 ### Policies
 

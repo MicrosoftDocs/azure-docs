@@ -4,7 +4,7 @@ description: Learn how to use the Azure portal to add a virtual machine (VM) to 
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/17/2025
+ms.date: 03/19/2025
 ms.custom: UpdateFrequency2
 
 #customer intent: As a lab user, I want to learn how to create VMs in DevTest Labs so I can use my lab VMs for developing, testing, or training.
@@ -36,7 +36,7 @@ This article describes how to create Azure virtual machines (VMs) in Azure DevTe
    - **Use a saved secret**: Select this checkbox to use a secret from Azure Key Vault instead of a password to access the VM. If you select this option, under **Secret**, select the secret to use from the dropdown list. For more information, see [Store secrets in a key vault](devtest-lab-store-secrets-in-key-vault.md). 
    - **Password**: If you don't use a secret, enter a VM password between 8 and 123 characters long.
    - **Save as default password**: Select this checkbox to save the password in the Key Vault associated with the lab.
-   - **Virtual machine size**: Keep the default value for the base, or select **Change Size** to select a different size. For more information about default VM sizes, see [VM sizes](#vm-sizes).
+   - **Virtual machine size**: Keep the default value for the base, or select **Change Size** to select a different size. For more information about default VM sizes, see [Default VM sizes](#vm-sizes).
    - **Allow hibernation**: Select this option to enable hibernation for the virtual machine.
      >[!NOTE]
      >If you enable hibernation, you must also select **Public IP** in **Advanced Settings**. **Private** and **Shared** IPs aren't supported if hibernation is enabled.
@@ -45,7 +45,7 @@ This article describes how to create Azure virtual machines (VMs) in Azure DevTe
 
    :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-vm-basic-settings.png" alt-text="Screenshot that shows the VM Basic Settings page.":::
 
-### VM sizes
+### Default VM sizes
 
 The default **Virtual machine size** that appears in **Basic Settings** depends on the chosen **Image Base** architecture and the lab's **Allowed virtual machine** sizes policy setting. For more information, see [Set allowed virtual machine sizes](devtest-lab-set-lab-policy.md#set-allowed-virtual-machine-sizes).
 
@@ -61,12 +61,14 @@ If the lab's **Configuration and policies** > **Allowed virtual machine sizes** 
   - If no 4-core nonpremium CPU size is available, the first available 4-core CPU size is selected.
   - If no 4-core CPU size is available, the first available CPU size is selected.
 
-<a name="add-artifacts-during-installation"></a>
 <a name="add-optional-artifacts"></a>
+<a name="add-artifacts-during-installation"></a>
 <a name="add-artifacts-after-installation"></a>
 ## Add artifacts
 
-Artifacts are tools, actions, or software you can add to lab VMs during or after VM creation. You can add artifacts to VMs from the [DevTest Labs public artifact repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), or from private artifact repositories connected to the lab.
+Artifacts are tools, actions, or software you can optionally add to lab VMs. You can add artifacts to VMs from the [DevTest Labs public artifact repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), or from private artifact repositories connected to the lab. For more information about adding artifacts, see [Add artifacts to DevTest Labs VMs](add-artifact-vm.md).
+
+You can add artifacts to VMs before or after VM creation. To add artifacts after VM creation, see [Add artifacts to VMs after creation](add-artifact-vm.md#add-artifacts-to-vms-from-the-azure-portal).
 
 To add or configure artifacts during VM creation:
 
@@ -80,10 +82,8 @@ To add or configure artifacts during VM creation:
 
 1. When you're done adding artifacts, select **OK** on the **Add artifacts** page.
 
-To add artifacts to VMs after VM creation, see [Add artifacts to VMs after creation](add-artifact-vm.md#add-artifacts-to-vms-from-the-azure-portal). For more information about adding artifacts, see [Add artifacts to DevTest Labs VMs](add-artifact-vm.md).
-
 <a name="configure-optional-advanced-settings"></a>
-## Configure advanced settings
+## Configure other settings
 
 1. Optionally, select the **Advanced Settings** tab on the **Create lab resource** screen, and change any of the following values:
 
@@ -97,9 +97,9 @@ To add artifacts to VMs after VM creation, see [Add artifacts to VMs after creat
 
    :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-vm-advanced-settings.png" alt-text="Screenshot that shows the VM Advanced Settings page.":::
 
-1. You can also optionally select the **Tags** tab to apply tags to the VM.
+1. Optionally, select the **Tags** tab to apply tags to the VM.
 
-## Complete the VM deployment
+## Complete VM deployment
 
 After you configure all settings, select **Create** at the bottom of the screen. During VM deployment, you can select the **Notifications** icon at the top of the screen to see progress. Creating a VM takes a while.
 
@@ -111,7 +111,7 @@ Or, if you chose **Make this machine claimable** during VM creation, select **Cl
 
 When you create a VM in DevTest Labs, you automatically have permission to access that VM, and you can see the VM listed both on the lab **Overview** page and the **All resources** page.
 
-DevTest Labs users in the **Owner** and **Contributor** roles can see all lab VMs on the lab's **All Resources** page. Users in the **DevTest Labs User** role can't automatically access VM resources that other users created, so they don't see those VMs on the **All resources** page.
+DevTest Labs users in the **Owner** and **Contributor** roles can see all lab VMs on the lab's **All Resources** page. Users in the **DevTest Labs User** role can't access other users' VM resources by default, so they don't automatically see those VMs on the **All resources** page.
 
 ## Copy existing Azure VMs into a lab
 
@@ -119,7 +119,7 @@ You can copy existing Azure VMs to DevTest Labs as follows:
 
 1. Use a [PowerShell script](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/Scripts/CopyVirtualMachines/CopyAzVHDFromVMToLab.ps1) to copy your existing VM's virtual hard disk (VHD) file to the lab.
 1. Use the VHD file to [create a custom image](devtest-lab-create-template.md) in your lab.
-1. [Create a lab VM]((add-vm-use-shared-image.md) from your custom image.
+1. [Create a lab VM](add-vm-use-shared-image.md) from your custom image.
 
 ## Related content
 

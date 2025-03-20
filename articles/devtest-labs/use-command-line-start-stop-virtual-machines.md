@@ -4,7 +4,7 @@ description: Use Azure PowerShell or Azure CLI command lines and scripts to star
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/17/2025
+ms.date: 03/19/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, UpdateFrequency2 
 ms.devlang: azurecli
 
@@ -26,13 +26,13 @@ This article shows how you can use PowerShell or Azure CLI commands to script or
 
 # [Azure PowerShell](#tab/PowerShell)
 
-- Ownership of a [lab VM](devtest-lab-add-vm.md) in DevTest Labs.
-- Access to Azure PowerShell. You can [use the PowerShell environment of Azure Cloud Shell](/azure/cloud-shell/quickstart) in the Azure portal, or [install Azure PowerShell](/powershell/azure/install-azure-powershell) to use locally. If necessary, run `Update-Module -Name Az` to update your local installation.
+- Owner access to a [lab VM](devtest-lab-add-vm.md) in DevTest Labs.
+- Access to Azure PowerShell. You can [use the Azure Cloud Shell PowerShell environment](/azure/cloud-shell/quickstart), or [install Azure PowerShell](/powershell/azure/install-azure-powershell) to use locally. If necessary, run `Update-Module -Name Az` to update your local installation.
 
 # [Azure CLI](#tab/CLI)
 
-- Ownership of a [lab VM](devtest-lab-add-vm.md) in DevTest Labs.
-- Access to Azure CLI. You can [use the Bash environment of Azure Cloud Shell](/azure/cloud-shell/quickstart) in the Azure portal, or [install Azure CLI ](/cli/azure/install-azure-cli) to use locally in a Bash or Windows environment.
+- Owner access to a [lab VM](devtest-lab-add-vm.md) in DevTest Labs.
+- Access to Azure CLI. You can [use the Azure Cloud Shell Bash environment](/azure/cloud-shell/quickstart), or [install Azure CLI](/cli/azure/install-azure-cli) to use locally in a Bash or Windows environment.
 
 ---
 
@@ -42,7 +42,7 @@ This article shows how you can use PowerShell or Azure CLI commands to script or
 
 The following PowerShell script starts or stops a VM in a lab by using the [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) PowerShell cmdlet. The `ResourceId` parameter is the fully qualified ID for the lab VM you want to start or stop. The `Action` parameter determines whether to start or stop the VM, depending on which action you need.
 
-1. In Cloud Shell, make sure the **PowerShell** environment is selected.
+1. If you use Cloud Shell, make sure the **PowerShell** environment is selected.
 
 1. Use the PowerShell [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet to sign in to your Azure account. If you have multiple Azure subscriptions, uncomment `Set-AzContext` and provide the `<SubscriptionId>` you want to use.
 
@@ -86,9 +86,9 @@ The following PowerShell script starts or stops a VM in a lab by using the [Invo
 
 # [Azure CLI](#tab/CLI)
 
-The following script uses the Azure CLI [az lab vm start](/cli/azure/lab/vm#az-lab-vm-start) or [az lab vm stop](/cli/azure/lab/vm#az-lab-vm-stop) commands to start or stop a lab VM.
+The following script uses the Azure CLI [az lab vm start](/cli/azure/lab/vm#az-lab-vm-start) or [az lab vm stop](/cli/azure/lab/vm#az-lab-vm-stop) command to start or stop a lab VM.
 
-To run locally, use the appropriate syntax for setting and calling variables depending on whether you have a Bash or Windows environment. In Cloud Shell, use the **Bash** environment and syntax.
+To run the script locally, use the appropriate syntax depending on whether you have a Bash or Windows environment. In Cloud Shell, use the **Bash** environment and syntax.
 
 1. Sign in to your Azure account. If you have multiple Azure subscriptions, uncomment the `az account set` line and provide a subscription ID to use.
 
