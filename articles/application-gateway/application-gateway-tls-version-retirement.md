@@ -1,6 +1,6 @@
 ---
-title: TLS 1.0 and 1.1 retirement on Application Gateway
-description: Guidance for managing your Application Gateway with the upcoming retirement of TLS 1.0 and 1.1
+title: TLS 1.0 and 1.1 retirement on Azure Application Gateway
+description: Guidance for managing your Application Gateway with the upcoming retirement of TLS 1.0 and 1.1.
 services: application gateway
 author: jaesoni
 ms.service: azure-application-gateway
