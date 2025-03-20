@@ -19,13 +19,13 @@ With deprecation of TLS versions 1.0 and 1.1, the **older Predefined TLS policie
 
 ### Predefined policies for V2 SKUs
 
-The predefined policies 20150501 and 20170401 that support TLS v1.0 and 1.1 will be discontinued and can no longer be associated with an Application Gateway resource after August 2025. It is advised to transition to one of the recommended TLS policies, 20220101 or 20220101S. Alternatively, the 20170401S policy may be used if specific cipher suites are required. 
+The predefined policies 20150501 and 20170401 that support TLS v1.0 and 1.1 will be discontinued and can no longer be associated with an Application Gateway resource after August 2025. It's advised to transition to one of the recommended TLS policies, 20220101 or 20220101S. Alternatively, the 20170401S policy may be used if specific cipher suites are required. 
 
 ![A diagram showing predefined policies for V2 SKUs.](media/application-gateway-tls-version-retirement/v2-retiring-tls-policies.png)
 
 ### Custom policies for V2 SKUs
 
-Azure Application Gateway V2 SKU offers two types of custom policies: Custom and CustomV2. The retirement of these TLS versions affect only the "Custom" policy. The newer "CustomV2" policy comes with TLS v1.3. Beyond August 2025, the older Custom policy will support only TLS v1.2 and the following cipher suites will NOT be supported.
+Azure Application Gateway V2 SKU offers two types of custom policies: Custom and CustomV2. The retirement of these TLS versions affects only the "Custom" policy. The newer "CustomV2" policy comes with TLS v1.3. Beyond August 2025, the older Custom policy will support only TLS v1.2 and the following cipher suites won't be supported.
 
 | Unsupported cipher suites |
 | ---------- |
@@ -44,13 +44,13 @@ Azure Application Gateway V2 SKU offers two types of custom policies: Custom and
 
 ### Predefined policies for V1 SKUs
 
-The V1 SKU will only support the 20170401S policy after the older policies with TLS versions 1.0 and 1.1 are discontinued. The newer 20220101 or 20220101S policies will not be available for the soon-to-be-retired V1 SKU.
+The V1 SKU will only support the 20170401S policy after the older policies with TLS versions 1.0 and 1.1 are discontinued. The newer 20220101 or 20220101S policies won't be available for the soon-to-be-retired V1 SKU.
 
 ![A diagram showing predefined policies for V1 SKUs.](media/application-gateway-tls-version-retirement/v1-retiring-tls-policies.png)
 
 ### Custom policies for V1 SKUs
 
-Application Gateway V1 SKU only supports the older "Custom" policy. Beyond August 2025, this older Custom policy will support only TLS v1.2 and the following cipher suites will NOT be supported.
+Application Gateway V1 SKU only supports the older "Custom" policy. Beyond August 2025, this older Custom policy will support only TLS v1.2 and the following cipher suites won't be supported.
 
 | Unsupported cipher suites |
 | ---------- |
@@ -69,9 +69,7 @@ Application Gateway V1 SKU only supports the older "Custom" policy. Beyond Augus
 
 ## Backend TLS connections
 
-You need not configure anything on your Application Gateway for the backend connection's TLS version as the selection of TLS policy has no control over the backend TLS connections. After retirement, the connections to backend servers will always be with preferred TLS v1.3 and up to TLS v1.2. Hence, you must ensure that your servers in the backend pools are compatible with these updated protocol versions. This avoids any disruptions when establishing a TLS/HTTPS connection with those backend servers.
-
-
+You don't need to configure anything on your Application Gateway for the backend connection's TLS version as the selection of TLS policy has no control over the backend TLS connections. After retirement, the connections to backend servers will always be with preferred TLS v1.3 and up to TLS v1.2. You must ensure that your servers in the backend pools are compatible with these updated protocol versions. This compatibility avoids any disruptions when establishing a TLS/HTTPS connection with those backend servers.
 
 ## Next steps
 
