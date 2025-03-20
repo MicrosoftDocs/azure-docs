@@ -7,7 +7,7 @@ author: asergaz
 ms.author: sergaz
 ms.topic: overview
 ms.date: 03/20/2025
-# Customer intent: As a solution builder or device developer I want a high-level overview of the issues around asset abd device management and control so that I can easily find relevant content.
+# Customer intent: As a solution builder or device developer I want a high-level overview of the issues around asset and device management and control so that I can easily find relevant content.
 ---
 
 # IoT asset and device management and control
@@ -21,7 +21,9 @@ The following diagram shows a high-level view of the components in a typical edg
 <!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-device-management/iot-edge-management-architecture.svg" alt-text="Diagram that shows the high-level IoT edge-based solution architecture highlighting asset management areas." border="false" lightbox="media/iot-overview-device-management/iot-edge-management-architecture.svg":::
 
-In an edge-based IoT solution, asset management refers to processes such as registering assets and defining asset endpoints. Asset management includes the following tasks:
+In an edge-based IoT solution, operational technologists (OT) can manage and control assets from the cloud, by leveraging a *Unified registry*. OT users can use the *operations experience web UI*, while IT administrators can use the CLI and Azure Portal. To locate and manage assets, OT users can use *Sites*, that are created by the IT administrator and typically group Azure IoT Operations instances by physical location.
+
+Asset management refers to processes such as registering assets and defining asset endpoints. Asset management includes the following tasks:
 
 - Asset endpoint creation
 - Asset, tags, and events creation
@@ -29,14 +31,13 @@ In an edge-based IoT solution, asset management refers to processes such as regi
 - Asset and data flow endpoints secrets management
 - Enabling and disabling assets
 
-In an edge-based IoT solution, *command and control* refers to the processes that let you send commands to assets and receive responses from them. For example, you can:
+In an edge-based IoT solution, *command and control* refers to the processes that let you send commands to assets and optionally receive responses from them. For example, you can:
 
 - Control the cameras pan, tilt, and zoom.
-- Capture snapshots from a video stream and publish them to an MQTT topic.
-- Publish OPC UA machine status events to the MQTT broker.
 - To save energy, turn off the lights of a building.
+- Use MQTT topics to let assets communicate with each other through the broker.
 
-## Primitives
+## Components
 
 An edge-based IoT solution can use the following primitives for asset management and control:
 
@@ -102,20 +103,9 @@ For more information, see [Manage secrets for your Azure IoT Operations deployme
 
 ## Command and control
 
-The Azure IoT Operations MQTT broker, that's enterprise grade and compliant with standards, enables bidirectional edge/cloud communication, and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
+Azure IoT Operations includes an enterprise grade, standards compliant MQTT broker. The broker enables bidirectional communication between the edge and the cloud, and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
 
-Azure IoT Operations provides support for communication between applications via MQTT5 using an RPC implementation. Commands build on top of the MQTT5/RPC protocol, and can be summarized as:
-
-- A Command Invoker to invoke a method on a different host.
-- A Command Executor listening for incoming requests.
-- A serializer to encode and decode requests and responses.
-
-A shared pair of channels the invoker uses to send requests and listen for responses, and the executor uses to listen to requests and send responses
-Commands are the basis for:
-
-- Control-plane communication for Azure IoT Operations SDKs.
-- Messaging that can't be resolved using Telemetry.
-- Built-in service for the Azure IoT Operations ecosystem.
+Use the MQTT broker to implement command and control solutions that enable you to send commands to your assets either from the cloud or from other edge-based components. Connectors, such as the ONVIF connector, can use MQTT topics to listen for and respond to commands. For example, you can publish a message to a topic in the MQTT broker that's an instruction to a camera to pan left by 20 degrees. The camera can use another topic to publish a message that acknowledges the operation is complete. The IoT Operations SDK includes samples that show how to implement these types of command and control scenarios.
 
 For more information, see [Azure IoT Operations built-in local MQTT broker](../iot-operations/manage-mqtt-broker/overview-broker.md).
 
