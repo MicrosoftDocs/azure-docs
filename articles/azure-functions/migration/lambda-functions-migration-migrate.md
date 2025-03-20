@@ -1,32 +1,70 @@
 ---
-title: AWS Lambda to Azure Functions Migration Migrate Stage
-description: Learn about the steps that you need to take during the migrate stage of your AWS Lambda to Azure Functions migration.
+title: Migrate Workloads from AWS Lambda to Azure Functions
+description: Learn about the steps to complete your AWS Lambda to Azure Functions migration, test performance, optimize operations, and implement monitoring.
 author: MadhuraBharadwaj-MSFT
 ms.author: mabhar
 ms.service: azure-functions
 ms.topic: how-to
 ms.date: 03/18/2025
-#customer intent: As a developer, I want to learn about the migrate stage of migration so that I can migrate serverless applications from AWS Lambda to Azure Functions efficiently.
+#customer intent: As a developer, I want to adapt function code for compatibility and best practices so that I can migrate serverless applications from AWS Lambda to Azure Functions efficiently.
 --- 
 
-# AWS Lambda to Azure Functions migration migrate stage 
+# Migrate workloads from AWS Lambda to Azure Functions
 
-In this stage, after mapping AWS Lambda features to Azure Functions and developing a migration plan, it's time to execute the migration. The goal is to adapt function code for compatibility and best practices, migrate workloads to Azure Functions, test for performance, optimize operations, and implement monitoring for reliability and efficiency.  
+In this stage, you finish migrating your workload from AWS Lambda to Azure Functions. The goal is to adapt function code for compatibility and best practices, migrate the workload, test for performance, optimize operations, and implement monitoring for reliability and efficiency.
 
-## Adapt Function Code, Config and Infrastructure as Code (IaC) files  
+## Adapt function code, configuration files, and infrastructure as code files
 
-- Update Code for Azure Functions Runtime Requirements:
-   - Modify your code to adhere to the Azure Functions programming model. For instance, adapt your function signatures to match Azure Functions' required format. Refer to our language specific [Azure Functions developer guides](/azure/azure-functions/functions-reference-node) for details on function definition and execution context.
-   - Utilize the [Azure Functions extensions bundle](/azure/azure-functions/functions-bindings-register) to handle various bindings and triggers that are similar to AWS services. For .NET applications, you should use the appropriate NuGet packages rather than the extensions bundle.
-   - The extensions bundle allows you to integrate with other Azure services such as Storage, Service Bus, Cosmos DB, and more without needing to manually configure each binding through SDKs. For more details on integrating services with Azure Functions, refer to [Connect functions to Azure services using bindings](/azure/azure-functions/add-bindings-existing-function) and [Azure Functions bindings expressions and patterns](/azure/azure-functions/functions-bindings-expressions-patterns)  
+You need to adapt function code, configuration files, and infrastructure as code (IaC) files to adhere to the Azure Functions programming model and best practices. This step helps ensure that your workload is compatible with Functions.
 
-Below are some examples of common SDK code snippets written in AWS Lambdas mapped to corresponding Triggers/Bindings/SDK code snippets with Azure Functions: 
+To update code for Azure Functions runtime requirements:
 
-**Reading from S3 (AWS) vs. Blob Storage (Azure)**
+   - Modify your code to adhere to the Functions programming model. For instance, adapt your function signatures to match the format that Functions requires. For more information about function definition and execution context, see [Functions developer guides](/azure/azure-functions/functions-reference-node).
+
+   - Use the [Functions extensions bundle](/azure/azure-functions/functions-bindings-register) to handle various bindings and triggers that are similar to AWS services. For .NET applications, you should use the appropriate NuGet packages instead of the extensions bundle.
+
+   - The extensions bundle allows you to integrate with other Azure services such as Storage, Service Bus, and Azure Cosmos DB without needing to manually configure each binding through SDKs. For more information, see [Connect functions to Azure services by using bindings](/azure/azure-functions/add-bindings-existing-function) and [Azure Functions binding expression patterns](/azure/azure-functions/functions-bindings-expressions-patterns).
+
+The following snippets are examples of common SDK code. The AWS Lambda code maps to the corresponding triggers, bindings, or SDK code snippets in Azure Functions.
+
+**Reading from Amazon S3 versus Azure Blob Storage**
+
+:::row:::
+   :::column span="":::
+      
+      const AWS = require('aws-sdk');
+      const s3 = new AWS.S3();
+
+      exports.handler = async (event) => {
+       const params = {
+        Bucket: 'my-bucket',
+        Key: 'my-object.txt',
+       };
+       const data = await
+      s3.getObject(params).promise();
+       console.log('File content:',
+      data.Body.toString());
+      };       
+
+   :::column-end:::
+   :::column span="":::
+      
+      import { app } from '@azure/functions';
+
+      app.storageblob('blobTrigger', { 
+       path: 'my-container/{blobName}',
+       connection: 'AzureWebJobsStorage',
+      }, async (context, myBlob) => { 
+       context.log(`Blob content:
+      ${myBlob.toString()}`);
+      });
+          
+   :::column-end:::
+:::row-end:::
 
 | AWS Lambda code (SDK)  | Azure Functions code (Trigger)  |
 |---|---|
-| const AWS = require('aws-sdk');  const s3 = new AWS.S3();     exports.handler = async (event) => {    const params = {      Bucket: 'my-bucket',      Key: 'my-object.txt',    };    const data = await s3.getObject(params).promise();    console.log('File content:', data.Body.toString());  };  | import { app } from '@azure/functions';     app.storageblob('blobTrigger', {    path: 'my-container/{blobName}',    connection: 'AzureWebJobsStorage',  }, async (context, myBlob) => {    context.log(`Blob content: ${myBlob.toString()}`);  });    |
+| const AWS = require('aws-sdk');  const s3 = new AWS.S3(); <br><br> exports.handler = async (event) => {    const params = {      Bucket: 'my-bucket',      Key: 'my-object.txt', <br> }; <br> const data = await s3.getObject(params).promise();    console.log('File content:', data.Body.toString()); <br> };  | import { app } from '@azure/functions'; <br><br> app.storageblob('blobTrigger', { <br> path: 'my-container/{blobName}', <br>   connection: 'AzureWebJobsStorage', <br> }, async (context, myBlob) => { <br> context.log(`Blob content: ${myBlob.toString()}`); <br> });    |
 
 **Writing to SQS (AWS) vs. Queue Storage (Azure)**
 
