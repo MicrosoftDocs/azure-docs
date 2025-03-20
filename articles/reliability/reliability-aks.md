@@ -126,7 +126,7 @@ You can test your resiliency to availability zone failures using the following m
 
 ## Multi-region support
 
-AKS clusters are single-region resources. AKS clusters are single-region resources. If the region is unavailable, your AKS cluster is also unavailable.
+AKS clusters are single-region resources. If the region is unavailable, your AKS cluster is also unavailable.
 
 ### Alternative multi-region approaches
 
