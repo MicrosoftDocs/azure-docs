@@ -43,7 +43,7 @@
       - name: Create user-defined routes (UDRs)
         href: how-to-create-user-defined-route.md
       - name: Manage User-defined Routes (UDRs) across multiple hub-and-spoke topologies
-        href: how-to-manage-user-defined-routes-across-multiple-hub-and-spoke-topologies.md
+        href: how-to-manage-user-defined-routes-multiple-hub-spoke-topologies.md
 - name: Manage IP addresses
   items:
     - name: IP address management overview
@@ -59,7 +59,7 @@
   - name: Deployments
     href: concept-deployments.md
   - name: Remove or update components
-    href: concept-remove-components-checklist.
+    href: concept-remove-components-checklist.md
   - name: Quickstarts
     items:
     - name: Create Virtual Network Manager - Portal
@@ -114,12 +114,8 @@
       href: concept-virtual-network-verifier.md
     - name: Verify resource reachability with Virtual Network Verifier
       href: how-to-verify-reachability-with-virtual-network-verifier.md
-    - name: Monitoring
-      items:
-
-
-      - name: Define dynamic network group membership with Azure Policy
-        href: how-to-define-network-group-membership-azure-policy.md
+    - name: Define dynamic network group membership with Azure Policy
+      href: how-to-define-network-group-membership-azure-policy.md
 - name: Security and compliance
   items:
   - name: Secure network traffic with security admin rules
