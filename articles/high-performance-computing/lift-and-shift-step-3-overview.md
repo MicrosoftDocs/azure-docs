@@ -1,6 +1,6 @@
 ---
 title: "High performance computing (HPC) storage migration overview"
-description: Get a high level idea of the steps involved when migrating storage components during a migratino of high performance computing architecture.
+description: Get a high level idea of the steps involved when migrating storage components during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
 ms.date: 03/20/2025

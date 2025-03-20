@@ -39,7 +39,7 @@ Proper data management practices, such as lifecycle policies and access controls
 
 * **Azure Managed Lustre:**
   - Use Azure Managed Lustre for high-performance storage needs in HPC workloads.
-  - Deploy and configure Lustre file systems through the Azure Marketplace.
+  - Deploy and configure Lustre file systems through Azure Marketplace.
   - Set up and manage mount points on HPC nodes to access the Lustre file system.
 
 * **Azure NetApp Files:**
@@ -87,7 +87,7 @@ This section provides detailed instructions for setting up various storage solut
 
 1. **Setting up Azure Managed Lustre:**
    - **Deploy a Lustre filesystem:**
-     - Navigate to the Azure Marketplace and search for "Azure Managed Lustre."
+     - Navigate to Azure Marketplace and search for "Azure Managed Lustre."
      - Follow the prompts to deploy the Lustre filesystem, specifying the required parameters such as resource group, location, and storage size.
      - Confirm the deployment and wait for the Lustre filesystem to be provisioned.
    - **Configure mount points:**
