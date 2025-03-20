@@ -2,7 +2,7 @@
 title: Manage Backup vaults
 description: Learn how to manage the Backup vaults.
 ms.topic: how-to
-ms.date: 10/10/2024
+ms.date: 03/19/2025
 ms.custom: references_regions
 ms.service: azure-backup
 author: jyothisuri
@@ -13,6 +13,8 @@ ms.author: jsuri
 This article describes how to manage Backup vaults once they're created.
 
 A Backup vault is a storage entity in Azure that houses backup data for certain newer workloads that Azure Backup supports. You can use Backup vaults to hold backup data for various Azure services, such Azure Database for PostgreSQL servers and newer workloads that Azure Backup will support. Backup vaults make it easy to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides the **Azure role-based access control (Azure RBAC)** feature. Azure RBAC provides fine-grained access management control in Azure. [Azure provides various built-in roles](../role-based-access-control/built-in-roles.md), and Azure Backup has three [built-in roles to manage recovery points](backup-rbac-rs-vault.md). Backup vaults are compatible with Azure RBAC, which restricts backup and restore access to the defined set of user roles. [Learn more](backup-rbac-rs-vault.md).
+
+Learn [how to create a Backup vault using Azure Business Continuity Center](../business-continuity-center/backup-vaults.md).
 
 ## Monitor and manage the Backup vault
 

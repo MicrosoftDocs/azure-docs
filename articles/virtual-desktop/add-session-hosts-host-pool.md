@@ -335,7 +335,7 @@ Select the relevant tab for your scenario and follow the steps.
 
 1. Download the installation files for the Agent and the Agent Boot Loader by using the following links. If you need to unblock them, right-click each file, select **Properties**, select **Unblock**, and finally select **OK**.
 
-   - [Azure Virtual Desktop Agent](https://go.microsoft.com/fwlink/?linkid=2310011 )
+   - [Azure Virtual Desktop Agent](https://go.microsoft.com/fwlink/?linkid=2310011)
    - [Azure Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)
 
    > [!TIP]
