@@ -141,7 +141,7 @@ az apim api operation delete --resource-group <resource-group-name> \
 1. Select the test operation that you added.
 1. In the **Inbound processing** section, select **+ Add policy**.
 
-    :::image type="content" source="media/mock-api-responses/add-policy.png" alt-text="Screenshot that shows the first steps for enabling response mocking." lightbox="media/mock-api-responses/add-policy.png" border="false":::
+    :::image type="content" source="media/mock-api-responses/add-policy.png" alt-text="Screenshot that shows the first steps for enabling response mocking." lightbox="media/mock-api-responses/add-policy.png" :::
 
 1. Select the **Mock responses** tile from the gallery:
 
