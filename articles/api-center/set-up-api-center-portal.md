@@ -60,4 +60,4 @@ To make only specific APIs visible, go to the **API visibility** tab in the API 
 
 ## Related content
 
-* [Enable and view Azure API Center portal in the VS Code extension](enable-api-center-portal-vscode-extension.md)
+* [Enable and view Azure API Center portal in Visual Studio Code](enable-api-center-portal-vscode-extension.md)

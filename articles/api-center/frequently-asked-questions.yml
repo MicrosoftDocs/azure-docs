@@ -34,7 +34,7 @@ sections:
       - question: Does Azure API Center provide a developer portal?
         answer: Yes, you enable the [API Center portal](set-up-api-center-portal.md), where developers can discover and filter APIs in your API center and view API details. 
 
-          You can also enable the API Center portal in the [Azure API Center extension for Visual Studio Code](enable-platform-api-catalog-vscode-extension.md) view for app developers in your organization to discover APIs in your API center. 
+          You can also enable the API Center portal in the [Azure API Center extension for Visual Studio Code](enable-platform-api-catalog-vscode-extension.md) for app developers in your organization to discover APIs in your API center. 
       
       - question: Does Azure API Center support availability zones?
         answer: Yes. The Azure API Center service runs in a multitenant environment on availability zone-enabled components. No further configuration is required to enable availability zones for the service. 
