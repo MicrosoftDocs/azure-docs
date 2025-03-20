@@ -18,7 +18,7 @@ Azure DevTest Labs has made enhancements designed to accommodate two upcoming re
    |**Basic SKU Public IP Addresses**|**September 30, 2025**|Basic SKU Public IP Addresses will be retired in Azure. You can continue using your existing Basic SKU public IP addresses until this date, but **you will not be able to create new ones after 31 March 2025**. For more information, please refer to the [official announcement](https://azure.microsoft.com/updates?id=upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired).|
 
 > [!IMPORTANT]
-> The **enhancements to support retirement of Basic Load Balancer and Basic SKU Public IP address in Azure** feature are currently in preview in Azure DevTest Labs. For more information about the preview status, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The document defines legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability.
+> The **enhancements in Azure DevTest Labs to support Azure's retirement of Basic Load Balancer and Basic SKU Public IP address** are currently in preview. For more information about the preview status, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The document defines legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability.
 
 These retirements **will not impact VMs with Private IPs**. However, they will impact VMs with Public or Shared IPs in the following ways:
 
