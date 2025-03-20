@@ -4,7 +4,7 @@ description: How to configure the load balancing method for pooled host pools in
 ms.topic: how-to
 author: sipastak
 ms.author: sipastak 
-ms.date: 07/09/2024
+ms.date: 03/20/2025
 ---
 
 # Configure host pool load balancing in Azure Virtual Desktop
@@ -124,8 +124,8 @@ Here's how to configure load balancing with Azure PowerShell. Be sure to change 
    contosohp01 DepthFirst                    10
    ```
 
-> [!TIP]
-> Another value for `LoadBalancerType` is `MultiplePersistent`, which is used for assigning a multiple personal desktops to a single user. For more information, see [Enable multi-personal desktop assignment](configure-host-pool-personal-desktop-assignment-type.md#enable-multi-personal-desktop-assignment).
+> [!NOTE]
+> There are other values for the parameter `LoadBalancerType`, such as `Persistent` and `MultiplePersistent`. These are for personal host pools and not relevant to pooled host pools. To learn more about multi-personal desktop assignment, see [Enable multi-personal desktop assignment](configure-host-pool-personal-desktop-assignment-type.md#enable-multi-personal-desktop-assignment).
 
 ### [Azure CLI](#tab/cli)
 
@@ -171,6 +171,9 @@ Here's how to configure load balancing with Azure CLI:
    -----------  ------------------  -----------------
    contosohp01  DepthFirst          10
    ```
+
+> [!NOTE]
+> There is also the value of `Persistent` for the parameter `LoadBalancerType`. This value is for personal host pools and not relevant to pooled host pools.
 
 ---
 
