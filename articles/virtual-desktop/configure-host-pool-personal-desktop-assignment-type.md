@@ -1,11 +1,11 @@
 ---
 title: Configure personal desktop assignment in Azure Virtual Desktop  - Azure
-description: How to configure automatic or direct assignment for an Azure Virtual Desktop personal desktop host pool.
+description: How to configure the assignment type of a personal host pool, unassign or reassign desktops, assign multiple desktops to a user, or set a friendly name for a desktop in Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: how-to
 ms.date: 02/20/2025
 ms.author: daknappe
-ms.custom: devx-track-azurepowershell, docs_inherited
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure personal desktop assignment
@@ -155,7 +155,7 @@ To directly assign a user to a session host in the Azure portal:
 
 1. Under **Services**, select **Azure Virtual Desktop**.
 
-1. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
+1. At the Azure Virtual Desktop overview page, go the menu on the left side of the window and select **Host pools**.
 
 1. Select the host pool you want to assign users to.
 
@@ -208,7 +208,7 @@ To unassign a personal desktop in the Azure portal:
 
 1. Under **Services**, select **Azure Virtual Desktop**.
 
-1. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
+1. At the Azure Virtual Desktop overview page, go the menu on the left side of the window and select **Host pools**.
 
 1. Select the host pool you want to modify user assignment for.
 
@@ -262,7 +262,8 @@ To reassign a personal desktop in the Azure portal:
 
 1. Under **Services**, select **Azure Virtual Desktop**.
 
-1. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
+1. At the Azure Virtual Desktop overview page, go the menu on the left side of the window and select **Host pools**.
+
 1. Select the host pool you want to modify user assignment for.
 
 1. Next, go to the menu on the left side of the window and select **Session hosts**.
@@ -336,7 +337,7 @@ To enable multiple personal desktop assignment using the Azure portal:
 
 1. Under **Services**, select **Azure Virtual Desktop**.
 
-1. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
+1. At the Azure Virtual Desktop overview page, go the menu on the left side of the window and select **Host pools**.
 
 1. Select the existing host pool that you’d like to enable multiple personal desktop assignment on.
 
