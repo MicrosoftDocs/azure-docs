@@ -118,6 +118,8 @@
       href: reliability-event-hubs.md
     - name: Azure Data Explorer
       href: /azure/data-explorer/business-continuity-overview?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Data Factory
+      href: reliability-data-factory.md
     - name: Azure Data Share
       href: ../data-share/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Chaos Studio
@@ -136,6 +138,8 @@
       href: reliability-azure-container-apps.md
     - name: Azure Container Instances
       href: reliability-containers.md
+    - name: Azure Data Factory
+      href: reliability-data-factory.md
     - name: Azure Functions 
       href: reliability-functions.md
     - name: Azure Kubernetes Service (AKS)
