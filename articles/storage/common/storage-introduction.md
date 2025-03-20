@@ -6,7 +6,7 @@ author: akashdubey-ms
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 09/03/2024
+ms.date: 03/20/2025
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
 ---
@@ -64,6 +64,7 @@ The following table compares Azure Storage services and shows example scenarios 
 | **Azure Container Storage**| Azure Container Storage is a volume management, deployment, and orchestration service that integrates with Kubernetes and is built natively for containers. | You want to dynamically and automatically provision persistent volumes to store data for stateful applications running on Kubernetes clusters. |
 | **Azure Queues** | Allows for asynchronous message queueing between application components. | You want to decouple application components and use asynchronous messaging to communicate between them.<br><br>For guidance around when to use Queue Storage versus Service Bus queues, see [Storage queues and Service Bus queues - compared and contrasted](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md). |
 | **Azure Tables** | Allows you to store structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. | You want to store flexible datasets like user data for web applications, address books, device information, or other types of metadata your service requires. <br/><br/>For guidance around when to use Table Storage versus Azure Cosmos DB for Table, see [Developing with Azure Cosmos DB for Table and Azure Table Storage](/azure/cosmos-db/table-support). |
+| **Azure Managed Lustre** | Offers a fully managed, pay-as-you-go file system for high-performance computing (HPC) and AI workloads. Designed to simplify operations, reduce setup costs, and eliminate complex maintenance.  | You want to run HPC workloads that require high throughput, low latency, and Lustre protocol compatibility. <br/><br/>You want to run Lustre workloads in the cloud without the need to manage the underlying infrastructure. |
 
 ## Blob Storage
 
@@ -149,6 +150,17 @@ For more information about managed disks, see [Introduction to Azure managed dis
 For more information about Azure NetApp Files, see [Introduction to Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md).
 
 For a comparison of Azure Files and Azure NetApp Files, refer to [Azure Files and Azure NetApp Files comparison](../files/storage-files-netapp-comparison.md).
+
+## Azure Managed Lustre
+
+[Azure Managed Lustre](../azure-managed-lustre/amlfs-overview.md) is a managed file system that offers scalable, powerful, cost-effective storage for HPC workloads.
+
+Key features and benefits of Azure Managed Lustre include:
+
+- **Accelerate HPC workloads**: Offers a high-performance distributed parallel file system solution, ideal for HPC workloads that require high throughput, low latency, and Lustre protocol compatibility.
+- **Purpose-built managed service**: Provides the benefits of a Lustre parallel file system without the complexity of managing the underlying infrastructure. Azure Managed Lustre is a fully managed service that simplifies operations, reduces setup costs, and eliminates complex maintenance.
+- **Azure Blob Storage integration**: Allows you to connect Azure Managed Lustre file systems with Azure Blob Storage containers for optimal data placement and cost management. For more information, see [Azure Blob Storage integration](/azure/azure-managed-lustre/blob-integration).
+- **Azure Kubernetes Service (AKS) integration**: Allows you to containerize workloads using the available AKS-compatible CSI driver. For more information, see [Use Azure Managed Lustre with Kubernetes](/azure/azure-managed-lustre/use-csi-driver-kubernetes).
 
 ## Types of storage accounts
 
