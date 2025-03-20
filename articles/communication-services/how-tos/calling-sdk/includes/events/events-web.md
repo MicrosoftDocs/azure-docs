@@ -325,7 +325,7 @@ call.on('mutedByOthers', () => {
 
 ### Event: `callerInfoChanged`
 
-The `callerInfoChanged` event happens when caller information was updated.
+The `callerInfoChanged` event happens when caller information was updated. This occurs when a caller changes their display name.
 
 **How might your application react to the event?**
 Application can update caller information.
@@ -340,7 +340,7 @@ call.on('callerInfoChanged', () => {
 
 ### Event: `transferorInfoChanged`
 
-The `transferorInfoChanged` event happens when transferor information was updated.
+The `transferorInfoChanged` event happens when transferor information was updated. This occurs when a transferor changes their display name.
 
 **How might your application react to the event?**
 Application can update transferor information.
