@@ -14,7 +14,7 @@ ms.collection:
 
 # Key management in Azure
 
-[!INCLUDE [Zero Trust principles ](~/reusable-content/ce-skilling/azure/includes/security/zero-trust-principles-key-management.md)]
+[!INCLUDE [Zero Trust principles](~/reusable-content/ce-skilling/azure/includes/security/zero-trust-principles-key-management.md)]
 
 In Azure, encryption keys can be either platform managed or customer managed.
 
@@ -34,11 +34,11 @@ For an overview of each key management service and a comprehensive guide to choo
 
 ### Pricing
 
-The Azure Key Vault Standard and Premium tiers are billed on a transactional basis, with an additional monthly per-key charge for premium hardware-backed keys. Managed HSM, Cloud HSM Preview, Dedicated HSM, and Payments HSM don't charge on a transactional basis; instead they are always-in-use devices that are billed at a fixed hourly rate. For detailed pricing information, see [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault), [Dedicated HSM pricing](https://azure.microsoft.com/pricing/details/azure-dedicated-hsm), and [Payment HSM pricing](https://azure.microsoft.com/pricing/details/payment-hsm).
+The Azure Key Vault Standard and Premium tiers are billed on a transactional basis, with an extra monthly per-key charge for premium hardware-backed keys. Managed HSM, Cloud HSM Preview, Dedicated HSM, and Payments HSM don't charge on a transactional basis; instead they are always-in-use devices that are billed at a fixed hourly rate. For detailed pricing information, see [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault), [Dedicated HSM pricing](https://azure.microsoft.com/pricing/details/azure-dedicated-hsm), and [Payment HSM pricing](https://azure.microsoft.com/pricing/details/payment-hsm).
 
 ### Service Limits
 
-Managed HSM, Cloud HSM Preview, Dedicated HSM, and Payments HSM offer dedicated capacity. Key Vault Standard and Premium are multi-tenant offerings and have throttling limits. For service limits, see [Key Vault service limits](/azure/key-vault/general/service-limits). 
+Managed HSM, Cloud HSM Preview, Dedicated HSM, and Payments HSM offer dedicated capacity. Key Vault Standard and Premium are multitenant offerings and have throttling limits. For service limits, see [Key Vault service limits](/azure/key-vault/general/service-limits). 
 
 ### Encryption-At-Rest
 
