@@ -113,7 +113,7 @@ If you need to store state within your cluster by using Azure disks, use Azure z
 When the availability zone recovers, failback behavior differs depending on the component:
 
 - **Control plane:** AKS automatically restores control plane operations across all availability zones. No manual intervention is required.
-- **Node pools and nodes:** Immediately after failback, nodes remain in the previously healthy zones and don't get restored into the recovered zone. However, the next time a node scaling operation is performed, such as when you scale out your node pool, nodes will be created in the recovered zone.
+- **Node pools and nodes:** Immediately after failback, nodes remain in the previously healthy zones and don't get restored into the recovered zone. However, the next time a node scaling operation is performed, such as when you scale out your node pool, the node pool can create nodes in the recovered zone.
 - **Pods:** Immediately after failback, pods continue to run on the nodes they are already running on. When new pods are created or existing pods are recreated, they are eligible to use nodes in the recovered zone.
 - **Storage:** Any storage attached to pods recovers based on [how zone-redundant storage works](/azure/storage/common/storage-redundancy).
 
