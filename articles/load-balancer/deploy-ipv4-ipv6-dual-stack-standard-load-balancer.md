@@ -844,19 +844,6 @@ If you're using a network virtual appliance, add IPv6 routes in the Route Table.
 To deploy an IPv6 dual stack application in Azure virtual network using Azure Resource Manager template, view sample template [here](https://azure.microsoft.com/resources/templates/ipv6-in-vnet-stdlb/).
 ---
 
-## Create IPv4 and IPv6 public IP addresses for load balancer
-
-
-
-## Create public IP addresses for VMs
-
-
-## Create Standard Load Balancer
-
-
-## Create network resources
-
-
 
 ## View IPv6 dual stack virtual network in Azure portal
 
