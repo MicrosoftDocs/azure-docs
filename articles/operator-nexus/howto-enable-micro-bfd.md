@@ -30,7 +30,7 @@ Ensure the following prerequisites are met before enabling Micro-BFD:
 
 ### Steps for existing deployments
 
-Follow these steps to enable Micro-BFD, starting with the secondary devices. Once verified, proceed with the primary devices using the instructions provided.
+To enable Micro-BFD, follow these steps, starting with the secondary devices. Once verified, proceed with the primary devices using the instructions provided. This ensures that the Micro BFD feature is enabled correctly without causing any disruptions to the network. This sequence helps in maintaining the stability and reliability of the network during the configuration process. 
 
 #### Step 1: Place CE2 in Maintenance Mode 
 
@@ -85,20 +85,9 @@ Example show output after configuring MicroBFD in CE2 :
 
 #### Step 2.2: Configure Micro-BFD on PE2
 
-Use the following command to configure PE2 with Micro-BFD: Consider min-links under the PE device for the respective port-channel.
-
-```Azure CLI 
-az networkfabric device run-rw --ids /subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/
-Microsoft.ManagedNetworkFabric/NetworkDevices/<device>-AggrRack-PE2 --rw-command "interface Port-Channel1
-    ip address 10.30.0.70/30
-    mtu 9124
-    no switchport
-    bfd neighbor 10.30.0.69
-    bfd interval 50 min-rx 50 multiplier 3
-    bfd per-link rfc-7130
-```
-
-Verify the changes using the following command and check that the configured IP address, BFD interval, and neighbor details match the intended configuration.
+Configure PE2 device to enable Micro-BFD. Consider min-links under PE device for respective port-channel. 
+ 
+Verify the changes using the following command and check that the configured IP address, BFD interval, and neighbor details match the intended configuration 
 
 ```Example Show Output After Configuring MicroBFD on PE2
 PE2#show running-config interfaces pox
@@ -164,18 +153,10 @@ az networkfabric device run-rw \
 
 #### Step 5.2: Configure Micro-BFD on PE1
 
-Use the following command to configure PE1 with Micro-BFD: Consider min-links under the PE device for the respective port-channel.
-
-```Azure CLI 
-az networkfabric device run-rw --ids /subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/
-Microsoft.ManagedNetworkFabric/NetworkDevices/<device>-AggrRack-PE1 --rw-command "interface Port-Channel1
-    ip address 10.30.0.66/30
-    mtu 9124
-    no switchport
-    bfd neighbor 10.30.0.65
-    bfd interval 50 min-rx 50 multiplier 3
-    bfd per-link rfc-7130
-```
+Configure PE1 device to enable Micro-BFD. Consider min-links under PE device for respective port-channel. 
+ 
+Verify the changes using the following command and check that the configured IP address, BFD interval, and neighbor details match the intended configuration 
+ 
 
 ``` Example show output after configuring MicroBFD in CE1
  		PE1#show running-config interfaces  pox

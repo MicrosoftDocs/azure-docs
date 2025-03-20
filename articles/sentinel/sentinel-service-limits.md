@@ -3,7 +3,7 @@ title: Microsoft Sentinel service limits
 description: This article provides a list of service limits for Microsoft Sentinel.
 author: yelevin
 ms.topic: conceptual
-ms.date: 05/21/2024
+ms.date: 03/19/2025
 ms.author: yelevin
 ms.service: microsoft-sentinel
 
@@ -22,8 +22,8 @@ The following limit applies to analytics rules in Microsoft Sentinel.
 
 | Description | Limit  | Dependency |
 | --------- | --------- | --------- |
-| Number of *enabled* rules     | 512 rules       | None |
-| Number of near-real-time (NRT) rules | 50 NRT rules | None |
+| Number of [scheduled rules](scheduled-rules-overview.md) | 512 *enabled* rules | Counted separately from NRT rules |
+| Number of [near-real-time (NRT) rules](near-real-time-rules.md) | 50 *enabled* rules | Counted separately from scheduled rules |
 | [Entity mappings](map-data-fields-to-entities.md) | 10 mappings per rule | None |
 | [Entities](map-data-fields-to-entities.md) identified per alert<br>(Divided equally among the mapped entities) | 500 entities per alert | None |
 | [Entities](map-data-fields-to-entities.md) cumulative size limit | 64 KB | None |
