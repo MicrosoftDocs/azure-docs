@@ -51,6 +51,8 @@ Use filters to capture only the traffic that you want to monitor. Filters are ba
 
 There's a limit of 10,000 parallel packet capture sessions per region per subscription. This limit applies only to the sessions and doesn't apply to the saved packet capture files either locally on the VM or in a storage account. See the [Network Watcher service limits page](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-network-watcher-limits) for a full list of limits. 
 
+Packet capture currently supports SAS authentication when writing completed packet captures to storage accounts. SAS authentication is required if choosing to write to storage. If SAS authentication is not an option, then writing to the local file storage on the virtual machine where the packet capture is taken is the alternative.
+
 ## Related content
 
 - To learn how to manage packet captures, see [Manage packet captures with Azure Network Watcher](packet-capture-manage.md).
