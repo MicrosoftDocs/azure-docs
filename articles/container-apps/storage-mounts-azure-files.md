@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 02/26/2025
+ms.date: 03/20/2025
 ms.author: cshoe
 ---
 
@@ -546,18 +546,6 @@ Now that the storage mount is established, you can manipulate files in Azure Sto
     ---
 
     This command may take a moment to open the remote shell. Once the shell is ready, you can interact with the storage mount via file system commands. For more information see [Connect to a container console in Azure Container Apps](/azure/container-apps/container-console).
-
-1. Run the following command to see the mounted file share.
-
-    ```sh
-    findmnt | grep nginx
-    ```
-
-    You see output similar to the following.
-    
-    ```
-    `-/var/log/nginx                      //<STORAGE_ACCOUNT_NAME>.file.core.windows.net/<STORAGE_SHARE_NAME>      cifs    rw,relatime,vers=3.1.1,cache=strict,username=<STORAGE_ACCOUNT_NAME>,uid=0,forceuid,gid=0,forcegid,addr=57.150.154.70,file_mode=0777,dir_mode=0777,soft,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,bsize=1048576,echo_interval=30,actimeo=1,closetimeo=1
-    ```
 
 1. Change into the nginx */var/log/nginx* folder.
 
