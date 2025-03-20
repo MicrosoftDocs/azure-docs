@@ -1,5 +1,5 @@
 ---
-title: TLS and SSL Overview
+title: What Is TLS/SSL in Azure App Service?
 description: Learn how TLS and SSL work in Azure App Service, including TLS version support, certificate management, bindings, and mutual authentication to protect web app traffic.
 keywords: Azure App Service, SSL, TLS, HTTPS, certificate management, TLS mutual authentication, secure bindings, SSL certificates, App Service Certificates, SSL in code, TLS versions
 ms.topic: overview
@@ -10,7 +10,7 @@ ms.custom: UpdateFrequency3
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# TLS and SSL for Azure App Service overview
+# What is TLS/SSL in Azure App Service?
 
 > [!NOTE]
 > The [retirement of TLS 1.1 and TLS 1.0 on Azure services](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/) doesn't affect applications running on Azure App Service, Azure Functions, or Azure Logic Apps (Standard). Applications on App Service, Azure Functions, or Logic Apps (Standard) that are configured to accept TLS 1.1 or TLS 1.0 for incoming requests *continue to run unaffected*.
@@ -70,7 +70,7 @@ Azure App Service uses a secure set of TLS 1.2 cipher suites to help ensure encr
 
 ### TLS 1.1 and TLS 1.0
 
-TLS 1.1 and TLS 1.0 are considered *legacy protocols* and are no longer considered secure. These versions are supported on App Service *only* for backward compatibility and should be avoided when possible. The default minimum TLS version for new apps is TLS 1.2, and we recommend that you migrate apps that use TLS 1.1 or TLS 1.0.
+TLS 1.1 and TLS 1.0 are considered legacy protocols and are no longer considered secure. These versions are supported on App Service *only* for backward compatibility and should be avoided when possible. The default minimum TLS version for new apps is TLS 1.2, and we recommend that you migrate apps that use TLS 1.1 or TLS 1.0.
 
 > [!IMPORTANT]
 > Incoming requests to web apps and incoming requests to Azure are handled differently. App Service continues to support TLS 1.1 and TLS 1.0 for incoming requests to web apps.
@@ -90,29 +90,29 @@ A cipher suite is a set of instructions that contains algorithms and protocols t
 
 ### App Service Environment with cluster setting FrontEndSSLCipherSuiteOrder
 
-For App Service Environments that have the `FrontEndSSLCipherSuiteOrder` cluster setting configured, update your settings to include *the two TLS 1.3 cipher suites*:
+For App Service Environments that have the `FrontEndSSLCipherSuiteOrder` cluster setting configured, update your settings to include the two TLS 1.3 cipher suites:
 
 - `TLS_AES_256_GCM_SHA384`
 - `TLS_AES_128_GCM_SHA256`
 
-After you update your cluster setting, you must restart your front end for the changes to take effect. Also, you must *still include the two required cipher suites* described earlier, even when you update to support TLS 1.3. If you already use `FrontEndSSLCipherSuiteOrder`, we recommend that you don't also enable **Minimum TLS Cipher Suite** for your web app. The result might be conflicting configurations. Configure *only one* of these options to manage cipher suite preferences.
+After you update your cluster setting, you must restart your front end for the changes to take effect. Also, you must still include the two required cipher suites described earlier, even when you update to support TLS 1.3. If you already use `FrontEndSSLCipherSuiteOrder`, we recommend that you don't also enable **Minimum TLS Cipher Suite** for your web app. The result might be conflicting configurations. Configure only one of these options to manage cipher suite preferences.
 
 ## End-to-end TLS encryption
 
 End-to-end (E2E) TLS encryption ensures that *front-end to worker communication* within Azure App Service is encrypted by using TLS. Without this feature, while incoming HTTPS requests are encrypted to the front ends, the traffic from front ends to workers running the application workloads would travel unencrypted inside Azure’s infrastructure.
 
-E2E TLS helps ensure *full encryption of traffic* between:
+E2E TLS helps ensure full encryption of traffic between:
 
 - Clients and App Service front ends
 - App Service front ends and worker processes hosting the application
 
 This feature is available on:
 
-- **Premium App Service plans** (recommended for new deployments)
-- **Legacy Standard App Service plans** (existing users)
+- Premium App Service plans (recommended for new deployments)
+- Legacy Standard App Service plans (existing users)
 
 > [!IMPORTANT]
-> **Premium plans** are recommended for new deployments that require E2E encryption and other advanced security features.
+> Premium plans are recommended for new deployments that require E2E encryption and other advanced security features.
 
 ### Enable end-to-end TLS encryption
 

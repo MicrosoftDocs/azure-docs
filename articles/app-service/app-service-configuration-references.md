@@ -1,6 +1,6 @@
 ---
 title: Use App Configuration References
-description: Learn how to set up Azure App Service and Azure Functions to use Azure App Configuration references. Make App Configuration key-value pairs available to your application code without changing it.
+description: Learn how to set up Azure App Service and Azure Functions to use Azure App Configuration references. Make App Configuration key/value pairs available to your application code without changing it.
 author: muksvso
 
 ms.topic: how-to
@@ -15,7 +15,7 @@ This article shows you how to work with configuration data in your Azure App Ser
 
 ## Grant app access to App Configuration
 
-To get started with using App Configuration references in App Service, first you create an App Configuration store. Then, you grant permissions to your app to access the configuration key-value pairs that are in the store.
+To get started with using App Configuration references in App Service, first you create an App Configuration store. Then, you grant permissions to your app to access the configuration key/value pairs that are in the store.
 
 1. To create an App Configuration store, complete the [App Configuration quickstart](../azure-app-configuration/quickstart-azure-app-configuration-create.md).
 
@@ -45,10 +45,10 @@ This configuration applies to all references from this app.
 
 ## Grant your app access to referenced key vaults
 
-In addition to storing raw configuration values, Azure App Configuration has its own format for storing [key vault references][app-config-key-vault-references]. If the value of an App Configuration reference is a key vault reference in the App Configuration store, your app also must have permissions to access the key vault that is specified in the reference.
+In addition to storing raw configuration values, Azure App Configuration has its own format for storing [Azure Key Vault references][app-config-key-vault-references]. If the value of an App Configuration reference is a Key Vault reference in the App Configuration store, your app also must have permissions to access the key vault that is specified in the reference.
 
 > [!NOTE]
-> The [App Configuration key vault references concept][app-config-key-vault-references] shouldn't be confused with [the App Service and Azure Functions key vault references concept][app-service-key-vault-references]. Your app can use any combination of these references, but there are some important differences. If your vault needs to be network restricted or if you need the app to periodically update to latest versions, consider using the App Service and Azure Functions direct approach instead of using an App Configuration reference.
+> The [App Configuration Key Vault references concept][app-config-key-vault-references] shouldn't be confused with [the App Service and Azure Functions Key Vault references concept][app-service-key-vault-references]. Your app can use any combination of these references, but there are some important differences. If your vault needs to be network restricted or if you need the app to periodically update to latest versions, consider using the App Service and Azure Functions direct approach instead of using an App Configuration reference.
 
 [app-config-key-vault-references]: ../azure-app-configuration/use-key-vault-references-dotnet-core.md
 [app-service-key-vault-references]: app-service-key-vault-references.md
@@ -81,14 +81,14 @@ Here's an example that doesn't include `Label`:
 @Microsoft.AppConfiguration(Endpoint=https://myAppConfigStore.azconfig.io; Key=myAppConfigKey)​
 ```
 
-Any configuration change to the app that results in a site restart causes an immediate refetch of all referenced key-value pairs from the App Configuration store.
+Any configuration change to the app that results in a site restart causes an immediate refetch of all referenced key/value pairs from the App Configuration store.
 
 > [!NOTE]
-> Automatic refresh and refetch of these values when the key-value pairs are updated in App Configuration currently isn't supported.
+> Automatic refresh and refetch of these values when the key/value pairs are updated in App Configuration currently isn't supported.
 
 ## Source application settings from App Configuration
 
-You can use App Configuration references as values for [application settings](configure-common.md#configure-app-settings), so you can keep configuration data in App Configuration instead of in the site configuration settings. Application settings and App Configuration key-value pairs both are securely encrypted at rest. If you need centralized configuration management capabilities, add configuration data to App Configuration.
+You can use App Configuration references as values for [application settings](configure-common.md#configure-app-settings), so you can keep configuration data in App Configuration instead of in the site configuration settings. Application settings and App Configuration key/value pairs both are securely encrypted at rest. If you need centralized configuration management capabilities, add configuration data to App Configuration.
 
 To use an App Configuration reference for an [app setting](configure-common.md#configure-app-settings), set the reference as the value of the setting. Your app can reference the Configuration value through its key as usual. No code changes are required.
 
@@ -241,7 +241,7 @@ Here's a demonstration template for a function app that has App Configuration re
 
 If a reference isn't resolved properly, the reference value is used instead. For an application setting in this scenario, an environment variable that uses the syntax `@Microsoft.AppConfiguration(...)` is created. The reference might cause an error because the application was expecting a configuration value.
 
-This error most commonly is the result of a misconfiguration of the [App Configuration access policy](#grant-app-access-to-app-configuration). But it also might occur if there's a syntax error in the reference or if the configuration key-value pair doesn't exist in the store.
+This error most commonly is the result of a misconfiguration of the [App Configuration access policy](#grant-app-access-to-app-configuration). But it also might occur if there's a syntax error in the reference or if the configuration key/value pair doesn't exist in the store.
 
 ## Related content
 

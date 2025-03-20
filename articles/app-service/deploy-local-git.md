@@ -1,5 +1,5 @@
 ---
-title: Deploy From a Local Git Repository
+title: Deploy from a Local Git Repository
 description: Learn how to enable local Git deployment to Azure App Service. One of the simplest ways to deploy code is from your local computer.
 ms.topic: how-to
 ms.date: 02/29/2024
@@ -45,7 +45,7 @@ Run [az webapp create](/cli/azure/webapp#az-webapp-create) with the `--deploymen
 
 For example:
 
-```azurecli-interactive
+```azurecli
 az webapp create --resource-group <group-name> --plan <plan-name> --name <app-name> --runtime "<runtime-flag>" --deployment-local-git
 ```
 
@@ -57,7 +57,7 @@ Run [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) from the root of
 
 For example:
 
-```azurepowershell-interactive
+```azurepowershell
 New-AzWebApp -Name <app-name>
 ```
 
@@ -79,7 +79,7 @@ Run [az webapp deployment source config-local-git](/cli/azure/webapp/deployment/
 
 For example:
 
-```azurecli-interactive
+```azurecli
 az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
 ```
 
@@ -92,7 +92,7 @@ The output contains a URL like the example `https://<deployment-username>@<app-n
 
 Set the `scmType` of your app by running the [Set-AzResource](/powershell/module/az.resources/set-azresource) cmdlet.
 
-```powershell-interactive
+```azurepowershell
 $PropertiesObject = @{
     scmType = "LocalGit";
 }
@@ -109,7 +109,7 @@ Set-AzResource -PropertyObject $PropertiesObject -ResourceGroupName <group-name>
 1. On the resource menu, select **Deployment Center** > **Settings**.
 1. For **Source**, select **Local Git**, and then select **Save**.
 
-    ![Screenshot that shows how to enable local Git deployment for App Service in the Azure portal.](./media/deploy-local-git/enable-portal.png)
+   :::image type="content" source="media/deploy-local-git/enable-portal.png" alt-text="Screenshot that shows how to enable local Git deployment for App Service in the Azure portal.":::
 
 1. In the **Local Git** section, copy the value for **Git Clone Uri** to use later. This URI doesn't contain any sign-in information.
 
@@ -154,7 +154,7 @@ When you push commits to your App Service repository, App Service deploys the fi
 
   To do it by using the Azure CLI:
 
-  ```azurecli-interactive
+  ```azurecli
   az webapp config appsettings set --name <app-name> --resource-group <group-name> --settings DEPLOYMENT_BRANCH='main'
   git push azure main
   ```

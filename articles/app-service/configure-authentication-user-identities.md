@@ -20,7 +20,7 @@ Some example headers are described in the following table:
 
 | Header                       | Description                                                           |
 |------------------------------|-----------------------------------------------------------------------|
-| `X-MS-CLIENT-PRINCIPAL`      | A base64-encoded JSON representation of available claims. For more information, see [Decode the client principal header](#decode-the-client-principal-header).   |
+| `X-MS-CLIENT-PRINCIPAL`      | A Base64-encoded JSON representation of available claims. For more information, see [Decode the client principal header](#decode-the-client-principal-header).   |
 | `X-MS-CLIENT-PRINCIPAL-ID`   | An identifier for the caller, which the identity provider sets.            |
 | `X-MS-CLIENT-PRINCIPAL-NAME` | A human-readable name for the caller, set by the identity provider, such as an email address or a user principal name.   |
 | `X-MS-CLIENT-PRINCIPAL-IDP`  | The name of the identity provider that App Service authentication uses. |
@@ -34,7 +34,7 @@ Code that is written in any language or framework can get the information that i
 
 ### Decode the client principal header
 
-`X-MS-CLIENT-PRINCIPAL` contains the full set of available claims as base64-encoded JSON. These claims go through a default claims-mapping process, so some might have different names than you would see if you processed the token directly.
+`X-MS-CLIENT-PRINCIPAL` contains the full set of available claims as Base64-encoded JSON. These claims go through a default claims-mapping process, so some might have different names than you would see if you processed the token directly.
 
 Here's how the decoded payload is structured:
 
@@ -61,7 +61,7 @@ Here's how the decoded payload is structured:
 | `name_typ` | string           | The name claim type, which is typically a URI that provides scheme information about the `name` claim if one is defined. |
 | `role_typ` | string           | The role claim type, which is typically a URI that provides scheme information about the `role` claim if one is defined. |
 
-To process this header, your app must decode the payload and iterate through the `claims` array to find relevant claims. It might be convenient to convert claims into a representation that the app's language framework uses. Here's an example of this process in C# that constructs a [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal) type for the app to use:
+To process this header, your app must decode the payload and iterate through the `claims` array to find relevant claims. It might be convenient to convert claims into a representation that the app's language framework uses. Here's an example of this process in C# that constructs a [`ClaimsPrincipal`](/dotnet/api/system.security.claims.claimsprincipal) type for the app to use:
 
 ```csharp
 using System;
@@ -127,11 +127,11 @@ public static class ClaimsPrincipalParser
 
 ### Framework-specific alternatives
 
-For ASP.NET 4.6 apps, App Service populates [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) with the authenticated user's claims. You can follow the standard .NET code pattern, including the `[Authorize]` attribute. Similarly, for PHP apps, App Service populates the `_SERVER['REMOTE_USER']` variable. For Java apps, the claims are [accessible from the Tomcat servlet](configure-language-java-security.md#authenticate-users-easy-auth).
+For ASP.NET 4.6 apps, App Service populates [`ClaimsPrincipal.Current`](/dotnet/api/system.security.claims.claimsprincipal.current) with the authenticated user's claims. You can follow the standard .NET code pattern, including the [`Authorize`] attribute. Similarly, for PHP apps, App Service populates the `_SERVER['REMOTE_USER']` variable. For Java apps, the claims are [accessible from the Tomcat servlet](configure-language-java-security.md#authenticate-users-easy-auth).
 
 For [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` isn't populated for .NET code, but you can still find the user claims in the request headers, or get the `ClaimsPrincipal` object from the request context or even through a binding parameter. For more information, see [Work with client identities in Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities).
 
-For .NET Core, [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web/) supports populating the current user with App Service authentication. To learn more, review the [Microsoft.Identity.Web wiki](https://github.com/AzureAD/microsoft-identity-web/wiki/1.2.0#integration-with-azure-app-services-authentication-of-web-apps-running-with-microsoftidentityweb) or see it demonstrated in [this tutorial for a web app accessing Microsoft Graph](./scenario-secure-app-access-microsoft-graph-as-user.md?tabs=command-line#install-client-library-packages).
+For .NET Core, [`Microsoft.Identity.Web`](https://www.nuget.org/packages/Microsoft.Identity.Web/) supports populating the current user with App Service authentication. To learn more, review the [Microsoft.Identity.Web wiki](https://github.com/AzureAD/microsoft-identity-web/wiki/1.2.0#integration-with-azure-app-services-authentication-of-web-apps-running-with-microsoftidentityweb) or see it demonstrated in [this tutorial for a web app accessing Microsoft Graph](./scenario-secure-app-access-microsoft-graph-as-user.md?tabs=command-line#install-client-library-packages).
 
 > [!NOTE]
 > For claims mapping to work, you must enable the [token store](overview-authentication-authorization.md#token-store).

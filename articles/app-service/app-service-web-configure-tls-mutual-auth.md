@@ -1,5 +1,6 @@
 ---
 title: Set Up TLS Mutual Authentication
+titleSuffix: Azure App Service
 description: Learn how to set up TLS mutual authentication in Azure App Service to help secure two-way communication between client and server.
 keywords: TLS mutual authentication, Azure App Service security, secure client-server communication
 author: msangapu-msft
@@ -32,7 +33,7 @@ When you enable client certificates for your app, you should select your choice 
 
 ### [Azure portal](#tab/azureportal)
 
-To set up your app to require client certificates in the Azure portal:
+To use the Azure portal to set up your app to require client certificates:
 
 1. Go to your app management page.
 1. On the left menu, select **Configuration** > **General Settings**.
@@ -41,7 +42,7 @@ To set up your app to require client certificates in the Azure portal:
 
 ### [Azure CLI](#tab/azurecli)
 
-With the Azure CLI, run the following command in the [Cloud Shell](https://shell.azure.com):
+To use the Azure CLI, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app-name> --resource-group <group-name>
@@ -49,7 +50,9 @@ az webapp update --set clientCertEnabled=true --name <app-name> --resource-group
 
 ### [Bicep](#tab/bicep)
 
-For Bicep, modify the properties `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths`. A sample Bicep snippet is provided for you:
+For Bicep, modify the `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths` properties.
+
+Here's a sample Bicep snippet:
 
 ```bicep
 resource appService 'Microsoft.Web/sites@2020-06-01' = {
@@ -70,9 +73,11 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
 
 ### [ARM template](#tab/arm)
 
-For Azure Resource Manager templates (ARM templates), modify the properties `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths`. A sample ARM template snippet is provided for you:
+For Azure Resource Manager templates (ARM templates), modify the `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths` properties.
 
-```ARM
+Here's a sample ARM template snippet:
+
+```json
 {
     "type": "Microsoft.Web/sites",
     "apiVersion": "2020-06-01",
@@ -97,7 +102,7 @@ For Azure Resource Manager templates (ARM templates), modify the properties `cli
 
 ## Exclude paths from requiring authentication
 
-When you enable mutual auth for your application, all paths under the root of your app require a client certificate for access. To remove this requirement for certain paths, define exclusion paths as part of your application configuration.
+When you enable mutual authentication for your application, all paths under the root of your app require a client certificate for access. To remove this requirement for certain paths, define exclusion paths as part of your application configuration.
 
 > [!NOTE]
 > Using any client certificate exclusion path triggers TLS renegotiation for incoming requests to the app.
@@ -147,7 +152,7 @@ In App Service, TLS termination of the request happens at the front-end load bal
 
 For ASP.NET, the client certificate is available through the `HttpRequest.ClientCertificate` property.
 
-For other application stacks (Node.js, PHP), the client cert is available in your app through a base64-encoded value in the `X-ARR-ClientCert` request header.
+For other application stacks (Node.js, PHP), the client certificate is available in your app through a Base64-encoded value in the `X-ARR-ClientCert` request header.
 
 ## ASP.NET Core sample
 
@@ -342,7 +347,7 @@ public class Startup
 
 ## Node.js sample
 
-The following Node.js sample code gets the `X-ARR-ClientCert` header and uses [node-forge](https://github.com/digitalbazaar/forge) to convert the base64-encoded Privacy Enhanced Mail (PEM) string into a certificate object and validate it:
+The following Node.js sample code gets the `X-ARR-ClientCert` header and uses [node-forge](https://github.com/digitalbazaar/forge) to convert the Base64-encoded Privacy Enhanced Mail (PEM) string into a certificate object and validate it:
 
 ```javascript
 import { NextFunction, Request, Response } from 'express';
@@ -612,7 +617,7 @@ def authorize_certificate(view):
     return _wrapped_view
 ```
 
-The following code snippet shows how to use the decorator on a Django view function.
+The following code snippet shows how to use the decorator on a Django view function:
 
 ```python
 @authorize_certificate
@@ -622,4 +627,3 @@ def hellocert(request):
 ```
 
 ---
-

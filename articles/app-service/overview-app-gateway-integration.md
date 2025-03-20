@@ -1,5 +1,5 @@
 ---
-title: Application Gateway Integration Overview
+title: What Is Application Gateway Integration?
 description: Learn how Azure Application Gateway integrates with Azure App Service.
 services: app-service
 author: madsd
@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
 
-# Application Gateway integration with Azure App Service overview
+# What is Application Gateway integration with Azure App Service?
 
 This article describes how to configure Azure Application Gateway with Azure App Service by using private endpoints to secure traffic. The article also discusses considerations for using service endpoints and integrating with internal and external App Service Environments. The article describes how to set access restrictions on a Source Control Manager (SCM) site.
 

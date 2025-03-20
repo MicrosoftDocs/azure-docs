@@ -38,11 +38,11 @@ For more information, see [Compare the WebJobs SDK and Azure Functions](../azure
 
 The WebJobs host is a runtime container for functions. The host listens for triggers and calls functions. In version 3.*x*, the host is an implementation of `IHost`. In version 2.*x*, you use the `JobHost` object. You create a host instance in your code and write code to customize its behavior.
 
-This architectural change is a key difference between using the WebJobs SDK directly and using it indirectly through Azure Functions. In Azure Functions, the service controls the host. You can't customize the host by writing code. In Azure Functions, you customize host behavior through settings in the *host.json* file. Those settings are strings, not code, and use of these strings limits the kinds of customizations you can do.
+This architectural change is a key difference between using the WebJobs SDK directly and using it indirectly through Azure Functions. In Azure Functions, the service controls the host. You can't customize the host by writing code. In Azure Functions, you customize host behavior through settings in the `host.json` file. Those settings are strings, not code, and use of these strings limits the kinds of customizations you can do.
 
 ### Host connections
 
-The WebJobs SDK looks for Azure Storage and Azure Service Bus connections in the *local.settings.json* file when you run locally or in the environment of the WebJob when you run in Azure. By default, the WebJobs SDK requires a storage connection named `AzureWebJobsStorage`.
+The WebJobs SDK looks for Azure Storage and Azure Service Bus connections in the `local.settings.json` file when you run locally or in the environment of the WebJob when you run in Azure. By default, the WebJobs SDK requires a storage connection named `AzureWebJobsStorage`.
 
 When the connection name resolves to a single exact value, the runtime identifies the value as a *connection string*, which typically includes a secret. The details of a connection string depend on the service to which you connect. However, a connection name can also refer to a collection of multiple configuration items, useful for configuring identity-based connections. Environment variables can be treated as a collection by using a shared prefix that ends in double underscores (`__`). The group can then be referenced by setting the connection name to this prefix.
 
@@ -99,7 +99,7 @@ Then, you can configure the `AzureWebJobsStorage` connection by setting environm
 | `AzureWebJobsStorage__blobServiceUri` | The data plane URI of the blob service of the storage account, using the HTTPS scheme. | https://<storage_account_name>.blob.core.windows.net |
 | `AzureWebJobsStorage__queueServiceUri` | The data plane URI of the queue service of the storage account, using the HTTPS scheme. | https://<storage_account_name>.queue.core.windows.net |
 
-If you provide your configuration through any means other than environment variables, such as in an *appsettings.json* config file, you instead must provide a structured configuration for the connection and its properties:
+If you provide your configuration through any means other than environment variables, such as in an `appsettings.json` config file, you instead must provide a structured configuration for the connection and its properties:
 
 ```json
 {
@@ -112,7 +112,7 @@ If you provide your configuration through any means other than environment varia
 
 You can omit the `queueServiceUri` property if you don't plan to use blob triggers.
 
-When your code runs locally, the default is to use your developer identity as described for [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential).
+When your code runs locally, the default is to use your developer identity as described for [`DefaultAzureCredential`](/dotnet/api/azure.identity.defaultazurecredential).
 
 When your code is hosted in Azure App Service, the configuration in the preceding example defaults to the [system-assigned managed identity](./overview-managed-identity.md#add-a-system-assigned-identity) for the resource. To instead use a [user-assigned identity](./overview-managed-identity.md#add-a-user-assigned-identity) that is assigned to the app, you must add properties for your connection to specify which identity to use. The `credential` property (`AzureWebJobsStorage__credential` as an environment variable) should be set to the string `managedidentity`. The `clientId` property (`AzureWebJobsStorage__clientId` as an environment variable) should be set to the client ID of the user-assigned managed identity to be used.
 
@@ -135,7 +135,7 @@ The following table shows built-in roles that we recommend when you use triggers
 
 | Binding                         | Example built-in roles                                                                                                              |
 |---------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Blob trigger                    | [Storage Blob Data Owner] **and** [Storage Queue Data Contributor]<br/>Also see the preceding requirements for `AzureWebJobsStorage`. |
+| Blob trigger                    | [Storage Blob Data Owner] *and* [Storage Queue Data Contributor]<br/>Also see the preceding requirements for `AzureWebJobsStorage`. |
 | Blob (input)                    | [Storage Blob Data Reader]                                                                                                          |
 | Blob (output)                   | [Storage Blob Data Owner]                                                                                                           |
 | Queue trigger                   | [Storage Queue Data Reader], [Storage Queue Data Message Processor]                                                                 |
@@ -159,7 +159,7 @@ The following table shows built-in roles that we recommend when you use triggers
 
 #### Connection strings in version 2.x
 
-Version 2.*x* of the SDK doesn't require a specific name. In version 2.*x*, you can use your own names for these connection strings, and you can store them elsewhere. You can set names in code by using the [JobHostConfiguration], like in this example:
+Version 2.*x* of the SDK doesn't require a specific name. In version 2.*x*, you can use your own names for these connection strings, and you can store them elsewhere. You can set names in code by using [`JobHostConfiguration`], like in this example:
 
 ```csharp
 static void Main(string[] args)
@@ -196,7 +196,7 @@ The process for enabling development mode depends on the SDK version.
 
 #### Version 3.*x*
 
-Version 3.*x* uses the standard ASP.NET Core APIs. Call the [UseEnvironment](/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.useenvironment) method on the [HostBuilder](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instance. Pass a string named `development`, as in this example:
+Version 3.*x* uses the standard ASP.NET Core APIs. Call the [`UseEnvironment`](/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.useenvironment) method on the [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instance. Pass a string named `development`, as in this example:
 
 ```csharp
 static async Task Main()
@@ -236,9 +236,9 @@ static void Main()
 
 ### <a name="jobhost-servicepointmanager-settings"></a>Manage concurrent connections (version 2.*x*)
 
-In version 3.*x*, the connection limit defaults to infinite connections. If for some reason you need to change this limit, you can use the [MaxConnectionsPerServer](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) property of the [WinHttpHandler](/dotnet/api/system.net.http.winhttphandler) class.
+In version 3.*x*, the connection limit defaults to infinite connections. If for some reason you need to change this limit, you can use the [`MaxConnectionsPerServer`](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) property of the [`WinHttpHandler`](/dotnet/api/system.net.http.winhttphandler) class.
 
-In version 2.*x*, you control the number of concurrent connections to a host by using the [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API. In 2.*x*, you should increase this value from the default of `2` before you start your WebJobs host.
+In version 2.*x*, you control the number of concurrent connections to a host by using the [`ServicePointManager.DefaultConnectionLimit`](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API. In 2.*x*, you should increase this value from the default of `2` before you start your WebJobs host.
 
 All outgoing HTTP requests that you make from a function by using `HttpClient` flow through `ServicePointManager`. After you reach the value set in `DefaultConnectionLimit`, `ServicePointManager` starts queueing requests before sending them. Suppose your `DefaultConnectionLimit` is set to `2` and your code makes 1,000 HTTP requests. Initially, only 2 requests are allowed through to the OS. The other 998 requests are queued until there's room for them. Your `HttpClient` might time out because it appears to have made the request, but the request was never sent by the OS to the destination server. You might see behavior that doesn't seem to make sense: your local `HttpClient` is taking 10 seconds to complete a request, but your service is returning every request in 200 ms.
 
@@ -263,7 +263,7 @@ static void Main(string[] args)
 
 The WebJobs SDK supports the same set of triggers and binding that [Azure Functions](../azure-functions/functions-triggers-bindings.md) uses. In the WebJobs SDK, triggers are function-specific and not related to the WebJob deployment type. WebJobs that have event-triggered functions created by using the SDK should always be published as a *continuous* WebJob, with *Always on* enabled.
 
-Functions must be public methods, and they must have one trigger attribute or the [NoAutomaticTrigger](#manual-triggers) attribute.
+Functions must be public methods, and they must have one trigger attribute or the [`NoAutomaticTrigger`](#manual-triggers) attribute.
 
 ### Automatic triggers
 
@@ -414,7 +414,7 @@ To use the Files binding, install `Microsoft.Azure.WebJobs.Extensions` and call 
 
 ### ExecutionContext
 
-In WebJobs, you can bind to an [ExecutionContext] instance. With this binding, you can access [ExecutionContext] as a parameter in your function signature. For example, the following code uses the context object to access the invocation ID, which you can use to correlate all logs produced by a given function invocation.  
+In WebJobs, you can bind to an [`ExecutionContext`] instance. With this binding, you can access [`ExecutionContext`] as a parameter in your function signature. For example, the following code uses the context object to access the invocation ID, which you can use to correlate all logs produced by a given function invocation.  
 
 ```csharp
 public class Functions
@@ -428,7 +428,7 @@ public class Functions
 }
 ```
 
-The process for binding to [ExecutionContext] depends on your SDK version.
+The process for binding to [`ExecutionContext`] depends on your SDK version.
 
 #### Version 3.*x*
 
@@ -453,7 +453,7 @@ static async Task Main()
 
 #### Version 2.*x*
 
-The `Microsoft.Azure.WebJobs.Extensions` package mentioned earlier also provides a special binding type that you can register by calling the `UseCore` method. You can use the binding to define an [ExecutionContext] parameter in your function signature:
+The `Microsoft.Azure.WebJobs.Extensions` package mentioned earlier also provides a special binding type that you can register by calling the `UseCore` method. You can use the binding to define an [`ExecutionContext`] parameter in your function signature:
 
 ```csharp
 class Program
@@ -475,7 +475,7 @@ You can configure the behavior of some triggers and bindings. The process for co
 * **Version 3.*x*:** Set configuration when the `Add<Binding>` method is called in `ConfigureWebJobs`.
 * **Version 2.*x*:** Set configuration by setting properties in a configuration object that you pass in to `JobHost`.
 
-These binding-specific settings are equivalent to settings in the [host.json project file](../azure-functions/functions-host-json.md) in Azure Functions.
+These binding-specific settings are equivalent to settings in the [`host.json` project file](../azure-functions/functions-host-json.md) in Azure Functions.
 
 You can configure the following bindings:
 
@@ -587,7 +587,7 @@ static void Main(string[] args)
 }
 ```
 
-For more information, see the [host.json v1.x reference](../azure-functions/functions-host-json-v1.md#queues).
+For more information, see the [`host.json` v1.x reference](../azure-functions/functions-host-json-v1.md#queues).
 
 ### SendGrid binding configuration (version 3.*x*)
 
@@ -614,7 +614,7 @@ static async Task Main()
 }
 ```
 
-For more information, see [SendGrid binding](../azure-functions/functions-bindings-sendgrid.md#hostjson-settings).
+For more information, see [`SendGrid` binding](../azure-functions/functions-bindings-sendgrid.md#hostjson-settings).
 
 ### Service Bus trigger configuration (version 3.*x*)
 
@@ -717,7 +717,7 @@ In this code, you use a queue named `logqueuetest` in the test environment and a
 
 A default resolver takes effect if you don't provide a custom one. The default gets values from app settings or environment variables.
 
-Starting in .NET Core 3.1, the [ConfigurationManager](/dotnet/api/system.configuration.configurationmanager) instance you use requires the [System.Configuration.ConfigurationManager NuGet package](https://www.nuget.org/packages/System.Configuration.ConfigurationManager). The sample requires the following `using` statement:
+Starting in .NET Core 3.1, the [`ConfigurationManager`](/dotnet/api/system.configuration.configurationmanager) instance you use requires the [`System.Configuration.ConfigurationManager` NuGet package](https://www.nuget.org/packages/System.Configuration.ConfigurationManager). The sample requires the following `using` statement:
 
 ```csharp
 using System.Configuration;
@@ -743,7 +743,7 @@ You configure the resolver by using dependency injection. These samples require 
 using Microsoft.Extensions.DependencyInjection;
 ```
 
-You add the resolver by calling the [ConfigureServices] extension method on [HostBuilder](/dotnet/api/microsoft.extensions.hosting.hostbuilder), as in this example:
+You add the resolver by calling the [`ConfigureServices`] extension method on [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder), as in this example:
 
 ```csharp
 static async Task Main(string[] args)
@@ -820,7 +820,7 @@ With these attributes, you can control function triggering, cancel functions, an
 
 ### Disable attribute
 
-Use the [Disable](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) attribute to control whether a function can be triggered.
+Use the [`Disable`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) attribute to control whether a function can be triggered.
 
 In the following example, if the app setting `Disable_TestJob` has a value of `1` or `True` (not case specific), the function doesn't run. In that scenario, the runtime creates the log message *Function 'Functions.TestJob' is disabled*.
 
@@ -838,7 +838,7 @@ The attribute can be declared at the level of parameter, method, or class. The s
 
 ### Timeout attribute
 
-The [Timeout](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TimeoutAttribute.cs) attribute causes a function to be canceled if it doesn't finish within a specified amount of time. In the following example, the function would run for one day without the `Timeout` attribute. Time-out causes the function to be canceled after 15 seconds. When the `Timeout` attribute `throwOnError` parameter is set to `true`, the function invocation is terminated by having an exception thrown by the WebJobs SDK when the time-out interval is exceeded. The default value of `throwOnError` is `false`. When the `Timeout` attribute is used, the default behavior is to cancel the function invocation by setting the cancelation token while allowing the invocation to run indefinitely until the function code returns or throws an exception.
+The [`Timeout`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TimeoutAttribute.cs) attribute causes a function to be canceled if it doesn't finish within a specified amount of time. In the following example, the function would run for one day without the `Timeout` attribute. Time-out causes the function to be canceled after 15 seconds. When the `Timeout` attribute `throwOnError` parameter is set to `true`, the function invocation is terminated by having an exception thrown by the WebJobs SDK when the time-out interval is exceeded. The default value of `throwOnError` is `false`. When the `Timeout` attribute is used, the default behavior is to cancel the function invocation by setting the cancelation token while allowing the invocation to run indefinitely until the function code returns or throws an exception.
 
 ```csharp
 [Timeout("00:00:15")]
@@ -857,7 +857,7 @@ You can apply the `Timeout` attribute at the class level or the method level, an
 
 ### Singleton attribute
 
-The [Singleton](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonAttribute.cs) attribute ensures that only one instance of a function runs, even when there are multiple instances of the host web app. The `Singleton` attribute uses [distributed locking](#viewing-lease-blobs) to ensure that only one instance runs.
+The [`Singleton`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonAttribute.cs) attribute ensures that only one instance of a function runs, even when there are multiple instances of the host web app. The `Singleton` attribute uses [distributed locking](#viewing-lease-blobs) to ensure that only one instance runs.
 
 In this example, only a single instance of the `ProcessImage` function runs at any given time:
 
@@ -880,7 +880,7 @@ Some triggers have built-in support for concurrency management:
 You can use these settings to ensure that your function runs as a singleton on a single instance. To ensure that only a single instance of the function is running when the web app scales out to multiple instances, apply a listener-level singleton lock on the function (`[Singleton(Mode = SingletonMode.Listener)]`). Listener locks are acquired when the JobHost starts. If three scaled-out instances all start at the same time, only one of the instances acquires the lock and only one listener starts.
 
 > [!NOTE]
-> To learn more about how the SingletonMode.Function works, see the [SingletonMode GitHub repo](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonMode.cs).
+> To learn more about how `SingletonMode.Function` works, see the [SingletonMode GitHub repo](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonMode.cs).
 
 #### Scope values
 
@@ -928,9 +928,9 @@ The WebJobs SDK uses [Azure blob leases](../storage/blobs/concurrency-manage.md#
 
 For information about how to code async functions, see the [Azure Functions documentation](../azure-functions/functions-dotnet-class-library.md#async).
 
-## Cancelation tokens
+## Cancellation tokens
 
-For information about how to handle cancelation tokens, see the Azure Functions documentation on [cancelation tokens and graceful shutdown](../azure-functions/functions-dotnet-class-library.md#cancellation-tokens).
+For information about how to handle cancellation tokens, see the Azure Functions documentation on [cancellation tokens and graceful shutdown](../azure-functions/functions-dotnet-class-library.md#cancellation-tokens).
 
 ## Multiple instances
 
@@ -940,7 +940,7 @@ While some triggers might result in double-processing, queue and blob storage tr
 
 The timer trigger automatically ensures that only one instance of the timer runs, so you don't get more than one function instance running at a given scheduled time.
 
-If you want to ensure that only one instance of a function runs, even when there are multiple instances of the host web app, you can use the [Singleton](#singleton-attribute) attribute.
+If you want to ensure that only one instance of a function runs, even when there are multiple instances of the host web app, you can use the [`Singleton`](#singleton-attribute) attribute.
 
 ## Filters
 
@@ -952,7 +952,7 @@ We recommend that you use the logging framework that was developed for ASP.NET. 
 
 ### Log filtering
 
-Every log created by an `ILogger` instance has associated `Category` and `Level` values. [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel) is an enumeration, and the integer code indicates relative importance:
+Every log created by an `ILogger` instance has associated `Category` and `Level` values. [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel) is an enumeration, and the integer code indicates relative importance:
 
 |LogLevel    |Code|
 |------------|---|
@@ -964,7 +964,7 @@ Every log created by an `ILogger` instance has associated `Category` and `Level`
 |Critical    | 5 |
 |None        | 6 |
 
-You can independently filter each category to a particular [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel). For example, you might want to see all logs for blob trigger processing, but only `Error` and higher for everything else.
+You can independently filter each category to a particular [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel) value. For example, you might want to see all logs for blob trigger processing, but only `Error` and higher for everything else.
 
 #### Version 3.*x*
 
@@ -1036,7 +1036,7 @@ using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.ApplicationInsights.Channel;
 ```
 
-You can use the following custom implementation of [ITelemetryInitializer] to add your own [ITelemetry](/dotnet/api/microsoft.applicationinsights.channel.itelemetry) instance to the default [TelemetryConfiguration].
+You can use the following custom implementation of [`ITelemetryInitializer`] to add your own [`ITelemetry`](/dotnet/api/microsoft.applicationinsights.channel.itelemetry) instance to the default [`TelemetryConfiguration`].
 
 ```csharp
 internal class CustomTelemetryInitializer : ITelemetryInitializer
@@ -1048,7 +1048,7 @@ internal class CustomTelemetryInitializer : ITelemetryInitializer
 }
 ```
 
-Call [ConfigureServices] in the builder to add a custom [ITelemetryInitializer] instance to the pipeline.
+Call [`ConfigureServices`] in the builder to add a custom [`ITelemetryInitializer`] instance to the pipeline.
 
 ```csharp
 static async Task Main()
@@ -1083,17 +1083,17 @@ static async Task Main()
 }
 ```
 
-When [TelemetryConfiguration] is constructed, all registered types of [ITelemetryInitializer] are included. For more information, see [Application Insights API for custom events and metrics](/azure/azure-monitor/app/api-custom-events-metrics).
+When [`TelemetryConfiguration`] is constructed, all registered types of [`ITelemetryInitializer`] are included. For more information, see [Application Insights API for custom events and metrics](/azure/azure-monitor/app/api-custom-events-metrics).
 
-In version 3.*x*, you don't have to flush [TelemetryClient] when the host stops. The .NET Core dependency injection system automatically disposes of the registered `ApplicationInsightsLoggerProvider` instance, which flushes the [TelemetryClient].
+In version 3.*x*, you don't have to flush [`TelemetryClient`] when the host stops. The .NET Core dependency injection system automatically disposes of the registered `ApplicationInsightsLoggerProvider` instance, which flushes the [`TelemetryClient`].
 
 #### Version 2.*x*
 
-In version 2.*x*, the [TelemetryClient] instance created internally by the Application Insights provider for the WebJobs SDK uses [ServerTelemetryChannel](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/.publicApi/Microsoft.AI.ServerTelemetryChannel.dll). When the Application Insights endpoint is unavailable or is throttling incoming requests, this channel [saves requests in the web app's file system and resubmits them later](https://apmtips.com/posts/2015-09-03-more-telemetry-channels/).
+In version 2.*x*, the [`TelemetryClient`] instance created internally by the Application Insights provider for the WebJobs SDK uses [`ServerTelemetryChannel`](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/.publicApi/Microsoft.AI.ServerTelemetryChannel.dll). When the Application Insights endpoint is unavailable or is throttling incoming requests, this channel [saves requests in the web app's file system and resubmits them later](https://apmtips.com/posts/2015-09-03-more-telemetry-channels/).
 
-[TelemetryClient] is created by a class that implements `ITelemetryClientFactory`. By default, this class is [DefaultTelemetryClientFactory](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/).
+[`TelemetryClient`] is created by a class that implements `ITelemetryClientFactory`. By default, this class is [`DefaultTelemetryClientFactory`](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/).
 
-If you want to modify any part of the Application Insights pipeline, you can supply your own instance of `ITelemetryClientFactory`. The host then uses your class to construct [TelemetryClient]. For example, this code overrides `DefaultTelemetryClientFactory` to modify a property of `ServerTelemetryChannel`:
+If you want to modify any part of the Application Insights pipeline, you can supply your own instance of `ITelemetryClientFactory`. The host then uses your class to construct [`TelemetryClient`]. For example, this code overrides `DefaultTelemetryClientFactory` to modify a property of `ServerTelemetryChannel`:
 
 ```csharp
 private class CustomTelemetryClientFactory : DefaultTelemetryClientFactory
@@ -1130,9 +1130,9 @@ config.LoggerFactory = new LoggerFactory()
 
 This article provides code snippets that show you how to handle common scenarios for working with the WebJobs SDK. For complete samples, see [azure-webjobs-sdk-samples](https://github.com/Azure/azure-webjobs-sdk/tree/dev/sample/SampleHost).
 
-[ExecutionContext]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Core/ExecutionContext.cs
-[TelemetryClient]: /dotnet/api/microsoft.applicationinsights.telemetryclient
-[ConfigureServices]: /dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices
-[ITelemetryInitializer]: /dotnet/api/microsoft.applicationinsights.extensibility.itelemetryinitializer
-[TelemetryConfiguration]: /dotnet/api/microsoft.applicationinsights.extensibility.telemetryconfiguration
-[JobHostConfiguration]: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs
+[`ExecutionContext`]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Core/ExecutionContext.cs
+[`TelemetryClient`]: /dotnet/api/microsoft.applicationinsights.telemetryclient
+[`ConfigureServices`]: /dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices
+[`ITelemetryInitializer`]: /dotnet/api/microsoft.applicationinsights.extensibility.itelemetryinitializer
+[`TelemetryConfiguration`]: /dotnet/api/microsoft.applicationinsights.extensibility.telemetryconfiguration
+[`JobHostConfiguration`]: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs
