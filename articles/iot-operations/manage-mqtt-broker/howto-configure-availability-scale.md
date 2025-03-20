@@ -238,7 +238,7 @@ For example if you choose the *Medium* memory profile, the profile has a fronten
 
 *2 * 1.9 GB + (2 * 2) * 1.5 GB * 2* = 15.8 GB
 
-In comparison, the *Tiny* memory profile has a frontend memory usage of 1.9 GB and backend memory usage of 1.5 GB. If you assume the same broker configuration, the total memory usage is:
+In comparison, the *Tiny* memory profile has a frontend memory usage of 99 MiB and backend memory usage of 102 MiB. If you assume the same broker configuration, the total memory usage is:
 
 *2 * 99 MB + (2 * 2) * 102 MB * 2 = 198 MB + 816 MB* = 1.014 GB.
 
