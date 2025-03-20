@@ -72,12 +72,12 @@ With this support, you can perform the following:
    |---------|---------|---------|
    |**In failed state (skipping update)**  |Azure Firewall or Firewall Policy is in a failed state. Updates cannot proceed until the resource is healthy. |Review previous operations and correct any misconfigurations to ensure the resource is healthy.|
    | **Backend server could not update Firewall at this time** | The backend server was unable to successfully process the request.| Create a support request.|
-   | **Error occured during FW update** | The error is related to the underlying backend servers.| Retry the operation or create a support request if the issue persists.|
-   | **Internal server error** | An unexpected backend error has occured. | Retry the operation or create a support request.|
+   | **Error occurred during FW update** | The error is related to the underlying backend servers.| Retry the operation or create a support request if the issue persists.|
+   | **Internal server error** | An unexpected backend error has occurred. | Retry the operation or create a support request.|
   
 Additionally, note the following status updates:
 - **One or more IP Group failure:** If one IP Group update (out of 20 parallel updates) fails, the provisioning state changes to "Failed" while the remaining IP Groups will continue to update and succeed.
-- **Status update:** If an IP Group update fais, and if the firewall remains healthy, its state will still show as "Succeeded." To verify, check the status on the IP Group resource itself. 
+- **Status update:** If an IP Group update fails, and if the firewall remains healthy, its state will still show as "Succeeded." To verify, check the status on the IP Group resource itself. 
 
 ## Region availability
 
