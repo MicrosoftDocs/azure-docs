@@ -343,9 +343,9 @@ To enable multiple personal desktop assignment using the Azure portal:
 
 1. Under **Settings**, select **Properties** to view the host pool properties.
 
-1. Ensure that **Assignment type** is set to **Direct**, then check the box for **Assign multiple desktops to a single user**.
+1. Ensure that **Assignment type** is set to **Direct**. If not, select **Direct**, then select **Save**. The assignment type must be **Direct** and saved before you continue. If you try to do both in a single step, you get an error message.
 
-1. Select **Save**.
+1. Check the box for **Assign multiple desktops to a single user**, then select **Save**.
 
 #### [Azure PowerShell](#tab/powershell2)
 
@@ -353,14 +353,26 @@ To enable multiple personal desktop assignment using Azure PowerShell. Be sure t
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
-2. Use the [Update-AzWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool) command to update an existing personal host pool to have multiple persistent load balancer type. This command also sets the personal desktop assignment type of the host pool to **Direct**.
+2. Use the [Update-AzWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool) command to make sure the personal desktop assignment type of the host pool is set to **Direct**.
+
+   ```powershell
+   $parameters = @{
+      ResourceGroupName = '<ResourceGroupName>'
+      Name = '<HostPoolName>'
+      PersonalDesktopAssignmentType = 'Direct'
+   }
+
+   Update-AzWvdHostPool @parameters
+   ```
+
+
+2. Use the [Update-AzWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool) command to update an existing personal host pool to have multiple persistent load balancer type.
 
    ```powershell
    $parameters = @{
       ResourceGroupName = '<ResourceGroupName>'
       Name = '<HostPoolName>'
       LoadBalancerType = 'MultiplePersistent'
-      PersonalDesktopAssignmentType = 'Direct'
    }
 
    Update-AzWvdHostPool @parameters
@@ -424,3 +436,11 @@ Here's how to assign a user to multiple personal desktops using Azure PowerShell
 You can give personal desktops you create *friendly names* to help users distinguish them in their feeds using PowerShell. The Azure portal or Azure CLI doesn't currently have a way to give session host friendly names.
 
 [!INCLUDE [include-session-hosts-friendly-name](includes/include-session-hosts-friendly-name.md)]
+
+## Known issues
+
+We're aware of the following issues with the preview of multiple personal desktop assignment:
+
+- When viewing the list host pools in the Azure portal, the load balancing type for host pools with multiple personal desktop assignment enabled is showing **-** instead of **Multiple Persistent**.
+
+- To enable multiple personal desktop assignment on existing personal host pool with the **Automatic** assignment type, you first need to change the assignment type to **Direct** and save the change, and then e multiple personal desktop assignment. These actions need to be done in separate steps. If you try to do both in a single step, you get an error message.

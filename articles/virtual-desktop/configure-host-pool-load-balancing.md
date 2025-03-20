@@ -125,7 +125,7 @@ Here's how to configure load balancing with Azure PowerShell. Be sure to change 
    ```
 
 > [!NOTE]
-> There are other values for the parameter `LoadBalancerType`, such as `Persistent` and `MultiplePersistent`. These are for personal host pools and not relevant to pooled host pools. To learn more about multi-personal desktop assignment, see [Enable multi-personal desktop assignment](configure-host-pool-personal-desktop-assignment-type.md#enable-multi-personal-desktop-assignment).
+> There are other values for the parameter `LoadBalancerType`, such as `Persistent` and `MultiplePersistent`. These are for personal host pools and not relevant to pooled host pools. To learn more about multi-personal desktop assignment, see [Enable multi-personal desktop assignment](configure-host-pool-personal-desktop-assignment-type.md#enable-multiple-personal-desktop-assignment).
 
 ### [Azure CLI](#tab/cli)
 
