@@ -163,7 +163,7 @@ For more information on supported RDB versions used with import, see the [compat
 
 ### Can I use Import/Export with Redis cluster?
 
-Yes, and you can import/export between a clustered cache and a nonclustered cache. Since Redis cluster [only supports database 0](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering), any data in databases other than 0 isn't imported. When clustered cache data is imported, the keys are redistributed among the shards of the cluster.
+Yes, and you can import/export between a clustered cache and a nonclustered cache. Since Redis cluster [only supports database 0](cache-how-to-scale.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering), any data in databases other than 0 isn't imported. When clustered cache data is imported, the keys are redistributed among the shards of the cluster.
 
 ### How does Import/Export work with a custom databases setting?
 

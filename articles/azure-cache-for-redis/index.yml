@@ -73,10 +73,10 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Managed Redis?
-            url: /azure/redis/overview.md
+            url: /redis/overview.md
           - text: What's new?
-            url: /azure/redis/whats-new.md
+            url: /redis/whats-new.md
           - text: Azure Managed Redis architecture
-            url: /azure/redis/architecture.md
+            url: /redis/architecture.md
           - text: Moving to Azure Managed Redis from Azure Cache for Redis
-            url: /azure/redis/migrate/migrate-overview.md
+            url: /redis/migrate/migrate-overview.md

@@ -67,7 +67,7 @@ items:
       href: how-to-upgrade.md
     - name: Save with reservations 
       href: reserved-pricing.md
-    - name: Migrate to Azure Cache for Redis
+    - name: Migrate to Azure Cache for Redis from other caches
       href: /azure-cache-for-redis/migration-guide.md
     - name: Planning FAQs
       href: planning-faq.yml
@@ -196,7 +196,7 @@ items:
 - name: Migration 
   expanded: true
   items:
-  - name: Migrate to Azure Managed Redis
+  - name: Migrate to Azure Managed Redis from Azure Cache for Redis
     href: migrate/migrate-overview.md
 
       

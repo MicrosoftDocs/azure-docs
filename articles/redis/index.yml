@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Azure Managed Redis Documentation
-summary: Learn how to use the managed Redis offerings on Azure, including Azure Managed Redis (preview) and our Azure Cache for Redis. Either service can be used as a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications. Additionally, Azure Managed Redis can be used for more applications, like storing embeddings vectors and as a semantic cache. These tutorials, API references, and other documentation show you how to use Redis from any application on Azure. For information about Azure Cache for Redis, see the [Azure Cache for Redis documentation](../azure-cache-for-redis/index.yml).
+summary: Learn how to use the managed Redis offerings on Azure, including Azure Managed Redis (preview) and our Azure Cache for Redis. Either service can be used as a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications. Additionally, Azure Managed Redis can be used for more applications, like storing embeddings vectors and as a semantic cache. These tutorials, API references, and other documentation show you how to use Redis from any application on Azure. For information about Azure Cache for Redis, see the links on this page.
 
 
 metadata:
@@ -11,7 +11,7 @@ metadata:
   ms.custom:
     - ignite-2024
   
-  
+
   ms.date: 03/11/2025
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -102,58 +102,40 @@ landingContent:
          - text: Development best practices
            url: best-practices-development.md
 
-  # - title: About Azure Cache for Redis
-  #   linkLists:
-  #     - linkListType: overview
-  #       links:
-  #         - text: What is Azure Cache for Redis?
-  #           url: cache-overview.md
-  #     - linkListType: video
-  #       links:
-  #         - text: Azure Cache for Redis Community Standup 
-  #           url: https://www.youtube.com/watch?v=hA3117yQnHg&list=PLI7iePan8aH4V7A_BMwvlBY3xW2FAGITp
-  #     - linkListType: whats-new
-  #       links:
-  #         - text: What's new?
-  #           url: cache-whats-new.md
-  # - title: Azure Managed Redis SDKs and CLI reference
-  #   linkLists:
-  #     - linkListType: reference
-  #       links:
-  #         - text: .NET
-  #           url: /dotnet/api/overview/azure/resourcemanager.redisenterprise-readme
-  #         - text: Java
-  #           url: /java/api/overview/azure/resourcemanager-redisenterprise-readme
-  #         - text: REST API
-  #           url: /rest/api/redis/redisenterprisecache/operation-groups
-  #         - text: Redis Clients
-  #           url: https://redis.io/docs/connect/clients/
-  #         - text: Redis commands
-  #           url: https://redis.io/commands
-  #     - linkListType: reference
-  #       links:
-  #         - text: Azure PowerShell
-  #           url: /powershell/module/az.redisenterprisecache
-  #         - text: Azure CLI
-  #           url: /cli/azure/redisenterprise
-  # - title: Azure Cache for Redis SDKs and CLI reference
-  #   linkLists:
-  #     - linkListType: reference
-  #       links:
-  #         - text: .NET
-  #           url: /dotnet/api/microsoft.azure.management.redis
-  #         - text: Java
-  #           url: /java/api/com.microsoft.azure.management.redis.rediscache
-  #         - text: REST API
-  #           url: /rest/api/redis/
-  #         - text: Redis Client
-  #           url: https://redis.io/docs/connect/clients/
-  #         - text: Redis commands
-  #           url: https://redis.io/commands
-  #     - linkListType: reference
-  #       links:
-  #         - text: Azure PowerShell
-  #           url: /powershell/module/az.rediscache
-  #         - text: Azure CLI
-  #           url: /cli/azure/redis
+
+  - title: Azure Managed Redis SDKs and CLI reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: .NET
+            url: /dotnet/api/overview/azure/resourcemanager.redisenterprise-readme
+          - text: Java
+            url: /java/api/overview/azure/resourcemanager-redisenterprise-readme
+          - text: REST API
+            url: /rest/api/redis/redisenterprisecache/operation-groups
+          - text: Redis Clients
+            url: https://redis.io/docs/connect/clients/
+          - text: Redis commands
+            url: https://redis.io/commands
+      - linkListType: reference
+        links:
+          - text: Azure PowerShell
+            url: /powershell/module/az.redisenterprisecache
+          - text: Azure CLI
+            url: /cli/azure/redisenterprise
+
+  - title: About Azure Cache for Redis
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Cache for Redis?
+            url: ../azure-cache-for-redis/cache-overview.md
+      - linkListType: video
+        links:
+          - text: Azure Cache for Redis Community Standup 
+            url: https://www.youtube.com/watch?v=hA3117yQnHg&list=PLI7iePan8aH4V7A_BMwvlBY3xW2FAGITp
+      - linkListType: whats-new
+        links:
+          - text: What's new with Azure Cache for Redis?
+            url: ../azure-cache-for-redis/cache-whats-new.md
   

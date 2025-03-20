@@ -387,7 +387,7 @@
       },
       {
           "source_path_from_root": "/articles/azure-cache-for-redis/managed-redis/managed-redis-migration-guide.md",
-          "redirect_url": "/azure/redis/migrate-guide",
+          "redirect_url": "/azure/redis/migrate/migration-guide",
           "redirect_document_id": true
       },
       {
@@ -604,6 +604,11 @@
       "source_path_from_root": "/articles/azure-cache-for-redis/cache-web-app-howto.md",
       "redirect_url": "/azure/redis/web-app-cache-howto",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-cache-for-redis/migrate/migrate-overview.md",
+      "redirect_url": "/azure/redis/migrate/migrate-overview",
+      "redirect_document_id": true
     }
-    ]
+  ]
 }
