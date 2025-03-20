@@ -23,7 +23,7 @@ Although we don't own or support any client libraries, we do recommend some libr
 | Jedis               | Java    |  [Link](https://github.com/redis/jedis)                       |                                              |
 | node_redis          | Node.js |  [Link](https://github.com/redis/node-redis)            |                                              |
 | Redisson            | Java    |  [Link](https://github.com/redisson/redisson)           | [More information here](https://redisson.org/) |
-| ioredis             | Node.js |  [Link](https://github.com/luin/ioredis)                     | [More information here](https://ioredis.readthedocs.io/en/stable/API/) |
+| ioredis             | Node.js |  [Link](https://github.com/luin/ioredis)                | [More information here](https://ioredis.readthedocs.io/en/stable/API/) |
 
 > [!NOTE]
 > Your application can use any client library that is compatible with open-source Redis to connect to your Azure Cache for Redis instance.
@@ -89,13 +89,13 @@ Besides the reference documentation, you can find tutorials showing how to get s
 
 For more information on using some of these client libraries in tutorials, see the following articles:
 
-- [Code a .NET Framework app](cache-dotnet-how-to-use-azure-redis-cache.md)
-- [Code a .NET Core app](cache-dotnet-core-quickstart.md)
-- [Code an ASP.NET web app](cache-web-app-howto.md)
-- [Code an ASP.NET Core web app](cache-web-app-aspnet-core-howto.md)
-- [Code a Java app](cache-java-get-started.md)
-- [Code a Node.js app](cache-nodejs-get-started.md)
-- [Code a Python app](cache-python-get-started.md)
+- [Code a .NET Framework app](../redis/dotnet-how-to-use-azure-redis-cache.md)
+- [Code a .NET Core app](../redis/dotnet-core-quickstart.md)
+- [Code an ASP.NET web app](../redis/web-app-cache-howto.md)
+- [Code an ASP.NET Core web app](../redis/web-app-aspnet-core-howto.md)
+- [Code a Java app](../redis/java-get-started.md)
+- [Code a Node.js app](../redis/nodejs-get-started.md)
+- [Code a Python app](../redis/python-get-started.md)
 
 ## Next steps
 

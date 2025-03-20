@@ -70,4 +70,4 @@ additionalContent: |
   ## Next steps
      For more information about monitoring and troubleshooting your Azure Cache for Redis instances, see [How to monitor Azure Cache for Redis](cache-how-to-monitor.md) and the various troubleshoot guides.
           
-     Learn about other [Azure Cache for Redis FAQs](cache-faq.yml).
+     Learn about other [Azure Cache for Redis FAQs](../redis/faq.yml).
