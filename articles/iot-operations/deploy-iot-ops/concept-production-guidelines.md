@@ -90,7 +90,7 @@ For production deployments, scope the storage account's public network access to
 1. In the [Azure portal](https://portal.azure.com), navigate to the storage account that your schema registry uses.
 1. Select **Security + networking > Networking** from the navigation menu.
 1. For the public network access setting, select **Enabled from selected virtual networks and IP addresses**.
-1. In the **Exceptions** section of the networking page, ensure that the **Allow Azure services on the trusted services list to access this storage account** option is selected.
+1. In the **Exceptions** section of the networking page, ensure that the **Allow trusted Microsoft services to access this resource** option is selected.
 1. Select **Save** to apply the changes.
 
 For more information, see [Configure Azure Storage firewalls and virtual networks > Grant access to trusted Azure services](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services).
