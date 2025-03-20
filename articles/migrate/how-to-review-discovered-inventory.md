@@ -183,7 +183,7 @@ HADR configuration |
 
 ## Review Infrastructure inventory
 
-You can select **Infrastructure inventory** under **Explore inventory** from the menu on the left to see the list of infrastructure workloads, discovered from your environment either by using [Azure Migrate appliance](/migrate-appliance.md) or using CSV import.
+You can select **Infrastructure inventory** under **Explore inventory** from the menu on the left to see the list of infrastructure workloads, discovered from your environment either by using [Azure Migrate appliance](migrate-appliance.md) or using CSV import.
 
 **Infrastruture Inventory** view helps you review all the servers discovered from your datacentre including VMware VMs/Hyper-V VMs/Physical servers/servers running in other public clouds.
 
