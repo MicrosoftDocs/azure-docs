@@ -20,7 +20,7 @@ The following table outlines all Traffic services along with their respective mi
 |-------------------------|------------------------------|
 | [Get Traffic Flow Segment] | No direct replacement.<br/>Map tiles can be used to visualize traffic flow, but speed and travel time isn't available. |
 | [Get Traffic Flow Tile]<br/>- Absolute <br/>- Reduced sensitivity <br/>- Relative <br/>- Relative delay  | [Get Map Tile]<br/>[TilesetID] <br/>- microsoft.traffic.absolute (vector) <br/>- microsoft.traffic.absolute.main (raster) <br/>- microsoft.traffic.relative (vector) <br/>- microsoft.traffic.relative.dark (raster) <br/>- microsoft.traffic.relative.main (raster) <br/>- microsoft.traffic.delay (vector) <br/>- microsoft.traffic.delay.main (raster) <br/>- microsoft.traffic.reduced.main (raster)  |
-| [Get Traffic Incident Detail] | Get Traffic Incident (unified API)  |
+| [Get Traffic Incident Detail] | [Get Traffic Incident]  |
 | [Get Traffic Incident Tile]| [Get Map Tile] <br/>[TilesetID] <br/>- microsoft.traffic.incident (vector)  |
 | [Get Traffic Incident Viewport] | No replacement.<br/>Returns the traffic model ID used by Traffic v1 services, but isn't required for unified traffic incident or render services. |
 
@@ -170,6 +170,7 @@ Content-Type: application/vnd.mapbox-vector-tile
 [Get Traffic Flow Segment]: /rest/api/maps/traffic/get-traffic-flow-segment?view=rest-maps-1.0
 [Get Traffic Flow Tile]: /rest/api/maps/traffic/get-traffic-flow-tile#trafficflowtilestyle?view=rest-maps-1.0
 [Get Traffic Incident Detail]: /rest/api/maps/traffic/get-traffic-incident-detail?view=rest-maps-1.0
+[Get Traffic Incident]: /rest/api/maps/traffic/get-traffic-incident?view=rest-maps-2025-01-01
 [Get Traffic Incident Tile]: /rest/api/maps/traffic/get-traffic-incident-tile?view=rest-maps-1.0
 [Get Traffic Incident Viewport]: /rest/api/maps/traffic/get-traffic-incident-viewport?view=rest-maps-1.0
 [TilesetID]: /rest/api/maps/render/get-map-tile#tilesetid
