@@ -258,14 +258,14 @@ You can also use one of the built-in detectors to get more information.
 
 To use the detector for App Service:
 
-1. In the portal, go to your app.
+1. In the Azure portal, go to your app.
 1. Select **Diagnose and solve problems**.
 1. Select **Availability and Performance** > **Web app down**.
 1. In the search box, search for and select **Key Vault Application Settings Diagnostics**.
 
 To use the detector for Azure Functions:
 
-1. In the portal, go to your app.
+1. In the Azure portal, go to your app.
 1. Go to **Platform features**.
 1. Select **Diagnose and solve problems**.
 1. Select **Availability and Performance** > **Function app down or reporting errors**.
