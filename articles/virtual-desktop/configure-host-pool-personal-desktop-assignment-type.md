@@ -366,7 +366,7 @@ To enable multiple personal desktop assignment using Azure PowerShell. Be sure t
    ```
 
 
-2. Use the [Update-AzWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool) command to update an existing personal host pool to have multiple persistent load balancer type.
+3. Use the [Update-AzWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool) command to update an existing personal host pool to have multiple persistent load balancer type.
 
    ```powershell
    $parameters = @{
