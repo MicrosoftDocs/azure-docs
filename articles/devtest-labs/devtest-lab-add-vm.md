@@ -4,10 +4,10 @@ description: Learn how to use the Azure portal to add a virtual machine (VM) to 
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/19/2025
+ms.date: 03/20/2025
 ms.custom: UpdateFrequency2
 
-#customer intent: As a lab user, I want to learn how to create VMs in DevTest Labs so I can use my lab VMs for developing, testing, or training.
+#customer intent: As a lab user, I want to learn how to create VMs in DevTest Labs so I can use lab VMs for developing, testing, or training.
 ---
 
 # Create lab VMs in Azure DevTest Labs

@@ -4,7 +4,7 @@ description: Learn how to use the Azure portal to attach or detach a data disk f
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/19/2025
+ms.date: 03/20/2025
 ms.custom: UpdateFrequency2
 
 #customer intent: As a lab user, I want to attach and detach data disks for my DevTest Labs VMs so I can manage storage or software separately from individual VMs.

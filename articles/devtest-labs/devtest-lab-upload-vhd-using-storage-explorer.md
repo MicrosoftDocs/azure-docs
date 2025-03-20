@@ -1,16 +1,16 @@
 ---
-title: Upload a VHD file to a lab by using Storage Explorer
+title: Upload a VHD file to lab storage by using Storage Explorer
 description: Walk through the steps to upload a virtual hard disk (VHD) file to a DevTest Labs lab storage account by using Azure Storage Explorer.
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/19/2025
+ms.date: 03/20/2025
 ms.custom: UpdateFrequency2
 
-#customer intent: As a lab user, I want to learn how to upload a VHD to a lab storage account so I can use the VHD to create a custom image and VMs.
+#customer intent: As a lab user, I want to learn how to upload a VHD to a lab storage account so I can use the VHD to create a custom image and lab VMs.
 ---
 
-# Upload a VHD file to a lab by using Storage Explorer
+# Upload a VHD file to lab storage by using Storage Explorer
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 

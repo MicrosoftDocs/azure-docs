@@ -4,13 +4,13 @@ description: Learn about some basic Azure DevTest Labs concepts related to labs,
 ms.topic: conceptual
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/19/2025
+ms.date: 03/20/2025
 ms.custom: UpdateFrequency2
 
 #customer intent: As a lab user or administrator, I want to understand basic DevTest Labs concepts so I can manage or use labs, VMs, and environments.
 ---
 
-# DevTest Labs concepts
+# Azure DevTest Labs concepts
 
 This article describes key [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab) concepts and definitions. DevTest Labs is a service for easily creating, using, and managing Azure virtual machines (VMs) and other resources.
 
@@ -33,11 +33,11 @@ A DevTest Labs lab is the infrastructure that encompasses a group of resources s
 
 - Lab **Owners** can do all lab tasks, including reading or writing to lab resources, setting policies and configurations, adding repositories and base images, and managing users. Only lab Owners can add and manage lab users and roles. For more information about managing user access and roles, see [Add lab owners, contributors, and users](devtest-lab-add-devtest-user.md).
 
-  Lab Owners must have at least Contributor rights in the Azure subscription their lab is in. Subscription Owners can access all subscription resources and user assignments, so they automatically inherit the Owner role for labs in their subscriptions.
-
   Lab Owners can also create and assign custom DevTest Labs roles. For more information, see [Grant user permissions to specific lab policies](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
 
-- Lab **Contributors** can do everything that lab Owners can, such as create and configure labs and policies, but they can't assign or manage users and roles.
+  A lab Owner must either be an Owner of the Azure subscription the lab is in, or a subscription or lab Owner must grant them the lab Owner role. Subscription Owners can access all subscription resources and users, so they automatically inherit the Owner role for labs in their subscriptions.
+
+- Lab **Contributors** can do everything that lab Owners can, such as create and configure labs and policies, except they can't assign or manage users and roles. Azure subscription Contributors can create labs, but they aren't Owners of those labs unless they inherit or are granted the lab Owner role.
 
 - **DevTest Labs Users** can view all lab resources and policies and can create and modify their own VMs and environments, within policy restrictions such as number of VMs per user.
 
