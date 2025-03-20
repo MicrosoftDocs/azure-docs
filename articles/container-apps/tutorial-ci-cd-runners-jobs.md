@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 02/20/2025
+ms.date: 03/20/2025
 ms.author: cshoe
 zone_pivot_groups: container-apps-jobs-self-hosted-ci-cd
 ---
@@ -36,7 +36,7 @@ In this tutorial, you learn how to run GitHub Actions runners as an [event-drive
 > Self-hosted runners are only recommended for *private* repositories. Using them with public repositories can allow dangerous code to execute on your self-hosted runner. For more information, see [Self-hosted runner security](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#self-hosted-runner-security).
 
 > [!NOTE]
-> The personal access token (PAT) has an expiration date. It's the customer's responsibility to ensure that the PAT is regularly rotated and isn't expired. Monitor and update your PAT accordingly to maintain uninterrupted services.
+> Every personal access token (PAT) has an expiration date. You need to make sure PATs are regularly rotated before their expiration date. For more information about managing your PAT, see [Use personal access tokens](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
 
 ::: zone-end
 
@@ -56,7 +56,7 @@ In this tutorial, you learn how to run Azure Pipelines agents as an [event-drive
 > Self-hosted agents are only recommended for *private* projects. Using them with public projects can allow dangerous code to execute on your self-hosted agent. For more information, see [Self-hosted agent security](/azure/devops/pipelines/agents/linux-agent#permissions).
 
 > [!NOTE]
-> The personal access token (PAT) has an expiration date. It's the customer's responsibility to ensure that the PAT is regularly rotated and isn't expired. Monitor and update your PAT accordingly to maintain uninterrupted services.
+> Every personal access token (PAT) has an expiration date. You need to make sure PATs are regularly rotated before their expiration date. For more information about managing your PAT, see [Use personal access tokens](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
 
 ::: zone-end
 
