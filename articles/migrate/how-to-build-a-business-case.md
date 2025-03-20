@@ -6,11 +6,10 @@ ms.author: v-uhabiba
 ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 03/17/2025
+ms.date: 03/20/2025
 ms.custom: engagement-fy23
 
 ---
-
 
 # Build a business case (preview)
 
@@ -21,6 +20,9 @@ This article describes how to build a Business case for on-premises servers and 
 ## Prerequisites
 
 - Make sure you've [created](./create-manage-projects.md) an Azure Migrate project. You can also reuse an existing project to use this capability.
+::: moniker range="migrate-classic"
+- Once you've created a project, the Azure Migrate: Discovery and assessment tool is automatically added to the project.
+::: moniker-end
 - Before you build the Business case, you need to first discover your IT estate. You can choose one of the two [discovery sources](./concepts-business-case-calculation.md#discovery-sources-to-create-a-business-case) based on your use case.
 
 
@@ -57,6 +59,7 @@ There are three types of migration strategies that you can choose while building
 
 To build a business case, follow these steps:
 
+::: moniker range="migrate"
 1. Select your project from the **All Projects**. 
 
     :::image type="content" source="./media/how-to-build-a-business-case/all-projects.png" alt-text="Screenshot on how to build a project.":::
@@ -80,7 +83,7 @@ To build a business case, follow these steps:
 1. Select **Add Workloads** and then select the workloads you want to include in your business case. You can filter and select based on the tags and criteria you’ve set.
 1. Select **Next** to proceed.
 
-:::image type="content" source="./media/how-to-build-a-business-case/add-workloads.png" alt-text="Screenshot shows how to add workloads.":::
+    :::image type="content" source="./media/how-to-build-a-business-case/add-workloads.png" alt-text="Screenshot shows how to add workloads.":::
 
 1. In **Target location**, specify the Azure region to which you want to migrate.
 
@@ -110,6 +113,53 @@ Based on the availability of the savings option in your selected region and the 
 1. You are directed to the newly created Business case with a banner indicating that the computation is in progress. The processing time might vary based on the number of servers and workloads involved. It is recommended to return to the Business case page after approximately 30 minutes and select the **Refresh**.
     
     :::image type="content" source="./media/how-to-build-a-business-case/refresh-build.png" alt-text="Screenshot of the refresh button to refresh the Business case.":::
+
+::: moniker-end
+
+::: moniker range="migrate-classic"
+
+To build a business case, follow these steps:
+
+1. In **Servers, databases and web apps**, select **Discover, assess and migrate**.
+
+    :::image type="content" source="./media/how-to-build-a-business-case/assess-inline.png" alt-text="Screenshot of the discover, assess and migrate servers button." lightbox="./media/how-to-build-a-business-case/assess-expanded.png":::
+
+1. In **Azure Migrate: Discovery and assessment**, select **Build business case**.
+
+    :::image type="content" source="./media/how-to-build-a-business-case/build-inline.png" alt-text="Screenshot of the Build Business case button." lightbox="./media/how-to-build-a-business-case/build-expanded.png":::
+
+    > [!Note]
+    > We recommend you wait at least a day after you start discovery before you build a Business case. This allows enough collection of performance/resource utilization data points. Also, review the **Notifications**/**Resolve issues** blades on the Azure Migrate hub to identify any discovery related issues prior to Business case computation. It ensures that the IT estate in your datacenter is represented more accurately and the Business case recommendations are more valuable.
+
+1. In **Business case name**, specify a name for the Business case. Make sure the Business case name is unique within a project, else the previous Business case with the same name gets recomputed.
+
+1. In **Target location**, specify the Azure region to which you want to migrate.
+
+   Azure SKU size and cost recommendations are based on the location that you specify.
+
+1. In **Discovery source**, specify the discovery source on which you wish to create the business case. The options to build the business case using data discovered via the  appliance or imported via a .csv file is present based on the type of discovered servers present in your project. The discovery source will be defaulted to the option chosen by you while building the business case and you won't be able to update this field later.
+
+1. In **Migration strategy**, specify the migration strategy for your Business case:
     
+    - With the default *Azure recommended approach to minimize cost*, you can get the most cost-efficient and compatible target recommendation in Azure across Azure IaaS and Azure PaaS targets.
+    - With *Migrate to all IaaS (Infrastructure as a Service)*, you can get a quick lift and shift recommendation to Azure IaaS.
+    - With *Modernize to PaaS (Platform as a Service)*, you can get cost effective recommendations for Azure IaaS and more PaaS preferred targets in Azure PaaS.
+    - With *Migrate to AVS (Azure VMware Solution)*, you can get the most cost effective and compatible target recommendation for hosting workloads on AVS. Only Reserved Instances are available as a savings option for migrating to AVS. 
+1. In **Savings options**, specify the savings options combination that you want to be considered while optimizing your Azure costs and maximize savings. Based on the availability of the savings option in the chosen region and the targets, the business case recommends the appropriate savings options to maximize your savings on Azure.
+    - Choose 'Reserved Instance', if your datacenter comprises most consistently running resources.
+    - Choose 'Reserved Instance + Azure Savings Plan', if you want additional flexibility and automated cost optimization for workloads applicable for Azure Savings Plan (Compute targets including Azure VM and Azure App Service).
+
+1. In **Discount (%) on Pay as you go**, add any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%. The discount isn't applicable on top of reserved instance savings option.
+1. **Currency** is defaulted to USD and can't be edited.
+1. Review the chosen inputs, and select **Build business case**.
+
+    :::image type="content" source="./media/how-to-build-a-business-case/build-button.png" alt-text="Screenshot of the button to initiate the Business case creation.":::
+
+1. You're directed to the newly created Business case with a banner that says that your Business case is computing. The computation might take some time, depending on the number of servers and workloads in the project. You can come back to the Business case page after ~30 minutes and select **Refresh**.
+    
+    :::image type="content" source="./media/how-to-build-a-business-case/refresh-inline.png" alt-text="Screenshot of the refresh button to refresh the Business case." lightbox="./media/how-to-build-a-business-case/refresh-expanded.png":::
+
+::: moniker-end
+
 ## Next steps
 - [Learn more](how-to-view-a-business-case.md) about how to review the Business case reports.
