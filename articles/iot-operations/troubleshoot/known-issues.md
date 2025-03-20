@@ -15,12 +15,6 @@ This article lists the known issues for Azure IoT Operations.
 
 ## Deploy and uninstall issues
 
-- If you prefer to have no updates made to your cluster without giving explicit consent, you should disable Arc updates when you enable the cluster. This is due to the fact that some system extensions are automatically updated by the Arc agent. To disable updates, include the `--disable-auto-upgrade` flag as part of the `az connectedk8s connect` command.
-
-- If your deployment fails with the `"code":"LinkedAuthorizationFailed"` error, it means that you don't have **Microsoft.Authorization/roleAssignments/write** permissions on the resource group that contains your cluster.
-
-- Directly editing **SecretProviderClass** and **SecretSync** custom resources in your Kubernetes cluster can break the secrets flow in Azure IoT Operations. For any operations related to secrets, use the operations experience UI.
-
 - During and after deploying Azure IoT Operations, you might see warnings about `Unable to retrieve some image pull secrets (regcred)` in the logs and Kubernetes events. These warnings are expected and don't affect the deployment and use of Azure IoT Operations.
 
 - If your deployment fails with the message `Error occurred while creating custom resources needed by system extensions`, you have encountered a known sporadic failure that will be fixed in a future release. As a workaround, use the [az iot ops delete](/cli/azure/iot/ops#az-iot-ops-delete) command with the `--include-deps` flag to delete Azure IoT Operations from your cluster. When Azure IoT Operations and its dependencies are deleted from your cluster, retry the deployment.
@@ -117,14 +111,14 @@ kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
 
 ## Data flows
 
-- Data flow custom resources created in your cluster aren't visible in the operations experience UI. This is expected because [managing Azure IoT Operations components using Kubernetes is in preview](../deploy-iot-ops/howto-manage-update-uninstall.md#preview-manage-components-using-kubernetes-deployment-manifests), and synchronizing resources from the edge to the cloud isn't currently supported.
+- Data flow custom resources created in your cluster aren't visible in the operations experience web UI. This is expected because [managing Azure IoT Operations components using Kubernetes is in preview](../deploy-iot-ops/howto-manage-update-uninstall.md#preview-manage-components-using-kubernetes-deployment-manifests), and synchronizing resources from the edge to the cloud isn't currently supported.
 
 - X.509 authentication for custom Kafka endpoints isn't supported yet.
 
-- Deserializing and validating messages using a schema isn't supported yet. Specifying a schema in the source configuration only allows the operations experience portal to display the list of data points, but the data points aren't validated against the schema.
+- Deserializing and validating messages using a schema isn't supported yet. Specifying a schema in the source configuration only allows the operations experience to display the list of data points, but the data points aren't validated against the schema.
 
 <!-- TODO: double check -->
-- Creating an X.509 secret in the operations experience portal results in a secret with incorrectly encoded data. To work around this issue, create the [multi-line secrets through Azure Key Vault](/azure/key-vault/secrets/multiline-secrets), then select it from the list of secrets in the operations experience portal.
+- Creating an X.509 secret in the operations experience results in a secret with incorrectly encoded data. To work around this issue, create the [multi-line secrets through Azure Key Vault](/azure/key-vault/secrets/multiline-secrets), then select it from the list of secrets in the operations experience.
 
 - When connecting multiple IoT Operations instances to the same Event Grid MQTT namespace, connection failures may occur due to client ID conflicts. Client IDs are currently derived from data flow resource names, and when using Infrastructure as Code (IaC) patterns for deployment, the generated client IDs may be identical. As a temporary workaround, add randomness to the data flow names in your deployment templates.
 

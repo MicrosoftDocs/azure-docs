@@ -4,6 +4,9 @@ description: Learn how to use the selective logging feature with a script action
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: references-regions
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 09/06/2024
 ---
 

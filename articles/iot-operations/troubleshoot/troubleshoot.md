@@ -23,6 +23,11 @@ For general deployment and configuration troubleshooting, you can use the Azure 
 
 - Use [az iot ops support create-bundle](/cli/azure/iot/ops/support#az-iot-ops-support-create-bundle) to collect logs and traces to help you diagnose problems. The `support create-bundle` command creates a standard support bundle zip archive you can review or provide to Microsoft Support.
 
+### You see a `"code":"LinkedAuthorizationFailed"` error message
+If your deployment fails with the `"code":"LinkedAuthorizationFailed"` error, the messages indicates that you don't have the required permissions on the resource group containing the cluster.
+
+To resolve this issue, ensure that you have **Microsoft.Authorization/roleAssignments/write** permissions at the resource group level.
+
 ### You see an UnauthorizedNamespaceError error message
 
 If you see the following error message, you either didn't enable the required Azure-arc custom locations feature, or you enabled the custom locations feature with an incorrect custom locations RP OID.
@@ -31,7 +36,7 @@ If you see the following error message, you either didn't enable the required Az
 Message: Microsoft.ExtendedLocation resource provider does not have the required permissions to create a namespace on the cluster.
 ```
 
-To resolve, follow [this guidance](/azure-arc/kubernetes/custom-locations#enable-custom-locations-on-your-cluster) for enabling the custom locations feature with the correct OID.
+To resolve, follow [this guidance](/azure/azure-arc/kubernetes/custom-locations#enable-custom-locations-on-your-cluster) for enabling the custom locations feature with the correct OID.
 
 ### You see a MissingResourceVersionOnHost error message
 
