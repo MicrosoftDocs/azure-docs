@@ -51,24 +51,73 @@ An edge-based IoT solution can use the following primitives for asset management
 - *Secret Store extension* to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets. Azure IoT Operations uses Azure Key Vault as the managed vault solution on the cloud, and uses [Azure Key Vault Secret Store extension for Kubernetes](/azure/azure-arc/kubernetes/secret-store-extension) to sync the secrets.
 - *Sites* that group Azure IoT Operations instances by physical location and make it easier for OT users to locate and manage assets. Your IT administrator creates sites and assigns Azure IoT Operations instances to them. To learn more, see [What is Azure Arc site manager (preview)?](/azure/azure-arc/site-manager/overview).
 
-To learn more, see [What is asset management in Azure IoT Operations](../iot-operations/discover-manage-assets/overview-manage-assets.md) and [Configure data flows in Azure IoT Operations](../iot-operations/connect-to-cloud/howto-create-dataflow.md).
+For more information, see [What is asset management in Azure IoT Operations](../iot-operations/discover-manage-assets/overview-manage-assets.md) and [Configure data flows in Azure IoT Operations](../iot-operations/connect-to-cloud/howto-create-dataflow.md).
 
 ## Asset endpoint creation
 
-- Defining the asset endpoints that connect assets to your edge runtime environment.
+Azure IoT Operations uses Azure resources called assets and asset endpoints to connect and manage components of your industrial edge environment. Before you can create an asset, you need to define an asset endpoint profile. An *asset endpoint* is a profile that describes southbound edge connectivity information for one or more assets.
+
+Currently, the southbound connectors available in Azure IoT Operations are the connector for OPC UA, the media connector (preview), and the connector for ONVIF (preview). Asset endpoints are configurations for a connector that enable it to connect to an asset. For example:
+
+- An asset endpoint for OPC UA stores the information you need to connect to an OPC UA server.
+- An asset endpoint for the media connector stores the information you need to connect to a media source.
+
+For more information, see [What is the connector for OPC UA?](./overview-opcua-broker.md)
 
 ## Asset, tags and events creation
 
-- Asset registration in a single unified registry that enables edge and cloud management.
-- Defining asset tags and events to enable data flow from OPC UA servers to the MQTT broker.
+An *asset* is a logical entity that represents a device or component in the cloud as an Azure Resource Manager resource and at the edge as a Kubernetes custom resource. When you create an asset, you can define its metadata and the datapoints (also called tags) and events that it emits.
+
+Currently, an asset in Azure IoT Operations can be:
+
+- Something connected to an OPC UA server such as a robotic arm.
+- A media source such as a camera.
+
+When you define an asset using either the operations experience web UI or Azure IoT Operations CLI, you can configure *tags* and *events* for each asset:
+
+- A *tag* is a description of a data point that can be collected from an asset. OPC UA tags provide real-time or historical data about an asset.
+- An *event* is a notification from an OPC UA server that can inform you about state changes to your asset.
+
+ For more information, see [Define assets and asset endpoints](../iot-operations/discover-manage-assets/concept-assets-asset-endpoints.md).
 
 ## Data flow endpoint creation
 
+The data flow component is part of Azure IoT Operations, which is deployed as an Azure Arc extension. The configuration for a data flow is done via Kubernetes custom resource definitions (CRDs). You can use the operations experience web UI in Azure IoT Operations to create a data flow. The operations experience provides a visual interface to configure the data flow. You can also use Bicep to create a data flow using a Bicep template file, or use Kubernetes to create a data flow using a YAML file.
+
+You can write configurations for various use cases, such as:
+
+- Transform data and send it back to MQTT
+- Transform data and send it to the cloud
+- Send data to the cloud or edge without transformation
+
+Data flows aren't limited to the region where the IoT Operations instance is deployed. You can use data flows to send data to cloud endpoints in different regions.
+
+For more information, see [Configure data flows in Azure IoT Operations](../iot-operations/connect-to-cloud/howto-create-dataflow.md).
+
 ## Asset and data flow endpoints secrets management
+
+On an Azure IoT Operations instance deployed with secure settings, you can add secrets to Azure Key Vault, and sync them to the edge to be used in asset endpoints or data flow endpoints using the operations experience web UI. Secrets are used in asset endpoints and data flow endpoints for authentication.
+
+For more inforamtion, see [Manage secrets for your Azure IoT Operations deployment](../iot-operations/secure-iot-ops/howto-manage-secrets.md).
 
 ## Command and control
 
-The MQTT broker enables bidirectional edge/cloud communication, and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge. 
+The Azure IoT Operations MQTT broker, that's enterprise grade and compliant with standards, enables bidirectional edge/cloud communication, and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
+
+Azure IoT Operations provides support for communication between applications via MQTT5 using an RPC implementation. Commands build on top of the MQTT5/RPC protocol, and can be summarized as:
+
+- A Command Invoker to invoke a method on a different host
+- A Command Executor listening for incoming requests
+- A serializer to encode and decode requests and responses
+
+A shared pair of channels the invoker uses to send requests and listen for responses, and the executor uses to listen to requests and send responses
+Commands are the basis for:
+
+- Control-plane communication for Azure IoT Operations SDKs
+- Messaging that cannot be resolved using Telemetry
+- Built-in service for the Azure IoT Operations ecosystem
+
+For more inforamtion, see [Azure IoT Operations built-in local MQTT broker](../iot-operations/manage-mqtt-broker/overview-broker.md).
 
 ### [Cloud-based solution](#tab/cloud)
 
