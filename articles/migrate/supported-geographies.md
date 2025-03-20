@@ -4,7 +4,8 @@ description: Provides a list of regions where Azure Migrate is supported
 author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
-ms.date: 02/06/2025
+ms.date: 03/20/2025
+monikerRange: migrate
 ---
 
 # Supported geographies 

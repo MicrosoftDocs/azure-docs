@@ -5,7 +5,8 @@ author: rashi-ms
 ms.author: rajosh
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 02/06/2025
+ms.date: 03/20/2025
+monikerRange: migrate
 ---
 
 # Target right-sizing 

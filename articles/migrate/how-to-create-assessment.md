@@ -6,8 +6,9 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 02/06/2025
+ms.date: 03/20/2025
 ms.custom: engagement-fy23
+monikerRange: migrate
 ---
 
 # Create an Azure VM assessment

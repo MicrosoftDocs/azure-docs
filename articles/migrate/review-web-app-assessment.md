@@ -4,9 +4,10 @@ description: Learn how to review assessment for web apps in Azure Migrate
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: tutorial
-ms.date: 02/06/2025
+ms.date: 03/20/2025
 ms.service: azure-migrate
 ms.custom: engagement-fy24
+monikerRange: migrate
 ---
 # Create a web app assessment for modernization 
 

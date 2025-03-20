@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 02/06/2025
 ms.custom: engagement-fy24
+monikerRange: migrate
 ---
 
 # Review a SQL assessment

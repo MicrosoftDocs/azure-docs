@@ -5,7 +5,8 @@ author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/16/2024
+ms.date: 03/20/2025
+monikerRange: migrate
 ---
 
 # Prerequisites for assessments 
