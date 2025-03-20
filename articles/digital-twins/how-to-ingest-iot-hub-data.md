@@ -3,15 +3,11 @@ title: Ingest telemetry from IoT Hub
 titleSuffix: Azure Digital Twins
 description: Learn how to ingest device telemetry messages from Azure IoT Hub to digital twins in an instance of Azure Digital Twins.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 03/13/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
 ms.custom: devx-track-azurecli
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Ingest IoT Hub telemetry into Azure Digital Twins
@@ -49,7 +45,7 @@ In this section, you set up a [digital twin](concepts-twins-graph.md) in Azure D
 
 To create a thermostat-type twin, you first need to upload the thermostat [model](concepts-models.md) to your instance, which describes the properties of a thermostat and is used later to create the twin.
 
-[!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
+[!INCLUDE [digital-twins-thermostat-model-upload.md](includes/digital-twins-thermostat-model-upload.md)]
 
 You then need to create one twin using this model. Use the following command to create a thermostat twin named thermostat67, and set 0.0 as an initial temperature value. There's one placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance).
 
@@ -57,7 +53,7 @@ You then need to create one twin using this model. Use the following command to 
 az dt twin create  --dt-name <instance-hostname-or-name> --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0}'
 ```
 
-[!INCLUDE [digital-twins-cli-issue](../../includes/digital-twins-cli-issue.md)]
+[!INCLUDE [digital-twins-cli-issue](includes/digital-twins-cli-issue.md)]
 
 When the twin is created successfully, the CLI output from the command should look something like this:
 ```json
@@ -107,7 +103,7 @@ az functionapp function show --resource-group <your-resource-group> --name <your
 
 To access Azure Digital Twins, your function app needs a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) with permissions to access your Azure Digital Twins instance. You set that up in this section, by assigning an access role for the function and configuring the application settings so that it can access your Azure Digital Twins instance.
 
-[!INCLUDE [digital-twins-configure-function-app-cli.md](../../includes/digital-twins-configure-function-app-cli.md)]
+[!INCLUDE [digital-twins-configure-function-app-cli.md](includes/digital-twins-configure-function-app-cli.md)]
 
 ## Connect the function to IoT Hub
 
