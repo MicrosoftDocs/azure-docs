@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Azure Cache for Redis Documentation
-summary: Learn how to use the open-source Redis, our Azure Cache for Redis offering. Either of our Redis services can be used as a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications. These tutorials, API references, and other documentation show you how to use Redis from any application on Azure. For information about Azure Managed Redis, see the [Azure Managed Redis documentation](../redis/index.yml).
+summary: Learn how to use the open-source Redis, our Azure Cache for Redis offering. Either of our Redis services can be used as a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications. These tutorials, API references, and other documentation show you how to use Redis from any application on Azure. For information about Azure Managed Redis, see the links on this page.
 metadata:
   title: Azure Cache for Redis Documentation
   description: Learn how to use Azure Cache for Redis, a secure data cache and messaging broker that give applications fast access to data. Tutorials, API references, and more.
@@ -8,8 +8,8 @@ metadata:
   ms.topic: landing-page
   ms.custom:
     - ignite-2024
-  
-  
+
+
   ms.date: 03/11/2025
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -68,3 +68,15 @@ landingContent:
             url: /powershell/module/az.rediscache
           - text: Azure CLI
             url: /cli/azure/redis
+  - title: About Azure Managed Redis
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Managed Redis?
+            url: /azure/redis/overview.md
+          - text: What's new?
+            url: /azure/redis/whats-new.md
+          - text: Azure Managed Redis architecture
+            url: /azure/redis/architecture.md
+          - text: Moving to Azure Managed Redis from Azure Cache for Redis
+            url: /azure/redis/migrate/migrate-overview.md
