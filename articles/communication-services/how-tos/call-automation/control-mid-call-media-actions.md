@@ -328,7 +328,7 @@ if event.type == "Microsoft.Communication.ContinuousDtmfRecognitionToneFailed":
 ```
 -----
 
-### ContinuousDtmfRecogntionStopped Event
+### ContinuousDtmfRecognitionStopped Event
 Example of how to handle when continuous DTMF recognition has stopped, this could be because your application invoked the `StopContinuousDtmfRecognitionAsync` event or because the call has ended.
 ### [csharp](#tab/csharp)
 ``` csharp
@@ -353,7 +353,7 @@ if (event.type === "Microsoft.Communication.ContinuousDtmfRecognitionStopped") {
 ### [Python](#tab/python)
 ```python
 if event.type == "Microsoft.Communication.ContinuousDtmfRecognitionStopped":
-    app.logger.info("Tone stoped: context=%s", event.data["operationContext"])
+    app.logger.info("Tone stopped: context=%s", event.data["operationContext"])
 ```
 -----
 
