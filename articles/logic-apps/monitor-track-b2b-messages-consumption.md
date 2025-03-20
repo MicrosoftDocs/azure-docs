@@ -1,20 +1,22 @@
 ---
-title: Monitor B2B messages with Azure Monitor
-description: Troubleshoot AS2, X12, and EDIFACT messages with Azure Monitor logs and collecting diagnostics data for Azure Logic Apps.
+title: Monitor and track B2B messages - Consumption workflows
+description: Monitor, track, and troubleshoot AS2, X12, and EDIFACT messages with Azure Monitor by collecting diagnostics data for Consumption workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, azla
 ms.topic: how-to
-ms.date: 01/04/2024
+ms.date: 02/28/2025
 ---
 
-# Set up Azure Monitor logs and collect diagnostics data for B2B messages in Azure Logic Apps
+# Monitor and track B2B messages in Consumption workflows with Azure Monitor and Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 > [!NOTE]
-> This article applies only to Consumption logic apps. For information about monitoring Standard logic apps, review 
-> [Enable or open Application Insights after deployment for Standard logic apps](create-single-tenant-workflows-azure-portal.md#enable-open-application-insights).
+> This article applies only to Consumption logic app workflows. For Standard logic app workflows, see the following documentation: 
+>
+> - [Enable or open Application Insights after deployment for Standard workflows](create-single-tenant-workflows-azure-portal.md#enable-open-application-insights)
+> - [Monitor and track B2B transactions in Standard workflows](monitor-track-b2b-transactions-standard.md)
 
 After you set up B2B communication between trading partners in your integration account, those partners can exchange messages by using protocols such as AS2, X12, and EDIFACT. To check that this communication works the way you expect, you can set up [Azure Monitor logs](/azure/azure-monitor/logs/data-platform-logs) for your integration account. [Azure Monitor](/azure/azure-monitor/overview) helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. By using Azure Monitor logs, you can record and store data about runtime data and events, such as trigger events, run events, and action events in a [Log Analytics workspace](/azure/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace). For messages, logging also collects information such as:
 
