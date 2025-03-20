@@ -100,9 +100,9 @@ To build a business case, follow these steps:
 
 1. Enter the Savings options. This specifies the combination that you want to consider while optimizing Azure costs to maximize savings.
 
-Based on the availability of the savings option in your selected region and the targets, the business case recommends the appropriate options to help you save the most on Azure.
-- Select **Reserved Instance** if your datacenter mainly consists of resources that run consistently.
-- Select **Reserved Instance** and **Azure Savings Plan** if you need more flexibility and automated cost optimization for workloads eligible under Azure Savings Plan (Compute targets including Azure VM and Azure App Service).
+    Based on the availability of the savings option in your selected region and the targets, the business case recommends the appropriate options to help you save the most on Azure.
+    - Select **Reserved Instance** if your datacenter mainly consists of resources that run consistently.
+    - Select **Reserved Instance** and **Azure Savings Plan** if you need more flexibility and automated cost optimization for workloads eligible under Azure Savings Plan (Compute targets including Azure VM and Azure App Service).
 
 1. In **Discount (%) on Pay as you go**, add any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%. The discount isn't applicable on top of reserved instance savings option.
 1. Select the currency in which you want to create the business case. 
