@@ -34,10 +34,12 @@ items:
       href: storage-quickstart-blobs-dotnet.md
     - name: Java
       items:
-      - name: Java
+      - name: Java SE
         href: storage-quickstart-blobs-java.md
-      - name: Spring
+      - name: Spring Boot
         href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage?toc=/azure/storage/blobs/toc.json
+      - name: Quarkus
+        href: storage-quickstart-blobs-java-quarkus.md
     - name: Python
       href: storage-quickstart-blobs-python.md
     - name: JavaScript
@@ -386,10 +388,8 @@ items:
         items:
         - name: Overview
           href: anonymous-read-access-overview.md
-        - name: Remediate anonymous access (Azure Resource Manager deployments)
+        - name: Remediate anonymous access
           href: anonymous-read-access-prevent.md
-        - name: Remediate anonymous access (classic deployments)
-          href: anonymous-read-access-prevent-classic.md
         - name: Configure anonymous access
           href: anonymous-read-access-configure.md
     - name: Microsoft Defender for Storage

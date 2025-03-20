@@ -3,7 +3,6 @@ title: Import a Logic App as an API with the Azure portal  | Microsoft Docs
 description: This article shows you how to use API Management to import a Logic App (Consumption) resource as an API.
 services: api-management
 author: dlepow
-manager: cfowler
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 04/16/2021

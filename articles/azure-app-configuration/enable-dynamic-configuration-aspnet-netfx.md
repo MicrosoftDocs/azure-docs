@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 ms.topic: tutorial
-ms.date: 03/20/2023
+ms.date: 03/19/2025
 ms.author: zhenlwa
 #Customer intent: I want to dynamically update my ASP.NET web application (.NET Framework) to use the latest configuration data in App Configuration.
 ---
@@ -51,15 +51,35 @@ Add the following key-values to the App Configuration store and leave **Label** 
 
 ## Reload data from App Configuration
 
-1. Right-click your project and select **Manage NuGet Packages**. On the **Browse** tab, search and add the latest version of the following NuGet package to your project.
+1. Right-click your project and select **Manage NuGet Packages**. On the **Browse** tab, search and add the latest version of the following NuGet packages to your project.
 
-   *Microsoft.Extensions.Configuration.AzureAppConfiguration*
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+
+    - *Microsoft.Extensions.Configuration.AzureAppConfiguration*
+    - *Azure.Identity*
+
+    ### [Connection string](#tab/connection-string)
+    
+    - *Microsoft.Extensions.Configuration.AzureAppConfiguration*
+    ---
 
 1. Open *Global.asax.cs* file and add following namespaces.
+
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+
+    ```csharp
+    using Azure.Identity;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+    ```
+
+    ### [Connection string](#tab/connection-string)
+
     ```csharp
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
+    ---
 
 1. Add the following static member variables to the `Global` class.
     ```csharp
@@ -68,6 +88,34 @@ Add the following key-values to the App Configuration store and leave **Label** 
     ```
 
 1. Add an `Application_Start` method to the `Global` class. If the method already exists, add the following code to it.
+
+   ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+
+    ```csharp
+    protected void Application_Start(object sender, EventArgs e)
+    {
+        ConfigurationBuilder builder = new ConfigurationBuilder();
+        builder.AddAzureAppConfiguration(options =>
+        {
+            string endpoint = Environment.GetEnvironmentVariable("Endpoint"); 
+            options.Connect(new Uri(endpoint), new DefaultAzureCredential())
+                    // Load all keys that start with `TestApp:` and have no label.
+                    .Select("TestApp:*")
+                    // Reload configuration if any selected key-values have changed.
+                    .ConfigureRefresh(refresh => 
+                    {
+                        refresh.RegisterAll()
+                               .SetRefreshInterval(new TimeSpan(0, 5, 0));
+                    });
+            _configurationRefresher = options.GetRefresher();
+        });
+
+        Configuration = builder.Build();
+    }
+    ```
+
+    ### [Connection string](#tab/connection-string)
+
     ```csharp
     protected void Application_Start(object sender, EventArgs e)
     {
@@ -89,6 +137,8 @@ Add the following key-values to the App Configuration store and leave **Label** 
         Configuration = builder.Build();
     }
     ```
+    ---
+
     The `Application_Start` method is called upon the first request to your web application. It is called only once during the application's life cycle. As such it is a good place to initialize your `IConfiguration` object and load data from App Configuration.
 
     Inside the `ConfigureRefresh` method, you call the `RegisterAll` method to instruct the App Configuration provider to reload the entire configuration whenever it detects a change in any of the selected key-values (those starting with *TestApp:* and having no label). For more information about monitoring configuration changes, see [Best practices for configuration refresh](./howto-best-practices.md#configuration-refresh).
@@ -159,7 +209,33 @@ Add the following key-values to the App Configuration store and leave **Label** 
 
 ## Build and run the application
 
-1. Set an environment variable named **ConnectionString** to the read-only key connection string obtained during your App Configuration store creation.
+1. Set an environment variable.
+
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+
+    Set an environment variable named `Endpoint` to the endpoint of your App Configuration store found under the **Overview** of your store in the Azure portal.
+
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+
+    ```cmd
+    setx Endpoint "<endpoint-of-your-app-configuration-store>"
+    ```
+
+    If you use PowerShell, run the following command:
+
+    ```powershell
+    $Env:Endpoint = "<endpoint-of-your-app-configuration-store>"
+    ```
+
+    If you use macOS or Linux, run the following command:
+
+    ```bash
+    export Endpoint='<endpoint-of-your-app-configuration-store>'
+    ```
+
+    ### [Connection string](#tab/connection-string)
+
+    Set an environment variable named `ConnectionString` to the read-only key connection string found under **Access settings** of your store in the Azure portal.
 
     If you use the Windows command prompt, run the following command:
     ```console
@@ -170,6 +246,13 @@ Add the following key-values to the App Configuration store and leave **Label** 
     ```powershell
     $Env:ConnectionString = "<connection-string-of-your-app-configuration-store>"
     ```
+
+    If you use macOS or Linux, run the following command:
+
+    ```bash
+    export ConnectionString='<connection-string-of-your-app-configuration-store>'
+    ```
+    ---
 
 1. Restart Visual Studio to allow the change to take effect. 
 

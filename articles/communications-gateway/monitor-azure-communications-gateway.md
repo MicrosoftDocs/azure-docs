@@ -4,8 +4,6 @@ description: Start here to learn how to monitor Azure Communications Gateway. Us
 ms.date: 09/24/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
-author: GemmaWakeford
-ms.author: gwakeford
 ms.service: azure-communications-gateway
 ---
 

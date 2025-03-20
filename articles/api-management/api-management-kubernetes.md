@@ -6,7 +6,7 @@ author: dlepow
 manager: cfowler
  
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: concept-article
 ms.date: 12/14/2019
 ms.author: danlep
 ---
