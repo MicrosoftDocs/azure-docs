@@ -76,7 +76,7 @@ The `redirect-uri` of your app, where your app sends and receives the authentica
 
 ### Find the adme-url for your Azure Data Manager for Energy instance
 
-1. Create an [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md) using the `client-id` generated above.
+1. Use the `client-id` obtained in the [Find client-id](#find-client-id) section to [create an Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
 1. Go to your Azure Data Manager for Energy **Overview** page on the Azure portal.
 1. On the **Essentials** pane, copy the URI.
 
