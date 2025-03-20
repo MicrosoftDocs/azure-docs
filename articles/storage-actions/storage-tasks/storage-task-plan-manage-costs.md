@@ -29,32 +29,49 @@ Image goes here
 
 ## Understand the full billing model for Azure Storage Actions
 
-Azure Storage Actions runs on Azure infrastructure that accrues costs when you deploy new resources. It's important to understand that there could be other additional infrastructure costs that might accrue.
+Your charged the billing meters for Storage Actions as well as the cost of operations performed on storage accounts.  
 
-### How you're charged for Azure Storage Actions
+### Azure Storage Actions meters
 
-When you create or use Azure Storage Actions resources, you might get charged for the following meters:
+Meters apply only when an assignment is executed. Validating a storage task by using the preview capability is free.
 
-| Meter | Unit |
-|---|---|
-| Meter1 | Per GB etc. |
-| Meter2 | Per GB etc. |
+| Meter | Unit | Description |
+|---|---|---| 
+| Task execution instance charge | Per run / per instance | This meter is applied to each assignment execution. If you've schedule a task assignment to run repeatedly, this charge is incurred for each run. |
+| Objects targeted | Per million objects scanned and evaluated / per condition  | Objects targeted are determined by the count of objects scanned and evaluated against the specified condition. This is based on the configuration of the task assignment, specifically the count of objects in the storage account under the optional prefixes selected, minus the objects under the excluded prefixes.|
+| Operations performed | Per million operations performed. | Operations performed are counted based on the number of API calls made on objects, including actions such as deleting, setting immutability, tagging, tiering, setting a legal hold, and other operations supported by Storage Actions.|
 
-At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Storage Actions costs. There's a separate line item for each meter.
+For official prices, see [Azure Storage Actions pricing](https://azure.microsoft.com/pricing/details/storage-actions/).
 
-### Other costs that might accrue with Azure Storage Actions
+At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Storage Actions costs. There's a separate line item for each meter. These charges appear in the subscription of the storage account where the task assignment is configured. 
 
-When you create resources for Azure Storage Actions, resources for other Azure services are also created. They include:
+### Azure Storage account meters 
 
-- OtherAzureService1
-- OtherAzureService2
+Most actions incur charges for Azure Blob Storage for operations on the storage account. For example, if a storage task assignment instance adds an index tag to a blob, then you'll incur the cost of a [Set Blob Tags](/rest/api/storageservices/set-blob-tags) operation on the target storage account. For information about how each Blob Storage operation maps to a price, see [Map each REST operation to a price](../../storage/blobs/map-rest-apis-transaction-categories.md). To learn more about Blob Storage costs, see [Plan and manage costs for Azure Blob Storage](../../storage/common/storage-plan-manage-costs.md).
 
-### Costs might accrue after resource deletion
+Storage Actions is a platform designed to help you with data protection, tagging, retention, cost management and more. It is not exclusively focused on cost optimization. While it provides various operations, only those related to down-tiering or deletion might reduce costs. Other operations could either maintain or increase costs. Make sure to review each task in the storage docs to set your expectations appropriately before setting these tasks up to operate on the storage account.
 
-After you delete Azure Storage Actions resources, the following resources might continue to exist. They continue to accrue costs until you delete them.
+#### Example calculation
 
-- OtherServiceResource1
-- OtherServiceResource2
+Blob container with 1 million blobs: scan and evaluate conditions on blob container and apply blob immutability to 10% of blobs that meet specified condition
+Execution charge = $0.25 + ($0.10 * 1) + ($1 * 0.1) = $0.45
+
+Storage account with 100 million blobs: scan and evaluate condition on all blobs and change blob tier on 1% of blobs that meet specified condition
+Execution charge = $0.25 + ($0.10 * 100) + ($1 * 1) = $11.25
+
+Add total cost here to include the cost of operations for each scenario.
+
+#### Sample prices
+
+| Price factor                                   | price   |
+|------------------------------------------------|---------|
+| Task execution instance charge                 | $0.25   |
+| Objects targeted                               | $.10    |
+| Operations performed                           | $1.00   |
+| Operation cost on storage account (per 10,000) | $0.0044 |
+
+> [!IMPORTANT]
+> These prices are meant only as examples, and shouldn't be used to calculate your costs. For official prices, see [Azure Storage Actions pricing](https://azure.microsoft.com/pricing/details/storage-actions/) and [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/). 
 
 ### Using Azure Prepayment with Azure Storage Actions
 
@@ -93,11 +110,6 @@ Budgets can be created with filters for specific resources or services in Azure 
 ## Export cost data
 
 You can also [export your cost data](../../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do additional data analysis for costs. For example, a finance teams can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
-
-
-## Other ways to manage and reduce costs for Azure Storage Actions
-
-Put something here.
 
 ## Next steps
 
