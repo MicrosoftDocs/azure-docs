@@ -70,41 +70,203 @@ The following snippets are examples of common SDK code. The AWS Lambda code maps
    :::column-end:::
 :::row-end:::
 
-| AWS Lambda code (SDK)  | Azure Functions code (Trigger)  |
-|---|---|
-| const AWS = require('aws-sdk');  const s3 = new AWS.S3(); <br><br> exports.handler = async (event) => {    const params = {      Bucket: 'my-bucket',      Key: 'my-object.txt', <br> }; <br> const data = await s3.getObject(params).promise();    console.log('File content:', data.Body.toString()); <br> };  | import { app } from '@azure/functions'; <br><br> app.storageblob('blobTrigger', { <br> path: 'my-container/{blobName}', <br>   connection: 'AzureWebJobsStorage', <br> }, async (context, myBlob) => { <br> context.log(`Blob content: ${myBlob.toString()}`); <br> });    |
-
 **Writing to Amazon Simple Queue Service (SQS) versus Queue Storage**
 
-| AWS Lambda code (SDK)  | Azure Functions code (Trigger)  |
-|---|---|
-| const AWS = require('aws-sdk');  const sqs = new AWS.SQS();     exports.handler = async (event) => {    const params = {      QueueUrl: 'https://sqs.amazonaws.com/123456789012/MyQueue',      MessageBody: 'Hello, world!',    };    await sqs.sendMessage(params).promise();  };  | import { app } from '@azure/functions';     app.queue('queueTrigger', {    queueName: 'myqueue-items',    connection: 'AzureWebJobsStorage',  }, async (context, queueMessage) => {    context.log(`Queue message: ${queueMessage}`);  });    |
+:::row:::
+   :::column span="":::
+
+      AWS Lambda code (SDK)
+
+      ```
+      const AWS = require('aws-sdk');
+      const sqs = new AWS.SQS(); 
+
+      exports.handler = async (event) => {
+       const params = {
+        QueueUrl:
+      'https://sqs.amazonaws.com/123456789012/MyQueue',
+         MessageBody: 'Hello, world!',
+       };
+        await
+      sqs.sendMessage(params).promise();
+      };
+      ```    
+
+   :::column-end:::
+   :::column span="":::
+
+      Azure Functions code (Trigger)
+
+      ```
+      import { app } from '@azure/functions';
+
+      app.queue('queueTrigger', { 
+       queueName: 'myqueue-items',
+       connection: 'AzureWebJobsStorage',
+      }, async (context, queueMessage) => {
+        context.log(`Queue message: 
+      ${queueMessage}`);
+      }); 
+      ```
+
+   :::column-end:::
+:::row-end:::
 
 **Writing to DynamoDB versus Azure Cosmos DB**
 
-| AWS Lambda code (SDK)  | Azure Functions code (Trigger)  |
-|---|---|
-| const AWS = require('aws-sdk');  const dynamoDb = new AWS.DynamoDB.DocumentClient();     exports.handler = async (event) => {    const params = {      TableName: 'my-table',      Key: { id: '123' },    };    const data = await dynamoDb.get(params).promise();    console.log('DynamoDB record:', data.Item);  };  | import { app } from '@azure/functions';     app.cosmosDB('cosmosTrigger', {    connectionStringSetting: 'CosmosDBConnection',    databaseName: 'my-database',    containerName: 'my-container',    leaseContainerName: 'leases',  }, async (context, documents) => {    documents.forEach(doc => {      context.log(`Cosmos DB document: ${JSON.stringify(doc)}`);    });  });  |
+:::row:::
+   :::column span="":::
+
+      AWS Lambda code (SDK)
+
+      ```
+      const AWS = require('aws-sdk'); 
+      const dynamoDb = new AWS.DynamoDB.DocumentClient();   
+
+      exports.handler = async (event) => { 
+      const params = { 
+       TableName: 'my-table', 
+       Key: { id: '123' }, 
+      }; 
+       const data = await dynamoDb.get(params).promise(); 
+        console.log('DynamoDB record:', data.Item); 
+      }; 
+      ```
+
+   :::column-end:::
+   :::column span="":::
+
+      Azure Functions code (Trigger)
+      
+      ```
+      import { app } from '@azure/functions';  
+
+      app.cosmosDB('cosmosTrigger', { 
+       connectionStringSetting: 'CosmosDBConnection', 
+       databaseName: 'my-database', 
+       containerName: 'my-container', 
+       leaseContainerName: 'leases', 
+      }, async (context, documents) => { 
+       documents.forEach(doc => { 
+       context.log(`Cosmos DB document: ${JSON.stringify(doc)}`); 
+       }); 
+      }); 
+      ```
+
+   :::column-end:::
+:::row-end:::
 
 **Amazon CloudWatch Events versus Azure timer trigger**
 
-| AWS Lambda code (SDK)  | Azure Functions code (Trigger)  |
-|---|---|
-| exports.handler = async (event) => {    console.log('Scheduled event:', event);  };  | import { app } from '@azure/functions';  app.timer('timerTrigger', { schedule: '0 */5 * * * *', // Runs every 5 minutes }, async (context, myTimer) => { if (myTimer.isPastDue) { context.log('Timer is running late!'); } context.log(Timer function executed at: ${new Date().toISOString()}); });  |
+:::row:::
+   :::column span="":::
+
+      AWS Lambda code (SDK)
+
+      ```
+      exports.handler = async (event) => {
+       console.log('Scheduled event:', event); 
+      }; 
+      ```
+
+   :::column-end:::
+   :::column span="":::
+
+      Azure Functions code (Trigger)
+
+      ```
+      import { app } from '@azure/functions'; 
+       
+      app.timer('timerTrigger', { schedule: '0 */5 * * * *', // Runs every 5 minutes }, async (context, myTimer) => { if (myTimer.isPastDue) { context.log('Timer is running late!'); } context.log(Timer function executed at: ${new Date().toISOString()}); });
+      ```
+
+   :::column-end:::
+:::row-end:::
 
 **Amazon Simple Notification Service (SNS) versus Azure Event Grid Trigger**
 
-| AWS Lambda code (SDK)  | Azure Functions code (Trigger)  |
-|---|---|
-| const AWS = require('aws-sdk');  const sns = new AWS.SNS();     exports.handler = async (event) => {    const params = {      Message: 'Hello, Event Grid!',      TopicArn: 'arn:aws:sns:us-east-1:123456789012:MyTopic',    };    await sns.publish(params).promise();  };  | import { app } from '@azure/functions';  app.eventGrid('eventGridTrigger', {}, async (context, eventGridEvent) => {    context.log(`Event Grid event: ${JSON.stringify(eventGridEvent)}`);  });  |
+:::row:::
+   :::column span="":::
+
+      AWS Lambda code (SDK)
+
+      ```
+      const AWS = require('aws-sdk'); 
+      const sns = new AWS.SNS();   
+
+      exports.handler = async (event) => { 
+       const params = { 
+        Message: 'Hello, Event Grid!', 
+        TopicArn: 'arn:aws:sns:us-east-1:123456789012:MyTopic', 
+       }; 
+       await sns.publish(params).promise(); 
+      }; 
+      ```
+
+   :::column-end:::
+   :::column span="":::
+
+      Azure Functions code (Trigger)
+
+      ```
+      import { app } from '@azure/functions'; 
+
+      app.eventGrid('eventGridTrigger', {}, 
+      async (context, eventGridEvent) => { 
+
+       context.log(`Event Grid event: 
+      ${JSON.stringify(eventGridEvent)}`); 
+
+      }); 
+      ```
+
+   :::column-end:::
+:::row-end:::
 
 **Amazon Kinesis vs Azure Event Hubs trigger**
 
-| AWS Lambda code (SDK)  | Azure Functions code (Trigger)  |
-|---|---|
-| const AWS = require('aws-sdk');  const kinesis = new AWS.Kinesis();     exports.handler = async (event) => {    const records = event.Records.map(record => Buffer.from(record.kinesis.data, 'base64').toString());    console.log('Kinesis records:', records);  };  | import { app } from '@azure/functions';   app.eventHub('eventHubTrigger', {     connection: 'EventHubConnection',     eventHubName: 'my-event-hub',   }, async (context, eventHubMessages) => {     eventHubMessages.forEach(message => {       context.log(`Event Hub message: ${message}`);     });   });  |
+:::row:::
+   :::column span="":::
 
-See the following GitHub repositories to compare AWS Lambda code and Azure Functions code. 
+      AWS Lambda code (SDK)
+
+      ```
+      const AWS = require('aws-sdk'); 
+      const kinesis = new AWS.Kinesis();   
+
+      exports.handler = async (event) => { 
+       const records = 
+      event.Records.map(record => 
+      Buffer.from(record.kinesis.data, 
+      'base64').toString()); 
+        console.log('Kinesis records:', records); 
+      }; 
+      ```
+
+   :::column-end:::
+   :::column span="":::
+   
+      Azure Functions code (Trigger)
+
+      ```
+      import { app } from '@azure/functions'; 
+      app.eventHub('eventHubTrigger', {  
+       connection: 'EventHubConnection',  
+       eventHubName: 'my-event-hub',  
+      }, async (context, eventHubMessages) => 
+      {  
+       eventHubMessages.forEach(message => 
+      {  
+       context.log(`Event Hub message: 
+      ${message}`);  
+       });  
+      });
+      ```
+
+   :::column-end:::
+:::row-end:::
+
+See the following GitHub repositories to compare AWS Lambda code and Azure Functions code.
 
 - [AWS Lambda code](https://github.com/MadhuraBharadwaj-MSFT/TestLambda)
 
