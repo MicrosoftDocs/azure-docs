@@ -121,7 +121,8 @@ The workflow/process diagram for the installation of S/4 HANA with the CAL API i
 
 - For questions about the integration experience of SAP CAL and SDAF, contact <SDAFicm@microsoft.com>.
 - For help on issues with installation, create a support request with SAP CAL on [Report an Issue Dashboard - SAP for Me](https://me.sap.com/createIssue/0).
-   - Raise the request for the component `BC-VCM-PSD`so that the request reaches the SAP CAL team.
+  
+  Raise the request for the component `BC-VCM-PSD` so that the request reaches the SAP CAL team.
 
 ## Related content
 
