@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-center
 ms.topic: include
-ms.date: 03/04/2025
+ms.date: 03/20/2025
 ms.author: danlep
 ms.custom: Include file
 ---
@@ -24,5 +24,5 @@ First configure an app registration in your Microsoft Entra ID tenant. The app r
     1. In **Redirect URI**, select **Single-page application (SPA)** and set the URI. 
         Enter the URI of your API Center portal deployment, in the following form: `https://<service-name>.portal.<location>.azure-api-center.ms`. Replace `<service name>` and `<location>` with the name of your API center and the location where it's deployed, Example: `https://myapicenter.portal.eastus.azure-api-center.ms`.
     1. Select **Register**.
-    1. Turn into **Authentication** page, click **Add a platform** and select the **Mobile and desktop applications**, add following three Redirect URIs into this section: `https://vscode.dev/redirect`, `http://localhost`, and `ms-appx-web://Microsoft.AAD.BrokerPlugin/<application-client-id>`. Replace `<application-client-id>` with this AAD App.
-1. On the **Overview** page, copy the **Application (client) ID**. You set this value when you publish the portal.
+    1. On the **Manage** > **Authentication** page, Select **Add a platform** and select **Mobile and desktop applications**. 
+    1. Configure the following three custom redirect URIs: `https://vscode.dev/redirect`, `http://localhost`, and `ms-appx-web://Microsoft.AAD.BrokerPlugin/<application-client-id>`. Replace `<application-client-id>` with the application (client) ID of this app. You can find this value on the **Overview** page. 
