@@ -25,7 +25,7 @@
     href: quick-create-terraform.md
 - name: Design
   items:
-  - name: Well-Architected review of Application Gateway
+  - name: Architecture best practices for Azure Application Gateway v2
     href: /azure/architecture/framework/services/networking/azure-application-gateway?toc=/azure/application-gateway/toc.json&bc=/azure/application-gateway/breadcrumb/toc.json
   - name: Basics
     items:

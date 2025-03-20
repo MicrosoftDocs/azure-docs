@@ -35,7 +35,7 @@ After you grant permissions to the user-assigned identity, complete these steps:
 
 1. Configure the app to use this identity for App Configuration reference operations by setting the `keyVaultReferenceIdentity` property to the resource ID of the user-assigned identity. Although the property has `keyVault` in the name, the identity also applies to App Configuration references.
 
-    ```azurecli-interactive
+    ```azurecli
     userAssignedIdentityResourceId=$(az identity show -g MyResourceGroupName -n MyUserAssignedIdentityName --query id -o tsv)
     appResourceId=$(az webapp show -g MyResourceGroupName -n MyAppName --query id -o tsv)
     az rest --method PATCH --uri "${appResourceId}?api-version=2021-01-01" --body "{'properties':{'keyVaultReferenceIdentity':'${userAssignedIdentityResourceId}'}}"
@@ -48,7 +48,7 @@ This configuration applies to all references from this app.
 In addition to storing raw configuration values, Azure App Configuration has its own format for storing [Azure Key Vault references][app-config-key-vault-references]. If the value of an App Configuration reference is a Key Vault reference in the App Configuration store, your app also must have permissions to access the key vault that is specified in the reference.
 
 > [!NOTE]
-> The [App Configuration Key Vault references concept][app-config-key-vault-references] shouldn't be confused with [the App Service and Azure Functions Key Vault references concept][app-service-key-vault-references]. Your app can use any combination of these references, but there are some important differences. If your vault needs to be network restricted or if you need the app to periodically update to latest versions, consider using the App Service and Azure Functions direct approach instead of using an App Configuration reference.
+> The concept of [App Configuration Key Vault references][app-config-key-vault-references] shouldn't be confused with the concept of [App Service and Azure Functions Key Vault references][app-service-key-vault-references]. Your app can use any combination of these references, but there are some important differences. If your vault needs to be network restricted or if you need the app to periodically update to latest versions, consider using the App Service and Azure Functions direct approach instead of using an App Configuration reference.
 
 [app-config-key-vault-references]: ../azure-app-configuration/use-key-vault-references-dotnet-core.md
 [app-service-key-vault-references]: app-service-key-vault-references.md
@@ -65,9 +65,9 @@ An App Configuration reference has the form `@Microsoft.AppConfiguration({refere
 >
 > | Reference string parts                                                           | Description                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | `Endpoint` = *endpointURL* | `Endpoint` is the required part of the reference string. The value for `Endpoint` should include the URL of your App Configuration resource. |
-> | `Key` = *myAppConfigKey* |  `Key` forms the required part of the reference string. The value for `Key` is the name of the key that you want to assign to the app setting. |
-> | `Label` = *myKeyLabel* | `Label` is optional in the reference string. `Label` should be the value of the key label specified in `Key`. |
+> | `Endpoint` = `<endpointURL>` | `Endpoint` is the required part of the reference string. The value for `Endpoint` should include the URL of your App Configuration resource. |
+> | `Key` = `<myAppConfigKey>` |  `Key` forms the required part of the reference string. The value for `Key` is the name of the key that you want to assign to the app setting. |
+> | `Label` = `<myKeyLabel>` | `Label` is optional in the reference string. `Label` should be the value of the key label specified in `Key`. |
 
 Here's an example of a complete reference that includes `Label`:
 

@@ -31,7 +31,7 @@ The following table lists possible token header names:
 From your client code (such as a mobile app or in-browser JavaScript), send an HTTP `GET` request to `/.auth/me` ([token store](overview-authentication-authorization.md#token-store) must be enabled). The returned JSON has the provider-specific tokens.
 
 > [!NOTE]
-> Access tokens are for accessing provider resources, so they're present only if you configure your provider with a client secret. To see how to get refresh tokens, see the next section.
+> Access tokens are for accessing provider resources, so they're present only if you configure your provider with a client secret.
 
 ## Refresh auth tokens
 

@@ -64,7 +64,7 @@ These suites provide strong encryption and are automatically used when TLS 1.3 i
 
 ### TLS 1.2
 
-TLS 1.2 is the *default and recommended* TLS version for App Service. It provides strong encryption and broad compatibility while meeting compliance standards like the Payment Card Industry Data Security Standard (PCI DSS). New web apps and SCM endpoints by default use TLS 1.2 unless you change them.
+TLS 1.2 is the *default* TLS version for App Service. It provides strong encryption and broad compatibility while meeting compliance standards like the Payment Card Industry Data Security Standard (PCI DSS). New web apps and SCM endpoints by default use TLS 1.2 unless you change them.
 
 Azure App Service uses a secure set of TLS 1.2 cipher suites to help ensure encrypted connections and to protect against known vulnerabilities. Although you can enable TLS 1.1 and TLS 1.0 for backward compatibility, we recommend that you use a minimum version of TLS 1.2.
 
