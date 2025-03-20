@@ -74,7 +74,7 @@ The new users need to follow steps given below:
  
 ## Review All inventory
 
-You can start by selecting the count of workloads on **Overview** of your project or select **All inventory** under **Explore inventory** from the menu on the left to see the list of workloads, discovered from your environment either by using [Azure Migrate appliance](/migrate-appliance.md) or using [CSV import](/azure/migrate/how-to-review-discovered-inventory?).
+You can start by selecting the count of workloads on **Overview** of your project or select **All inventory** under **Explore inventory** from the menu on the left to see the list of workloads, discovered from your environment either by using [Azure Migrate appliance](//azure/migrate/migrate-appliance?view=migrate&branch=release-migrate-new-structure) or using [CSV import](/azure/migrate/how-to-review-discovered-inventory?).
 
 **All Inventory** view helps you review all the workloads discovered from your datacentre including servers (VMware VMs/Hyper-V VMs/Physical servers/servers running in other public clouds), databases, and web applications which can be found inline by expanding the server. 
 
@@ -96,7 +96,7 @@ Type | Type of workload <br/> *For instance a Server can be Windows server/Linux
 Edition | Edition of the Server, Database, or Web app
 Version | Version of the Server, Database, or Web app
 Dependencies | Netowork dependencies of the server <br/> *Dependency analysis is auto-enabled on upto 1000 servers per appliance if the validation checks succeed. [Learn more]()*
-Support Status | Support status for the Servers, Databases to indicate if they're in Mainstream support, End of Support, or in Extended support. [Learn more](/tutorial-discover-vmware.md#view-support-status)
+Support Status | Support status for the Servers, Databases to indicate if they're in Mainstream support, End of Support, or in Extended support. [Learn more](/tutorial-discover-vmware.md#view-support-status).
 Discovery source | Source of discovery of the workload between Appliance and Import
 Tags | Tags applied to the workload. <br/> *Currently, Azure Migrate supports custom tags. [Learn more]()*
 
