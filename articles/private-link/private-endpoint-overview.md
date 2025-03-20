@@ -82,7 +82,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Cache for Redis Enterprise | Microsoft.Cache/redisEnterprise | redisEnterprise |
 | Azure Container Apps | Microsoft.App/ManagedEnvironments | managedEnvironment |
 | Azure Container Registry | Microsoft.ContainerRegistry/registries | registry |
-| Azure Cosmos DB | Microsoft.AzureCosmosDB/databaseAccounts | SQL, MongoDB, Cassandra, Gremlin, Table |
+| Azure Cosmos DB | Microsoft.DocumentDb/databaseAccounts | SQL, MongoDB, Cassandra, Gremlin, Table |
 | Azure Cosmos DB for MongoDB vCore | Microsoft.DocumentDb/mongoClusters | mongoCluster |
 | Azure Cosmos DB for PostgreSQL | Microsoft.DBforPostgreSQL/serverGroupsv2 | coordinator |
 | Azure Data Explorer | Microsoft.Kusto/clusters | cluster |
