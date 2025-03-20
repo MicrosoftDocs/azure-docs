@@ -10,7 +10,7 @@ ms.custom:
   - ai-gen-title
 ---
 
-# Manage settings for your Datadog resource via Azure portal
+# Manage Datadog resources
 
 This article shows how to manage the settings for Datadog.
 
@@ -78,7 +78,7 @@ To monitor multiple subscriptions:
 
 1. Select the subscriptions you want to monitor through the Datadog resource and select **Add**.
 
-    > ![IMPORTANT]
+    > [!IMPORTANT]
     > Setting separate tag rules for different subscriptions isn't supported.
 
     Diagnostics settings are automatically added to the subscription's resources that match the defined tag rules.
@@ -124,33 +124,29 @@ You can install Datadog agents on virtual machines, App Service extensions, Azur
 
 To monitor resources for virtual machines, select **Datadog organization configurations > Virtual machine agent** from the Resource pane.
 
-[!INCLUDE [install-datadog-agent](../includes/datadog-agent.md)]
+[!INCLUDE [agent](../includes/agent.md)]
 
 ### App Service
 
 To monitor resources for App Service, select **Datadog organization configurations > App Service extension** from the Resource pane.
 
-[!INCLUDE [install-datadog-agent](../includes/datadog-agent.md)]
+[!INCLUDE [agent](../includes/agent.md)]
 
 ### Azure Kubernetes Services
 
 To monitor resources Azure Kubernetes Services, select **Datadog organization configurations > Azure Kubernetes Services** from the Resource pane.
 
-[!INCLUDE [install-datadog-agent](../includes/datadog-agent.md)]
+[!INCLUDE [agent](../includes/agent.md)]
 
 ### Azure Arc Machines
 
 To monitor resources for Azure Arc Machines, select **Datadog organization configurations > Azure Arc Machines** from the Resource pane.
 
-[!INCLUDE [install-datadog-agent](../includes/datadog-agent.md)]
+[!INCLUDE [agent](../includes/agent.md)]
 
 ## Reconfigure single sign-on
 
-To enable single sign-on through Microsoft Entra ID:
-
-1. Select **Settings > Single sign-on** from the Resource pane.
-
-1. Select the check box.
+[!INCLUDE [reconfigure-sso](../includes/reconfigure-sso.md)]
 
 ## Change your billing plan
 

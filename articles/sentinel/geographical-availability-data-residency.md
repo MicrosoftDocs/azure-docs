@@ -50,7 +50,7 @@ Regions supported for Microsoft Sentinel raw data, and for processed and configu
 | | **Israel** | • Israel Central |
 | | **Japan** | • Japan East<br>• Japan West|
 | | **Korea**| • Korea Central<br>• Korea South| 
-| | **Quatar** | • Qatar Central|
+| | **Qatar** | • Qatar Central|
 | | **UAE**| • UAE Central<br>• UAE North        |
 |**Europe**| | • North Europe<br>• West Europe|
 | |**France**| • France Central<br>• France South|
