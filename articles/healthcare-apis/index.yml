@@ -30,6 +30,9 @@ highlightedContent:
        - title: Azure Health Data Services 
          itemType: learn
          url: /training/browse/?term=iot&terms=health%20data%20services
+       - title: Regional availability of services and features
+         itemType: reference
+         url: ./services-features-regional-availability.md  
 
 conceptualContent:
   items: 

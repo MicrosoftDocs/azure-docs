@@ -561,6 +561,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/storage/blobs/anonymous-read-access-prevent-classic.md",
+            "redirect_url": "/azure/storage/blobs/anonymous-read-access-prevent",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-ruby.md",
             "redirect_url": "/previous-versions/azure/storage/blobs/storage-quickstart-blobs-ruby",
             "redirect_document_id": false

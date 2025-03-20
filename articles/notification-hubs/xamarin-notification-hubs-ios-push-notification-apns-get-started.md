@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to use Azure Notification Hubs to s
 services: notification-hubs
 keywords: ios push notifications,push messages,push notifications,push message
 author: sethmanheim
-manager: femila
+manager: lizross
 
 ms.service: azure-notification-hubs
 ms.tgt_pltfrm: mobile-xamarin-ios
