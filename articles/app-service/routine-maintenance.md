@@ -36,14 +36,14 @@ In order from top to bottom, the example shows:
 
 The following screenshots show additional information available through the Impacted Resources dropdown:
 
-:::image type="content" source="./media/routine-maintenance/routine-maintenance-main.PNG" alt-text="Screenshot of the Impacted Resources blade in the Azure portal.":::
+:::image type="content" source="./media/routine-maintenance/routine-maintenance-first.png" alt-text="Screenshot of the Impacted Resources blade in the Azure portal.":::
 
 In order from left to right, the example shows:
 
 - Selecting the "Impacted Resources" dropdown.
 - The "More info" option.
 
-:::image type="content" source="./media/routine-maintenance/routine-maintenance-more-info.PNG" alt-text="Screenshot of more info for a maintenance event in the Azure portal.":::
+:::image type="content" source="./media/routine-maintenance/routine-maintenance-more.png" alt-text="Screenshot of more info for a maintenance event in the Azure portal.":::
 
 This example shows:
 
