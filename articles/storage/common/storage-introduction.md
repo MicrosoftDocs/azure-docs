@@ -153,7 +153,7 @@ For a comparison of Azure Files and Azure NetApp Files, refer to [Azure Files an
 
 ## Azure Managed Lustre
 
-[Azure Managed Lustre](../azure-managed-lustre/amlfs-overview.md) is a managed file system that offers scalable, powerful, cost-effective storage for HPC workloads.
+[Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview) is a managed file system that offers scalable, powerful, cost-effective storage for HPC workloads.
 
 Key features and benefits of Azure Managed Lustre include:
 
