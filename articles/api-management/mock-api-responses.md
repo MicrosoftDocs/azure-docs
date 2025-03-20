@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Mock API responses in API Management - Azure portal  | Microsoft Docs
-description: In this tutorial, you use API Management to set a policy on an API. The policy returns a mocked response even if the backend isn't available to send real responses.
+description: Use Azure API Management to set a policy on an API. The policy returns a mock response even if the back end isn't available to send real responses.
 
 author: dlepow
 ms.service: azure-api-management
@@ -9,26 +9,28 @@ ms.topic: tutorial
 ms.date: 03/24/2025
 ms.author: danlep
 
+
+#customer intent: As a developer, I want to set a policy on an API so that a mock response is returned.
 ---
 
 # Tutorial: Mock API responses
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-Backend APIs are imported into an API Management (APIM) API or created and managed manually. The steps in this tutorial, show you how to:
+Back-end APIs are imported into an Azure API Management API or created and managed manually. The steps in this tutorial describe how to:
 
-+ Use API Management to create a blank HTTP API
-+ Manage an HTTP API manually
-+ Set a policy on an API so it returns a mocked response
++ Use API Management to create a blank HTTP API.
++ Manually manage an HTTP API.
++ Set a policy on an API so that it returns a mock response.
 
-This method lets developers continue with the implementation and testing of the API Management instance even if the backend isn't available to send real responses.
+This method enables developers to continue with the implementation and testing of the API Management instance even if the back end isn't available to send real responses.
 
 [!INCLUDE [api-management-workspace-try-it](../../includes/api-management-workspace-try-it.md)]
 
-The ability to mock up responses is useful in many scenarios:
+The ability to create mock responses is useful in many scenarios:
 
-+ When the API façade is designed first and the backend implementation comes later. Or, the backend is being developed in parallel.
-+ When the backend is temporarily not operational or not able to scale.
++ When the API façade is designed first and the back-end implementation occurs later, or when the back end is being developed in parallel.
++ When the back end is temporarily not operational or unable to scale.
 
 In this tutorial, you learn how to:
 
@@ -38,7 +40,7 @@ In this tutorial, you learn how to:
 > * Enable response mocking
 > * Test the mocked API
 
-:::image type="content" source="media/mock-api-responses/mock-api-response-02.png" alt-text="Mocked API response":::
+:::image type="content" source="media/mock-api-responses/mock-api-response-02.png" alt-text="Screenshot that shows the APIs page in the Azure portal." lightbox="media/mock-api-responses/mock-api-response-02.png":::
 
 ## Prerequisites
 
