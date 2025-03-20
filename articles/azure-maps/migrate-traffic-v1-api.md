@@ -169,6 +169,7 @@ Content-Type: application/vnd.mapbox-vector-tile
 [Get Map Tile]: /rest/api/maps/render/get-map-tile?view=rest-maps-1.0
 [Get Traffic Flow Segment]: /rest/api/maps/traffic/get-traffic-flow-segment?view=rest-maps-1.0
 [Get Traffic Flow Tile]: /rest/api/maps/traffic/get-traffic-flow-tile#trafficflowtilestyle?view=rest-maps-1.0
+[Get Traffic Incident Detail]: /rest/api/maps/traffic/get-traffic-incident-detail?view=rest-maps-1.0
 [Get Traffic Incident Tile]: /rest/api/maps/traffic/get-traffic-incident-tile?view=rest-maps-1.0
 [Get Traffic Incident Viewport]: /rest/api/maps/traffic/get-traffic-incident-viewport?view=rest-maps-1.0
 [TilesetID]: /rest/api/maps/render/get-map-tile#tilesetid
