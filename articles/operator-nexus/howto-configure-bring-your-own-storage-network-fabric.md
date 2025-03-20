@@ -17,7 +17,9 @@ This guide provides step-by-step instructions for configuring Network Fabric (NN
 
 Before proceeding, ensure you have:
 
-- Azure CLI Installed - Install or update the Azure CLI (Download).
+- Azure CLI Installed - Install or update the Azure CLI version  Version 2.69 or higher.
+
+- CLI Extension: Install the `managednetworkfabric` extension, version 8.0.0 or higher.
 
 - Necessary Permissions - Ensure you have Contributor or Owner role on the storage account and permissions to assign RBAC roles.
 
@@ -27,25 +29,25 @@ Before proceeding, ensure you have:
 
 - NNF Resource Provider Registration - Ensure Microsoft.ManagedNetworkFabric is registered in your subscription.
 
-## Create user-assigned managed identity (UAMI)
+## Step 1: Create user-assigned managed identity (UAMI)
 
 Create the UAMI(s) required for accessing the necessary resources.
 
-For more information on creating managed identities, refer to [Manage user-assigned managed identities](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp)
+For more information on creating managed identities, refer to [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp)
 
-## Configure the storage account
+## Step 2: Configure the storage account
 
-### Create or identify a storage account
+### 2.1 Create or identify a storage account
 
 Create a new storage account or use an existing one. Refer to [Create an Azure storage account](../storage/common/storage-account-create.md).
 
-### Assign the required role
+### 2.2 Assign the required role
 
 Assign the **Storage Blob Data Contributor** role to the users and UAMI needing access to the **runRO** and **cable validation command output**.
 
 For role assignment details, see [Assign an Azure role for access to blob data](../storage/blobs/assign-azure-role-data-access.md).
 
-### 2.3 Restrict storage account access
+### 2.3 Restrict storage account access (Optional)
 
 To limit access, configure Storage Firewalls and Virtual Networks:
 
@@ -53,15 +55,15 @@ To limit access, configure Storage Firewalls and Virtual Networks:
 
 - Follow instructions from [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md).
 
-### Enable Trusted Services
+### 2.4 Enable Trusted Services
 
 Ensure the option **Allow Azure services on the trusted services list to access this storage account** under **Exceptions** is selected.
 
-## Assign permissions to UAMI for Nexus Network Fabric Resource Provider
+## Step3: Assign permissions to UAMI for Nexus Network Fabric Resource Provider
 
 When using UAMI to access a storage account, the NNF platform requires provisioning access. Specifically, the permission **Microsoft.ManagedIdentity/userAssignedIdentities/assign/action** must be granted to the UAMI for the **Managed Network Fabric RP** in Microsoft Entra ID.
 
-### Assign the Managed Identity Operator Role
+### 3.1 Assign the Managed Identity Operator Role
 
 1. Open the **Azure Portal** and locate the **User-Assigned Identity**.
 
@@ -76,13 +78,13 @@ When using UAMI to access a storage account, the NNF platform requires provision
 6. Click **Review and assign**.
 
 > [!Note]
-> When using a User-Assigned Managed Identity (UAMI) to access a Storage account, it is essential to provision access to that identity for the NNF platform. Specifically, the Microsoft.ManagedIdentity/userAssignedIdentities/assign/action permission needs to be added to the User-assigned identity for the Managed Network Fabric RP Microsoft Entra ID. This permission ensures that the UAMI can be properly assigned and utilized within the NNF platform. It is a known limitation of the platform that this specific permission assignment is required. However, this limitation will be addressed in a future release (NNF 9.0).
+> When using a User-Assigned Managed Identity (UAMI) to access a Storage account, it is essential to provision access to that identity for the NNF platform. Specifically, the Microsoft.ManagedIdentity/userAssignedIdentities/assign/action permission needs to be added to the User-assigned identity for the Managed Network Fabric RP Microsoft Entra ID. This permission ensures that the UAMI can be properly assigned and utilized within the NNF platform. It is a known limitation of the platform that this specific permission assignment is required. However, this limitation will be addressed in a future release.
 
-## Update Cluster with UAMI and Storage Account configuration
+## Step 4: Update Cluster with UAMI and Storage Account configuration
 
 When creating or updating an NNF instance, both the User-Assigned Managed Identity and Storage Account must be supplied together.
 
-### Storage account configuration format
+### 4.1 Storage account configuration format
 
 Use the `--storage-account-configuration` parameter to define the storage location for command outputs:
 
@@ -96,7 +98,9 @@ Use the `--storage-account-configuration` parameter to define the storage locati
 }
 ```
 
-## Create a new Fabric instance
+## Step 5: Attaching your own storage account Fabric instance
+
+### Attaching storage account during the creation of Fabric instance
 
 Use the following command to create a new Fabric instance with BYO storage:
 
@@ -108,7 +112,7 @@ az networkfabric fabric create --resource-name <fabricname> \
     --mi-user-assigned "/subscriptions/<uamisubscriptionid>/resourceGroups/<uamiresourcegroupname>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<uaminame>"
 ```
 
-## Update an existing Fabric instance
+### Updating storage account to an existing Fabric instance
 
 For existing deployments, update the Fabric with the required parameters:
 

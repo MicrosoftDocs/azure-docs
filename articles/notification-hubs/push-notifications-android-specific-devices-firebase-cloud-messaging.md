@@ -3,7 +3,7 @@ title: Send push notifications to specific devices using Azure Notification Hubs
 description: Learn how to use Notification Hubs to push notifications to specific Android devices by using Azure Notification Hubs and Google Firebase Cloud Messaging (FCM).
 services: notification-hubs
 author: sethmanheim
-manager: femila
+manager: lizross
 ms.service: azure-notification-hubs
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java

@@ -4,6 +4,9 @@ description: Use Microsoft Power BI to visualize Interactive Query Hive data fro
 ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: nijelsf
 ms.date: 10/17/2024
 ---
 

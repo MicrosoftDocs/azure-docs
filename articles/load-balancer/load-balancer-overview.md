@@ -63,7 +63,7 @@ Key scenarios that you can accomplish by using Azure Standard Load Balancer incl
 
 - Load balance TCP and UDP flow on all ports simultaneously by using [high-availability ports](./load-balancer-ha-ports-overview.md).
 
-- Chain Standard Load Balancer and [Gateway Load Balancer](./tutorial-gateway-portal.md).
+- Chain Standard Load Balancer and [Gateway Load Balancer](./tutorial-create-gateway-load-balancer.md).
 
 ### <a name="securebydefault"></a>Security by default
 
@@ -71,7 +71,7 @@ Key scenarios that you can accomplish by using Azure Standard Load Balancer incl
 
 - [Standard Load Balancer](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/load-balancer/skus.md) is part of your virtual network, which is private and isolated for security.
 
-- Standard load balancers and standard public IP addresses are closed to inbound connections, unless network security groups (NSGs) open them. You use NSGs to explicitly permit allowed traffic. If you don't have an NSG on a subnet or network interface card (NIC) of your virtual machine resource, traffic isn't allowed to reach the resource. To learn about NSGs and how to apply them to your scenario, see [Network security groups](../virtual-network/network-security-groups-overview.md).
+- Standard load balancers and standard public IP addresses are closed to inbound connections, unless network security groups (NSGs) open them. You use NSGs to explicitly permit allowed traffic. If you don't have an NSG on a subnet or network interface card (NIC) of your virtual machine resource, traffic is not allowed to reach the resource. To learn about NSGs and how to apply them to your scenario, see [Network security groups](../virtual-network/network-security-groups-overview.md).
 
 - [Basic Load Balancer](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/load-balancer/skus.md) is open to the internet by default.
 

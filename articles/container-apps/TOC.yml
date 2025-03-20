@@ -276,10 +276,14 @@
   items:
     - name: Serverless GPUs
       href: gpu-serverless-overview.md
+    - name: GPU types
+      href: gpu-types.md
     - name: Tutorials
       items:
       - name: Generate images with serverless GPUs
         href: gpu-image-generation.md
+      - name: Deploy an NVIDIA Llama3 NIM
+        href: serverless-gpu-nim.md
 - name: Microservices
   items:
     - name: Developing with Dapr
@@ -381,9 +385,27 @@
       - name: Turn on Java features
         href: java-feature-switch.md
         displayName: java
+      - name: Automatic memory fitting (preview)
+        href: java-memory-fit.md
+        displayName: java
+      - name: Build environment variables (preview)
+        href: java-build-environment-variables.md
+        displayName: java    
       - name: Launch your first Java app
-        href: java-get-started.md
-      - name: Artificial Intelligence
+        items:
+        - name: Dockerfile
+          href: /azure/developer/java/toolkit-for-intellij/java-get-started-dockerfile
+          displayName: java
+        - name: Github repository
+          href: /azure/developer/java/toolkit-for-intellij/java-get-started-github-repository
+          displayName: java
+        - name: IntelliJ
+          href: /azure/developer/java/toolkit-for-intellij/create-container-apps-intellij?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
+          displayName: java
+        - name: Artifacts (preview)
+          href: java-get-started.md
+          displayName: java
+      - name: Artificial intelligence
         items:
         - name: PetClinic AI
           items: 
@@ -394,55 +416,51 @@
             href: java-petclinic-ai-tutorial.md
             displayName: java
         displayName: java
-      - name: Launch your first Java microservice apps with managed Java components
-        href: java-microservice-get-started.md
-        displayName: java
-      - name: Get started using IntelliJ
-        href: /azure/developer/java/toolkit-for-intellij/create-container-apps-intellij?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
-        displayName: java
-      - name: Automatic memory fitting (preview)
-        href: java-memory-fit.md
-        displayName: java
-      - name: Build environment variables (preview)
-        href: java-build-environment-variables.md
-        displayName: java
-      - name: Metrics
-        href: java-metrics.md
-        displayName: java
-      - name: Scale with Java metrics
-        href: java-metrics-scale-with-keda.md
-        displayName: java
-      - name: Connect to Eureka Server for Spring
-        href: java-eureka-server.md
-        displayName: java
-      - name: Connect to Admin for Spring
-        href: java-admin.md
-        displayName: java
-      - name: Connect to Config Server for Spring
-        href: java-config-server.md
-        displayName: java
-      - name: Connect to Gateway for Spring
-        href: java-gateway-for-spring.md
-        displayName: java
-      - name: Set dynamic logger level
-        href: java-dynamic-log-level.md
-        displayName: java
-      - name: Tutorials
+      - name: Java components
         items:
-          - name: Integrate Eureka Server with Admin for Spring
-            href: java-admin-eureka-integration.md
-            displayName: java
-          - name: Query managed component logs
-            href: java-component-logs.md
-            displayName: java
-          - name: Configure Application Performance Management (APM) Java agent with init-container
-            href: java-application-performance-management-config.md
-          - name: Create a highly available Eureka server component cluster
-            href: java-eureka-server-highly-available.md
-            displayName: java
-          - name: Build a Java metrics dashboard with Azure Managed Grafana
-            href: java-metrics-with-grafana.md
-            displayName: java
+        - name: Launch your first Java microservice apps with managed Java components
+          href: java-microservice-get-started.md
+          displayName: java
+        - name: Connect to Eureka Server for Spring
+          href: java-eureka-server.md
+          displayName: java
+        - name: Integrate Eureka Server with Admin for Spring
+          href: java-admin-eureka-integration.md
+          displayName: java
+        - name: Create a highly available Eureka server component cluster
+          href: java-eureka-server-highly-available.md
+          displayName: java
+        - name: Connect to Admin for Spring
+          href: java-admin.md
+          displayName: java
+        - name: Connect to Config Server for Spring
+          href: java-config-server.md
+          displayName: java
+        - name: Connect to Gateway for Spring
+          href: java-gateway-for-spring.md
+          displayName: java
+      - name: Monitoring
+        items:
+        - name: Java metrics
+          href: java-metrics.md
+          displayName: java
+        - name: Query managed component logs
+          href: java-component-logs.md
+          displayName: java
+        - name: Configure application performance management (APM) Java agent with init-container
+          href: java-application-performance-management-config.md
+          displayName: java
+        - name: Scale with Java metrics
+          href: java-metrics-scale-with-keda.md
+          displayName: java
+        - name: Build a Java metrics dashboard with Azure Managed Grafana
+          href: java-metrics-with-grafana.md
+          displayName: java
+      - name: Diagnostic
+        items:
+        - name: Set dynamic logger level
+          href: java-dynamic-log-level.md
+          displayName: java
     - name: JavaScript
       items: 
       - name: Overview

@@ -3,16 +3,16 @@ title: Azure CDN from Edgio retirement FAQ
 titleSuffix: Azure Content Delivery Network
 description: Common questions about the retirement of Azure CDN Standard from Edgio.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 1/3/2025
-ms.author: duau
 ---
 
 # Azure CDN from Edgio retirement FAQ
 
-Azure CDN from Edgio is shutting down on January 15, 2025. You must migrate your workload to Azure Front Door before January 7, 2025 to avoid service disruption. This article provides answers to common questions about the retirement of Azure CDN from Edgio.
+Azure CDN from Edgio was shutting down on January 15, 2025. This article provides answers to common questions about the retirement of Azure CDN from Edgio.
 
 ## Frequently asked questions
 

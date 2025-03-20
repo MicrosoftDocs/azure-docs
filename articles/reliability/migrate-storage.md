@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 02/27/2023
 ms.author: anaharris 
 ms.reviewer: anaharris
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 ---
 
 # Migrate Azure Storage accounts to availability zone support

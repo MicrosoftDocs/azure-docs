@@ -141,7 +141,7 @@ If you haven't already done so, create the following encryption keys. To automat
         </ClaimsProvider>
     ```
     
-    We've declared a JWT Token Issuer. In the `CryptographicKeys` section, if you used different names to configure the signing and encryption keys in [step 1](#step-1---configure-the-signing-and-encryption-keys), make sure you use the correct value for the `StorageReferenceId`.  
+    We've declared a JWT Issuer. In the `CryptographicKeys` section, if you used different names to configure the signing and encryption keys in [step 1](#step-1---configure-the-signing-and-encryption-keys), make sure you use the correct value for the `StorageReferenceId`.  
 
 1. In the `UserJourneys` section of the `ContosoCustomPolicy.XML` file, add the following code:
 
@@ -267,7 +267,7 @@ After you upload the file, Azure AD B2C adds the prefix `B2C_1A_`, so the names 
 1. For **Select application** on the overview page of the custom policy, select the web application such as *webapp1* that you previously registered. Make sure that the **Select reply URL** value is set to`https://jwt.ms`.
 1. Select **Run now** button.
 
-After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT token. It looks similar to the following JWT token snippet: 
+After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT. It looks similar to the following JWT snippet: 
 
 ```json
     {

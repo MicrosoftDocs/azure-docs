@@ -2,9 +2,9 @@
 title: Tutorial - Visualize IoT data in a web app
 titleSuffix: Azure IoT Hub
 description: This tutorial uses a web application to visualize temperature and humidity data that is collected from a sensor and sent to your IoT hub.
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: tutorial
 ms.date: 05/23/2023

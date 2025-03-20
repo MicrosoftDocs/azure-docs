@@ -12,7 +12,7 @@ ms.custom: UpdateFrequency2
 
 Azure DevTest Labs allows you to choose between Generation 1 and Generation 2 version of the same marketplace image while creating a VM using Azure DevTest Labs portal. Generation 2 Virtual Machines (VMs) support key capabilities that are not supported in Generation 1 VMs such as increased memory, Intel Software Guard Extensions (Intel SGX), and virtualized persistent memory (vPMEM). Generation 2 VMs might have improved boot and installation times.
 
-For a VM instance to be a Generation 2 VM, it must use the specific Generation 2 base image and its VM size must support Generation 2. To learn more about Generation 2 VMs on Azure, the series of VMs that support Generation 2 images, and other limitations, please visit [Support for Generation 2 VMs on Azure](https://learn.microsoft.com/azure/virtual-machines/generation-2).
+For a VM instance to be a Generation 2 VM, it must use the specific Generation 2 base image and its VM size must support Generation 2. To learn more about Generation 2 VMs on Azure, the series of VMs that support Generation 2 images, and other limitations, please visit [Support for Generation 2 VMs on Azure](/azure/virtual-machines/generation-2).
 
 This article explains how to use Generation 2 images in Azure DevTest Labs.
 
@@ -47,7 +47,6 @@ You need at least [user](devtest-lab-add-devtest-user.md#devtest-labs-user) acce
    - **Virtual machine size**: Keep the default value for the base, or select **Change Size** to select different sizes.
    - **Allow hibernation**: Select this option to enable hibernation for the virtual machine. If you enable Hibernation, you also must select **Public IP** in the Advanced settings as Private and Shared IP are currently not supported if Hibernation is enabled.
    - **OS disk type**: Keep the default value for the base, or select a different option from the dropdown list.
-   - **Security type**: Select **Trusted Launch**. When the options Secure boot, vTPM, and Integrity Monitoring appear, select the appropriate options for your deployment. For more information, see [Trusted Launch-enabled security features](https://learn.microsoft.com/azure/virtual-machines/trusted-launch#secure-boot).
    - **Artifacts**: This field shows the number of artifacts already configured for this VM base. Optionally, select **Add or Remove Artifacts** to select and configure artifacts to add to the VM.
 
    :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-vm-basic-settings.png" alt-text="Screenshot of virtual machine basic settings page." lightbox="./media/devtest-lab-add-vm/portal-lab-vm-basic-settings.png":::

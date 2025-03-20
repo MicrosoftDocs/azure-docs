@@ -35,19 +35,18 @@ You need at least [user](devtest-lab-add-devtest-user.md#devtest-labs-user) acce
    - **Password**: If you don't choose to use a secret, enter a VM password between 8 and 123 characters long.
    - **Save as default password**: Select this checkbox to save the password in the Key Vault associated with the lab.
    - **Virtual machine size**: Keep the default value for the base, or select **Change Size** to select different sizes. Here is how the default VM Size is selected:
-       - If the **Configuration and policies** -> **Allowed virtual machine sizes** list has **All sizes** selected, then:
-           - If the **Image Base** selected during VM creation has x64 architecture, then the default size selected is **D4s_v5**.
-           - If the **Image Base** selected during VM creation has ARM64 architecture, then the default size selected is **D4pls_v5**.
-       - If the **Configuration and policies** -> **Allowed virtual machine sizes** list only has limited **Selected sizes**, then:
-           - If the **Image Base** selected during VM creation has x64 architecture and D4s_v5 VM size is selected in the **Allowed virtual machine sizes** list, then the default size selected is **D4s_v5**.
-           - If the **Image Base** selected during VM creation has ARM64 architecture and D4pls_v5 VM size is selected in the **Allowed virtual machine sizes** list, then the default size selected is **D4pls_v5**.
-           -  If the **Image Base** selected during VM creation has x64 architecture but D4s_v5 VM size is not selected in the **Allowed virtual machine sizes** list, or if the **Image Base** selected during VM creation has ARM64 architecture but D4pls_v5 VM size is not selected in the **Allowed virtual machine sizes** list, then:
-               - if a 4 core non-premium CPU size is available, then the first available 4 core non-premium CPU size is selected by default
-               - if no 4 core non-premium CPU size is available, then the first available 4 core CPU size is selected by default
-               - if no 4 core CPU size is available, then the first available CPU size is selected by default
+        - If the **Configuration and policies** -> **Allowed virtual machine sizes** list has **All sizes** selected, then:
+            - If the **Image Base** selected during VM creation has x64 architecture, then the default size selected is **D4s_v5**.
+            - If the **Image Base** selected during VM creation has ARM64 architecture, then the default size selected is **D4pls_v5**.
+         - If the **Configuration and policies** -> **Allowed virtual machine sizes** list only has limited **Selected sizes**, then:
+             - If the **Image Base** selected during VM creation has x64 architecture and D4s_v5 VM size is selected in the **Allowed virtual machine sizes** list, then the default size selected is **D4s_v5**.
+             - If the **Image Base** selected during VM creation has ARM64 architecture and D4pls_v5 VM size is selected in the **Allowed virtual machine sizes** list, then the default size selected is **D4pls_v5**.
+             - If the **Image Base** selected during VM creation has x64 architecture but D4s_v5 VM size is not selected in the **Allowed virtual machine sizes** list, or if the **Image Base** selected during VM creation has ARM64 architecture but D4pls_v5 VM size is not selected in the **Allowed virtual machine sizes** list, then:
+                 - if a 4 core non-premium CPU size is available, then the first available 4 core non-premium CPU size is selected by default
+                 - if no 4 core non-premium CPU size is available, then the first available 4 core CPU size is selected by default
+                 - if no 4 core CPU size is available, then the first available CPU size is selected by default
    - **Allow hibernation**: Select this option to enable hibernation for the virtual machine. If you enable Hibernation, you also must select **Public IP** in the Advanced settings as Private and Shared IP are currently not supported if Hibernation is enabled.
    - **OS disk type**: Keep the default value for the base, or select a different option from the dropdown list.
-   - **Security type**: Select **Trusted Launch** to enable it for Gen2 VMs. On selecting Trusted Launch When the options Secure boot, vTPM, and Integrity Monitoring appear, select the appropriate options for your deployment. For more information, see [Trusted Launch-enabled security features](https://learn.microsoft.com/azure/virtual-machines/trusted-launch#secure-boot).
    - **Artifacts**: This field shows the number of artifacts already configured for this VM base. Optionally, select **Add or Remove Artifacts** to select and configure artifacts to add to the VM.
 
    :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-vm-basic-settings.png" alt-text="Virtual machine basic settings page.":::

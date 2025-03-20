@@ -2,7 +2,7 @@
 title: Redundancy, replication, and backup
 description: Learn about redundancy, replication, and backup, which are fundamental concepts of reliability.
 ms.service: azure
-ms.subservice: azure-availability-zones
+ms.subservice: azure-reliability
 ms.topic: conceptual
 ms.date: 02/26/2025
 ms.author: anaharris
@@ -10,7 +10,7 @@ author: anaharris-ms
 ms.custom: subject-reliability
 ---
 
-# Redundancy, replication, and backup
+# What are redundancy, replication, and backup?
 
 We often think about the cloud as a globally distributed, ubiquitous system. However, in reality the cloud is made up of hardware running in datacenters. Resiliency requires that you account for some of the risks associated with the physical locations in which your cloud-hosted components run.
 
@@ -185,7 +185,7 @@ Each Azure service that stores data offers some form of replication. However, ea
 
 As an example, Azure Storage can provide both synchronous and asynchronous replication through a set of capabilities:
 
-- Multiple copies of your data are replicated synchronously within your primary region. You can choose whether to place replicas in different storage clusters in a single datacenter in locally redundant storage (LRS) or spread them across multiple availability zones for zone-redundant storage (ZRS).
+- Multiple copies of your data are replicated synchronously within your primary region. You can choose whether to place replicas on different physical hardware in a single datacenter in locally redundant storage (LRS) or spread them across multiple availability zones for zone-redundant storage (ZRS).
 - If your primary region is paired and you enable geo-redundant storage (GRS), the data is also replicated to the paired region. Because paired regions are geographically distant, this replication happens asynchronously to reduce the impact on your application throughput.
 - You can choose to use zone-redundant storage and geo-redundant storage simultaneously by using the geo-zone-redundant storage tier (GZRS). Data within the region is replicated synchronously, and data across regions is replicated asynchronously.
 

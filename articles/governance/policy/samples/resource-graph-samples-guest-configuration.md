@@ -2,6 +2,8 @@
 title: Azure Resource Graph sample queries for Azure Policy guest configuration
 description: Sample Azure Resource Graph queries for Azure Policy guest configuration showing use of resource types and tables to access related resources and properties.
 ms.date: 02/25/2025
+author: michaeltlombardi
+ms.author: mlombardi
 ms.topic: sample
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---

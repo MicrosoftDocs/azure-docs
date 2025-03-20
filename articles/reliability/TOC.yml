@@ -87,7 +87,7 @@
       - name: Azure Storage accounts
         href: migrate-storage.md
       - name: Azure SQL managed instance
-        href: migrate-sql-managed-instance.md
+        href: /azure/azure-sql/managed-instance/instance-zone-redundancy-configure
       - name: Azure Virtual Machines and Virtual Machine Scale Sets
         href: migrate-vm.md
       - name: Workload - Azure Kubernetes and MySQL
@@ -360,12 +360,6 @@
         href: ../vpn-gateway/vpn-gateway-highlyavailable.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json    
       - name: Azure Private 5G Core
         href: ../private-5g-core/reliability-private-5g-core.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: Azure Web Application Firewall
-      items:
-      - name: Availability zones
-        href: ../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Web Application Firewall
-        href: ../application-gateway/application-gateway-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-do-i-achieve-a-disaster-recovery-scenario-across-datacenters-by-using-application-gateway
   - name: Security
     items:
     - name: Azure Disk Encryption 
@@ -374,12 +368,6 @@
       href: ../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Key Vault
       href: /azure/key-vault/general/disaster-recovery-guidance?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: Azure Web Application Firewall
-      items:
-      - name: Availability zones
-        href: ../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Azure Web Application Firewall
-        href: ../application-gateway/application-gateway-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-do-i-achieve-a-disaster-recovery-scenario-across-datacenters-by-using-application-gateway
     - name: Microsoft Defender for Cloud DevOps security
       href: reliability-defender-devops.md
   - name: Storage

@@ -109,7 +109,7 @@
     href: migration-convert-dashboards.md
   - name: Update SOC processes      
     href: migration-security-operations-center-processes.md
-- name: Enable solutions and content
+- name: Manage solutions and content
   items:  
   - name: Overview
     href: sentinel-solutions.md
@@ -127,11 +127,11 @@
       href: domain-based-essential-solutions.md
     - name: Monitor Zero Trust 
       href: sentinel-solution.md   
-  - name: Manage custom content from repositories
+  - name: Manage content as code using repositories
     items:
     - name: Overview
       href: ci-cd-custom-content.md
-    - name: Deploy custom content from your repository
+    - name: Deploy content as code from your repository
       href: ci-cd.md   
     - name: Customize repository deployments
       href: ci-cd-custom-deploy.md
@@ -156,7 +156,7 @@
           - name: Connect your SAP system
             displayName: disable, stop ingestion, stop 
             href: sap/deploy-data-connector-agent-container.md
-          - name: Troubleshoot SAP data connector agent
+          - name: Troubleshoot SAP data connector
             href: sap/sap-deploy-troubleshoot.md    
           - name: Extra deployment steps
             items:
@@ -164,9 +164,9 @@
               href: sap/collect-sap-hana-audit-logs.md
             - name: Update the data connector agent
               href: sap/update-sap-data-connector.md      
-            - name: Deploy from the command line
+            - name: Deploy the agent from the command line
               href: sap/deploy-command-line.md
-            - name: Deploy with expert options
+            - name: Deploy the agent with expert options
               href: sap/sap-solution-deploy-alternate.md
           - name: SAP deployment reference (advanced)
             items:

@@ -9,7 +9,6 @@ ms.date: 01/10/2025
 ms.service: azure-database-postgresql
 ms.topic: conceptual
 ms.custom:
-  - references_regions
   - subject-reliability
   - ignite-2023
 ---

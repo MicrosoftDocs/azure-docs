@@ -2,8 +2,8 @@
 title: Quickstart - Set up in portal
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Quickstart - Set up the Azure IoT Hub Device Provisioning Service (DPS) in the Microsoft Azure portal
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 manager: lizross
 ms.date: 08/16/2024
 ms.topic: quickstart

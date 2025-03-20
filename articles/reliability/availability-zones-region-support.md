@@ -2,7 +2,7 @@
 title: Azure regions with availability zone support
 description: Learn which Azure regions offer availability zone support
 ms.service: azure
-ms.subservice: azure-availability-zones
+ms.subservice: azure-reliability
 ms.topic: conceptual
 ms.date: 01/16/2025
 ms.author: anaharris
@@ -26,9 +26,9 @@ The following regions currently support availability zones:
 | Mexico Central | Poland Central | | | Japan East |
 | South Central US | Spain Central | | | Japan West |
 | US Gov Virginia | Sweden Central | | | Korea Central |
-| West US 2 | Switzerland North | | | New Zealand North |
-| West US 3 | UK South | | | Southeast Asia |
-| | West Europe | | | |
+| West US 2 | Switzerland North | | | |
+| West US 3 | UK South | | | New Zealand North |
+| | West Europe | | | Southeast Asia|
 
 \* To learn more about availability zones and available services support in these regions, contact your Microsoft sales or customer representative. For upcoming regions that support availability zones, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 

@@ -149,8 +149,6 @@
       href: devtest-lab-add-claimable-vm.md
     - name: Configure secrets
       href: devtest-lab-store-secrets-in-key-vault.md
-    - name: Configure lab level secrets
-      href: devtest-lab-configure-lab-level-secrets.md
     - name: Attach and detach data disks
       href: devtest-lab-attach-detach-data-disk.md
     - name: Define start order for lab VMs
