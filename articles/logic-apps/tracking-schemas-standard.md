@@ -5,13 +5,18 @@ services: logic-apps
 ms.suite: integration
 ms.topic: how-to
 ms.reviewer: estfan, divswa, pravagar, azla
-ms.date: 03/07/2025
+ms.date: 03/20/2025
 # As a B2B integration solutions developer, I want to better understand the data structures used fo storing B2B transaction data for Standard workflows in Azure Logic Apps.
 ---
 
-# Tracking schemas for B2B transactions in Standard workflows for Azure Logic Apps
+# Tracking schemas for B2B transactions in Standard workflows for Azure Logic Apps (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
+
+> [!NOTE]
+>
+> This capability is in preview and is subject to the
+> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Logic Apps includes built-in tracking that you can enable for parts of your Standard workflow. To help you monitor the successful delivery or receipt, errors, and properties for business-to-business (B2B) messages, this guide helps you better understand the tables that store B2B tracking data for your transactions.
 
