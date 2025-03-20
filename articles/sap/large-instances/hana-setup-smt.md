@@ -95,7 +95,7 @@ To install an SMT server for HANA Large Instances, you'll first need:
 
     [![Screenshot of creating a certificate for SMT server.](./media/hana-installation/image9_certificate_creation.PNG)](./media/hana-installation/image9_certificate_creation.PNG#lightbox)
 
-    At the end of the configuration, it might take a few minutes to run the synchronization check. After the installation and configuration of the SMT server, you should find the directory repo under the mount point /srv/www/htdocs/. There are also some subdirectories under the repo. 
+    At the end of the configuration, it can take a few minutes to run the synchronization check. After the installation and configuration of the SMT server, you should find the directory repo under the mount point /srv/www/htdocs/. There are also some subdirectories under the repo. 
 
 13. Restart the SMT server and its related services with these commands.
 
