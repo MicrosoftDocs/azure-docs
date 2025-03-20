@@ -6,10 +6,11 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom: mvc, devx-track-azurecli, devdivchpfy22
 ms.topic: tutorial
-ms.date: 12/17/2021
+ms.date: 03/24/2025
 ms.author: danlep
 
 ---
+
 # Tutorial: Mock API responses
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
