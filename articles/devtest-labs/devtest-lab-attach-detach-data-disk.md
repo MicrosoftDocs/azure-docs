@@ -16,7 +16,7 @@ This article explains how to attach and detach a lab virtual machine (VM) data d
 
 ## Prerequisites
 
-To attach or detach a data disk, you need to own the lab VM, and the VM must be running. The VM size determines how many data disks you can attach. For more information, see [Sizes for virtual machines](/azure/virtual-machines/sizes).
+To attach or detach a data disk, you must have ownership permissions on the lab VM, and the VM must be running. The VM size determines how many data disks you can attach. For more information, see [Sizes for virtual machines](/azure/virtual-machines/sizes).
 
 ## Create and attach a new data disk
 

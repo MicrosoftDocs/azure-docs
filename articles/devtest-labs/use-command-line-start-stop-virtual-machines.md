@@ -26,12 +26,12 @@ This article shows how you can use PowerShell or Azure CLI commands to script or
 
 # [Azure PowerShell](#tab/PowerShell)
 
-- Owner access to a [lab VM](devtest-lab-add-vm.md) in DevTest Labs.
+- Admin access to a [lab VM](devtest-lab-add-vm.md) in DevTest Labs.
 - Access to Azure PowerShell. You can [use the Azure Cloud Shell PowerShell environment](/azure/cloud-shell/quickstart), or [install Azure PowerShell](/powershell/azure/install-azure-powershell) to use locally. If necessary, run `Update-Module -Name Az` to update your local installation.
 
 # [Azure CLI](#tab/CLI)
 
-- Owner access to a [lab VM](devtest-lab-add-vm.md) in DevTest Labs.
+- Admin access to a [lab VM](devtest-lab-add-vm.md) in DevTest Labs.
 - Access to Azure CLI. You can [use the Azure Cloud Shell Bash environment](/azure/cloud-shell/quickstart), or [install Azure CLI](/cli/azure/install-azure-cli) to use locally in a Bash or Windows environment.
 
 ---

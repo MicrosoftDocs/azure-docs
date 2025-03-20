@@ -36,7 +36,7 @@ This article describes how to create Azure virtual machines (VMs) in Azure DevTe
    - **Use a saved secret**: Select this checkbox to use a secret from Azure Key Vault instead of a password to access the VM. If you select this option, under **Secret**, select the secret to use from the dropdown list. For more information, see [Store secrets in a key vault](devtest-lab-store-secrets-in-key-vault.md). 
    - **Password**: If you don't use a secret, enter a VM password between 8 and 123 characters long.
    - **Save as default password**: Select this checkbox to save the password in the Key Vault associated with the lab.
-   - **Virtual machine size**: Keep the default value for the base, or select **Change Size** to select a different size. For more information about default VM sizes, see [Default VM sizes](#vm-sizes).
+   - **Virtual machine size**: Keep the default value for the base, or select **Change Size** to select a different size. For more information about default VM sizes, see [Default VM sizes](#default-vm-sizes).
    - **Allow hibernation**: Select this option to enable hibernation for the virtual machine.
      >[!NOTE]
      >If you enable hibernation, you must also select **Public IP** in **Advanced Settings**. **Private** and **Shared** IPs aren't supported if hibernation is enabled.
@@ -85,7 +85,9 @@ To add or configure artifacts during VM creation:
 <a name="configure-optional-advanced-settings"></a>
 ## Configure other settings
 
-1. Optionally, select the **Advanced Settings** tab on the **Create lab resource** screen, and change any of the following values:
+After you configure basic settings and artifacts, you can optionally configure advanced settings and tags for your VM.
+
+1. Optionally, select **Next: Advanced Settings** or the **Advanced Settings** tab on the **Create lab resource** screen, and change any of the following values:
 
    - **Virtual network**: Select a network from the dropdown list. For more information, see [Add a virtual network](devtest-lab-configure-vnet.md).
    - **Subnet Selector**: If necessary, select a different subnet from the dropdown list.
@@ -97,15 +99,15 @@ To add or configure artifacts during VM creation:
 
    :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-vm-advanced-settings.png" alt-text="Screenshot that shows the VM Advanced Settings page.":::
 
-1. Optionally, select the **Tags** tab to apply tags to the VM.
+1. Optionally, select **Next: Tags** or the **Tags** tab to apply tags to the VM.
 
 ## Complete VM deployment
 
-After you configure all settings, select **Create** at the bottom of the screen. During VM deployment, you can select the **Notifications** icon at the top of the screen to see progress. Creating a VM takes a while.
+After you configure all settings, select **Create** at the bottom of the **Create lab resource** screen. During VM deployment, you can select the **Notifications** icon at the top of the screen to see progress. Creating a VM takes a while.
 
 When the deployment is complete, if you kept yourself as VM owner, the VM appears under **My virtual machines** on the lab **Overview** page. To connect to the VM, select it from the list, and then select **Connect** on the VM's **Overview** page.
 
-Or, if you chose **Make this machine claimable** during VM creation, select **Claimable virtual machines** in the left navigation to see the VM listed on the **Claimable virtual machines** page. Select **Refresh** if your VM doesn't appear. To take ownership of a VM in the claimable list, see [Use a claimable VM](devtest-lab-add-claimable-vm.md#use-a-claimable-vm).
+Or, if you chose **Make this machine claimable** during VM creation, select **Claimable virtual machines** in the left navigation to see the VM listed on the **Claimable virtual machines** page. Select **Refresh** if the VM doesn't appear. To take ownership of a VM in the claimable list, see [Use a claimable VM](devtest-lab-add-claimable-vm.md#use-a-claimable-vm).
 
 :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-vm-creation-status.png" alt-text="Screenshot that shows the lab VM creation status page.":::
 
