@@ -406,7 +406,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/load-balancer/articles/load-balancer/ipv6-configure-standard-load-balancer-template-json.md",
+            "source_path_from_root": "/articles/load-balancer/ipv6-configure-standard-load-balancer-template-json.md",
             "redirect_url": "/azure/load-balancer/deploy-ipv4-ipv6-dual-stack-standard-load-balancer",
             "redirect_document_id": false
         }

@@ -34,9 +34,9 @@ This article shows you how to deploy a dual stack (IPv4 + IPv6) application usin
 
 ## Deploy a dual stack (IPv4 + IPv6) application
 
-Follow these instructions in Azure PowerShell to deploy a dual stack (IPv4 + IPv6) application using Standard Load Balancer in Azure. 
-
 # [Azure PowerShell](#tab/azurepowershell/)
+
+Follow these instructions in Azure PowerShell to deploy a dual stack (IPv4 + IPv6) application using Standard Load Balancer in Azure.
 
 ## Create a resource group
 
