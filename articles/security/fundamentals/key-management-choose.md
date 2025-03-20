@@ -47,7 +47,7 @@ Provisioning and hosting are managed by Microsoft across all solutions. Key gene
 
 Use the table to compare all the solutions side by side. Begin from top to bottom, answering each question found on the left-most column to help you choose the solution that meets all your needs, including management overhead and costs.
 
-|  | **AKV Standard** | **AKV Premium** | **Azure Managed HSM** | **Azure Cloud HSM** | **Azure Dedicated HSM** | **Azure Payment HSM** |
+|  | **AKV Standard** | **AKV Premium** | **Azure Managed HSM** | **Azure Cloud HSM Preview** | **Azure Dedicated HSM** | **Azure Payment HSM** |
 | --- | --- | --- | --- | --- | --- | --- |
 | What level of **compliance** do you need? | FIPS 140-2 level 1 | FIPS 140-2 level 3, PCI DSS, PCI 3DS** | FIPS 140-2 level 3, PCI DSS, PCI 3DS | FIPS 140-3 level 3 | FIPS 140-2 level 3, HIPAA, PCI DSS, PCI 3DS, eIDAS CC EAL4+, GSMA | FIPS 140-2 level 3, PCI PTS HSM v3, PCI DSS, PCI 3DS, PCI PIN |
 | Do you need **key sovereignty**? | No | No | Yes | Yes | Yes | Yes |
