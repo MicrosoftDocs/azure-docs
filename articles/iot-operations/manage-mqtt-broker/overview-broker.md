@@ -208,7 +208,7 @@ Use the Azure portal or the Azure CLI to customize the default Broker resource.
 ---
 
 > [!IMPORTANT] 
-> You can't update the Broker resource after the initial deployment. Configuration changes to cardinality, memory profile, or disk buffer aren't allowed post-deployment.
+> You can't update the broker resource after the initial deployment. Configuration changes to cardinality, memory profile, or disk buffer aren't allowed post-deployment.
 
 ### View default Broker settings
 
