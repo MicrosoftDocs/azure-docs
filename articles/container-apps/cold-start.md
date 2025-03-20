@@ -29,7 +29,7 @@ Use container registries close to your Container Apps environment. Usually this 
 
 ## Use artifact streaming
 
-Azure Container Registry offers image streaming which can speed up image startup by up to 15%.
+Azure Container Registry [offers image streaming](/azure/container-apps/serverless-gpu-nim#enable-artifact-streaming-recommended-but-optional) which can speed up image startup by up to 15%.
 
 ## Implement custom liveness health probe or start listening early
 
