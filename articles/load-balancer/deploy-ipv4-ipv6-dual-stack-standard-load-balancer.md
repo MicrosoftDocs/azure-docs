@@ -12,7 +12,7 @@ ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell, dev
 
 # Deploy IPv6 dual stack application with Azure Load Balancer
 
-This article shows you how to deploy a dual stack (IPv4 + IPv6) application using Standard Load Balancer in Azure that includes a dual stack virtual network with a dual stack subnet, a Standard Load Balancer with dual (IPv4 + IPv6) frontend configurations, VMs with NICs that have a dual IP configuration, dual network security group rules, and dual public IPs.
+This article shows you how to deploy a dual stack (IPv4 + IPv6) application using Standard Load Balancer in Azure. The scenario includes a dual stack virtual network with a dual stack subnet, a Standard Load Balancer with dual (IPv4 + IPv6) frontend configurations, VMs with NICs that have a dual IP configuration, dual network security group rules, and dual public IPs.
 
 ## Prerequisites
 
@@ -32,7 +32,9 @@ This article shows you how to deploy a dual stack (IPv4 + IPv6) application usin
 
 ---
 
-## Deploy IPv6 dual stack application
+## Deploy a dual stack (IPv4 + IPv6) application
+
+Follow these instructions in Azure PowerShell to deploy a dual stack (IPv4 + IPv6) application using Standard Load Balancer in Azure. 
 
 # [Azure PowerShell](#tab/azurepowershell/)
 
@@ -107,7 +109,7 @@ $frontendIPv6 = New-AzLoadBalancerFrontendIpConfig `
 
 ### Configure backend address pool
 
-Create a backend address pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig). The VMs attach to this backend pool in the remaining steps. The following example creates backend address pools named *dsLbBackEndPool_v4* and *dsLbBackEndPool_v6* to include VMs with both IPV4 and IPv6 NIC configurations:
+Create a backend address pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) for the virtual machines deployed later. The following example creates backend address pools named *dsLbBackEndPool_v4* and *dsLbBackEndPool_v6* to include virtual machines with both IPV4 and IPv6 NIC configurations:
 
 ```azurepowershell-interactive
 $backendPoolv4 = New-AzLoadBalancerBackendAddressPoolConfig `
@@ -165,6 +167,7 @@ $lb = New-AzLoadBalancer `
 
 ## Create network resources
 Before you deploy some VMs and can test your balancer, you must create supporting network resources - availability set, network security group, virtual network, and virtual NICs. 
+
 ### Create an availability set
 To improve the high availability of your app, place your VMs in an availability set.
 
@@ -182,7 +185,7 @@ $avset = New-AzAvailabilitySet `
 
 ### Create network security group
 
-Create a network security group for the rules that govern inbound and outbound communication in your VNET.
+Create a network security group for the rules that govern inbound and outbound communication in your virtual network.
 
 #### Create a network security group rule for port 3389
 
@@ -315,6 +318,7 @@ $VM2 = New-AzVM -ResourceGroupName $rg.ResourceGroupName  -Location $rg.Location
 ```
 
 ## Determine IP addresses of the IPv4 and IPv6 endpoints
+
 Get all Network Interface Objects in the resource group to summarize the IPs used in this deployment with `get-AzNetworkInterface`. Also, get the Load Balancer's frontend addresses of the IPv4 and IPv6 endpoints with `get-AzpublicIpAddress`.
 
 ```azurepowershell-interactive
@@ -353,8 +357,23 @@ The following figure shows a sample output that lists the private IPv4 and IPv6 
 
 ![IP summary of dual stack (IPv4/IPv6) application deployment in Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-application-summary.png)
 
+## View IPv6 dual stack virtual network in Azure portal
+
+You can view the IPv6 dual stack virtual network in Azure portal as follows:
+1. In the portal's search bar, enter *dsVnet*.
+2. When **dsVnet** appears in the search results, select it. This launches the **Overview** page of the dual stack virtual network named *dsVnet*. The dual stack virtual network shows the two NICs with both IPv4 and IPv6 configurations located in the dual stack subnet named *dsSubnet*.
+
+## Clean up resources
+
+When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, VM, and all related resources.
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name dsRG1
+```
 
 # [Azure CLI](#tab/azurecli/)
+
+Follow these instructions in Azure CLI to deploy a dual stack (IPv4 + IPv6) application using Standard Load Balancer in Azure. 
 
 ## Create a resource group
 
@@ -512,7 +531,7 @@ az vm availability-set create \
 
 ### Create network security group
 
-Create a network security group for the rules that govern inbound and outbound communication in your VNet.
+Create a network security group for the rules that govern inbound and outbound communication in your virtual network.
 
 #### Create a network security group
 
@@ -681,9 +700,23 @@ az vm create \
 --image MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest 
 ```
 
+## View IPv6 dual stack virtual network in Azure portal
+
+You can view the IPv6 dual stack virtual network in Azure portal as follows:
+1. In the portal's search bar, enter *dsVnet*.
+2. When **myVirtualNetwork** appears in the search results, select it. This launches the **Overview** page of the dual stack virtual network named *dsVnet*. The dual stack virtual network shows the two NICs with both IPv4 and IPv6 configurations located in the dual stack subnet named *dsSubnet*.
+
+## Clean up resources
+
+When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, VM, and all related resources.
+
+```azurecli-interactive
+ az group delete --name DsResourceGroup01
+```
+
 # [ARM template](#tab/arm-template/)
 
-Use the template described in this article to deploy a dual stack (IPv4 + IPv6) application using Standard Load Balancer in Azure that includes a dual stack virtual network with IPv4 and IPv6 subnets, a Standard Load Balancer with dual (IPv4 + IPv6) frontend configurations, VMs with NICs that have a dual IP configuration, network security group, and public IPs. 
+Use the template described in this article to deploy a dual stack (IPv4 + IPv6) application using Standard Load Balancer in Azure.
 
 ## Required configurations
 
@@ -844,12 +877,7 @@ If you're using a network virtual appliance, add IPv6 routes in the Route Table.
 To deploy an IPv6 dual stack application in Azure virtual network using Azure Resource Manager template, view sample template [here](https://azure.microsoft.com/resources/templates/ipv6-in-vnet-stdlb/).
 ---
 
-
-## View IPv6 dual stack virtual network in Azure portal
-
-
-
-## Clean up resources
-
-
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [What is IPv6 for Azure Virtual Network?](../virtual-network/ip-services/ipv6-overview.md)
