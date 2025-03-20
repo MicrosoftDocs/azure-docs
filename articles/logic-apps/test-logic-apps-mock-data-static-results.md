@@ -133,9 +133,7 @@ This guide shows how to set up mock outputs for an action in a Consumption or St
 
 <a name="find-runs-mock-data"></a>
 
-## Find runs that use mock outputs
-
-### [Consumption](#tab/consumption)
+## Find runs that use mock outputs (Consumption only)
 
 To find earlier workflow runs where the actions use mock outputs, review that workflow's run history.
 
@@ -156,24 +154,6 @@ To find earlier workflow runs where the actions use mock outputs, review that wo
    In the workflow run details pane, actions that use static results show the test beaker icon (![Icon for static result](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)), for example:
 
    :::image type="content" source="media/test-logic-apps-mock-data-static-results/run-history-static-result.png" alt-text="Screenshot shows Consumption workflow run history with actions that use static results." lightbox="media/test-logic-apps-mock-data-static-results/run-history-static-result.png":::
-
-### [Standard](#tab/standard)
-
-To find earlier or other workflow runs where the actions use mock outputs, review each workflow's run history.
-
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app workflow in the designer.
-
-1. On the workflow menu, select **Run History**.
-
-   :::image type="content" source="media/test-logic-apps-mock-data-static-results/select-run-standard.png" alt-text="Screenshot shows Standard workflow run history with the Static Results column." lightbox="media/test-logic-apps-mock-data-static-results/select-run-standard.png":::
-
-1. To view the actions in a run that uses mock outputs, select the run where the **Static Results** is set to **Enabled**.
-
-   On the run details pane, any actions that use static results show the test beaker icon (![Icon for static result](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)), for example:
-
-   :::image type="content" source="media/test-logic-apps-mock-data-static-results/run-history-static-result.png" alt-text="Screenshot shows Standard workflow run history with actions that use static results." lightbox="media/test-logic-apps-mock-data-static-results/run-history-static-result.png":::
-
----
 
 ## Disable mock outputs
 
