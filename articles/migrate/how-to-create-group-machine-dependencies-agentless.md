@@ -38,11 +38,11 @@ The new users need to follow the steps given below:
 - Ensure that you have [created a project](./create-manage-projects.md) with the Azure Migrate: Discovery and assessment tool added to it.
 - Review the requirements based on your environment and the appliance you're setting up to perform agentless dependency analysis:
 
-    Environment | Requirements
-    --- | ---
-    Servers running in VMware environment | Review [VMware requirements](migrate-support-matrix-vmware.md#vmware-requirements) <br/> Review [appliance requirements](migrate-appliance.md#appliance---vmware)<br/> Review [port access requirements](migrate-support-matrix-vmware.md#port-access-requirements) <br/> Review [agentless dependency analysis requirements](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless)
-    Servers running in Hyper-V environment | Review [Hyper-V host requirements](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements) <br/> Review [appliance requirements](migrate-appliance.md#appliance---hyper-v)<br/> Review [port access requirements](migrate-support-matrix-hyper-v.md#port-access)<br/> Review [agentless dependency analysis requirements](migrate-support-matrix-hyper-v.md#dependency-analysis-requirements-agentless)
-    Physical servers or servers running on other clouds | Review [server requirements](migrate-support-matrix-physical.md#physical-server-requirements) <br/> Review [appliance requirements](migrate-appliance.md#appliance---physical)<br/> Review [port access requirements](migrate-support-matrix-physical.md#port-access)<br/> Review [agentless dependency analysis requirements](migrate-support-matrix-physical.md#dependency-analysis-requirements-agentless)
+Environment | Requirements
+--- | ---
+Servers running in VMware environment | Review [VMware requirements](migrate-support-matrix-vmware.md#vmware-requirements) <br/> Review [appliance requirements](migrate-appliance.md#appliance---vmware)<br/> Review [port access requirements](migrate-support-matrix-vmware.md#port-access-requirements) <br/> Review [agentless dependency analysis requirements](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless)
+Servers running in Hyper-V environment | Review [Hyper-V host requirements](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements) <br/> Review [appliance requirements](migrate-appliance.md#appliance---hyper-v)<br/> Review [port access requirements](migrate-support-matrix-hyper-v.md#port-access)<br/> Review [agentless dependency analysis requirements](migrate-support-matrix-hyper-v.md#dependency-analysis-requirements-agentless)    Physical servers or servers running on other clouds | Review [server requirements](migrate-support-matrix-physical.md#physical-server-requirements) <br/> Review [appliance requirements](migrate-appliance.md#appliance---physical)<br/> Review [port access requirements](migrate-support-matrix-physical.md#port-access)<br/> Review [agentless dependency analysis requirements](migrate-support-matrix-physical.md#dependency-analysis-requirements-agentless)
+
 - Review the Azure URLs that the appliance need to access in the [public](migrate-appliance.md#public-cloud-urls) and [government clouds](migrate-appliance.md#government-cloud-urls).
 
 
@@ -89,7 +89,6 @@ After the validation succeeds, dependency analysis are auto-enabled and you see 
 5. **Not initiated:** when dependency analysis couldn't be enabled as Azure Migrate has reached the scale limit of 1000 servers per appliance for auto-enablement. If you want to perform dependency analysis on the specific servers, you can manually disable it on the other auto-enabled servers and enable for the ones you need by using the PowerShell module.
 6. **Disabled:** when dependency analysis has been manually disabled by you on this server using the PowerShell module. You can re-enable it any-time using the same PowerShell module. 
 
-
 ## Visualize dependencies
 
 1. In the new experience, go to project overview. Select the workloads count in **All inventory** to review the discovered workloads. In the view, you can see **Dependencies** column with status values as covered in section above.
@@ -101,20 +100,20 @@ After the validation succeeds, dependency analysis are auto-enabled and you see 
 4. The view is filtered for default time period of **Last 24 hours** and process type as **Resolvable**.
 5. Change the time period for which you want to view the map using the **Time range** filter. You can choose between **Last 7 days**/**Last 30 days** or select a **Custom range**.
 6. You can choose to change the process type from any of the following:
-    **Process** | **Type**
-    --- | --- 
-    Resolvable (Default) | To filter by processes having resolvable connections
-    Essentials | To filter by non-redundant key processes
-    All | to filter by all processes including those with unresolved connections
+**Process** | **Type**
+--- | --- 
+Resolvable (Default) | To filter by processes having resolvable connections
+Essentials | To filter by non-redundant key processes
+All | to filter by all processes including those with unresolved connections
 
 7. In the view, you find the servers and connections represented as follows:
 
-    **Representation** | **Details**
-    --- | --- 
-    Windows symbol | Representing a Windows server in the view
-    Linux symbol | Representing a Linux server in the view
-    Connection symbol | Representing the direction of dependency between servers with strength of the connection represented by grading of dots on the connection
-    Process count | Representing the count of processes as per the process type filter
+**Representation** | **Details**
+--- | --- 
+Windows symbol | Representing a Windows server in the view
+Linux symbol | Representing a Linux server in the view
+Connection symbol | Representing the direction of dependency between servers with strength of the connection represented by grading of dots on the connection
+Process count | Representing the count of processes as per the process type filter
 
 8. You can hover on the Server name to see essential information about the server like IP address, Source, and Tags.
 
@@ -238,6 +237,7 @@ Dependency analysis is auto-enabled on all discovered servers which have passed 
     ```
 
     You can also add a filter to export the relevant servers using the command:
+
     ```PowerShell
     Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "ContosoDemoRG" -ProjectName "ContosoDemoProject" -Filter @{"Dependencies"="Enabled"} -OutputCsvFile "ContosoDemo_VMs.csv" [-AutoEnabledDepMap]
     ```
@@ -255,7 +255,7 @@ Some of the other fields are IP Address, osType, osName, osArchitecture, osVersi
 
 You can find discovered servers for a specific appliance by using the command:
 
-      ```PowerShell
+    ```PowerShell
     Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "ContosoDemoRG" -ProjectName "ContosoDemoProject" -Filter @{"Dependencies"="Enabled"} -ApplianceName "ContosoApp" -OutputCsvFile "ContosoDemo_VMs.csv" [-AutoEnabledDepMap]
     ```
     
