@@ -191,7 +191,7 @@ If you want to make periodic data backups for point-in-time recovery, we recomme
 
 Yes, see the following instructions for the _Premium_ tier:
 
-- PowerShell instructions [to import Redis data](cache-how-to-manage-redis-cache-powershell.md#to-import-an-azure-cache-for-redis) and [to export Redis data](cache-how-to-manage-redis-cache-powershell.md#to-export-an-azure-cache-for-redis).
+- PowerShell instructions [to import Redis data](../redis/how-to-manage-redis-cache-powershell.md#to-import-an-azure-cache-for-redis) and [to export Redis data](../redis/how-to-manage-redis-cache-powershell.md#to-export-an-azure-cache-for-redis).
 - Azure CLI instructions to [import Redis data](/cli/azure/redis#az-redis-import) and [export Redis data](/cli/azure/redis#az-redis-export)
 
 For the _Enterprise_ and _Enterprise Flash_ tiers:
