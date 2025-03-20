@@ -16,10 +16,24 @@ ms.date: 03/20/2025
 
 Getting developers started on a new project or team can be complex and time-consuming. The Microsoft Dev Box customizations feature helps you streamline setup of the developer environment. With customizations, you can configure ready-to-code workstations with necessary applications, tools, repositories, code libraries, packages, and build scripts.
 
-There are two ways to use customizations in Microsoft Dev Box. 
+By using Dev Box customizations, you can:
+- Install the necessary tools and applications
+- Enforce organizational security policies
+- Ensure consistency across dev boxes
 
-- *Team customizations* are applied automatically when developers configure them on a pool. 
-- *Individual customizations* are applied when a user creates a dev box.
+There are two ways to use customizations in Microsoft Dev Box. Team customizations are used to create a shared configuration for a team of developers. Individual customizations are used to create a personal configuration for an individual developer. The following table summarizes the differences between the two types of customizations. 
+
+
+| Feature                     | Team customizations   | Individual customizations |
+|-----------------------------|-----------------------|---------------------------|
+| Configure on                | Dev box pool          | Dev box                   |
+| Customizations apply to     | All dev boxes in pool | Individual dev box        |
+| Easily shareable            | Yes                   | No                        |
+| Customizations file name    | Imagedefinition.yaml  | Workload.yaml             |
+| Stored                      | Remotely              | Locally                   |
+| Supports key vault secrets  | Yes                   | Yes                       |
+ 
+
 
 [!INCLUDE [customizations-preview-text](includes/customizations-preview-text.md)]
 
