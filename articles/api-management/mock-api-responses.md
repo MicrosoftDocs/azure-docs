@@ -128,7 +128,7 @@ To remove an operation, use the [az apim api operation delete](/cli/azure/apim/a
 
 ```azurecli
 az apim api operation delete --resource-group apim-hello-word-resource-group \
-    --api-id test-api --operation-id 00000000000000000000000000000000 \
+    --api-id test-api --operation-id <ID> \
     --service-name apim-hello-world
 ```
 
@@ -139,48 +139,39 @@ Keep this operation for use in the rest of this article.
 ## Enable response mocking
 
 1. Select the API you created in [Create a test API](#create-a-test-api).
-1. In the window on the right, ensure that the **Design** tab is selected.
+1. Ensure that the **Design** tab is selected.
 1. Select the test operation that you added.
-1. In the **Inbound processing** window, select **+ Add policy**.
+1. In the **Inbound processing** section, select **+ Add policy**.
 
-    :::image type="content" source="media/mock-api-responses/add-policy.png" alt-text="Add processing policy" border="false":::
+    :::image type="content" source="media/mock-api-responses/add-policy.png" alt-text="Screenshot that shows the first steps for enabling response mocking." lightbox="media/mock-api-responses/add-policy.png" border="false":::
 
-1. Select **Mock responses**  from the gallery.
+1. Select the **Mock responses** tile from the gallery:
 
-    :::image type="content" source="media/mock-api-responses/mock-responses-policy-tile.png" alt-text="Mock responses policy tile" border="false":::
+    :::image type="content" source="media/mock-api-responses/mock-responses-policy-tile.png" alt-text="Screenshot that shows the Mock responses tile." border="false":::
 
-1. In the **API Management response** textbox, type **200 OK, application/json**. This selection indicates that your API should return the response sample you defined in the previous section.
+1. In the **API Management response** box, type **200 OK, application/json**. This selection indicates that your API should return the response sample that you defined in the previous section.
 
-    :::image type="content" source="media/mock-api-responses/set-mocking-response.png" alt-text="Set mocking response":::
+    :::image type="content" source="media/mock-api-responses/set-mocking-response.png" alt-text="Screenshot that shows the API Management response selection." lightbox="media/mock-api-responses/set-mocking-response.png":::
 
 1. Select **Save**.
 
     > [!TIP]
-    > A yellow bar with the text **Mocking is enabled** displays. This indicates that the responses returned from API Management are mocked by the [mocking policy](mock-response-policy.md) and aren't produced by the backend.
+    > A yellow bar displaying the text **Mocking is enabled** appears. This message indicates that the responses returned from API Management are mocked by the [mocking policy](mock-response-policy.md) and aren't produced by the back end.
 
 ## Test the mocked API
 
 1. Select the API you created in [Create a test API](#create-a-test-api).
-1. Select the **Test** tab.
-1. Ensure that the **Test call** API is selected, and then select **Send** to make a test call.
+1. On the **Test** tab, ensure that the **Test call** API is selected, and then select **Send** to make a test call:
 
-   :::image type="content" source="media/mock-api-responses/test-mock-api.png" alt-text="Test the mocked API":::
+   :::image type="content" source="media/mock-api-responses/test-mock-api.png" alt-text="Screenshot that shows the steps for testing the mocked API." lightbox="media/mock-api-responses/test-mock-api.png":::
 
-1. The **HTTP response** displays the JSON provided as a sample in the first section of the tutorial.
+1. The **HTTP response** displays the JSON provided as a sample in the first section of the tutorial:
 
-    :::image type="content" source="media/mock-api-responses/http-response.png" alt-text="Mock HTTP response":::
+    :::image type="content" source="media/mock-api-responses/http-response.png" alt-text="Screenshot that shows the mock HTTP response." lightbox="media/mock-api-responses/http-response.png":::
 
-## Next steps
+## Next step
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Create a test API
-> * Add an operation to the test API
-> * Enable response mocking
-> * Test the mocked API
-
-Advance to the next tutorial:
+Go to the next tutorial:
 
 > [!div class="nextstepaction"]
 > [Transform and protect a published API](transform-api.md)
