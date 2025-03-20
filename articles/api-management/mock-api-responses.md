@@ -59,11 +59,11 @@ The steps in this section show how to create an HTTP API with no back end.
 
 1. In the **Create an HTTP API** window, select **Full**.
 1. In **Display name**, enter *Test API*.
-1. In **Products**, select **Unlimited**.
+1. In **Products**, enter *Unlimited*.
 1. Ensure that **Managed** is selected in **Gateways**.
 1. Select **Create**.
 
-    :::image type="content" source="media/mock-api-responses/create-http-api.png" alt-text="Screenshot that shows the Create an HTTP API window.":::
+    :::image type="content" source="media/mock-api-responses/create-http-api.png" alt-text="Screenshot that shows the Create an HTTP API window." lightbox="media/mock-api-responses/create-http-api.png":::
 
 ## Add an operation to the test API
 
@@ -78,13 +78,13 @@ An API exposes one or more operations. In this section, you add an operation to 
      | Setting             | Value         | Description   |
     |------|------|-----------------------------------------|
     | **Display name**    | *Test call*  | The name that's displayed in the [developer portal](api-management-howto-developer-portal.md).    |
-    | **URL** (HTTP verb) | GET | Select one of the predefined HTTP verbs.    |
-    | **URL**  | */test*   | A URL path for the API.            |
+    | **URL** (first box) | GET | Select one of the predefined HTTP verbs.    |
+    | **URL**  (second box)| */test*   | A URL path for the API.            |
     | **Description** |   |  An optional description of the operation. It provides documentation in the developer portal to the developers who use the API.                         |
 
     :::image type="content" source="media/mock-api-responses/frontend-window.png" alt-text="Screenshot that shows the Frontend window." lightbox="media/mock-api-responses/frontend-window.png":::
 
-1. Select the **Responses** tab, which  is located under the **URL**, **Display name**, and **Description** boxes. Enter values on this tab to define response status codes, content types, examples, and schemas.
+1. Select the **Responses** tab, which  is located under the **URL**, **Display name**, and **Description** boxes. You'll enter values on this tab to define response status codes, content types, examples, and schemas.
 1. Select **+ Add response**, and then select **200 OK** from the list.
 
     :::image type="content" source="media/mock-api-responses/add-response.png" alt-text="Screenshot that shows the Responses tab." lightbox="media/mock-api-responses/add-response.png":::
@@ -149,7 +149,7 @@ Keep this operation for use in the rest of this article.
 
     :::image type="content" source="media/mock-api-responses/mock-responses-policy-tile.png" alt-text="Screenshot that shows the Mock responses tile." border="false":::
 
-1. In the **API Management response** box, type **200 OK, application/json**. This selection indicates that your API should return the response sample that you defined in the previous section.
+1. Ensure that **200 OK, application/json** appears in the **API Management response** box. This selection indicates that your API should return the response sample that you defined in the previous section.
 
     :::image type="content" source="media/mock-api-responses/set-mocking-response.png" alt-text="Screenshot that shows the API Management response selection." lightbox="media/mock-api-responses/set-mocking-response.png":::
 
