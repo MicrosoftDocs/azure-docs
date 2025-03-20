@@ -138,7 +138,7 @@ Then, create the *DataflowEndpoint* resource and specify the access token authen
 
 # [Portal](#tab/portal)
 
-See the [access token](#access-token) section for steps to create a secret in the operations experience portal.
+See the [access token](#access-token) section for steps to create a secret in the operations experience web UI.
 
 # [Bicep](#tab/bicep)
 
@@ -355,7 +355,7 @@ To enhance security and follow the principle of least privilege, you can generat
 # [Portal](#tab/portal)
 
 > [!IMPORTANT]
-> To use the operations experience portal to manage secrets, Azure IoT Operations must first be enabled with secure settings by configuring an Azure Key Vault and enabling workload identities. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+> To use the operations experience web UI to manage secrets, Azure IoT Operations must first be enabled with secure settings by configuring an Azure Key Vault and enabling workload identities. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **Access token**.
 

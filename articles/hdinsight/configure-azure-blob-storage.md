@@ -6,8 +6,9 @@ ms.topic: how-to
 ms.date: 01/13/2025
 author: hareshg
 ms.author: hgowrisankar
-ms.reviewer: nijelsf 
+ms.reviewer: nijelsf
 ---
+
 # Configure Azure Blob Storage as primary storage account in Azure HDInsight
 
 Learn how to use managed identities to authenticate Blob storage while configuring primary storage during HDInsight cluster creation.  
