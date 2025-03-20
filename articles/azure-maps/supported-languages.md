@@ -24,7 +24,7 @@ Azure Maps have been localized in variety languages across its services. The fol
 ::: zone pivot="previous"
 <!-----------------------------REST API PREVIOUS VERSIONS ------------------------------------------------------------------------------>
 
-| Code       | Name                                     | Render | Search | Route | Traffic | Weather |
+| Culture    | Language                                 | Render | Search | Route | Traffic | Weather |
 |------------|------------------------------------------|:------:|:------:|:-----:|:-------:|:-------:|
 | af-ZA      | Afrikaans                                |      |    ✓   |    ✓    |         |        |
 | ar         | Arabic                                   | ✓    |    ✓   |    ✓    |    ✓    |    ✓  |
@@ -104,6 +104,9 @@ Azure Maps have been localized in variety languages across its services. The fol
 
 Azure Maps have been localized in variety languages across its services. The following table provides the supported language codes for the routing v2 services. The routing column in the following table includes routes for driving and walking.
 ---------------------------------------------------------------------------------------------------------------------------------------->
+
+The Route column includes routes for driving and walking.
+
 | Culture        | Language                                   | Render | Search | Route | Truck Route | Traffic | Weather |
 |----------------|--------------------------------------------|--------|--------|-------|-------------|---------|---------|
 | af             | Afrikaans                                  |        | ✓      | ✓     | ✓           |         |         |
