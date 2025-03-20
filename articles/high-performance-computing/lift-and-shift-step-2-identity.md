@@ -1,15 +1,15 @@
 ---
-title: "Deployment step 2: base services - identity management component"
-description: Learn about the configuration of identity management during migration deployment step two.
+title: "Identity management configuration during a high performance computing (HPC) architecture migration"
+description: Learn how to configure identity management during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 08/30/2024
+ms.date: 03/20/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ---
 
-# Deployment step 2: base services - identity management component
+# Identity management configuration during a high performance computing (HPC) architecture migration
 
 Component to handle user identity and access levels. Identity management system should:
 

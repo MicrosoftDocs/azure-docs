@@ -1,15 +1,15 @@
 ---
-title: "Deployment step 2: base services - overview"
-description: Learn about production-level environment migration deployment step two.
+title: "High performance computing (HPC) base services migration overview"
+description: Get a high level idea of the steps involved when migrating base services during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 08/30/2024
+ms.date: 03/20/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ---
 
-# Deployment step 2: base services - overview
+# High performance computing (HPC) base services migration overview
 
 One of the key component's users interact with in an on-premises environment is the job scheduler (for example, Slurm, PBS, and LSF). During a lift-and-shift process, users should retain the same level of interaction with these schedulers. However, the difference is that resources are no longer static; they're provisioned on-demand.
 

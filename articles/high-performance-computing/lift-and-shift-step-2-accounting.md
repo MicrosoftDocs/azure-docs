@@ -1,15 +1,15 @@
 ---
-title: "Deployment step 2: base services - accounting component"
-description: Learn about the configuration of accounting during migration deployment step two.
+title: "Accouting configuration during a high performance computing (HPC) architecture migration"
+description: Learn how to configure accounting during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 08/30/2024
+ms.date: 03/20/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ---
 
-# Deployment step 2: base services - accounting component
+# Accouting configuration during a high performance computing (HPC) architecture migration
 
 Accounting in HPC environments involves tracking and managing resource usage to ensure efficient utilization, cost management, and compliance. Slurm Accounting is a powerful tool that helps administrators monitor and report on job and resource usage, providing insights into workload performance and user activity.
 
