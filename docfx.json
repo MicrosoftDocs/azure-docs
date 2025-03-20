@@ -792,6 +792,7 @@
         "articles/chef/**/*.md": "tarcher",
         "articles/cloud-shell/**/*.md": "sewhee",
         "articles/communications-gateway/**/*.md": "jroth",
+        "articles/communications-gateway/**/*.yml": "jroth",
         "articles/connectors/*.md": "estfan",
         "articles/container-registry/**/*.md": "tejaswikolli",
         "articles/data-catalog/*.md": "whhender",
