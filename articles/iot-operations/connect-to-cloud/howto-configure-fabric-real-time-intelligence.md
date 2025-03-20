@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/30/2024
+ms.date: 03/20/2025
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure data flow endpoints for  Microsoft Fabric Real-Time Intelligence in Azure IoT Operations so that I can send real-time data to Microsoft Fabric.
