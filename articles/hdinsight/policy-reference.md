@@ -6,7 +6,8 @@ ms.topic: reference
 ms.service: azure-hdinsight
 author: yeturis
 ms.author: sairamyeturi
-ms.reviewer: nijelsf---
+ms.reviewer: nijelsf
+---
 # Azure Policy built-in definitions for Azure HDInsight
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
