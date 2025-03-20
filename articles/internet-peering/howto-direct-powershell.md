@@ -7,18 +7,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 01/23/2023
 ms.author: halkazwini 
-ms.custom: template-how-to, devx-track-azurepowershell, engagement-fy23
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create or modify a Direct peering using PowerShell
 
-> [!div class="op_single_selector"]
-> - [Azure portal](howto-direct-portal.md)
-> - [PowerShell](howto-direct-powershell.md)
-
-This article describes how to create a Microsoft Direct peering by using PowerShell cmdlets and the Azure Resource Manager deployment model. This article also shows you how to check the status of the resource, update it, or delete and deprovision it.
-
-If you prefer, you can complete this guide by using the [Azure portal](howto-direct-portal.md).
+This article describes how to create a Microsoft Direct peering using PowerShell cmdlets and the Azure Resource Manager deployment model. This article also shows you how to check the status of the resource, update it, or delete and deprovision it.
 
 ## Before you begin
 
