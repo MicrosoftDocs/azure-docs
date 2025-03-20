@@ -112,27 +112,25 @@ To begin using Azure CLI:
 To add an operation to your test API, run the [az apim api operation create](/cli/azure/apim/api/operation#az-apim-api-operation-create) command:
 
 ```azurecli
-az apim api operation create --resource-group apim-hello-word-resource-group \
+az apim api operation create --resource-group <resource-group> \
     --display-name "Test call" --api-id test-api --method GET \
-    --url-template /test --service-name apim-hello-world 
+    --url-template /test --service-name <API-management-service-name> 
 ```
 
 Run the [az apim api operation list](/cli/azure/apim/api/operation#az-apim-api-operation-list) command to see all your operations for an API:
 
 ```azurecli
-az apim api operation list --resource-group apim-hello-word-resource-group \
-    --api-id test-api --service-name apim-hello-world --output table
+az apim api operation list --resource-group <resource-group-name> \
+    --api-id test-api --service-name <API-management-service-name> --output table
 ```
 
-To remove an operation, use the [az apim api operation delete](/cli/azure/apim/api/operation#az-apim-api-operation-delete) command. Get the operation ID from the previous command.
+Keep this operation for use in the rest of this article. If you want to remove an operation, you can use the [az apim api operation delete](/cli/azure/apim/api/operation#az-apim-api-operation-delete) command. Get the operation ID from the previous command.
 
 ```azurecli
-az apim api operation delete --resource-group apim-hello-word-resource-group \
+az apim api operation delete --resource-group <resource-group-name> \
     --api-id test-api --operation-id <ID> \
-    --service-name apim-hello-world
+    --service-name <API-management-service-name>
 ```
-
-Keep this operation for use in the rest of this article.
 
 ---
 
