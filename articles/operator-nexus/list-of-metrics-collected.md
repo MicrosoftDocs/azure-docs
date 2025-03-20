@@ -245,6 +245,7 @@ All these metrics for Nexus Cluster are collected and delivered to Azure Monitor
 |StorageControlPlaneConnectivity|Storage|Storage control-plane connectivity (Preview)|Count|Cluster's connectivity status to the storage appliance. In the absence of data, this metric will default to 0|Node, Endpoint, State|
 
 ### ***telegraf***
+
 | Metric      | Category | Display Name  | Unit | Description | Dimensions   |
 |-------------|:-------------:|:-----:|:----------:|:-----------:|:--------------------------:|
 |TelegrafInternalAgentGatherErrors|Telegraf|Telegraf Internal Agent Gather Errors|Count|This metric tracks the number of errors that occur during the gather phase of the Telegraf agent's operation. These errors can happen for various reasons, such as issues with input plugins or problems accessing data sources. In the absence of data, this metric will retain the most recent value emitted|Host|
