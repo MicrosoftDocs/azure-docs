@@ -683,7 +683,7 @@ The sub path can refer to either a folder or a file in the volume.
 
     For example, suppose the sub path is `my-volume-folder/my-volume-file.txt`, and the mount path is `/my-container-folder/my-container-file`. The folder `/my-container-folder` should already exist in the container but should not yet contain the file `my-container-file.txt`.
 
-If the sub path trailing slashes are ignored.
+Any sub path trailing slashes are ignored.
 
 ## Related content
 
