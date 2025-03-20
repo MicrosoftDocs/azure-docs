@@ -4,6 +4,9 @@ description: Determine the types, sizes, and retention policies for HDInsight ac
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 01/02/2025
 ---
 
