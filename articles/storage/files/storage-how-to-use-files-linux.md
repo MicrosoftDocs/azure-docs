@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content, devx-track-azurecli
 ms.topic: how-to
-ms.date: 03/07/2025
+ms.date: 03/19/2025
 ms.author: kendownie
 ---
 
@@ -116,11 +116,11 @@ All mounting scripts in this article will mount the file shares using the defaul
 
 ### Unix-style permissions support
 
-You can also get Unix-style permissions support by using client-enforced access control and adding `modefromsid,idsfromsid` mount options to your mount command. In order for this to work:
+You can also get Unix-style permissions support for SMB Azure file shares by using client-enforced access control and adding `modefromsid,idsfromsid` mount options to your mount command. In order for this to work:
 
 - All clients accessing the share need to mount using `modefromsid,idsfromsid`
 - The UIDs/GIDs must be uniform across all clients
-- Clients must be running one of the following supported distros: Ubuntu 20.04+, SLES 15 SP3+
+- Clients must be running one of the following supported Linux distros: Ubuntu 20.04+, SLES 15 SP3+
 
 ## Mount the Azure file share on-demand with mount
 
