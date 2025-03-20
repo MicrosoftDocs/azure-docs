@@ -252,7 +252,7 @@ All these metrics for Nexus Cluster are collected and delivered to Azure Monitor
 |TelegrafInternalAgentMetricsDropped|Telegraf|Telegraf Internal Agent Metrics Dropped|Count|This metric tracks the number of metrics that have been dropped by the Telegraf agent during its operation. Metrics can be dropped for various reasons, such as buffer overflows, write errors, or other issues that prevent the metrics from being successfully processed and sent to the output destination. In the absence of data, this metric will retain the most recent value emitted|Host|
 |TelegrafInternalAgentMetricsGathered|Telegraf|Telegraf Internal Agent Metrics Gathered|Count|This metric tracks the number of metrics that have been successfully gathered by the Telegraf agent. In the absence of data, this metric will retain the most recent value emitted|Host|
 |TelegrafInternalAgentMetricsWritten|Telegraf|Telegraf Internal Agent Metrics Written|Count|This metric tracks the number of metrics that have been successfully written by the Telegraf agent to the output destination. In the absence of data, this metric will retain the most recent value emitted|Host|
-|TelegrafWriteBufferPercentUsed|Telegraf|Telegraf Write Buffer Percent Used|Count|Percentage of metric write buffer that is being used. In the absence of data, this metric will default to 0|Host, Output|
+|TelegrafWriteBufferPercentUsed|Telegraf|Telegraf Write Buffer Percent Used|Percent|Percentage of metric write buffer that is being used. In the absence of data, this metric will default to 0|Host, Output|
 
 ### ***Platform Cluster***
 
