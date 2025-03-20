@@ -4,7 +4,7 @@ description: Provides a summary of support settings and limitations for the Azur
 author: Vikram1988
 ms.author: vibansa
 ms.topic: conceptual
-ms.date: 02/06/2025
+ms.date: 03/20/2025
 ms.custom: engagement-fy24
 ---
 
@@ -44,6 +44,65 @@ Create a project | Your Azure account needs permissions to create a project. | S
 Register the Azure Migrate appliance| Azure Migrate uses a lightweight [Azure Migrate appliance](migrate-appliance.md) to discover and assess servers with Azure Migrate: Discovery and assessment, and to run [agentless migration](server-migrate-overview.md) of VMware VMs with the Migration and modernization tool. This appliance discovers servers, and sends metadata and performance data to Azure Migrate.<br><br> During registration, register providers (Microsoft.OffAzure, Microsoft.Migrate, and Microsoft.KeyVault) are registered with the subscription chosen in the appliance, so that the subscription works with the resource provider. To register, you need Contributor or Owner access on the subscription.<br><br> **VMware**-During onboarding, Azure Migrate creates two Microsoft Entra apps. The first app communicates between the appliance agents and the Azure Migrate service. The app doesn't have permissions to make Azure resource management calls or have Azure RBAC access for resources. The second app accesses an Azure Key Vault created in the user subscription for agentless VMware migration only. In agentless migration, Azure Migrate creates a Key Vault to manage access keys to the replication storage account in your subscription. It has Azure RBAC access on the Azure Key Vault (in the customer tenant) when discovery is initiated from the appliance.<br><br> **Hyper-V**-During onboarding, Azure Migrate creates one Microsoft Entra app. The app communicates between the appliance agents and the Azure Migrate service. The app doesn't have permissions to make Azure resource management calls or have Azure RBAC access for resources. | Set up for [VMware](./tutorial-discover-vmware.md#prepare-an-azure-user-account), [Hyper-V](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account), or [physical servers](./tutorial-discover-physical.md#prepare-an-azure-user-account).
 Create a key vault for VMware agentless migration | To migrate VMware VMs with agentless Migration and modernization, Azure Migrate creates a Key Vault to manage access keys to the replication storage account in your subscription. To create the vault, you set permissions (Owner, or Contributor and User Access Administrator) on the resource group where the project resides. | [Set up](./tutorial-discover-vmware.md#prepare-an-azure-user-account) permissions.
 
+::: moniker range="migrate-classic"
+
+## Supported geographies 
+
+#### [Azure Public cloud](#tab/public)
+
+### Public cloud
+
+You can create a project in many geographies in the public cloud.
+
+- Although you can only create projects in these geographies, you can assess or migrate servers for other target locations.
+- The project geography is only used to store the discovered metadata. 
+- When you create a project, you select a geography. The project and related resources are created in one of the regions in the geography. The region is allocated by the Azure Migrate service. Azure Migrate does not move or store customer data outside of the region allocated.
+
+**Geography** | **Metadata storage location**
+--- | ---
+Africa | South Africa or North Africa
+Asia Pacific | East Asia
+Australia | Australia East or Australia Southeast
+Brazil | Brazil South
+Canada | Canada Central or Canada East
+Europe | North Europe or West Europe
+France | France Central
+Germany | Germany West Central
+India | Central India or South India
+Israel| Israel Central
+Italy | North Italy
+Japan |  Japan East or Japan West
+Jio India | Jio India West 
+Korea | Korea Central
+Norway | Norway East
+Spain  | Spain Central 
+Sweden | Sweden Central
+Switzerland | Switzerland North
+United Arab Emirates | UAE North
+United Kingdom | UK South or UK West
+United States | Central US or West US 2
+
+> [!NOTE]
+> For Switzerland geography, Switzerland West is only available for REST API users and need an approved subscription.
+
+#### [Azure for US Government](#tab/gov)
+
+### Azure Government
+
+**Task** | **Geography** | **Details**
+--- | --- | ---
+Create project | United States | Metadata is stored in US Gov Arizona, US Gov Virginia
+Target assessment | United States | Target regions: US Gov Arizona, US Gov Virginia, US Gov Texas
+Target replication | United States | Target regions: US DoD Central, US DoD East, US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia
+
+#### [Azure operated by 21Vianet](#tab/21via)
+
+**Geography** | **Metadata storage location**
+--- | ---
+Microsoft Azure operated by 21Vianet | China North 2
+
+---
+::: moniker-end
 
 ## VMware assessment and migration
 
@@ -52,6 +111,17 @@ Create a key vault for VMware agentless migration | To migrate VMware VMs with a
 ## Hyper-V assessment and migration
 
 [Review](migrate-support-matrix-hyper-v.md) the Azure Migrate: Discovery and assessment and Migration and modernization support matrix for Hyper-V VMs.
+
+::: moniker range="migrate-classic"
+
+## Azure Migrate versions
+
+There are two versions of the Azure Migrate service:
+
+- **Current version**: Using this version, you can create new projects, discover on-premises servers, and orchestrate assessments and migrations. [Learn more](whats-new.md).
+- **Previous version**: For customers using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. In the previous version, you can't create new projects or perform new discoveries.
+
+::: moniker-end
 
 ## Next steps
 
