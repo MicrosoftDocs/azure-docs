@@ -52,7 +52,6 @@ If your vault is configured with [network restrictions](/azure/key-vault/general
    ```azurepowershell
    Update-AzFunctionAppSetting -Name <app-name> -ResourceGroupName <group-name> -AppSetting @{vnetRouteAllEnabled = $true}
    ```
-
    ---
 
 1. Make sure that the vault's configuration allows the network or subnet that your app uses to access it.
@@ -127,7 +126,9 @@ When you use Key Vault references in this setting, the validation check fails by
 > [!CAUTION]
 > If you skip validation and either the connection string or the content share is invalid, the app doesn't start properly and creates HTTP 500 errors.
 
-As part of creating the app, attempted mounting of the content share could fail because managed identity permissions aren't being propagated or the virtual network integration isn't set up. You can defer setting up Azure Files until later in the deployment template to accommodate this behavior. For more information, see [Azure Resource Manager deployment](#azure-resource-manager-deployment) later in this article. In this case, App Service uses a default file system until Azure Files is set up, and files aren't copied over. You must ensure that no deployment attempts occur during the interim period before Azure Files is mounted.
+As part of creating the app, attempted mounting of the content share could fail because managed identity permissions aren't being propagated or the virtual network integration isn't set up. You can defer setting up Azure Files until later in the deployment template to accommodate this behavior. For more information, see [Azure Resource Manager deployment](#azure-resource-manager-deployment) later in this article.
+
+In this case, App Service uses a default file system until Azure Files is set up, and files aren't copied over. You must ensure that no deployment attempts occur during the interim period before Azure Files is mounted.
 
 ### Considerations for Application Insights instrumentation
 
