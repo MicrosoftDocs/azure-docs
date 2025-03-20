@@ -609,7 +609,7 @@ Here are steps that help you upgrade the Oracle connector:
     
     - For some additional connection properties in version 1.0, we provide alternative properties or parameters in the `server` property in version 2.0 (Preview). You can refer to the table below to upgrade the version 1.0 properties.
     
-        | Version 1.0 | version 2.0 (Preview)  | 
+        | Version 1.0 | Version 2.0 (Preview)  | 
         |:--- |:--- |
         | encryptionmethod| PROTOCOL (parameter in `server`) | 
         | tnsnamesfile | TNS_ADMIN (environment variable supported on the self-hosted integration runtime)  | 
