@@ -3,6 +3,9 @@ title: Versioning introduction - Azure HDInsight
 description: Learn how versioning works in Azure HDInsight.
 ms.service: azure-hdinsight
 ms.topic: conceptual
+author: anuj1905
+ms.author: anujsharda
+ms.reviewer: nijelsf
 ms.date: 04/11/2024
 ---
 
