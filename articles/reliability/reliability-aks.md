@@ -104,7 +104,7 @@ There's no additional charge to enable availability zone support in AKS. You pay
 
 - **Expected data loss**: If you store state within your cluster by using Azure disks, and you use zone-redundant storage, then a zone failure isn't expected to cause any data loss.
 
-- **Expected downtime**: If you've correctly configured zone resiliency for your cluster and pods then a zone failure isn't expected to cause downtime to your AKS workload. To learn more, see [Zone resiliency considerations for Azure Kubernetes Service (AKS)](/azure/aks/aks-zone-resiliency).
+- **Expected downtime**: If you've correctly configured zone resiliency for your cluster and pods, then a zone failure isn't expected to cause downtime to your AKS workload. To learn more, see [Zone resiliency considerations for Azure Kubernetes Service (AKS)](/azure/aks/aks-zone-resiliency).
 
 - **Traffic rerouting**: Load balancers are responsible for rerouting new incoming requests to pods running on healthy nodes. To learn more, see [Zone resiliency considerations for Azure Kubernetes Service (AKS)](/azure/aks/aks-zone-resiliency).
 
