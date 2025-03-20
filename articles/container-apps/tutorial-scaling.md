@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: tutorial
-ms.date: 03/10/2025
+ms.date: 03/20/2025
 ms.author: cshoe
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
@@ -255,9 +255,9 @@ In the first shell, where you ran the `az containerapp logs show` command, the o
     "TimeStamp":"2023-08-01 18:09:52 +0000 UTC",
     "Type":"Normal",
     "ContainerAppName":"my-container-app",
-    "RevisionName":"my-container-app--9uj51l6",
-    "ReplicaName":"my-container-app--9uj51l6-5f96557ffb-f795d",
-    "Msg":"Replica 'my-container-app--9uj51l6-5f96557ffb-f795d' has been scheduled to run on a node.",
+    "RevisionName":"my-container-app--00001111",
+    "ReplicaName":"my-container-app--00001111-aaaaa22222-bbbb",
+    "Msg":"Replica 'my-container-app--00001111-aaaaa22222-bbbb' has been scheduled to run on a node.",
     "Reason":"AssigningReplica",
     "EventSource":"ContainerAppController",
     "Count":0
@@ -297,17 +297,20 @@ The following screenshot shows a zoomed view of how the requests received by you
 
 ## CPU and memory scaling
 
-You should prefer [HTTP scale rules](/azure/container-apps/scale-app#http) to CPU or memory scale rules when possible.
-
-When you use the Azure CLI to add a scale rule to a container app that already has a scale rule, the new scale rule replaces the old scale rule. To see how to add multiple scale rules, see [Multiple scale rules](#multiple-scale-rules).
+You should prefer [HTTP scale rules](/azure/container-apps/scale-app#http) to CPU or memory scale rules when possible. CPU and memory scaling don't allow your container app to scale to zero.
 
 After you add a CPU or memory scale rule, you can test it by [sending requests to your container app](#send-requests) and [viewing the scaling in Azure portal](#view-scaling-in-azure-portal-optional).
 
 ### CPU scaling
 
-CPU scaling allows your app to scale in or out depending on how much the CPU is being used. CPU scaling doesn't allow your container app to scale to 0. For more information about this trigger, see [KEDA CPU scale trigger](https://keda.sh/docs/scalers/cpu/).
+CPU scaling allows your app to scale in or out depending on how much the CPU is being used. CPU scaling doesn't allow your container app to scale to zero. For more information about this trigger, see [KEDA CPU scale trigger](https://keda.sh/docs/scalers/cpu/).
 
-Add a CPU scale rule to your container app by running the `az containerapp update` command. Replace the `<PLACEHOLDERS>` with your values. The CPU utilization value is the percentage of CPU utilization at which you want to scale your app.
+Add a CPU scale rule to your container app by running the `az containerapp update` command.
+
+> [!NOTE]
+> When you use the Azure CLI to add a scale rule to a container app that already has a scale rule, the new scale rule replaces the old scale rule. To see how to add multiple scale rules, see [Multiple scale rules](#multiple-scale-rules).
+
+Before running the following command, replace the `<PLACEHOLDERS>` with your values.
 
 # [Bash](#tab/bash)
 
@@ -339,9 +342,14 @@ az containerapp update `
 
 ### Memory scaling
 
-Memory scaling allows your app to scale in or out depending on how much memory is being used. Memory scaling doesn't allow your container app to scale to 0. For more information about this trigger, see [KEDA memory scale trigger](https://keda.sh/docs/scalers/memory/).
+Memory scaling allows your app to scale in or out depending on how much memory is being used. Memory scaling doesn't allow your container app to scale to zero. For more information about this trigger, see [KEDA memory scale trigger](https://keda.sh/docs/scalers/memory/).
 
-Add a memory scale rule to your container app by running the `az containerapp update` command. Replace the `<PLACEHOLDERS>` with your values. The memory utilization value is the percentage of memory utilization at which you want to scale your app.
+Add a memory scale rule to your container app by running the `az containerapp update` command.
+
+> [!NOTE]
+> When you use the Azure CLI to add a scale rule to a container app that already has a scale rule, the new scale rule replaces the old scale rule. To see how to add multiple scale rules, see [Multiple scale rules](#multiple-scale-rules).
+
+Before running the following command, replace the `<PLACEHOLDERS>` with your values. The memory utilization value is the percentage of memory utilization at which you want to scale your app.
 
 # [Bash](#tab/bash)
 
