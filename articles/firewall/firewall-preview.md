@@ -5,7 +5,7 @@ services: firewall
 author: duongau
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 01/15/2025
+ms.date: 03/20/2025
 ms.author: duau
 ---
 
