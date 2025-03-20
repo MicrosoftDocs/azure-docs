@@ -322,6 +322,8 @@ Multiple personal desktop assignment allows you to assign more than one personal
 >- You should [Give session hosts in a personal host pool a friendly name](#give-session-hosts-in-a-personal-host-pool-a-friendly-name) so that your users can distinguish between the multiple personal desktops you assigned to them.
 >
 >- Once a host pool is enabled for multiple personal desktop assignment, it can't be disabled.
+>
+> Assigning multiple personal desktops to a single user is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ### Enable multiple personal desktop assignment
 
