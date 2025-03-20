@@ -43,12 +43,6 @@ For more information, see [Resource Health overview](/azure/service-health/resou
 
 You can configure Azure Firewall to autolearn both registered and private ranges every 30 minutes. For information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md#auto-learn-snat-routes-preview).
 
-### Parallel IP Group updates (preview)
-
-You can now update multiple IP Groups in parallel at the same time. This is useful for administrators who want to make configuration changes more quickly and at scale, especially when making those changes using a dev ops approach (templates, ARM template, CLI, and PowerShell).
-
-For more information, see [IP Groups in Azure Firewall](ip-groups.md#parallel-ip-group-updates-preview).
-
 ### Private IP address DNAT rules (preview)
 
 You can now configure a DNAT rule on Azure Firewall Policy with the private IP address of the Azure Firewall as the destination. Previously, DNAT rules only worked with Azure Firewall Public IP addresses.
