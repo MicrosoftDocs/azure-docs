@@ -23,7 +23,7 @@ To update code for Azure Functions runtime requirements:
 
    - Use the [Functions extensions bundle](/azure/azure-functions/functions-bindings-register) to handle various bindings and triggers that are similar to AWS services. For .NET applications, you should use the appropriate NuGet packages instead of the extensions bundle.
 
-   - The extensions bundle allows you to integrate with other Azure services such as Storage, Service Bus, and Azure Cosmos DB without needing to manually configure each binding through SDKs. For more information, see [Connect functions to Azure services by using bindings](/azure/azure-functions/add-bindings-existing-function) and [Azure Functions binding expression patterns](/azure/azure-functions/functions-bindings-expressions-patterns).
+   - Use the extensions bundle to integrate with other Azure services such as Storage, Service Bus, and Azure Cosmos DB without needing to manually configure each binding through SDKs. For more information, see [Connect functions to Azure services by using bindings](/azure/azure-functions/add-bindings-existing-function) and [Azure Functions binding expression patterns](/azure/azure-functions/functions-bindings-expressions-patterns).
 
 The following snippets are examples of common SDK code. The AWS Lambda code maps to the corresponding triggers, bindings, or SDK code snippets in Azure Functions.
 
@@ -245,7 +245,7 @@ The following snippets are examples of common SDK code. The AWS Lambda code maps
 
    :::column-end:::
    :::column span="":::
-   
+
       Azure Functions code (Trigger)
 
       ```
@@ -363,68 +363,75 @@ These resources provide specific examples and detailed steps to facilitate the m
 
 ## Deploy and test the application
 
+Perform a guided migration of workloads to Azure Functions, and test the deployed functions to validate their performance and correctness.
+
 ### Deploy to Azure
 
-Deploy with the [Visual Studio Code](/azure/azure-functions/functions-develop-vs-code#publish-to-azure) publish feature, or from the command line using [Azure Functions Core Tools](/azure/azure-functions/functions-run-local#project-file-deployment) or the [Azure CLI](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). Our [Azure Dev Ops Task](/azure/azure-functions/functions-how-to-azure-devops#deploy-your-app) and [GitHub Actions](/azure/azure-functions/functions-how-to-github-actions) similarly leverage One deploy.
+Deploy workloads by using the [VS Code](/azure/azure-functions/functions-develop-vs-code#publish-to-azure) publish feature. You can also deploy workloads from the command line by using [Azure Functions Core Tools](/azure/azure-functions/functions-run-local#project-file-deployment) or the [Azure CLI](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). [Azure DevOps](/azure/azure-functions/functions-how-to-azure-devops#deploy-your-app) and [GitHub Actions](/azure/azure-functions/functions-how-to-github-actions) also use One Deploy.
 
-- Azure Functions Core Tools
-   - [Deploy your function app](/azure/azure-functions/flex-consumption-how-to#deploy-your-code-project) using [Azure Functions Core Tools](/azure/azure-functions/functions-run-local)with the following command: `func azure functionapp publish <FunctionAppName> `
+- Azure Functions Core Tools: [Deploy your function app](/azure/azure-functions/flex-consumption-how-to#deploy-your-code-project) by using [Azure Functions Core Tools](/azure/azure-functions/functions-run-local) with the `func azure functionapp publish <FunctionAppName>` command.
 
-- CI/CD Pipelines
-   - Set up a Continuous Integration/Continuous Deployment (CI/CD) pipeline using services like GitHub Actions, Azure DevOps, or another CI/CD tool.
-   - Refer to [this guide for GitHub Actions](/azure/azure-functions/functions-how-to-github-actions) or [this guide for Azure DevOps](/azure/azure-functions/functions-how-to-azure-devops).
+- Continuous integration and continuous deployment (CI/CD) pipelines: Set up a CCI/CD pipeline by using services like GitHub Actions, Azure DevOps, or another CI/CD tool.
 
-### Perform End-to-End Testing: 
+   For more information, see [Continuous delivery by using GitHub Actions](/azure/azure-functions/functions-how-to-github-actions) or [Continuous delivery with Azure Pipelines](/azure/azure-functions/functions-how-to-azure-devops).
 
-- Validate Functionality
-   - Test each function thoroughly to ensure it works as expected. This includes verifying input/output, event triggers, and bindings.
-   - Use tools like curl or [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension on VS Code to send HTTP requests for HTTP-triggered functions.
-   - For other triggers, such as timers or queues, ensure the triggers fire correctly and the functions execute as expected.
+### Perform end-to-end testing
 
-- Validate Performance
+- Validate functionality
+
+   - Test each function thoroughly to ensure that it works as expected. These tests should include input/output, event triggers, and bindings verification.
+
+   - Use tools like curl or [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extensions on VS Code to send HTTP requests for HTTP-triggered functions.
+
+   - For other triggers, such as timers or queues, ensure that the triggers fire correctly and the functions run as expected.
+
+- Validate performance
+
    - Conduct performance testing to compare the new Azure Functions deployment with the previous AWS Lambda deployment.
-   - Monitor metrics like response time, execution time, and resource consumption.
-   - Utilize Azure Application Insights for [monitoring, log analysis, and troubleshooting](/azure/azure-functions/functions-monitoring) during the testing phase. 
 
-- Troubleshoot using Diagnose and Solve Problems
-   - Leverage the [Diagnose and Solve Problems](/azure/app-service/overview-diagnostics) feature in the Azure Portal to troubleshoot your Function App.
-   - This tool provides a set of diagnostics features that can help you quickly identify and resolve common issues such as application crashes, performance degradation, and configuration problems.
-   - Follow the guided troubleshooting steps and recommendations provided by the tool to address identified issues. 
+   - Monitor metrics like response time, run time, and resource consumption.
 
-## Optimize and Monitor 
+   - Use Application Insights for [monitoring, log analysis, and troubleshooting](/azure/azure-functions/functions-monitoring) during the testing phase.
 
-Follow these steps to effectively monitor, troubleshoot, and optimize your Azure Functions for performance and cost. 
+- Troubleshoot by using the diagnose and solve problems feature
 
-### Use Azure Application Insights for Monitoring and Troubleshooting
+   Use the [diagnose and solve problems](/azure/app-service/overview-diagnostics) feature in the Azure portal to troubleshoot your function app. This tool provides a set of diagnostics features that can help you quickly identify and resolve common problems, such as application crashes, performance degradation, and configuration problems. Follow the guided troubleshooting steps and recommendations that the tool provides to address problems that you identify. 
 
-- Set Up Application Insights
-   - Enable [Azure Application Insights](/azure/azure-functions/functions-monitoring) for your Azure Functions to collect detailed telemetry data for monitoring and troubleshooting. Application Insights can be enabled through the Azure Portal or in the function app's host.json configuration file.
+## Optimize and monitor the application's performance
 
-- Collect Telemetry Data
-   - Application Insights provides various telemetry data such as request logs, performance metrics, exceptions, dependencies, and more.
+Follow these steps to effectively monitor, troubleshoot, and optimize your function app for performance and cost. 
 
-- Analyze Logs and Metrics
-   - Access the Application Insights dashboard from the Azure Portal to visualize and analyze logs, metrics, and other telemetry data.
-   - Utilize the built-in tools for creating custom queries and visualizing data to gain insights into the performance and behavior of your Azure Functions. 
+### Use Application Insights for monitoring and troubleshooting
 
-- Set Up Alerts
-   - Configure alerts in Application Insights to notify you of critical issues, performance degradation, or specific events. This helps in proactive monitoring and timely response to problems.
+Enable [Application Insights](/azure/azure-functions/functions-monitoring) for your function app to collect detailed telemetry data for monitoring and troubleshooting. You can enable Application Insights through the Azure portal or in the function app's host.json configuration file. After you enable Application Insights, you can:
 
-### Optimize for Cost and Performance
+- Collect telemetry data. Application Insights provides various telemetry data such as request logs, performance metrics, exceptions, and dependencies.
 
-- Scaling and Performance Optimization
-   - Use autoscaling features available to handle varying workloads efficiently.
-   - Optimize function code to improve performance by reducing execution time, optimizing dependencies, and using efficient coding practices.
+- Analyze logs and metrics. Access the Application Insights dashboard from the Azure portal to visualize and analyze logs, metrics, and other telemetry data. Use the built-in tools to create custom queries and visualize data to gain insights into the performance and behavior of your function app. 
+
+- Set up alerts. Configure alerts in Application Insights to notify you of critical problems, performance degradation, or specific events. These alerts help you proactively monitor and quickly respond to problems.
+
+### Optimize for cost and performance
+
+- Scaling and performance optimization:
+
+   - Use autoscaling features to handle varying workloads efficiently.
+
+   - Optimize function code to improve performance by reducing run time, optimizing dependencies, and using efficient coding practices.
+
    - Implement caching strategies to reduce repeated processing and latency for frequently accessed data. 
 
-- Cost Management
-   - Use the [Azure Cost Management and Billing](/azure/cost-management-billing/cost-management-billing-overview) tools to monitor and analyze your Azure Functions costs.
-   - Set up budgeting and cost alerts to manage and predict expenses effectively. 
+- Cost management:
 
-## Get Started 
+   - Use the [Microsoft Cost Management](/azure/cost-management-billing/cost-management-billing-overview) tools to monitor and analyze your Azure Functions costs.
 
-- Use this [GitHub repo](https://github.com/MadhuraBharadwaj-MSFT/MigrationGetStarted) as a starter template to begin your PoC migration. This is a ready-to-deploy Functions project that has the necessary infrastructure (bicep) and source code files to help you get started. 
-- If you prefer to use Terraform instead, use this [GitHub repo](https://github.com/MadhuraBharadwaj-MSFT/MigrationGetStarted-Terraform)
+   - Set up budgeting and cost alerts to manage and predict expenses effectively.
+
+## Get started
+
+Use the [MigrationGetStarted repo](https://github.com/MadhuraBharadwaj-MSFT/MigrationGetStarted) as a template to begin your proof of concept. This repo includes a ready-to-deploy Azure Functions project that has the infrastructure and source code files to help you get started.
+
+If you prefer to use Terraform, use [MigrationGetStarted-Terraform](https://github.com/MadhuraBharadwaj-MSFT/MigrationGetStarted-Terraform) instead.
 
 <!--
 ## Next step
