@@ -4,7 +4,9 @@ description: Learn how to Configure Azure Blob storage on Azure HDInsight.
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.date: 01/13/2025
-
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ---
 # Configure Azure Blob Storage as primary storage account in Azure HDInsight
 
