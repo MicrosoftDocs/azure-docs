@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 03/13/2025
+ms.date: 03/20/2025
 ms.author: anfdocs
 ---
 
@@ -15,6 +15,10 @@ ms.author: anfdocs
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
 ## March 2025
+
+* [Network security group (NSG) support for private link connectivity](azure-netapp-files-network-topologies.md) is now generally available (GA)
+
+    Azure NetApp Files now supports private links with NSGs in all regions. This feature enables you to apply NSG policies to private link endpoints, enhancing the security of your workload deployments. 
 
 * [Application volume group for Oracle](application-volume-group-oracle-introduction.md) is now generally available (GA)
 
