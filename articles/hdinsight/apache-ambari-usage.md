@@ -7,6 +7,9 @@ author: apurbasroy
 ms.author: apsinhar
 ms.reviewer: sairamyeturi
 ms.date: 06/15/2024
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: sairamyeturi
 ---
 
 # Apache Ambari usage in Azure HDInsight

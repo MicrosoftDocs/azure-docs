@@ -7,6 +7,9 @@ author: yeturis
 ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date: 01/07/2024
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ---
 
 # Azure Monitor Agent (AMA) migration guide for Azure HDInsight clusters

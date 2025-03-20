@@ -7,6 +7,9 @@ author: yeturis
 ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date: 06/15/2024
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ---
 
 # How to monitor cluster availability with Azure Monitor logs in HDInsight
