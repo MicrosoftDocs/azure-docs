@@ -25,7 +25,7 @@ The benefits of this integration include:
 
 - Access to the latest S/4 HANA installation to ensure that you have the most up-to-date SAP software.
 - The fastest installation experience with Azure and SAP CAL integration to streamline the deployment process.
-- Elimination of the need to maintain a bill of materials file for Ansible, which simplifies the management and setup process.
+- Elimination of the need to maintain a bill of materials file for the SAP installation, which simplifies the management and setup process.
 
 This integration brings together the best of Azure infrastructure capabilities and SAP software deployment solutions. You gain a comprehensive and efficient approach to deploy SAP systems on Azure.
 
