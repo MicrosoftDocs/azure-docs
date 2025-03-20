@@ -31,7 +31,8 @@ This section provides the list of metrics collected from the different component
     - [***Kubernetes Pod***](#kubernetes-pod)
     - [***Kubernetes StatefulSet***](#kubernetes-statefulset)
     - [***Virtual Machine Orchestrator***](#virtual-machine-orchestrator)
-    - [***sharedVolume***](#sharedvolume)
+    - [***storage***](#storage)
+    - [***telegraf***](#telegraf)
     - [***Platform Cluster***](#platform-cluster)
   - [Baremetal servers](#baremetal-servers)
     - [***node metrics***](#node-metrics)
@@ -235,12 +236,24 @@ All these metrics for Nexus Cluster are collected and delivered to Azure Monitor
 |KubevirtVmiStorageWriteTimesMsTotal|VMOrchestrator|Kubevirt VMI Storage Write Times Total (Preview)|Milliseconds|Total time spent on write operations to storage. In the absence of data, this metric will retain the most recent value emitted|Drive, Name, Node|
 |NcVmiCpuAffinity|Network Cloud|CPU Pinning Map (Preview)|Count|Pinning map of virtual CPUs (vCPUs) to CPUs. In the absence of data, this metric will retain the most recent value emitted|CPU, NUMA Node, VMI Namespace, VMI Node, VMI Name|
 
-### ***sharedVolume***
+### ***storage***
 
 | Metric      | Category | Display Name  | Unit | Description | Dimensions   |
 |-------------|:-------------:|:-----:|:----------:|:-----------:|:--------------------------:|
-|NfsVolumeSizeBytes|Deployment|NFS Volume Size Bytes|Bytes|Total Size of the NFS volume. In the absence of data, this metric will retain the most recent value emitted|CSN Name|
-|NfsVolumeUsedBytes|Deployment|NFS Volume Used Bytes|Bytes|Size of NFS volume used. In the absence of data, this metric will retain the most recent value emitted|CSN Name|
+|NfsVolumeSizeBytes|Storage|NFS Volume Size Bytes|Bytes|Total Size of the NFS volume. In the absence of data, this metric will retain the most recent value emitted|CSN Name|
+|NfsVolumeUsedBytes|Storage|NFS Volume Used Bytes|Bytes|Size of NFS volume used. In the absence of data, this metric will retain the most recent value emitted|CSN Name|
+|StorageControlPlaneConnectivity|Storage|Storage control-plane connectivity (Preview)|Count|Cluster's connectivity status to the storage appliance. In the absence of data, this metric will default to 0|Node, Endpoint, State|
+
+### ***telegraf***
+
+| Metric      | Category | Display Name  | Unit | Description | Dimensions   |
+|-------------|:-------------:|:-----:|:----------:|:-----------:|:--------------------------:|
+|TelegrafInternalAgentGatherErrors|Telegraf|Telegraf Internal Agent Gather Errors|Count|This metric tracks the number of errors that occur during the gather phase of the Telegraf agent's operation. These errors can happen for various reasons, such as issues with input plugins or problems accessing data sources. In the absence of data, this metric will retain the most recent value emitted|Host|
+|TelegrafInternalAgentGatherTimeouts|Telegraf|Telegraf Internal Agent Gather Timeouts|Count|The number of Telegraf internal agent gather timeouts. Timeouts can happen if the data sources are slow to respond or if there are network issues. In the absence of data, this metric will retain the most recent value emitted|Host|
+|TelegrafInternalAgentMetricsDropped|Telegraf|Telegraf Internal Agent Metrics Dropped|Count|This metric tracks the number of metrics that have been dropped by the Telegraf agent during its operation. Metrics can be dropped for various reasons, such as buffer overflows, write errors, or other issues that prevent the metrics from being successfully processed and sent to the output destination. In the absence of data, this metric will retain the most recent value emitted|Host|
+|TelegrafInternalAgentMetricsGathered|Telegraf|Telegraf Internal Agent Metrics Gathered|Count|This metric tracks the number of metrics that have been successfully gathered by the Telegraf agent. In the absence of data, this metric will retain the most recent value emitted|Host|
+|TelegrafInternalAgentMetricsWritten|Telegraf|Telegraf Internal Agent Metrics Written|Count|This metric tracks the number of metrics that have been successfully written by the Telegraf agent to the output destination. In the absence of data, this metric will retain the most recent value emitted|Host|
+|TelegrafWriteBufferPercentUsed|Telegraf|Telegraf Write Buffer Percent Used|Percent|Percentage of metric write buffer that is being used. In the absence of data, this metric will default to 0|Host, Output|
 
 ### ***Platform Cluster***
 
