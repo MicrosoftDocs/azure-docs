@@ -3,10 +3,10 @@ title: Open-source components and versions - Azure HDInsight 4.0
 description: Learn about the open-source  components and versions in Azure HDInsight 4.0.
 ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 04/11/2024
 author: anuj1905
 ms.author: anujsharda
 ms.reviewer: nijelsf
+ms.date: 04/11/2024
 ---
 
 # HDInsight 4.0 component versions
