@@ -7,9 +7,6 @@ author: hareshg
 ms.author: hgowrisankar
 ms.reviewer: nijelsf
 ms.date: 09/06/2024
-author: hareshg
-ms.author: hgowrisankar
-ms.reviewer: nijelsf
 ---
 
 # Enterprise Security Package for Azure HDInsight

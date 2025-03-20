@@ -7,9 +7,6 @@ author: anuj1905
 ms.author: anujsharda
 ms.reviewer: nijelsf
 ms.date: 04/11/2024
-author: anuj1905
-ms.author: anujsharda
-ms.reviewer: nijelsf
 ---
 
 # HDInsight 4.0 component versions

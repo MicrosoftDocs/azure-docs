@@ -8,9 +8,6 @@ author: yeturis
 ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date: 06/14/2024
-author: yeturis
-ms.author: sairamyeturi
-ms.reviewer: nijelsf
 ---
 # HDInsight cluster management best practices
 
