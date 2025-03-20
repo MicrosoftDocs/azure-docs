@@ -26,7 +26,7 @@ Azure Logic Apps includes built-in tracking that you can enable for parts of you
 > about monitoring Consumption logic app workflows, see the following documentation:
 >
 > - [Monitor and track B2B transactions in Consumption workflows](monitor-track-b2b-messages-consumption.md)
-> - [Tracking schemas for B2B transactions in Consumtion workflows](tracking-schemas-consumption.md)
+> - [Tracking schemas for B2B transactions in Consumption workflows](tracking-schemas-consumption.md)
 
 <a name="as2-table"></a>
 
