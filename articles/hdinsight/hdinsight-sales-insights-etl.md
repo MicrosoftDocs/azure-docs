@@ -249,7 +249,7 @@ For other ways to transform data by using HDInsight, see [this article on using 
 1. Select **Connect**.
 
 1. In the **HDInsight Interactive Query** dialog:
-    1. In the **Server** text box, enter the name of your LLAP cluster in the format of **https://LLAPCLUSTERNAME.azurehdinsight.net**.
+    1. In the **Server** text box, enter the name of your LLAP cluster in the format of `https://LLAPCLUSTERNAME.azurehdinsight.net`.
     1. In the **database** text box, enter **default**.
     1. Select **OK**.
 
