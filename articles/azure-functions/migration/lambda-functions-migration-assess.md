@@ -118,7 +118,7 @@ The following tables compare AWS Lambda concepts, resources, and properties with
 
 | AWS Lambda feature  | Azure Functions feature   |
 |---|---|
-| - SAM CLI <br> - [LocalStack](https://github.com/localstack/localstack)  | - Azure Functions core tools <br> - Visual Studio Code <br> - Visual Studio <br> - GitHub Codespaces <br> - VSCode.dev <br> - Maven <br> - [Code and test Azure Functions locally](/azure/azure-functions/functions-develop-local)  |
+| - SAM CLI <br> - [LocalStack](https://github.com/localstack/localstack)  | - Azure Functions Core Tools <br> - Visual Studio Code <br> - Visual Studio <br> - GitHub Codespaces <br> - VSCode.dev <br> - Maven <br> - [Code and test Azure Functions locally](/azure/azure-functions/functions-develop-local)  |
  
 ### Deployment
 

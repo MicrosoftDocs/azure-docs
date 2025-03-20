@@ -104,22 +104,28 @@ The following snippets are examples of common SDK code. The AWS Lambda code maps
 |---|---|
 | const AWS = require('aws-sdk');  const kinesis = new AWS.Kinesis();     exports.handler = async (event) => {    const records = event.Records.map(record => Buffer.from(record.kinesis.data, 'base64').toString());    console.log('Kinesis records:', records);  };  | import { app } from '@azure/functions';   app.eventHub('eventHubTrigger', {     connection: 'EventHubConnection',     eventHubName: 'my-event-hub',   }, async (context, eventHubMessages) => {     eventHubMessages.forEach(message => {       context.log(`Event Hub message: ${message}`);     });   });  |
 
-Refer to these GitHub repositories for a comparison between [AWS Lambda code](https://github.com/MadhuraBharadwaj-MSFT/TestLambda), and its corresponding [Azure Functions code](https://github.com/MadhuraBharadwaj-MSFT/TestAzureFunction). For starter samples, infrastructure as code, and end to end samples for Azure Functions refer to this repository. 
+See the following GitHub repositories to compare AWS Lambda code and Azure Functions code. 
 
-### Adjust Configuration Settings: 
+- [AWS Lambda code](https://github.com/MadhuraBharadwaj-MSFT/TestLambda)
 
-- Ensure your function's timeout and [memory](/azure/azure-functions/flex-consumption-how-to#configure-instance-memory) settings are compatible with Azure Functions. Configurable settings such as function timeouts are detailed in the [Azure Functions host.json configuration](/azure/azure-functions/functions-host-json).
-- Follow recommended best practices for configuring permissions, access, networking and deployment.  
+- [Azure Functions code](https://github.com/MadhuraBharadwaj-MSFT/TestAzureFunction)
+
+   - This repository also includes starter samples, infrastructure as code, and end-to-end samples for Azure Functions.
+
+### Adjust configuration settings
+
+Ensure that your function's time-out and [memory](/azure/azure-functions/flex-consumption-how-to#configure-instance-memory) settings are compatible with Azure Functions. For more information about configurable settings, see [host.json reference for Azure Functions](/azure/azure-functions/functions-host-json).
+
+Follow the recommended best practices for permissions, access, networking, and deployment configurations. 
  
-#### Configuring Permissions
+#### Configure permissions
 
-Follow best practices recommended in this document when setting up Permissions on your Function Apps. Refer to section 'Configure your Function app and storage account with managed identity’ in the document: [How to create a new secretless Function App using managed identity](https://eng.ms/docs/cloud-ai-platform/devdiv/serverless-paas-balam/serverless-paas-vikr/app-service-web-apps/app-service-team-documents/functionteamdocs/faqs/tutorial-secretless-mi) 
-
+Follow best practices when you set up permissions on your function apps. For more information, see [Configure your function app and storage account with managed identity](https://eng.ms/docs/cloud-ai-platform/devdiv/serverless-paas-balam/serverless-paas-vikr/app-service-web-apps/app-service-team-documents/functionteamdocs/faqs/tutorial-secretless-mi#configure-your-function-app-and-storage-account-with-managed-identity).
 
 **main.bicep** 
 
 ```
-// User assigned managed identity to be used by the Function App to reach storage and service bus
+// User-assigned managed identity that the function app uses to reach Storage and Service Bus
 module processorUserAssignedIdentity './core/identity/userAssignedIdentity.bicep' = {
   name: 'processorUserAssignedIdentity'
   scope: rg
@@ -131,19 +137,19 @@ module processorUserAssignedIdentity './core/identity/userAssignedIdentity.bicep
 }
 ```
 
-See [userAssignedIdentity.bicep](https://github.com/Azure-Samples/functions-quickstart-javascript-azd/blob/main/infra/core/identity/userAssignedIdentity.bicep)
+For more information, see [userAssignedIdentity.bicep](https://github.com/Azure-Samples/functions-quickstart-javascript-azd/blob/main/infra/core/identity/userAssignedIdentity.bicep).
 
-#### Configuring Network access
+#### Configure network access
 
-Functions has support for [Virtual Network Integration](/azure/azure-functions/functions-networking-options#virtual-network-integration) which gives your function app access to resources in your virtual network. Once integrated, your app routes outbound traffic through the virtual network. This allows your app to access private endpoints or resources with rules allowing traffic from only select subnets. When the destination is an IP address outside of the virtual network, the source IP will still be sent from the one of the addresses listed in your app's properties, unless you've configured a NAT Gateway.
+Azure Functions supports [virtual network integration](/azure/azure-functions/functions-networking-options#virtual-network-integration), which gives your function app access to resources in your virtual network. After integration, your app routes outbound traffic through the virtual network. Then your app can access private endpoints or resources by using rules that only allow traffic from specific subnets. When the destination is an IP address outside of the virtual network, the source IP address sends from one of the addresses listed in your app's properties, unless you configured a NAT gateway.
 
-When enabling [virtual network](/azure/azure-functions/flex-consumption-how-to#enable-virtual-network-integration) integration for your Function Apps, 
-follow best practices recommended in this document [[KPI CODE] TSG for VNet Integration for Web Apps and Function Apps | App Service Team Documents](https://eng.ms/docs/cloud-ai-platform/devdiv/serverless-paas-balam/serverless-paas-vikr/app-service-web-apps/app-service-team-documents/functionteamdocs/faqs/tsg-vnet-integration)
+When you enable [virtual network integration](/azure/azure-functions/flex-consumption-how-to#enable-virtual-network-integration) for your function apps, 
+follow the best practices in [TSG for virtual network integration for web apps and function apps](https://eng.ms/docs/cloud-ai-platform/devdiv/serverless-paas-balam/serverless-paas-vikr/app-service-web-apps/app-service-team-documents/functionteamdocs/faqs/tsg-vnet-integration).
 
 **main.bicep**
 
 ```
-// Virtual Network & private endpoint
+// Virtual network and private endpoint
 module serviceVirtualNetwork 'app/vnet.bicep' = {
   name: 'serviceVirtualNetwork'
   scope: rg
@@ -167,31 +173,33 @@ module servicePrivateEndpoint 'app/storage-PrivateEndpoint.bicep' = {
 }
 ```
 
-See [VNet.bicep](https://github.com/Azure-Samples/functions-quickstart-javascript-azd/blob/main/infra/app/vnet.bicep)
-See [Storage-PrivateEndpoint](https://github.com/Azure-Samples/functions-quickstart-javascript-azd/blob/main/infra/app/storage-PrivateEndpoint.bicep) 
+For more information, see [VNet.bicep](https://github.com/Azure-Samples/functions-quickstart-javascript-azd/blob/main/infra/app/vnet.bicep) and [storage-PrivateEndpoint.bicep](https://github.com/Azure-Samples/functions-quickstart-javascript-azd/blob/main/infra/app/storage-PrivateEndpoint.bicep) 
 
-#### Configuring Deployment Settings 
+#### Configure deployment settings
 
-Deployments follow a single path. After your project code is built and zipped into an application package, it is deployed to a blob storage container. On startup, your app gets the package and runs your function code from this package. By default, the same storage account used to store internal host metadata (AzureWebJobsStorage) is also used as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by configuring your app's deployment settings. [Learn](/azure/azure-functions/functions-deployment-technologies#one-deploy) how deployment works in Functions, and [configure deployment settings](/azure/azure-functions/flex-consumption-how-to#configure-deployment-settings).
+Deployments follow a single path. After you build your project code and zip it into an application package, deploy it to a blob storage container. When it starts, your app gets the package and runs your function code from it. By default, the same storage account that stores internal host metadata (AzureWebJobsStorage) also serves as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by configuring your app's deployment settings. For more information, see [Deployment technology details](/azure/azure-functions/functions-deployment-technologies#deployment-technology-details) and [Configure deployment settings](/azure/azure-functions/flex-consumption-how-to#configure-deployment-settings).
  
-### Generate Infrastructure as Code (IaC) files 
+### Generate IaC files
 
-- Use tools like Bicep, Azure Resource Manager (ARM) templates, or Terraform to create IaC files for deploying Azure resources.
+- Use tools like Bicep, Azure Resource Manager templates, or Terraform to create IaC files to deploy Azure resources.
 - Define resources such as Azure Functions, storage accounts, and networking components in your IaC files.
-- Use [this repository](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC) for IaC samples that use Azure Functions recommendations and best practices.  
+- Use this [IaC samples repository](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC) for samples that use Azure Functions recommendations and best practices.
 
-### Use Tools for Refactoring
+### Use tools for refactoring
 
-- Employ tools like GitHub Copilot in VSCode for assistance in refactoring code, manual refactoring for specific changes, or other migration aids. 
+Use tools like GitHub Copilot in Visual Studio Code for help with code refactoring, manual refactoring for specific changes, or other migration aids.
 
-If you need more detailed information on each of these steps, please visit the following resources:
-- [Compare AWS and Azure compute services](/azure/architecture/aws-professional)
-- [Develop Azure Functions locally](/azure/azure-functions/functions-develop-local)
-- [Run Azure Functions locally](/azure/azure-functions/functions-run-local)
+For more information about each of these steps, see:
+
+- [Azure for AWS professionals](/azure/architecture/aws-professional)
+
+- [Code and test Azure Functions locally](/azure/azure-functions/functions-develop-local)
+
+- [Develop Azure Functions locally by using Core Tools](/azure/azure-functions/functions-run-local)
 
 These resources provide specific examples and detailed steps to facilitate the migration process. 
 
-## Deploy and Test 
+## Deploy and test the application
 
 ### Deploy to Azure
 
@@ -208,7 +216,7 @@ Deploy with the [Visual Studio Code](/azure/azure-functions/functions-develop-vs
 
 - Validate Functionality
    - Test each function thoroughly to ensure it works as expected. This includes verifying input/output, event triggers, and bindings.
-   - Use tools like curl or [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension on VSCode to send HTTP requests for HTTP-triggered functions.
+   - Use tools like curl or [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension on VS Code to send HTTP requests for HTTP-triggered functions.
    - For other triggers, such as timers or queues, ensure the triggers fire correctly and the functions execute as expected.
 
 - Validate Performance
