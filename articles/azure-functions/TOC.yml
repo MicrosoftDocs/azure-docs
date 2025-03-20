@@ -590,13 +590,13 @@
         - name: Migrate AWS Lambda to Azure Functions
           items:
             - name: Overview
-              href: /migration/aws-lambda-azure-functions-migration-overview.md
+              href: migration/lambda-functions-migration-overview.md
             - name: Discover
-              href: /migration/aws-lambda-azure-functions-migration-discover.md
+              href: migration/lambda-functions-migration-discover.md
             - name: Assess
-              href: /migration/aws-lambda-azure-functions-migration-assess.md
+              href: migration/lambda-functions-migration-assess.md
             - name: Migrate
-              href: /migration/aws-lambda-azure-functions-migration-migrate.md      
+              href: migration/lambda-functions-migration-migrate.md      
         - name: Migrate .NET apps to the isolated model
           href: migrate-dotnet-to-isolated-model.md
         - name: Migrate v3.x to v4.x

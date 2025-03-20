@@ -66,7 +66,7 @@ The following tables compare AWS Lambda concepts, resources, and properties with
 | AWS Lambda  | Azure Functions   |
 |---|---|
 | The Lambda execution role grants Lambda functions permissions to interact with other AWS services. Each Lambda function has an associated identity and access management (IAM) role that determines its permissions while it runs.  | Managed identities provide an identity for your function app that allows it to authenticate with other Azure services without storing credentials in the code. Role-based access control assigns appropriate roles to the managed identity in Microsoft Entra ID to grant access to the resources it requires.  |
-| Resource-based policy statements: <br> - AWSLambda_FullAccess gives full access to all Lambda operations, including creating, updating, and deleting functions. <br> - AWSLambda_ReadOnlyAccess fgives read-only access to view Lambda functions and their configurations <br> - Custom IAM policies  | Resource-based built-in roles: <br> - The Owner role gives full access, including access permissions management. <br> - The Contributor role can create and delete function apps, configure settings, and deploy code. It can't manage access. <br> - The Monitoring Reader role can grant read-only access to monitoring data and settings. It can also allocate custom roles.  |
+| Resource-based policy statements: <br> - AWSLambda_FullAccess gives full access to all Lambda operations, including creating, updating, and deleting functions. <br> - AWSLambda_ReadOnlyAccess gives read-only access to view Lambda functions and their configurations <br> - Custom IAM policies  | Resource-based built-in roles: <br> - The Owner role gives full access, including access permissions management. <br> - The Contributor role can create and delete function apps, configure settings, and deploy code. It can't manage access. <br> - The Monitoring Reader role can grant read-only access to monitoring data and settings. It can also allocate custom roles.  |
 
 ### Function URL
 
@@ -99,26 +99,26 @@ The following tables compare AWS Lambda concepts, resources, and properties with
 
  | AWS Lambda  | Azure Functions   |
 |---|---|
-| Provisioned concurrency reduces latency and ensures predictable function performance by pre-initializing a requested number of function instances. Provisioned concurrency suits latency-sensitive applications and is priced separately from standard concurrency.    | Function apps allow you to configure concurrency for each instance, which drives its scale. Multiple jobs can run in parallel in the same instance of the app, and subsequent jobs in the instance don't incur the initial cold start. Function apps also have *always ready* instances. Customers can specify a number of pre-warmed instances to eliminate cold-start latency and ensure consistent performance. Function apps also scale out to additional instances based on demand, while maintaining the always ready instances.     |
+| Provisioned concurrency reduces latency and ensures predictable function performance by pre-initializing a requested number of function instances. Provisioned concurrency suits latency-sensitive applications and is priced separately from standard concurrency.    | Function apps allow you to configure concurrency for each instance, which drives its scale. Multiple jobs can run in parallel in the same instance of the app, and subsequent jobs in the instance don't incur the initial cold start. Function apps also have *always ready* instances. Customers can specify a number of prewarmed instances to eliminate cold-start latency and ensure consistent performance. Function apps also scale out to more instances based on demand, while maintaining the always ready instances.     |
 | Reserved concurrency specifies the maximum number of concurrent instances a function can have. This limit ensures that a portion of your account's concurrency quota is set aside exclusively for that function. AWS Lambda dynamically scales out to handle incoming requests even when reserved concurrency is set, as long as the requests don't exceed the specified reserved concurrency limit. The lower limit for reserved concurrency in AWS Lambda is 1. The upper limit for reserved concurrency in AWS Lambda is determined by the account's regional concurrency quota. By default, this limit is 1,000 concurrent executions for each region.  |  Azure Functions doesn't have an equivalent feature to reserved concurrency. To achieve similar functionality, isolate specific functions into separate function apps and set the maximum scale-out limit for each app. Azure Functions dynamically scales out, or adds more instances, and scales in, or removes instances, within the scale-out limit set. By default, apps that run in a Flex Consumption plan start with a configurable limit of 100 overall instances. The lowest maximum instance count value is 40, and the highest supported maximum instance count value is 1,000.  [Regional subscription memory quotas](/azure/azure-functions/flex-consumption-plan#regional-subscription-memory-quotas) can also limit how much function apps can scale out, but you can increase this quota by calling support.  |
 
 ### Pricing
 
 | AWS Lambda  | Azure Functions   |
 |---|---|
-| - Pay per use for the total execution count and for the GB/s for each instance (with a fixed concurrency of 1) <br> - 1 ms increments <br> - 400K Gb/s free tier    | - Pay per use for the total execution count and for the GB/s of each instance (with configurable concurrent executions) <br> - 100 ms increments <br> - 100K Gb/s free tier <br> - [Consumption-based costs](/azure/azure-functions/functions-consumption-costs#consumption-based-costs)  |
+| - Pay per use for the total execution count and for the GB/s for each instance (with a fixed concurrency of 1) <br> - 1 ms increments <br> - 400,000 Gb/s free tier    | - Pay per use for the total execution count and for the GB/s of each instance (with configurable concurrent executions) <br> - 100 ms increments <br> - 100,000 Gb/s free tier <br> - [Consumption-based costs](/azure/azure-functions/functions-consumption-costs#consumption-based-costs)  |
  
 ### Source code storage
 
 | AWS Lambda  | Azure Functions   |
 |---|---|
-| AWS Lambda manages the storage of your function code in its own managed storage system. You don't need to supply additional storage.  | Functions requires a customer-supplied Blob Storage container to maintain the deployment package that contains your app's code. You can configure the settings to use the same or a different storage account for deployments and manage authentication methods for accessing the container.  |
+| AWS Lambda manages the storage of your function code in its own managed storage system. You don't need to supply more storage.  | Functions requires a customer-supplied Blob Storage container to maintain the deployment package that contains your app's code. You can configure the settings to use the same or a different storage account for deployments and manage authentication methods for accessing the container.  |
  
 ### Local development
 
 | AWS Lambda feature  | Azure Functions feature   |
 |---|---|
-| - SAM CLI <br> - [LocalStack](https://github.com/localstack/localstack)  | Azure Functions core tools <br> - Visual Studio Code <br> - Visual Studio <br> - GitHub Codespaces <br> - VSCode.dev <br> - Maven <br> - [Code and test Azure Functions locally](/azure/azure-functions/functions-develop-local)  |
+| - SAM CLI <br> - [LocalStack](https://github.com/localstack/localstack)  | - Azure Functions core tools <br> - Visual Studio Code <br> - Visual Studio <br> - GitHub Codespaces <br> - VSCode.dev <br> - Maven <br> - [Code and test Azure Functions locally](/azure/azure-functions/functions-develop-local)  |
  
 ### Deployment
 
@@ -136,8 +136,8 @@ The following tables compare AWS Lambda concepts, resources, and properties with
 
 | Feature   | AWS Lambda limits  | Azure Functions limits   |
 |---|---|---|
-| Execution timeout  | 900 seconds (15 minutes)  | The default time-out is 30 minutes. The maximum time-out is unbounded. However, the grace period given to a function execution is 60 minutes during scale-in and 10 minutes during platform updates. For more information, see [Function app time-out duration](/azure/azure-functions/functions-scale#timeout).  |
-| Configurable memory  | 128 MB to 10,240 MB, in 64 MB increments  |  Functions supports [2 GB and 4 GB](/azure/azure-functions/functions-scale#service-limits) instance sizes. Each region in a given subscription has a memory limit of 512,000 MB for all instances of apps, which you can increase by calling support. The total memory usage of all instances across all function apps in a region must stay within this quota. Although 2 GB and 4 GB are the options for instance sizes right now, it's important to note that the concurrency for each instance can be higher than 1. Therefore, a single instance can handle multiple concurrent executions, depending on the configuration. Configuring concurrency appropriately can help optimize resource utilization and manage performance. By balancing memory allocation and concurrency settings, you can effectively manage the resources allocated to your function apps and ensure efficient performance and cost control. For more information, see [Regional subscription memory quotas](/azure/azure-functions/flex-consumption-plan#regional-subscription-memory-quotas).  |
+| Execution time-out  | 900 seconds (15 minutes)  | The default time-out is 30 minutes. The maximum time-out is unbounded. However, the grace period given to a function execution is 60 minutes during scale-in and 10 minutes during platform updates. For more information, see [Function app time-out duration](/azure/azure-functions/functions-scale#timeout).  |
+| Configurable memory  | 128 MB to 10,240 MB, in 64-MB increments  |  Functions supports [2-GB and 4-GB](/azure/azure-functions/functions-scale#service-limits) instance sizes. Each region in a given subscription has a memory limit of 512,000 MB for all instances of apps, which you can increase by calling support. The total memory usage of all instances across all function apps in a region must stay within this quota. Although 2 GB and 4 GB are the instance size options right now, it's important to note that the concurrency for each instance can be higher than 1. Therefore, a single instance can handle multiple concurrent executions, depending on the configuration. Configuring concurrency appropriately can help optimize resource utilization and manage performance. By balancing memory allocation and concurrency settings, you can effectively manage the resources allocated to your function apps and ensure efficient performance and cost control. For more information, see [Regional subscription memory quotas](/azure/azure-functions/flex-consumption-plan#regional-subscription-memory-quotas).  |
  
 ### Secret management 
 
@@ -170,7 +170,7 @@ The following tables compare AWS Lambda concepts, resources, and properties with
 
 - Select key workloads for a proof of concept.
 
-   Start by selecting one to two medium-sized, non-critical workloads from your total inventory. These workloads serve as the foundation for your proof-of-concept migration. You can test the process and identify potential challenges without risking major disruption to your operations.
+   Start by selecting one to two medium-sized, noncritical workloads from your total inventory. These workloads serve as the foundation for your proof-of-concept migration. You can test the process and identify potential challenges without risking major disruption to your operations.
 
 - Test iteratively and gather feedback.
 
@@ -181,4 +181,4 @@ By the end of this stage, you have mapped AWS Lambda features and services to th
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Migrate stage](aws-lambda-azure-functions-migration-migrate.md)
+> [Migrate stage](lambda-functions-migration-migrate.md)
