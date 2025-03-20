@@ -6,7 +6,7 @@ services: iot
 author: asergaz
 ms.author: sergaz
 ms.topic: overview
-ms.date: 03/17/2025
+ms.date: 03/20/2025
 # Customer intent: As a solution builder or device developer I want a high-level overview of the issues around asset abd device management and control so that I can easily find relevant content.
 ---
 
@@ -24,7 +24,7 @@ The following diagram shows a high-level view of the components in a typical edg
 In an edge-based IoT solution, asset management refers to processes such as registering assets and defining asset endpoints. Asset management includes the following tasks:
 
 - Asset endpoint creation
-- Asset, tags and events creation
+- Asset, tags, and events creation
 - Data flow endpoint creation
 - Asset and data flow endpoints secrets management
 - Enabling and disabling assets
@@ -34,7 +34,7 @@ In an edge-based IoT solution, *command and control* refers to the processes tha
 - Control the cameras pan, tilt, and zoom.
 - Capture snapshots from a video stream and publish them to an MQTT topic.
 - Publish OPC UA machine status events to the MQTT broker.
-- Turn off the lights of a building to save energy.
+- To save energy, turn off the lights of a building.
 
 ## Primitives
 
@@ -62,9 +62,9 @@ Currently, the southbound connectors available in Azure IoT Operations are the c
 - An asset endpoint for OPC UA stores the information you need to connect to an OPC UA server.
 - An asset endpoint for the media connector stores the information you need to connect to a media source.
 
-For more information, see [What is the connector for OPC UA?](./overview-opcua-broker.md)
+For more information, see [What is the connector for OPC UA?](../iot-operations/discover-manage-assets/overview-opcua-broker.md).
 
-## Asset, tags and events creation
+## Asset, tags, and events creation
 
 An *asset* is a logical entity that represents a device or component in the cloud as an Azure Resource Manager resource and at the edge as a Kubernetes custom resource. When you create an asset, you can define its metadata and the datapoints (also called tags) and events that it emits.
 
@@ -98,7 +98,7 @@ For more information, see [Configure data flows in Azure IoT Operations](../iot-
 
 On an Azure IoT Operations instance deployed with secure settings, you can add secrets to Azure Key Vault, and sync them to the edge to be used in asset endpoints or data flow endpoints using the operations experience web UI. Secrets are used in asset endpoints and data flow endpoints for authentication.
 
-For more inforamtion, see [Manage secrets for your Azure IoT Operations deployment](../iot-operations/secure-iot-ops/howto-manage-secrets.md).
+For more information, see [Manage secrets for your Azure IoT Operations deployment](../iot-operations/secure-iot-ops/howto-manage-secrets.md).
 
 ## Command and control
 
@@ -106,18 +106,18 @@ The Azure IoT Operations MQTT broker, that's enterprise grade and compliant with
 
 Azure IoT Operations provides support for communication between applications via MQTT5 using an RPC implementation. Commands build on top of the MQTT5/RPC protocol, and can be summarized as:
 
-- A Command Invoker to invoke a method on a different host
-- A Command Executor listening for incoming requests
-- A serializer to encode and decode requests and responses
+- A Command Invoker to invoke a method on a different host.
+- A Command Executor listening for incoming requests.
+- A serializer to encode and decode requests and responses.
 
 A shared pair of channels the invoker uses to send requests and listen for responses, and the executor uses to listen to requests and send responses
 Commands are the basis for:
 
-- Control-plane communication for Azure IoT Operations SDKs
-- Messaging that cannot be resolved using Telemetry
-- Built-in service for the Azure IoT Operations ecosystem
+- Control-plane communication for Azure IoT Operations SDKs.
+- Messaging that can't be resolved using Telemetry.
+- Built-in service for the Azure IoT Operations ecosystem.
 
-For more inforamtion, see [Azure IoT Operations built-in local MQTT broker](../iot-operations/manage-mqtt-broker/overview-broker.md).
+For more information, see [Azure IoT Operations built-in local MQTT broker](../iot-operations/manage-mqtt-broker/overview-broker.md).
 
 ### [Cloud-based solution](#tab/cloud)
 
@@ -179,7 +179,7 @@ To learn more, see [Device provisioning service overview](../iot-dps/about-iot-d
 
 ## Device deployment
 
-In a cloud-based IoT solution, device deployment typically refers to the process of installing software on an IoT Edge device. When an IoT Edge device connects to an IoT hub, it receives a *deployment manifest* that contains details of the modules to run on the device. The deployment manifest also contains configuration information for the modules. There are a number of standard modules available for IoT Edge devices. You can also create your own custom modules.
+In a cloud-based IoT solution, device deployment typically refers to the process of installing software on an IoT Edge device. When an IoT Edge device connects to an IoT hub, it receives a *deployment manifest* that contains details of the modules to run on the device. The deployment manifest also contains configuration information for the modules. There are many standard modules available for IoT Edge devices. You can also create your own custom modules.
 
 To learn more, see [What is Azure IoT Edge?](../iot-edge/about-iot-edge.md)
 
@@ -191,7 +191,7 @@ Typically, your IoT solution must include a way to update device software. For a
 
 For a non-IoT Edge device, you need to have a way to update the device firmware. This update process could use a cloud-to-device message to notify the device that a firmware update is available. Then the device runs custom code to download and install the update.
 
-The [Device Update for IoT Hub](../iot-hub-device-update/understand-device-update.md) service provides a managed solution for updating devices. It enables you to upload firmware updates to the cloud and then distribute them to devices. It also lets your monitor the update process and roll back to a previous version if the update fails.
+The [Device Update for IoT Hub](../iot-hub-device-update/understand-device-update.md) service provides a managed solution for updating devices. It enables you to upload firmware updates to the cloud and then distribute them to devices. It also lets you monitor the update process and roll back to a previous version if the update fails.
 
 ## Device key management and rotation
 
