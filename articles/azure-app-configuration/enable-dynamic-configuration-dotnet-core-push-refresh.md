@@ -108,9 +108,12 @@ namespace TestConsole
                 .AddAzureAppConfiguration(options =>
                 {
                     options.Connect(appConfigurationConnectionString);
+                    // Load the key-value with key "TestApp:Settings:Message" and no label
+                    options.Select("TestApp:Settings:Message");
+                    // Reload configuration if any selected key-values have changed.
                     options.ConfigureRefresh(refresh =>
                         refresh
-                            .Register("TestApp:Settings:Message")
+                            .RegisterAll()
                             // Important: Reduce poll frequency
                             .SetRefreshInterval(TimeSpan.FromDays(1))  
                     );
@@ -170,7 +173,7 @@ namespace TestConsole
 }
 ```
 
-The `ProcessPushNotification` method resets the cache expiration to a short random delay. This causes future calls to `RefreshAsync` or `TryRefreshAsync` to re-validate the cached values against App Configuration and update them as necessary. In this example you register to monitor changes to the key: *TestApp:Settings:Message* with a cache expiration of one day. This means no request to App Configuration will be made before a day has passed since the last check. By calling  `ProcessPushNotification` your application will send requests to App Configuration in the next few seconds. Your application will load the new configuration values shortly after changes occur in the `App Configuration` store without the need to constantly poll for updates. In case your application misses the change notification for any reason, it will still check for configuration changes once a day.
+The `ProcessPushNotification` method resets the cache expiration to a short random delay. This causes future calls to `RefreshAsync` or `TryRefreshAsync` to re-validate the cached values against App Configuration and update them as necessary. In this example you register to monitor changes to all selected key-values (*TestApp:Settings:Message*) with a cache expiration of one day. This means no request to App Configuration will be made before a day has passed since the last check. By calling  `ProcessPushNotification` your application will send requests to App Configuration in the next few seconds. Your application will load the new configuration values shortly after changes occur in the `App Configuration` store without the need to constantly poll for updates. In case your application misses the change notification for any reason, it will still check for configuration changes once a day.
 
 The short random delay for cache expiration is helpful if you have many instances of your application or microservices connecting to the same App Configuration store with the push model. Without this delay, all instances of your application could send requests to your App Configuration store simultaneously as soon as they receive a change notification. This can cause the App Configuration Service to throttle your store. Cache expiration delay is set to a random number between 0 and a maximum of 30 seconds by default, but you can change the maximum value through the optional parameter `maxDelay` to the `ProcessPushNotification` method.
 

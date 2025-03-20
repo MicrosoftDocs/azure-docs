@@ -74,10 +74,10 @@ Add the following key-value to the App Configuration store and leave **Label** a
             options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
                     // Load all keys that start with `TestApp:`.
                     .Select("TestApp:*")
-                    // Configure to reload the key 'TestApp:Settings:Message' if it is modified.
+                    // Reload configuration if any selected key-values have changed.
                     .ConfigureRefresh(refresh =>
                     {
-                        refresh.Register("TestApp:Settings:Message")
+                        refresh.RegisterAll()
                                .SetRefreshInterval(TimeSpan.FromSeconds(10));
                     });
 
@@ -89,7 +89,9 @@ Add the following key-value to the App Configuration store and leave **Label** a
     }
     ```
 
-    In the `ConfigureRefresh` method, a key within your App Configuration store is registered for change monitoring. The `Register` method has an optional boolean parameter `refreshAll` that can be used to indicate whether all configuration values should be refreshed if the registered key changes. In this example, only the key *TestApp:Settings:Message* will be refreshed. The `SetRefreshInterval` method specifies the minimum time that must elapse before a new request is made to App Configuration to check for any configuration changes. In this example, you override the default expiration time of 30 seconds, specifying a time of 10 seconds instead for demonstration purposes.
+    Inside the `ConfigureRefresh` method, you call the `RegisterAll` method to instruct the App Configuration provider to reload the entire configuration whenever it detects a change in any of the selected key-values (those starting with *TestApp:* and having no label). For more information about monitoring configuration changes, see [Best practices for configuration refresh](./howto-best-practices.md#configuration-refresh).
+
+    The `SetRefreshInterval` method specifies the minimum time that must elapse before a new request is made to App Configuration to check for any configuration changes. In this example, you override the default expiration time of 30 seconds, specifying a time of 10 seconds instead for demonstration purposes.
 
 1. Add a method called `PrintMessage()` that triggers a refresh of configuration data from App Configuration.
 
