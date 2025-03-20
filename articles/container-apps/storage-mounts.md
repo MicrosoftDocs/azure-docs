@@ -676,10 +676,14 @@ The sub path is optional. If not specified, the volume root is mounted.
 The sub path is a relative path from the volume root. The sub path should not start with `/`. Specifying a sub path that starts with `/` might prevent your container app from starting up. For example, `my-volume-folder` is a valid sub path, where `/my-volume-folder` is not.
 
 The sub path can refer to either a folder or a file in the volume.
-- If the sub path refers to a folder, the mount path should refer to an empty folder in the container.
-- If the sub path refers to a file, the mount path should refer to a file that does not already exist in the container. For example, suppose the sub path is `my-volume-folder/my-volume-file` and the mount path is `/my-container-folder/my-container-file`. The folder `/my-container-folder` should exist in the container, but it should not already contain the file `my-container-file`.
 
-If the sub path has a trailing `/`, whether it refers to a folder or file, the trailing `/` is ignored.
+- If the sub path refers to a folder, the mount path should refer to an empty folder in the container.
+
+- If the sub path refers to a file, the mount path should refer to a file that does not already exist in the container.
+
+    For example, suppose the sub path is `my-volume-folder/my-volume-file.txt`, and the mount path is `/my-container-folder/my-container-file`. The folder `/my-container-folder` should already exist in the container but should not yet contain the file `my-container-file.txt`.
+
+If the sub path trailing slashes are ignored.
 
 ## Related content
 
