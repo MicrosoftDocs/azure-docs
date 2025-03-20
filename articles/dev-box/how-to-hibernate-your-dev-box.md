@@ -7,7 +7,7 @@ ms.service: dev-box
 ms.custom: devx-track-azurecli
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 01/31/2025
+ms.date: 03/20/2025
 ms.topic: how-to
 #Customer intent: As a developer, I want to be able to hibernate my dev boxes so that I can resume work where I left off.
 ---
@@ -66,10 +66,6 @@ To shut down your dev box, either
 
 - Developer portal - Go to the [developer portal](https://aka.ms/devbox-portal), select your DevBox, and on the actions menu, select **Shut down**. 
 - CLI - `az devcenter dev dev-box stop --name <YourDevBoxName> --dev-center-name <YourDevCenterName> --project-name <YourProjectName> --user-id "me" --hibernate false`
-
-**When my dev box resumes from a hibernated state, all my open windows were gone.** 
-
-Dev Box Hibernation is a preview feature, and you might run into reliability issues. Enable AutoSave on your applications to minimize the effects of session loss. 
 
 **I changed some settings on one of my dev boxes and it no longer hibernates. My other dev boxes hibernate without issues. What could be the problem?**
 
