@@ -187,6 +187,7 @@ $PolicyConfig3      = @{
 
 New-GuestConfigurationPolicy @PolicyConfig3 -ExcludeArcMachines
 ```
+For this scenario, you will need to disable the "Allow Blob anonymous access" setting. Also, assign the role "Storage Blob Data Reader" on the storage account to the identity.
 
 > [!NOTE]
 > You can retrieve the resourceId of a managed identity using the `Get-AzUserAssignedIdentity`
