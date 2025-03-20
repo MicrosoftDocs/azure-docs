@@ -1,15 +1,15 @@
 ---
-title: "Deployment step 3: storage - data migration component"
-description: Learn about data migration during migration deployment step three.
+title: "Data migration during a high performance computing (HPC) architecture migration"
+description: Learn the best practices and utilites when migrating your data during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 08/30/2024
+ms.date: 03/20/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ---
 
-# Deployment step 3: storage - data migration component
+# Data migration during a high performance computing (HPC) architecture migration
 
 Process to allow users to migrate data from an on-premises environment to the cloud environment in a secure and reliable way. Moving data closer to the cloud environment’s computing nodes is essential to meet the needs of throughput and IOPS.
 
