@@ -113,7 +113,7 @@ Azure Communication Services provides the following phone number types:
 ## Choosing the right number type for your business
 
 | **Factor**                   | **Toll-Free Number**                | **10DLC** (10-Digit Long Code)      | **Short Code**                     | **Alphanumeric Sender ID**                   | Mobile Numbers |
-|------------------------------|-------------------------------------|-------------------------------------|------------------------------------|----------------------------------------------|
+|------------------------------|-------------------------------------|-------------------------------------|------------------------------------|----------------------------------------------|----------------|
 | **Geographic Target**        | United States, Canada              | United States                       | United States, United Kingdom, Canada | Austria, Denmark, Estonia, France, Germany, Ireland, Latvia, Lithuania, Netherlands, Poland, Portugal, Spain, Sweden, Switzerland, Australia, Czech Republic, Finland, Italy, Norway, Slovakia, Slovenia, United Kingdom | Australia, Belgium, Denmark, Finland, Ireland, Latvia, Netherlands, Poland, Sweden, United Kingdom |
 | **Message Volume**           | Low to moderate                    | Moderate                            | High                               | Moderate (for one-way notifications)        | Moderate |
 | **Two-Way Communication**    | Supported                          | Supported                           | Supported                      | Not Supported (one-way only)                | Supported |
