@@ -131,6 +131,8 @@ spec:
 EOF
 ```
 
+---
+
 Verify the resource was created by running the following command:
 
 ```bash
