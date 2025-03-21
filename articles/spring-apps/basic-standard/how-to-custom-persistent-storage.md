@@ -204,14 +204,14 @@ This section addresses frequently asked questions about using your own persisten
 
 - What are the available mount options?
 
-  We currently support the following mount options:
+  *We currently support the following mount options:*
 
   - `uid`
   - `gid`
   - `file_mode`
   - `dir_mode`
 
-   The `mountOptions` property is optional. The default values for these mount options are: ["uid=0", "gid=0", "file_mode=0777", "dir_mode=0777"]
+   *The `mountOptions` property is optional. The default values for these mount options are: ["uid=0", "gid=0", "file_mode=0777", "dir_mode=0777"]*
 
 - I'm using the service endpoint to configure the storage account to allow access only from my own virtual network. Why did I receive a *Permission Denied* error when I tried to mount custom persistent storage to my applications?
 
