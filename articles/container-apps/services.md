@@ -50,7 +50,7 @@ If you're ready for a production level service, follow these steps to transition
 
 1. Create a new container app.
 
-    Create a new app using the [Azure Portal](quickstart-portal.md) or [CLI](get-started?tabs=bash).
+    Create a new app using the [Azure Portal](quickstart-portal.md) or [CLI](get-started.md?tabs=bash).
 
 1. Configure connection settings.
 
