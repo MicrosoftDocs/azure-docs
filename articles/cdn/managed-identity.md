@@ -1,4 +1,5 @@
 ---
+ROBOTS: NOINDEX
 title: Use managed identities for Azure Content Delivery Network to access Azure Key Vault certificates
 titleSuffix: Azure Content Delivery Network
 description: This article shows you how to set up managed identities with Azure Content Delivery Network to access certificates in an Azure key vault.
