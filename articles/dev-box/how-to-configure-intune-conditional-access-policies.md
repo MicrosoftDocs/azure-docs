@@ -1,7 +1,7 @@
 ---
-title: Intune Conditional Access policies for Dev Boxes
+title: Intune Conditional Access Policies for Dev Boxes
 titleSuffix: Microsoft Dev Box
-description: Learn how to configure Intune conditional access policies to manage access to dev boxes, ensuring that your organization's devices remain secure.
+description: Learn how to configure Intune conditional access policies to manage access to dev boxes to ensure that your organization's devices remain secure.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
@@ -13,20 +13,20 @@ ms.topic: how-to
 
 ---
 
-# Configure Conditional Access policies for Dev Box
+# Configure conditional access policies for Dev Box
 
 Conditional access is the protection of regulated content in a system by requiring certain criteria to be met before granting access to the content. Conditional access policies at their simplest are if-then statements. If a user wants to access a resource, they must complete an action. Conditional access policies are powerful tools to help keep your organization's devices secure and your environments compliant.
 
 This article provides examples of how organizations can use conditional access policies to manage access to dev boxes. For Dev Box, it's common to configure conditional access policies to restrict who can access the dev boxes, and from which locations they can access their dev boxes.
 
--   **Device-based Conditional Access**
-    - Intune and Microsoft Entra ID work together to make sure that only managed and compliant devices can use Dev Box. Policies include Conditional Access based on network access control.
-    - Learn more about [device-based Conditional Access with Intune](/mem/intune/protect/create-conditional-access-intune).
+-   **Device-based conditional access**
+    - Intune and Microsoft Entra ID work together to make sure that only managed and compliant devices can use Dev Box. Policies include conditional access based on network access control.
+    - Learn more about [device-based conditional access with Intune](/mem/intune/protect/create-conditional-access-intune).
 
--   **App-based Conditional Access**
+-   **App-based conditional access**
 
-    - Intune and Microsoft Entra ID work together to make sure that only dev box users can access managed apps like the developer portal.
-    - Learn more about [app-based Conditional Access with Intune](/mem/intune/protect/app-based-conditional-access-intune).
+    - Intune and Microsoft Entra ID work together to make sure that only dev box users can access managed apps like the Microsoft developer portal.
+    - Learn more about [app-based conditional access with Intune](/mem/intune/protect/app-based-conditional-access-intune).
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ This article provides examples of how organizations can use conditional access p
 
 Your organization might start with conditional access policies that, by default, allow nothing. You can set up a conditional access policy that allows your developers to access their dev boxes by specifying the conditions under which they can connect.
 
-You can configure conditional access policies through Intune or through Microsoft Entra ID. Each path brings you to a configuration pane.
+You can configure conditional access policies through Intune or Microsoft Entra ID. Each path brings you to a configuration pane.
 
 :::image type="content" source="media/how-to-configure-intune-conditional-access-policies/conditional-access-policy.png" alt-text="Screenshot that shows the options for creating a new conditional access policy.":::
 
@@ -49,7 +49,7 @@ You want to allow dev box access, but only from specified networks, like your of
 
 Follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as at least a [Conditional Access administrator](/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as at least a [Conditional access administrator](/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator).
 
 1. Browse to **Protection** > **Conditional Access** > **Named locations**.
 
@@ -103,7 +103,7 @@ Follow these steps:
 
 Confirm that your policy works as expected by using Report-only mode. Confirm that the policy is working correctly, and then enable it.
 
-For information on how to configure a conditional access policy to block access, see [Conditional Access: Block access by location](/entra/identity/conditional-access/howto-conditional-access-policy-location).
+For information on how to configure a conditional access policy to block access, see [Conditional access: Block access by location](/entra/identity/conditional-access/howto-conditional-access-policy-location).
 
 ## Scenario 2: Allow access to the developer portal
 
@@ -112,11 +112,11 @@ You want to allow developer access to the developer portal only. Developers shou
 ### Create a new policy
 
 > [!NOTE]
-> The application Microsoft Developer Portal was renamed from Fidalgo Dev Portal Public, so it's possible for certain tenants to still see the previous name. Even though they see a different name, they still have the same application ID, so it's the correct app. If you want to try fixing this naming problem, delete and re-add the tenant's service principal for the app.
+> The application Microsoft Developer Portal was renamed from Fidalgo Dev Portal Public, so it's possible for certain tenants to still see the previous name. Even though they see a different name, they still have the same application ID, so it's the correct app. If you want to try fixing this naming problem, delete and readd the tenant's service principal for the app.
 
 Follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as at least a [Conditional Access administrator](/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as at least a [Conditional access administrator](/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator).
 
 1. Browse to **Protection** > **Conditional Access** > **Policies**.
 
@@ -149,28 +149,28 @@ The following table describes the apps that are relevant for Dev Box. You can cu
 | App name               | App ID                        | Description                                               |
 |------------------------|-------------------------------|-----------------------------------------------------------|
 | Windows 365            | 0af06dc6-e4b5-4f28-818e-e78e62d137a5 | Used when Microsoft Remote Desktop is opened to retrieve the list of resources for the user, and when users initiate actions on their dev box, like Restart. |
-| Azure Virtual Desktop  | 9cdead84-a844-4324-93f2-b2e6bb768d07 | Used to authenticate to the Gateway during the connection and when the client sends diagnostic information to the service. Might also appear as Windows Virtual Desktop. |
+| Azure Virtual Desktop  | 9cdead84-a844-4324-93f2-b2e6bb768d07 | Used to authenticate to the gateway during the connection and when the client sends diagnostic information to the service. Might also appear as Windows Virtual Desktop. |
 | Microsoft Remote Desktop | a4a365df-50f1-4397-bc59-1a1564b8bb9c | Used to authenticate users to the dev box. Only needed when you configure single sign-on in a provisioning policy. |
 | Windows Cloud sign-in    | 270efc09-cd0d-444b-a71f-39af4910ec45 | Used to authenticate users to the dev box. This app replaces the Microsoft Remote Desktop app. Only needed when you configure single sign-on in a provisioning policy. |
 | Windows Azure Service Management API | 797f4846-ba00-4fd7-ba43-dac1f8f63013 | Used to query for DevCenter projects where the user can create dev boxes. |
-| Fidalgo Dataplane Public | e526e72f-ffae-44a0-8dac-cf14b8bd40e2 | Used to manage dev boxes and other DevCenter resources via the DevCenter REST APIs, the Azure CLI, or the Dev Portal. |
-| Microsoft Developer Portal | 0140a36d-95e1-4df5-918c-ca7ccd1fafc9 | Used to sign in to the developer portal web app. |
+| Fidalgo Dataplane Public | e526e72f-ffae-44a0-8dac-cf14b8bd40e2 | Used to manage dev boxes and other DevCenter resources via the DevCenter REST APIs, the Azure CLI, or the Microsoft developer portal. |
+| Microsoft developer portal | 0140a36d-95e1-4df5-918c-ca7ccd1fafc9 | Used to sign in to the Microsoft developer portal web app. |
 
-You can allow apps based on your requirements. For example, you can allow Fidalgo Dataplane Public to allow dev box management by using the DevCenter REST APIs, the Azure CLI, or the Dev Portal. The following table lists the apps that are used in common scenarios.
+You can allow apps based on your requirements. For example, you can allow Fidalgo Dataplane Public to allow dev box management by using the DevCenter REST APIs, the Azure CLI, or the Microsoft developer portal. The following table lists the apps that are used in common scenarios.
 
 | App                             | Sign in to and manage dev boxes in developer portal | Dev box management (create/delete/stop etc.) | Connect through browser | Connect through Remote Desktop |
 |---------------------------------|------------------------|----------------------------------------------|-------------------------|--------------------------------|
-| Microsoft Developer Portal      | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> |
+| Microsoft developer portal      | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> |
 | Fidalgo Dataplane Public     | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> |
 | Windows Azure Service Management API | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> |
 | Windows 365                     | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/yes.svg" border="false":::</sub> |
 | Azure Virtual Desktop           | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/yes.svg" border="false":::</sub> |
 | Microsoft Remote Desktop        | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/yes.svg" border="false":::</sub> |
 
-For more information on how to configure conditional access policies, see [Conditional Access: Users, groups, and workload identities](/entra/identity/conditional-access/concept-conditional-access-users-groups).
+For more information on how to configure conditional access policies, see [Conditional access: Users, groups, and workload identities](/entra/identity/conditional-access/concept-conditional-access-users-groups).
 
 ## Related content
 
-- [Users and groups in Conditional Access policy](/entra/identity/conditional-access/concept-conditional-access-users-groups)
-- [Cloud apps, actions, and authentication context in Conditional Access policy](/entra/identity/conditional-access/concept-conditional-access-cloud-apps)
-- [Network in Conditional Access policy](/entra/identity/conditional-access/concept-assignment-network)
+- [Users and groups in conditional access policy](/entra/identity/conditional-access/concept-conditional-access-users-groups)
+- [Cloud apps, actions, and authentication context in conditional access policy](/entra/identity/conditional-access/concept-conditional-access-cloud-apps)
+- [Network in conditional access policy](/entra/identity/conditional-access/concept-assignment-network)
