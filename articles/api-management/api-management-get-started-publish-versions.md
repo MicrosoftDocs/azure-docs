@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 > * Add a new version to an existing API
 > * Choose a version scheme
 > * Add the version to a product
-> * Browse the developer portal to see the version
+> * View the version in the developer portal
 
 :::image type="content" source="media/api-management-get-started-publish-versions/azure-portal.png" alt-text="Screenshot showing API versions in the Azure portal." lightbox="media/api-management-get-started-publish-versions/azure-portal.png":::
 
@@ -59,7 +59,7 @@ In the **Create a new API as a version** window, enter the values from the follo
 |---------|---------|---------|
 |**Version identifier**     |  *v1*       |  Scheme-specific indicator of the version. For **Path**, the suffix for the API URL path.  |
 |**Versioning scheme**     |  **Path**       |  The way callers specify the API version.<br/><br/> If you select **Header** or **Query string**, enter another value: the name of the header or query string parameter.<br/><br/> A usage example is displayed.            |
-|**Full API version name**     |  *swagger-petstore-openapi-3-0-v1*       |  Unique name in your API Management instance.<br/><br/>Because a version is actually a new API that's based on an API's [revision](api-management-get-started-revise-api.md), this setting is the new API's name.   |
+|**Full API version name**     |  *swagger-petstore-openapi-3-0-v1*       |  Unique name in your API Management instance.<br/><br/>Because a version is actually a new API that's based on an API's [revision](api-management-get-started-revise-api.md), this value is the new API's name.   |
 |**Products**     |  **Unlimited** (provided in some service tiers)     |  Optionally, one or more products that the API version is associated with. To publish the API, you must associate it with a product. You can also [add the version to a product](#add-the-version-to-a-product) later.      |
 
 :::image type="content" source="media/api-management-get-started-publish-versions/add-version.png" alt-text="Screenshot showing window to create a new version in the portal." lightbox="media/api-management-get-started-publish-versions/add-version.png":::
@@ -73,7 +73,7 @@ After you create the version, it appears under **Swagger Petstore - OpenAPI 3.0*
 
 ## Edit a version
 
-After you add the version, you can edit and configure it as an API that's separate from the original. Changes to one version don't affect another. For example, if you add or remove API operations, or edit the OpenAPI specification. For more information, see [Edit an API](edit-api.md).
+After you add the version, you can edit and configure it as an API that's separate from the original. Changes to one version don't affect another (for example, if you add or remove API operations, or edit the OpenAPI specification). For more information, see [Edit an API](edit-api.md).
 
 ## Add the version to a product
 
@@ -92,7 +92,7 @@ To add the version to a product:
 
 ## Use version sets
 
-When you create multiple versions, the Azure portal creates a *version set*, which represents a set of versions for a single logical API. If you select the name of an API that has multiple versions, the portal displays its version set. You can customize the name and description of a virtual set.
+When you create multiple versions, the Azure portal creates a *version set*, which represents a set of versions for a single logical API. If you select the name of an API that has multiple versions, the portal displays its version set. You can customize the name and description of a version set.
 
 You can interact directly with version sets by using the Azure CLI:
 
@@ -116,7 +116,7 @@ az apim api versionset show --resource-group <resource-group-name> \
 
 For more information about version sets, see [Versions in Azure API Management](api-management-versions.md#how-versions-are-represented).
 
-## Browse the developer portal to see the version
+## View the verstion in the developer portal
 
 If you use the [developer portal](api-management-howto-developer-portal-customize.md), you can see API versions there.
 
