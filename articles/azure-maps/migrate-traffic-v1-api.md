@@ -26,13 +26,13 @@ The following table outlines all Traffic services along with their respective mi
 
 ## Notable differences
 
-- Unlike the Traffic v1.0 services, the latest Azure Maps [Traffic Incident] API and the Render services' [Get Map Tile] API don't require a traffic model ID.
+- Unlike the Traffic v1.0 services, the latest Azure Maps [Get Traffic Incident] API and the Render services' [Get Map Tile] API don't require a traffic model ID.
 
-- The [Traffic Incident] v2025-01-01 input bounding box and response are in the GeoJSON format.
+- The [Get Traffic Incident] v2025-01-01 input bounding box and response are in the GeoJSON format.
 
 - [Traffic Flow Segment][Get Traffic Flow Segment] v1.0 provides information about vehicle speeds and travel times of the road segment. This information isn't available in the latest version, but the traffic data can be visualized using the Render [Get Map Tile] API.
 
-- To assign an icon category to the points returned by [Traffic Incident] v2025-01-01, use the `incidentType` enum provided in the response.
+- To assign an icon category to the points returned by [Get Traffic Incident] v2025-01-01, use the `incidentType` enum provided in the response.
 
 - Traffic map tiles are available in vector and raster format in the Render service using the [Get Map Tile] API.
 
@@ -166,7 +166,7 @@ Content-Type: application/vnd.mapbox-vector-tile
 
 "binary image string"
 
-[Get Map Tile]: /rest/api/maps/render/get-map-tile?view=rest-maps-1.0
+[Get Map Tile]: /rest/api/maps/render/get-map-tile?view=rest-maps-2025-01-01
 [Get Traffic Flow Segment]: /rest/api/maps/traffic/get-traffic-flow-segment?view=rest-maps-1.0
 [Get Traffic Flow Tile]: /rest/api/maps/traffic/get-traffic-flow-tile#trafficflowtilestyle?view=rest-maps-1.0
 [Get Traffic Incident Detail]: /rest/api/maps/traffic/get-traffic-incident-detail?view=rest-maps-1.0
@@ -174,6 +174,5 @@ Content-Type: application/vnd.mapbox-vector-tile
 [Get Traffic Incident Tile]: /rest/api/maps/traffic/get-traffic-incident-tile?view=rest-maps-1.0
 [Get Traffic Incident Viewport]: /rest/api/maps/traffic/get-traffic-incident-viewport?view=rest-maps-1.0
 [TilesetID]: /rest/api/maps/render/get-map-tile#tilesetid
-[Traffic Incident]: /rest/api/maps/traffic/incident
 [Traffic v1 service]: /rest/api/maps/traffic?view=rest-maps-1.0
 [Understanding Azure Maps Transactions]: /azure/azure-maps/understanding-azure-maps-transactions
