@@ -859,12 +859,12 @@ groups:
 # Owner: farazgis
 - id: azure-maps-coverage
   title: Azure Maps coverage
-  prompt: Choose the API version
+  prompt: Choose the service version
   pivots:
-  - id: route-v1
-    title: Route
-  - id: route-v2
-    title: Route v2
+  - id: service-previous
+    title: Previous
+  - id: service-latest
+    title: Latest
 # Owner: richbrun
 - id: azure-maps-android
   title: Programming languages
