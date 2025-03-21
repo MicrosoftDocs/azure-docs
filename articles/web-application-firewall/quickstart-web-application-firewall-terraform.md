@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Use Terraform to configure Azure Web Application Firewall on Azure Application Gateway'
-description: In this quickstart, you use Terraform to create an Azure Application Gateway with an Azure Web Application Firewall (WAF) policy. A virtual network with a subnet, a static public IP address, an Azure Web Application Firewall policy with custom rules, and Azure Application Gateway with autoscaling work together to block specific IP addresses.
+description: In this quickstart, you use Terraform to create an Azure Application Gateway with an Azure Web Application Firewall (WAF) policy. A virtual network with a subnet, a static public IP address, a WAF policy with custom rules, and Azure Application Gateway with autoscaling work together to block specific IP addresses.
 ms.topic: quickstart
 ms.date: 03/20/2025
 ms.custom: devx-track-terraform
