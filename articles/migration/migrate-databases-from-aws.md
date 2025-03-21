@@ -12,35 +12,14 @@ ms.topic: concept-article
 
 Migrating data is a critical part when moving from Amazon Web Services (AWS) to Microsoft Azure. This process involves transitioning your databases while making sure they work similarly in the new environment.  The scope of this migration covers various database types, including relational databases, NoSQL databases, and data warehouses. For example, a workload that involves migrating an Amazon RDS for PostgreSQL database to Azure Database for PostgreSQL.
 
-## Azure service awareness
-
-If you haven't yet selected your application platform in Azure, review the [Azure for AWS professionals guide](/azure/architecture/aws-professional/). This guide has a service mapping available for databases and data. It's a list that maps similar services between the two cloud providers.
-
-For more information, visit the [Azure database services map](/azure/architecture/aws-professional/databases) and the [Azure data and AI services map](/azure/architecture/aws-professional/data-ai).
-
 ## Component comparison
 
 The first step in the migration process is to compare the Amazon Web Services (AWS) database services used in the workload to their closest Azure counterparts. This helps identify the most suitable Azure services for your migration needs.
-
-[Migrate databases and data from Amazon Web Services (AWS) to Microsoft Azure](migrate-databases-from-aws.md)
 
 1. Identify the AWS database services used in your workload.
 1. Match each AWS database service to its closest Azure counterpart.
 1. Evaluate the features and capabilities of the Azure services.
 1. Select the most suitable Azure services for your migration needs.
-
-### Database services comparison
-
-Schema types of structured and nonstructured data models categorize the list:
-
-- [Relational database services](/azure/architecture/aws-professional/databases)
-  - Amazon RDS for PostgreSQL
-  - Amazon Aurora (PostgreSQL-compatible)
-  - Amazon RDS for MySQL
-  - Amazon RDS for SQL Server
-
-> [!NOTE]  
-> This comparison shouldn't be considered an exact representation of these services' functionality in your workload.*
 
 ## Migration scenarios
 
