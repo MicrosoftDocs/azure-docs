@@ -256,11 +256,11 @@ Some of the other fields are IP Address, osType, osName, osArchitecture, osVersi
 
 You can find discovered servers for a specific appliance by using the command:
 
-     ```PowerShell
+```PowerShell
    Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "ContosoDemoRG" -ProjectName "ContosoDemoProject" -Filter @{"Dependencies"="Enabled"} -ApplianceName "ContosoApp" -OutputCsvFile "ContosoDemo_VMs.csv" [-AutoEnabledDepMap]
-     ```
+```
     
-    In the file, you can see the server display name, current status of dependency collection and the ARM ID of all discovered servers. 
+In the file, you can see the server display name, current status of dependency collection and the ARM ID of all discovered servers. 
 
 2. To disable dependencies, create an input CSV file from the output file you exported in the last step. The file is required to have a column with header "ARM ID". Any additional headers in the CSV file are ignored. The input file should contain the list of servers where you want to disable dependency analysis.
 

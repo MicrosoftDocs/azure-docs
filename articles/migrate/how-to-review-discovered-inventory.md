@@ -300,11 +300,9 @@ You need to select one or more workloads to perform this action. <br/><br/> You 
 Export data | Export the inventory data for all web apps. 
 Refresh | Refresh the view to review any updates in discovery
 
-Destination application | Name of the application on the destination server
-Destination process | Name of the process on the destination server  
-Destination port | Port number on the destination server
+## Next steps
 
-
+[Group servers](how-to-create-a-group.md) for assessment.
 
 
 
