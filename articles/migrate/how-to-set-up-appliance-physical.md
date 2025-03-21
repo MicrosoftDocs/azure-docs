@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 02/05/2025
+ms.date: 03/21/2025
 ms.custom: engagement-fy23
 ---
 
@@ -97,13 +97,14 @@ After the script has executed successfully, the appliance configuration manager 
 > [!NOTE]
 > If you come across any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
 
-
+::: moniker range="migrate"
 After you deploy the appliance server and before you start the configuration, ensure you complete these steps to try out the new dependency analysis enhancements: 
 
 1. On the server running the appliance, open the Registry Editor.
 2. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance (find the one without space)
 3. Find a registry key- DepMapAutoEnable with a type of "String" and set value as "true"
 4. Restart the appliance server and start with appliance configuration
+::: moniker-end
 
 ### Verify appliance access to Azure
 
