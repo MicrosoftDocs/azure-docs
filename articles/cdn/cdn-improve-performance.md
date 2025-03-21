@@ -1,4 +1,5 @@
 ---
+ROBOTS: NOINDEX
 title: Improve performance by compressing files in Azure CDN
 description: Learn how to improve file transfer speed and increase page-load performance by compressing your files in Azure CDN.
 services: cdn
