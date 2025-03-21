@@ -18,7 +18,7 @@ If you haven't yet selected your application platform in Azure, review the [Azur
 
 For more information, visit the [Azure database services map](/azure/architecture/aws-professional/databases) and the [Azure data and AI services map](/azure/architecture/aws-professional/data-ai).
 
-## Compare components
+## Component comparison
 
 The first step in the migration process is to compare the Amazon Web Services (AWS) database services used in the workload to their closest Azure counterparts. This helps identify the most suitable Azure services for your migration needs.
 
