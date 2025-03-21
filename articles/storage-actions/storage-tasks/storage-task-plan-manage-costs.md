@@ -21,10 +21,6 @@ Costs for Azure Storage Actions are only a portion of the monthly costs in your 
 
 Cost analysis in Cost Management supports most Azure account types, but not all of them. To view the full list of supported account types, see [Understand Cost Management data](../../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for an Azure account. For information about assigning access to Azure Cost Management data, see [Assign access to data](../../cost-management/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-## Estimate costs before using Azure Storage Actions
-
-- Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs before you add Azure Storage Actions.
-
 ## Understand the full billing model for Azure Storage Actions
 
 Your charged the billing meters for Storage Actions as well as the cost of operations performed on storage accounts.  
