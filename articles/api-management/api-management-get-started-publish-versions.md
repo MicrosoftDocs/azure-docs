@@ -42,9 +42,7 @@ In this tutorial, you learn how to:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. Select **APIs**.
-1. Select **Swagger Petstore** in the API list. 
-1. Select the context menu (**...**) next to **Swagger Petstore**.
-1. Select **Add version**.
+1. Locate **Swagger Petstore - OpenAPI 3.0** in the API list. Select the ellipsis (**...**) next to **Swagger Petstore - OpenAPI 3.0** and then select **Add version**. You'll add values to the resulting window in the next section.
 
 :::image type="content" source="media/api-management-get-started-publish-versions/add-version-menu.png" alt-text="Screenshot showing the steps for adding a version." lightbox="media/api-management-get-started-publish-versions/add-version-menu.png":::
 
@@ -53,20 +51,20 @@ In this tutorial, you learn how to:
 
 ## Choose a versioning scheme
 
-In API Management, you choose how callers specify the API version by selecting a *versioning scheme*: **path**, **header**, or **query string**. In the following example, *path* is used as the versioning scheme.
+In API Management, you choose how callers specify the API version by selecting a *versioning scheme*: **Path**, **Header**, or **Query string**. In the following example, *Path* is used as the versioning scheme.
 
-Enter the values from the following table. Then select **Create** to create your version.
+In the **Create a new API as a version** window, enter the values from the following table. Then select **Create** to create your version.
 
 |Setting   |Value  |Description  |
 |---------|---------|---------|
 |**Version identifier**     |  *v1*       |  Scheme-specific indicator of the version. For **Path**, the suffix for the API URL path.  |
 |**Versioning scheme**     |  **Path**       |  The way callers specify the API version.<br/><br/> If you select **Header** or **Query string**, enter another value: the name of the header or query string parameter.<br/><br/> A usage example is displayed.            |
-|**Full API version name**     |  *swagger-petstore-v1*       |  Unique name in your API Management instance.<br/><br/>Because a version is actually a new API that's based on an API's [revision](api-management-get-started-revise-api.md), this setting is the new API's name.   |
+|**Full API version name**     |  *swagger-petstore-openapi-3-0-v1*       |  Unique name in your API Management instance.<br/><br/>Because a version is actually a new API that's based on an API's [revision](api-management-get-started-revise-api.md), this setting is the new API's name.   |
 |**Products**     |  **Unlimited** (provided in some service tiers)     |  Optionally, one or more products that the API version is associated with. To publish the API, you must associate it with a product. You can also [add the version to a product](#add-the-version-to-a-product) later.      |
 
 :::image type="content" source="media/api-management-get-started-publish-versions/add-version.png" alt-text="Screenshot showing window to create a new version in the portal." lightbox="media/api-management-get-started-publish-versions/add-version.png":::
 
-After you create the version, it appears under **Swagger Petstore** in the API list. You now see two APIs: **Original** and **v1**:
+After you create the version, it appears under **Swagger Petstore - OpenAPI 3.0** in the API list. You now see two APIs: **Original** and **v1**:
 
 :::image type="content" source="media/api-management-get-started-publish-versions/version-list.png" alt-text="Screenshot that shows the list of versions." lightbox="media/api-management-get-started-publish-versions/version-list.png":::
 
@@ -81,14 +79,15 @@ After you add the version, you can edit and configure it as an API that's separa
 
 For callers to see the new version, it must be added to a *product*. If you didn't already add the version to a product, you can do so at any time.
 
-For example, to add the version to the **Unlimited** product:
+To add the version to a product:
 
-1. In the Azure portal, navigate to your API Management instance.
-1. Select **Products** > **Unlimited** > **APIs** > **+ Add**.
-1. Select **Swagger Petstore**, version **v1**.
-1. Click **Select**.
+1. Under **APIs** in the left pane, select **Products**. 
+1. Select the product, and then select **APIs** in the left pane. 
+1. Select **+ Add**. 
+1. Select the API.
+1. Click **Select**. 
 
-:::image type="content" source="media/api-management-get-started-publish-versions/08-add-multiple-versions-03-add-version-product.png" alt-text="Screenshot that shows the steps for adding a version to a product." lightbox="media/api-management-get-started-publish-versions/08-add-multiple-versions-03-add-version-product.png":::
+:::image type="content" source="media/api-management-get-started-publish-versions/08-add-multiple-versions-03-add-version-product.png" alt-text="Screenshot that shows the APIs - Procuct window." lightbox="media/api-management-get-started-publish-versions/08-add-multiple-versions-03-add-version-product.png":::
 
 ## Use version sets
 
