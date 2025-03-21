@@ -10,8 +10,9 @@ ms.date: 01/10/2023
 ms.author: shaas
 zone_pivot_groups: data-box-sku
 ---
-:::zone pivot="dbx"
+
 # Cabling options for your Azure Data Box
+:::zone pivot="dbx"
 
 This article describes the various ways to cable your Azure Data Box for data transfer. For a full list of supported cables, see the [list of supported cables and switches from Mellanox](https://network.nvidia.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
 
@@ -128,9 +129,8 @@ Do the following steps to cable your device.
 :::zone-end
 
 :::zone pivot="dbx-ng"
-# Cabling options for your Azure Data Box
 
-This article describes the various ways to cable your Azure Data Box for data transfer. For a full list of supported cables, see the [list of supported cables and switches from Mellanox](https://network.nvidia.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
+This article describes the various ways to cable your Azure Data Box for data transfer. 
 
 ## Transfer via MGMT port
 
