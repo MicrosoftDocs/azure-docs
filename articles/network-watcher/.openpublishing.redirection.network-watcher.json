@@ -1,9 +1,24 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/network-watcher/vnet-flow-logs-portal.md",
+            "redirect_url": "/azure/network-watcher/vnet-flow-logs-manage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/vnet-flow-logs-cli.md",
+            "redirect_url": "/azure/network-watcher/vnet-flow-logs-manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/vnet-flow-logs-powershell.md",
+            "redirect_url": "/azure/network-watcher/vnet-flow-logs-manage",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/network-watcher/connection-troubleshoot-portal.md",
             "redirect_url": "/azure/network-watcher/connection-troubleshoot-manage",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/network-watcher/connection-troubleshoot-cli.md",

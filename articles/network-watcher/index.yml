@@ -93,7 +93,7 @@ landingContent:
           - text: Manage network security group flow logs
             url: nsg-flow-logs-portal.md
           - text: Manage virtual network flow logs
-            url: vnet-flow-logs-portal.md
+            url: vnet-flow-logs-manage.md
 
   # Card
   - title: Traffic analytics
