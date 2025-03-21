@@ -5,6 +5,9 @@ author: AmithshaS
 ms.author: amithshas
 ms.service: azure-hdinsight
 ms.topic: how-to
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 05/22/2024
 ---
 
