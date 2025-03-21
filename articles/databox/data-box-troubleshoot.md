@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot issues during data copies to your Azure Data Box, Data Box Next Gen, and Azure Data Box Heavy devices
-description: Describes how to troubleshoot issues when copying data to Azure Data Box, Data Box Next Gen, and Azure Data Box Heavy devices.
+title: Troubleshoot issues during data copies to your Azure Data Box, Data Box Next-Gen, and Azure Data Box Heavy devices
+description: Describes how to troubleshoot issues when copying data to Azure Data Box, Data Box Next-Gen, and Azure Data Box Heavy devices.
 services: databox
 author: stevenmatthew
 
@@ -10,48 +10,14 @@ ms.date: 03/22/2022
 ms.author: shaas
 ---
 
-# Troubleshoot data copy issues on Azure Data Box, Data Box Next Gen, and Azure Data Box Heavy
+# Troubleshoot data copy issues on Azure Data Box, Data Box Next-Gen, and Azure Data Box Heavy
 
-This article describes how to troubleshoot issues when performing data copies or data uploads for an Azure Data Box or Azure Data Box Heavy import order. The article includes the list of possible errors seen when data is copied to the Data Box or uploaded from Data Box.
-
-# [Data Box Next-Gen](#tab/dbx-ng)
-
-Content for Data Box Next-Gen...
-
-# [Data Box](#tab/dbx)
-
-Content for Data Box...
-
----
+This article describes how to troubleshoot issues when performing data copies or data uploads for an Azure Data Box, Azure Data Box Next-Gen or Azure Data Box Heavy import order. The article includes the list of possible errors seen when data is copied to the Data Box or uploaded from Data Box.
 
 For help troubleshooting issues with accessing the shares on your device, see [Troubleshoot share connection failure during data copy](data-box-troubleshoot-share-access.md).
 
-
 > [!NOTE]
 > The information in this article applies to import orders only.
-
-# [US](#tab/us/dbx-ng)
-
-Data Box Next-Gen content for the US...
-
-# [US](#tab/us/dbx)
-
-Data Box content for the US...
-
-# [Canada](#tab/ca/dbx-ng)
-
-Data Box Next-Gen content for Canada...
-
-# [Canada](#tab/ca/dbx)
-
-Data Box content for Canada...
-
-# [Mexico](#tab/mx)
-
-Mexico content, independent of SKU...
-
----
-
 
 ## Error classes
 
