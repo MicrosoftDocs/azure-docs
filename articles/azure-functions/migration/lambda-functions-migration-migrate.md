@@ -15,15 +15,15 @@ In this stage, you finish migrating your workload from AWS Lambda to Azure Funct
 
 ## Adapt function code, configuration files, and infrastructure as code files
 
-You need to adapt function code, configuration files, and infrastructure as code (IaC) files to adhere to the Azure Functions programming model and best practices. This step helps ensure that your workload is compatible with Functions.
+You need to adapt function code, configuration files, and infrastructure as code (IaC) files to adhere to the Azure Functions programming model and best practices. This step helps ensure that your workload is compatible with Azure Functions.
 
 To update code for Azure Functions runtime requirements:
 
-   - Modify your code to adhere to the Functions programming model. For instance, adapt your function signatures to match the format that Functions requires. For more information about function definition and execution context, see [Functions developer guides](/azure/azure-functions/functions-reference-node).
+   - Modify your code to adhere to the Azure Functions programming model. For instance, adapt your function signatures to match the format that Azure Functions requires. For more information about function definition and execution context, see [Azure Functions developer guides](/azure/azure-functions/functions-reference-node).
 
-   - Use the [Functions extensions bundle](/azure/azure-functions/functions-bindings-register) to handle various bindings and triggers that are similar to AWS services. For .NET applications, you should use the appropriate NuGet packages instead of the extensions bundle.
+   - Use the [Azure Functions extensions bundle](/azure/azure-functions/functions-bindings-register) to handle various bindings and triggers that are similar to AWS services. For .NET applications, you should use the appropriate NuGet packages instead of the extensions bundle.
 
-   - Use the extensions bundle to integrate with other Azure services such as Storage, Service Bus, and Azure Cosmos DB without needing to manually configure each binding through SDKs. For more information, see [Connect functions to Azure services by using bindings](/azure/azure-functions/add-bindings-existing-function) and [Azure Functions binding expression patterns](/azure/azure-functions/functions-bindings-expressions-patterns).
+   - Use the extensions bundle to integrate with other Azure services such as Azure Storage, Azure Service Bus, and Azure Cosmos DB without needing to manually configure each binding through SDKs. For more information, see [Connect functions to Azure services by using bindings](/azure/azure-functions/add-bindings-existing-function) and [Azure Functions binding expression patterns](/azure/azure-functions/functions-bindings-expressions-patterns).
 
 The following snippets are examples of common SDK code. The AWS Lambda code maps to the corresponding triggers, bindings, or SDK code snippets in Azure Functions.
 
@@ -53,7 +53,7 @@ The following snippets are examples of common SDK code. The AWS Lambda code maps
    :::column-end:::
    :::column span="":::
       
-      Azure Functions code (Trigger)
+      Azure Functions code (trigger)
 
       ```
       import { app } from '@azure/functions';
@@ -70,7 +70,7 @@ The following snippets are examples of common SDK code. The AWS Lambda code maps
    :::column-end:::
 :::row-end:::
 
-**Writing to Amazon Simple Queue Service (SQS) versus Queue Storage**
+**Writing to Amazon Simple Queue Service (SQS) versus Azure Queue Storage**
 
 :::row:::
    :::column span="":::
@@ -95,7 +95,7 @@ The following snippets are examples of common SDK code. The AWS Lambda code maps
    :::column-end:::
    :::column span="":::
 
-      Azure Functions code (Trigger)
+      Azure Functions code (trigger)
 
       ```
       import { app } from '@azure/functions';
@@ -136,7 +136,7 @@ The following snippets are examples of common SDK code. The AWS Lambda code maps
    :::column-end:::
    :::column span="":::
 
-      Azure Functions code (Trigger)
+      Azure Functions code (trigger)
       
       ```
       import { app } from '@azure/functions';  
@@ -156,7 +156,7 @@ The following snippets are examples of common SDK code. The AWS Lambda code maps
    :::column-end:::
 :::row-end:::
 
-**Amazon CloudWatch Events versus Azure timer trigger**
+**Amazon CloudWatch Events versus an Azure timer trigger**
 
 :::row:::
    :::column span="":::
@@ -172,7 +172,7 @@ The following snippets are examples of common SDK code. The AWS Lambda code maps
    :::column-end:::
    :::column span="":::
 
-      Azure Functions code (Trigger)
+      Azure Functions code (trigger)
 
       ```
       import { app } from '@azure/functions'; 
@@ -183,7 +183,7 @@ The following snippets are examples of common SDK code. The AWS Lambda code maps
    :::column-end:::
 :::row-end:::
 
-**Amazon Simple Notification Service (SNS) versus Azure Event Grid Trigger**
+**Amazon Simple Notification Service (SNS) versus an Azure Event Grid trigger**
 
 :::row:::
    :::column span="":::
@@ -206,7 +206,7 @@ The following snippets are examples of common SDK code. The AWS Lambda code maps
    :::column-end:::
    :::column span="":::
 
-      Azure Functions code (Trigger)
+      Azure Functions code (trigger)
 
       ```
       import { app } from '@azure/functions'; 
@@ -223,7 +223,7 @@ The following snippets are examples of common SDK code. The AWS Lambda code maps
    :::column-end:::
 :::row-end:::
 
-**Amazon Kinesis vs Azure Event Hubs trigger**
+**Amazon Kinesis versus an Azure Event Hubs trigger**
 
 :::row:::
    :::column span="":::
@@ -266,13 +266,13 @@ The following snippets are examples of common SDK code. The AWS Lambda code maps
    :::column-end:::
 :::row-end:::
 
-See the following GitHub repositories to compare AWS Lambda code and Azure Functions code.
+See the following GitHub repositories to compare AWS Lambda code and Azure Functions code:
 
 - [AWS Lambda code](https://github.com/MadhuraBharadwaj-MSFT/TestLambda)
 
 - [Azure Functions code](https://github.com/MadhuraBharadwaj-MSFT/TestAzureFunction)
 
-   - This repository also includes starter samples, infrastructure as code, and end-to-end samples for Azure Functions.
+   - This repository also includes starter samples, IaC, and end-to-end samples for Azure Functions.
 
 ### Adjust configuration settings
 
@@ -303,7 +303,7 @@ For more information, see [userAssignedIdentity.bicep](https://github.com/Azure-
 
 #### Configure network access
 
-Azure Functions supports [virtual network integration](/azure/azure-functions/functions-networking-options#virtual-network-integration), which gives your function app access to resources in your virtual network. After integration, your app routes outbound traffic through the virtual network. Then your app can access private endpoints or resources by using rules that only allow traffic from specific subnets. When the destination is an IP address outside of the virtual network, the source IP address sends from one of the addresses listed in your app's properties, unless you configured a NAT gateway.
+Azure Functions supports [virtual network integration](/azure/azure-functions/functions-networking-options#virtual-network-integration), which gives your function app access to resources in your virtual network. After integration, your app routes outbound traffic through the virtual network. Then your app can access private endpoints or resources by using rules that only allow traffic from specific subnets. If the destination is an IP address outside of the virtual network, the source IP address is one of the addresses listed in your app's properties, unless you configure a NAT gateway.
 
 When you enable [virtual network integration](/azure/azure-functions/flex-consumption-how-to#enable-virtual-network-integration) for your function apps, 
 follow the best practices in [TSG for virtual network integration for web apps and function apps](https://eng.ms/docs/cloud-ai-platform/devdiv/serverless-paas-balam/serverless-paas-vikr/app-service-web-apps/app-service-team-documents/functionteamdocs/faqs/tsg-vnet-integration).
@@ -335,11 +335,11 @@ module servicePrivateEndpoint 'app/storage-PrivateEndpoint.bicep' = {
 }
 ```
 
-For more information, see [VNet.bicep](https://github.com/Azure-Samples/functions-quickstart-javascript-azd/blob/main/infra/app/vnet.bicep) and [storage-PrivateEndpoint.bicep](https://github.com/Azure-Samples/functions-quickstart-javascript-azd/blob/main/infra/app/storage-PrivateEndpoint.bicep) 
+For more information, see [VNet.bicep](https://github.com/Azure-Samples/functions-quickstart-javascript-azd/blob/main/infra/app/vnet.bicep) and [storage-PrivateEndpoint.bicep](https://github.com/Azure-Samples/functions-quickstart-javascript-azd/blob/main/infra/app/storage-PrivateEndpoint.bicep).
 
 #### Configure deployment settings
 
-Deployments follow a single path. After you build your project code and zip it into an application package, deploy it to a blob storage container. When it starts, your app gets the package and runs your function code from it. By default, the same storage account that stores internal host metadata (AzureWebJobsStorage) also serves as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by configuring your app's deployment settings. For more information, see [Deployment technology details](/azure/azure-functions/functions-deployment-technologies#deployment-technology-details) and [Configure deployment settings](/azure/azure-functions/flex-consumption-how-to#configure-deployment-settings).
+Deployments follow a single path. After you build your project code and zip it into an application package, deploy it to a Blob Storage container. When it starts, your app gets the package and runs your function code from it. By default, the same storage account that stores internal host metadata, such as `AzureWebJobsStorage`, also serves as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by configuring your app's deployment settings. For more information, see [Deployment technology details](/azure/azure-functions/functions-deployment-technologies#deployment-technology-details) and [Configure deployment settings](/azure/azure-functions/flex-consumption-how-to#configure-deployment-settings).
  
 ### Generate IaC files
 
@@ -371,7 +371,7 @@ Deploy workloads by using the [VS Code](/azure/azure-functions/functions-develop
 
 - Azure Functions Core Tools: [Deploy your function app](/azure/azure-functions/flex-consumption-how-to#deploy-your-code-project) by using [Azure Functions Core Tools](/azure/azure-functions/functions-run-local) with the `func azure functionapp publish <FunctionAppName>` command.
 
-- Continuous integration and continuous deployment (CI/CD) pipelines: Set up a CCI/CD pipeline by using services like GitHub Actions, Azure DevOps, or another CI/CD tool.
+- Continuous integration and continuous deployment (CI/CD) pipelines: Set up a CI/CD pipeline by using services like GitHub Actions, Azure DevOps, or another CI/CD tool.
 
    For more information, see [Continuous delivery by using GitHub Actions](/azure/azure-functions/functions-how-to-github-actions) or [Continuous delivery with Azure Pipelines](/azure/azure-functions/functions-how-to-azure-devops).
 
@@ -423,7 +423,7 @@ Enable [Application Insights](/azure/azure-functions/functions-monitoring) f
 
 - Cost management:
 
-   - Use the [Microsoft Cost Management](/azure/cost-management-billing/cost-management-billing-overview) tools to monitor and analyze your Azure Functions costs.
+   - Use [Microsoft Cost Management](/azure/cost-management-billing/cost-management-billing-overview) tools to monitor and analyze your Azure Functions costs.
 
    - Set up budgeting and cost alerts to manage and predict expenses effectively.
 
