@@ -30,7 +30,7 @@ This method enables developers to continue with the implementation and testing o
 The ability to create mock responses is useful in many scenarios:
 
 + When the API façade is designed first and the back-end implementation occurs later, or when the back end is being developed in parallel.
-+ When the back end is temporarily not operational or unable to scale.
++ When the back end is temporarily not operational or is not able to scale.
 
 In this tutorial, you learn how to:
 
