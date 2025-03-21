@@ -30,7 +30,7 @@ zone_pivot_groups: data-box-sku
 > [!IMPORTANT]
 > Azure Data Box now supports access tier assignment at the blob level. The steps contained within this tutorial reflect the updated data copy process and are specific to block blobs. 
 >
->For help with determining the appropriate access tier for your block blob data, refer to the [Determine appropriate access tiers for block blobs](#determine-appropriate-access-tiers-for-block-blobs) section. Follow the steps contained within the [Copy data to Azure Data Box](#copy-data-to-azure-data-box) section to copy your data to the appropriate access tier.
+>For help with determining the appropriate access tier for your block blob data, refer to the [Determine appropriate access tiers for block blobs](#determine-appropriate-access-tiers-for-block-blobs) section. Follow the steps contained within the [Copy data to Azure Data Box](copy-data-to-azure-data-box) section to copy your data to the appropriate access tier.
 >
 > The information contained within this section applies to orders placed after April 1, 2024.
 
@@ -162,7 +162,7 @@ Azure Storage allows you to store block blob data in multiple access tiers withi
 
 For more information about blob access tiers, see [Access tiers for blob data](../storage/blobs/access-tiers-overview.md). For more detailed best practices, see [Best practices for using blob access tiers](../storage/blobs/access-tiers-best-practices.md).
 
-You can transfer your block blob data to the appropriate access tier by copying it to the corresponding folder within Data Box. This process is discussed in greater detail within the [Copy data to Azure Data Box](#copy-data-to-azure-data-box) section.
+You can transfer your block blob data to the appropriate access tier by copying it to the corresponding folder within Data Box. This process is discussed in greater detail within the [Copy data to Azure Data Box](copy-data-to-azure-data-box) section.
 
 ## Copy data to Data Box
 
