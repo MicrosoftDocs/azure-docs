@@ -31,13 +31,13 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 The following example shows how to use `fail`.
 
 ```bicep
-anObjectParameter.?name ?? anObjectParameter.?id ?? fail('Expected anObjectParameter to have either a .name or a .id property');
+anObjectParameter.?name ?? anObjectParameter.?id ?? fail('Expected anObjectParameter to have either a .name or a .id property')
 ```
 
 Here, the coalesce operator (??) ensures that if **.name** exists, execution stops immediately. If **.name** is null or undefined, **.id** is checked. If both are missing, `fail` is triggered, preventing further execution.
 
 ```bicep
-x != 0 ? y / x : fail('x cannot be zero because it will be used as a divisor');
+x != 0 ? y / x : fail('x cannot be zero because it will be used as a divisor')
 ```
 
 In this case, the ternary operator (? :) checks if **x** is nonzero before performing division. If **x** is 0, `fail` is invoked, stopping execution before an invalid operation occurs.
