@@ -275,7 +275,7 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 Here are steps that help you upgrade your Vertica version: 
 
 1. Install a Vertica ODBC driver by following the steps in [Prerequisites](#install-vertica-odbc-driver-for-the-version-20-preview). 
-1. In **Edit linked service page**, select **2.0 (Preview)** under **Version** and configure the linked service by referring to [Linked service properties](#linked-service-properties). 
+1. In **Edit linked service page**, select version 2.0 (Preview) and configure the linked service by referring to [Linked service properties](#linked-service-properties). 
 1. Apply a self-hosted integration runtime with version 5.44.8984.1 or above. Azure integration runtime is not supported by version 2.0 (Preview). 
 
 ## Differences between Vertica version 2.0 (Preview) and version 1.0 
