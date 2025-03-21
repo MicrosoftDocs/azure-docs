@@ -19,6 +19,8 @@
     href: application-gateway-for-containers-components.md
   - name: Migrate from AGIC to Application Gateway for Containers
     href: migrate-from-agic-to-agc.md
+  - name: Container Networking
+    href: container-networking.md
   - name: Custom health probe
     href: custom-health-probe.md
   - name: ECDSA and RSA certificates

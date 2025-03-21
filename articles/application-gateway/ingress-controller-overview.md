@@ -50,6 +50,36 @@ The AGIC add-on is still deployed as a pod in the customer's AKS cluster, howeve
 > [!NOTE]
 > Customers can only deploy one AGIC add-on per AKS cluster, and each AGIC add-on currently can only target one Application Gateway. For deployments that require more than one AGIC per cluster or multiple AGICs targeting one Application Gateway, please continue to use AGIC deployed through Helm. 
 
+## Container networking and AGIC
+
+Application Gateway Ingress Controller supports the following AKS network offerings:
+
+- Kubenet
+- CNI
+- CNI Overlay
+
+Azure CNI and Azure CNI Overlay are the two recommended options for Application Gateway Ingress Controller.  When choosing a networking model, consider the use cases for each CNI plugin and the type of network model it uses:
+
+| CNI plugin | Networking model | Use case highlights |
+|-------------|----------------------|-----------------------|
+| **Azure CNI Overlay** | Overlay | - Best for VNET IP conservation<br/>- Max node count supported by API Server + 250 pods per node<br/>- Simpler configuration<br/> -No direct external pod IP access |
+| **Azure CNI Pod Subnet** | Flat | - Direct external pod access<br/>- Modes for efficient VNet IP usage _or_ large cluster scale support(Preview) |
+| **Azure CNI Node Subnet** | Flat | - Direct external pod access<br/>- Simpler configuration <br/>- Limited scale <br/>- Inefficient use of VNet IPs |
+
+When provisioning Application Gateway for Containers into a cluster that has CNI Overlay or CNI enabled, Application Gateway for Containers automatically detects the intended network configuration. There are no changes needed in Gateway or Ingress API configuration to specify CNI Overlay or CNI.
+
+With Azure CNI Overlay, please consider the following limitations:
+
+* AGIC Controller: You must be running version 1.8.0 or greater to take advantage of CNI Overlay.
+* Subnet Size: The Application Gateway subnet must be a maximum /24 prefix; only one deployment is supported per subnet.
+* Regional VNet Peering: Application Gateway deployed in a virtual network in region A and the AKS cluster nodes in a virtual network in region A is not supported.
+* Global VNet Peering: Application Gateway deployed in a virtual network in region A and the AKS cluster nodes in a virtual network in region B is not supported.
+
+Migration from Kubenet or CNI to Azure CNI Overlay is supported, however it is important to plan your migration to ensure successful migration.
+
+>[!WARNING]
+> Ensure the Application Gateway subnet is a /24 or smaller subnet prior to upgrading. Upgrading from CNI to CNI Overlay with a larger subnet (i.e. /23) will lead to an outage and require the Application Gateway subnet to be recreated with a supported subnet size.
+
 ## Next steps
 - [**AKS Add-On Greenfield Deployment**](tutorial-ingress-controller-add-on-new.md): Instructions on installing AGIC add-on, AKS, and Application Gateway on blank-slate infrastructure.
 - [**AKS Add-On Brownfield Deployment**](tutorial-ingress-controller-add-on-existing.md): Install AGIC add-on on an AKS cluster with an existing Application Gateway.
