@@ -12,11 +12,11 @@ ms.author: cshoe
 # Connect to services in Azure Container Apps (preview)
 
 > [!IMPORTANT]
-> The public preview add-ons feature will be retired on 30 September 2025. Please transition to Azure-managed services, such as Azure Cache for Redis or Azure Database for PostgreSQL, if you’re ready to use a production-level service. Alternatively you can try one of our new OSS quickstarts to continue using these services for dev/test purposes. 
+> The public preview add-ons feature will be retired on September 30th, 2025. To prepare for this change, transition to Azure-managed services, such as Azure Cache for Redis or Azure Database for PostgreSQL for production-level service. For development and testing purposes, review the supported OSS quickstarts. 
 
 As you develop applications in Azure Container Apps, you often need to connect to different services. Rather than creating services ahead of time and manually connecting them to your container app, you can quickly create instances of development-grade services that are designed for nonproduction environments known as add-ons. 
 
-Add-ons allow you to use OSS services without the burden of manual downloads, creation, and configuration. Since add-ons will be retired on 30 September 2025, we recommend you use our new OSS quickstarts if you want to continue using these OSS services for nonproduction envrionments.
+Add-ons allow you to use OSS services without the burden of manual downloads, creation, and configuration. Since add-ons will be retired on September 30th, 2025, we recommend you use our new OSS quickstarts if you want to continue using these OSS services for nonproduction envrionments.
 
 If you're ready for your app to use a production level service, you can connect your application to an Azure managed service.
 
@@ -30,26 +30,81 @@ Please note, you're responsible for data continuity between your add-on and your
 
 If you're ready for a production level service, follow these steps to transition your add-on to an Azure managed service.
 
-1. **Identify add-ons:** Run `az containerapp add-on list --environment <ENV_NAME> --resource-group <RESOURCE_GROUP>` to locate all existing add-ons in your environment.  
-1. **Plan data continuity:** Create a backup or snapshot of your data in the current add-on if applicable.  
-1. **Provision the new managed service:** For example, create an [Azure Cache for Redis](../azure-cache-for-redis/scripts/create-manage-cache?pivots=azure-cache-redis) or [Azure Database for PostgreSQL](https://learn.microsoft.com/azure/postgresql/) instance using the Azure portal or CLI.  
-1. **Create a new Container App:**: Create a new app using the [Azure Portal](quickstart-portal.md) or [CLI](get-started?tabs=bash).
-1. **Configure connection settings:** In your new Container App configuration, set the environment variables and network settings to point to your new managed service’s connection string, credentials, and endpoints.  
-1. **Decommission the add-on:** Delete the add-on itself with `az containerapp add-on <SERVICE_TYPE> delete --name <ADDON_NAME> --resource-group <RESOURCE-GROUP>` once it’s no longer needed.
+1. Identify add-ons in use. Run the following command to locate all existing add-ons in your environment.
+
+    Before you run the following command, make sure to replace the placeholders surrounded by `<>` with you values.
+
+    ```azurecli
+    az containerapp add-on list \
+      --environment <ENVIRONMENT_NAME> \
+      --resource-group <RESOURCE_GROUP>
+    ```
+  
+1. Plan data continuity.
+
+    Create a backup or snapshot of your data in the current add-on if applicable.  
+
+1. Deploy the new managed service.
+
+    For example, create an [Azure Cache for Redis](/azure/azure-cache-for-redis/scripts/create-manage-cache?pivots=azure-managed-redis) or [Azure Database for PostgreSQL](/azure/postgresql/) instance using the Azure portal or CLI.
+
+1. Create a new container app.
+
+    Create a new app using the [Azure Portal](quickstart-portal.md) or [CLI](get-started?tabs=bash).
+
+1. Configure connection settings.
+
+    In your new container app configuration, set the environment variables and network settings to point to your new managed service’s connection string, credentials, and endpoints.
+  
+1. Remove the add-on.
+
+    Once the add-on is no longer needed, delete it with the following command.
+
+    Before you run the following command, make sure to replace the placeholders surrounded by `<>` with you values.
+
+    ```azurecli
+    az containerapp add-on <SERVICE_TYPE> delete \
+      --name <ADDON_NAME> \
+      --resource-group <RESOURCE-GROUP>
+    ```
 
 ### Option 2: Continue with new OSS quickstarts
 If you only need these services for development or testing environments and do not require production-level guarantees, follow these steps to switch to our new open-source quickstarts:
 
-1. **Identify add-ons:** Run `az containerapp add-on list --environment <ENV_NAME> --resource-group <RESOURCE_GROUP>` to locate all existing add-ons in your environment.  
-1. **Review available quickstarts:** We have open-source quickstarts for Redis, PostgreSQL, MariaDB, Qdrant, and Kafka.
-1. **Plan data continuity:** Create a backup or snapshot of your data in the current add-on if applicable.  
-1. **Create a new Container App:** Create a new [Container App](quickstart-portal.md) using one of our new quickstarts. 
-1. **Decommission the add-on:** Delete the add-on itself with `az containerapp add-on <SERVICE_TYPE> delete --name <ADDON_NAME> --resource-group <RESOURCE-GROUP>` once it’s no longer needed.
+1. Identify add-ons in use. Run the following command to locate all existing add-ons in your environment.
 
-## Add-ons (retiring on 30 September 2025)
+    Before you run the following command, make sure to replace the placeholders surrounded by `<>` with you values.
+
+    ```azurecli
+    az containerapp add-on list \
+      --environment <ENVIRONMENT_NAME> \
+      --resource-group <RESOURCE_GROUP>
+    ```
+
+1. Review available quickstarts for Redis, PostgreSQL, MariaDB, Qdrant, and Kafka.
+
+1. Plan data continuity.
+
+    Create a backup or snapshot of your data in the current add-on if applicable.
+
+1. Create a new [Container App](quickstart-portal.md).
+
+1. Remove the add-on.
+
+    Once the add-on is no longer needed, delete it with the following command.
+
+    Before you run the following command, make sure to replace the placeholders surrounded by `<>` with you values.
+
+    ```azurecli
+    az containerapp add-on <SERVICE_TYPE> delete \
+      --name <ADDON_NAME> \
+      --resource-group <RESOURCE-GROUP>
+    ```
+
+## Add-ons (retiring on September 30th, 2025)
 
 > [!IMPORTANT]
-> The public preview add-ons feature will be retired on 30 September 2025. Please transition to Azure-managed services, such as Azure Cache for Redis or Azure Database for PostgreSQL, if you’re ready to use a production-level service. Alternatively you can try one of our new OSS quickstarts to continue using these services for dev/test purposes. 
+> The public preview add-ons feature will be retired on September 30th, 2025. To prepare for this change, transition to Azure-managed services, such as Azure Cache for Redis or Azure Database for PostgreSQL for production-level service. For development and testing purposes, review the supported open-source quickstarts. 
 
 Services available as an add-on include:
 
