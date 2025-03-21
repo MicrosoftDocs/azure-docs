@@ -89,11 +89,11 @@ The workload admin is responsible for managing and rotating credentials. Azure B
 1. Set the database user's backup privileges on the database.
 
 > [!NOTE]
-> You can grant these permissions within the [configure backup](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases) flow with a single click if you, as the backup admin, have write access on the intended resources. If you don't have the required permissions (when multiple personas are involved), use an Azure Resource Manager template.
+> You can grant these permissions within the [configure backup](backup-azure-database-postgresql.md##configure-a-backup-on-azure-postgresql-databases) flow with a single click if you, as the backup admin, have write access on the intended resources. If you don't have the required permissions (when multiple personas are involved), use an Azure Resource Manager template.
 
 #### Permissions needed for Azure PostgreSQL database restore
 
-Permissions for restore are similar to the ones that you need for backup. You need to [manually grant the permissions on the target Azure Database for PostgreSQL server and the corresponding key vault](#steps-for-manually-granting-access-on-the-azure-database-for-postgresql-server-and-on-key-vault). Unlike in the [configure backup](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases) flow, the experience to grant these permissions inline is currently not available.
+Permissions for restore are similar to the ones that you need for backup. You need to [manually grant the permissions on the target Azure Database for PostgreSQL server and the corresponding key vault](#steps-for-manually-granting-access-on-the-azure-database-for-postgresql-server-and-on-key-vault). Unlike in the [configure backup](backup-azure-database-postgresql.md##configure-a-backup-on-azure-postgresql-databases) flow, the experience to grant these permissions inline is currently not available.
 
 Ensure that the database user (corresponding to the credentials stored in the key vault) has the following restore privileges on the database:
 
@@ -155,7 +155,7 @@ To grant all the access permissions that Azure Backup needs, use the following s
 
 ### Database user's backup privileges on the database
 
-Run the following query in the [PG admin](#use-the-pg-admin-tool) tool. Replace `username` with the database user ID.
+Run the following query in the [pgAdmin](#use-the-pgadmin-tool) tool. Replace `username` with the database user ID.
 
 ```
 DO $do$
@@ -178,9 +178,9 @@ $do$
 > [!NOTE]  
 > If a database for which you already configured backup is failing with `UserErrorMissingDBPermissions`, refer to [this troubleshooting guide](backup-azure-database-postgresql-troubleshoot.md) for assistance in resolving the problem.
 
-## Use the PG admin tool
+## Use the pgAdmin tool
 
-[Download the PG admin tool](https://www.pgadmin.org/download/) if you don't have it already. You can connect to the Azure Database for PostgreSQL server through this tool. Also, you can add databases and new users to this server.
+[Download the pgAdmin tool](https://www.pgadmin.org/download/) if you don't have it already. You can connect to the Azure Database for PostgreSQL server through this tool. Also, you can add databases and new users to this server.
 
 :::image type="content" source="./media/backup-azure-database-postgresql-overview/connect-to-azure-postgresql-server-using-pg-admin-tool-inline.png" alt-text="Screenshot that shows the process to connect to an Azure Database for PostgreSQL server by using the P G admin tool." lightbox="./media/backup-azure-database-postgresql-overview/connect-to-azure-postgresql-server-using-pg-admin-tool-expanded.png":::
 
