@@ -59,7 +59,7 @@ The steps in this section show how to create an HTTP API with no back end.
 
 1. In the **Create an HTTP API** window, select **Full**.
 1. In **Display name**, enter *Test API*.
-1. In **Products**, enter *Unlimited*.
+1. In **Products**, select *Unlimited*, if that value is available. This value is available only in some tiers. You can leave the value blank for this tutorial, but you need to associate the API with a product to publish it. For more information, see [Import and publish your first API](import-and-publish.md#-import-and-publish-a-backend-api). 
 1. Ensure that **Managed** is selected in **Gateways**.
 1. Select **Create**.
 
