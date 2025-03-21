@@ -376,13 +376,13 @@ During the creation of the load balancer, you configure:
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | **Project details** |   |
-    | Subscription               | Select your subscription.    |    
+    | Subscription               | Select your subscription.   |    
     | Resource group         | Select **load-balancer-rg**. |
     | **Instance details** |   |
     | Name                   | Enter **myLoadBalancer**                                   |
-    | Region         | Select **East US**.                                        |
+    | Region         | Select **East US**.                                       |
     | SKU           | Leave the default **Standard**. |
-    | Type          | Select **Public**.                                        |
+    | Type          | Select **Public**.                                       |
     | Tier          | Leave the default **Regional**. |
 
 4. Select **Next: Frontend IP configuration**.
@@ -403,7 +403,7 @@ During the creation of the load balancer, you configure:
     >
     > For more information on IP prefixes, see [Azure Public IP address prefix](../virtual-network/ip-services/public-ip-address-prefix.md).
     >
-    > In regions with [Availability Zones](../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear.</br> For more information on availability zones, see [Availability zones overview](../reliability/availability-zones-overview.md).
+    > In regions with [Availability Zones](../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), you can select no-zone (default option), a specific zone, or zone-redundant. The choice depends on your specific domain failure requirements. In regions without Availability Zones, this field won't appear.</br> For more information on availability zones, see [Availability zones overview](../reliability/availability-zones-overview.md).
 
 7. Select **Add**.
 
@@ -509,7 +509,7 @@ During the creation of the load balancer, you configure:
 32. Select **Create**.
 
     > [!NOTE]
-    > In this example we created a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed as it's optional isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
+    > In this example, we created a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed as it's optional and isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
     > For more information about outbound connections in Azure, see [Source Network Address Translation (SNAT) for outbound connections](../load-balancer/load-balancer-outbound-connections.md)
 
 ## Test load balancer
@@ -544,7 +544,7 @@ In this section, you discover the public IP address for each website. You enter 
 
 If you're not going to continue to use this application, delete the virtual machines and load balancer with the following steps:
 
-1. In the search box at the top of the portal, enter **Resource group**.  Select **Resource groups** in the search results.
+1. In the search box at the top of the portal, enter **Resource group**. Select **Resource groups** in the search results.
 
 2. Select **load-balancer-rg** in **Resource groups**.
 
