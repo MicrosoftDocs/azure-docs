@@ -117,6 +117,11 @@ during `Set`, use the `-verbose` parameter.
 After running the command `Start-GuestConfigurationPackageRemediation`, you can run the command
 `Get-GuestConfigurationComplianceStatus` again to confirm the machine is now in the correct state.
 
+//Should we add some information here for how to troubleshoot the agent logs when testing the custom package? If there is already this information somewhere, we can link that here.
+For example, the location of the logs and basics to look for (https://learn.microsoft.com/en-us/azure/azure-arc/servers/azcmagent-logs)
+Windows location: <C:\programdata\GuestConfig\gc_agent_logs>
+Linux location: </var/lib/GuestConfig/gc_agent>
+
 ## Next step
 
 > [!div class="nextstepaction"]
