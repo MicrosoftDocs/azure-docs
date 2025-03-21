@@ -111,8 +111,6 @@ conceptualContent:
           - url: /azure/aks/eks-edw-overview
             text: Migrate an event-driven EKS workload to AKS
             itemType: tutorial
-      - title: Compute
-        links:
           - url: /azure/migrate/tutorial-migrate-aws-virtual-machines
             text: Migrate to Azure Virtual Machines (Azure Migrate)
             itemType: tutorial
@@ -145,8 +143,6 @@ conceptualContent:
           - url: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-online
             text: Amazon Aurora PostgreSQL (online)
             itemType: tutorial
-      - title: Databases and data
-        links:
           - url: /azure/azure-sql/migration-guides/database/mysql-to-sql-database-guide?view=azuresql-db&preserve-view=true
             text: Migrate MySQL on AWS to Azure Database for MySQL
             itemType: how-to-guide
@@ -161,6 +157,47 @@ conceptualContent:
             itemType: how-to-guide
           - url: /azure/cosmos-db/nosql/couchbase-cosmos-migration
             text: Migrate from CouchBase to Azure Cosmos DB for NoSQL
+            itemType: how-to-guide
+      - title: Storage
+        links:
+          - url: ./migrate-storage-from-aws.md
+            text: Migrate storage components
+            itemType: tutorial
+          - url: /azure/architecture/aws-professional/storage
+            text: Azure storage services map
+            itemType: tutorial
+          - url: /azure/storage/common/storage-use-azcopy-s3
+            text: Copy data from Amazon S3 to Azure Storage (AzCopy)
+            itemType: how-to-guide
+          - url: /azure/data-factory/data-migration-guidance-s3-azure-storage
+            text: Copy data from Amazon S3 to Azure Storage (Azure Data Factory)
+            itemType: how-to-guide
+          - url: /azure/data-factory/solution-template-migration-s3-azure
+            text: Migrate to Azure Data Lake Storage
+            itemType: how-to-guide
+      - title: Networking
+        links:
+         - text: Azure networking services mapping
+           url: /azure/architecture/aws-professional/networking
+           itemType: reference
+         - text: Connect AWS and Azure using a BGP-enabled VPN gateway
+           url: /azure/vpn-gateway/vpn-gateway-howto-aws-bgp
+           itemType: how-to-guide
+      - title: Messaging and integration
+        links:
+        - text: Azure messaging services map
+          url: /azure/architecture/aws-professional/messaging
+          itemType: reference
+        - text: Synchronize API Gateway APIs into Azure API Center
+          url: /azure/api-center/synchronize-aws-gateway-apis
+          itemType: how-to-guide
+      - title: Security
+        links:
+          - url: /azure/architecture/aws-professional/security-identity
+            text: Azure security services map
+            itemType: reference
+          - url: /azure/sentinel/migration
+            text: Migrate your SIEM in AWS to Microsoft Sentinel
             itemType: how-to-guide
 
     - title: Migrate from GCP
@@ -183,6 +220,14 @@ conceptualContent:
           - url: /azure/azure-sql/migration-guides/database/mysql-to-sql-database-guide?view=azuresql-db&preserve-view=true
             text: Migrate MySQL on Google Cloud to Azure Database for MySQL
             itemType: tutorial
+      - title: Security
+        links:
+          - url: /azure/architecture/gcp-professional/services#security-and-identity
+            text: Azure security services map
+            itemType: reference
+          - url: /azure/sentinel/migration
+            text: Migrate your SIEM in Google Cloud to Microsoft Sentinel
+            itemType: how-to-guide
 
 additionalContent:
   sections:
