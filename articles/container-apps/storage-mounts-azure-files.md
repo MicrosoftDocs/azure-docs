@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 02/03/2025
+ms.date: 03/20/2025
 ms.author: cshoe
 ---
 
@@ -438,30 +438,35 @@ Now you can update the container app configuration to support the storage mount.
 
 1. Open *app.yaml* in a code editor.
 
-1. Replace the `volumes: null` definition in the `template` section with a `volumes:` definition referencing the storage volume.  The template section should look like the following:
+1. Replace the `volumes: null` definition in the `template` section with a `volumes:` definition referencing the storage volume. The template section should look like the following:
 
     ```yml
     template:
+      containers:
+      - image: nginx
+        imageType: ContainerImage
+        name: my-container-app
+        resources:
+          cpu: 0.5
+          ephemeralStorage: 2Gi
+          memory: 1Gi
+        volumeMounts:
+        - volumeName: my-azure-file-volume
+          mountPath: /var/log/nginx
+      initContainers: null
+      revisionSuffix: ''
+      scale:
+        cooldownPeriod: 300
+        maxReplicas: 1
+        minReplicas: 1
+        pollingInterval: 30
+        rules: null
+      serviceBinds: null
+      terminationGracePeriodSeconds: null
       volumes:
       - name: my-azure-file-volume
         storageName: mystoragemount
         storageType: AzureFile
-      containers:
-      - image: nginx
-        name: my-container-app
-        volumeMounts:
-        - volumeName: my-azure-file-volume
-          mountPath: /var/log/nginx
-        resources:
-          cpu: 0.5
-          ephemeralStorage: 3Gi
-          memory: 1Gi
-      initContainers: null
-      revisionSuffix: ''
-      scale:
-        maxReplicas: 1
-        minReplicas: 1
-        rules: null
     ```
 
     The new `template.volumes` section includes the following properties.
@@ -540,23 +545,13 @@ Now that the storage mount is established, you can manipulate files in Azure Sto
 
     ---
 
-    This command may take a moment to open the remote shell. Once the shell is ready, you can interact with the storage mount via file system commands.
+    This command may take a moment to open the remote shell. Once the shell is ready, you can interact with the storage mount via file system commands. For more information see [Connect to a container console in Azure Container Apps](/azure/container-apps/container-console).
 
 1. Change into the nginx */var/log/nginx* folder.
 
-    # [Bash](#tab/bash)
-
-    ```bash
+    ```sh
     cd /var/log/nginx
     ```
-
-    # [PowerShell](#tab/powershell)
-
-    ```powershell
-    cd /var/log/nginx
-    ```
-
-    ---
 
 1. Return to the browser and navigate to the website and refresh the page a few times.
 
@@ -564,53 +559,23 @@ Now that the storage mount is established, you can manipulate files in Azure Sto
 
 1. Return to your terminal and list the values of the `/var/log/nginx` folder.
 
-    # [Bash](#tab/bash)
-
-    ```bash
+    ```sh
     ls
     ```
-
-    # [PowerShell](#tab/powershell)
-
-    ```powershell
-    ls
-    ```
-
-    ---
 
     Note how the *access.log* and *error.log* files appear in this folder. These files are written to the Azure Files mount in your Azure Storage share created in the previous steps.
 
 1. View the contents of the *access.log* file.
 
-    # [Bash](#tab/bash)
-
-    ```bash
+    ```sh
     cat access.log
     ```
 
-    # [PowerShell](#tab/powershell)
-
-    ```powershell
-    type access.log
-    ```
-
-    ---
-
 1. Exit out of the container's interactive shell to return to your local terminal session.
 
-    # [Bash](#tab/bash)
-
-    ```bash
+    ```sh
     exit
     ```
-
-    # [PowerShell](#tab/powershell)
-
-    ```powershell
-    exit
-    ```
-
-    ---
 
 1. Now, you can view the files in the Azure portal to verify they exist in your Azure Storage account. Print the name of your randomly generated storage account.
 
