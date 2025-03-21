@@ -62,7 +62,7 @@ To order and device, perform the following steps in the Azure portal:
 
     - Your Azure subscription doesn't support the Data Box product. In some cases, your subscription might not support a Data Box product in a specific country/region.
     
-    :::image type="content" source="media/data-box-order-portal/DBX-NG-Order-Portal-sku-selection-image.png" alt-text="Screenshot showing the screen for selecting an Azure Data Box product. The Select button for Data Box is highlighted." lightbox="media/data-box-order-portal/data-box-import-04-lrg.png":::
+    :::image type="content" source="media/data-box-order-portal/DBX-NG-Order-Portal-sku-selection-image.png" alt-text="Screenshot showing the screen for selecting an Azure Data Box product. The Select button for Data Box is highlighted." lightbox="media/data-box-order-portal/DBX-NG-Order-Portal-sku-selection-image.png":::
 
 :::zone-end
 
