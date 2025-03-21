@@ -22,7 +22,7 @@ Consider these limits as you deploy and operate your Microsoft Azure Data Box. T
 ## Data Box limits
 
 :::zone pivot="dbx-ng"
-- Data Box can store a maximum of 500 million files for both import and export.
+- Data Box 120 can store a maximum of 500 million files and Data Box 525 can store a maximum of 1 billion files for both import and export.
 - Data Box supports a maximum of 512 containers or shares in the cloud. The top-level directories within the user share become containers or Azure file shares in the cloud. 
 - Data Box usage capacity might be less than stated 120 TiB /525 TiB because of ReFS metadata space consumption. 
 - Data Box supports a maximum of 100 client connections at a time on a Network File System (NFS) share.
