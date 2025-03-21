@@ -72,7 +72,7 @@ The following tables compare AWS Lambda concepts, resources, and properties with
 
 | AWS Lambda  | Azure Functions   |
 |---|---|
-| `https://<url-id>.lambda-url.<region>.on.aws`  | - `<appname>.azurewebsites.net` (original, global default hostname) </br> - `<appname>-<randomhash>.<Region>.azurewebsites.net` (new, unique default hostname)  |
+| `https://<url-id>.lambda-url.<region>.on.aws`  | - `<appname>.azurewebsites.net` (original, global default hostname) </br><br> - `<appname>-<randomhash>.<Region>.azurewebsites.net` (new, unique default hostname)  |
 
 ### Networking 
 
@@ -106,7 +106,7 @@ The following tables compare AWS Lambda concepts, resources, and properties with
 
 | AWS Lambda  | Azure Functions   |
 |---|---|
-| - Pay per use for the total invocation count and for the GB/s for each instance (with a fixed concurrency of 1) <br> - 1 ms increments <br> - 400,000 Gbps free tier    | - Pay per use for the total invocation count and for the GB/s of each instance (with configurable concurrent invocations) <br> - 100 ms increments <br> - 100,000 Gbps free tier <br> - [Consumption-based costs](/azure/azure-functions/functions-consumption-costs#consumption-based-costs)  |
+| - Pay per use for the total invocation count and for the GB/s for each instance (with a fixed concurrency of 1) <br><br> - 1 ms increments <br><br> - 400,000 Gbps free tier    | - Pay per use for the total invocation count and for the GB/s of each instance (with configurable concurrent invocations) <br><br> - 100 ms increments <br><br> - 100,000 Gbps free tier <br><br> - [Consumption-based costs](/azure/azure-functions/functions-consumption-costs#consumption-based-costs)  |
  
 ### Source code storage
 
@@ -118,13 +118,13 @@ The following tables compare AWS Lambda concepts, resources, and properties with
 
 | AWS Lambda feature  | Azure Functions feature   |
 |---|---|
-| - SAM CLI <br> - [LocalStack](https://github.com/localstack/localstack)  | - Azure Functions Core Tools <br> - Visual Studio Code <br> - Visual Studio <br> - GitHub Codespaces <br> - VSCode.dev <br> - Maven <br> - [Code and test Azure Functions locally](/azure/azure-functions/functions-develop-local)  |
+| - SAM CLI <br><br> - [LocalStack](https://github.com/localstack/localstack)  | - Azure Functions Core Tools <br><br> - Visual Studio Code <br><br> - Visual Studio <br><br> - GitHub Codespaces <br><br> - VSCode.dev <br><br> - Maven <br><br> - [Code and test Azure Functions locally](/azure/azure-functions/functions-develop-local)  |
  
 ### Deployment
 
 | Feature  | AWS Lambda  | Azure Functions  |
 |---|---|---|
-| Deployment package  | - ZIP file <br> - Container image  | ZIP file (For container image deployment, use the dedicated or premium SKU.)  |
+| Deployment package  | - ZIP file <br><br> - Container image  | ZIP file (For container image deployment, use the dedicated or premium SKU.)  |
 | ZIP file size (console)  | 50 MB maximum  | 500 MB maximum for ZIP deployment |
 | ZIP file size (CLI/SDK)    | 250 MB maximum for ZIP deployment, 500 MB maximum for unzipped | 500 MB maximum for ZIP deployment  |
 | Container image size  | 10 GB maximum | Container support with flexible storage via Azure  |

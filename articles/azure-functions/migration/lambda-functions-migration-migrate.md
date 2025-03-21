@@ -246,7 +246,7 @@ The following snippets are examples of common SDK code. The AWS Lambda code maps
    :::column-end:::
    :::column span="":::
 
-      Azure Functions code (Trigger)
+      Azure Functions code (trigger)
 
       ```
       import { app } from '@azure/functions'; 
@@ -344,7 +344,9 @@ Deployments follow a single path. After you build your project code and zip it i
 ### Generate IaC files
 
 - Use tools like Bicep, Azure Resource Manager templates, or Terraform to create IaC files to deploy Azure resources.
+
 - Define resources such as Azure Functions, storage accounts, and networking components in your IaC files.
+
 - Use this [IaC samples repository](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC) for samples that use Azure Functions recommendations and best practices.
 
 ### Use tools for refactoring
