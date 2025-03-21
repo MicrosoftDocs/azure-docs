@@ -58,7 +58,7 @@ An Azure Automation account in supported public region (except Central India, Ge
     1. From the **Language** drop-down, select the scripting language for Runtime environment.
         - Choose **PowerShell** for PowerShell scripting language or **Python** for Python scripting language.
     1. Select **Runtime version** for scripting language.
-        - For PowerShell - choose 5.1, 7.2
+        - For PowerShell - choose 5.1, 7.2 or 7.4
         - For Python - choose 3.8, 3.10 (preview)
     1. Provide appropriate **Description**.
     
