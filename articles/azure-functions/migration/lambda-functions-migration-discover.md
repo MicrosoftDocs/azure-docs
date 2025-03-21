@@ -1,5 +1,5 @@
 ---
-title: Discover Workloads to Migrate from AWS Lambda to Azure Functions
+title: "Stage 1: Discover Workloads to Migrate from AWS Lambda to Azure Functions"
 description: Learn how to conduct a detailed discovery process to inventory current AWS Lambda workloads, including their configuration, dependencies, and usage patterns.
 author: MadhuraBharadwaj-MSFT
 ms.author: mabhar
@@ -9,7 +9,7 @@ ms.date: 03/18/2025
 #customer intent: As a developer, I want to evaluate existing AWS Lambda workloads so that I can migrate serverless applications to Azure Functions efficiently.
 --- 
 
-# Discover workloads to migrate from AWS Lambda to Azure Functions
+# Stage 1: Discover workloads to migrate from AWS Lambda to Azure Functions
 
 In this stage, you conduct a detailed discovery process to evaluate existing AWS Lambda workloads, including their configuration, dependencies, and usage patterns. 
 
