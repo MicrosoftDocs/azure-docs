@@ -1,6 +1,6 @@
 ---
 title: Cert-manager and Let's Encrypt with Application Gateway for Containers - Ingress API
-description: Learn how to configure Application Gateway for Containers with certificates managed by CNCF project cert-manager.
+description: Learn how to configure Application Gateway for Containers with certificates managed by the Cloud Native Computing Foundation (CNCF) project cert-manager.
 services: application-gateway
 author: philwelz
 ms.service: azure-appgw-for-containers
@@ -15,7 +15,7 @@ This guide demonstrates how to use cert-manager to automatically issue and renew
 
 For the purposes of this example, we have cert-manager configure certificates issued from Let's Encrypt to demonstrate an end-to-end deployment, where Application Gateway for Containers is providing TLS offloading.
 
-Insert PICTURE HRE
+Insert PICTURE HERE
 
 For certificates to be issued by Let's Encrypt, a challenge is required by the authority to validate domain ownership. This validation happens by allowing cert-manager to create a pod and Ingress resource that exposes an endpoint during certificate issuance, proving your ownership of the domain name.
 
@@ -54,7 +54,7 @@ helm upgrade -i \
 
 ### Create a ClusterIssuer
 
-Create a ClusterIssuer resource to define how cert-manager will communicate with Let's Encrypt. For this example, an HTTP challenge is used. During challenge, cert-manager creates an `Ingress` resource and corresponding pod presenting a validation endpoint to prove ownership of the domain. This is done by creating a temporary Ingress resource with the `http01` challenge type. This Ingress resource and corresponding pod created by cert-manager will be deleted after the challenge is completed.
+Create a ClusterIssuer resource to define how cert-manager communicates with Let's Encrypt. For this example, an HTTP challenge is used. During challenge, cert-manager creates an `Ingress` resource and corresponding pod presenting a validation endpoint to prove ownership of the domain. This is done by creating a temporary Ingress resource with the `http01` challenge type. This Ingress resource and corresponding pod created by cert-manager is deleted after the challenge is completed.
 
 >[!Tip]
 >Other challenges supported by Let's Encrypt are documented on [letsencrypt.org - Challenge Types](https://letsencrypt.org/docs/challenge-types/)
@@ -136,7 +136,7 @@ Verify the resource was created by running the following command:
 kubectl get ClusterIssuer -A -o yaml
 ```
 
-The status should show `True` and type `Ready` under contidions.
+The status should show `True` and type `Ready` under conditions.
 
 ```yaml
   status:
@@ -277,7 +277,7 @@ status:
         protocol: TCP
 ```
 
-As mentioned above, cert-manager will create a temporary Ingress resource and pod to perform the challenge:
+As mentioned previously, cert-manager creates a temporary Ingress resource and pod to perform the challenge:
 
 ```bash
 kubectl get pods -n test-infra
@@ -304,7 +304,7 @@ NAME             APPROVED   DENIED   READY   ISSUER              REQUESTER      
 cert-backend-1   True                False   letsencrypt-prod    system:serviceaccount:cert-manager:cert-manager   34s
 ```
 
-When the challenge is successful, the status will change to `READY=True` and the certificate will be issued:
+When the challenge is successful, the status changes to `READY=True` and the certificate is issued:
 
 ```bash
 kubectl get certificate -n test-infra
