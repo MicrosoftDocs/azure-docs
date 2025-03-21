@@ -27,8 +27,7 @@ Asset management refers to processes such as registering assets and defining ass
 
 - Asset endpoint creation
 - Asset, tags, and events creation
-- Data flow endpoint creation
-- Asset and data flow endpoints secrets management
+- Asset endpoints secrets management
 - Enabling and disabling assets
 
 In an edge-based IoT solution, *command and control* refers to the processes that let you send commands to assets and optionally receive responses from them. For example, you can:
@@ -39,7 +38,7 @@ In an edge-based IoT solution, *command and control* refers to the processes tha
 
 ## Components
 
-An edge-based IoT solution can use the following primitives for asset management and control:
+An edge-based IoT solution can use the following components for asset management and control:
 
 - *Asset endpoints* to describe southbound edge connectivity information for one or more assets.
 - *Asset tags* to describe a data point that can be collected from an asset.
@@ -52,7 +51,7 @@ An edge-based IoT solution can use the following primitives for asset management
 - *Secret Store extension* to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets. Azure IoT Operations uses Azure Key Vault as the managed vault solution on the cloud, and uses [Azure Key Vault Secret Store extension for Kubernetes](/azure/azure-arc/kubernetes/secret-store-extension) to sync the secrets.
 - *Sites* that group Azure IoT Operations instances by physical location and make it easier for OT users to locate and manage assets. Your IT administrator creates sites and assigns Azure IoT Operations instances to them. To learn more, see [What is Azure Arc site manager (preview)?](/azure/azure-arc/site-manager/overview).
 
-For more information, see [What is asset management in Azure IoT Operations](../iot-operations/discover-manage-assets/overview-manage-assets.md) and [Configure data flows in Azure IoT Operations](../iot-operations/connect-to-cloud/howto-create-dataflow.md).
+For more information, see [What is asset management in Azure IoT Operations](../iot-operations/discover-manage-assets/overview-manage-assets.md).
 
 ## Asset endpoint creation
 
@@ -81,23 +80,9 @@ When you define an asset using either the operations experience web UI or Azure 
 
  For more information, see [Define assets and asset endpoints](../iot-operations/discover-manage-assets/concept-assets-asset-endpoints.md).
 
-## Data flow endpoint creation
+## Asset endpoints secrets management
 
-The data flow component is part of Azure IoT Operations, which is deployed as an Azure Arc extension. The configuration for a data flow is done via Kubernetes custom resource definitions (CRDs). You can use the operations experience web UI in Azure IoT Operations to create a data flow. The operations experience provides a visual interface to configure the data flow. You can also use Bicep to create a data flow using a Bicep template file, or use Kubernetes to create a data flow using a YAML file.
-
-You can write configurations for various use cases, such as:
-
-- Transform data and send it back to MQTT
-- Transform data and send it to the cloud
-- Send data to the cloud or edge without transformation
-
-Data flows aren't limited to the region where the IoT Operations instance is deployed. You can use data flows to send data to cloud endpoints in different regions.
-
-For more information, see [Configure data flows in Azure IoT Operations](../iot-operations/connect-to-cloud/howto-create-dataflow.md).
-
-## Asset and data flow endpoints secrets management
-
-On an Azure IoT Operations instance deployed with secure settings, you can add secrets to Azure Key Vault, and sync them to the edge to be used in asset endpoints or data flow endpoints using the operations experience web UI. Secrets are used in asset endpoints and data flow endpoints for authentication.
+On an Azure IoT Operations instance deployed with secure settings, you can add secrets to Azure Key Vault, and sync them to the edge to be used in asset endpoints using the operations experience web UI. Secrets are used in asset endpoints for authentication.
 
 For more information, see [Manage secrets for your Azure IoT Operations deployment](../iot-operations/secure-iot-ops/howto-manage-secrets.md).
 
@@ -105,7 +90,7 @@ For more information, see [Manage secrets for your Azure IoT Operations deployme
 
 Azure IoT Operations includes an enterprise grade, standards compliant MQTT broker. The broker enables bidirectional communication between the edge and the cloud, and powers [event-driven applications](/azure/architecture/guide/architecture-styles/event-driven) at the edge.
 
-Use the MQTT broker to implement command and control solutions that enable you to send commands to your assets either from the cloud or from other edge-based components. Connectors, such as the ONVIF connector, can use MQTT topics to listen for and respond to commands. For example, you can publish a message to a topic in the MQTT broker that's an instruction to a camera to pan left by 20 degrees. The camera can use another topic to publish a message that acknowledges the operation is complete. The IoT Operations SDK includes samples that show how to implement these types of command and control scenarios.
+Use the MQTT broker to implement command and control solutions that enable you to send commands to your assets either from the cloud or from other edge-based components. Connectors, such as the ONVIF connector, can use MQTT topics to listen for and respond to commands. For example, you can publish a message to a topic in the MQTT broker that's an instruction to a camera to pan left by 20 degrees. The camera can use another topic to publish a message that acknowledges the operation is complete. The [Azure IoT Operations SDKs](https://github.com/Azure/iot-operations-sdks) includes samples that show how to implement these types of command and control scenarios.
 
 For more information, see [Azure IoT Operations built-in local MQTT broker](../iot-operations/manage-mqtt-broker/overview-broker.md).
 
