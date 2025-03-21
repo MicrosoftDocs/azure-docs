@@ -58,21 +58,21 @@ conceptualContent:
         links:
           - url: /azure/well-architected/pillars
             text: Design Well-Architected Solutions
-            itemType: tutorial
+            itemType: reference
           - url: /azure/cloud-adoption-framework/migrate/assess/
             text: Workload assessment for Azure migration
             itemType: tutorial
           - url: /azure/governance/management-groups/azure-management
-            text: Governance and compliance frameworks for Azure.
+            text: Governance and compliance frameworks for Azure
             itemType: tutorial
       - title: Manage and optimize for Azure
         links:
           - url: /azure/well-architected/reliability/design-patterns
             text: Cloud Design Patterns for reliable workloads
-            itemType: tutorial
+            itemType: concept
           - url: /security/benchmark/azure/
             text: Microsoft Cloud Security Benchmark
-            itemType: tutorial
+            itemType: how-to-guide
       - title: Training
         links:
           - url: /training/modules/introduction-to-migrating-aws-to-azure/
@@ -98,10 +98,10 @@ conceptualContent:
             itemType: get-started
           - url: /azure/architecture/aws-professional/compute
             text: Azure compute services map
-            itemType: tutorial
+            itemType: reference
           - url: /azure/architecture/aws-professional/eks-to-aks/
             text: AKS for Amazon EKS professionals
-            itemType: tutorial
+            itemType: concept
           - url: /azure/aks/aks-migration
             text: Migrate to Azure Kubernetes Service (AKS)
             itemType: tutorial
@@ -126,42 +126,42 @@ conceptualContent:
         links:
           - url: ./migrate-databases-from-aws.md
             text: Migrate databases
-            itemType: tutorial
+            itemType: get-started
           - url: /azure/architecture/aws-professional/databases
             text: Azure database services map
-            itemType: tutorial
+            itemType: reference
           - url: /azure/architecture/aws-professional/data-ai
             text: Azure data and AI services map
-            itemType: training
+            itemType: reference
           - url: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aws-offline
             text: Amazon RDS for PostgreSQL for PostgreSQL (offline)
-            itemType: training
+            itemType: tutorial
           - url: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aws-online
             text: Amazon RDS for PostgreSQL for PostgreSQL (online)
-            itemType: training
+            itemType: tutorial
           - url: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-offline
             text: Amazon Aurora PostgreSQL (offline)
-            itemType: training
+            itemType: tutorial
           - url: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-online
             text: Amazon Aurora PostgreSQL (online)
-            itemType: training
+            itemType: tutorial
       - title: Databases and data
         links:
           - url: /azure/azure-sql/migration-guides/database/mysql-to-sql-database-guide?view=azuresql-db&preserve-view=true
             text: Migrate MySQL on AWS to Azure Database for MySQL
-            itemType: training
+            itemType: how-to-guide
           - url: /azure/cosmos-db/nosql/dynamo-to-cosmos
             text: Migrate DynamoDB app to Azure Cosmos DB for NoSQL
-            itemType: training
+            itemType: how-to-guide
           - url: /azure/cosmos-db/nosql/dynamodb-data-migration-cosmos-db
             text: Migrate DynamoDB data to Azure Cosmos DB for NoSQL
-            itemType: training
+            itemType: how-to-guide
           - url: /azure/azure-cache-for-redis/cache-migration-guide
             text: Migrate from AWS ElasticCache to Azure Cache for Redis
-            itemType: training
+            itemType: how-to-guide
           - url: /azure/cosmos-db/nosql/couchbase-cosmos-migration
             text: Migrate from CouchBase to Azure Cosmos DB for NoSQL
-            itemType: training
+            itemType: how-to-guide
 
     - title: Migrate from GCP
 
@@ -173,7 +173,7 @@ conceptualContent:
             itemType: get-started
           - url: /azure/architecture/gcp-professional/services#data-platform
             text: Azure databases services map
-            itemType: tutorial
+            itemType: reference
           - url: /azure/postgresql/migrate/migration-service/tutorial-migration-service-cloud-sql-offline
             text: Migrate to Azure Database for PostgreSQL (offline)
             itemType: how-to-guide
@@ -201,4 +201,3 @@ additionalContent:
         - summary: The Azure Migration Blog on Microsoft's Tech Community provides insights, best practices, and resources for organizations looking to migrate their workloads to Azure effectively and securely.
           title: Azure Migration and Modernization Blog
           url: https://techcommunity.microsoft.com/category/azure/blog/azuremigrationblog
-
