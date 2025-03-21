@@ -290,10 +290,25 @@ You can scope the list in Web apps view by searching for name of the web app or 
 
 You can perform following actions on all or a scoped set of web apps after reviewing the inventory: 
 
-**Attribute name** | **Details**
+**Field name** | **Details**
 --- | --- 
-Discover | Discover using appliance or CSV import to inventory more workloads
-Create assessment | Create an assessment of all or scoped set of workloads to review suitability, mapped Azure services, cost, and readiness analysis of your workloads. You need to select one or more workloads to perform this action. [Learn more](how-to-create-assessment.md). 
+Discover | Discover using appliance or CSV import to inventory more workloads.
+Create assessment | Create an assessment of all or scoped set of workloads to review suitability, mapped Azure services, cost, and readiness analysis of your workloads. You need to select one or more workloads to perform this action. [Learn more](how-to-create-assessment.md)
+Dependency analysis | Export dependency data for servers where gathering of dependency data was auto-enabled. Learn how to export dependency data. 
+Tags| Tags can be added/edited at scale by selecting all or a scoped set of workloads.<br/><br/> 
+You need to select one or more workloads to perform this action. <br/><br/> You can also import tags using an exported list of all inventory and importing the tags information from that CSV file.
+Export data | Export the inventory data for all web apps. 
+Refresh | Refresh the view to review any updates in discovery
+
+Destination application | Name of the application on the destination server
+Destination process | Name of the process on the destination server  
+Destination port | Port number on the destination server
+
+
+
+
+
+
 Dependency analysis | Export dependency data for servers where gathering of dependency data was auto-enabled. Learn how to export dependency data. 
 Tags| Tags can be added/edited at scale by selecting all or a scoped set of workloads.<br/><br/> 
 You need to select one or more workloads to perform this action. <br/><br/> You can also import tags using an exported list of all inventory and importing the tags information from that CSV file.
