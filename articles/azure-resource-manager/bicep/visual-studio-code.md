@@ -2,7 +2,7 @@
 title: Create Bicep files with Visual Studio Code
 description: Learn how to use Visual Studio Code to create Bicep files.
 ms.topic: how-to
-ms.date: 01/10/2025
+ms.date: 03/21/2025
 ms.custom: devx-track-bicep
 ---
 
@@ -250,15 +250,17 @@ The Deployment Pane is a UI panel that lets you connect to your Azure subscripti
 To use deployment pane:
 
 1. Open a `.bicep` or `.bicepparam` file in VS Code.
-1. Select the show deployment pane button on the upper right corner as shown in the following screenshot:  
+1. There are two ways to open the deployment pane
 
-    :::image type="content" source="./media/visual-studio-code/visual-studio-code-open-deployment-pane.png" alt-text="Sceenshot of the open deployment pane button.":::
+    - Select the show deployment pane button on the upper right corner as shown in the following screenshot:  
+
+        :::image type="content" source="./media/visual-studio-code/visual-studio-code-open-deployment-pane.png" alt-text="Sceenshot of the open deployment pane button.":::
   
-    By default, VS Code opens the deployment pane on the side. To open it in a new tab, hold <kbd>Alt</kbd> while selecting the button.
+        By default, VS Code opens the deployment pane on the side. To open it in a new tab, hold <kbd>Alt</kbd> while selecting the button.
   
-    Another way to open the deployment pane is through the command palette. Press <kbd>Ctrl</kdb>+<kbd>Shift</kbd>+<kbd>P</kbd>, then select either **Show Deployment Pane** or **Show Deployment Pane to the Side**.
+    - Another way to open the deployment pane is through the command palette. Press <kbd>Ctrl</kdb>+<kbd>Shift</kbd>+<kbd>P</kbd>, then select either **Show Deployment Pane** or **Show Deployment Pane to the Side**.
   
-    :::image type="content" source="./media/visual-studio-code/visual-studio-code-show-deployment-pane.png" alt-text="Sceenshot of show deployment pane in command palette.":::
+        :::image type="content" source="./media/visual-studio-code/visual-studio-code-show-deployment-pane.png" alt-text="Sceenshot of show deployment pane in command palette.":::
   
     The following screenshot shows a successful deployment with the Bicep file validation results.
   
@@ -269,8 +271,37 @@ To use deployment pane:
 1. Select your desired action - **Deploy**, **Validate**, or **What-if**.  
 
     - **Deploy**: deploys to Azure, and the result including the defined output are shown in the deployment pane.
-    - **Validate**: verifies that all declared variables and parameters are used, ensures no sensitive information is returned, and detects any hard-coded values. In the preceding screenshot, the validation was successful.
-    - **What-if**: executes a **What-If** analysis directly from the deployment pane. This performs the same function as that in Azure PowerShell and Azure CLI. The pane displays the results, showing any planned changes.
+    - **Validate**: performs a live validation of the Bicep file against Azure, ensuring that the resources, parameters, and policies are correct in the actual deployment environment. Unlike a linter, which only checks for syntax errors, this validation interacts with Azure to detect potential deployment issues. It is equivalent to the validate command in Azure CLI and the Test command in Azure PowerShell. For example:
+  
+        # [Azure CLI](#tab/azure-cli)
+        
+        ```azurecli
+        az deployment group validate --resource-group <resource-group-name> --template-file <template-file-path>        
+        ```
+        
+        # [Azure PowerShell](#tab/azure-powershell)
+        
+        ```azurepowershell
+        Test-AzResourceGroupDeployment -ResourceGroupName <ResourceGroupName> -TemplateFile <TemplateFilePath>
+        ```
+        
+        ---
+      
+    - **What-if**: executes a **What-If** analysis directly from the deployment pane. The pane displays the results, showing any planned changes. This performs the same function as the what-if command in Azure PowerShell and Azure CLI. For example:
+
+        # [Azure CLI](#tab/azure-cli)
+        
+        ```azurecli
+        az deployment group what-if --resource-group <resource-group-name> --template-file <template-file-path>        
+        ```
+        
+        # [Azure PowerShell](#tab/azure-powershell)
+        
+        ```azurepowershell
+        New-AzResourceGroupDeployment -Whatif -ResourceGroupName <ResourceGroupName> -TemplateFile <TemplateFilePath>
+        ```
+        
+        ---
   
     For more information, see one of the following articles:
   
