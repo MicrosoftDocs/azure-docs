@@ -6,7 +6,7 @@ manager: gaggupta
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.author: ankitadutta
-ms.date: 08/21/2024
+ms.date: 03/21/2025
 ms.custom: engagement-fy23, linux-related-content
 ---
 
@@ -78,8 +78,9 @@ During a push installation of the Mobility service, the following steps are perf
 ### Prerequisites
 
 Locate the installer files for the server’s operating system using the following steps:
-- On the appliance, go to the folder *E:\Software\Agents*.
-- Copy the installer corresponding to the source machine’s operating system and place it on your source machine in a local folder, such as *C:\Program Files (x86)\Microsoft Azure Site Recovery*.
+- Ensure that all server configurations meet the criteria in the [support matrix](vmware-physical-azure-support-matrix.md#replicated-machines) for disaster recovery of VMware VMs and physical servers to Azure.
+- On the appliance, go to the folder `E:\Software\Agents`.
+- Copy the installer corresponding to the source machine’s operating system and place it on your source machine in a local folder, such as `C:\Program Files (x86)\Microsoft Azure Site Recovery`.
 
 
 **Use the following steps to install the mobility service:**
