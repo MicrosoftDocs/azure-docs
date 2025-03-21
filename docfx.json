@@ -309,7 +309,7 @@
         "articles/governance/policy/**/*.md": "davidsmatlak",
         "articles/governance/resource-graph/**/*.md": "daphnemamsft",
         "articles/hdinsight/*.md": "sreekzz",
-        "articles/hdinsight/*.yml": "sreekzz",
+        "articles/hdinsight/**/*.yml": "sreekzz",        
         "articles/hdinsight/**/*.md": "sreekzz",
         "articles/integration-environments/*.md": "ecfan",
         "articles/integration-environments/*.yml": "ecfan",
