@@ -14,7 +14,7 @@ ms.subservice: rest-api
 
 This article provides guidance on migrating the Azure Maps [Traffic v1 service] to other Azure Maps services.
 
-The following table outlines all Traffic services along with their respective migration options.
+The following table outlines all Traffic service along with their respective migration options.
 
 | Azure Maps Traffic v1.0 | Azure Maps migration option  |
 |-------------------------|------------------------------|
@@ -22,11 +22,11 @@ The following table outlines all Traffic services along with their respective mi
 | [Get Traffic Flow Tile]<br/>- Absolute <br/>- Reduced sensitivity <br/>- Relative <br/>- Relative delay  | [Get Map Tile]<br/>[TilesetID] <br/>- microsoft.traffic.absolute (vector) <br/>- microsoft.traffic.absolute.main (raster) <br/>- microsoft.traffic.relative (vector) <br/>- microsoft.traffic.relative.dark (raster) <br/>- microsoft.traffic.relative.main (raster) <br/>- microsoft.traffic.delay (vector) <br/>- microsoft.traffic.delay.main (raster) <br/>- microsoft.traffic.reduced.main (raster)  |
 | [Get Traffic Incident Detail] | [Get Traffic Incident]  |
 | [Get Traffic Incident Tile]| [Get Map Tile] <br/>[TilesetID] <br/>- microsoft.traffic.incident (vector)  |
-| [Get Traffic Incident Viewport] | No replacement.<br/>Returns the traffic model ID used by Traffic v1 services, but isn't required for unified traffic incident or render services. |
+| [Get Traffic Incident Viewport] | No replacement.<br/>Returns the traffic model ID used by Traffic v1 service, but isn't required for the latest traffic or render services. |
 
 ## Notable differences
 
-- Unlike the Traffic v1.0 services, the latest Azure Maps [Get Traffic Incident] API and the Render services' [Get Map Tile] API don't require a traffic model ID.
+- Unlike the Traffic v1.0 service, the latest Azure Maps [Get Traffic Incident] API and the Render service [Get Map Tile] API don't require a traffic model ID.
 
 - The [Get Traffic Incident] v2025-01-01 input bounding box and response are in the GeoJSON format.
 
@@ -38,7 +38,7 @@ The following table outlines all Traffic services along with their respective mi
 
 ## Transactions usage
 
-For information on how transactions are calculated for the Traffic Incident and Render services, see [Understanding Azure Maps Transactions].
+For information on how transactions are calculated for the Traffic and Render services, see [Understanding Azure Maps Transactions].
 
 ## Traffic service examples
 
