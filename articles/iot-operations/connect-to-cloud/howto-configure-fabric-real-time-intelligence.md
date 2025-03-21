@@ -45,7 +45,7 @@ The connection string with the primary key.
 
 To configure a data flow endpoint for Microsoft Fabric Real-Time Intelligence, you need to use Simple Authentication and Security Layer (SASL) based authentication.
 
-Azure Key Vault is the recommended way to sync the connection string to the Kubernetes cluster so that it can be referenced in the data flow. [Secure settings](../deploy-iot-ops/howto-enable-secure-settings.md) must be enabled to configure this endpoint using the operations experience Portal.
+Azure Key Vault is the recommended way to sync the connection string to the Kubernetes cluster so that it can be referenced in the data flow. [Secure settings](../deploy-iot-ops/howto-enable-secure-settings.md) must be enabled to configure this endpoint using the operations experience web UI.
 
 # [Portal](#tab/portal)
 

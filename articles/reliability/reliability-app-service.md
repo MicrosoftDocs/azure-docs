@@ -74,7 +74,7 @@ For App Service plans that aren't configured as zone redundant, virtual machine 
 
 ::: zone pivot="free-shared-basic,premium"
 
-Zone-redundant App Service plans can be deployed in [any region that supports availability zones](./availability-zones-region-support.md).
+Zone-redundant App Service plans can be deployed in [any region that supports availability zones](./regions-list.md).
 
 ::: zone-end
 
