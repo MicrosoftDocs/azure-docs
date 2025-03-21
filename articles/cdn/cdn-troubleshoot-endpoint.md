@@ -1,4 +1,5 @@
 ---
+ROBOTS: NOINDEX
 title: Troubleshooting Azure Content Delivery Network endpoints - 404 status code
 description: Learn how to troubleshoot issues with Azure Content Delivery Network endpoints that return 404 HTTP response status codes.
 services: cdn
