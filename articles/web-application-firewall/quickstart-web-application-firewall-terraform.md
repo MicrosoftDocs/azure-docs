@@ -12,7 +12,7 @@ content_well_notification:
   - AI-contribution
 ---
 
-# 'Quickstart: Use Terraform to configure Azure Web Application Firewall on Azure Application Gateway'
+# Quickstart: Use Terraform to configure Azure Web Application Firewall on Azure Application Gateway
 
 In this quickstart, you use Terraform to create an Azure Application Gateway with an Azure Web Application Firewall (WAF) policy. A key component of creating scalable, reliable, and secure web front ends in Azure, Application Gateway is a web traffic load balancer that helps you to manage traffic to your web applications. Application Gateway bases how it routes traffic on factors that include round-robin, cookie-based sessions, and more. In addition to an Application Gateway, this code also creates a resource group, virtual network, subnet within the virtual network, public IP address, and a WAF policy with custom rules to block traffic from a specific IP address.
 
