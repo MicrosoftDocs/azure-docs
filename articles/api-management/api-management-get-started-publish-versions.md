@@ -6,7 +6,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
-ms.date: 02/10/2021
+ms.date: 03/24/2025
 ms.author: danlep
 ---
 # Tutorial: Publish multiple versions of your API 
