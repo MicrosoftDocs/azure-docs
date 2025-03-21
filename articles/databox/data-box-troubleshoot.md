@@ -12,7 +12,7 @@ ms.author: shaas
 
 # Troubleshoot data copy issues on Azure Data Box, Data Box Next-gen, and Azure Data Box Heavy
 
-This article describes how to troubleshoot issues when performing data copies or data uploads for an Azure Data Box, Azure Data Box Next-gen or Azure Data Box Heavy import order. The article includes the list of possible errors seen when data is copied to the Data Box or uploaded from Data Box.
+This article describes how to troubleshoot issues when performing data copies or data uploads for an Azure Data Box, Azure Data Box Next-gen, or Azure Data Box Heavy import order. The article includes the list of possible errors seen when data is copied to the Data Box or uploaded from Data Box.
 
 For help on troubleshooting issues with accessing the shares on your device, see [Troubleshoot share connection failure during data copy](data-box-troubleshoot-share-access.md).
 
@@ -29,7 +29,7 @@ The errors in Data Box and Data Box Heavy are summarized as follows:
 | Container or share size limit<sup>*</sup> | The total data in containers or shares exceeds the Azure limit.   |Download the error lists. <br> Reduce the overall data in the container or share. [Learn more](#container-or-share-size-limit-errors).|
 | Object or file size limit<sup>*</sup> | The object or files in containers or shares exceeds the Azure limit.|Download the error lists. <br> Reduce the file size in the container or share. [Learn more](#object-or-file-size-limit-errors). |    
 | Data or file type<sup>*</sup> | The data format or the file type isn't supported. |Download the error lists. <br> For page blobs or managed disks, ensure the data is 512-bytes aligned and copied to the pre-created folders. [Learn more](#data-or-file-type-errors). |
-| Folder or file internal errors<sup>*</sup> | The file or folder have an internal error. |Download the error lists. <br> Remove the file and copy again. For a folder, modify it by renaming or adding or deleting a file. The error should go away in 30 minutes.  [Learn more](#folder-or-file-internal-errors). |
+| Folder or file internal errors<sup>*</sup> | The file or folder has an internal error. |Download the error lists. <br> Remove the file and copy again. For a folder, modify it by renaming or adding or deleting a file. The error should go away in 30 minutes.  [Learn more](#folder-or-file-internal-errors). |
 | General error<sup>*</sup> | Internal exceptions or error paths in the code caused a critical error. | Reboot the device and rerun the **Prepare to Ship** operation. If the error doesn't go away, contact Microsoft Support. [Learn more](#general-errors). |
 | Non-critical blob or file errors  | The blob or file names don't follow the Azure naming rules or the file type isn't supported. | These blob or files may not be copied or the names may be changed. [Learn how to fix these errors](#non-critical-blob-or-file-errors). |
 
@@ -112,7 +112,7 @@ These errors are related to data exceeding the size of data allowed in a contain
 
 ### ERROR_CONTAINER_OR_SHARE_CAPACITY_EXCEEDED
 
-**Error description:** Large file shares are not enabled on your storage account(s). 
+**Error description:** Large file shares aren't enabled on your storage account(s). 
 
 **Suggested resolution:** To disregard this error, follow these steps:
  
@@ -127,7 +127,7 @@ These errors are related to data exceeding the size of data allowed in a contain
 1. **Enable large file shares** on your storage account(s) in the Azure portal. 
 
 > [!NOTE]
-> If large file shares are not enabled for the indicated storage accounts on the Azure portal, the data upload to these storage accounts will fail.
+> If large file shares aren't enabled for the indicated storage accounts on the Azure portal, the data upload to these storage accounts will fail.
   
 ## Object or file size limit errors
 
@@ -163,7 +163,7 @@ For more information, see [Overview of Page blobs](../storage/blobs/storage-blob
 **Suggested resolution:**
 
 - Make sure that you only upload the fixed VHDs to create managed disks.
-- VHDX files or **dynamic** and **differencing** VHDs are not supported.
+- VHDX files or **dynamic** and **differencing** VHDs aren't supported.
 
 ### ERROR_DIRECTORY_DISALLOWED_FOR_TYPE
 
@@ -178,13 +178,13 @@ For more information, see [Copy to managed disks](data-box-deploy-copy-data-from
 
 ### REPARSE_POINT_ERROR
 
-**Error description:** Symbolic links are not allowed in Linux. 
+**Error description:** Symbolic links aren't allowed in Linux. 
 
 **Suggested resolution:** The symbolic links are usually links, pipes, and other such files. Either remove the links, or resolve the links and copy the data.
 
 ## Folder or file internal errors
 
-**Error description:** The file or folder are in an internal error state.
+**Error description:** The file or folder is in an internal error state.
 
 **Suggested resolution:** If this is a file, remove the file and copy it again. If this is a folder, modify the folder. Either rename the folder or add or delete a file from the folder. The error should clear on its own in 30 minutes. Contact Microsoft Support, if the error persists.
 
