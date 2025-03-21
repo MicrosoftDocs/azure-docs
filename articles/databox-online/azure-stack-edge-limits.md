@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: azure-stack-edge
 ms.topic: article
-ms.date: 03/20/2025
+ms.date: 03/21/2025
 ms.author: alkohli
 ---
 
@@ -50,5 +50,5 @@ The following table describes the limits for the Azure Stack Edge device.
 
 ## Next steps
 
-- [Prepare to deploy Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-prep.md).'Understand data resiliency'.
+- [Prepare to deploy Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-prep.md).
    
