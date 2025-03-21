@@ -128,7 +128,7 @@ You can scope the list in All inventory view by searching for name of the worklo
 
 By default, searching for a workload also shows the associated workloads so that you select across all searched and associated work items and perform actions as needed. You can choose to disable the slider on top of the view if you only want to see the searched workloads and not the associated ones. 
 
-:::image type="content" source="./media/how-to-review-discovered-inventory/show-associated-workloads.png" alt-text="The screenshot shows the option to disable the show associated workloads option" lightbox="./media/ow-to-review-discovered-inventory/show-associated-workloads.png":::
+:::image type="content" source="./media/how-to-review-discovered-inventory/show-associated-workloads.png" alt-text="The screenshot shows the option to disable the show associated workloads option" lightbox="./media/how-to-review-discovered-inventory/show-associated-workloads.png":::
 
 
 ### User actions on All inventory
