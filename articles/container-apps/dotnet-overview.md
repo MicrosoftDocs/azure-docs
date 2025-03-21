@@ -122,7 +122,7 @@ Features such as anti-forgery, authentication, SignalR, Blazor Server, and Razor
 
 ASP.NET Core has special features protect and unprotect data, such as session data and anti-forgery tokens. By default, data protection keys are stored on the file system, which isn't suitable for a cloud-native environment.
 
-If you're deploying a .NET Aspire application, data protection is automatically configured for you. In all other situations, you need to [configure data protection manually](/aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps?view=aspnetcore-8.0&tabs=login-azure-cli&preserve-view=true#connect-the-azure-services).
+If you're deploying an Aspire application, data protection is automatically configured for you. In all other situations, you need to [configure data protection manually](/aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps?view=aspnetcore-8.0&tabs=login-azure-cli&preserve-view=true#connect-the-azure-services).
 
 #### Configure ASP.NET Core SignalR
 
@@ -134,5 +134,5 @@ ASP.NET Core Blazor Server apps store state on the server, which means that each
 
 ## Related information
 
-* [Deploy a .NET Aspire app](/dotnet/aspire/deployment/azure/aca-deployment)
+* [Deploy an Aspire app](/dotnet/aspire/deployment/azure/aca-deployment)
 * [Deploy and scale an ASP.NET Core app](/aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps)
