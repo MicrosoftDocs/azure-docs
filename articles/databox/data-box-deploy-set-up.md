@@ -64,7 +64,7 @@ Perform the following steps to cable your device.
 2. Transport the device to the location where you wish to power it on. Place the device on a flat surface. The device can also be placed on a standard rack shelf.
 3. Connect the power and network cables. The backplane of a connected device for a common configuration is shown below. Depending on your environment, you could choose from other [cabling options](data-box-cable-options.md).
     
-    ![Data Box device backplane cabled](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)
+    ![Screenshot illustrating the Data Box device's backplane cabled, including a diagram of data flow to the device.](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)
 
     1. Connect the power cable to the labeled power input location. The other end of the power cable should be connected to a power distribution unit.
     2. Use the RJ-45 CAT 6 cable to connect the MGMT port on one end and a laptop on the other end.            
@@ -74,7 +74,7 @@ Perform the following steps to cable your device.
 
 4. Locate the power button on the front operating panel of the device. Turn on the device.
 
-    ![Data Box power button](media/data-box-deploy-set-up/data-box-powered-door-open.png)
+    ![Screenshot showing the location of the Data Box power button, illustrating that the door will remain open while the device is operating.](media/data-box-deploy-set-up/data-box-powered-door-open.png)
 :::zone-end
 
 :::zone pivot="dbx"

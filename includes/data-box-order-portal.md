@@ -62,7 +62,7 @@ To order and device, perform the following steps in the Azure portal:
 
     - Your Azure subscription doesn't support the Data Box product. In some cases, your subscription might not support a Data Box product in a specific country/region.
     
-    :::image type="content" source="media/data-box-order-portal/DBX-NG-Order-Portal-sku-selection-image.png" alt-text="Screenshot showing the screen for selecting an Azure Data Box product. The Select button for Data Box is highlighted." lightbox="media/data-box-order-portal/DBX-NG-Order-Portal-sku-selection-image.png":::
+    :::image type="content" source="media/data-box-order-portal/dbx-ng-order-portal-sku-selection-image.png" alt-text="Screenshot showing the screen for selecting an Azure Data Box product. The Select button for Data Box is highlighted." lightbox="media/data-box-order-portal/dbx-ng-order-portal-sku-selection-image-lrg.png":::
 
 :::zone-end
 
@@ -109,7 +109,7 @@ To order and device, perform the following steps in the Azure portal:
     |---------|---------|
     |Resource groups     | Create new resource groups if you intend to create managed disks from on-premises VHDs. You can use an existing resource group only if the resource group was created previously when creating a Data Box order for managed disks by the Data Box service. <br> Specify multiple resource groups separated by semi-colons. A maximum of 10 resource groups are supported.|
 
-    :::image type="content" source="media/data-box-order-portal/data-box-import-08.png" alt-text="Screenshot of the Data Destination tab for a Data Box order with a Managed Disks destination. The Data Destination tab, Managed Disks, and Next: Security button are highlighted."::: 
+    :::image type="content" source="media/data-box-order-portal/data-box-import-08.png" alt-text="Screenshot of the Data Destination tab for a Data Box order with a Managed Disks destination. The Data Destination tab, Managed Disks, and Next: Security buttons are highlighted."::: 
 
     The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting the page blobs to managed disks and moving them to the resource groups. For more information, see [Verify data upload to Azure](../articles/databox/data-box-deploy-picked-up.md#verify-data-has-uploaded-to-azure).
 
@@ -278,7 +278,7 @@ If you don't want to use the system-generated passwords that Azure Data Box uses
 
     1. Once the order is validated, select **Order**.
 
-        :::image type="content" source="media/data-box-order-portal/dbx ng review order page.png" alt-text="Screenshot of the Review Plus Order tab for a Data Box order. The validation status, terms checkbox, and Order button are highlighted.":::
+        :::image type="content" source="media/data-box-order-portal/dbx-ng-review-order-page.png" alt-text="Screenshot of the Review Plus Order tab for a Data Box order. The validation status, terms checkbox, and Order button are highlighted.":::
 
     The order takes a few minutes to be created appears similar to the provided example. You can select **Go to resource** to open the order.
 

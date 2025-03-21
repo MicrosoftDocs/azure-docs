@@ -108,7 +108,7 @@ To get the credentials for a share:
    ![Screenshot showing the Access Share And Copy Data dialog box in the local Web UI for an SMB share on the Data Box. The Copy icon for the Storage Account and Password options, and the OK button, are highlighted.](media/data-box-local-web-ui-admin/get-share-credentials-02.png)
 
 > [!NOTE]
-> After several failed share connection attempts using an incorrect password, the user account will be locked out of the share. The account lock will clear after a few minutes, and you can connect to the shares again.  
+> After several failed attempts to connect to a share while using an incorrect password, the user account will be locked out of the share. The account lock will clear after a few minutes, and you can connect to the shares again.  
 > - Data Box 4.1 and later: The account is locked for 15 minutes after 5 failed login attempts. 
 > - Data Box 4.0 and earlier: The account is locked for 30 minutes after 3 failed login attempts.
 

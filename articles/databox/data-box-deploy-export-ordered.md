@@ -286,7 +286,7 @@ Follow these guidelines to create your XML file if you choose to select blobs an
 
 This sample XML file includes examples of each XML tag that is used to select blobs and files for export in a Data Box export order.
 
-- For a XML file requirements, go to the **XML file overview** tab.
+- For XML file requirements, go to the **XML file overview** tab.
 - For more examples of valid blob and file prefixes, go to the **Prefix examples** tab.
 
 ```xml

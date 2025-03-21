@@ -1,6 +1,6 @@
 ---
 title: Azure Data Box cabling options | Microsoft Docs 
-description: Learn about the different the ways to cable your Azure Data Box for data transfer by using MGMT port or DATA port.
+description: Learn about the different ways to cable your Azure Data Box for data transfer by using MGMT port or DATA port.
 services: databox
 author: stevenmatthew
 
@@ -145,7 +145,7 @@ Do the following steps to cable your device.
 
 1. Use an RJ45 cable to connect the MGMT port to the server that has the data.
 
-    ![One-port setup](media/data-box-cable-options/cabling-mgmt-only.png)
+    ![Screenshot illustrating one-port setup and data flow to the Data Box device.](media/data-box-cable-options/cabling-mgmt-only.png)
 
 2. On the server, set:
 
@@ -178,7 +178,7 @@ Do the following steps to cable your device.
    - **IP address** to 192.168.100.5
    - **Subnet** to 255.255.255.0
 
-     ![Two-port setup](media/data-box-cable-options/cabling-2-port-setup.png)
+     ![Screenshot illustrating two-port setup and data flow to the Data Box device.](media/data-box-cable-options/cabling-2-port-setup.png)
 
 3. Access the local web UI of the device at: 192.168.100.10. Sign in and unlock the Data Box using the unlock password from the Azure portal.
 4. Assign static IPs to the data ports that you've configured.
@@ -194,7 +194,7 @@ Do the following steps to cable your device.
    - **IP address** of 192.168.100.5
    - **Subnet** of 255.255.255.0.
   
-   ![Two-port setup with a switch](media/data-box-cable-options/cabling-with-static-ip.png)
+   ![Screenshot illustrating two-port setup with a switch and data flow to the Data Box device.](media/data-box-cable-options/cabling-with-static-ip.png)
 
 3. Access the local web UI of the device at: 192.168.100.10. Sign in and unlock the Data Box using the unlock password from the Azure portal.
 4. Identify the IP addresses assigned by the DHCP server.
@@ -218,7 +218,7 @@ Do the following steps to cable your device.
    - **IP address** of 192.168.100.5
    - **Subnet** of 255.255.255.0.
 
-     ![Two-port setup with a switch 2](media/data-box-cable-options/cabling-with-switch-static-ip.png)
+     ![Screenshot illustrating a variation of the two-port setup with a switch and data flow to the Data Box device.](media/data-box-cable-options/cabling-with-switch-static-ip.png)
 
 3. Access the local web UI of the device at: 192.168.100.10. Sign in and unlock the Data Box using the unlock password from the Azure portal.
 4. Assign static IPs to the data ports that you've configured.
@@ -238,7 +238,7 @@ Do the following steps to cable your device.
 
 1. Use an RJ45 or QSFP cable via a switch (where DHCP server is accessible) to the server.
 
-    ![Two port setup with a switch 3](media/data-box-cable-options/cabling-dhcp-data-only.png)
+    ![Screenshot illustrating a second variation of the two-port setup with a switch and data flow to the Data Box device.](media/data-box-cable-options/cabling-dhcp-data-only.png)
 
 2. Use DHCP server or DNS server to identify the IP address.
 3. From a server on the same network, access the local web UI of the device using the IP address assigned by the DHCP server. Sign in and unlock the Data Box using the unlock password from the Azure portal.

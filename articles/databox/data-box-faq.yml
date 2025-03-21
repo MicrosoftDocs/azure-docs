@@ -14,7 +14,7 @@ metadata:
 
 title: "Azure Data Box: Frequently Asked Questions"
 summary:
-  The Azure Azure Data Box, Data Box Next Gen, and Data Box Heavy hybrid solution enables you to send terabytes of data to Azure in a quick, inexpensive, and reliable way using a transfer device. This FAQ contains questions and answers that you may have when you use Data Box in the Azure portal.
+  The Azure Data Box, Data Box Next Gen, and Data Box Heavy hybrid solution enables you to send terabytes of data to Azure in a quick, inexpensive, and reliable way using a transfer device. This FAQ contains questions and answers that you may have when you use Data Box in the Azure portal.
 
   Sections with tabs have some questions that apply to **Data Box only**, **Data Box Next Gen**, and **Data Box Heavy only**.
 
@@ -156,7 +156,7 @@ sections:
 
           ### I placed my Data Box order few days back. When will I receive my Data Box?
 
-          When you place an order, we check whether a device is available for your order. If a device is available, we will ship it within 10 days. It is conceivable that there are periods of high demand. In this situation, your order will be queued and you can track the status change in the Azure portal. If your order is not fulfilled in 90 days, the order is automatically cancelled.
+          When you place an order, we check whether a device is available for your order. If a device is available, we will ship it within 10 days. It is conceivable that there are periods of high demand. In this situation, your order will be queued and you can track the status change in the Azure portal. If your order is not fulfilled in 90 days, the order is automatically canceled.
 
           ## [Data Box Heavy only](#tab/data-box-heavy)
 

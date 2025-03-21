@@ -1,5 +1,5 @@
 ---
-title: Audit logs for Azure Azure Data Box, Azure Data Box Next Gen, and Azure Data Box Heavy events | Microsoft Docs 
+title: Audit logs for Azure Data Box, Azure Data Box Next Gen, and Azure Data Box Heavy events | Microsoft Docs
 description: Describes the full audit logs for Data Box that are collected at the various stages of your Azure Data Box, Data Box Next Gen, and Data Box Heavy order.
 services: databox
 author: stevenmatthew

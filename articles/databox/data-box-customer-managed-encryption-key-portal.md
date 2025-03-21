@@ -154,15 +154,15 @@ Use the following steps to update the identity that manages access to the custom
 
      - To change to a different user identity, select **Select a different user identity**. Then select a different identity in the panel on the right side of the screen, and choose **Select**.
 
-       :::image type="content" source="media/data-box-customer-managed-encryption-key-portal/customer-managed-key-18-sml.png" alt-text="Screen shot showing options for changing the user-assigned identity for a customer-managed key." lightbox="media/data-box-customer-managed-encryption-key-portal/customer-managed-key-18-lrg.png":::
+       :::image type="content" source="media/data-box-customer-managed-encryption-key-portal/customer-managed-key-18-sml.png" alt-text="Screenshot showing options for changing the user-assigned identity for a customer-managed key." lightbox="media/data-box-customer-managed-encryption-key-portal/customer-managed-key-18-lrg.png":::
 
    - To switch to the system-assigned identity generated during order creation, select **System assigned** by **Select identity type**.
 
-     :::image type="content" source="media/data-box-customer-managed-encryption-key-portal/customer-managed-key-19-sml.png" alt-text="Screen shot showing options for changing to a system-assigned key from for a customer-managed key." lightbox="media/data-box-customer-managed-encryption-key-portal/customer-managed-key-19-lrg.png":::
+     :::image type="content" source="media/data-box-customer-managed-encryption-key-portal/customer-managed-key-19-sml.png" alt-text="Screenshot showing options for changing to a system-assigned key from for a customer-managed key." lightbox="media/data-box-customer-managed-encryption-key-portal/customer-managed-key-19-lrg.png":::
 
 3. Select **Save**.
 
-    :::image type="content" source="media/data-box-customer-managed-encryption-key-portal/customer-managed-key-17-a-sml.png" alt-text="Screen shot showing the location of the button used to save your updated encryption settings." lightbox="media/data-box-customer-managed-encryption-key-portal/customer-managed-key-17-a-lrg.png":::
+    :::image type="content" source="media/data-box-customer-managed-encryption-key-portal/customer-managed-key-17-a-sml.png" alt-text="Screenshot showing the location of the button used to save your updated encryption settings." lightbox="media/data-box-customer-managed-encryption-key-portal/customer-managed-key-17-a-lrg.png":::
 
 ## Use Microsoft managed key
 
@@ -172,11 +172,11 @@ To change from using a customer-managed key to the Microsoft managed key for you
 
 2. By **Select type**, select **Microsoft managed key**.
 
-    :::image type="content" source="media/data-box-customer-managed-encryption-key-portal/customer-managed-key-20-sml.png" alt-text="Screen shot showing a Data Box order's Overview pane." lightbox="media/data-box-customer-managed-encryption-key-portal/customer-managed-key-20-lrg.png":::
+    :::image type="content" source="media/data-box-customer-managed-encryption-key-portal/customer-managed-key-20-sml.png" alt-text="Screenshot showing a Data Box order's Overview pane." lightbox="media/data-box-customer-managed-encryption-key-portal/customer-managed-key-20-lrg.png":::
 
 3. Select **Save**.
 
-    :::image type="content" source="media/data-box-customer-managed-encryption-key-portal/customer-managed-key-21-sml.png" alt-text="Screen shot showing the location of the button used to save the updated encryption settings for a Microsoft managed key." lightbox="media/data-box-customer-managed-encryption-key-portal/customer-managed-key-21-lrg.png":::
+    :::image type="content" source="media/data-box-customer-managed-encryption-key-portal/customer-managed-key-21-sml.png" alt-text="Screenshot showing the location of the button used to save the updated encryption settings for a Microsoft managed key." lightbox="media/data-box-customer-managed-encryption-key-portal/customer-managed-key-21-lrg.png":::
 
 ## Troubleshoot errors
 

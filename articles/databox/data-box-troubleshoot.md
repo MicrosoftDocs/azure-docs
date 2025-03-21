@@ -167,12 +167,12 @@ For more information, see [Overview of Page blobs](../storage/blobs/storage-blob
 
 ### ERROR_DIRECTORY_DISALLOWED_FOR_TYPE
 
-**Error description:** A directory isn't allowed in any of the pre-existing folders for the managed disks. Only fixed VHDs are allowed in these folders.
+**Error description:** A directory isn't allowed in any of the preexisting folders for the managed disks. Only fixed VHDs are allowed in these folders.
 
 **Suggested resolution:** For managed disks, within each share, the following three folders are created which correspond to containers in your storage account: Premium SSD, Standard HDD, and Standard SSD. These folders correspond to the performance tier for the managed disk.
 
 - Make sure that you copy your page blob data (VHDs) into one of these existing folders.
-- A folder or directory isn't allowed in these existing folders. Remove any folders that you have created inside the pre-existing folders.
+- A folder or directory isn't allowed in these existing folders. Remove any folders that you have created inside the preexisting folders.
 
 For more information, see [Copy to managed disks](data-box-deploy-copy-data-from-vhds.md#connect-to-data-box).
 

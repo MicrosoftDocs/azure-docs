@@ -1,6 +1,6 @@
 ---
-title: Track and log Azure Azure Data Box, Azure Data Box Next Gen, and Azure Data Box Heavy events for export order| Microsoft Docs
-description: Describes how to track and log events at the various stages of your Azure Azure Data Box, Data Box Next Gen, and Data Box Heavy export order.
+title: Track and log Azure Data Box, Azure Data Box Next Gen, and Azure Data Box Heavy events for export order| Microsoft Docs
+description: Describes how to track and log events at the various stages of your Azure Data Box, Data Box Next Gen, and Data Box Heavy export order.
 services: databox
 author: stevenmatthew
 
