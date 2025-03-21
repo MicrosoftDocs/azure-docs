@@ -494,6 +494,8 @@ items:
         href: tutorials/add-video-augmented-reality-tutorial.md
     - name: Set video constraints in a calling app
       href: quickstarts/voice-video-calling/get-started-video-constraints.md
+    - name: Local preview mirroring
+      href: quickstarts/voice-video-calling/local-preview-mirroring.md
     - name: Optimize video placement on your web app
       href: quickstarts/voice-video-calling/optimizing-video-placement.md
       displayName: Optimal Video Count, OVC, dual pin
@@ -996,6 +998,8 @@ items:
       href: how-tos/call-automation/play-action.md
     - name: Gather user input with recognize action
       href: how-tos/call-automation/recognize-action.md
+    - name: Implement Answer Machine Detection
+      href: concepts/call-automation/answer-machine-detection.md
   - name: Call recording
     items:
     - name: Call recording overview

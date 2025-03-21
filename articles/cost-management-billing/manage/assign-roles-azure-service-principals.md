@@ -2,12 +2,12 @@
 title: Assign Enterprise Agreement roles to service principals
 description: This article helps you assign EA roles to service principals by using PowerShell and REST APIs.
 author: bandersmsft
-ms.reviewer: sapnakeshari
+ms.reviewer: prsaini
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.date: 01/22/2025
-ms.author: banders
+ms.author: prsaini
 ---
 
 # Assign Enterprise Agreement roles to service principals

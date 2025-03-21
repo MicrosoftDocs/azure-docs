@@ -4,6 +4,9 @@ description: Learn how to use Azure PowerShell from a workstation to run Apache 
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurepowershell
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 03/15/2024
 ---
 
