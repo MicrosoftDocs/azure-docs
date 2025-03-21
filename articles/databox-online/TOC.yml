@@ -541,16 +541,6 @@
       href: azure-stack-edge-gpu-2010-release-notes.md
     - name: "2008"
       href: azure-stack-edge-gpu-2008-release-notes.md
-    - name: "2007"
-      href: ../databox-gateway/data-box-gateway-2007-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json
-    - name: "1911"
-      href: ../databox-gateway/data-box-gateway-1911-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json
-    - name: "1906"
-      href: ../databox-gateway/data-box-gateway-1906-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json
-    - name: "1905"
-      href: ../databox-gateway/data-box-gateway-1905-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json
-    - name: General availability (GA)
-      href: ../databox-gateway/data-box-gateway-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json
   - name: Shared reference
     items:
     - name: Azure PowerShell
