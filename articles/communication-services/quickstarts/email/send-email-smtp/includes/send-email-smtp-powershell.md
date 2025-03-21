@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - An Azure Communication Email Resource created and ready with a provisioned domain [Get started with Creating Email Communication Resource](../../create-email-communication-resource.md)
 - An active Azure Communication Services Resource connected with Email Domain and a Connection String. [Get started by Connecting Email Resource with a Communication Resource](../../connect-email-communication-resource.md)
-- Smtp credentials created using an Entra application with access to the Azure Communication Services Resource. [How to create authentication credentials for sending emails using Smtp](../smtp-authentication.md)
+- Smtp credentials created using an Entra application with access to the Azure Communication Services Resource. [Create credentials for Simple Mail Transfer Protocol (SMTP) authentication](../smtp-authentication.md)
 
 Completing this quick start incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -30,7 +30,7 @@ The credentials can be verified using the Microsoft PowerShell utility Send-Mail
 To store the credentials in the required PSCredential format, use the following PowerShell commands:
 ```PowerShell
 $Password = ConvertTo-SecureString -AsPlainText -Force -String '<Entra Application Client Secret>'
-$Cred = New-Object -TypeName PSCredential -ArgumentList '<Azure Communication Services Resource name>|<Entra Application ID>|<Entra Tenant ID>', $Password
+$Cred = New-Object -TypeName PSCredential -ArgumentList '<SMTP Username>', $Password
 ```
 
 The following PowerShell script can be used to send the email. The **From** value is the mail from address of your verified domain. The **To** value is the email address that you would like to send to.

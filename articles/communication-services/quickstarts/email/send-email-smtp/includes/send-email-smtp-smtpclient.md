@@ -16,7 +16,7 @@ ms.service: azure-communication-services
 - The latest version [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - An Azure Communication Email Resource created and ready with a provisioned domain [Get started with Creating Email Communication Resource](../../create-email-communication-resource.md)
 - An active Azure Communication Services Resource connected with Email Domain and a Connection String. [Get started by Connecting Email Resource with a Communication Resource](../../connect-email-communication-resource.md)
-- Smtp credentials created using an Entra application with access to the Azure Communication Services Resource. [How to create authentication credentials for sending emails using Smtp](../smtp-authentication.md)
+- Smtp credentials created using an Entra application with access to the Azure Communication Services Resource. [Create credentials for Simple Mail Transfer Protocol (SMTP) authentication](../smtp-authentication.md)
 
 Completing this quick start incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -58,7 +58,7 @@ Replace with your domain details and modify the content, recipient details as re
 ```csharp
 //Replace with your domain and modify the content, recipient details as required
 
-string smtpAuthUsername = "<Azure Communication Services Resource name>|<Entra Application Id>|<Entra Application Tenant Id>";
+string smtpAuthUsername = "<SMTP Username>";
 string smtpAuthPassword = "<Entra Application Client Secret>";
 string sender = "donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net";
 string recipient = "emailalias@contoso.com";
@@ -78,7 +78,7 @@ To send an email message, you need to:
 using System.Net;
 using System.Net.Mail;
 
-string smtpAuthUsername = "<Azure Communication Services Resource name>|<Entra Application Id>|<Entra Application Tenant Id>";
+string smtpAuthUsername = "<SMTP Username>";
 string smtpAuthPassword = "<Entra Application Client Secret>";
 string sender = "donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net";
 string recipient = "emailalias@contoso.com";
