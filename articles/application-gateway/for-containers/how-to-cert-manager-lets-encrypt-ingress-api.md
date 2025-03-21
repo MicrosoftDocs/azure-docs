@@ -88,7 +88,6 @@ spec:
                     alb.networking.azure.io/alb-namespace: alb-test-infra
 EOF
 ```
----
 
 # [Bring your own (BYO) deployment](#tab/byo)
 
@@ -203,7 +202,7 @@ spec:
     #               number: 8080
 EOF
 ```
----
+
 # [Bring your own (BYO) deployment](#tab/byo)
 
 1. Set the following environment variables
