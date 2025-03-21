@@ -51,15 +51,15 @@ As per the pricing change, you'll be billed against the volume of data gathered 
 1. Sign in to the Log analytics workspace. 
 1. Navigate to the **Logs** section and run the following query: 
  
-   ```
-    let AzureMigrateDataTables = dynamic(["ServiceMapProcess_CL","ServiceMapComputer_CL","VMBoundPort","VMConnection","VMComputer","VMProcess","InsightsMetrics"]); Usage  
+```
+let AzureMigrateDataTables = dynamic(["ServiceMapProcess_CL","ServiceMapComputer_CL","VMBoundPort","VMConnection","VMComputer","VMProcess","InsightsMetrics"]); Usage  
 
-    | where StartTime >= startofday(ago(30d)) and StartTime < startofday(now()) 
+| where StartTime >= startofday(ago(30d)) and StartTime < startofday(now()) 
 
-    | where DataType in (AzureMigrateDataTables)  
+| where DataType in (AzureMigrateDataTables)  
 
-    | summarize AzureMigrateGBperMonth=sum(Quantity)/1000 
-    ```
+| summarize AzureMigrateGBperMonth=sum(Quantity)/1000 
+```
 
 ## Support for Azure Monitor agent in Azure Migrate 
 
