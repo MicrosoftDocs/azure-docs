@@ -88,6 +88,7 @@ spec:
                     alb.networking.azure.io/alb-namespace: alb-test-infra
 EOF
 ```
+---
 
 # [Bring your own (BYO) deployment](#tab/byo)
 
@@ -152,7 +153,7 @@ The status should show `True` and type `Ready` under conditions.
       status: "True"
       type: Ready
 ```
-
+---
 ## Deploy the required Ingress resource
 
 # [ALB managed deployment](#tab/alb-managed)
@@ -200,7 +201,7 @@ spec:
     #               number: 8080
 EOF
 ```
-
+---
 # [Bring your own (BYO) deployment](#tab/byo)
 
 1. Set the following environment variables
@@ -326,8 +327,8 @@ The environment is now configured to route traffic to the sample application usi
 curl https://backend-v1.contoso.com -v 2>&1 | grep issuer
 ```
 
-Upon result, you should see
+You should see the following output:
 
 `*  issuer: C=US; O=Let's Encrypt; CN=R11`
 
-You have successfully completed the following steps: installed the ALB Controller, deployed a backend application, obtained a certificate from Let's Encrypt using cert-manager, and configured traffic routing to the application through Application Gateway for Containers
+You have successfully installed the ALB Controller, deployed a backend application, obtained a certificate from Let's Encrypt using cert-manager, and configured traffic routing to the application through Application Gateway for Containers.
