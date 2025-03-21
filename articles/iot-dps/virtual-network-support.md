@@ -3,7 +3,6 @@ title: Virtual network connections for DPS
 titleSuffix: Azure IoT Device Provisioning Service
 description: How to use the virtual networks connectivity pattern with Azure IoT Device Provisioning Service (DPS)
 author: SoniaLopezBravo
-
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
