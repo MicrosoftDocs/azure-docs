@@ -165,13 +165,13 @@ This section discusses the authentication and authorization features supported b
 
 | Comparison Criteria | Storage queues | Service Bus queues |
 | --- | --- | --- |
-| Authentication | [Symmetric key](../storage/common/storage-account-keys-manage.md) and [Role-based access control (RBAC)](../storage/queues/assign-azure-role-data-access.md) |[Symmetric key](service-bus-authentication-and-authorization.md#shared-access-signature) and [Role-based access control (RBAC)](service-bus-authentication-and-authorization.md#azure-active-directory) |
+| Authentication | [Symmetric key](../storage/common/storage-account-keys-manage.md) and [Role-based access control (RBAC)](../storage/queues/assign-azure-role-data-access.md) |[Symmetric key](service-bus-authentication-and-authorization.md#shared-access-signature) and [Role-based access control (RBAC)](service-bus-authentication-and-authorization.md#microsoft-entra-id) |
 | Identity provider federation | Yes | Yes |
 
 ### Additional information
 * Every request to either of the queuing technologies must be authenticated. Public queues with anonymous access aren't supported. 
 * Using shared access signature (SAS) authentication, you can create a shared access authorization rule on a queue that can give users a write-only, read-only, or full access. For more information, see [Azure Storage - SAS authentication](../storage/common/storage-sas-overview.md) and [Azure Service Bus - SAS authentication](service-bus-sas.md).
-* Both queues support authorizing access using Microsoft Entra ID. Authorizing users or applications using OAuth 2.0 token returned by Microsoft Entra ID provides superior security and ease of use over shared access signatures (SAS). With Microsoft Entra ID, there's no need to store the tokens in your code and risk potential security vulnerabilities. For more information, see [Azure Storage - Microsoft Entra authentication](../storage/queues/assign-azure-role-data-access.md) and [Azure Service Bus - Microsoft Entra authentication](service-bus-authentication-and-authorization.md#azure-active-directory). 
+* Both queues support authorizing access using Microsoft Entra ID. Authorizing users or applications using OAuth 2.0 token returned by Microsoft Entra ID provides superior security and ease of use over shared access signatures (SAS). With Microsoft Entra ID, there's no need to store the tokens in your code and risk potential security vulnerabilities. For more information, see [Azure Storage - Microsoft Entra authentication](../storage/queues/assign-azure-role-data-access.md) and [Azure Service Bus - Microsoft Entra authentication](service-bus-authentication-and-authorization.md#microsoft-entra-id). 
 
 ## Conclusion
 By gaining a deeper understanding of the two technologies, you can make a more informed decision on which queue technology to use, and when. The decision on when to use Storage queues or Service Bus queues clearly depends on many factors. These factors depend heavily on the individual needs of your application and its architecture. 
