@@ -85,7 +85,7 @@ In this section, you learn how to configure BGP peering with a network virtual a
 
 ## Complete the configuration on the NVA
 
-To complete the peering setup, you must configure the NVA to establish a BGP session with the route server using its IP addresses and ASN. You can find the IP addresses and ASN of **myRouteServer** in the **Overview** page:
+To complete the peering setup, you must configure the NVA to establish a BGP session with the route server using both of it's IP addresses and ASN. You can find the IP addresses and ASN of **myRouteServer** in the **Overview** page:
 
 :::image type="content" source="./media/route-server-overview.png" alt-text="Screenshot that shows the Overview page of Route Server." lightbox="./media/route-server-overview.png":::
 
