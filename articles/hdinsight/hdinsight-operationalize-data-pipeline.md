@@ -6,7 +6,8 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 author: abhishjain002
 ms.author: abhishjain
-ms.reviewer: sairamyeturims.date: 01/02/2025
+ms.reviewer: sairamyeturi
+ms.date: 01/02/2025
 ---
 
 # Operationalize a data analytics pipeline
