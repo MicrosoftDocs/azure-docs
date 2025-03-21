@@ -8,6 +8,7 @@ ms.topic: article
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 10/16/2024
+ms.custom: cx-rw
 ---
 
 # Backup and restore plan to protect against ransomware
