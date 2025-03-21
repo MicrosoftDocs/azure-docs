@@ -22,14 +22,14 @@
     href: regions-paired.md
   - name: Multi-region solutions in nonpaired regions
     href: regions-multi-region-nonpaired.md
+  - name: Azure regions list 
+    href: regions-list.md
 - name: Azure availability zones
   items:
   - name: What are Azure availability zones?
     href: availability-zones-overview.md
   - name: Services with availability zone support
     href: availability-zones-service-support.md
-  - name: Regions with availability zone support
-    href: availability-zones-region-support.md
   - name: Migrate to availability zone support
     items:
     - name: Overview
