@@ -56,7 +56,7 @@ More details on eligible subscription types are as follows:
 
 [!INCLUDE [Azure Prepayment](../../includes/azure-prepayment.md)]
 
-## Azure subscription billing locations where Australia mobile numbers are available
+## Azure subscription billing locations where Belgium mobile numbers are available
 | Country/Region |
 | :---------- |
 | Australia       |
