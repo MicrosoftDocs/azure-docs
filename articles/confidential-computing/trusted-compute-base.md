@@ -38,7 +38,9 @@ Depending on the Confidential Computing technology in-use, the TCB can vary to c
 
 Confidential Virtual Machines (CVM) using the AMD SEV-SNP (and, in future Intel TDX) technologies can run an entire virtual machine inside the TEE to support lift & shift scenarios of existing workloads, in this case, the guest OS is also inside the TCB.
 
-Intel SGX, for example offers the most granular TCB definition down to individual code functions but requires applications to be developed using specific SDKs to use confidential capabilities. 
+Container compute offerings are built upon Confidential Virtual Machines and offer a variety of TCB scenarios from whole AKS nodes to individual containers when using Azure Container Instances (ACI).
+
+Intel SGX can offer the most granular TCB definition down to individual code functions but requires applications to be developed using specific SDKs to use confidential capabilities. 
 
 :::image type="content" source="./media/trusted-compute-base/app-enclave-vs-virtual-machine.jpg " alt-text="Diagram showing the Trusted Compute Base (TCB) concept mapped to Intel SGX and AMD SEV-SNP Trusted Execution Environments":::
 
