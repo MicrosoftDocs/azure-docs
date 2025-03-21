@@ -875,7 +875,7 @@ groups:
   - id: programming-language-kotlin
     title: Kotlin (Android)
 - id: iot-develop-set1
-# Owner: timlt
+# Owner: dobett
   title: Programming languages
   prompt: Choose a programming language
   pivots:
