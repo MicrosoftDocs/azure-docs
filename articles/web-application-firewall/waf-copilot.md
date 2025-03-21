@@ -5,7 +5,7 @@ keywords: copilot for security, copilot for security, threat intelligence, intru
 author: halkazwini
 ms.author: halkazwini
 ms.date: 01/22/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-web-application-firewall
 ms.localizationpriority: high
 ms.collection: Tier1, ce-skilling-ai-copilot
