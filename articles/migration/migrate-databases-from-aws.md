@@ -12,13 +12,6 @@ ms.topic: concept-article
 
 Migrating data is a critical part when moving from Amazon Web Services (AWS) to Microsoft Azure. This process involves transitioning your databases while making sure they work similarly in the new environment.  The scope of this migration covers various database types, including relational databases, NoSQL databases, and data warehouses. For example, a workload that involves migrating an Amazon RDS for PostgreSQL database to Azure Database for PostgreSQL.
 
-Migrating databases and data from Amazon Web Services (AWS) to Microsoft Azure involves transitioning workloads to Azure's cloud platform, leveraging its advanced database services for improved scalability, security, and cost efficiency. This migration ensures seamless integration while optimizing performance and management.
-
-The migration scope includes three key database subtypes:
-
-- **Relational databases** (e.g., AWS RDS for PostgreSQL to Azure SQL Database)
-- **NoSQL databases** (e.g., Amazon DynamoDB to Azure Cosmos DB)
-
 ## Azure service awareness
 
 If you haven't yet selected your application platform in Azure, review the [Azure for AWS professionals guide](/azure/architecture/aws-professional/). This guide has a service mapping available for databases and data. It's a list that maps similar services between the two cloud providers.
