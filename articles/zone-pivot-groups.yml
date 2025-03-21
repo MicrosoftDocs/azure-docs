@@ -875,7 +875,7 @@ groups:
   - id: programming-language-kotlin
     title: Kotlin (Android)
 - id: iot-develop-set1
-# Owner: timlt
+# Owner: dobett
   title: Programming languages
   prompt: Choose a programming language
   pivots:
@@ -1710,7 +1710,7 @@ groups:
     title: JavaScript
   - id: programming-language-csharp
     title: C#
-# Owner: kgremban
+# Owner: sonialopez
 - id: iot-hub-howto-c2d-1
   title: Programming languages
   prompt: Choose a programming language
@@ -1723,7 +1723,7 @@ groups:
     title: Python
   - id: programming-language-node
     title: Node
-# Owner: kgremban
+# Owner: sonialopez
 - id: iot-hub-howto-c2d-2
   title: Programming languages
   prompt: Choose a programming language
