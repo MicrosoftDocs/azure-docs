@@ -31,7 +31,7 @@ items:
       href: migrate-appliance.md
     - name: Discover VMware estate
       href: tutorial-discover-vmware.md
-    items:
+  items:
     - name: Scoped discovery of VMware estate
       href: set-discovery-scope.md
     - name: Discover Hyper-v estate
