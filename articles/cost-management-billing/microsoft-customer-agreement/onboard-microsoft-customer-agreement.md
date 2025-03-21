@@ -239,7 +239,6 @@ For more information, see the following articles:
 - [Cost Management + Billing documentation](../index.yml)
 - [Azure Product Transfer Hub](../manage/subscription-transfer.md)
 - [Migrate from EA to MCA APIs](../costs/migrate-cost-management-api.md)
-- [Migrate from an EA to an MCA](../microsoft-customer-agreement/onboard-microsoft-customer-agreement.md#migrate-from-an-ea-to-an-mca)
 
 ### Important migration changes
 

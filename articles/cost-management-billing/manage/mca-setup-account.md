@@ -6,7 +6,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/22/2025
+ms.date: 03/21/2025
 ms.author: banders
 ---
 
@@ -381,6 +381,39 @@ Enterprise administrators are listed as billing profile owners while the enterpr
     :::image type="content" border="true" source="./media/microsoft-customer-agreement-setup-account/microsoft-customer-agreement-department-account-admins-access-post-transition.png" alt-text="Screenshot that shows access of department and account admins post transition." lightbox="./media/microsoft-customer-agreement-setup-account/microsoft-customer-agreement-department-account-admins-access-post-transition.png":::
 
 Enterprise administrators and department administrators are listed as invoice section owners or invoice section readers while account owners in the department are listed as Azure subscription creators. Repeat the step for all invoice sections to check access for all departments in your Enterprise Agreement enrollment. Account owners that weren't part of any department get permission on an invoice section named **Default invoice section**. If you believe the access for any administrators is missing, you can give them access in the Azure portal. For more information, see [manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+
+### Changes after migration
+
+- Historical data – It isn’t available to account owners or users with the Subscription owner Azure role-based access control (RBAC) role after migration. Access for existing users, groups, or service principals that was assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) isn't affected during the transition.
+- Reservations - When there's a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of the next monthly payment for an individual reservation. The cancellation is intentional and only affects monthly reservation purchases. You can repurchase them after migration.
+- Savings Plans - If they were purchased in a non-USD currency, they get canceled during migration. You can repurchase them after migration.
+- APIs – If used, you need to migrate to using replacement APIs. For more information, see [Migrate from Enterprise Agreement to Microsoft Customer Agreement APIs](../costs/migrate-cost-management-api.md).
+- Automatic purchases - If used under your old EA enrollment, you need to set them up under your new Microsoft Customer Agreement.
+- Management groups – Subscriptions in management groups under a Microsoft Customer Agreement aren’t supported in Cost Management yet. Cost Management + Billing is managed with APIs and Azure portal functionality.  
+
+Here are some points to consider after migration.
+
+| Consideration | EA  | MCA | Notes |
+| --- | --- | --- | --- |
+| Agreement duration | Expires and gets a new enrollment number at renewal | Doesn’t expire | Billing profile IDs never change |
+| Power BI Cost Management connector | Available | Available | The scope differs. There are more attributes in MCA. You can create a combined view using common elements. |
+| API | OAuth authentication using an API key | OAuth2 authentication using service principal | More attributes are available in MCA. Common data elements can get used to combine data sets for continuity. |
+| Invoicing | One invoice per enrollment number | Can be configured to receive more than one invoice for the same MCA by adding billing profiles |     |
+
+| Consideration | EA  | MCA |
+| --- | --- | --- |
+| Billing roles | - Enterprise Admin  <br>- Department Admin  <br>- Account owner  <br>- Service Admin  <br>- Notification contact | - Owner  <br>- Contributor  <br>- Reader for Billing Account  <br>- Billing profile  <br>- Invoice Section  <br>- Invoice manager (for billing profile)  <br>- Subscription creator (for invoice section) |
+| Multi-tenancy | - Multiple enrollments.  <br>- Sharing Microsoft Azure Consumption Commitment (MACC) benefit and Azure Consumption Discount (ACD) across multiple enrollments is complex. | - A single MCA supports multiple tenants.  <br>- Associate multiple tenants to a billing account in the primary tenant.  <br>- Provides access to MCA for users in associated tenants without guesting users into the primary tenant.  <br>- MACC and ACD can be shared. |
+| Historical charges | Cost data stays under your EA enrollment billing scope. | MCA scope shows cost data starting from the migration date. |
+| EA accounts | They’re supported by your EA. | - Not supported in MCA. <br>- The account’s subscriptions belong to the invoice section created for their respective departments. <br>- Account owners become Azure subscription creators. They can create and manage subscriptions for their invoice sections. |
+| Marketplace | Marketplace offers can be purchased with an EA | - Marketplace offers can be purchased with an MCA.  <br>- Invoices can be configured to show Marketplace purchases on the same invoice with Azure or on a separate invoice. |
+
+For more information, see the following articles:
+
+- [Cost Management + Billing documentation](../index.yml)
+- [Azure Product Transfer Hub](subscription-transfer.md)
+- [Migrate from EA to MCA APIs](../costs/migrate-cost-management-api.md)
+- [Migrate from an EA to an MCA](../microsoft-customer-agreement/onboard-microsoft-customer-agreement.md#migrate-from-an-ea-to-an-mca)
 
 ## Need help? Contact support
 
