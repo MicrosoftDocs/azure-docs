@@ -262,7 +262,7 @@ To use deployment pane:
   
     The following screenshot shows a successful deployment with the Bicep file validation results.
   
-    :::image type="content" source="./media/visual-studio-code/visual-studio-code-deployment-pane.png" alt-text="Sceenshot of show deployment pane in command palette.":::
+    :::image type="content" source="./media/visual-studio-code/visual-studio-code-deployment-pane.png" alt-text="Sceenshot of deployment pane in Visual Studio Code.":::
   
 1. Select **Change Scope** to define the deployment scope. After authentication, you're able to select the subscription and the resource group of your desired deployment.
 1. Select **Pick JSON Parameters File** to select a JSON parameter file.  
