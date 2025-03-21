@@ -57,7 +57,7 @@ If you want to enable *public* inbound access to an API Management instance in t
 
 ### Network security group
 
-A network security group must be associated with the subnet. No specific rules are required. To set up a network security group, see [Create a network security group](../azure/virtual-network/manage-network-security-group.md).
+A network security group must be associated with the subnet. No specific rules are required. To set up a network security group, see [Create a network security group](../virtual-network/manage-network-security-group.md).
 
 ### Subnet delegation
 
