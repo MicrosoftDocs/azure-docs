@@ -11,6 +11,11 @@ Before you begin, it's a good idea to read the overview page for [machine config
 Machine configuration uses [Desired State Configuration][02] (DSC) when auditing and configuring
 both Windows and Linux. The DSC configuration defines the condition that the machine should be in.
 
+# It is not a good idea to relate Machine Configuration with DSC. 
+# This is very confusing, we are linking the doc to DSC v2, that is talking about Get-DSCConfiguration and other DSC cmdlets that Machine configuration doesnt use.
+# It also gives me impression that if MC agent is using built-in dsc which is not true.
+# I think we need to change the text saying Machine Configuration uses DSC configurations (not DSC), also we should remove the links to DSC from the documentation.
+
 > [!IMPORTANT]
 > Custom packages that audit the state of an environment and apply configurations are in Generally
 > Available (GA) support status. However, the following limitations apply:
