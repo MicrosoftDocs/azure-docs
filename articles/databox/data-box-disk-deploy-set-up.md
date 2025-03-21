@@ -532,10 +532,4 @@ Advance to the next tutorial to learn how to copy data on your Data Box Disk.
 
 <!--::: zone-end-->
 
-::: zone pivot="dbx-ng"
 
-::: zone-end
-
-::: zone pivot="dbx"
-
-::: zone-end
