@@ -174,6 +174,40 @@ jobs:
           HUGO_VERSION: 0.58.0
 ```
 
+#### Alternative deployment using SWA CLI
+
+If your Hugo application has dependencies requiring additional setup, such as GoLang modules, you can use the Azure Static Web Apps CLI for deployment directly. Below is an example GitHub Actions workflow that installs the CLI and deploys your application:
+
+```yaml
+jobs:
+   build_and_deploy_job:
+      runs-on: ubuntu-latest
+      name: Build and Deploy with SWA CLI
+      steps:
+         - name: Checkout code
+            uses: actions/checkout@v3
+            with:
+               submodules: true
+
+         - name: Install SWA CLI
+            run: npm install -g @azure/static-web-apps-cli
+
+         - name: Build Hugo site
+            run: |
+               # Install Hugo modules
+               hugo mod get
+
+               # Minify the supported output formats
+               hugo --minify
+
+         - name: Deploy with SWA CLI
+            env:
+               AZURE_STATIC_WEB_APPS_API_TOKEN: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+            run: |
+               swa deploy ./public --api-location ./api --env production
+```
+This workflow builds the Hugo site and deploys it using the Azure Static Web Apps CLI. It assumes the `go.mod` file is located in the root directory of your project to manage dependencies and module configurations.
+
 #### Use the Git Info feature in your Hugo application
 
 If your Hugo application uses the [Git Info feature](https://gohugo.io/methods/page/gitinfo/#prerequisites), the default [workflow file](./build-configuration.md) created for the Static Web App uses the [checkout GitHub Action](https://github.com/actions/checkout) to fetch a _shallow_ version of your Git repository, with a default depth of **1**. In this scenario, Hugo sees all your content files as coming from a _single commit_, so they have the same author, last modification timestamp, and other `.GitInfo` variables.
