@@ -37,6 +37,7 @@ Each service guide generally contains information on how the service supports:
 
 | Product| Guidance |
 |----------|---------|
+|Azure Data Factory| [Reliability in Azure Data Factory](reliability-data-factory.md)|
 |Azure HDInsight| [Reliability in Azure HDInsight](reliability-hdinsight.md)|
 |Azure Machine Learning Service| [Failover for business continuity and disaster recovery](/azure/machine-learning/how-to-high-availability-machine-learning?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Stream Analytics| [Achieve geo-redundancy for Azure Stream Analytics jobs](../stream-analytics/geo-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
@@ -233,5 +234,5 @@ Azure Media Services| [High Availability with Media Services and Video on Demand
 
 
 - [Azure services with availability zones](availability-zones-service-support.md)
-- [Azure regions with availability zones](availability-zones-region-support.md)
+- [List of Azure regions](regions-list.md)
 - [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)
