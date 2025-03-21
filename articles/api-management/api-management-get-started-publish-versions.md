@@ -121,10 +121,10 @@ For more information about version sets, see [Versions in Azure API Management](
 If you use the [developer portal](api-management-howto-developer-portal-customize.md), you can see API versions there.
 
 1. Select **Developer portal** at the top of the window.
-2. Select **APIs**, and then select **Swagger Petstore**.
-3. You should see a dropdown that lists multiple versions next to the API name.
-4. Select **v1**.
-5. Notice the **Request URL** of the first operation in the list. It shows that the API URL path includes **v1**.
+1. Select **APIs**, and then select **Swagger Petstore**.
+1. You should see a dropdown that lists multiple versions next to the API name.
+1. Select **v1**.
+1. Notice the **Request URL** of the first operation in the list. It shows that the API URL path includes **v1**.
 
 ## Next step
 
