@@ -47,7 +47,7 @@ Sites can be within a single Azure region or an on-premises location. If colloca
     :::image type="content" source="media/create-site-add-nfvis.png" alt-text="Screenshot showing the Add the NFVIs table to enter the name, type and custom location of the NFVIs." lightbox="media/create-site-add-nfvis.png":::
 
     > [!NOTE]
-    > This example features a single Network Function Virtual Infrastructure (NFVI) named <prefix>_NFVI1.  Use the prefix nginx-nsdg to matches the nsd_name used in the default input.json file. Not the prefix shown in the image.
+    > This example features a single Network Function Virtual Infrastructure (NFVI) named prefix_NFVI1.  Use the prefix nginx-nsdg to matches the nsd_name used in the default input.json file. Not the prefix shown in the image.
     > If you otherwise modified the nsd_name in input.json, adjust the prefix appropriately to match <nsd_name>_NFVI1. Ensure that the NFVI type is set to Azure Core and that the NFVI location matches the location of the prerequisite resources.
 
 1. Select **Review + create**, then select **Create**.
