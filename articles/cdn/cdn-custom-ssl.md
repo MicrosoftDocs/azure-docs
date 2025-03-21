@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.date: 06/21/2024
 ms.custom: mvc
 #Customer intent: As a website owner, I want to enable HTTPS on the custom domain of my CDN endpoint so that my users can use my custom domain to access my content securely.
+ROBOTS: NOINDEX
 ---
 
 # Tutorial: Configure HTTPS on an Azure CDN custom domain

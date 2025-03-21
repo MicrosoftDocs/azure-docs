@@ -1,7 +1,7 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 02/10/2025
+ms.date: 03/19/2025
 ms.service: azure-virtual-wan
 ms.topic: include
 
@@ -28,22 +28,9 @@ ms.topic: include
 1. Authenticate using your credentials, if prompted.
 
 1. Once connected, the icon turns green and shows  **Connected**.
+1. [!INCLUDE [Azure VPN Client system tray](vpn-gateway-vwan-azure-vpn-client-tray.md)]
 
-### <a name="autoconnect"></a>To connect automatically
-
-These steps help you configure your connection to connect automatically with Always-on.
-
-1. On the home page for your VPN client, select **VPN Settings**. If you see the switch apps dialogue box, select **Yes**.
-
-   :::image type="content" source="./media/vpn-gateway-vwan-azure-vpn-client-entra-windows/vpn-settings.png" alt-text="Screenshot of the VPN home page with VPN Settings selected." lightbox="./media/vpn-gateway-vwan-azure-vpn-client-entra-windows/vpn-settings.png":::
-
-1. If the profile that you want to configure is connected, disconnect the connection, then highlight the profile and select the **Connect automatically** check box.
-
-   :::image type="content" source="./media/vpn-gateway-vwan-azure-vpn-client-entra-windows/automatic.png" alt-text="Screenshot of the Settings window, with the Connect automatically box checked." lightbox="./media/vpn-gateway-vwan-azure-vpn-client-entra-windows/automatic.png":::
-
-1. Select **Connect** to initiate the VPN connection.
-
-## <a name="export"></a>Export and distribute a client profile
+### <a name="export"></a>Export and distribute a client profile
 
 Once you have a working profile and need to distribute it to other users, you can export it using the following steps:
 
@@ -53,19 +40,8 @@ Once you have a working profile and need to distribute it to other users, you ca
 
 1. Select the location that you want to save this profile to, leave the file name as is, then select **Save** to save the xml file.
 
-## <a name="delete"></a>Delete a client profile
+### <a name="delete"></a>Delete a client profile
 
 1. Highlight the VPN client profile that you want to export, select the **...**, then select **Remove**.
 
 1. On the confirmation popup, select **Remove** to delete.
-
-## <a name="diagnose"></a>Diagnose connection issues
-
-1. To diagnose connection issues, you can use the **Diagnose** tool. Select the **...** next to the VPN connection that you want to diagnose to reveal the menu. Then select **Diagnose**. 
-1. On the **Connection Properties** page, select **Run Diagnostics**.
-
-   :::image type="content" source="./media/vpn-gateway-vwan-azure-vpn-client-entra-windows/diagnose.png" alt-text="Screenshot of the ellipsis and Diagnose selected." lightbox="./media/vpn-gateway-vwan-azure-vpn-client-entra-windows/diagnose.png":::
-
-1. If asked, sign in with your credentials.
-
-1. View the results.
