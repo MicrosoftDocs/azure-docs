@@ -58,7 +58,7 @@ The new users need to follow steps given below:
 1.  In **Step 1: Provide credentials for discovery source**, select on **Add credentials** to  provide credentials for the discovery source that the appliance uses to discover servers running in your environment.
 1. In **Step 2: Provide discovery source details**, select on **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the discovery source.
 
-    :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panel 3 on appliance configuration manager for vCenter Server details.":::
+    :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="The screenshot shows panel 3 on appliance configuration manager for vCenter Server details.":::
 
 1. In **Step 3: Provide server credentials to perform software inventory and agentless dependency analysis**, select **Add credentials** to provide multiple server credentials to perform guest-based discovery like software inventory, agentless dependency analysis and discovery of databases, and web applications.
 
@@ -77,7 +77,7 @@ You can start by selecting the count of workloads on **Overview** of your projec
 
 While the default view shows databases and web applications on expanding a server in a hierarchical list, you can also choose to see a flat list of all workloads by switching to that view from the action on top right of the page. 
 
-:::image type="content" source="./media/how-to-review-discovered-inventory/switch-to-flat-list.png" alt-text="Switch to flat list view.":::
+:::image type="content" source="./media/how-to-review-discovered-inventory/switch-to-flat-list.png" alt-text="The screenshot illustrates how to switch to flat list view.":::
 
 You can navigate across pages to review the entire inventory from a single view or choose to go to separate views for **Infrastruture, Databases and Web apps** inventory from the menu on the left.
 
@@ -92,7 +92,7 @@ Category | Category of the inventoried asset across Server, Database, and Web ap
 Type | Type of workload <br/> *For instance a Server can be Windows server/Linux server, a Database can be SQL Server, and Web app can be .NET/IIS*
 Edition | Edition of the Server, Database, or Web app
 Version | Version of the Server, Database, or Web app
-Dependencies | Netowork dependencies of the server <br/> *Dependency analysis is auto-enabled on upto 1000 servers per appliance if the validation checks succeed.
+Dependencies | Network dependencies of the server <br/> *Dependency analysis is auto-enabled on upto 1000 servers per appliance if the validation checks succeed.
 Support Status | Support status for the Servers, Databases to indicate if they're in Mainstream support, End of Support, or in Extended support. [Learn more](vmware/tutorial-discover-vmware.md#view-support-status).|
 Discovery source | Source of discovery of the workload between Appliance and Import
 Tags | Tags applied to the workload. <br/> Currently, Azure Migrate supports custom tags. 
@@ -101,7 +101,7 @@ Tags | Tags applied to the workload. <br/> Currently, Azure Migrate supports cus
 
 You can choose to view more attributes that are gathered by Azure Migrate as part of the discovery by selecting **Columns** from the command bar on top and choosing the additional attributes that you're interested to review. 
 
-:::image type="content" source="./media/how-to-review-discovered-inventory/optional-columns-list.png" alt-text="Select optional columns":::
+:::image type="content" source="./media/how-to-review-discovered-inventory/optional-columns-list.png" alt-text="The screenshot illustrates with optional columns":::
 
  > [!Note]
  > The exhaustive list of attributes discovered by Azure Migrate are covered in the [details of exported inventory data](#export-all-inventory-data)
@@ -128,7 +128,7 @@ You can scope the list in All inventory view by searching for name of the worklo
 
 By default, searching for a workload also shows the associated workloads so that you select across all searched and associated work items and perform actions as needed. You can choose to disable the slider on top of the view if you only want to see the searched workloads and not the associated ones. 
 
-:::image type="content" source="./media/how-to-review-discovered-inventory/show-associated-workloads.png" alt-text="Option to disable the show associated workloads option":::
+:::image type="content" source="./media/how-to-review-discovered-inventory/show-associated-workloads.png" alt-text="The screenshot shows the option to disable the show associated workloads option":::
 
 ### User actions on All inventory
 
@@ -159,9 +159,9 @@ Category | Category of the inventoried asset across Server, Database, and Web ap
 Type | Type of workload.<br/> For instance a Server can be Windows server/Linux server, a Database can be SQL Server, and Web app can be .NET/IIS
 Edition | Edition of the Server, Database, or Web app
 Version | Version of the Server, Database, or Web app
-Dependencies | Netowork dependencies of the server <br/> Shows status of the dependency analysis whether Enabled, Disabled, Failed validation, etc.
+Dependencies | Network dependencies of the server <br/> Shows status of the dependency analysis whether Enabled, Disabled, Failed validation, etc.
 Support Status | Support status for the Servers, Databases to indicate if they are in Mainstream support, End of Support, or in Extended support.
-Discovery source | Source of dicsovery of the workload between Appliance and Import
+Discovery source | Source of discovery of the workload between Appliance and Import
 Tags | Tags applied to the workload. <br/> Currently, Azure Migrate supports custom tags. 
 Cores | Number of processor cores allocated to the server
 Memory (MBs) | Total RAM, in MB, allocated to the server
@@ -182,7 +182,7 @@ HADR configuration |
 
 You can select **Infrastructure inventory** under **Explore inventory** from the menu on the left to see the list of infrastructure workloads, discovered from your environment either by using [Azure Migrate appliance](migrate-appliance.md) or using CSV import.
 
-**Infrastruture Inventory** view helps you review all the servers discovered from your datacentre including VMware VMs/Hyper-V VMs/Physical servers/servers running in other public clouds.
+**Infrastructure Inventory** view helps you review all the servers discovered from your datacentre including VMware VMs/Hyper-V VMs/Physical servers/servers running in other public clouds.
 
 ### Default columns
 
@@ -193,7 +193,7 @@ The default view shows the inventoried servers, along with a set of attributes a
 Server | Name of the Server
 Operating system | Name of the Server Operating system
 IPv6/IPv4 | IP address of the server
-Dependencies | Netowork dependencies of the server <br/> *Dependency analysis is auto-enabled on upto 1000 servers per appliance if the validation checks succeed. [Learn more]()*
+Dependencies | Network dependencies of the server <br/> *Dependency analysis is auto-enabled on upto 1000 servers per appliance if the validation checks succeed. [Learn more]()*
 DB instances | No fo DB instances found running on the server
 Web app | No of web apps found running on the server
 Issues | No of discovery issues reported on the server
@@ -250,7 +250,7 @@ Web app | No of web apps found running on the server
 Issues | No of discovery issues reported on the server
 Support Status | Support status for the Servers, Databases to indicate if they are in Mainstream support, End of Support, or in Extended support.
 Tags | Tags applied to the server
-Source | Source of dicsovery of the server. For instance FQDN of vCenter server or Hyper-V host
+Source | Source of discovery of the server. For instance FQDN of vCenter server or Hyper-V host
 Memory (MBs) | Total RAM, in MB, allocated to the server
 Disks | Number of disks allocated to the server
 Cores | Number of processor cores allocated to the server
