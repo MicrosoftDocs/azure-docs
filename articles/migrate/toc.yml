@@ -26,6 +26,10 @@ items:
     href: /security/benchmark/azure/baselines/azure-migrate-security-baseline
   - name: Support Matrix
     href: migrate-support-matrix.md
+- name: Discover inventory
+  items:
+    - name: Appliance requirements
+      href: migrate-appliance.md
 - name: Explore inventory
   items:
     - name: Azure Migrate project
@@ -63,8 +67,6 @@ items:
             href: how-to-discover-applications.md
           - name: Appliance diagnostics
             href: troubleshoot-appliance-diagnostic.md
-    - name: Discovery and data collection
-      href: migrate-appliance.md
     - name: Discovered metadata
       href: discovered-metadata.md
     - name: Tags 
