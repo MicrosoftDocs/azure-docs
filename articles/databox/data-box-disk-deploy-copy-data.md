@@ -8,7 +8,6 @@ ms.service: azure-data-box-disk
 ms.topic: tutorial
 ms.date: 03/26/2024
 ms.author: shaas
-zone_pivot_groups: data-box-sku
 ---
 
 <!--
@@ -389,11 +388,4 @@ Verify your data by following these steps:
 
 ::: zone-end-->
 
-::: zone pivot="dbx-ng"
-
-::: zone-end
-
-::: zone pivot="dbx"
-
-::: zone-end
 
