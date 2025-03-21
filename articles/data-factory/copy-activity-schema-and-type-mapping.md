@@ -311,8 +311,8 @@ The following properties are supported in copy activity for data type conversion
 | dateFormat                   | Format string when converting between dates and strings, e.g. `yyyy-MM-dd`. Refer to [Custom Date and Time Format Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings) for detailed information. | No       |
 | dateTimeFormat                   | Format string when converting between dates without time zone offset and strings, for example, `yyyy-MM-dd HH:mm:ss.fff`.  Refer to [Custom Date and Time Format Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings) for detailed information. | No       |
 | dateTimeOffsetFormat             | Format string when converting between dates with time zone offset and strings, for example, `yyyy-MM-dd HH:mm:ss.fff zzz`.  Refer to [Custom Date and Time Format Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings) for detailed information. | No       |
-| timeFormat                   | Format string when converting between time and strings, e.g. `HH:mm:ss.fff`. Refer to [Custom TimeSpan Format Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings) for detailed information. | No       |
 | timeSpanFormat                   | Format string when converting between time periods and strings, for example, `dd\.hh\:mm`. Refer to [Custom TimeSpan Format Strings](/dotnet/standard/base-types/custom-timespan-format-strings) for detailed information. | No       |
+| timeFormat                   | Format string when converting between time and strings, e.g. `HH:mm:ss.fff`. Refer to [Custom Date and Time Format Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings) for detailed information. | No       |
 | culture                          | Culture information to be used when convert types, for example, `en-us` or `fr-fr`. | No       |
 
 **Example:**
