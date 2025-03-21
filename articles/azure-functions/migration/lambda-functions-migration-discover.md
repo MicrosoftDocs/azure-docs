@@ -15,47 +15,46 @@ In this stage, you conduct a detailed discovery process to evaluate existing AWS
 
 ## Evaluate your current workload
 
-Compile a comprehensive inventory of your AWS Lambda functions by using familiar AWS tooling like service-specific SDKs, APIs, and CloudTrail to assess the workloads on AWS. You should understand the following key aspects of your inventory:
+Compile a comprehensive inventory of your AWS Lambda functions by using familiar AWS tooling like service-specific SDKs, APIs, and CloudTrail to assess the workloads on AWS. You should understand the following key aspects of your inventory.
 
-- Use cases
+### Use cases
 
-   - Identify the primary business or technical purposes that each Lambda function serves.
+- Identify the primary business or technical purposes that each Lambda function serves.
 
-   - Categorize functions based on their use cases, such as event-driven workflows, data processing, real-time analytics, or API back ends.
+- Categorize functions based on their use cases, such as event-driven workflows, data processing, real-time analytics, or API back ends.
 
- - Configuration
+### Configuration
 
-    - Document configuration settings for each function, including memory allocation, time-out settings, and environment variables.
+- Document configuration settings for each function, including memory allocation, time-out settings, and environment variables.
 
-    - Note versioning details, aliases, and any deployment-specific configurations, such as language runtime and architectures like x86 or ARM. 
+- Note versioning details, aliases, and any deployment-specific configurations, such as language runtime and architectures like x86 or ARM. 
 
-- Security and networking setup
+### Security and networking setup
 
-   - Assess the identity and access management roles and policies associated with each function to ensure proper access control.
+- Assess the identity and access management roles and policies associated with each function to ensure proper access control.
 
-   - Identify virtual private cloud configurations, including subnets, security groups, and NAT gateway dependencies, if applicable.
+- Identify virtual private cloud configurations, including subnets, security groups, and NAT gateway dependencies, if applicable.
 
-- Tooling
+### Tooling
+- List the continuous integration and continuous delivery tools and deployment frameworks that each function uses, such as AWS SAM, Serverless Framework, or custom pipelines.
 
-   - List the continuous integration and continuous delivery tools and deployment frameworks that each function uses, such as AWS SAM, Serverless Framework, or custom pipelines.
+- Document build and packaging tools, including testing frameworks and staging workflows.
 
-   - Document build and packaging tools, including testing frameworks and staging workflows.
+### Monitoring, logging, and observability mechanisms
 
-- Monitoring, logging, and observability mechanisms
+- Evaluate the current monitoring and logging mechanisms, such as Amazon CloudWatch, AWS X-Ray, or partner tools.
 
-   - Evaluate the current monitoring and logging mechanisms, such as Amazon CloudWatch, AWS X-Ray, or partner tools.
+- Identify log retention policies and patterns for troubleshooting.
 
-   - Identify log retention policies and patterns for troubleshooting.
+- Document tracked metrics and alerts, such as error rates, invocation counts, and duration trends.
 
-   - Document tracked metrics and alerts, such as error rates, invocation counts, and duration trends.
+### Dependencies
 
-- Dependencies
+- Determine which AWS services, like DynamoDB, S3, or API Gateway, and partner tools that your Lambda functions rely on. Document their configurations, interactions, and dataflows.
 
-   - Determine which AWS services, like DynamoDB, S3, or API Gateway, and partner tools that your Lambda functions rely on. Document their configurations, interactions, and dataflows.
+- Map interdependencies, such as shared resources or invocation chains, between Lambda functions, and evaluate potential bottlenecks or latency problems.
 
-   - Map interdependencies, such as shared resources or invocation chains, between Lambda functions, and evaluate potential bottlenecks or latency problems.
-
-   - Assess service limits, operational considerations, and monitoring tools like CloudWatch and X-Ray. Ensure that you understand how these dependencies affect the workload.
+- Assess service limits, operational considerations, and monitoring tools like CloudWatch and X-Ray. Ensure that you understand how these dependencies affect the workload.
 
 By the end of this stage, you should have a comprehensive inventory of your AWS Lambda functions, including their:
 
