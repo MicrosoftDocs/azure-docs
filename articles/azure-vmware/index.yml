@@ -223,6 +223,8 @@ additionalContent:
               url: using-run-command.md
             - text: Configure VMware Syslogs
               url: configure-vmware-syslogs.md
+            - text: Send syslogs to log management solutions via Azure Logic Apps
+              url: logs-via-logic-app.md
             - text: Configure Alerts
               url: configure-alerts-for-azure-vmware-solution.md
             - text: Arc-enabled Azure VMware Solution
