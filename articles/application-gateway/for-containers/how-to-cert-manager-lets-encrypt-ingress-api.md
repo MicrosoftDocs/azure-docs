@@ -15,7 +15,7 @@ This guide demonstrates how to use cert-manager to automatically issue and renew
 
 For the purposes of this example, we have cert-manager configure certificates issued from Let's Encrypt to demonstrate an end-to-end deployment, where Application Gateway for Containers is providing TLS offloading.
 
-Insert PICTURE HERE
+![A figure showing cert-manager retrieving a certificate from Let's Encrypt and storing it into Kubernetes' secret store for TLS with Application Gateway for Containers.](./media/how-to-cert-manager-lets-encrypt-ingress-api/how-to-cert-manager-lets-encrypt-ingress-api.svg)
 
 For certificates to be issued by Let's Encrypt, a challenge is required by the authority to validate domain ownership. This validation happens by allowing cert-manager to create a pod and Ingress resource that exposes an endpoint during certificate issuance, proving your ownership of the domain name.
 
