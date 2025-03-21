@@ -252,18 +252,18 @@ To use deployment pane:
 1. Open a `.bicep` or `.bicepparam` file in VS Code.
 1. Select the show deployment pane button on the upper right corner as shown in the following screenshot:  
 
-  :::image type="content" source="./media/visual-studio-code/visual-studio-code-open-deployment-pane.png" alt-text="Sceenshot of the open deployment pane button.":::
-
-  By default, VS Code opens the deployment pane on the side. To open it in a new tab, hold <kbd>Alt</kbd> while selecting the button.
-
-  Another way to open the deployment pane is through the command palette. Press <kbd>Ctrl</kdb>+<kbd>Shift</kbd>+<kbd>P</kbd>), then select either **Show Deployment Pane** or **Show Deployment Pane to the Side**.
-
-  :::image type="content" source="./media/visual-studio-code/visual-studio-code-show-deployment-pane.png" alt-text="Sceenshot of show deployment pane in command palette.":::
-
-  The following screenshot shows a successful deployment with the Bicep file validation results.
-
-  :::image type="content" source="./media/visual-studio-code/visual-studio-code-show-deployment-pane.png" alt-text="Sceenshot of show deployment pane in command palette.":::
-
+    :::image type="content" source="./media/visual-studio-code/visual-studio-code-open-deployment-pane.png" alt-text="Sceenshot of the open deployment pane button.":::
+  
+    By default, VS Code opens the deployment pane on the side. To open it in a new tab, hold <kbd>Alt</kbd> while selecting the button.
+  
+    Another way to open the deployment pane is through the command palette. Press <kbd>Ctrl</kdb>+<kbd>Shift</kbd>+<kbd>P</kbd>, then select either **Show Deployment Pane** or **Show Deployment Pane to the Side**.
+  
+    :::image type="content" source="./media/visual-studio-code/visual-studio-code-show-deployment-pane.png" alt-text="Sceenshot of show deployment pane in command palette.":::
+  
+    The following screenshot shows a successful deployment with the Bicep file validation results.
+  
+    :::image type="content" source="./media/visual-studio-code/visual-studio-code-deployment-pane.png" alt-text="Sceenshot of show deployment pane in command palette.":::
+  
 1. Select **Change Scope** to define the deployment scope. After authentication, you're able to select the subscription and the resource group of your desired deployment.
 1. Select **Pick JSON Parameters File** to select a JSON parameter file.  
 1. Select your desired action - **Deploy**, **Validate**, or **What-if**.  
