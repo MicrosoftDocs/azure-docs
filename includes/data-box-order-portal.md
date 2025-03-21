@@ -27,7 +27,7 @@ To order and device, perform the following steps in the Azure portal:
     |Subscription     | Select an Enterprise Agreement (EA), Cloud Solution Provider (CSP), or Azure sponsorship subscription for Data Box service. <br> The subscription is linked to your billing account.       |
     |Resource group | Select an existing resource group. A resource group is a logical container for the resources that can be managed or deployed together. |
     |Source country/region    |    Select the country/region where your data currently resides.         |
-    |Destination Azure region     |     Select the Azure region where you want to transfer data. <br> For more information, see [region availability for Data Box](../articles/databox/data-box-overview.md#region-availability) or [region availability for Data Box Heavy](../articles/databox/data-box-heavy-overview.md#region-availability).<br> If the selected source and destination regions cross international country/region borders, check [Cross region transfer options](../../includes/data-box-cross-region.md) |
+    |Destination Azure region     |     Select the Azure region where you want to transfer data. <br> For more information, see [region availability for Data Box](../articles/databox/data-box-overview.md#region-availability) or [region availability for Data Box Heavy](../articles/databox/data-box-heavy-overview.md#region-availability).<br> If the selected source and destination regions cross international country/region borders, check [Cross region transfer options](/azure/databox/data-box-overview?pivots=dbx-ng#cross-region-data-transfer-for-data-box-devices) |
 
     :::image type="content" source="media/data-box-order-portal/data-box-import-03.png" alt-text="Screenshot of options to select the Transfer Type, Subscription, Resource Group, and source and destination to start a Data Box order in the Azure portal.":::
    
@@ -42,7 +42,7 @@ To order and device, perform the following steps in the Azure portal:
 
     - Your selected source and destination regions cross international country/region boundaries.
 
-      To transfer your data across country/region borders, check [Cross region transfer options](../../includes/data-box-cross-region.md)
+      To transfer your data across country/region borders, check [Cross region transfer options](/azure/databox/data-box-overview?pivots=dbx-ng#cross-region-data-transfer-for-data-box-devices). 
 
     - Your Azure subscription doesn't support the Data Box product. In some cases, your subscription might not support a Data Box product in a specific country/region.
     
@@ -59,10 +59,6 @@ To order and device, perform the following steps in the Azure portal:
 
     
     You can't select either Data Box 120 or Data Box 525 if:
-
-    - Your selected source and destination regions cross international country/region boundaries.
-
-      To transfer your data across country/region borders, check [Cross region transfer options](../../includes/data-box-cross-region.md).
 
     - Your Azure subscription doesn't support the Data Box product. In some cases, your subscription might not support a Data Box product in a specific country/region.
     
@@ -139,8 +135,6 @@ To order and device, perform the following steps in the Azure portal:
     If you don't want to use a customer-managed key, skip to Step 15.
 
     :::image type="content" source="media/data-box-order-portal/customer-managed-key-01.png" alt-text="Screenshot of Security tab in the Data Box Order wizard. Encryption Type settings are expanded and highlighted.":::
-<details>
-    <summary>Expand this section and follow steps 10 to 14 to use your own customer managed key to protect the unlock passkey for your new resource</summary>
     
 10. If you want to use your own customer-managed key to protect the unlock passkey for your new resource, expand **Encryption type**.
 
@@ -208,14 +202,10 @@ To order and device, perform the following steps in the Azure portal:
 
     > [!IMPORTANT]
     > If you use a customer-managed key, you must enable the `Get`, `UnwrapKey`, and `WrapKey` permissions on the key. Without these permissions, order creation will fail. They're also needed during data copy. To set the permissions in Azure CLI, see [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy).
-</details>
 
 15. The system-generated passwords are secure, and are recommended unless your organization requires otherwise.
 
     :::image type="content" source="media/data-box-order-portal/bring-your-own-password-01.png" alt-text="Screenshot of expanded 'Bring your own password' on the Security tab for a Data Box order. Security tab and password options are highlighted.":::
-
-<details>
-    <summary>Expand this section and follow the steps if you want to use your own passwords for the device and shares</summary>
 
 If you don't want to use the system-generated passwords that Azure Data Box uses by default, expand **Bring your own password** on the **Security** screen.
     
@@ -248,7 +238,6 @@ If you don't want to use the system-generated passwords that Azure Data Box uses
        :::image type="content" source="media/data-box-order-portal/bring-your-own-password-04.png" alt-text="Screenshot of Set Share Passwords screen for a Data Box order. The Copy To All link and the Save button are highlighted."::: 
 
     On the **Security** screen, you can use **View or change passwords** to change the passwords.
-</details>
 
 16. In **Security**, if you want to enable software-based double encryption, expand **Double-encryption (for highly secure environments)**, and select **Enable double encryption for the order**.
 
