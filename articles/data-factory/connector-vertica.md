@@ -29,11 +29,11 @@ For a list of data stores that are supported as sources/sinks by the copy activi
 
 The service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
 
-For version 2.0 (Preview), you need to [install a Vertica ODBC driver](#install-vertica-odbc-driver-for-the-version-20-preview) manually. For version 1.0, the service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver. 
+For version 2.0, you need to [install a Vertica ODBC driver](#install-vertica-odbc-driver-for-the-version-20) manually. For version 1.0, the service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver. 
 
 ## Prerequisites
 
-If your data store is located inside an on-premises network, an Azure virtual network, or Amazon Virtual Private Cloud, you need to configure a [self-hosted integration runtime](create-self-hosted-integration-runtime.md) to connect to it. If you use the version 2.0 (Preview), your self-hosted integration runtime version should be 5.44.8984.1 or above.
+If your data store is located inside an on-premises network, an Azure virtual network, or Amazon Virtual Private Cloud, you need to configure a [self-hosted integration runtime](create-self-hosted-integration-runtime.md) to connect to it. If you use the version 2.0, your self-hosted integration runtime version should be 5.44.8984.1 or above.
 
 For more information about the network security mechanisms and options supported by Data Factory, see [Data access strategies](data-access-strategies.md).
 
@@ -44,9 +44,9 @@ If your data store is a managed cloud data service, you can use the Azure Integr
  You can also use the [managed virtual network integration runtime](tutorial-managed-virtual-network-on-premise-sql-server.md) feature in Azure Data Factory to access the on-premises network without installing and configuring a self-hosted integration runtime.
 
 
-### Install Vertica ODBC driver for the version 2.0 (Preview)
+### Install Vertica ODBC driver for the version 2.0
 
-To use Vertica connector with version 2.0 (Preview), install the Vertica ODBC driver on the machine running the self-hosted Integration runtime by following these steps:
+To use Vertica connector with version 2.0, install the Vertica ODBC driver on the machine running the self-hosted Integration runtime by following these steps:
 
 1. Download the Vertica client setup for ODBC driver from [Client Drivers | OpenText™ Vertica™](https://www.vertica.com/download/vertica/client-drivers/). Take Windows system setup as an example:
 
@@ -97,7 +97,7 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-If you use version 2.0 (Preview), the following properties are supported for Vertica linked service:
+If you use version 2.0, the following properties are supported for Vertica linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -107,7 +107,7 @@ If you use version 2.0 (Preview), the following properties are supported for Ver
 | database | Name of the Vertica database. | Yes |
 | uid | The user ID that is used to connect to the database.  | Yes |
 | pwd | The password that the application uses to connect to the database. | Yes |
-| version | The version when you select version 2.0 (Preview). The value is `2.0`. | Yes |
+| version | The version when you select version 2.0. The value is `2.0`. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. You can only use the self-hosted integration runtime and its version should be 5.44.8984.1 or above. |No |
 
 **Example:**
@@ -274,18 +274,18 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 Here are steps that help you upgrade your Vertica version: 
 
-1. Install a Vertica ODBC driver by following the steps in [Prerequisites](#install-vertica-odbc-driver-for-the-version-20-preview). 
-1. In **Edit linked service page**, select version 2.0 (Preview) and configure the linked service by referring to [Linked service properties](#linked-service-properties). 
-1. Apply a self-hosted integration runtime with version 5.44.8984.1 or above. Azure integration runtime is not supported by version 2.0 (Preview). 
+1. Install a Vertica ODBC driver by following the steps in [Prerequisites](#install-vertica-odbc-driver-for-the-version-20). 
+1. In **Edit linked service page**, select version 2.0 and configure the linked service by referring to [Linked service properties](#linked-service-properties). 
+1. Apply a self-hosted integration runtime with version 5.44.8984.1 or above. Azure integration runtime is not supported by version 2.0. 
 
-## Differences between Vertica version 2.0 (Preview) and version 1.0 
+## Differences between Vertica version 2.0 and version 1.0 
 
-The Vertica connector version 2.0 (Preview) offers new functionalities and is compatible with most features of version 1.0. The table below shows the feature differences between version 2.0 (Preview) and version 1.0. 
+The Vertica connector version 2.0 offers new functionalities and is compatible with most features of version 1.0. The table below shows the feature differences between version 2.0 and version 1.0. 
 
-| Version 2.0 (Preview) | Version 1.0 |
+| Version 2.0 | Version 1.0 |
 | --- | --- |
 | Azure integration runtime is not supported. You can only use the self-hosted integration runtime and its version should be 5.44.8984.1 or above.| Support both Azure Integration Runtime and self-hosted integration runtime.|
-| You need to [install a Vertica ODBC driver](#install-vertica-odbc-driver-for-the-version-20-preview) manually. | The service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver. |
+| You need to [install a Vertica ODBC driver](#install-vertica-odbc-driver-for-the-version-20) manually. | The service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver. |
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
