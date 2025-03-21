@@ -81,6 +81,7 @@ For callers to see the new version, it must be added to a *product*. If you didn
 
 To add the version to a product:
 
+1. In the Azure portal, navigate to your API Management instance.
 1. Under **APIs** in the left pane, select **Products**. 
 1. Select the product, and then select **APIs** in the left pane. 
 1. Select **+ Add**. 
