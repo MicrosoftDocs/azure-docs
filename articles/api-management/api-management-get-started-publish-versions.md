@@ -87,7 +87,7 @@ To add the version to a product:
 1. Select the API.
 1. Click **Select**. 
 
-:::image type="content" source="media/api-management-get-started-publish-versions/08-add-multiple-versions-03-add-version-product.png" alt-text="Screenshot that shows the APIs - Procuct window." lightbox="media/api-management-get-started-publish-versions/08-add-multiple-versions-03-add-version-product.png":::
+:::image type="content" source="media/api-management-get-started-publish-versions/08-add-multiple-versions-03-add-version-product.png" alt-text="Screenshot that shows the APIs - Product window." lightbox="media/api-management-get-started-publish-versions/08-add-multiple-versions-03-add-version-product.png":::
 
 ## Use version sets
 
@@ -110,7 +110,7 @@ To see details about a version set, run the [az apim api versionset show](/cli/a
 
 ```azurecli
 az apim api versionset show --resource-group <resource-group-name> \
-    --service-name <API-Management-service-name> --version-set-id <ID>
+    --service-name <API-Management-service-name> --version-set-id <ID from the Name column>
 ```
 
 For more information about version sets, see [Versions in Azure API Management](api-management-versions.md#how-versions-are-represented).
@@ -119,7 +119,7 @@ For more information about version sets, see [Versions in Azure API Management](
 
 If you use the [developer portal](api-management-howto-developer-portal-customize.md), you can see API versions there.
 
-1. Select **Developer Portal** from the menu at the top of the window.
+1. Select **Developer portal** at the top of the window.
 2. Select **APIs**, and then select **Swagger Petstore**.
 3. You should see a dropdown that lists multiple versions next to the API name.
 4. Select **v1**.
