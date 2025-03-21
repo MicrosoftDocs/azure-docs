@@ -8,11 +8,6 @@
     href: relationships-overview.md
   - name: What are Azure Management Groups?
     href: management-groups-overview.md
-- name: Quickstarts
-  expanded: false
-  items:
-  - name: Create a service group
-    href: service-groups-quickstart.md
 - name: Concepts
   items:
   - name: Grouping capability
