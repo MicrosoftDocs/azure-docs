@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot issues during data copies to your Azure Data Box, Data Box Next-Gen, and Azure Data Box Heavy devices
-description: Describes how to troubleshoot issues when copying data to Azure Data Box, Data Box Next-Gen, and Azure Data Box Heavy devices.
+title: Troubleshoot issues during data copies to your Azure Data Box, Data Box Next-gen, and Azure Data Box Heavy devices
+description: Describes how to troubleshoot issues when copying data to Azure Data Box, Data Box Next-gen, and Azure Data Box Heavy devices.
 services: databox
 author: stevenmatthew
 
@@ -10,7 +10,7 @@ ms.date: 03/22/2022
 ms.author: shaas
 ---
 
-# Troubleshoot data copy issues on Azure Data Box, Data Box Next-Gen, and Azure Data Box Heavy
+# Troubleshoot data copy issues on Azure Data Box, Data Box Next-gen, and Azure Data Box Heavy
 
 This article describes how to troubleshoot issues when performing data copies or data uploads for an Azure Data Box, Azure Data Box Next-Gen or Azure Data Box Heavy import order. The article includes the list of possible errors seen when data is copied to the Data Box or uploaded from Data Box.
 
