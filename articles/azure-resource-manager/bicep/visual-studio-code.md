@@ -250,7 +250,7 @@ The Deployment Pane is a UI panel that lets you connect to your Azure subscripti
 To use deployment pane:
 
 1. Open a `.bicep` or `.bicepparam` file in VS Code.
-1. There are two ways to open the deployment pane
+1. There are two ways to open the deployment pane:
 
     - Select the show deployment pane button on the upper right corner as shown in the following screenshot:  
 
@@ -258,7 +258,7 @@ To use deployment pane:
   
         By default, VS Code opens the deployment pane on the side. To open it in a new tab, hold <kbd>Alt</kbd> while selecting the button.
   
-    - Another way to open the deployment pane is through the command palette. Press <kbd>Ctrl</kdb>+<kbd>Shift</kbd>+<kbd>P</kbd>, then select either **Show Deployment Pane** or **Show Deployment Pane to the Side**.
+    - Another way to open the deployment pane is through the command palette. Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>, then select either **Show Deployment Pane** or **Show Deployment Pane to the Side**.
   
         :::image type="content" source="./media/visual-studio-code/visual-studio-code-show-deployment-pane.png" alt-text="Sceenshot of show deployment pane in command palette.":::
   
@@ -271,7 +271,7 @@ To use deployment pane:
 1. Select your desired action - **Deploy**, **Validate**, or **What-if**.  
 
     - **Deploy**: deploys to Azure, and the result including the defined output are shown in the deployment pane.
-    - **Validate**: performs a live validation of the Bicep file against Azure, ensuring that the resources, parameters, and policies are correct in the actual deployment environment. Unlike a linter, which only checks for syntax errors, this validation interacts with Azure to detect potential deployment issues. It is equivalent to the validate command in Azure CLI and the Test command in Azure PowerShell. For example:
+    - **Validate**: performs a runtime validation of the Bicep file against Azure, ensuring that the resources, parameters, and policies are correct in the actual deployment environment. Unlike a [linter](./linter.md), which only checks for syntax errors, this validation interacts with Azure to detect potential deployment issues. It's equivalent to the validate command in Azure CLI and the Test command in Azure PowerShell. For example:
   
         # [Azure CLI](#tab/azure-cli)
         
