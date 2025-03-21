@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Azure Cache for Redis Documentation
-summary: Learn how to use the open-source Redis, our Azure Cache for Redis offering. Either of our Redis services can be used as a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications. These tutorials, API references, and other documentation show you how to use Redis from any application on Azure. For information about Azure Managed Redis, see the links on this page.
+summary: Learn how to use the open-source Redis, our Azure Cache for Redis offering. Either of our Redis services can be used as a secure data cache or  messaging broker to provide high throughput and low-latency access to data for applications. These tutorials, API references, and other documentation show you how to use Redis from any application on Azure. For information about Azure Managed Redis, see the links on this page.
 metadata:
   title: Azure Cache for Redis Documentation
   description: Learn how to use Azure Cache for Redis, a secure data cache and messaging broker that give applications fast access to data. Tutorials, API references, and more.
