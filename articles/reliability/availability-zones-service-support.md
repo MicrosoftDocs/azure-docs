@@ -327,7 +327,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 
 ## Next steps
 
-- [Azure regions with availability zones](availability-zones-region-support.md)
+- [List of Azure regions](regions-list.md)
 
 - [Availability zone migration guidance overview](availability-zones-migration-overview.md)
 

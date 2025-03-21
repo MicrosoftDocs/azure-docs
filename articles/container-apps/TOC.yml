@@ -70,6 +70,8 @@
       href: planned-maintenance.md
     - name: Build and deliver apps with Container Apps (video)
       href: https://youtu.be/OxmVds31qL8
+    - name: Reduce cold-start times
+      href: cold-start.md
 - name: Develop & deploy
   items:
     - name: Deployment options

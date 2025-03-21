@@ -10,6 +10,7 @@ ms.service: azure-cdn
 ms.topic: overview
 ms.date: 03/20/2024
 ms.custom: mvc
+ROBOTS: NOINDEX
 ---
 
 # What is a content delivery network on Azure?

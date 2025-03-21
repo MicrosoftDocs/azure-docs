@@ -22,7 +22,7 @@ This article describes four scenarios for migrating an API Management instance t
 
 ## Prerequisites
 
-* To configure availability zones for API Management, your instance must be in one of the [Azure regions that support availability zones](availability-zones-region-support.md).
+* To configure availability zones for API Management, your instance must be in one of the [Azure regions that support availability zones](regions-list.md).
 
 * If you don't have an API Management instance, create one by following the [Create a new Azure API Management instance by using the Azure portal](../api-management/get-started-create-service-instance.md) quickstart. Select the Premium service tier.
 
@@ -135,4 +135,4 @@ To add a new location to your API Management instance and enable availability zo
 * [Deploy an Azure API Management instance to multiple Azure regions](../api-management/api-management-howto-deploy-multi-region.md)
 * [Design review checklist for reliability](/azure/architecture/framework/resiliency/app-design)
 - [Azure services with availability zones](availability-zones-service-support.md)
-- [Azure regions with availability zones](availability-zones-region-support.md)
+- [Azure regions with availability zones](regions-list.md)
