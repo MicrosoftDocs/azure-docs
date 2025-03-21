@@ -27,7 +27,7 @@ To order and device, perform the following steps in the Azure portal:
     |Subscription     | Select an Enterprise Agreement (EA), Cloud Solution Provider (CSP), or Azure sponsorship subscription for Data Box service. <br> The subscription is linked to your billing account.       |
     |Resource group | Select an existing resource group. A resource group is a logical container for the resources that can be managed or deployed together. |
     |Source country/region    |    Select the country/region where your data currently resides.         |
-    |Destination Azure region     |     Select the Azure region where you want to transfer data. <br> For more information, see [region availability for Data Box](../articles/databox/data-box-overview.md#region-availability) or [region availability for Data Box Heavy](../articles/databox/data-box-heavy-overview.md#region-availability).<br> If the selected source and destination regions cross international country/region borders, check [Cross region transfer options](/azure/databox/data-box-overview?pivots=dbx-ng#cross-region-data-transfer-for-data-box-devices) |
+    |Destination Azure region     |     Select the Azure region where you want to transfer data. <br> For more information, see [region availability for Data Box and Data Box Next Gen](../articles/databox/data-box-overview.md#region-availability) or [region availability for Data Box Heavy](../articles/databox/data-box-heavy-overview.md#region-availability).<br> If the selected source and destination regions cross international country/region borders, check [Cross region transfer options](/azure/databox/data-box-overview?pivots=dbx-ng#cross-region-data-transfer-for-data-box-devices) |
 
     :::image type="content" source="media/data-box-order-portal/data-box-import-03.png" alt-text="Screenshot of options to select the Transfer Type, Subscription, Resource Group, and source and destination to start a Data Box order in the Azure portal.":::
    
@@ -62,7 +62,7 @@ To order and device, perform the following steps in the Azure portal:
 
     - Your Azure subscription doesn't support the Data Box product. In some cases, your subscription might not support a Data Box product in a specific country/region.
     
-    :::image type="content" source="media/data-box-order-portal/data-box-import-04.png" alt-text="Screenshot showing the screen for selecting an Azure Data Box product. The Select button for Data Box is highlighted." lightbox="media/data-box-order-portal/data-box-import-04-lrg.png":::
+    :::image type="content" source="media/data-box-order-portal/DBX-NG-Order-Portal-sku-selection-image.png" alt-text="Screenshot showing the screen for selecting an Azure Data Box product. The Select button for Data Box is highlighted." lightbox="media/data-box-order-portal/data-box-import-04-lrg.png":::
 
 :::zone-end
 
@@ -269,6 +269,24 @@ If you don't want to use the system-generated passwords that Azure Data Box uses
     :::image type="content" source="media/data-box-order-portal/contact-details-03.png" alt-text="Screenshot showing the Email section of the Contact Details tab for a Data Box order. The area for typing email addresses and the Review Plus Order button are highlighted."::: 
 
     Select **Review + Order** to continue.
+:::zone pivot="dbx-ng"
+21. In **Review + Order**:
+
+    1. Review the information in **Review + Order** related to the order, contact details, notification, and privacy terms. 
+    
+    1. Check the box corresponding to the agreement to privacy terms. When you select the checkbox, the order information is validated.
+
+    1. Once the order is validated, select **Order**.
+
+        :::image type="content" source="media/data-box-order-portal/dbx ng review order page.png" alt-text="Screenshot of the Review Plus Order tab for a Data Box order. The validation status, terms checkbox, and Order button are highlighted.":::
+
+    The order takes a few minutes to be created appears similar to the provided example. You can select **Go to resource** to open the order.
+
+    :::image type="content" source="media/data-box-order-portal/data-box-import-11.png" alt-text="Screenshot of a completed deployment for a Data Box order. The Go To Resource button is highlighted.":::
+    
+:::zone-end
+
+:::zone pivot="dbx"
 
 21. In **Review + Order**:
 
@@ -277,9 +295,11 @@ If you don't want to use the system-generated passwords that Azure Data Box uses
     1. Check the box corresponding to the agreement to privacy terms. When you select the checkbox, the order information is validated.
 
     1. Once the order is validated, select **Order**.
-    
+
         :::image type="content" source="media/data-box-order-portal/data-box-import-10.png" alt-text="Screenshot of the Review Plus Order tab for a Data Box order. The validation status, terms checkbox, and Order button are highlighted.":::
 
     The order takes a few minutes to be created appears similar to the provided example. You can select **Go to resource** to open the order.
 
     :::image type="content" source="media/data-box-order-portal/data-box-import-11.png" alt-text="Screenshot of a completed deployment for a Data Box order. The Go To Resource button is highlighted.":::
+    
+:::zone-end
