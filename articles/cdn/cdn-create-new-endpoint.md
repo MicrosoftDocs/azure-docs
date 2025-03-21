@@ -8,6 +8,7 @@ ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: azure-cdn
 ms.topic: quickstart
 ms.date: 03/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Quickstart: Create an Azure Content Delivery Network profile and endpoint

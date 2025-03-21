@@ -3,7 +3,7 @@ title: Microsoft Sentinel service limits
 description: This article provides a list of service limits for Microsoft Sentinel.
 author: yelevin
 ms.topic: conceptual
-ms.date: 05/21/2024
+ms.date: 03/19/2025
 ms.author: yelevin
 ms.service: microsoft-sentinel
 
@@ -22,8 +22,8 @@ The following limit applies to analytics rules in Microsoft Sentinel.
 
 | Description | Limit  | Dependency |
 | --------- | --------- | --------- |
-| Number of *enabled* rules     | 512 rules       | None |
-| Number of near-real-time (NRT) rules | 50 NRT rules | None |
+| Number of [scheduled rules](scheduled-rules-overview.md) | 512 *enabled* rules | Counted separately from NRT rules |
+| Number of [near-real-time (NRT) rules](near-real-time-rules.md) | 50 *enabled* rules | Counted separately from scheduled rules |
 | [Entity mappings](map-data-fields-to-entities.md) | 10 mappings per rule | None |
 | [Entities](map-data-fields-to-entities.md) identified per alert<br>(Divided equally among the mapped entities) | 500 entities per alert | None |
 | [Entities](map-data-fields-to-entities.md) cumulative size limit | 64 KB | None |
@@ -141,12 +141,12 @@ The following limits apply to watchlists in Microsoft Sentinel. The limits are r
 
 |Description                   | Limit        |Dependency|
 |--|-------------------------|--------------------|
-|Upload size for local file| 3.8 MB per file |Azure Resource Manager
+|Upload size limit for local file| 3.8 MB per file (Watchlists larger than 3.8 MB are considered large) |Azure Resource Manager
 |Line entry in the CSV file |10,240 characters per line|Azure Resource Manager|
 |Total size of a single row | 10 Kb | Log Analytics|
-|Upload size for files in Azure Storage |500 MB per file|Azure Storage|
+|Upload size for large watchlist files in Azure Storage |500 MB per file|Azure Storage|
 |Total number of active watchlist items per workspace. When the max count is reached, delete some existing items to add a new watchlist.|10 million active watchlist items|Log Analytics|
-|Total rate of change of all watchlist items per workspace|1% rate of change per month|Log Analytics|
+|Total rate of change of all watchlist items per workspace (create, update, and delete operations) | 100,000 (1% of max watchlist items) changes per month|Log Analytics|
 |Number of large watchlist uploads per workspace at a time|One large watchlist|Azure Cosmos DB|
 |Number of large watchlist deletions per workspace at a time|One large watchlist|Azure Cosmos DB|
 

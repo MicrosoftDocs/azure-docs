@@ -8,7 +8,7 @@ ms.service: azure-private-link
 ms.custom:
   - ignite-2024
 ms.topic: quickstart
-ms.date: 11/06/2024
+ms.date: 03/17/2025
 #CustomerIntent: As a network administrator, I want to create a network security perimeter for an Azure resource using Azure CLI, so that I can control the network traffic to and from the resource.
 ---
 
@@ -21,17 +21,9 @@ Get started with network security perimeter by creating a network security perim
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-  
-[!INCLUDE [network-security-perimeter-add-preview](../../includes/network-security-perimeter-add-preview.md)]
-
 - The [latest Azure CLI](/cli/azure/install-azure-cli), or you can use Azure Cloud Shell in the portal.
   - This article **requires version 2.38.0 or later** of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 - After upgrading to the latest version of Azure CLI, import the network security perimeter commands using `az extension add --name nsp`.
-
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
-
-
-
 
 ## Connect to your Azure account and select your subscription
 
