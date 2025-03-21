@@ -1,96 +1,57 @@
 ---
-title: TCP Idle Timeout Behavior and Long-Running TCP Sessions in Azure Firewall
-description: TCP Idle Timeout Behavior and there are few scenarios where Azure Firewall can potentially drop long running TCP sessions.
+title: TCP Idle timeout behavior and long-running TCP sessions in Azure Firewall
+description: Understand TCP idle timeout behavior and scenarios where Azure Firewall can drop long-running TCP sessions.
 services: firewall
 author: sujamiya
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 02/14/2025
+ms.date: 03/21/2025
 ms.author: duau
 ---
 
 # TCP idle timeout behavior and long-running TCP sessions in Azure Firewall
 
-This document outlines the TCP idle timeout settings and the behavior of long-running sessions in Azure Firewall. Understanding these concepts is crucial for maintaining network security, optimizing firewall resources, and ensuring uninterrupted connectivity for critical applications.
+This article explains the TCP idle timeout settings and the behavior of long-running sessions in Azure Firewall. Understanding these settings is essential for maintaining network security, optimizing Azure Firewall resources, and ensuring uninterrupted connectivity for critical applications.
 
-## TCP Idle Timeout
+## Idle timeout settings
 
-### What is TCP Idle Timeout?
+The TCP (Transmission Control Protocol) idle timeout specifies the duration a connection can stay inactive before being terminated by the Azure Firewall. This setting helps optimize the Azure Firewall by closing inactive connections and maintaining overall network performance.
 
-TCP (Transmission Control Protocol) idle timeout determines how long a connection can remain inactive before the firewall terminates it. This setting helps ensure firewall resources aren't wasted on inactive connections and maintains overall network performance. 
+Configuring the TCP idle timeout properly can:
 
-### Why is TCP Idle Timeout Important?
+- **Optimize Azure Firewall resources**: Frees up memory and compute resources by closing inactive connections.
+- **Mitigate DDoS risks**: Reduces the risk of attacks that exploit persistent idle connections.
+- **Enhance network performance**: Improves throughput and reduces latency by effectively managing idle connections.
 
-Proper idle timeout configuration can:
+### Timeout behavior
 
-- **Optimize Azure Firewall usage**: Frees memory and CPU by closing inactive connections.
-- **Mitigate DDoS risks**: Reduces vulnerability to attacks exploiting persistent idle connections.
-- **Enhance network performance**: Reduces latency and improves throughput by managing idle connections effectively.
+In the aspect of the Azure Firewall, **north-south** traffic refers to the traffic that flows between the Azure Firewall and the Internet, while **east-west** traffic refers to the traffic that flows between Azure resources within the same region or across regions. This also includes traffic between Azure resources and on-premises resources connected through Azure VPN, Azure ExpressRoute, and Virtual network peering. The TCP idle timeout behavior in Azure Firewall is different for north-south and east-west traffic. 
 
-### TCP Idle Timeout Settings in Azure Firewall
+- **North-south**: The default TCP idle timeout is set to **4 minutes** to maintain active connections. You can increase the timeout to a maximum of **15 minutes** by submitting a support request through the Azure portal.
+- **East-west**: There is a **5 minutes** TCP idle timeout on the Azure Firewall. This timeout isn't configurable. 
 
-**Default Behavior**:
+## Long-running TCP sessions
 
-- **North-South Traffic (Internet-bound traffic)**: The default TCP idle timeout is **4 minutes** designed to balance resource efficiency and the need to maintain active connections.
-- **East-West Traffic (Internal traffic such as spoke-to-spoke or on-premise connections)**: No idle timeout is enforced.
+Azure Firewall is built for high availability and redundancy, aiming to minimize service disruptions. However, certain scenarios can still lead to the dropping of long-running TCP sessions. Long-running sessions are TCP connections that remain active for extended periods. These are commonly used in applications such as SSH, RDP, VPN tunnels, and database connections. To ensure these sessions remain connected, specific configurations are required.
 
-**Customizing Idle Timeout**:
+The following scenarios can potentially drop long-running TCP sessions:
 
-- **For North-South traffic**, the TCP idle timeout can be configured between 4 and 15 minutes.
-- **For East-West traffic**, the TCP idle timeout can't be customized. However, customization options for the East-West traffic idle timeout are planned in a future release.
+- **Scale-in**: When Azure Firewall scales in, it puts the instance in drain mode for 90 seconds before recycling. Any long-running connections still active after this period are disconnected.
+- **Firewall maintenance**: During maintenance updates, the firewall enters drain mode to allow short-lived sessions to complete. Long-running sessions that remain after the drain period are dropped during the restart.
+- **Idle timeout**: Idle sessions are recycled based on the TCP idle timeout settings. For north-south traffic, you can request an increase in the timeout. For east-west traffic, the timeout is fixed at 5 minutes.
+- **Autorecovery**: If an Azure Firewall instance becomes unresponsive, it is automatically recovered. This process can result in the disconnection of long-running sessions.
 
-To customize the TCP idle timeout, customers must submit a support request via Azure Support, since direct configuration through the Azure portal isn't available.
-
-## Long-Running TCP Sessions in Azure Firewall
-
-### What are Long-Running TCP Sessions?
-
-Long-running sessions refer to TCP connections that persist over an extended period, often used in applications like SSH, RDP, VPN tunnels, or database connections. These sessions need specific configurations to prevent premature disconnection.
-
-Azure Firewall is designed to be available and redundant. Every effort is made to avoid service disruptions. However, there are few scenarios where Azure Firewall can potentially drop long running TCP sessions.
-
-### Scenarios that affect long running TCP sessions
-
-The following scenarios can potentially drop long running TCP sessions:
-
-- Scale in
-- Firewall maintenance
-- Idle timeout
-- Autorecovery
-
-### Scale-in
-
-Azure Firewall scales in/out based on throughput and CPU usage. Scale-in is performed by putting the underlying Azure Firewall instance in drain mode for 90 seconds before recycling the instance. Any long running connections remaining on the instance after 90 seconds are disconnected.
-
-### Firewall maintenance
-
-The Azure Firewall engineering team updates the firewall on an as-needed basis (usually every month), generally during night time hours in the local time-zone for that region. Updates include security patches, bug fixes, and new feature roll outs that are applied by configuring the firewall in a [rolling update mode](https://blog.itaysk.com/2017/11/20/deployment-strategies-defined#rolling-upgrade). The firewall instances are put in a drain mode before reimaging them to give short-lived sessions time to drain. Long running sessions remaining on an instance after the drain period are dropped during the restart.
-
-### Idle timeout
-
-An idle timer is in place to recycle idle sessions. As shared in the Customizing TCP Idle Timeout section, you can configure the TCP idle timeout for North-South traffic via a support request. Ensuring proper keep-alive mechanisms are in place can help maintain long-running connections.
-
-### Autorecovery
-
-Azure Firewall constantly monitors the underlying instances and recovers them automatically in case any instance goes unresponsive. In general, there's a one in 100 chance for a firewall instance to be autorecovered over a 30 day period.
+> [!IMPORTANT]
+> To avoid connectivity issues, configure a keep-alive mechanism within your application that communicates through the Azure Firewall for east-west traffic. This ensures that long-running sessions remain active and are not affected by the idle timeout settings.
 
 ## Applications sensitive to TCP session reset
 
-Session disconnection isn’t an issue for resilient applications that can handle session reset gracefully. However, there are a few applications (like traditional SAP GUI and SAP RFC(Remote Function Call) based apps) which are sensitive to sessions resets. Secure sensitive applications with Network Security Groups (NSGs).
+Some applications, such as traditional SAP GUI and SAP RFC (Remote Function Call) based apps, are sensitive to TCP session resets and may not handle them gracefully. To protect these sensitive applications, use network security groups (NSGs). For more information, see [How to secure a virtual network](../virtual-network/virtual-network-vnet-plan-design-arm.md#security) and [Network security groups](../virtual-network/network-security-groups-overview.md).
 
-### Network security groups
-
-You can deploy [network security groups (NSGs)](../virtual-network/virtual-network-vnet-plan-design-arm.md#security) to protect against unsolicited traffic into Azure subnets. 
-
-Network security groups are simple, stateful packet inspection devices that use the five-tuple approach to create allow/deny rules for network traffic. 
-
-You can:
-
-- Allow or deny traffic to and from a single IP address, multiple IP addresses, or entire subnets.
-- Use NSG flow logs to audit IP traffic flowing through an NSG.
-
-To learn more about NSG flow logging, see [Introduction to flow logging for network security groups](../network-watcher/network-watcher-nsg-flow-logging-overview.md).
+> [!NOTE]
+> For north-south traffic, an idle timeout results in a RST (reset) packet being sent in both directions. In contrast, for east-west traffic, no RST packet is sent when an idle timeout occurs.
 
 ## Next steps
 
-To learn more about Azure Firewall performance, see [Azure Firewall performance](firewall-performance.md).
+- To learn more about Azure Firewall performance, see [Azure Firewall performance](firewall-performance.md).
+- To learn more about NSG flow logging, see [Introduction to flow logging for network security groups](../network-watcher/network-watcher-nsg-flow-logging-overview.md).
