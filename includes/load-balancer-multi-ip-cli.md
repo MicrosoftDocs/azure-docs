@@ -55,7 +55,7 @@ To achieve the scenario outlined in this article complete the following steps:
     az network lb frontend-ip create --resource-group contosofabrikam --lb-name mylb --public-ip-name PublicIp2 --name fabrikamfe
     ```
 
-8. Create your backend address pools - *contosopool* and *fabrikampool*, a [probe](/azure/virtual-machines/linux/create-cli-complete?toc=%2fazure%2fvirtual-network%2ftoc.json) - *HTTP*, and your load balancing rules - *HTTPc* and *HTTPf*:
+8. Create your backend address pools - *contosopool* and *fabrikampool*, a [probe](/azure/virtual-machines/linux/create-cli-complete?toc=%2fazure%2fvirtual-network%2ftoc.json) - *HTTP*, and your load balancing rules - *HTTPruleContoso* and *HTTPruleFabrikam*:
 
     ```azurecli
     az network lb address-pool create --resource-group contosofabrikam --lb-name mylb --name contosopool
@@ -63,8 +63,8 @@ To achieve the scenario outlined in this article complete the following steps:
 
     az network lb probe create --resource-group contosofabrikam --lb-name mylb --name HTTP --protocol "http" --interval 15 --count 2 --path index.html
 
-    az network lb rule create --resource-group contosofabrikam --lb-name mylb --name HTTPc --protocol tcp --probe-name http--frontend-port 5000 --backend-port 5000 --frontend-ip-name contosofe --backend-address-pool-name contosopool
-    az network lb rule create --resource-group contosofabrikam --lb-name mylb --name HTTPf --protocol tcp --probe-name http --frontend-port 5000 --backend-port 5000 --frontend-ip-name fabrikamfe --backend-address-pool-name fabrikampool
+    az network lb rule create --resource-group contosofabrikam --lb-name mylb --name HTTPruleContoso --protocol tcp --probe-name http--frontend-port 5000 --backend-port 5000 --frontend-ip-name contosofe --backend-address-pool-name contosopool
+    az network lb rule create --resource-group contosofabrikam --lb-name mylb --name HTTPruleFabrikam --protocol tcp --probe-name http --frontend-port 5000 --backend-port 5000 --frontend-ip-name fabrikamfe --backend-address-pool-name fabrikampool
     ```
 
 9. Check the output to [verify your load balancer](/azure/virtual-machines/linux/create-cli-complete?toc=%2fazure%2fvirtual-network%2ftoc.json) was created correctly by running the following command:
