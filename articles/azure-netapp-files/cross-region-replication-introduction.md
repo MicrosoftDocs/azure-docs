@@ -70,7 +70,7 @@ Azure NetApp Files volume replication is supported between various [Azure region
 | North America | West US 2 | West US 3 |
 | Sweden/Europe | Sweden Central | North Europe |
 | Sweden/Europe | Sweden Central | West Europe |
-| UK/Europe | UK West | North Europe |
+| UK/Europe | UK South | North Europe |
 | US Government | US Gov Arizona | US Gov Virginia |
 
 >[!NOTE]
