@@ -116,7 +116,7 @@ az apim api versionset show --resource-group <resource-group-name> \
 
 For more information about version sets, see [Versions in Azure API Management](api-management-versions.md#how-versions-are-represented).
 
-## View the verstion in the developer portal
+## View the version in the developer portal
 
 If you use the [developer portal](api-management-howto-developer-portal-customize.md), you can see API versions there.
 
