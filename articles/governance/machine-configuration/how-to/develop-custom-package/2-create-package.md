@@ -190,6 +190,7 @@ Get-ChildItem -Recurse -Path .\MyConfigZip |
         "$Size MB"
     }
 ```
+//Should we add information here about the template, eg for Audit and AuditandSet (Get-Resource, Set-Resource, Test-Resource)
 
 ## Extending machine configuration with third-party tools
 
