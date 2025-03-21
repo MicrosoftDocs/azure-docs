@@ -7,7 +7,7 @@ manager: amycolannino
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: role-based-access-control
 ms.topic: troubleshooting
-ms.date: 03/08/2024
+ms.date: 03/12/2025
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli
 ---
@@ -250,7 +250,7 @@ At line:1 char:1
 If you get this error message, make sure you also specify the `-Scope` or `-ResourceGroupName` parameters.
 
 ```
-PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor" - Scope /subscriptions/11111111-1111-1111-1111-111111111111
+PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor" -Scope /subscriptions/11111111-1111-1111-1111-111111111111
 ```
 
 ### Symptom - Cannot delete the last Owner role assignment
@@ -485,7 +485,7 @@ When you try to create or update a support ticket, you get the following error m
 
 **Cause**
 
-You're currently signed in with a user that doesn't have permission to the create support requests.
+You're currently signed in with a user that doesn't have permission to create support requests.
 
 **Solution**
 
@@ -610,7 +610,7 @@ If you're a Microsoft Entra Global Administrator and you don't have access to a 
 ## Classic subscription administrators
 
 > [!IMPORTANT]
-> Classic resources and classic administrators will be [retired on August 31, 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Starting April 3, 2024, you won't be able to add new Co-Administrators. This date was recently extended. Remove unnecessary Co-Administrators and use Azure RBAC for fine-grained access control.
+> As of **August 31, 2024**, Azure classic administrator roles (along with Azure classic resources and Azure Service Manager) are retired and no longer supported. Starting on **April 30, 2025**, any Co-Administrator or Service Administrator role assignments will lose access. If you still have active Co-Administrator or Service Administrator role assignments, convert these role assignments to Azure RBAC immediately.
 >
 > For more information, see [Azure classic subscription administrators](classic-administrators.md).
 

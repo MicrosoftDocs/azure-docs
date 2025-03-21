@@ -1,20 +1,20 @@
 ---
-title: Troubleshoot common build issues in Azure Spring Apps
+title: Troubleshoot Common Build Issues in Azure Spring Apps
 description: Learn how to troubleshoot common build issues in Azure Spring Apps.
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: troubleshooting
-ms.date: 10/24/2022
-ms.author: yili7
+ms.date: 08/28/2024
+ms.author: karler
+ms.reviewer: yili7
 ms.custom: devx-track-java
 ---
 
 # Troubleshoot common build issues in Azure Spring Apps
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article describes how to troubleshoot build issues with your Azure Spring Apps deployment.
 
@@ -78,4 +78,4 @@ The following list describes some common exit codes:
 
 ## Next steps
 
-- [Troubleshoot common Azure Spring Apps issues](./troubleshoot.md)
+- [Troubleshoot common Azure Spring Apps issues](../basic-standard/troubleshoot.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)

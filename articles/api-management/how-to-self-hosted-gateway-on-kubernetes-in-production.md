@@ -4,7 +4,7 @@ description: Learn about guidance to run an API Management self-hosted gateway o
 author: tomkerkhove
 manager: mrcarlosdev
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: concept-article
 ms.author: tomkerkhove
 ms.date: 01/17/2023
 ---
@@ -16,8 +16,6 @@ ms.date: 01/17/2023
 In order to run the self-hosted gateway in production, there are various aspects to take in to mind. For example, it should be deployed in a highly available manner, use configuration backups to handle temporary disconnects and many more.
 
 This article provides guidance on how to run [self-hosted gateway](./self-hosted-gateway-overview.md) on Kubernetes for production workloads to ensure that it will run smoothly and reliably.
-
-[!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-deprecation.md)]
 
 ## Access token
 Without a valid access token, a self-hosted gateway can't access and download configuration data from the endpoint of the associated API Management service. The access token can be valid for a maximum of 30 days. It must be regenerated, and the cluster configured with a fresh token, either manually or via automation before it expires.
@@ -160,7 +158,7 @@ Starting with version 2.1.5 or above, the self-hosted gateway provides observabi
 ## Local logs and metrics
 The self-hosted gateway sends telemetry to [Azure Monitor](api-management-howto-use-azure-monitor.md) and [Azure Application Insights](api-management-howto-app-insights.md) according to configuration settings in the associated API Management service. When [connectivity to Azure](self-hosted-gateway-overview.md#connectivity-to-azure) is temporarily lost, the flow of telemetry to Azure is interrupted and the data is lost for the duration of the outage.
 
-Consider using [Azure Monitor Container Insights](./../azure-monitor/containers/container-insights-overview.md) to monitor your containers or [setting up local monitoring](how-to-configure-local-metrics-logs.md) to ensure the ability to observe API traffic and prevent telemetry loss during Azure connectivity outages.
+Consider using [Azure Monitor Container Insights](/azure/azure-monitor/containers/container-insights-overview) to monitor your containers or [setting up local monitoring](how-to-configure-local-metrics-logs.md) to ensure the ability to observe API traffic and prevent telemetry loss during Azure connectivity outages.
 
 ## Namespace
 Kubernetes [namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) help with dividing a single cluster among multiple teams, projects, or applications. Namespaces provide a scope for resources and names. They can be associated with a resource quota and access control policies.
@@ -210,7 +208,7 @@ securityContext:
 > When using local CA certificates, the self-hosted gateway must run with user ID (UID) `1001` in order to manage the CA certificates otherwise the gateway will not start up.
 
 
-## Next steps
+## Related content
 
 * To learn more about the self-hosted gateway, see [Self-hosted gateway overview](self-hosted-gateway-overview.md).
 * Learn [how to deploy API Management self-hosted gateway to Azure Arc-enabled Kubernetes clusters](how-to-deploy-self-hosted-gateway-azure-arc.md).

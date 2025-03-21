@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: bandersmsft
   ms.author: banders
-  ms.date: 11/17/2023
+  ms.date: 12/06/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -27,7 +27,7 @@ landingContent:
       - text: Reservation purchase recommendations
         url: reserved-instance-purchase-recommendations.md
       - text: Instance size flexibility
-        url: ../../virtual-machines/reserved-vm-instance-size-flexibility.md?toc=/azure/cost-management-billing/reservations/toc.json
+        url: /azure/virtual-machines/reserved-vm-instance-size-flexibility?toc=/azure/cost-management-billing/reservations/toc.json
       - text: Windows and SQL software cost charged separately
         url: reserved-instance-windows-software-costs.md
                 

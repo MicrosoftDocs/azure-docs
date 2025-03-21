@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -208,6 +208,7 @@ Azure service: [Azure NetApp Files](/azure/azure-netapp-files/)
 > | Microsoft.NetApp/netAppAccounts/changeKeyVault/action | Change an account's existing AKV/HSM encryption with another instance of either AKV/HSM. |
 > | Microsoft.NetApp/netAppAccounts/getKeyVaultStatus/action | Get an account's key vault information, including subnet and private endpoint encryption pairs that have access to the key vault. |
 > | Microsoft.NetApp/netAppAccounts/migrateEncryption/action | Migrate volumes under an encryption sibling set from Microsoft-managed key to Customer-managed key or vice versa. |
+> | Microsoft.NetApp/netAppAccounts/transitionToCmk/action | Transitions all volumes under an encryption sibling set from Microsoft-managed key to Customer-managed key or vice versa. |
 > | Microsoft.NetApp/netAppAccounts/accountBackups/read | Reads an account backup resource. |
 > | Microsoft.NetApp/netAppAccounts/accountBackups/write | Writes an account backup resource. |
 > | Microsoft.NetApp/netAppAccounts/accountBackups/delete | Deletes an account backup resource. |
@@ -250,9 +251,13 @@ Azure service: [Azure NetApp Files](/azure/azure-netapp-files/)
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/splitCloneFromParent/action | Split clone from parent volume to make it a standalone volume |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/reestablishReplication/action | Re-establish a previously deleted replication between 2 volumes that have a common ad-hoc or policy-based snapshots |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/peerClusterForOnPremMigration/action | Peers ANF cluster to OnPrem cluster for migration |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/peerExternalCluster/action | Peers ANF cluster to OnPrem cluster for migration |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/createOnPremMigrationReplication/action | Starts a SVM peering and returns a command to be run on the external ontap to accept it. Once the SVMs have been peered a SnapMirror will be created. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/authorizeExternalReplication/action | Starts a SVM peering and returns a command to be run on the external ontap to accept it. Once the SVMs have been peered a SnapMirror will be created. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/performReplicationTransfer/action | Starts a data transfer on the volume replication. Updating the data on the destination side. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/finalizeOnPremMigration/action | Finalize OnPrem migration by doing a final sync on the replication, break and release the replication and break cluster peering if no other migration is active. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/finalizeExternalReplication/action | Finalize OnPrem migration by doing a final sync on the replication, break and release the replication and break cluster peering if no other migration is active. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/listQuotaReport/action | List user/group quota report for the volume. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backups/read | Reads a backup resource. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backups/write | Writes a backup resource. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backups/delete | Deletes a backup resource. |
@@ -337,10 +342,13 @@ Azure service: [Storage](/azure/storage/)
 > | Microsoft.Storage/storageAccounts/accountMigrations/write | Customer is able to update their storage account redundancy for increased resiliency |
 > | Microsoft.Storage/storageAccounts/blobServices/read | List blob services |
 > | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Returns a user delegation key for the blob service |
+> | Microsoft.Storage/storageAccounts/blobServices/getInfo/action |  |
 > | Microsoft.Storage/storageAccounts/blobServices/write | Returns the result of put blob service properties |
 > | Microsoft.Storage/storageAccounts/blobServices/read | Returns blob service properties or statistics |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/migrate/action |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/write | Returns the result of patch blob container |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/setAcl/action |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/getAcl/action |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Returns the result of deleting a container |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returns a container |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returns list of containers |
@@ -379,6 +387,7 @@ Azure service: [Storage](/azure/storage/)
 > | Microsoft.Storage/storageAccounts/fileServices/shares/read | List file shares |
 > | Microsoft.Storage/storageAccounts/fileServices/shares/write | Create or update file share |
 > | Microsoft.Storage/storageAccounts/fileServices/shares/restore/action | Restore file share |
+> | Microsoft.Storage/storageAccounts/fileServices/usages/read |  |
 > | Microsoft.Storage/storageAccounts/hoboConfigurations/read |  |
 > | Microsoft.Storage/storageAccounts/hoboConfigurations/write |  |
 > | Microsoft.Storage/storageAccounts/inventoryPolicies/delete |  |
@@ -430,6 +439,8 @@ Azure service: [Storage](/azure/storage/)
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | Returns a queue or a list of queues. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/write | Returns the result of writing a queue |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Returns the result of deleting a queue |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/setAcl/action | Returns the result of processing a message |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/getAcl/action | Returns the result of processing a message |
 > | Microsoft.Storage/storageAccounts/reports/read |  |
 > | Microsoft.Storage/storageAccounts/restorePoints/delete | Delete object replication restore point |
 > | Microsoft.Storage/storageAccounts/restorePoints/read | Get object replication restore point |
@@ -454,6 +465,8 @@ Azure service: [Storage](/azure/storage/)
 > | Microsoft.Storage/storageAccounts/tableServices/tables/read | Query tables |
 > | Microsoft.Storage/storageAccounts/tableServices/tables/write | Create tables |
 > | Microsoft.Storage/storageAccounts/tableServices/tables/delete | Delete tables |
+> | Microsoft.Storage/storageAccounts/tableServices/tables/setAcl/action | Merge or update table entities |
+> | Microsoft.Storage/storageAccounts/tableServices/tables/getAcl/action | Merge or update table entities |
 > | Microsoft.Storage/storageTasks/delete | Deletes an existing storage task |
 > | Microsoft.Storage/storageTasks/read | Gets the properties for the specified storage task |
 > | Microsoft.Storage/storageTasks/promote/action | Promote specific version of storage task to current version |
@@ -477,8 +490,8 @@ Azure service: [Storage](/azure/storage/)
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/immutableStorage/runAsSuperUser/action |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read | Returns the result of reading blob tags |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write | Returns the result of writing blob tags |
-> | Microsoft.Storage/storageAccounts/fileServices/readFileBackupSemantics/action | Read File Backup Sematics Privilege |
-> | Microsoft.Storage/storageAccounts/fileServices/writeFileBackupSemantics/action | Write File Backup Sematics Privilege |
+> | Microsoft.Storage/storageAccounts/fileServices/readFileBackupSemantics/action | Read File Backup Semantics Privilege |
+> | Microsoft.Storage/storageAccounts/fileServices/writeFileBackupSemantics/action | Write File Backup Semantics Privilege |
 > | Microsoft.Storage/storageAccounts/fileServices/takeOwnership/action | File Take Ownership Privilege |
 > | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders |
 > | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write | Returns the result of writing a file or creating a folder |
@@ -498,9 +511,9 @@ Azure service: [Storage](/azure/storage/)
 
 ## Microsoft.StorageCache
 
-File caching for high-performance computing (HPC).
+File caching and Lustre file system capabilities for high-performance computing (HPC).
 
-Azure service: [Azure HPC Cache](/azure/hpc-cache/)
+Azure service: [Azure HPC Cache](/azure/hpc-cache/), [Azure Managed Lustre](/azure/azure-managed-lustre/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -566,6 +579,7 @@ Azure service: [Storage](/azure/storage/)
 > | --- | --- |
 > | Microsoft.StorageSync/register/action | Registers the subscription for the Storage Sync Provider |
 > | Microsoft.StorageSync/unregister/action | Unregisters the subscription for the Storage Sync Provider |
+> | Microsoft.StorageSync/deployments/preflight/action | Validate all resources before we deploy the resoruces successfully. |
 > | Microsoft.StorageSync/locations/checkNameAvailability/action | Checks that storage sync service name is valid and is not in use. |
 > | Microsoft.StorageSync/locations/operationresults/read | Gets the result for an asynchronous operation |
 > | Microsoft.StorageSync/locations/operations/read | Gets the status for an azure asynchronous operation |

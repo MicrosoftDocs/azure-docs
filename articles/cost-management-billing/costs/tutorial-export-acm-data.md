@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article shows you how you can create and manage exported Cost Management data so that you can use it in external systems.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/04/2024
+ms.date: 01/07/2025
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -41,13 +41,22 @@ For Azure Storage accounts:
 - Write permissions are required to change the configured storage account, independent of permissions on the export.
 - Your Azure storage account must be configured for blob or file storage.
 - Don't configure exports to a storage container when configured as a destination in an [object replication rule](../../storage/blobs/object-replication-overview.md#object-replication-policies-and-rules).
-- To export to storage accounts with configured firewalls, you need other privileges on the storage account. The other privileges are only required during export creation or modification. They are:
-  - Owner role on the storage account.
-  Or
-  - Any custom role with `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/permissions/read` permissions.
-  Additionally, ensure that you enable [Allow trusted Azure service access](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) to the storage account when you configure the firewall. If you want to use the [Exports REST API](/rest/api/cost-management/exports) to generate exports to a storage account located behind a firewall, use the API version 2023-08-01 or later version. All newer API versions continue to support exports behind the firewall.
+- To export to storage accounts with firewall rules, you need additional privileges on the storage account. These privileges are only required during export creation or modification:
+
+  - **Owner** role on the storage account ***or***
+  
+  - A **custom role** that includes:
+  
+    - `Microsoft.Authorization/roleAssignments/write`
+    
+    - `Microsoft.Authorization/permissions/read`
+    
+  When you configure the firewall, ensure that [Allow trusted Azure service access](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) access is enabled on the storage account. If you want to use the [Exports REST API](/rest/api/cost-management/exports) to write to a storage account behind a firewall, use API version **2023-08-01** or later. All newer API versions continue to support exports behind firewalls.
+  
+  A **system-assigned managed identity** is created for a new export if the user has `Microsoft.Authorization/roleAssignments/write` permissions on the storage account. This setup ensures that the export will continue to work if you enable a firewall in the future. After the export is created or updated, the user no longer needs the **Owner** role for routine operations.
+  
 - The storage account configuration must have the **Permitted scope for copy operations (preview)** option set to **From any storage account**.
-    :::image type="content" source="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" alt-text="Screenshot showing From any storage account option set." lightbox="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" :::
+    :::image type="content" source="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" alt-text="Screenshot showing From any storage account option set." lightbox="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" :::
 
 If you have a new subscription, you can't immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
 
@@ -95,7 +104,7 @@ Start by preparing your environment for the Azure CLI:
 1. After you sign in, to see your current exports, use the [az costmanagement export list](/cli/azure/costmanagement/export#az-costmanagement-export-list) command:
 
    ```azurecli
-   az costmanagement export list --scope "subscriptions/00000000-0000-0000-0000-000000000000"
+   az costmanagement export list --scope "subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
    ```
 
    >[!NOTE]
@@ -119,8 +128,8 @@ Start by preparing your environment for the Azure CLI:
 
    ```azurecli
    az costmanagement export create --name DemoExport --type ActualCost \
-   --scope "subscriptions/00000000-0000-0000-0000-000000000000" \
-   --storage-account-id /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/TreyNetwork/providers/Microsoft.Storage/storageAccounts/cmdemo \
+   --scope "subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e" \
+   --storage-account-id /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/TreyNetwork/providers/Microsoft.Storage/storageAccounts/cmdemo \
    --storage-container democontainer --timeframe MonthToDate --recurrence Daily \
    --recurrence-period from="2020-06-01T00:00:00Z" to="2020-10-31T00:00:00Z" \
    --schedule-status Active --storage-directory demodirectory
@@ -134,14 +143,14 @@ Start by preparing your environment for the Azure CLI:
 
    ```azurecli
    az costmanagement export show --name DemoExport \
-      --scope "subscriptions/00000000-0000-0000-0000-000000000000"
+      --scope "subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
    ```
 
 1. Update an export by using the [az costmanagement export update](/cli/azure/costmanagement/export#az-costmanagement-export-update) command:
 
    ```azurecli
    az costmanagement export update --name DemoExport
-      --scope "subscriptions/00000000-0000-0000-0000-000000000000" --storage-directory demodirectory02
+      --scope "subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e" --storage-directory demodirectory02
    ```
 
    This example changes the output directory.
@@ -152,7 +161,7 @@ Start by preparing your environment for the Azure CLI:
 You can delete an export by using the [az costmanagement export delete](/cli/azure/costmanagement/export#az-costmanagement-export-delete) command:
 
 ```azurecli
-az costmanagement export delete --name DemoExport --scope "subscriptions/00000000-0000-0000-0000-000000000000"
+az costmanagement export delete --name DemoExport --scope "subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -176,7 +185,7 @@ Start by preparing your environment for Azure PowerShell:
 1. After you sign in, to see your current exports, use the [Get-AzCostManagementExport](/powershell/module/Az.CostManagement/get-azcostmanagementexport) cmdlet:
 
    ```azurepowershell-interactive
-   Get-AzCostManagementExport -Scope 'subscriptions/00000000-0000-0000-0000-000000000000'
+   Get-AzCostManagementExport -Scope 'subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
    ```
 
    >[!NOTE]
@@ -202,8 +211,8 @@ Start by preparing your environment for Azure PowerShell:
    $Params = @{
      Name = 'DemoExport'
      DefinitionType = 'ActualCost'
-     Scope = 'subscriptions/00000000-0000-0000-0000-000000000000'
-     DestinationResourceId = '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/treynetwork/providers/Microsoft.Storage/storageAccounts/cmdemo'
+     Scope = 'subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
+     DestinationResourceId = '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/treynetwork/providers/Microsoft.Storage/storageAccounts/cmdemo'
      DestinationContainer = 'democontainer'
      DefinitionTimeframe = 'MonthToDate'
      ScheduleRecurrence = 'Daily'
@@ -223,13 +232,13 @@ Start by preparing your environment for Azure PowerShell:
 1. To see the details of your export operation, use the `Get-AzCostManagementExport` cmdlet:
 
    ```azurepowershell-interactive
-   Get-AzCostManagementExport -Scope 'subscriptions/00000000-0000-0000-0000-000000000000'
+   Get-AzCostManagementExport -Scope 'subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
    ```
 
 1. Update an export by using the [Update-AzCostManagementExport](/powershell/module/Az.CostManagement/update-azcostmanagementexport) cmdlet:
 
    ```azurepowershell-interactive
-   Update-AzCostManagementExport -Name DemoExport -Scope 'subscriptions/00000000-0000-0000-0000-000000000000' -DestinationRootFolderPath demodirectory02
+   Update-AzCostManagementExport -Name DemoExport -Scope 'subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e' -DestinationRootFolderPath demodirectory02
    ```
 
    This example changes the output directory.
@@ -240,7 +249,7 @@ Start by preparing your environment for Azure PowerShell:
 You can delete an export by using the [Remove-AzCostManagementExport](/powershell/module/Az.CostManagement/remove-azcostmanagementexport) cmdlet:
 
 ```azurepowershell-interactive
-Remove-AzCostManagementExport -Name DemoExport -Scope 'subscriptions/00000000-0000-0000-0000-000000000000'
+Remove-AzCostManagementExport -Name DemoExport -Scope 'subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
 ```
 
 ---
@@ -349,8 +358,6 @@ In the export list, select the storage account name. On the storage account page
 :::image type="content" border="true" source="./media/tutorial-export-acm-data/storage-account-page.png" alt-text="Screenshot showing the Storage account page with example information and link to Open in Explorer.":::
 
 In Storage Explorer, navigate to the container that you want to open and select the folder corresponding to the current month. A list of CSV files is shown. Select one and then select **Open**.
-
-:::image type="content" border="true" source="./media/tutorial-export-acm-data/storage-explorer.png" alt-text="Screenshot showing example information in Storage Explorer.":::
 
 The file opens with the program or application set to open CSV file extensions. Here's an example in Excel.
 

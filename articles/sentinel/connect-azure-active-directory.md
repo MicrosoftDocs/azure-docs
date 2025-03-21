@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: how-to
 ms.date: 05/13/2024
 ms.author: yelevin
+
+
+#Customer intent: As a security engineer, I want to stream Microsoft Entra logs into Microsoft Sentinel so that analysts can monitor and analyze sign-in activities, audit logs, and provisioning logs for enhanced security and threat detection.
+
 ---
 
 # Connect Microsoft Entra data to Microsoft Sentinel
@@ -37,7 +41,7 @@ You can use Microsoft Sentinel's built-in connector to collect data from [Micros
 
 - Your user must be assigned the [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) role on the workspace.
 
-- Your user must be assigned the [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) or [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) roles on the tenant you want to stream the logs from.
+- Your user must have the [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) role on the tenant you want to stream the logs from, or the equivalent permissions.
 
 - Your user must have read and write permissions to the Microsoft Entra diagnostic settings in order to be able to see the connection status.
 - Install the solution for **Microsoft Entra ID** from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
@@ -65,6 +69,8 @@ After a successful connection is established, the data appears in **Logs**, unde
 - `MSGraphActivityLogs`
 
 To query the Microsoft Entra logs, enter the relevant table name at the top of the query window.
+
+If an expected table is not available, verify the log categories are selected for your Microsoft Sentinel workspace in Microsoft Entra diagnostic settings. For more informatoin, see [Configure Microsoft Entra diagnostic settings for activity logs](/entra/identity/monitoring-health/howto-configure-diagnostic-settings).
 
 ## Next steps
 In this document, you learned how to connect Microsoft Entra ID to Microsoft Sentinel. To learn more about Microsoft Sentinel, see the following articles:

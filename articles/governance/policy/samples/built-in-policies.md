@@ -1,8 +1,8 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Azure Machine Configuration, and more.
-ms.date: 07/29/2024
-ms.topic: sample
+ms.date: 03/17/2025
+ms.topic: generated-reference
 ms.custom: generated
 ---
 # Azure Policy built-in policy definitions
@@ -206,6 +206,10 @@ The name of each built-in links to the policy definition in the Azure portal. Us
 
 [!INCLUDE [azure-policy-reference-policies-health-data-services-workspace](../../../../includes/policy/reference/bycat/policies-health-data-services-workspace.md)]
 
+## Health Deidentification Service
+
+[!INCLUDE [azure-policy-reference-policies-health-deidentification-service](../../../../includes/policy/reference/bycat/policies-health-deidentification-service.md)]
+
 ## Healthcare APIs
 
 [!INCLUDE [azure-policy-reference-policies-healthcare-apis](../../../../includes/policy/reference/bycat/policies-healthcare-apis.md)]
@@ -365,5 +369,5 @@ The name of each built-in links to the policy definition in the Azure portal. Us
 ## Next steps
 
 - See the built-ins on the [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
-- Review the [Azure Policy definition structure](../concepts/definition-structure.md).
-- Review [Understanding policy effects](../concepts/effects.md).
+- Review the [Azure Policy definition structure](../concepts/definition-structure-basics.md).
+- Review [Understanding policy effects](../concepts/effect-basics.md).

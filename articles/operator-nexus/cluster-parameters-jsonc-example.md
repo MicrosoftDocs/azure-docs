@@ -9,7 +9,6 @@ ms.date: 05/08/2024
 ms.custom: template-how-to, devx-track-arm-template
 ---
 
-
 # Example of cluster.parameter.jsonc template file.
 
 ```cluster.parameter.jsonc
@@ -50,9 +49,6 @@ ms.custom: template-how-to, devx-track-arm-template
     },
     "secretArchive": {
       "value": "$KV_RESOURCE_ID"
-    },
-    "sshKeyUrl": {
-      "value": "https://"
     },
     "aggregatorOrSingleRack": {
       "value": {

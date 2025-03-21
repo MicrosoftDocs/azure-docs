@@ -2,14 +2,15 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 02/05/2024
+ms.date: 03/19/2025
 ms.author: glenga
 ms.custom:
   - include file
   - ignite-2023
 ---
+Make sure to select your preferred development language at the [top](#top) of the article.
 ::: zone pivot="programming-language-csharp"
-The following table shows the .NET versions supported by Azure Functions. Select your preferred development language at the top of the article. 
+The following table shows the .NET versions supported by Azure Functions.  
 
 The supported version of .NET depends on both your Functions runtime version and your chosen execution model:
 
@@ -29,10 +30,9 @@ Your function code runs in the same process as the Functions host process. Suppo
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
-| [.NET 8 (LTS)](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle)<sup>1</sup> | GA | November 10, 2026 |
-| [.NET 6 (LTS)](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle) | GA | November 12, 2024 |
+| [.NET 8 (LTS)](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle) | GA | November 10, 2026 |
 
-<sup>1</sup> Targeting .NET 8 with the in-process model is not yet enabled for apps in sovereign clouds. Updates will be communicated on [this tracking thread on GitHub](https://github.com/Azure/azure-functions-host/issues/9951).
+.NET 6 was previously supported on the in-process model but reached the end of official support on [November 12, 2024][dotnet-policy].
 
 For more information, see [Develop C# class library functions using Azure Functions](../articles/azure-functions/functions-dotnet-class-library.md). Also supports [C# script functions](../articles/azure-functions/functions-reference-csharp.md).
 
@@ -50,12 +50,14 @@ For more information, see [Develop C# class library functions using Azure Functi
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
+| .NET 9 | GA | [May 12, 2026][dotnet-policy] |
 | .NET 8 | GA | [November 10, 2026][dotnet-policy] |
-| .NET 6 | GA | [November 12, 2024][dotnet-policy] |
-| .NET Framework 4.8 | GA | [See policy][dotnet-framework-policy] |
+| .NET Framework 4.8.1 | GA | [See policy][dotnet-framework-policy] |
 
 [dotnet-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle
 [dotnet-framework-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-framework
+
+.NET 6 was previously supported on the isolated worker model but reached the end of official support on [November 12, 2024][dotnet-policy].
 
 .NET 7 was previously supported on the isolated worker model but reached the end of official support on [May 14, 2024][dotnet-policy].
 
@@ -69,52 +71,47 @@ Running C# functions in an isolated worker process isn't supported by version 1.
 
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-The following table shows the language versions supported for Java functions. Select your preferred development language at the top of the article.
+The following table shows the language versions supported for Java functions. 
 
-| Supported version | Support level | Expected community EOL date |
+| Supported version | Support level | Supported until |
 | ---- | ---- |--- |
-| [Java 21](/java/openjdk/support#release-and-servicing-roadmap) (Linux-only) | Preview | September 2028 |
-| [Java 17](/java/openjdk/support#release-and-servicing-roadmap) | GA | September 2027 |
-| [Java 11](/java/openjdk/support#release-and-servicing-roadmap) | GA | September 2027 |
-| [Java 8](https://endoflife.date/eclipse-temurin) | GA | November 30, 2026 |
+| **Java 21** (Linux-only) | GA | See the [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
+| **Java 17** | GA | See the [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
+| **Java 11** | GA |See the [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
+| **Java 8** | GA | See this [Temurin support page](https://adoptium.net/support/). |
 
-For more information, see [Azure Functions Java developer guide](../articles/azure-functions/functions-reference-java.md).
+For more information on developing and running Java functions, see [Azure Functions Java developer guide](../articles/azure-functions/functions-reference-java.md).
 
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-The following table shows the language versions supported for Node.js functions. Select your preferred development language at the top of the article.
+The following table shows the language versions supported for Node.js functions. 
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
+| [Node.js 22](https://endoflife.date/nodejs) | Preview | April 30, 2027 |
 | [Node.js 20](https://endoflife.date/nodejs) | GA | April 30, 2026 |
 | [Node.js 18](https://endoflife.date/nodejs) | GA | April 30, 2025|
-| [Node.js 16](https://endoflife.date/nodejs) | GA | September 11, 2023<sup>\*</sup> |
-| [Node.js 14](https://endoflife.date/nodejs) | GA | April 30, 2023<sup>\*</sup> |
-
-<sup>\*</sup>Support on Functions extended until June 30, 2024.
 
 TypeScript is supported through transpiling to JavaScript. For more information, see the [Azure Functions Node.js developer guide](../articles/azure-functions/functions-reference-node.md#supported-versions).
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-The following table shows the language version supported for PowerShell functions. Select your preferred development language at the top of the article.
+The following table shows the language version supported for PowerShell functions. 
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
-| [PowerShell 7.2](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | GA | November 8, 2024 |
+| [PowerShell 7.4](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | GA | November 10, 2026 |
 
 For more information, see [Azure Functions PowerShell developer guide](../articles/azure-functions/functions-reference-powershell.md).
 ::: zone-end
 ::: zone pivot="programming-language-python"
-The following table shows the language versions supported for Python functions. Select your preferred development language at the top of the article.
+The following table shows the language versions supported for Python functions. 
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
+| Python 3.12 | Preview | October 2028 |
 | Python 3.11 | GA | October 2027 |
 | Python 3.10 | GA | October 2026 |
 | Python 3.9 | GA | October 2025 |
-| Python 3.8 | GA | October 2024 |
 
 For more information, see [Azure Functions Python developer guide](../articles/azure-functions/functions-reference-python.md#python-version).
 ::: zone-end
-
-For information about planned changes to language support, see [Azure roadmap](https://azure.microsoft.com/roadmap/?tag=functions).

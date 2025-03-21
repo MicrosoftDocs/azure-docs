@@ -17,8 +17,9 @@ This page shows supported authentication methods and clients, and shows sample c
 Service Connector can be used to connect the following compute services to Azure Table Storage:
 
 - Azure App Service
-- Azure Functions
 - Azure Container Apps
+- Azure Functions
+- Azure Kubernetes Service (AKS)
 - Azure Spring Apps
 
 The table below shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure Table Storage using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
@@ -60,6 +61,9 @@ Refer to the steps and code below to connect to Azure Table Storage using a user
 [!INCLUDE [code sample for table](./includes/code-table-me-id.md)]
 
 ### Connection string
+
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
 | Default environment variable name   | Description                     | Example value                                                                                                        |
 |-------------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------|

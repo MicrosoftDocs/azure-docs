@@ -2,7 +2,7 @@
 title: Azure Large Instances FAQ
 titleSuffix: Azure Large Instances
 description: Provides resolutions for common issues that arise in working with Azure Large Instances for the Epic workload.
-ms.topic: conceptual
+ms.topic: faq
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.custom: references_regions
@@ -60,7 +60,7 @@ We always recommend customers to configure alerts for service health notificatio
 This monitoring and alerting mechanism is different than traditional mechanisms.  It's recommended for customers to set up Service Health alerts to their preferred communication channels for service issues, planned maintenance, or other changes that occur around Azure Large Instances. 
 Not setting this up could cause issues with your Azure Large Instances that might go undetected for a long time and cause downtime if not addressed at the right time.  
 
-[Receive activity log alerts on Azure service notifications using Azure portal](./../service-health/alerts-activity-log-service-notifications-portal.md)
+[Receive activity log alerts on Azure service notifications using Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal)
 ## Based on my business priority, can I request a change in the “Planned” maintenance schedule for Azure Large Instances - if I must?
 
 Microsoft sends a health notification service for both planned and unplanned events.

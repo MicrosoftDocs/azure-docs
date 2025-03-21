@@ -30,7 +30,7 @@ Within Azure Synapse Analytics, users can quickly get started with Horovod using
 
 ## Configure the Apache Spark session
 
-At the start of the session, we need to configure a few Apache Spark settings. In most cases, we only need to set the numExecutors and spark.rapids.memory.gpu.reserve. For large models, users may also need to configure the  ```spark.kryoserializer.buffer.max``` setting. For Tensorflow models, users need to set the ```spark.executorEnv.TF_FORCE_GPU_ALLOW_GROWTH``` to be true.
+At the start of the session, we need to configure a few Apache Spark settings. In most cases, we only need to set the numExecutors and spark.rapids.memory.gpu.reserve. For large models, users may also need to configure the  ```spark.kryoserializer.buffer.max``` setting. For TensorFlow models, users need to set the ```spark.executorEnv.TF_FORCE_GPU_ALLOW_GROWTH``` to be true.
 
 In the example, you can see how the Spark configurations can be passed with the ```%%configure``` command. The detailed meaning of each parameter is explained in the [Apache Spark configuration documentation](https://spark.apache.org/docs/latest/configuration.html). The values provided are the suggested, best practice values for Azure Synapse GPU-large pools.  
 
@@ -132,7 +132,7 @@ print(adls_store_path)
 
 ## Prepare dataset
 
-Next, we will prepare the dataset for training. In this tutorial, we will use the MNIST dataset from [Azure Open Datasets](../../open-datasets/dataset-mnist.md?tabs=azureml-opendatasets).
+Next, we will prepare the dataset for training. In this tutorial, we will use the MNIST dataset from [Azure Open Datasets](/azure/open-datasets/dataset-mnist?tabs=azureml-opendatasets).
 
 ```python
 # Initialize SparkSession

@@ -6,14 +6,14 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 08/29/2023
-ms.custom: engagement-fy23
+ms.date: 09/26/2024
+ms.custom: engagement-fy25
 ---
 
 
 # Replication appliance
 
-This article describes the replication appliance used by the [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) tool when migrating VMware VMs, physical machines, and private/public cloud VMs to Azure, using agent-based migration. 
+This article describes the replication appliance used by the [Migration and modernization](migrate-services-overview.md) tool when migrating VMware VMs, physical machines, and private/public cloud VMs to Azure, using agent-based migration. 
 
 
 ## Overview
@@ -158,8 +158,8 @@ Process server | The process server receives replication data, optimizes, and en
 
 The appliance is upgraded manually from the Azure Migrate hub. We recommend that you always run the latest version.
 
-1. In Azure Migrate > Servers > Azure Migrate: Server Assessment, Infrastructure servers, select **Configuration servers**.
-2. In **Configuration servers**, a link appears in **Agent Version** when a new version of the replication appliance is available. 
+1. In Azure Migrate > Servers, databases and web apps> Migration and modernization > Overview > Migration > Infrastructure servers  select **Configuration servers**.
+2. In **Configuration servers** screen, a link appears in **Agent Version** when a new version of the replication appliance is available. 
 3. Download the installer to the replication appliance machine, and install the upgrade. The installer detects the version currently running on the appliance.
  
 ## Next steps

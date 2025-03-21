@@ -9,12 +9,12 @@ ms.service: service-connector
 ms.custom: devx-track-python, build-2024, devx-track-azurecli
 ms.collection: ce-skilling-ai-copilot
 ms.topic: tutorial
-ms.date: 05/07/2024
+ms.date: 01/29/2025
 ---
 
-# Tutorial: Connect to Azure OpenAI Service in AKS using a connection string (preview)
+# Tutorial: Connect to Azure OpenAI Service in AKS using a connection string
 
-In this tutorial, you learn how to create a pod in an Azure Kubernetes (AKS) cluster, which talks to Azure OpenAI Service using a connection string. You complete the following tasks:
+In this tutorial, you learn how to create a pod in an Azure Kubernetes (AKS) cluster that communicates with Azure OpenAI Service using a connection string. You complete the following tasks:
 
 > [!div class="checklist"]
 >
@@ -24,13 +24,16 @@ In this tutorial, you learn how to create a pod in an Azure Kubernetes (AKS) clu
 > * Deploy the application to a pod in the AKS cluster and test the connection.
 > * Clean up resources.
 
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable. See the [tutorial using a managed identity](tutorial-python-aks-openai-workload-identity.md).
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 * [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 * [Docker](https://docs.docker.com/get-docker/) and [kubectl](https://kubernetes.io/docs/tasks/tools/) to manage container images and Kubernetes resources.
 * A basic understanding of containers and AKS. Get started from [preparing an application for AKS](/azure/aks/tutorial-kubernetes-prepare-app).
-* Access permissions to [create Azure OpenAI Service resources and deploy models](../ai-services/openai/how-to/role-based-access-control.md).
+* Access permissions to [create Azure OpenAI Service resources and deploy models](/azure/ai-services/openai/how-to/role-based-access-control).
 
 ## Create Azure resources
 
@@ -61,7 +64,7 @@ In this tutorial, you learn how to create a pod in an Azure Kubernetes (AKS) clu
         --name MyAKSCluster
     ```
 
-1. Create an Azure OpenAI Service resource using the [az cognitiveservices account create](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-create) command. Optionally refer to [this tutorial](../ai-services/openai/how-to/create-resource.md) for more instructions. Azure OpenAI Service is the target service that we'll connect to the AKS cluster.
+1. Create an Azure OpenAI Service resource using the [az cognitiveservices account create](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-create) command. Optionally refer to [this tutorial](/azure/ai-services/openai/how-to/create-resource) for more instructions. Azure OpenAI Service is the target service that we'll connect to the AKS cluster.
 
     ```azurecli-interactive
     az cognitiveservices account create \
@@ -88,7 +91,7 @@ In this tutorial, you learn how to create a pod in an Azure Kubernetes (AKS) clu
         --capacity 1
     ```
 
-1. Create an Azure Container Registry (ACR) resource with the [az acr create](/cli/azure/acr#az-acr-create) command, or referring to [this tutorial](../container-registry/container-registry-get-started-portal.md). The registry hosts the container image of the sample application, which the AKS pod definition consumes.
+1. Create an Azure Container Registry (ACR) resource with the [az acr create](/cli/azure/acr#az-acr-create) command, or referring to [this tutorial](/azure/container-registry/container-registry-get-started-portal). The registry hosts the container image of the sample application, which the AKS pod definition consumes.
 
     ```azurecli-interactive
     az acr create \
@@ -106,7 +109,7 @@ In this tutorial, you learn how to create a pod in an Azure Kubernetes (AKS) clu
         --anonymous-pull-enabled
     ```
 
-## Create a service connection in AKS with Service Connector (preview)
+## Create a service connection in AKS with Service Connector
 
 Create a service connection between an AKS cluster and Azure OpenAI Service in the Azure portal or the Azure CLI.
 
@@ -135,16 +138,23 @@ Once the connection has been created, you can view its details in the **Service 
 
 ## [Azure CLI](#tab/azure-cli)
 
-Use the Azure CLI command to create a service connection to the Azure OpenAI service, providing the following information:
-
-* **Source compute service resource group name:** the resource group name of the AKS cluster.
-* **AKS cluster name:** the name of your AKS cluster that connects to the target service.
-* **Target service resource group name:** the resource group name of the Azure OpenAI service.
-* **OpenAI service name:** the Azure OpenAI service that is connected.
+Create a service connection to the Azure OpenAI service in AKS by running the [az aks connection create cognitiveservices](/cli/azure/aks/connection/create#az-aks-connection-create-cognitiveservices) command in the Azure CLI. 
 
 ```azurecli
 az aks connection create cognitiveservices --secret
+```
 
+When using the above command, Service Connector prompts you to specify the AKS resource group, AKS cluster name, target service resource group, and cognitive service account name step by step.
+
+Alternatively, you can provide the complete command directly:
+
+```azurecli
+az aks connection create cognitiveservices \
+   --secret \
+   --resource-group <aks-cluster-resource-group> \
+   --name <aks-cluster-name> \
+   --target-resource-group <target-cognitive-services-resource-group> \
+   --account <target-cognitive-services-account>
 ```
 
 ---
@@ -213,12 +223,8 @@ az group delete \
     --resource-group MyResourceGroup
 ```
 
-## Next steps
+## Related content
 
-Read the following articles to learn more about Service Connector concepts and how it helps AKS connect to Azure services.
-
-> [!div class="nextstepaction"]
-> [Learn about Service Connector concepts](./concept-service-connector-internals.md)
-
-> [!div class="nextstepaction"]
-> [Use Service Connector to connect an AKS cluster to other cloud services](./how-to-use-service-connector-in-aks.md)
+* [Connect to Azure OpenAI Service](./how-to-integrate-openai.md)
+* [Connect to Azure OpenAI Service in AKS using Workload Identity](./tutorial-python-aks-openai-workload-identity.md)
+* [Connect to an Azure AI multi-service resource](./how-to-integrate-cognitive-services.md)

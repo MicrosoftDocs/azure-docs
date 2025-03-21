@@ -5,35 +5,15 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content, devx-track-azurecli
 ms.topic: how-to
-ms.date: 08/05/2024
+ms.date: 03/19/2025
 ms.author: kendownie
 ---
 
 # Mount SMB Azure file shares on Linux clients
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 Azure file shares can be mounted in Linux distributions using the [SMB kernel client](https://wiki.samba.org/index.php/LinuxCIFS).
 
-The recommended way to mount an Azure file share on Linux is using SMB 3.1.1. By default, Azure Files requires encryption in transit, which is supported by SMB 3.0+. Azure Files also supports SMB 2.1, which doesn't support encryption in transit, but you can't mount Azure file shares with SMB 2.1 from another Azure region or on-premises for security reasons. Unless your application specifically requires SMB 2.1, use SMB 3.1.1.
-
-| Distribution | SMB 3.1.1 (Recommended) | SMB 3.0 |
-|-|-----------|---------|
-| Linux kernel version | <ul><li>Basic 3.1.1 support: 4.17</li><li>Default mount: 5.0</li><li>AES-128-GCM encryption: 5.3</li><li>AES-256-GCM encryption: 5.10</li></ul> | <ul><li>Basic 3.0 support: 3.12</li><li>AES-128-CCM encryption: 4.11</li></ul> |
-| [Ubuntu](https://wiki.ubuntu.com/Releases) | AES-128-GCM encryption: 18.04.5 LTS+ | AES-128-CCM encryption: 16.04.4 LTS+ |
-| [Red Hat Enterprise Linux (RHEL)](https://access.redhat.com/articles/3078) | <ul><li>Basic: 8.0+</li><li>Default mount: 8.2+</li><li>AES-128-GCM encryption: 8.2+</li></ul> | 7.5+ |
-| [Debian](https://www.debian.org/releases/) | Basic: 10+ | AES-128-CCM encryption: 10+ |
-| [SUSE Linux Enterprise Server](https://www.suse.com/support/kb/doc/?id=000019587) | AES-128-GCM encryption: 15 SP2+ | AES-128-CCM encryption: 12 SP2+ |
-
-If your Linux distribution isn't listed in the above table, you can check the Linux kernel version with the `uname` command:
-
-```bash
-uname -r
-```
-
-> [!NOTE]
-> SMB 2.1 support was added to Linux kernel version 3.7. If you're using a version of the Linux kernel after 3.7, it should support SMB 2.1.
+This article shows how to mount an SMB Azure file share using NTLMv2 authentication (storage account key). Using identity-based authentication is preferred for security reasons. See [Enable Active Directory authentication over SMB for Linux clients accessing Azure Files](storage-files-identity-auth-linux-kerberos-enable.md).
 
 ## Applies to
 
@@ -43,12 +23,30 @@ uname -r
 | Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
+## Protocols
+
+We recommend using SMB 3.1.1. By default, Azure Files requires encryption in transit, which is supported by SMB 3.0+. Azure Files also supports SMB 2.1, which doesn't support encryption in transit, but you can't mount Azure file shares with SMB 2.1 from another Azure region or on-premises for security reasons. Unless your application specifically requires SMB 2.1, use SMB 3.1.1. SMB 2.1 support was added to Linux kernel version 3.7, so if you're using a version of the Linux kernel after 3.7, it should support SMB 2.1.
+
+| Distribution | SMB 3.1.1 (Recommended) | SMB 3.0 |
+|-|-----------|---------|
+| Linux kernel version | <ul><li>Basic 3.1.1 support: 4.17</li><li>Default mount: 5.0</li><li>AES-128-GCM encryption: 5.3</li><li>AES-256-GCM encryption: 5.10</li></ul> | <ul><li>Basic 3.0 support: 3.12</li><li>AES-128-CCM encryption: 4.11</li></ul> |
+| [Ubuntu](https://wiki.ubuntu.com/Releases) | AES-128-GCM encryption: 18.04.5 LTS+ | AES-128-CCM encryption: 16.04.4 LTS+ |
+| [Red Hat Enterprise Linux (RHEL)](https://access.redhat.com/articles/3078) | <ul><li>Basic: 8.0+</li><li>Default mount: 8.2+</li><li>AES-128-GCM encryption: 8.2+</li></ul> | 7.5+ |
+| [Debian](https://www.debian.org/releases/) | Basic: 10+ | AES-128-CCM encryption: 10+ |
+| [SUSE Linux Enterprise Server](https://www.suse.com/support/kb/doc/?id=000019587) | AES-128-GCM encryption: 15 SP2+ | AES-128-CCM encryption: 12 SP2+ |
+
+If your Linux distribution isn't listed in the table, you can check the Linux kernel version with the `uname` command:
+
+```bash
+uname -r
+```
+
 ## Prerequisites
 
 <a id="smb-client-reqs"></a>
 
 * <a id="install-cifs-utils"></a>**Ensure the cifs-utils package is installed.**
-    Install the cifs-utils package using the package manager on the Linux distribution of your choice.
+    Install the latest version of the cifs-utils package using the package manager on the Linux distribution of your choice.
 
 
 # [Ubuntu](#tab/Ubuntu)
@@ -112,6 +110,18 @@ On other distributions, use the appropriate package manager or [compile from sou
 
     If you're unable to open up port 445 on your corporate network or are blocked from doing so by an ISP, you may use a VPN connection or ExpressRoute to work around port 445. For more information, see [Networking considerations for direct Azure file share access](storage-files-networking-overview.md).
 
+## Permissions
+
+All mounting scripts in this article will mount the file shares using the default 0755 Linux file and folder permissions. This means read, write, and execute for the file/directory owner, read and execute for users in the owner group, and read and execute for other users. Depending on your organization's security policies, you might want to set alternate `uid`/`gid` or `dir_mode` and `file_mode` permissions in the mount options. For more information on how to set permissions, see [Unix symbolic notation](https://en.wikipedia.org/wiki/File-system_permissions#Symbolic_notation). See [mount options](#mount-options) for a list of mount options.
+
+### Unix-style permissions support
+
+You can also get Unix-style permissions support for SMB Azure file shares by using client-enforced access control and adding `modefromsid,idsfromsid` mount options to your mount command. In order for this to work:
+
+- All clients accessing the share need to mount using `modefromsid,idsfromsid`
+- The UIDs/GIDs must be uniform across all clients
+- Clients must be running one of the following supported Linux distros: Ubuntu 20.04+, SLES 15 SP3+
+
 ## Mount the Azure file share on-demand with mount
 
 When you mount a file share on a Linux OS, your remote file share is represented as a folder in your local file system. You can mount file shares to anywhere on your system. The following example mounts under the `/media` path. You can change this to your preferred path you want by modifying the `$MNT_ROOT` variable.
@@ -158,7 +168,7 @@ fi
 sudo chmod 600 $SMB_CREDENTIAL_FILE
 ```
 
-Now you can mount the file share using the `mount` command using the credential file. In the following example, the `$SMB_PATH` command is populated using the fully qualified domain name for the storage account's file endpoint.
+Now you can mount the file share with the `mount` command using the credential file. In the following example, the `$SMB_PATH` command is populated using the fully qualified domain name for the storage account's file endpoint. See [mount options](#mount-options) for a list of SMB mount options.
 
 # [SMB 3.1.1](#tab/smb311)
 > [!NOTE]
@@ -216,9 +226,9 @@ sudo mount -t cifs $SMB_PATH $MNT_PATH -o vers=2.1,credentials=$SMB_CREDENTIAL_F
 
 ---
 
-You can use `uid`/`gid` or `dir_mode` and `file_mode` in the mount options for the `mount` command to set permissions. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation).
+You can also mount the same Azure file share to multiple mount points if desired. 
 
-You can also mount the same Azure file share to multiple mount points if desired. When you're done using the Azure file share, use `sudo umount $mntPath` to unmount the share.
+When you're done using the Azure file share, use `sudo umount $mntPath` to unmount the share.
 
 ## Automatically mount file shares
 
@@ -229,7 +239,7 @@ MNT_ROOT="/media"
 sudo mkdir -p $MNT_ROOT
 ```
 
-To mount an Azure file share on Linux, use the storage account name as the username of the file share, and the storage account key as the password. Because the storage account credentials might change over time, you should store the credentials for the storage account separately from the mount configuration.
+Use the storage account name as the username of the file share, and the storage account key as the password. Because the storage account credentials might change over time, you should store the credentials for the storage account separately from the mount configuration.
 
 The following example shows how to create a file to store the credentials. Remember to replace `<resource-group-name>` and `<storage-account-name>` with the appropriate information for your environment.
 
@@ -276,7 +286,7 @@ MNT_PATH="$MNT_ROOT/$STORAGE_ACCOUNT_NAME/$FILE_SHARE_NAME"
 sudo mkdir -p $MNT_PATH
 ```
 
-Finally, create a record in the `/etc/fstab` file for your Azure file share. In the command below, the default 0755 Linux file and folder permissions are used, which means read, write, and execute for the owner (based on the file/directory Linux owner), read and execute for users in owner group, and read and execute for others on the system. You might wish to set alternate `uid` and `gid` or `dir_mode` and `file_mode` permissions on mount as desired. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation).
+Finally, create a record in the `/etc/fstab` file for your Azure file share. In the command below, the default 0755 Linux file and folder permissions are used, which means read, write, and execute for the owner (based on the file/directory Linux owner), read and execute for users in owner group, and read and execute for others on the system. You might wish to set alternate `uid` and `gid` or `dir_mode` and `file_mode` permissions on mount as desired. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation). See [mount options](#mount-options) for a list of SMB mount options.
 
 > [!TIP]
 > If you want Docker containers running .NET Core applications to be able to write to the Azure file share, include **nobrl** in the SMB mount options to avoid sending byte range lock requests to the server.
@@ -314,7 +324,7 @@ sudo apt install autofs
 ```
 # [RHEL](#tab/RHEL)
 
-Same applies for CentOS or Oracle Linux
+Same applies for CentOS or Oracle Linux:
 
 On Red Hat Enterprise Linux 8+,  use the `dnf` package manager:
 ```bash
@@ -335,7 +345,7 @@ sudo zypper install autofs
 ```
 ---
 
-Next, update the `autofs` configuration files.
+Next, update the `autofs` configuration files. See [mount options](#mount-options) for a list of SMB mount options.
 
 ```bash
 FILE_SHARE_NAME="<file-share-name>"
@@ -357,34 +367,36 @@ The final step is to restart the `autofs` service.
 sudo systemctl restart autofs
 ```
 
-## Mount a file share snapshot
+### Mount options
 
-If you want to mount a specific snapshot of an SMB Azure file share, you must supply the `snapshot` option as part of the `mount` command, where `snapshot` is the time that the particular snapshot was created in a format such as @GMT-2023.01.05-00.08.20. The `snapshot` option has been supported in the Linux kernel since version 4.19.
+You can use the following mount options when mounting SMB Azure file shares on Linux.
 
-After you've created the file share snapshot, follow these instructions to mount it.
+| **Mount option** | **Recommended value** | **Description** |
+|******************|***********************|*****************|
+| `username=` | Storage account name | Mandatory for NTLMv2 authentication. |
+| `password=` | Storage account primary key | Mandatory for NTLMv2 authentication. |
+| `password2=` | Storage account secondary key | Recommended in case when no-downtime key-rotation is desirable. |
+| `mfsymlinks` | n/a | Recommended. Forces the mount to support symbolic links, allowing applications like git to clone repos with symlinks. |
+| `actimeo=` | 30-60 | Recommended. The time (in seconds) that the CIFS client caches attributes of a file or directory before it requests attribute information from a server. Using a value lower than 30 seconds can cause performance degradation because attribute caches for files and directories expire too quickly. We recommend setting `actimeo` between 30 and 60 seconds. |
+| `nosharesock` | n/a | Optional. Forces the client to always make a new connection to the server even if it has an existing connection to the SMB mount. This can enhance performance, as each mount point will use a different TCP socket. In some cases, `nosharesock` can degrade performance due to not caching the same file when opened from two mounts from the same client. |
+| `max_channels=` | 4 | Recommended when using SMB Multichannel. Specifies the maximum number of channels (network connections) to the file share. If you're using SMB Multichannel and the number of channels exceeds four, this will result in poor performance. |
+| `remount` | n/a | Remounts the file share and changes mount options if specified. Use with the `password2` option in cases where you want to specify an alternative password to fix an expired password after the original mount. |
+| `nobrl` | n/a | Recommended in single-client scenarios when advisory locks are required. Azure Files doesn't support advisory locks, and this setting prevents sending byte range lock requests to the server. |
+| `snapshot=` | time | Mount a specific snapshot of the file share. Time must be a positive integer identifying the snapshot requested (in 100-nanosecond units that have elapsed since January 1, 1601, or alternatively it can be specified in GMT format e.g. @GMT-2024.03.27-20.52.19). |
+| `closetimeo=` | 5 | Configures deferred close timeout (handle cache) in seconds, or disables it by setting to 0. Default is 5 seconds. |
+| `nostrictsync` | n/a | Don't ask the server to flush on fsync(). Some servers perform non-buffered writes by default, in which case flushing is redundant. This option can improve performance for workloads where a client is performing a lot of small write + fsync combinations and where network latency is much higher than the server latency. |
+| `multiuser` | n/a | Map user accesses to individual credentials when accessing the server. By default, CIFS mounts only use a single set of user credentials (the mount credentials) when accessing a share. With this option, the client instead creates a new session with the server using the user's credentials whenever a new user accesses the mount. Further accesses by that user will also use those credentials. Because the kernel can't prompt for passwords, multiuser mounts are limited to mounts using `sec=` options that don't require passwords. |
+| `cifsacl` | n/a | This option is used to map CIFS/NTFS ACLs to/from Linux permission bits, map SIDs to/from UIDs and GIDs, and get and set Security Descriptors. Only supported for NTLMv2 authentication. |
+| `idsfromsid,modefromsid` | n/a | Recommended when client needs to do client-enforced authorization. Enables Unix-style permissions. Only works when UIDs/GIDs are uniform across all the clients. Only supported for NTLMv2 authentication. |
+| `sec=` | krb5 | Required for Kerberos authentication. To enable Kerberos security mode, set `sec=krb5`. You must omit username and password when using this option. The Linux client must be domain-joined. See [Enable Active Directory authentication over SMB for Linux clients](storage-files-identity-auth-linux-kerberos-enable.md). |
+| `uid=` | 0 | Optional. Sets the uid that will own all files or directories on the mounted filesystem when the server doesn't provide ownership information. It can be specified as either a username or a numeric uid. When not specified, the default is 0. |
+| `gid=` | 0 | Optional. Sets the gid that will own all files or directories on the mounted filesystem when the server doesn't provide ownership information. It can be specified as either a groupname or a numeric gid. When not specified, the default is 0. |
+| `file_mode=` | n/a | Optional. If the server doesn't support the CIFS Unix extensions, this overrides the default file mode. |
+| `dir_mode=` | n/a | Optional. If the server doesn't support the CIFS Unix extensions, this overrides the default mode for directories. |
+| `handletimeout=` | n/a | Optional. The time (in milliseconds) for which the server should reserve the file handle after a failover waiting for the client to reconnect. |
 
-1. In the Azure portal, navigate to the storage account that contains the file share that you want to mount a snapshot of.
-2. Select **Data storage > File shares** and select the file share.
-3. Select **Operations > Snapshots** and take note of the name of the snapshot you want to mount. The snapshot name will be a GMT timestamp, such as in the screenshot below.
+## Next step
 
-   :::image type="content" source="media/storage-how-to-use-files-linux/mount-snapshot.png" alt-text="Screenshot showing how to locate a file share snapshot name and timestamp in the Azure portal." border="true" :::
+For more information about using SMB Azure file shares with Linux, see:
 
-4. Convert the timestamp to the format expected by the `mount` command, which is **@GMT-year.month.day-hour.minutes.seconds**. In this example, you'd convert **2023-01-05T00:08:20.0000000Z** to **@GMT-2023.01.05-00.08.20**.
-5. Run the `mount` command using the GMT time to specify the `snapshot` value. Be sure to replace `<storage-account-name>`, `<file-share-name>`, and the GMT timestamp with your values. The .cred file contains the credentials to be used to mount the share (see [Automatically mount file shares](#automatically-mount-file-shares)).
-
-   ```bash
-   sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<file-share-name> /media/<file-share-name>/snapshot1 -o credentials=/etc/smbcredentials/snapshottestlinux.cred,snapshot=@GMT-2023.01.05-00.08.20
-   ```
-
-6. If you're able to browse the snapshot under the path `/media/<file-share-name>/snapshot1`, then the mount succeeded.
-
-If the mount fails, see [Troubleshoot Azure Files connectivity and access issues (SMB)](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-connectivity?toc=/azure/storage/files/toc.json).
-
-## Next steps
-
-See these links for more information about Azure Files:
-
-- [Planning for an Azure Files deployment](storage-files-planning.md)
-- [Remove SMB 1 on Linux](files-remove-smb1-linux.md)
 - [Troubleshoot general SMB issues on Linux](/troubleshoot/azure/azure-storage/files-troubleshoot-linux-smb?toc=/azure/storage/files/toc.json)
-- [Troubleshoot general NFS issues on Linux](/troubleshoot/azure/azure-storage/files-troubleshoot-linux-nfs?toc=/azure/storage/files/toc.json)

@@ -5,7 +5,7 @@ description: Learn how to enable SSH File Transfer Protocol (SFTP) support for A
 author: normesta
 ms.custom:
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2024
 ms.author: normesta
 ---
@@ -20,7 +20,7 @@ To learn more about SFTP support for Azure Blob Storage, see [SSH File Transfer 
 
 - A standard general-purpose v2 or premium block blob storage account. You can also enable SFTP as you create the account. For more information on these types of storage accounts, see [Storage account overview](../common/storage-account-overview.md).
 
-- The hierarchical namespace feature of the account must be enabled. To enable the hierarchical namespace feature, see [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).
+- The hierarchical namespace feature of the account must be enabled. To enable the hierarchical namespace feature, see [Upgrade Azure Blob Storage with Azure Data Lake Storage capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).
 
 ## Enable SFTP support
 
@@ -33,7 +33,7 @@ This section shows you how to enable SFTP support for an existing storage accoun
 2. Under **Settings**, select **SFTP**.
 
    > [!NOTE]
-   > This option appears only if the hierarchical namespace feature of the account has been enabled. To enable the hierarchical namespace feature, see [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).
+   > This option appears only if the hierarchical namespace feature of the account has been enabled. To enable the hierarchical namespace feature, see [Upgrade Azure Blob Storage with Azure Data Lake Storage capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).
 
 3. Select **Enable SFTP**. 
 

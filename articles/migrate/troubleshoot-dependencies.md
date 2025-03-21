@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: troubleshooting
-ms.date: 03/08/2023
+ms.date: 09/09/2024
 ms.custom: engagement-fy23
 ---
 
@@ -167,6 +167,7 @@ After you install the required PowerShell version, verify if the error was resol
 ## Error 9022: GetWMIObjectAccessDenied
 
 ### Remediation
+
 Make sure that the user account provided in the appliance has access to the WMI namespace and subnamespaces. To set the access:
 
 1. Go to the server that's reporting this error.
@@ -176,7 +177,7 @@ Make sure that the user account provided in the appliance has access to the WMI 
 1. On the **Securities** tab, select **Security** to open the **Security for ROOT** dialog.
 1. Select **Advanced** to open the **Advanced Security Settings for Root** dialog.
 1. Select **Add** to open the **Permission Entry for Root** dialog.
-1. Click **Select a principal** to open the **Select Users, Computers, Service Accounts, or Groups** dialog.
+1. Select **Select a principal** to open the **Select Users, Computers, Service Accounts, or Groups** dialog.
 1. Select the usernames or groups you want to grant access to the WMI, and select **OK**.
 1. Ensure you grant execute permissions, and select **This namespace and subnamespaces** in the **Applies to** dropdown list.
 1. Select **Apply** to save the settings and close all dialogs.
@@ -232,6 +233,19 @@ This error occurs when you've provided a domain credential with the wrong domain
 ### Remediation
 - Go to the appliance configuration manager to add a server credential or edit an existing one as explained in the cause.
 - After you take the remediation steps, verify if the error was resolved by following the steps on [this website](troubleshoot-dependencies.md#mitigation-verification).
+
+
+## Error 9014: HTTPGetRequestToRetrieveFileFailed/ 975: MaxLimitExceededForDepMap /976: AutoenableDisabledForDepMap
+
+### Remediation
+1. On the server running the appliance, open the Registry Editor.
+1. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance (Use the folder without space).
+1. Add a registry key `DepMapAutoEnable` with a type of "String" and value as "false".
+
+    [![Screenshot that shows registry key.](./media/troubleshoot-dependencies/registry-key.png)](./media/troubleshoot-dependencies/registry-key.png#lightbox)
+
+1. Ensure that you have manually enabled dependency analysis for one or more discovered servers in your project. 
+5.	Restart the appliance server. Wait for an hour and check if the issues have been resolved.
 
 ## Mitigation verification
 
@@ -332,8 +346,8 @@ For Linux VMs, make sure that the installation commands for MMA and the dependen
 
 ## Supported operating systems for agent-based dependency analysis
 
-- **MMS agent**: The supported [Windows](../azure-monitor/agents/agents-overview.md#supported-operating-systems) and [Linux](../azure-monitor/agents/agents-overview.md#supported-operating-systems) operating systems.
-- **Dependency agent**: The supported [Windows and Linux](../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) operating systems.
+- **MMS agent**: The supported [Windows](/azure/azure-monitor/agents/agents-overview#supported-operating-systems) and [Linux](/azure/azure-monitor/agents/agents-overview#supported-operating-systems) operating systems.
+- **Dependency agent**: The supported [Windows and Linux](/azure/azure-monitor/vm/vminsights-enable-overview#supported-operating-systems) operating systems.
 
 ## Visualize dependencies for >1 hour with agent-based dependency analysis
 

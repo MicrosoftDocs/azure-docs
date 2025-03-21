@@ -4,8 +4,7 @@ description: The second tutorial about installing Azure Stack Edge Mini R device
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 11/10/2023
 ms.author: alkohli

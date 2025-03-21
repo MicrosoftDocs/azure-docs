@@ -5,13 +5,13 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: overview
-ms.date: 01/11/2024
+ms.date: 08/20/2024
 ms.author: anfdocs
 ---
 
 # What is Azure NetApp Files?
 
-Azure NetApp Files is an Azure native, first-party, enterprise-class, high-performance file storage service. It provides _Volumes as a service_ for which you can create NetApp accounts, capacity pools, and volumes. You can also select service and performance levels and manage data protection. You can create and manage high-performance, highly available, and scalable file shares by using the same protocols and tools that you're familiar with and rely on on-premises.
+Azure NetApp Files is an Azure native, first-party, enterprise-class, high-performance file storage service. It provides _Volumes as a service_, which you can create within a NetApp account and a capacity pool, and share to clients using SMB and NFS. You can also select service and performance levels and manage data protection. You can create and manage high-performance, highly available, and scalable file shares by using the same protocols and tools that you're familiar with and rely on on-premises.
 
 Key attributes of Azure NetApp Files are:
 
@@ -45,7 +45,7 @@ Azure NetApp Files is designed to provide high-performance file storage for ente
 | Virtual machine (VM) networked storage performance | Higher VM network throughput compared to disk IO limits enable more demanding workloads on smaller Azure VMs. | Improve application performance at a smaller VM footprint, improving overall efficiency and lowering application license cost.
 | Deep workload readiness | Seamless deployment and migration of any-size workload with well-documented deployment guides. | Easily migrate any workload of any size to the platform. Enjoy a seamless, cost-effective deployment and migration experience.
 | Datastores for Azure VMware Solution | Use Azure NetApp Files as a storage solution for VMware workloads in Azure, reducing the need for superfluous compute nodes normally included with Azure VMware Solution expansions. | Save money by eliminating the need for unnecessary compute nodes when you expand storage, resulting in significant cost savings.
-| Standard storage with cool access | Use the cool access option of Azure NetApp Files Standard service level to move inactive data transparently from Azure NetApp Files Standard service-level storage (the hot tier) to an Azure Storage account (the cool tier). | Save money by transitioning data that resides within Azure NetApp Files volumes (the hot tier) by moving blocks to the lower-cost storage (the cool tier). |
+| Cool access | Use the cool access option of Azure NetApp Files Standard service level to move inactive data transparently from Azure NetApp Files Standard service-level storage (the hot tier) to an Azure Storage account (the cool tier). | Save money by transitioning data that resides within Azure NetApp Files volumes (the hot tier) by moving blocks to the lower-cost storage (the cool tier). |
 
 These features work together to provide a high-performance file storage solution for the demands of enterprise workloads. They help to ensure that your workloads experience optimal (low) storage latency, cost, and scale.
 

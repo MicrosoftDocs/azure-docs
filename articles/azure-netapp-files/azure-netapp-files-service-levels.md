@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 08/02/2022
+ms.date: 09/05/2024
 ms.author: anfdocs
 ---
 # Service levels for Azure NetApp Files
@@ -18,14 +18,14 @@ Azure NetApp Files supports three service levels: *Ultra*, *Premium*, and *Stand
 * <a name="Standard"></a>Standard storage:   
     The Standard service level provides up to 16 MiB/s of throughput per 1 TiB of capacity provisioned.   
 
-    * Standard storage with cool access:      
-        The throughput experience for this service level is the same as the Standard service level for data that is in the hot tier. It may differ when data that resides in the cool tier is accessed. For more information, see [Standard storage with cool access in Azure NetApp Files](cool-access-introduction.md#effects-of-cool-access-on-data). 
-
 * <a name="Premium"></a>Premium storage:   
     The Premium service level provides up to 64 MiB/s of throughput per 1 TiB of capacity provisioned. 
 
 * <a name="Ultra"></a>Ultra storage:   
     The Ultra service level provides up to 128 MiB/s of throughput per 1 TiB of capacity provisioned. 
+
+* Storage with cool access:      
+    Cool access storage is available with the Standard, Premium, and Ultra service levels. The throughput experience for any of these service levels with cool access is the same for cool access as it is for data in the hot tier. It may differ when data that resides in the cool tier is accessed. For more information, see [Azure NetApp Files storage with cool access](cool-access-introduction.md) and [Performance considerations for storage with cool access](performance-considerations-cool-access.md). 
 
 ## Throughput limits
 
@@ -46,7 +46,7 @@ The following diagram shows throughput limit examples of volumes in an auto QoS 
 
 ### Throughput limit examples of volumes in a manual QoS capacity pool 
 
-If you use a manual QoS capacity pool, you can assign the capacity and throughput for a volume independently. When you create a volume in a manual QoS capacity pool, you can specify the throughput (MiB/S) value. The total throughput assigned to volumes in a manual QoS capacity pool depends on the size of the pool and the service level. It is capped by (Capacity Pool Size in TiB x Service Level Throughput/TiB). For instance, a 10-TiB capacity pool with the Ultra service level has a total throughput capacity of 1280 MiB/s (10 TiB x 128 MiB/s/TiB) available for the volumes.
+If you use a manual QoS capacity pool, you can assign the capacity and throughput for a volume independently. When you create a volume in a manual QoS capacity pool, you can specify the throughput (MiB/S) value. The total throughput assigned to volumes in a manual QoS capacity pool depends on the size of the pool and the service level. Throughput limits are capped by a formula: capacity pool size in TiB x service level throughput/TiB. For instance, a 10-TiB capacity pool with the Ultra service level has a total throughput capacity of 1280 MiB/s (10 TiB x 128 MiB/s/TiB) available for the volumes.
 
 For example, for an SAP HANA system, this capacity pool can be used to create the following volumes. Each volume provides the individual size and throughput to meet your application requirements:
 

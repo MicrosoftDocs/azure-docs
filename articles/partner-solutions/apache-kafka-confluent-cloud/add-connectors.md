@@ -1,31 +1,30 @@
 ---
-title: Connect a Confluent organization to other Azure resources
-description: Learn how to connect an instance of Apache Kafka® & Apache Flink® on Confluent Cloud™ to other Azure services using Service Connector.
+title: Connect a Confluent organization to Azure compute services
+description: Learn how to connect an instance of Apache Kafka® & Apache Flink® on Confluent Cloud™ to Azure compute services using Service Connector.
 # customerIntent: As a developer I want connect Confluent Cloud to Azure services.
 ms.topic: how-to
-ms.date: 04/09/2024
-ms.custom: ai-gen-docs-bap, ai-gen-desc, ai-seo-date:04/09/2024
+ms.date: 05/28/2024
 ---
 
-# Connect a Confluent organization to other Azure resources
+# Connect a Confluent organization to Azure compute services
 
-In this guide, learn how to connect an instance of Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service, to other Azure services, using Service Connector. This page also introduces Azure Cosmos DB connectors and the Azure Functions Kafka trigger extension.
+In this guide, learn how to connect an instance of Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service, to Azure compute services, using Service Connector.
 
 Service Connector is an Azure service designed to simplify the process of connecting Azure resources together. Service Connector manages your connection's network and authentication settings to simplify the operation.
 
-This guide shows step by step instructions to connect an app deployed to Azure App Service to a Confluent organization. You can apply a similar method to connect your Confluent organization to other services supported by Service Connector.
+This guide shows step by step instructions to connect an app deployed to Azure App Service to a Confluent organization. You can apply a similar method to connect your Confluent organization to other [compute services supported by Service Connector](../../service-connector/overview.md#what-services-are-supported-by-service-connector).
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
-* An existing Confluent organization. If you don't have one yet, refer to [create a Confluent organization](./create-cli.md)
+* An existing Confluent organization. If you don't have one yet, refer to [create a Confluent organization](./create.md)
 * An app deployed to [Azure App Service](/azure/app-service/quickstart-dotnetcore), [Azure Container Apps](/azure/container-apps/quickstart-portal), [Azure Spring Apps](/azure/spring-apps/enterprise/quickstart), or [Azure Kubernetes Services (AKS)](/azure/aks/learn/quick-kubernetes-deploy-portal).
 
 ## Create a new connection
 
 Follow these steps to connect an app to Apache Kafka & Apache Flink on Confluent Cloud.
 
-1. Open your App Service, Container Apps, or Azure Spring Apps, or AKS resource. If using Azure Spring Apps, you must then open the **Apps** menu and select your app.
+1. Open your App Service, Container Apps, Azure Spring Apps, or AKS resource. If using Azure Spring Apps, you must then open the **Apps** menu and select your app.
 
 1. Open **Service Connector** from the left menu and select **Create**.
 
@@ -37,7 +36,7 @@ Follow these steps to connect an app to Apache Kafka & Apache Flink on Confluent
     |---------------------|--------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | **Service type**    | *Apache Kafka on Confluent Cloud*                | Select **Apache Kafka on Confluent Cloud** to generate a connection to a Confluent. organization.                                                                                                                                                                                                        |
     | **Connection name** | *Confluent_d0fcp*                                | The connection name that identifies the connection between your App Service and Confluent organization service. Use the connection name provided by Service Connector or enter your own connection name. Connection names can only contain letters, numbers (0-9), periods ("."), and underscores ("_"). |
-    | **Source**          | *Azure marketplace Confluent resource (preview)* | Select **Azure marketplace Confluent resource (preview)**.                                                                                                                                                                                                                                                         |
+    | **Source**          | *Azure Marketplace Confluent resource (preview)* | Select **Azure Marketplace Confluent resource (preview)**.                                                                                                                                                                                                                                                         |
 
      :::image type="content" source="./media/connect/confluent-source.png" alt-text="Screenshot from the Azure portal showing the Source options.":::
 
@@ -84,7 +83,7 @@ Follow these steps to connect an app to Apache Kafka & Apache Flink on Confluent
 
     :::image type="content" source="./media/connect/authentication.png" alt-text="Screenshot from the Azure portal showing connection authentication settings.":::
 
-1. Select **Next: Networking** to configure the network access to your Confluent organization. **Configure firewall rules to enable access to your target service** is selected by default. Optionally also configure the webapp's outbound traffic to intergate with Virtual Network.
+1. Select **Next: Networking** to configure the network access to your Confluent organization. **Configure firewall rules to enable access to your target service** is selected by default. Optionally also configure the webapp's outbound traffic to integrate with Virtual Network.
 
    :::image type="content" source="./media/connect/networking.png" alt-text="Screenshot from the Azure portal showing connection networking settings.":::
 
@@ -101,27 +100,6 @@ Select a connection's checkbox and explore the following options:
 * Select **Edit** to edit connection details.
 * Select **Delete** to remove a connection.
 
-## Other solutions
+## Next step
 
-### Azure Cosmos DB connectors
-
-**Azure Cosmos DB Sink Connector fully managed connector** is generally available within Confluent Cloud. The fully managed connector eliminates the need for the development and management of custom integrations, and reduces the overall operational burden of connecting your data between Confluent Cloud and Azure Cosmos DB. The Azure Cosmos DB Sink Connector for Confluent Cloud reads from and writes data to an Azure Cosmos DB database. The connector polls data from Kafka and writes to database containers.
-
-To set up your connector, see [Azure Cosmos DB Sink Connector for Confluent Cloud](https://docs.confluent.io/cloud/current/connectors/cc-azure-cosmos-sink.html).
-
-**Azure Cosmos DB Self Managed connector** must be installed manually. First download an uber JAR from the [Azure Cosmos DB Releases page](https://github.com/microsoft/kafka-connect-cosmosdb/releases). Or, you can [build your own uber JAR directly from the source code](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/README_Sink.md#install-sink-connector). Complete the installation by following the guidance described in the Confluent documentation for [installing connectors manually](https://docs.confluent.io/home/connect/install.html#install-connector-manually).
-
-### Azure Functions Kafka trigger extension
-
-**Azure Functions Kafka trigger extension** is used to run your function code in response to messages in Kafka topics. You can also use a Kafka output binding to write from your function to a topic. For information about setup and configuration details, see [Apache Kafka bindings for Azure Functions overview](../../azure-functions/functions-bindings-kafka.md).
-
-## Next steps
-
-- For help with troubleshooting, see [Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md).
-- Get started with Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service on
-
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)
-
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview)
+For help with troubleshooting, see [Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md).

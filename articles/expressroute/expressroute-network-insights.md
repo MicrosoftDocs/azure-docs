@@ -19,8 +19,6 @@ This article explains how Network Insights can help you view  your ExpressRoute 
 
 1. Navigate to the *Azure Monitor* page, then select *Networks*.
 
-    :::image type="content" source="./media/expressroute-network-insights/monitor-page.png" alt-text="Screenshot of the Monitor landing page.":::
-
 1. Select the *ExpressRoute Circuits* card. 
 
 1. Then, select the topology button for the circuit you would like to view.
@@ -37,7 +35,7 @@ This article explains how Network Insights can help you view  your ExpressRoute 
 
 ## View a detailed and preloaded metrics dashboard
 
-Once you review the topology of your ExpressRoute setup using the functional dependency view, select **View detailed metrics** to navigated to the detailed metrics view to understand the performance of your circuit. This view offers an organized list of linked resources and a rich dashboard of important ExpressRoute metrics.
+Once you review the topology of your ExpressRoute setup using the functional dependency view, select **View detailed metrics** to navigate to the detailed metrics view to understand the performance of your circuit. This view offers an organized list of linked resources and a rich dashboard of important ExpressRoute metrics.
 
 The **Linked Resources** section lists the connected ExpressRoute gateways and configured peerings, which you can select on to navigate to the corresponding resource page.
 

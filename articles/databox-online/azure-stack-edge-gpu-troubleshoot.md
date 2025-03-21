@@ -4,8 +4,7 @@ description: Describes how to run diagnostics, use logs to troubleshoot Azure St
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: troubleshooting
 ms.date: 10/18/2021
 ms.author: alkohli

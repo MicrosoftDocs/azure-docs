@@ -45,8 +45,6 @@ You can add as many [private](#private) and [public](#public) [IPv4](#ipv4) addr
 
 3. Under **Settings**, select **IP configurations** and then select **+ Add**.
 
-   :::image type="content" source="./media/virtual-network-network-interface-addresses/ip-configurations.png" alt-text="Screenshot of I P configurations page in Azure portal.":::
-
 4. Specify the following, then select **OK**:
 
    | Setting | Value | Details |
@@ -60,8 +58,6 @@ You can add as many [private](#private) and [public](#public) [IPv4](#ipv4) addr
    | **Public IP address settings** |  |  |
    | Public IP address | Select **Disassociate** or **Associate**. | **Disassociate**: No public IP address with this IP configuration. <br> **Associate**: When selecting this option, a new or existing Public IP address can be added to the IP configuration. To learn more, see [Create a public IP address](virtual-network-public-ip-address.md#create-a-public-ip-address).|
    | Public IP address | Select a public IP address or create a new one. | This option is available if you select **Associate** for the public address. |
-
-   :::image type="content" source="./media/virtual-network-network-interface-addresses/add-ip-configuration.png" alt-text="Screenshot of Add I P configuration page in Azure portal.":::
 
 # [**PowerShell**](#tab/nic-address-powershell)
 
@@ -104,8 +100,6 @@ Situations arise where you need to change the allocation method of an IPv4 addre
 2. From the list of network interfaces, select the network interface that you want to view or change IP address settings for.
 
 3. Under **Settings**, select **IP configurations** and then select the IP configuration you want to modify.
-
-   :::image type="content" source="./media/virtual-network-network-interface-addresses/change-ip-configuration.png" alt-text="Screenshot of change I P configuration page in Azure portal.":::
 
 4. Change the settings, as desired, using the information about the settings in step 4 of [Add an IP configuration](#add-ip-addresses).
 
@@ -153,8 +147,6 @@ You can remove [private](#private) and [public](#public) IP addresses from a net
 2. From the list of network interfaces, select the network interface that you want to remove an IP address from.
 
 3. Under **Settings**, select **IP configurations** and then select the **...** of the [secondary](#secondary) IP configuration that you want to delete (you can't delete the [primary](#primary) IP configuration using the Azure portal).
-
-   :::image type="content" source="./media/virtual-network-network-interface-addresses/delete-ip-configuration.png" alt-text="Screenshot of delete an I P configuration in Azure portal.":::
 
 4. Select **Delete**, then select **Yes**, to confirm the deletion. If the configuration had a public IP address resource associated to it, the resource is dissociated from the IP configuration, but the resource isn't deleted.
 
@@ -280,6 +272,6 @@ To create a virtual machine with different IP configurations, read the following
 
 |Task|Tool|
 |---|---|
-|Create a VM with multiple network interfaces|[CLI](../../virtual-machines/linux/multiple-nics.md), [PowerShell](../../virtual-machines/windows/multiple-nics.md)|
+|Create a VM with multiple network interfaces|[CLI](/azure/virtual-machines/linux/multiple-nics), [PowerShell](/azure/virtual-machines/windows/multiple-nics)|
 |Create a single NIC VM with multiple IPv4 addresses|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
 |Create a single NIC VM with a private IPv6 address (behind an Azure Load Balancer)|[CLI](../../load-balancer/load-balancer-ipv6-internet-cli.md), [PowerShell](../../load-balancer/load-balancer-ipv6-internet-ps.md), [Azure Resource Manager template](../../load-balancer/load-balancer-ipv6-internet-template.md)|

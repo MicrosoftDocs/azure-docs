@@ -3,9 +3,9 @@ title: Deploy blob storage on module to your device
 description: Deploy and configure an Azure Blob Storage module to your IoT Edge device and store data at the edge.
 author: PatAltimore
 ms.author: patricka
-ms.date: 03/18/2024
+ms.date: 08/12/2024
 ms.topic: conceptual
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.reviewer: arduppal
 ---
 # Deploy the Azure Blob Storage on IoT Edge module to your device
@@ -85,7 +85,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
    - Replace `<local storage account name>` with a name that you can remember. Account names should be 3 to 24 characters long, with lowercase letters and numbers. No spaces.
 
-   - Replace `<local storage account key>` with a 64-byte base64 key. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64). You use these credentials to access the blob storage from other modules.
+   - Replace `<local storage account key>` with a 64-byte base64 key. You can generate a key with tools like [Base64 Generator](https://real-generator.com/base64). You use these credentials to access the blob storage from other modules.
 
    - Replace `<mount>` according to your container operating system. Provide the name of a [volume](https://docs.docker.com/storage/volumes/) or the absolute path to an existing directory on your IoT Edge device where the blob module stores its data. The storage mount maps a location on your device that you provide to a set location in the module.
 
@@ -205,7 +205,7 @@ Azure IoT Edge provides templates in Visual Studio Code to help you develop edge
 
 1. Replace `<local storage account name>` with a name that you can remember. Account names should be 3 to 24 characters long, with lowercase letters and numbers. No spaces.
 
-1. Replace `<local storage account key>` with a 64-byte base64 key. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64). You use these credentials to access the blob storage from other modules.
+1. Replace `<local storage account key>` with a 64-byte base64 key. You can generate a key with tools like [Base64 Generator](https://real-generator.com/base64). You use these credentials to access the blob storage from other modules.
 
 1. Replace `<mount>` according to your container operating system. Provide the name of a [volume](https://docs.docker.com/storage/volumes/) or the absolute path to a directory on your IoT Edge device where you want the blob module to store its data. The storage mount maps a location on your device that you provide to a set location in the module.  
 
@@ -251,7 +251,7 @@ Azure IoT Edge provides templates in Visual Studio Code to help you develop edge
 
 1. Right-click **deployment.template.json** and select **Generate IoT Edge deployment manifest**.
 
-1. Visual Studio Code takes the information that you provided in *deployment.template.json* and uses it to create a new deployment manifest file. The deployment manifest is created in a new **config** folder in your solution workspace. Once you have that file, you can follow the steps in [Deploy Azure IoT Edge modules from Visual Studio Code](how-to-deploy-modules-vscode.md) or [Deploy Azure IoT Edge modules with Azure CLI 2.0](how-to-deploy-modules-cli.md).
+1. Visual Studio Code takes the information that you provided in *deployment.template.json* and uses it to create a new deployment manifest file. The deployment manifest is created in a new **config** folder in your solution workspace. Once you have that file, you can follow the steps in [Deploy Azure IoT Edge modules with Azure CLI 2.0](how-to-deploy-modules-cli.md).
 
 ## Deploy multiple module instances
 

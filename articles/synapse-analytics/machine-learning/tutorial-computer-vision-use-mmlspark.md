@@ -11,7 +11,7 @@ ms.author: ruxu
 
 # Tutorial: Vision with Azure AI services
 
-[Azure AI Vision](../../ai-services/computer-vision/index.yml) is an [Azure AI service](../../ai-services/index.yml) that enables you to process images and return information based on the visual features. In this tutorial, you'll learn how to use [Azure AI Vision](../../ai-services/computer-vision/index.yml) to analyze images on Azure Synapse Analytics.
+[Azure AI Vision](/azure/ai-services/computer-vision/) is an [Azure AI service](/azure/ai-services/) that enables you to process images and return information based on the visual features. In this tutorial, you'll learn how to use [Azure AI Vision](/azure/ai-services/computer-vision/) to analyze images on Azure Synapse Analytics.
 
 This tutorial demonstrates using text analytics with [SynapseML](https://github.com/microsoft/SynapseML) to:
 
@@ -35,7 +35,7 @@ df = spark.createDataFrame([
         ("<replace with your file path>/dog.jpg", )
     ], ["image", ])
 
-# Run the Azure AI Vision service. Analyze Image extracts infortmation from/about the images.
+# Run the Azure AI Vision service. Analyze Image extracts information from/about the images.
 analysis = (AnalyzeImage()
     .setLinkedService(ai_service_name)
     .setVisualFeatures(["Categories","Color","Description","Faces","Objects","Tags"])

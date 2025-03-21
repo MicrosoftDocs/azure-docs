@@ -4,7 +4,7 @@ description: Learn about the best practices for getting optimal performance when
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 05/31/2024
+ms.date: 08/13/2024
 ms.author: rogarana
 ---
 
@@ -55,7 +55,8 @@ defaults {
     path_grouping_policy multibus	# To place all the paths in one priority group
     path_selector "round-robin 0"	# To use round robin algorithm to determine path for next I/O operation
     failback immediate			# For immediate failback to highest priority path group with active paths
-    no_path_retry 1			# To disable I/O queueing after retrying once when all paths are down
+    no_path_retry 3			# To disable I/O queueing after retrying once when all paths are down
+    polling_interval 5         # Set path check polling interval to 5 seconds
 }
 devices {
   device {

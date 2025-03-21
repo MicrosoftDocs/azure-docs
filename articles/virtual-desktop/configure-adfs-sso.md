@@ -1,18 +1,16 @@
 ---
 title: Configure single sign-on for Azure Virtual Desktop using AD FS - Azure
 description: How to configure single sign-on for an Azure Virtual Desktop environment using Active Directory Federation Services.
-author: Heidilohr
-ms.custom: devx-track-azurepowershell
+author: dknappettmsft
+ms.custom: devx-track-azurepowershell, docs_inherited
 ms.topic: how-to
-ms.date: 06/30/2021
-ms.author: helohr
+ms.date: 12/03/2024
+ms.author: daknappe
 ---
+
 # Configure single sign-on for Azure Virtual Desktop using AD FS
 
 This article will walk you through the process of configuring Active Directory Federation Service (AD FS) single sign-on (SSO) for Azure Virtual Desktop.
-
-> [!NOTE]
-> Azure Virtual Desktop (Classic) doesn't support this feature.
 
 ## Prerequisites
 

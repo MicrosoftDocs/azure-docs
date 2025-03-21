@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/26/2024
+ms.date: 01/02/2025
 ms.author: makromer
 ---
 
@@ -140,12 +140,18 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | servicePrincipalId | Specify the Microsoft Entra application's client ID. | Yes |
-| servicePrincipalKey | Specify the Microsoft Entra application's key. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| servicePrincipalCredentialType | Specify the credential type to use for service principal authentication. Allowed values are `ServicePrincipalKey` and `ServicePrincipalCert`. | No |
+| ***For ServicePrincipalKey*** | | |
+| servicePrincipalKey | Specify the Microsoft Entra application's key. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| ***For ServicePrincipalCert*** | | |
+| servicePrincipalEmbeddedCert | Specify the base64 encoded certificate of your application registered in Microsoft Entra ID, and ensure the certificate content type is **PKCS #12**. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). Go to this [section](#save-the-service-principal-certificate-in-azure-key-vault) to learn how to save the certificate in Azure Key Vault. | No |
+| servicePrincipalEmbeddedCertPassword | Specify the password of your certificate if your certificate is secured with a password. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+|  |  |  |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes |
 | aadResourceId | Specify the Microsoft Entra resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
 | azureCloudType | For Service Principal authentication, specify the type of Azure cloud environment to which your Microsoft Entra application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
 
-**Example**                                                                          
+**Example 1: Using service principal key authentication**                                                                          
 
 ```json
 {
@@ -156,6 +162,7 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
             "url": "<REST endpoint e.g. https://www.example.com/>",
             "authenticationType": "AadServicePrincipal",
             "servicePrincipalId": "<service principal id>",
+            "servicePrincipalCredentialType": "ServicePrincipalKey",
             "servicePrincipalKey": {
                 "value": "<service principal key>",
                 "type": "SecureString"
@@ -170,6 +177,59 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
     }
 }
 ```
+
+**Example 2: Using service principal certificate authentication**
+
+```json
+{
+    "name": "RESTLinkedService",
+    "properties": {
+        "type": "RestService",
+        "typeProperties": {
+            "url": "<REST endpoint e.g. https://www.example.com/>",
+            "authenticationType": "AadServicePrincipal",
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalCredentialType": "ServicePrincipalCert",
+            "servicePrincipalEmbeddedCert": {
+                "type": "SecureString",
+                "value": "<the base64 encoded certificate of your application registered in Microsoft Entra ID>"
+            },
+            "servicePrincipalEmbeddedCertPassword": {
+                "type": "SecureString",
+                "value": "<password of your certificate>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "aadResourceId": "<Azure AD resource URL e.g. https://management.core.windows.net>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+#### Save the service principal certificate in Azure Key Vault
+
+You have two options to save the service principal certificate in Azure Key Vault:
+
+- **Option 1**
+
+    1. Convert the service principal certificate to a base64 string. Learn more from this [article](https://blog.tekspace.io/convert-certificate-from-pfx-to-base64-with-powershell/).
+
+    
+    2. Save the base64 string as a secret in Azure Key Vault.
+    	
+       :::image type="content" source="media/connector-rest/secrets.png" alt-text="Screenshot of secrets.":::
+    
+       :::image type="content" source="media/connector-rest/secret-value.png" alt-text="Screenshot of secret value.":::
+
+- **Option 2**
+	
+    If you can't download the certificate from Azure Key Vault, you can use this [template](https://supportability.visualstudio.com/256c8350-cb4b-49c9-ac6e-a012aeb312d1/_apis/git/repositories/da6cf5d9-0dc5-4ba9-a5e2-6e6a93adf93c/Items?path=/AzureDataFactory/.attachments/ConvertCertToBase64StringInAKVPipeline-47f8e507-e7ef-4343-a73b-733b9a7f8e4e.zip&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1&sanitize=true&includeContentMetadata=true&versionDescriptor.version=master) to save the converted service principal certificate as a secret in Azure Key Vault. 
+        
+    :::image type="content" source="media/connector-rest/template-pipeline.png" alt-text="Screenshot of template pipeline to save service principal certificate as a secret in AKV.":::
+ 
 ### Use OAuth2 Client Credential authentication
 
 Set the **authenticationType** property to **OAuth2ClientCredential**. In addition to the generic properties that are described in the preceding section, specify the following properties:
@@ -536,6 +596,9 @@ AlterRow1 sink(allowSchemaDrift: true,
 	skipDuplicateMapInputs: true,
 	skipDuplicateMapOutputs: true) ~> sink1
 ```
+>[!NOTE]
+> Data Flow generates a total of N+1 API calls when processing N pages. This includes one initial call to infer the schema, followed by N calls corresponding to the number of pages fetched from the source.
+
 
 ## Pagination support
 
@@ -648,7 +711,7 @@ Request 100: `Header(id->100)`<br/>
 
 *Step 1*: Input `{id}` in **Additional headers**.
     
-*Step 2*: Set **Pagination rules** as **"Headers.{id}" : "RARNGE:0:100:10"**.
+*Step 2*: Set **Pagination rules** as **"Headers.{id}" : "RANGE:0:100:10"**.
 
 :::image type="content" source="media/connector-rest/pagination-rule-example-3.png" alt-text="Screenshot showing the pagination rule to send multiple requests whose variables are in Headers."::: 
 
@@ -868,7 +931,7 @@ The backend will automatically get the next URL based on the RFC 5988 style link
 >
 > :::image type="content" source="media/connector-rest/pagination-rule-example-7-disable-rfc5988.png" alt-text="Screenshot showing how to disable R F C 5988 setting for Example 7."::: 
 
-#### Example 8: The next request URL is from the response body when use pagination in mapping data flows
+#### Example 8a: The next request URL is in the response body when using pagination in mapping data flows
 
 This example states how to set the pagination rule and the end condition rule in mapping data flows when the next request URL is from the response body.
 
@@ -891,6 +954,18 @@ But if the value of **@odata.nextLink** in the last response body is equal to th
 - If the value of the complete key in the response header equals to true indicates the end of pagination, then the end condition rule can be set as below: 
 
     :::image type="content" source="media/connector-rest/pagination-rule-example-8-end-condition-2.png" alt-text="Screenshot showing setting the end condition rule when the complete key in the response header equals to true indicates the end of pagination."::: 
+
+#### Example 8b: The next request URL is in the response body when using pagination in copy activity
+
+This example demonstrates how to set the pagination rule in a copy activity when the next request URL is contained within the response body.
+
+The response schema is shown below:
+
+:::image type="content" source="media/connector-rest/pagination-rule-example-8-response-schema.png" alt-text="Screenshot showing the response schema of Example 8b."::: 
+
+The pagination rules should be set as shown in the following screenshot:
+
+:::image type="content" source="media/connector-rest/pagination-rule-example-8b.png" alt-text="Screenshot showing how to set the pagination rule for Example 8b."::: 
 
 #### Example 9: The response format is XML and the next request URL is from the response body when use pagination in mapping data flows
 

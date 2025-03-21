@@ -5,8 +5,9 @@ author: sidontha
 ms.author: sidontha
 ms.service: azure-data-share
 ms.topic: how-to
-ms.date: 12/19/2023
+ms.date: 02/12/2025
 ---
+
 # How to configure a dataset mapping for a received share in Azure Data Share
 
 This article explains how to configure a dataset mapping for a received share using Azure Data Share. You might want to configure a dataset mapping to specify a target data store where you want to receive data, or if you need to change the target data store.
@@ -33,6 +34,6 @@ If the source data is from a SQL-based source and you want to receive it as a fi
 
 ![Choose format](./media/sql-file-formats.png "SQL file formats")
 
-## Next steps
+## Related content
 
 To learn how to start sharing data, continue to the [share your data](share-your-data.md) tutorial.

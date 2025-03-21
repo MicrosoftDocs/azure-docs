@@ -5,7 +5,7 @@ services: site-recovery
 author: ankitaduttaMSFT
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 05/23/2024
+ms.date: 03/17/2025
 ms.author: ankitadutta
 ---
 
@@ -18,7 +18,7 @@ When you [fail over](site-recovery-failover.md) Azure virtual machines from one 
 
 ## Prerequisites
 
-- The virtual machine failover from the primary to secondary region must be committed.
+- The virtual machine failover from the primary to secondary region must be committed. The virtual machine status must be **Failover committed** before you start.
 - The primary target site should be available, and you should be able to access or create resources in that region.
 
 ## Reprotect a virtual machine
@@ -57,6 +57,12 @@ By default, the following occurs:
 1. If your virtual machine uses managed disks, replica managed disks are created in the primary region to store the data replicated from the secondary virtual machine's disks.
 1. Temporary replicas of the source disks (disks attached to the virtual machines in secondary region) are created with the name `ms-asr-<GUID>`, that are used to transfer / read data. The temp disks let us utilize the complete bandwidth of the disk instead of only 16% bandwidth of the original disks (that are connected to the virtual machine). The temp disks are deleted once the reprotection completes.
 1. If the target availability set doesn't exist, a new one is created as part of the reprotect job if necessary. If you've customized the reprotection settings, then the selected set is used.
+
+> [!NOTE]
+> After re-protecting virtual machines in the secondary region, Azure Site Recovery locks the source machine as Read-only. It applies the lock to prevent deletion during reprotection and replication from the failed-over VM back to the source machine. 
+>
+> The lock remains until the failback to the source region completes. This Read-only lock name follows this naming convention: ```SiteRecovery-<Recovery Services vault's resource ID>-<Vault's name>-<Vault's location>```.
+
 
 **When you trigger a reprotect job, and the target virtual machine exists, the following occurs:**
 
@@ -104,11 +110,7 @@ Let's take the example from the following screenshot, where Enable Replication f
 
    :::image type="content" source="./media/site-recovery-how-to-reprotect-azure-to-azure/estimated-reprotection.png" alt-text="Screenshot displays example duration of reprotection of a virtual machine on the Azure portal." lightbox="./media/site-recovery-how-to-reprotect-azure-to-azure/estimated-reprotection.png":::
 
-The above is a simple illustration of how to estimate the reprotection time. 
-
-When the virtual machine is re-protected from disaster recovery region to primary region (that is, after failing over from the primary region to disaster recovery region), the target virtual machine (original source virtual machine), and associated NIC(s) are deleted.
-
-However, when the virtual machine is re-protected again from the primary region to disaster recovery region after failback, we do not delete the virtual machine and associated NIC(s) in the disaster recovery region that were created during the earlier failover.
+The above is a simple illustration of how to estimate the reprotection time. When customer failover to target region and reprotect, the source virtual machine and associated resources are **not deleted**. When customer *failback* to primary region and reprotect, the VM (in the target / disaster recovery region) and associated resources are then deleted. 
 
 ## Next steps
 

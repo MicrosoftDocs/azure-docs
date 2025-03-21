@@ -2,8 +2,8 @@
 title: Use Microsoft Entra ID in Azure Automation to authenticate to Azure
 description: This article tells how to use Microsoft Entra ID within Azure Automation as the provider for authentication to Azure. 
 services: automation
-ms.date: 05/26/2023
-ms.topic: conceptual 
+ms.date: 09/09/2024
+ms.topic: how-to
 ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref
 ---
 
@@ -41,7 +41,7 @@ Before installing the Microsoft Entra modules on your computer:
 
 1. Install Windows Management Framework (WMF) 5.1. See [Install and Configure WMF 5.1](/powershell/scripting/wmf/setup/install-configure).
 
-2. Install AzureRM and/or Az using instructions in [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/azurerm/install-azurerm-ps).
+2. Install AzureRM and/or Az using instructions in [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-azure-powershell).
 
 ### Install the MSOnline module
 

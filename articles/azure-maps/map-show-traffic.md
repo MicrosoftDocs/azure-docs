@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Find out how to add traffic data to maps. Learn about flow data, and see how to use the Azure Maps Web SDK to add incident data and flow data to maps.
 author: sinnypan
 ms.author: sipa
-ms.date: 10/26/2023
+ms.date: 08/29/2024
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: web-sdk
@@ -59,7 +59,7 @@ There are two different traffic controls that can be added to the map. The first
 The following code shows how to add the traffic controls to the map.
 
 ```JavaScript
-//Att the traffic control toogle button to the top right corner of the map.
+//Att the traffic control toggle button to the top right corner of the map.
 map.controls.add(new atlas.control.TrafficControl(), { position: 'top-right' });
 
 //Att the traffic legend control to the bottom left corner of the map.

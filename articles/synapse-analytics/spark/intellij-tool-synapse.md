@@ -138,7 +138,7 @@ After creating a Scala application, you can remotely run it.
     |Main class name|The default value is the main class from the selected file. You can change the class by selecting the ellipsis(**...**) and choosing another class.|
     |Job configurations|You can change the default key and values. For more information, see [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Command-line arguments|You can enter arguments separated by space for the main class if needed.|
-    |Referenced Jars and Referenced Files|You can enter the paths for the referenced Jars and files if any. You can also browse files in the Azure virtual file system, which currently only supports ADLS Gen2 cluster. For more information: [Apache Spark Configuration](https://spark.apache.org/docs/2.4.5/configuration.html#runtime-environment) and [How to upload resources to cluster](../../storage/blobs/quickstart-storage-explorer.md).|
+    |Referenced Jars and Referenced Files|You can enter the paths for the referenced Jars and files if any. You can also browse files in the Azure virtual file system, which currently only supports ADLS Gen2 cluster. For more information: [Apache Spark Configuration](https://archive.apache.org/dist/spark/docs/2.4.5/configuration.html#runtime-environment) and [How to upload resources to cluster](../../storage/blobs/quickstart-storage-explorer.md).|
     |Job Upload Storage|Expand to reveal additional options.|
     |Storage Type|Select **Use Azure Blob to upload** or **Use cluster default storage account to upload** from the drop-down list.|
     |Storage Account|Enter your storage account.|
@@ -161,7 +161,7 @@ You can follow the instructions below to set up your local run and local debug f
 
 1. Open the **Run/Debug Configurations** dialog, select the plus sign (**+**). Then select the **Apache Spark on Synapse** option. Enter information for **Name**, **Main class name** to save.
 
-    ![Intellij Run debug configurations local run 1](./media/intellij-tool-synapse/local-run-synapse.png)
+    ![IntelliJ Run debug configurations local run 1](./media/intellij-tool-synapse/local-run-synapse.png)
 
     - Environment variables and WinUtils.exe Location are only for windows users.
     - Environment variables: The system environment variable can be auto detected if you have set it before and no need to manually add.
@@ -169,18 +169,18 @@ You can follow the instructions below to set up your local run and local debug f
 
 2. Then select the local play button.
 
-    ![Intellij Run debug configurations local run 2](./media/intellij-tool-synapse/local-run-synapse01.png)
+    ![IntelliJ Run debug configurations local run 2](./media/intellij-tool-synapse/local-run-synapse01.png)
 
 3. Once local run completed, if script includes output, you can check the output file from **data** > **__default__**.
 
-    ![Intellij Project local run result 1](./media/intellij-tool-synapse/spark-local-run-result.png)
+    ![IntelliJ Project local run result 1](./media/intellij-tool-synapse/spark-local-run-result.png)
 
 ### Scenario 2: Do local debugging
 
 1. Open the **LogQuery** script, set breakpoints.
 2. Select **Local debug** icon to do local debugging.
 
-    ![Intellij Project local run result 2](./media/intellij-tool-synapse/local-debug-synapse.png)
+    ![IntelliJ Project local run result 2](./media/intellij-tool-synapse/local-debug-synapse.png)
 
 ## Access and manage Synapse Workspace
 

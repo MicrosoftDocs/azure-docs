@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 01/12/2023
+ms.date: 02/11/2025
 ms.author: anfdocs
 ---
 
@@ -25,9 +25,9 @@ Azure NetApp Files offers [multiple tools](https://aka.ms/anftools) to estimate 
 
     This comprehensive tool estimates the infrastructure costs of an SAP HANA on Azure NetApp Files landscape. The estimate includes primary storage, backup, and replication costs.
 
-* [**Azure NetApp Files Standard storage with cool access cost savings estimator**](https://aka.ms/anfcoolaccesscalc)
+* [**Azure NetApp Files storage with cool access cost savings estimator**](https://aka.ms/anfcoolaccesscalc)
 
-    Standard storage with cool access enables you to transparently move infrequently accessed data to less expensive storage. This cost savings estimator helps you understand how much money you can save by enabling Standard storage with cool access.
+    Azure NetApp Files storage with cool access enables you to transparently move infrequently accessed data to less expensive storage. This cost savings estimator helps you understand how much money you can save by enabling storage with cool access.
 
 * [**Azure NetApp Files Region and Feature Map**](https://aka.ms/anfmap)
     
@@ -44,3 +44,19 @@ Azure NetApp Files offers [multiple tools](https://aka.ms/anftools) to estimate 
 * [**ANFHealthCheck**](https://github.com/seanluce/ANFHealthCheck)
 
     ANFHeathCheck is a PowerShell runbook that generates artful HTML reports of your entire Azure NetApp Files landscape. Optionally, it can automatically reduce over-sized volumes and capacity pools to reduce your TCO.
+
+* [Azure Verified Module (AVM) Terraform Module for Azure NetApp Files](https://registry.terraform.io/modules/Azure/avm-res-netapp-netappaccount/azurerm/latest)
+
+    Use the Azure Verified Module (AVM) if you would like to deploy Azure NetApp Files through infrastructure as code using Terraform.
+
+* [Azure Verified Module (AVM) Bicep Module for Azure NetApp Files](https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/net-app/net-app-account)
+
+    Use the Azure Verified Module (AVM) if you would like to deploy Azure NetApp Files through infrastructure as code using Bicep.
+
+* [Azure Monitoring Baseline Alerts for Azure NetApp Files](https://azure.github.io/azure-monitor-baseline-alerts/services/NetApp/netAppAccounts/)
+
+    Use this tool to deploy alerts that should be configured in Azure NetApp Files as a baseline for monitoring.
+
+* [Azure Proactive Resilience Library for Azure NetApp Files](https://azure.github.io/Azure-Proactive-Resiliency-Library-v2/azure-resources/NetApp/netAppAccounts/)
+
+    Learn about recommendations related to resiliency for Azure NetApp Files.

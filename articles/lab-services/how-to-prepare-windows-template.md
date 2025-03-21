@@ -4,8 +4,8 @@ description: Prepare a Windows-based lab template in Azure Lab Services. Configu
 services: lab-services
 ms.service: azure-lab-services
 ms.custom: has-azure-ad-ps-ref, azure-ad-ref-level-one-done
-author: ntrogh
-ms.author: nicktrog
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: how-to
 ms.date: 05/17/2023
 ---

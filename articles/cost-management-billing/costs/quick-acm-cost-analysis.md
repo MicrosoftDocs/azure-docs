@@ -1,14 +1,15 @@
 ---
 title: Quickstart - Start using Cost analysis
-description: This quickstart helps you use cost analysis to explore and analyze your Azure organizational costs.
+description: Learn how to use Azure Cost Analysis to explore and analyze your organizational costs, identify trends, and understand spending patterns.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/10/2023
+ms.date: 01/07/2025
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: micflan
+ms.reviewer: shasulin
 ms.custom: mode-other
+#customer intent: As a billing administrator, I want to use cost analysis so that I can explore and analyze my Azure organizational costs.
 ---
 
 # Quickstart: Start using Cost analysis
@@ -44,7 +45,7 @@ Views in the **Recommended** list might vary based on what users most commonly u
 
 ## Analyze costs with smart views
 
-If you're new to Cost analysis, we recommend starting with a smart view, like the Resources view. Smart views include:
+If you're new to Cost analysis, we recommend starting with a smart view, like the Services view. Smart views include:
 
 - Key performance indicators (KPIs) to summarize your cost
 - Intelligent insights about your costs like anomaly detection
@@ -60,7 +61,8 @@ If showing three months or less, the Average cost API compares the cost from the
 We recommend checking your cost weekly to ensure each KPI remains within the expected range. If you recently deployed or changed resources, we recommend checking daily for the first week or two to monitor the cost changes.
 
 > [!NOTE]
-> If you want to monitor your forecasted cost, you can enable the [Forecast KPI preview feature](enable-preview-features-cost-management-labs.md#forecast-in-the-resources-view) in Cost Management Labs, available from the **Try preview** command.
+> - If you want to monitor your forecasted cost, you can enable the [Forecast KPI preview feature](enable-preview-features-cost-management-labs.md#forecast-in-the-resources-view) in Cost Management Labs, available from the **Try preview** command.
+> - When you set the granularity to **Daily** for any view, the date range should span a maximum of three months. However, when at the management group scope, only a date range of one month is supported.
 
 If you don't have a budget, select the **create** link in the **Budget** KPI and specify the amount you expect to stay under each month. To create a quarterly or yearly budget, select the **Configure advanced settings** link.
 
@@ -83,8 +85,13 @@ This view is where you spend most of your time in Cost analysis. To explore furt
 5. Open other smart views to get different perspectives on your costs.
 6. Open a customizable view and apply other filters or group the data to explore further.
 
->[!NOTE]
->If you want to visualize and monitor daily trends within the period, enable the [chart preview feature](enable-preview-features-cost-management-labs.md#chartsfeature) in Cost Management Labs, available from the **Try preview** command.
+Data sources for smart views are as follows:
+
+- Reservations – Source data is from amortized usage and charges.
+- Resource groups – Source data is from actual usage and charges.
+- Services – Source data is from actual usage and charges.
+- Subscriptions – Source data is from actual usage and charges.
+- Resources – Source data is from actual usage and charges.
 
 ## Analyze costs with customizable views
 
@@ -124,7 +131,7 @@ Regardless of whether you start on smart or customizable views, if you need more
 
 ## Forecasting costs in Cost Analysis 
 
-Forecast costs are available from both smart and custom views. In either case, the forecast is calculated the same way based on your historical usage patterns for up to a year in the future. 
+Forecast costs are available in both smart and custom views when you select either an area or column stacked chart type. In either case, the forecast is calculated the same way based on your historical usage patterns for up to a year in the future. 
 
 Your forecast is a projection of your estimated costs for the selected period. Your forecast changes depending on what data is available for the period, how long of a period you select, and what filters you apply. If you notice an unexpected spike or drop in your forecast, expand the date range, and use grouping to identify large increases or decreases in historical cost. You can filter them out to normalize the forecast. A few key considerations: 
 

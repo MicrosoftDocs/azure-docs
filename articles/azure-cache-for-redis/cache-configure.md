@@ -1,12 +1,12 @@
 ---
 title: How to configure Azure Cache for Redis
 description: Understand the default Redis configuration for Azure Cache for Redis and learn how to configure your Azure Cache for Redis instances.
-author: flang-msft
 
-ms.service: azure-cache-redis
+
+
 ms.topic: conceptual
 ms.date: 05/07/2024
-ms.author: franlanglois 
+ 
 ms.custom: engagement-fy23
 ---
 
@@ -87,8 +87,16 @@ The Event Grid helps you build automation into your cloud infrastructure, create
 You can securely issue commands to your Azure Cache for Redis instances using the **Redis Console**, which is available in the Azure portal for Basic, Standard and Premium cache tiers.
 
 > [!IMPORTANT]
+> The Redis Console does't work when a cache has any of the following:
 >
-> The Redis Console does not work with [VNet](cache-how-to-premium-vnet.md). When your cache is part of a VNet, only clients in the VNet can access the cache. Because Redis Console runs in your local browser, which is outside the VNet, it can't connect to your cache.
+> - [Virtual Network](cache-how-to-premium-vnet.md). When your cache is part of a VNet, only clients in the VNet can access the cache. Because Redis Console runs in your local browser, which is outside the VNet, it can't connect to your cache.
+> - [Private Link](cache-private-link.md)
+> - [Access Keys disabled](cache-azure-active-directory-for-authentication.md#disable-access-key-authentication-on-your-cache)
+>
+
+> [!NOTE]
+>
+> To access Redis Console, you would need at least **Contributor** built-in role.
 >
 
 To access the Redis Console, select **Console** tab in the working pane of Resource menu.
@@ -244,7 +252,7 @@ Select **Data persistence** to enable, disable, or configure data persistence fo
 For more information, see [How to configure persistence for a Premium Azure Cache for Redis](cache-how-to-premium-persistence.md).
 
 > [!IMPORTANT]
-> Redis data persistence is only available for Premium caches.
+> Redis data persistence is for Premium caches, Enterprise caches (Preview), and Enterprise Flash caches (Preview).
 
 ### Identity
 

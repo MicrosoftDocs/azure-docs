@@ -2,11 +2,11 @@
 title: Troubleshoot SQL Server database backup
 description: Troubleshooting information for backing up SQL Server databases running on Azure VMs with Azure Backup.
 ms.topic: troubleshooting
-ms.date: 01/04/2024
+ms.date: 09/19/2024
 ms.service: azure-backup
 ms.custom: engagement-fy24
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Troubleshoot SQL Server database backup by using Azure Backup
@@ -195,7 +195,7 @@ If you'd like to trigger a restore on the healthy SQL instances, do the followin
 
 | Error message | Possible causes | Recommended actions |
 |---|---|---|
-| Azure Backup service uses Azure VM guest agent for doing backup but guest agent is not available on the target server. | The guest agent isn't enabled or is unhealthy. | [Install the VM guest agent](../virtual-machines/extensions/agent-windows.md) manually. |
+| Azure Backup service uses Azure VM guest agent for doing backup but guest agent is not available on the target server. | The guest agent isn't enabled or is unhealthy. | [Install the VM guest agent](/azure/virtual-machines/extensions/agent-windows) manually. |
 
 ### AutoProtectionCancelledOrNotValid
 
@@ -226,7 +226,7 @@ AzureBackup workload extension operation failed. | The VM is shut down, or the V
 
 | Error message | Possible causes | Recommended actions |
 |---|---|---|
-The VM is not able to contact Azure Backup service due to internet connectivity issues. | The VM needs outbound connectivity to Azure Backup Service, Azure Storage, or Microsoft Entra services.| <li> If you use NSG to restrict connectivity, then you should use the *AzureBackup* service tag to allows outbound access to Azure Backup Service, and similarly for the Microsoft Entra ID (*AzureActiveDirectory*) and Azure Storage(*Storage*) services. Follow these [steps](./backup-sql-server-database-azure-vms.md#nsg-tags) to grant access. <li> Ensure DNS is resolving Azure endpoints. <li> Check if the VM is behind a load balancer blocking internet access. By assigning public IP to the VMs, discovery will work. <li> Verify there's no firewall/antivirus/proxy that are blocking calls to the above three target services.
+| The VM is not able to contact Azure Backup service due to internet connectivity issues. | **Cause 1**: The VM needs outbound connectivity to Azure Backup Service, Azure Storage, or Microsoft Entra services. <br><br> **Cause 2**: A Group Policy Object (GPO) policy restricts the required cipher suites for TLS communication. | **Recommendation for cause 1**: <li> If you use NSG to restrict connectivity, then you should use the *AzureBackup* service tag to allows outbound access to Azure Backup Service, and similarly for the Microsoft Entra ID (*AzureActiveDirectory*) and Azure Storage(*Storage*) services. Follow these [steps](./backup-sql-server-database-azure-vms.md#nsg-tags) to grant access. <li> Ensure DNS is resolving Azure endpoints. <li> Check if the VM is behind a load balancer blocking internet access. By assigning public IP to the VMs, discovery will work. <li> Verify there's no firewall/antivirus/proxy that are blocking calls to the above three target services. <br><br> **Recommendation for cause 2**: Remove the VM from the GPO or disable/remove the GPO policy as a workaround. Alternatively, modify the GPO in such a way that it allows the required cipher suites. |
 
 ### UserErrorOperationNotAllowedDatabaseMirroringEnabled
 
@@ -276,19 +276,19 @@ The total string size of files depends not only on the number of files but also 
 ```sql
 SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files mf
                INNER JOIN sys.databases db ON db.database_id = mf.database_id
-               WHERE db.name = N'<Database Name>'"
+               WHERE db.name = N'<Database Name>'
 ```
 
 Now arrange them in the following format:
 
 ```json
-[{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
+[{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]
 ```
 
 Here's an example:
 
 ```json
-[{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
+[{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]
 ```
 
 If the string size of the content exceeds 20,000 bytes, the database files are stored differently. During recovery, you won't be able to set the target file path for restore. The files will be restored to the default SQL path provided by SQL Server.
@@ -336,7 +336,7 @@ In the preceding content, you can get the logical name of the database file by u
 ```sql
 SELECT mf.name AS LogicalName FROM sys.master_files mf
                 INNER JOIN sys.databases db ON db.database_id = mf.database_id
-                WHERE db.name = N'<Database Name>'"
+                WHERE db.name = N'<Database Name>'
 ```
 
 This file should be placed before you trigger the restore operation.

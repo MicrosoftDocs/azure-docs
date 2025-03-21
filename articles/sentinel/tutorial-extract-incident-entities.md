@@ -10,6 +10,10 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 
+
+
+#Customer intent: As a security analyst, I want to extract and use non-native entity information from incidents so that I can enhance my investigative and remedial actions.
+
 ---
 # Tutorial: Extract incident entities with non-native actions 
 

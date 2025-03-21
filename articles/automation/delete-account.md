@@ -4,13 +4,13 @@ description: This article tells how to delete and your Automation account across
 services: automation
 ms.service: azure-automation
 ms.subservice: process-automation
-ms.date: 06/04/2021
-ms.topic: conceptual 
+ms.date: 03/20/2025
+ms.topic: how-to 
 ---
 
 # Manage your Azure Automation account
 
-After you enable an Azure Automation account to help automate IT or business process, or enable its other features to support operations management of your Azure and non-Azure machines such as Update Management, you may decide to stop using the Automation account. If you have enabled features that depend on integration with an Azure Monitor Log Analytics workspace, there are more steps required to complete this action.
+After you enable an Azure Automation account to help automate IT or business process, or enable its other features to support operations management of your Azure and non-Azure machines, you may decide to stop using the Automation account. If you have enabled features that depend on integration with an Azure Monitor Log Analytics workspace, there are more steps required to complete this action.
 
 This article tells you how to completely remove your Automation account through the Azure portal, using Azure PowerShell, the Azure CLI, or the REST API and restore your deleted Azure Automation account.
 
@@ -93,6 +93,9 @@ While it attempts to unlink the Automation account, you can track the progress u
 
 After the Automation account is successfully unlinked from the workspace, perform the steps in the [standalone Automation account](#delete-a-standalone-automation-account) section to delete the account.
 
+> [!NOTE]
+> A previously soft-deleted Log Analytics workspace can't be unlinked from the Automation account successfully. In this scenario, first recover and permanently delete it to forcefully remove the link. Learn [how to recover a workspace in a soft-delete state](/azure/azure-monitor/logs/delete-workspace#recover-a-workspace-in-a-soft-delete-state) and [delete it permanently](/azure/azure-monitor/logs/delete-workspace#delete-a-workspace-permanently).
+
 ## Delete a shared capability Automation account
 
 To delete your Automation account linked to a Log Analytics workspace in support of Update Management, Change Tracking and Inventory, and/or Start/Stop VMs during off-hours, perform the following steps.
@@ -103,11 +106,11 @@ To delete your Automation account linked to a Log Analytics workspace in support
 
 1. Sign in to Azure at [https://portal.azure.com](https://portal.azure.com).
 
-2. Navigate to your Automation account, and select **Linked workspace** under **Related resources**.
+1. Navigate to your Automation account, and select **Linked workspace**.
 
-3. Select **Go to workspace**.
+1. Under **Related resources**, select **Linked workspace** and then select **Go to workspace**.
 
-4. Select **Solutions** under **General**.
+4. Under **Classic**, select **Legacy solutions**.
 
 5. On the Solutions page, select one of the following based on the feature(s) deployed in the account:
 

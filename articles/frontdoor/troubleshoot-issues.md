@@ -1,12 +1,11 @@
 ---
 title: Troubleshoot Azure Front Door common issues
 description: In this article, you learn how to troubleshoot some of the common problems that you might face for your Azure Front Door instance.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 04/04/2023
-ms.author: duau
+ms.date: 08/12/2024
 ---
 
 # Troubleshoot Azure Front Door common issues
@@ -36,7 +35,7 @@ The cause of this issue can be one of three things:
 ### Troubleshooting steps
 
 * Send the request to your origin directly without going through Azure Front Door. See how long your origin normally takes to respond.
-* Send the request through Azure Front Door and see if you're getting any 503 responses. If not, the problem may not be a timeout issue. Create a support request to troubleshoot the issue further.
+* Send the request through Azure Front Door and see if you're getting any 503 responses. If not, the problem might not be a timeout issue. Create a support request to troubleshoot the issue further.
 * If requests going through Azure Front Door result in a 503 error response code then configure the **Origin response timeout** for Azure Front Door. You can increase the default timeout to up to 4 minutes (240 seconds). To configure the setting, go to overview page of the Front Door profile. Select **Origin response timeout** and enter a value between *16* and *240* seconds.
     > [!NOTE]
     > The ability to configure Origin response timeout is only available in Azure Front Door Standard/Premium.
@@ -61,17 +60,17 @@ The cause of this issue can be one of three things:
 
 The cause of this problem can be one of three things:
 
-* The backend pool is an IP address.
-* The backend server returns a certificate that doesn't match the FQDN of the Azure Front Door backend pool.
-* The backend pool is an Azure Web Apps server.
+* The backend is an IP address.
+* The backend server returns a certificate that doesn't match the fully qualified domain name (FQDN) of the Azure Front Door backend.
+* The backend is an Azure Web Apps server.
 
 ### Troubleshooting steps
 
-* The backend pool is an IP address.
+* The backend is an IP address.
 
    `EnforceCertificateNameCheck` must be disabled.
     
-    Azure Front Door has a switch called `EnforceCertificateNameCheck`. By default, this setting is enabled. When enabled, Azure Front Door checks that the backend pool host name FQDN matches the backend server certificate's certificate name or one of the entries in the subject alternative names extension.
+    Azure Front Door has a switch called `EnforceCertificateNameCheck`. By default, this setting is enabled. When enabled, Azure Front Door checks that the backend host name FQDN matches the backend server certificate's certificate name or one of the entries in the subject alternative names extension.
 
     - How to disable `EnforceCertificateNameCheck` from the Azure portal:
     
@@ -83,14 +82,14 @@ The cause of this problem can be one of three things:
 
       :::image type="content" source="./media/troubleshoot-issues/validation-checkbox.png" alt-text="Screenshot of the certificate subject name validation checkbox.":::
 
-* The backend server returns a certificate that doesn't match the FQDN of the Azure Front Door backend pool. To resolve this issue, you have two options:
+* The backend server returns a certificate that doesn't match the FQDN of the Azure Front Door backend. To resolve this issue, you have two options:
 
     - The returned certificate must match the FQDN.
     - `EnforceCertificateNameCheck` must be disabled.
   
-* The backend pool is an Azure Web Apps server:
+* The backend is an Azure Web Apps server:
 
-    - Check if the Azure web app is configured with IP-based SSL instead of being SNI based. If the web app is configured as IP based, it should be changed to SNI.
+    - Check if the Azure web app is configured with IP-based SSL instead of being SNI (server name indication) based. If the web app is configured as IP based, it should be changed to SNI.
     - If the backend is unhealthy because of a certificate failure, a 503 error message is returned. You can verify the health of the backends on ports 80 and 443. If only 443 is unhealthy, it's likely an issue with SSL. Because the backend is configured to use the FQDN, we know it's sending SNI.
 
     Use OPENSSL to verify the certificate that's being returned. To do this check, connect to the backend by using `-servername`. It should return the SNI, which needs to match with the FQDN of the backend pool:
@@ -102,7 +101,7 @@ The cause of this problem can be one of three things:
 ### Symptom
 
 * You created an Azure Front Door instance. A request to the domain or frontend host returns an HTTP 400 status code.
-* You created a DNS mapping for a custom domain to the frontend host that you configured. Sending a request to the custom domain host name returns an HTTP 400 status code. It doesn't appear to route to the backend that you configured.
+* You created a DNS (domain name server) mapping for a custom domain to the frontend host that you configured. Sending a request to the custom domain host name returns an HTTP 400 status code. It doesn't appear to route to the backend that you configured.
 
 ### Cause
 
@@ -150,7 +149,7 @@ This behavior is separate from the web application firewall (WAF) functionality 
 ### Troubleshooting steps
 
 - Verify that your requests are in compliance with the requirements set out in the necessary RFCs.
-- Take note of any HTML message body that's returned in response to your request. A message body often explains exactly *how* your request is noncompliant.
+- Take note of any HTML message body that gets returned in response to your request. A message body often explains exactly *how* your request is noncompliant.
 
 ## My origin is configured as an IP address.
 
@@ -160,14 +159,27 @@ The origin is configured as an IP address. The origin is healthy, but rejecting 
 
 ### Cause
 
-Azure Front Door users the origin host name as the SNI header during SSL handshake. Since the origin is configured as an IP address, the failure can be caused by one of the following reasons:
+Azure Front Door users the origin host name as the SNI header during SSL handshake. Since the origin is configured as an IP address, the failure can be one of the following reasons:
 
-* Certificate name check is enabled in the Front Door origin configuration. It's recommended to leave this setting enabled. Certificate name check requires the origin host name to match the certificate name or one of the entries in the subject alternative names extension.
-* If certificate name check is disabled, then the cause is likely due to the origin certificate logic rejecting any requests that don't have a valid host header in the request that matches the certificate.
+* If the certificate name check is disabled, it's possible that the cause of the issue lies in the origin certificate logic. This logic might be rejecting any requests that don't have a valid host header matching the certificate.
 
 ### Troubleshooting steps
 
 Change the origin from an IP address to an FQDN to which a valid certificate is issued that matches the origin certificate.
+
+## 429 responses from Azure Front Door 
+
+### Symptom
+
+* A percentage of requests start showing errors with the response 429: Too many requests.
+
+### Cause
+
+* Azure Front Door has default platform rate limits. If your traffic exceeds the limit, AFD will start rate limiting the traffic and return 429 responses.
+
+### Troubleshooting steps
+
+* If you start seeing 429s for your legitimate traffic and a higher quota limited is need, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## Next steps
 

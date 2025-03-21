@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 07/30/2024
+ms.date: 01/06/2025
 ms.author: normesta
 ms.custom: subject-cost-optimization
 ---
@@ -34,7 +34,7 @@ The following table calculates the number of write operations required to upload
 | Calculation                                            | Value       |
 |--------------------------------------------------------|-------------|
 | Number of MiB in 5 GiB                                 | 5,120       |
-| PutBlock operations per blob (5,120 MiB / 8 MiB block) | 640         |
+| PutBlock operations per blob (5,120 MiB / 8-MiB block) | 640         |
 | PutBlockList operations per blob                       | 1           |
 | **Total write operations (1,000 * 641)**               | **641,000** |
 
@@ -47,9 +47,9 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 
 | Price factor                                                     | Hot         | Cool        | Cold         | Archive      |
 |------------------------------------------------------------------|-------------|-------------|--------------|--------------|
-| Price of a single write operation (price / 10,000)               | $0.0000055  | $0.00001    | $0.000018    | $0.000011    |
+| Price of a single write operation                                | $0.0000055  | $0.00001    | $0.000018    | $0.000011    |
 | **Cost of write operations (641,000 * operation price)**         | **$3.5255** | **$6.4100** | **$11.5380** | **$7.0510**  |
-| Price of a single _other_ operation (price / 10,000)             | $0.00000044 | $0.00000044 | $0.00000052  | $0.00000044  |
+| Price of a single _other_ operation                              | $0.00000044 | $0.00000044 | $0.00000052  | $0.00000044  |
 | **Cost to get blob properties (1000 * _other_ operation price)** | **$0.0004** | **$0.0004** | **$0.0005**  | **$0.00044** |
 | **Total cost (write + properties)**                              | **$3.53**   | **$6.41**   | **$11.54**   | **$7.05**    |
 
@@ -67,7 +67,7 @@ The following table calculates the number of write operations required to upload
 | Calculation                                                          | Value        |
 |----------------------------------------------------------------------|--------------|
 | Number of MiB in 5 GiB                                               | 5,120        |
-| Path - Update (append) operations per blob (5,120 MiB / 4 MiB block) | 1,280        |
+| Path - Update (append) operations per blob (5,120 MiB / 4-MiB block) | 1,280        |
 | Path - Update (flush) operations per blob                            | 1            |
 | **Total write operations (1,000 * 1,281)**                           | **1,281,00** |
 
@@ -77,9 +77,9 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 
 | Price factor                                               | Hot         | Cool         | Cold         | Archive      |
 |------------------------------------------------------------|-------------|--------------|--------------|--------------|
-| Price of a single write operation (price / 10,000)         | $0.00000720 | $0.000013    | $0.0000234   | $0.0000143   |
+| Price of a single write operation                          | $0.00000720 | $0.000013    | $0.0000234   | $0.0000143   |
 | **Cost of write operations (1,281,000 * operation price)** | **$9.2332** | **$16.6530** | **$29.9754** | **$18.3183** |
-| Price of a single _other_ operation (price / 10,000)       | $0.00000044 | $0.00000044  | $0.00000068  | $0.00000044  |
+| Price of a single _other_ operation                        | $0.00000044 | $0.00000044  | $0.00000068  | $0.00000044  |
 | **Cost to get blob properties (1000 * operation price)**   | **$0.0004** | **$0.0004**  | **$0.0007**  | **$0.0004**  |
 | **Total cost (write + properties)**                        | **$9.22**   | **$16.65**   | **$29.98**   | **$18.32**   |
 
@@ -102,15 +102,15 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 
 | Price factor                                             | Hot            | Cool           | Cold           |
 |----------------------------------------------------------|----------------|----------------|----------------|
-| Price of a single list operation (price/ 10,000)         | $0.0000055     | $0.0000055     | $0.0000065     |
+| Price of a single list operation                         | $0.0000055     | $0.0000055     | $0.0000065     |
 | **Cost of listing operations (1 * operation price)**     | **$0.0000055** | **$0.0000050** | **$0.0000065** |
-| Price of a single _other_ operation (price / 10,000)     | $0.00000044    | $0.00000044    | $0.00000052    |
+| Price of a single _other_ operation                      | $0.00000044    | $0.00000044    | $0.00000052    |
 | **Cost to get blob properties (1000 * operation price)** | **$0.00044**   | **$0.00044**   | **$0.00052**   |
-| Price of a single read operation (price / 10,000)        | $0.00000044    | $0.000001      | $0.00001       |
+| Price of a single read operation                         | $0.00000044    | $0.000001      | $0.00001       |
 | **Cost of read operations (1000 * operation price)**     | **$0.00044**   | **$0.001**     | **$0.01**      |
 | Price of data retrieval (per GiB)                        | $0.00          | $0.01          | $0.03          |
-| **Cost of data retrieval (5 * operation price)**         | **$0.00**      | **$0.05**      | **$0.15**      |
-| **Total cost (list + properties + read + retrieval)**    | **$0.001**     | **$0.051**     | **$0.161**     |
+| **Cost of data retrieval 1000 * (5 * operation price)**  | **$0.00**      | **$50.00**     | **$150.00**    |
+| **Total cost (list + properties + read + retrieval)**    | **$0.001**     | **$50.001**    | **$150.011**   |
 
 
 ### Cost of downloading from the Data Lake Storage endpoint
@@ -126,8 +126,8 @@ The following table calculates the number of write operations required to upload
 | Calculation                                                 | Value         |
 |-------------------------------------------------------------|---------------|
 | Number of MiB in 5 GiB                                      | 5,120         |
-| Path - Update operations per blob (5,120 MiB / 4 MiB block) | 1,280         |
-| Total read operations (1000* 1,280)                         | **1,280,000** |
+| Path - Update operations per blob (5,120 MiB / 4-MiB block) | 1,280         |
+| Total read operations (1000 * 1,280)                         | **1,280,000** |
 
 Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to download these blobs.
 
@@ -136,15 +136,15 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 
 | Price factor                                              | Hot            | Cool           | Cold           |
 |-----------------------------------------------------------|----------------|----------------|----------------|
-| Price of a single list operation (price/ 10,000)          | $0.0000055     | $0.0000055     | $0.0000065     |
+| Price of a single list operation                          | $0.0000055     | $0.0000055     | $0.0000065     |
 | **Cost of listing operations (1 * operation price)**      | **$0.0000055** | **$0.0000050** | **$0.0000065** |
-| Price of a single _other_ operation (price / 10,000)      | $0.00000044    | $0.00000044    | $0.00000052    |
+| Price of a single _other_ operation                       | $0.00000044    | $0.00000044    | $0.00000052    |
 | **Cost to get blob properties (1000 * operation price)**  | **$0.00044**   | **$0.00044**   | **$0.00052**   |
-| Price of a single read operation (price / 10,000)         | $0.00000060    | $0.00000130    | $0.00001300    |
+| Price of a single read operation                          | $0.00000060    | $0.00000130    | $0.00001300    |
 | **Cost of read operations (1,281,000 * operation price)** | **$0.73017**   | **$1.6653**    | **$16.653**    |
 | Price of data retrieval (per GiB)                         | $0.00000000    | $0.01000000    | $0.03000000    |
-| **Cost of data retrieval (5 * operation price)**          | **$0.00**      | **$0.05**      | **$0.15**      |
-| **Total cost (list + properties + read + retrieval)**     | **$0.731**     | **$1.716**     | **$16.804**    |
+| **Cost of data retrieval 1000 * (5 * operation price)**   | **$0.00**      | **$50.00**     | **$150.00**    |
+| **Total cost (list + properties + read + retrieval)**     | **$0.731**     | **$51.666**    | **$166.653**   |
 
 
 ## The cost to copy between containers
@@ -162,11 +162,11 @@ For each blob, AzCopy uses the [Get Blob Properties](/rest/api/storageservices/g
 
 | Price factor                                             | Hot            | Cool           | Cold           |
 |----------------------------------------------------------|----------------|----------------|----------------|
-| Price of a single list operation (price/ 10,000)         | $0.0000055     | $0.0000055     | $0.0000065     |
+| Price of a single list operation                         | $0.0000055     | $0.0000055     | $0.0000065     |
 | **Cost of listing operations (1 * operation price)**     | **$0.0000055** | **$0.0000055** | **$0.0000065** |
-| Price of a single other operations (price / 10,000)      | $0.00000044    | $0.00000044    | $0.00000052    |
+| Price of a single other operations                       | $0.00000044    | $0.00000044    | $0.00000052    |
 | **Cost to get blob properties (2000 * operation price)** | **$0.00088**   | **$0.00088**   | **$0.00104**   |
-| Price of a single write operation (price / 10,000)       | $0.0000055     | $0.00001       | $0.000018      |
+| Price of a single write operation                        | $0.0000055     | $0.00001       | $0.000018      |
 | **Cost to write (1000 * operation price)**               | **$0.0055**    | **$0.01**      | **$0.018**     |
 | **Total cost (listing + properties + write)**            | **$0.0064**    | **$0.0109**    | **$0.0190**    |
 
@@ -174,25 +174,25 @@ For each blob, AzCopy uses the [Get Blob Properties](/rest/api/storageservices/g
 
 This scenario is identical to the previous one except that you're also billed for data retrieval and for read operation that is based on the source tier. 
 
-| Price factor                                          | Hot          | Cool        | Cold        |
-|-------------------------------------------------------|--------------|-------------|-------------|
-| **Total from previous section**                       | **$0.0064**  | **$0.0109** | **$0.0190** |
-| Price of a single read operation (price / 10,000)     | $0.00000044  | $0.000001   | $0.00001    |
-| **Cost of read operations (1,000 * operation price)** | **$0.00044** | **$0.001**  | **$0.01**   |
-| Price of data retrieval (per GiB)                     | Free         | $0.01       | $0.03       |
-| **Cost of data retrieval (5 * operation price)**      | **$0.00**    | **$.05**    | **$.15**    |
-| **Total cost (previous section + retrieval + read)**  | **$0.0068** | **$0.0619** | **$0.1719**  |
+| Price factor                                            | Hot          | Cool         | Cold          |
+|---------------------------------------------------------|--------------|--------------|---------------|
+| **Total from previous section**                         | **$0.0064**  | **$0.0109**  | **$0.0190**   |
+| Price of a single read operation                        | $0.00000044  | $0.000001    | $0.00001      |
+| **Cost of read operations (1,000 * operation price)**   | **$0.00044** | **$0.001**   | **$0.01**     |
+| Price of data retrieval (per GiB)                       | Free         | $0.01        | $0.03         |
+| **Cost of data retrieval 1000 * (5 * operation price)** | **$0.00**    | **$50.00**   | **$150.00**   |
+| **Total cost (previous section + retrieval + read)**    | **$0.0068**  | **$50.0119** | **$150.0290** |
 
 ### Cost of copying blobs to an account located in another region
 
 This scenario is identical to the previous one except you're billed for network egress charges. 
 
-| Price factor                                           | Hot         | Cool        | Cold        |
-|--------------------------------------------------------|-------------|-------------|-------------|
-| **Total cost from previous section**                   | **$0.0068** | **$0.0619** | **$0.1719** |
-| Price of network egress (per GiB)                      | $0.02       | $0.02       | $0.02       |
-| **Total cost of network egress (5 * price of egress)** | **$.10**    | **$.10**    | **$.10**    |
-| **Total cost (previous section + egress)**             | **$0.1068** | **$0.1619** | **$0.2790** |
+| Price factor                                                  | Hot           | Cool          | Cold          |
+|---------------------------------------------------------------|---------------|---------------|---------------|
+| **Total cost from previous section**                          | **$0.0068**   | **$0.0619**   | **$0.1719**   |
+| Price of network egress (per GiB)                             | $0.02         | $0.02         | $0.02         |
+| **Total cost of network egress 1000 * (5 * price of egress)** | **$100**      | **$100**      | **$100**      |
+| **Total cost (previous section + egress)**                    | **$100.0068** | **$150.0119** | **$250.0290** |
 
 ## The cost to synchronize changes
 
@@ -218,89 +218,23 @@ The [azcopy sync](../common/storage-use-azcopy-blobs-synchronize.md?toc=/azure/s
 
 The following table contains all of the estimates presented in this article. All estimates are based on transferring **1000** blobs that are each **5 GiB** in size and use the sample prices listed in the next section.
 
-| Scenario                                    | Hot     | Cool    | Cold    | Archive |
-|---------------------------------------------|---------|---------|---------|---------|
-| Upload blobs (Blob Service endpoint)        | $3.53   | $6.41   | $11.54  | $3.53   |
-| Upload blobs (Data Lake Storage endpoint)   | $9.22   | $16.65  | $29.98  | $18.32  |
-| Download blobs (Blob Service endpoint)      | $0.001  | $0.051  | $0.161  | N/A     |
-| Download blobs (Data Lake Storage endpoint) | $0.731  | $1.716  | $16.804 | N/A     |
-| Copy blobs                                  | $0.064  | $0.0109 | $0.0190 | N/A     |
-| Copy blobs to another account               | $0.0068 | $0.0619 | $0.1719 | N/A     |
-| Copy blobs to an account in another region  | $0.1068 | $0.1619 | $0.2790 | N/A     |
+| Scenario                                    | Hot       | Cool      | Cold      | Archive |
+|---------------------------------------------|-----------|-----------|-----------|---------|
+| Upload blobs (Blob Service endpoint)        | $3.53     | $6.41     | $11.54    | $3.53   |
+| Upload blobs (Data Lake Storage endpoint)   | $9.22     | $16.65    | $29.98    | $18.32  |
+| Download blobs (Blob Service endpoint)      | $0.001    | $50.001   | $150.011  | N/A     |
+| Download blobs (Data Lake Storage endpoint) | $0.731    | $51.666   | $166.653  | N/A     |
+| Copy blobs                                  | $0.064    | $0.0109   | $0.0190   | N/A     |
+| Copy blobs to another account               | $0.0068   | $50.0119  | $150.0290 | N/A     |
+| Copy blobs to an account in another region  | $100.0068 | $150.0119 | $250.0290 | N/A     |
 
 ## Sample prices
 
-The following table includes sample (fictitious) prices for each request to the Blob Service endpoint (`blob.core.windows.net`). For official prices, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
-
-| Price factor                               | Hot     | Cool    | Cold    | Archive |
-|--------------------------------------------|---------|---------|---------|---------|
-| Price of write transactions (per 10,000)   | $0.055  | $0.10   | $0.18   | $0.10   |
-| Price of read transactions (per 10,000)    | $0.0044 | $0.01   | $0.10   | $5.50   |
-| Price of data retrieval (per GiB)          | Free    | $0.01   | $0.03   | $0.022  |
-| List and container operations (per 10,000) | $0.055  | $0.050  | $0.065  | $0.055  |
-| All other operations (per 10,000)          | $0.0044 | $0.0044 | $0.0052 | $0.0044 |
-
-The following table includes sample prices (fictitious) prices for each request to the Data Lake Storage endpoint (`dfs.core.windows.net`). For official prices, see [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/). 
-
-| Price factor                                         | Hot     | Cool    | Cold    | Archive |
-|------------------------------------------------------|---------|---------|---------|---------|
-| Price of write transactions (every 4 MiB, per 10,000) | $0.0720 | $0.13   | $0.234  | $0.143  |
-| Price of read transactions (every 4 MiB, per 10,000)  | $0.0057 | $0.013  | $0.13   | $7.15   |
-| Price of data retrieval (per GiB)                    | Free    | $0.01   | $0.03   | $0.022  |
-| Iterative Read operations (per 10,000)               | $0.0715 | $0.0715 | $0.0845 | $0.0715 |
-
-## Operations used by AzCopy commands
-
-The following table shows the operations that are used by each AzCopy command. To map each operation to a price, see [Map each REST operation to a price](map-rest-apis-transaction-categories.md).
-
-### Commands that target the Blob Service Endpoint
-
-| Command | Scenario | Operations |
-|---------|----------|-----------------------------------------|
-| [azcopy bench](../common/storage-ref-azcopy-bench.md?toc=/azure/storage/blobs/toc.json) | Upload   | [Put Block](/rest/api/storageservices/put-block-list) and [Put Block List](/rest/api/storageservices/put-block-list). Possibly [Put Blob](/rest/api/storageservices/put-blob) based on object size.|
-| [azcopy bench](../common/storage-ref-azcopy-bench.md?toc=/azure/storage/blobs/toc.json) | Download |[List Blobs](/rest/api/storageservices/list-blobs), [Get Blob Properties](/rest/api/storageservices/get-blob-properties), and [Get Blob](/rest/api/storageservices/get-blob) |
-| [azcopy copy](../common/storage-ref-azcopy-copy.md?toc=/azure/storage/blobs/toc.json) | Upload | [Put Block](/rest/api/storageservices/put-block-list), [Put Block List](/rest/api/storageservices/put-block-list), and [Get Blob Properties](/rest/api/storageservices/get-blob-properties). Possibly [Put Blob](/rest/api/storageservices/put-blob) based on object size. |
-| [azcopy copy](../common/storage-ref-azcopy-copy.md?toc=/azure/storage/blobs/toc.json) | Download | [List Blobs](/rest/api/storageservices/list-blobs), [Get Blob Properties](/rest/api/storageservices/get-blob-properties), and [Get Blob](/rest/api/storageservices/get-blob) |
-| [azcopy copy](../common/storage-ref-azcopy-copy.md?toc=/azure/storage/blobs/toc.json) | Perform a dry run | [List Blobs](/rest/api/storageservices/list-blobs) |
-| [azcopy copy](../common/storage-ref-azcopy-copy.md?toc=/azure/storage/blobs/toc.json) | Copy from Amazon S3|[Put Blob from URL](/rest/api/storageservices/put-blob-from-url). Based on object size, could also be [Put Block From URL](/rest/api/storageservices/put-block-from-url) and [Put Block List](/rest/api/storageservices/put-block-list). |
-| [azcopy copy](../common/storage-ref-azcopy-copy.md?toc=/azure/storage/blobs/toc.json) | Copy from Google Cloud Storage |[Put Blob from URL](/rest/api/storageservices/put-blob-from-url). Based on object size, could also be [Put Block From URL](/rest/api/storageservices/put-block-from-url) and [Put Block List](/rest/api/storageservices/put-block-list). |
-| [azcopy copy](../common/storage-ref-azcopy-copy.md?toc=/azure/storage/blobs/toc.json) | Copy to another container |[List Blobs](/rest/api/storageservices/list-blobs), [Get Blob Properties](/rest/api/storageservices/get-blob-properties), and [Put Blob From URL](/rest/api/storageservices/put-blob-from-url). Based on object size, could also be [Put Block From URL](/rest/api/storageservices/put-block-from-url) and [Put Block List](/rest/api/storageservices/put-block-list). |
-| [azcopy sync](../common/storage-ref-azcopy-sync.md?toc=/azure/storage/blobs/toc.json) | Update local with changes to container |[List Blobs](/rest/api/storageservices/list-blobs), [Get Blob Properties](/rest/api/storageservices/get-blob-properties), and [Get Blob](/rest/api/storageservices/get-blob) |
-| [azcopy sync](../common/storage-ref-azcopy-sync.md?toc=/azure/storage/blobs/toc.json) | Update container with changes to local file system |[List Blobs](/rest/api/storageservices/list-blobs), [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Put Block](/rest/api/storageservices/put-block-list), and [Put Block List](/rest/api/storageservices/put-block-list). Possibly [Put Blob](/rest/api/storageservices/put-blob) based on object size. |
-| [azcopy sync](../common/storage-ref-azcopy-sync.md?toc=/azure/storage/blobs/toc.json) | Synchronize containers |[List Blobs](/rest/api/storageservices/list-blobs), [Get Blob Properties](/rest/api/storageservices/get-blob-properties), and [Put Blob From URL](/rest/api/storageservices/put-blob-from-url). Based on object size, could also be [Put Block From URL](/rest/api/storageservices/put-block-from-url) and [Put Block List](/rest/api/storageservices/put-block-list). |
-| [azcopy set-properties](../common/storage-ref-azcopy-set-properties.md?toc=/azure/storage/blobs/toc.json) | Set blob tier |[Set Blob Tier](/rest/api/storageservices/set-blob-tier) and [List Blobs](/rest/api/storageservices/list-blobs) (if targeting a virtual directory) |
-| [azcopy set-properties](../common/storage-ref-azcopy-set-properties.md?toc=/azure/storage/blobs/toc.json) | Set metadata |[Set Blob Metadata](/rest/api/storageservices/set-blob-metadata) and [List Blobs](/rest/api/storageservices/list-blobs) (if targeting a virtual directory) |
-| [azcopy set-properties](../common/storage-ref-azcopy-set-properties.md?toc=/azure/storage/blobs/toc.json) | Set blob tags |[Set Blob Tags](/rest/api/storageservices/set-blob-tags) and [List Blobs](/rest/api/storageservices/list-blobs) (if targeting a virtual directory) |
-| [azcopy list](../common/storage-ref-azcopy-list.md?toc=/azure/storage/blobs/toc.json) | List blobs in a container|[List Blobs](/rest/api/storageservices/list-blobs) |
-| [azcopy make](../common/storage-ref-azcopy-make.md?toc=/azure/storage/blobs/toc.json) | Create a container |[Create Container](/rest/api/storageservices/create-container) |
-| [azcopy remove](../common/storage-ref-azcopy-remove.md?toc=/azure/storage/blobs/toc.json) | Delete a container |[Delete Container](/rest/api/storageservices/delete-container) |
-| [azcopy remove](../common/storage-ref-azcopy-remove.md?toc=/azure/storage/blobs/toc.json) | Delete a blob |[Get Blob Properties](/rest/api/storageservices/get-blob-properties). [List Blobs](/rest/api/storageservices/list-blobs) (if targeting a virtual directory), and [Delete Blob](/rest/api/storageservices/delete-blob) |
-
-### Commands that target the Data Lake Storage endpoint
-
-| Command | Scenario | Operations |
-|---------|----------|-----------------------------------------|
-| [azcopy bench](../common/storage-ref-azcopy-bench.md?toc=/azure/storage/blobs/toc.json) | Upload   | [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) (Append), and [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) (Flush)   |
-| [azcopy bench](../common/storage-ref-azcopy-bench.md?toc=/azure/storage/blobs/toc.json) | Download | [List Blobs](/rest/api/storageservices/list-blobs), [Get Blob Properties](/rest/api/storageservices/get-blob-properties), and [Path - Read](/rest/api/storageservices/datalakestoragegen2/path/read)|
-| [azcopy copy](../common/storage-ref-azcopy-copy.md?toc=/azure/storage/blobs/toc.json) | Upload | [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update), and [Get Blob Properties](/rest/api/storageservices/get-blob-properties) |
-| [azcopy copy](../common/storage-ref-azcopy-copy.md?toc=/azure/storage/blobs/toc.json) | Download |[List Blobs](/rest/api/storageservices/list-blobs), [Get Blob Properties](/rest/api/storageservices/get-blob-properties), and [Path - Read](/rest/api/storageservices/datalakestoragegen2/path/read) |
-| [azcopy copy](../common/storage-ref-azcopy-copy.md?toc=/azure/storage/blobs/toc.json) | Perform a dry run | [List Blobs](/rest/api/storageservices/list-blobs) |
-| [azcopy copy](../common/storage-ref-azcopy-copy.md?toc=/azure/storage/blobs/toc.json) | Copy from Amazon S3| Not supported |
-| [azcopy copy](../common/storage-ref-azcopy-copy.md?toc=/azure/storage/blobs/toc.json) | Copy from Google Cloud Storage | Not supported |
-| [azcopy copy](../common/storage-ref-azcopy-copy.md?toc=/azure/storage/blobs/toc.json) | Copy to another container | [List Blobs](/rest/api/storageservices/list-blobs), and [Copy Blob](/rest/api/storageservices/copy-blob). if --preserve-permissions-true, then [Path - Get Properties](/rest/api/storageservices/datalakestoragegen2/path/get-properties) (Get Access Control List) and [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) (Set access control) otherwise, [Get Blob Properties](/rest/api/storageservices/get-blob-properties). | 
-| [azcopy sync](../common/storage-ref-azcopy-sync.md?toc=/azure/storage/blobs/toc.json) | Update local with changes to container | [List Blobs](/rest/api/storageservices/list-blobs), [Get Blob Properties](/rest/api/storageservices/get-blob-properties), and [Get Blob](/rest/api/storageservices/get-blob) |
-| [azcopy sync](../common/storage-ref-azcopy-sync.md?toc=/azure/storage/blobs/toc.json) | Update container with changes to local file system | [List Blobs](/rest/api/storageservices/list-blobs), [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) (Append), and [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) (Flush)|
-| [azcopy sync](../common/storage-ref-azcopy-sync.md?toc=/azure/storage/blobs/toc.json) | Synchronize containers | [List Blobs](/rest/api/storageservices/list-blobs), [Get Blob Properties](/rest/api/storageservices/get-blob-properties), and [Copy Blob](/rest/api/storageservices/copy-blob) |
-| [azcopy set-properties](../common/storage-ref-azcopy-set-properties.md?toc=/azure/storage/blobs/toc.json) | Set blob tier | Not supported |
-| [azcopy set-properties](../common/storage-ref-azcopy-set-properties.md?toc=/azure/storage/blobs/toc.json) | Set metadata | Not supported |
-| [azcopy set-properties](../common/storage-ref-azcopy-set-properties.md?toc=/azure/storage/blobs/toc.json) | Set blob tags | Not supported |
-| [azcopy list](../common/storage-ref-azcopy-list.md?toc=/azure/storage/blobs/toc.json) | List blobs in a container| [List Blobs](/rest/api/storageservices/list-blobs)|
-| [azcopy make](../common/storage-ref-azcopy-make.md?toc=/azure/storage/blobs/toc.json) | Create a container | [Filesystem - Create](/rest/api/storageservices/datalakestoragegen2/filesystem/create) |
-| [azcopy remove](../common/storage-ref-azcopy-remove.md?toc=/azure/storage/blobs/toc.json) | Delete a container | [Filesystem - Delete](/rest/api/storageservices/datalakestoragegen2/filesystem/delete) |
-| [azcopy remove](../common/storage-ref-azcopy-remove.md?toc=/azure/storage/blobs/toc.json) | Delete a blob | [Filesystem - Delete](/rest/api/storageservices/datalakestoragegen2/filesystem/delete) |
+[!INCLUDE [Sample prices for Azure Blob Storage and Azure Data Lake Storage](../../../includes/azure-blob-storage-sample-prices.md)]
 
 ## See also
 
 - [Plan and manage costs for Azure Blob Storage](../common/storage-plan-manage-costs.md)
+- [Map each AzCopy command to a REST operation](../common/storage-reference-azcopy-map-commands-to-rest-operations.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json)
 - [Map each REST operation to a price](map-rest-apis-transaction-categories.md)
 - [Get started with AzCopy](../common/storage-use-azcopy-v10.md)

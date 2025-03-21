@@ -28,9 +28,9 @@ Batch maintains parity with Azure on supporting availability zones.
 
 - For [user subscription mode Batch accounts](../batch/accounts.md#batch-accounts), make sure that the subscription in which you're creating your pool doesn't have a zone offer restriction on the requested VM SKU. To see if your subscription doesn't have any restrictions, call the [Resource Skus List API](/rest/api/compute/resource-skus/list?tabs=HTTP) and check the `ResourceSkuRestrictions`. If a zone restriction exists, you can submit a support ticket to remove the zone restriction.
 
-- Because InfiniBand doesn't support inter-zone communication, you can't create a pool with a zonal policy if it has inter-node communication enabled and uses a [VM SKU that supports InfiniBand](../virtual-machines/workloads/hpc/enable-infiniband.md).
+- Because InfiniBand doesn't support inter-zone communication, you can't create a pool with a zonal policy if it has inter-node communication enabled and uses a [VM SKU that supports InfiniBand](/azure/virtual-machines/workloads/hpc/enable-infiniband).
 
-- Batch maintains parity with Azure on supporting availability zones. To use the zonal option, your pool must be created in an [Azure region with availability zone support](availability-zones-service-support.md#azure-regions-with-availability-zone-support).
+- Batch maintains parity with Azure on supporting availability zones. To use the zonal option, your pool must be created in an [Azure region with availability zone support](regions-list.md).
 
 - To allocate your Batch pool across availability zones, the Azure region in which the pool was created must support the requested VM SKU in more than one zone. To validate that the region supports the requested VM SKU in more than one zone, call the [Resource Skus List API](/rest/api/compute/resource-skus/list?tabs=HTTP) and check the `locationInfo` field of `resourceSku`. Ensure that more than one zone is supported for the requested VM SKU. You can also use the [Azure CLI](/rest/api/compute/resource-skus/list?tabs=CLI) to list all available Resource SKUs with the following command:
 

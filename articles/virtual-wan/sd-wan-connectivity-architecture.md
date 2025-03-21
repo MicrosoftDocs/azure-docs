@@ -6,7 +6,7 @@ services: virtual-wan
 author: skishen525
 
 ms.service: azure-virtual-wan
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/24/2023
 ms.author: sukishen
 

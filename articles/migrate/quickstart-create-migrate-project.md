@@ -1,13 +1,13 @@
 ---
 title: Quickstart to create an Azure Migrate project using an Azure Resource Manager template.
 description: In this quickstart, you learn how to create an Azure Migrate project using an Azure Resource Manager template (ARM template).
-ms.date: 07/28/2021
+ms.date: 09/19/2024
 author: vijain
 ms.author: vijain
 ms.manager: kmadnani
 ms.service: azure-migrate
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template, engagement-fy25
 ---
 
 # Quickstart: Create an Azure Migrate project using an ARM template
@@ -51,22 +51,19 @@ To deploy the template, the **Subscription**, **Resource group**, **Project name
    - **Migrate Project Name**: Provide a name for the vault.
    - **Location**: Select the location where you want to deploy the Azure Migrate project and its resources.
 
-3. Click **Review + create** button to start the deployment.
+3. Select **Review + create** button to start the deployment.
 
 ## Validate the deployment
 
 To confirm that the Azure Migrate project was created, use the Azure portal.
 
-
 1. Navigate to Azure Migrate by searching for **Azure Migrate** in the search bar on the Azure portal.
-2. Click the **Discover,** **Assess,** and **Migrate** button under the Servers, databases and web apps tile.
+2. Select the **Discover, assess and Migrate** button under the Servers, databases and web apps tile.
 3. Select the **Azure subscription** and **Project** as per the values specified in the deployment.
-
 
 ## Next steps
 
-In this quickstart, you created an Azure Migrate project. To learn more about Azure Migrate and its capabilities, continue to the Azure Migrate overview.
+In this quickstart, you created an Azure Migrate project.
 
-> [!div class="nextstepaction"]
-> [Azure Migrate overview](migrate-services-overview.md)
->
+- To learn more about Azure Migrate and its capabilities, continue to the [Azure Migrate overview](migrate-services-overview.md).
+- Follow these tutorials to discover [VMware VMs](tutorial-discover-vmware.md), [Hyper-V VMs](tutorial-discover-hyper-v.md), and [Physical servers](tutorial-discover-physical.md).

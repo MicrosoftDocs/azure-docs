@@ -3,22 +3,24 @@ title: Manage NSG Flow Logs using Grafana
 titleSuffix: Azure Network Watcher
 description: Manage and analyze Network Security Group Flow Logs in Azure using Network Watcher and Grafana.
 author: halkazwini
+ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 05/31/2024
-ms.author: halkazwini
+ms.date: 10/16/2024
 ms.custom: linux-related-content
 ---
 
 # Manage and analyze network security group flow logs using Network Watcher and Grafana
 
+[!INCLUDE [NSG flow logs retirement](../../includes/network-watcher-nsg-flow-logs-retirement.md)]
+
 [Network Security Group (NSG) flow logs](nsg-flow-logs-overview.md) provide information that can be used to understand ingress and egress IP traffic on network interfaces. These flow logs show outbound and inbound flows on a per NSG rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
 
-You can have many NSGs in your network with flow logging enabled. This amount of logging data makes it cumbersome to parse and gain insights from your logs. This article provides a solution to centrally manage these NSG flow logs using Grafana, an open source graphing tool, ElasticSearch, a distributed search and analytics engine, and Logstash, which is an open source server-side data processing pipeline.
+You can have many NSGs in your network with flow logging enabled. This amount of logging data makes it cumbersome to parse and gain insights from your logs. This article provides a solution to centrally manage these NSG flow logs using Grafana, an open source graphing tool, Elasticsearch, a distributed search and analytics engine, and Logstash, which is an open source server-side data processing pipeline.
 
 ## Scenario
 
-NSG flow logs are enabled using Network Watcher and are stored in Azure blob storage. A Logstash plugin is used to connect and process flow logs from blob storage and send them to ElasticSearch.  Once the flow logs are stored in ElasticSearch, they can be analyzed and visualized into customized dashboards in Grafana.
+NSG flow logs are enabled using Network Watcher and are stored in Azure blob storage. A Logstash plugin is used to connect and process flow logs from blob storage and send them to Elasticsearch.  Once the flow logs are stored in Elasticsearch, they can be analyzed and visualized into customized dashboards in Grafana.
 
 ![NSG Network Watcher Grafana](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig1.png)
 
@@ -30,7 +32,7 @@ For this scenario, you must have Network Security Group Flow Logging enabled on 
 
 ### Setup considerations
 
-In this example Grafana, ElasticSearch, and Logstash are configured on an Ubuntu LTS Server deployed in Azure. This minimal setup is used for running all three components - they are all running on the same VM. This setup should only be used for testing and non-critical workloads. Logstash, Elasticsearch, and Grafana can all be architected to scale independently across many instances. For more information, see the documentation for each of these components.
+In this example Grafana, Elasticsearch, and Logstash are configured on an Ubuntu LTS Server deployed in Azure. This minimal setup is used for running all three components - they are all running on the same VM. This setup should only be used for testing and non-critical workloads. Logstash, Elasticsearch, and Grafana can all be architected to scale independently across many instances. For more information, see the documentation for each of these components.
 
 ### Install Logstash
 
@@ -45,7 +47,7 @@ The following instructions are used to install Logstash in Ubuntu. For instructi
     sudo dpkg -i logstash-5.2.0.deb
     ```
 
-2. Configure Logstash to parse the flow logs and send them to ElasticSearch. Create a Logstash.conf file using:
+2. Configure Logstash to parse the flow logs and send them to Elasticsearch. Create a Logstash.conf file using:
 
     ```bash
     sudo touch /etc/logstash/conf.d/logstash.conf
@@ -135,7 +137,7 @@ The input section designates the input source of the logs that Logstash will pro
 
 The filter section then flattens each flow log file so that each individual flow tuple and its associated properties becomes a separate Logstash event.
 
-Finally, the output section forwards each Logstash event to the ElasticSearch server. Feel free to modify the Logstash config file to suit your specific needs.
+Finally, the output section forwards each Logstash event to the Elasticsearch server. Feel free to modify the Logstash config file to suit your specific needs.
 
 ### Install the Logstash input plugin for Azure Blob storage
 
@@ -147,9 +149,9 @@ sudo /usr/share/logstash/bin/logstash-plugin install logstash-input-azureblob
 
 For more information about this plug in, see [Logstash input plugin for Azure Storage Blobs](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob).
 
-### Install ElasticSearch
+### Install Elasticsearch
 
-You can use the following script to install ElasticSearch. For information about installing ElasticSearch, see [Elastic Stack](https://www.elastic.co/guide/en/elastic-stack/current/index.html).
+You can use the following script to install Elasticsearch. For information about installing Elasticsearch, see [Elastic Stack](https://www.elastic.co/guide/en/elastic-stack/current/index.html).
 
 ```bash
 sudo apt-get install apt-transport-https openjdk-8-jre-headless uuid-runtime pwgen -y
@@ -175,25 +177,21 @@ sudo service grafana-server start
 
 For additional installation information, see [Installing on Debian / Ubuntu](https://docs.grafana.org/installation/debian/).
 
-#### Add the ElasticSearch server as a data source
+#### Add the Elasticsearch server as a data source
 
-Next, you need to add the ElasticSearch index containing flow logs as a data source. You can add a data source by selecting **Add data source** and completing the form with the relevant information. A sample of this configuration can be found in the following screenshot:
+Next, you need to add the Elasticsearch index containing flow logs as a data source. You can add a data source by selecting **Add data source** and completing the form with the relevant information. A sample of this configuration can be found in the following screenshot:
 
 ![Add data source](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig2.png)
 
 #### Create a dashboard
 
-Now that you have successfully configured Grafana to read from the ElasticSearch index containing NSG flow logs, you can create and personalize dashboards. To create a new dashboard, select **Create your first dashboard**. The following sample graph configuration shows flows segmented by NSG rule:
+Now that you have successfully configured Grafana to read from the Elasticsearch index containing NSG flow logs, you can create and personalize dashboards. To create a new dashboard, select **Create your first dashboard**. The following sample graph configuration shows flows segmented by NSG rule:
 
 ![Dashboard graph](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig3.png)
 
-The following screenshot depicts a graph and chart showing the top flows and their frequency. Flows are also shown by NSG rule and flows by decision. Grafana is highly customizable so it's advisable that you create dashboards to suit your specific monitoring needs. The following example shows a typical dashboard:
-
-![Screenshot that shows the sample graph configuration with flows segmented by NSG rule.](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
-
 ## Conclusion
 
-By integrating Network Watcher with ElasticSearch and Grafana, you now have a convenient and centralized way to manage and visualize NSG flow logs as well as other data. Grafana has a number of other powerful graphing features that can also be used to further manage flow logs and better understand your network traffic. Now that you have a Grafana instance set up and connected to Azure, feel free to continue to explore the other functionality that it offers.
+By integrating Network Watcher with Elasticsearch and Grafana, you now have a convenient and centralized way to manage and visualize NSG flow logs as well as other data. Grafana has a number of other powerful graphing features that can also be used to further manage flow logs and better understand your network traffic. Now that you have a Grafana instance set up and connected to Azure, feel free to continue to explore the other functionality that it offers.
 
 ## Next step
 

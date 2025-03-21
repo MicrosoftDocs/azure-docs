@@ -4,9 +4,8 @@ description: Learn about important system requirements for your Azure Data Box a
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: pod
-ms.topic: article
+ms.service: azure-databox
+ms.topic: conceptual
 ms.date: 10/21/2022
 ms.author: shaas
 ---
@@ -17,8 +16,10 @@ This article describes important system requirements for your Microsoft Azure Da
 
 The system requirements include:
 
-* **Software requirements:** For hosts that connect to the Data Box, describes supported operating systems, file transfer protocols, storage accounts, storage types, and browsers for the local web UI.
-* **Networking requirements:** For the Data Box, describes requirements for network connections and ports for best operation of the Data Box.
+* **Software requirements** for hosts that connect to Data Box.<br>
+They describe supported operating systems, file transfer protocols, storage accounts, storage types, and browsers for the local web UI.
+* **Networking requirements** for the Data Box device.<br>
+They describe network connections and ports used for optimal Data Box device operation.
 
 
 ## Software requirements
@@ -34,8 +35,10 @@ The software requirements include supported operating systems, file transfer pro
 [!INCLUDE [data-box-supported-file-systems-clients](../../includes/data-box-supported-file-systems-clients.md)]
 
 > [!IMPORTANT]
-> Connection to Data Box shares is not supported via REST for export orders. 
-> Transporting data from on-premises NFS clients into Data Box using NFSv4 is supported. However, to copy data from Data Box to Azure, Data Box supports only REST-based transport. Azure file share with NFSv4.1 does not support REST for data access/transfer.
+> Connection to Data Box shares is not supported via REST for export orders.
+>
+> You can transport your data to Data Box from on-premises Network File System (NFS) clients by using NFSv4. However, when copying data from Data Box to Azure, Data Box supports REST-based transport only. Azure file shares with NFSv4.1 doesn't support REST for data access or transfer.
+
 ### Supported storage accounts
 
 > [!Note]
@@ -57,7 +60,7 @@ Your datacenter needs to have high-speed network. We strongly recommend you have
 
 ### Port requirements
 
-The following table lists the ports that need to be opened in your firewall to allow for SMB or NFS traffic. In this table, *In* (*inbound*) refers to the direction from which incoming client requests access to your device. *Out* (or *outbound*) refers to the direction in which your Data Box device sends data externally, beyond the deployment. For example, data might be outbound to the Internet.
+The following table lists the ports that need to be opened in your firewall to allow for Server Message Block (SMB) or  Network File System (NFS) traffic. In this table, *In* (*inbound*) refers to the direction from which incoming client requests access to your device. *Out* (or *outbound*) refers to the direction in which your Data Box device sends data externally, beyond the deployment. For example, data might be outbound to the Internet.
 
 [!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
 

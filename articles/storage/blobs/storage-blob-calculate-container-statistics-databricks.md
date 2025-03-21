@@ -4,7 +4,7 @@ description: Description goes here
 author: normesta
 ms.service: azure-blob-storage
 ms.topic: tutorial
-ms.date: 02/08/2023
+ms.date: 01/13/2025
 ms.author: normesta
 ---
 
@@ -16,7 +16,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Generate an inventory report
-> * Create an Azure Databricks workspace, cluster, and notebook
+> * Create an Azure Databricks workspace and notebook
 > * Read the blob inventory file
 > * Get the number and total size of blobs, snapshots, and versions
 > * Get the number of blobs by blob type and content type
@@ -50,13 +50,13 @@ You might have to wait up to 24 hours after enabling inventory reports for your 
 
 ## Configure Azure Databricks
 
-In this section, you create an Azure Databricks workspace, cluster, and notebook. Later in this tutorial, you paste code snippets into notebook cells, and then run them to gather container statistics. 
+In this section, you create an Azure Databricks workspace and notebook. Later in this tutorial, you paste code snippets into notebook cells, and then run them to gather container statistics.
 
 1. Create an Azure Databricks workspace. See [Create an Azure Databricks workspace](/azure/databricks/getting-started/#--create-an-azure-databricks-workspace).
 
-2. Create a cluster. See [Create a cluster](/azure/databricks/getting-started/quick-start#step-1-create-a-cluster).
+2. Create a new notebook. See [Create a notebook](/azure/databricks/getting-started/quick-start#create-notebook).
 
-3. Create a notebook and choose Python as the default language of the notebook. See [Create a notebook](/azure/databricks/notebooks/notebooks-manage#--create-a-notebook).  
+3. Choose Python as the default language of the notebook.
 
 ## Read the blob inventory file
 
@@ -65,11 +65,11 @@ In this section, you create an Azure Databricks workspace, cluster, and notebook
    ```python
    from pyspark.sql.types import StructType, StructField, IntegerType, StringType
    import pyspark.sql.functions as F  
-      storage_account_name = "<storage-account-name>"
-      storage_account_key = "<storage-account-key>"
-      container = "<container-name>"
-      blob_inventory_file = "<blob-inventory-file-name>" 
-      hierarchial_namespace_enabled = False
+   storage_account_name = "<storage-account-name>"
+   storage_account_key = "<storage-account-key>"
+   container = "<container-name>"
+   blob_inventory_file = "<blob-inventory-file-name>" 
+   hierarchial_namespace_enabled = False
 
    if hierarchial_namespace_enabled == False:
      spark.conf.set("fs.azure.account.key.{0}.blob.core.windows.net".format(storage_account_name), storage_account_key)
@@ -92,7 +92,7 @@ In this section, you create an Azure Databricks workspace, cluster, and notebook
 
    - If your account has a hierarchical namespace, set the `hierarchical_namespace_enabled` variable to `True`.
 
-3. Press the SHIFT + ENTER keys to run the code in this block.
+3. Press the Run button to run the code in this cell.
 
 ## Get blob count and size
 
@@ -103,7 +103,7 @@ In this section, you create an Azure Databricks workspace, cluster, and notebook
    print("Number of bytes occupied by blobs in the container:", df.agg({'Content-Length': 'sum'}).first()['sum(Content-Length)'])
    ```
 
-2. Press SHIFT + ENTER to run the cell. 
+2. Press the run button to run the cell.
 
    The notebook displays the number of blobs in a container and the number of bytes occupied by blobs in the container.
 
@@ -122,7 +122,7 @@ In this section, you create an Azure Databricks workspace, cluster, and notebook
    print("Number of bytes occupied by snapshots in the container:", dfT.agg({'Content-Length': 'sum'}).first()['sum(Content-Length)'])
    ```
 
-2. Press SHIFT + ENTER to run the cell. 
+2. Press the run button to run the cell.
 
    The notebook displays the number of snapshots and total number of bytes occupied by blob snapshots.
 
@@ -141,13 +141,12 @@ In this section, you create an Azure Databricks workspace, cluster, and notebook
    print("Number of bytes occupied by versions in the container:", dfT.agg({'Content-Length': 'sum'}).first()['sum(Content-Length)'])
    ```
 
-2. Press SHIFT + ENTER to run the cell. 
+2. Press SHIFT + ENTER to run the cell.
 
    The notebook displays the number of blob versions and total number of bytes occupied by blob versions.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of results that appear when you run the cell showing the number of versions and the total combined size of versions.](./media/storage-blob-calculate-container-statistics-databricks/number-of-versions.png)
-
 
 ## Get blob count by blob type
 
@@ -157,7 +156,7 @@ In this section, you create an Azure Databricks workspace, cluster, and notebook
    display(df.groupBy('BlobType').count().withColumnRenamed("count", "Total number of blobs in the container by BlobType"))
    ```
 
-2. Press SHIFT + ENTER to run the cell. 
+2. Press SHIFT + ENTER to run the cell.
 
    The notebook displays the number of blob types by type.
 
@@ -172,7 +171,7 @@ In this section, you create an Azure Databricks workspace, cluster, and notebook
    display(df.groupBy('Content-Type').count().withColumnRenamed("count", "Total number of blobs in the container by Content-Type"))
    ```
 
-2. Press SHIFT + ENTER to run the cell. 
+2. Press SHIFT + ENTER to run the cell.
 
    The notebook displays the number of blobs associated with each content type.
 
@@ -181,7 +180,7 @@ In this section, you create an Azure Databricks workspace, cluster, and notebook
 
 ## Terminate the cluster
 
-To avoid unnecessary billing, make sure to terminate the cluster. See [Terminate a cluster](/azure/databricks/clusters/clusters-manage#--terminate-a-cluster).
+To avoid unnecessary billing, terminate your compute resource. See [terminate a compute](/azure/databricks/clusters/clusters-manage#cluster-terminate).
   
 ## Next steps
 

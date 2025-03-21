@@ -6,17 +6,17 @@ author: ankitaduttaMSFT
 ms.topic: how-to
 ms.service: azure-site-recovery
 ms.custom: devx-track-azurepowershell
-ms.date: 04/29/2024
+ms.date: 03/21/2025
 ---
 
 # Replicate virtual machines running in a proximity placement group to another region
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article describes how to replicate, fail over, and fail back Azure virtual machines (VMs) running in a proximity placement group to a secondary region.
 
-[Proximity placement groups](../virtual-machines/windows/proximity-placement-groups-portal.md) are a logical grouping capability in Azure Virtual Machines. You can use them to decrease the inter-VM network latency associated with your applications. 
+[Proximity placement groups](/azure/virtual-machines/windows/proximity-placement-groups-portal) are a logical grouping capability in Azure Virtual Machines. You can use them to decrease the inter-VM network latency associated with your applications. 
 
 When virtual machines are deployed within the same proximity placement group, they're physically located as close as possible to each other. Proximity placement groups are useful to address the requirements of latency-sensitive workloads.
 
@@ -72,6 +72,9 @@ You can easily update your selection of a proximity placement group in the DR re
 2. Go to the **Compute** pane and select **Edit**.
 3. You can see the options to edit multiple target settings, including the target proximity placement group. Choose the proximity placement group that you want the virtual machine to fail over into, and then select **Save**.
 
+> [!NOTE]
+> Removal of proximity placement group from replicating settings for an already replicating VM is not supported. You must disable and re-enable the replication. 
+
 ### VMware to Azure
 
 You can set up a proximity placement group for the target virtual machine after you enable replication for the virtual machine. Make sure that you separately create the proximity placement group in the target region according to your requirement. 
@@ -108,7 +111,7 @@ You can easily update your selection of a proximity placement group in the DR re
   ```
 
 > [!NOTE]
-> Make sure that you have the unique ID of the target proximity placement group handy. The command that you use depends on whether you're [creating a new proximity placement group](../virtual-machines/windows/proximity-placement-groups.md#create-a-proximity-placement-group) or [using an existing proximity placement group](../virtual-machines/windows/proximity-placement-groups.md#list-proximity-placement-groups).
+> Make sure that you have the unique ID of the target proximity placement group handy. The command that you use depends on whether you're [creating a new proximity placement group](/azure/virtual-machines/windows/proximity-placement-groups#create-a-proximity-placement-group) or [using an existing proximity placement group](/azure/virtual-machines/windows/proximity-placement-groups#list-proximity-placement-groups).
 
 ### Azure to Azure
 

@@ -120,7 +120,7 @@ For other users, grant the `Microsoft.KeyVault/vaults/deploy/action` permission.
       "DataActions": [],
       "NotDataActions": [],
       "AssignableScopes": [
-        "/subscriptions/00000000-0000-0000-0000-000000000000"
+        "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
       ]
     }
     ```

@@ -7,7 +7,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 05/07/2024
+ms.date: 01/07/2025
 ms.author: banders
 ---
 
@@ -46,6 +46,7 @@ After you buy a savings plan, you can [change the savings plan scope](manage-sav
         - The potential savings percentage compared to on-demand costs for the commitment.
         - The percentage of the selected scopes compute usage that is covered by the new savings plan. It includes the commitment amount plus any other previously purchased savings plan or reservation.
     - **Billing frequency**: **All upfront** or **Monthly**. The total cost of the savings plan is the same regardless of the selected frequency.
+    - **Auto-renew**: **On** or **Off**. The savings plan will automatically renew at the end of its term if it is **On**. By default, this option is set to **Off**.
 
 ### Purchase with the Savings Plan Order Alias - Create API
 
@@ -54,7 +55,7 @@ You can buy savings plans by using Azure role-based access control (RBAC) permis
 #### Purchase by using Azure RBAC permissions
 
 - You must have the savings plan purchaser role within, or be an owner of, the subscription that you plan to use, which is specified as `billingScopeId`.
-- The `billingScopeId` property in the request body must use the `/subscriptions/10000000-0000-0000-0000-000000000000` format.
+- The `billingScopeId` property in the request body must use the `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e` format.
 
 #### Purchase by using billing permissions
 
@@ -64,7 +65,7 @@ Permission needed to purchase varies by the type of account that you have:
 - **Microsoft Customer Agreement**: You must be a billing profile contributor or higher.
 - **Microsoft Partner Agreement**: Only Azure RBAC permissions are currently supported.
 
-The `billingScopeId` property in the request body must use the `/providers/Microsoft.Billing/billingAccounts/{accountId}/billingSubscriptions/10000000-0000-0000-0000-000000000000` format.
+The `billingScopeId` property in the request body must use the `/providers/Microsoft.Billing/billingAccounts/{accountId}/billingSubscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e` format.
 
 
 ## View savings plan purchases and payments

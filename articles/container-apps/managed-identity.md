@@ -2,12 +2,12 @@
 title: Managed identities in Azure Container Apps
 description: Using managed identities in Container Apps
 services: container-apps
-author: v-jaswel
+author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 10/25/2023
-ms.author: v-wellsjason
+ms.author: cshoe
 ---
 
 # Managed identities in Azure Container Apps
@@ -305,7 +305,7 @@ A raw HTTP `GET` request looks like the following example.
 Obtain the token endpoint URL from the `IDENTITY_ENDPOINT` environment variable. `x-identity-header` contains the GUID that is stored in the `IDENTITY_HEADER` environment variable.
 
 ```http
-GET http://localhost:42356/msi/token?resource=https://vault.azure.net&api-version=2019-08-01 HTTP/1.1
+GET http://${IDENTITY_ENDPOINT}?resource=https://vault.azure.net&api-version=2019-08-01 HTTP/1.1
 x-identity-header: 853b9a84-5bfa-4b22-a3f3-0b9a43d9ad8a
 ```
 
@@ -320,9 +320,8 @@ Content-Type: application/json
     "expires_on": "1586984735",
     "resource": "https://vault.azure.net",
     "token_type": "Bearer",
-    "client_id": "5E29463D-71DA-4FE0-8E69-999B57DB23B0"
+    "client_id": "aaaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"
 }
-
 ```
 
 This response is the same as the [response for the Microsoft Entra service-to-service access token request](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#successful-response). To access Key Vault, add the value of `access_token` to a client connection with the vault.

@@ -2,12 +2,12 @@
 title: Assign Enterprise Agreement roles to service principals
 description: This article helps you assign EA roles to service principals by using PowerShell and REST APIs.
 author: bandersmsft
-ms.reviewer: sapnakeshari
+ms.reviewer: prsaini
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 02/15/2024
-ms.author: banders
+ms.date: 01/22/2025
+ms.author: prsaini
 ---
 
 # Assign Enterprise Agreement roles to service principals
@@ -24,7 +24,7 @@ Before you begin, ensure that you're familiar with the following articles:
 
 You need a way to call REST APIs. Some popular ways to query the API are:
 
-- [Visual studio](/aspnet/core/test/http-files)
+- [Visual Studio](/aspnet/core/test/http-files)
 - [Insomnia](https://insomnia.rest/)
 - [Bruno](https://www.usebruno.com/)
 - PowerShell’s [Invoke-RestMethod](https://powershellcookbook.com/recipe/Vlhv/interact-with-rest-based-web-apis)
@@ -64,7 +64,7 @@ You need the service principal's object ID and the tenant ID. You need this info
    :::image type="content" source="./media/assign-roles-azure-service-principals/tenant-id.png" alt-text="Screenshot showing the tenant ID." lightbox="./media/assign-roles-azure-service-principals/tenant-id.png" :::
 
 > [!NOTE]
-> The value of your Microsoft Entra tenant ID looks like a GUID with the following format: `11111111-1111-1111-1111-111111111111`.
+> The value of your Microsoft Entra tenant ID looks like a GUID with the following format: `aaaabbbb-0000-cccc-1111-dddd2222eeee`.
 
 ## Permissions that can be assigned to the service principal
 

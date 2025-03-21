@@ -1,17 +1,20 @@
 ---
+ROBOTS: NOINDEX
 title: Fail over across multiple endpoints with Traffic Manager
 titleSuffix: Azure Content Delivery Network
 description: Learn how to configure failover across multiple Azure Content Delivery Network endpoints by using Azure Traffic Manager.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
-ms.author: duau
 ---
 
 # Failover across multiple endpoints with Azure Traffic Manager
+
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 When you configure Azure Content Delivery Network, you can select the optimal provider and pricing tier for your needs.
 
@@ -32,10 +35,7 @@ If the profile is unavailable, requests are directed to the secondary profile. R
 
 Using Azure Traffic Manager in this way ensures your web application is always available.
 
-This article provides guidance and an example of how to configure failover with profiles from:
-
-- **Azure CDN Standard from Edgio**
-- **Azure CDN from Microsoft**
+This article provides guidance and an example of how to configure failover with Azure CDN profiles.
 
 <a name='create-azure-cdn-profiles'></a>
 
@@ -43,13 +43,7 @@ This article provides guidance and an example of how to configure failover with 
 
 Create two or more Azure Content Delivery Network profiles and endpoints with different providers.
 
-1. Create two content delivery network profiles:
-    - **Azure CDN Standard from Edgio**
-    - **Azure CDN from Microsoft**
-
-    Create the profiles by following the steps in [Create a new content delivery network profile](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
-
-   ![Screenshot of the content delivery network multiple profiles.](./media/cdn-traffic-manager/cdn-multiple-profiles.png)
+1. Create two Azure CDN profiles. Create the profiles by following the steps in [Create a new content delivery network profile](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
 
 2. In each of the new profiles, create at least one endpoint by following the steps in [Create a new content delivery network endpoint](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint).
 
@@ -66,9 +60,7 @@ Create an Azure Traffic Manager profile and configure load balancing across your
     - **Type**, select **External endpoints**.
     - **Priority**, enter a number.
 
-    For example, create **cdndemo101microsoft.azureedge.net** with a priority of **1** and **cdndemo101verizon.azureedge.net** with a priority of **2**.
-
-   ![Screenshot of the content delivery network Traffic Manager endpoints.](./media/cdn-traffic-manager/cdn-traffic-manager-endpoints.png)
+    For example, create **cdndemo101microsoft.azureedge.net** with a priority of **1** and **cdndemo101microsoft2.azureedge.net** with a priority of **2**.
 
 <a name='configure-custom-domain-on-azure-cdn-and-azure-traffic-manager'></a>
 
@@ -110,9 +102,9 @@ After you configure your content delivery network and Traffic Manager profiles, 
 
     For example:
 
-    `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`
+    `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101microsoft2.azureedge.net`
 
-4. From your Azure Content Delivery Network profile, select the second content delivery network endpoint (Edgio) and repeat step 2. Select **Add custom domain**, and enter **cdndemo101.dustydogpetcare.online**.
+4. From your Azure Content Delivery Network profile, select the second content delivery network endpoint and repeat step 2. Select **Add custom domain**, and enter **cdndemo101.dustydogpetcare.online**.
 
 After you complete these steps, your multi-content delivery network service with failover capabilities is configured with Azure Traffic Manager.
 

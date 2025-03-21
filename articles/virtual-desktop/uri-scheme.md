@@ -46,7 +46,7 @@ The *ms-avd* Uniform Resource Identifier scheme for Azure Virtual Desktop is now
 | workspaceid | Object ID (GUID). | Specify the object ID of a valid workspace.<br /><br />To get the object ID value using PowerShell, see [Retrieve the object ID of a host pool, workspace, application group, or application](powershell-module.md#retrieve-the-object-id-of-a-host-pool-workspace-application-group-or-application). You can also use [Desktop Virtualization REST APIs](/rest/api/desktopvirtualization). |
 | resourceid | Object ID (GUID). | Specify the object ID of a published resource contained in the workspace. The value can be for a desktop or RemoteApp.<br /><br />To get the object ID value using PowerShell, see [Retrieve the object ID of a host pool, workspace, application group, or application](powershell-module.md#retrieve-the-object-id-of-a-host-pool-workspace-application-group-or-application). You can also use [Desktop Virtualization REST APIs](/rest/api/desktopvirtualization). |
 | user | User Principal Name (UPN), for example `user@contoso.com`. | Specify a valid user with access to specified resource. |
-| env *(optional)* | **avdarm** (commercial Azure)<br />**avdgov** (Azure Government) | Specify the Azure cloud where resources are located. |
+| env *(optional)* | **avdarm** (commercial Azure)<br />**usgov** (Azure Government) | Specify the Azure cloud where resources are located. |
 | version | **0** | Specify the version of the connect URI scheme to use. |
 | launchpartnerid *(optional)*| GUID. | Specify the partner or customer-provided ID that you can use with [Azure Virtual Desktop Diagnostics](diagnostics-log-analytics.md) to help with troubleshooting. We recommend using a GUID, which you can generate with the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell cmdlet. |
 | peeractivityid *(optional)*| GUID. | Specify the partner or customer-provided ID that you can use with [Azure Virtual Desktop Diagnostics](diagnostics-log-analytics.md) to help with troubleshooting. We recommend using a GUID, which you can generate with the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell cmdlet. |
@@ -54,7 +54,7 @@ The *ms-avd* Uniform Resource Identifier scheme for Azure Virtual Desktop is now
 
 **Example:**
 ```
-ms-avd:connect?workspaceId=1638e073-63b2-46d8-bd84-ea02ea905467&resourceid=c2f5facc-196f-46af-991e-a90f3252c185&username=user@contoso.com&version=0
+ms-avd:connect?workspaceId=1638e073-63b2-46d8-bd84-ea02ea905467&resourceid=a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1&username=user@contoso.com&version=0
 ```
 
 ### ms-rd

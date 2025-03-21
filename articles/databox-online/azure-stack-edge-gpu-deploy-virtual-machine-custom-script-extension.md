@@ -4,8 +4,7 @@ description: Describes how to install custom script extensions on virtual machin
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 08/03/2021
 ms.author: alkohli
@@ -206,7 +205,7 @@ Etag                    : null
 Publisher               : Microsoft.Compute
 ExtensionType           : CustomScriptExtension
 TypeHandlerVersion      : 1.10
-Id                      : /subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/myasegpuvm1/providers/Microsoft.Compute/virtualMachines/VM5/extensions/CustomScriptExtension
+Id                      : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myasegpuvm1/providers/Microsoft.Compute/virtualMachines/VM5/extensions/CustomScriptExtension
 PublicSettings          : {
                             "commandToExecute": "md C:\\Users\\Public\\Documents\\test"
                           }
@@ -352,7 +351,7 @@ Etag                    : null
 Publisher               : Microsoft.Compute
 ExtensionType           : CustomScriptExtension
 TypeHandlerVersion      : 1.10
-Id                      : /subscriptions/947b3cfd-7a1b-4a90-7cc5-e52caf221332/resourceGroups/myasegpuvm1/providers/Microsoft.Compute/virtualMachines/VM5/extensions/CustomScriptExtension
+Id                      : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myasegpuvm1/providers/Microsoft.Compute/virtualMachines/VM5/extensions/CustomScriptExtension
 PublicSettings          : {
                             "commandToExecute": "md C:\\Users\\Public\\Documents\\test"
                           }

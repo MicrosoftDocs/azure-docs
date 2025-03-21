@@ -76,7 +76,7 @@ If reducing the *write batch size* value to 1 still doesn't work, change your Az
     Message=Message: {"Errors":["Request rate is large"]}`
 
 - **Cause**: The number of used request units (RUs) is greater than the available RUs configured in Azure Cosmos DB. To learn how
-Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos-db/request-units.md#request-unit-considerations).
+Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](/azure/cosmos-db/request-units#request-unit-considerations).
 
 - **Resolution**: Try either of the following two solutions:
 
@@ -103,7 +103,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
     Source=Microsoft.DataTransfer.Runtime.MongoDbV2Connector,Type=System.FormatException, 
     Message=The GuidRepresentation for the reader is CSharpLegacy which requires the binary sub type to be UuidLegacy not UuidStandard.,Source=MongoDB.Bson,’“,`
 
-- **Cause**: There are two ways to represent the UUID in Binary JSON (BSON): UuidStardard and UuidLegacy. By default, UuidLegacy is used to read data. You will receive an error if your UUID data in MongoDB is UuidStandard.
+- **Cause**: There are two ways to represent the UUID in Binary JSON (BSON): UuidStandard and UuidLegacy. By default, UuidLegacy is used to read data. You will receive an error if your UUID data in MongoDB is UuidStandard.
 
 - **Resolution**: In the MongoDB connection string, add the *uuidRepresentation=standard* option. For more information, see [MongoDB connection string](connector-mongodb.md#linked-service-properties).
 
@@ -113,7 +113,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Cause**: A problem with the CosmosDbSqlApi operation.  This applies to the Azure Cosmos DB for NoSQL connector specifically.
 
-- **Recommendation**:  To check the error details, see [Azure Cosmos DB help document](../cosmos-db/troubleshoot-dot-net-sdk.md). For further help, contact the Azure Cosmos DB team.
+- **Recommendation**:  To check the error details, see [Azure Cosmos DB help document](/azure/cosmos-db/troubleshoot-dot-net-sdk). For further help, contact the Azure Cosmos DB team.
 
 ## Error code: CosmosDbSqlApiPartitionKeyExceedStorage
 
@@ -121,7 +121,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Cause**: The data size of each logical partition is limited, and the partition key reached the maximum size of your logical partition.
 
-- **Recommendation**: Check your Azure Cosmos DB partition design. For more information, see [Logical partitions](../cosmos-db/partitioning-overview.md#logical-partitions).
+- **Recommendation**: Check your Azure Cosmos DB partition design. For more information, see [Logical partitions](/azure/cosmos-db/partitioning-overview#logical-partitions).
 
 ## Related content
 

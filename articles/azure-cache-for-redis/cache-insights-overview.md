@@ -1,10 +1,10 @@
 ---
 title: Azure Monitor insights for Azure Cache for Redis | Microsoft Docs
 description: This article describes Azure Monitor insights for Azure Cache for Redis, which provides cache owners with a quick understanding of performance and utilization.
-author: flang-msft
-ms.author: franlanglois
+
+
 ms.topic: conceptual
-ms.service: azure-cache-redis
+
 ms.date: 03/25/2024
 ms.custom: subject-monitoring
 ---
@@ -38,7 +38,7 @@ Azure Cache for Redis insights are based on the [workbooks feature of Azure Moni
 - **Azure Cache For Redis Resource Overview** combines many of the most commonly used metrics so that the health and performance of the cache instance can be viewed at a glance.
     :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-resource-overview.png" alt-text="Screenshot of graphs showing a resource overview for the cache.":::
 
-- **Geo-Replication Dashboard** pulls geo-replication health and status metrics from both the geo-primary and geo-secondary cache instances to give a complete picture of geo-replcation health. Using this dashboard is recommended, as some geo-replication metrics are only emitted from either the geo-primary or geo-secondary.
+- **Geo-Replication Dashboard** pulls geo-replication health and status metrics from both the geo-primary and geo-secondary cache instances to give a complete picture of geo-replication health. Using this dashboard is recommended, as some geo-replication metrics are only emitted from either the geo-primary or geo-secondary.
     :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-geo-dashboard.png" alt-text="Screenshot showing the geo-replication dashboard with a geo-primary and geo-secondary cache set.":::
 
 ### Overview
@@ -141,7 +141,7 @@ Selecting any of the other tabs for **Performance** or **Operations** opens that
 
 ## Pin, export, and expand
 
-To pin any metric section to an [Azure dashboard](../azure-portal/azure-portal-dashboards.md), select the pushpin symbol in the section's upper right.
+To pin any metric section to an [Azure dashboard](/azure/azure-portal/azure-portal-dashboards), select the pushpin symbol in the section's upper right.
 
 :::image type="content" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/pin.png" alt-text="Screenshot of metrics with the pushpin symbol highlighted.":::
 

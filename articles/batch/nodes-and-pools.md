@@ -2,7 +2,7 @@
 title: Nodes and pools in Azure Batch
 description: Learn about compute nodes and pools and how they are used in an Azure Batch workflow from a development standpoint.
 ms.topic: conceptual
-ms.date: 08/08/2024
+ms.date: 03/21/2025
 ---
 # Nodes and pools in Azure Batch
 
@@ -105,7 +105,7 @@ For pricing information for both Spot and dedicated nodes, see [Batch Pricing](h
 
 ## Node size
 
-When you create an Azure Batch pool, you can choose from among almost all the VM families and sizes available in Azure. Azure offers a range of VM sizes for different workloads, including specialized [HPC](../virtual-machines/sizes-hpc.md) or [GPU-enabled](../virtual-machines/sizes-gpu.md) VM sizes. Note that node sizes can only be chosen at the time a pool is created. In other words, once a pool is created, its node size cannot be changed.
+When you create an Azure Batch pool, you can choose from among almost all the VM families and sizes available in Azure. Azure offers a range of VM sizes for different workloads, including specialized [HPC](/azure/virtual-machines/sizes-hpc) or [GPU-enabled](/azure/virtual-machines/sizes-gpu) VM sizes. Note that node sizes can only be chosen at the time a pool is created. In other words, once a pool is created, its node size cannot be changed.
 
 For more information, see [Choose a VM size for compute nodes in an Azure Batch pool](batch-pool-vm-sizes.md).
 

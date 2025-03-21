@@ -16,10 +16,10 @@
     href: quickstart-onboard-iot-hub.md
   - name: Upload Firmware using Azure CLI
     displayName: Azure CLI, upload, firmware
-    href: quickstart-upload-firmware-using-azure-command-line-interface.md
+    href: /azure/firmware-analysis/quickstart-upload-firmware-using-azure-command-line-interface
   - name: Upload Firmware using Azure PowerShell
     displayName: Azure PowerShell, upload, firmware
-    href: quickstart-upload-firmware-using-powershell.md
+    href: /azure/firmware-analysis/quickstart-upload-firmware-using-powershell
   expanded: true
 - name: Tutorials
   items:
@@ -36,7 +36,7 @@
   - name: Investigate security alerts
     href: tutorial-investigate-security-alerts.md
   - name: Analyze an IoT/OT firmware image
-    href: tutorial-analyze-firmware.md
+    href: /azure/firmware-analysis/tutorial-analyze-firmware
 - name: Concepts
   items:
   - name: Agent portfolio overview and OS support
@@ -69,10 +69,10 @@
     href: concept-recommendations.md
   - name: Firmware analysis (preview)
     displayName: IoT, OT, firmware, analysis
-    href: overview-firmware-analysis.md
+    href: /azure/firmware-analysis/overview-firmware-analysis
   - name: Azure role-based access control for Defender for IoT Firmware analysis
     displayName: RBAC, role, access, control, firmware, analysis
-    href: defender-iot-firmware-analysis-rbac.md
+    href: /azure/firmware-analysis/firmware-analysis-rbac
 - name: How-to guides
   items:
   - name: Install Defender for IoT micro agent for Edge
@@ -115,13 +115,6 @@
     - name: Defender for IoT micro agent troubleshooting
       displayName: service status, review logs
       href: troubleshoot-defender-micro-agent.md
-- name: Legacy agent
-  items:
-  - name: Azure security baseline for Microsoft Defender for IoT
-    displayName: identity management, active directory, privileged access, data protection, incident response, posture, vulnerability, governance
-    href: /security/benchmark/azure/baselines/defender-for-iot-security-baseline?toc=/azure/defender-for-iot/TOC.json
-  - name: Which agent should I deploy?
-  - name: Troubleshoot a security agent
 - name: Reference
   items:
   - name: Defender-IoT-micro-agent for Eclipse ThreadX API (Preview)

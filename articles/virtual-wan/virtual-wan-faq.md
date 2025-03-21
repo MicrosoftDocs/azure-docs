@@ -32,6 +32,12 @@ Virtual WAN partners provide automation for connectivity, which is the ability t
 
 Virtual WAN comes in two flavors: Basic and Standard. In Basic Virtual WAN, hubs aren't meshed. In a Standard Virtual WAN, hubs are meshed and automatically connected when the virtual WAN is first set up. The user doesn't need to do anything specific. The user also doesn't have to disable or enable the functionality to obtain meshed hubs. Virtual WAN provides you with many routing options to steer traffic between any spoke (VNet, VPN, or ExpressRoute). It provides the ease of fully meshed hubs, and also the flexibility of routing traffic per your needs.
 
+### Why am I seeing an error about invalid scope and authorization to perform operations on Virtual WAN resources?
+
+If you see an error in the below format, then please make sure you have the following permissions configured: [Virtual WAN Roles and Permissions](roles-permissions.md#required-permissions)
+
+Error message format: "The client with object id {} does not have authorization to perform action {} over scope {} or the scope is invalid. For details on the required permissions, please visit {}. If access was recently granted, please refresh your credentials."
+
 ### How are Availability Zones and resiliency handled in Virtual WAN?
 
 Virtual WAN is a collection of hubs and services made available inside the hub. The user can have as many Virtual WAN per their need. In a Virtual WAN hub, there are multiple services like VPN, ExpressRoute etc. Each of these services is automatically deployed across Availability Zones (except Azure Firewall), if the region supports Availability Zones. If a region becomes an Availability Zone after the initial deployment in the hub, the user can recreate the gateways, which will trigger an Availability Zone deployment. All gateways are provisioned in a hub as active-active, implying there's resiliency built in within a hub. Users can connect to multiple hubs if they want resiliency across regions.
@@ -46,7 +52,7 @@ No, each Azure Virtual Hub must have their own Firewall. The deployment of custo
 
 ### What client does the Azure Virtual WAN User VPN (point-to-site) support?
 
-Virtual WAN supports [Azure VPN client](https://go.microsoft.com/fwlink/?linkid=2117554), OpenVPN Client, or any IKEv2 client. Microsoft Entra authentication is supported with Azure VPN Client.A minimum of Windows 10 client OS version 17763.0 or higher is required. OpenVPN client(s) can support certificate-based authentication. Once cert-based auth is selected on the gateway, you'll see the.ovpn* file to download to your device. IKEv2 supports both certificate and RADIUS authentication.
+Virtual WAN supports [Azure VPN client](https://go.microsoft.com/fwlink/?linkid=2117554), OpenVPN Client, or any IKEv2 client. Microsoft Entra authentication is supported with Azure VPN Client. A minimum of Windows 10 client OS version 17763.0 or higher is required. OpenVPN client(s) can support certificate-based authentication. Once cert-based auth is selected on the gateway, you'll see the.ovpn* file to download to your device. IKEv2 supports both certificate and RADIUS authentication.
 
 ### For User VPN (point-to-site)- why is the P2S client pool split into two routes?
 
@@ -81,7 +87,7 @@ There are two options to add DNS servers for the P2S clients. The first method i
    $P2SVpnGateway = Get-AzP2sVpnGateway -ResourceGroupName $rgName -Name $P2SvpnGatewayName
    $updatedP2SVpnGateway = Update-AzP2sVpnGateway -ResourceGroupName $rgName -Name $P2SvpnGatewayName -CustomDnsServer $customDnsServers 
 
-   // Re-generate Vpn profile either from PS/Portal for Vpn clients to have the specified dns servers
+   // Re-generate VPN profile either from PS/Portal for VPN clients to have the specified dns servers
    ```
 
 2. Or, if you're using the Azure VPN Client for Windows 10, you can modify the downloaded profile XML file and add the **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** tags before importing it.
@@ -143,7 +149,7 @@ Also, be sure to plan for downtime in case you decide to scale up or down on the
 
 ### For User VPN (point-to-site) is Microsoft registered app in Entra Id Authentication supported?
 
-Yes, [Microsoft-registered app](https://learn.microsoft.com/azure/vpn-gateway/point-to-site-entra-gateway) is supported on Virtual WAN. You can [migrate your User VPN from manually registered app](https://learn.microsoft.com/azure/vpn-gateway/point-to-site-entra-gateway-update) to Microsoft-registered app for a more secure connectivity.
+Yes, [Microsoft-registered app](/virtual-wan/point-to-site-entra-gateway) is supported on Virtual WAN. You can [migrate your User VPN from manually registered app](/azure/vpn-gateway/point-to-site-entra-gateway-update) to Microsoft-registered app for a more secure connectivity.
 
 ### What are Virtual WAN gateway scale units?
 
@@ -341,7 +347,7 @@ For any reason, if the VPN connection becomes the primary medium for the virtual
 
 ### Does ExpressRoute support Equal-Cost Multi-Path (ECMP) routing in Virtual WAN?
 
-When multiple ExpressRoute circuits are connected to a Virtual WAN hub, ECMP enables traffic from spoke virtual networks to on-premises over ExpressRoute to be distributed across all ExpressRoute circuits advertising the same on-premises routes. To enable ECMP for your Virtual WAN hub, please reach out to virtual-wan-ecmp@microsoft.com with your Virtual WAN hub resource ID. 
+When multiple ExpressRoute circuits are connected to a Virtual WAN hub, ECMP enables traffic from spoke virtual networks to on-premises over ExpressRoute to be distributed across all ExpressRoute circuits advertising the same on-premises routes. ECMP is currently not enabled by default for Virtual WAN hubs. 
 
 ### <a name="expressroute-bow-tie"></a>When two hubs (hub 1 and 2) are connected and there's an ExpressRoute circuit connected as a bow-tie to both the hubs, what is the path for a VNet connected to hub 1 to reach a VNet connected in hub 2?
 
@@ -355,11 +361,15 @@ The current behavior is to prefer the ExpressRoute circuit path over hub-to-hub 
 
 For new deployments, this connectivity is blocked by default. To allow this connectivity, you can enable these [ExpressRoute gateway toggles](virtual-wan-expressroute-portal.md#enable-or-disable-vnet-to-virtual-wan-traffic-over-expressroute) in the "Edit virtual hub" blade and "Virtual network gateway" blade in Portal. However, it is recommended to keep these toggles disabled and instead [create a Virtual Network connection](howto-connect-vnet-hub.md) to directly connect standalone VNets to a Virtual WAN hub. Afterwards, VNet to VNet traffic will traverse through the Virtual WAN hub router, which offers better performance than the ExpressRoute path. The ExpressRoute path includes the ExpressRoute gateway, which has lower bandwidth limits than the hub router, as well as the Microsoft Enterprise Edge routers/MSEE, which is an extra hop in the datapath.
 
-In the diagram below, both toggles need to be enabled to allow connectivity between the standalone VNet 4 and the VNets directly connected to hub 2 (VNet 2 and VNet 3): **Allow traffic from remote Virtual WAN networks** for the virtual network gateway and **Allow traffic from non Virtual WAN networks** for the virtual hub's ExpressRoute gateway. If an Azure Route Server is deployed in standalone VNet 4, and the Route Server has [branch-to-branch](../route-server/quickstart-configure-route-server-portal.md#configure-route-exchange) enabled, then connectivity will be blocked between VNet 1 and standalone VNet 4. 
+In the diagram below, both toggles need to be enabled to allow connectivity between the standalone VNet 4 and the VNets directly connected to hub 2 (VNet 2 and VNet 3): **Allow traffic from remote Virtual WAN networks** for the virtual network gateway and **Allow traffic from non Virtual WAN networks** for the virtual hub's ExpressRoute gateway. If an Azure Route Server is deployed in standalone VNet 4, and the Route Server has [branch-to-branch](../route-server/configure-route-server.md#configure-route-exchange) enabled, then connectivity will be blocked between VNet 1 and standalone VNet 4. 
 
 Enabling or disabling the toggle will only affect the following traffic flow: traffic flowing between the Virtual WAN hub and standalone VNet(s) via the ExpressRoute circuit. Enabling or disabling the toggle will **not** incur downtime for all other traffic flows (Ex: on-premises site to spoke VNet 2 won't be impacted, VNet 2 to VNet 3 won't be impacted, etc.). 
 
 :::image type="content" source="./media/virtual-wan-expressroute-portal/expressroute-bowtie-virtual-network-virtual-wan.png" alt-text="Diagram of a standalone virtual network connecting to a virtual hub via ExpressRoute circuit." lightbox="./media/virtual-wan-expressroute-portal/expressroute-bowtie-virtual-network-virtual-wan.png":::
+
+### Why does connectivity not work when I advertise routes with an ASN of 0 in the AS-Path? 
+
+The Virtual WAN hub drops routes with an ASN of 0 in the AS-Path. To ensure these routes are successfully advertised into Azure, the AS-Path should not include 0. 
 
 ### Can hubs be created in different resource groups in Virtual WAN?
 
@@ -371,7 +381,9 @@ The recommended Virtual WAN hub address space is /23. Virtual WAN hub assigns su
 
 ### Is there support for IPv6 in Virtual WAN?
 
-IPv6 isn't supported in the Virtual WAN hub and its gateways. If you have a VNet that has IPv4 and IPv6 support and you would like to connect the VNet to Virtual WAN, this scenario not currently supported.
+IPv6 isn't supported in the Virtual WAN hub and its gateways. If you connect a spoke VNet with an IPv6 address range to the Virtual WAN hub, then only IPv4 connectivity with this spoke VNet will function. IPv6 connectivity with this spoke VNet is not supported. 
+
+If you advertise IPv6 prefixes from on-premises, this will break IPv4 connectivity for your Azure resources. 
 
 For the point-to-site User VPN scenario with internet breakout via Azure Firewall, you'll likely have to turn off IPv6 connectivity on your client device to force traffic to the Virtual WAN hub. This is because modern devices, by default, use IPv6 addresses.
 
@@ -381,7 +393,7 @@ A minimum version of 05-01-2022 (May 1, 2022) is required.
 
 ### Are there any Virtual WAN limits?
 
-See the [Virtual WAN limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-wan-limits) section on the Subscription and service limits page.
+See the [Virtual WAN limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-virtual-wan-limits) section on the Subscription and service limits page.
 
 ### What are the differences between the Virtual WAN types (Basic and Standard)?
 
@@ -436,34 +448,6 @@ No. Virtual WAN doesn't support ASN changes for VPN gateways.
 
 Local circuits can only be connected to ExpressRoute gateways in their corresponding Azure region. However, there is no limitation to route traffic to spoke virtual networks in other regions. 
 
-
-### <a name="update-router"></a>Why am I seeing a message and button called "Update router to latest software version" in portal?
-
-> [!NOTE]
-> As of July 1 2024, hubs on the old version will be retired in phases and stop functioning as expected. 
->
-
-Azure-wide Cloud Services-based infrastructure is deprecating. As a result, the Virtual WAN team has been working on upgrading virtual routers from their current Cloud Services infrastructure to Virtual Machine Scale Sets based deployments. **All newly created Virtual Hubs will automatically be deployed on the latest Virtual Machine Scale Sets based infrastructure.** If you navigate to your Virtual WAN hub resource and see this message and button, then you can upgrade your router to the latest version by clicking on the button. If you would like to take advantage of new Virtual WAN features, such as [BGP peering with the hub](create-bgp-peering-hub-portal.md), you'll have to update your virtual hub router via Azure portal. If the button isn't visible, open a support case.
-
-You’ll only be able to update your virtual hub router if all the resources (gateways/route tables/VNet connections) in your hub are in a succeeded state. Make sure all your spoke virtual networks are in active/enabled subscriptions and that your spoke virtual networks aren't deleted. Additionally, as this operation requires deployment of new virtual machine scale sets based virtual hub routers, you’ll face an expected downtime of 1-2 minutes for VNet-to-VNet traffic through the same hub and 5-7 minutes for all other traffic flows through the hub. Please plan a maintenance window of at least 30 minutes, as downtime can last up to 30 minutes in the worst-case scenario. Within a single Virtual WAN resource, hubs should be updated one at a time instead of updating multiple at the same time. When the Router Version says “Latest”, then the hub is done updating. There will be no routing behavior changes after this update. 
-
-There are several things to note with the virtual hub router upgrade:
-
-* If you have already configured BGP peering between your Virtual WAN hub and an NVA in a spoke VNet, then you'll have to [delete and then recreate the BGP peer](create-bgp-peering-hub-portal.md). Since the virtual hub router's IP addresses change after the upgrade, you'll also have to reconfigure your NVA to peer with the virtual hub router's new IP addresses. These IP addresses are represented as the "virtualRouterIps" field in the Virtual Hub's Resource JSON.
-
-* If you have a network virtual appliance (NVA) in the virtual hub, you'll have to work with your NVA partner to obtain instructions on how to upgrade your Virtual WAN hub.
-
-* If your virtual hub is configured with more than 15 routing infrastructure units, please scale in your virtual hub to 2 routing infrastructure units before attempting to upgrade. You can scale back out your hub to more than 15 routing infrastructure units after upgrading your hub. 
-
-If the update fails for any reason, your hub will be auto recovered to the old version to ensure there's still a working setup.
-
-Additional things to note:
-* The user will need to have an **owner** or **contributor** role to see an accurate status of the hub router version. If a user is assigned a **reader** role to the Virtual WAN resource and subscription, the Azure portal displays to that user that the hub router needs to be upgraded to the latest version, even if the hub is already on the latest version. 
-
-* If you change your spoke virtual network's subscription status from disabled to enabled and then upgrade the virtual hub, you'll need to update your virtual network connection after the virtual hub upgrade (Ex: you can configure the virtual network connection to propagate to a dummy label).
-
-* If your hub is connected to a large number of spoke virtual networks (60 or more), then you might notice that 1 or more spoke VNet peerings will enter a failed state after the upgrade. To restore these VNet peerings to a successful state after the upgrade, you can configure the virtual network connections to propagate to a dummy label, or you can delete and recreate these respective VNet connections. 
-
 ### Why does the virtual hub router require a public IP address with opened ports?
 These public endpoints are required for Azure's underlying SDN and management platform to communicate with the virtual hub router. Because the virtual hub router is considered part of the customer's private network, Azure's underlying platform is unable to directly access and manage the hub router via its private endpoints due to compliance requirements. Connectivity to the hub router's public endpoints is authenticated via certificates, and Azure conducts routine security audits of these public endpoints. As a result, they do not constitute a security exposure of your virtual hub. 
 
@@ -484,7 +468,11 @@ Yes, this can be done automatically with no update or reset required on the peer
 
 You can find more information on how to change the VNet address space [here](../virtual-network/manage-virtual-network.yml).
 
+### What is the maximum number of spoke Virtual Network addresses supported for hubs configured with Routing Intent?
 
+The maximum number of address spaces across all Virtual Networks directly connected to a single Virtual WAN hub is 400. This limit is applied individually to each Virtual WAN hub in a Virtual WAN deployment. Virtual Network address spaces connected to remote (other Virtual WAN hubs in the same Virtual WAN) hubs are not counted towards this limit.
+
+This limit is adjustable. For more information on the limit, the procedure to request a limit increase and sample scripts to determine the number of address spaces across Virtual Networks connected to a Virtual WAN hub, see [routing intent virtual network address space limits](how-to-routing-policies.md#virtual-network-address-space-limits).
 
 ## <a name="vwan-customer-controlled-maintenance"></a>Virtual WAN customer-controlled gateway maintenance
 
@@ -529,6 +517,30 @@ When working with VPN and ExpressRoute in a coexistence scenario or whenever you
 ### I've scheduled a maintenance window for a future date for one of my resources. Will maintenance activities be paused on this resource until then?
 
 No, maintenance activities won't be paused on your resource during the period before the scheduled maintenance window. For the days not covered in your maintenance schedule, maintenance continues as usual on the resource.
+
+### Are there limits on the number of routes I can advertise?
+
+Yes, there are limits. ExpressRoute supports up to 4,000 prefixes for private peering and 200 prefixes for Microsoft peering. With ExpressRoute Premium, you can increase the limit to 10,000 routes for private peering. The maximum number of routes advertised from Azure private peering via an ExpressRoute Gateway over an ExpressRoute circuit is 1,000, which is the same for both standard and premium ExpressRoute circuits. For more details, you can review [the ExpressRoute circuits Route Limits on the Azure subscription limits and quotas page](../azure-resource-manager/management/azure-subscription-service-limits.md#route-advertisement-limits) Please note that IPv6 route advertisements are currently not supported with Virtual WAN.
+
+### Are there restrictions on IP ranges I can advertise over the BGP session?
+
+Yes, there are restrictions. Private prefixes (RFC1918) are not accepted for the Microsoft peering BGP session. However, any prefix size up to a /32 prefix is accepted on both the Microsoft and private peering.
+
+### What happens if the BGP route limit gets exceeded?
+If the BGP route limit is exceeded, BGP sessions will disconnect. The sessions will be restored once the prefix count is reduced below the limit. For more information, see [the ExpressRoute circuits Route limits on the Azure subscription limits and quotas page](../azure-resource-manager/management/azure-subscription-service-limits.md#route-advertisement-limits).
+
+### Can I monitor the number of routes advertised or received over an ExpressRoute circuit?
+
+Yes, you can. For the best practices and configuration for metric-based alert monitoring, [refer to the Azure monitoring best practices](../virtual-wan/monitoring-best-practices.md#expressroute-gateway).
+
+### What is the recommendation to reduce the number of IP prefixes?
+
+We recommend aggregating the prefixes before advertising them over ExpressRoute or VPN gateway. Additionally, you can use
+[Route-Maps](../virtual-wan/route-maps-about.md) to summarize routes advertised from/to Virtual WAN.
+
+### Can I use user-defined route tables on spoke Virtual Networks connected to Virtual WAN hub?
+
+Yes. The routes that Virtual WAN hub advertises to resources deployed in connected spoke Virtual Networks are routes of type Border Gateway Protocol (BGP). If a user-defined route table is associated to a subnet connected to Virtual WAN, the "Propagate Gateway Routes" setting **must** be set to "Yes"  for Virtual WAN to advertise  to resources deployed in that subnet. Azure's underlying software-defined networking platform uses the following algorithm to select routes based on the [Azure route selection algorithm](../virtual-network/virtual-networks-udr-overview.md#how-azure-selects-a-route).
 
 ## Next steps
 

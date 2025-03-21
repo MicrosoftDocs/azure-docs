@@ -3,7 +3,7 @@ title: Authentication and authorization in Azure Health Data Services
 description: Learn how to manage access to Azure Health Data Services by using Microsoft Entra ID, assign application roles, and secure your data with OAuth 2.0 protocols and managed identities.
 services: healthcare-apis
 author: EXPEkesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.topic: overview
 ms.date: 04/30/2024
 ms.author: kesheth
@@ -102,7 +102,7 @@ Use online tools such as [https://jwt.ms](https://jwt.ms/) to view the token con
  
 **The access token is valid for one hour by default. You can obtain a new token or renew it using the refresh token before it expires.**
 
-To obtain an access token, you can use tools such as Postman, the REST Client extension in Visual Studio Code, PowerShell, CLI, curl, and the [Microsoft Entra authentication libraries](../active-directory/develop/reference-v2-libraries.md).
+To obtain an access token, you can use tools such as REST Client extension in Visual Studio Code, PowerShell, CLI, curl, and the [Microsoft Entra authentication libraries](../active-directory/develop/reference-v2-libraries.md).
 
 ## Encryption
 

@@ -106,6 +106,8 @@
       href: firebase-migration-rest.md
     - name: FCM migration using Azure SDKs
       href: firebase-migration-sdk.md
+    - name: Updating ANH with FCMv1 Credentials
+      href: firebase-migration-update-sdk.md
   - name: Change pricing tier
     href: change-pricing-tier.md
   - name: Send cross-platform notifications

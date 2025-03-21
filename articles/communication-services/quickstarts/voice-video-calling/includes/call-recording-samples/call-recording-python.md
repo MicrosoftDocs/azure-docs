@@ -21,11 +21,13 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
 Call Recording APIs use exclusively the `serverCallId`to initiate recording. There are a couple of methods you can use to fetch the `serverCallId` depending on your scenario:
 
 ### Call Automation scenarios
+
 - When using [Call Automation](../../../call-automation/callflows-for-customer-interactions.md), you have two options to get the `serverCallId`:
-    1) Once a call is created, a `serverCallId` is returned as a property of the `CallConnected` event after a call has been established. Learn how to [Get CallConnected event](../../../call-automation/callflows-for-customer-interactions.md?pivots=programming-language-python#update-programcs) from Call Automation SDK.
-    2) Once you answer the call or a call is created the `serverCallId` is returned as a property of the `AnswerCallResult` or `CreateCallResult` API responses respectively.
+    1) Once a call is created, a `serverCallId` is returned as a property of the `CallConnected` event after a call is established. Learn how to [Get CallConnected event](../../../call-automation/callflows-for-customer-interactions.md?pivots=programming-language-python#update-programcs) from Call Automation SDK.
+    2) Once you answer the call or a call is created, it returns the `serverCallId` as a property of the `AnswerCallResult` or `CreateCallResult` API responses respectively.
 
 ### Calling SDK scenarios
+
 - When using [Calling Client SDK](../../get-started-with-video-calling.md), you can retrieve the `serverCallId` by using the `server_call_id` variable on the call.
 Use this example to learn how to [Get serverCallId](../../get-server-call-id.md) from the Calling Client SDK.
 
@@ -38,7 +40,8 @@ Let's get started with a few simple steps!
 ## 1. Create a Call Automation client
 
 Call Recording APIs are part of the Azure Communication Services [Call Automation](../../../../concepts/call-automation/call-automation.md) libraries. Thus, it's necessary to create a Call Automation client.
-To create a call automation client, you'll use your Communication Services connection string and pass it to `CallAutomationClient` object.
+
+To create a call automation client, use your Communication Services connection string and pass it to `CallAutomationClient` object.
 
 ```python
 call_automation_client = CallAutomationClient.from_connection_string("<ACSConnectionString>")
@@ -47,9 +50,9 @@ call_automation_client = CallAutomationClient.from_connection_string("<ACSConnec
 ## 2. Start recording session start_recording API
 
 Use the `serverCallId` received during initiation of the call.
-- RecordingContent is used to pass the recording content type. Use audio
-- RecordingChannel is used to pass the recording channel type. Use mixed or unmixed.
-- RecordingFormat is used to pass the format of the recording. Use wav.
+- Use `RecordingContent` to pass the recording content type. Use `AUDIO`.
+- Use `RecordingChannel` to pass the recording channel type. Use `MIXED` or `UNMIXED`.
+- Use `RecordingFormat` to pass the format of the recording. Use `WAV`.
 
 ```python
 response = call_automation_client.start_recording(call_locator=ServerCallLocator(server_call_id),
@@ -60,6 +63,7 @@ response = call_automation_client.start_recording(call_locator=ServerCallLocator
 ```
 
 ### 2.1. Start Recording  - Bring Your Own Azure Blob Store
+
 Start Recording with your own Azure Blob Storage defined to store the recording file once recording is complete.
 
 ```python
@@ -71,6 +75,7 @@ response = call_automation_client.start_recording(call_locator=ServerCallLocator
                    recording_storage = AzureBlobContainerRecordingStorage(container_url="<YOUR_STORAGE_CONTAINER_URL>"))
 ```
 ## 2.2. Start recording session with Pause mode enabled using 'StartAsync' API
+
 > [!NOTE]
 > **Recordings will need to be resumed for recording file to be generated.**
 
@@ -84,7 +89,8 @@ response = call_automation_client.start_recording(call_locator=ServerCallLocator
 ```
 
 ### 2.3. Only for Unmixed - Specify a user on channel 0
-To produce unmixed audio recording files, you can use the `AudioChannelParticipantOrdering` functionality to specify which user you want to record on channel 0. The rest of the participants will be assigned to a channel as they speak. If you use `RecordingChannel.Unmixed` but don't use `AudioChannelParticipantOrdering`, Call Recording will assign channel 0 to the first participant speaking.
+
+To produce unmixed audio recording files, you can use the `AudioChannelParticipantOrdering` functionality to specify which user you want to record on channel 0. The rest of the participants are assigned to a channel as they speak. If you use `RecordingChannel.Unmixed` but don't use `AudioChannelParticipantOrdering`, Call Recording assigns channel 0 to the first participant speaking.
 
 ```python
 response =  call_automation_client.start_recording(call_locator=ServerCallLocator(server_call_id),
@@ -107,11 +113,12 @@ response =  call_automation_client.start_recording(call_locator=ServerCallLocato
             recording_state_callback_url = "<CallbackUri>",
             channel_affinity=[_channel_affinity])
 ```
+
 The `StartAsync` API response contains the `recordingId` of the recording session.
 
 ## 3.	Stop recording session using 'stop_recording' API
 
-Use the `recording_id` received in response of `start_recording`.
+Use the `recording_id` received in response to `start_recording`.
 
 ```python
 stop_recording = call_automation_client.stop_recording(recording_id = recording_id)
@@ -119,7 +126,7 @@ stop_recording = call_automation_client.stop_recording(recording_id = recording_
 
 ## 4.	Pause recording session using 'pause_recording' API
 
-Use the `recording_id` received in response of `start_recording`.
+Use the `recording_id` received in response to `start_recording`.
 
 ```python
 pause_recording = call_automation_client.pause_recording(recording_id = recording_id)
@@ -127,7 +134,7 @@ pause_recording = call_automation_client.pause_recording(recording_id = recordin
 
 ## 5.	Resume recording session using 'resume_recording' API
 
-Use the `recording_id` received in response of `start_recording`.
+Use the `recording_id` received in response to `start_recording`.
 
 ```python
 resume_recording = call_automation_client.resume_recording(recording_id = recording_id)
@@ -137,9 +144,9 @@ resume_recording = call_automation_client.resume_recording(recording_id = record
 
 Use an [Azure Event Grid](../../../../../event-grid/event-schema-communication-services.md) web hook or other triggered action should be used to notify your services when the recorded media is ready for download.
 
-An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` is published when a recording is ready for retrieval, typically a few minutes after the recording process has completed (for example, meeting ended, recording stopped). Recording event notifications include `contentLocation` and `metadataLocation`, which are used to retrieve both recorded media and a recording metadata file.
+An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` is published when a recording is ready for retrieval, typically a few minutes after the recording process completes (such as the meeting ended or the recording stopped). Recording event notifications include `contentLocation` and `metadataLocation`, which are used to retrieve both recorded media and a recording metadata file.
 
-Below is an example of the event schema.
+The following code is an example of the event schema.
 
 ```
 {
@@ -170,7 +177,7 @@ Below is an example of the event schema.
 }
 ```
 
-Use `download_recording` API for downloading the recorded media.
+Use `download_recording` API to download the recorded media.
 
 ```python
 response = recording_data = call_automation_client.download_recording(content_location)
@@ -178,11 +185,12 @@ response = recording_data = call_automation_client.download_recording(content_lo
 with open("<file_name>", "wb") as binary_file:
     binary_file.write(recording_data.read())
 ```
-The `downloadLocation` for the recording can be fetched from the `contentLocation` attribute of the `recordingChunk`. `download_recording` method download the content into bytes.
+
+The `downloadLocation` for the recording can be fetched from the `contentLocation` attribute of the `recordingChunk`. Use the `download_recording` method to download the content into bytes.
 
 ## 7. Delete recording content using 'delete_recording' API
 
-Use `delete_recording` API for deleting the recording content (for example, recorded media, metadata)
+Use `delete_recording` API for deleting the recording content such as recorded media and metadata.
 
 ```python
 response = call_automation_client.delete_recording(delete_location);

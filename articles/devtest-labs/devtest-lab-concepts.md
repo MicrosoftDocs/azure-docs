@@ -54,7 +54,7 @@ For more information about access and roles, see [Add lab owners, contributors, 
 
 ## Virtual machines
 
-An Azure VM is one type of [on-demand, scalable computing resource](/azure/architecture/guide/technology-choices/compute-decision-tree) that Azure offers. Azure VMs give you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. For more information about VMs, see [Windows virtual machines in Azure](../virtual-machines/windows/overview.md).
+An Azure VM is one type of [on-demand, scalable computing resource](/azure/architecture/guide/technology-choices/compute-decision-tree) that Azure offers. Azure VMs give you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. For more information about VMs, see [Windows virtual machines in Azure](/azure/virtual-machines/windows/overview).
 
 ### Artifacts
 Artifacts are tools, actions, or software you can add to lab VMs during or after VM creation. For example, artifacts can be:

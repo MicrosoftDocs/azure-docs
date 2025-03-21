@@ -249,4 +249,4 @@ You can use these Azure CLI commands to simulate Azure host servicing. You can t
 
 * Learn how to [create a VM with Accelerated Networking in PowerShell](../virtual-network/create-vm-accelerated-networking-powershell.md).
 * Learn how to [create a VM with Accelerated Networking by using the Azure CLI](../virtual-network/create-vm-accelerated-networking-cli.md).
-* Improve latency with an [Azure proximity placement group](../virtual-machines/co-location.md).
+* Improve latency with an [Azure proximity placement group](/azure/virtual-machines/co-location).

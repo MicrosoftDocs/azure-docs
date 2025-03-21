@@ -337,17 +337,22 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-create-and-manage-applications-as-CSP.md",
-      "redirect_url": "/azure/iot-central/core/howto-create-and-manage-applications-csp",
+      "redirect_url": "/azure/iot-central/core/howto-create-iot-central-application",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-create-and-manage-applications-csp.md",
-      "redirect_url": "/azure/iot-central/core/howto-create-and-manage-applications-csp/",
+      "redirect_url": "/azure/iot-central/core/howto-create-iot-central-application/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-create-and-manage-applications-csp.md",
-      "redirect_url": "/azure/iot-central/core/howto-create-and-manage-applications-csp/",
+      "redirect_url": "/azure/iot-central/core/howto-create-iot-central-application/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-create-and-manage-applications-csp.md",
+      "redirect_url": "/azure/iot-central/core/howto-create-iot-central-application/",
       "redirect_document_id": false
     },
     {

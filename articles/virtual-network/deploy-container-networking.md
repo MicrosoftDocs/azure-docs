@@ -68,7 +68,7 @@ The json example that follows is for a cluster with the following properties:
       }
     },
     "servicePrincipalProfile": {
-      "clientId": "dd438987-aa12-4754-b47d-375811889714",
+      "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444",
       "secret": "azure123"
     }
   }

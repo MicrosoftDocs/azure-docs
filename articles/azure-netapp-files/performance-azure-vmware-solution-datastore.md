@@ -26,7 +26,7 @@ When you determine how to configure datastores, the easiest solution from a mana
 
 For Azure NetApp Files performance data, see: 
 
-* [Azure NetApp Files: Getting the Most Out of Your Cloud Storage](https://cloud.netapp.com/hubfs/Resources/ANF%20PERFORMANCE%20TESTING%20IN%20TEMPLATE.pdf)
+* [Azure NetApp Files: Getting the Most Out of Your Cloud Storage](https://community.netapp.com/t5/AFF/SAP-Hana-ANF-best-practice-documents/m-p/169694)
 
     On an Azure VMware Solution host, a single network connection is established per NFS datastore akin to using `nconnect=1` on the Linux tests referenced in Section 6 (*The Tuning Options*). This fact is key to understanding how Azure VMware Solution scales performance so well across multiple datastores. 
 
@@ -163,7 +163,7 @@ You can monitor your datastore metrics through vCenter Server or through the Azu
 
 ## Next steps  
 
-* [Striping Disks in Azure](../virtual-machines/premium-storage-performance.md#disk-striping)
+* [Striping Disks in Azure](/azure/virtual-machines/premium-storage-performance#disk-striping)
 * [Creating striped volumes in Windows Server](/windows-server/administration/windows-commands/create-volume-stripe)
 * [Azure VMware Solution storage architecture](../azure-vmware/architecture-storage.md)
 * [Attach Azure NetApp Files datastores to Azure VMware Solution hosts](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md)

@@ -25,7 +25,7 @@ The [Azure DNS Private Resolver](dns-private-resolver-overview.md) is a service 
 Benefits of using the Azure DNS Private Resolver service vs. VM-based resolvers or DDI solutions include:
 - Zero maintenance: Unlike VM or hardware based solutions, the private resolver doesn't require software updates, vulnerability scans, or security patching. The private resolver service is fully managed.
 - Cost reduction: Azure DNS Private Resolver is a multitenant service and can cost a fraction of the expense that is required to use and license multiple VM-based DNS resolvers.
-- High availability: The Azure DNS Private Resolver service has built-in high availability features. The service is [availability zone](../availability-zones/az-overview.md) aware, thus ensuring that high availability and redundancy of your DNS solution can be accomplished with much less effort. For more information on how to configure DNS failover using the private resolver service, see [Tutorial: Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md).
+- High availability: The Azure DNS Private Resolver service has built-in high availability features. The service is [availability zone](../reliability/availability-zones-overview.md) aware, thus ensuring that high availability and redundancy of your DNS solution can be accomplished with much less effort. For more information on how to configure DNS failover using the private resolver service, see [Tutorial: Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md).
 - DevOps friendly: Traditional DNS solutions are hard to integrate with DevOps workflows as these often require manual configuration for every DNS change. Azure DNS private resolver provides a fully functional ARM interface that can be easily integrated with DevOps workflows.
 
 ## DNS forwarding ruleset
@@ -90,19 +90,19 @@ Next, create a rule in your ruleset for your on-premises domain. In this example
 
 The procedure to configure on-premises DNS depends on the type of DNS server you're using. In the following example, a Windows DNS server at **10.100.0.2** is configured with a conditional forwarder for the private DNS zone **azure.contoso.com**. The conditional forwarder is set to forward queries to **10.10.0.4**, which is the inbound endpoint IP address for your Azure DNS Private Resolver. There's another IP address also configured here to enable DNS failover. For more information about enabling failover, see [Tutorial: Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md). For the purposes of this demonstration, only the **10.10.0.4** inbound endpoint is required.
 
-![View on-premises forwarding](./media/private-resolver-hybrid-dns/on-premises-forwarders.png) 
+![View on-premises forwarding](./media/private-resolver-hybrid-dns/on-premises-forwarders.png#lightbox)
 
 ## Demonstrate hybrid DNS
 
 Using a VM located in the virtual network where the Azure DNS Private Resolver is provisioned, issue a DNS query for a resource record in your on-premises domain. In this example, a query is performed for the record **testdns.contoso.com**:
 
-![Verify Azure to on-premise](./media/private-resolver-hybrid-dns/azure-to-on-premises-lookup.png) 
+![Verify Azure to on-premise](./media/private-resolver-hybrid-dns/azure-to-on-premises-lookup.png#lightbox)
 
 The path for the query is: Azure DNS > inbound endpoint > outbound endpoint > ruleset rule for contoso.com > on-premises DNS (10.100.0.2). The DNS server at 10.100.0.2 is an on-premises DNS resolver, but it could also be an authoritative DNS server.
 
 Using an on-premises VM or device, issue a DNS query for a resource record in your Azure private DNS zone. In this example, a query is performed for the record **test.azure.contoso.com**:
 
-![Verify on-premises to Azure](./media/private-resolver-hybrid-dns/on-premises-to-azure-lookup.png) 
+![Verify on-premises to Azure](./media/private-resolver-hybrid-dns/on-premises-to-azure-lookup.png#lightbox) 
 
 The path for this query is: client's default DNS resolver (10.100.0.2) > on-premises conditional forwarder rule for azure.contoso.com > inbound endpoint (10.10.0.4) 
 

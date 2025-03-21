@@ -18,6 +18,7 @@ When you want the function to write to multiple entities, the Azure Tables outpu
 | --- | --- |
 | `T[]` where `T` is one of the single entity types | An array containing multiple entities. Each entry represents one entity. | 
 
-For other output scenarios, create and use types from [Azure.Data.Tables] directly.
+For other output scenarios, create and use a [TableClient] with other types from [Azure.Data.Tables] directly. See [Register Azure clients](../articles/azure-functions/dotnet-isolated-process-guide.md#register-azure-clients) for an example of using dependency injection to create a client type from the Azure SDK.
 
 [Azure.Data.Tables]: /dotnet/api/azure.data.tables
+[TableClient]: /dotnet/api/azure.data.tables.tableclient

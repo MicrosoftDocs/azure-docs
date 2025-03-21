@@ -6,13 +6,15 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 06/20/2024
+ms.date: 09/26/2024
 ms.custom: vmware-scenario-422, engagement-fy23
 ---
 
 # Set up an appliance for servers in a VMware environment
 
-This article describes how to set up the Azure Migrate appliance for assessment by using the [Azure Migrate: Discovery and assessment](../migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool.
+This article describes how to set up the Azure Migrate appliance for assessment by using the [Azure Migrate: Discovery and assessment](../migrate-services-overview.md) tool.
+
+[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 The [Azure Migrate appliance](../migrate-appliance.md) is a lightweight appliance that the Azure Migrate: Discovery and assessment tool uses to discover servers running in vCenter Server and to send server configuration and performance metadata to Azure.
 
@@ -33,7 +35,7 @@ After you create the appliance, check if the appliance can connect to Azure Migr
 To set up the appliance by using an OVA template, you'll complete these steps, which are described in detail in this section:
 
 > [!NOTE]
-> OVA templates are not available for soverign clouds.
+> OVA templates are not available for sovereign clouds.
 
 > [!NOTE]
 > Do not clone or create a VM template out of an appliance deployed using OVA template. This scenario is unsupported and may result in deployment failures within the Migrate Service.
@@ -46,7 +48,7 @@ To set up the appliance by using an OVA template, you'll complete these steps, w
 
 #### Generate the project key
 
-1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** > **Discover**.
+1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** > **Discover**.
 1. In **Discover servers**, select **Are your servers virtualized?** > **Yes, with VMware vSphere hypervisor**.
 1. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you'll set up to discover servers in your VMware environment. The name should be alphanumeric and 14 characters or fewer.
 1. To start creating the required Azure resources, select **Generate key**. Don't close the **Discover** pane while the resources are being created.
@@ -65,7 +67,7 @@ Before you deploy the OVA file, verify that the file is secure:
 1. Run the following command to generate the hash for the OVA file:
 
     ```
-    C:\>CertUtil -HashFile <file_location> <hashing_agorithm>
+    C:\>CertUtil -HashFile <file_location> <hashing_algorithm>
     ```
 
     For example:

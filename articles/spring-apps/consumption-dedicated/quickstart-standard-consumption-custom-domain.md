@@ -1,17 +1,20 @@
 ---
-title: Quickstart - Map a custom domain to Azure Spring Apps with the Standard consumption and dedicated plan
+title: Quickstart - Map a Custom Domain to Azure Spring Apps with the Standard Consumption and Dedicated Plan
 description: Learn how to map a web domain to apps in Azure Spring Apps.
 author: KarlErickson
-ms.author: haojianzhong
+ms.author: karler
+ms.reviewer: haojianzhong
 ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 06/21/2023
+ms.date: 08/29/2024
 ms.custom: devx-track-java
 ---
 
 # Quickstart: Map a custom domain to Azure Spring Apps with the Standard consumption and dedicated plan
 
-**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ❌ Basic/Standard ❌ Enterprise
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
+
+**This article applies to:** ✅ Standard consumption and dedicated (Preview) ❎ Basic/Standard ❎ Enterprise
 
  This article shows you how to map a custom web site domain, such as `https://www.contoso.com`, to your app in Azure Spring Apps. This mapping is accomplished by using a `CNAME` record that the Domain Name Service (DNS) uses to store node names throughout the network.
 
@@ -21,7 +24,7 @@ The mapping secures the custom domain with a certificate and enforces Transport 
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli)
-- An Azure Spring Apps Standard consumption and dedicated plan service instance. For more information, see [Quickstart: Provision an Azure Spring Apps Standard consumption and dedicated plan service instance](quickstart-provision-standard-consumption-service-instance.md).
+- An Azure Spring Apps Standard consumption and dedicated plan service instance.
 - A Spring app deployed to Azure Spring Apps.
 - A domain name registered in the DNS registry as provided by a web hosting or domain provider.
 - A certificate resource created under an Azure Container Apps environment. For more information, see [Add certificate in Container App](../../container-apps/custom-domains-certificates.md).

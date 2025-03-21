@@ -13,7 +13,7 @@ This article describes the **HPE ProLiant DL360** appliance for OT sensors, cust
 |---------|---------|
 |**Hardware profile** | C5600  |
 |**Performance** | Max bandwidth: 3 Gbps <br> Max devices: 12,000 |
-|**Physical specifications** | Mounting: 1U<br>Ports: 15x RJ45 or 8x SFP (OPT)|
+|**Physical specifications** | Mounting: 1U<br>Ports: 15x RJ45 or 8x SFP (optional)|
 |**Status** | Supported, available preconfigured|
 
 The following image describes the hardware elements on the HPE ProLiant DL360 back panel that are used by Defender for IoT:
@@ -41,7 +41,6 @@ The following image describes the hardware elements on the HPE ProLiant DL360 ba
 |**One internal**    |USB 3.0         |
 |**Power**            |Two HPE 500-W flex slot platinum hot plug low halogen power supply kit
 |**Rack support**     | HPE 1U Gen10 SFF easy install rail kit        |
-
 
 ## HPE DL360 - Bill of materials
 
@@ -179,4 +178,3 @@ Continue understanding system requirements for physical or virtual appliances. F
 Then, use any of the following procedures to continue:
 
 - [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
-- [Download software files for an on-premises management console](../legacy-central-management/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

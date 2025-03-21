@@ -15,18 +15,18 @@ ms.author: ulrichchrist
 
 Learn about advanced topics for the SAP CDC connector like metadata driven data integration, debugging, and more.
 
-## Parametrizing an SAP CDC mapping data flow
+## Parameterizing an SAP CDC mapping data flow
 
 One of the key strengths of pipelines and mapping data flows in Azure Data Factory and Azure Synapse Analytics is the support for metadata driven data integration. With this feature, it's possible to design a single (or few) parametrized pipeline that can be used to handle integration of potentially hundreds or even thousands of sources.
 The SAP CDC connector has been designed with this principle in mind: all relevant properties, whether it's the source object, run mode, key columns, etc., can be provided via parameters to maximize flexibility and reuse potential of SAP CDC mapping data flows.
 
-To understand the basic concepts of parametrizing mapping data flows, read [Parameterizing mapping data flows](parameters-data-flow.md).
+To understand the basic concepts of parameterizing mapping data flows, read [Parameterizing mapping data flows](parameters-data-flow.md).
 
 In the template gallery of Azure Data Factory and Azure Synapse Analytics, you find a [template pipeline and data flow](solution-template-replicate-multiple-objects-sap-cdc.md) which shows how to parametrize SAP CDC data ingestion.
 
-### Parametrizing source and run mode
+### Parameterizing source and run mode
 
-Mapping data flows don't necessarily require a Dataset artifact: both source and sink transformations offer a **Source type** (or **Sink type**) **Inline**. In this case, all source properties otherwise defined in an ADF dataset can be configured in the **Source options** of the source transformation (or **Settings** tab of the sink transformation). Using an inline dataset provides better overview and simplifies parametrizing a mapping data flow since the complete source (or sink) configuration is maintained in a one place.
+Mapping data flows don't necessarily require a Dataset artifact: both source and sink transformations offer a **Source type** (or **Sink type**) **Inline**. In this case, all source properties otherwise defined in an ADF dataset can be configured in the **Source options** of the source transformation (or **Settings** tab of the sink transformation). Using an inline dataset provides better overview and simplifies parameterizing a mapping data flow since the complete source (or sink) configuration is maintained in a one place.
 
 For SAP CDC, the properties that are most commonly set via parameters are found in the tabs **Source options** and **Optimize**.
 When **Source type** is **Inline**, the following properties can be parametrized in **Source options**.
@@ -45,7 +45,7 @@ When **Source type** is **Inline**, the following properties can be parametrized
     - **incrementalLoad** for **Incremental changes only**, which initiates a change data capture process without extracting a current full snapshot.
 - **Key columns**: key columns are provided as an array of (double-quoted) strings. For example, when working with SAP table **VBAP** (sales order items), the key definition would have to be \["VBELN", "POSNR"\] (or \["MANDT","VBELN","POSNR"\] in case the client field is taken into account as well). 
 
-### Parametrizing the filter conditions for source partitioning
+### Parameterizing the filter conditions for source partitioning
 
 In the **Optimize** tab, a source partitioning scheme (see [optimizing performance for full or initial loads](connector-sap-change-data-capture.md#optimizing-performance-of-full-or-initial-loads-with-source-partitioning)) can be defined via parameters. Typically, two steps are required:
 1. Define the source partitioning scheme.
@@ -124,7 +124,7 @@ Finally, in the **optimize** tab of the source transformation in your mapping da
 
 :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-advanced-ingest-partition-parameter.png" alt-text="Screenshot showing how to use the partitioning parameter in the optimize tab of the source transformation.":::
 
-### Parametrizing the Checkpoint Key
+### Parameterizing the Checkpoint Key
 
 When using a parametrized data flow to extract data from multiple SAP CDC sources, it's important to parametrize the **Checkpoint Key** in the data flow activity of your pipeline. The checkpoint key is used by Azure Data Factory to manage the status of a change data capture process. To avoid that the status of one CDC process overwrites the status of another one, make sure that the checkpoint key values are unique for each parameter set used in a dataflow.
 

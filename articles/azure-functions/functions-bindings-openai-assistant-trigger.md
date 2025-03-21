@@ -10,7 +10,7 @@ ms.custom:
   - devx-track-ts
 ms.collection: 
   - ce-skilling-ai-copilot
-ms.date: 05/24/2024
+ms.date: 01/07/2025
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -20,7 +20,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 The Azure OpenAI assistant trigger lets you run your code based on custom chat bot or skill request made to an assistant. 
 
-For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about Azure OpenAI assistants, see [Azure OpenAI Assistants API](../ai-services/openai/concepts/assistants.md).
+For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about Azure OpenAI assistants, see [Azure OpenAI Assistants API](/azure/ai-services/openai/concepts/assistants).
 
 [!INCLUDE [functions-support-notes-samples-openai](../../includes/functions-support-notes-samples-openai.md)]
 
@@ -40,21 +40,17 @@ This example demonstrates how to create an assistant that adds a new todo task t
 :::code language="java" source="~/functions-openai-extension/samples/assistant/java/src/main/java/com/azfs/AssistantSkills.java" range="27-43":::
 
 ::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+This example demonstrates how to create an assistant that adds a new todo task to a database. The trigger has a static description of `Create a new todo task` used by the model. The function itself takes a string, which represents a new task to add. When executed, the function adds the task as a new todo item in a custom item store and returns a response from the store. 
+::: zone-end
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
-<!---uncomment when code example is available:
-{{This comes from the example code comment}} 
 
-:::code language="javascript" source="~/functions-openai-extension/samples/{{link to the correct sample.ts}}" range="{{named is better than range}}":::
+:::code language="javascript" source="~/functions-openai-extension/samples/assistant/javascript/src/functions/assistantSkills.js" range="4-25":::
 
-{{Add more examples if available}}
--->
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
 
-This example demonstrates how to create an assistant that adds a new todo task to a database. The trigger has a static description of `Create a new todo task` used by the model. The function itself takes a string, which represents a new task to add. When executed, the function adds the task as a new todo item in a custom item store and returns a response from the store. 
-
-:::code language="typescript" source="~/functions-openai-extension/samples/assistant/nodejs/src/functions/assistantSkills.ts" range="9-24" :::
+:::code language="typescript" source="~/functions-openai-extension/samples/assistant/typescript/src/functions/assistantSkills.ts" range="4-24" :::
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  

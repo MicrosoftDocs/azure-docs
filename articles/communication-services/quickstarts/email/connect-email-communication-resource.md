@@ -12,9 +12,10 @@ ms.service: azure-communication-services
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-js-csharp-java-python-portal-rest
 ---
+
 # Quickstart: How to connect a verified email domain
 
-In this quick start, you learn how to connect a verified domain in Azure Communication Services to send email.
+This quickstart describes how to connect a verified domain in Azure Communication Services to send email.
 
 ::: zone pivot="azure-portal"
 [!INCLUDE [connect-domain-portal](./includes/connect-domain-portal.md)]

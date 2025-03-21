@@ -1,10 +1,11 @@
 ---
 title: Azure Virtual Desktop identities and authentication - Azure
 description: Identities and authentication methods for Azure Virtual Desktop.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: conceptual
 ms.date: 07/16/2024
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Supported identities and authentication methods
 
@@ -124,6 +125,6 @@ To use a smart card in your session, make sure you've installed the smart card d
 ## Next steps
 
 - Curious about other ways to keep your deployment secure? Check out [Security best practices](security-guide.md).
-- Having issues connecting to Microsoft Entra joined VMs? Look at [Troubleshoot connections to Microsoft Entra joined VMs](troubleshoot-azure-ad-connections.md).
-- Having issues with in-session passwordless authentication? See [Troubleshoot WebAuthn redirection](troubleshoot-device-redirections.md#webauthn-redirection).
+- Having issues connecting to Microsoft Entra joined VMs? Look at [Troubleshoot connections to Microsoft Entra joined VMs](/troubleshoot/azure/virtual-desktop/troubleshoot-azure-ad-connections).
+- Having issues with in-session passwordless authentication? See [Troubleshoot WebAuthn redirection](/troubleshoot/azure/virtual-desktop/troubleshoot-device-redirections#webauthn-redirection).
 - Want to use smart cards from outside your corporate network? Review how to set up a [KDC Proxy server](key-distribution-center-proxy.md).

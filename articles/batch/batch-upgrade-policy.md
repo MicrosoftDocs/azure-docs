@@ -2,7 +2,7 @@
 title: Provision a pool with Auto OS Upgrade
 description: Learn how to create a Batch pool with Auto OS Upgrade so that customers can have control over their OS upgrade strategy to ensure safe, workload-aware OS upgrade deployments.
 ms.topic: how-to
-ms.date: 04/02/2024
+ms.date: 12/20/2024
 ms.custom: 
 ---
 
@@ -23,7 +23,7 @@ In summary, the use of Auto OS Upgrade helps improve security, minimize availabi
 
 ## How does Auto OS Upgrade work?
 
-When upgrading images, VMs in Azure Batch Pool will follow roughly the same work flow as VirtualMachineScaleSets. To learn more about the detailed steps involved in the Auto OS Upgrade process for VirtualMachineScaleSets, you can refer to [VirtualMachineScaleSet page](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#how-does-automatic-os-image-upgrade-work).
+When upgrading images, VMs in Azure Batch Pool will follow roughly the same work flow as VirtualMachineScaleSets. To learn more about the detailed steps involved in the Auto OS Upgrade process for VirtualMachineScaleSets, you can refer to [VirtualMachineScaleSet page](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade#how-does-automatic-os-image-upgrade-work).
 
 However, if *automaticOSUpgradePolicy.osRollingUpgradeDeferral* is set to 'true' and an upgrade becomes available when a batch node is actively running tasks, the upgrade will be delayed until all tasks have been completed on the node.
 
@@ -31,7 +31,7 @@ However, if *automaticOSUpgradePolicy.osRollingUpgradeDeferral* is set to 'true'
 > If a pool has enabled *osRollingUpgradeDeferral*, its nodes will be displayed as *upgradingos* state during the upgrade process. Please note that the *upgradingos* state will only be shown when you are using the the API version of 2024-02-01 or later. If you're using an old API version to call *GetTVM/ListTVM*, the node will be in a *rebooting* state when upgrading.
 
 ## Supported OS images
-Only certain OS platform images are currently supported for automatic upgrade. For detailed images list, you can get from [VirtualMachineScaleSet page](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#supported-os-images).
+Only certain OS platform images are currently supported for automatic upgrade. For detailed images list, you can get from [VirtualMachineScaleSet page](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade#supported-os-images).
 
 ## Requirements
 
@@ -51,9 +51,6 @@ If you intend to implement Auto OS Upgrades within a pool, it's essential to con
 
 > [!Note]
 > **Upgrade Policy mode** and **Automatic OS Upgrade Policy** are separate settings and control different aspects of the provisioned scale set by Azure Batch. The Upgrade Policy mode will determine what happens to existing instances in scale set. However, Automatic OS Upgrade Policy enableAutomaticOSUpgrade is specific to the OS image and tracks changes the image publisher has made and determines what happens when there is an update to the image.
-
-> [!IMPORTANT]
-> If you are using [user subscription](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode), it's essential to note that a subscription feature **Microsoft.Compute/RollingUpgradeDeferral** is required for your subscription to be registered. You cannot use *osRollingUpgradeDeferral* unless this feature is registered. To enable this feature, please [manually register](../azure-resource-manager/management/preview-features.md) it on your subscription.
 
 ### REST API
 The following example describes how to create a pool with Auto OS Upgrade via REST API:

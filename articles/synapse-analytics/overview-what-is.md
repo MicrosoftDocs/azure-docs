@@ -37,7 +37,7 @@ ms.reviewer: whhender
 
 Azure Synapse removes the traditional technology barriers between using SQL and Spark together. You can seamlessly mix and match based on your needs and expertise.
 
-* Tables defined on files in the data lake are seamlessly consumed by either Spark or Hive.
+* Tables defined on files in the data lake are seamlessly consumed by either Spark or SQL.
 * SQL and Spark can directly explore and analyze Parquet, CSV, TSV, and JSON files stored in the data lake.
 * Fast, scalable data loading between SQL and Spark databases
 

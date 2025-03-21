@@ -5,7 +5,7 @@ description: Learn how to configure NAT for Azure VPN Gateway.
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 05/02/2023
+ms.date: 10/16/2024
 ms.author: cherylmc 
 
 ---
@@ -38,7 +38,7 @@ Verify that you have an Azure subscription. If you don't already have an Azure s
 
 In this section, you create a virtual network, a VPN gateway, and the local network gateway resources to correspond to the resources shown in [Diagram 1](#diagram). To create these resources, you can use the steps in the [Site-to-Site Tutorial](tutorial-site-to-site-portal.md) article. Complete the following sections of the article, but don't create any connections.
 
-* [VNet](tutorial-site-to-site-portal.md#CreatVNet)
+* [VNet](tutorial-site-to-site-portal.md#CreateVNet)
 * [VPN gateway](tutorial-site-to-site-portal.md#VNetGateway)
 * [Local network gateway](tutorial-site-to-site-portal.md#LocalNetworkGateway)
 * [Configure your VPN device](tutorial-site-to-site-portal.md#VPNDevice)
@@ -71,9 +71,9 @@ Before you create connections, you must create and save NAT rules on the VPN gat
 
 | Name     | Type   | Mode        | Internal    | External     | Connection          |
 | ---      | ---    | ---         | ---         | ---          | ---                 |
-| VNet     | Static | EgressSNAT  | 10.0.1.0/24 | 100.0.1.0/24 | Both connections    |
-| Branch1 | Static | IngressSNAT | 10.0.1.0/24 | 100.0.2.0/24 | Branch1 connection |
-| Branch2 | Static | IngressSNAT | 10.0.1.0/24 | 100.0.3.0/24 | Branch2 connection |
+| VNet     | Static | EgressSNAT  | 10.0.1.0/24 | 192.168.1.0/24 | Both connections    |
+| Branch1 | Static | IngressSNAT | 10.0.1.0/24 | 192.168.2.0/24| Branch1 connection |
+| Branch2 | Static | IngressSNAT | 10.0.1.0/24 | 192.168.3.0/24 | Branch2 connection |
 
 Use the following steps to create all the NAT rules on the VPN gateway. If you're using BGP, select **Enable** for the Enable Bgp Route Translation setting.
 
@@ -112,4 +112,4 @@ The connections and the NAT rules are specified in the sample topology shown in 
 
 ## Next steps
 
-Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/windows/quick-create-portal.md) for steps.
+Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](/azure/virtual-machines/windows/quick-create-portal) for steps.

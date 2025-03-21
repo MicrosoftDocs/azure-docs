@@ -125,14 +125,14 @@ if (communicationIdentifier instanceof CommunicationUserIdentifier) {
 else if (communicationIdentifier instanceof MicrosoftTeamsUserIdentifier) {
     System.out.println("Teams user: " + ((MicrosoftTeamsUserIdentifier)communicationIdentifier).getUserId());
 }
+else if (communicationIdentifier instanceof  MicrosoftTeamsAppIdentifier) {
+    Log.i(tag, "Teams app: " + (( MicrosoftTeamsAppIdentifier)communicationIdentifier).getAppId());
+}
 else if (communicationIdentifier instanceof PhoneNumberIdentifier) {
     System.out.println("Phone number: " + ((PhoneNumberIdentifier)communicationIdentifier).getPhoneNumber());
 }
-else if (communicationIdentifier instanceof MicrosoftBotIdentifier) {
-    Log.i(tag, "Microsoft bot: " + ((MicrosoftBotIdentifier)communicationIdentifier).getBotId());
-}
 else if (communicationIdentifier instanceof UnknownIdentifier) {
-    System.out.println("Unkown user: " + ((UnknownIdentifier)communicationIdentifier).getId());
+    System.out.println("Unknown user: " + ((UnknownIdentifier)communicationIdentifier).getId());
 }
 else {
     // be careful here whether you want to throw because a new SDK version

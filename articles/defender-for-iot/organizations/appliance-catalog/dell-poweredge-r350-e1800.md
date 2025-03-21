@@ -8,7 +8,6 @@ ms.topic: reference
 # Dell PowerEdge R350
 
 This article describes the Dell PowerEdge R350 appliance, supported for OT sensors in an enterprise deployment.
-The Dell PowerEdge R350 is also available for the on-premises management console.
 
 |Appliance characteristic  | Description|
 |---------|---------|
@@ -83,11 +82,13 @@ The following image shows a view of the Dell PowerEdge R350 back panel:
 |2|	450-AKMP	|	Dual, Hot-Plug, Redundant Power Supply (1+1), 600W	|
 
 ## Optional Components
+
 |Quantity|PN|Description|
 |----|---|----|
 |2| 450-AMJH | Dual, Hot-Plug, Power Supply, 700W MM HLAC (200-220Vac) Titanium, Redundant (1+1), by LiteOn, NAF|
 
 ## Optional Storage Controllers
+
 Multi-disk RAID arrays combine multiple physical drives into one logical drive for increased redundancy and performance. The optional modules below are tested in our lab for compatibility and sustained performance:
 
 |Quantity|PN|Description|
@@ -95,6 +96,7 @@ Multi-disk RAID arrays combine multiple physical drives into one logical drive f
 |1| 405-ABBT	|	PERC H755 Controller Card (RAID10) |
 
 ## Optional port expansion
+
 Optional modules for additional monitoring ports can be installed:
 
 |Location |Type |Specifications |
@@ -230,4 +232,3 @@ Continue understanding system requirements for physical or virtual appliances. F
 Then, use any of the following procedures to continue:
 
 - [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
-- [Download software files for an on-premises management console](../legacy-central-management/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

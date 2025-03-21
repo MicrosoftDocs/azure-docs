@@ -1,21 +1,21 @@
 ---
-title: "Quickstart - Monitor applications end-to-end"
+title: "Quickstart - Monitor Applications End-to-End"
 titleSuffix: Azure Spring Apps Enterprise plan
 description: Explains how to monitor apps running the Azure Spring Apps Enterprise plan by using Application Insights and Log Analytics.
 author: KarlErickson
-ms.author: asirveda # external contributor: paly@vmware.com
+ms.author: karler
+ms.reviewer: asirveda # external contributor: paly@vmware.com
 ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 05/31/2022
+ms.date: 08/28/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Quickstart: Monitor applications end-to-end
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This quickstart shows you how monitor apps running the Azure Spring Apps Enterprise plan by using Application Insights and Log Analytics.
 
@@ -39,7 +39,7 @@ This quickstart shows you how monitor apps running the Azure Spring Apps Enterpr
 You must manually provide the Application Insights connection string to the Order Service (ASP.NET core) and Cart Service (python) applications. The following instructions describe how to provide this connection string and increase the sampling rate to Application Insights.
 
 > [!NOTE]
-> Currently only the buildpacks for Java and NodeJS applications support Application Insights instrumentation.
+> Currently only the buildpacks for Java and Node.js applications support Application Insights instrumentation.
 
 1. Create variables to hold the resource names by using the following commands. Be sure to replace the placeholders with your own values. The name of your Azure Spring Apps service instance must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
 
@@ -118,7 +118,7 @@ You must manually provide the Application Insights connection string to the Orde
        --name identity-service
    ```
 
-   For the Java and NodeJS applications, restarting will allow the new sampling rate to take effect. For the non-Java applications, restarting will allow them to access the newly added Instrumentation Key from the Key Vault.
+   For the Java and Node.js applications, restarting will allow the new sampling rate to take effect. For the non-Java applications, restarting will allow them to access the newly added Instrumentation Key from the Key Vault.
 
 ## View logs
 

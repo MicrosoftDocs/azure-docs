@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/05/2024
+ms.date: 12/16/2024
 ---
 
 # Copy data from or to Azure Files by using Azure Data Factory
@@ -72,6 +72,8 @@ The Azure Files connector supports the following authentication types. See the c
 
 - [Account key authentication](#account-key-authentication)
 - [Shared access signature authentication](#shared-access-signature-authentication)
+- [System-assigned managed identity authentication](#system-assigned-managed-identity-authentication)
+- [User-assigned managed identity authentication](#user-assigned-managed-identity-authentication)
 
 >[!NOTE]
 > If you were using Azure Files linked service with [legacy model](#legacy-model), where on ADF authoring UI shown as "Basic authentication", it is still supported as-is, while you are suggested to use the new model going forward. The legacy model transfers data from/to storage over Server Message Block (SMB), while the new model utilizes the storage SDK which has better throughput. To upgrade, you can edit your linked service to switch the authentication method to "Account key" or "SAS URI"; no change needed on dataset or copy activity.
@@ -192,6 +194,100 @@ The service supports the following properties for using shared access signature 
                 "secretName": "<secretName with value of SAS token e.g. ?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>" 
             },
             "fileShare": "<file share name>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### System-assigned managed identity authentication
+
+A data factory or Synapse pipeline can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity), which represents that resource for authentication to other Azure services. You can use this system-assigned managed identity for Azure Files authentication. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+
+To use system-assigned managed identity authentication, follow these steps：
+
+1. [Retrieve system-assigned managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the system-assigned managed identity object ID generated along with your factory or Synapse workspace.
+
+2. Grant the managed identity permission in Azure Files. For more information on the roles, see this [article](../role-based-access-control/built-in-roles/storage.md#storage-file-data-smb-share-reader).
+
+    - **As source**, in **Access control (IAM)**, grant at least the **Storage File Data Privileged Reader** role.
+    - **As sink**, in **Access control (IAM)**, grant at least the **Storage File Data Privileged Contributor** role.
+
+These properties are supported for an Azure Files linked service:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The **type** property must be set to **AzureFileStorage**. | Yes |
+| serviceEndpoint | Specify the Azure Files service endpoint with the pattern of `https://<accountName>.file.core.windows.net/`. | Yes |
+| fileShare | Specify the file share. | Yes |
+| snapshot | Specify the date of the [file share snapshot](../storage/files/storage-snapshots-files.md) if you want to copy from a snapshot. | No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime. If not specified, it uses the default Azure Integration Runtime. |No |
+
+>[!NOTE]
+>System-assigned managed identity authentication is only supported by Azure integration runtime.
+
+**Example:**
+
+```json
+{
+    "name": "AzureFileStorageLinkedService",
+    "properties": {
+        "type": "AzureFileStorage",
+        "typeProperties": {            
+            "serviceEndpoint": "https://<accountName>.file.core.windows.net/",
+            "fileShare": "<file share name>",
+            "snapshot": "<snapshot version>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### User-assigned managed identity authentication
+
+A data factory can be assigned with one or multiple [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity). You can use this user-assigned managed identity for Azure Files authentication, which allows to access and copy data from or to Azure Files. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+
+To use user-assigned managed identity authentication, follow these steps:
+
+1. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and grant permission in Azure Files. For more information on the roles, see this [article](../role-based-access-control/built-in-roles/storage.md#storage-file-data-smb-share-reader).
+
+    - **As source**, in **Access control (IAM)**, grant at least the **Storage File Data Privileged Reader** role.
+    - **As sink**, in **Access control (IAM)**, grant at least the **Storage File Data Privileged Contributor** role.
+     
+2. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](credentials.md) for each user-assigned managed identity. 
+
+These properties are supported for an Azure Files linked service:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The **type** property must be set to **AzureFileStorage**. | Yes |
+| serviceEndpoint | Specify the Azure Files service endpoint with the pattern of `https://<accountName>.file.core.windows.net/`. | Yes |
+| credentials | Specify the user-assigned managed identity as the credential object. | Yes |
+| fileShare | Specify the file share. | Yes |
+| snapshot | Specify the date of the [file share snapshot](../storage/files/storage-snapshots-files.md) if you want to copy from a snapshot. | No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
+
+**Example:**
+
+```json
+{
+    "name": "AzureFileStorageLinkedService",
+    "properties": {
+        "type": "AzureFileStorage",
+        "typeProperties": {            
+            "serviceEndpoint": "https://<accountName>.file.core.windows.net/",
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+            },
+            "fileShare": "<file share name>",
+            "snapshot": "<snapshot version>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -390,6 +486,9 @@ The following properties are supported for Azure Files under `storeSettings` set
 ]
 ```
 
+>[!NOTE]
+>You can copy up to 4 MB of data to the sink when using system-assigned or user-assigned managed identity as the authentication type.
+
 ### Folder and file filter examples
 
 This section describes the resulting behavior of the folder path and file name with wildcard filters.
@@ -450,7 +549,7 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 | fileName | **Name or wildcard filter** for the file(s) under the specified "folderPath". If you don't specify a value for this property, the dataset points to all files in the folder. <br/><br/>For filter, allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character).<br/>- Example 1: `"fileName": "*.csv"`<br/>- Example 2: `"fileName": "???20180427.txt"`<br/>Use `^` to escape if your actual file name has wildcard or this escape char inside.<br/><br/>When fileName isn't specified for an output dataset and **preserveHierarchy** isn't specified in the activity sink, the copy activity automatically generates the file name with the following pattern: "*Data.[activity run ID GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]*", for example "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz"; if you copy from tabular source using table name instead of query, the name pattern is "*[table name].[format].[compression if configured]*", for example "MyTable.csv". |No |
 | modifiedDatetimeStart | Files filter based on the attribute: Last Modified. The files will be selected if their last modified time is greater than or equal to `modifiedDatetimeStart` and less than `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> Be aware the overall performance of data movement will be impacted by enabling this setting when you want to do file filter from huge amounts of files. <br/><br/> The properties can be NULL that means no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected.| No |
 | modifiedDatetimeEnd | Files filter based on the attribute: Last Modified. The files will be selected if their last modified time is greater than or equal to `modifiedDatetimeStart` and less than `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> Be aware the overall performance of data movement will be impacted by enabling this setting when you want to do file filter from huge amounts of files. <br/><br/> The properties can be NULL that means no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected.| No |
-| format | If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions.<br/><br/>If you want to parse or generate files with a specific format, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Json Format](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Avro Format](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs-legacy.md#orc-format), and [Parquet Format](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) sections. |No (only for binary copy scenario) |
+| format | If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions.<br/><br/>If you want to parse or generate files with a specific format, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](supported-file-formats-and-compression-codecs-legacy.md#text-format), [JSON Format](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Avro Format](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs-legacy.md#orc-format), and [Parquet Format](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) sections. |No (only for binary copy scenario) |
 | compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels are: **Optimal** and **Fastest**. |No |
 
 >[!TIP]

@@ -3,9 +3,9 @@ title: Tutorial - Configure Enrollment over Secure Transport Server (EST) for Az
 description: This tutorial shows you how to set up an Enrollment over Secure Transport (EST) server for Azure IoT Edge.
 author: PatAltimore
 ms.author: patricka
-ms.date: 06/10/2024
+ms.date: 03/10/2025
 ms.topic: tutorial
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ---
 
@@ -15,21 +15,22 @@ services: iot-edge
 
 With Azure IoT Edge, you can configure your devices to use an Enrollment over Secure Transport (EST) server to manage x509 certificates.
 
-This tutorial walks you through hosting a test EST server and configuring an IoT Edge device for the enrollment and renewal of x509 certificates. In this tutorial, you learn how to:
+This tutorial walks you through hosting a test EST server and configuring an IoT Edge device for the enrollment and renewal of device identity x509 certificates. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Create and host a test EST server
+> * Create and host a test EST server for device identity certificates
 > * Configure DPS group enrollment
 > * Configure device
-
-:::image type="content" source="./media/tutorial-configure-est-server/est-procedure.png" alt-text="Diagram showing high-level overview of the three steps needed to complete this tutorial.":::
 
 ## Prerequisites
 
 * An existing IoT Edge device with the [latest Azure IoT Edge runtime](how-to-update-iot-edge.md) installed. If you need to create a test device, complete [Quickstart: Deploy your first IoT Edge module to a virtual Linux device](quickstart-linux.md).
 * Your IoT Edge device requires Azure IoT Edge runtime 1.2 or later for EST support. Azure IoT Edge runtime 1.3 or later required for EST certificate renewal. 
 * IoT Hub Device Provisioning Service (DPS) linked to IoT Hub. For information on configuring DPS, see [Quickstart: Set up the IoT Hub Device Provisioning Service with the Azure portal](../iot-dps/quick-setup-auto-provision.md).
+
+> [!NOTE]
+> To use EST and IoT Edge for automatic device identity certificate issuance and renewal, which is recommended for production, IoT Edge must provision as part of a [DPS CA-based enrollment group](./how-to-provision-devices-at-scale-linux-x509.md?tabs=group-enrollment%2cubuntu). Other methods of provisioning, including manual X.509 provisioning with IoT Hub and DPS with individual enrollment do not support automatic device identity certificate renewal.
 
 ## What is Enrollment over Secure Transport?
 
@@ -40,7 +41,9 @@ Enrollment over Secure Transport (EST) is a cryptographic protocol that automate
 For certificate issuance and renewal, you need an EST server accessible to your devices.
 
 > [!IMPORTANT]
-> For enterprise grade solutions, consider: [GlobalSign IoT Edge Enroll](https://www.globalsign.com/en/iot-edge-enroll) or [DigiCert IoT Device Manager](https://www.digicert.com/iot/iot-device-manager).
+> For production, use [GlobalSign IoT Edge Enroll](https://www.globalsign.com/en/iot-edge-enroll) or [DigiCert IoT Device Manager](https://www.digicert.com/iot/iot-device-manager).
+>
+> For more information using GlobalSign's EST service, see [Automatic IoT Edge Certificate Management with GlobalSign EST](https://techcommunity.microsoft.com/blog/iotblog/automatic-iot-edge-certificate-management-with-globalsign-est/4384385).
 
 For testing and development, you can use a test EST server. In this tutorial, we'll create a test EST server.
 
@@ -65,7 +68,7 @@ The Dockerfile uses Ubuntu 18.04, a [Cisco library called `libest`](https://gith
     > If you want to host your EST server in Azure Container Instance, change `myestserver.westus.azurecontainer.io` to the DNS name of your EST server. When choosing a DNS name, be aware the DNS label for an Azure Container instance must be at least five characters in length.
 
     ```dockerfile
-    # DO NOT USE IN PRODUCTION - Use only for testing #
+    # DO NOT USE IN PRODUCTION - Use only for testing 
 
     FROM ubuntu:18.04
      
@@ -80,11 +83,27 @@ The Dockerfile uses Ubuntu 18.04, a [Cisco library called `libest`](https://gith
      
     # Setting the root CA expiration to 20 years
     RUN sed -i "s|-days 365|-days 7300 |g" ./createCA.sh
-     
+    
+    ## If you want to use the EST server to issue Edge CA certificates, 
+    ## uncomment the RUN sed section after this comment block. 
+    ## The sed commands add special extensions for Edge CA certificates. For more information see: 
+    ## https://learn.microsoft.com/azure/iot-edge/how-to-manage-device-certificates?tabs=windows#edge-ca-in-production
+    ##
+    ## IMPORTANT:
+    ##   DO NOT issue Edge CA certificates in production.
+    ##   For production, use digital certificates from a trusted CA.
+    ##   See https://techcommunity.microsoft.com/blog/iotblog/automatic-iot-edge-certificate-management-with-globalsign-est/4384385
+    ##
+    ##   Using EST for Edge CA is for demonstration and learning purposes only.
+    ##
+    # RUN sed -i "s|basicConstraints=CA:FALSE|basicConstraints=critical,CA:TRUE,pathlen:0|g" ./estExampleCA.cnf && \
+    #     sed -i "s|keyUsage=digitalSignature|keyUsage=critical,digitalSignature,keyCertSign|g" ./estExampleCA.cnf && \
+    #     sed -i "s|authorityKeyIdentifier=keyid|authorityKeyIdentifier=keyid:always|g" ./estExampleCA.cnf
+
     ## If you want to host your EST server remotely (for example, an Azure Container Instance),
     ## change myestserver.westus.azurecontainer.io to the fully qualified DNS name of your EST server
     ## OR, change the IP address
-    ## and uncomment the corresponding line.
+    ## and uncomment the corresponding lines.
     # RUN sed -i "s|DNS.2 = ip6-localhost|DNS.2 = myestserver.westus.azurecontainer.io|g" ./ext.cnf
     # RUN sed -i "s|IP.2 = ::1|IP.2 = <YOUR EST SERVER IP ADDRESS>|g" ./ext.cnf
      
@@ -125,7 +144,7 @@ The Dockerfile uses Ubuntu 18.04, a [Cisco library called `libest`](https://gith
 1. You should see `-----BEGIN CERTIFICATE-----` midway through the output. Retrieving the certificate verifies that the server is reachable and can present its certificate.
 
 > [!TIP]
-> To run this container in the cloud, build the image and [push the image to Azure Container Registry](../container-registry/container-registry-get-started-portal.md). Then, follow the [quickstart to deploy to Azure Container Instance](../container-instances/container-instances-quickstart-portal.md).
+> To run this container in the cloud, build the image and [push the image to Azure Container Registry](/azure/container-registry/container-registry-get-started-portal). Then, follow the [quickstart to deploy to Azure Container Instance](/azure/container-instances/container-instances-quickstart-portal).
 
 ## Download CA certificate
 
@@ -134,7 +153,7 @@ Each device requires the Certificate Authority (CA) certificate that is associat
 1. On the IoT Edge device, create the `/var/aziot/certs` directory if it doesn't exist then change directory to it.
 
     ```bash
-   # If the certificate directory doen't exist, create, set ownership, and set permissions
+   # If the certificate directory doesn't exist, create, set ownership, and set permissions
    sudo mkdir -p /var/aziot/certs
    sudo chown aziotcs:aziotcs /var/aziot/certs
    sudo chmod 755 /var/aziot/certs
@@ -261,7 +280,7 @@ On the IoT Edge device, update the IoT Edge configuration file to use device cer
     ```
 
     > [!NOTE]
-    > In this example, IoT Edge uses username and password to authenticate to the EST server *everytime* it needs to obtain a certificate. This method isn't recommended in production because 1) it requires storing a secret in plaintext and 2) IoT Edge should use an identity certificate to authenticate to the EST server too. To modify for production: 
+    > In this example, IoT Edge uses username and password to authenticate to the EST server *every time* it needs to obtain a certificate. This method isn't recommended in production because 1) it requires storing a secret in plaintext and 2) IoT Edge should use an identity certificate to authenticate to the EST server too. To modify for production: 
     > 
     > 1. Consider using long-lived *bootstrap certificates* that can be stored onto the device during manufacturing [similar to the recommended approach for DPS](../iot-hub/iot-hub-x509ca-concept.md). To see how to configure bootstrap certificate for EST server, see [Authenticate a Device Using Certificates Issued Dynamically via EST](https://github.com/Azure/iotedge/blob/main/edgelet/doc/est.md). 
     > 1. Configure `[cert_issuance.est.identity_auto_renew]` using the [same syntax](https://github.com/Azure/iotedge/blob/main/edgelet/contrib/config/linux/template.toml#L257) as the provisioning certificate auto-renew configuration above. 
@@ -335,5 +354,5 @@ You can keep the resources and configurations that you created in this tutorial 
 * To use EST server to issue Edge CA certificates, see [example configuration](https://github.com/Azure/iotedge/blob/main/edgelet/doc/est.md#edge-ca-certificate).
 * Using username and password to bootstrap authentication to EST server isn't recommended for production. Instead, consider using long-lived *bootstrap certificates* that can be stored onto the device during manufacturing [similar to the recommended approach for DPS](../iot-hub/iot-hub-x509ca-concept.md). To see how to configure bootstrap certificate for EST server, see [Authenticate a Device Using Certificates Issued Dynamically via EST](https://github.com/Azure/iotedge/blob/main/edgelet/doc/est.md).
 * EST server can be used to issue certificates for all devices in a hierarchy as well. Depending on if you have ISA-95 requirements, it may be necessary to run a chain of EST servers with one at every layer or use the API proxy module to forward the requests. To learn more, see [Kevin's blog](https://kevinsaye.wordpress.com/2021/07/21/deep-dive-creating-hierarchies-of-azure-iot-edge-devices-isa-95-part-3/).
-* For enterprise grade solutions, consider: [GlobalSign IoT Edge Enroll](https://www.globalsign.com/en/iot-edge-enroll) or [DigiCert IoT Device Manager](https://www.digicert.com/iot/iot-device-manager)
+* For enterprise grade solutions, consider: [GlobalSign IoT Edge Enroll](https://www.globalsign.com/en/iot-edge-enroll), [DigiCert IoT Device Manager](https://www.digicert.com/iot/iot-device-manager), and [Keytos EZCA](https://www.keytos.io/docs/azure-pki/azure-iot-hub/how-to-create-azure-iot-est-certificate-authority/).
 * To learn more about certificates, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).

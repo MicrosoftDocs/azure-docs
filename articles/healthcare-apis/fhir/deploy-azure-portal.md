@@ -2,7 +2,7 @@
 title: Deploy the FHIR service in Azure Health Data Services
 description: Learn how to deploy the FHIR service in Azure Health Data Services by using the Azure portal. This article covers prerequisites, workspace deployment, service creation, and security settings.
 author: EXPEkesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.topic: quickstart
 ms.date: 04/30/2024
 ms.author: kesheth
@@ -11,7 +11,7 @@ ms.custom: mode-api
 
 # Deploy the FHIR service by using the Azure portal
 
-The Azure portal provides a web interface with guided workflows, making it an efficient tool for deploying the FHIR service and ensuring accurate configuration within Azure Health Data Services.
+The Azure portal provides a web interface with guided workflows, making it an efficient tool for deploying the FHIR&reg; service, and ensuring accurate configuration within Azure Health Data Services.
 
 ## Prerequisites
 
@@ -52,9 +52,26 @@ The Azure portal provides a web interface with guided workflows, making it an ef
 
 1. Validate the deployment. Fetch the capability statement from your new FHIR service. Fetch a capability statement by browsing to `https://<WORKSPACE-NAME>-<FHIR-SERVICE-NAME>.fhir.azurehealthcareapis.com/metadata`.
 
+## Troubleshoot FHIR service deployment
+ Below are the error messages along with recommended actions to resolve the problems during deployment.
+
+**What should I do if I accidentally deployed the Azure API for FHIR into the wrong subscription, deleted it, and am now facing a deployment failure in the correct subscription with a message stating that the resource name is not available?**
+
+Once a service name has been used, it cannot be reused in a different subscription, even after deletion. This restriction is in place to prevent impersonation and primarily impacts Azure API for FHIR.
+
+If deployed to the wrong subscription, you can move the resource to the desired subscription instead of deleting and recreating it. [Move Azure Resources](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+
+**How can I delete a service and then re-add it with the same settings?**
+
+To replicate settings between FHIR instance, you can follow below steps 
+
+*	Create standard ARM templates with the configurations.
+
+*	Create a service and add configuration as per requirement.
+
 ## Related content
 
-[Access the FHIR service by using Postman](../fhir/use-postman.md)
+[Access the FHIR service](../fhir/get-started-with-fhir.md#access-the-fhir-service)
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
 

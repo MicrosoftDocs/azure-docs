@@ -1,10 +1,10 @@
 ---
 title: Back up file data with MABS
 description: You can back up file data on server and client computers with MABS.
-ms.topic: conceptual
-ms.date: 08/19/2021
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.topic: how-to
+ms.date: 09/11/2024
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up file data with MABS

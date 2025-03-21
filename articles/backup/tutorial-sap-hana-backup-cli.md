@@ -5,8 +5,8 @@ ms.topic: tutorial
 ms.date: 03/20/2024
 ms.custom: devx-track-azurecli, engagement-fy24
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Tutorial: Back up SAP HANA databases in an Azure VM using Azure CLI
@@ -15,7 +15,7 @@ This tutorial describes how to back up SAP HANA database instance and SAP HANA S
 
 Azure CLI is used to create and manage Azure resources from the Command Line or through scripts. This documentation details how to back up an SAP HANA database and trigger on-demand backups - all using Azure CLI. You can also perform these steps using the [Azure portal](./backup-azure-sap-hana-database.md).
 
-This document assumes that you already have an SAP HANA database installed on an Azure VM. (You can also [create a VM using Azure CLI](../virtual-machines/linux/quick-create-cli.md)).
+This document assumes that you already have an SAP HANA database installed on an Azure VM. (You can also [create a VM using Azure CLI](/azure/virtual-machines/linux/quick-create-cli)).
 
 For more information on the supported scenarios, see the [support matrix](./sap-hana-backup-support-matrix.md#scenario-support) for SAP HANA.
 
@@ -27,7 +27,7 @@ For more information on the supported scenarios, see the [support matrix](./sap-
 
 A Recovery Services vault is a logical container that stores the backup data for each protected resource, such as Azure VMs or workloads running on Azure VMs - like SQL or HANA databases. When the backup job for a protected resource runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
 
-Create a Recovery Services vault with [az backup vault create](/cli/azure/backup/vault#az-backup-vault-create). Specify the same resource group and location as the VM you wish to protect. Learn how to create a VM using Azure CLI with this [VM quickstart](../virtual-machines/linux/quick-create-cli.md).
+Create a Recovery Services vault with [az backup vault create](/cli/azure/backup/vault#az-backup-vault-create). Specify the same resource group and location as the VM you wish to protect. Learn how to create a VM using Azure CLI with this [VM quickstart](/azure/virtual-machines/linux/quick-create-cli).
 
 **Choose a database type**:
 # [HANA database](#tab/hana-database)
@@ -120,13 +120,13 @@ To register and protect database instance, follow these steps:
 1. To register and protect the SAP HANA database running on primary Azure VM, run the following command:
 
     ```azurecli
-    az backup container register --resource-group hanarghsr2 --vault-name hanavault10 --workload-type SAPHANA --backup-management-type AzureWorkload --resource-id "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/hanarghsr2/providers/Microsoft.Compute/virtualMachines/hsr-primary"
+    az backup container register --resource-group hanarghsr2 --vault-name hanavault10 --workload-type SAPHANA --backup-management-type AzureWorkload --resource-id "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/hanarghsr2/providers/Microsoft.Compute/virtualMachines/hsr-primary"
     ```
 
 1. To register and protect the SAP HANA database running on secondary Azure VM, run the following command:
 
     ```azurecli
-    az backup container register --resource-group hanarghsr2 --vault-name hanavault10 --workload-type SAPHANA --backup-management-type AzureWorkload --resource-id "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/hanarghsr2/providers/Microsoft.Compute/virtualMachines/hsr-secondary"
+    az backup container register --resource-group hanarghsr2 --vault-name hanavault10 --workload-type SAPHANA --backup-management-type AzureWorkload --resource-id "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/hanarghsr2/providers/Microsoft.Compute/virtualMachines/hsr-secondary"
     ```
 
    To identify `resource-id`, run the following command:
@@ -135,7 +135,7 @@ To register and protect database instance, follow these steps:
     az vm show --name hsr-primary --resource-group hanarghsr2
     ```
 
-    For example, `id` is `/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/hanarghsr2/providers/Microsoft.Compute/virtualMachines/hsr-primary`.
+    For example, `id` is `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/hanarghsr2/providers/Microsoft.Compute/virtualMachines/hsr-primary`.
 
 1. To check if primary and secondary servers are registered to the vault, run the following command:
 

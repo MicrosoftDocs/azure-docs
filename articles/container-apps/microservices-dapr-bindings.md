@@ -19,7 +19,7 @@ In this tutorial, you create a microservice to demonstrate [Dapr's Bindings API]
 > * Run the application locally with the Dapr CLI. 
 > * Deploy the application to Azure Container Apps via the Azure Developer CLI with the provided Bicep. 
 
-The service listens to input binding events from a system CRON and then outputs the contents of local data to a PostreSql output binding.
+The service listens to input binding events from a system CRON and then outputs the contents of local data to a PostgreSql output binding.
 
 :::image type="content" source="media/microservices-dapr-azd/bindings-quickstart.png" alt-text="Diagram of the binding application.":::
 
@@ -133,7 +133,7 @@ cd bindings-dapr-nodejs-cron-postgres
    | Parameter | Description |
    | --------- | ----------- |
    | Environment Name | Prefix for the resource group created to hold all Azure resources. |
-   | Azure Location  | The Azure location for your resources. [Make sure you select a location available for Azure PostgreSQL](../postgresql/flexible-server/overview.md#azure-regions). |
+   | Azure Location  | The Azure location for your resources. [Make sure you select a location available for Azure PostgreSQL](/azure/postgresql/flexible-server/overview#azure-regions). |
    | Azure Subscription | The Azure subscription for your resources. |
 
 1. Run `azd up` to provision the infrastructure and deploy the application to Azure Container Apps in a single command.
@@ -312,7 +312,7 @@ cd bindings-dapr-python-cron-postgres
    | Parameter | Description |
    | --------- | ----------- |
    | Environment Name | Prefix for the resource group created to hold all Azure resources. |
-   | Azure Location  | The Azure location for your resources. [Make sure you select a location available for Azure PostgreSQL](../postgresql/flexible-server/overview.md#azure-regions). |
+   | Azure Location  | The Azure location for your resources. [Make sure you select a location available for Azure PostgreSQL](/azure/postgresql/flexible-server/overview#azure-regions). |
    | Azure Subscription | The Azure subscription for your resources. |
 
 1. Run `azd up` to provision the infrastructure and deploy the application to Azure Container Apps in a single command.
@@ -489,7 +489,7 @@ cd bindings-dapr-csharp-cron-postgres
    | Parameter | Description |
    | --------- | ----------- |
    | Environment Name | Prefix for the resource group created to hold all Azure resources. |
-   | Azure Location  | The Azure location for your resources. [Make sure you select a location available for Azure PostgreSQL](../postgresql/flexible-server/overview.md#azure-regions). |
+   | Azure Location  | The Azure location for your resources. [Make sure you select a location available for Azure PostgreSQL](/azure/postgresql/flexible-server/overview#azure-regions). |
    | Azure Subscription | The Azure subscription for your resources. |
 
 1. Run `azd up` to provision the infrastructure and deploy the application to Azure Container Apps in a single command.

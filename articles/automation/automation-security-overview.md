@@ -4,8 +4,8 @@ description: This article provides an overview of Azure Automation account authe
 keywords: automation security, secure automation; automation authentication
 services: automation
 ms.subservice: process-automation
-ms.date: 10/04/2023
-ms.topic: conceptual 
+ms.date: 09/09/2024
+ms.topic: overview 
 ms.custom:
 ms.service: azure-automation
 ---
@@ -63,7 +63,7 @@ You need the `Microsoft.Authorization/*/Write` permission. This permission is ob
 - [Owner](../role-based-access-control/built-in-roles.md#owner)
 - [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator)
 
-To learn more about classic subscription permissions, see [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
+To learn more about classic subscription permissions, see [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md).
 
 <a name='azure-ad-permissions'></a>
 
@@ -88,7 +88,7 @@ To learn more about the Azure Resource Manager and Classic deployment models, se
 >[!NOTE]
 >Azure Cloud Solution Provider (CSP) subscriptions support only the Azure Resource Manager model. Non-Azure Resource Manager services are not available in the program. When you are using a CSP subscription, the Azure Classic Run As account is not created, but the Azure Run As account is created. To learn more about CSP subscriptions, see [Available services in CSP subscriptions](/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWwtF3]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=5584e967-5b9f-474b-91cd-4e4342b19812]
 
 ## Role-based access control
 

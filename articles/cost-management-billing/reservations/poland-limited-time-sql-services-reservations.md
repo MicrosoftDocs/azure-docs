@@ -6,7 +6,7 @@ ms.reviewer: kyleikeda
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 04/01/2024
+ms.date: 12/06/2024
 ms.author: banders
 ms.custom: references_regions
 ---
@@ -16,7 +16,7 @@ ms.custom: references_regions
 > [!NOTE]
 > This limited-time offer expired on April 1, 2024. You can still purchase Azure Reserved VM Instances at regular discounted prices. For more information about reservation discount, see [How the Azure reservation discount is applied to virtual machines](../manage/understand-vm-reservation-charges.md).
 
-Save up to 66 percent compared to pay-as-you-go pricing when you purchase one or three-year reserved capacity for select [Azure SQL Database](/azure/azure-sql/database/reserved-capacity-overview), [SQL Managed Instances](/azure/azure-sql/database/reserved-capacity-overview), and [Azure Database for MySQL](../../mysql/single-server/concept-reserved-pricing.md) in Poland Central for a limited time. This offer is available between November 1, 2023 – March  31, 2024.
+Save up to 66 percent compared to pay-as-you-go pricing when you purchase one or three-year reserved capacity for select [Azure SQL Database](/azure/azure-sql/database/reserved-capacity-overview), [SQL Managed Instances](/azure/azure-sql/database/reserved-capacity-overview), and [Azure Database for MySQL](/azure/mysql/single-server/concept-reserved-pricing) in Poland Central for a limited time. This offer is available between November 1, 2023 – March  31, 2024.
 
 ## Purchase the limited time offer
 

@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 04/17/2024
 ms.topic: tutorial
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 ms.custom: mvc
 

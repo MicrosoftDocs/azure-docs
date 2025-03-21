@@ -5,7 +5,7 @@ description: Learn about our partners who integrate with Azure AD B2C to provide
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh

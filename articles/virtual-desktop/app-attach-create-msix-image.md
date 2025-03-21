@@ -9,6 +9,9 @@ ms.date: 03/04/2024
 
 # Create an MSIX image to use with app attach in Azure Virtual Desktop
 
+> [!IMPORTANT]
+> MSIX App Attach will be deprecated on June 1, 2025. Make sure to move all apps to App Attach by this date.
+
 To use MSIX packages with app attach and MSIX app attach in Azure Virtual Desktop, you need to expand an MSIX package application into an MSIX image. This article shows you how to create an MSIX image.
 
 ## Prerequisites
@@ -52,7 +55,7 @@ You should create a new folder for the destination because a CIM disk image is m
    msixmgr.exe -Unpack -packagePath "C:\msix\myapp.msix" -destination "C:\msix\myapp\myapp.cim" -applyACLs -create -fileType cim -rootDirectory apps
    ```
 
-   The output should be as follows:
+   The output should be similar to the following example:
 
    ```Output
    Successfully created the CIM file: C:\msix\myapp\myapp.cim
@@ -72,7 +75,7 @@ Here's an example command to create a VHDX disk image from an MSIX image. A sing
    msixmgr.exe -Unpack -packagePath "C:\msix\myapp.msix" -destination "C:\msix\myapp.vhdx" -applyACLs -create -fileType vhdx -rootDirectory apps
    ```
 
-   The output should be as follows:
+   The output should be similar to the following example:
 
    ```Output
    Successfully created virtual disk

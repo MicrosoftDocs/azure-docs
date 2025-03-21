@@ -50,7 +50,7 @@ We support H.264 (MPEG-4) video codec.
 | **Sending video**    | 720P  | 720P  | 720P    | 1080P   |
 | **Sending screen share**    | 1080P  | 1080P  | 1080P    | 1080P   |
 
-The resolution can vary depending on the number of participants on a call, the amount of bandwidth available to the client, hardware capabilities of local participant who renders remote video streans and other overall call parameters.
+The resolution can vary depending on the number of participants on a call, the amount of bandwidth available to the client, hardware capabilities of local participant who renders remote video streams and other overall call parameters.
 
 ## Next steps
 

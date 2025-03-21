@@ -1,24 +1,22 @@
 ---
 title: Azure SQL assessments in Azure Migrate Discovery and assessment tool
 description: Learn about Azure SQL assessments in Azure Migrate Discovery and assessment tool
-author: rashi-ms
-ms.author: rajosh
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/26/2024
-ms.custom: engagement-fy23
+ms.date: 09/26/2024
+ms.custom: engagement-fy25
 ---
 
 # Assessment Overview (migrate to Azure SQL)
 
-This article provides an overview of assessments for migrating on-premises SQL Server instances from a VMware, Microsoft Hyper-V, and Physical environment to SQL Server on Azure VM or Azure SQL Database or Azure SQL Managed Instance using the [Azure Migrate: Discovery and assessment tool](./migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool).
+This article provides an overview of assessments for migrating on-premises SQL Server instances from a VMware, Microsoft Hyper-V, and Physical environment to SQL Server on Azure VM or Azure SQL Database or Azure SQL Managed Instance using the [Azure Migrate: Discovery and assessment tool](./migrate-services-overview.md).
 
 ## What's an assessment?
 An assessment with the Discovery and assessment tool is a point in time snapshot of data and measures the readiness and estimates the effect of migrating on-premises servers to Azure.
 
 ## Types of assessments
 
-There are three types of assessments that you can create using the Azure Migrate: Discovery and assessment tool.
+There are four types of assessments that you can create using the Azure Migrate: Discovery and assessment tool.
 
 **Assessment Type** | **Details**
 --- | --- 
@@ -28,7 +26,7 @@ There are three types of assessments that you can create using the Azure Migrate
 **Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md).
 
 > [!NOTE]
-> If the number of Azure VM or AVS assessments are incorrect on the Discovery and assessment tool, click on the total number of assessments to navigate to all the assessments and recalculate the Azure VM or AVS assessments. The Discovery and assessment tool then shows the correct count for that assessment type. 
+> If the number of Azure VM or AVS assessments are incorrect on the Discovery and assessment tool, select the total number of assessments to navigate to all the assessments and recalculate the Azure VM or AVS assessments. The Discovery and assessment tool then shows the correct count for that assessment type. 
 
 An Azure SQL assessment provides two sizing criteria:
 

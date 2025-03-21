@@ -7,7 +7,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: overview
-ms.date: 04/25/2024
+ms.date: 01/07/2025
 ms.author: banders
 ---
 

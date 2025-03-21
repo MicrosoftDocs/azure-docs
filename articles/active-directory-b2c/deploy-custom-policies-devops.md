@@ -6,12 +6,12 @@ description: Learn how to deploy Azure AD B2C custom policies in a CI/CD pipelin
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer managing Azure AD B2C custom policies, I want to automate the deployment process using Azure Pipelines, so that I can consistently test, build, and ship my code to any target.

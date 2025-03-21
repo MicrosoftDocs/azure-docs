@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: How to add a polygon extrusion layer to the Microsoft Azure Maps Web SDK.
 author: sinnypan
 ms.author: sipa
-ms.date: 06/15/2023
+ms.date: 08/28/2024
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: web-sdk

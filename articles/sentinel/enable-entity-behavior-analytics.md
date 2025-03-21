@@ -4,11 +4,15 @@ description: Enable User and Entity Behavior Analytics in Microsoft Sentinel, an
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 03/18/2024
+ms.date: 10/16/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to configure User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel so that I can detect and analyze anomalous activities more effectively.
+
 ---
 
 # Enable User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel
@@ -24,7 +28,7 @@ As Microsoft Sentinel collects logs and alerts from all of its connected data so
 
 To enable or disable this feature (these prerequisites are not required to use the feature):
 
-- Your user must be assigned the Microsoft Entra ID **Global Administrator** or **Security Administrator** roles in your tenant.
+- Your user must be assigned to the Microsoft Entra ID **Security Administrator** role in your tenant or the equivalent permissions.
 
 - Your user must be assigned at least one of the following **Azure roles** ([Learn more about Azure RBAC](roles.md)):
     - **Microsoft Sentinel Contributor** at the workspace or resource group levels.
@@ -39,7 +43,7 @@ To enable or disable this feature (these prerequisites are not required to use t
 ## How to enable User and Entity Behavior Analytics
 
 - Users of Microsoft Sentinel in the Azure portal, follow the instructions in the **Azure portal** tab.
-- Users of Microsoft Sentinel as part of the unified security operations platform in the Microsoft Defender portal, follow the instructions in the **Defender portal** tab.
+- Users of Microsoft Sentinel as part of the Microsoft Defender portal, follow the instructions in the **Defender portal** tab.
 
 1. Go to the **Entity behavior configuration** page.
 

@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 manager: rochakm
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 09/21/2023
+ms.date: 03/21/2025
 ms.author: ankitadutta
 
 ---
@@ -16,6 +16,9 @@ This article provides guidance on customizing networking configurations on the t
 The purpose of this document is to provide steps to configure Proxy Settings for Azure Site Recovery Mobility Service in the Azure to Azure Disaster Recovery scenario. 
 
 Proxies are network gateways that allow/disallow network connections to endpoints. Typically a proxy is a machine outside the client machine that tries to access network endpoints. A bypass list allows the client to make connections directly to the endpoints without going through the proxy. A username and password may be optionally set for a proxy by network admins so that only authenticated clients can use proxy. 
+
+> [!NOTE]
+> Azure Site Recovery doesn't support PAC files as a proxy.
 
 ## Before you start
 
@@ -32,8 +35,8 @@ Mobility Service supports unauthenticated proxies only. It provides two ways to 
 Mobility Service auto detects the proxy settings from environment settings or Internet Explorer settings (Windows only) during enable replication. 
 
 - **Windows OS**: During Enable Replication, Mobility Service detects the proxy settings as configured in Internet Explorer for Local System user. To set up proxy for Local System account, an administrator may use `psexec` to launch a command prompt and then Internet Explorer. 
-    The proxy settings are configured as environment variables `http_proxy` and `no_proxy`. 
-- **Linux OS**: The proxy settings are configured in /etc/profile or /etc/environment as environment variables `http_proxy` and `no_proxy`. 
+    The proxy settings are configured as environment variables `https_proxy` and `no_proxy`. 
+- **Linux OS**: The proxy settings are configured in /etc/profile or /etc/environment as environment variables `https_proxy` and `no_proxy`. 
 - **Auto-detected proxy settings**: The auto-detected proxy settings are saved to Mobility Service proxy config file `ProxyInfo.conf` 
     The default location of ProxyInfo.conf is:
         - **Windows**: C:\ProgramData\Microsoft Azure Site Recovery\Config\ProxyInfo.conf 
@@ -42,7 +45,8 @@ Mobility Service auto detects the proxy settings from environment settings or In
 
 ### Method 2: Provide custom application proxy settings
 
-In this case, the customer provides custom application proxy settings in Mobility Service config file ProxyInfo.conf. This method allows customers to provide proxy only for Mobility Service or a different proxy for Azure Site Recovery Mobility Service than a proxy (or no proxy) for rest of the applications on the machine.
+In this case, the customer provides custom application proxy settings in Mobility Service config file ProxyInfo.conf. This method allows customers to provide proxy only for Mobility Service or a different proxy for Azure Site Recovery Mobility Service than a proxy (or no proxy) for rest of the applications on the machine. Check whether the file `C:\ProgramData\Microsoft Azure Site Recovery\Config\ProxyInfo.conf` has any proxy entry. In case the file doesn't exist, create one.
+
 
 ## Proxy template
 

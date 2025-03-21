@@ -140,7 +140,7 @@ derive1 sink(allowSchemaDrift: true,
 
 Script snippets are shareable code of Data Flow Script that you can use to share across data flows. This video below talks about how to use script snippets and utilizing Data Flow Script to copy and paste portions of the script behind your data flow graphs:
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tA9b]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=a0b4b213-00d1-4cee-a817-51bf52ef50c0]
 
 
 ### Aggregated summary stats

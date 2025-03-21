@@ -1,16 +1,13 @@
 ---
 title: Delegated access in Azure Virtual Desktop - Azure
 description: How to delegate administrative capabilities on an Azure Virtual Desktop deployment, including examples.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.author: helohr 
-ms.custom: devx-track-azurepowershell
+ms.author: daknappe
+ms.custom: devx-track-azurepowershell, docs_inherited
 ---
 # Delegated access in Azure Virtual Desktop
-
->[!IMPORTANT]
->This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/delegated-access-virtual-desktop-2019.md).
 
 Azure Virtual Desktop has a delegated access model that lets you define the amount of access a particular user is allowed to have by assigning them a role. A role assignment has three components: security principal, role definition, and scope. The Azure Virtual Desktop delegated access model is based on the Azure RBAC model. To learn more about specific role assignments and their components, see [the Azure role-based access control overview](../role-based-access-control/built-in-roles.md).
 

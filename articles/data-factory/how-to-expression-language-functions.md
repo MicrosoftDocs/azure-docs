@@ -3,10 +3,10 @@ title: How to use parameters and expressions in Azure Data Factory
 description: This How To article provides information about expressions and functions that you can use in creating data factory entities.
 author: ssabat
 ms.author: susabat
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ---
 
 # How to use parameters, expressions and functions in Azure Data Factory

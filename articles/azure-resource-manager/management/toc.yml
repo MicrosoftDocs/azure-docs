@@ -35,17 +35,17 @@
   items:
   - name: Move resources
     items:
-    - name: Overview
+    - name: Introduction to move
       href: move-resources-overview.md
     - name: Move across resource groups/subscriptions
       href: move-resource-group-and-subscription.md
     - name: Move across regions
       href: ../../resource-mover/move-region-within-resource-group.md?toc=/azure/azure-resource-manager/management/toc.json
-    - name: Supported resources
+    - name: Resources supported for move
       href: move-support-resources.md
-    - name: Services
+    - name: Azure services
       items:
-      - name: Resource groups/subscriptions
+      - name: Across resource groups/subscriptions
         items:
         - name: App Service
           href: ./move-limitations/app-service-move-limitations.md
@@ -63,7 +63,7 @@
           href: ../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Virtual Machines
           href: ./move-limitations/virtual-machines-move-limitations.md
-      - name: Regions
+      - name: Across regions
         items:
         - name: Azure API Management
           href: ../../api-management/api-management-howto-migrate.md?toc=/azure/azure-resource-manager/management/toc.json
@@ -78,17 +78,17 @@
         - name: Azure Cache for Redis
           href: ../../azure-cache-for-redis/cache-moving-resources.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure AI Search
-          href: ../../search/search-howto-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: /azure/search/search-howto-move-across-regions?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Container Registry
-          href: ../../container-registry/manual-regional-move.md
+          href: /azure/container-registry/manual-regional-move
         - name: Azure Cosmos DB
-          href: ../../cosmos-db/how-to-move-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: /azure/cosmos-db/how-to-move-regions?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Database for MariaDB Server
-          href: ../../mariadb/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: /azure/mariadb/howto-move-regions-portal?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Database for MySQL Server
-          href: ../../mysql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: /azure/mysql/howto-move-regions-portal?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Database for PostgreSQL Server
-          href: ../../postgresql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: /azure/postgresql/howto-move-regions-portal?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Event Hubs
           href: ../../operational-excellence/relocation-event-hub.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Functions
@@ -112,7 +112,7 @@
         - name: Logic apps
           href: ../../logic-apps/move-logic-app-resources.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Maintenance Control configuration
-          href: ../../virtual-machines/move-region-maintenance-configuration.md?toc=/azure/azure-resource-manager/management/toc.json
+          href: /azure/virtual-machines/move-region-maintenance-configuration?toc=/azure/azure-resource-manager/management/toc.json
         - name: Networking
           href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Managed identities for Azure Resources
@@ -206,6 +206,8 @@
     href: monitor-resource-manager.md
   - name: Resource group insights
     href: resource-group-insights.md
+  - name: Configure data boundary
+    href: manage-data-boundary.md
 - name: Reference
   items:
   - name: REST

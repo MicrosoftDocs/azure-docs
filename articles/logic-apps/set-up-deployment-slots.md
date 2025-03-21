@@ -10,19 +10,15 @@ ms.date: 04/26/2024
 #Customer intent: As a logic app developer, I want to set up deployment slots on my logic app resource so that I can deploy with zero downtime.
 ---
 
-# Set up deployment slots to enable zero downtime deployment in Azure Logic Apps (preview)
+# Set up deployment slots to enable zero downtime deployment in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
-
-> [!NOTE]
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To deploy mission-critical logic apps that are always available and responsive, even during updates or maintenance, you can enable zero downtime deployment by creating and using deployment slots. Zero downtime means that when you deploy new versions of your app, end users shouldn't experience disruption or downtime. Deployment slots are isolated nonproduction environments that host different versions of your app and provide the following benefits:
 
 - Swap a deployment slot with your production slot without interruption. That way, you can update your logic app and workflows without affecting availability or performance.
 
-- Test and validate any changes in a deployment slot before you apply those changes to the production slot.
+- Validate any changes in a deployment slot before you apply those changes to the production slot.
 
 - Roll back to a previous version, if anything goes wrong with your deployment.
 
@@ -64,7 +60,7 @@ The following options are available for you to create a deployment slot:
 
 1. In [Azure portal](https://portal.azure.com), open your Standard logic app resource where you want to create a deployment slot.
 
-1. On the resource menu, under **Deployment**, select **Deployment slots (Preview)**.
+1. On the resource menu, under **Deployment**, select **Deployment slots**.
 
 1. On the toolbar, select **Add**.
 
@@ -108,9 +104,9 @@ After you create the deployment slot, confirm that the slot exists on your deplo
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. On the resource menu, under **Deployment**, select **Deployment slots (Preview)**.
+1. On the resource menu, under **Deployment**, select **Deployment slots**.
 
-1. On the **Deployment slots** page, under **Deployment Slots (Preview)**, find and select your new deployment slot.
+1. On the **Deployment slots** page, under **Deployment Slots**, find and select your new deployment slot.
 
    > [!NOTE]
    >
@@ -156,9 +152,9 @@ After you deploy your changes, confirm that the changes appear in your deployed 
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. On the resource menu, under **Deployment**, select **Deployment slots (Preview)**.
+1. On the resource menu, under **Deployment**, select **Deployment slots**.
 
-1. On the **Deployment slots** page, under **Deployment Slots (Preview)**, find and select your deployment slot.
+1. On the **Deployment slots** page, under **Deployment Slots**, find and select your deployment slot.
 
 1. On the resource menu, select **Overview**. On the **Notifications** tab, check whether any deployment issues exist, for example, errors that might happen during app startup or around slot swapping:
 
@@ -174,7 +170,7 @@ The following options are available for you to swap a deployment slot with the c
 
 1. In [Azure portal](https://portal.azure.com), open your Standard logic app resource where you want to swap slots.
 
-1. On the resource menu, under **Deployment**, select **Deployment slots (Preview)**.
+1. On the resource menu, under **Deployment**, select **Deployment slots**.
 
 1. On the toolbar, select **Swap**.
 
@@ -234,9 +230,9 @@ The following options are available for you to delete a deployment slot from you
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. On the resource menu, under **Deployment**, select **Deployment slots (Preview)**.
+1. On the resource menu, under **Deployment**, select **Deployment slots**.
 
-1. On the **Deployment slots** page, under **Deployment Slots (Preview)**, select the deployment slot that you want to delete.
+1. On the **Deployment slots** page, under **Deployment Slots**, select the deployment slot that you want to delete.
 
 1. On the deployment slot resource menu, select **Overview**.
 
@@ -276,9 +272,9 @@ After you delete a deployment slot, verify that the slot no longer exists on you
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. On the resource menu, under **Deployment**, select **Deployment slots (Preview)**.
+1. On the resource menu, under **Deployment**, select **Deployment slots**.
 
-1. On the **Deployment slots** page, under **Deployment Slots (Preview)**, confirm that the deployment slot no longer exists.
+1. On the **Deployment slots** page, under **Deployment Slots**, confirm that the deployment slot no longer exists.
 
 ## Related content
 

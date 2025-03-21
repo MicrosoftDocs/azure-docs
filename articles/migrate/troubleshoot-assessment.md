@@ -1,18 +1,15 @@
 ---
 title: Common issues in Azure Migrate assessments
 description: Get help with assessment issues in Azure Migrate.
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.service: azure-migrate
-ms.date: 02/20/2024
+ms.date: 09/26/2024
 ms.custom: engagement-fy24
 ---
 
 # Common issues in Azure Migrate assessments
 
-This article helps you troubleshoot issues with assessment and dependency visualization with [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool). See articles [Supported Scenarios](troubleshoot-assessment-supported-scenarios.md) for troubleshooting assessments scenarios and [FAQ](troubleshoot-assessment-faq.md) for commonly questions about troubleshoot issues with assessment.
+This article helps you troubleshoot issues with assessment and dependency visualization with [Azure Migrate: Discovery and assessment](migrate-services-overview.md). See articles [Supported Scenarios](troubleshoot-assessment-supported-scenarios.md) for troubleshooting assessments scenarios and [FAQ](troubleshoot-assessment-faq.md) for commonly questions about troubleshoot issues with assessment.
 
 ## Common assessment errors
 
@@ -213,7 +210,7 @@ The required privileges of guest operations haven't been enabled on the vCenter 
 
 #### Recommended Action
 
-Ensure that the vCenter Server user account has privileges enabled for **Virtual Machines** > **Guest Operations** to interact with the server and pull the required data. [Learn more](./vmware/tutorial-discover-vmware.md#create-an-account-to-access-vcenter-server) on how to set up the vCenter Server account with required privileges.
+Ensure that the vCenter Server user account has privileges enabled for **Virtual Machines** > **Guest Operations** to interact with the server and pull the required data. [Learn more](tutorial-discover-vmware.md#create-an-account-to-access-vcenter-server) on how to set up the vCenter Server account with required privileges.
 
 ### Error Code: 9022: The access is denied to run the Get-WmiObject cmdlet on the server.
 
@@ -251,19 +248,19 @@ Azure supports only [selected Windows OS versions](/troubleshoot/azure/virtual-m
 
 #### Fix
 
-Azure endorses only [selected Linux OS versions](../virtual-machines/linux/endorsed-distros.md). Consider upgrading the server before you migrate to Azure.
+Azure endorses only [selected Linux OS versions](/azure/virtual-machines/linux/endorsed-distros). Consider upgrading the server before you migrate to Azure.
 
 ### Issue: Unendorsed Linux OS
 
 #### Fix
 
-The server might start in Azure, but Azure provides no operating system support. Consider upgrading to an [endorsed Linux version](../virtual-machines/linux/endorsed-distros.md) before you migrate to Azure.
+The server might start in Azure, but Azure provides no operating system support. Consider upgrading to an [endorsed Linux version](/azure/virtual-machines/linux/endorsed-distros) before you migrate to Azure.
 
 ### Issue: Unknown operating system
 
 #### Fix
 
-The operating system of the VM was specified as **Other** in vCenter Server or could not be identified as a known OS in Azure Migrate. This behavior blocks Azure Migrate from verifying the Azure readiness of the VM. Ensure that the operating system is [supported](./migrate-support-matrix-vmware-migration.md#azure-vm-requirements) by Azure before you migrate the server.
+The operating system of the VM was specified as **Other** in vCenter Server or could not be identified as a known OS in Azure Migrate. This behavior blocks Azure Migrate from verifying the Azure readiness of the VM. Ensure that the operating system is [supported](migrate-support-matrix-vmware-migration.md#azure-vm-requirements) by Azure before you migrate the server.
 
 ### Issue: Unsupported bit version
 
@@ -299,7 +296,7 @@ Use a different target location before migration.
 
 #### Fix
 
-One or more disks attached to the VM don't meet Azure requirements.<br><br> Azure Migrate: Discovery and assessment assess the disks based on the disk limits for Ultra disks (64 TB).<br><br> For each disk attached to the VM, make sure that the size of the disk is < 64 TB (supported by Ultra SSD disks).<br><br> If it isn't, reduce the disk size before you migrate to Azure, or use multiple disks in Azure and [stripe them together](../virtual-machines/premium-storage-performance.md#disk-striping) to get higher storage limits. Make sure that the performance (IOPS and throughput) needed by each disk is supported by [Azure managed virtual machine disks](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-storage-limits).
+One or more disks attached to the VM don't meet Azure requirements.<br><br> Azure Migrate: Discovery and assessment assess the disks based on the disk limits for Ultra disks (64 TB).<br><br> For each disk attached to the VM, make sure that the size of the disk is < 64 TB (supported by Ultra SSD disks).<br><br> If it isn't, reduce the disk size before you migrate to Azure, or use multiple disks in Azure and [stripe them together](/azure/virtual-machines/premium-storage-performance#disk-striping) to get higher storage limits. Make sure that the performance (IOPS and throughput) needed by each disk is supported by [Azure managed virtual machine disks](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-storage-limits).
 
 ### Issue: One or more unsuitable network adapters
 
@@ -317,7 +314,7 @@ Remove unused disks from the server before migration.
 
 #### Fix
 
-Azure Migrate: Discovery and assessment support disks with up to 64 TB size (Ultra disks). Shrink disks to less than 64 TB before migration, or use multiple disks in Azure and [stripe them together](../virtual-machines/premium-storage-performance.md#disk-striping) to get higher storage limits.
+Azure Migrate: Discovery and assessment support disks with up to 64 TB size (Ultra disks). Shrink disks to less than 64 TB before migration, or use multiple disks in Azure and [stripe them together](/azure/virtual-machines/premium-storage-performance#disk-striping) to get higher storage limits.
 
 ### Issue: Disk unavailable in the specified location
 

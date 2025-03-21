@@ -1472,14 +1472,8 @@ async def main(req: func.HttpRequest, client) -> func.HttpResponse:
 ::: zone-end
 ::: zone pivot="powershell"
 
-> [!NOTE]
-> Durable entities are currently not supported in PowerShell.
-
 ::: zone-end
 ::: zone pivot="java"
-
-> [!NOTE]
-> Durable entities are currently not supported in Java.
 
 ::: zone-end
 

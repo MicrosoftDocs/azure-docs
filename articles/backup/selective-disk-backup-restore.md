@@ -2,11 +2,11 @@
 title: Selective disk backup and restore for Azure virtual machines
 description: In this article, learn about selective disk backup and restore using the Azure virtual machine backup solution.
 ms.topic: how-to
-ms.date: 10/16/2023
+ms.date: 08/21/2024
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell, engagement-fy24
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
  
 # Selective disk backup and restore for Azure virtual machines
@@ -21,7 +21,7 @@ This is supported both for Enhanced Policy as well as Standard Policy.          
 >[!Note]
 >- This is supported for both backup policies - [Enhanced policy](backup-azure-vms-enhanced-policy.md) and [Standard policy](backup-during-vm-creation.md#create-a-vm-with-backup-configured).
 >- The *Selective disk backup and restore in Enhanced policy* is available in all Azure regions including Public, Government, and Air-Gapped regions.
->- If you use selective disk backup with *Enhanced policy* on a Linux VM, ensure that *lsblk* and *lssci* are available in your distribution so that the disks are [excluded](selective-disk-backup-restore.md#enhanced-policy). 
+>- If you use selective disk backup with *Enhanced policy* on a Linux VM, ensure that *lsblk* and *lsscsi* are available in your distribution so that the disks are [excluded](selective-disk-backup-restore.md#enhanced-policy). 
 
 ## Scenarios
 
@@ -92,7 +92,7 @@ az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name
 ### Backup only OS disk during modify protection with Azure CLI
 
 ```azurecli
-az backup protection update-for-vm --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} --backup-management-type AzureIaasVM --exclude-all-data-disks
+ az backup protection update-for-vm --vault-name MyVault --resource-group MyResourceGroup --container-name MyContainer --item-name MyItem --disk-list-setting exclude --diskslist 1.
 ```
 
 ### Restore disks with Azure CLI

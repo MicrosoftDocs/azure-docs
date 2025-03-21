@@ -2,15 +2,18 @@
 title:  Debug HTTP headers for Azure CDN from Microsoft
 description: Debug cache request headers provide additional information about the cache policy applied to the requested asset. These headers are specific to Azure CDN from Microsoft.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
-ms.topic: article
+ms.topic: concept-article
 ms.date: 03/20/2024
-ms.author: duau
+ROBOTS: NOINDEX
 ---
 
 # Debug HTTP header for Azure CDN from Microsoft
+
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 The debug response header, `X-Cache`, provides details as to what layer of the CDN stack the content was served from. This header is specific to Azure CDN from Microsoft.
 

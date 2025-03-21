@@ -2,9 +2,14 @@
 title: Azure Functions Scenarios 
 description: Identify key scenarios that use Azure Functions to provide serverless compute resources in aa Azure cloud-based topology. 
 ms.topic: conceptual
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 05/15/2023
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+ms.custom: 
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+ms.collection: 
+  - ce-skilling-ai-copilot
+ms.date: 12/19/2024
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Functions scenarios
@@ -24,7 +29,7 @@ For example, in a retail solution, a partner system can submit product catalog i
 [ ![Diagram of a file upload process using Azure Functions.](./media/functions-scenarios/process-file-uploads.png) ](./media/functions-scenarios/process-file-uploads-expanded.png#lightbox)
 
 
-The following tutorials use an Event Grid trigger to process files in a blob container:
+The following tutorials use a Blob trigger (Event Grid based) to process files in a blob container:
 
 ::: zone pivot="programming-language-csharp" 
 
@@ -50,8 +55,7 @@ public static async Task Run([BlobTrigger("catalog-uploads/{name}", Source = Blo
 }
 ```
 
-+ [Upload and analyze a file with Azure Functions and Blob Storage](../storage/blobs/blob-upload-function-trigger.md?tabs=dotnet)
-+ [Automate resizing uploaded images using Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md?tabs=dotnet)
++ [Upload and analyze a file with Azure Functions and Blob Storage](../storage/blobs/blob-upload-function-trigger.md)
 + [Trigger Azure Functions on blob containers using an event subscription](functions-event-grid-blob-trigger.md?pivots=programming-language-csharp)
 ::: zone-end
 
@@ -60,13 +64,16 @@ public static async Task Run([BlobTrigger("catalog-uploads/{name}", Source = Blo
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript" 
-+ [Upload and analyze a file with Azure Functions and Blob Storage](../storage/blobs/blob-upload-function-trigger.md?tabs=nodejsv10)
-+ [Automate resizing uploaded images using Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md?tabs=nodejsv10)
++ [Upload and analyze a file with Azure Functions and Blob Storage](../storage/blobs/blob-upload-function-trigger-javascript.md)
 + [Trigger Azure Functions on blob containers using an event subscription](functions-event-grid-blob-trigger.md?pivots=programming-language-javascript)
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell" 
 + [Trigger Azure Functions on blob containers using an event subscription](functions-event-grid-blob-trigger.md?pivots=programming-language-powershell)
+::: zone-end
+
+::: zone pivot="programming-language-typescript" 
++ [Trigger Azure Functions on blob containers using an event subscription](functions-event-grid-blob-trigger.md?pivots=programming-language-typescript)
 ::: zone-end
 
 ::: zone pivot="programming-language-java" 
@@ -75,7 +82,7 @@ public static async Task Run([BlobTrigger("catalog-uploads/{name}", Source = Blo
 
 ## Real-time stream and event processing
 
-So much telemetry is generated and collected from cloud applications, IoT devices, and networking devices. Azure Functions can process that data in near real-time as the hot path, then store it in [Azure Cosmos DB](../cosmos-db/introduction.md) for use in an analytics dashboard.
+So much telemetry is generated and collected from cloud applications, IoT devices, and networking devices. Azure Functions can process that data in near real-time as the hot path, then store it in [Azure Cosmos DB](/azure/cosmos-db/introduction) for use in an analytics dashboard.
 
 Your functions can also use low-latency event triggers, like Event Grid, and real-time outputs like SignalR to process data in near-real-time.  
 
@@ -90,11 +97,11 @@ For example, using the event hubs trigger to read from an event hub and the outp
 public static async Task Run(
     [EventHubTrigger(
         "%Input_EH_Name%",
-        Connection = "InputEventHubConnectionString",
+        Connection = "InputEventHubConnectionSetting",
         ConsumerGroup = "%Input_EH_ConsumerGroup%")] EventData[] inputMessages,
     [EventHub(
         "%Output_EH_Name%",
-        Connection = "OutputEventHubConnectionString")] IAsyncCollector<SensorDataRecord> outputMessages,
+        Connection = "OutputEventHubConnectionSetting")] IAsyncCollector<SensorDataRecord> outputMessages,
     PartitionContext partitionContext,
     ILogger log)
 {
@@ -105,7 +112,6 @@ public static async Task Run(
     await xformer.Transform(debatchedMessages, partitionContext.PartitionId, outputMessages);
 }
 ```
-+ [Service Bus trigger using virtual network integration](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/E2E/SB-VNET/)
 + [Streaming at scale with Azure Event Hubs, Functions and Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-functions-azuresql)
 + [Streaming at scale with Azure Event Hubs, Functions and Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-functions-cosmosdb)
 + [Streaming at scale with Azure Event Hubs with Kafka producer, Functions with Kafka trigger and Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubskafka-functions-cosmosdb)
@@ -115,25 +121,21 @@ public static async Task Run(
 ::: zone-end
 
 ::: zone pivot="programming-language-python" 
-+ [Service Bus trigger using virtual network integration](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/E2E/SB-VNET/)
 + [Azure Event Hubs trigger for Azure Functions](functions-bindings-event-hubs-trigger.md?pivots=programming-language-python)
 + [Apache Kafka trigger for Azure Functions](functions-bindings-kafka-trigger.md?pivots=programming-language-python)
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript" 
-+ [Service Bus trigger using virtual network integration](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/E2E/SB-VNET/)
 + [Azure Event Hubs trigger for Azure Functions](functions-bindings-event-hubs-trigger.md?pivots=programming-language-javascript)
 + [Apache Kafka trigger for Azure Functions](functions-bindings-kafka-trigger.md?pivots=programming-language-javascript)
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell" 
-+ [Service Bus trigger using virtual network integration](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/E2E/SB-VNET/)
 + [Azure Event Hubs trigger for Azure Functions](functions-bindings-event-hubs-trigger.md?pivots=programming-language-powershell)
 + [Apache Kafka trigger for Azure Functions](functions-bindings-kafka-trigger.md?pivots=programming-language-powershell)
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-+ [Service Bus trigger using virtual network integration](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/E2E/SB-VNET/) 
 + [Azure Functions Kafka trigger Java Sample](https://github.com/azure/azure-functions-kafka-extension/tree/main/samples/WalletProcessing_KafkademoSample)
 + [Azure Event Hubs trigger for Azure Functions](functions-bindings-event-hubs-trigger.md?pivots=programming-language-java)
 + [Apache Kafka trigger for Azure Functions](functions-bindings-kafka-trigger.md?pivots=programming-language-java)
@@ -141,7 +143,7 @@ public static async Task Run(
 
 ## Machine learning and AI
 
-Besides data processing, Azure Functions can be used to infer on models. The [Azure OpenAI binding extension](./functions-bindings-openai.md) lets easily integrate features and behaviors of the [Azure OpenAI service](../ai-services/openai/overview.md) into your function code executions.
+Besides data processing, Azure Functions can be used to infer on models. The [Azure OpenAI binding extension](./functions-bindings-openai.md) lets easily integrate features and behaviors of the [Azure OpenAI service](/azure/ai-services/openai/overview) into your function code executions.
 
 Functions can connect to an OpenAI resources to enable text and chat completions, use assistants, and leverage embeddings and semantic search.   
 
@@ -151,6 +153,7 @@ A function might also call a TensorFlow model or Azure AI services to process an
 
 ::: zone pivot="programming-language-csharp"  
 + Tutorial: [Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-csharp)
++ Sample: [Upload text files and access data using various OpenAI features](https://github.com/azure-samples/azure-functions-openai-demo) 
 + Sample: [Text summarization using AI Cognitive Language Service](https://github.com/Azure-Samples/function-csharp-ai-textsummarize)
 + Sample: [Text completion using Azure OpenAI](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/textcompletion/csharp-ooproc)
 + Sample: [Provide assistant skills to your model](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/assistant/csharp-ooproc)
@@ -168,6 +171,13 @@ A function might also call a TensorFlow model or Azure AI services to process an
 + Tutorial: [Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-javascript)
 + Training: [Create a custom skill for Azure AI Search](/training/modules/create-enrichment-pipeline-azure-cognitive-search)
 + Sample: [Chat using ChatGPT](https://github.com/Azure-Samples/function-javascript-ai-openai-chatgpt)
++ Sample: [Upload text files and access data using various OpenAI features](https://github.com/azure-samples/azure-functions-openai-demo)
+::: zone-end
+::: zone pivot="programming-language-typescript"  
++ Tutorial: [Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-typescript)
++ Training: [Create a custom skill for Azure AI Search](/training/modules/create-enrichment-pipeline-azure-cognitive-search)
++ Sample: [Chat using ChatGPT](https://github.com/Azure-Samples/function-javascript-ai-openai-chatgpt)
++ Sample: [Upload text files and access data using various OpenAI features](https://github.com/azure-samples/azure-functions-openai-demo)
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 + Tutorial: [Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-python)
@@ -277,8 +287,9 @@ public static async Task<IActionResult> Run(
 
 + Article: [Create serverless APIs in Visual Studio using Azure Functions and API Management integration](./openapi-apim-integrate-visual-studio.md) 
 + Training: [Expose multiple function apps as a consistent API by using Azure API Management](/training/modules/build-serverless-api-with-functions-api-management/)
++ Sample: [Implement the geode pattern by deploying the API to geodes in distributed Azure regions.](https://github.com/mspnp/geode-pattern-accelerator)
++ Article: [Azure Functions HTTP trigger](functions-bindings-http-webhook.md?pivots=programming-language-csharp)
 + Sample: [Web application with a C# API and Azure SQL DB on Static Web Apps and Functions](/samples/azure-samples/todo-csharp-sql-swa-func/todo-csharp-sql-swa-func/)
-+ [Azure Functions HTTP trigger](functions-bindings-http-webhook.md?pivots=programming-language-csharp)
 ::: zone-end
 
 ::: zone pivot="programming-language-python" 
@@ -292,10 +303,12 @@ public static async Task<IActionResult> Run(
 ::: zone pivot="programming-language-powershell" 
 + [Azure Functions HTTP trigger](functions-bindings-http-webhook.md?pivots=programming-language-powershell)
 ::: zone-end
-
+::: zone pivot="programming-language-typescript" 
++ [Azure Functions HTTP trigger](functions-bindings-http-webhook.md?pivots=programming-language-typescript)
+::: zone-end
 ::: zone pivot="programming-language-java"
 + Training: [Develop Java serverless Functions on Azure using Maven](/training/modules/develop-azure-functions-app-with-maven-plugin/)
-+ [Azure Functions HTTP trigger](functions-bindings-http-webhook.md?pivots=programming-language-java)
++ Article: [Azure Functions HTTP trigger](functions-bindings-http-webhook.md?pivots=programming-language-java)
 ::: zone-end  
 
 ## Build a serverless workflow
@@ -312,6 +325,11 @@ Functions is often the compute component in a serverless workflow topology, such
 
 ::: zone pivot="programming-language-javascript" 
 + Quickstart: [Create your first durable function in Azure using JavaScript](./durable/quickstart-js-vscode.md)
++ Training: [Deploy serverless APIs with Azure Functions, Logic Apps, and Azure SQL Database](/training/modules/deploy-backend-apis/)
+::: zone-end
+
+::: zone pivot="programming-language-typescript" 
++ Quickstart: [Create your first durable function in Azure using JavaScript](./durable/quickstart-ts-vscode.md)
 + Training: [Deploy serverless APIs with Azure Functions, Logic Apps, and Azure SQL Database](/training/modules/deploy-backend-apis/)
 ::: zone-end
 
@@ -334,7 +352,9 @@ There are processes where you might need to log, audit, or perform some other op
 
 [ ![Diagram of a function being used to respond to database changes.](./media/functions-scenarios/respond-to-database-changes.png) ](./media/functions-scenarios/respond-to-database-changes-expanded.png#lightbox)
 
- Consider the following examples:
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python" 
+Consider these examples:
+::: zone-end
 
 ::: zone pivot="programming-language-csharp" 
 + Article: [Connect Azure Functions to Azure Cosmos DB using Visual Studio Code](functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-csharp&tabs=isolated-process)
@@ -360,7 +380,7 @@ For example, you can use triggers on Azure Storage queues as a way to chain toge
 
 [ ![Diagram of Azure Functions in a reliable message system.](./media/functions-scenarios/create-reliable-message-systems.png) ](./media/functions-scenarios/create-reliable-message-systems-expanded.png#lightbox)
 
- The following article shows how to write output to a storage queue.
+These articles show how to write output to a storage queue:
 
 ::: zone pivot="programming-language-csharp" 
 + Article: [Connect Azure Functions to Azure Storage using Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-csharp&tabs=isolated-process)
@@ -398,7 +418,9 @@ And these articles show how to trigger from an Azure Service Bus queue or topic.
 ::: zone pivot="programming-language-javascript" 
 + [Azure Service Bus trigger for Azure Functions](functions-bindings-service-bus-trigger.md?pivots=programming-language-javascript)
 ::: zone-end
-
+::: zone pivot="programming-language-typescript" 
++ [Azure Service Bus trigger for Azure Functions](functions-bindings-service-bus-trigger.md?pivots=programming-language-typescript)
+::: zone-end
 ::: zone pivot="programming-language-python" 
 + [Azure Service Bus trigger for Azure Functions](functions-bindings-service-bus-trigger.md?pivots=programming-language-python)
 ::: zone-end

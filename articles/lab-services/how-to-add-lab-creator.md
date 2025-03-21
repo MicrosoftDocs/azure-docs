@@ -5,8 +5,8 @@ description: Learn how to grant a user access to create labs.
 ms.topic: tutorial
 services: lab-services
 ms.service: azure-lab-services
-author: ntrogh
-ms.author: nicktrog
+author: RoseHJM
+ms.author: rosemalcolm
 ms.date: 06/27/2024
 ms.custom: subject-rbac-steps
 ---

@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: conceptual
 ms.date: 03/17/2024
 ms.author: yelevin
+
+
+#Customer intent: As a security analyst, I want to use customizable anomalies in threat detection so that I can improve detection accuracy, streamline investigations, and enhance proactive threat hunting.
+
 ---
 
 # Use customizable anomalies to detect threats in Microsoft Sentinel

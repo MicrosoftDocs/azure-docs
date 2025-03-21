@@ -1,9 +1,9 @@
 ---
-author: spelluru
-ms.service: service-bus
+ms.service: azure-notification-hubs
 ms.topic: include
-ms.date: 01/04/2019
-ms.author: spelluru
+ms.date: 08/13/2024
+author: sethmanheim
+ms.author: sethm
 ---
 
 | Tier              | Free         | Basic    | Standard   |

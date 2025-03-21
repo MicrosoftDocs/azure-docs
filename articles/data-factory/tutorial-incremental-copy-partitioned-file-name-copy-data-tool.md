@@ -4,7 +4,8 @@ description: Create an Azure data factory and then use the Copy Data tool to inc
 author: dearandyxu
 ms.author: yexu
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # Incrementally copy new files based on time partitioned file name by using the Copy Data tool

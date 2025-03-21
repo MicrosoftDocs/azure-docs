@@ -3,7 +3,7 @@ title: "Quickstart: Azure Blob storage library - JavaScript"
 description: In this quickstart, you learn how to use the Azure Blob Storage for JavaScript to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 03/06/2024
+ms.date: 09/13/2024
 ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: javascript
@@ -50,14 +50,14 @@ In this article, you use the [Azure Developer CLI](/azure/developer/azure-develo
 
 - Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - Azure Storage account - [Create a storage account](../common/storage-account-create.md)
-- [Node.js LTS](https://nodejs.org/en/download/)
+- [Node.js LTS](https://nodejs.org/en/download/package-manager/)
 
 ::: zone-end
 
 ::: zone pivot="blob-storage-quickstart-template"
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- [Node.js LTS](https://nodejs.org/en/download/)
+- [Node.js LTS](https://nodejs.org/en/download/package-manager/)
 - [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
 
 ::: zone-end
@@ -485,14 +485,7 @@ You'll be prompted to confirm the deletion of the resources. Enter `y` to confir
 
 ::: zone-end
 
-## Next steps
-
-In this quickstart, you learned how to upload, download, and list blobs using JavaScript.
-
-To see Blob storage sample apps, continue to:
+## Next step
 
 > [!div class="nextstepaction"]
-> [Azure Blob Storage library for JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
-
-- To learn more, see the [Azure Blob Storage client libraries for JavaScript](/javascript/api/overview/azure/storage-blob-readme).
-- For tutorials, samples, quickstarts, and other documentation, visit [Azure for JavaScript and Node.js developers](/azure/developer/javascript/).
+> [Azure Storage samples and developer guides for JavaScript and TypeScript](../common/storage-samples-javascript.md?toc=/azure/storage/blobs/toc.json)

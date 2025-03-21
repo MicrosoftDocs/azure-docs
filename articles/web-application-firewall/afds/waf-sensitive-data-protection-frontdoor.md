@@ -1,10 +1,10 @@
 ---
 title: Azure Web Application Firewall on Azure Front Door Sensitive Data Protection
 description: Learn about Azure Web Application Firewall Azure Front Door Sensitive Data Protection.
-author: vhorne
-ms.author: victorh
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/24/2024
 ---
 
@@ -26,7 +26,7 @@ The following fields can be scrubbed from the logs:
 -   Request Header Names
 -   Request Cookie Names
 -   Request Body Post Arg Names
--   Request Body Json Arg Names
+-   Request Body JSON Arg Names
 -   Query String Arg Names
 -   Request URI
 -   Request IP Address

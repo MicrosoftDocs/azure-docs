@@ -27,6 +27,9 @@
   - name: Create a vault - ARM template
     displayName: Resource Manager
     href: quickstart-create-vault-template.md
+  - name: Create a vault - Terraform
+    displayName: ARM, Resource Manager
+    href: quickstart-create-vault-terraform.md
 - name: Tutorials
   items:
   - name: Azure VM disaster recovery to Azure
@@ -65,8 +68,6 @@
       href: tutorial-dr-drill-azure.md
     - name: Fail over to Azure
       href: hyper-v-azure-failover-failback-tutorial.md
-    - name: Enable on-premises replication with private endpoints
-      href: ./hybrid-how-to-enable-replication-private-endpoints.md
   - name: Set up replication for Hyper-V VMs
     href: hyper-v-azure-tutorial.md
   - name: Azure VMware Solution disaster recovery to Azure
@@ -91,7 +92,9 @@
       href: move-from-classic-to-modernized-vmware-disaster-recovery.md
     - name: Move from classic to modernized VMware disaster recovery
       href: how-to-move-from-classic-to-modernized-vmware-disaster-recovery.md
-  - name: Set up disaster recovery for Azure Public Multi-Access Edge Compute (MEC) VMs  
+    - name: Deploy Azure Site Recovery replication appliance (modernized)
+      href: deploy-vmware-azure-replication-appliance-modernized.md
+  - name: Set up disaster recovery for Azure Extended Zones VMs  
     items:
     - name: Disaster recovery using the Recovery Services vault
       href: disaster-recovery-for-edge-zone-vm-tutorial.md
@@ -161,8 +164,12 @@
       href: azure-to-azure-architecture.md
     - name: Azure trusted launch VMs
       href: concepts-trusted-vm.md
+    - name: Azure to Azure - Costs
+      href: site-recovery-cost.md
     - name: Configure Failover for Multiple IP addresses
       href: concepts-multiple-ip-address-failover.md
+    - name: Configure Mobility Service Proxy Settings
+      href: configure-mobility-service-proxy-settings.md
     - name: Accelerated networking for Azure VM disaster recovery
       href: azure-vm-disaster-recovery-with-accelerated-networking.md
     - name: ExpressRoute with Azure VM disaster recovery
@@ -175,8 +182,6 @@
     items:
     - name: Deprecation of classic experience
       href: vmware-physical-azure-classic-deprecation.md
-    - name: Deploy Azure Site Recovery replication appliance (modernized)
-      href: deploy-vmware-azure-replication-appliance-modernized.md
     - name: Failover and failback - Modernized
       href: failover-failback-overview-modernized.md
     - name: VMware to Azure architecture - Modernized
@@ -185,8 +190,6 @@
     items:
     - name: Hyper-V to Azure architecture
       href: hyper-v-azure-architecture.md
-    - name: About excluding disks from replication
-      href: exclude-disks-replication.md
   - name: About Backup center
     items:
     - name: Backup center overview
@@ -214,7 +217,7 @@
     - name: Migrate to Azure
       href: migrate-overview.md
     - name: Migration to availability zones 
-      href: ../availability-zones/migrate-recovery-services-vault.md     
+      href: ../reliability/migrate-recovery-services-vault.md     
   - name: Security
     items:
     - name: Security baseline
@@ -233,6 +236,8 @@
     href: site-recovery-role-based-linked-access-control.md
 - name: How-to Guides
   items:
+  - name: Exclude disks from replication
+    href: exclude-disks-replication.md
   - name: Azure to Azure disaster recovery
     items:
     - name: Set up networking
@@ -422,7 +427,9 @@
     - name: Set up disaster recovery at scale
       href: vmware-physical-large-deployment.md
     - name: Run failover and failback
-      href: physical-to-azure-failover-failback.md           
+      href: physical-to-azure-failover-failback.md 
+    - name: Enable on-premises replication with private endpoints
+      href: ./hybrid-how-to-enable-replication-private-endpoints.md          
     - name: Manage
       items:
       - name: Manage the Mobility service
@@ -493,7 +500,7 @@
           href: hyper-v-deployment-planner-cost-estimation.md
   - name: Azure Stack VM disaster recovery
     items:
-    - name: Walkthrough-Set up disaster recovery for Azure Stack VMs
+    - name: Walkthrough-Set up disaster recovery for Azure Stack Hub
       href: azure-stack-site-recovery.md
   - name: Disaster recovery for apps
     items:
@@ -531,10 +538,8 @@
   items:
   - name: Set up disaster recovery of Azure VMs using PowerShell
     href: azure-to-azure-powershell.md
-  - name: Set up disaster recovery on Public MEC VMs using PowerShell
+  - name: Set up disaster recovery on Azure Extended Zones VMs using PowerShell
     href: tutorial-replicate-vms-edge-zone-to-azure-region.md
-  - name: Set up disaster recovery on Public MEC VMs to another Public MEC using PowerShell 
-    href: tutorial-replicate-vms-edge-zone-to-another-zone.md      
   - name: Set up disaster recovery of VMware VMs to Azure using PowerShell
     href: vmware-azure-disaster-recovery-powershell.md
   - name: Set up disaster recovery of Hyper-V VMs to Azure using PowerShell
@@ -585,6 +590,10 @@
       href: vmware-azure-troubleshoot-configuration-server.md
     - name: Process server errors
       href: vmware-physical-azure-troubleshoot-process-server.md
+    - name: Replication appliance health
+      href: vmware-troubleshoot-appliance-health-issue.md
+    - name: Mobility agent health
+      href: vmware-troubleshoot-mobility-agent-health.md      
     - name: Mobility service - push installation errors
       href: vmware-azure-troubleshoot-push-install.md
     - name: Failover to Azure errors
@@ -605,8 +614,6 @@
   items:
   - name: Azure PowerShell
     href: /powershell/module/az.recoveryservices
-  - name: AzureRM PowerShell
-    href: /powershell/module/AzureRM.RecoveryServices
   - name: Resource Manager template
     href: /azure/templates/microsoft.recoveryservices/allversions
   - name: REST

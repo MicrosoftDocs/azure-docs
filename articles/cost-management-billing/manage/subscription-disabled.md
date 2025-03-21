@@ -7,7 +7,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/08/2024
+ms.date: 01/22/2025
 ms.author: banders
 ---
 
@@ -43,14 +43,16 @@ To resolve the issue, [switch to a different credit card](change-credit-card.md)
 
 If you're the Account Administrator or subscription Owner and you canceled a pay-as-you-go subscription, you can reactivate it in the Azure portal.
 
-If you're a billing administrator (partner billing administrator or Enterprise Administrator), you might not have the required permission to reactive the subscription. If this situation applies to you, contact the Account Administrator, or subscription Owner and ask them to reactivate the subscription.
-
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to Subscriptions and then select the canceled subscription.
 1. Select **Reactivate**.  
     :::image type="content" source="./media/subscription-disabled/reactivate-sub.png" alt-text="Screenshot that shows Confirm reactivation." :::
 
-For other subscription types, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to have your subscription reactivated.
+If you have questions or need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+## Reactivation process time
+
+It can take up to 24 hours for your subscription to get reactivated after you pay your balance.
 
 ## After reactivation
 

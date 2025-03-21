@@ -1,13 +1,12 @@
 ---
 title: Azure Web Application Firewall monitoring and logging
 description: Learn about Azure Web Application Firewall in Azure Front Door monitoring and logging.
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
-ms.custom: devx-track-js
-ms.topic: article
-services: web-application-firewall
+ms.topic: how-to
 ms.date: 05/23/2024
-ms.author: victorh
+ms.custom: devx-track-js
 zone_pivot_groups: front-door-tiers
 ---
 
@@ -15,7 +14,7 @@ zone_pivot_groups: front-door-tiers
 
 Azure Web Application Firewall on Azure Front Door provides extensive logging and telemetry to help you understand how your web application firewall (WAF) is performing and the actions it takes.
 
-The Azure Front Door WAF log is integrated with [Azure Monitor](../../azure-monitor/overview.md). Azure Monitor enables you to track diagnostic information, including WAF alerts and logs. You can configure WAF monitoring within the Azure Front Door resource in the Azure portal under the **Diagnostics** tab, through infrastructure as code approaches, or by using Azure Monitor directly.
+The Azure Front Door WAF log is integrated with [Azure Monitor](/azure/azure-monitor/overview). Azure Monitor enables you to track diagnostic information, including WAF alerts and logs. You can configure WAF monitoring within the Azure Front Door resource in the Azure portal under the **Diagnostics** tab, through infrastructure as code approaches, or by using Azure Monitor directly.
 
 ## Metrics
 
@@ -27,7 +26,7 @@ To access your WAF's metrics:
 1. On the leftmost pane under **Monitoring**, select the **Metrics** tab.
 1. Add the **Web Application Firewall Request Count** metric to track the number of requests that match WAF rules.
 
-You can create custom filters based on action types and rule names. Metrics include requests with all actions except `Log`.
+You can create custom filters based on action types and rule names. Metrics include requests with terminating actions like `Block` and `Allow` as well as requests where the WAF took no action. Since multiple non-terminating `Log` actions can be triggered by a single request, they are excluded from this metric to avoid duplicating request counts.
 
 :::image type="content" source="../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png" alt-text="Screenshot that shows the metrics for an Azure Front Door WAF.":::
 
@@ -51,7 +50,7 @@ The following filters are provided as part of this metric:
 
 ## Logs and diagnostics
 
-The Azure Front Door WAF provides detailed reporting on each request and each threat that it detects. Logging is integrated with Azure's diagnostics logs and alerts by using [Azure Monitor logs](../../azure-monitor/insights/azure-networking-analytics.md).
+The Azure Front Door WAF provides detailed reporting on each request and each threat that it detects. Logging is integrated with Azure's diagnostics logs and alerts by using [Azure Monitor logs](/azure/azure-monitor/insights/azure-networking-analytics).
 
 Logs aren't enabled by default. You must explicitly enable logs. You can configure logs in the Azure portal by using the **Diagnostic settings** tab.
 

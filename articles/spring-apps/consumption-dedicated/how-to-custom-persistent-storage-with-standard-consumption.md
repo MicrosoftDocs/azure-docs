@@ -1,20 +1,20 @@
 ---
-title: How to enable your own persistent storage in Azure Spring Apps with the Standard consumption and dedicated plan
+title: How to Enable Your Own Persistent Storage in Azure Spring Apps with the Standard Consumption and Dedicated Plan
 description: Learn how to enable your own persistent storage in Azure Spring Apps.
 author: KarlErickson
-ms.author: yitaopan
+ms.author: karler
+ms.reviewer: yitaopan
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 03/21/2023
+ms.date: 08/29/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # How to enable your own persistent storage in Azure Spring Apps with the Standard consumption and dedicated plan
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ❌ Basic/Standard ❌ Enterprise
+**This article applies to:** ✅ Standard consumption and dedicated (Preview) ❎ Basic/Standard ❎ Enterprise
 
 This article describes how to enable your own persistent storage in Azure Spring Apps.
 
@@ -30,7 +30,7 @@ You can also mount your own persistent storage not only to Azure Spring Apps but
 
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
-- An Azure Spring Apps Standard consumption and dedicated plan service instance. For more information, see [Quickstart: Provision an Azure Spring Apps Standard consumption and dedicated plan service instance](quickstart-provision-standard-consumption-service-instance.md).
+- An Azure Spring Apps Standard consumption and dedicated plan service instance.
 - A Spring app deployed to Azure Spring Apps.
 
 ## Set up the environment

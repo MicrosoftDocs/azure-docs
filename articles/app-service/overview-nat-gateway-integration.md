@@ -5,7 +5,7 @@ services: app-service
 author: madsd
 
 ms.assetid: 0a84734e-b5c1-4264-8d1f-77e781b28426
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: article
 ms.date: 04/08/2022
 ms.author: madsd

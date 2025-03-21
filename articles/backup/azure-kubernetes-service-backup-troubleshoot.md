@@ -2,12 +2,12 @@
 title: Troubleshoot Azure Kubernetes Service backup
 description: Symptoms, causes, and resolutions of the Azure Kubernetes Service backup and restore operations.
 ms.topic: troubleshooting
-ms.date: 02/29/2024
+ms.date: 01/24/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Troubleshoot Azure Kubernetes Service backup and restore
@@ -82,7 +82,7 @@ This error appears due to absence of these FQDN rules because of which configura
 
 **Resolution**: To resolve the issue, you need to create a *CoreDNS-custom override* for the *DP* endpoint to pass through the public network.
 
-1. Get Existing CoreDNS-custom YAML in your cluster (save it on your local for reference later)::
+1. Get Existing CoreDNS-custom YAML in your cluster (save it on your local for reference later):
 
    ```azurecli-interactive
    kubectl get configmap coredns-custom -n kube-system -o yaml
@@ -167,21 +167,36 @@ These error codes appear due to issues on the Backup Extension installed in the 
 
 ### BackupPluginPodRestartedDuringBackupError
 
-**Cause**: Backup Extension Pod (dataprotection-microsoft-kubernetes-agent) in your AKS cluster experiencing instability due to insufficient CPU/Memory resources on its current node, leading to OOM (Out of Memory) kill incidents. This could be because of lower compute requested by the backup extension pod.
+**Cause**: Azure Backup for AKS relies on pods deployed within the AKS cluster as part of the backup extension under the namespace `dataprotection-microsoft`. To perform backup and restore operations, these pods have specific CPU and memory requirements.
 
-**Recommended action**: To address this, we recommend increasing the compute values allocated to this pod. By doing so, it will be automatically provisioned on a different node within your AKS cluster with ample compute resources available.
+```
+       1. Memory: requests - 128Mi, limits - 1280Mi
+       2. CPU: requests - 500m, limits - 1000m
+```
 
-The current value of compute for this pod is:
+However, if the number of resources in the cluster exceeds 1000, the pods may require additional CPU and memory beyond the default reservation. If the required resources exceed the allocated limits, you might encounter a BackupPluginPodRestarted error due to OOMKilled (Out of Memory) error during backup jobs.
 
-resources.requests.cpu is 500m
-resources.requests.memory is 128Mi
-Kindly modify the memory allocation to 512Mi by updating the 'resources.requests.memory' parameter. If the issue persists, it is advisable to increase the 'resources.requests.cpu' parameter to 900m, post the memory allocation. You can increase the values for the parameters by following below steps:
+**Recommended action**: To ensure successful backup and restore operations, manually update the resource settings for the extension pods by following these steps:
 
-1. Navigate to the AKS cluster blade in the Azure portal.
-2. Click on "Extensions+Applications" and select "azure-aks-backup" extension.
-3. Update the configuration settings in the portal by adding the following key-value pair.
-    resources.requests.cpu 900m
-    resources.requests.memory 512Mi
+1. Open the AKS cluster in the Azure portal.
+
+    ![Screenshot shows AKS cluster in Azure portal.](./media/azure-kubernetes-service-cluster-manage-backups/aks-cluster.png)
+
+1. Navigate to Extensions + Applications under Settings in the left-hand pane.
+
+    ![Screenshot shows how to select Extensions + Applications.](./media/azure-kubernetes-service-cluster-manage-backups/aks-cluster-extension-applications.png)
+
+1. Click on the extension titled "azure-aks-backup".
+
+    ![Screenshot shows how to open Backup extension settings.](./media/azure-kubernetes-service-cluster-manage-backups/aks-cluster-extension-azure-aks-backup.png)
+
+1. Scroll down, add new value under configuration settings and then click Save. 
+ 
+   `resources.limits.memory : 4400Mi`
+
+    ![Screenshot shows how to add values under configuration settings.](./media/azure-kubernetes-service-cluster-manage-backups/aks-cluster-extension-azure-aks-backup-configuration-update.png)
+
+After applying the changes, either wait for a scheduled backup to run or initiate an on-demand backup. If you still experience an OOMKilled failure, repeat the steps above and gradually increase memory limits and if it still persists increase `resources.limits.cpu` parameter also.
 
 ### BackupPluginDeleteBackupOperationFailed
 
@@ -301,23 +316,23 @@ These error codes can appear while you enable AKS backup to store backups in a v
 
 **Cause**: Namespaces provided in Backup Configuration is missing while performing backups. Either the namespace was wrongly provided or has been deleted.
 
-**Recommended action**: Check if the Namespaces to be backed up are correctly provided.
+**Recommended action**: Check if the Namespaces to be backed-up are correctly provided.
 
 ### UserErrorPVCHasNoVolume
 
 **Error code**: UserErrorPVCHasNoVolume
 
-**Cause**: The Persistent Volume Claim (PVC) in context doesn't have a Persistent Volume attached to it. So, the PVC won't be backed up.
+**Cause**: The Persistent Volume Claim (PVC) in context doesn't have a Persistent Volume attached to it. So, the PVC won't be backed-up.
 
-**Recommended action**: Attach a volume to the PVC, if it needs to be backed up.
+**Recommended action**: Attach a volume to the PVC, if it needs to be backed-up.
 
 ### UserErrorPVCNotBoundToVolume
 
 **Error code**: UserErrorPVCNotBoundToVolume
 
-**Cause**: The PVC in context is in *Pending* state and doesn't have a Persistent Volume attached to it. So, the PVC won't be backed up. 
+**Cause**: The PVC in context is in *Pending* state and doesn't have a Persistent Volume attached to it. So, the PVC won't be backed-up. 
 
-**Recommended action**: Attach a volume to the PVC, if it needs to be backed up.
+**Recommended action**: Attach a volume to the PVC, if it needs to be backed-up.
 
 ### UserErrorPVNotFound
 
@@ -342,6 +357,14 @@ These error codes can appear while you enable AKS backup to store backups in a v
 **Cause**: The source AKS cluster and Target AKS cluster during restore have different versions of *FlowSchema* and *PriorityLevelConfigurations CRs*. Some Kubernetes resources aren't restored due to the mismatch in cluster versions.
 
 **Recommended action**: Use same cluster version for Target cluster as Source cluster or manually apply the CRs.
+
+### LinkedAuthorizationFailed
+
+**Error code**: LinkedAuthorizationFailed
+
+**Cause**: To perform a restore operation, user needs to have a **read** permission over the backed-up AKS cluster. 
+
+**Recommended action**: Assign Reader role on the source AKS cluster and then proceed to perform the restore operation. 
 
 ## Next steps
 

@@ -4,10 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: This article provides information about how to execute a pipeline in Azure Data Factory or Azure Synapse Analytics, either on-demand or by creating a trigger.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ms.custom: synapse
 ---
 
@@ -206,7 +206,7 @@ To have your schedule trigger kick off a pipeline run, include a pipeline refere
     "type": "ScheduleTrigger",
     "typeProperties": {
       "recurrence": {
-        "frequency": <<Minute, Hour, Day, Week, Year>>,
+        "frequency": <<Minute, Hour, Day, Week>>,
         "interval": <<int>>, // How often to fire
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,

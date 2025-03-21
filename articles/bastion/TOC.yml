@@ -4,29 +4,29 @@
   items: 
   - name: What is Azure Bastion?
     href: bastion-overview.md
-- name: Quickstarts
+  - name: What's new in Bastion?
+    href: whats-new.md
+- name: Quickstarts & Tutorials
   expanded: true
   items:
-  - name: Deploy Bastion automatically - Basic SKU
+  - name: Deploy Bastion Developer
+    href: quickstart-developer.md
+  - name: Deploy Bastion - Standard SKU
     href: quickstart-host-portal.md
-  - name: Deploy Bastion automatically - Developer SKU
-    href: quickstart-developer-sku.md
+  - name: Deploy Bastion - specify settings and SKU
+    href: tutorial-create-host-portal.md
   - name: Deploy Bastion - ARM template
     href: quickstart-host-arm-template.md
-- name: Tutorials
-  items:
-  - name: Deploy Bastion using manually specified settings
-    href: tutorial-create-host-portal.md
+  - name: Deploy Bastion - Terraform
+    href: quickstart-deploy-terraform.md
 - name: Concepts
   items:
-  - name: Reliability
+  - name: Work remotely
     items:
-    - name: Availability zones and disaster recovery 
-      href: ../reliability/reliability-bastion.md?toc=/azure/bastion/TOC.json
-  - name: Support for working remotely
-    href: ../networking/working-remotely-support.md?toc=%2fazure%2fbastion%2ftoc.json
-  - name: Leverage Bastion for remote working
-    href: work-remotely-support.md
+    - name: Support for working remotely
+      href: ../networking/working-remotely-support.md?toc=%2fazure%2fbastion%2ftoc.json
+    - name: Leverage Bastion for remote working
+      href: work-remotely-support.md
   - name: Bastion FAQ
     href: bastion-faq.md
   - name: Design architecture
@@ -39,10 +39,16 @@
     href: vnet-peering.md
   - name: Work with NSGs
     href: bastion-nsg.md
-  - name: Security
+  - name: Reliability
     items:
-    - name: Security baseline
-      href: /security/benchmark/azure/baselines/bastion-security-baseline?toc=/azure/bastion/TOC.json
+    - name: Availability zones and disaster recovery 
+      href: ../reliability/reliability-bastion.md?toc=/azure/bastion/TOC.json
+- name: Security
+  items:
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/bastion-security-baseline?toc=/azure/bastion/TOC.json
+  - name: Azure Security blog
+    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: How-to guides
   items:
   - name: Deploy Bastion
@@ -111,10 +117,8 @@
       href: vm-upload-download-native.md
   - name: Monitoring
     items:
-    - name: Monitoring Azure Bastion
-      href: howto-metrics-monitor-alert.md
-    - name: Configure and access diagnostic logs
-      href: diagnostic-logs.md
+    - name: Monitor Azure Bastion
+      href: monitor-bastion.md
     - name: Monitor and manage sessions
       href: session-monitoring.md
   - name: Troubleshoot
@@ -127,17 +131,21 @@
     href: /rest/api/virtualnetwork/bastion-hosts
   - name: Azure CLI
     href: /cli/azure/network/bastion
+  - name: Bastion monitoring data reference
+    href: monitor-bastion-reference.md
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=networking
-  - name: Blog
-    href: https://azure.microsoft.com/blog/topics/networking/
+  - name: Azure Networking blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
+  - name: Microsoft Q&A question page - Azure Bastion
+    href: /answers/tags/119/azure-bastion
+  - name: Networking feedback
+    href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-bastion/
-  - name: Microsoft Q&A question page
-    href: /answers/topics/azure-virtual-network.html
-  - name: Preview SLA
-    href: https://azure.microsoft.com/support/legal/preview-supplemental-terms
+  - name: Subscription and service limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/bastion/toc.json
   - name: SLA
     href: https://azure.microsoft.com/support/legal/sla
+  - name: Preview SLA
+    href: https://azure.microsoft.com/support/legal/preview-supplemental-terms

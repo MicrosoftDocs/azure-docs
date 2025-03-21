@@ -28,6 +28,8 @@ If the deleted storage account used customer-managed keys with Azure Key Vault a
 > [!IMPORTANT]
 > Recovery of a deleted storage account is not guaranteed. Recovery is a best-effort attempt. Microsoft recommends locking resources to prevent accidental account deletion. For more information about resource locks, see [Lock resources to prevent changes](../../azure-resource-manager/management/lock-resources.md).
 >
+> When a storage account is deleted, any linked private endpoints are also removed. These private endpoints are not automatically recreated when the storage account is recovered.
+>
 > Another best practice to avoid accidental account deletion is to limit the number of users who have permissions to delete an account via role-based access control (Azure RBAC). For more information, see [Best practices for Azure RBAC](../../role-based-access-control/best-practices.md).
 
 ## Recover a deleted account from the Azure portal

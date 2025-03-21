@@ -1,9 +1,9 @@
 ---
 title: About recovery plans in Azure Site Recovery
 description: Learn about recovery plans in Azure Site Recovery. 
-ms.topic: conceptual
+ms.topic: overview
 ms.service: azure-site-recovery
-ms.date: 01/23/2020
+ms.date: 01/22/2025
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -19,6 +19,7 @@ A recovery plan gathers machines into recovery groups for the purpose of failove
 - You can customize a plan by adding order, instructions, and tasks to it.
 - After a plan is defined, you can run a failover on it.
 - Machines can be referenced in multiple recovery plans, in which subsequent plans skip the deployment/startup of a machine if it was previously deployed using another recovery plan.
+- After failover it is recommended to not change a VM from one Recovery Plan and add it to another, as our backend uses the Recovery Plan name to identify the failover operation. 
 
 
 

@@ -1,6 +1,6 @@
 ---
 author: jefmarti
-ms.service: app-service
+ms.service: azure-app-service
 ms.devlang: dotnet
 ms.custom: linux-related-content
 ms.topic: article
@@ -10,12 +10,12 @@ ms.author: jefmarti
 
 You can use Azure App Service to work with popular AI frameworks like LangChain and Semantic Kernel connected to OpenAI for creating intelligent apps. In the following tutorial, we're adding an Azure OpenAI service using Semantic Kernel to a .NET 8 Blazor web application.  
 
-#### Prerequisites
+## Prerequisites
 
-- An [Azure OpenAI resource](../../../ai-services/openai/quickstart.md?pivots=programming-language-csharp&tabs=command-line%2Cpython#set-up) or an [OpenAI account](https://platform.openai.com/overview).
+- An [Azure OpenAI resource](/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#set-up) or an [OpenAI account](https://platform.openai.com/overview).
 - A .NET 8 Blazor Web App.  Create the application with a template [here](https://dotnet.microsoft.com/learn/aspnet/blazor-tutorial/intro).
 
-### Setup Blazor web app
+## 1. Setup Blazor web app
 
 For this Blazor web application, we're building off the Blazor [template](https://dotnet.microsoft.com/learn/aspnet/blazor-tutorial/intro) and creating a new razor page that can send and receive requests to an Azure OpenAI OR OpenAI service using Semantic Kernel.
 
@@ -64,7 +64,7 @@ After the Navigation is updated, we can start preparing to build the OpenAI clie
 
 In order to make calls to OpenAI with your client, you need to first grab the Keys and Endpoint values from Azure OpenAI, or OpenAI and add them as secrets for use in your application. Retrieve and save the values for later use.
 
-For Azure OpenAI, see [this documentation](../../../ai-services/openai/quickstart.md?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values. If you're planning to use [managed identity](../../overview-managed-identity.md) to secure your app you'll only need the `deploymentName` and `endpoint` values.  Otherwise, you need each of the following:
+For Azure OpenAI, see [this documentation](/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values. If you're planning to use [managed identity](../../overview-managed-identity.md) to secure your app you'll only need the `deploymentName` and `endpoint` values.  Otherwise, you need each of the following:
 
 - `deploymentName`
 - `endpoint`
@@ -75,7 +75,7 @@ For OpenAI, see this [documentation](https://platform.openai.com/docs/api-refere
 - `apiKey`
 - `modelId`
 
-Since we are deploying to App Service, we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your Key Vault and add the secrets you saved from earlier.
+Since we're deploying to App Service, we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your Key Vault and add the secrets you saved from earlier.
 Next, we can use Key Vault references as app settings in our App Service resource to reference in our application. Follow the instructions in the [documentation](../../app-service-key-vault-references.md?source=recommendations&tabs=azure-cli) to grant your app access to your Key Vault and to set up Key Vault references.
 Then, go to the portal Environment Variables blade in your resource and add the following app settings:
 
@@ -83,7 +83,7 @@ For Azure OpenAI, use the following settings:
 
 | Setting name| Value |
 |-|-|-|
-| `DEPOYMENT_NAME` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
+| `DEPLOYMENT_NAME` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
 | `ENDPOINT` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
 | `API_KEY` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
 | `MODEL_ID` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
@@ -128,7 +128,7 @@ For OpenAI:
   }
 ```
 
-### Semantic Kernel
+## 2. Semantic Kernel
 
 Semantic Kernel is an open-source SDK that enables you to easily develop AI agents to work with your existing code. You can use Semantic Kernel with Azure OpenAI and OpenAI models.
 
@@ -137,7 +137,7 @@ To create the OpenAI client, we'll first start by installing Semantic Kernel.
 To install Semantic Kernel, browse the NuGet package manager in Visual Studio and install the **Microsoft.SemanticKernel** package. For NuGet Package Manager instructions, see [here](/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package). For CLI instructions, see [here](/nuget/consume-packages/install-use-packages-dotnet-cli).
 Once the Semantic Kernel package is installed, you can now initialize the kernel. 
 
-### Initialize the kernel
+## 3. Initialize the kernel
 
 To initialize the Kernel, add the following code to the *OpenAI.razor* file.
 
@@ -159,7 +159,7 @@ To initialize the Kernel, add the following code to the *OpenAI.razor* file.
 
 Here we're adding the using statement and creating the Kernel in a method that we can use when we send the request to the service.
 
-### Add your AI service
+## 4. Add your AI service
 
 Once the Kernel is initialized, we can add our chosen AI service to the kernel. Here we define our model and pass in our key and endpoint information to be consumed by the chosen model. If you plan to use managed identity with Azure OpenAI, add the service using the example in the next section.
 
@@ -190,11 +190,11 @@ var kernel = builder.Build();
 
 ### Secure your app with managed identity
 
-If you�re using Azure OpenAI, it's highly recommended to secure your application using [managed identity](../../overview-managed-identity.md) to authenticate your app to your Azure OpenAI resource. This enables your application to access the Azure OpenAI resource without needing to manage API keys. If you're not using Azure OpenAI, your secrets can remain secure using Azure Key Vault outlined above.
+If you're using Azure OpenAI, it's highly recommended to secure your application using [managed identity](../../overview-managed-identity.md) to authenticate your app to your Azure OpenAI resource. This enables your application to access the Azure OpenAI resource without needing to manage API keys. If you're not using Azure OpenAI, your secrets can remain secure using Azure Key Vault outlined above.
 
 Follow the steps below to secure your application with managed identity:
 
-Add the identity package `Azure.Identity`. This package enables using Azure credentials in your app.  Install the package using Nuget package manager and add the using statement to the top of the OpenAI.razor file.
+Add the identity package `Azure.Identity`. This package enables using Azure credentials in your app.  Install the package using NuGet package manager and add the using statement to the top of the OpenAI.razor file.
 
 ```c#
 @using Azure.Identity
@@ -215,7 +215,7 @@ var kernel = Kernel.CreateBuilder()
 Once the credentials are added to the application, you'll then need to enable managed identity in your application and grant access to the resource.
 
 1. In your web app resource, navigate to the **Identity** blade and turn on **System assigned** and click **Save**
-2. Once System assigned identity is turned on, it register's the web app with Microsoft Entra ID and the web app can be granted permissions to access protected resources.  
+2. Once System assigned identity is turned on, it registers the web app with Microsoft Entra ID and the web app can be granted permissions to access protected resources.  
 3. Go to your Azure OpenAI resource and navigate to the **Access control (IAM)** blade on the left pane.  
 4. Find the Grant access to this resource card and click on **Add role assignment**
 5. Search for the **Cognitive Services OpenAI User** role and click **Next**
@@ -225,7 +225,7 @@ Once the credentials are added to the application, you'll then need to enable ma
 
 Your web app is now added as a cognitive service OpenAI user and can communicate to your Azure OpenAI resource.
 
-### Configure prompt and create semantic function
+## 5. Configure prompt and create semantic function
 
 Now that our chosen OpenAI service client is created with the correct keys we can add a function to handle the prompt. With Semantic Kernel you can handle prompts by the use of a semantic function, which turn the prompt and the prompt configuration settings into a function the Kernel can execute. Learn more on configuring prompts [here](/semantic-kernel/prompts/configure-prompts?tabs=Csharp).
 
@@ -348,7 +348,7 @@ Here's the example in its completed form. In this example, use the Azure OpenAI 
 
 Now save the application and follow the next steps to deploy it to App Service. If you would like to test it locally first at this step, you can swap out the config values at with the literal string values of your OpenAI service. For example: string modelId = 'gpt-4-turbo';
 
-### Deploy to App Service
+## 5. Deploy to App Service
 
 If you have followed the steps above, you're ready to deploy to App Service. If you run into any issues remember that you need to have done the following: grant your app access to your Key Vault, add the app settings with key vault references as your values. App Service resolves the app settings in your application that match what you've added in the portal.
 
@@ -357,3 +357,4 @@ If you have followed the steps above, you're ready to deploy to App Service. If 
 Although optional, it's highly recommended that you also add authentication to your web app when using an Azure OpenAI or OpenAI service. This can add a level of security with no other code. Learn how to enable authentication for your web app [here](../../scenario-secure-app-authentication-app-service.md).
 
 Once deployed, browse to the web app and navigate to the OpenAI tab. Enter a query to the service and you should see a populated response from the server. The tutorial is now complete and you now know how to use OpenAI services to create intelligent applications.
+

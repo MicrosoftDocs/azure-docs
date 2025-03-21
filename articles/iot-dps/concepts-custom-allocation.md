@@ -2,13 +2,13 @@
 title: Using custom allocation policies with Azure DPS
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Understand how custom allocation policies enable provisioning to multiple IoT hubs with the Azure IoT Hub Device Provisioning Service (DPS)
-author: kgremban
-
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.date: 09/09/2022
 ms.topic: concept-article
-ms.service: iot-dps
+ms.service: azure-iot-hub
 ms.custom: devx-track-csharp
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Understand custom allocation policies with Azure IoT Hub Device Provisioning Service
@@ -33,9 +33,29 @@ The following steps describe how custom allocation polices work:
 
 1. DPS assigns the device to the IoT hub indicated in the response, and, if an initial twin is returned, sets the initial twin for the device accordingly. If a custom payload is returned by the webhook, it's passed to the device along with the assigned IoT hub and authentication details in the [registration response](/rest/api/iot-dps/device/runtime-registration/device-registration-status-lookup) from DPS.
 
-1. The device connects to the assigned IoT hub and downloads its initial twin state. If a custom payload is returned in the registration response, the device uses it according to its own client-side logic.  
+1. The device connects to the assigned IoT hub and downloads its initial twin state. If a custom payload is 00000000000000000000000000000000000000000000000000000000returned in the registration response, the device uses it according to its own client-side logic.  
 
 The following sections provide more detail about the custom allocation request and response, custom payloads, and policy implementation. For a complete end-to-end example of a custom allocation policy, see [Use custom allocation policies](tutorial-custom-allocation-policies.md).
+
+## Manage function keys
+
+Custom allocation policies use function keys to authenticate calls to Azure Functions where the authorization level is set to `Function`. The behavior of key management differs based on whether you configure the custom allocation policy through the Azure portal or programmatically.
+
+### Function keys in the portal
+
+When you create an enrollment in the Azure portal and specify a custom allocation policy, the portal automatically handles retrieving and embedding the function key.
+
+After selecting the function for the custom allocation policy, the portal retrieves the function key. This step is not visible to users through the portal interface. Then, the function key is stored as part of the encrypted webhook URL used by DPS to call the function. The key is not displayed in the portal.
+
+You can verify that the key is embedded in the webhook URL by running a GET command to retrieve the enrollment details. In the enrollment configuration, the function key is included in the **webhookUrl** field.
+
+### Function keys with APIs
+
+When you create an enrollment programmatically using the DPS API, you need to manually provide the key during creation of the enrollment. If the key isn't provided, the Azure Functions call fails authentication.
+
+Before you create the individual or group enrollment, retrieve the function key from your function. For more information, see [Get your function access keys](../azure-functions/function-keys-how-to.md#get-your-function-access-keys). Then, include the function key in the **webhookUrl** field of the **CustomAllocationDefinition**.
+
+For more information, see [Azure Functions HTTP trigger > Access key authorization](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization).
 
 ## Custom allocation policy request
 

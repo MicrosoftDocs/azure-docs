@@ -33,7 +33,7 @@ Consider the following points.
     - For simple transformations, like removing columns, changing column data types, or joining datasets, consider creating an Azure Synapse pipeline by using a data flow activity.
     - Data flow activities provide a low-code/no-code approach to prepare your data.
 - Does your workload require ML on big data?
-    - Apache Spark works well for large datasets that will be used for ML. If you're using small datasets, consider using [Azure Machine Learning](../../machine-learning/overview-what-is-azure-ml.md) as the compute service.
+    - Apache Spark works well for large datasets that will be used for ML. If you're using small datasets, consider using [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-ml) as the compute service.
 - Do you plan to perform data exploration or ad hoc query analysis on big data?
     - Apache Spark in Azure Synapse provides Python/Scala/SQL/.NET-based data exploration. However, if you need a full Transact-SQL (T-SQL) experience, consider using a [serverless SQL pool](../sql/on-demand-workspace-overview.md).
 - Do you have a current Spark/Hadoop workload and do you need a unified big data platform?
@@ -78,4 +78,4 @@ For security, evaluate the following points.
 
 In the [next article](implementation-success-evaluate-project-plan.md) in the *Azure Synapse success by design* series, learn how to evaluate your modern data warehouse project plan before the project starts.
 
-For more information on best practices, see [Apache Spark for Azure Synapse Guidance](https://azuresynapsestorage.blob.core.windows.net/customersuccess/Guidance%20Video%20Series/EGUI_Synapse_Spark_Guidance.pdf).
+For more information on best practices, see [Apache Spark for Azure Synapse Guidance](/azure/synapse-analytics/spark/apache-spark-overview).

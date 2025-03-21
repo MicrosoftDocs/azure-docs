@@ -5,7 +5,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 01/26/2025
 ms.author: makromer
 author: kromerm
 ---
@@ -13,10 +13,10 @@ author: kromerm
 # Copy data from Marketo using Azure Data Factory or Synapse Analytics (Preview)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Marketo. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
 > [!IMPORTANT]
-> This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
+> This connector is at [End of Support stage](connector-deprecation-plan.md). You are recommended to migrate to [ODBC connector](connector-odbc.md) by installing a driver.
+
+This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Marketo. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
 
@@ -75,7 +75,7 @@ The following properties are supported for Marketo linked service:
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Marketo** | Yes |
 | endpoint | The endpoint of the Marketo server. (i.e. 123-ABC-321.mktorest.com)  | Yes |
-| clientId | The client Id of your Marketo service.  | Yes |
+| clientId | The client ID of your Marketo service.  | Yes |
 | clientSecret | The client secret of your Marketo service. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 | useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over TLS. The default value is true.  | No |
@@ -139,7 +139,7 @@ To copy data from Marketo, set the source type in the copy activity to **Marketo
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **MarketoSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Activitiy_Types"`. | No (if "tableName" in dataset is specified) |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Activity_Types"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 
@@ -163,7 +163,7 @@ To copy data from Marketo, set the source type in the copy activity to **Marketo
         "typeProperties": {
             "source": {
                 "type": "MarketoSource",
-                "query": "SELECT top 1000 * FROM Activitiy_Types"
+                "query": "SELECT top 1000 * FROM Activity_Types"
             },
             "sink": {
                 "type": "<sink type>"

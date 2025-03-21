@@ -45,6 +45,7 @@ More details on eligible subscription types are as follows:
 | Country/Region |
 | :---------- |
 | Australia |
+| Switzerland |
 
 [!INCLUDE [Azure Prepayment](../../includes/azure-prepayment.md)]
 

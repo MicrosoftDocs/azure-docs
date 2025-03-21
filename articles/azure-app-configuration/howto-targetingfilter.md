@@ -1,7 +1,7 @@
 ---
 title: Roll out features to targeted audiences
 titleSuffix: Azure App Configuration
-description: Learn how to enable staged rollout of features for targeted audiences.
+description: Learn how to enable staged rollout of features for targeted audiences, using targeting filters with Azure App Configuration.
 ms.service: azure-app-configuration
 ms.devlang: csharp
 author: zhiyuanliang-ms
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 03/26/2024
 ---
 
-# Tutorial: Roll out features to targeted audiences
+# Roll out features to targeted audiences
 
 Targeting is a feature management strategy that enables developers to progressively roll out new features to their user base. The strategy is built on the concept of targeting a set of users known as the targeted audience. An audience is made up of specific users, groups, and a designated percentage of the entire user base.
 
@@ -24,7 +24,7 @@ In this article, you will learn how to add and configure a targeting filter for 
 
 ## Add a targeting filter
 
-1. Create a feature flag named *Beta* in your App Configuration store and open to edit it. For more information about how to add and edit a feature flag, see [Manage feature flags](./manage-feature-flags.md).
+1. Create a feature flag named *Beta* in your App Configuration store and edit it. For more information about how to add and edit a feature flag, see [Manage feature flags](./manage-feature-flags.md#edit-feature-flags).
 
 1. In the **Edit feature flag** pane that opens, check the **Enable feature flag** checkbox if it isn't already enabled. Then check the **Use feature filter** checkbox and select **Create**.
 
@@ -68,18 +68,15 @@ In this article, you will learn how to add and configure a targeting filter for 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, applying new targeting filter.](./media/feature-filters/feature-flag-edit-apply-targeting-filter.png)
 
-Now, you successfully added a targeting filter for your feature flag. This targeting filter will use the targeting rule you configured to enable or disable the feature flag for specific users and groups. Follow the instructions in the [Next Steps](#next-steps) section to learn how it works in your application for the language or platform you are using.
+    Now, you successfully added a targeting filter for your feature flag. This targeting filter will use the targeting rule you configured to enable or disable the feature flag for specific users and groups. 
+
+1. Continue to the following instructions to use the feature flag with a targeting filter in your application for the language or platform you are using.
+
+    - [ASP.NET Core](./howto-targetingfilter-aspnet-core.md)
 
 ## Next steps
 
-In this tutorial, you learned the concept of the targeting filter and added it to a feature flag.
-
-To learn how to use the feature flag with a targeting filter in your application, continue to the following tutorial.
-
-> [!div class="nextstepaction"]
-> [ASP.NET Core](./howto-targetingfilter-aspnet-core.md)
-
-To learn more about the feature filters, continue to the following tutorials:
+To learn more about the feature filters, continue to the following dos:
 
 > [!div class="nextstepaction"]
 > [Enable conditional features with feature filters](./howto-feature-filters.md)

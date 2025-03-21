@@ -24,7 +24,7 @@ In this article, you create a virtual network (if you don't already have one), d
 
 * [Azure portal](./tutorial-create-host-portal.md)
 * [Azure PowerShell](bastion-create-host-powershell.md)
-* [Quickstart - deploy with default settings](quickstart-host-portal.md)
+* [Quickstart - Deploy Bastion with default settings and the Standard SKU](quickstart-host-portal.md)
 
 [!INCLUDE [DNS private zone](../../includes/bastion-private-dns-zones-non-support.md)]
 
@@ -80,7 +80,7 @@ This section helps you deploy Azure Bastion using Azure CLI.
    
 ## <a name="connect"></a>Connect to a VM
 
-If you don't already have VMs in your virtual network, you can create a VM using [Quickstart: Create a Windows VM](../virtual-machines/windows/quick-create-portal.md), or [Quickstart: Create a Linux VM](../virtual-machines/linux/quick-create-portal.md) 
+If you don't already have VMs in your virtual network, you can create a VM using [Quickstart: Create a Windows VM](/azure/virtual-machines/windows/quick-create-portal), or [Quickstart: Create a Linux VM](/azure/virtual-machines/linux/quick-create-portal) 
 
 You can use any of the following articles, or the steps in the following section, to help you connect to a VM. Some connection types require the Bastion [Standard SKU or higher](configuration-settings.md#skus).
 

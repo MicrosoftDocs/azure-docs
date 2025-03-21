@@ -3,7 +3,7 @@ title: Use extensions with Batch pools
 description: Extensions are small applications that facilitate post-provisioning configuration and setup on Batch compute nodes.
 ms.topic: how-to
 ms.custom: linux-related-content
-ms.date: 12/05/2023
+ms.date: 03/04/2025
 ---
 
 # Use extensions with Batch pools
@@ -25,18 +25,19 @@ You can check the live status of the extensions you use and retrieve the informa
 
 The following extensions can currently be installed when creating a Batch pool:
 
-- [Azure Key Vault extension for Linux](../virtual-machines/extensions/key-vault-linux.md)
-- [Azure Key Vault extension for Windows](../virtual-machines/extensions/key-vault-windows.md)
-- [Azure Monitor Logs analytics and monitoring extension for Linux](../virtual-machines/extensions/oms-linux.md)
-- [Azure Monitor Logs analytics and monitoring extension for Windows](../virtual-machines/extensions/oms-windows.md)
-- [Azure Desired State Configuration (DSC) extension](../virtual-machines/extensions/dsc-overview.md)
-- [Azure Diagnostics extension for Windows VMs](../virtual-machines/windows/extensions-diagnostics.md)
-- [HPC GPU driver extension for Windows on AMD](../virtual-machines/extensions/hpccompute-amd-gpu-windows.md)
-- [HPC GPU driver extension for Windows on NVIDIA](../virtual-machines/extensions/hpccompute-gpu-windows.md)
-- [HPC GPU driver extension for Linux on NVIDIA](../virtual-machines/extensions/hpccompute-gpu-linux.md)
-- [Microsoft Antimalware extension for Windows](../virtual-machines/extensions/iaas-antimalware-windows.md)
-- [Azure Monitor agent for Linux](../azure-monitor/agents/azure-monitor-agent-manage.md)
-- [Azure Monitor agent for Windows](../azure-monitor/agents/azure-monitor-agent-manage.md)
+- [Azure Key Vault extension for Linux](/azure/virtual-machines/extensions/key-vault-linux)
+- [Azure Key Vault extension for Windows](/azure/virtual-machines/extensions/key-vault-windows)
+- [Azure Monitor Logs analytics and monitoring extension for Linux](/azure/virtual-machines/extensions/oms-linux)
+- [Azure Monitor Logs analytics and monitoring extension for Windows](/azure/virtual-machines/extensions/oms-windows)
+- [Azure Desired State Configuration (DSC) extension](/azure/virtual-machines/extensions/dsc-overview)
+- [Azure Diagnostics extension for Windows VMs](/azure/virtual-machines/windows/extensions-diagnostics)
+- [HPC GPU driver extension for Windows on AMD](/azure/virtual-machines/extensions/hpccompute-amd-gpu-windows)
+- [HPC GPU driver extension for Windows on NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows)
+- [HPC GPU driver extension for Linux on NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-linux)
+- [Microsoft Antimalware extension for Windows](/azure/virtual-machines/extensions/iaas-antimalware-windows)
+- [Azure Monitor agent for Linux](/azure/azure-monitor/agents/azure-monitor-agent-manage)
+- [Azure Monitor agent for Windows](/azure/azure-monitor/agents/azure-monitor-agent-manage)
+- [Application Health extension](/azure/virtual-machines/extensions/health-extension)
 
 You can request support for other publishers and/or extension types by opening a support request.
 
@@ -107,7 +108,7 @@ Request Body for Linux node
   "identity": {
     "type": "UserAssigned",
     "userAssignedIdentities": {
-      "/subscriptions/042998e4-36dc-4b7d-8ce3-a7a2c4877d33/resourceGroups/ACR/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testumaforpools": {}
+      "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ACR/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testumaforpools": {}
     }
   }
 }
@@ -173,7 +174,7 @@ Request Body for Windows node
     "identity": {
         "type": "UserAssigned",
         "userAssignedIdentities": {
-            "/subscriptions/042998e4-36dc-4b7d-8ce3-a7a2c4877d33/resourceGroups/ACR/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testumaforpools": {}
+            "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ACR/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testumaforpools": {}
         }
     }
 }
@@ -220,8 +221,14 @@ Response Body
 
 If Key Vault extension is configured incorrectly, the compute node might be in a usable state. To troubleshoot Key Vault extension failure, you can temporarily set requireInitialSync to false and redeploy your pool, then the compute node is in idle state, you can log in to the compute node to check KeyVault extension logs for errors and fix the configuration issues. Visit following Key Vault extension doc link for more information.
 
-- [Azure Key Vault extension for Linux](../virtual-machines/extensions/key-vault-linux.md)
-- [Azure Key Vault extension for Windows](../virtual-machines/extensions/key-vault-windows.md)
+- [Azure Key Vault extension for Linux](/azure/virtual-machines/extensions/key-vault-linux)
+- [Azure Key Vault extension for Windows](/azure/virtual-machines/extensions/key-vault-windows)
+
+## Considerations for Application Health extension
+
+The Batch Node Agent running on the node always starts an HTTP server that returns the health status of the agent. This HTTP server listens on local IP address 127.0.0.1 and port 29879. It always returns a 200 status but with the response body being either healthy or unhealthy. Any other response (or lack thereof) is considered an "unknown" status. This setup is in line with the guidelines running a HTTP server which provides a "Rich Health State" per the official "Application Health extension" documentation.
+ 
+If you set up your own health server, please ensure that the HTTP server listens on an unique port. It is suggested that your health server should query the Batch Node Agent server and combine with your health signal to generate a composite health result. Otherwise you might end up with a "healthy" node that doesn't have a properly functioning Batch Agent.
 
 ## Next steps
 
