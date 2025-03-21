@@ -35,7 +35,7 @@ If any of the configurations was incorrect:
 
 ## Nexus-volume Persistent Volume Claim (PVC) on the wrong storage appliance
 
-PVCs using the nexus-volume storage class can select the storage appliance to use for backing storage using the `storageApplianceName` annotation. If this annotation isn't present, the PVC uses the first storage appliance. You can check this by using `kubectl get pvc <pvcName>` and checking the `storageApplianceName` annotation. The value tells you which storage appliance the PVC is using.
+PVCs using the nexus-volume storage class can select the storage appliance to use for backing storage using the `storageApplianceName` annotation. If this annotation isn't present, the PVC uses the first storage appliance. You can check this by using `kubectl get pvc <pvcName> -o yaml` and checking the `storageApplianceName` annotation. The value tells you which storage appliance the PVC is using.
 
 If you wanted to create the PVC on the other storage appliance then you must delete and recreate the PVC, and then provide the correct annotation. There's no support for moving the volumes consumed by a PVC between storage appliances.
 
@@ -58,4 +58,3 @@ A CSN fails to create if the `nexusSharedStorageApplianceName` Azure resource ta
 1. Navigating to the aggregator rack and selecting Storage Appliance definitions.
 
 The `nexusSharedStorageApplianceName` Azure resource tag must match one of the storage appliances in the Storage Appliance definitions list. You must delete the CSN and recreate it with the correct Azure Resource tag to resolve this issue.
-

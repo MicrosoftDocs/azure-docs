@@ -82,7 +82,7 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
   --rack-serial-number "$AGGR_RACK_SN" \
   --rack-location "$AGGR_RACK_LOCATION" \
   --bare-metal-machine-configuration-data "["$AGGR_RACK_BMM"]" \
-  --storage-appliance-configuration-data '[{"adminCredentials":{"password":"$SA1_PASS","username":"$SA_USER"},"rackSlot":1,"serialNumber":"$SA1_SN","storageApplianceName":"$SA1_NAME"},{"adminCredentials":{"password":"$SA2_PASS","username":"$SA_USER"},"rackSlot":1,"serialNumber":"$SA2_SN","storageApplianceName":"$SA2_NAME"}]' \
+  --storage-appliance-configuration-data '[{"adminCredentials":{"password":"$SA1_PASS","username":"$SA_USER"},"rackSlot":1,"serialNumber":"$SA1_SN","storageApplianceName":"$SA1_NAME"},{"adminCredentials":{"password":"$SA2_PASS","username":"$SA_USER"},"rackSlot":2,"serialNumber":"$SA2_SN","storageApplianceName":"$SA2_NAME"}]' \
   --compute-rack-definitions '[{"networkRackId": "$COMPX_RACK_RESOURCE_ID", "rackSkuId": "$COMPX_RACK_SKU", "rackSerialNumber": "$COMPX_RACK_SN", "rackLocation": "$COMPX_RACK_LOCATION", "storageApplianceConfigurationData": [], "bareMetalMachineConfigurationData":[{"bmcCredentials": {"password":"$COMPX_SVRY_BMC_PASS", "username":"$COMPX_SVRY_BMC_USER"}, "bmcMacAddress":"$COMPX_SVRY_BMC_MAC", "bootMacAddress":"$COMPX_SVRY_BOOT_MAC", "machineDetails":"$COMPX_SVRY_SERVER_DETAILS", "machineName":"$COMPX_SVRY_SERVER_NAME"}]}]'\
   --managed-resource-group-configuration name="$MRG_NAME" location="$MRG_LOCATION" \
   --network fabric-id "$NF_ID" \
