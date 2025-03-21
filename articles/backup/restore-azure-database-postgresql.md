@@ -1,5 +1,5 @@
 ---
-title: Restore Azure Database for PostgreSQL 
+title: Restore Azure Database for PostgreSQL by Using the Azure Portal
 description: Learn about how to restore Azure Database for PostgreSQL backups.
 ms.topic: how-to
 ms.date: 07/24/2024
@@ -9,15 +9,15 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# Restore Azure Database for PostgreSQL backups
+# Restore Azure Database for PostgreSQL backups by using the Azure portal
 
 This article explains how to restore a database to an Azure Database for PostgreSQL server that you backed up by using Azure Backup.
 
 You can restore a database to any Azure Database for PostgreSQL server of a different subscription or the same subscription but within the same region of the vault, if the service has the appropriate [set of permissions](backup-azure-database-postgresql-overview.md#azure-backup-authentication-with-the-postgresql-server) on the target server.
 
-## Restore an Azure PostgreSQL database
+## Restore a PostgreSQL database
 
-1. Go to **Backup vault** > **Backup Instances**. Select a database, and then select **Restore**.
+1. In the [Azure portal](https://portal.azure.com/), go to **Backup vault** > **Backup Instances**. Select a database, and then select **Restore**.
 
    :::image type="content" source="./media/restore-azure-database-postgresql/select-database-for-restore-inline.png" alt-text="Screenshot that shows details for a backup instance." lightbox="./media/restore-azure-database-postgresql/select-database-for-restore-expanded.png":::
 
@@ -37,11 +37,11 @@ You can restore a database to any Azure Database for PostgreSQL server of a diff
 
 1. On the **Restore parameters** tab, select one of the following restore types:
 
-   - **Restore as Database**: The target server can be same as the source server. However, overwriting the original database isn't supported. You can choose from the server across all subscriptions, but in the same region as that of the vault.
+   - **Restore as Database**: The target server can be the same as the source server. However, overwriting the original database isn't supported. You can choose from the servers across all subscriptions but in the same region as that of the vault.
 
-     1. In the **Select key vault to authenticate with target server**, select a vault that stores the credentials to connect to the target server.
+     1. For **Select key vault to authenticate with target server**, select a vault that stores the credentials to connect to the target server.
 
-     1. Select **Review and restore** to trigger validation that checks whether the service has [restore permissions on the target server](backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-restore). These permissions must be [granted manually](backup-azure-database-postgresql-overview.md#grant-access-on-the-azure-postgresql-server-and-key-vault-manually).
+     1. Select **Review and restore** to trigger validation that checks if the service has [restore permissions on the target server](backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-restore). These permissions must be [granted manually](backup-azure-database-postgresql-overview.md#grant-access-on-the-azure-postgresql-server-and-key-vault-manually).
 
      :::image type="content" source="./media/restore-azure-database-postgresql/restore-as-database-inline.png" alt-text="Screenshot that shows the selected option to restore as a database." lightbox="./media/restore-azure-database-postgresql/restore-as-database-expanded.png":::
 
@@ -50,22 +50,22 @@ You can restore a database to any Azure Database for PostgreSQL server of a diff
    >
    > If the backed-up database had any user-specific permissions or constraints (for example, one database user can access a few tables, and another database user can access a few other tables), such permissions aren't preserved after the restore. If you want to preserve those permissions, use **Restore as Files**, and use the `pg_restore` command with the relevant switch.
 
-   - **Restore as Files**: You can choose from the storage accounts across all subscriptions, but in the same region as that of the vault.
+   - **Restore as Files**: You can choose from the storage accounts across all subscriptions but in the same region as that of the vault.
 
      1. In the **Target Container** dropdown list, select one of the containers filtered for the selected storage account.
-     1. Select **Review + Restore** to trigger validation that checks whether the backup service has the [restore permissions on the target storage account](#restore-permissions-on-the-target-storage-account).
+     1. Select **Review + Restore** to trigger validation that checks if the backup service has the [restore permissions on the target storage account](#restore-permissions-on-the-target-storage-account).
 
      :::image type="content" source="./media/restore-azure-database-postgresql/restore-as-files-inline.png" alt-text="Screenshot that shows the selected option to restore as files." lightbox="./media/restore-azure-database-postgresql/restore-as-files-expanded.png":::
 
-1. Submit the restore operation, and then track the triggered job in the **Backup jobs** pane.
+1. Submit the restore operation, and then track the triggered job on the **Backup jobs** pane.
 
-   :::image type="content" source="./media/restore-azure-database-postgresql/track-triggered-job-inline.png" alt-text="Screenshot that shows a tracked triggered job in the pane for backup jobs." lightbox="./media/restore-azure-database-postgresql/track-triggered-job-expanded.png":::
+   :::image type="content" source="./media/restore-azure-database-postgresql/track-triggered-job-inline.png" alt-text="Screenshot that shows a tracked triggered job on the pane for backup jobs." lightbox="./media/restore-azure-database-postgresql/track-triggered-job-expanded.png":::
 
 ## Restore permissions on the target storage account
 
-By using the Azure portal, give the backup vault's managed service identity (MSI) permission to access the storage account containers.
+Give the backup vault's managed service identity (MSI) permission to access the storage account containers:
 
-1. Go to **Storage Account** > **Access Control (IAM)**, and then select **Add**.
+1. In the Azure portal, go to **Storage Account** > **Access Control (IAM)**, and then select **Add**.
 
 1. On the **Add role assignment** pane, in the **Role** dropdown list, select the **Storage Blob Data Contributor** role for the backup vault's MSI.
 
@@ -93,20 +93,20 @@ Before you start using **Cross Region Restore**, read [these important considera
 
 If **Cross Region Restore** is enabled, you can view the backup instances in a secondary region:
 
-1. In the [Azure portal](https://portal.azure.com/), go to **Backup Vault** > **Backup Instances**.
+1. In the Azure portal, go to **Backup Vault** > **Backup Instances**.
 
 1. Select the filter as **Instance Region == Secondary Region**.
 
-   :::image type="content" source="./media/create-manage-backup-vault/select-secondary-region-as-instance-region.png" alt-text="Screenshot that shows the selection of a secondary region as the instance region." lightbox="./media/create-manage-backup-vault/select-secondary-region-as-instance-region.png":::
+:::image type="content" source="./media/create-manage-backup-vault/select-secondary-region-as-instance-region.png" alt-text="Screenshot that shows the selection of a secondary region as the instance region." lightbox="./media/create-manage-backup-vault/select-secondary-region-as-instance-region.png":::
 
-   > [!NOTE]
-   > Only backup management types that support the **Cross Region Restore** feature are listed. Currently, only the restoration of primary region data to a secondary region is supported for Azure Database for PostgreSQL servers.
+> [!NOTE]
+> Only backup management types that support the **Cross Region Restore** feature are listed. Currently, only the restoration of primary region data to a secondary region is supported for Azure Database for PostgreSQL servers.
 
 ### Restore in a secondary region
 
 The experience of restoring in a secondary region is similar to that of restoring in a primary region.  
 
-When you're configuring details in the **Restore Configuration** pane to configure your restore, you're prompted to provide only secondary region parameters. So, a vault should already exist in the secondary region, and the Azure Database for PostgreSQL server should be registered to the vault in the secondary region.
+When you're configuring details on the **Restore Configuration** pane to configure your restore, you're prompted to provide only secondary region parameters. So, a vault should already exist in the secondary region, and the Azure Database for PostgreSQL server should be registered to the vault in the secondary region.
 
 Follow these steps:
 
@@ -114,7 +114,7 @@ Follow these steps:
 
 1. Select **Restore to secondary region**.
 
-    :::image type="content" source="./media/create-manage-backup-vault/restore-to-secondary-region.png" alt-text="Screenshot that shows the button on the action menu for restoring to a secondary region." lightbox="./media/create-manage-backup-vault/restore-to-secondary-region.png":::
+   :::image type="content" source="./media/create-manage-backup-vault/restore-to-secondary-region.png" alt-text="Screenshot that shows the button on the action menu for restoring to a secondary region." lightbox="./media/create-manage-backup-vault/restore-to-secondary-region.png":::
 
 1. Select the restore point, the region, and the resource group.
 
@@ -123,16 +123,16 @@ Follow these steps:
 > [!NOTE]
 >
 > - After the restore is triggered in the data transfer phase, the restore job can't be canceled.
-> - The role/access level required to perform restore operation in cross-regions are *Backup Operator* role in the subscription and *Contributor (write)* access on the source and target virtual machines. To view backup jobs, *Backup reader* is the minimum permission required in the subscription.
-> - The RPO for the backup data to be available in secondary region is 12 hours. Therefore, when you turn on **Cross Region Restore**, the RPO for the secondary region is 12 hours + log frequency duration (that can be set to a minimum of 15 minutes).
+> - The role/access levels required to perform restore operations in cross-regions are the **Backup Operator** role in the subscription and **Contributor (write)** access on the source and target virtual machines. To view backup jobs, **Backup reader** is the minimum permission required in the subscription.
+> - The recovery point objective (RPO) for the backup data to be available in the secondary region is 12 hours. When you turn on **Cross Region Restore**, the RPO for the secondary region is 12 hours + log frequency duration. The log frequency duration can be set to a minimum of 15 minutes.
 
 ### Monitor restore jobs in a secondary region
 
-1. In the Azure portal, go to **Monitoring + reporting** > **Backup Jobs**.
+1. In the Azure portal, go to **Monitoring + reporting** > **Backup jobs**.
 
-1. Filter Instance Region for **Secondary Region** to view the jobs in the secondary region.
+1. Filter **Instance Region** for **Secondary Region** to view the jobs in the secondary region.
 
-:::image type="content" source="./media/create-manage-backup-vault/view-jobs-in-secondary-region.png" alt-text="Screenshot that shows how to view jobs in secondary region." lightbox="./media/create-manage-backup-vault/view-jobs-in-secondary-region.png":::
+:::image type="content" source="./media/create-manage-backup-vault/view-jobs-in-secondary-region.png" alt-text="Screenshot that shows selections for viewing jobs in a secondary region." lightbox="./media/create-manage-backup-vault/view-jobs-in-secondary-region.png":::
 
 ## Related content
 

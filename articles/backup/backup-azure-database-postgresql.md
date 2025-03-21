@@ -1,6 +1,6 @@
 ---
-title: Back up Azure Database for PostgreSQL 
-description: Learn about Azure Database for PostgreSQL backup with long-term retention.
+title: Back Up Azure Database for PostgreSQL by Using the Azure Portal
+description: Learn how to back up Azure Database for PostgreSQL by using the Azure portal.
 ms.topic: how-to
 ms.date: 03/18/2025
 ms.service: azure-backup
@@ -8,11 +8,11 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# Back up Azure Database for PostgreSQL with long-term retention
+# Back up Azure Database for PostgreSQL by using the Azure portal
 
 This article describes how to back up an Azure Database for PostgreSQL server. Before you begin, review the [supported configurations, feature considerations, and known limitations](./backup-azure-database-postgresql-support-matrix.md), along with [frequently asked questions](/azure/backup/backup-azure-database-postgresql-server-faq).
 
-## Configure a backup on Azure PostgreSQL databases
+## Configure a backup on PostgreSQL databases
 
 You can configure a backup on multiple databases across multiple Azure Database for PostgreSQL servers. To configure this kind of backup by using Azure Backup, follow these steps:
 
@@ -32,7 +32,7 @@ You can configure a backup on multiple databases across multiple Azure Database 
 
 1. On the **Datasources** tab, select **Add/Edit**.
 
-   :::image type="content" source="./media/backup-azure-database-postgresql/select-azure-postgresql-databases-to-back-up-inline.png" alt-text="Screenshot that shows the button for adding or editing an Azure PostgreSQL database." lightbox="./media/backup-azure-database-postgresql/select-azure-postgresql-databases-to-back-up-expanded.png":::
+   :::image type="content" source="./media/backup-azure-database-postgresql/select-azure-postgresql-databases-to-back-up-inline.png" alt-text="Screenshot that shows the button for adding or editing a PostgreSQL database." lightbox="./media/backup-azure-database-postgresql/select-azure-postgresql-databases-to-back-up-expanded.png":::
 
 1. On the **Select resources to backup** pane, choose one of the Azure Database for PostgreSQL servers across subscriptions if they're in the same region as that of the vault. Select the arrow to show the list of databases within a server.
 

@@ -1,6 +1,6 @@
 ---
-title: Back up Azure Database for PostgreSQL with long-term-retention using Azure CLI
-description: Learn how to back up Azure Database for PostgreSQL using Azure CLI.
+title: Back Up a PostgreSQL Databases by Using the Azure CLI
+description: Learn how to back up PostgreSQL databases in Azure Database for PostgreSQL by using the Azure CLI.
 ms.topic: how-to
 ms.date: 03/18/2025
 ms.custom: devx-track-azurecli
@@ -9,11 +9,11 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# Back up Azure PostgreSQL databases using Azure CLI
+# Back up PostgreSQL databases by using the Azure CLI
 
-This article explains how to back up [Azure PostgreSQL database](/azure/postgresql/overview#azure-database-for-postgresql---single-server) using Azure CLI.
+This article explains how to back up PostgreSQL databases in [Azure Database for PostgreSQL](/azure/postgresql/overview#azure-database-for-postgresql---single-server) by using the Azure CLI.
 
-Learn more about the [supported scenarios](backup-azure-database-postgresql-support-matrix.md) and  [frequently asked questions](/azure/backup/backup-azure-database-postgresql-server-faq) to back up Azure Database for PostgreSQL Database.
+Learn more about the [supported scenarios](backup-azure-database-postgresql-support-matrix.md) and  [frequently asked questions](/azure/backup/backup-azure-database-postgresql-server-faq) to back up PostgreSQL databases in Azure Database for PostgreSQL.
 
 ## Create a Backup vault
 
@@ -52,7 +52,7 @@ az dataprotection backup-vault create -g testBkpVaultRG --vault-name TestBkpVaul
 }
 ```
 
-After the vault is created, let's create a Backup policy to protect Azure PostgreSQL databases.
+After the vault is created, let's create a Backup policy to protect PostgreSQL databases.
 
 ## Create a Backup policy
 
@@ -94,7 +94,7 @@ The resultant PowerShell object is as follows:
 
 ### Retrieve the policy template
 
-To understand the inner components of a Backup policy for Azure PostgreSQL database backup, retrieve the policy template using the [`az dataprotection backup-policy get-default-policy-template`](/cli/azure/dataprotection/backup-policy#az-dataprotection-backup-policy-get-default-policy-template) command. This command returns a default policy template for a given datasource type. Use this policy template to create a new policy.
+To understand the inner components of a Backup policy for PostgreSQL database backup, retrieve the policy template using the [`az dataprotection backup-policy get-default-policy-template`](/cli/azure/dataprotection/backup-policy#az-dataprotection-backup-policy-get-default-policy-template) command. This command returns a default policy template for a given datasource type. Use this policy template to create a new policy.
 
 ```azurecli-interactive
 az dataprotection backup-policy get-default-policy-template --datasource-type AzureDatabaseForPostgreSQL
@@ -158,7 +158,7 @@ az dataprotection backup-policy get-default-policy-template --datasource-type Az
 }
 ```
 
-The policy template consists of a trigger (which decides what triggers the backup) and a lifecycle (which decides when to delete/copy/move the backup). In Azure PostgreSQL database backup, the default value for trigger is a scheduled Weekly trigger (one backup every seven days) and to retain each backup for three months.
+The policy template consists of a trigger (which decides what triggers the backup) and a lifecycle (which decides when to delete/copy/move the backup). In PostgreSQL database backup, the default value for trigger is a scheduled Weekly trigger (one backup every seven days) and to retain each backup for three months.
 
 **Scheduled trigger:**
 
@@ -264,7 +264,7 @@ az dataprotection backup-policy create --backup-policy-name FinalOSSPolicy --pol
 
 ## Configure backup
 
-Once the vault and policy are created, there are three critical points that you need to consider to protect an Azure PostgreSQL database.
+Once the vault and policy are created, there are three critical points that you need to consider to protect a PostgreSQL database.
 
 ### Key entities involved
 
@@ -438,6 +438,6 @@ You can also use _Az.ResourceGraph_ to track all jobs across all Backup vaults. 
 az dataprotection job list-from-resourcegraph --datasource-type AzureDatabaseForPostgreSQL --status Completed
 ```
 
-## Next steps
+## Related content
 
-- [Restore Azure PostgreSQL database using Azure CLI](restore-postgresql-database-cli.md)
+- [Restore PostgreSQL databases by using the Azure CLI](restore-postgresql-database-cli.md)

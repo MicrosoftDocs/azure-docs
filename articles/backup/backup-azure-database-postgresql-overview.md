@@ -50,7 +50,7 @@ You can restore PostgreSQL single-server databases by using **Restore as Files**
 
 ## Backup process
 
-1. As a backup admin, you can specify the Azure PostgreSQL databases that you intend to back up. You can also specify the details of Azure Key Vault, which stores the credentials needed to connect to the specified databases. The database admin securely seeds these credentials in Key Vault.
+1. As a backup admin, you can specify the PostgreSQL databases that you intend to back up. You can also specify the details of Azure Key Vault, which stores the credentials needed to connect to the specified databases. The database admin securely seeds these credentials in Key Vault.
 
 1. The Azure Backup service validates that it has [appropriate permissions to authenticate](#azure-backup-authentication-with-the-azure-database-for-postgresql-server) with the specified Azure Database for PostgreSQL server and to back up its databases.
 
@@ -74,7 +74,7 @@ The workload admin is responsible for managing and rotating credentials. Azure B
 
 :::image type="content" source="./media/backup-azure-database-postgresql-overview/key-vault-based-authentication-model.png" alt-text="Diagram that shows the workload or database flow.":::
 
-#### Permissions needed for Azure PostgreSQL database backup
+#### Permissions needed for PostgreSQL database backup
 
 1. Grant the following access permissions to the Azure Backup vault's managed service identity (MSI):
 
@@ -91,7 +91,7 @@ The workload admin is responsible for managing and rotating credentials. Azure B
 > [!NOTE]
 > You can grant these permissions within the [configure backup](backup-azure-database-postgresql.md##configure-a-backup-on-azure-postgresql-databases) flow with a single click if you, as the backup admin, have write access on the intended resources. If you don't have the required permissions (when multiple personas are involved), use an Azure Resource Manager template.
 
-#### Permissions needed for Azure PostgreSQL database restore
+#### Permissions needed for PostgreSQL database restore
 
 Permissions for restore are similar to the ones that you need for backup. You need to [manually grant the permissions on the target Azure Database for PostgreSQL server and the corresponding key vault](#steps-for-manually-granting-access-on-the-azure-database-for-postgresql-server-and-on-key-vault). Unlike in the [configure backup](backup-azure-database-postgresql.md##configure-a-backup-on-azure-postgresql-databases) flow, the experience to grant these permissions inline is currently not available.
 

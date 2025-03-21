@@ -1,6 +1,6 @@
 ---
-title: Back up Azure PostgreSQL databases using Azure data protection REST API
-description: In this article, learn how to configure, initiate, and manage backup operations of Azure PostgreSQL databases using REST API.
+title: Back Up PostgreSQL Databases by Using the Azure Data Protection REST API
+description: In this article, learn how to configure, initiate, and manage backup operations of PostgreSQL databases in Azure Database for PostgreSQL by using the REST API.
 ms.topic: how-to
 ms.date: 02/09/2025
 ms.service: azure-backup
@@ -9,11 +9,11 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# Back up Azure PostgreSQL databases using Azure data protection via REST API
+# Back up PostgreSQL databases by using the Azure data protection REST API
 
-This article describes how to manage backups for Azure PostgreSQL databases via REST API.
+This article describes how to manage backups for PostgreSQL databases in Azure Database for PostgreSQL by using the REST API.
 
-For information on the Azure PostgreSQL database backup supported scenarios, limitations, and authentication mechanisms, see the [overview](backup-azure-database-postgresql-overview.md) document.
+For information on the supported scenarios, limitations, and authentication mechanisms for PostgreSQL database backup in Azure Database for PostgreSQL, see the [overview](backup-azure-database-postgresql-overview.md) document.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ For information on the Azure PostgreSQL database backup supported scenarios, lim
 
 ## Configure backup
 
-Once the vault and policy are created, there're three critical points that you need to consider to protect an Azure PostgreSQL database.
+Once the vault and policy are created, there're three critical points that you need to consider to protect a PostgreSQL database.
 
 ### Key entities involved
 
@@ -51,7 +51,7 @@ You need to grant permissions to back up vault's MSI on the PostgreSQL server an
 
 ### Prepare the request to configure backup
 
-After you set the relevant permissions to the vault and PostgreSQL database, and configure the vault and policy, prepare the request to configure backup. See the following request body to configure backup for an Azure PostgreSQL database. The Azure Resource Manager ID (ARM ID) of the Azure PostgreSQL database and its details are present in the _datasourceinfo_ section. The policy information is present in the _policyinfo_ section.
+After you set the relevant permissions to the vault and PostgreSQL database, and configure the vault and policy, prepare the request to configure backup. See the following request body to configure backup for a PostgreSQL database. The Azure Resource Manager ID (ARM ID) of the PostgreSQL database and its details are present in the _datasourceinfo_ section. The policy information is present in the _policyinfo_ section.
 
 ```json
 {
@@ -99,7 +99,7 @@ For example, this API translates to:
 POST https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/validateForBackup?api-version=2021-01-01
 ```
 
-The [request body](#prepare-the-request-to-configure-backup) that we prepared earlier will be used to provide details of the Azure PostgreSQL database to be protected.
+The [request body](#prepare-the-request-to-configure-backup) that we prepared earlier will be used to provide details of the PostgreSQL database to be protected.
 
 #### Example request body
 
@@ -292,7 +292,7 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 
 ### Configure backup request
 
-Once the request is validated, you can submit the same to the [create backup instance API](/rest/api/dataprotection/backup-instances/create-or-update). One of the Azure Backup data protection services protects the Backup instance within the Backup vault. Here, the Azure PostgreSQL database is the backup instance. Use the above-validated request body with minor additions.
+Once the request is validated, you can submit the same to the [create backup instance API](/rest/api/dataprotection/backup-instances/create-or-update). One of the Azure Backup data protection services protects the Backup instance within the Backup vault. Here, the PostgreSQL database is the backup instance. Use the above-validated request body with minor additions.
 
 Use a unique name for the backup instance. So, we recommend you use a combination of the resource name and a unique identifier. For example, in the following operation, we'll use _testpostgresql-empdb11-957d23b1-c679-4c94-ade6-c4d34635e149_ and mark it as the backup instance name.
 
@@ -446,7 +446,7 @@ Once the operation completes, it returns 200 (OK) with the success message in th
 
 ### Stop protection and delete data
 
-To remove the protection on an Azure PostgreSQL database and delete the backup data as well, perform a [delete operation](/rest/api/dataprotection/backup-instances/delete).
+To remove the protection on a PostgreSQL database and delete the backup data as well, perform a [delete operation](/rest/api/dataprotection/backup-instances/delete).
 
 Stopping protection and deleting data is a *DELETE* operation.
 
@@ -508,12 +508,9 @@ GET "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
 }
 ```
 
-## Next steps
+## Related content
 
-[Restore data from an Azure PostGreSQL database backup](restore-postgresql-database-use-rest-api.md)
-
-For more information on the Azure Backup REST APIs, see the following articles:
-
+- [Restore data from a PostGreSQL database backup](restore-postgresql-database-use-rest-api.md)
 - [Get started with Azure Data Protection Provider REST API](/rest/api/dataprotection/)
 - [Get started with Azure REST API](/rest/api/azure/)
 - [Manage backup jobs using REST API](backup-azure-arm-userestapi-managejobs.md).
