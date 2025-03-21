@@ -3,6 +3,7 @@ title: Tutorial to order Azure Data Box Heavy | Microsoft Docs
 description: In this tutorial, learn about Azure Data Box Heavy, a hybrid solution that allows you to import on-premises data into Azure, and how to order Data Box Heavy.
 services: databox
 author: stevenmatthew
+zone_pivot_groups: data-box-sku
 
 ms.service: azure-data-box-heavy
 ms.topic: tutorial
