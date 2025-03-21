@@ -41,7 +41,7 @@ Use the following steps to create a load balancer that can balance traffic acros
 
     Then complete [Create a Windows VM](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm?toc=%2fazure%2fload-balancer%2ftoc.json) steps 6.3 through 6.8.
 
-5. Add a second IP configuration to each of the VMs. Follow the instructions in [Assign multiple IP addresses to virtual machines](../virtual-network/ip-services/virtual-network-multiple-ip-addresses-powershell.md#add-secondary-private-and-public-ip-address) article. Use the following configuration settings:
+5. Add a second IP configuration to each of the VMs. Follow the instructions in [Assign multiple IP addresses to virtual machines](/azure/virtual-network/ip-services/virtual-network-multiple-ip-addresses-powershell) article. Use the following configuration settings:
 
     ```powershell
     $NicName = "VM1-NIC2"
