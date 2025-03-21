@@ -250,11 +250,11 @@
         href: openvpn-azure-ad-mfa.md
     - name: VPN client configuration
       items:
-      - name: Windows clients
+      - name: Azure VPN Client - Windows
         href: point-to-site-entra-vpn-client-windows.md
-      - name: Linux clients
+      - name: Azure VPN Client - Linux
         href: point-to-site-entra-vpn-client-linux.md
-      - name: macOS clients
+      - name: Azure VPN Client - macOS
         href: point-to-site-entra-vpn-client-mac.md
       - name: Generate VPN client profile configuration files
         href: about-vpn-profile-download.md
