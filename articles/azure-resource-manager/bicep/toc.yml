@@ -338,6 +338,9 @@
     - name: File functions
       displayName: loadFileAsBase64,loadJsonContent,loadYamlContent,loadTextContent
       href: bicep-functions-files.md
+    - name: Flow-control functions
+      displayName: fail
+      href: bicep-functions-flow-control.md
     - name: Lambda functions
       displayName: filter,map,reduce,sort,toObject
       href: bicep-functions-lambda.md
