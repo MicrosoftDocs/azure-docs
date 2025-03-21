@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/12/2024
+ms.date: 03/21/2025
 ms.author: jianleishen
 ---
 # Copy data from Vertica using Azure Data Factory or Synapse Analytics
@@ -277,6 +277,15 @@ Here are steps that help you upgrade your Vertica version:
 1. Install a Vertica ODBC driver by following the steps in [Prerequisites](#install-vertica-odbc-driver-for-the-version-20-preview). 
 1. In **Edit linked service page**, select **2.0 (Preview)** under **Version** and configure the linked service by referring to [Linked service properties](#linked-service-properties). 
 1. Apply a self-hosted integration runtime with version 5.44.8984.1 or above. Azure integration runtime is not supported by version 2.0 (Preview). 
+
+## Differences between Vertica version 2.0 (Preview) and version 1.0 
+
+The Vertica connector version 2.0 (Preview) offers new functionalities and is compatible with most features of version 1.0. The table below shows the feature differences between version 2.0 (Preview) and version 1.0. 
+
+| Version 2.0 (Preview) | Version 1.0 |
+| --- | --- |
+| Azure integration runtime is not supported. You can only use the self-hosted integration runtime and its version should be 5.44.8984.1 or above.| Support both Azure Integration Runtime and self-hosted integration runtime.|
+| You need to [install a Vertica ODBC driver](#install-vertica-odbc-driver-for-the-version-20-preview) manually. | The service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver. |
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
