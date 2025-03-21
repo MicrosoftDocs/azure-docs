@@ -3,15 +3,11 @@ title: Create a data history connection
 titleSuffix: Azure Digital Twins
 description: See how to set up a data history connection for historizing Azure Digital Twins updates into Azure Data Explorer.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 03/07/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
 ms.custom: devx-track-azurecli
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Create a data history connection for Azure Digital Twins
@@ -35,7 +31,7 @@ It also contains a sample twin graph that you can use to see the historized grap
 >[!NOTE]
 > You can also use Azure Cloud Shell in the PowerShell environment instead of the Bash environment, if you prefer. The commands on this page are written for the Bash environment, so they might require some small adjustments to be run in PowerShell.
 
-[!INCLUDE [CLI setup for Azure Digital Twins](../../includes/digital-twins-cli.md)]
+[!INCLUDE [CLI setup for Azure Digital Twins](includes/digital-twins-cli.md)]
 
 ### Set up local variables for CLI session
 
@@ -170,6 +166,8 @@ Now that you created the required resources, use the command in this section to 
 This command also creates three tables in your Azure Data Explorer database to store twin property updates, relationship lifecycle events, and twin lifecycle events, respectively. For more information about these types of historized data and their corresponding Azure Data Explorer tables, see [Data types and schemas](concepts-data-history.md#data-types-and-schemas).
 
 # [CLI](#tab/cli) 
+
+[!INCLUDE [digital-twins-cli-issue](includes/digital-twins-cli-issue.md)]
 
 Use the command in this section to create a data history connection and the tables in Azure Data Explorer. The command always creates a table for historized twin property updates, and it includes parameters to create the tables for relationship lifecycle and twin lifecycle events.
 

@@ -1,4 +1,5 @@
 ---
+ROBOTS: NOINDEX
 title: Securing Azure Content Delivery Network assets with token authentication| Microsoft Docs
 description: Learn how to use token authentication to secure access to your Azure Content Delivery Network assets.
 services: cdn

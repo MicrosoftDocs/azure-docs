@@ -39,6 +39,9 @@ You should create the Network Fabric before this on-premises deployment.
 Each Operator Nexus on-premises instance has a one-to-one association
 with a Network Fabric.
 
+> [!NOTE]
+> After creating the cluster, avoid applying patches to it until the `az networkcloud cluster show` CLI command displays redfish bmcConnectionStrings for the corresponding cluster.
+
 ### Create the Cluster using Azure CLI - single storage appliance:
 
 >[!IMPORTANT]

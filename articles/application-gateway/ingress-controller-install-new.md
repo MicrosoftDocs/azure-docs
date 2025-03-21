@@ -288,7 +288,7 @@ If you use [Cloud Shell](https://shell.azure.com/), you don't need to install He
 1. Install the AGIC package:
 
     ```bash
-    helm install agic-controller oci://mcr.microsoft.com/azure-application-gateway/charts/ingress-azure --version 1.7.5 -f helm-config.yaml
+    helm install agic-controller oci://mcr.microsoft.com/azure-application-gateway/charts/ingress-azure --version 1.8.0 -f helm-config.yaml
     ```
 
 ## Install a sample app
