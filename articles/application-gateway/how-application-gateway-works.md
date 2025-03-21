@@ -60,6 +60,13 @@ The Application Gateway retains this cached information for the period equivalen
 > [!IMPORTANT]
 >  * When using custom DNS servers with Application Gateway's Virtual Network, it is important that all servers respond consistently with the same DNS values. When an instance of your Application Gateway issues a DNS query, it uses the value from the server that responds first.
 >  * Users of on-premises custom DNS servers must ensure connectivity to Azure DNS through [Azure DNS Private Resolver](../dns/private-resolver-hybrid-dns.md) (recommended) or a DNS forwarder VM when using a Private DNS zone for Private endpoint.
+>  * By design, To ensure APPGW has access to key required services, some of the domains are configured to be resolved by Azure DNS irrespective of any custom DNS setup: 
+     The list of current domains includes the following and more:
+      .windows.net
+      .chinacloudapi.cn
+      .azure.net
+     NOTE: This behavior is by design. The AppGW actually has been hard coded internally to use Azure DNS directly for these addresses
+     This means that if you want resolve a privatelink dns zone record you need to link the appgw Vnet with the private DNS zone directly 
 
 ### Modifications to the request
 
