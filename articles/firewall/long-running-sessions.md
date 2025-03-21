@@ -41,7 +41,7 @@ The following scenarios can potentially drop long-running TCP sessions:
 - **Idle timeout**: Idle sessions are recycled based on the TCP idle timeout settings. For north-south traffic, you can request an increase in the timeout. For east-west traffic, the timeout is fixed at 5 minutes.
 - **Autorecovery**: If an Azure Firewall instance becomes unresponsive, it's automatically recovered. This process can result in the disconnection of long-running sessions.
 
-> [!IMPORTANT]
+> [!TIP]
 > To avoid connectivity issues, configure a keep-alive mechanism within your application that communicates through the Azure Firewall for east-west traffic. This ensures that long-running sessions remain active and aren't affected by the idle timeout settings.
 
 ## Applications sensitive to TCP session reset
@@ -50,8 +50,9 @@ Some applications, such as traditional SAP GUI and SAP RFC (Remote Function Call
 
 For more information, see [How to secure a virtual network](../virtual-network/virtual-network-vnet-plan-design-arm.md#security) and [Network security groups](../virtual-network/network-security-groups-overview.md).
 
-> [!NOTE]
-> For north-south traffic, an idle timeout results in a reset packet (RST) getting sent to both the source and destination. In contrast, for east-west traffic, a reset **isn't** sent when an idle timeout occurs.
+> [!IMPORTANT]
+> - **North-south traffic**: The Azure Firewall sends a reset packet (RST) to both the source and destination when an idle timeout occurs.
+> - **East-west traffic**: The Azure Firewall doesn't send a reset packet (RST) when an idle timeout occurs.
 
 ## Next steps
 
