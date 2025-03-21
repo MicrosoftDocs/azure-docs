@@ -1,6 +1,6 @@
 ---
-title: Import SOAP API to Azure API Management and convert to REST using the portal | Microsoft Docs
-description: Learn how to import a SOAP API to Azure API Management as a WSDL specification and convert it to a REST API. Then, test the API in the Azure portal.
+title: Import a SOAP API to Azure API Management and convert it to REST using the portal | Microsoft Docs
+description: Learn how to import a SOAP API to Azure API Management as a WSDL specification and convert it to a REST API. Then test the API in the Azure portal.
 services: api-management
 author: dlepow
 ms.custom: devdivchpfy22
@@ -9,30 +9,32 @@ ms.topic: how-to
 ms.date: 03/27/2025
 ms.author: danlep
 
+#customer intent: As a developer, I want to import a SOAP API to API Management and convert it to REST.
+
 ---
-# Import SOAP API to API Management and convert to REST
+# Import a SOAP API to API Management and convert it to REST
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-This article shows how to import a SOAP API as a WSDL specification and then convert it to a REST API. The article also shows how to test the API in API Management.
+This article shows how to import a SOAP API as a WSDL specification and then convert it to a REST API. It also shows how to test the API in Azure API Management.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Import a SOAP API and convert to REST
+> * Import a SOAP API and convert it to REST
 > * Test the API in the Azure portal
 
 [!INCLUDE [api-management-wsdl-import](../../includes/api-management-wsdl-import.md)]
 
 ## Prerequisites
 
-Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
+- Complete the quickstart [Create an Azure API Management instance](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="create-api"> </a>Import and publish a back-end API
 
-1. From the left menu, under the **APIs** section, select **APIs** > **+ Add API**.
+1. In the left pane, in the **APIs** section, select **APIs** > **+ Add API**.
 1. Under **Create from definition**, select **WSDL**.
 
     ![SOAP API](./media/restify-soap-api/wsdl-api.png)
