@@ -8,6 +8,7 @@ manager: kumud
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Control Azure Content Delivery Network caching behavior with caching rules
