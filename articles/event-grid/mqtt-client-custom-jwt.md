@@ -45,7 +45,7 @@ In the AUTH packet, you can provide the required values in the following fields:
 Authenticate Reason Code with value 25 signifies reauthentication.
 
 > [!NOTE]
-> - Audience: 'aud' claim must be set to "https://eventgrid.azure.net/".
+> - For Audience: 'aud' claim use the MQTT Namespace hostname , it will be like this “ xxxx.ts.eventgrid.azure.net”.
 
 ## Access permissions
 A client using Custom JWT authentication can use client attributes and permissions to limit access to specific topics.
