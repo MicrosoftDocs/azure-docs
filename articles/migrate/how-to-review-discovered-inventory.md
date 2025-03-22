@@ -100,11 +100,9 @@ Tags | Tags applied to the workload. <br/> Currently, Azure Migrate supports cus
 ### Optional columns
 
 You can choose to view more attributes that are gathered by Azure Migrate as part of the discovery by selecting **Columns** from the command bar on top and choosing the additional attributes that you're interested to review. 
+
 :::image type="content" source="./media/how-to-review-discovered-inventory/optional-columns-list.png." alt-text="The screenshot illustrates with optional columns." lightbox="./media/how-to-review-discovered-inventory/optional-columns-list.png.":::
 
-
-
-:::image type="content" source="./media/how-to-review-discovered-inventory/optional-columns-list.png." alt-text="The screenshot illustrates with optional columns." lightbox="./media/how-to-review-discovered-inventory/optional-columns-list.png".:::
 
 > [!Note]
 > The exhaustive list of attributes discovered by Azure Migrate are covered in the [details of exported inventory data](#export-all-inventory-data)
