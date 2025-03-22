@@ -6,6 +6,9 @@ metadata:
   ms.topic: faq
   ms.custom:
     - ignite-2024
+  appliesto:
+  - ✅ Azure Managed Redis
+  - ✅ Azure Cache for Redis  
 title: Azure Managed Redis (preview) monitoring and troubleshooting FAQs
 summary: This article provides answers to common questions about how to monitor and troubleshoot Azure Managed Redis (preview).
 

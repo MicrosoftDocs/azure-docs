@@ -7,6 +7,8 @@ ms.custom:
   - ignite-2024
 ms.topic: how-to
 ms.date: 11/15/2024
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 
 # How to upgrade the version of your Azure Managed Redis (Preview) instance

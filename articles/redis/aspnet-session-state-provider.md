@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp, ignite-2024
 ms.date: 05/06/2022
+  - ✅ Azure Cache for Redis
 ---
 # ASP.NET Session State Provider for Azure Cache for Redis
 

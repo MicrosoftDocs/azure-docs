@@ -6,6 +6,8 @@ ms.service: azure-managed-redis
 ms.topic: conceptual
 ms.date: 02/06/2025
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-extended-java, ignite-2024
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 
 # Azure Managed Redis (preview) Client libraries

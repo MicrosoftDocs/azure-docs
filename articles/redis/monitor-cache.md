@@ -6,7 +6,9 @@ ms.custom: horz-monitor
 ms.topic: conceptual
 author: robb
 ms.author: robb
-
+appliesto:
+  - ✅ Azure Managed Redis
+  - ✅ Azure Cache for Redis
 ---
 
 # Monitor Azure Cache for Redis

@@ -8,6 +8,8 @@ ms.custom:
   - ignite-2024
 ms.topic: conceptual
 ms.date: 11/15/2024
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 # Import and Export data in Azure Managed Redis (preview)
 

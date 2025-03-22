@@ -6,6 +6,8 @@ description: In this tutorial, you learn how to use Azure Cache for Redis as a s
 ms.collection: ce-skilling-ai-copilot
 ms.topic: tutorial
 ms.date: 01/08/2024
+  - ✅ Azure Cache for Redis
+
 
 #CustomerIntent: As a developer, I want to develop some code using a sample so that I see an example of a semantic cache with an AI-based large language model.
 ---

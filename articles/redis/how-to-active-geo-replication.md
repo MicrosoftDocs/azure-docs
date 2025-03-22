@@ -7,6 +7,8 @@ ms.service: azure-managed-redis
 ms.custom: devx-track-azurecli, ignite-2024
 ms.topic: conceptual
 ms.date: 01/15/2025
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 
 # Configure active geo-replication for Azure Managed Redis (preview) instances

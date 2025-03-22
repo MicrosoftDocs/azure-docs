@@ -6,6 +6,11 @@ ms.custom: horz-monitor, ignite-2024
 ms.topic: reference
 author: rboucher
 ms.author: robb
+
+appliesto:
+  - ✅ Azure Managed Redis
+  - ✅ Azure Cache for Redis
+
 ---
 
 # Azure Cache for Redis monitoring data reference

@@ -7,6 +7,8 @@ ms.service: azure
 ms.custom: mvc, mode-other, ignite-2024
 ms.topic: quickstart
 ms.date: 04/12/2023
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 # Quickstart: Create an Azure Managed Redis (preview) Instance
 

@@ -8,6 +8,8 @@ ms.topic: sample
 ms.date: 03/11/2022
 zone_pivot_groups: redis-type
 ms.custom: devx-track-azurecli, ignite-2024
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 
 # Create an Azure Redis using the Azure CLI

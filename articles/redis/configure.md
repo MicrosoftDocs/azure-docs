@@ -7,6 +7,8 @@ ms.service: azure-managed-redis
 ms.topic: conceptual
 ms.date: 11/15/2024
 ms.custom: engagement-fy23, ignite-2024
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 
 # How to configure Azure Managed Redis (preview)
