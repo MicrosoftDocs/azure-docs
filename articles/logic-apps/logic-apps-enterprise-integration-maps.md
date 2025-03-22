@@ -61,9 +61,9 @@ This guide shows how to add a map for your workflow to use. You can add maps eit
 
     So, if you don't have or need an integration account, you can use the upload option. Otherwise, you can use the linking option. Either way, you can use these artifacts across all child workflows within the same logic app resource.
 
-* Consumption and Standard workflows support XSLT maps that reference external assemblies, which enable directly calling custom .NET code from XSLT maps. To support this capability, Consumption workflows also have the following requirements:
+* Consumption and Standard workflows support maps that reference external assemblies, which enable directly calling custom .NET code from maps. To support this capability, Consumption workflows also have the following requirements:
 
-  * You need a 64-bit assembly. The transform service runs a 64-bit process, so 32-bit assemblies aren't supported. If you have the source code for a 32-bit assembly, recompile the code into a 64-bit assembly. If you don't have the source code, but you obtained the binary from a third-party provider, get the 64-bit version from that provider. For example, some vendors provide assemblies in packages that have both 32-bit and 64-bit versions. If you have the option, use the 64-bit version instead.
+  * You need a 64-bit assembly. The transform service runs a 64-bit process, so 32-bit assemblies aren't supported. If you have the source code for a 32-bit assembly, recompile the code into a 64-bit assembly. If you don't have the source code, but you obtained the binary from another provider, get the 64-bit version from that provider. For example, some vendors provide assemblies in packages that have both 32-bit and 64-bit versions. If you have the option, use the 64-bit version instead.
 
   * You have to upload *both the assembly and the map* in a specific order to your integration account. Make sure that you [upload your assembly first](#add-assembly), and then upload the map that references the assembly.
 
@@ -93,7 +93,7 @@ This guide shows how to add a map for your workflow to use. You can add maps eit
 
       * Create [Standard logic app workflows](logic-apps-overview.md#resource-environment-differences), which run in single-tenant Azure Logic Apps and offer dedicated and flexible options for compute and memory resources.
 
-  * Standard workflows support fewer map types than Consumption workflows, but no limits apply to map file sizes. For more information, see [Prequisites](#prerequisites).
+  * Standard workflows support fewer map types than Consumption workflows, but no limits apply to map file sizes. For more information, see [Prerequisites](#prerequisites).
 
 <a name="create-maps"></a>
 
@@ -158,7 +158,7 @@ The following example shows a map that references an assembly named **XslUtiliti
 
 ### [Consumption](#tab/consumption)
 
-A Consumption logic app resource supports referencing external assemblies from maps, which enable directly calling custom .NET code from XSLT maps.
+A Consumption logic app resource supports referencing external assemblies from maps, which enable directly calling custom .NET code from maps.
 
 1. In the [Azure portal](https://portal.azure.com) search box, enter **integration accounts**, and select **Integration accounts**.
 
@@ -254,11 +254,9 @@ To upload an assembly to your blob container, follow these steps:
 
 After your assembly finishes uploading, the assembly appears in the **Assemblies** list. On your integration account's **Overview** page, under **Artifacts**, your uploaded assembly also appears.
 
----
-
 ### [Standard](#tab/standard)
 
-A Standard logic app resource supports referencing external assemblies from maps. For example, this capability enables your workflow to call custom .NET Framework code from XSLT maps. For more information, see [Create and run .NET Framework code from Standard workflows](create-run-custom-code-functions.md).
+A Standard logic app resource supports referencing external assemblies from maps. For example, this capability enables your workflow to call custom .NET Framework code from maps. For more information, see [Create and run .NET Framework code from Standard workflows](create-run-custom-code-functions.md).
 
 The following table describes the supported assembly types:
 
@@ -362,7 +360,7 @@ The following steps apply only if you want to add a map directly to your Standar
 
 1. On the **Maps** page toolbar, select **Add**.
 
-1. On the **Add Map** pane, enter a unique name for your map and include the file name extension, for example, **.xslt**, **.hidx**, or .
+1. On the **Add Map** pane, enter a unique name for your map and include the file extension, for example, **.xslt**, **.hidx**, or **.liquid**.
 
 1. Next to the **Map** box, select the folder icon. Select the map to upload.
 
@@ -374,15 +372,13 @@ The following steps apply only if you want to add a map directly to your Standar
 
 1. On your computer, go to your project's *local* folder, and expand the following folders: **Artifacts** > **Maps**.
 
-1. In the **Maps** folder, add your map (**.xslt**) file.
+1. In the **Maps** folder, add your map file.
 
 1. Return to Visual Studio Code.
 
    Your map file now appears in your project, for example:
 
    :::image type="content" source="media/logic-apps-enterprise-integration-maps/map-upload-visual-studio-code.png" alt-text="Screenshot shows Visual Studio Code project structure with expanded Artifacts and Maps folders.":::
-
----
 
 <a name="edit-map"></a>
 
@@ -414,7 +410,7 @@ To update an existing map, you have to upload a new map file that has the change
 
 1. On the **Maps** page toolbar, select **Add**.
 
-1. Under **Add map**, enter a unique name for your map and include the **.xslt** extension name.
+1. Under **Add map**, enter a unique name for your map and include the file extension.
 
 1. Next to the **Map** box, select the folder icon. Select the map to upload.
 
