@@ -2166,6 +2166,10 @@ Manage and update the cloud controller manager deployed on top of OpenShift.
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/publicIPAddresses/write | Creates a public IP address or updates an existing public IP address.  |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/join/action | Joins a virtual network. Not Alertable. |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/read | Gets a virtual network subnet definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/inboundNatRules/join/action | Joins a load balancer inbound nat rule. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkSecurityGroups/join/action | Joins a network security group. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/publicIPPrefixes/join/action | Joins a PublicIPPrefix. Not alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/applicationSecurityGroups/joinNetworkSecurityRule/action | Joins a Security Rule to Application Security Groups. Not alertable. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2196,7 +2200,11 @@ Manage and update the cloud controller manager deployed on top of OpenShift.
         "Microsoft.Network/publicIPAddresses/read",
         "Microsoft.Network/publicIPAddresses/write",
         "Microsoft.Network/virtualNetworks/subnets/join/action",
-        "Microsoft.Network/virtualNetworks/subnets/read"
+        "Microsoft.Network/virtualNetworks/subnets/read",
+        "Microsoft.Network/loadBalancers/inboundNatRules/join/action",
+        "Microsoft.Network/networkSecurityGroups/join/action",
+        "Microsoft.Network/publicIPPrefixes/join/action",
+        "Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action"
       ],
       "notActions": [],
       "dataActions": [],
@@ -2327,7 +2335,7 @@ Install Container Storage Interface (CSI) drivers that enable your cluster to us
 
 ## Azure Red Hat OpenShift Federated Credential
 
-Update cluster managed identities with a federated credential to build a trust relationship between the managed identity, OpenID Connect (OIDC), and the service account.
+Create, update and delete federated credentials on user assigned managed identities in order to build a trust relationship between the managed identity, OpenID Connect (OIDC), and the service account.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2335,6 +2343,7 @@ Update cluster managed identities with a federated credential to build a trust r
 > | [Microsoft.ManagedIdentity](../permissions/identity.md#microsoftmanagedidentity)/userAssignedIdentities/read | Gets an existing user assigned identity |
 > | [Microsoft.ManagedIdentity](../permissions/identity.md#microsoftmanagedidentity)/userAssignedIdentities/federatedIdentityCredentials/write | Add or update a Federated Identity Credential |
 > | [Microsoft.ManagedIdentity](../permissions/identity.md#microsoftmanagedidentity)/userAssignedIdentities/federatedIdentityCredentials/read | Get or list Federated Identity Credentials |
+> | [Microsoft.ManagedIdentity](../permissions/identity.md#microsoftmanagedidentity)/userAssignedIdentities/federatedIdentityCredentials/delete | Delete a Federated Identity Credential |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2347,7 +2356,7 @@ Update cluster managed identities with a federated credential to build a trust r
   "assignableScopes": [
     "/"
   ],
-  "description": "Update cluster managed identities with a federated credential to build a trust relationship between the managed identity, OpenID Connect (OIDC), and the service account.",
+  "description": "Create, update and delete federated credentials on user assigned managed identities in order to build a trust relationship between the managed identity, OpenID Connect (OIDC), and the service account.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/ef318e2a-8334-4a05-9e4a-295a196c6a6e",
   "name": "ef318e2a-8334-4a05-9e4a-295a196c6a6e",
   "permissions": [
@@ -2355,7 +2364,8 @@ Update cluster managed identities with a federated credential to build a trust r
       "actions": [
         "Microsoft.ManagedIdentity/userAssignedIdentities/read",
         "Microsoft.ManagedIdentity/userAssignedIdentities/federatedIdentityCredentials/write",
-        "Microsoft.ManagedIdentity/userAssignedIdentities/federatedIdentityCredentials/read"
+        "Microsoft.ManagedIdentity/userAssignedIdentities/federatedIdentityCredentials/read",
+        "Microsoft.ManagedIdentity/userAssignedIdentities/federatedIdentityCredentials/delete"
       ],
       "notActions": [],
       "dataActions": [],
@@ -2386,6 +2396,8 @@ Install Container Storage Interface (CSI) drivers that enable your cluster to us
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkSecurityGroups/join/action | Joins a network security group. Not Alertable. |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/read | Gets a virtual network subnet definition |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/write | Creates a virtual network subnet or updates an existing virtual network subnet |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/routeTables/join/action | Joins a route table. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/natGateways/join/action | Joins a NAT Gateway |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2414,7 +2426,9 @@ Install Container Storage Interface (CSI) drivers that enable your cluster to us
         "Microsoft.Storage/storageAccounts/write",
         "Microsoft.Network/networkSecurityGroups/join/action",
         "Microsoft.Network/virtualNetworks/subnets/read",
-        "Microsoft.Network/virtualNetworks/subnets/write"
+        "Microsoft.Network/virtualNetworks/subnets/write",
+        "Microsoft.Network/routeTables/join/action",
+        "Microsoft.Network/natGateways/join/action"
       ],
       "notActions": [],
       "dataActions": [],
@@ -2531,6 +2545,10 @@ Manage the lifecycle of specific-purpose custom resource definitions (CRD), cont
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/read | Get the virtual network definition |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/join/action | Joins a virtual network. Not Alertable. |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/read | Gets a virtual network subnet definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/applicationSecurityGroups/joinNetworkSecurityRule/action | Joins a Security Rule to Application Security Groups. Not alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/frontendIPConfigurations/join/action | Joins a Load Balancer Frontend IP Configuration. Not alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/loadBalancers/inboundNATRules/join/action | Joins a load balancer inbound nat rule. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkSecurityGroups/join/action | Joins a network security group. Not Alertable. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | **NotActions** |  |
 > | *none* |  |
@@ -2582,6 +2600,10 @@ Manage the lifecycle of specific-purpose custom resource definitions (CRD), cont
         "Microsoft.Network/virtualNetworks/read",
         "Microsoft.Network/virtualNetworks/subnets/join/action",
         "Microsoft.Network/virtualNetworks/subnets/read",
+        "Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action",
+        "Microsoft.Network/loadBalancers/frontendIPConfigurations/join/action",
+        "Microsoft.Network/loadBalancers/inboundNATRules/join/action",
+        "Microsoft.Network/networkSecurityGroups/join/action",
         "Microsoft.Resources/subscriptions/resourceGroups/read"
       ],
       "notActions": [],
