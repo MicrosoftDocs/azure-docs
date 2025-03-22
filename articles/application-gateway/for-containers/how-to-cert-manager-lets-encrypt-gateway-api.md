@@ -437,7 +437,7 @@ Now we're ready to send some traffic to our sample application, via the hostname
 curl https://contoso.com/ -v 2>&1 | grep issuer
 ```
 
-Upon result, you should see
+You should see the following output:
 
 `*  issuer: C=US; O=Let's Encrypt; CN=R10`
 
