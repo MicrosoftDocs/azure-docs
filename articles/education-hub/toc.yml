@@ -10,10 +10,6 @@
     items:
     - name: What is Azure for Students Starter?
       href: about-azure-for-students-starter.md
-  - name: Azure Classroom
-    items:
-    - name: What is Azure Classroom?
-      href: about-education-hub.md
   - name: Azure Dev Tools for Teaching
     items:
     - name: What is Azure Dev Tools for Teaching?
@@ -28,10 +24,6 @@
       href: azure-dev-tools-teaching/set-up-access.md
 - name: How-to guides
   items:
-  - name: Azure Classroom
-    items:
-    - name: Use a script to automate lab functionality
-      href: full-api-script.md
   - name: Azure Dev Tools for Teaching
     items:
     - name: Download software

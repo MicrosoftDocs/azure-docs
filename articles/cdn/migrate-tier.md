@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: concept-article
 ms.date: 06/25/2024
+ROBOTS: NOINDEX
 ---
 
 # Migrate Azure CDN from Microsoft (classic) to Standard/Premium tier
