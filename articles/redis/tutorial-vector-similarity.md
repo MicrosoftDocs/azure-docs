@@ -47,7 +47,7 @@ In this tutorial, you learn how to:
 
 ## Create an Azure Cache for Redis Instance
 
-1. Follow the [Quickstart: Create a Redis Enterprise cache](../azure-cach-for-redis/quickstart-create-redis-enterprise.md) guide, but make sure you add the RedisSearch module at create time.
+1. Follow the [Quickstart: Create a Redis Enterprise cache](../azure-cache-for-redis/quickstart-create-redis-enterprise.md) guide, but make sure you add the RedisSearch module at create time.
 
 1. On the **Advanced** page, make sure that you've added the **RediSearch** module and have chosen the **Enterprise** Cluster Policy. All other settings can match the default described in the quickstart.
 
