@@ -16,12 +16,12 @@ Vector similarity search (VSS) has become a popular technology for AI-powered in
 
 For tutorials and sample applications on how to use Enterprise tier or Azure Managed Redis with Azure OpenAI, see the following:
 
-- [Tutorial: Conduct vector similarity Enterprise tier or Azure Managed Redis with ddings using LangChain](./cache-tutorial-vector-similarity.md)
+- [Tutorial: Conduct vector similarity with OpenAI embeddings using Azure Managed Redis using LangChain](tutorial-vector-similarity.md)
 - [Sample: Using Redis as semantic cache in a Dall-E powered image gallery with Redis OM for .NET](https://github.com/Azure-Samples/azure-redis-dalle-semantic-caching)
 
 ## Scope of Availability
 
-Vector search capabilities in Redis require [Redis Stack](https://redis.io/docs/latest/operate/oss_and_stack/stack-with-enterprise/), specifically the [RediSearch](https://redis.io/docs/interact/search-and-query/) module. This capability is only available in the [Enterprise tiers of Azure Cache for Redis](./cache-redis-modules.md) and Azure Managed Redis.
+Vector search capabilities in Redis require [Redis Stack](https://redis.io/docs/latest/operate/oss_and_stack/stack-with-enterprise/), specifically the [RediSearch](https://redis.io/docs/interact/search-and-query/) module. This capability is only available in the [Enterprise tiers of Azure Cache for Redis](redis-modules.md) and Azure Managed Redis.
 
 This table contains the information for vector search availability in different tiers.
 
