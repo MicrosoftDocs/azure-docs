@@ -17,7 +17,7 @@ This article describes the new experience to review inventory discovered using A
 
 ## What's New?
 
-- You can review the inventory of different type of workloads discovered from your datacentre along with their key attributes- all in a **single view**. 
+- You can review the inventory of different type of workloads discovered from your datacenter along with their key attributes- all in a **single view**. 
 - You can **expand a server** and review the inventory of databases and web applications running on the server. 
 - You can use **filtering** capability to scope the list of workloads using a combination of filters.
 - You can **add and edit tags** at scale to the discovered workloads from the inventory views.
@@ -73,13 +73,13 @@ The new users need to follow steps given below:
 
 You can start by selecting the count of workloads on **Overview** of your project or select **All inventory** under **Explore inventory** from the menu on the left to see the list of workloads, discovered from your environment either by using [Azure Migrate appliance](migrate-appliance.md) or using CSV import.
 
-**All Inventory** view helps you review all the workloads discovered from your datacentre including servers (VMware VMs/Hyper-V VMs/Physical servers/servers running in other public clouds), databases, and web applications which can be found inline by expanding the server. 
+**All Inventory** view helps you review all the workloads discovered from your datacenter including servers (VMware VMs/Hyper-V VMs/Physical servers/servers running in other public clouds), databases, and web applications which can be found inline by expanding the server. 
 
 While the default view shows databases and web applications on expanding a server in a hierarchical list, you can also choose to see a flat list of all workloads by switching to that view from the action on top right of the page. 
 
 :::image type="content" source="./media/how-to-review-discovered-inventory/switch-to-flat-list.png" alt-text="The screenshot illustrates how to switch to flat list view." lightbox="./media/how-to-review-discovered-inventory/switch-to-flat-list.png":::
 
-You can navigate across pages to review the entire inventory from a single view or choose to go to separate views for **Infrastruture, Databases and Web apps** inventory from the menu on the left.
+You can navigate across pages to review the entire inventory from a single view or choose to go to separate views for **Infrastructure Databases and Web apps** inventory from the menu on the left.
 
 ### Default columns
 
@@ -101,7 +101,7 @@ Tags | Tags applied to the workload. <br/> Currently, Azure Migrate supports cus
 
 You can choose to view more attributes that are gathered by Azure Migrate as part of the discovery by selecting **Columns** from the command bar on top and choosing the additional attributes that you're interested to review. 
 
-:::image type="content" source="./media/how-to-review-discovered-inventory/optional-columns-list.png" alt-text="The screenshot illustrates with optional columns" lightbox="./media/how-to-review-discovered-inventory/optional-columns-list.png":::
+:::image type="content" source="./media/how-to-review-discovered-inventory/optional-columns-list.png" alt-text="The screenshot illustrates with optional columns" lightbox="./media/how-to-review-discovered-inventory/optional-columns-list.png".:::
 
  > [!Note]
  > The exhaustive list of attributes discovered by Azure Migrate are covered in the [details of exported inventory data](#export-all-inventory-data)
@@ -183,7 +183,7 @@ HADR configuration |
 
 You can select **Infrastructure inventory** under **Explore inventory** from the menu on the left to see the list of infrastructure workloads, discovered from your environment either by using [Azure Migrate appliance](migrate-appliance.md) or using CSV import.
 
-**Infrastructure Inventory** view helps you review all the servers discovered from your datacentre including VMware VMs/Hyper-V VMs/Physical servers/servers running in other public clouds.
+**Infrastructure Inventory** view helps you review all the servers discovered from your datacenter including VMware VMs/Hyper-V VMs/Physical servers/servers running in other public clouds.
 
 ### Default columns
 
@@ -267,7 +267,7 @@ Last updated time | Last known timestamp of when the server discovery data was u
 Processor | Processor details of the server
 Resource type | Type of resource created in Azure 
 Power Status | Power status of the server
-Machine type | Type of server whether virtualized on VMware/Hyper-V or bare-metal (physcial)
+Machine type | Type of server whether virtualized on VMware/Hyper-V or bare-metal (physical)
 Discovery source | Source of discovery between appliance and import
 Support ends in (Days) | Number of days for support to end
 Appliance name | Name of the appliance used to discover the workload.

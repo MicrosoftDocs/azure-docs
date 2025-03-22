@@ -25,15 +25,15 @@ This article describes how to set up agentless dependency analysis using Azure M
 
 ## What's New?
 
-- Dependency analysis gets auto-enabled by default on 1000 servers discovered by each Azure Migrate appliance that has passed the prerequisite validation checks. You won't have to manually enable the dependency analysis on servers as was the case before.
+- Dependency analysis is automatically enabled on 1000 servers discovered by each Azure Migrate appliance that has passed the prerequisite checks. You no longer need to enable the dependency analysis on servers manually as before.
 - The enhanced dependency visualization helps you review additional information about the servers, connections, and processes. You can filter the view by process type to analyze key dependencies in the visualization.
-- In the new visualization, after you have identified key dependencies, you can group servers into an application by applying tags on the servers inline.
+- In the new visualization, after identifying key dependencies, you can group servers into an application by taggings them.
 
 ## Before you start
 
 The existing users can follow steps provided [here](how-to-create-group-machine-dependencies-agentless.md#switch-to-new-visualization)
 
-The new users need to follow the steps given below:
+The new users need to follow the below steps:
 
 - Ensure that you have [created a project](./create-manage-projects.md) with the Azure Migrate: Discovery and assessment tool added to it.
 - Review the requirements based on your environment and the appliance you're setting up to perform agentless dependency analysis:
@@ -50,10 +50,10 @@ The new users need to follow the steps given below:
 ## Deploy and configure the Azure Migrate appliance
 
 1. Deploy the Azure Migrate appliance to start discovery. To deploy the appliance, you can use the [deployment method](migrate-appliance.md#deployment-methods) as per your environment. After deploying the appliance, you need to register it with the project and configure it to initiate the discovery.
-2. As you configure the appliance, you need to specify the following in the appliance configuration manager:
+2. While configuring the appliance, you need to specify the following in the appliance configuration manager:
     - The details of the source environment (vCenter Server(s)/Hyper-V host(s) or cluster(s)/physical servers) which you want to discover.
     - Server credentials, which can be domain/ Windows (non-domain)/ Linux (non-domain) credentials. [Learn more](add-server-credentials.md) about how to provide credentials and how the appliance handles them.
-    - Verify the permissions required to perform agentless dependency analysis. For Windows servers, you need to provide domain or non-domain (local) account with administrative permissions. For Linux servers, provide a sudo user account with permissions to execute ls and netstat commands or create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files. If you're providing a sudo user account, ensure that you have enabled NOPASSWD for the account to run the required commands without prompting for a password every time sudo command is invoked.
+    - Verify the permissions required to perform agentless dependency analysis. For Windows servers, you need to provide domain or non-domain (local) account with administrative permissions. For Linux servers, provide a sudo user account with permissions to execute ls and netstat commands or create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files. If you're providing a sudo user account, ensure that NOPASSWD is enabled for the account so commands can run without prompting for a password each time.
 
 ### Add credentials and initiate discovery
 
@@ -69,9 +69,9 @@ The new users need to follow the steps given below:
  After the server discovery is complete, appliance initiates the discovery of installed applications, roles, and features (software inventory) on the servers. During software inventory, the discovered servers are validated to check if they meet the prerequisites and can be enabled for agentless dependency analysis.
  
  > [!Note]
- > Agentless dependency analysis are auto-enabled for discovered servers where the prerequisite validation checks have passed. You won't have to manually enable the dependency analysis on servers as was the case before.
+ > Agentless dependency analysis feature is automatically enabled for the discovered servers when the prerequisite checks are successful. Unlike before, you no longer need to manually enable this feature on servers.
 
- After servers have been auto-enabled for agentless dependency analysis, appliance gathers the dependency data every 5 mins from the server and sends an aggregated data point every 6 hours to Azure. Review the [data](discovered-metadata.md#application-dependency-data) collected by appliance during agentless dependency analysis.
+ After servers are automatically enabled for agentless dependency analysis, appliance collects dependency data from the server every 5 mins. It then sends a combined data point every 6 hours.You can review the [data](discovered-metadata.md#application-dependency-data) collected by appliance during analysis.
 
 ## Review dependency status
 
@@ -180,7 +180,7 @@ If you're an existing user who has already set up an Azure Migrate project, perf
 5. Select proceed to create a new resource in the same Resource Group as the project. Ensure that you have atleast **Contributor** role on the Resource Group else this step isn't complete.
 
 > [!NOTE]
-> Even if the new resource creation goes through, you may not see the new visualization until you the discovery agent version (on Azure Migrate appliance) requirement is not met. Ensure that auto-update service on the appliance is enabled. [Learn more](migrate-appliance.md#appliance-upgrades)
+> Even if the new resource creation goes through, , you might not see the new visualization if the discovery agent version on the Azure Migrate appliance is not up to date. Ensure that auto-update service on the appliance is enabled. [Learn more](migrate-appliance.md#appliance-upgrades)
 
 After you have performed the required steps to upgrade to the new dependency visualization, there are two ways in which you can see server dependencies in the new visualization.
 
