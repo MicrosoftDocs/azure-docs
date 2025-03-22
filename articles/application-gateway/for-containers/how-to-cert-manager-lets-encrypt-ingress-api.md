@@ -159,7 +159,7 @@ The status should show `True` and type `Ready` under conditions.
 
 # [ALB managed deployment](#tab/alb-managed)
 
-1. Create an Ingress
+Create an Ingress
 
 ```bash
 kubectl apply -f - <<EOF
