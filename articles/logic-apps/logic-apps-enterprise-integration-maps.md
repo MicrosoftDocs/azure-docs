@@ -266,7 +266,7 @@ The following table describes the supported assembly types:
 | **Client or SDK Assembly (Java)** | This assembly type provides storage and deployment of custom SDK for Java. For example, the [**JDBC** built-in connector](/azure/logic-apps/connectors/built-in/reference/jdbc/) uses these JAR files to find JDBC drivers for custom relational databases (RDBs). |
 | **Custom Assembly (.NET Framework or .NET 8)** | These assembly types provide storage and deployment of custom DLLs. For example, the [**Transform XML** operation](/azure/logic-apps/logic-apps-enterprise-integration-transform) uses these assemblies for the custom transformation functions that are required during XML transformation. |
 
-#### Azure portal
+##### Azure portal
 
 1. In the [Azure portal](https://portal.azure.com) search box, find and open your logic app resource.
 
@@ -280,7 +280,7 @@ The following table describes the supported assembly types:
 
    Your selected assemblies now appear on your logic app's **Assemblies** page.
 
-#### Visual Studio Code
+##### Visual Studio Code
 
 1. On your computer, go to your project's local folder, and expand the **lib** folder.
 
@@ -330,7 +330,7 @@ For Consumption workflows, based on your map's file size, now follow the steps f
 
 <a name="smaller-map"></a>
 
-#### Add maps up to 2 MB
+##### Add maps up to 2 MB
 
 1. On the **Add Map** pane, enter a unique name for your map.
 
@@ -346,7 +346,7 @@ For Consumption workflows, based on your map's file size, now follow the steps f
 
 <a name="larger-map"></a>
 
-#### Add maps more than 2 MB
+##### Add maps more than 2 MB
 
 To add larger maps for Consumption workflows, use the [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate).
 
@@ -354,7 +354,7 @@ To add larger maps for Consumption workflows, use the [Azure Logic Apps REST API
 
 The following steps apply only if you want to add a map directly to your Standard logic app resource. Otherwise, [add the map to your integration account](#add-map-integration-account).
 
-#### Azure portal
+##### Azure portal
 
 1. On your logic app menu, under **Artifacts**, select **Maps**.
 
@@ -368,7 +368,7 @@ The following steps apply only if you want to add a map directly to your Standar
 
    After your map file finishes uploading, the map appears in the **Maps** list. On your integration account's **Overview** page, under **Artifacts**, your uploaded map also appears.
 
-#### Visual Studio Code
+##### Visual Studio Code
 
 1. On your computer, go to your project's *local* folder, and expand the following folders: **Artifacts** > **Maps**.
 
