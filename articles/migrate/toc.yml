@@ -66,12 +66,8 @@ items:
         items:
           - name: Provide server credentials
             href: add-server-credentials.md
-          - name: Limit discovery scope for servers
-            href: set-discovery-scope.md
           - name: Discover SQL servers and Webapps
             href: how-to-discover-sql-existing-project.md
-          - name: Create least privilege credentials for SQL server Discovery
-            href: least-privilege-credentials.md 
           - name: Enable applications/roles/features discovery
             href: how-to-discover-applications.md
           - name: Appliance diagnostics
