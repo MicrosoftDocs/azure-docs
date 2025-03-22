@@ -6295,6 +6295,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/reliability/availability-zones-region-support.md",
+      "redirect_url": "/azure/reliability/regions-list",
+      "redirect_document_id": false
+    },
+    {  
       "source_path_from_root": "/articles/cyclecloud/how-to/ccws/cleanup-roles.md",
       "redirect_url": "/azure/cyclecloud/how-to/ccws/deploy-with-cli",
       "redirect_document_id": false      
