@@ -25,7 +25,7 @@ This article describes how to set up agentless dependency analysis using Azure M
 
 ## What's New?
 
-- Dependency analysis is automatically enabled on 1000 servers discovered by each Azure Migrate appliance that has passed the prerequisite checks. You no longer need to enable the dependency analysis on servers manually as before.
+- Dependency analysis is automatically enabled on 1,000 servers discovered by each Azure Migrate appliance that has passed the prerequisite checks. You no longer need to enable the dependency analysis on servers manually as before.
 - The enhanced dependency visualization helps you review additional information about the servers, connections, and processes. You can filter the view by process type to analyze key dependencies in the visualization.
 - In the new visualization, after identifying key dependencies, you can group servers into an application by taggings them.
 
@@ -52,8 +52,8 @@ The new users need to follow the below steps:
 1. Deploy the Azure Migrate appliance to start discovery. To deploy the appliance, you can use the [deployment method](migrate-appliance.md#deployment-methods) as per your environment. After deploying the appliance, you need to register it with the project and configure it to initiate the discovery.
 2. While configuring the appliance, you need to specify the following in the appliance configuration manager:
     - The details of the source environment (vCenter Server(s)/Hyper-V host(s) or cluster(s)/physical servers) which you want to discover.
-    - Server credentials, which can be domain/ Windows (non-domain)/ Linux (non-domain) credentials. [Learn more](add-server-credentials.md) about how to provide credentials and how the appliance handles them.
-    - Verify the permissions required to perform agentless dependency analysis. For Windows servers, you need to provide domain or non-domain (local) account with administrative permissions. For Linux servers, provide a sudo user account with permissions to execute ls and netstat commands or create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files. If you're providing a sudo user account, ensure that NOPASSWD is enabled for the account so commands can run without prompting for a password each time.
+    - Server credentials, which can be domain/ Windows (nondomain)/ Linux (nondomain) credentials. [Learn more](add-server-credentials.md) about how to provide credentials and how the appliance handles them.
+    - Verify the permissions required to perform agentless dependency analysis. For Windows servers, you need to provide domain or nondomain (local) account with administrative permissions. For Linux servers, provide a sudo user account with permissions to execute ls and netstat commands or create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files. If you're providing a sudo user account, ensure that NOPASSWD is enabled for the account so commands can run without prompting for a password each time.
 
 ### Add credentials and initiate discovery
 
@@ -71,7 +71,7 @@ The new users need to follow the below steps:
  > [!Note]
  > Agentless dependency analysis feature is automatically enabled for the discovered servers when the prerequisite checks are successful. Unlike before, you no longer need to manually enable this feature on servers.
 
- After servers are automatically enabled for agentless dependency analysis, appliance collects dependency data from the server every 5 mins. It then sends a combined data point every 6 hours.You can review the [data](discovered-metadata.md#application-dependency-data) collected by appliance during analysis.
+ After servers are automatically enabled for agentless dependency analysis, appliance collects dependency data from the server every 5 mins. It then sends a combined data point every six hours.You can review the [data](discovered-metadata.md#application-dependency-data) collected by appliance during analysis.
 
 ## Review dependency status
 
@@ -88,7 +88,7 @@ On reviewing the **Dependencies** column for any server, you see one of the foll
 After the validation succeeds, dependency analysis are auto-enabled and you see one of the following status:
 
 4. **View dependencies:** when validation checks have passed and the dependency analysis has been enabled. You can select this to go to the new visualization and review dependencies for this server.
-5. **Not initiated:** when dependency analysis couldn't be enabled as Azure Migrate has reached the scale limit of 1000 servers per appliance for auto-enablement. If you want to perform dependency analysis on the specific servers, you can manually disable it on the other auto-enabled servers and enable for the ones you need by using the PowerShell module.
+5. **Not initiated:** when dependency analysis couldn't be enabled as Azure Migrate has reached the scale limit of 1,000 servers per appliance for auto-enablement. If you want to perform dependency analysis on the specific servers, you can manually disable it on the other auto-enabled servers and enable for the ones you need by using the PowerShell module.
 6. **Disabled:** when dependency analysis has been manually disabled by you on this server using the PowerShell module. You can re-enable it any-time using the same PowerShell module. 
 
 ## Visualize dependencies
@@ -156,7 +156,7 @@ The following table summarizes the fields in the exported CSV. Server name, appl
 
 **Field name** | **Details**
 --- | --- 
-Timeslot | The timeslot during which the dependency was observed. <br/> Dependency data is captured over 6-hour slots currently.
+Timeslot | The timeslot during which the dependency was observed. <br/> Dependency data is captured over six hour slots currently.
 Source server name | Name of the source server 
 Source application | Name of the application on the source server  
 Source process | Name of the process on the source server  
@@ -180,7 +180,7 @@ If you're an existing user who has already set up an Azure Migrate project, perf
 5. Select proceed to create a new resource in the same Resource Group as the project. Ensure that you have atleast **Contributor** role on the Resource Group else this step isn't complete.
 
 > [!NOTE]
-> Even if the new resource creation goes through, , you might not see the new visualization if the discovery agent version on the Azure Migrate appliance is not up to date. Ensure that auto-update service on the appliance is enabled. [Learn more](migrate-appliance.md#appliance-upgrades)
+> Even if the new resource creation goes through, you might not see the new visualization if the discovery agent version on the Azure Migrate appliance isn't up to date. Ensure that auto-update service on the appliance is enabled. [Learn more](migrate-appliance.md#appliance-upgrades)
 
 After you have performed the required steps to upgrade to the new dependency visualization, there are two ways in which you can see server dependencies in the new visualization.
 
@@ -202,10 +202,10 @@ After you have performed the required steps to upgrade to the new dependency vis
 Dependency analysis is auto-enabled on all discovered servers which have passed the validation checks. You may need to disable one or more of these servers in the following scenarios:
 
 1. Dependency analysis has been auto-enabled on all discovered in your project but you want to disable it on a few servers where you don't want to gather dependency data.
-2. Dependency analysis has been auto-enabled on 1000 servers concurrently in your project but you have more servers where you want to enable it, then you can disable dependency analysis one or more servers from the set of 1000 and enable others as needed.
+2. Dependency analysis has been auto-enabled on 1,000 servers concurrently in your project but you have more servers where you want to enable it, then you can disable dependency analysis one or more servers from the set of 1,000 and enable others as needed.
 
 > [!NOTE]
-> Currently, it is not possible to disable dependendency analysis on servers from portal so you need to install the PowerShell module to disable for servers that you don't want.
+> Currently, it isn't possible to disable dependendency analysis on servers from portal so you need to install the PowerShell module to disable for servers that you don't want.
 
 ### Log in to Azure
 
@@ -264,7 +264,7 @@ You can find discovered servers for a specific appliance by using the command:
     
 In the file, you can see the server display name, current status of dependency collection and the ARM ID of all discovered servers. 
 
-2. To disable dependencies, create an input CSV file from the output file you exported in the last step. The file is required to have a column with header "ARM ID". Any additional headers in the CSV file are ignored. The input file should contain the list of servers where you want to disable dependency analysis.
+2. To disable dependencies, create an input CSV file from the output file you exported in the last step. The file is required to have a column with header "ARM ID". Any other headers in the CSV file are ignored. The input file should contain the list of servers where you want to disable dependency analysis.
 
     In the following example, dependency analysis is being disabled on the list of servers in the input file ContosoDemo_VMs_Disable.csv.
 
@@ -326,7 +326,7 @@ Azure Migrate offers a Power BI template that you can use to visualize network c
     - Choose **Text/CSV** from Common data sources.
     - Choose the dependencies file downloaded.
     - Select **Load**.
-    - You'll see a table is imported with the name of the CSV file. You can see the table in the fields bar on the right. Rename it to AzMig_Dependencies
+    - You see a table is imported with the name of the CSV file. You can see the table in the fields bar on the right. Rename it to AzMig_Dependencies
     - Select refresh from the tool bar.
 
     The Network Connections chart and the Source server name, Destination server name, Source process name, Destination process name slicers should light up with the imported data.
