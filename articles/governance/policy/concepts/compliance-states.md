@@ -1,7 +1,7 @@
 ---
 title: Azure Policy compliance states
 description: This article describes the concept of compliance states in Azure Policy.
-ms.date: 09/05/2024
+ms.date: 03/04/2025
 ms.topic: conceptual
 ---
 

@@ -2,8 +2,8 @@
 title: 'Quickstart: Secure virtual hub using Azure Firewall Manager - Bicep'
 description: In this quickstart, you learn how to secure your virtual hub using Azure Firewall Manager and Bicep.
 services: firewall-manager
-author: vhorne
-ms.author: victorh
+author: duongau
+ms.author: duau
 ms.date: 06/28/2022
 ms.topic: quickstart
 ms.service: azure-firewall-manager

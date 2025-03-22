@@ -1,7 +1,7 @@
 ---
-title: Use Java Message Service 2.0 API with Azure Service Bus Premium
-description: How to use the Java Message Service (JMS) with Azure Service Bus
-ms.topic: article
+title: Use Java Message Service 2.0 API
+description: Explains how to use the Java Message Service (JMS) 2.0 API to interact with Azure Service Bus over the Advanced Message Queueing Protocol (AMQP) 1.0 protocol.
+ms.topic: how-to
 ms.date: 01/10/2024
 ms.custom: devx-track-extended-java
 ---
@@ -10,12 +10,13 @@ ms.custom: devx-track-extended-java
 
 This article explains how to use the popular **Java Message Service (JMS) 2.0** API to interact with Azure Service Bus over the Advanced Message Queueing Protocol (AMQP) 1.0 protocol.
 
-> [!NOTE]
-> Support for JMS 2.0 API is available only in the premium tier and when you use the **azure-servicebus-jms** library. If you use JMS libraries other than **azure-servicebus-jms** (for example, latest **qpid-jms-client**) against a premium namespace, you observe the JMS 1.1 behavior. The azure-servicebus-jms library doesn't create a vendor lock of any kind as it still takes a dependency on qpid-jms-client. All APIs that work on qpid-jms-client work on azure-servicebus-jms library as well. 
->
->  The azure-servicebus-jms is also an [open-source library](https://github.com/azure/azure-servicebus-jms). The azure-servicebus-jms library was mainly created so that the Service Bus service can distinguish between customers needing the JMS 1.1 behavior (backwards compatibility) versus the JMS 2.0 behavior when working against a premium namespace. The azure-servicebus-jms library also provides some necessary defaults such as prefetch policy values, reconnect policies, Microsoft Entra ID, Managed Identity support, support for Auto Delete on Idle for entities out of the box.
-> 
-> The following path to the azure-servicebus-jms package is the latest version of the library that is based on the Jakarta Messaging specification (Jakarta.* APIs): Maven Central: [com.azure:azure-servicebus-jms](https://central.sonatype.com/artifact/com.azure/azure-servicebus-jms). And, the following path to the azure-servicebus-jms is the latest version of library before the Jakarta Messaging specification  (javax.* APIs): Maven Central: [com.microsoft.azure:azure-servicebus-jms](https://central.sonatype.com/artifact/com.microsoft.azure/azure-servicebus-jms/versions).
+## Important notes
+Here are a few important points: 
+
+- Support for JMS 2.0 API is available only in the premium tier and when you use the **azure-servicebus-jms** library. 
+- If you use JMS libraries other than **azure-servicebus-jms** (for example, latest **qpid-jms-client**) against a premium namespace, you observe the **JMS 1.1** behavior, and some of the JMS 2.0 features might not work as expected. The azure-servicebus-jms library doesn't create a vendor lock of any kind as it still takes a dependency on qpid-jms-client. All APIs that work on qpid-jms-client work on azure-servicebus-jms library as well. 
+- The azure-servicebus-jms is also an [open-source library](https://github.com/azure/azure-servicebus-jms). The azure-servicebus-jms library was mainly created so that the Service Bus service can distinguish between customers needing the JMS 1.1 behavior (backwards compatibility) versus the JMS 2.0 behavior when working against a premium namespace. The azure-servicebus-jms library also provides some necessary defaults such as prefetch policy values, reconnect policies, Microsoft Entra ID, Managed Identity support, support for Auto Delete on Idle for entities out of the box.
+- The following path to the azure-servicebus-jms package is the latest version of the library that is based on the Jakarta Messaging specification (Jakarta.* APIs): Maven Central: [com.azure:azure-servicebus-jms](https://central.sonatype.com/artifact/com.azure/azure-servicebus-jms). And, the following path to the azure-servicebus-jms is the latest version of library before the Jakarta Messaging specification  (javax.* APIs): Maven Central: [com.microsoft.azure:azure-servicebus-jms](https://central.sonatype.com/artifact/com.microsoft.azure/azure-servicebus-jms/versions).
 
 ## Prerequisites
 

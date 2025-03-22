@@ -1,7 +1,6 @@
 ---
 title: 'Domains in Azure Front Door'
 description: Learn about custom domains when using Azure Front Door.
-services: frontdoor
 author: johndowns
 ms.service: azure-frontdoor
 ms.topic: concept-article

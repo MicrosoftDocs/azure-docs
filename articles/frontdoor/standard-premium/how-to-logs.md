@@ -1,12 +1,11 @@
 ---
 title: Configure Azure Front Door logs
 description: This article explains how to configure Azure Front Door logs.
-services: front-door
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 01/06/2025
-ms.author: duau
 ---
 
 # Configure Azure Front Door logs
@@ -22,8 +21,6 @@ Access logs, health probe logs, and Web Application Firewall (WAF) logs aren't e
 1. Search for **Azure Front Door** and then select the relevant Azure Front Door profile.
 
 1. Within the profile, navigate to **Monitoring**, select **Diagnostic Setting** and then choose **Add diagnostic setting**.
-
-   :::image type="content" source="../media/how-to-logging/front-door-logging-1.png" alt-text="Screenshot of diagnostic settings landing page.":::
 
 1. Under **Diagnostic settings**, enter a name for **Diagnostic settings name**.
 

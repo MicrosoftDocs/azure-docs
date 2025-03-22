@@ -16,7 +16,7 @@ Troubleshooting network devices is a critical aspect of effective network manage
 
 ## Understanding read-only commands 
 
-RO commands serve as essential tools for network administrators. Unlike read-write (RW) commands that modify device configurations, RO commands allow administrators to gather diagnostic information without altering the device's state. These commands provide valuable insights into the device's status, configuration, and operational data. 
+RO commands serve as essential tools for network administrators. Unlike read-write (RW) commands that modify device configurations, RO commands allow administrators to gather diagnostic information without altering the device's state. These commands provide valuable insights into the device's status, configuration, and operational data. The RO command also supports using a customer-provided storage account for storing output files using api version 2024-06-15-preview.
 
 ## Read-only diagnostic API 
 
@@ -36,7 +36,8 @@ By using the read-only diagnostic API, network administrators can efficiently tr
 
 To use Network Fabric read-only commands, complete the following steps:
 
-- Provision the Nexus Network Fabric successfully. 
+- Provision the Nexus Network Fabric successfully.
+
 - Generate the storage URL.
 
     Refer to [Create a container](../storage/blobs/blob-containers-portal.md#create-a-container) to create a container.  
@@ -49,11 +50,16 @@ To use Network Fabric read-only commands, complete the following steps:
     > [!NOTE]
     > SAS URLs are short lived. By default, it is set to expire in eight hours. If the SAS URL expires, then the fabric must be re-patched. 
 
-
 - Provide the storage URL with WRITE access via a support ticket. 
 
     > [!NOTE]
     > The Storage URL must be located in a different region from the Network Fabric. For instance, if the Fabric is hosted in East US, the storage URL should be outside of East US. 
+
+- Bring your own storage account 
+    Users can bring your own storage for storing output files of runRO command by following the steps outlined in the [Bring Your Own Storage for Network Fabric](howto-configure-bring-your-own-storage-network-fabric.md) guide.
+
+>[!Note]
+> Starting with the 2024-06-15-preview API update, bringing your own storage account is the preferred method. Users should create or associate the fabric instances with your storage account referring to [configure Bring-Your-Own (BYO) Storage for Network Fabric](/articles/operator-nexus/howto-configure-bring-your-own-storage-network-fabric.md) article.
 
  ## Command restrictions
 
@@ -107,9 +113,7 @@ To troubleshoot using read-only commands, follow these steps:
     
     ```azurecli
     https://management.azure.com/subscriptions/xxxxxxxxxxx/providers/Microsoft.ManagedNetworkFabric/locations/EASTUS/operationStatuses/xxxxxxxxxxx?api-version=20XX-0X-xx-xx
-    ```
-
-    
+    ```    
 
 4. View and download the generated output file. Sample output is shown here.
 

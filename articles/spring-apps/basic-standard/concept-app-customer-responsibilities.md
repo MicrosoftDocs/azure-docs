@@ -3,7 +3,8 @@ title: Version Support for Java, Spring Boot, and More
 titleSuffix: Azure Spring Apps
 description: This article describes the version support for Java, Spring Boot, and Spring Cloud, and the customer responsibilities when developing Azure Spring Apps.
 author: KarlErickson
-ms.author: zhiyongli
+ms.author: karler
+ms.reviewer: zhiyongli
 ms.service: azure-spring-apps
 ms.custom: devx-track-extended-java
 ms.topic: conceptual

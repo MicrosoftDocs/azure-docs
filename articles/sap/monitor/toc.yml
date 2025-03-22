@@ -23,6 +23,8 @@ items:
       href: enable-tls-azure-monitor-sap-solutions.md
     - name: Enable Dedicated Hosting Plan in Azure Monitor for SAP solutions
       href: enable-dedicated-hosting-plan.md
+    - name: Enable Trusted Access in Azure Monitor for SAP solutions
+      href: enable-trusted-access.md
     - name: Enable Insights to troubleshoot SAP workload issues
       href: enable-sap-insights.md
     - name: Provider configuration

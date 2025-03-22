@@ -5,7 +5,8 @@ author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: conceptual
 ms.date: 04/23/2024
-ms.author: xuycao
+ms.author: karler
+ms.reviewer: xuycao
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -53,7 +54,7 @@ The following table describes the `terminationGracePeriodSeconds` property, whic
 
 | Property name                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `terminationGracePeriodSeconds` | The duration in seconds after processes running in the app instance are sent a termination signal before they're forcibly halted. Set this value longer than the expected cleanup time for your process. The value must be a non-negative integer. Setting the grace period to **0** stops the app instance immediately via the kill signal, with no opportunity to shut down. If the value is **nil**, Azure Spring Apps uses the default grace period. The default value is **90**. |
+| `terminationGracePeriodSeconds` | The duration in seconds after processes running in the app instance are sent a termination signal before they're forcibly halted. Set this value longer than the expected cleanup time for your process. The value must be a non-negative integer. Setting the grace period to `0` stops the app instance immediately via the kill signal, with no opportunity to shut down. If the value is `nil`, Azure Spring Apps uses the default grace period. The default value is `90`. |
 
 ### Health probe properties
 
@@ -61,11 +62,11 @@ The following table describes the properties you can use to configure health pro
 
 | Property name         | Description                                                                                                                                                                                              |
 |------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `initialDelaySeconds` | The number of seconds after the app instance has started before probes are initiated. The default value is **0**, the minimum value.                                                                         |
-| `periodSeconds`       | The frequency in seconds to perform the probe. The default value is **10**. The minimum value is **1**.                                                                                                          |
-| `timeoutSeconds`      | The number of seconds until the probe times out. The default value is **1**, the minimum value.                                                                                                              |
-| `failureThreshold`    | The minimum number of consecutive failures for the probe to be considered failed after having succeeded. The default value is **3**. The minimum value is **1**.                                                 |
-| `successThreshold`    | The minimum number of consecutive successes for the probe to be considered successful after having failed. The default value is **1**. The value must be **1** for liveness and startup. The minimum value is **1**. |
+| `initialDelaySeconds` | The number of seconds after the app instance has started before probes are initiated. The default value is `0`, the minimum value.                                                                         |
+| `periodSeconds`       | The frequency in seconds to perform the probe. The default value is `10`. The minimum value is `1`.                                                                                                          |
+| `timeoutSeconds`      | The number of seconds until the probe times out. The default value is `1`, the minimum value.                                                                                                              |
+| `failureThreshold`    | The minimum number of consecutive failures for the probe to be considered failed after having succeeded. The default value is `3`. The minimum value is `1`.                                                 |
+| `successThreshold`    | The minimum number of consecutive successes for the probe to be considered successful after having failed. The default value is `1`. The value must be `1` for liveness and startup. The minimum value is `1`. |
 
 ### Probe action properties
 
@@ -77,8 +78,8 @@ There are three ways you can check an app instance using a probe. Each probe mus
 
   | Property name | Description                                                                    |
   |----------------|---------------------------------------------------------------------------------|
-  | `scheme`      | The scheme to use for connecting to the host. The default is **HTTP**.             |
-  | `path`        | The path to access on the HTTP server of the app instance, such as **/healthz**. |
+  | `scheme`      | The scheme to use for connecting to the host. The default is `HTTP`.             |
+  | `path`        | The path to access on the HTTP server of the app instance, such as `/healthz`. |
 
 - `ExecAction`
 
@@ -86,7 +87,7 @@ There are three ways you can check an app instance using a probe. Each probe mus
 
   | Property name | Description                                                                                                                                                                                                                                                                                                                                                                            |
   |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-  | `command`       | The command to execute inside the app instance. The working directory for the command is the root directory (**/**) in the app instance's file system. Because the command is run using `exec` rather than inside a shell, shell instructions won't work. To use a shell, explicitly call out to the shell. An exit status of **0** is treated as live/healthy, and non-zero is unhealthy. |
+  | `command`       | The command to execute inside the app instance. The working directory for the command is the root directory (**/**) in the app instance's file system. Because the command is run using `exec` rather than inside a shell, shell instructions won't work. To use a shell, explicitly call out to the shell. An exit status of `0` is treated as live/healthy, and non-zero is unhealthy. |
 
 - `TCPSocketAction`
 

@@ -119,6 +119,8 @@ In order to generate an image, you need to assign the DevCenter service the requ
 
 1. Under that resource group, navigate to Access Control, and give the **Windows 365** and **Project Fidalgo** applications the roles **Storage Account Contributor**, **Storage Blob Data Contributor**, and **Reader**.
 
+During the process of building an image, Dev Box creates a temporary storage account in your subscription to store a snapshot, from which Dev Box generates an image. This storage account does not allow anonymous blob access and can only be accessed by identities with the Storage Blob Reader access. This storage account must be accessible from public networks, so that the Dev Box service can export your snapshot to it. If you have Azure policies that block the creation of storage accounts with public network access, create an exception for the subscription your DevCenter project is in.
+
 ### Build the image
  
 
