@@ -36,7 +36,7 @@ items:
         href: ./ag/tutorial-restrict-web-traffic-cli.md
     - name: Create Web Application Firewall v2 - Bicep
       href: ./ag/quick-create-bicep.md
-    - name: Deploy Web Application Firewall v2 - ARM template
+    - name: Create Web Application Firewall v2 - ARM template
       href: ./ag/quick-create-template.md
   - name: Front Door
     items:

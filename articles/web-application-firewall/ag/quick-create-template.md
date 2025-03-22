@@ -11,7 +11,7 @@ ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm, devx-track-arm-t
 # Customer intent: As a cloud administrator, I want to quickly deploy a Web Application Firewall v2 on Azure Application Gateway for production environments or to evaluate WAF v2 functionality.
 ---
 
-# Quickstart: Create an Azure Web Application Firewall v2 by using an ARM template
+# Quickstart: Create an Azure Web Application Firewall v2 using an ARM template
 
 In this quickstart, you use an Azure Resource Manager template (ARM template) to create an Azure Web Application Firewall (WAF) v2 on Azure Application Gateway.
 
@@ -96,7 +96,7 @@ To delete the resource group, call the `Remove-AzResourceGroup` cmdlet:
 Remove-AzResourceGroup -Name "<your resource group name>"
 ```
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create an application gateway with a Web Application Firewall by using the Azure portal](application-gateway-web-application-firewall-portal.md)
+> [Create an application gateway with a Web Application Firewall using the Azure portal](application-gateway-web-application-firewall-portal.md)
