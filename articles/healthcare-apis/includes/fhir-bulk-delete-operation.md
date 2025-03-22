@@ -57,9 +57,6 @@ Query parameters allow you to filter the raw resources you plan to delete. To su
 
 All the query parameters are optional.
 
-
-
-
 ### `$bulk-delete-soft-deleted` operation
 To delete soft deleted resources within a FHIR service -$bulk-delete-soft-deleted operation can be used. This operation can be executed at the system level or for individual resource types. 
 
