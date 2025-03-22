@@ -1,11 +1,6 @@
 {
   "redirections": [
     {
-      "source_path": "articles/databox-online/azure-stack-edge-security.md",
-      "redirect_url": "/azure/databox-online/azure-stack-edge-pro-r-security",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/databox-online/azure-stack-edge-overview.md",
       "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-overview",
       "redirect_document_id": false
