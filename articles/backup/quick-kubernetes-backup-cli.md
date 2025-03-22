@@ -27,7 +27,7 @@ Before you configure vaulted backup for AKS cluster, ensure the following prereq
 To create the Backup vault, run the following command:
 
 ```azurecli
-az dataprotection backup-vault create --resource-group $backupvaultresourcegroup --vault-name $backupvault --location $region --type SystemAssigned --storage-settings datastore-type="VaultStore" type="GloballyRedundant"
+az dataprotection backup-vault create --resource-group $backupvaultresourcegroup --vault-name $backupvault --location $region --type SystemAssigned --storage-settings datastore-type="VaultStore" type="GeoRedundant"
 ```
 
 The newly created vault has storage settings set as Globally Redundant, thus backups stored in vault tier will be available in the Azure paired region. Once the vault creation is complete, create a backup policy to protect AKS clusters.
