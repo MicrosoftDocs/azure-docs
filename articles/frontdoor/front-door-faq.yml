@@ -11,7 +11,7 @@ title: Frequently asked questions for Azure Front Door
 summary: |
   This article answers common questions about Azure Front Door features and functionality. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
   
-  1. The comments section of this article.
+  1. The feedback section of this article.
 
   2. [Azure Front Door Feedback](https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=d47b0f41-8326-ec11-b6e6-000d3a4f0789).
 
@@ -84,7 +84,7 @@ sections:
           - Front Door Classic doesn't support move between resource groups or subscriptions. You can instead [migrate](tier-migration.md) the Classic profile to Standard/Premium and then execute the move.
           - If the customer has WAF associated to the  Front Door Standard/Premium, then move operation will fail. Customer has to disassociate WAF policies first, move and then associate.
 
- - name: Features and protocols
+  - name: Features and protocols
     questions:
       - question: |
           What features does Azure Front Door support?
@@ -124,8 +124,9 @@ sections:
           Does Azure Front Door have the capability to load balance or route traffic within a virtual network?
         answer:  |
           To use Azure Front Door Standard, or (classic) tier, you need a public IP or a DNS name that can be resolved publicly. This requirement of a public IP or a DNS name that can be resolved publicly allows Azure Front Door to route traffic to your backend resources. You can use Azure resources like Application Gateways or Azure Load Balancers to route traffic to resources in a virtual network. If you use Front Door Premium tier, you can use Private Link to connect to origins behind an internal load balancer with a private endpoint. For more information, see [Secure origins with Private Link](private-link.md).
-         
- - name: Deploying Front Door with other services
+       
+
+  - name: Deploying Front Door with other services
     questions:
       - question: |
           When should I deploy an Application Gateway behind Front Door?
@@ -159,9 +160,8 @@ sections:
           Is it possible to configure Azure Front Door behind another Front Door profile or the other way around?
         answer:  |
           The fact that both profiles would use the same Azure edge sites to handle incoming requests causes this limitation that prevents you from nesting one Azure Front Door profile behind another. This setup would cause routing conflicts and performance issues. Therefore, you should ensure that your Azure Front Door profiles are independent and not chained together, if you need to use multiple profiles for your applications.
-      
-         
- - name: Front Door IP addresses and service tags
+
+  - name: Front Door IP addresses and service tags
     questions:
       - question: |
           Does the anycast IP of my Front Door remain the same throughout its lifetime?
@@ -181,8 +181,7 @@ sections:
           - The *AzureFrontDoor.FirstParty* service tag is reserved for a select group of Microsoft services hosted on Azure Front Door. 
           
           For more information on Azure Front Door service tags scenarios, see [available service tags](../virtual-network/service-tags-overview.md#available-service-tags). To stay informed and take appropriate action during any changes to IP addresses, develop automation to regularly fetch the latest IP addresses using [the Service Tag Discovery API or JSON file](../virtual-network/service-tags-overview.md#service-tags-on-premises).
-      
-           
+
   - name: Configuration
     questions:
 
@@ -272,14 +271,14 @@ sections:
           Front Door uses TLS 1.2 as the minimum version for all profiles created after September 2019.
 
           You can choose to use TLS 1.0, 1.1, 1.2 or 1.3 with Azure Front Door. To learn more, read the [Azure Front Door end-to-end TLS](concept-end-to-end-tls.md) article.
-                  
+
   - name: Billing
     questions:
       - question: |
           Do I get billed for the Azure Front Door resources that are disabled?
         answer: |
           Azure Front Door is a service that provides fast and secure web delivery. It allows you to define how your web traffic is routed and optimized across multiple regions and endpoints. Azure Front Door resources, such as Front Door profiles and routing rules, are only charged when they're enabled. However, web application firewall (WAF) policies and rules are charged regardless of their status. Even if you disable a WAF policy or rule, it still incurs costs for you.
-          
+
   - name: Caching
     questions:
       - question: |
@@ -298,7 +297,7 @@ sections:
           Does AFD support setting the Authorization Header in the HTTP request if caching is enabled?
         answer: |
           No.
-  
+
   - name: Diagnostics and logging
     questions:
       - question: |
@@ -325,7 +324,7 @@ sections:
 
 additionalContent: |
 
-  ## Next steps
+  ## Related content
   
   - Learn how to [create an Azure Front Door](quickstart-create-front-door.md) profile.
   - Learn about the [Azure Front Door architecture](front-door-routing-architecture.md).
