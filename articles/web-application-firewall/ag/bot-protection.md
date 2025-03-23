@@ -26,7 +26,7 @@ Create a WAF policy for Application Gateway by following the instructions descri
 
 1. On the **Assign managed rule sets** page, under **Additional rule set**, select the desired Bot Manager rule set.
 
-:::image type="content" source="../media/bot-protection/managed-rule-sets.png" alt-text="Screenshot show WAF managed rule sets.":::
+  :::image type="content" source="../media/bot-protection/managed-rule-sets.png" alt-text="Screenshot show WAF managed rule sets.":::
 
 1. Select **Save**.
 
