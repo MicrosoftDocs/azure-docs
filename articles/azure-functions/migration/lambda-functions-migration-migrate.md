@@ -274,13 +274,13 @@ See the following GitHub repositories to compare AWS Lambda code and Azure Funct
 
    - This repository also includes starter samples, IaC, and end-to-end samples for Azure Functions.
 
-### Adjust configuration settings
+## Adjust configuration settings
 
 Ensure that your function's time-out and [memory](/azure/azure-functions/flex-consumption-how-to#configure-instance-memory) settings are compatible with Azure Functions. For more information about configurable settings, see [host.json reference for Azure Functions](/azure/azure-functions/functions-host-json).
 
 Follow the recommended best practices for permissions, access, networking, and deployment configurations. 
  
-#### Configure permissions
+### Configure permissions
 
 Follow best practices when you set up permissions on your function apps. For more information, see [Configure your function app and storage account with managed identity](https://eng.ms/docs/cloud-ai-platform/devdiv/serverless-paas-balam/serverless-paas-vikr/app-service-web-apps/app-service-team-documents/functionteamdocs/faqs/tutorial-secretless-mi#configure-your-function-app-and-storage-account-with-managed-identity).
 
@@ -301,7 +301,7 @@ module processorUserAssignedIdentity './core/identity/userAssignedIdentity.bicep
 
 For more information, see [userAssignedIdentity.bicep](https://github.com/Azure-Samples/functions-quickstart-javascript-azd/blob/main/infra/core/identity/userAssignedIdentity.bicep).
 
-#### Configure network access
+### Configure network access
 
 Azure Functions supports [virtual network integration](/azure/azure-functions/functions-networking-options#virtual-network-integration), which gives your function app access to resources in your virtual network. After integration, your app routes outbound traffic through the virtual network. Then your app can access private endpoints or resources by using rules that only allow traffic from specific subnets. If the destination is an IP address outside of the virtual network, the source IP address is one of the addresses listed in your app's properties, unless you configure a NAT gateway.
 
@@ -337,11 +337,11 @@ module servicePrivateEndpoint 'app/storage-PrivateEndpoint.bicep' = {
 
 For more information, see [VNet.bicep](https://github.com/Azure-Samples/functions-quickstart-javascript-azd/blob/main/infra/app/vnet.bicep) and [storage-PrivateEndpoint.bicep](https://github.com/Azure-Samples/functions-quickstart-javascript-azd/blob/main/infra/app/storage-PrivateEndpoint.bicep).
 
-#### Configure deployment settings
+### Configure deployment settings
 
 Deployments follow a single path. After you build your project code and zip it into an application package, deploy it to a Blob Storage container. When it starts, your app gets the package and runs your function code from it. By default, the same storage account that stores internal host metadata, such as `AzureWebJobsStorage`, also serves as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by configuring your app's deployment settings. For more information, see [Deployment technology details](/azure/azure-functions/functions-deployment-technologies#deployment-technology-details) and [Configure deployment settings](/azure/azure-functions/flex-consumption-how-to#configure-deployment-settings).
  
-### Generate IaC files
+## Generate IaC files
 
 - Use tools like Bicep, Azure Resource Manager templates, or Terraform to create IaC files to deploy Azure resources.
 
@@ -349,7 +349,7 @@ Deployments follow a single path. After you build your project code and zip it i
 
 - Use this [IaC samples repository](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC) for samples that use Azure Functions recommendations and best practices.
 
-### Use tools for refactoring
+## Use tools for refactoring
 
 Use tools like GitHub Copilot in Visual Studio Code for help with code refactoring, manual refactoring for specific changes, or other migration aids.
 
