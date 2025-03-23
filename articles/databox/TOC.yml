@@ -6,22 +6,22 @@
     - name: Overview
       items:
       - name: What is Data Box?
-        href: data-box-overview.md
+        href: data-box-overview.md?pivots=dbx
       - name: What is next-gen Data Box?
-        href: data-box-next-gen-overview.md
+        href: data-box-overview.md?pivots=dbx-ng
     - name: Quickstarts
       expanded: true
       items:
       - name: Set up - Azure portal
         items:
         - name: For import
-          href: data-box-quickstart-portal.md
+          href: data-box-quickstart-portal.md?pivots=dbx
         - name: For import - Next Gen
-          href: data-box-next-gen-quickstart-portal.md
+          href: data-box-quickstart-portal.md?pivots=dbx-ng
         - name: For export
-          href: data-box-quickstart-export.md
+          href: data-box-quickstart-export.md?pivots=dbx
         - name: For export - Next Gen
-          href: data-box-next-gen-quickstart-export.md
+          href: data-box-quickstart-export.md?pivots=dbx-ng
     - name: Tutorials
       items:
       - name: Import data to Azure

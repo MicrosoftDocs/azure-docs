@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 01/22/2025
+ms.date: 03/06/2025
 ms.author: banders
 # customer intent: As a reservation purchaser, I want learn how to exchange or refund Azure reservations.
 ---
@@ -35,7 +35,6 @@ When you exchange a reservation, you can change your term from one-year to three
 Not all reservations are eligible for exchange. For example, you can't exchange the following reservations:
 
 - Azure Databricks Pre-purchase plan
-- Azure OpenAI provisioned throughput
 - Synapse Analytics Pre-purchase plan
 - Red Hat plans
 - SUSE Linux plans
@@ -50,7 +49,6 @@ The following reservations aren't eligible for refunds:
 
 - Azure Databricks Pre-purchase plan
 - Synapse Analytics Pre-purchase plan
-- Azure VMware solution by CloudSimple
 - Red Hat plans
 - SUSE Linux plans
 - Microsoft Defender for Cloud Pre-Purchase Plan
@@ -65,7 +63,7 @@ The following reservations aren't eligible for refunds:
 
 You can exchange your reservation from the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
-1. Select the reservations that you want to refund and select **Exchange**.  
+1. On the Reservations page, select the reservations that you want to refund and select **Exchange**.  
     :::image type="content" border="true" source="./media/exchange-and-refund-azure-reservations/exchange-refund-return.png" lightbox="./media/exchange-and-refund-azure-reservations/exchange-refund-return.png" alt-text="Screenshot showing reservations to return.":::
 1. Select the VM product that you want to purchase and type a quantity. Make sure that the new purchase total is more than the return total. [Determine the right size before you purchase](/azure/virtual-machines/prepay-reserved-vm-instances#determine-the-right-vm-size-before-you-buy).  
     :::image type="content" border="true" source="./media/exchange-and-refund-azure-reservations/exchange-refund-select-purchase.png" lightbox="./media/exchange-and-refund-azure-reservations/exchange-refund-select-purchase.png" alt-text="Screenshot showing the VM product to purchase with an exchange.":::

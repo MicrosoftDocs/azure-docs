@@ -490,4 +490,5 @@ This workflow creates alerts in Dynamics 365 Field Service, when the `FaultyTime
 ## Related content
 
 - [Connect on-premises SAP systems to Azure](howto-connect-on-premises-sap-to-azure.md)
+- [Enable an industrial dataspace on Azure](howto-iot-industrial-dataspaces.md)
 - [Connect Azure IoT Operations to Microsoft Fabric](../iot-operations/process-data/howto-configure-destination-fabric.md)

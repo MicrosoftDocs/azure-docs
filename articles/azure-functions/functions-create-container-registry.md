@@ -15,7 +15,6 @@ For a complete example of deploying containerized functions to Azure, which incl
 
 + [Create your first containerized Azure Functions on Azure Container Apps](functions-deploy-container-apps.md)
 + [Create your first containerized Azure Functions](functions-deploy-container.md)
-+ [Create your first containerized Azure Functions on Azure Arc (preview)](create-first-function-arc-custom-container.md)
 
 You can also create a function app in the Azure portal by using an existing containerized function app from a container registry. For more information, see [Azure portal create using containers](functions-how-to-custom-container.md#azure-portal-create-using-containers). 
 

@@ -31,8 +31,8 @@ Use the following steps to create the service instance:
    | Setting                       | Suggested value                   | Description                                                                                                                                                                                                                                                                                        |
    |-------------------------------|-----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    | **Subscription**              | Your subscription name.           | The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.                                                                                                                        |
-   | **Resource group**            | *myresourcegroup*                 | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
-   | **Name**                      | *myasa*                           | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
+   | **Resource group**            | **myresourcegroup**                 | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
+   | **Name**                      | **myasa**                           | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
    | **Region**                    | The region closest to your users. | The location that is closest to your users.                                                                                                                                                                                                                                                        |
    | **Hosting options and plans** | **Enterprise**                    | The pricing plan that determines the resource and cost associated with your instance.                                                                                                                                                                                                              |
    | **Zone Redundant**            | Unselected                        | The option to create your Azure Spring Apps service in an Azure availability zone. This feature isn't currently supported in all regions.                                                                                                                                                          |
@@ -61,7 +61,7 @@ Use the following steps to create the apps:
 
 1. From the navigation pane, select **Apps** and then select **Create App**.
 
-1. On the **Create App** page, for the **App name**, use *frontend* and leave all the other fields with their default values.
+1. On the **Create App** page, for the **App name**, use **frontend** and leave all the other fields with their default values.
 
 1. Repeat the previous step using each of the following application names:
 
@@ -96,10 +96,10 @@ Use the following steps to configure Application Configuration Service:
 
 1. Fill out the repository with the following information, and then select **Validate**:
 
-   - **Name**: *default*
-   - **Patterns**: *application,api-gateway,customers-service,vets-service,visits-service*
-   - **URI**: *https://github.com/Azure-Samples/spring-petclinic-microservices-config.git*.
-   - **Label**: *master*
+   - **Name**: **default**
+   - **Patterns**: **application,api-gateway,customers-service,vets-service,visits-service**
+   - **URI**: **https://github.com/Azure-Samples/spring-petclinic-microservices-config.git**.
+   - **Label**: **master**
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-validate-configuration-service.png" alt-text="Screenshot of the Azure portal that shows the Application Configuration Service Settings tab." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-validate-configuration-service.png":::
 

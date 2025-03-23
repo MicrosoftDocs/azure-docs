@@ -4,9 +4,8 @@ titleSuffix: Azure API Management
 description: This article shows you how to import an Azure Function App into Azure API Management as an API.
 services: api-management
 author: dlepow
-manager: cfowler
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/16/2021
 ms.author: danlep
 ---
@@ -168,8 +167,3 @@ You can call operations directly from the Azure portal. Using the Azure portal i
     * When the test succeeds, the back end responds with **200 OK** and some data.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Transform and protect a published API](transform-api.md)

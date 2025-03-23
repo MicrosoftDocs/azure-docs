@@ -1,5 +1,5 @@
 ---
-ms.author: dbasantes
+ms.author: rahulva
 title: Azure Communication Services Call Recording Bring Your Own Storage
 titleSuffix: An Azure Communication Services document
 description: Quickstart for Bring your own storage
@@ -16,7 +16,7 @@ ms.custom: mode-api, devx-track-extended-java
 
 This quickstart gets you started with Bring your own Azure storage for Call Recording. To start using Bring your own Azure Storage functionality, make sure you're familiar with the [Call Recording APIs](../../voice-video-calling/get-started-call-recording.md).
 
-## Pre-requisite: Setting up Managed Identity and Role Based Access Controls(RBAC) role assignments
+## Prerequisite: Setting up Managed Identity and Role Based Access Controls(RBAC) role assignments
 
 ### 1. Enable system assigned managed identity for Azure Communication Services
 
@@ -28,7 +28,7 @@ This quickstart gets you started with Bring your own Azure storage for Call Reco
 
 ![Diagram showing a communication service resource with managed identity enabled](../media/byos-managed-identity-2.png)
 
-4. Once the identity has been successfully created, click on *Azure role assignments* to start adding role assignments.
+4. Once the identity is successfully created, click on *Azure role assignments* to start adding role assignments.
 
 ### 2. Add role assignment
 
@@ -44,7 +44,7 @@ This quickstart gets you started with Bring your own Azure storage for Call Reco
     
 ![Diagram showing a communication service resource managed identity adding role assignment details](../media/role-assignment-2.png)
 
-3. Click on *"Save"*.
+3. Click on *Save*.
 4. Once completed, you see the newly added role assignment in the *"Azure role assignment"* window.
 
 ![Diagram showing a communication service resource managed identity role assignment success](../media/role-assignment-3.png)
@@ -63,7 +63,7 @@ Use the server call ID received during initiation of the call.
 
 ### Notification on successful export
 
-Use an [Azure Event Grid](../../../../event-grid/overview.md) web hook, or other triggered action, to notify your services when the recorded media is ready and exported to the external storage location.
+To notify your services when the recorded media is ready and exported to the external storage location, use an [Azure Event Grid](../../../../event-grid/overview.md) web hook, or other triggered action.
 
 Refer to this example of the event schema.
 
@@ -74,11 +74,11 @@ Refer to this example of the event schema.
     "subject": "string", // /recording/call/{call-id}/serverCallId/{serverCallId}
     "data": {
         "storageType": "string", // AzureBlob etc.
-        "recordingId": "string", // unique id for recording
+        "recordingId": "string", // unique ID for recording
         "recordingStorageInfo": {
             "recordingChunks": [
                 {
-                    "documentId": "string", // Document id for the recording chunk
+                    "documentId": "string", // Document ID for the recording chunk
                     "contentLocation": "string", //Azure Communication Services URL where the content is located
                     "metadataLocation": "string", // Azure Communication Services URL where the metadata for this chunk is located
                     "deleteLocation": "string", // Azure Communication Services URL to use to delete all content, including recording and metadata.
@@ -97,6 +97,12 @@ Refer to this example of the event schema.
     "eventTime": "string" // ISO 8601 date time for when the event was created
 }
 ```
+### Notification and Action for recording export failure.
+
+Failure to export recording file can occur due to incorrect configuration settings or service outages.
+In both cases, the failure notification includes the download url to obtain recordings. 
+Download recordings from the location in failure notification within 24 hours.
+
 ### Folder Structure for Call Recording
 
 Recordings are stored in the following format as shown in the diagram.

@@ -2,11 +2,11 @@
 title: Custom domains with Azure Static Web Apps
 description: Using a custom domain with Azure Static Web Apps
 services: static-web-apps
-author: craigshoemaker
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic: conceptual
 ms.date: 06/24/2024
-ms.author: cshoe
+ms.author: wujia
 ---
 
 # Custom domains with Azure Static Web Apps

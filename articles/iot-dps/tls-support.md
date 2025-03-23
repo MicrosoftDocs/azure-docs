@@ -2,9 +2,8 @@
 title: TLS support with DPS
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Best practices in using secure TLS connections for devices and services communicating with the IoT Device Provisioning Service (DPS)
-author: kgremban
-
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 11/27/2024
@@ -132,7 +131,7 @@ Use the links below to configure TLS 1.2 and allowed ciphers in the Azure IoT cl
 | Python   | Version 2.0.0 or newer             | [Link](https://aka.ms/Tls_Python_SDK_IoT) |
 | C#       | Version 1.21.4 or newer            | [Link](https://aka.ms/Tls_CSharp_SDK_IoT) |
 | Java     | Version 1.19.0 or newer            | [Link](https://aka.ms/Tls_Java_SDK_IoT) |
-| NodeJS   | Version 1.12.2 or newer            | [Link](https://aka.ms/Tls_Node_SDK_IoT) |
+| Node.js   | Version 1.12.2 or newer            | [Link](https://aka.ms/Tls_Node_SDK_IoT) |
 
 ## Use TLS 1.2 with IoT Hub
 

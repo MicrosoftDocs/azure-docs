@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 01/21/2025
+ms.date: 03/06/2025
 ms.author: cshoe
 ---
 
@@ -231,6 +231,14 @@ Arm64 based clusters aren't supported at this time.
 
   - Resolved issue with MDM Init container which caused container to crash in event it couldn't be pulled
   - Added support for [Logic Apps Hybrid Deployment Model (Public Preview)](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/announcement-introducing-the-logic-apps-hybrid-deployment-model/ba-p/4271568)
+
+### Container Apps extension v1.37.8 (March 2025)
+
+  - Resolved issue with SMB storage's read-only attribute which was not setting correctly
+  - Resolved issue with cleanup hook
+  - Added support for health probes for Logic Apps
+  - Added support for JWT authentication for sync trigger
+  - Added User Event for when system namespace is the same as the app namespace
 
 ## Next steps
 

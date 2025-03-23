@@ -243,12 +243,6 @@
             "branch_mapping": {}
         },
         {
-            "path_to_root": "azure-proactive-resiliency-library",
-            "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
             "path_to_root": "azure-sdk-for-go-samples",
             "url": "https://github.com/Azure-Samples/azure-sdk-for-go-samples",
             "branch": "main",
@@ -587,6 +581,12 @@
         {
             "path_to_root": "msdocs-jboss-mysql-sample-app",
             "url": "https://github.com/Azure-Samples/msdocs-jboss-mysql-sample-app",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "laravel-tasks",
+            "url": "https://github.com/Azure-Samples/laravel-tasks",
             "branch": "main",
             "branch_mapping": {}
         },

@@ -1,12 +1,11 @@
 ---
 title: 'How to add a custom domain - Azure Front Door'
 description: In this article, you learn how to onboard a custom domain to an Azure Front Door profile by using the Azure portal.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 11/12/2024
-ms.author: duau
 #Customer intent: As a website owner, I want to add a custom domain to my Azure Front Door configuration so that my users can use my custom domain to access my content.
 ---
 
@@ -32,8 +31,6 @@ To configure a custom domain, go to the **Domains** pane of your Azure Front Doo
 
 1. Under **Settings**, select **Domains** for your Azure Front Door profile. Then select **+ Add**.
 
-    :::image type="content" source="../media/how-to-add-custom-domain/add-domain-button.png" alt-text="Screenshot that shows the Add a domain button on the domain landing pane.":::
-
 1. On the **Add a domain** pane, select the domain type. You can choose **Non-Azure validated domain** or **Azure pre-validated domain**.
 
     * **Non-Azure validated domain**: The domain requires ownership validation. We recommend using the Azure-managed DNS option. You can also use your own DNS provider. If you choose Azure-managed DNS, select an existing DNS zone and either select an existing custom subdomain or create a new one. If you're using another DNS provider, manually enter the custom domain name. Then select **Add** to add your custom domain.
@@ -51,8 +48,6 @@ To configure a custom domain, go to the **Domains** pane of your Azure Front Doo
 
     A new custom domain initially has a validation state of **Submitting**.
 
-    :::image type="content" source="../media/how-to-add-custom-domain/validation-state-submitting.png" alt-text="Screenshot that shows the domain validation state as Submitting.":::
-
     > [!NOTE]
     > * As of September 2023, Azure Front Door supports BYOC-based domain ownership validation. Azure Front Door automatically approves domain ownership if the Certificate Name (CN) or Subject Alternative Name (SAN) of the provided certificate matches the custom domain. When you select **Azure managed certificate**, domain ownership continues to be validated via the DNS TXT record.
     > * For custom domains created before BYOC-based validation support, if the domain validation status is anything but **Approved**, trigger auto-approval by selecting **Validation State** > **Revalidate** in the portal. If using the command-line tool, trigger domain validation by sending an empty `PATCH` request to the domain API.
@@ -60,18 +55,12 @@ To configure a custom domain, go to the **Domains** pane of your Azure Front Doo
 
     After a few minutes, the validation state will change to **Pending**.
 
-    :::image type="content" source="../media/how-to-add-custom-domain/validation-state-pending.png" alt-text="Screenshot that shows the domain validation state as Pending.":::
-
 1. Select the **Pending** validation state. A new pane appears with the DNS TXT record information required to validate the custom domain. The TXT record is in the format `_dnsauth.<your_subdomain>`. 
 
     * If you're using an Azure DNS-based zone, select **Add** to create a new TXT record with the provided value in the Azure DNS zone.
     * If you're using another DNS provider, manually create a new TXT record named `_dnsauth.<your_subdomain>` with the value shown on the pane.
 
-    :::image type="content" source="../media/how-to-add-custom-domain/validate-custom-domain.png" alt-text="Screenshot that shows the validate the custom domain pane.":::
-
 1. Close the pane to return to the custom domains list. The provisioning state of the custom domain should change to **Provisioned**, and the validation state should change to **Approved**.
-
-    :::image type="content" source="../media/how-to-add-custom-domain/provisioned-approved-status.png" alt-text="Screenshot that shows the Provisioning state and the Approved status.":::
 
 For more information about domain validation states, see [Domains in Azure Front Door](../domain.md#domain-validation).
 
@@ -85,8 +74,6 @@ After validating your custom domain, you can associate it with your Azure Front 
 
     The **Endpoint association** status updates to reflect the endpoint currently associated with the custom domain.
 
-    :::image type="content" source="../media/how-to-add-custom-domain/endpoint-association-status.png" alt-text="Screenshot of the Endpoint association link.":::
-
 1. Select the **DNS state** link.
 
     :::image type="content" source="../media/how-to-add-custom-domain/dns-state-link.png" alt-text="Screenshot of the DNS state link.":::
@@ -95,8 +82,6 @@ After validating your custom domain, you can associate it with your Azure Front 
     > For an Azure prevalidated domain, manually update the CNAME record from the other Azure service endpoint to the Azure Front Door endpoint in your DNS hosting service. This step is required regardless of whether the domain is hosted with Azure DNS or another DNS service. The link to update the CNAME from the **DNS state** column isn't available for this type of domain.
 
 1. The **Add or update the CNAME record** pane appears with the necessary CNAME record information. If using Azure DNS hosted zones, you can create the CNAME records by clicking **Add** on the pane. If using another DNS provider, manually enter the CNAME record name and value as shown on the pane.
-
-    :::image type="content" source="../media/how-to-add-custom-domain/add-update-cname-record.png" alt-text="Screenshot of the Add or update the CNAME record pane.":::
 
 1. Once the CNAME record is created and the custom domain is associated with the Azure Front Door endpoint, traffic starts flowing.
 

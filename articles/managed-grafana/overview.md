@@ -29,7 +29,7 @@ As a fully managed service, Azure Managed Grafana lets you deploy Grafana withou
 
 You can share Grafana dashboards with people inside and outside of your organization and allow others to join in for monitoring or troubleshooting.
 
-Managed Grafana uses Microsoft Entra ID’s centralized identity management, which allows you to control which users can use a Grafana instance, and you can use managed identities to access Azure data stores, such as Azure Monitor.
+Azure Managed Grafana uses Microsoft Entra ID’s centralized identity management, which allows you to control which users can use a Grafana workspace, and you can use managed identities to access Azure data stores, such as Azure Monitor.
 
 You can create dashboards instantaneously by importing existing charts directly from the Azure portal or by using prebuilt dashboards.
 
@@ -57,7 +57,10 @@ The [Azure Managed Grafana pricing page](https://azure.microsoft.com/pricing/det
 | [Grafana Enterprise](how-to-grafana-enterprise.md)                       | -                                   | Optional, with licensing costs                                                                                  |
 
 > [!NOTE]
-> Users can upgrade an instance from Essential (preview) to Standard by going to **Settings** > **Configuration** > **Pricing Plans**. Downgrading from Standard to Essential (preview) however isn't supported.
+> Users can upgrade an workspace from Essential (preview) to Standard by going to **Settings** > **Configuration** > **Pricing Plans**. Downgrading from Standard to Essential (preview) however isn't supported.
+
+> [!NOTE]
+> Grafana Enterprise is an option within the Standard plan, not a separate plan within Azure.
 
 ## Quotas
 
@@ -66,4 +69,4 @@ Different quotas apply to Azure Managed Grafana service instances depending on t
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an Azure Managed Grafana instance using the Azure portal](./quickstart-managed-grafana-portal.md)
+> [Create an Azure Managed Grafana workspace using the Azure portal](./quickstart-managed-grafana-portal.md)
