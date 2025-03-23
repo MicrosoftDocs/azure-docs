@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 06/30/2023
+ms.date: 03/21/2025
 ms.custom: engagement-fy25
 ---
 
@@ -86,11 +86,11 @@ You can visualize dependencies around six hours after enabling dependency analys
 1. Expand the **Client** group to list the servers with a dependency on the selected server.
 1. Expand the **Port** group to list the servers that have a dependency from the selected server.
 1. To navigate to the map view of any of the dependent servers, select the server name > **Load server map**
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png" alt-text="Screenshot to Expand Server port group and load server map.":::
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/expand-client-group.png" alt-text="Expand client group.":::
+   :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png" alt-text="Screenshot to Expand Server port group and load server map.":::
+   :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/expand-client-group.png" alt-text="Expand client group.":::
 
-8. Expand the selected server to view process-level details for each dependency.
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/expand-server-processes.png" alt-text="Expand server to show processes.":::
+1. Expand the selected server to view process-level details for each dependency.
+   :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/expand-server-processes.png" alt-text="Expand server to show processes.":::
 
 > [!NOTE]
 > Process information for a dependency is not always available. If it's not available, the dependency is depicted with the process marked as "Unknown process".
