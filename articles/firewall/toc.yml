@@ -194,6 +194,9 @@ items:
       href: firewall-sentinel-overview.md
     - name: Detect malware with Microsoft Sentinel
       href: detect-malware-with-sentinel.md
+  - name: Network security blog
+    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
+- name: Deploy
 - name: Operational excellence
   items:
   - name: Monitoring
@@ -232,6 +235,8 @@ items:
     href: monitor-firewall-reference.md
 - name: Resources
   items:
+  - name: Networking blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
   - name: Author templates
     href: ../azure-resource-manager/templates/syntax.md
   - name: Community templates

@@ -14,6 +14,8 @@ ms.custom: references_regions
 # Release notes 2025: Azure Health Data Services
 
 This article describes features, enhancements, and bug fixes released in 2025 for the FHIR&reg; service, Azure API for FHIR, DICOM&reg; service, and MedTech service in Azure Health Data Services.
+## March 2025
+**Bulk Delete Enhancement**: Added support for _include and _revinclude to conditional and bulk delete requests. Users can now use _include and _revinclude in the search criteria for conditional and bulk delete. Please note that this does not affect current behavior of singular deletes, which does not support extra parameters. 
 
 ## February 2025
 

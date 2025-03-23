@@ -25,7 +25,13 @@ This article describes four scenarios for migrating an API Management instance t
 
 ## Prerequisites
 
-* Thoroughly understand all requirements and considerations for enabling zone redundancy in API Management by reading [Reliability in API Management](/azure/reliability/reliability-api-management).
+* To configure availability zones for API Management, your instance must be in one of the [Azure regions that support availability zones](regions-list.md).
+
+* If you don't have an API Management instance, create one by following the [Create a new Azure API Management instance by using the Azure portal](../api-management/get-started-create-service-instance.md) quickstart. Select the Premium service tier.
+
+* If you have an existing API Management instance, make sure that it's in the Premium tier. If it isn't, [upgrade to the Premium tier](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier).
+
+* If your API Management instance is deployed (injected) in an [Azure virtual network](../api-management/api-management-using-with-vnet.md), check the version of the [compute platform](../api-management/compute-infrastructure.md) (`stv1` or `stv2`) that hosts the service.
 
 ## Downtime requirements
 
@@ -126,5 +132,5 @@ To add a new location to your API Management instance and enable zone redundancy
 
 * [Reliability in API Management](/azure/reliability/reliability-api-management)
 * [Design review checklist for reliability](/azure/architecture/framework/resiliency/app-design)
-* [Azure services with availability zones](/azure/reliability/availability-zones-service-support)
-* [Azure regions with availability zones](/azure/reliability/availability-zones-region-support)
+- [Azure services with availability zones](availability-zones-service-support.md)
+- [Azure regions with availability zones](regions-list.md)

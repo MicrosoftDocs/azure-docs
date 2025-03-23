@@ -1,6 +1,110 @@
 {
   "redirections": [
     {
+      "source_path": "articles/databox-online/azure-stack-edge-overview.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-deploy-prep.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-deploy-prep",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-deploy-install.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-deploy-install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-deploy-connect-setup-activate.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-deploy-add-shares.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-deploy-add-shares",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-deploy-configure-compute-advanced.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-deploy-configure-compute-advanced",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-deploy-configure-compute.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-deploy-configure-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-system-requirements.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-system-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-technical-specifications-compliance.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-technical-specifications-compliance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-create-iot-edge-module.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-create-iot-edge-module",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-manage-compute.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-manage-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-manage-shares.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-manage-shares",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-manage-users.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-manage-users",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-manage-bandwidth-schedules.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-manage-bandwidth-schedules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-manage-access-power-connectivity-mode.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-manage-access-power-connectivity-mode",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-troubleshoot.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-troubleshoot-iot-edge.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-troubleshoot-iot-edge",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-migrate-fpga-gpu.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-migrate-fpga-gpu",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-2101-release-notes.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-2101-release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-2301-release-notes.md",
+      "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-2301-release-notes",
+    },
+    {
+      "source_path": "articles/network-watcher/nsg-flow-logs-rest.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/nsg-flow-logs-rest",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/automation/update-management/configure-alerts.md",
       "redirect_url": "/azure/update-manager/manage-alerts",
       "redirect_document_id": false
@@ -2713,6 +2817,11 @@
     {
       "source_path_from_root": "/articles/bastion/bastion-connect-vm-rdp-linux.md",
       "redirect_url": "/azure/bastion/bastion-connect-vm-ssh-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/bastion/quickstart-developer-sku.md",
+      "redirect_url": "/azure/bastion/quickstart-developer",
       "redirect_document_id": false
     },
     {
@@ -6186,6 +6295,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/reliability/availability-zones-region-support.md",
+      "redirect_url": "/azure/reliability/regions-list",
+      "redirect_document_id": false
+    },
+    {  
+      "source_path_from_root": "/articles/cyclecloud/how-to/ccws/cleanup-roles.md",
+      "redirect_url": "/azure/cyclecloud/how-to/ccws/deploy-with-cli",
+      "redirect_document_id": false      
+    },
+    {
       "source_path": "articles/cloud-services/applications-dont-support-tls-1-2.md",
       "redirect_url": "/previous-versions/azure/cloud-services/applications-dont-support-tls-1-2",
       "redirect_document_id": false
@@ -6511,9 +6630,19 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/reliability/migrate-sql-managed-instance.md",
+      "redirect_url": "/azure/azure-sql/managed-instance/instance-zone-redundancy-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operational-excellence/relocation-managed-identity.md",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/how-to-managed-identity-regional-move",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/reliability/migrate-api-mgt.md",
       "redirect_url": "/azure/api-management/enable-zone-redundancy",
       "redirect_document_id": false
-    },
+    }
   ]
 }

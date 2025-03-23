@@ -123,6 +123,8 @@ Changing a blob's tier from a warmer tier to a cooler one is instantaneous, as i
 Keep in mind the following points when changing a blob's tier:
 
 - You can't use **Set Blob Tier** to archive a a blob that uses an encryption scope. You can only use **Set Blob Tier** to move between online access tiers. For more information about encryption scopes, see [Encryption scopes for Blob storage](encryption-scope-overview.md).
+ 
+- If a blob is explicitly moved to the cool or cold tier and then moved to the archive tier, the early deletion charge applies.
 
 ## Blob lifecycle management
 
