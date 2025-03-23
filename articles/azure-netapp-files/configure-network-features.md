@@ -20,7 +20,7 @@ Two settings are available for network features:
 * ***Standard***  
     This setting enables VNet features for the volume.  
 
-    If you need higher IP limits or VNet features such as [network security groups (NSGs)](../virtual-network/network-security-groups-overview.md), [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined), or additional connectivity patterns, you should set **Network Features** to *Standard*.
+    If you need higher IP limits or VNet features such as [network security groups (NSGs)](../virtual-network/network-security-groups-overview.md), [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined), or additional connectivity patterns, set **Network Features** to *Standard*.
 
 * ***Basic***  
     This setting provides reduced IP limits (<1000) and no additional VNet features for the volumes.

@@ -1,9 +1,6 @@
 ---
 title: Build a Business case with Azure Migrate | Microsoft Docs
 description: Describes how to build a Business case with Azure Migrate
-author: rashi-ms
-ms.author: v-uhabiba
-ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 03/20/2025
