@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 11/14/2024
-ms.custom: engagement-fy23
+ms.date: 03/21/2025
+ms.custom: engagement-fy25
 ---
 
 
@@ -93,6 +93,20 @@ After the validation succeeds, dependency analysis are auto-enabled and you see 
 
 ## Visualize dependencies
 
+1. In **Azure Migrate: Discovery and assessment**, select **Discovered servers**.
+1. Choose the **Appliance name** whose discovery you want to review.
+1. Search for the server whose dependencies, you want to review.
+1. Under the **Dependencies (agentless)** column, select **View dependencies**
+1. Change the time period for which you want to view the map using the **Time duration** dropdown.
+1. Expand the **Client** group to list the servers with a dependency on the selected server.
+1. Expand the **Port** group to list the servers that have a dependency from the selected server.
+1. To navigate to the map view of any of the dependent servers, select the server name > **Load server map**
+   :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png" alt-text="Screenshot to Expand Server port group and load server map.":::
+   :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/expand-client-group.png" alt-text="Expand client group.":::
+
+1. Expand the selected server to view process-level details for each dependency.
+   :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/expand-server-processes.png" alt-text="Expand server to show processes.":::
+
 1. In the new experience, go to project overview. Select the workloads count in **All inventory** to review the discovered workloads. In the view, you can see **Dependencies** column with status values as covered in section above.
 2. Search for the server whose dependencies, you want to review. If dependency analysis was successfully performed on that server, you can select on **View dependencies** to go to the dependency visualization. 
 3. The dependency visualization shows all incoming and outgoing dependencies for that server in a network diagram.
@@ -132,6 +146,7 @@ Process count | Representing the count of processes as per the process type filt
 13. From the expanded list of processes, you can select on a Process name to see its incoming and outgoing dependencies with processes on other servers in the view. The process to process dependency also indicates the destination port no on the connection.
 
     :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/process-process-dep.png" alt-text="The screenshot shows the process to process dependencies." lightbox="./media/how-to-create-group-machine-dependencies-agentless/process-process-dep.png":::
+
 
 > [!NOTE]
 > Process information for a dependency isn't always available. If it's not available, the dependency is depicted with the process marked as "Unknown process".

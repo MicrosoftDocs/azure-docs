@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.date: 02/06/2025
 ms.service: azure-migrate
 ms.custom: MVC, engagement-fy25
+monikerRange: migrate-classic
 #Customer intent: As a server admin, I want to assess my on-premises physical servers in preparation for migration to Azure.
 ---
 

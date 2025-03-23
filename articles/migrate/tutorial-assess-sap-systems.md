@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 02/06/2025
 ms.custom: engagement-fy25
+monikerRange: migrate-classic
 
 ---
 
