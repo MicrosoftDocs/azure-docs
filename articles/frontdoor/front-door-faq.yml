@@ -6,17 +6,16 @@ metadata:
   ms.author: halkazwini
   ms.service: azure-frontdoor
   ms.topic: faq
-  ms.date: 06/17/2024
+  ms.date: 03/23/2025
 title: Frequently asked questions for Azure Front Door
 summary: |
-  This article answers common questions about Azure Front Door features and functionality. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
+  This article provides answers to the most frequently asked questions about Azure Front Door features and functionality. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
   
   1. The feedback section of this article.
 
   2. [Azure Front Door Feedback](https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=d47b0f41-8326-ec11-b6e6-000d3a4f0789).
 
   3. **Microsoft Support:** To create a new support request, in the Azure portal, on the **Help** tab, select the **Help + support** button, and then select **New support request**.
-  
 
 sections:
   - name: General
@@ -124,7 +123,6 @@ sections:
           Does Azure Front Door have the capability to load balance or route traffic within a virtual network?
         answer:  |
           To use Azure Front Door Standard, or (classic) tier, you need a public IP or a DNS name that can be resolved publicly. This requirement of a public IP or a DNS name that can be resolved publicly allows Azure Front Door to route traffic to your backend resources. You can use Azure resources like Application Gateways or Azure Load Balancers to route traffic to resources in a virtual network. If you use Front Door Premium tier, you can use Private Link to connect to origins behind an internal load balancer with a private endpoint. For more information, see [Secure origins with Private Link](private-link.md).
-       
 
   - name: Deploying Front Door with other services
     questions:
@@ -137,14 +135,14 @@ sections:
           - You need Connection Draining, which Front Door doesn't support. Application Gateway can enable Connection Draining for your VMs or containers.
           - You want to offload all the TLS/SSL processing and use only HTTP requests in your virtual network. Application Gateway behind Front Door can achieve this setup.
           - You want to use session affinity at both the regional and the server level. Front Door can send the traffic from a user session to the same backend in a region, but Application Gateway can send it to the same server in the backend.
-          
+
       - question: |
           Can I deploy another CDN from an external vendor behind or in front of Front Door?
         answer:  |
           Chaining two CDNs is generally not a recommended approach, it would work but comes with the following cons
-          1. CDN’s last mile acceleration utilizes keeping the connection stream with the origin, and finding optimal path to the origin to achieve best results. Chaining two CDNs together typically negates some of the benefits from last mile acceleration.
-          2. Security controls become less effective at the second CDN. Any client IP based ACLing will not work at the second CDN as the second CDN will see the first CDN’s exit node as Client IPs. Content payload will still be inspected.
-          3. Many organizations can’t handle the complexity of troubleshooting two CDNs being chained and when a problem it becomes hard to figure out which CDN is having the issue.
+          1. CDN's last mile acceleration utilizes keeping the connection stream with the origin, and finding optimal path to the origin to achieve best results. Chaining two CDNs together typically negates some of the benefits from last mile acceleration.
+          2. Security controls become less effective at the second CDN. Any client IP based ACLing will not work at the second CDN as the second CDN will see the first CDN's exit node as Client IPs. Content payload will still be inspected.
+          3. Many organizations can't handle the complexity of troubleshooting two CDNs being chained and when a problem it becomes hard to figure out which CDN is having the issue.
 
       - question: |
           Can I deploy Azure Load Balancer behind Front Door?
@@ -208,7 +206,6 @@ sections:
           How much time does Azure Front Door require to apply a new rule added to the Front Door Rules Engine?
         answer:  |
           The configuration updates for most rule sets are done in less than 20 minutes. The rule will be applied right after the update is finished.
-
 
       - question: |
           What is the value of header timeout from client to Azure Front Door?
@@ -325,6 +322,6 @@ sections:
 additionalContent: |
 
   ## Related content
-  
+
   - Learn how to [create an Azure Front Door](quickstart-create-front-door.md) profile.
   - Learn about the [Azure Front Door architecture](front-door-routing-architecture.md).
