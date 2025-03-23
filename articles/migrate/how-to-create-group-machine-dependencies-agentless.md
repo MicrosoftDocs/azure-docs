@@ -27,7 +27,7 @@ This article describes how to set up agentless dependency analysis using Azure M
 
 - Dependency analysis is automatically enabled on 1,000 servers discovered by each Azure Migrate appliance that has passed the prerequisite checks. You no longer need to enable the dependency analysis on servers manually as before.
 - The enhanced dependency visualization helps you review additional information about the servers, connections, and processes. You can filter the view by process type to analyze key dependencies in the visualization.
-- In the new visualization, after identifying key dependencies, you can group servers into an application by taggings them.
+- In the new visualization, after identifying key dependencies, you can group servers into an application by tagging them.
 
 ## Before you start
 
@@ -35,8 +35,8 @@ The existing users can follow steps provided [here](how-to-create-group-machine-
 
 The new users need to follow the below steps:
 
-- Ensure that you have [created a project](./create-manage-projects.md) with the Azure Migrate: Discovery and assessment tool added to it.
-- Review the requirements based on your environment and the appliance you're setting up to perform agentless dependency analysis:
+1. Ensure that you have [created a project](./create-manage-projects.md) with the Azure Migrate: Discovery and assessment tool added to it.
+2. Review the requirements based on your environment and the appliance you're setting up to perform agentless dependency analysis:
 
 |**Environment** | **Requirements**|
 |--- | --- |
@@ -44,7 +44,7 @@ The new users need to follow the below steps:
 |Servers running in Hyper-V environment | Review [Hyper-V host requirements](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements) <br/> <br/> Review [appliance requirements](migrate-appliance.md#appliance---hyper-v)<br/> <br/> <br/> Review [port access requirements](migrate-support-matrix-hyper-v.md#port-access)<br/>  <br/> <br/>Review [agentless dependency analysis requirements](migrate-support-matrix-hyper-v.md#dependency-analysis-requirements-agentless)|    
 |Physical servers or servers running on other clouds | Review [server requirements](migrate-support-matrix-physical.md#physical-server-requirements) <br/> <br/> Review [appliance requirements](migrate-appliance.md#appliance---physical)<br/> Review [port access requirements](migrate-support-matrix-physical.md#port-access)<br/> <br/> Review [agentless dependency analysis requirements](migrate-support-matrix-physical.md#dependency-analysis-requirements-agentless)|
 
-- Review the Azure URLs that the appliance needs to access in the [public](migrate-appliance.md#public-cloud-urls) and [government clouds](migrate-appliance.md#government-cloud-urls).
+3. Review the Azure URLs that the appliance needs to access in the [public](migrate-appliance.md#public-cloud-urls) and [government clouds](migrate-appliance.md#government-cloud-urls).
 
 
 ## Deploy and configure the Azure Migrate appliance
@@ -71,7 +71,7 @@ The new users need to follow the below steps:
  > [!Note]
  > Agentless dependency analysis feature is automatically enabled for the discovered servers when the prerequisite checks are successful. Unlike before, you no longer need to manually enable this feature on servers.
 
- After servers are automatically enabled for agentless dependency analysis, appliance collects dependency data from the server every 5 mins. It then sends a combined data point every six hours.You can review the [data](discovered-metadata.md#application-dependency-data) collected by appliance during analysis.
+ After servers are automatically enabled for agentless dependency analysis, appliance collects dependency data from the server every 5 mins. It then sends a combined data point every six hours. You can review the [data](discovered-metadata.md#application-dependency-data) collected by appliance during analysis.
 
 ## Review dependency status
 
