@@ -22,7 +22,7 @@ The following table includes links to articles that demonstrate how to configure
 | Set up a domain with the `www` subdomain | [Azure DNS](custom-domain-azure-dns.md) | [External provider](custom-domain-external.md) |
 | Set up an apex domain | [Azure DNS](apex-domain-azure-dns.md) | [External provider](apex-domain-external.md) |
 
-<sup>1</sup> Some registrars like GoDaddy and Google don't support domain records that affect how you configure your apex domain. Consider using [Azure DNS](custom-domain-azure-dns.md) with these registrars to set up your apex domain.
+<sup>1</sup> Some registrars like GoDaddy don't support domain records that affect how you configure your apex domain. Consider using [Azure DNS](custom-domain-azure-dns.md) with these registrars to set up your apex domain.
 
 > [!NOTE]
 > Adding a custom domain to a [preview environment](preview-environments.md) is not supported. Unicode domains, including Punycode domains and the `xn--` prefix are also not supported.
