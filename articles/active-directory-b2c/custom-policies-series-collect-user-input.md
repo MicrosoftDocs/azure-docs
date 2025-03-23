@@ -10,7 +10,7 @@ ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 10/11/2024
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: b2c
@@ -504,7 +504,7 @@ After the policy finishes execution, you're redirected to `https://jwt.ms`, and 
     }.[Signature]
 ``` 
 
-## Next steps 
+## Related content
 
 Next, learn:
 
