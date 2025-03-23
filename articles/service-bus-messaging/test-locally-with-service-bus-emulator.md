@@ -254,7 +254,7 @@ CONFIG_PATH="<Replace with path to Config.json file>"
 ACCEPT_EULA="N"
 
 # 3. MSSQL_SA_PASSWORD to be filled by user as per policy
-MSSQL_SA_PASSWORD=""
+SQL_PASSWORD=""
 ```
 
 > [!IMPORTANT]
