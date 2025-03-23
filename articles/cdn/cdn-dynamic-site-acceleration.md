@@ -2,12 +2,13 @@
 title: Dynamic site acceleration via Azure Content Delivery Network
 description: Azure Content Delivery Network supports dynamic site acceleration (DSA) optimization for files with dynamic content.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
-ms.author: duau
+ROBOTS: NOINDEX
 ---
 
 # Dynamic site acceleration via Azure Content Delivery Network
@@ -28,13 +29,9 @@ To configure a content delivery network endpoint to optimize delivery of dynamic
 
 1. In the **CDN profile** page, select **Endpoint**.
 
-   ![Screenshot of add a new content delivery network endpoint.](./media/cdn-dynamic-site-acceleration/cdn-endpoint-profile.png)
-
    The **Add an endpoint** pane appears.
 
 2. Under **Optimized for**, select **Dynamic site acceleration**.
-
-    ![Screenshot of create a new content delivery network endpoint with DSA.](./media/cdn-dynamic-site-acceleration/cdn-endpoint-dsa.png)
 
 3. For **Probe path**, enter a valid path to a file.
 
@@ -87,8 +84,6 @@ To access caching rules:
 
 1. From the **CDN profile** page, under settings, select **Caching rules**.
 
-    ![Screenshot of content delivery network caching rules button.](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
-
     The **Caching rules** page opens.
 
 2. Create a global or custom caching rule to turn on caching for your DSA endpoint.
@@ -97,14 +92,12 @@ To access the rules engine:
 
 1. From the **CDN profile** page, select **Manage**.
 
-    ![Screenshot of content delivery network profile manage button.](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
-
     The content delivery network management portal opens.
 
 2. From the content delivery network management portal, select **ADN**, then select **Rules Engine**.
 
     ![Rules engine for DSA](./media/cdn-dynamic-site-acceleration/cdn-dsa-rules-engine.png)
 
-Alternatively, you can use two content delivery network endpoints: one endpoint optimized with DSA to deliver dynamic assets and another endpoint optimized with a static optimization type, such as general web delivery, to delivery cacheable assets. Modify your webpage URLs to link directly to the asset on the content delivery network endpoint you plan to use.
+Alternatively, you can use two content delivery network endpoints: one endpoint optimized with DSA to deliver dynamic assets and another endpoint optimized with a static optimization type, such as general web delivery, to deliver cacheable assets. Modify your webpage URLs to link directly to the asset on the content delivery network endpoint you plan to use.
 
 For example, `mydynamic.azureedge.net/index.html` is a dynamic page and is loaded from the DSA endpoint. The HTML page references multiple static assets such as JavaScript libraries or images that are loaded from the static content delivery network endpoint, such as `mystatic.azureedge.net/banner.jpg` and `mystatic.azureedge.net/scripts.js`.

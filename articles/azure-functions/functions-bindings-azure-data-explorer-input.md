@@ -624,6 +624,8 @@ The attribute's constructor takes the database and the attributes `KQLCommand` a
 
 ::: zone-end
 
+[!INCLUDE [functions-azure-data-explorer-authentication-note](../../includes/functions-azure-data-explorer-authentication-note.md)]
+
 ## Next steps
 
 [Save data to a table (output binding)](functions-bindings-azure-data-explorer-output.md)

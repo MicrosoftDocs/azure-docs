@@ -4,7 +4,7 @@ description: Learn how to interpret the provisioned and pay-as-you-go billing mo
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 01/23/2025
+ms.date: 03/11/2025
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -119,6 +119,24 @@ Currently, these SKUs are generally available in a limited subset of regions:
 - Germany North
 - UK South
 - UK West
+- Central India
+- South India
+- Canada Central
+- Canada East
+- UAE Central
+- UAE North
+- Brazil South
+- Brazil Southeast
+- South Central US
+- North Central US
+- West US
+- East US
+- Japan East
+- Japan West
+- Korea Central
+- Korea South
+- East US 2
+- Central US
 
 ### Provisioned v2 provisioning detail
 When you create a provisioned v2 file share, you specify the provisioned capacity for the file share in terms of storage, IOPS, and throughput. File shares are limited based on the following attributes:
@@ -252,6 +270,9 @@ The amount of IOPS and throughput provisioned on the share are determined by the
 Depending on your individual file share requirement, you may find that you require more IOPS or throughput than our provisioning formulas provide. In this case, you will need to provision more storage to get the required IOPS or throughput.
 
 ### Provisioned v1 bursting
+The provisioned v1 model supports two types of bursting: credit-based bursting, which is included for free as a part of the provisioning, and paid bursting, which is an advanced feature that can optionally be enabled to support usage-based billing whenever the IOPS and throughput go over the provisioned amount.
+
+#### Provisioned v1 credit-based bursting
 Credit-based IOPS bursting provides added flexibility around IOPS usage. This flexibility is best used as a buffer against unanticipated IO-spikes. For established IO patterns, we recommend provisioning for IO peaks.
 
 Burst IOPS credits accumulate whenever traffic for your file share is below provisioned (baseline) IOPS. Whenever a file share's IOPS usage exceeds the provisioned IOPS and there are available burst IOPS credits, the file share can burst up to the maximum allowed burst IOPS limit. File shares can continue to burst as long as there are credits remaining, but this is based on the number of burst credits accrued. Each IO beyond provisioned IOPS consumes one credit. Once all credits are consumed, the share returns to the provisioned IOPS. IOPS against the file share don't have to do anything special to use bursting. Bursting operates on a best effort basis.  
@@ -282,7 +303,20 @@ The following table illustrates a few examples of these formulas for the provisi
 | 51,200 | 54,200 | Up to 102,400 | 164,880,000 | 5,220 |
 | 102,400 | 102,400 | Up to 102,400 | 0 | 10,340 |
 
-Effective file share performance is subject to machine network limits, available network bandwidth, IO sizes, and parallelism, among many other factors. To achieve maximum benefit from parallelization, we recommend enabling [SMB Multichannel](files-smb-protocol.md#smb-multichannel) on SSD file shares. Refer to [SMB performance](smb-performance.md) and [performance troubleshooting guide](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json) for some common performance issues and workarounds.
+#### Provisioned v1 paid bursting
+Paid bursting is an advanced feature of the provisioned v1 model designed to support customers who never want to be throttled. Unlike credit-based bursting which is included for free as part of provisioned storage, paid bursting adds additional usage-based billing for any amount of IOPS or throughput above the provisioned storage. While this can add powerful flexibility to how you provision your file share, it can also lead to unexpected billing if used incorrectly.
+
+Like credit-based bursting, paid bursting is not a replacement for provisioning the correct amount of IOPS and throughput, but rather an additional protection against throttling in the case of unexpected demand. If you have a consistent level of IOPS or throughput usage, it is cheaper to provision enough IOPS and throughput (through storage provisioning) to cover demand instead relying on paid bursting.
+
+Paid bursting is disabled by default, but can be enabled following the instructions to [change the cost and performance characteristics of a provisioned v1 file share](./storage-how-to-create-file-share.md?tabs=azure-powershell#change-the-cost-and-performance-characteristics-of-a-provisioned-v1-file-share) (PowerShell and CLI only). If paid bursting is enabled, we recommend carefully monitoring IOPS and throughput usage using the following metrics available through Azure monitor:
+
+- File Share Provisioned IOPS
+- File Share Provisioned Bandwidth MiB/s (throughput)
+- Transactions by Max IOPS
+- Bandwidth by Max MiB/sec (throughput)
+- Burst Credits for IOPS (credit-based bursting)
+- Paid Bursting IOS (IOs)
+- Paid Bursting Bandwidth
 
 ### Provisioned v1 snapshots
 Azure Files supports snapshots, which are similar to volume shadow copies (VSS) on Windows File Server. For more information on share snapshots, see [Overview of snapshots for Azure Files](storage-snapshots-files.md).

@@ -54,7 +54,8 @@ Before using Route-maps, take into consideration the following limitations:
 
 * During Preview, hubs that are using Route-maps must be deployed in their own virtual WANs.
 * When using Route-maps to summarize a set of routes, the hub router strips the *BGP Community* and *AS-PATH* attributes from those routes. This applies to both inbound and outbound routes.
-* When using Route-maps, [do not use private ASNs for AS prpending](/articles/expressroute/expressroute-routing.md).
+* When using Route-maps, [do not use private ASNs for AS prepending](../expressroute/expressroute-optimize-routing.md) (note that the referenced article focuses on ExpressRoute Microsoft peerings, but the same applies for ExpressRoute private peerings).
+
 * When using Route-maps, do not use ASN's reserved by Azure for AS prepending:
   * Public ASNs: 8074, 8075, 12076
   * Private ASNs: 65515, 65517, 65518, 65519, 65520

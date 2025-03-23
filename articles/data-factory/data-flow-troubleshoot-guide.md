@@ -6,7 +6,7 @@ author: kromerm
 ms.reviewer: daperlov
 ms.subservice: data-flows
 ms.topic: troubleshooting
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ---
 
 # Troubleshoot mapping data flows in Azure Data Factory (ADF)

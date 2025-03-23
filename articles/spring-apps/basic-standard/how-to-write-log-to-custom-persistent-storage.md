@@ -2,7 +2,8 @@
 title: How to Use Logback to Write Logs to Custom Persistent Storage in Azure Spring Apps
 description: How to use Logback to write logs to custom persistent storage in Azure Spring Apps.
 author: KarlErickson
-ms.author: xuycao
+ms.author: karler
+ms.reviewer: xuycao
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 04/23/2024

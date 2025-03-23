@@ -4,7 +4,7 @@ metadata:
   description: FAQs about designing and implementing solutions on Azure Notification Hubs.
   services: notification-hubs
   author: sethmanheim
-  manager: femila
+  manager: lizross
   keywords: push notification, push notifications, iOS push notifications, android push notifications, ios push, android push
   
   ms.service: azure-notification-hubs

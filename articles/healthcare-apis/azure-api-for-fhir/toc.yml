@@ -38,9 +38,7 @@
       href: tutorial-web-app-fhir-server.md
     - name: 2. Register public client application
       href: tutorial-web-app-public-app-reg.md
-    - name: 3. Test setup with Postman
-      href: tutorial-web-app-test-postman.md
-    - name: 4. Write web application
+    - name: 3. Write web application
       href: tutorial-web-app-write-web-app.md
   - name: SMART on FHIR 
     href: smart-on-fhir.md

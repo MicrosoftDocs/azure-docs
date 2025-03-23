@@ -119,6 +119,13 @@ We recommend that you install updates through Azure portal. The device automatic
 
 > [!NOTE]
 > - Make sure that the device is healthy and status shows as **Your device is running fine!** before you proceed to install the updates.
+> - Tiering data from an Azure Stack Edge Pro device to the mapped Azure Storage account uses Managed Service Identity to authorize the data access. Make sure that the Azure Storage account that you use has the following roles being assigned to the Managed identities for Azure Stack Edge resource:
+> 
+>   - Storage Blob Data Contributor
+>   - Storage File Data Privileged Contributor
+>   - Contributor
+> 
+>    For more information, see [Assign an Azure role for access to blob data](../storage/blobs/assign-azure-role-data-access.md?tabs=portal#assign-an-azure-role).
 
 Depending on the software version that you're running, install process might differ slightly. 
 

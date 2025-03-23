@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ---
 
 # Copy and transform data in Amazon Simple Storage Service using Azure Data Factory or Azure Synapse Analytics
@@ -372,7 +372,7 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 |:--- |:--- |:--- |
 | type | The **type** property of the dataset must be set to **AmazonS3Object**. |Yes |
 | bucketName | The S3 bucket name. The wildcard filter is not supported. |Yes for the Copy or Lookup activity, no for the GetMetadata activity |
-| key | The name or wildcard filter of the S3 object key under the specified bucket. Applies only when the **prefix** property is not specified. <br/><br/>The wildcard filter is supported for both the folder part and the file name part. Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character).<br/>- Example 1: `"key": "rootfolder/subfolder/*.csv"`<br/>- Example 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>See more example in [Folder and file filter examples](#folder-and-file-filter-examples). Use `^` to escape if your actual folder or file name has a wildcard or this escape character inside. |No |
+| key | The name or wildcard filter of the S3 object key under the specified bucket. Applies only when the **prefix** property is not specified. <br/><br/>The wildcard filter is supported for both the folder part and the file name part. Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character).<br/>- Example 1: `"key": "rootfolder/subfolder/*.csv"`<br/>- Example 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). Use `^` to escape if your actual folder or file name has a wildcard or this escape character inside. |No |
 | prefix | Prefix for the S3 object key. Objects whose keys start with this prefix are selected. Applies only when the **key** property is not specified. |No |
 | version | The version of the S3 object, if S3 versioning is enabled. If a version is not specified, the latest version will be fetched. |No |
 | modifiedDatetimeStart | Files are filtered based on the attribute: last modified. The files will be selected if their last modified time is greater than or equal to `modifiedDatetimeStart` and less than `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> Be aware that enabling this setting will affect the overall performance of data movement when you want to filter huge amounts of files. <br/><br/> The properties can be **NULL**, which means no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is **NULL**, the files whose last modified attribute is greater than or equal to the datetime value will be selected.  When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, the files whose last modified attribute is less than the datetime value will be selected.| No |

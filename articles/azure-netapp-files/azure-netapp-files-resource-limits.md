@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 12/31/2024
+ms.date: 03/18/2024
 ms.author: anfdocs
 ---
 # Resource limits for Azure NetApp Files
@@ -45,7 +45,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Number of cross-zone replication data protection volumes (destination volumes)     |    50    |    Yes    |     
 |  Maximum numbers of policy-based (scheduled) backups per volume  | <ul><li> Daily retention count: 2 (minimum) to 1019 (maximum) </li> <li> Weekly retention count: 1 (minimum) to 1019 (maximum) </li> <li> Monthly retention count: 1 (minimum) to 1019 (maximum) </ol></li> <br> The maximum hourly, daily, weekly, and monthly backup retention counts *combined* is 1019.  |  No  |
 |  Maximum size of protected volume  |  100 TiB  |  No  |
-|  Maximum number of volumes that can be backed up per subscription   |  20  |  Yes  |
+|  Maximum number of volumes that can be backed up per subscription   |  500  |  No  |
 |  Maximum number of manual backups per volume per day |  5  |  Yes  |
 |  Maximum number of volumes supported for cool access per subscription per region |  10  |  Yes  |
 

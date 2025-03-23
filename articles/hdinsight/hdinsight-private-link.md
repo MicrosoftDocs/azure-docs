@@ -3,9 +3,7 @@ title: Enable Private Link on an Azure HDInsight cluster
 description: Learn how to connect to an outside HDInsight cluster by using Azure Private Link.
 ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.author: piyushgupta
-author: piyush-gupta1999
-ms.date: 04/11/2024
+ms.date: 03/06/2025
 ---
 
 # Enable Private Link on an HDInsight cluster
@@ -36,7 +34,7 @@ To start, deploy the following resources if you haven't created them already. Yo
 |Network security group|hdi-privlink-cluster-vnet-nsg|Default NSG as required for cluster deployment|
 
 > [!NOTE]
-> The network security group (NSG) can simply be deployed, we do not need to modify any NSG rules for cluster deployment.
+> The network security group (NSG) can be deployed, we don't need to modify any NSG rules for cluster deployment.
 
 
 ## <a name="DisableNetworkPolicy"></a>Step 2: Configure HDInsight subnet
@@ -136,7 +134,7 @@ To create the private endpoints:
     | Subnet | default |
     
 > [!IMPORTANT]
-> If you're using KafkaRestProxy HDInsight cluster, then follow this extra steps to [Enable Private Endpoints](./enable-private-link-on-kafka-rest-proxy-hdi-cluster.md#create-private-endpoints).
+> If you're using KafkaRestProxy HDInsight cluster, then follow this extra step to [Enable Private Endpoints](./enable-private-link-on-kafka-rest-proxy-hdi-cluster.md#create-private-endpoints).
 > 
 
 Once the private endpoints are created, you’re done with this phase of the setup. If you didn’t make a note of the private IP addresses assigned to the endpoints, follow the steps below:
@@ -145,7 +143,7 @@ Once the private endpoints are created, you’re done with this phase of the set
 1. Click on 'Private endpoints' tab.
 1. You should see both the Ambari and ssh Network interfaces listed. 
 1. Click on each one and navigate to the ‘DNS configuration’ blade to see the private IP address. 
-1. Make a note of these IP addresses because they are required to connect to the cluster and properly configure DNS.
+1. Make a note of these IP addresses because they're required to connect to the cluster and properly configure DNS.
 
 ## <a name="ConfigureDNS"></a>Step 6: Configure DNS to connect over private endpoints
 
@@ -195,7 +193,7 @@ To configure DNS resolution through a Private DNS zone:
     :::image type="content" source="media/hdinsight-private-link/private-dns-zone-add-ssh-record.png" alt-text="Diagram of private link dns zone add ssh record.":::
    
 > [!IMPORTANT]
-> If you are using KafkaRestProxy HDInsight cluster, then follow this extra steps to [Configure DNS to connect over private endpoint](./enable-private-link-on-kafka-rest-proxy-hdi-cluster.md#configure-dns-to-connect-over-private-endpoints).
+> If you're using KafkaRestProxy HDInsight cluster, then follow this extra step to [Configure DNS to connect over private endpoint](./enable-private-link-on-kafka-rest-proxy-hdi-cluster.md#configure-dns-to-connect-over-private-endpoints).
 > 
     
 4. Associate the private DNS zone with the client VNET by adding a Virtual Network Link.

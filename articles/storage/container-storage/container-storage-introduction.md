@@ -13,7 +13,7 @@ ms.custom:
 
 # What is Azure Container Storage?
 
-Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. It integrates with Kubernetes, allowing you to dynamically and automatically provision persistent volumes to store data for stateful applications running on Kubernetes clusters.
+Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. It integrates with Kubernetes, allowing you to dynamically and automatically provision persistent volumes to store data for stateful applications running on Kubernetes clusters. Azure Container Storage is derived from [OpenEBS](https://openebs.io/), an open-source solution that provides container storage capabilities for Kubernetes.
 
 > [!IMPORTANT]
 > Azure Container Storage isn't available in all Azure regions. See [regional availability](#regional-availability).
@@ -75,9 +75,9 @@ For more information on these features, email the Azure Container Storage team a
 
 ## Why Azure Container Storage is useful
 
-Until now, providing cloud storage for containers required using individual container storage interface (CSI) drivers to use storage services intended for IaaS-centric workloads and make them work for containers. While CSI drivers are useful in certain scenarios, relying on them can create operational overhead and increase the risk of issues with application availability, scalability, performance, usability, and cost.
+Until now, providing cloud storage for containers required configuring container storage interface (CSI) drivers to use storage services intended for IaaS-centric workloads and make them work for containers. In certain scenarios, this can create operational overhead and increase the risk of issues with application availability, scalability, performance, usability, and cost.
 
-Despite its name, Azure Container Storage doesn't use CSI drivers. Instead, it is derived from [OpenEBS](https://openebs.io/), an open-source solution that provides container storage capabilities for Kubernetes. By offering a managed volume orchestration solution via microservice-based storage controllers in a Kubernetes environment, Azure Container Storage enables true container-native storage.
+With Azure Container Storage, you don't need to worry about configuring individual CSI drivers. By offering a managed volume orchestration solution via microservice-based storage controllers in a Kubernetes environment, Azure Container Storage enables true container-native storage.
 
 You can use Azure Container Storage to:
 

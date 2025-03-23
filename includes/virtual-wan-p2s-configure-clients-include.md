@@ -24,10 +24,6 @@ The following steps are for Windows. For macOS, see [Configure P2S User VPN clie
 
 In the User VPN configuration, if you specified the OpenVPN tunnel type, you can download and configure the Azure VPN Client or, in some cases, you can use OpenVPN client software. For steps, use the link that corresponds to your configuration.
 
-* [Microsoft Entra ID authentication - Azure VPN client - Windows](../articles/virtual-wan/openvpn-azure-ad-client.md)
-* [Microsoft Entra ID authentication - Azure VPN client - macOS](../articles/virtual-wan/openvpn-azure-ad-client-mac.md)
-* Configure OpenVPN client software
-  * [OpenVPN client 2.x - Windows](../articles/virtual-wan/point-to-site-vpn-client-certificate-windows-openvpn-client-version-2.md)
-  * [OpenVPN client 3.x - Windows](../articles/virtual-wan/point-to-site-vpn-client-certificate-windows-openvpn-client-version-3.md)
-  * [OpenVPN client - macOS](../articles/virtual-wan/point-to-site-vpn-client-certificate-openvpn-mac.md)
-  * [OpenVPN client - Linux](../articles/vpn-gateway/point-to-site-vpn-client-certificate-openvpn-linux.md)
+**Client configuration**
+
+[!INCLUDE [P2S client configuration articles](virtual-wan-vpn-client-install-articles.md)]

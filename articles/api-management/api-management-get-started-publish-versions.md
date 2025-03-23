@@ -17,6 +17,8 @@ There are times when it's impractical to have all callers to your API use exactl
 
 For background, see [Versions](api-management-versions.md) & [Revisions](api-management-revisions.md).
 
+[!INCLUDE [api-management-workspace-try-it](../../includes/api-management-workspace-try-it.md)]
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]

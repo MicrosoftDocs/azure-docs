@@ -422,7 +422,7 @@ To download the current **CommonCryptoLib** package, follow these steps:
 
 For a Consumption workflow in multitenant Azure Logic Apps, the SAP managed connector integrates with SAP systems through an [on-premises data gateway](../connect-on-premises-data-sources.md). For example, in scenarios where your workflow sends a message to the SAP system, the data gateway acts as an RFC client and forwards the requests received from your workflow to SAP. Likewise, in scenarios where your workflow receives a message from SAP, the data gateway acts as an RFC server that receives requests from SAP and forwards them to your workflow.
 
-1. On a host computer or virtual machine that exists in the same virtual network as the SAP system to which you're connecting, [download and install the on-premises data gateway](../install-on-premises-data-gateway.md).
+1. On a host computer or virtual machine that exists in the same virtual network as the SAP system to which you're connecting, [download and install the on-premises data gateway](../install-on-premises-data-gateway-workflows.md).
 
    The data gateway helps you securely access on-premises data and resources. Make sure to use a supported version of the gateway. If you experience an issue with your gateway, try [upgrading to the latest version](https://aka.ms/on-premises-data-gateway-installer), which might include updates to resolve your problem.
 
@@ -856,7 +856,7 @@ If you're using the SAP managed connector, you can find full error messages by c
 
 ## Set up extended SAP logging in on-premises data gateway (Managed connector only)
 
-If you use an [on-premises data gateway for Azure Logic Apps](../install-on-premises-data-gateway.md), you can configure an extended log file for the SAP connector. You can use your on-premises data gateway to redirect Event Tracing for Windows (ETW) events into rotating log files that are included in your gateway's logging .zip files.
+If you use an [on-premises data gateway for Azure Logic Apps](../install-on-premises-data-gateway-workflows.md), you can configure an extended log file for the SAP connector. You can use your on-premises data gateway to redirect Event Tracing for Windows (ETW) events into rotating log files that are included in your gateway's logging .zip files.
 
 You can [export all of your gateway's configuration and service logs](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) to a .zip file in from the gateway app's settings.
 

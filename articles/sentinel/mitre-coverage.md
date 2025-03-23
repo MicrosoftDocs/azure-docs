@@ -102,7 +102,7 @@ Having a scheduled rule with MITRE techniques applied running regularly in your 
 
     When incidents are created for alerts that are surfaced by rules with MITRE techniques configured, the techniques are also added to the incidents.
 
-    For more information, see [Investigate incidents with Microsoft Sentinel](investigate-cases.md). If your workspace is onboarded to Microsoft's unified security operations (SecOps) platform, then [investigate incidents in the Microsoft Defender portal](/defender-xdr/investigate-incidents) instead.
+    For more information, see [Investigate incidents with Microsoft Sentinel](investigate-cases.md). If Microsoft Sentinel is onboarded to the Defender portal, then [investigate incidents in the Microsoft Defender portal](/defender-xdr/investigate-incidents) instead.
 
 - **Threat hunting**:
 

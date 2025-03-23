@@ -24,6 +24,10 @@
       href: understand-azure-cache-for-redis-reservation-charges.md
     - name: Azure Data Factory
       href: /azure/data-factory/data-flow-understand-reservation-charges?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure SQL Database
+      href: understand-reservation-charges.md
+    - name: Azure SQL Managed Instance
+      href: understand-reservation-charges-sql-managed-instance.md
     - name: Azure VMware Solution
       href: /azure/azure-vmware/reserved-instance?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Cosmos DB
@@ -55,8 +59,6 @@
       href: understand-suse-reservation-charges.md
     - name: Storage
       href: understand-storage-charges.md
-    - name: SQL Database
-      href: understand-reservation-charges.md
     - name: Synapse Analytics - Data warehouse
       href: reservation-discount-azure-sql-dw.md
     - name: Virtual machines

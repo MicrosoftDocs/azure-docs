@@ -6,7 +6,7 @@ author: stevenmatthew
 
 ms.service: azure-databox
 ms.topic: overview
-ms.date: 11/18/2024
+ms.date: 02/18/2025
 ms.author: shaas
 ---
 # Azure Data Box Next Generation security and data protection
@@ -48,8 +48,8 @@ The Data Box device is protected by the following features:
 - A rugged device casing that withstands shocks, adverse transportation, and environmental conditions. 
 - Hardware and software tampering detection that prevents further device operations.
 - Built-in intrusion detection system that detects any unauthorized physical access to the devices.
-- Hardware Root of Trust (RoT) to ensure BMC firmware integrity and secure updates.
-- Trusted Platform Module (TPM) 2.0 that uses the TPM device to protect secrets and support platform [attestation](/windows/security/hardware-security/tpm/tpm-fundamentals#measured-boot-with-support-for-attestation).
+- Semper Secure Flash technology integrated with a hardware Root of Trust (RoT) within the flash memory chip, ensuring firmware integrity and secure updates without hardware modifications.
+- A Trusted Platform Module (TPM) that performs hardware-based, security-related functions. Specifically, the TPM manages and protects secrets and data that needs to be persisted on the device.
 - Runs only Data Box-specific software.
 - Boots up in a locked state.
 - Controls device access via a device unlock passkey. This passkey is protected by an encryption key. You can use your own customer-managed key to protect the passkey. For more information, see [Use customer-managed keys in Azure Key Vault for Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
@@ -65,6 +65,7 @@ A Data Box device lets you bring your own certificates and install those to be u
 The data that flows in and out of Data Box is protected by the following features:
 
 - AES 256-bit encryption for Data-at-rest. In a high-security environment, you can use software-based double encryption. For more information, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
+- The software based encryption is enhanced by RAID controller based hardware encryption. 
 - Encrypted protocols can be used for data-in-flight. We recommend that you use SMB 3.0 with encryption to protect data when you copy to it from your data servers.
 - Secure erasure of data from the device once upload to Azure is complete. Data erasure is in accordance with guidelines in [Appendix A for ATA Hard Disk Drives in NIST 800-88r1 standards](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). The data erasure event is recorded in the [order history](data-box-logs.md#download-order-history).
 
@@ -103,16 +104,16 @@ Azure Data Box collects and displays personal information in the following key i
 
 For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trust-center).
 
-
 ## Security guidelines reference
 
 The following security guidelines are implemented in Data Box:
 
-|Guideline   |Description   |
-|------------|--------------|
-|[NIST SP 800-147](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)                                       | For secure firmware update |
-|[FIPS 140-2 Level 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)                            | For data protection |
-|[NIST SP 800-193](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-193.pdf)                                           | For platform firmware resiliency |
+|Guideline                                           |Description   |
+|----------------------------------------------------|--------------|
+|[IEC 60529 IP52](https://www.iec.ch/)               | For water and dust protection |
+|[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | For adverse transport conditions endurance |
+|[NIST SP 800-147](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf) | For secure firmware update |
+|[FIPS 140-2 Level 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)      | For data protection |
 |Appendix A, for ATA Hard Disk Drives in [NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf) | For data sanitization |
 
 ## Next steps

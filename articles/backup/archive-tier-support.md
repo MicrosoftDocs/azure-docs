@@ -2,7 +2,7 @@
 title: Azure Backup - Archive tier overview 
 description: Learn about Archive tier support for Azure Backup.
 ms.topic: overview
-ms.date: 02/03/2025
+ms.date: 03/19/2025
 ms.custom: references_regions
 ms.service: azure-backup
 author: jyothisuri
@@ -137,5 +137,6 @@ You can also filter from the list of all recovery points as per *daily*, *weekly
 
 ## Next steps
 
-- [Use Archive tier](use-archive-tier-support.md)
-- [Azure Backup pricing](azure-backup-pricing.md)
+- [Use Archive tier](use-archive-tier-support.md).
+- [Troubleshoot Archive tier errors](troubleshoot-archive-tier.md).
+- [Azure Backup pricing](azure-backup-pricing.md).

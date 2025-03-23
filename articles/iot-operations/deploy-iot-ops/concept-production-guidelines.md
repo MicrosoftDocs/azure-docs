@@ -1,8 +1,8 @@
 ---
 title: Production deployment guidelines
 description: Learn about the recommendations and guidelines for preparing Azure IoT Operations for a production deployment.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.topic: concept-article
 ms.date: 10/25/2024
 ms.service: azure-iot-operations
@@ -118,13 +118,13 @@ For connecting to assets at production, [configure OPC UA authentication](../dis
 * Don't use no-auth. Connectivity to OPC UA servers isn't supported without authentication.
 * Set up a secure connection to OPC UA server. Use a production PKI and [configure application certificates](../discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md#configure-a-self-signed-application-instance-certificate) and [trust list](../discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md#configure-the-trusted-certificates-list).
 
-### Dataflows
+### Data flows
 
-When using dataflows in production:
+When using data flows in production:
 
 * [Use service account token (SAT) authentication](../connect-to-cloud/howto-configure-mqtt-endpoint.md#kubernetes-service-account-token-sat) with the MQTT broker (default).
-* Always used managed identity authentication. When possible, [use user-assigned managed identity](../connect-to-cloud/howto-configure-mqtt-endpoint.md#user-assigned-managed-identity) in dataflow endpoints for flexibility and auditability.
-* [Scale dataflow profiles](../connect-to-cloud/howto-configure-dataflow-profile.md#scaling) to improve throughput and have high availability.
-* Group multiple dataflows into dataflow profiles and customize scaling for each profile accordingly. 
+* Always used managed identity authentication. When possible, [use user-assigned managed identity](../connect-to-cloud/howto-configure-mqtt-endpoint.md#user-assigned-managed-identity) in data flow endpoints for flexibility and auditability.
+* [Scale data flow profiles](../connect-to-cloud/howto-configure-dataflow-profile.md#scaling) to improve throughput and have high availability.
+* Group multiple data flows into data flow profiles and customize scaling for each profile accordingly. 
 
 

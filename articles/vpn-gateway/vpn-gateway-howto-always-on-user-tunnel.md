@@ -35,8 +35,6 @@ To remove a profile, use the following steps:
 
 1. Disconnect the connection, and clear the **Connect automatically** check box.
 
-   ![Cleanup](./media/vpn-gateway-howto-always-on-user-tunnel/disconnect.jpg)
-
 ## Next steps
 
 To troubleshoot any connection issues that might occur, see [Azure point-to-site connection problems](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

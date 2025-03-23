@@ -6,7 +6,7 @@ author: abell
 ms.author: abell
 ms.service: azure-private-link
 ms.topic: tutorial
-ms.date: 08/29/2023
+ms.date: 02/18/2025
 ms.custom: template-tutorial
 ---
 
@@ -235,15 +235,11 @@ In this section, you use the virtual machine you created in the previous step to
 
 9. Verify you receive the default web app page.
 
-    :::image type="content" source="./media/tutorial-dns-on-premises-private-resolver/web-app-default-page.png" alt-text="Screenshot of Microsoft Edge showing default web app page." border="true":::
-
 10. Close the connection to **vm-1**.
 
 11. Open a web browser on your local computer and enter the URL of your web app, `https://<webapp-name>.azurewebsites.net`.
 
 12. Verify that you receive a **403** page. This page indicates that the web app isn't accessible externally.
-
-    :::image type="content" source="./media/tutorial-dns-on-premises-private-resolver/web-app-ext-403.png" alt-text="Screenshot of web browser showing a blue page with Error 403 for external web app address." border="true":::
 
 [!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 

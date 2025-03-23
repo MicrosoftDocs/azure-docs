@@ -120,34 +120,44 @@
       href: overview-diagnostics.md
     - name: About quotas & alerts
       href: web-sites-monitor.md
-- name: Domains and certificates
+- name: Domain names and certificates
   items:
     - name: Domain and cert quickstart
       href: tutorial-secure-domain-certificate.md
-    - name: Custom domains
+    - name: Domain names
       items:
-        - name: Map your own custom domain
+        - name: Connect a domain name
           href: app-service-web-tutorial-custom-domain.md
-        - name: Buy App Service domain
+          displayName: Map a custom domain, connect a custom domain, custom domain
+        - name: Buy and configure App Service domain
           href: manage-custom-dns-buy-domain.md
-        - name: Map domains with Traffic Manager
+          displayName: Buy an App Service domain, custom domain
+        - name: Use Traffic Manager with a domain
           href: configure-domain-traffic-manager.md
+          displayName: Traffic Manager with custom domains, custom domain
         - name: Migrate an active domain
           href: manage-custom-dns-migrate-domain.md
+          displayName: Migrate a custom domain, custom domain
     - name: TLS/SSL certificates
       items:
-        - name: TLS overview
+        - name: Overview of TLS/SSL in App Service
           href: overview-tls.md
-        - name: Secure custom domain with TLS/SSL
+          displayName: TLS, SSL
+        - name: Secure a custom domain with HTTPS
           href: configure-ssl-bindings.md
-        - name: Add TLS/SSL cert
+          displayName: SSL
+        - name: Add and manage TLS/SSL certificates
           href: configure-ssl-certificate.md
-        - name: Buy App Service cert
+          displayName: SSL
+        - name: Create and Manage App Service certificates
           href: configure-ssl-app-service-certificate.md
-        - name: Use TLS/SSL cert in code
+          displayName: SSL
+        - name: Use TLS/SSL certificates in app code
           href: configure-ssl-certificate-in-code.md
+          displayName: SSL
         - name: Configure TLS mutual authentication
           href: app-service-web-configure-tls-mutual-auth.md
+          displayName: TLS
 - name: Database and service connection
   items:
     - name: Connectivity scenarios overview
@@ -399,6 +409,12 @@
   items:
     - name: Deploy an application that uses OpenAI on App Service
       href: deploy-intelligent-apps.md
+    - name: Run an SLM in sidecar
+      href: tutorial-sidecar-local-small-language-model.md
+    - name: Deploy a .NET app with Azure OpenAI and Azure SQL
+      href: deploy-intelligent-apps-dotnet-to-azure-sql.md
+    - name: Invoke OpenAPI app from Azure AI Agent
+      href: invoke-openapi-web-app-from-azure-ai-agent-service.md
 - name: WordPress
   items:
     - name: WordPress overview
