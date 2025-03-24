@@ -56,8 +56,6 @@ To create an Azure function to process the alert and create a packet capture, yo
 
 1. In the search box at the top of the portal, enter *function app*. Select **Function App** from the search results.
 
-    :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/function-app-portal-search.png" alt-text="Screenshot that shows how to search for function apps in the Azure portal." lightbox="./media/network-watcher-alert-triggered-packet-capture/function-app-portal-search.png":::
-
 1. Select **+ Create**.
 
 1. On the **Basics** tab of **Create Function App**, enter or select values for the following settings:
