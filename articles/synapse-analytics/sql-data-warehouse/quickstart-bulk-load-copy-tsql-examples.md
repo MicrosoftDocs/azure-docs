@@ -7,7 +7,6 @@ ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 06/15/2022
 ms.author: wiassaf
-ms.reviewer: whhender
 ms.custom: subject-rbac-steps, mode-other
 ---
 

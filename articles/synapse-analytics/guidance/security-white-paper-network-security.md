@@ -3,7 +3,6 @@ title: "Azure Synapse Analytics security white paper: Network security"
 description: Manage secure network access with Azure Synapse Analytics.
 author: juluczni
 ms.author: juluczni
-ms.reviewer: whhender
 ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 01/14/2022

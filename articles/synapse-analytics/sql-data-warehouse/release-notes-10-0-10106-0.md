@@ -3,7 +3,6 @@ title: Release notes for dedicated SQL pool (formerly SQL DW)
 description: Release notes for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: whhender
 ms.date: 3/24/2022
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw

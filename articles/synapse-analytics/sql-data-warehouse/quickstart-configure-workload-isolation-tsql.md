@@ -3,7 +3,6 @@ title: "Quickstart: Configure workload isolation - T-SQL"
 description: Use T-SQL to configure workload isolation.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: whhender
 ms.date: 04/27/2020
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw

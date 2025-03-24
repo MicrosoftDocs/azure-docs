@@ -7,7 +7,7 @@ ms.service: azure-synapse-analytics
 ms.topic: overview 
 ms.subservice: sql
 ms.date: 09/23/2024
-ms.reviewer: whhender, stefanazaric
+ms.reviewer:  stefanazaric
 ms.custom: devx-track-csharp
 ---
 # Connect to Synapse SQL

@@ -3,7 +3,6 @@ title: "Synapse implementation success methodology: Evaluate project plan"
 description: "Learn how to evaluate your modern data warehouse project plan before the project starts."
 author: juluczni
 ms.author: juluczni
-ms.reviewer: whhender
 ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 05/31/2022

@@ -1,7 +1,6 @@
 ---
 author: juluczni
 ms.author: juluczni
-ms.reviewer: whhender
 ms.service: azure-synapse-analytics
 ms.topic: include
 ms.date: 04/30/2022

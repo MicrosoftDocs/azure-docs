@@ -3,7 +3,6 @@ title: Manageability and monitoring - query activity, resource utilization
 description: Learn what capabilities are available to manage and monitor Azure Synapse Analytics. Use the Azure portal and Dynamic Management Views (DMVs) to understand query activity and resource utilization of your data warehouse.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: whhender
 ms.date: 04/08/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw

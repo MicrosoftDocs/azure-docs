@@ -7,7 +7,6 @@ ms.topic: quickstart
 ms.subservice: business-intelligence
 ms.date: 12/20/2024
 ms.author: harmeetgill
-ms.reviewer: whhender
 ms.custom: mode-other
 ---
 

@@ -7,7 +7,6 @@ ms.topic: concept-article
 ms.subservice: security 
 ms.date: 02/10/2025
 ms.author: wiassaf
-ms.reviewer: whhender
 ---
 
 # Data exfiltration protection for Azure Synapse Analytics workspaces

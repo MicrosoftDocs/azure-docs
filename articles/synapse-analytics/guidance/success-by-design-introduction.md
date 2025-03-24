@@ -3,7 +3,6 @@ title: Success by design
 description: Azure Synapse Customer Success Engineering Success by Design repository.
 author: juluczni
 ms.author: juluczni
-ms.reviewer: whhender
 ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 05/23/2022

@@ -3,7 +3,6 @@ title: "Synapse implementation success methodology: Assess environment"
 description: "Learn how to assess your environment to help evaluate the solution design and make informed technology decisions to implement Azure Synapse Analytics."
 author: juluczni
 ms.author: juluczni
-ms.reviewer: whhender
 ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 05/31/2022

@@ -7,7 +7,6 @@ ms.topic: concept-article
 ms.subservice: security 
 ms.date: 02/06/2025 
 ms.author: wiassaf
-ms.reviewer: whhender
 ---
 
 # Connect to Azure Synapse Studio using Azure private link hubs

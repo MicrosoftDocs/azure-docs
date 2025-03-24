@@ -3,7 +3,6 @@ title: "Azure Synapse Analytics security white paper: Data protection"
 description: Protect data to comply with federal, local, and company guidelines with Azure Synapse Analytics.
 author: juluczni
 ms.author: juluczni
-ms.reviewer: whhender
 ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 12/09/2024

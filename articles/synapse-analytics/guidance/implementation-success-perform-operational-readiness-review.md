@@ -3,7 +3,6 @@ title: "Synapse implementation success methodology: Perform operational readines
 description: "Learn how to perform an operational readiness review to evaluate your solution for its preparedness to provide optimal services to users."
 author: juluczni
 ms.author: juluczni
-ms.reviewer: whhender
 ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 05/31/2022
