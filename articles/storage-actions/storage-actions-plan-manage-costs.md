@@ -27,11 +27,11 @@ Your charged the billing meters for Storage Actions as well as the cost of opera
 
 ### Azure Storage Actions meters
 
-Meters apply only when an assignment is executed. Validating a storage task by using the preview capability is free.
+Meters apply only when a storage task assignment is executed. Validating a storage task by using the preview capability is free.
 
 | Meter | Unit | Description |
 |---|---|---| 
-| Task execution instance charge | Per run / per instance | This meter is applied to each assignment execution. If you've schedule a task assignment to run repeatedly, this charge is incurred for each run. |
+| Task execution instance charge | Per run / per instance | This meter is applied to each storage task assignment execution. If you've schedule an assignment to run repeatedly, then this charge is incurred for each run. |
 | Objects targeted | Per million objects scanned and evaluated / per condition  | Objects targeted are determined by the count of objects scanned and evaluated against the specified condition. This is based on the configuration of the task assignment, specifically the count of objects in the storage account under the optional prefixes selected, minus the objects under the excluded prefixes.|
 | Operations performed | Per million operations performed. | Operations performed are counted based on the number of API calls made on objects, including actions such as deleting, setting immutability, tagging, tiering, setting a legal hold, and other operations supported by Storage Actions.|
 
@@ -41,15 +41,11 @@ At the end of your billing cycle, the charges for each meter are summed. Your bi
 
 ### Azure Storage account meters 
 
-Most actions incur charges for Azure Blob Storage for operations on the storage account. For example, if a storage task assignment instance adds an index tag to a blob, then you'll incur the cost of a [Set Blob Tags](/rest/api/storageservices/set-blob-tags) operation on the target storage account. For information about how each Blob Storage operation maps to a price, see [Map each REST operation to a price](../../storage/blobs/map-rest-apis-transaction-categories.md). To learn more about Blob Storage costs, see [Plan and manage costs for Azure Blob Storage](../../storage/common/storage-plan-manage-costs.md).
+Most actions incur charges for operations on the storage account. For example, if a storage task adds an index tag to a blob, then you'll incur the cost of a [Set Blob Tags](/rest/api/storageservices/set-blob-tags) operation on the target storage account. For information about how each Blob Storage operation maps to a price, see [Map each REST operation to a price](../../storage/blobs/map-rest-apis-transaction-categories.md). To learn more about Blob Storage costs, see [Plan and manage costs for Azure Blob Storage](../../storage/common/storage-plan-manage-costs.md).
 
-### Example: Applying an immutability policy to blobs
+### Examples
 
-In this example, the [Set Blob Immutability Policy](/rest/api/storageservices/set-blob-immutability-policy) operation is applied to blobs that meet the conditions defined in the storage task. 
-
-A prefix filter narrows the scope of blobs to a single container which contains **1,000,000** blobs, but only **10%** of those blobs meet the conditions of the storage task. 
-
-Assuming these sample prices:
+The examples in this section assume the following sample prices:
 
 | Storage Action meter                                            | price   |
 |-----------------------------------------------------------------|---------|
@@ -57,8 +53,18 @@ Assuming these sample prices:
 | Objects targeted                                                | $.10    |
 | Operations performed                                            | $1.00   |
 | Cost of the Set Blob Immutability Policy operation (per 10,000) | $0.0044 |
+| Cost of the Set Blob Tier operation (per 10,000)                | $0.10   |
 
-The following table estimates the cost of this storage task assignment run. 
+> [!IMPORTANT]
+> These prices are meant only as examples, and shouldn't be used to calculate your costs. For official prices, see the appropriate pricing pages.
+
+#### Example: Applying an immutability policy to blobs
+
+In this example, the [Set Blob Immutability Policy](/rest/api/storageservices/set-blob-immutability-policy) operation is applied to blobs that meet the conditions defined in the storage task. 
+
+A prefix filter narrows the scope of blobs to a single container which contains **1,000,000** blobs, but only **10%** of those blobs meet the conditions of the storage task. 
+
+Using sample prices, the following table estimates the cost of this storage task assignment run. 
 
 | Price factor                                                              | Value       |
 |---------------------------------------------------------------------------|-------------|
@@ -74,20 +80,11 @@ The following table estimates the cost of this storage task assignment run.
 > [!IMPORTANT]
 > These prices are meant only as examples, and shouldn't be used to calculate your costs. For official prices, see the appropriate pricing pages.
 
-### Example: Transition blobs to a cooler tier
+#### Example: Transition blobs to a cooler tier
 
 In this example, the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation is applied to blobs that meet the conditions defined in the storage task. 
 
 The prefix filter narrows the scope of blobs to a single container which holds **100,000,000** blobs, but only **1%** of those blobs meet the conditions of the storage task. 
-
-Assuming these sample prices:
-
-| Storage Action meter                             | price |
-|--------------------------------------------------|-------|
-| Task execution instance charge                   | $0.25 |
-| Objects targeted                                 | $.10  |
-| Operations performed                             | $1.00 |
-| Cost of the Set Blob Tier operation (per 10,000) | $0.10 |
 
 The following table estimates the cost incurred by a storage task assignment instance that moves blobs from the hot tier to the cool tier. 
 
@@ -101,6 +98,9 @@ The following table estimates the cost incurred by a storage task assignment ins
 | Price of a single Set Blob Tier operation (price / 10,000)        | $0.00001   |
 | **Cost to write (1,000,000 * price of a single write operation)** | **$10.00** |
 | **Total cost**                                                    | **$21.25** |
+
+> [!IMPORTANT]
+> These prices are meant only as examples, and shouldn't be used to calculate your costs. For official prices, see the appropriate pricing pages.
 
 ### Using Azure Prepayment with Azure Storage Actions
 
