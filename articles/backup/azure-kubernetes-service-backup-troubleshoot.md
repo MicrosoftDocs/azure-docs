@@ -165,7 +165,7 @@ These error codes appear due to issues on the Backup Extension installed in the 
 
 **Recommended action**: The health of the extension is required to be verified via running the command `kubectl get pods -n dataprotection.microsoft`. If the pods aren't in running state, then increase the number of nodes in the cluster by *1* or increase the compute limits. Then wait for a few minutes and run the command again, which should change the state of the pods to *running*. If the issue persists, delete and reinstall the extension.
 
-### BackupPluginPodRestartedDuringBackupError
+### UserErrorBackupPluginPodRestartedDuringBackup
 
 **Cause**: Azure Backup for AKS relies on pods deployed within the AKS cluster as part of the backup extension under the namespace `dataprotection-microsoft`. To perform backup and restore operations, these pods have specific CPU and memory requirements.
 
@@ -174,7 +174,7 @@ These error codes appear due to issues on the Backup Extension installed in the 
        2. CPU: requests - 500m, limits - 1000m
 ```
 
-However, if the number of resources in the cluster exceeds 1000, the pods may require additional CPU and memory beyond the default reservation. If the required resources exceed the allocated limits, you might encounter a BackupPluginPodRestarted error due to OOMKilled (Out of Memory) error during backup jobs.
+However, if the number of resources in the cluster exceeds 1000, the pods may require additional CPU and memory beyond the default reservation. If the required resources exceed the allocated limits, you might encounter a UserErrorBackupPluginPodRestartedDuringBackup error due to OOMKilled (Out of Memory) error during backup operation.
 
 **Recommended action**: To ensure successful backup and restore operations, manually update the resource settings for the extension pods by following these steps:
 
@@ -197,6 +197,47 @@ However, if the number of resources in the cluster exceeds 1000, the pods may re
     ![Screenshot shows how to add values under configuration settings.](./media/azure-kubernetes-service-cluster-manage-backups/aks-cluster-extension-azure-aks-backup-configuration-update.png)
 
 After applying the changes, either wait for a scheduled backup to run or initiate an on-demand backup. If you still experience an OOMKilled failure, repeat the steps above and gradually increase memory limits and if it still persists increase `resources.limits.cpu` parameter also.
+
+> [!NOTE]
+>
+> If the node where the extension pod is provisioned doesn't have the required CPU or memory, and you've only updated the resource limits, the pod may be repeatedly killed. To resolve this, update the configuration settings using `resources.requests.cpu` and `resources.requests.memory`. This ensures the pod is scheduled on a node that meets the requested resource requirements.
+
+### UserErrorBackupPluginPodRestartedDuringRestore
+
+**Cause**: Azure Backup for AKS relies on pods deployed within the AKS cluster as part of the backup extension under the namespace `dataprotection-microsoft`. To perform backup and restore operations, these pods have specific CPU and memory requirements.
+
+```
+       1. Memory: requests - 128Mi, limits - 1280Mi
+       2. CPU: requests - 500m, limits - 1000m
+```
+
+However, if the number of resources in the cluster exceeds 1000, the pods may require additional CPU and memory beyond the default reservation. If the required resources exceed the allocated limits, you might encounter a UserErrorBackupPluginPodRestartedDuringRestore error due to OOMKilled (Out of Memory) error during restore operation.
+
+**Recommended action**: To ensure successful backup and restore operations, manually update the resource settings for the extension pods by following these steps:
+
+1. Open the AKS cluster in the Azure portal.
+
+    ![Screenshot shows AKS cluster in Azure portal.](./media/azure-kubernetes-service-cluster-manage-backups/aks-cluster.png)
+
+1. Navigate to Extensions + Applications under Settings in the left-hand pane.
+
+    ![Screenshot shows how to select Extensions + Applications.](./media/azure-kubernetes-service-cluster-manage-backups/aks-cluster-extension-applications.png)
+
+1. Click on the extension titled "azure-aks-backup".
+
+    ![Screenshot shows how to open Backup extension settings.](./media/azure-kubernetes-service-cluster-manage-backups/aks-cluster-extension-azure-aks-backup.png)
+
+1. Scroll down, add new value under configuration settings and then click Save. 
+ 
+   `resources.limits.memory : 4400Mi`
+
+    ![Screenshot shows how to add values under configuration settings.](./media/azure-kubernetes-service-cluster-manage-backups/aks-cluster-extension-azure-aks-backup-configuration-update.png)
+
+After applying the changes, either wait for a scheduled backup to run or initiate an on-demand backup. If you still experience an OOMKilled failure, repeat the steps above and gradually increase memory limits and if it still persists increase `resources.limits.cpu` parameter also.
+
+> [!NOTE]
+>
+> If the node where the extension pod is provisioned doesn't have the required CPU or memory, and you've only updated the resource limits, the pod may be repeatedly killed. To resolve this, update the configuration settings using `resources.requests.cpu` and `resources.requests.memory`. This ensures the pod is scheduled on a node that meets the requested resource requirements.
 
 ### BackupPluginDeleteBackupOperationFailed
 
