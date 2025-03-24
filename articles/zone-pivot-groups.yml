@@ -731,10 +731,8 @@ groups:
   title: Platform
   prompt: Choose a platform
   pivots:
-  - id: platform-azp
-    title: Azure portal
   - id: platform-azp-new
-    title: Azure portal (new)
+    title: Azure portal
   - id: platform-azcli
     title: Azure CLI
   - id: programming-language-java
