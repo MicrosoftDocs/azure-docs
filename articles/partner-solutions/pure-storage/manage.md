@@ -13,9 +13,11 @@ This article describes how to manage the settings for Pure Storage for Azure.
 
 ## Resource overview
 
-To see the details of your Pure Storage resource, select **Overview** in the left pane.
+[!INCLUDE [manage](../includes/manage.md)]
 
-The details include:
+:::image type="content" source="media/manage/resource-overview.png" alt-text="A screenshot of a Pure Storage resource in the Azure portal with the overview displayed in the working pane." lightbox="media/manage/resource-overview.png":::
+
+The *Essentials* details include:
 
 - Resource group
 - Location
@@ -32,11 +34,11 @@ Below the essentials, you can navigate to other details about your resource by s
 - Documentation on Microsoft Learn
 - Pure Storage support
 
-## Create a Storage Pool
+### Create a Storage Pool
 
 To create a storage pool
 
-1. Select **Settings > Storage Pool**.
+1. Select **Settings > Storage Pool** from the service menu.
 1. Select **Create a new storage pool** from the 
 
     The *Create a Storage Pool* window appears.
@@ -57,3 +59,7 @@ To create a storage pool
 
     > [!NOTE]
     > It can take up to 1 hour for deployment to complete. 
+
+### Connect a Storage Pool to an Azure VMware resource
+
+To connect a storage pool to an Azure VMware resource, select the **Connect Azure VMware Solution** button from the working pane's command bar. 
