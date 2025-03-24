@@ -81,6 +81,7 @@ items:
         - name: Migrate to Azure Cache for Redis
           href: /azure/azure-cache-for-redis/cache-migration-guide
       - name: CouchBase on AWS
+        items:
       - name: Migrate to Azure Cosmos DB for NoSQL
         href: /azure/cosmos-db/nosql/couchbase-cosmos-migration
     - name: Storage
