@@ -12,12 +12,12 @@ ms.custom: subject-reliability
 
 # Nonregional Azure services
 
-Nonregional services, listed on [Azure global infrastructure products](https://azure.microsoft.com/global-infrastructure/services/?products=all), are services that a customer doesn't deploy into a specific Azure region.
+Nonregional services, listed on [Azure global infrastructure products](https://azure.microsoft.com/global-infrastructure/services/?products=all), are services that you don't deploy into a specific Azure region.
 
 There are two categories of nonregional services, each with different characteristics for reliability:
 
 - **Global services** are deployed to many Azure regions worldwide. If there's a regional failure, an instance in another region continues servicing customers.
-- **Geographic services** aren't deployed to a specific Azure regions, but instead to a geographic area. Within that geographic area, one or more Azure regions might be used to serve customer requests. Consult the service's documentation to understand how to design a resilient solution.
+- **Geographic services** aren't deployed to a specific Azure regions, but instead to a geographic area. Within that geographic area, one or more Azure regions might be used to serve customer requests. Consult the service's documentation to understand the geographic areas, and how to design a resilient solution using the service.
 
 Some nonregional services enable customers to specify the region where some components are deployed. For example, [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/) is a geographic service, so its core components are deployed within a geography instead of a specific Azure region. However, it enables customers to specify an Azure region where their host pool (virtual machines) reside.
 
@@ -49,7 +49,7 @@ Some nonregional services enable customers to specify the region where some comp
 | Azure Static Web Apps | &#x2705; | | |
 | Azure subscriptions | &#x2705; | | |
 | Azure Traffic Manager | &#x2705; | | |
-| Azure Virtual Desktop | &#x2705; | | <ul><li>[Some data is stored in a geographic area.](/azure/virtual-desktop/data-locations)</li><li>Host pools are located in a specific region.</li></ul> |
+| Azure Virtual Desktop | &#x2705; | | [Some data is stored in a geographic area.](/azure/virtual-desktop/data-locations) Host pools are located in a specific region. |
 | Microsoft Cost Management | &#x2705; | | |
 | Microsoft Defender for Cloud | &#x2705; | | |
 | Microsoft Defender for Identity | &#x2705; | | |
@@ -61,4 +61,4 @@ Some nonregional services enable customers to specify the region where some comp
 
 ## Next steps
 
-- [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/).
+- [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/)
