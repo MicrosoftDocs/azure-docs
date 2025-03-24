@@ -32,17 +32,17 @@ There are required fields in each section that you need to fill out.
 
 1. Enter the values for each required setting under *Project details*.
 
-    |Setting  |Action  |
-    |---------|---------|
-    |Subscription    |Select a subscription from your existing subscriptions.         |
-    |Resource group     |Use an existing resource group or create a new one.          |
+    | Setting            | Action                                                       |
+    |--------------------|--------------------------------------------------------------|
+    | Subscription       | Select a subscription from your existing subscriptions.      |
+    | Resource group     | Use an existing resource group or create a new one.          |
 
 1. Enter the values for each required setting under *Instance details*.
 
-    |Setting  |Action  |
-    |---------|---------|
-    |Resource name     |Specify a unique name for the resource.    |
-    |Region     |Select the [region](https://azure.microsoft.com/explore/global-infrastructure/geographies/) where you want to enable this service and its child resources to be located.         |
+    | Setting           | Action                                     |
+    |-------------------|--------------------------------------------|
+    | Resource name     | Specify a unique name for the resource.    |
+    | Region            |Select the region.                          |
 
 1. Enter the values for each required setting under *Company details*.
 
@@ -55,10 +55,6 @@ There are required fields in each section that you need to fill out.
 ### Review + create tab
 
 [!INCLUDE [review-create](../includes/review-create.md)]
-
-## Related content
-
-To learn more about Azure, review [Azure fundamental concepts](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts).
 
 ## Next step
 
