@@ -48,7 +48,7 @@ items:
   - name: Reliability
     href: ../reliability/reliability-storage-actions.md?toc=/azure/storage-actions/toc.json
   - name: Costs and billing
-    href: storage-tasks/storage-task-plan-manage-costs.md 
+    href: storage-actions-plan-manage-costs.md 
 - name: How-to
   expanded: true
   items: 
