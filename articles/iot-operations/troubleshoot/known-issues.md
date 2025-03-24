@@ -25,9 +25,13 @@ The following issues might occur when you update Azure IoT Operations.
 
 ### Helm package enters a stuck state
 
-When you update Azure IoT Operations, the Helm package might enter a stuck state, preventing any helm install or upgrade operations from proceeding. This results in the `operation in progress` error, blocking further upgrades. 
+When you update Azure IoT Operations, the Helm package might enter a stuck state, preventing any helm install or upgrade operations from proceeding. This results in the following error message, which blocks further upgrades. 
 
-Use the following steps to resolve the issue.
+```output
+Message: Update failed for this resource, as there is a conflicting operation in progress. Please try after sometime.
+```
+
+Follow these steps to resolve the issue.
 
 1. Identify the stuck components by running the following command:
 
