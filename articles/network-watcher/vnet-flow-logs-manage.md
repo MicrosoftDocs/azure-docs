@@ -81,7 +81,7 @@ In this article, you learn how to create, change, enable, disable, or delete a v
 
 1. Confirm the status of the provider displayed is **Registered**. If the status is **NotRegistered**, select the **Microsoft.Insights** provider then select **Register**.
 
-    :::image type="content" source="./media/vnet-flow-logs-manage/register-microsoft-insights.png" alt-text="Screenshot that shows how to register Microsoft Insights provider in the Azure portal." lightbox="./media/vnet-flow-logs-manage/register-microsoft-insights.png":::
+    :::image type="content" source="./media/register-microsoft-insights.png" alt-text="Screenshot that shows how to register Microsoft Insights provider in the Azure portal." lightbox="./media/register-microsoft-insights.png":::
 
 # [**PowerShell**](#tab/powershell)
 
