@@ -21,13 +21,13 @@ There are two types of nonregional services:
 
 - **Geographic services** are deployed to a geographic area, and not a specific Azure region. Within that geographic area, one or more Azure regions might be used to serve client requests. To understand the geographic areas, and learn how to design a resilient solution with a geographic service, see the documentation for that service.
 
-Generally, most nonregional services are either global or geographic, but not both. For example, Azure AD B2C is a global service, while Azure DevOps is a geographic service. However, Microsoft Entra ID is a service that can be either global or geographic, depending on how you configure it.
+Generally, most nonregional services are either global or geographic, but not both. For example, Azure Front Door a global service, while Azure DevOps is a geographic service. However, Microsoft Entra ID is a service that can be either global or geographic, depending on how you configure it.
 
 Most nonregional services that store customer data enable you to select a specific region for data storage. To learn more, see [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ## Regionally dependent service components
 
-When you use a nonregional service, you don't choose a specific Azure region for the service itself. However, you might need to choose a region for dependent components that you use with the service. For example, if you use [Azure Virtual Desktop (AVD)](https://azure.microsoft.com/services/virtual-desktop/), which is a nonregional service, you can choose the region where your host pool (virtual machines) should reside.
+When you use a nonregional service, you don't choose a specific Azure region for the service itself. However, you might need to choose a region for dependent components that you use with the service. For example, if you use [Azure Virtual Desktop (AVD)](https://azure.microsoft.com/services/virtual-desktop/), which is a nonregional service, you can choose the Azure region where your host pool (virtual machines) reside.
 
 ## List of nonregional services
 
@@ -43,7 +43,7 @@ Microsoft publishes a [a list of services, which includes nonregional services](
 | Azure Communication Services | &#x2705; | | [Some data is stored in a geographic area.](../communication-services/concepts/privacy.md) |
 | Azure Content Delivery Network | &#x2705; | | |
 | Azure DevOps | | &#x2705; | |
-| Azure DNS | &#x2705; | | |
+| Azure DNS | &#x2705; | | Public zones are global. Private zones are regional. |
 | Azure Front Door | &#x2705; | | |
 | Azure Information Protection | &#x2705; | | |
 | Azure Lighthouse | &#x2705; | | |
