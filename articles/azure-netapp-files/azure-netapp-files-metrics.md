@@ -156,13 +156,13 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 - *Accounts per subscription*
     Number of NetApp accounts per region 
 
-- *Total backup-backup enabled volumes per subscription*
+- *Total backup enabled volumes per subscription*
     Maximum number of volumes that can be backed up per subscription 
 
 - *Total cool access volumes per subscription* 
     Total number of cool access volumes per subscription 
 
-- *Totap DP volumes per subscription* 
+- *Total DP volumes per subscription* 
     Total number of data protection volumes per subscription  
 
 - *Total TIBs per subscription* 
