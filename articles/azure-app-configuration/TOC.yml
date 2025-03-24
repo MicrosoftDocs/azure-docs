@@ -122,6 +122,18 @@
       href: howto-labels-aspnet-core.md
     - name: JSON content-type
       href: howto-leverage-json-content-type.md
+  - name: Key Vault references
+    items:
+    - name: Use Key Vault references
+      items:
+      - name: ASP.NET Core
+        href: use-key-vault-references-dotnet-core.md
+      - name: Spring Boot
+        href: use-key-vault-references-spring-boot.md
+    - name: Reload secrets and certificates automatically
+      items:
+      - name: .NET
+        href: reload-key-vault-secrets-dotnet.md
   - name: Snapshots
     items:
     - name: Overview
@@ -184,18 +196,6 @@
       href: howto-variant-feature-flags-aspnet-core.md
     - name: Python
       href: howto-variant-feature-flags-python.md
-- name: Key Vault references
-  items:
-  - name: Use Key Vault references
-    items:
-    - name: ASP.NET Core
-      href: use-key-vault-references-dotnet-core.md
-    - name: Spring Boot
-      href: use-key-vault-references-spring-boot.md
-  - name: Reload secrets and certificates automatically
-    items:
-    - name: .NET
-      href: reload-key-vault-secrets-dotnet.md
 - name: CI/CD integration
   items:
   - name: Use configuration files
