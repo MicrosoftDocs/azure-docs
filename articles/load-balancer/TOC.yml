@@ -179,20 +179,10 @@
       items:
       - name: Configure DHCPv6 for Linux VMs
         href: load-balancer-ipv6-for-linux.md
-      - name: Public Load Balancer
-        items:
-        - name: Standard Public Load Balancer with IPv6 - PowerShell
-          href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
-        - name: Standard Public Load Balancer with IPv6 - Azure CLI
-          href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
-        - name: Standard Public Load Balancer with IPv6 - ARM template
-          href: ipv6-configure-standard-load-balancer-template-json.md
-        expanded: false
-      - name: Internal Load Balancer
-        items:
-        - name: Standard Internal Load Balancer with IPv6 - PowerShell
-          href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
-        expanded: false
+      - name: Deploy a dual-stack Public load balancer
+        href: deploy-ipv4-ipv6-dual-stack-standard-load-balancer.md
+      - name: Deploy a dual-stack Internal load balancer
+        href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
       - name: Add IPv6 to existing deployments
         items:
         - name: Add IPv6 to an IPv4 application- PowerShell
