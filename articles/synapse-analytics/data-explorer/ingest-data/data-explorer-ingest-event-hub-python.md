@@ -2,7 +2,7 @@
 title: Use Python ingestion to ingest data from Event Hub into Azure Synapse Data Explorer (Preview)
 description: Learn how to use Python to ingest (load) data into Azure Synapse Data Explorer from Event Hub.
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 03/24/2025
 author: shsagir
 ms.author: shsagir
 ms.reviewer: tzgitlin
@@ -12,6 +12,8 @@ ms.custom: devx-track-python
 ---
 
 # Create an Event Hub data connection for Azure Synapse Data Explorer by using Python (Preview)
+
+[!INCLUDE [data-explorer-deprecation-notice](../includes/data-explorer-deprecation-notice.md)]
 
 > [!div class="op_single_selector"]
 > * [Portal](data-explorer-ingest-event-hub-portal.md)
