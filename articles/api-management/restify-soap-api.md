@@ -37,31 +37,34 @@ In this article, you learn how to:
 1. In the left pane, in the **APIs** section, select **APIs** > **+ Add API**.
 1. Under **Create from definition**, select **WSDL**.
 
-    ![SOAP API](./media/restify-soap-api/wsdl-api.png)
+    :::image type="content" source="./media/restify-soap-api/wsdl-api.png" alt-text="Screenshot that shows the WSDL tile in the Azure portal.":::
+
 1. In **WSDL specification**, enter the URL to your SOAP API, or select **Select a file** to select a local WSDL file.
 1. In **Import method**, select **SOAP to REST**. 
     When this option is selected, API Management attempts to make an automatic transformation between XML and JSON. In this case, consumers should call the API as a RESTful API, which returns JSON. API Management converts each request to a SOAP call.
 
-    ![SOAP to REST](./media/restify-soap-api/soap-to-rest.png)
+    :::image type="content" source="./media/restify-soap-api/soap-to-rest.png" alt-text="Screenshot that shows the SOAP to REST option. lightbox="./media/restify-soap-api/soap-to-rest.png":::
 
-1. The following fields are filled automatically with information from the SOAP API: **Display name**, **Name**, **Description**. Operations are filled automatically with **Display name**, **URL**, and **Description**, and receive a system-generated **Name**.
-1. Enter other API settings. You can set the values during creation or configure them later by going to the **Settings** tab. 
+1. The following fields are filled automatically with information from the SOAP API: **Display name**, **Name**, **Description**. Operations are filled automatically with **Display name**, **URL**, and **Description** and receive a system-generated **Name**.
+1. Enter other API settings. You can set the values when you create the API or configure them later by going to the **Settings** tab. 
 
-    For more information about API settings, see [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
+    For more information about API settings, see [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api).
+
 1. Select **Create**.
 
 ## Test the new API in the Azure portal
 
-Operations can be called directly from the Azure portal, which provides a convenient way to view and test the operations of an API.  
+You can call operations directly from the Azure portal. This method provides a convenient way to view and test the operations of an API.  
 
 1. Select the API you created in the previous step.
 2. Select the **Test** tab.
 3. Select an operation.
 
-    The page shows fields for query parameters and fields for the headers. One of the headers is **Ocp-Apim-Subscription-Key**, for the subscription key of the product that is associated with this API. If you created the API Management instance, you're an admin already, so the key is filled in automatically. 
-1. Press **Send**.
+    The page shows fields for query parameters and fields for the headers. One of the headers is **Ocp-Apim-Subscription-Key**. This header is for the subscription key of the product that's associated with this API. If you created the API Management instance, you're an admin already, so the key is filled in automatically. 
 
-    When the test is successful, the backend responds with **200 OK** and some data.
+1. Select **Send**.
+
+    When the test is successful, the back end responds with **200 OK** and some data.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
