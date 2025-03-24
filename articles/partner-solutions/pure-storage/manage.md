@@ -53,10 +53,7 @@ To create a storage pool
     | Virtual network                    | Choose a virtual network.             |
     | Delegated subnet                   | Choose a delegated subnet.            |
 
-1. Select the **Create** button. 
+1. Select the **Create** button.
 
 > [!NOTE]
-> During the preview, a Storage Pool supports a maximum raw capacity of 7 TiB (5 TiB usable) with future expansions planned.  The effective usable capacity varies based on your data type and compression efficiency.
-
-
-
+> During the preview, a Storage Pool supports a maximum raw capacity of 7 TiB (5 TiB usable) with future expansions planned. The effective usable capacity varies based on your data type and compression efficiency.
