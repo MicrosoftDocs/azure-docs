@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Mock API responses in API Management - Azure portal  | Microsoft Docs
-description: Use Azure API Management to set a policy on an API. The policy returns a mock response even if the back end isn't available to send real responses.
+description: Use Azure API Management to set a policy on an API. The policy returns a mock response even if the backend isn't available to send real responses.
 
 author: dlepow
 ms.service: azure-api-management
@@ -17,20 +17,20 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-Back-end APIs are imported into an Azure API Management API or created and managed manually. The steps in this tutorial describe how to:
+Backend APIs are imported into an Azure API Management API or created and managed manually. The steps in this tutorial describe how to:
 
 + Use API Management to create a blank HTTP API.
 + Manually manage an HTTP API.
 + Set a policy on an API so that it returns a mock response.
 
-This method enables developers to continue with the implementation and testing of the API Management instance even if the back end isn't available to send real responses.
+This method enables developers to continue with the implementation and testing of the API Management instance even if the backend isn't available to send real responses.
 
 [!INCLUDE [api-management-workspace-try-it](../../includes/api-management-workspace-try-it.md)]
 
 The ability to create mock responses is useful in many scenarios:
 
-+ When the API façade is designed first and the back-end implementation occurs later, or when the back end is being developed in parallel.
-+ When the back end is temporarily not operational or is not able to scale.
++ When the API façade is designed first and the backend implementation occurs later, or when the backend is being developed in parallel.
++ When the backend is temporarily not operational or is not able to scale.
 
 In this tutorial, you learn how to:
 
@@ -50,7 +50,7 @@ In this tutorial, you learn how to:
 
 ## Create a test API
 
-The steps in this section show how to create an HTTP API with no back end.
+The steps in this section show how to create an HTTP API with no backend.
 
 1. Sign in to the Azure portal, and then navigate to your API Management instance.
 1. Select **APIs** > **+ Add API** > **HTTP** tile:
@@ -60,7 +60,7 @@ The steps in this section show how to create an HTTP API with no back end.
 1. In the **Create an HTTP API** window, select **Full**.
 1. In **Display name**, enter *Test API*.
 1. In **Products**, select *Unlimited*, if that value is available. This value is available only in some tiers. You can leave the value blank for this tutorial, but you need to associate the API with a product to publish it. For more information, see [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api). 
-1. Ensure that **Managed** is selected in **Gateways**.
+1. In **Gateways**, select **Managed** if this option is available. (This option is avaiable only in certain service tiers.)
 1. Select **Create**.
 
     :::image type="content" source="media/mock-api-responses/create-http-api.png" alt-text="Screenshot that shows the Create an HTTP API window." lightbox="media/mock-api-responses/create-http-api.png":::
@@ -154,7 +154,7 @@ az apim api operation delete --resource-group <resource-group-name> \
 1. Select **Save**.
 
     > [!TIP]
-    > A yellow bar displaying the text **Mocking is enabled** appears. This message indicates that the responses returned from API Management are mocked by the [mocking policy](mock-response-policy.md) and aren't produced by the back end.
+    > A yellow bar displaying the text **Mocking is enabled** appears. This message indicates that the responses returned from API Management are mocked by the [mocking policy](mock-response-policy.md) and aren't produced by the backend.
 
 ## Test the mocked API
 
