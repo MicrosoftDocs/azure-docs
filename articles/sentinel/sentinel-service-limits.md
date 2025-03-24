@@ -115,16 +115,16 @@ The following limit applies to threat intelligence in Microsoft Sentinel. The li
 |Description                   | Limit        |Dependency|
 -------------------------|--------------------|--------------------|
 | Indicators per call that use Graph security API | 100 indicators |Microsoft Graph security API|
-| CSV indicator file import size | 50MB | none|
-| JSON indicator file import size | 250MB | none|
+| CSV TI object file import size | 50MB | none|
+| JSON TI object file import size | 250MB | none|
 
-## TI upload indicators API limits
+## TI upload API limits
 
-The following limit applies to the threat intelligence upload indicators API in Microsoft Sentinel.
+The following limit applies to the threat intelligence upload API in Microsoft Sentinel.
 
 |Description                   | Limit        |Dependency|
 -------------------------|--------------------|--------------------|
-| Indicators per request | 100 indicators | |
+| STIX objects per request | 100 objects | |
 | Requests per minute | 100 | |
 
 ## User and Entity Behavior Analytics (UEBA) limits
@@ -137,16 +137,16 @@ The following limit applies to UEBA in Microsoft Sentinel. The limit for UEBA in
 
 ## Watchlist limits
 
-The following limits apply to watchlists in Microsoft Sentinel. The limits are related to the dependencies on other services used by watchlists.
+The following limits apply to watchlists in Microsoft Sentinel. Watchlists larger than 3.8 MB are considered large. The limits are related to the dependencies on other services used by watchlists.
 
 |Description                   | Limit        |Dependency|
 |--|-------------------------|--------------------|
-|Upload size limit for local file| 3.8 MB per file (Watchlists larger than 3.8 MB are considered large) |Azure Resource Manager
+|Upload size limit for local file| 3.8 MB per file |Azure Resource Manager
 |Line entry in the CSV file |10,240 characters per line|Azure Resource Manager|
 |Total size of a single row | 10 Kb | Log Analytics|
 |Upload size for large watchlist files in Azure Storage |500 MB per file|Azure Storage|
-|Total number of active watchlist items per workspace. When the max count is reached, delete some existing items to add a new watchlist.|10 million active watchlist items|Log Analytics|
-|Total rate of change of all watchlist items per workspace (create, update, and delete operations) | 100,000 (1% of max watchlist items) changes per month|Log Analytics|
+|Total number of active watchlist items per workspace</br>When the max count is reached, delete some existing items to add a new watchlist.|10 million active watchlist items|Log Analytics|
+|Total rate of change of all watchlist items per workspace</br>(create, update, and delete operations) | 100,000 changes per month</br>(1% of max active watchlist items)|Log Analytics|
 |Number of large watchlist uploads per workspace at a time|One large watchlist|Azure Cosmos DB|
 |Number of large watchlist deletions per workspace at a time|One large watchlist|Azure Cosmos DB|
 
