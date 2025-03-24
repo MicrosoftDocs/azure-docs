@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Release notes for the Azure Maps Indoor Module. 
 author: sipa
 ms.author: sipa
-ms.date: 3/24/2023
+ms.date: 10/25/2023
 ms.topic: reference
 ms.service: azure-maps
 ms.subservice: web-sdk

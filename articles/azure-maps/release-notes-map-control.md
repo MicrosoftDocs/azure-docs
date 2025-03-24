@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Release notes for the Azure Maps Web SDK. 
 author: sinnypan
 ms.author: sipa
-ms.date: 3/15/2023
+ms.date: 03/24/2025
 ms.topic: reference
 ms.service: azure-maps
 ms.subservice: web-sdk
