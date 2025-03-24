@@ -433,7 +433,8 @@ The optimal combination of **writeBatchSize** and **parallelCopies** depends on 
 ]
 ```
 
-Support specifying the `partitionid` when copying data to Dataverse using the import schemas, you can specify the `partitionid` by referring to this [article](/power-apps/developer/data-platform/use-elastic-tables?tabs=sdk#specify-partitionid). Specifying a `partitionId` is optional. If you choose to use a partitioning strategy for Dataverse elastic tables, `partitionid` must be used to uniquely identify a record with primary key. For more information about elastic tables, see the [article](/power-apps/developer/data-platform/elastic-tables#partitioning-and-horizontal-scaling).
+ All [elastic tables](/power-apps/developer/data-platform/elastic-tables#partitioning-and-horizontal-scaling) contain a system-defined `partitionid` string column. Dataverse supports mapping source data columns to Dataverse  `partitionid` columns and allows custom `partitionid` values to be written to Dataverse elastic tables.
+Specifying a `partitionId` value is optional. If a `partitionid` value isn't specified for a row, Dataverse uses the primary key value as the default partitionid value. If you choose to use a partitioning strategy for Dataverse elastic tables, `partitionid` must be used to uniquely identify a record with primary key. For more information, see this [article](/power-apps/developer/data-platform/use-elastic-tables?tabs=sdk#specify-partitionid).
 
 ## Retrieving data from views
 
