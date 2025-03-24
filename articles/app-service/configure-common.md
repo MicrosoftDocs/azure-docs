@@ -147,10 +147,6 @@ Set one or more app settings by using Azure Resource Manager templates (ARM temp
 			{
 			"name": "<setting-name1>", 
 			"value": "<value1>"
-			},
-			{
-			"name": "<setting-name2>", 
-			"value": "<value2>"
 			}
       ]
         }
@@ -237,6 +233,44 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 # [Azure PowerShell](#tab/ps)
 
 It's not possible to edit app settings in bulk by using a JSON file with Azure PowerShell.
+
+# [ARM Template](#tab/ARM)
+
+Set one or more app settings by using Azure Resource Manager templates (ARM templates):
+
+```json
+    {
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2024-04-01",
+      "name": "[parameters('webAppName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "httpsOnly": true,
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]",
+        "siteConfig": {
+          "linuxFxVersion": "[parameters('linuxFxVersion')]",
+          "minTlsVersion": "1.2",
+          "ftpsState": "FtpsOnly",
+		  "appSettings": [
+			{
+			"name": "<setting-name1>", 
+			"value": "<value1>"
+			},
+			{
+			"name": "<setting-name2>", 
+			"value": "<value2>"
+			}
+      ]
+        }
+      },
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanPortalName'))]"
+      ]
+    },
+```
 
 -----
 
