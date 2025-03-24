@@ -22,15 +22,16 @@ Azure Communication Services allows you to use phone numbers to make voice calls
 
 Azure Communication Services offers three types of Numbers: Toll-Free, Local, and Short Codes.
 
-- **To send or receive an SMS**, choose a Toll-Free Number or a Short Code
+- **To send or receive an SMS**, choose a Toll-Free Number, local number or a Short Code
 - **To make or receive phone calls**, choose a Toll-Free Number or a Local Number
 
 This table summarizes the number types and supported capabilities:
 
 | Type                                                                  | Example           | Send SMS | Receive SMS | Make Calls | Receive Calls | Typical Use Case                             | Restrictions   |
 | :-------------------------------------------------------------------- | :---------------- | :------: | :---------: | :--------: | :-----------: | :------------------------------------------- | :------------- |
-| [Toll-Free](../../quickstarts/telephony/get-phone-number.md)          | +1 (8AB) XYZ PQRS |   Yes    |     Yes     |    Yes     |      Yes      | Receive calls on IVR bots, SMS Notifications | SMS in US and CA only |
-| [Local (Geographic)](../../quickstarts/telephony/get-phone-number.md) | +1 (ABC) XYZ PQRS |    No    |     No      |    Yes     |      Yes      | Geography Specific Number                    | Calling Only   |
+| [Toll-Free](../../quickstarts/telephony/get-phone-number.md)          | +1 (8AB) XYZ PQRS |   Yes    |     Yes     |    Yes     |      Yes      | Receive calls on IVR bots, SMS Notifications | SMS in US and CA only|
+| [Local (Geographic)](../../quickstarts/telephony/get-phone-number.md) | +1 (ABC) XYZ PQRS |    Yes    |     Yes      |    Yes     |      Yes      | Geography Specific Number                  | SMS in US only  |
+| [Mobile](../../quickstarts/telephony/get-phone-number.md) | +AB CDEFG PQRST|    Yes    |     Yes      |    No     |      No      | Geography Specific Number, SMS Notifications                | SMS Only   |
 | [Short-Codes](../../quickstarts/sms/apply-for-short-code.md)          | ABC-XYZ           |   Yes    |     Yes     |     No     |      No       | High-velocity SMS                            | SMS only       |
 
 ## Next steps
