@@ -21,7 +21,7 @@ This article describes how to access the shell environment inside your applicati
 Although Azure Spring Apps offers various managed troubleshooting approaches, you may want to do advanced troubleshooting using the shell environment. For example, you may want to accomplish the following troubleshooting tasks:
 
 - Directly use Java Development Kit (JDK) tools.
-- Diagnose against an app’s back-end services for network connection and API call latency for both virtual-network and non-virtual-network instances.
+- Diagnose against an app's back-end services for network connection and API call latency for both virtual-network and non-virtual-network instances.
 - Diagnose storage capacity, performance, and CPU/memory issues.
 
 ## Prerequisites
@@ -173,7 +173,7 @@ The output should look like the following example:
 
 ## Disconnect from your app instance
 
-When you're done troubleshooting, use the `exit` command to disconnect from the app instance, or press `Ctrl+d`.
+When you're done troubleshooting, use the `exit` command to disconnect from the app instance, or press <kbd>Ctrl</kbd>+<kbd>d</kbd>.
 
 ## Troubleshooting tools
 
