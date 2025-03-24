@@ -48,7 +48,7 @@ sections:
 
       - question: Can Windows Enterprise multi-session be Microsoft Entra joined?
         answer: |
-          Windows Enterprise multi-session can be Microsoft Entra joined. To get started, follow the steps to [Deploy Microsoft Entra joined virtual machines](deploy-azure-ad-joined-vm.md).
+          Windows Enterprise multi-session can be Microsoft Entra joined. To get started, follow the steps to [Deploy Microsoft Entra joined virtual machines](deploy-azure-ad-joined-vm.md). It's only supported for Virtual Machines running in Azure. 
           
       - question: Where can I find the Windows Enterprise multi-session image and what does it include?
         answer: |
