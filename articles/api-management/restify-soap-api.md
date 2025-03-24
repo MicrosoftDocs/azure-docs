@@ -1,6 +1,6 @@
 ---
 title: Import a SOAP API to Azure API Management and convert it to REST using the portal | Microsoft Docs
-description: Learn how to import a SOAP API to Azure API Management as a WSDL specification and convert it to a REST API. Then test the API in the Azure portal.
+description: Learn how to import a SOAP API into Azure API Management as a WSDL specification and convert it to a REST API. Then test the API in the Azure portal.
 services: api-management
 author: dlepow
 ms.custom: devdivchpfy22
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 03/27/2025
 ms.author: danlep
 
-#customer intent: As a developer, I want to import a SOAP API to API Management and convert it to REST.
+#customer intent: As a developer, I want to import a SOAP API into API Management and convert it to REST.
 
 ---
 # Import a SOAP API to API Management and convert it to REST
@@ -57,8 +57,8 @@ In this article, you learn how to:
 You can call operations directly from the Azure portal. This method provides a convenient way to view and test the operations of an API.  
 
 1. Select the API you created in the previous step.
-2. Select the **Test** tab.
-3. Select an operation.
+1. Select the **Test** tab.
+1. Select an operation.
 
     The page shows fields for query parameters and fields for the headers. One of the headers is **Ocp-Apim-Subscription-Key**. This header is for the subscription key of the product that's associated with this API. If you created the API Management instance, you're an admin already, so the key is filled in automatically. 
 
