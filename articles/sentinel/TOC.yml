@@ -735,7 +735,7 @@
     - name: CloudWatch events via Lambda function
       href: cloudwatch-lambda-function.yml      
     - name: Cisco FTD firewall
-      href: connect-cisco-ftd.md
+      href: cisco-ftd-firewall.md
     - name: Google Cloud Platform connectors 
       href: connect-google-cloud-platform.md
     - name: Microsoft Entra
