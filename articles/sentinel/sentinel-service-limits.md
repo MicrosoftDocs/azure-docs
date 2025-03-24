@@ -137,7 +137,7 @@ The following limit applies to UEBA in Microsoft Sentinel. The limit for UEBA in
 
 ## Watchlist limits
 
-The following limits apply to watchlists in Microsoft Sentinel. Watchlists larger than 3.8 MB are considered large. The limits are related to the dependencies on other services used by watchlists.
+The following limits apply to watchlists in Microsoft Sentinel. The limits are related to the dependencies on other services used by watchlists.
 
 |Description                   | Limit        |Dependency|
 |--|-------------------------|--------------------|
