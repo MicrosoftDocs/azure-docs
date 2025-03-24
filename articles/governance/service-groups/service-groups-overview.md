@@ -1,8 +1,8 @@
 ---
 title: Azure Service Groups overview
 description: Azure Service Groups overview
-author: davidsmatlak
-ms.author: davidsmatlak
+author: kenieva
+ms.author: kenieva
 ms.service: azure-policy
 ms.topic: overview
 ms.date: 02/25/2025

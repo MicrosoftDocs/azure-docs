@@ -1,8 +1,8 @@
 ---
 title: Service Groups relationships
 description: Service Groups relationships
-author: davidsmatlak
-ms.author: davidsmatlak
+author: kenieva
+ms.author: kenieva
 ms.service: azure-policy
 ms.topic: concept-article
 ms.date: 02/25/2025
