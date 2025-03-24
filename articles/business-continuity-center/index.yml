@@ -66,9 +66,9 @@ landingContent:
             url: tutorial-manage-data-using-copilot.md
 
   # Card (optional)
-  - title: Architectural Content
+  - title: Architecture
     linkLists:
-      - linkListType: azure-waf
+      - linkListType: architecture
         links:
-          - text: Design a reliable monitoring and alerting strategy
+          - text: Well-architecture design  recommendation for monitoring/ alerting
             url: /azure/well-architected/reliability/monitoring-alerting-strategy#azure-facilitation
