@@ -32,7 +32,7 @@ Refer to these scenarios as examples for framing your migration process.
 | [Amazon DynamoDB application to Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/dynamodb-data-migration-cosmos-db) | Amazon DynamoDB application -> Azure Cosmos DB for NoSQL | This scenario involves migrating an Amazon DynamoDB application to Azure Cosmos DB, ensuring minimal downtime and data integrity. |
 | [Amazon DynamoDB data to Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/dynamodb-data-migration-cosmos-db) | Amazon DynamoDB data -> Azure Cosmos DB for NoSQL | This scenario involves migrating an Amazon DynamoDB data to Azure Cosmos DB, ensuring minimal downtime and data integrity. |
 | [Amazon ElastiCache to Azure Cache for Redis](/azure/azure-cache-for-redis/cache-migration-guide) | Amazon ElastiCache -> Azure Cache for Redis | This scenario involves migrating an Amazon ElastiCache to Azure Cache for Redis, ensuring minimal downtime and data integrity. |
-| [CouchBase on AWS to Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/couchbase-cosmos-migration) | CouchBase on AWS -> Azure Cosmos DB for NoSQL] | This scenario involves migrate Java applications that are connected to Couchbase on AWS to an API for NoSQL account in Azure Cosmos DB, ensuring minimal downtime and data integrity. |
+| [CouchBase on AWS to Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/couchbase-cosmos-migration) | CouchBase on AWS -> Azure Cosmos DB for NoSQL] | This scenario involves migrating Java applications that are connected to Couchbase on AWS to an API for NoSQL account in Azure Cosmos DB, ensuring minimal downtime and data integrity. |
 
 ## Related workload components
 
