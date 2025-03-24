@@ -55,12 +55,15 @@ Follow these steps to resolve the issue.
 
     Make sure to replace `<component-release-name>` with the release name of the components that are stuck. In the output, look for the last revision that has a status of `Deployed` or `Superseded` and note the revision number.
 
-1. Using the revision number from step 2, rollback the Helm release to the last successful revision. You need to run the following command for each component, `<component-release-name>`, and its revision number, `<revision-number>`, from steps 1 and 2.
+1. Using the **revision number from step 2**, rollback the Helm release to the last successful revision. You need to run the following command for each component, `<component-release-name>`, and its revision number, `<revision-number>`, from steps 1 and 2.
 
     ```sh
     helm rollback <component-release-name> <revision-number> -n azure-iot-operations
     ```
   
+    > [!IMPORTANT]
+    > You need to repeat steps 2 and 3 for each component that is stuck. You reattempt the upgrade only after all components are rolled back to the last successful revision.
+
 1. After the rollback of each component is complete, reattempt the upgrade using the following command:
 
    ```sh
@@ -73,8 +76,6 @@ Follow these steps to resolve the issue.
     az iot ops upgrade ....... --release-train stable --version 1.0.15 
     ``` 
 
-> [!IMPORTANT]
-> You need to repeat steps 2 and 3 for each component that is stuck. You reattempt the upgrade only after all components are rolled back to the last successful revision.
 
 ## MQTT broker
 
