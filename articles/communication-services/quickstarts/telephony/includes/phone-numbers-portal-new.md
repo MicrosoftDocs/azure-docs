@@ -23,6 +23,15 @@ Azure Communication Services is introducing a new user experience for purchasing
 
 4. Choose the **Country/region** where you would like to provision the phone number. Country/region availability is based on the billing location for your Azure subscription. More information on what numbers are available for each country/region can be found [here](../../../concepts/numbers/sub-eligibility-number-capability.md). Next you'll choose the [number type](../../../concepts/telephony/plan-solution.md#phone-number-types-in-azure-communication-services). You can select from two phone number types: **Local**, and **Toll-free**.
 
+> [!NOTE]
+> Bulk number orders or some countries, such as the Netherlands, require a special order for phone numbers. If special ordering is needed, you will be prompted to follow the below mentioned special order process.
+- > Click "Request a Special Order" button in the Phone Numbers section.
+- > Open a [new case](https://aka.ms/ContactTNS).
+- > Select "Azure Communication Service" as your Customer Profile.
+- > Choose the Country/Region where you need the phone numbers.
+- > Select "New TN Acquisition" as the case type.
+- > Fill in the necessary details and submit your request.
+
 5. Select **Search** to pull up numbers that meet your selected criteria. You have various filters to search for the number that fits your needs, including:
 
    - **Use case**: This is for whether you are using this number to call from an application (A2P) or from a human agent (P2P).
