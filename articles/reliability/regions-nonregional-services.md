@@ -1,8 +1,7 @@
 ---
-title: Nonregional Azure services
+title: Azure non-regional services
 description: Learn about geographic and global Azure services.
 ms.service: azure
-ms.subservice: azure-availability-zones
 ms.topic: conceptual
 ms.date: 03/24/2025
 ms.author: anaharris
@@ -10,18 +9,34 @@ author: anaharris-ms
 ms.custom: subject-reliability
 ---
 
-# Nonregional Azure services
+# Azure non-regional services
 
-Nonregional services, listed on [Azure global infrastructure products](https://azure.microsoft.com/global-infrastructure/services/?products=all), are services that you don't deploy into a specific Azure region.
+Non-regional Azure services are services that you don't deploy into a specific Azure region.  This article explains the difference between global and geographic non-regional services, and provides a list of non-regional services that indicates whether each is a global or geographic service.
 
-There are two categories of nonregional services, each with different characteristics for reliability:
 
-- **Global services** are deployed to many Azure regions worldwide. If there's a regional failure, an instance in another region continues servicing customers.
-- **Geographic services** aren't deployed to a specific Azure regions, but instead to a geographic area. Within that geographic area, one or more Azure regions might be used to serve customer requests. Consult the service's documentation to understand the geographic areas, and how to design a resilient solution using the service.
+## Types of non-regional services
 
-Some nonregional services enable customers to specify the region where some components are deployed. For example, [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/) is a geographic service, so its core components are deployed within a geography instead of a specific Azure region. However, it enables customers to specify an Azure region where their host pool (virtual machines) reside.
+There are two types of non-regional services:
 
-## List of nonregional services
+- **Global services** are deployed to many Azure regions worldwide. If there's a regional failure, an instance in another region can continue to operate. With Global services, you don't need to specifically design for resiliency as they are automatically resilient to regional failures. 
+
+
+- **Geographic services** are deployed to a geographic area, and not a specific Azure region. Within that geographic area, one or more Azure regions might be used to serve client requests. To understand the geographic areas, and learn how to design a resilient solution with a geographic service, see the documentation for that service.
+
+Generally, most non-regional services support one or the other, but not both. For example, Azure AD B2C is a global service, while Azure DevOps is a geographic service. However, Microsoft Entra ID is a service that can be either global or geographic, depending on how you configure it.
+
+## Regional dependent service components
+
+When you use a non-regional service, you don't need to choose a region for the service itself. However, you might need to choose a region for dependent components that you use with the service. For example, if you use [Azure Virtual Desktop (AVD)](https://azure.microsoft.com/services/virtual-desktop/), which is a non-regional service, you can choose the region where your host pool (virtual machines) should reside.
+
+
+## Data storage for non-region services
+
+
+
+## List of non-regional services
+
+Although Microsoft publishes a [a list of non-regional services](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table), the table below also contains the list non-regional service, but specifies whether each service is global or geographic, and provides additional notes about data residency and configuration.  
 
 | Product | Global | Geographic | Notes |
 | --- | --- | --- | --- |
@@ -59,6 +74,7 @@ Some nonregional services enable customers to specify the region where some comp
 | Microsoft Intune | &#x2705; | | |
 | Microsoft Sentinel | |  &#x2705; | |
 
-## Next steps
+## Related content
 
 - [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/)
+
