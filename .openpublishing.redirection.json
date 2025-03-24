@@ -1,6 +1,36 @@
 {
   "redirections": [
     {
+      "source_path": "articles/internet-peering/howto-subscription-association-powershell.md",
+      "redirect_url": "/previous-versions/azure/internet-peering/howto-subscription-association-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-peering/howto-peering-service-powershell.md",
+      "redirect_url": "/previous-versions/azure/internet-peering/howto-peering-service-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-peering/howto-direct-powershell.md",
+      "redirect_url": "/previous-versions/azure/internet-peering/howto-direct-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-peering/howto-legacy-direct-powershell.md",
+      "redirect_url": "/previous-versions/azure/internet-peering/howto-legacy-direct-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-peering/howto-exchange-powershell.md",
+      "redirect_url": "/previous-versions/azure/internet-peering/howto-exchange-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-peering/howto-legacy-exchange-powershell.md",
+      "redirect_url": "/previous-versions/azure/internet-peering/howto-legacy-exchange-powershell",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/databox-online/azure-stack-edge-overview.md",
       "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-overview",
       "redirect_document_id": false
