@@ -138,5 +138,5 @@ To achieve geo-replication in nonpaired regions, use [Azure Site Recovery](/azur
 ## Next steps
 
 - [Azure services with availability zones](availability-zones-service-support.md)
-- [Azure regions with availability zones](availability-zones-region-support.md)
+- [List of Azure regions](regions-list.md)
 - [Reliability guidance](./reliability-guidance-overview.md)

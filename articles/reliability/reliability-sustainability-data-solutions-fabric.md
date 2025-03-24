@@ -32,7 +32,7 @@ Sustainability data solutions in Fabric is zone-redundant by default.
 
 ### Region support
 
-Zone redundancy for the emissions data source is automatically enabled when you use [any region that supports availability zones](./availability-zones-region-support.md).
+Zone redundancy for the emissions data source is automatically enabled when you use [any region that supports availability zones](./regions-list.md).
 
 ### Cost
 

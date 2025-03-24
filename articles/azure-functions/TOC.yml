@@ -585,21 +585,6 @@
           href: ../operational-excellence/relocation-functions.md?toc=/azure/azure-functions/toc.json
         - name: Work with legacy Functions Proxies
           href: legacy-proxies.md
-    - name: Migrate
-      items:
-        - name: Migrate .NET apps to the isolated model
-          href: migrate-dotnet-to-isolated-model.md
-        - name: Migrate v3.x to v4.x
-          href: migrate-version-3-version-4.md
-        - name: Migrate v1.x to v4.x
-          href: migrate-version-1-version-4.md
-        - name: Node.js
-          items:
-            - name: Migrate to model v4.x
-              href: functions-node-upgrade-v4.md
-        - name: Update language versions
-          href: update-language-versions.md
-          displayName: upgrade, migrate, language stack
     - name: Monitor
       items:
         - name: Monitor Azure Functions
@@ -747,6 +732,36 @@
               href: python-scale-performance-reference.md
             - name: Memory profiling
               href: python-memory-profiler-reference.md
+- name: Migration guides
+  items:
+    - name: Migrate from AWS Lambda
+      items:
+        - name: Overview
+          href: migration/lambda-functions-migration-overview.md
+          displayName: AWS Lambda, migration
+        - name: Discover
+          href: migration/lambda-functions-migration-discover.md
+          displayName: AWS Lambda, migration
+        - name: Assess
+          href: migration/lambda-functions-migration-assess.md
+          displayName: AWS Lambda, migration
+        - name: Migrate
+          href: migration/lambda-functions-migration-migrate.md
+          displayName: AWS Lambda, migration   
+    - name: Upgrade runtime versions
+      items:
+        - name: Migrate v3.x to v4.x
+          href: migrate-version-3-version-4.md
+        - name: Migrate v1.x to v4.x
+          href: migrate-version-1-version-4.md
+    - name: Language version updates
+      items: 
+        - name: Update language versions
+          href: update-language-versions.md
+          displayName: upgrade, migrate, language stack
+        - name: Migrate Node.js to model v4.x
+          href: functions-node-upgrade-v4.md
+
 - name: Reference
   items:
     - name: API references
