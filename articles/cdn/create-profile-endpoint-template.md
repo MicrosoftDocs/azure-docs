@@ -10,6 +10,7 @@ ms.service: azure-cdn
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.date: 03/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Quickstart: Create an Azure Content Delivery Network profile and endpoint - ARM template

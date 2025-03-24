@@ -12,13 +12,7 @@ ms.custom: template-how-to, devx-track-azurepowershell, engagement-fy23
 
 # Create or modify an Exchange peering using PowerShell
 
-> [!div class="op_single_selector"]
-> - [Azure portal](howto-exchange-portal.md)
-> - [PowerShell](howto-exchange-powershell.md)
-
-This article describes how to create a Microsoft Exchange peering by using PowerShell cmdlets and the Resource Manager deployment model. This article also shows you how to check the status of the resource, update it, or delete and deprovision it.
-
-If you prefer, you can complete this guide by using the [Azure portal](howto-exchange-portal.md).
+This article describes how to create a Microsoft Exchange peering using PowerShell cmdlets and the Resource Manager deployment model. This article also shows you how to check the status of the resource, update it, or delete and deprovision it.
 
 ## Before you begin
 * Review the [prerequisites](prerequisites.md) and the [Exchange peering walkthrough](walkthrough-exchange-all.md) before you begin configuration.

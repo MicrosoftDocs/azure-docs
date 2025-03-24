@@ -9,6 +9,7 @@ ms.service: azure-media-services
 ms.topic: how-to
 ms.date: 03/20/2024
 ms.author: juliako
+ROBOTS: NOINDEX
 ---
 
 # Manage Azure CDN caching policy in Azure Media Services
