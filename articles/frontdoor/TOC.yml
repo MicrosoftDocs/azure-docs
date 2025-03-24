@@ -165,6 +165,8 @@
       href: migrate-tier.md
   - name: Microsoft CDN (classic) retirement FAQ
     href: ../cdn/classic-cdn-retirement-faq.md
+  - name: Edgio retirement FAQ
+    href: /previous-versions/azure/cdn/edgio-retirement-faq.md?toc=/azure/frontdoor/TOC.json
   - name: CDN (classic) to Azure Front Door
     items:
     - name: Overview
