@@ -15,9 +15,11 @@ Microsoft Sentinel provides two connectors that collect logs from Cisco Firepowe
 
 ## Collect logs from a Cisco FTD ASA firewall device
 
-Install [Cisco ASA/FTD via AMA (Preview) connector for Microsoft Sentinel](../sentinel/data-connectors/cisco-asa-ftd-via-ama.md).
+Cisco FTD ASA firewall devices emit logs in ASA format. To collect these logs, you can use the [Cisco ASA/FTD via AMA (Preview) connector](../sentinel/data-connectors/cisco-asa-ftd-via-ama.md). 
 
 ## Collect logs from a Cisco FTD FXOS firewall device
+
+To collect logs from a Cisco FTD FXOS firewall device:
 
 1. Install and configure the Firepower eNcore eStreamer client, which emits logs in CEF format. For more information, see the full install [guide](https://www.cisco.com/c/en/us/td/docs/security/firepower/670/api/eStreamer_enCore/eStreamereNcoreSentinelOperationsGuide_409.html).
 1. Install [Common Event Format (CEF) via AMA connector](connect-cef-syslog-ama.md). 
