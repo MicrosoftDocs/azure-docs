@@ -6,8 +6,10 @@ ms.author: msangapu
 ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
-ms.date: 02/21/2025
+ms.date: 03/24/2025
 ms.custom: mvc, cli-validate, devdivchpfy22, AppServiceConnectivity
+zone_pivot_groups: app-service-portal-azd
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Tutorial: Deploy a PHP, MySQL, and Redis app to Azure App Service
@@ -71,7 +73,7 @@ First, you set up a sample data-driven app as a starting point. For your conveni
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-<!-- ::: zone pivot="azure-portal"  
+::: zone pivot="azure-portal"  
 
 ## 2. Create App Service, database, and cache
 
@@ -197,7 +199,7 @@ The creation wizard generated the connectivity variables for you already as [app
     :::column span="2":::
         **Step 5: Establish the Key Vault connection**        
         1. In the **Create connection** dialog for the Key Vault connection, in **Key Vault**, select the key vault you created earlier.
-        1. Ignore the message `No client type is available. Please select another target service or change application runtime` and select **Review + Create**.
+        1. Select **Review + Create**.
         1. When validation completes, select **Create**.
     :::column-end:::
     :::column:::
@@ -206,7 +208,7 @@ The creation wizard generated the connectivity variables for you already as [app
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 6: Finalize the PostgreSQL connector settings** 
+        **Step 6: Finalize the MySQL connector settings** 
         1. You're back in the edit dialog for **defaultConnector**. In the **Authentication** tab, wait for the key vault connector to be created. When it's finished, the **Key Vault Connection** dropdown automatically selects it.
         1. Select **Next: Networking**.
         1. Select **Save**. Wait until the **Update succeeded** notification appears.
@@ -227,18 +229,30 @@ The creation wizard generated the connectivity variables for you already as [app
         1. Select **Save**. Wait until the **Update succeeded** notification appears.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-7.png" alt-text="A screenshot showing how to edit the Cache for Redis service connector with a key vault connection." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-7.png":::
+        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-7.png" alt-text="A screenshot showing how to edit the Cache for Redis service connector with a key vault connection." lightbox="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-7.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
         **Step 8: Verify the Key Vault integration**
         1. From the left menu, select **Settings > Environment variables** again.
-        1. Next to **AZURE_POSTGRESQL_PASSWORD**, select **Show value**. The value should be `@Microsoft.KeyVault(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
+        1. Next to **AZURE_MYSQL_PASSWORD**, select **Show value**. The value should be `@Microsoft.KeyVault(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
         1. To verify the Redis connection string, select **Show value** next to **AZURE_REDIS_CONNECTIONSTRING**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-8.png" alt-text="A screenshot showing how to see the value of PostgreSQL password in Azure." lightbox="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-8.png":::
+        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-8.png" alt-text="A screenshot showing how to see the value of MySQL password in Azure." lightbox="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-8.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 9:** The sample application reads the APP_KEY environment variable to set the [required APP_KEY setting](https://laravel.com/docs/10.x/encryption#configuration). You create it as an app setting in this step.
+        1. In the **App settings** tab, select **Add**.
+        1. Set **Name** to *APP_KEY*.
+        1. Set **Value** to a long random string.
+        1. Click **Apply**, then **Apply** again, then **Confirm**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-9.png" alt-text="A screenshot showing the Add/Edit application setting dialog." lightbox="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-9.png":::
     :::column-end:::
 :::row-end:::
 
@@ -248,6 +262,9 @@ To summarize, the process for securing your connection secrets involved:
 - Creating a key vault.
 - Creating a Key Vault connection with the system-assigned managed identity.
 - Updating the service connectors to store the secrets in the key vault.
+
+> [!NOTE]
+> Ideally, the `APP_KEY` app setting should be configured as a key vault reference too, which is a multi-step process. For more information, see [How do I change the APP_KEY app setting to a Key Vault reference?](#how-do-i-change-the-app_key-app-setting-to-a-key-vault-reference) 
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -264,7 +281,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
         1. Click **Apply**, then **Apply** again, then **Confirm**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-9.png" alt-text="A screenshot showing the Add/Edit application setting dialog." lightbox="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-9.png":::
+        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-configure-laravel-variables-1.png" alt-text="A screenshot showing the Add/Edit application setting dialog for the CACHE_DRIVER setting." lightbox="./media/tutorial-php-mysql-app/azure-portal-configure-laravel-variables-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -274,8 +291,6 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
         - **LOG_CHANNEL**: Use *stderr* as the value. This setting tells Laravel to pipe logs to stderr, which makes it available to the App Service logs.
         - **APP_DEBUG**: Use *true* as the value. It's a [Laravel debugging variable](https://laravel.com/docs/10.x/errors#configuration) that enables debug mode pages.
         - **APP_KEY**: Use *base64:Dsz40HWwbCqnq0oxMsjq7fItmKIeBfCBGORfspaI1Kw=* as the value. It's a [Laravel encryption variable](https://laravel.com/docs/10.x/encryption#configuration).
-        1. In the menu bar at the top, select **Save**.
-        1. When prompted, select **Continue**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-get-connection-string-4.png" alt-text="A screenshot showing how to save settings in the configuration page." lightbox="./media/tutorial-php-mysql-app/azure-portal-get-connection-string-4.png":::
@@ -307,7 +322,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
         1. Sign in to your GitHub account and follow the prompt to authorize Azure.
         1. In **Organization**, select your account.
         1. In **Repository**, select **msdocs-postgresql-sample-app**.
-        1. In **Branch**, select **starter-no-infra**. This is the same branch that you worked in with your sample app, without any Azure-related files or configuration.
+        1. In **Branch**, select **main**.
         1. For **Authentication type**, select **User-assigned identity**.
         1. In the top menu, select **Save**. 
         App Service commits a workflow file into the chosen GitHub repository, in the `.github/workflows` directory.
@@ -319,7 +334,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3:** Back in the GitHub codespace of your sample fork, run `git pull origin starter-no-infra`. 
+        **Step 3:** Back in the GitHub codespace of your sample fork, run `git pull origin main`. 
         This pulls the newly committed workflow file into your codespace.
     :::column-end:::
     :::column:::
@@ -331,9 +346,9 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
         **Step 4 (Option 1: with GitHub Copilot):**  
         1. Start a new chat session by selecting the **Chat** view, then selecting **+**.
         1. Ask, "*@workspace How does the app connect to the database and redis?*" Copilot might give you some explanation about how the settings are configured in *config/database.php*. 
-        1. Ask, "*@workspace In production mode, my app is running in an App Service web app, which uses Azure Service Connector to connect to a PostgreSQL flexible server using the Django client type. What are the environment variable names I need to use?*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *azureproject/production.py* file. 
+        1. Ask, "*@workspace In production mode, my app is running in an App Service web app, which uses Azure Service Connector to connect to a MySQL flexible server. What are the environment variable names I need to use?*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *config/database.php* file. 
         1. Open *config/database.php* in the explorer and add the code suggestion.
-        1. Ask, "@workspace My App Service app also uses Azure Service Connector to connect to a Cache for Redis using the Django client type. What are the environment variable names I need to use?*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *config/database.php* file. 
+        1. Ask, "@workspace My App Service app also uses Azure Service Connector to connect to a Cache for Redis using the Django client type. What are the environment variable names I need to use?*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *config/database.php* file. If prompted, sign into GitHub Copilot for Azure to get more accurate answers.
         1. Add the code suggestion.
         GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
     :::column-end:::
@@ -344,14 +359,14 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
 :::row:::
     :::column span="2":::
         **Step 4 (Option 2: without GitHub Copilot):**  
-        1. In Visual Studio Code in the browser, open *config/database.php* in the explorer. Find the `mysql` section and make the following changes:
-            1. Replace `DB_HOST` with `AZURE_MYSQL_HOST`.
-            1. Replace `DB_DATABASE` with `AZURE_MYSQL_DBNAME`.
-            1. Replace `DB_USERNAME` with `AZURE_MYSQL_USERNAME`.
-            1. Replace `DB_PASSWORD` with `AZURE_MYSQL_PASSWORD`.
-            1. Replace `DB_PORT` with `AZURE_MYSQL_PORT`.
+        1. Open *config/database.php* in the explorer. Find the `mysql` section and make the following changes:
+            1. Replace `DB_HOST` (line 49) with `AZURE_MYSQL_HOST`.
+            1. Replace `DB_DATABASE` (line 51) with `AZURE_MYSQL_DBNAME`.
+            1. Replace `DB_USERNAME` (line 52) with `AZURE_MYSQL_USERNAME`.
+            1. Replace `DB_PASSWORD` (line 53) with `AZURE_MYSQL_PASSWORD`.
+            1. Replace `DB_PORT` (line 50) with `AZURE_MYSQL_PORT`.
         1. scroll to the Redis `cache` section and make the following changes:
-            1. Replace `REDIS_HOST` with `AZURE_REDIS_HOST`.
+            1. Replace `REDIS_HOST` (line ) with `AZURE_REDIS_HOST`.
             1. Replace `REDIS_PASSWORD` with `AZURE_REDIS_PASSWORD`.
             1. Replace `REDIS_PORT` with `AZURE_REDIS_PORT`.
             1. Replace `REDIS_CACHE_DB` with `AZURE_REDIS_DATABASE`.
@@ -386,7 +401,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 7:** You're taken to your GitHub repository and see that the GitHub action is running. The workflow file defines two separate stages, build and deploy. Wait for the GitHub run to show a status of **Success**. It takes about 5 minutes.
+        **Step 7:** You're taken to your GitHub repository and see that the GitHub action is running. The workflow file defines two separate stages, build and deploy. Wait for the GitHub run to show a status of **Success**. It takes about 10 minutes.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-7.png" alt-text="A screenshot showing a GitHub run in progress." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-7.png":::
@@ -441,7 +456,7 @@ The creation wizard puts the MySQL database server behind a private endpoint, so
     :::column span="2":::
         **Step 2:** In the General settings tab:
         1. In the **Startup Command** box, enter the following command: *cp /home/site/wwwroot/default /etc/nginx/sites-available/default && service nginx reload*.
-        1. Select **Save**.
+        1. Select **Save**, then select **Continue**.
         The command replaces the Nginx configuration file in the PHP container and restarts Nginx. This configuration ensures that the same change is made to the container each time it starts.
     :::column-end:::
     :::column:::
@@ -455,7 +470,7 @@ The creation wizard puts the MySQL database server behind a private endpoint, so
     :::column span="2":::
         **Step 1:** In the App Service page:
         1. From the left menu, select **Overview**.
-        1. Select the URL of your app. You can also navigate directly to `https://<app-name>.azurewebsites.net`.
+        1. Select the **Default domain** of your app.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-browse-app-1.png" alt-text="A screenshot showing how to launch an App Service from the Azure portal." lightbox="./media/tutorial-php-mysql-app/azure-portal-browse-app-1.png":::
@@ -532,7 +547,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
 
 ::: zone-end
 
-::: zone pivot="azure-developer-cli" -->
+::: zone pivot="azure-developer-cli"
 
 ## 2. Create Azure resources and deploy a sample app
 
@@ -788,10 +803,24 @@ It means you haven't run database migrations, or database migrations weren't suc
 
 ## Frequently asked questions
 
+::: zone pivot="azure-portal"
+
+- [How much does this setup cost?](#how-much-does-this-setup-cost)
+- [How do I connect to the MySQL database that's secured behind the virtual network with other tools?](#how-do-i-connect-to-the-mysql-database-thats-secured-behind-the-virtual-network-with-other-tools)
+- [How do I change the APP_KEY app setting to a Key Vault reference?](#how-do-i-change-the-app_key-app-setting-to-a-key-vault-reference)
+- [How does local app development work with GitHub Actions?](#how-does-local-app-development-work-with-github-actions)
+- [Why is the GitHub Actions deployment so slow?](#why-is-the-github-actions-deployment-so-slow)
+
+::: zone-end
+
+::: zone pivot="azure-developer-cli"
+
 - [How much does this setup cost?](#how-much-does-this-setup-cost)
 - [How do I connect to the MySQL database that's secured behind the virtual network with other tools?](#how-do-i-connect-to-the-mysql-database-thats-secured-behind-the-virtual-network-with-other-tools)
 - [How does local app development work with GitHub Actions?](#how-does-local-app-development-work-with-github-actions)
 - [Why is the GitHub Actions deployment so slow?](#why-is-the-github-actions-deployment-so-slow)
+
+::: zone-end
 
 #### How much does this setup cost?
 
@@ -808,6 +837,51 @@ Pricing for the create resources is as follows:
 - For basic access from a command-line tool, you can run `mysql` from the app's SSH terminal.
 - To connect from a desktop tool like MySQL Workbench, your machine must be within the virtual network. For example, it could be an Azure VM that's connected to one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
 - You can also [integrate Azure Cloud Shell](../cloud-shell/private-vnet.md) with the virtual network.
+
+::: zone pivot="azure-portal"
+
+#### How do I change the APP_KEY app setting to a Key Vault reference?
+
+From the portal steps above, you can change `APP_KEY` to a Key Vault reference by running the following Azure CLI commands in the GitHub codespace:
+
+```azurecli-interactive
+# Change the following variables to match your environment
+SUBSCRIPTION_ID=<subscription-id>
+RESOURCE_GROUP=<resource-group-name>
+KEY_VAULT_NAME=<key-vault-name>
+APP_SERVICE_NAME=<app-name>
+SECRET_NAME=laravelAppKey
+
+# Set the subscription ID
+az account set --subscription $SUBSCRIPTION_ID
+
+# Assign 'Key Vault Secrets Officer' role to your user at the scope of the key vault
+az role assignment create \
+  --assignee $(az ad signed-in-user show --query id -o tsv) \
+  --role $(az role definition list --name "Key Vault Secrets Officer" --query "[].id" -o tsv) \
+  --scope $(az keyvault show --name $KEY_VAULT_NAME --resource-group $RESOURCE_GROUP --query id --output tsv)
+
+# Add the secret to the key vault
+az keyvault secret set \
+  --vault-name $KEY_VAULT_NAME \
+  --name $SECRET_NAME \
+  --value $(php artisan key:generate --show)
+
+# Add Key Vault reference to the App Service configuration
+az webapp config appsettings set \
+  --resource-group $RESOURCE_GROUP \
+  --name $APP_SERVICE_NAME \
+  --settings "APP_KEY=@Microsoft.KeyVault(SecretUri=https://$KEY_VAULT_NAME.vault.azure.net/secrets/$SECRET_NAME)"
+```
+
+You can also do the same thing in the portal. For more information, see:
+
+1. [Key Vault scope role assignment](/azure/key-vault/general/rbac-guide?tabs=azure-portal)
+1. [Add a secret to Key Vault](/azure/key-vault/secrets/quick-create-portal)
+1. [Retrieve a secret from Key Vault](/azure/key-vault/secrets/quick-create-portal)
+1. [Configure app settings](configure-common.md?tabs=portal#configure-app-settings)
+
+::: zone-end
 
 #### How does local app development work with GitHub Actions?
 
