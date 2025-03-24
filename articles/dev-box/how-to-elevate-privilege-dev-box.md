@@ -22,7 +22,7 @@ Intune Endpoint Privilege Management allows your organization's users to run as 
 
 Endpoint Privilege Management is built into Intune, which means that all configuration is completed within the Microsoft Intune admin center. To get started with Endpoint Privilege Management, use this high-level process:
 
-- **License Endpoint Privilege Management:** Before you can use Endpoint Privilege Management policies, you must license Endpoint Privilege Management in your tenant as an Intune add-on. For licensing information, see [Use Intune Suite add-on capabilities](mem/intune-service/fundamentals/intune-add-ons).
+- **License Endpoint Privilege Management:** Before you can use Endpoint Privilege Management policies, you must license Endpoint Privilege Management in your tenant as an Intune add-on. For licensing information, see "Use Intune Suite add-on capabilities."
 - **Deploy an elevation settings policy:** An elevation settings policy activates Endpoint Privilege Management on the client device. With this policy, you can configure settings that are specific to the client but aren't necessarily related to the elevation of individual applications or tasks.
 
 ## Prerequisites
