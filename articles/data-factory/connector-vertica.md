@@ -284,7 +284,7 @@ The Vertica connector version 2.0 offers new functionalities and is compatible w
 
 | Version 2.0 | Version 1.0 |
 | --- | --- |
-| Azure integration runtime is not supported. You can only use the self-hosted integration runtime and its version should be 5.44.8984.1 or above.| Support both Azure Integration Runtime and self-hosted integration runtime.|
+| Azure integration runtime is not supported. You can only use the self-hosted integration runtime and its version should be 5.44.8984.1 or above.| Support both Azure integration runtime and self-hosted integration runtime.|
 | You need to [install a Vertica ODBC driver](#install-vertica-odbc-driver-for-the-version-20) manually. | The service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver. |
 
 ## Related content
