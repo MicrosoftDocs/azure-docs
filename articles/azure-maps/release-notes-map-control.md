@@ -16,6 +16,11 @@ This document contains information about new features and other changes to the M
 
 ## v3 (latest)
 
+### [3.6.1] (CDN: April 7, 2025, npm: TBA)
+
+#### Bug fixes
+* Fix the issue where `maxBounds` wasn't included in `map.getCamera()`, causing it to be unset when `setCamera()` is called.
+
 ### [3.6.0] (CDN: February 18, 2025, npm: February 20, 2025)
 
 #### New features
@@ -653,6 +658,7 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[3.6.1]: https://www.npmjs.com/package/azure-maps-control/v/3.6.1
 [3.6.0]: https://www.npmjs.com/package/azure-maps-control/v/3.6.0
 [3.5.0]: https://www.npmjs.com/package/azure-maps-control/v/3.5.0
 [3.4.0]: https://www.npmjs.com/package/azure-maps-control/v/3.4.0
