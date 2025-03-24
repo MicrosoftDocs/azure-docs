@@ -148,7 +148,7 @@ The following limits apply to watchlists in Microsoft Sentinel. The limits are r
 |Total number of active watchlist items per workspace</br>When the max count is reached, delete some existing items to add a new watchlist.|10 million active watchlist items|Log Analytics|
 |Total rate of change of all watchlist items per workspace</br>(create, update, and delete operations) | 100,000 changes per month</br>(1% of max active watchlist items)|Log Analytics|
 |Number of `large` watchlist uploads per workspace at a time</br>See upload size limit for what makes a watchlist `large` |One `large` watchlist | Azure Cosmos DB|
-|Number of large watchlist deletions per workspace at a time</br>See upload size limit for what makes a watchlist `large` | One `large` watchlist | | Azure Cosmos DB|
+|Number of large watchlist deletions per workspace at a time</br>See upload size limit for what makes a watchlist `large` | One `large` watchlist |  Azure Cosmos DB|
 
 ## Workbook limits
 
