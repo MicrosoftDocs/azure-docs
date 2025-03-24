@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 03/18/2024
+ms.date: 03/24/2024
 ms.author: anfdocs
 ---
 # Resource limits for Azure NetApp Files
@@ -38,11 +38,11 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum number of files in a single directory  | *Approximately* 4 million. <br> See [Determine if a directory is approaching the limit size](directory-sizes-concept.md#directory-limit).  |    No    |   
 |  Maximum number of files `maxfiles` per volume     |  See [`maxfiles`](maxfiles-concept.md)  |    Yes    |    
 |  Maximum number of export policy rules per volume     |    5  |    No    | 
-|  Maximum number of quota rules per volume     |   100  |    No    | 
+|  Maximum number of quota rules per volume     |   1,000  |    No    | 
 |  Minimum assigned throughput for a manual Quality of Service (QoS) volume     |    1 MiB/s   |    No    |    
 |  Maximum assigned throughput for a manual QoS volume     |    4,500 MiB/s    |    No    |    
-|  Number of cross-region replication data protection volumes (destination volumes)     |    50    |    Yes    |     
-|  Number of cross-zone replication data protection volumes (destination volumes)     |    50    |    Yes    |     
+|  Number of cross-region replication data protection volumes (destination volumes)     |    500    |    Yes    |     
+|  Number of cross-zone replication data protection volumes (destination volumes)     |    500    |    Yes    |     
 |  Maximum numbers of policy-based (scheduled) backups per volume  | <ul><li> Daily retention count: 2 (minimum) to 1019 (maximum) </li> <li> Weekly retention count: 1 (minimum) to 1019 (maximum) </li> <li> Monthly retention count: 1 (minimum) to 1019 (maximum) </ol></li> <br> The maximum hourly, daily, weekly, and monthly backup retention counts *combined* is 1019.  |  No  |
 |  Maximum size of protected volume  |  100 TiB  |  No  |
 |  Maximum number of volumes that can be backed up per subscription   |  500  |  No  |
