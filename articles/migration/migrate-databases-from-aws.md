@@ -19,7 +19,7 @@ The first step in the migration process is to compare the Amazon Web Services (A
 [Migrate databases and data from Amazon Web Services (AWS) to Microsoft Azure](migrate-databases-from-aws.md)
 
 > [!NOTE]
-> This comparison shouldn't be considered an exact representation of these services' functionality in your workload.*
+> This comparison shouldn't be considered an exact representation of these services' functionality in your workload.
 
 ## Migration scenarios
 
