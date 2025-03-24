@@ -12,7 +12,7 @@ ms.custom:
 
 # Troubleshoot start failures in Azure Container Apps
 
-Deploying a containerized application to Azure Container Apps for the first time can sometimes result in the app failing to start. This guide provides a step-by-step approach to diagnose and fix common issues when your container doesn't start (for example, the revision is stuck, or the container is in a crash loop). Both Azure portal and Azure CLI methods are covered for each step.
+Deploying a containerized application to Azure Container Apps for the first time can sometimes result in the app failing to start. Use this guide to figure out how to diagnose and fix common issues when your container doesn't start.
 
 ## Check deployment status and revision state
 
