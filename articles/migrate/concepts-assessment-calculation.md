@@ -1,9 +1,6 @@
 ---
 title: Azure VM assessments in Azure Migrate 
 description: Learn about assessments in Azure Migrate 
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/06/2025

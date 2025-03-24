@@ -1,9 +1,6 @@
 ---
 title: Common issues in Azure Migrate assessments
 description: Get help with assessment issues in Azure Migrate.
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.service: azure-migrate
 ms.date: 09/26/2024
