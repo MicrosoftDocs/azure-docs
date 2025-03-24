@@ -14,12 +14,12 @@ Migrating data is a critical part when moving from Amazon Web Services (AWS) to 
 
 ## Component comparison
 
-The first step in the migration process is to compare the Amazon Web Services (AWS) database services used in the workload to their closest Azure counterparts. This helps identify the most suitable Azure services for your migration needs.
+Start the process by comparing the Amazon Web Services (AWS) database services used in the workload to their closest Azure counterparts. The goal is to identify the most suitable Azure services for your workload.
 
 [Migrate databases and data from Amazon Web Services (AWS) to Microsoft Azure](migrate-databases-from-aws.md)
 
 > [!NOTE]
-> This comparison shouldn't be considered an exact representation of these services' functionality in your workload.*
+> This comparison shouldn't be considered an exact representation of these services' functionality in your workload.
 
 ## Migration scenarios
 
