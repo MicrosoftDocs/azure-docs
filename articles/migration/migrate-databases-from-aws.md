@@ -8,15 +8,13 @@ ms.date: 03/24/2025
 ms.topic: concept-article
 ---
 
-# Migrate databases from Amazon Web Services (AWS) to Microsoft Azure
+# Migrate databases and data from Amazon Web Services (AWS) to Microsoft Azure
 
 Migrating data is a critical part when moving from Amazon Web Services (AWS) to Microsoft Azure. This process involves transitioning your databases while making sure they work similarly in the new environment. The scope of this migration covers various database types, including relational databases, NoSQL databases, and data warehouses. For example, a workload that involves migrating an Amazon Relational Database Service (RDS) for PostgreSQL database to Azure Database for PostgreSQL.
 
 ## Component comparison
 
-Start the process by comparing the Amazon Web Services (AWS) database services used in the workload to their closest Azure counterparts. The goal is to identify the most suitable Azure services for your workload.
-
-[Azure for AWS Data and AI professionals](/azure/architecture/aws-professional/data-ai)
+Start the process by comparing the [Amazon Web Services (AWS) database and data services](/azure/architecture/aws-professional/data-ai) used in the workload to their closest Azure counterparts. The goal is to identify the most suitable Azure services for your workload.
 
 > [!NOTE]
 > This comparison shouldn't be considered an exact representation of these services' functionality in your workload.
@@ -31,7 +29,10 @@ Refer to these scenarios as examples for framing your migration process.
 | [Amazon Aurora PostgreSQL to Azure Database for PostgreSQL](/azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-offline?tabs=azure-portal) | Amazon Aurora for PostgreSQL -> Azure Database for PostgreSQL | This scenario covers migrating an Amazon Aurora PostgreSQL-compatible database to Azure Database for PostgreSQL, focusing on scaling horizontally to handle large datasets. |
 | [Amazon RDS for MySQL to Azure Database for MySQL](/azure/mysql/flexible-server/how-to-migrate-rds-mysql-data-in-replication) | Amazon RDS for MySQL -> Azure Database for MySQL | Provides a managed MySQL database with flexible scaling options and high availability. It supports private endpoints and virtual network integration, ensuring secure and isolated communication. |
 | [Amazon SQL Server to Azure SQL Database](/data-migration/sql-server/database/guide) | Amazon RDS for SQL Server -> Azure SQL Database | This scenario involves migrating an Amazon RDS instance to Azure SQL Database, ensuring minimal downtime and data integrity. |
-| [Amazon DynamoDB to Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/dynamodb-data-migration-cosmos-db) | Amazon DynamoDB -> Azure Cosmos DB for NoSQL | This scenario involves migrating an Amazon DynamoDB instance to Azure Cosmos DB, ensuring minimal downtime and data integrity. |
+| [Amazon DynamoDB application to Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/dynamodb-data-migration-cosmos-db) | Amazon DynamoDB application -> Azure Cosmos DB for NoSQL | This scenario involves migrating an Amazon DynamoDB application to Azure Cosmos DB, ensuring minimal downtime and data integrity. |
+| [Amazon DynamoDB data to Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/dynamodb-data-migration-cosmos-db) | Amazon DynamoDB data -> Azure Cosmos DB for NoSQL | This scenario involves migrating an Amazon DynamoDB data to Azure Cosmos DB, ensuring minimal downtime and data integrity. |
+| [Amazon ElastiCache to Azure Cache for Redis](/azure/azure-cache-for-redis/cache-migration-guide) | Amazon ElastiCache -> Azure Cache for Redis | This scenario involves migrating an Amazon ElastiCache to Azure Cache for Redis, ensuring minimal downtime and data integrity. |
+| [CouchBase on AWS to Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/couchbase-cosmos-migration) | CouchBase on AWS -> Azure Cosmos DB for NoSQL] | This scenario involves migrate Java applications that are connected to Couchbase on AWS to an API for NoSQL account in Azure Cosmos DB, ensuring minimal downtime and data integrity. |
 
 ## Related workload components
 

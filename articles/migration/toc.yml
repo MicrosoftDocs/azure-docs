@@ -72,13 +72,16 @@ items:
         href: /azure/azure-sql/migration-guides/database/mysql-to-sql-database-guide?view=azuresql-db&preserve-view=true
       - name: Amazon DynamoDB
         items:
-        - name: Migrate DynamoDB app to Azure Cosmos DB for NoSQL
+        - name: Migrate a DynamoDB application to Azure Cosmos DB for NoSQL
           href: /azure/cosmos-db/nosql/dynamo-to-cosmos
         - name: Migrate DynamoDB data to Azure Cosmos DB for NoSQL
           href: /azure/cosmos-db/nosql/dynamodb-data-migration-cosmos-db
-      - name: Migrate from AWS ElasticCache to Azure Cache for Redis
-        href: /azure/azure-cache-for-redis/cache-migration-guide
-      - name: Migrate from CouchBase to Azure Cosmos DB for NoSQL
+      - name: Amazon ElastiCache
+        items:
+        - name: Migrate to Azure Cache for Redis
+          href: /azure/azure-cache-for-redis/cache-migration-guide
+      - name: CouchBase on AWS
+      - name: Migrate to Azure Cosmos DB for NoSQL
         href: /azure/cosmos-db/nosql/couchbase-cosmos-migration
     - name: Storage
       items:
