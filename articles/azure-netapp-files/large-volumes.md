@@ -21,7 +21,7 @@ All resources in Azure NetApp files have [limits](azure-netapp-files-resource-li
 | - | - | 
 | Capacity | <ul><li>50 GiB minimum</li><li>100 TiB maximum</li></ul> |
 | File count | 2,147,483,632 |
-| Performance | <ul><li>Standard: 1,600 MiB/s</li><li>Flexible: 4,500 MiB/s</li><li>Premium: 6,400 MiB/s</li><li>Ultra: 12,800 MiB/s</li></ul> |
+| Performance | <ul><li>Standard: 1,600 MiB/s</li><li>Flexible: 4,500 MiB/s</li><li>Premium: 4,500 MiB/s</li><li>Ultra: 4,500 MiB/s</li></ul> |
 
 Large volumes have the following limits: 
 

@@ -92,7 +92,7 @@ As illustrated in the diagram, the SAP HANA backup volume received the 128MiB/s 
 | 1,024 | 128 | 5 * 128 * 1,024 = 655,360 |
 
 >[!NOTE]
->A Flexible capacity pool with 128 MiB/s throughput assigned to it is only charged for the allocated capacity.
+>A baseline throughput of 128 MiB/s is provided for every pool, at no additional cost.
 
 ## Next steps
 

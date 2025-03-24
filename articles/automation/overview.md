@@ -3,7 +3,7 @@ title: Azure Automation overview
 description: This article tells what Azure Automation is and how to use it to automate the lifecycle of infrastructure and applications.
 services: automation
 keywords: azure automation, DSC, powershell, state configuration, change tracking, DSC, inventory, runbooks, python, graphical
-ms.date: 03/17/2025
+ms.date: 03/21/2025
 ms.topic: overview
 ms.custom: linux-related-content
 ---
@@ -16,7 +16,7 @@ Automation is needed in three broad areas of cloud operations:
 * Response - Create event-based automation to diagnose and resolve issues.
 * Orchestrate - Orchestrate and integrate your automation with other Azure or third party services and products.
 
-Azure Automation delivers a cloud-based automation, operating system updates, and configuration service that supports consistent management across your Azure and non-Azure environments. It includes process automation, configuration management, shared capabilities, and heterogeneous features.
+Azure Automation delivers a cloud-based automation service that supports consistent management across your Azure and non-Azure environments. It includes process automation, configuration management, shared capabilities, and heterogeneous features.
 
 :::image type="content" source="./media/overview/automation-overview.png" alt-text="Diagram shows the Automation capabilities." lightbox="./media/overview/automation-overview.png"::: 
 

@@ -1,4 +1,5 @@
 ---
+ROBOTS: NOINDEX
 title: Azure CDN from Edgio retirement FAQ
 titleSuffix: Azure Content Delivery Network
 description: Common questions about the retirement of Azure CDN Standard from Edgio.
