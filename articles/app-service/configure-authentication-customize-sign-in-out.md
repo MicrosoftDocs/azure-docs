@@ -56,7 +56,6 @@ The token format varies slightly according to the provider:
 | Provider value | Required in request body | Comments |
 |-|-|-|
 | `aad` | `{"access_token":"<access_token>"}` | The `id_token`, `refresh_token`, and `expires_in` properties are optional. |
-| `microsoftaccount` | `{"access_token":"<access_token>"}` or `{"authentication_token": "<token>"`| `authentication_token` is preferred over `access_token`. The `expires_in` property is optional. <br/><br/>When you're requesting the token from Live services, always request the `wl.basic` scope. |
 | `google` | `{"id_token":"<id_token>"}` | The `authorization_code` property is optional. Providing an `authorization_code` value adds an access token and a refresh token to the token store. When you specify `authorization_code`, you can optionally accompany it with a `redirect_uri` property. |
 | `facebook`| `{"access_token":"<user_access_token>"}` | Use a valid [user access token](https://developers.facebook.com/docs/facebook-login/access-tokens) from Facebook. |
 | `twitter` | `{"access_token":"<access_token>", "access_token_secret":"<access_token_secret>"}` | |
