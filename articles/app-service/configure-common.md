@@ -160,6 +160,8 @@ Set one or more app settings by using Azure Resource Manager templates (ARM temp
     },
 ```
 
+Please refer to [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites) for more information.
+
 -----
 
 ### Edit app settings in bulk
@@ -271,6 +273,8 @@ Set one or more app settings by using Azure Resource Manager templates (ARM temp
       ]
     },
 ```
+
+Please refer to [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites) for more information.
 
 -----
 
