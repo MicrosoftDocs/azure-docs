@@ -36,11 +36,6 @@ Network traffic between peered virtual networks is private. Traffic between the 
 We recently introduced an added flexibility on top of virtual network peering - '**Subnet peering**'.
  
 It's an added flexibility built on top of virtual network peering, where users get an option to choose specific subnets that need to be peered across virtual networks. Users can specify/enter the list of subnets across the virtual networks that they want to peer. In contrast, in regular virtual network peering, entire address space/subnets across the virtual networks get peered. For more information, see [How to configure Subnet Peering](how-to-configure-subnet-peering.md).
- 
-> [!IMPORTANT]
-> Subnet peering is currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Connectivity
 
