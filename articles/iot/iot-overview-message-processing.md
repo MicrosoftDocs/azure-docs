@@ -6,7 +6,7 @@ services: iot
 author: asergaz
 ms.author: sergaz
 ms.topic: overview
-ms.date: 03/21/2025
+ms.date: 03/24/2025
 # Customer intent: As a solution builder or device developer I want a high-level overview of the message processing in IoT solutions so that I can easily find relevant content for my scenario.
 ---
 
