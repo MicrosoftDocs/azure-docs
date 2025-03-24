@@ -125,9 +125,9 @@ The following tables provide information about what kind of traffic information 
 <!-----------------------------  TRAFFIC v2025-01-01   --------------------------------------------------------------------->
 ::: zone pivot="service-latest"
 
-The Azure Maps [Traffic service][latest] is a web service designed for developers to create web and mobile applications around real-time traffic. This data can be visualized on maps or used to generate smarter routes that factor in current driving conditions.
+The Azure Maps [Traffic service][latest] is a web service designed for developers to create web and mobile applications around real-time traffic. This data can be visualized on maps or used to generate smarter routes that factor in traffic jams and incidents.
 
-The following table provides information about what kind of traffic information you can request from each country or region. If a market is missing in the following table, it isn't currently supported.
+The following table provides information about the country or region for which you can request traffic incidents. If a market is missing in the following table, it isn't currently supported.
 
 | Country/Region       | Traffic |
 |----------------------|---------|
