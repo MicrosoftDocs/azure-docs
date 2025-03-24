@@ -142,17 +142,9 @@ The upgrade CRDs pre-install job is failing in the cluster.
 
 **Debug**
 
-1. check for any events in the cluster related to pod spawn issue
+1. Check for any events in the cluster related to pod spawn issue.
 ```azurecli-interactive
 kubectl events -n dataprotection-microsoft
-```
-2. check the pods for dataprotection crds
-```azurecli-interactive
-kubectl get pods -A | grep "dataprotection-microsoft-kubernetes-agent-upgrade-crds"
-```
-3. check the pods logs
-```azurecli-interactive
-kubectl logs -f --all-containers=true --timestamps=true -n dataprotection-microsoft <pod-name-from-prev-command>
 ```
 Example log message:
 ```Error
@@ -160,8 +152,8 @@ Example log message:
 2024-10-01T11:26:17.498523756Z Unable to connect to the server: dial tcp 10.146.34.10:443: i/o timeout
 ```
 **Resolution**:
-In this case, the there is Network/Calico policy or NSG that did not allow dataprotection-microsoft pods to communicate with the API server. 
-You should allow the dataprotection-microsoft namespace ,and then reinstall the extension.
+In this case, there is a Network/Calico policy or NSG that didn't allow dataprotection-microsoft pods to communicate with the API server. 
+You should allow the dataprotection-microsoft namespace, and then reinstall the extension.
 
 
 ## Backup Extension post installation related errors
