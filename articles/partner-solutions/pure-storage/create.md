@@ -61,4 +61,4 @@ There are required fields that you need to fill out.
 ## Next step
 
 > [!div class="nextstepaction"]
-> 
+> [Manage Pure Storage resources](manage.md)

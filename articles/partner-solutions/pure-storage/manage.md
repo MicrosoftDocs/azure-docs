@@ -17,24 +17,46 @@ To see the details of your Pure Storage resource, select **Overview** in the lef
 
 The details include:
 
-- Resource group name
-- Status
+- Resource group
 - Location
 - Subscription
 - Subscription ID
-- Address block for private cloud
-- Primary peering subnet
-- Secondary peering subnet
-- Private cloud management network
-- vMotion network
-- Number of hosts
-- Number of clusters
-- Stretched cluster enabled
+- Pricing Plan
+- Billing Term
 
 To manage your resource, select the links next to corresponding details.
 
 Below the essentials, you can navigate to other details about your resource by selecting the links.
 
-- **Get Started** allows you to configure resources for your VMware private cloud journey. 
-- **Tutorials** provides links to video tutorials and quick starts.
+- Get Started
+- Documentation on Microsoft Learn
+- Pure Storage support
+
+## Create a Storage Pool
+
+To create a storage pool
+
+1. Select **Settings > Storage Pool**.
+1. Select **Create a new storage pool** from the 
+
+    The *Create a Storage Pool* window appears.
+    There are required fields that you need to fill out.
+
+1. Enter the values for each required setting.
+  
+    | Setting                            | Action                                |
+    |------------------------------------|---------------------------------------|
+    | Resource group                     | Choose a resource group.              |
+    | Storage Pool name                  | Provide a name for your Storage Pool. |
+    | Availability zone                  | Choose an availability zone.          |
+    | Performance                        | Adjust the performance slider.        |
+    | Virtual network                    | Choose a virtual network.             |
+    | Delegated subnet                   | Choose a delegated subnet.            |
+
+1. Select the **Create** button. 
+
+> [!NOTE]
+> During the preview, a Storage Pool supports a maximum raw capacity of 7 TiB (5 TiB usable) with future expansions planned.  The effective usable capacity varies based on your data type and compression efficiency.
+
+
 
