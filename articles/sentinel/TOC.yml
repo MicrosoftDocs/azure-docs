@@ -733,7 +733,9 @@
     - name: AWS S3 WAF logs
       href: connect-aws-s3-waf.md
     - name: CloudWatch events via Lambda function
-      href: cloudwatch-lambda-function.yml
+      href: cloudwatch-lambda-function.yml      
+    - name: Cisco FTD firewall
+      href: connect-cisco-ftd.md
     - name: Google Cloud Platform connectors 
       href: connect-google-cloud-platform.md
     - name: Microsoft Entra
