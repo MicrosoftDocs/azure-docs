@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 02/06/2025
+ms.date: 02/11/2025
 ms.author: anfdocs
 ---
 
@@ -45,7 +45,7 @@ Azure NetApp Files offers [multiple tools](https://aka.ms/anftools) to estimate 
 
     ANFHeathCheck is a PowerShell runbook that generates artful HTML reports of your entire Azure NetApp Files landscape. Optionally, it can automatically reduce over-sized volumes and capacity pools to reduce your TCO.
 
-* [Azure Verified Module (AVM) Terraform Module for Azure NetApp File](https://registry.terraform.io/modules/Azure/avm-res-netapp-netappaccount/azurerm/latest)
+* [Azure Verified Module (AVM) Terraform Module for Azure NetApp Files](https://registry.terraform.io/modules/Azure/avm-res-netapp-netappaccount/azurerm/latest)
 
     Use the Azure Verified Module (AVM) if you would like to deploy Azure NetApp Files through infrastructure as code using Terraform.
 

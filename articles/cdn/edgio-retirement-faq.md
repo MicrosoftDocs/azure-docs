@@ -1,18 +1,19 @@
 ---
+ROBOTS: NOINDEX
 title: Azure CDN from Edgio retirement FAQ
 titleSuffix: Azure Content Delivery Network
 description: Common questions about the retirement of Azure CDN Standard from Edgio.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 1/3/2025
-ms.author: duau
 ---
 
 # Azure CDN from Edgio retirement FAQ
 
-Azure CDN from Edgio is shutting down on January 15, 2025. You must migrate your workload to Azure Front Door before January 7, 2025 to avoid service disruption. This article provides answers to common questions about the retirement of Azure CDN from Edgio.
+Azure CDN from Edgio was shutting down on January 15, 2025. This article provides answers to common questions about the retirement of Azure CDN from Edgio.
 
 ## Frequently asked questions
 
@@ -83,7 +84,12 @@ Certificates from internal CAs or self-signed certificates aren't allowed.
 
 ### Can I retain my existing *.azureedge.net domain when I move to Azure Front Door?
 
-You can temporarily retain your *.azureedge.net domain by following the instructions provided in [Migrate to Azure Front Door while retaining *.azureedge.net domain](migrate-cdn-to-front-door-retain-edge-domain.md). However, this is only a short-term solution due to the urgent retirement of Azure CDN from Edgio. Relying on domains like *.azureedge.net and *.azurefd.net isn't recommended as it poses availability risks. To ensure greater flexibility and avoid a single point of failure, it's advisable to adopt a custom domain as soon as possible.
+You can temporarily retain your *.azureedge.net domain by following the instructions provided in [Migrate to Azure Front Door while retaining *.azureedge.net domain](migrate-cdn-to-front-door-retain-edge-domain.md). 
+
+> [!IMPORTANT]
+> - Relying on domains like `*.azureedge.net` and `*.azurefd.net` isn't recommended as it poses availability risks. To ensure greater flexibility and avoid a single point of failure, adopt a custom domain.
+> - For customers who migrated to Akamai while retaining `*.azureedge.net` and `*.vo.msecnd.net` domains, these domains will be supported till March 31, 2025.
+> - For customers who migrated to Front Door Standard/Premium while retaining `*.azureedge.net`, these domains will be supported till September 30, 2027.
 
 ### What are some key things I should do to verify my workloads are working properly on AFD?
 
@@ -137,6 +143,9 @@ No. We're doing this migration on a "best effort" basis between January 7th and 
 ### I'm not able to stop my Azure CDN from Edgio anymore. What is happening?
 
 For profiles that didn't apply the feature flag, configuration was frozen on January 3. These profiles will no longer be allowed to stop their endpoints. You can delete the profile instead. Do note that for Azure CDN from Edgio, stopping an endpoint has always meant as a configuration deletion. When an endpoint is disabled or stopped for any reason, all resources configured through the Edgio supplemental portal will be cleaned up. These configurations can't be restored automatically by restarting the endpoint. 
+
+### When will the inactive Edgio profiles be deleted?
+The profiles will remain in an inactive state in Azure until March 15, 2025, providing customers with a reference to their Edgio configuration. After this date, Microsoft will proceed with deleting the profiles. Customers also have the option to delete the profiles themselves prior to this date.
 
 ## Known bugs
 - After the changes, under AFD Domains blade, the 'Certificate state' field may show the value as 'issuing' and the 'DNS state' field may show the value as 'Certificate needed'. This is just a portal bug that will be fixed by January 31. The bug doesn't impact your certificates or traffic in any manner as the Certificate and DNS State for *.azureedge.net domains are completely managed by AFD.

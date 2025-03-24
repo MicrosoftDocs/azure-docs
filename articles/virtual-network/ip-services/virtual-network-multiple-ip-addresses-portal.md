@@ -1,8 +1,8 @@
 ---
-title: Assign multiple IP addresses to VMs - Azure portal
+title: Assign multiple IP addresses to virtual machines - Azure portal
 description: Learn how to assign multiple IP addresses to a virtual machine using the Azure portal.
 services: virtual-network
-ms.date: 03/22/2024
+ms.date: 02/06/2024
 ms.author: mbender
 author: mbender-ms
 ms.service: azure-virtual-network
@@ -16,11 +16,9 @@ An Azure Virtual Machine (VM) has one or more network interfaces (NIC) attached 
 
 Assigning multiple IP addresses to a VM enables the following capabilities:
 
-* Hosting multiple websites or services with different IP addresses and TLS/SSL certificates on a single server.
-
-* Serve as a network virtual appliance, such as a firewall or load balancer.
-
-* The ability to add any (primary or secondary) private IP addresses of the NICs to an Azure Load Balancer backend pool. For more information about load balancing multiple IP configurations, see [Load balancing multiple IP configurations](../../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Outbound rules](../../load-balancer/outbound-rules.md#limitations).
+- Hosting multiple websites or services with different IP addresses and TLS/SSL certificates on a single server.
+- Serve as a network virtual appliance, such as a firewall or load balancer.
+- The ability to add any (primary or secondary) private IP addresses of the NICs to an Azure Load Balancer backend pool. For more information about load balancing multiple IP configurations, see [Load balancing multiple IP configurations](../../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Outbound rules](../../load-balancer/outbound-rules.md#limitations).
 
 Every NIC attached to a VM has one or more IP configurations associated to it. Each configuration is assigned one static or dynamic private IP address. Each configuration may also have one public IP address resource associated to it. To learn more about IP addresses in Azure, see [IP addresses in Azure](../../virtual-network/ip-services/public-ip-addresses.md).
 
@@ -38,12 +36,13 @@ This article explains how to add multiple IP addresses to a virtual machine usin
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An existing Azure virtual machine. For more information about creating a virtual machine, see [Create a Windows VM](/azure/virtual-machines/windows/quick-create-portal) or [Create a Linux VM](/azure/virtual-machines/linux/quick-create-portal). 
-    
+- An existing Azure virtual machine with a Public IP. For more information about creating a virtual machine, see [Create a Windows VM](/azure/virtual-machines/windows/quick-create-portal) or [Create a Linux VM](/azure/virtual-machines/linux/quick-create-portal). 
     - The example used in this article is named **myVM**. Replace this value with your virtual machine name.
+    - Windows Server virtual machines require port **3389** to be open for Remote Desktop Protocol (RDP) connections. Linux virtual machines require port **22** to be open for Secure Shell (SSH) connections.
+- An Azure Bastion instance deployed for VM management in the same subnet as your virtual machine. For more information, see [Deploy Azure Bastion automatically](../../bastion/quickstart-host-portal.md)
 
 > [!NOTE]
-> Though the steps in this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations to any NIC in a multi-NIC VM. To learn how to create a VM with multiple NICs, see [Create a VM with multiple NICs](/azure/virtual-machines/windows/multiple-nics).
+> Though the steps in this article assign all IP configurations to a single NIC, you can also assign multiple IP configurations to any NIC in a multi-NIC VM. To learn how to create a VM with multiple NICs, see [Create a VM with multiple NICs](/azure/virtual-machines/windows/multiple-nics).
 
 :::image type="content" source="./media/virtual-network-multiple-ip-addresses-portal/multiple-ipconfigs.png" alt-text="Diagram of network configuration resources created in How-to article.":::
 
@@ -59,26 +58,24 @@ You can add a private and public IP address to an Azure network interface by com
 
 3. In **Virtual machines**, select **myVM** or the name of your virtual machine.
 
-4. Select **Networking** in **Settings**.
+4. Select **Network settings** under **Networking**.
 
-5. Select the name of the network interface of the virtual machine. In this example, it's named **myvm889_z1**.
+5. In **Network settings**, Select the name of the network interface and IP configuration of the virtual machine in the **Network interface / IP configuration** dropdown menu. The existing IP configuration is displayed. In this example, it's named **myvm138_z1 (primary) / ipconfig1 (primary)**.
 
-:::image type="content" source="./media/virtual-network-multiple-ip-addresses-portal/select-nic.png" alt-text="Screenshot of myVM networking and network interface selection.":::
+    :::image type="content" source="./media/virtual-network-multiple-ip-addresses-portal/select-nic.png" alt-text="Screenshot of myVM networking and network interface selection.":::
 
-6. In the network interface, select **IP configurations** in **Settings**.
-
-7. The existing IP configuration is displayed. This configuration is created when the virtual machine is created. To add a private and public IP address to the virtual machine, select **+ Add**.
+6. In **IP Configurations** To add a private and public IP address to the virtual machine, select **+ Add**.
 
 8. In **Add IP configuration**, enter or select the following information.
 
-| Setting | Value |
-| ------- | ----- |
-| Name | Enter **ipconfig2**. |
-| **Private IP address settings** |   |
-| Allocation | Select **Static**. |
-| IP address | Enter an unused address in the network for your virtual machine. </br> For the 10.1.0.0/24 subnet in the example, an IP would be **10.1.0.5**. |
-| **Public IP address** | Select **Associate** |
-| Public IP address | Select **Create new**. </br> Enter **myPublicIP-2** in **Name**. </br> Select **Standard** in **SKU**. </br> Select **OK**. |
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **ipconfig2**. |
+    | **Private IP address settings** |   |
+    | Allocation | Select **Static**. |
+    | Private IP address | Enter an unused address in the network for your virtual machine. </br> For the 10.1.0.0/24 subnet in the example, an IP would be **10.1.0.5**. |
+    | **Public IP address** | Select **Associate public IP address** |
+    | Public IP address | Select **Create a public IP address**. </br> Enter **public-ip-02** in **Name**. </br> Select **Standard** in **SKU**. </br> Select **OK**. |
 
 9. Select **OK**.
 
@@ -102,7 +99,7 @@ You can add a private IP address to a virtual machine by completing the followin
 
 5. Select the name of the network interface of the virtual machine. In this example, it's named **myvm889_z1**.
 
-:::image type="content" source="./media/virtual-network-multiple-ip-addresses-portal/select-nic.png" alt-text="Screenshot of myVM networking and network interface selection.":::
+    :::image type="content" source="./media/virtual-network-multiple-ip-addresses-portal/select-nic.png" alt-text="Screenshot of myVM networking and network interface selection.":::
 
 6. In the network interface, select **IP configurations** in **Settings**.
 
@@ -110,12 +107,12 @@ You can add a private IP address to a virtual machine by completing the followin
 
 8. In **Add IP configuration**, enter or select the following information.
 
-| Setting | Value |
-| ------- | ----- |
-| Name | Enter **ipconfig3**. |
-| **Private IP address settings** |   |
-| Allocation | Select **Static**. |
-| IP address | Enter an unused address in the network for your virtual machine. </br> For the 10.1.0.0/24 subnet in the example, an IP would be **10.1.0.6**. |
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **ipconfig3**. |
+    | **Private IP address settings** |   |
+    | Allocation | Select **Static**. |
+    | IP address | Enter an unused address in the network for your virtual machine. </br> For the 10.1.0.0/24 subnet in the example, an IP would be **10.1.0.6**. |
 
 9. Select **OK**.
 

@@ -140,8 +140,9 @@ Keep these other considerations in mind when using Flex Consumption plan:
 + **Scale**: The lowest maximum scale is currently `40`. The highest currently supported value is `1000`. 
 + **Managed dependencies**: [Managed dependencies in PowerShell](functions-reference-powershell.md#managed-dependencies-feature) aren't supported by Flex Consumption. You must instead [upload modules with app content](functions-reference-powershell.md#including-modules-in-app-content).
 + **Diagnostic settings**: Diagnostic settings aren't currently supported.
-+ **Certificates**: Loading certificates with the WEBSITE_LOAD_CERTIFICATES app setting is currently not supported.
++ **Certificates**: Loading certificates with the WEBSITE_LOAD_CERTIFICATES app setting, managed certificates, app service certificates, and other platform certificate-based features are currently not supported.
 + **Key Vault References**: Key Vault references in app settings don't work when Key Vault is network access restricted, even if the function app has Virtual Network integration. The current workaround is to directly reference the Key Vault in code and read the required secrets.
++ **Timezones**: `WEBSITE_TIME_ZONE` and `TZ` app settings are not currently supported when running on Flex Consumption plan.
 
 ## Related articles
 

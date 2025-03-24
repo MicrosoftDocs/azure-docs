@@ -1,13 +1,13 @@
 ---
-author: xfz11
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 05/21/2023
-ms.author: xiaofanzhou
 ---
 
-### Install the Service Connector passwordless extension
+## Install the Service Connector passwordless extension
 
 [!INCLUDE [CLI-samples-clean-up](./install-passwordless-extension.md)]
 

@@ -45,7 +45,7 @@ The connection string with the primary key.
 
 To configure a data flow endpoint for Microsoft Fabric Real-Time Intelligence, you need to use Simple Authentication and Security Layer (SASL) based authentication.
 
-Azure Key Vault is the recommended way to sync the connection string to the Kubernetes cluster so that it can be referenced in the data flow. [Secure settings](../deploy-iot-ops/howto-enable-secure-settings.md) must be enabled to configure this endpoint using the operations experience Portal.
+Azure Key Vault is the recommended way to sync the connection string to the Kubernetes cluster so that it can be referenced in the data flow. [Secure settings](../deploy-iot-ops/howto-enable-secure-settings.md) must be enabled to configure this endpoint using the operations experience web UI.
 
 # [Portal](#tab/portal)
 
@@ -62,8 +62,8 @@ Azure Key Vault is the recommended way to sync the connection string to the Kube
     | Host                  | The hostname of the Event Stream Custom Endpoint in the format `*.servicebus.windows.net:9093`. Use the bootstrap server address noted previously. |
     | Authentication method | *SASL* is the currently the only supported authentication method. |
     | SASL type             | Choose *Plain* |
-    | Synced secret name    | Name of secret that will be synced to the Kubernetes cluster. You can choose any name. |
-    | Username reference of token secret | Create a new or choose an existing Key Vault reference. The secret value must be the literal string *$ConnectionString*. It isn't an environment variable. |
+    | Synced secret name    | Enter a name for the syned secret. A Kubernetes secret with this name will be created on the cluster. |
+    | Username reference of token secret | Create a new or choose an existing Key Vault reference. The secret value must be exactly the text **$ConnectionString** (literal string, not an environment variable reference). |
     | Password reference of token secret | Create a new or choose an existing Key Vault reference. The secret value must be the Custom Endpoint connection string noted earlier. |
 
 1. Select **Apply** to provision the endpoint.

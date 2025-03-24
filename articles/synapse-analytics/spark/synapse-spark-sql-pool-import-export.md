@@ -1,12 +1,12 @@
 ---
 title: Azure Synapse Dedicated SQL Pool Connector for Apache Spark
 description: Azure Synapse Dedicated SQL Pool Connector for Apache Spark to move data between the Synapse Serverless Spark Pool and the Synapse Dedicated SQL Pool.
-author: kalyankadiyala-Microsoft
+author: dawn2111
 ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: spark
 ms.date: 01/22/2025
-ms.author: kakadiya
+ms.author: prdawn
 ms.reviewer: ktuckerdavis, aniket.adnaik
 --- 
 # Azure Synapse Dedicated SQL Pool Connector for Apache Spark
@@ -191,7 +191,7 @@ This section presents reference code templates to describe how to use and invoke
 
 > [!Note]
 > Using the Connector in Python-
-> * The connector is supported in Python for Spark 3 only. For [Spark 2.4 (unsupported)](./apache-spark-24-runtime.md), we can use the Scala connector API to interact with content from a DataFrame in PySpark by using DataFrame.createOrReplaceTempView or DataFrame.createOrReplaceGlobalTempView. See Section - [Using materialized data across cells](#using-materialized-data-across-cells).
+> * The connector is supported in Python for Spark 3 only. See Section - [Using materialized data across cells](#using-materialized-data-across-cells).
 > * The call back handle is not available in Python.
 
 ### Read from Azure Synapse Dedicated SQL Pool

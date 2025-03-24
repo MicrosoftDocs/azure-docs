@@ -27,11 +27,7 @@ BGP communities are groupings of IP prefixes tagged with a community value, whic
 
 1. Select the virtual network you want to update the BGP community value for.
 
-    :::image type="content" source="./media/how-to-configure-custom-bgp-communities-portal/virtual-network-list.png" alt-text="Screenshot of the list of virtual networks.":::
-
 1. Select the **configure** link below the *BGP community string*.
-
-    :::image type="content" source="./media/how-to-configure-custom-bgp-communities-portal/virtual-network-overview.png" alt-text="Screenshot of the overview page of a virtual network.":::
 
 1. On the *BGP community string* page, enter the BGP value you want to configure for this virtual network, then select **Save**.
 

@@ -4,7 +4,7 @@ description: Create a sample Azure Data Factory pipeline using an Azure Resource
 tags: azure-resource-manager
 author: ssabat
 ms.author: susabat
-ms.reviewer: jburchel, jingwang
+ms.reviewer: whhender, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.date: 10/20/2023

@@ -1,9 +1,9 @@
 ---
-author: craigshoemaker
 ms.service: azure-functions
 ms.topic: include
 ms.date: 02/21/2020
-ms.author: cshoe
+author: v1212
+ms.author: wujia
 ---
 
 ::: zone pivot="programming-language-csharp"

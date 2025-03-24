@@ -1,13 +1,10 @@
 ---
- title: Azure CDN Standard from Microsoft (classic) retirement notice
- description: include file
- services: azure-cdn
- author: duongau
- ms.service: azure-cdn
- ms.topic: include
- ms.date: 1/21/2025
- ms.author: duau
- ms.custom: include file
+author: halkazwini
+ms.author: halkazwini
+ms.service: azure-cdn
+ms.topic: include
+ms.date: 1/21/2025
+ms.custom: include file
 ---
 
 > [!IMPORTANT]

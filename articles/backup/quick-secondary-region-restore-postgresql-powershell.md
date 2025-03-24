@@ -3,7 +3,7 @@ title: Quickstart - Cross region restore for PostgreSQL database with PowerShell
 description: In this Quickstart, learn how to restore PostgreSQL database across region with the Azure PowerShell module.
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 02/01/2024
+ms.date: 12/03/2024
 ms.custom: mvc, devx-track-azurepowershell, mode-api
 author: jyothisuri
 ms.author: jsuri

@@ -2,12 +2,11 @@
 title: Health probes
 titleSuffix: Azure Front Door
 description: This article helps you understand how Azure Front Door monitors the health of your origins.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 01/29/2025
-ms.author: duau
 ---
 
 # Health probes
@@ -64,29 +63,6 @@ Azure Front Door uses a three-step process across all algorithms to determine he
 
 > [!NOTE]
 > If a single endpoint is a member of multiple origin groups, Front Door optimizes the number of health probes sent to the origin to reduce the load on the origin. Health probe requests are sent based on the lowest configured sample interval. The responses from same health probes determine the health of the endpoint in all origin groups.
-
-## Adjusting probe settings for long-starting containers
-
-When you deal with long-starting containers, adjusting the probe settings can prevent premature failure. Increasing the `ProbeTimeout` and `Interval` values gives your containers more time to start before Front Door marks them as unhealthy.
-
-### Values for long-starting containers
-- **ProbeTimeout**: Increase the timeout period to 10–30 seconds.
-- **Interval**: Set a longer interval (for example, 30–60 seconds) between probes.
-- **UnhealthyThreshold**: Increase the number of consecutive failed probes before the container is considered unhealthy (for example, 3-5 retries).
-
-> [!NOTE]
-> The values provided for `ProbeTimeout`, `Interval`, and `UnhealthyThreshold` are sample ranges for example purposes. You can adjust these values based on your specific container's startup behavior and requirements.
-
-> [!NOTE] 
-> These changes might cause a delay in detecting real failures, so balance these values carefully according to your container's startup behavior.
-
-## Probe interaction during container lifecycle phases
-
-1. **Container Start Phase**: During this phase, the container might not be fully ready to serve traffic. Health probes help detect when a container isn't responding by checking for specific HTTP status codes (for example, `200 OK`). If the probe frequency is too high or the timeout is too short, the container is marked as unhealthy before initialization. Increase probe timeouts or intervals during this phase.
-
-1. **Running Phase**: Once the container is running, probes continue checking for health responses. If health checks consistently return `200 OK`, Front Door keeps the origin in rotation for traffic. If probes consistently fail (for example, due to a container crashing), Front Door marks the origin as unhealthy.
-
-1. **Failure Phase**: If health probes fail for the configured threshold (for example, `UnhealthyThreshold`), the origin is considered unhealthy, and traffic is routed to other healthy origins.
 
 ## Complete health probe failure
 

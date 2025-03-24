@@ -1,15 +1,16 @@
 ---
+ROBOTS: NOINDEX
 title: Manage expiration of Azure Blob storage
 titleSuffix: Azure Content Delivery Network
 description: Learn about the options for controlling time to live for blobs in Azure Content Delivery Network caching.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.devlang: csharp
 ms.topic: how-to
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 2/25/2025
 ms.custom: devx-track-azurepowershell, devx-track-dotnet
 ---
 
@@ -21,6 +22,9 @@ ms.custom: devx-track-azurepowershell, devx-track-dotnet
 > - [Azure web content](cdn-manage-expiration-of-cloud-service-content.md)
 > - [Azure Blob storage](cdn-manage-expiration-of-blob-content.md)
 >
+
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
 The [Blob storage service](../storage/common/storage-introduction.md#blob-storage) in Azure Storage is one of several Azure-based origins integrated with Azure Content Delivery Network. Any publicly accessible blob content can be cached in Azure Content Delivery Network until its time to live (TTL) elapses. The TTL gets determined by the `Cache-Control` header in the HTTP response from the origin server. This article describes several ways that you can set the `Cache-Control` header on a blob in Azure Storage.
 
@@ -45,11 +49,7 @@ The preferred method for setting a blob's `Cache-Control` header is to use cachi
 
 2. In the left pane under Settings, select **Caching rules**.
 
-   ![Screenshot of the content delivery network caching rules button.](./media/cdn-manage-expiration-of-blob-content/cdn-caching-rules-btn.png)
-
    The **Caching rules** page appears.
-
-   ![Screenshot of the content delivery network caching page.](./media/cdn-manage-expiration-of-blob-content/cdn-caching-page.png)
 
 **To set a Blob storage service's Cache-Control headers by using global caching rules:**
 

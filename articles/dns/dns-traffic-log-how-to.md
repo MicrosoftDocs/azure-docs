@@ -4,7 +4,7 @@ description: Learn how to filter and view Azure DNS traffic
 author: greg-lindsay
 ms.service: azure-dns
 ms.topic: how-to
-ms.date: 01/29/2025
+ms.date: 02/24/2025
 ms.author: greglin
 ---
 
@@ -115,6 +115,9 @@ Multiple domain lists can be dynamically added or removed from a single DNS traf
 ## Configure DNS traffic rules
 
 Now that you have a DNS domain list, configure the diagnostic settings in your security policy to use this workspace.
+
+> [!NOTE]
+> CNAME chains are examined ("chased") to determine if the traffic rules that are associated with a domain should apply. For example, a rule that applies to **malicious.contoso.com** also applies to **adatum.com** if **adatum.com** maps to **malicious.contoso.com** or if **malicious.contoso.com** appears anywhere in a CNAME chain for **adatum.com**.
 
 To configure diagnostic settings:
 

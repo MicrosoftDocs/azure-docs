@@ -98,16 +98,15 @@ az role assignment create --role "Azure Event Hubs Data Sender" --assignee $PRIN
 
 ## Create a data flow to send telemetry to an event hub
 
-Use the operations experience UI to create and configure a data flow in your cluster that:
+Use the operations experience web UI to create and configure a data flow in your cluster that:
 
-- Renames the `Tag 10` field in the incoming message to `Humidity`.
-- Renames the `temperature` field in the incoming message to `Temperature`.
+- Renames the `temperature` field in the incoming message to `TemperatureF`.
 - Adds a field called `AssetId` that contains the name of the asset.
 - Forwards the transformed messages from the MQTT topic to the event hub you created.
 
 To create the data flow:
 
-1. Browse to the operations experience UI and locate your instance. Then select **Data flow endpoints** and select **+ New** in the **Azure Event Hubs** tile:
+1. Browse to the operations experience web UI and locate your instance. Then select **Data flow endpoints** and select **+ New** in the **Azure Event Hubs** tile:
 
     :::image type="content" source="media/tutorial-upload-telemetry-to-cloud/new-event-hubs-endpoint.png" alt-text="Screenshot of the data flow endpoints page.":::
 
@@ -123,26 +122,25 @@ To create the data flow:
 
 1. In the data flow editor, select **Select source**. Then select the thermostat asset you created previously and select **Apply**.
 
-1. In the data flow editor, select **Select data flow endpoint**. Then select the **event-hubs-target** endpoint you created previously and select **Apply**.
+1. In the data flow editor, select **Select data flow endpoint**. Then select the **event-hubs-target** endpoint you created previously and select **Proceed**.
 
 1. On the next page, enter *destinationeh* as the topic. The topic refers to the hub you created in the Event Hubs namespace. Select **Apply**. Your data flow now has the thermostat asset as its source and a hub in your Event Hubs namespace as its destination.
 
 1. To add a transformation, select **Add transform (optional)**.
 
-1. To rename the `Tag 10` and `temperature` fields in the incoming message, select **+ Add** in the **Rename** tile.
+1. To rename the `temperature` field in the incoming message, select **+ Add** in the **Rename** tile.
 
-1. Add the following two rename transforms:
+1. Add the following rename transform:
 
-    | Datapoint | New datapoint name |
-    |-----------|--------------------|
-    | Tag 10.Value    | ThermostatHumidity          |
-    | temperature.Value | ThermostatTemperature       |
+    | Datapoint         | New datapoint name     |
+    |-------------------|------------------------|
+    | temperature.Value | ThermostatTemperatureF |
 
 1. To copy the asset ID from the message metadata, add the following rename transform:
 
-    | Datapoint | New datapoint name |
-    |-----------|--------------------|
-    | $metadata.user_property.externalAssetId | AssetId |
+    | Datapoint                               | New datapoint name |
+    |-----------------------------------------|--------------------|
+    | $metadata.user_property.externalAssetId | AssetId            |
   
     The rename transformation looks like the following screenshot:
   
@@ -154,7 +152,7 @@ To create the data flow:
 
     :::image type="content" source="media/tutorial-upload-telemetry-to-cloud/dataflow-complete.png" alt-text="Screenshot of the completed data flow.":::
 
-1. To start the data flow running, enter *tutorial-dataflow* as its name and then select **Save**. After a few minutes, the **Provisioning State** changes to **Succeeded**. The data flow is now running in your cluster.
+1. To start the data flow running, enter *tutorial-data-flow* as its name and then select **Save**. After a few minutes, the **Provisioning State** changes to **Succeeded**. The data flow is now running in your cluster.
 
 Your data flow subscribes to an MQTT topic to receive messages from the thermostat asset. It renames some of the fields in the message, and forwards the transformed messages to the event hub you created.
 
