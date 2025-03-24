@@ -773,7 +773,7 @@ To delete all Azure resources in the current deployment environment, run `azd do
 azd down
 ```
 
-<!-- ::: zone-end -->
+::: zone-end
 
 ## Troubleshooting
 
