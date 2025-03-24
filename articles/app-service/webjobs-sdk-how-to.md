@@ -32,7 +32,7 @@ Some examples in this article are provided for both WebJobs version 3.*x* and We
   
 Source code repositories for both Azure Functions and the WebJobs SDK use the WebJobs SDK numbering. Several sections of this article link to Azure Functions documentation.
 
-For more information, see [Compare the WebJobs SDK and Azure Functions](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs)
+For more information, see [Compare the WebJobs SDK and Azure Functions](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
 
 ## WebJobs host
 

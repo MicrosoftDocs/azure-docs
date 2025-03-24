@@ -42,7 +42,7 @@ When your provider's access token (not the [session token](#extend-session-token
 - **X**: Access tokens don't expire (see [OAuth FAQ](https://developer.x.com/en/docs/authentication/faq)).
 - **Microsoft**: In [https://resources.azure.com](https://resources.azure.com), do the following steps:
     1. At the top of the pane, select **Read/Write**.
-    1. On the explorer menu, go to **subscriptions** > **_\<subscription\_name>_** > **resourceGroups** > **_\<resource\_group\_name>_** > **providers** > **Microsoft.Web** > **sites** > **_\<app\_name>_** > **config** > **authsettingsV2**.
+    1. On the explorer menu, go to **subscriptions** > *subscription name* > **resourceGroups** > *resource group name* > **providers** > **Microsoft.Web** > **sites** > *app name* > **config** > **authsettingsV2**.
     1. Select **Edit**.
     1. Modify the following property:
 
@@ -59,7 +59,7 @@ When your provider's access token (not the [session token](#extend-session-token
     1. Select **Put**.
 
     > [!NOTE]
-    > The scope that gives you a refresh token is [offline_access](../active-directory/develop/v2-permissions-and-consent.md#offline_access). See how it's used in [Tutorial: Authenticate and authorize users end-to-end in Azure App Service](tutorial-auth-aad.md). The other scopes are already requested by App Service by default. For information on these default scopes, see [OpenID Connect Scopes](../active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes).
+    > The scope that gives you a refresh token is [offline_access](../active-directory/develop/v2-permissions-and-consent.md#offline_access). See how it's used in [Tutorial: Authenticate and authorize users end to end in Azure App Service](tutorial-auth-aad.md). The other scopes are already requested by App Service by default. For information on these default scopes, see [OpenID Connect Scopes](../active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes).
 
 After your provider is configured, you can [find the refresh token and the expiration time for the access token](#retrieve-tokens-in-app-code) in the token store.
 
@@ -84,7 +84,7 @@ The authenticated session expires after 8 hours. After an authenticated session 
 
 If 72 hours isn't enough time for you, you can extend this expiration window. Extending the expiration over a long period could have significant security implications (such as when an authentication token is leaked or stolen). We recommend that you leave the setting at the default 72 hours or set the extension period to the smallest value.
 
-To extend the default expiration window, run the following command in the [Cloud Shell](../cloud-shell/overview.md).
+To extend the default expiration window, run the following command in [Azure Cloud Shell](../cloud-shell/overview.md).
 
 ```azurecli-interactive
 az webapp auth update --resource-group <group_name> --name <app_name> --token-refresh-extension-hours <hours>
@@ -96,4 +96,4 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 ## Related content
 
-- [Tutorial: Authenticate and authorize users end-to-end](tutorial-auth-aad.md)
+- [Tutorial: Authenticate and authorize users end to end](tutorial-auth-aad.md)

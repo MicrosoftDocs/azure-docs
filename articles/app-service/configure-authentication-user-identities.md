@@ -142,4 +142,4 @@ If the [token store](overview-authentication-authorization.md#token-store) is en
 
 ## Related content
 
-- [Tutorial: Authenticate and authorize users end-to-end](tutorial-auth-aad.md)
+- [Tutorial: Authenticate and authorize users end to end](tutorial-auth-aad.md)

@@ -42,7 +42,7 @@ To use the Azure portal to set up your app to require client certificates:
 
 ### [Azure CLI](#tab/azurecli)
 
-To use the Azure CLI, run the following command in the [Cloud Shell](https://shell.azure.com):
+To use the Azure CLI, run the following command in [Azure Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app-name> --resource-group <group-name>
