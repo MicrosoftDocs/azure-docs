@@ -9,7 +9,7 @@ ms.topic: include
 ---
 The recommended way to enable and use Microsoft Entra multifactor authentication is with Conditional Access policies. For granular configuration steps, see the tutorial: [Require multifactor authentication](/entra/identity/authentication/tutorial-enable-azure-mfa).
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](/identity/role-based-access-control/permissions-reference#conditional-access-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least a [Conditional Access Administrator](/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator).
 1. Browse to **Protection** > **Security Center**>**Conditional Access**, select **+ New policy**, and then select **Create new policy**.
 1. On the **New** pane, enter a name for the policy, such as VPN Policy.
 1. Complete the following fields:
