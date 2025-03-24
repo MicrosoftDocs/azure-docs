@@ -12,6 +12,7 @@ ms.date: 02/27/2025
 #CustomerIntent: As a developer, I want to develop some code using a sample so that I see an example of a vector similarity with an AI-based large language model.
 ---
 
+
 # Tutorial: Conduct vector similarity search on Azure OpenAI embeddings using Azure Redis
 
 <!-- cawa - need to mention AMR in this tutorial -->
@@ -19,9 +20,11 @@ In this tutorial, you walk through a basic vector similarity search use-case. Yo
 
 The tutorial uses the [Wikipedia Movie Plots dataset](https://www.kaggle.com/datasets/jrobischon/wikipedia-movie-plots) that features plot descriptions of over 35,000 movies from Wikipedia covering the years 1901 to 2017. The dataset includes a plot summary for each movie, plus metadata such as the year the film was released, the director(s), main cast, and genre. You follow the steps of the tutorial to generate embeddings based on the plot summary and use the other metadata to run hybrid queries.
 
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+
 > - Create an Azure Cache for Redis instance configured for vector search
 > - Install Azure OpenAI and other required Python libraries.
 > - Download the movie dataset and prepare it for analysis.
@@ -72,6 +75,7 @@ In this tutorial, you learn how to:
 1. In a web browser, navigate to [https://www.kaggle.com/datasets/jrobischon/wikipedia-movie-plots](https://www.kaggle.com/datasets/jrobischon/wikipedia-movie-plots).
 
 1. Sign in or register with Kaggle. Registration is required to download the file.
+
 
 1. Select the **Download** link on Kaggle to download the _archive.zip_ file.
 
@@ -172,6 +176,8 @@ Next, you'll read the csv file into a pandas DataFrame.
    def normalize_text(s, sep_token = " \n "):
        s = re.sub(r'\s+',  ' ', s).strip()
        s = re.sub(r". ,","",s)
+
+       # remove all instances of multiple spaces
        s = s.replace("..",".")
        s = s.replace(". .",".")
        s = s.replace("\n", "")
@@ -208,7 +214,9 @@ Next, you'll read the csv file into a pandas DataFrame.
 
 ## Load DataFrame into LangChain
 
+
 Load the DataFrame into LangChain using the `DataFrameLoader` class. Once the data is in LangChain documents, it's far easier to use LangChain libraries to generate embeddings and conduct similarity searches. Set _Plot_ as the `page_content_column` so that embeddings are generated on this column.
+
 
 1. Add the following code to a new code cell and execute it:
 
@@ -260,7 +268,8 @@ Now that the data has been filtered and loaded into LangChain, you'll create emb
 
 1. Execute code cell 8.  This can take over 30 minutes to complete. A `redis_schema.yaml` file is generated as well. This file is useful if you want to connect to your index in Azure Cache for Redis instance without re-generating embeddings.
 
-> [!IMPORTANT]
+
+> [!Important]
 > The speed at which embeddings are generated depends on the [quota available](/azure/ai-services/openai/quotas-limits) to the Azure OpenAI Model. With a quota of 240k tokens per minute, it will take around 30 minutes to process the 7M tokens in the data set.
 > 
 ## Run vector search queries
@@ -345,3 +354,4 @@ With Azure Cache for Redis and Azure OpenAI Service, you can use embeddings and 
 - Learn more about [cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity)
 - [Read how to build an AI-powered app with OpenAI and Redis](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/vector-similarity-search-with-azure-cache-for-redis-enterprise/3822059)
 - [Build a Q&A app with semantic answers](https://github.com/ruoccofabrizio/azure-open-ai-embeddings-qna)
+

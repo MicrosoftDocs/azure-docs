@@ -8,11 +8,13 @@ ms.topic: overview
 ms.custom:
   - ignite-2024
 ms.date: 02/27/2025
+
 ---
 
 # What are Vector Embeddings and Vector Search in Azure Cache for Redis?
 
 Vector similarity search (VSS) has become a popular technology for AI-powered intelligent applications. Azure Cache for Redis can be used as a vector database when combined with models like [Azure OpenAI](/azure/ai-services/openai/overview) for Retrieval-Augmented Generative AI and other analysis scenarios. This article is a high-level introduction to the concept of vector embeddings, vector similarity search, and how Redis can be used as a vector database powering intelligent applications.
+
 
 For tutorials and sample applications on how to use Enterprise tier or Azure Managed Redis with Azure OpenAI, see the following:
 
@@ -32,6 +34,7 @@ This table contains the information for vector search availability in different 
 ## What are vector embeddings?
 
 Vector embeddings are a fundamental concept in machine learning and natural language processing that enable the representation of data, such as words, documents, or images, as numerical vectors in a high-dimension vector space. The primary idea behind vector embeddings is to capture the underlying relationships and semantics of the data by mapping them to points in this vector space. That means converting your text or images into a sequence of numbers that represents the data, and then comparing the different number sequences. This allows complex data to be manipulated and analyzed mathematically, making it easier to perform tasks like similarity comparison, recommendation, and classification.
+
 
 Each machine learning model classifies data and produces the vector in a different manner. Furthermore, it's typically not possible to determine exactly what semantic meaning each vector dimension represents. But because the model is consistent between each block of input data, similar words, documents, or images have vectors that are also similar. For example, the words `basketball` and `baseball` have embeddings vectors much closer to each other than a word like `rainforest`.
 
@@ -76,9 +79,10 @@ Vector similarity search can be used in multiple applications. Some common use-c
 - **Semantic Caching**. Reduce the cost and latency of LLMs by caching LLM completions. LLM queries are compared using vector similarity. If a new query is similar enough to a previously cached query, the cached query is returned. [Semantic Caching example using LangChain](https://python.langchain.com/docs/integrations/llm_caching/#redis-cache)
 - **LLM Conversation Memory**. Persist conversation history with an LLM as embeddings in a vector database. Your application can use vector search to pull relevant history or "memories" into the response from the LLM. [LLM Conversation Memory example](https://github.com/continuum-llms/chatgpt-memory)
 
-## Why choose Azure Redis for storing and searching vectors?
 
-Azure Redis caches can be used effectively as a vector database to store embeddings vectors and to perform vector similarity searches. Support for vector storage and search has been available in many key machine learning frameworks like:
+## Why choose Azure Cache for Redis for storing and searching vectors?
+
+Azure Cache for Redis can be used effectively as a vector database to store embeddings vectors and to perform vector similarity searches. Support for vector storage and search has been available in many key machine learning frameworks like:
 
 - [Semantic Kernel](https://github.com/microsoft/semantic-kernel)
 - [LangChain](https://python.langchain.com/docs/integrations/vectorstores/redis)
