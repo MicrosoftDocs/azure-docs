@@ -34,8 +34,9 @@ In this article, you learn how to:
 
 ## <a name="create-api"> </a>Import and publish a back-end API
 
-1. In the left pane, in the **APIs** section, select **APIs** > **+ Add API**.
-1. Under **Create from definition**, select **WSDL**.
+1. In the left pane, in the **APIs** section, select **APIs**.
+1. On the APIs page, select **+ Add API**.
+1. Under **Create from definition**, select **WSDL**:
 
     :::image type="content" source="./media/restify-soap-api/wsdl-api.png" alt-text="Screenshot that shows the WSDL tile in the Azure portal.":::
 

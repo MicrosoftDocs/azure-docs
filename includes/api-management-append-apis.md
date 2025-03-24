@@ -28,7 +28,7 @@ To append an API to an existing API:
 
 1. Select **APIs** on the **Overview** page or from the menu on the left.
 
-    :::image type="content" source="./media/api-management-append-apis/api-select-1.png" alt-text="Screenshot that shows the APIs selection on the Overview page. lightbox="./media/api-management-append-apis/api-select-1.png":::
+    :::image type="content" source="./media/api-management-append-apis/api-select-1.png" alt-text="Screenshot that shows the APIs selection on the Overview page." lightbox="./media/api-management-append-apis/api-select-1.png":::
 
 1. Select the ellipsis (**...**) next to the API that you want to append another API to.
 
