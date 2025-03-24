@@ -4,7 +4,7 @@ description: Known issues for the MQTT broker, Layered Network Management (previ
 author: dominicbetts
 ms.author: dobett
 ms.topic: troubleshooting-known-issue
-ms.date: 03/19/2025
+ms.date: 03/24/2025
 ---
 
 # Known issues: Azure IoT Operations
@@ -18,6 +18,59 @@ This article lists the known issues for Azure IoT Operations.
 - If your deployment fails with the message `Error occurred while creating custom resources needed by system extensions`, you have encountered a known sporadic failure that will be fixed in a future release. As a workaround, use the [az iot ops delete](/cli/azure/iot/ops#az-iot-ops-delete) command with the `--include-deps` flag to delete Azure IoT Operations from your cluster. When Azure IoT Operations and its dependencies are deleted from your cluster, retry the deployment.
 
 - If you deploy Azure IoT Operations in GitHub Codespaces, shutting down and restarting the Codespace causes a `This codespace is currently running in recovery mode due to a configuration error.` issue. Currently, there's no workaround for the issue. If you need a cluster that supports shutting down and restarting, choose one of the options in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
+
+## Update issues
+
+The following issues might occur when you update Azure IoT Operations.
+
+### Helm package enters a stuck state
+
+When you update Azure IoT Operations, the Helm package might enter a stuck state, preventing any helm install or upgrade operations from proceeding. This results in the `operation in progress` error, blocking further upgrades. 
+
+Use the following steps to resolve the issue.
+
+1. Identify the stuck components by running the following command:
+
+   ```sh
+   helm list -n azure-iot-operations --pending
+   ```
+    In the output, look for the release name of components, `<component-release-name>`, which have a status of `pending-upgrade` or `pending-install`.  The following components might be affected by this issue:
+
+      - `-adr`
+      - `-akri`
+      - `-connectors`
+      - `-mqttbroker`
+      - `-dataflows`
+      - `-schemaregistry`
+
+1. Using the release name components from step 1, retrieve the revision history of the stuck release. You need to run the following command for **each component from step 1**. For example, if components `-adr` and `-mqttbroker` are stuck, you run the following command twice, once for each component:
+
+   ```sh
+   helm history <component-release-name> -n azure-iot-operations
+   ```
+
+    Make sure to replace `<component-release-name>` with the release name of the components that are stuck. In the output, look for the last revision that has a status of `Deployed` or `Superseded` and note the revision number.
+
+1. Using the revision number from step 2, rollback the Helm release to the last successful revision. You need to run the following command for each component, `<component-release-name>`, and its revision number, `<revision-number>`, from steps 1 and 2.
+
+    ```sh
+    helm rollback <component-release-name> <revision-number> -n azure-iot-operations
+    ```
+  
+1. After the rollback of each component is complete, reattempt the upgrade using the following command:
+
+   ```sh
+   az iot ops update
+   ```
+
+    If you receive a message stating `Nothing to upgrade or upgrade complete`, force the upgrade by appending: 
+
+    ```sh
+    az iot ops upgrade ....... --release-train stable --version 1.0.15 
+    ``` 
+
+> [!IMPORTANT]
+> You need to repeat steps 2 and 3 for each component that is stuck. You reattempt the upgrade only after all components are rolled back to the last successful revision.
 
 ## MQTT broker
 
@@ -143,45 +196,6 @@ kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
      If you see both log entries from the two *kubectl log* commands, the cert-manager wasn't ready or running.
   1. Run `kubectl delete pod aio-dataflow-operator-0 -n azure-iot-operations` to delete the data flow operator pod. Deleting the pod clears the crash status and restarts the pod.
   1. Wait for the operator pod to restart and deploy the data flow.
-
-## Helm package enters a stuck state
-
-When you update Azure IoT Operations, the Helm package might enter a stuck state, preventing any helm install or upgrade operations from proceeding. This results in the `operation in progress` error, blocking further upgrades. 
-
-Use the following steps to resolve the issue:
-
-1. Identify the stuck Helm release by running the following command:
-
-   ```sh
-   helm list -n azure-iot-operations --pending
-   ```
-    In the output, look for a release name that contains `<component>` and has a status of `pending-upgrade` or `pending-install`. 
-
-1. Retrieve the revision history of the stuck release. For example, for schema registry you run:
-
-   ```sh
-   helm history <schema-registry-release-name> -n azure-iot-operations
-   ```
-
-    In the output, look for the last revision that has a status of `Deployed` or `Superseded` and note the revision number.
-
-1. Rollback the Helm release to the last successful revision. For example, for schema registry you run:
-
-    ```sh
-    helm rollback <schema-registry-release-name> <revision-number> -n azure-iot-operations
-    ```
-  
-1. After the rollback is complete, reattempt the upgrade using the following command:
-
-   ```sh
-   az iot ops update
-   ```
-
-    If you receive a message stating `Nothing to upgrade or upgrade complete`, force the upgrade by appending: 
-
-    ```sh
-    az iot ops upgrade ....... --release-train stable --version 1.0.15 
-    ``` 
 
 
 
