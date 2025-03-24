@@ -54,7 +54,7 @@ Use the following steps to download the sample app. If you've been using the Azu
 
 Use the following steps to deploy the PlanetWeatherProvider project.
 
-1. Create an app for the `PlanetWeatherProvider` project in your Azure Spring Apps instance.
+1. Create an app for the PlanetWeatherProvider project in your Azure Spring Apps instance.
 
    ```azurecli
    az spring app create --name planet-weather-provider --runtime-version NetCore_31
@@ -72,7 +72,7 @@ Use the following steps to deploy the PlanetWeatherProvider project.
 
    This command may take several minutes to run.
 
-1. Change directory to the `PlanetWeatherProvider` project folder.
+1. Change directory to the **PlanetWeatherProvider** project folder.
 
    ```console
    cd steeltoe-sample/src/planet-weather-provider
@@ -119,11 +119,11 @@ Use the following steps to deploy the SolarSystemWeather project.
    az spring app create --name solar-system-weather --runtime-version NetCore_31
    ```
 
-   `solar-system-weather` is the name that is specified in the `SolarSystemWeather` project's **appsettings.json** file.
+   `solar-system-weather` is the name that is specified in the SolarSystemWeather project's **appsettings.json** file.
 
    This command may take several minutes to run.
 
-1. Change directory to the `SolarSystemWeather` project.
+1. Change directory to the SolarSystemWeather project.
 
    ```console
    cd ../solar-system-weather
@@ -427,7 +427,7 @@ To deploy to Azure, you must sign in with your Azure account with Azure Toolkit 
 1. In the **App:** textbox, select **Create app...**.
 1. Enter **api-gateway**, then select **OK**.
 1. Set **Public Endpoint** to **Enable**.
-1. Set **Memory** to `2.0Gi` and **JVM options** to `-Xms2048m -Xmx2048m`.
+1. Set **Memory** to **2.0Gi** and **JVM options** to **-Xms2048m -Xmx2048m**.
 
    :::image type="content" source="media/quickstart-deploy-apps/memory-jvm-options.png" alt-text="Screenshot of the IntelliJ Create Azure Spring App dialog box that shows Memory and JVM options controls." lightbox="media/quickstart-deploy-apps/memory-jvm-options.png":::
 
