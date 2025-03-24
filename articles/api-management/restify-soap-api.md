@@ -32,7 +32,7 @@ In this article, you learn how to:
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"> </a>Import and publish a back-end API
+## <a name="create-api"> </a>Import and publish a backend API
 
 1. In the left pane, in the **APIs** section, select **APIs**.
 1. On the APIs page, select **+ Add API**.
@@ -46,7 +46,8 @@ In this article, you learn how to:
 
     :::image type="content" source="./media/restify-soap-api/soap-to-rest.png" alt-text="Screenshot that shows the SOAP to REST option." lightbox="./media/restify-soap-api/soap-to-rest.png":::
 
-1. The following fields are filled automatically with information from the SOAP API: **Display name**, **Name**, **Description**. Operations are filled automatically with **Display name**, **URL**, and **Description** and receive a system-generated **Name**.
+1. The **Display name** and **Name** boxes are filled automatically with information from the SOAP API. Select **Create**.
+1. A **Display name**, **URL**, and **Description** information is automatically filled for operations. They also receive a system-generated **Name**.
 1. Enter other API settings. You can set the values when you create the API or configure them later by going to the **Settings** tab. 
 
     For more information about API settings, see [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api).
@@ -65,7 +66,7 @@ You can call operations directly from the Azure portal. This method provides a c
 
 1. Select **Send**.
 
-    When the test is successful, the back end responds with **200 OK** and some data.
+    When the test is successful, the backend responds with **200 OK** and some data.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
