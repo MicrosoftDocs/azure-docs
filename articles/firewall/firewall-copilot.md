@@ -75,8 +75,8 @@ To view the list of built-in system capabilities for Azure Firewall, use the fol
 1. Enter your prompt in the prompt bar on either the [Security Copilot portal](https://securitycopilot.microsoft.com) or via the [Copilot in Azure](/azure/copilot/overview) experience in the Azure portal.
 
     > [!IMPORTANT]
-    > Use of Copilot in Azure to query Azure Firewall is included with Security Copilot and requires [security compute units (SCUs)](/security-copilot/get-started-security-copilot#security-compute-units). You can provision SCUs and increase or decrease them at any time. For more information on SCUs, see [Get started with Microsoft Security Copilot](/security-copilot/get-started-security-copilot).
-    > If you do not have Security Copilot properly configured but ask a question relevant to the Azure Firewall capabilities via the Copilot in Azure experience then you will see an error message.
+    > Use of Copilot in Azure to query Azure Firewall is included with Security Copilot and requires [security compute units (SCUs)](/security-copilot/get-started-security-copilot#security-compute-units). You can deploy SCUs and increase or decrease them at any time. For more information on SCUs, see [Get started with Microsoft Security Copilot](/security-copilot/get-started-security-copilot).
+    > If you don't have Security Copilot properly configured but ask a question relevant to the Azure Firewall capabilities through the Copilot in Azure experience then you'll see an error message.
    
 ## Sample Azure Firewall prompts
 
@@ -86,7 +86,7 @@ There are many prompts you can use to get information from Azure Firewall. This 
 
 Get **log information** about the traffic intercepted by the IDPS feature instead of constructing KQL queries manually.
 
-:::image type="content" source="media/firewall-copilot/idps-prompts.png" alt-text="Screenshot displaying the capability to retrieve the top IDPS signature hits for an Azure Firewall.." lightbox="media/firewall-copilot/idps-prompts.png":::
+:::image type="content" source="media/firewall-copilot/idps-prompts.png" alt-text="Screenshot displaying the capability to retrieve the top IDPS signature hits for an Azure Firewall." lightbox="media/firewall-copilot/idps-prompts.png":::
 
 **Sample prompts**:
 
@@ -107,7 +107,7 @@ Get **additional details** to enrich the threat information/profile of an IDPS s
 - I see that the third signature ID is associated with CVE `<CVE number\>`, tell me more about this CVE.
 
     > [!NOTE]
-    > The Microsoft Threat Intelligence plugin is another source that Security Copilot may use to provide threat intelligence for IDPS signatures.
+    > The Microsoft Threat Intelligence plugin is another source that Security Copilot might use to provide threat intelligence for IDPS signatures.
 
 ### Look for a given IDPS signature across your tenant, subscriptions, or resource groups
 
@@ -156,7 +156,7 @@ Use the **like** and **dislike** buttons at the bottom of each completed prompt.
 
 ## Privacy and data security in Security Copilot
 
-When you interact with Security Copilot (via the Security Copilot portal or via the Copilot in Azure experience) to get Azure Firewall data, Copilot pulls that data from Azure Firewall. The prompts, the data retrieved, and the output shown in the prompt results are processed and stored within the Copilot service. For more information, see [Privacy and data security in Microsoft Security Copilot](/copilot/security/privacy-data-security).
+When you interact with Security Copilot either through the Security Copilot portal or the Copilot in Azure experience to get information, Copilot pulls that data from Azure Firewall. The prompts, the data retrieved, and the output shown in the prompt results are processed and stored within the Copilot service. For more information, see [Privacy and data security in Microsoft Security Copilot](/copilot/security/privacy-data-security).
 
 ## Related content
 
