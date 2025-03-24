@@ -55,5 +55,5 @@ To create a storage pool
 
 1. Select the **Create** button.
 
-> [!NOTE]
-> During the preview, a Storage Pool supports a maximum raw capacity of 7 TiB (5 TiB usable) with future expansions planned. The effective usable capacity varies based on your data type and compression efficiency.
+    > [!NOTE]
+    > It can take up to 1 hour for deployment to complete. 
