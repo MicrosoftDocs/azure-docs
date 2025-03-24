@@ -5705,6 +5705,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/sql-server-stretch-database/sql-server-stretch-database-encryption-tde.md",
+      "redirect_url": "/azure/azure-sql/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-server-stretch-database/sql-server-stretch-database-tde-tsql.md",
+      "redirect_url": "/azure/azure-sql/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-server-stretch-database/sql-server-stretch-database-index-all-articles.md",
+      "redirect_url": "/azure/azure-sql/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-server-stretch-database/index.yml",
+      "redirect_url": "/azure/azure-sql/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/vs-azure-tools-access-private-azure-clouds-with-visual-studio.md",
       "redirect_url": "/visualstudio/azure/vs-azure-tools-access-private-azure-clouds-with-visual-studio",
       "redirect_document_id": false
