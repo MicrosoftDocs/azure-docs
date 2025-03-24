@@ -4,8 +4,6 @@ description: This article contains important reference material you need when yo
 ms.date: 05/13/2024
 ms.custom: horz-monitor, ignite-2024
 ms.topic: reference
-author: rboucher
-ms.author: robb
 
 appliesto:
   - ✅ Azure Managed Redis

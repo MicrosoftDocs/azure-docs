@@ -1,4 +1,5 @@
 ---
+ROBOTS: NOINDEX
 title: HTTP variables for Azure CDN rules engine
 description: Learn about HTTP variables, which allow you to get HTTP request and response metadata for some rules engine features. Use metadata to alter a request/response.
 services: cdn
