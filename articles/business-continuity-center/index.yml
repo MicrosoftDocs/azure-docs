@@ -68,7 +68,7 @@ landingContent:
   # Card (optional)
   - title: Architectural Content
     linkLists:
-      - linkListType: well-architected-franework--waf-
+      - linkListType: azure-waf
         links:
           - text: Design a reliable monitoring and alerting strategy
             url: /azure/well-architected/reliability/monitoring-alerting-strategy#azure-facilitation
