@@ -27,7 +27,7 @@ Most nonregional services that store customer data enable you to select a specif
 
 ## Regionally dependent service components
 
-When you use a nonregional service, you don't choose a specific Azure region for the service itself. However, you might need to choose a region for dependent components that you use with the service. For example, if you use [Azure Virtual Desktop (AVD)](https://azure.microsoft.com/services/virtual-desktop/), which is a nonregional service, you can choose the Azure region where your host pool (virtual machines) reside.
+When you use a nonregional service, you don't choose a specific Azure region for the service itself. However, you might need to choose a region for dependent components that you use with the service. For example, if you use [Azure Virtual Desktop (AVD)](https://azure.microsoft.com/services/virtual-desktop/), which is a nonregional service, you can choose the Azure region where your host pool (virtual machines) resides.
 
 ## List of nonregional services
 
