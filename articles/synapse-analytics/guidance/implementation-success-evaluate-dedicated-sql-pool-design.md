@@ -1,8 +1,8 @@
 ---
 title: "Synapse implementation success methodology: Evaluate dedicated SQL pool design"
 description: "Learn how to evaluate your dedicated SQL pool design to identify issues and validate that it meets guidelines and requirements."
-author: whhender
-ms.author: whhender
+author: juluczni
+ms.author: juluczni
 ms.reviewer: whhender
 ms.service: azure-synapse-analytics
 ms.topic: conceptual

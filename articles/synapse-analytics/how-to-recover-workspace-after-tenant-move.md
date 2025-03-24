@@ -4,8 +4,8 @@ description: This article provides steps to recover the Synapse Analytics worksp
 ms.service: azure-synapse-analytics 
 ms.topic: how-to
 ms.date: 04/11/2022
-author: matt1883
-ms.author: mahi
+author: gillharmeet
+ms.author: harmeetgill
 ms.reviewer: wiassaf
 ---
 

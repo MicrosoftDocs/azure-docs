@@ -5,8 +5,8 @@ ms.service: azure-synapse-analytics
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/30/2022
-author: matt1883
-ms.author: mahi
+author: gillharmeet
+ms.author: harmeetgill
 ms.reviewer: wiassaf
 ---
 

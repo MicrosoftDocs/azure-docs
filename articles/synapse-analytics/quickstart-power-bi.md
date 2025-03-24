@@ -1,12 +1,12 @@
 ---
 title: 'Quickstart: Linking a Power BI workspace to a Synapse workspace'
 description: Link a Power BI workspace to an Azure Synapse Analytics workspace by following the steps in this guide.
-author: jocaplan
+author: gillharmeet
 ms.service: azure-synapse-analytics
 ms.topic: quickstart
 ms.subservice: business-intelligence
 ms.date: 12/20/2024
-ms.author: jocaplan
+ms.author: harmeetgill
 ms.reviewer: whhender
 ms.custom: mode-other
 ---
