@@ -17,10 +17,10 @@ You can compose an API out of APIs that are exposed by different services, inclu
 * Azure Logic Apps
 * Azure Service Fabric
 
-To append an API to an existing API: 
-
 >[!NOTE] 
 > When you import an API, the operations are appended to your current API.
+
+To append an API to an existing API: 
 
 1. Go to your Azure API Management instance in the Azure portal:
 

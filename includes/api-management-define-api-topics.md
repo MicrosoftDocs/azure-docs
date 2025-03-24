@@ -12,7 +12,7 @@ ms.author: danlep
 * [API import limitations](../articles/api-management/api-management-api-import-restrictions.md)
 * [Import an OpenAPI specification](../articles/api-management/import-api-from-oas.md)
 * [Import a SOAP API](../articles/api-management/import-soap-api.md)
-* [Import a SOAP API and convert to REST](../articles/api-management/restify-soap-api.md)
+* [Import a SOAP API and convert it to REST](../articles/api-management/restify-soap-api.md)
 * [Import an App Service API](../articles/api-management/import-app-service-as-api.md)
 * [Import a Container App API](../articles/api-management/import-container-app-with-oas.md)
 * [Import a WebSocket API](../articles/api-management/websocket-api.md)

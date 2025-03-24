@@ -40,8 +40,8 @@ In this article, you learn how to:
 
     :::image type="content" source="./media/restify-soap-api/wsdl-api.png" alt-text="Screenshot that shows the WSDL tile in the Azure portal.":::
 
-1. In **WSDL specification**, enter the URL to your SOAP API, or select **Select a file** to select a local WSDL file.
-1. In **Import method**, select **SOAP to REST**. 
+1. In **WSDL specification**, enter the URL to your SOAP API, or click **Select a file** to select a local WSDL file.
+1. Under **Import method**, select **SOAP to REST**. 
     When this option is selected, API Management attempts to make an automatic transformation between XML and JSON. In this case, consumers should call the API as a RESTful API, which returns JSON. API Management converts each request to a SOAP call.
 
     :::image type="content" source="./media/restify-soap-api/soap-to-rest.png" alt-text="Screenshot that shows the SOAP to REST option." lightbox="./media/restify-soap-api/soap-to-rest.png":::
