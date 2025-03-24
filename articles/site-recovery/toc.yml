@@ -302,8 +302,6 @@
     items:
     - name: Deprecation of classic experience
       href: vmware-physical-azure-classic-deprecation.md
-    - name: Set up disaster recovery at scale
-      href: vmware-physical-large-deployment.md
     - name: Delete or reset an appliance
       href: delete-appliance.md
     - name: Set up networking
@@ -316,10 +314,6 @@
         href: switch-replication-appliance-modernized.md  
     - name: Perform capacity planning
       items:
-      - name: Plan capacity
-        href: site-recovery-plan-capacity-vmware.md
-      - name: Scale out process servers for VMware replication
-        href: vmware-azure-set-up-process-server-scale.md        
       - name: Deployment Planner tool for VMware replication to Azure
         items:
         - name: Overview and prerequisites
@@ -336,14 +330,8 @@
       items:
       - name: Set up the source environment
         href: vmware-azure-set-up-source.md
-      - name: Deploy the configuration server
-        href: vmware-azure-deploy-configuration-server.md
-      - name: Set up the target environment
-        href: vmware-azure-set-up-target.md
       - name: Configure replication settings
         href: vmware-azure-set-up-replication.md
-      - name: Enable on-premises replication with private endpoints
-        href: ./hybrid-how-to-enable-replication-private-endpoints.md
       - name: Enable replication for a physical server - Modernized
         href: physical-server-enable-replication.md
       - name: Enable replication for VMware VMs
@@ -370,28 +358,10 @@
         href: site-recovery-test-failover-to-azure.md
       - name: Run a failover to Azure
         href: site-recovery-failover.md
-      - name: Prepare for reprotection/failback
-        href: vmware-azure-prepare-failback.md
-      - name: Reprotect from Azure to on-premises
-        href: vmware-azure-reprotect.md
-      - name: Fail back from Azure to on-premises
-        href: vmware-azure-failback.md
-      - name: Set up a failback process server in Azure
-        href: vmware-azure-set-up-process-server-azure.md
-      - name: Set up a Linux master target server for failback
-        href: vmware-azure-install-linux-master-target.md
     - name: Manage
       items:
-      - name: Manage the Mobility agent
-        href: vmware-physical-manage-mobility-service.md
       - name: Upgrade the Mobility agent (Modernized)
         href: upgrade-mobility-service-modernized.md
-      - name: Manage the configuration server for VMware
-        href: vmware-azure-manage-configuration-server.md
-      - name: Manage process servers
-        href: vmware-azure-manage-process-server.md
-      - name: Manage vCenter servers
-        href: vmware-azure-manage-vcenter.md
       - name: Manage Site Recovery updates
         href: service-updates-how-to.md
       - name: Remove servers and disable protection
@@ -498,6 +468,40 @@
           href: hyper-v-deployment-planner-analyze-report.md
         - name: Analyze the cost estimation report
           href: hyper-v-deployment-planner-cost-estimation.md
+  - name: Classic
+    items:
+        - name: VMware VM
+          items:
+              - name: Plan capacity
+                href: site-recovery-plan-capacity-vmware.md
+              - name: Manage the Mobility agent
+                href: vmware-physical-manage-mobility-service.md
+              - name: Manage the configuration server for VMware
+                href: vmware-azure-manage-configuration-server.md
+              - name: Set up a failback process server in Azure
+                href: vmware-azure-set-up-process-server-azure.md
+              - name: Manage process servers
+                href: vmware-azure-manage-process-server.md
+              - name: Prepare for reprotection/failback
+                href: vmware-azure-prepare-failback.md
+              - name: Enable on-premises replication with private endpoints
+                href: ./hybrid-how-to-enable-replication-private-endpoints.md
+              - name: Scale out process servers for VMware replication
+                href: vmware-azure-set-up-process-server-scale.md  
+              - name: Set up disaster recovery at scale
+                href: vmware-physical-large-deployment.md
+              - name: Set up the target environment
+                href: vmware-azure-set-up-target.md
+              - name: Deploy the configuration server
+                href: vmware-azure-deploy-configuration-server.md
+              - name: Manage vCenter servers
+                href: vmware-azure-manage-vcenter.md
+              - name: Set up a Linux master target server for failback
+                href: vmware-azure-install-linux-master-target.md
+              - name: Reprotect from Azure to on-premises
+                href: vmware-azure-reprotect.md
+              - name: Fail back from Azure to on-premises
+                href: vmware-azure-failback.md
   - name: Azure Stack VM disaster recovery
     items:
     - name: Walkthrough-Set up disaster recovery for Azure Stack Hub
