@@ -2,10 +2,8 @@
 title: Manage file access logs in Azure NetApp Files
 description: File access logs provide file access logging for individual volumes, capturing file system operations on selected volume
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 02/14/2025
 ms.author: anfdocs
