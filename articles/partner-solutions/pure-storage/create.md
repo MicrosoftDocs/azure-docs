@@ -24,27 +24,29 @@ This quickstart shows you how to create a Pure Storage Cloud (preview) resource 
 
 The *Basics* tab has three sections:
 
-- Project Details
 - Instance Details
+- Billing Details
 - Company Details
 
-There are required fields in each section that you need to fill out.
+There are required fields that you need to fill out.
 
-1. Enter the values for each required setting under *Project details*.
-
-    | Setting            | Action                                                       |
-    |--------------------|--------------------------------------------------------------|
-    | Subscription       | Select a subscription from your existing subscriptions.      |
-    | Resource group     | Use an existing resource group or create a new one.          |
-
-1. Enter the values for each required setting under *Instance details*.
+1. Enter the values for each required setting under *Instance Details*.
 
     | Setting           | Action                                     |
     |-------------------|--------------------------------------------|
     | Resource name     | Specify a unique name for the resource.    |
-    | Region            |Select the region.                          |
+    | Region            | Select the region.                         |
 
-1. Enter the values for each required setting under *Company details*.
+1. Enter the values for each required setting under *Company Details*.
+
+    | Setting           | Action                                     |
+    |-------------------|--------------------------------------------|
+    | Company Name      | Provide your company's name.               |
+    | Address Line 1    | Provide your company's address.            |
+    | State             | Select a state from the dropdown.          |
+    | Zip               | Provide your company's zip code.           |
+    | First Name        | Provide your first name.                   |
+    | Last Name         | Provide your last name.                    |
 
 1. Select the **Review and create** button at the bottom of the page.
 
