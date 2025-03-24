@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: overview
-ms.date: 24/03/2025
+ms.date: 03/24/2025
 ---
 
 # What is Azure App Configuration?
