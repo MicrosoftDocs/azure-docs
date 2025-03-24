@@ -49,6 +49,7 @@ To migrate the web apps, perform these steps:
 
     :::image type="content" source="./media/tutorial-modernize-asp-net-appservice-code/select-replicate.png" alt-text="Screenshot of the Replicate option selected.":::
 
+
 1. In **Specify intent**, > **What do you want to migrate?**, select **ASP.NET web apps**.
 1. In **Where do you want to migrate to?**, select **Azure App Service native**.
 1. In **Virtualization type**, select **VMware vSphere**.
