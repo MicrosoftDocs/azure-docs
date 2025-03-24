@@ -86,7 +86,7 @@ There are many prompts you can use to get information from Azure Firewall. This 
 
 Get **log information** about the traffic intercepted by the IDPS feature instead of constructing KQL queries manually.
 
-:::image type="content" source="media/firewall-copilot/idps-prompts.png" alt-text="Screenshot displaying the capability to retrieve the top IDPS signature hits for an Azure Firewall." lightbox="media/firewall-copilot/idps-prompts.png":::
+:::image type="content" source="media/firewall-copilot/idps-prompts.png" alt-text="Screenshot displaying the capability to retrieve the top IDPS signature hits for an Azure Firewall." lightbox="media/firewall-copilot/idps-prompts-expanded.png":::
 
 **Sample prompts**:
 
@@ -98,7 +98,7 @@ Get **log information** about the traffic intercepted by the IDPS feature instea
 
 Get **additional details** to enrich the threat information/profile of an IDPS signature instead of compiling it yourself manually.
 
-:::image type="content" source="media/firewall-copilot/threat-profile.png" alt-text="Screenshot showing the capability to enrich the threat profile of an IDPS signature beyond log information." lightbox="media/firewall-copilot/threat-profile.png":::
+:::image type="content" source="media/firewall-copilot/threat-profile.png" alt-text="Screenshot showing the capability to enrich the threat profile of an IDPS signature beyond log information." lightbox="media/firewall-copilot/threat-profile-expanded.png":::
 
 **Sample prompts**:
 
@@ -113,7 +113,7 @@ Get **additional details** to enrich the threat information/profile of an IDPS s
 
 Perform a **fleet-wide search** (over any scope) for a threat across all your Firewalls instead of searching for the threat manually.
 
-:::image type="content" source="media/firewall-copilot/search-tenant-subscription.png" alt-text="Screenshot showing the capability to search for a given IDPS signature across your tenant, subscriptions, or resource groups." lightbox="media/firewall-copilot/search-tenant-subscription.png":::
+:::image type="content" source="media/firewall-copilot/search-tenant-subscription.png" alt-text="Screenshot showing the capability to search for a given IDPS signature across your tenant, subscriptions, or resource groups." lightbox="media/firewall-copilot/search-tenant-subscription-expanded.png":::
 
 **Sample prompts**:
 
@@ -125,7 +125,7 @@ Perform a **fleet-wide search** (over any scope) for a threat across all your Fi
 
 Get **information from documentation** about using Azure Firewall's IDPS feature to secure your environment instead of having to look up this information manually.
 
-:::image type="content" source="media/firewall-copilot/recommendations.png" alt-text="Screenshot showing the generated recommendations to secure your environment using Azure Firewall's IDPS feature capability." lightbox="media/firewall-copilot/recommendations.png":::
+:::image type="content" source="media/firewall-copilot/recommendations.png" alt-text="Screenshot showing the generated recommendations to secure your environment using Azure Firewall's IDPS feature capability." lightbox="media/firewall-copilot/recommendations-expanded.png":::
 
 **Sample prompts**:
 
