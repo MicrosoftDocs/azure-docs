@@ -8,13 +8,13 @@ ms.date: 03/24/2025
 ms.topic: concept-article
 ---
 
-# Migrate databases and data from Amazon Web Services (AWS) to Microsoft Azure
+# Migrate databases from Amazon Web Services (AWS) to Microsoft Azure
 
 Migrating data is a critical part when moving from Amazon Web Services (AWS) to Microsoft Azure. This process involves transitioning your databases while making sure they work similarly in the new environment. The scope of this migration covers various database types, including relational databases, NoSQL databases, and data warehouses. For example, a workload that involves migrating an Amazon Relational Database Service (RDS) for PostgreSQL database to Azure Database for PostgreSQL.
 
 ## Component comparison
 
-Start the process by comparing the [Amazon Web Services (AWS) database and data services](/azure/architecture/aws-professional/data-ai) used in the workload to their closest Azure counterparts. The goal is to identify the most suitable Azure services for your workload.
+Start the process by comparing the [Amazon Web Services (AWS) database and services](/azure/architecture/aws-professional/data-ai) used in the workload to their closest Azure counterparts. The goal is to identify the most suitable Azure services for your workload.
 
 > [!NOTE]
 > This comparison shouldn't be considered an exact representation of these services' functionality in your workload.
