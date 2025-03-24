@@ -12,7 +12,7 @@ ms.subservice: data-explorer
 
 # What is the difference between Azure Synapse Data Explorer and Azure Data Explorer? (Preview)
 
-[!INCLUDE [data-explorer-deprecation-notice](../includes/data-explorer-deprecation-notice.md)]
+[!INCLUDE [data-explorer-deprecation-notice](includes/data-explorer-deprecation-notice.md)]
 
 [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is a stand-alone, fast, and highly scalable data exploration service for log and telemetry data. The same underlying technology that runs the service is available in Azure Synapse as an integrated analytics service to complement its existing SQL and Spark services geared for data warehouse and data engineering machine learning scenarios.
 

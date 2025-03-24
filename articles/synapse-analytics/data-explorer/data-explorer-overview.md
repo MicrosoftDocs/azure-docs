@@ -12,7 +12,7 @@ ms.subservice: data-explorer
 
 # What is Azure Synapse Data Explorer? (Preview)
 
-[!INCLUDE [data-explorer-deprecation-notice](../includes/data-explorer-deprecation-notice.md)]
+[!INCLUDE [data-explorer-deprecation-notice](includes/data-explorer-deprecation-notice.md)]
 
 Azure Synapse Data Explorer provides customers with an interactive query experience to unlock insights from log and telemetry data. To complement existing SQL and Apache Spark analytics runtime engines, the Data Explorer analytics runtime is optimized for efficient log analytics using powerful indexing technology to automatically index free-text and semi-structured data commonly found in telemetry data.
 
