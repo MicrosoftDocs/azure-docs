@@ -1,10 +1,10 @@
 ---
 title: Microsoft Sentinel entity types reference | Microsoft Docs
-description: This article displays the Microsoft Sentinel entity types and their required identifiers.
+description: This article displays the Microsoft Sentinel entity types and their identifiers, and lists strong and weak identifiers for each.
 author: yelevin
 ms.author: yelevin
 ms.topic: reference
-ms.date: 10/16/2024
+ms.date: 03/24/2025
 
 
 #Customer intent: As a security analyst, I want to understand the entity types and identifiers in Microsoft Sentinel so that I can effectively track and investigate alerts and incidents.
