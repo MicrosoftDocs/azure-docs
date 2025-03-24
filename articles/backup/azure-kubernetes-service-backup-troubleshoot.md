@@ -145,8 +145,6 @@ The upgrade CRDs pre-install job is failing in the cluster.
 1. Check for any events in the cluster related to pod spawn issue.
 ```azurecli-interactive
 kubectl events -n dataprotection-microsoft
-```
-Example log message:
 ```Error
 2024-08-09T06:21:37.712646207Z Unable to connect to the server: dial tcp: lookup aks-test.hcp.westeurope.azmk8s.io: i/o timeout
 2024-10-01T11:26:17.498523756Z Unable to connect to the server: dial tcp 10.146.34.10:443: i/o timeout
