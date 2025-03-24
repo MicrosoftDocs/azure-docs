@@ -21,7 +21,7 @@ The following diagram shows a high-level view of the components in a typical edg
 <!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-device-management/iot-edge-management-architecture.svg" alt-text="Diagram that shows the high-level IoT edge-based solution architecture highlighting asset management areas." border="false" lightbox="media/iot-overview-device-management/iot-edge-management-architecture.svg":::
 
-In an edge-based IoT solution, operational technologists (OT) can manage and control assets from the cloud, by leveraging a *Unified registry*. OT users can use the *operations experience web UI*, while IT administrators can use the CLI and Azure Portal. To locate and manage assets, OT users can use *Sites*, that are created by the IT administrator and typically group Azure IoT Operations instances by physical location.
+In an edge-based IoT solution, operational technologists (OT) can manage and control assets from the cloud, by leveraging a *Unified registry*. OT users can use the *operations experience web UI*, while IT administrators can use the CLI and Azure portal. To locate and manage assets, OT users can use *Sites*, that are created by the IT administrator and typically group Azure IoT Operations instances by physical location.
 
 Asset management refers to processes such as registering assets and defining asset endpoints. Asset management includes the following tasks:
 

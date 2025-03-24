@@ -203,7 +203,7 @@ Edge gateways (sometimes referred to as field gateways) are typically deployed o
 
 ### [Edge-based solution](#tab/edge)
 
-Azure IoT Operations is an edge runtime environment that hosts the services to connect, monitor, and control your assets. One of the functionalities of an edge runtime environment is to act as an edge gateway, using the connectors and the MQTT broker, to communicates with assets and equipment, either directly or through a server, so that they don't need their own cloud connections.
+Azure IoT Operations is an edge runtime environment that hosts the services to connect, monitor, and control your assets. One of the functionalities of an edge runtime environment is to act as an edge gateway, using the connectors and the MQTT broker, to communicate with assets and equipment, either directly or through a server, so that they don't need their own cloud connections.
 
 Data flows provide data transformation and data contextualization capabilities before routing messages to various locations including cloud endpoints.
 
