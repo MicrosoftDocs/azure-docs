@@ -1,7 +1,3 @@
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include.md)]
-
-Azure Communication Services is introducing a new user experience for purchasing phone numbers. This experience is currently being flighted, and you might be introduced to this experience when purchasing a phone number in Azure portal. If you have feedback on this experience, don't hesitate to give it through the **Give feedback** button on Azure portal extension.
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
