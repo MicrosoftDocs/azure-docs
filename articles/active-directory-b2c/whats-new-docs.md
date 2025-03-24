@@ -17,6 +17,15 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new and significantly updated docs from the past three months. To learn what's new with the B2C service, see [What's new in Microsoft Entra ID](../active-directory/fundamentals/whats-new.md), [Azure AD B2C developer release notes](custom-policy-developer-notes.md) and [What's new in Microsoft Entra External ID](/entra/external-id/whats-new-docs).
 
+## February 2025
+
+### Updated articles
+
+- [Enable multifactor authentication in Azure Active Directory B2C](multi-factor-authentication.md) - Added SMS pricing
+- [Page layout versions](page-layout.md) - Updated the latest versions of the self-asserted and MFA pages
+- [Azure AD B2C: Frequently asked questions (FAQ)](faq.yml) - Added billing name change for SMS phone
+- [Enable CAPTCHA in Azure Active Directory B2C](add-captcha.md) - Added CAPTCHA feature flag
+
 ## January 2025
 
 ### Updated articles
@@ -28,10 +37,4 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 ### Updated articles
 
 - [Tutorial: Configure Nok Nok S3 Authentication Suite with Azure AD B2C for FIDO passkey authentication](partner-nok-nok.md) - Updated scenarios
-
-## November 2024
-
-### Updated articles
-
-- [Azure Active Directory B2C: Region availability & data residency](data-residency.md) - Updated data residency location
 

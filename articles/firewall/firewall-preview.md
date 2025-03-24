@@ -2,11 +2,11 @@
 title: Azure Firewall preview features
 description: Learn about Azure Firewall preview features that are publicly available now.
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 01/15/2025
-ms.author: victorh
+ms.date: 03/20/2025
+ms.author: duau
 ---
 
 # Azure Firewall preview features
@@ -42,12 +42,6 @@ For more information, see [Resource Health overview](/azure/service-health/resou
 ### Autolearn SNAT routes (preview)
 
 You can configure Azure Firewall to autolearn both registered and private ranges every 30 minutes. For information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md#auto-learn-snat-routes-preview).
-
-### Parallel IP Group updates (preview)
-
-You can now update multiple IP Groups in parallel at the same time. This is useful for administrators who want to make configuration changes more quickly and at scale, especially when making those changes using a dev ops approach (templates, ARM template, CLI, and PowerShell).
-
-For more information, see [IP Groups in Azure Firewall](ip-groups.md#parallel-ip-group-updates-preview).
 
 ### Private IP address DNAT rules (preview)
 

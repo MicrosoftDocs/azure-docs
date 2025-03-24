@@ -8,7 +8,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom:
   - build-2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/24/2024
 ms.author: danlep
 ---
@@ -147,6 +147,7 @@ The following fields are included in either [OpenAPI version 3.0.x](https://swag
 | **PathItem** | <ul><li>`trace`</li><li>`servers`</li></ul> |
 | **Operation** | <ul><li>`externalDocs`</li><li>`callbacks`</li><li>`security`</li><li>`servers`</li></ul> |
 | **Parameter** | <ul><li>`allowEmptyValue`</li><li>`style`</li><li>`explode`</li><li>`allowReserved`</li></ul> |
+| **Server templating** | <ul><li>`API Server and Base URL`</li></ul> |
 
 ## OpenAPI import, update, and export mechanisms
 

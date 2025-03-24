@@ -64,6 +64,8 @@
               href: reference-isolation-domain-technical-requirements.md
         - name: Access Control Lists
           href: concepts-access-control-lists.md
+        - name: Network Fabric OptionA and OptionB
+          href: concepts-network-fabric-optionA-optionB.md
     - name: Nexus Kubernetes Cluster
       expanded: false
       items:
@@ -157,8 +159,8 @@
               href: howto-run-instance-readiness-testing.md
             - name: Cluster Upgrades
               href: howto-cluster-runtime-upgrade.md
-            - name: Cluster Upgrades With PauseRack Startegy
-              href: howto-cluster-runtime-upgrade-with-pauserack-strategy.md
+            - name: Cluster Upgrades With PauseAfterRack Strategy
+              href: howto-cluster-runtime-upgrade-with-pauseafterrack-strategy.md
             - name: Network Fabric Upgrades
               href: howto-upgrade-nexus-fabric.md
             - name: Credential Rotation
@@ -208,11 +210,23 @@
           href: howto-set-up-break-glass-access.md
         - name: How to use-break-glass-access
           href: howto-use-break-glass-access.md
+        - name: How to set up break-glass access using In-Band management
+          href: howto-set-up-break-glass-access-using-in-band-management.md
         - name: How to enable-Micro-BFD on CE and PE devices
           href: howto-enable-micro-bfd.md
-        - name: How to replace a terminal server
-          href: howto-replace-a-terminal-server.md
+        - name: How to replace terminal server
+          href: howto-replace-terminal-server.md
         - name: How to upgrade os of terminal server
+          href: howto-upgrade-os-of-terminal-server.md
+        - name: How to restrict serial port access and set timeout on terminal-server
+          href: howto-restrict-serial-port-access-and-set-timeout-on-terminal-server.md
+        - name: How to append custom suffix to interface descriptions
+          href: howto-append-custom-suffix-to-interface-descriptions.md
+        - name: How to reboot Network Device in Azure Operator Nexus Network Fabric
+          href: howto-reboot-network-device.md
+        - name: How to Configure NNF with Bring Your Own (BYO) Storage
+          href: howto-configure-bring-your-own-storage-network-fabric.md
+        - name: How to upgrade OS of terminal server
           href: howto-upgrade-os-of-terminal-server.md
         - name: How to restrict serial port access and set timeout on terminal-server
           href: howto-restrict-serial-port-access-and-set-timeout-on-terminal-server.md
@@ -267,6 +281,7 @@
           href: howto-kubernetes-cluster-install-microsoft-defender.md
         - name: Kubernetes cluster features
           href: howto-kubernetes-cluster-features.md
+
     - name: Nexus Virtual Machine
       expanded: false
       items:
@@ -341,6 +356,10 @@
           href: troubleshoot-bare-metal-machine-provisioning.md
         - name: Troubleshoot Hardware Validation Failure
           href: troubleshoot-hardware-validation-failure.md
+        - name: Troubleshoot Degraded status
+          href: troubleshoot-bare-metal-machine-degraded.md
+        - name: Troubleshoot Warning status
+          href: troubleshoot-bare-metal-machine-warning.md
         - name: Troubleshoot Control Plane Quorum
           href: troubleshoot-control-plane-quorum.md
         - name: Troubleshoot Accepted Cluster Resource
@@ -363,6 +382,8 @@
           href: troubleshoot-internet-host-virtual-machine.md
         - name: Troubleshoot VM errors after BMM restart
           href: troubleshoot-vm-error-after-reboot.md
+        - name: Troubleshoot NotReady KuberentesCluster node
+          href: troubleshoot-not-ready-kubernetes-cluster-node.md
         - name:
             Troubleshooting dual-stack configuration issues for Nexus Kubernetes
             cluster
@@ -371,6 +392,11 @@
           href: troubleshoot-neighbor-group-creation-error.md
         - name: Troubleshoot NAKS Cluster Node Packet Loss
           href: troubleshoot-packet-loss.md
+        - name: Troubleshoot Nexus Kubernetes Cluster stuck (unable to reschedule) workloads
+          expanded: false
+          items:
+            - name: Due To Bare Metal Machine Power Failure
+              href: troubleshoot-kubernetes-cluster-stuck-workloads-due-to-power-failure.md
 - name: FAQ
   href: azure-operator-nexus-faq.md
 - name: Reference

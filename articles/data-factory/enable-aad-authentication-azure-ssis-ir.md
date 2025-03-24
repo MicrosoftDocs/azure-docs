@@ -6,8 +6,8 @@ ms.devlang: powershell
 ms.topic: conceptual
 author: chugugrace
 ms.author: chugu
-ms.custom: has-azure-ad-ps-ref
-ms.date: 05/15/2024
+ms.custom: no-azure-ad-ps-ref
+ms.date: 02/17/2025
 ---
 
 # Enable Microsoft Entra authentication for Azure-SSIS integration runtime
@@ -27,7 +27,7 @@ For more info about the managed identity for your ADF, see [Managed identity for
 > 
 > - To use **connection manager user-assigned managed identity** feature, [OLEDB connection manager](/sql/integration-services/connection-manager/ole-db-connection-manager) for example, SSIS IR needs to be provisioned with the same user-assigned managed identity used in connection manager.  
 > 
-> - If you have already created your Azure-SSIS IR using SQL authentication, you can not reconfigure it to use Microsoft Entra authentication via PowerShell at this time, but you can do so via Azure portal/ADF app. 
+> - If you have already created your Azure-SSIS IR using SQL authentication, you can’t reconfigure it to use Microsoft Entra authentication via PowerShell at this time, but you can do so via Azure portal/ADF app. 
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
@@ -41,20 +41,18 @@ Azure SQL Database supports creating a database with a Microsoft Entra user. Fir
 
 ### Create a Microsoft Entra group with the specified system/user-assigned managed identity for your ADF as a member
 
-You can use an existing Microsoft Entra group or create a new one using Azure AD PowerShell.
+You can use an existing Microsoft Entra group or create a new one using Microsoft Entra PowerShell.
 
-1. Install the [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2) module.
+1. Install the [Microsoft Entra PowerShell](/powershell/entra-powershell/installation) module.
 
-2. Sign in using `Connect-AzureAD`, run the following cmdlet to create a group, and save it in a variable:
+2. Sign in using `Connect-Entra`, run the following cmdlet to create a group, and save it in a variable:
 
    ```powershell
-   $Group = New-AzureADGroup -DisplayName "SSISIrGroup" `
+   $Group = New-EntraGroup -DisplayName "SSISIrGroup" `
                              -MailEnabled $false `
                              -SecurityEnabled $true `
                              -MailNickName "NotSet"
    ```
-
-   [!INCLUDE [Azure AD PowerShell deprecation note](~/reusable-content/msgraph-powershell/includes/aad-powershell-deprecation-note.md)]
 
    The result looks like the following example, which also displays the variable value:
 
@@ -66,16 +64,16 @@ You can use an existing Microsoft Entra group or create a new one using Azure AD
    6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
    ```
 
-3. Add the specified system/user-assigned managed identity for your ADF to the group. You can follow the [Managed identity for Data Factory or Azure Synapse](./data-factory-service-identity.md) article to get the Object ID of specified system/user-assigned managed identity for your ADF (e.g. aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb, but do not use the Application ID for this purpose).
+3. Add the specified system/user-assigned managed identity for your ADF to the group. You can follow the [Managed identity for Data Factory or Azure Synapse](./data-factory-service-identity.md) article to get the Object ID of specified system/user-assigned managed identity for your ADF (for example, aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb, but don't use the Application ID for this purpose).
 
    ```powershell
-   Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
+   Add-EntraGroupMember -GroupId $Group.ObjectId -MemberId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
    ```
 
    You can also check the group membership afterwards.
 
    ```powershell
-   Get-AzureAdGroupMember -ObjectId $Group.ObjectId
+   Get-EntraGroupMember -GroupId $Group.ObjectId
    ```
 
 <a name='configure-azure-ad-authentication-for-azure-sql-database'></a>
@@ -108,7 +106,7 @@ For this next step, you need [SSMS](/sql/ssms/download-sql-server-management-st
 
 3. In the **Authentication** field, select **Active Directory - Universal with MFA support** (you can also use the other two Active Directory authentication types, see [Configure and manage Microsoft Entra authentication for Azure SQL Database](/azure/azure-sql/database/authentication-aad-configure)).
 
-4. In the **User name** field, enter the name of Microsoft Entra account that you set as the server administrator, e.g. testuser@xxxonline.com.
+4. In the **User name** field, enter the name of Microsoft Entra account that you set as the server administrator, for example, testuser@xxxonline.com.
 
 5. Select **Connect** and complete the sign-in process.
 
@@ -168,7 +166,7 @@ For this next step, you need [SSMS](/sql/ssms/download-sql-server-management-st
 
 1. Start SSMS.
 
-2. Connect to Azure SQL Managed Instance using SQL Server account that is a **sysadmin**. This is a temporary limitation that will be removed once the support for Microsoft Entra server principals (logins) on Azure SQL Managed Instance becomes generally available. You will see the following error if you try to use a Microsoft Entra admin account to create the login: *Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action*.
+2. Connect to Azure SQL Managed Instance using SQL Server account that is a **sysadmin**. This is a temporary limitation that will be removed once the support for Microsoft Entra server principals (logins) on Azure SQL Managed Instance becomes generally available. You'll see the following error if you try to use a Microsoft Entra admin account to create the login: *Msg 15247, Level 16, State 1, Line 1 User doesn't have permission to perform this action*.
 
 3. In the **Object Explorer**, expand the **Databases** -> **System Databases** folder.
 
@@ -209,7 +207,7 @@ To provision your Azure-SSIS IR with PowerShell, do the following things:
 
 1. Install [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018) module.
 
-2. In your script, do not set `CatalogAdminCredential` parameter. For example:
+2. In your script, don't set `CatalogAdminCredential` parameter. For example:
 
    ```powershell
    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `

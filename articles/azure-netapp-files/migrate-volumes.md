@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 12/02/2024
+ms.date: 03/24/2025
 ms.author: anfdocs
 ---
 # Migrate volumes to Azure NetApp Files 
@@ -19,10 +19,6 @@ You can peer and migrate volumes from on-premises ONTAP or Cloud Volumes ONTAP t
 * Ensure your [network topology](azure-netapp-files-network-topologies.md) is supported for Azure NetApp Files. Ensure you have established connectivity from your on-premises storage to Azure NetApp Files. 
 * The delegated subnet address space for hosting the Azure NetApp Files volumes must have at least seven free IP addresses: six for cluster peering and one for the migration volumes. The delegated subnet address space should be sized appropriately to accommodate more Azure NetApp Files network interfaces. Review [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) to ensure you meet the requirements for delegated subnet sizing.  
 * After issuing the peering request, the request must be accepted within 60 minutes of making the request. Peer requests expire after 60 minutes. 
-
-## Register the feature 
-
-<!-- steps -->
 
 ## Migrate volumes
 

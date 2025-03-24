@@ -2,7 +2,7 @@
 title: Azure resource providers and types
 description: Understand which resource providers support Azure Resource Manager and their schemas, available API versions, and the regions that can host the resources.
 ms.topic: conceptual
-ms.date: 02/06/2025
+ms.date: 02/12/2025
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-python
 content_well_notification: AI-contribution
 ai-usage: ai-assisted
@@ -27,21 +27,21 @@ For a list that maps resource providers to Azure services, see [Azure resource p
 
 ## Register resource provider
 
-Before you use a resource provider, you must make sure your Azure subscription is registered for the resource provider. Registration configures your subscription to work with the resource provider.
+Before you use a resource provider, make sure your Azure subscription is registered for the resource provider. Registration configures your subscription to work with the resource provider.
 
 > [!IMPORTANT]
 > Register a resource provider only when you're ready to use it. This registration step helps maintain least privileges within your subscription. A malicious user can't use unregistered resource providers.
 >
-> Since Microsoft adds an app for a resource provider when you register it, registering unnecessary resource providers can cause apps that you don't recognize to appear in your Microsoft Entra tenant. The Windows Azure Service Management API typically adds these apps. To limit unnecessary apps in your tenant, only register the resource providers that you need.
+> When you register a resource provider, Microsoft adds an app for the resource provider. Registering unnecessary resource providers can cause apps that you don't recognize to appear in your Microsoft Entra tenant. The Windows Azure Service Management API typically adds these apps. To limit unnecessary apps in your tenant, only register the resource providers that you need.
 
 Some resource providers are registered by default. For a list of examples, see [Resource providers for Azure services](azure-services-resource-providers.md).
 
-Other resource providers are registered automatically when you take certain actions. When you create a resource in the Azure portal, the resource provider is typically registered for you. When you deploy an Azure Resource Manager template or Bicep file, resource providers defined in the template are registered automatically. Sometimes, a resource in the template requires supporting resources that aren't in the template. Common examples are monitoring or security resources. You need to register those resource providers manually.
+When you take certain actions, Azure automatically registers other resource providers. When you create a resource in the Azure portal, the portal typically registers the resource provider for you. When you deploy an Azure Resource Manager template or Bicep file, Azure automatically registers the resource providers defined in the template. Sometimes, a resource in the template requires supporting resources that aren't in the template. Common examples are monitoring or security resources. You need to register those resource providers manually.
 
 You might need to manually register a resource provider during other scenarios.
 
 > [!IMPORTANT]
-> Your application code **shouldn't block the creation of resources** for a resource provider that's in the **registering** state. When you register the resource provider, the operation is done individually for each supported region. To create resources in a region, the registration only needs to be completed in that region. By not blocking a resource provider in the registering state, your application can continue much sooner than waiting for all regions to complete.
+> Your application code **shouldn't block the creation of resources** for a resource provider that's in the **registering** state. When you register the resource provider, the operation is done individually for each supported region. To create resources in a region, the registration only needs to be completed in that region. When your application doesn't block a resource provider in the registering state, it can continue sooner than waiting for all regions to complete.
 
 You must have permission to do the `/register/action` operation for the resource provider. The permission is included in the Contributor and Owner roles.
 
@@ -78,9 +78,9 @@ To see all resource providers and the registration status for your subscription:
    :::image type="content" source="./media/resource-providers-and-types/register-resource-provider.png" alt-text="Screenshot of registering a resource provider in the Azure portal.":::
 
    > [!IMPORTANT]
-   > As [noted earlier](#register-resource-provider), **don't block the creation of resources** for a resource provider that's in the **registering** state. By not blocking a resource provider in the registering state, your application can continue much sooner than waiting for all regions to complete.
+   > As [noted earlier](#register-resource-provider), **don't block the creation of resources** for a resource provider that's in the **registering** state. When your application doesn't block a resource provider in the registering state, it can continue sooner than waiting for all regions to complete.
 
-1. **Re-register** a resource provider to use locations that have been added since the previous registration.
+1. **Re-register** a resource provider to use locations that you added since the previous registration.
 
    :::image type="content" source="./media/resource-providers-and-types/re-register-resource-provider.png" alt-text="Screenshot of reregistering a resource provider in the Azure portal.":::
 
@@ -149,9 +149,9 @@ Locations         : {West Europe, East US, East US 2, West US...}
 ```
 
 > [!IMPORTANT]
-> As [noted earlier](#register-resource-provider), **don't block the creation of resources** for a resource provider that's in the **registering** state. By not blocking a resource provider in the registering state, your application can continue much sooner than waiting for all regions to complete.
+> As [noted earlier](#register-resource-provider), **don't block the creation of resources** for a resource provider that's in the **registering** state. When your application doesn't block a resource provider in the registering state, it can continue sooner than waiting for all regions to complete.
 
-Register a resource provider again to use locations that have been added since the previous registration. To reregister, run the registration command again.
+To use locations that Azure added since the previous registration, register a resource provider again. To reregister, run the registration command again.
 
 To see information for a particular resource provider, use:
 
@@ -277,7 +277,7 @@ The command returns:
 ```
 
 > [!IMPORTANT]
-> As [noted earlier](#register-resource-provider), **don't block the creation of resources** for a resource provider that's in the **registering** state. By not blocking a resource provider in the registering state, your application can continue much sooner than waiting for all regions to complete.
+> As [noted earlier](#register-resource-provider), **don't block the creation of resources** for a resource provider that's in the **registering** state. When your application doesn't block a resource provider in the registering state, it can continue sooner than waiting for all regions to complete.
 
 To see the resource types for a resource provider, use:
 
@@ -412,9 +412,9 @@ ProviderNamespace: Microsoft.Batch, RegistrationState: Registered
 ```
 
 > [!IMPORTANT]
-> As [noted earlier](#register-resource-provider), **don't block the creation of resources** for a resource provider that's in the **registering** state. By not blocking a resource provider in the registering state, your application can continue much sooner than waiting for all regions to complete.
+> As [noted earlier](#register-resource-provider), **don't block the creation of resources** for a resource provider that's in the **registering** state. When your application doesn't block a resource provider in the registering state, it can continue sooner than waiting for all regions to complete.
 
-Reregister a resource provider to use locations that have been added since the previous registration. To reregister, run the registration command again.
+Reregister a resource provider to use locations that Azure added since the previous registration. To reregister, run the registration command again.
 
 To see information for a particular resource provider, use:
 

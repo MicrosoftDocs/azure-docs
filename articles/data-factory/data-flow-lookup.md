@@ -8,7 +8,7 @@ ms.author: makromer
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ---
 
 # Lookup transformations in mapping data flow

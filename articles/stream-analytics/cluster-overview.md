@@ -6,7 +6,7 @@ ms.author: anboisve
 ms.service: azure-stream-analytics
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/10/2022
+ms.date: 03/05/2025
 ---
 
 # Overview of Azure Stream Analytics Cluster
@@ -29,7 +29,7 @@ For more information on dedicated cluster offerings and pricing, visit the [Azur
 A Stream Analytics cluster can serve as the streaming platform for your organization and can be shared by different teams working on various use cases.
 
 > [!Note] 
-> Azure Stream Analytics also supports Virtual Network Integration available in Public Preview.  VNET integration permits network isolation which is accomplished by deploying dedicated instances of Azure Stream Analytics into your virtual network.  A minimum of 6 SU V2s is required for VNET jobs [learn more](./run-job-in-virtual-network.md).
+> Azure Stream Analytics also supports Virtual Network Integration.  VNET integration permits network isolation which is accomplished by deploying dedicated instances of Azure Stream Analytics into your virtual network.  A minimum of 6 SU V2s is required for VNET jobs [learn more](./run-job-in-virtual-network.md).
 
 ## What are Stream Analytics clusters
 

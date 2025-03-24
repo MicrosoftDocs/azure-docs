@@ -16,7 +16,20 @@ This document contains information about new features and other changes to the M
 
 ## v3 (latest)
 
-### [3.5.0] (CDN: November 4, 2024, npm: November 7)
+### [3.6.0] (CDN: February 18, 2025, npm: February 20, 2025)
+
+#### New features
+* Add a new option `StyleOptions.styleOverrides` which controls the visibility of various map elements, including `countryRegion`, `adminDistrict`, `adminDistrict2`, `buildingFootprint`, and `roadDetails`.
+* Add `auto` option to `StyleOptions.language` and `atlas.setLanguage` which sets the language option to match the browser's Accept-Language header.
+
+#### Bug fixes
+* Resolve the issue where clicking the close button of a popup within a form element triggers the form submission.
+* Fix the issue where `ImageLayer.setOptions()` potentially causing abort errors if the image is large and the request has not completed.
+
+#### Other changes
+* Disable the telemetry by default.
+
+### [3.5.0] (CDN: November 4, 2024, npm: November 7, 2024)
 
 #### New features
 - Add support for fullscreen control.
@@ -24,7 +37,7 @@ This document contains information about new features and other changes to the M
 #### Bug fixes
 - Expose new type on `PolygonExtrusionLayerOptions.fillPattern` to support `DataDrivenPropertyValueSpecification<string>`.
 
-### [3.4.0] (CDN: September 30, 2024, npm: October 2)
+### [3.4.0] (CDN: September 30, 2024, npm: October 2, 2024)
 
 #### New features
 - Add support for PMTiles.
@@ -640,6 +653,7 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[3.6.0]: https://www.npmjs.com/package/azure-maps-control/v/3.6.0
 [3.5.0]: https://www.npmjs.com/package/azure-maps-control/v/3.5.0
 [3.4.0]: https://www.npmjs.com/package/azure-maps-control/v/3.4.0
 [3.3.0]: https://www.npmjs.com/package/azure-maps-control/v/3.3.0

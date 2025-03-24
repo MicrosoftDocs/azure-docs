@@ -100,7 +100,7 @@ IoT devices have different characteristics when compared to other clients such a
 
 The device SDKs help you address the challenges of connecting devices securely and reliably to your cloud services.
 
-To learn more device connectivity and gateways, see [Device infrastructure and connectivity](iot-overview-device-connectivity.md).
+To learn more about device connectivity and gateways, see [IoT asset and device connectivity and infrastructure](iot-overview-device-connectivity.md).
 
 ### Connectivity in an edge-based solution
 
@@ -213,7 +213,7 @@ The following table summarizes current security options:
 Suggested next steps to explore Azure IoT further include:
 
 - [IoT device development](iot-overview-device-development.md)
-- [Device infrastructure and connectivity](iot-overview-device-connectivity.md)
+- [IoT asset and device connectivity and infrastructure](iot-overview-device-connectivity.md)
 - [Azure IoT services and technologies](iot-services-and-technologies.md)
 
 To learn more about Azure IoT architecture, see:
