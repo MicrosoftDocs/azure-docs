@@ -11,7 +11,7 @@ ms.collection: sentinel-data-connector
 
 # Collect data from Cisco FTD firewall devices
 
-Microsoft Sentinel provides two connectors that collect logs from Cisco FTD firewall devices in Adaptive Security Appliance (ASA) and Common Event Format (CEF) formats. This article explains when to use each connector and provides links to installation instructions.
+Microsoft Sentinel provides two connectors that collect logs from Cisco Firepower Threat Defense (FTD) firewall devices in Adaptive Security Appliance (ASA) and Common Event Format (CEF) formats. This article explains when to use each connector and provides links to installation instructions.
 
 ## Collect logs from a Cisco FTD ASA firewall device
 
