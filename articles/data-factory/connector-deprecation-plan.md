@@ -7,7 +7,7 @@ ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 03/21/2025
+ms.date: 03/24/2025
 ---
 
 # Upgrade plan for Azure Data Factory connectors
@@ -61,7 +61,7 @@ This section describes the different release stages and support for each stage.
 
 ## V1 connectors with updated connectors or drivers available now
 
-The following V1 connectors or version 1.0 will be deprecated, but new updated versions are available in Azure Data Factory. You can update existing data sources to use the new connectors moving forward.
+The following V1 connectors or version 1.0 now have new updated versions available in Azure Data Factory. You can update existing data sources to use the new connectors moving forward.
 
 - [Azure Database for PostgreSQL](connector-azure-database-for-postgresql.md#upgrade-the-azure-database-for-postgresql-connector)
 - [Cassandra](connector-cassandra.md#upgrade-the-cassandra-connector)
@@ -77,6 +77,13 @@ The following V1 connectors or version 1.0 will be deprecated, but new updated v
 - [Vertica](connector-vertica.md#upgrade-the-vertica-version)
 
 ## Connectors that are at End of Support stage
+
+The following connectors have reached the End of Support stage, and new updated versions are now available in Azure Data Factory. You should upgrade to the latest versions of these connectors.
+
+- [Google BigQuery](connector-google-bigquery.md#upgrade-the-google-bigquery-linked-service)
+- [MariaDB](connector-mariadb.md#upgrade-the-mariadb-driver-version)
+- [MySQL](connector-mysql.md#upgrade-the-mysql-driver-version)
+- [PostgreSQL](connector-postgresql.md#upgrade-the-postgresql-linked-service)
 
 The following connectors are at End of Support stage. You should migrate to [alternative solutions for linked services](#options-to-replace-deprecated-connectors) that use these connectors.
 
