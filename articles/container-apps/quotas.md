@@ -23,7 +23,7 @@ You can [request a quota increase in the Azure portal](/azure/quotas/quickstart-
 | Environments | Global | 20 | Unlimited | Up to 20 environments per subscription, across all regions. Adjusted through Managed Environment Count quota (usually 20% more than Managed Environment Count) |
 | Container Apps | Environment | Unlimited | Unlimited | |
 | Revisions | Container app | Unlimited | Unlimited | |
-| Replicas | Revision | Unlimited | Unlimited | Maximum replicas configurable are 300 in Azure portal and 1000 in Azure CLI. There must also be enough cores quota available. |
+| Replicas | Revision | Unlimited | Unlimited | Maximum replicas configurable are 1000 in Azure portal and Azure CLI. There must also be enough cores quota available. |
 | Session pools | Global | Up to 6 | 10,000 | Maximum number of dynamic session pools per subscription. No official Azure quota yet, please raise support case. |
 
 
