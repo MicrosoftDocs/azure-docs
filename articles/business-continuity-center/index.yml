@@ -70,5 +70,5 @@ landingContent:
     linkLists:
       - linkListType: architecture
         links:
-          - text: Well-architecture design  recommendation for monitoring/ alerting
+          - text: Well-Architecture design  recommendation for monitoring/ alerting
             url: /azure/well-architected/reliability/monitoring-alerting-strategy#azure-facilitation
