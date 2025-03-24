@@ -3,8 +3,8 @@ title: "Migrate Databases from Amazon Web Services (AWS)"
 description: Concepts, how-tos, best practices for migrating databases from Amazon Web Services (AWS) to Microsoft Azure.
 author: markingmyname
 ms.author: maghan
-ms.reviewer: robbymillsap
-ms.date: 03/20/2025
+ms.reviewer: prwilk, chkittel
+ms.date: 03/24/2025
 ms.topic: concept-article
 ---
 
@@ -16,7 +16,7 @@ Migrating data is a critical part when moving from Amazon Web Services (AWS) to 
 
 Start the process by comparing the Amazon Web Services (AWS) database services used in the workload to their closest Azure counterparts. The goal is to identify the most suitable Azure services for your workload.
 
-[Migrate databases and data from Amazon Web Services (AWS) to Microsoft Azure](migrate-databases-from-aws.md)
+[Azure for AWS Data and AI professionals](/azure/architecture/aws-professional/data-ai)
 
 > [!NOTE]
 > This comparison shouldn't be considered an exact representation of these services' functionality in your workload.
@@ -37,13 +37,7 @@ Refer to these scenarios as examples for framing your migration process.
 
 Databases are only one of the components of your workload. Explore other components that are part of the migration process:
 
-- [Backup and disaster recovery](./migrate-backup-from-aws.md)
 - [Compute](./migrate-compute-from-aws.md)
-- [Identity and access management (IAM)](./migrate-iam-from-aws.md)
-- [Messaging and integration](./migrate-messaging-from-aws.md)
-- [Monitoring and management](./migrate-monitoring-from-aws.md)
-- [Networking](./migrate-networking-from-aws.md)
-- [Security](./migrate-security-from-aws.md)
 - [Storage](./migrate-storage-from-aws.md)
 
 Use the table of contents to explore other articles related to your workload's architecture.
