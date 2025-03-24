@@ -45,7 +45,7 @@ Once the web apps are assessed, you can migrate them using the integrated migrat
   - Currently, the migration flow doesn't support VNet integrated scenarios.
 
 To migrate the web apps, perform these steps:
-1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration tools** > **Migration and modernization**, select **Replicate**.
+1. In the Azure Migrate project > **Execute** > **Migration**, select **Replicate**.
 
     :::image type="content" source="./media/tutorial-modernize-asp-net-appservice-code/select-replicate.png" alt-text="Screenshot of the Replicate option selected.":::
 
