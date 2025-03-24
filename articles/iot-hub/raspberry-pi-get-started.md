@@ -70,7 +70,7 @@ The following sections walk through setting up a Raspberry Pi solution, includin
 * A Raspberry Pi device
 
   >[!NOTE]
-  >The steps in this article were tested on Raspberry Pi 2 and Raspberry Pi 3 boards.
+  >The steps in this article are tested on Raspberry Pi 2 and Raspberry Pi 3 boards.
 
 * A monitor, a USB keyboard, and mouse that connects to Pi.
 
