@@ -4,7 +4,7 @@ description: Learn how to configure common settings for an Azure App Service app
 keywords: azure app service, web app, app settings, environment variables
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: how-to
-ms.date: 03/19/2025
+ms.date: 03/24/2025
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, AppServiceConnectivity
 ms.devlang: azurecli
 author: cephalin
