@@ -92,9 +92,6 @@ Now you can create a function:
    - For **Authorization level**, select **Function**.
 5. Select **Create**.
 6. Go to the function that you created and select **Code + Test**.
-
-   :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/code-test.png" alt-text="Screenshot of the Code + Test page for a function.":::
-
 7. Update the [script](#add-powershell-to-the-function) and select **Save**.
 
 ### Configure authentication

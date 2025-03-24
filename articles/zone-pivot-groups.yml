@@ -223,6 +223,14 @@ groups:
     title: Consumption plan
   - id: azure-arc
     title: Azure Arc
+- id: dts-runtime
+  title: Application languages for Durable Task Scheduler
+  prompt: Choose an option
+  pivots:
+  - id: csharp
+    title: .NET (isolated)
+  - id: other
+    title: non-.NET
 ### end azure-functions
 #Owner: jiayma
 - id: bring-third-party-dependency-programming-functions
@@ -867,7 +875,7 @@ groups:
   - id: programming-language-kotlin
     title: Kotlin (Android)
 - id: iot-develop-set1
-# Owner: timlt
+# Owner: dobett
   title: Programming languages
   prompt: Choose a programming language
   pivots:
@@ -1702,7 +1710,7 @@ groups:
     title: JavaScript
   - id: programming-language-csharp
     title: C#
-# Owner: kgremban
+# Owner: sonialopez
 - id: iot-hub-howto-c2d-1
   title: Programming languages
   prompt: Choose a programming language
@@ -1715,7 +1723,7 @@ groups:
     title: Python
   - id: programming-language-node
     title: Node
-# Owner: kgremban
+# Owner: sonialopez
 - id: iot-hub-howto-c2d-2
   title: Programming languages
   prompt: Choose a programming language
@@ -1874,6 +1882,15 @@ groups:
     title: Azure portal
   - id: platform-nocode
     title: Power Platform
+#owner: jiayma
+- id: dts-devexp
+  title: DTS development experience
+  prompt: Choose an option
+  pivots:
+  - id: az-cli
+    title: Azure CLI
+  - id: az-portal
+    title: Azure portal
 # Owner: Deepika0530
 - id: acs-ps-azclips-azclipython
   title: Programming languages

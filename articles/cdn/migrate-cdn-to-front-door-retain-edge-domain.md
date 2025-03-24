@@ -8,6 +8,7 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 12/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Migrate to Azure Front Door while retaining *.azureedge.net domain
