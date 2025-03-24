@@ -39,7 +39,7 @@ Below the essentials, you can navigate to other details about your resource by s
 To create a storage pool
 
 1. Select **Settings > Storage Pool** from the service menu.
-1. Select **Create a new storage pool** from the 
+1. Select **Create a new storage pool** from the working pane's command bar. 
 
     The *Create a Storage Pool* window appears.
     There are required fields that you need to fill out.
