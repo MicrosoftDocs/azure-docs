@@ -1,8 +1,8 @@
 ---
 title: Consume Azure Service Groups
 description: Consume Azure Service Groups
-author: davidsmatlak
-ms.author: davidsmatlak
+author: kenieva
+ms.author: kenieva
 ms.service: azure-policy
 ms.topic: how-to
 ms.date: 02/25/2025
