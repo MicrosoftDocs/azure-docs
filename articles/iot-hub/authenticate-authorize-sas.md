@@ -27,7 +27,7 @@ IoT Hub uses *permissions* to grant access to each IoT hub endpoint. Permissions
 
 ## Authentication and authorization
 
-*Authentication* is the process of proving that you're who you say you are. Authentication verifies the identity of a user or device to IoT Hub. Authentication is sometimes shortened to *AuthN*. *Authorization* is the process of confirming permissions for an authenticated user or device on IoT Hub. It specifies what resources and commands you're allowed to access, and what you can do with those resources and commands. Authorization is sometimes shortened to *AuthZ*.
+*Authentication* is the process of proving that you're who you say you are. Authentication verifies the identity of a user or device to IoT Hub. Authentication is sometimes shortened to *AuthN*. *Authorization* is the process of confirming permissions for an authenticated user or device on IoT Hub. Authorization specifies what resources and commands you're allowed to access, and what you can do with those resources and commands. Authorization is sometimes shortened to *AuthZ*.
 
 This article describes authentication and authorization using **Shared access signatures**, which lets you group permissions and grant them to applications using access keys and signed security tokens. You can also use symmetric keys or shared access keys to authenticate a device with IoT Hub. SAS tokens provide authentication for each call made by the device to IoT Hub by associating the symmetric key to each call.
 
@@ -200,7 +200,7 @@ Here are the main steps of the token service pattern:
 
 The token service can set the token expiration as desired. When the token expires, the IoT hub severs the device/module connection. Then, the device/module must request a new token from the token service. A short expiry time increases the load on both the device/module and the token service.
 
-For a device/module to connect to your hub, you must still add it to the IoT Hub identity registry—even though it's using a token and not a key to connect. Therefore, you can continue to use per-device/per-module access control by enabling or disabling device/module identities in the identity registry. This approach mitigates the risks of using tokens with long expiry times.
+For a device/module to connect to your hub, you must still add it to the IoT Hub identity registry, even though it's using a token and not a key to connect. Therefore, you can continue to use per-device/per-module access control by enabling or disabling device/module identities in the identity registry. This approach mitigates the risks of using tokens with long expiry times.
 
 ### Comparison with a custom gateway
 
