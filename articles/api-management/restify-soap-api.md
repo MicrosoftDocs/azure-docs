@@ -43,7 +43,7 @@ In this article, you learn how to:
 1. In **Import method**, select **SOAP to REST**. 
     When this option is selected, API Management attempts to make an automatic transformation between XML and JSON. In this case, consumers should call the API as a RESTful API, which returns JSON. API Management converts each request to a SOAP call.
 
-    :::image type="content" source="./media/restify-soap-api/soap-to-rest.png" alt-text="Screenshot that shows the SOAP to REST option. lightbox="./media/restify-soap-api/soap-to-rest.png":::
+    :::image type="content" source="./media/restify-soap-api/soap-to-rest.png" alt-text="Screenshot that shows the SOAP to REST option." lightbox="./media/restify-soap-api/soap-to-rest.png":::
 
 1. The following fields are filled automatically with information from the SOAP API: **Display name**, **Name**, **Description**. Operations are filled automatically with **Display name**, **URL**, and **Description** and receive a system-generated **Name**.
 1. Enter other API settings. You can set the values when you create the API or configure them later by going to the **Settings** tab. 
