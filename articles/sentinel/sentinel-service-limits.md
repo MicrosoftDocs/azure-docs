@@ -141,7 +141,7 @@ The following limits apply to watchlists in Microsoft Sentinel. The limits are r
 
 |Description                   | Limit        |Dependency|
 |--|-------------------------|--------------------|
-|Upload size limit for local file| 3.8 MB per file |Azure Resource Manager
+|Upload size limit for local file</br>files over this limit are considered `large`| 3.8 MB per file |Azure Resource Manager
 |Line entry in the CSV file |10,240 characters per line|Azure Resource Manager|
 |Total size of a single row | 10 Kb | Log Analytics|
 |Upload size for large watchlist files in Azure Storage |500 MB per file|Azure Storage|
