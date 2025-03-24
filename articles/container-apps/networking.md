@@ -286,9 +286,6 @@ Azure networking policies are supported with the public network access flag.
 
 ### <a name="private-endpoint"></a>Private endpoint (preview)
 
-> [!NOTE]
-> This feature is supported for all public regions. Government and China regions aren't supported.
-
 Azure private endpoint enables clients located in your private network to securely connect to your Azure Container Apps environment through Azure Private Link. A private link connection eliminates exposure to the public internet. Private endpoints use a private IP address in your Azure virtual network address space. 
 
 This feature is supported for both Consumption and Dedicated plans in workload profile environments.
