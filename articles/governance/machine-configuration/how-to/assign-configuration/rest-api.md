@@ -60,19 +60,21 @@ following properties.
 - `Guest Configuration Parameters` - A JSON Object of additional parameters specific to Guest
   Configuration.
 
-### Guest Configuration parameters
-These parameters represent most of a Machine Configuration Assignment and are defined as follows.
+These parameters represent most of a Machine Configuration Assignment and are defined in the
+following list:
 
-```yaml
-Name: Name of the Built-In Machine Configuration Package
-Version: Version of the Package to use. (You can use `"1.*"` to always deploy the newest version of a package)
-ContentUri: Required when assigning a custom Package, contains the URI of an accessible location containing the package content
-ContentHash: Required when assigning a custom Package
-ContentType: BuiltIn or Custom, automatically set by the service
-AssignmentType: Assigns one of the AssignmentTypes defined below
-ConfigurationParameters: Contains an array of parameters to pass in to the assignment.  These differ per package
-ConfigurationSettings: Contains other configuration options for the assignment.
-```
+- `Name` - The name of the Built-In Machine Configuration Package
+- `Version` - The version of the package to use. You can use `"1.*"` to always deploy the newest
+  version of a package.
+- `ContentUri` - Required when assigning a custom package, this property defines the URI of an
+  accessible location containing the package content.
+- `ContentHash` - Required when assigning a custom package.
+- `ContentType` - `BuiltIn` or `Custom`. The service sets this value automatically.
+- `AssignmentType` - Assigns one of the [Assignment Types](#assignment-type).
+- `ConfigurationParameters` - An array of parameters to pass in to the assignment. These differ per
+  package.
+- `ConfigurationSettings` - Defines other configuration options for the assignment. For more
+  information, see [Configuration Setting](#configuration-setting)
 
 ### Assignment Type
 Instructions to the Guest Configuration agent as to how it should process the assignment.
