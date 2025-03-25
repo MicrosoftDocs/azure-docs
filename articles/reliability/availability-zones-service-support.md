@@ -38,8 +38,8 @@ Some Azure services are *nonregional*, which means that you don't deploy the ser
 
 
 | **Product**   | **Zone-redundant**  | **Zonal** | 
-| --- | --- | --|
-| [Azure AI Search](/azure/search/search-reliability#availability-zones) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false":::| |
+| --- | --- |---|
+| [Azure AI Search](/azure/search/search-reliability#availability-zones) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false":::||
 | [Azure App Configuration](../azure-app-configuration/faq.yml#how-does-app-configuration-ensure-high-data-availability) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: ||
 | [Azure App Service](./reliability-app-service.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: ||
 | [Azure App Service: App Service Environment](./reliability-app-service.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: |
@@ -95,7 +95,7 @@ Some Azure services are *nonregional*, which means that you don't deploy the ser
 | [Azure Storage: Files Storage](migrate-storage.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: ||
 | [Azure Storage: Managed Disks](/azure/virtual-machines/disks-redundancy) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: |:::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: |
 | Azure Storage: Ultra Disk | | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false":::|
-| [Azure Stream Analytics](../stream-analytics/overview.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: ||
+| [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: ||
 | [Azure Virtual Machine Scale Sets](./reliability-virtual-machine-scale-sets.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false":::|
 | [Azure Virtual Machines*](./reliability-virtual-machines.md#availability-zone-support) | | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false":::|
 | [Azure Virtual Network](../virtual-network/virtual-networks-overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#virtual-networks-and-availability-zones) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: ||
