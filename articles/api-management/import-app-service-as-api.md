@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.date: 03/28/2025
 ms.author: danlep
 
-#customer intent: As an API developer, I want to import a web app to API Management so that I can take advantage of the benefits of using this environment.
+#customer intent: As an API developer, I want to import a web app as an API to API Management so that I can take advantage of the benefits of using this environment.
 ---
 # Import an Azure web app as an API
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-This article shows how to use the Azure portal to import an Azure web app to Azure API Management and test the imported API.
+This article shows how to use the Azure portal to import an Azure web app as an API to Azure API Management and test the imported API.
 
 [!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
