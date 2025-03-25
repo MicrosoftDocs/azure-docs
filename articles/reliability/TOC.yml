@@ -22,6 +22,8 @@
     href: regions-paired.md
   - name: Multi-region solutions in nonpaired regions
     href: regions-multi-region-nonpaired.md
+  - name: Nonregional Azure services
+    href: regions-nonregional-services.md
   - name: Azure regions list 
     href: regions-list.md
 - name: Azure availability zones
