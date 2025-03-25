@@ -6,8 +6,7 @@ metadata:
   title: Migrate Amazon Web Services (AWS) to Azure
   description: Learn about resources that can help you transition your workload components from Amazon Web Services (AWS) to Azure.
   ms.topic: landing-page
-  ms.service: migration
-  ms.subservice: platform
+  ms.service: azure-migrate
   author: markingmyname
   ms.author: maghan
   ms.reviewr: robbymillsap, chkittel, prwilk
@@ -67,6 +66,12 @@ landingContent:
             url:  /azure/azure-functions/migration/lambda-functions-migration-overview
           - text: AKS for Amazon EKS professionals
             url:  /azure/architecture/aws-professional/eks-to-aks/
+          - text: Copy data from Amazon S3 to Azure Storage (AzCopy)
+            url: /azure/storage/common/storage-use-azcopy-s3
+          - text: Copy data from Amazon S3 to Azure Storage (Azure Data Factory)
+            url: /azure/data-factory/data-migration-guidance-s3-azure-storage
+          - text: Connect AWS and Azure using a BGP-enabled VPN gateway
+            url: /azure/vpn-gateway/vpn-gateway-howto-aws-bgp
 
   - title: Migration training modules
     linkLists:
