@@ -18,7 +18,7 @@ You can select **Quota** under Settings of Azure NetApp Files to display the cur
 
 For example: 
 
-![Screenshot that shows how to display quota information.](./media/regional-capacity-quota/quota-display.png) 
+:::image type="content" source="./media/azure-netapp-files-metrics/subscription-quota.png" alt-text="Screenshot of subscription quota metrics." lightbox="./media/azure-netapp-files-metrics/subscription-quota.png":::
 
 ## Request regional capacity quota increase
 
