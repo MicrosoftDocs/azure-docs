@@ -46,7 +46,8 @@ This request requires Authentication, in the format of an Authorization header. 
 Authorization Bearer <yourTokenHere>
 ```
 
-A request is composed of the following properties, which together make up a Machine Configuration Assignment.
+A request is composed of the following properties, which together make up a Machine Configuration
+Assignment.
 
 
 ### Azure Resource Properties
