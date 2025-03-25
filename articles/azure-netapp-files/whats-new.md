@@ -17,7 +17,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * The [migrate on-premises volumes](migrate-volumes.md) feature is now generally available (GA)
 
     <!-- What's new pending -->
-
+    If you're migration workloads from on-premises ONTAP-based storage systems, you can now use the migraiton assistant to migrate complete volumes into Azure NetApp Files. Migration assistant utilizes highly efficient block-level data transfers based on SnapMirror technology to allow for fast migrations and flexible cut-over planning to Azure. Migration assistant requires connectivity from the on-premises storage system to Azure NetApp Files via secure and adequate Express Route or VPN connectivity.
  
 ## March 2025
 
