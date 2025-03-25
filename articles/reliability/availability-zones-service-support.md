@@ -16,24 +16,15 @@ Azure [availability zones](./availability-zones-overview.md) are physically sepa
 
 Azure is continually expanding the number of services that support availability zones, including zonal and zone-redundant offerings.
 
-## Always-available services
-
-Some Azure services don't support availability zones because they are:
-
-- Available across multiple Azure regions within a geographic area, or even across all Azure regions globally.
-- Resilient to zone-wide outages.
-- Resilient to region-wide outages.
-For more information on older-generation virtual machines, see [Previous generations of virtual machine sizes](/azure/virtual-machines/sizes-previous-gen).
-
 ## Azure services with availability zone support
 
-The following tables provide a summary of the current offering of zonal and zone-redundant Azure services.
+The following tables provide a summary of the current offering of zonal and zone-redundant Azure services. To learn more about zonal and zone-redudant services and how they work, see [Types of availability zone support](./availability-zones-overview.md#types-of-availability-zone-support).
 
 Some Azure services are *nonregional*, which means that you don't deploy the service into a specific Azure region or configure availability zone support. To learn more, see [Nonregional Azure services](./regions-nonregional-services.md).
 
 ##### Legend
 
-![Legend containing icons and meaning of each with respect to regional availability of each service in the table.](media/legend.png) <!-- TODO redo as table, and remove always available -->
+![Legend containing icons and meaning of each with respect to availability one support of each service in the table.](media/legend.png)
 
 > [!IMPORTANT]
 > Even though some services might support availability zones, they might have specific requirements to use them on your resources. For example, some may only support availability zones for certain tiers or regions. To get more information on a service's requirements for availability zone support, select that service in the following table.
@@ -97,8 +88,6 @@ Some Azure services are *nonregional*, which means that you don't deploy the ser
 | [Azure VMware Solution](../azure-vmware/architecture-private-clouds.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
 | [SQL Server on Azure Virtual Machines](/azure/azure-sql/database/high-availability-sla) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 
-\*VMs that support availability zones: AV2-series, B-series, DSv2-series, DSv3-series, Dv2-series, Dv3-series, ESv3-series, Ev3-series, F-series, FS-series, FSv2-series, and M-series.\*
-
 ### Containers
 
 | **Product**   | **Availability zone support**    |
@@ -130,7 +119,7 @@ Some Azure services are *nonregional*, which means that you don't deploy the ser
 
 | **Product**   | **Availability zone support**    |
 | --- | --- |
-|[Azure API Center](../api-center/overview.md)| ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
+| [Azure API Center](../api-center/overview.md)| ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure App Configuration](../azure-app-configuration/faq.yml#how-does-app-configuration-ensure-high-data-availability) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Monitor](/azure/azure-monitor/logs/availability-zones)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Monitor: Application Insights](/azure/azure-monitor/logs/availability-zones)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
