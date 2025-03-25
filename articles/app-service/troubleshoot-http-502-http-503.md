@@ -84,7 +84,7 @@ Kudu provides:
 If your application is throwing first-chance exceptions, you can use Kudu and the Sysinternals tool ProcDump to create memory dumps. These memory dumps are snapshots of the process and can often help you troubleshoot more complicated problems with your app.
 
 For more information on features available in Kudu, see the blog post
-[Azure Websites online tools you should know about](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
+[Kudu Dashboard explained - WordPress on App Service](https://techcommunity.microsoft.com/blog/appsonazureblog/kudu-dashboard-explained---wordpress-on-app-service/4030035).
 
 <a name="mitigate"></a>
 
