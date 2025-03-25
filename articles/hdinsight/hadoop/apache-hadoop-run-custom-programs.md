@@ -4,6 +4,9 @@ description: When and how to run custom Apache MapReduce programs on Azure HDIns
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 02/03/2025
 ---
 

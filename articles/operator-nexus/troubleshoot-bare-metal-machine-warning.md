@@ -126,7 +126,7 @@ This message in the BMM _Detailed status message_ field indicates that either:
 - the underlying host is powered off when it should be on, or
 - the underlying host is powered on when it should be off.
 
-This condition can happen temporarily during a normal Restart, Reimage, or similar BMM lifecycle event. However, a persistent 'unexpected power state' message can indicate an issue with the underlying compute host or baseboard management controller (BMC).
+This message can indicate an issue with the underlying compute host or baseboard management controller (BMC).
 
 To troubleshoot this issue:
 
@@ -138,6 +138,9 @@ To troubleshoot this issue:
 - review the power state and logs on the BMC for the affected host.
 
 For more information about logging into the BMC, see [Troubleshoot Hardware Validation Failure](./troubleshoot-hardware-validation-failure.md).
+
+> [!WARNING]
+> In versions 2502.1 and 2502.3, there's a known issue where `BMM power state doesn't match expected state` is incorrectly reported during deprovisioning and provisioning, for example when running the BMM Reimage or Replace actions. This issue is fixed in version 2504.1.
 
 **Example `conditions` output for unexpected power state**
 

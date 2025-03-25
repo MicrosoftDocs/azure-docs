@@ -1,5 +1,5 @@
 ---
-title: Authentication and Authorization in Azure App Service and Azure Functions
+title: Authentication and Authorization
 description: Learn about the built-in authentication and authorization support in Azure App Service and Azure Functions, and how it can help secure your app against unauthorized access.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: conceptual
