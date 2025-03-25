@@ -1,6 +1,6 @@
 ---
 title: "Optimizing Performance for Azure HPC and AI Virtual Machines"
-description: Learn about understanding and measuring the performance concepts and benchmarking methodologies.
+description: Learn about enhancing the performance of HPC and AI workloads on Azure VM using Azure offered suite of tools and techniques.
 author: padmalathas
 ms.author: padmalathas
 ms.date: 03/25/2025
