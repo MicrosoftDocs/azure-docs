@@ -91,6 +91,8 @@
         href: devtest-lab-enable-licensed-images.md
       - name: Configure a shared image gallery
         href: configure-shared-image-gallery.md
+      - name: Standard Load Balancer and Standard SKU Public IP addresses
+        href: devtest-lab-standard-load-balancer.md
     - name: Configure tags
       href: devtest-lab-add-tag.md
     - name: Configure access control
