@@ -65,9 +65,9 @@ To customize or replace the ruleset:
 
 1. In Visual Studio Code, select the Azure API Center icon from the Activity Bar.
 1. Open the `.api-center-rules` folder at the root of your working folder.
-1. In the folder for your API center resource, open the `ruleset.yml` file.
+1. In the folder for your API center resource, open the `ruleset.yaml` file.
 1. Modify or replace the content as needed. 
-1. Save your changes to `ruleset.yml`.
+1. Save your changes to `ruleset.yaml`.
 
 ### Test ruleset locally
 
@@ -75,7 +75,7 @@ Before deploying the custom ruleset to your API center, validate it locally. The
 
 1. In Visual Studio Code, use the **Ctrl+Shift+P** keyboard shortcut to open the Command Palette. 
 1. Type **Azure API Center: Set active API Style Guide** and hit **Enter**.
-1. Choose **Select Local File** and specify the `ruleset.yml` file that you customized. Hit **Enter**. 
+1. Choose **Select Local File** and specify the `ruleset.yaml` file that you customized. Hit **Enter**. 
 
     This step makes the custom ruleset the active API style guide for linting.
 
@@ -99,6 +99,25 @@ To deploy the custom ruleset to your API center:
 A message notifies you after the rules are successfully deployed to your API center. The linting engine uses the updated ruleset to analyze API definitions.
 
 To see the results of linting with the updated ruleset, view the API analysis reports in the portal. 
+
+## Analysis profiles
+
+You can create multiple analysis profiles to use different rulesets with different APIs. For example, you might want to use one profile for APIs that are in development and a different one for APIs that are in production. The profiles 
+
+To create an analysis profile:
+
+1. In the Azure portal, navigate to your API center.
+1. In the left-hand menu, under **Governance**, select **API Analysis**.
+1. In the API analysis summary, select **Manage analysis profiles** > **+ Create analysis profile**.
+1. In the **Create new analysis profile** pane, enter a **Name** and **Description** for the profile.
+1. In **Ruleset**, select the analyzer type (linting engine) for the ruleset. Currently only Spectral is supported.
+1. Under **Define filter conditions**, add one or more filter conditions for the profile.
+1. Select **Create**.
+
+To modify the ruleset:
+
+1. In the Azure portal, navigate to your API center.
+
 
 ## Related content
 
