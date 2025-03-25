@@ -147,7 +147,7 @@ Currently, during public preview, you must manually create the **Asset** and **A
 
 ### Access the PTZ capabilities of the camera
 
-To manually create an asset that represents the PTZ capabilities of the camera discovered previously:
+Use the PTZ capabilities of an ONVIF compliant camera to control its position and orientation.To manually create an asset that represents the PTZ capabilities of the camera discovered previously:
 
 # [Bash](#tab/bash)
 
@@ -201,13 +201,72 @@ The following snippet shows the bicep file that you used to create the asset. Th
 
 :::code language="bicep" source="~/azure-iot-operations-samples/samples/onvif-connector-bicep/asset-ptz.bicep":::
 
+### Access the media capabilities of the camera
+
+To use the PTZ capabilities of an ONVIF-complian camera, you need a profile token from the camera's media service. To manually create an asset that represents the media capabilities of the camera discovered previously:
+
+# [Bash](#tab/bash)
+
+1. Set the following environment variables:
+
+    ```bash
+    SUBSCRIPTION_ID="<YOUR SUBSCRIPTION ID>"
+    RESOURCE_GROUP="<YOUR AZURE IOT OPERATIONS RESOURCE GROUP>"
+    AEP_NAME="contoso-onvif-aep"
+    ```
+
+1. Run the following script:
+
+    ```bash
+    # Download the Bicep file
+    wget https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/onvif-connector-bicep/asset-onvif-media.bicep -O asset-onvif-media.bicep
+    
+    # Find the name of your custom location
+    CUSTOM_LOCATION_NAME=$(az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
+    
+    # Use the Bicep file to deploy the asset
+    az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-onvif-media.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
+    ```
+
+# [PowerShell](#tab/powershell)
+
+1. Set the following environment variables:
+
+    ```powershell
+    $SUBSCRIPTION_ID="<YOUR SUBSCRIPTION ID>"
+    $RESOURCE_GROUP="<YOUR AZURE IOT OPERATIONS RESOURCE GROUP>"
+    $AEP_NAME="contoso-onvif-aep"
+    ```
+
+1. Run the following script:
+
+    ```powershell
+    # Download the Bicep file
+    Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/onvif-connector-bicep/asset-onvif-media.bicep -OutFile asset-onvif-media.bicep
+
+    # Find the name of your custom location
+    $CUSTOM_LOCATION_NAME = (az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
+
+    # Use the Bicep file to deploy the asset
+    az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-onvif-media.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
+    ```
+
+---
+
+The following snippet shows the bicep file that you used to create the asset. The `-media` suffix to the asset name is a required convention to indicate that the asset represents the media capabilities of the camera:
+
+:::code language="bicep" source="~/azure-iot-operations-samples/samples/onvif-connector-bicep/asset-onvif-media.bicep":::
+
 ## Manage and control the camera
 
 To interact with the ONVIF camera, you can publish MQTT messages that the connector for ONVIF subscribes to. The message format is based on the [ONVIF network interface specifications](https://www.onvif.org/profiles/specifications/).
 
-The [Azure IoT Operations connector for ONVIF PTZ Demo](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/aio-onvif-connector-ptz-demo) sample application shows how to use the connector for ONVIF to interact with the PTZ capabilities of an ONVIF camera.
+The [Azure IoT Operations connector for ONVIF PTZ Demo](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/aio-onvif-connector-ptz-demo) sample application shows how to use the connector for ONVIF to:
 
-The sample application uses the Azure IoT Operations MQTT broker to send commands to the connector for ONVIF. To learn more, see [Publish and subscribe MQTT messages using MQTT broker](../manage-mqtt-broker/overview-broker.md).
+- Use the media asset definition to retrieve a profile token from the camera's media service.
+- Use the profile token when you use the camera's PTZ capabilities control its position and orientation.
+
+The sample application uses the Azure IoT Operations MQTT broker to send commands to interact with the connector for ONVIF. To learn more, see [Publish and subscribe MQTT messages using MQTT broker](../manage-mqtt-broker/overview-broker.md).
 
 ### Access the camera's video streams
 

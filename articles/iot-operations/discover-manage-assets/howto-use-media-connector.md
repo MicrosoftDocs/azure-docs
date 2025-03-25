@@ -38,10 +38,13 @@ A camera connected to your network and accessible from your Azure IoT Operations
 
 ## Deploy the media server
 
-If you're using the media connector to stream live video, you need to install your own media server. To deploy a sample media server to use with the media connector, run the following command:
+If you're using the media connector to stream live video, you need to install your own media server. To deploy a sample media server to use with the media connector, run the following commands:
 
 ```console
-kubectl create namespace media-server --dry-run=client -o yaml | kubectl apply -f - & kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/refs/heads/main/samples/media-connector-invoke-test/media-server/media-server-deployment.yaml --validate=false & kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/refs/heads/main/samples/media-connector-invoke-test/media-server/media-server-service.yaml --validate=false & kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/refs/heads/main/samples/media-connector-invoke-test/media-server/media-server-service-public.yaml --validate=false
+kubectl create namespace media-server
+kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/refs/heads/main/samples/media-connector-invoke-test/media-server/media-server-deployment.yaml 
+kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/refs/heads/main/samples/media-connector-invoke-test/media-server/media-server-service.yaml
+kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/refs/heads/main/samples/media-connector-invoke-test/media-server/media-server-service-public.yaml
 ```
 
 > [!IMPORTANT]
@@ -273,7 +276,7 @@ To verify that snapshots are publishing to the MQTT broker, use the **mosquitto_
 When you finish testing the asset, you can delete it by running the following command:
 
 ```console
-az iot ops asset delete -n asset-clip-to-mqtt -g $RESOURCE_GROUP
+az iot ops asset delete -n asset-snapshot-to-mqtt -g $RESOURCE_GROUP
 ```
 
 ## Snapshot to file system
@@ -341,7 +344,7 @@ kubectl get pods -n azure-iot-operations
 To view the files, run the `ls` command in the pod. Use the full name of the pod in the following command:
 
 ```console
-kubectl exec aio-opc-media-1-... -n azure-iot-operations -- ls /tmp/azure-iot-operations/data/asset-snapshot-to-fs/snapshot/
+kubectl exec aio-opc-media-1-... -n azure-iot-operations -- ls /tmp/azure-iot-operations/data/asset-snapshot-to-fs/snapshots/
 ```
 
 When you finish testing the asset, you can delete it by running the following command:
@@ -415,7 +418,7 @@ kubectl get pods -n azure-iot-operations
 To view the files, run the `ls` command in the pod. Use the full name of the pod in the following command:
 
 ```console
-kubectl exec aio-opc-media-1-... -n azure-iot-operations -- ls /tmp/azure-iot-operations/data/asset-clip-to-fs/clip/
+kubectl exec aio-opc-media-1-... -n azure-iot-operations -- ls /tmp/azure-iot-operations/data/asset-clip-to-fs/clips/
 ```
 
 When you finish testing the asset, you can delete it by running the following command:
