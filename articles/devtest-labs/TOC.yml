@@ -91,8 +91,6 @@
         href: devtest-lab-enable-licensed-images.md
       - name: Configure a shared image gallery
         href: configure-shared-image-gallery.md
-      - name: Standard Load Balancer and Standard SKU Public IP addresses
-        href: devtest-lab-standard-load-balancer.md
     - name: Configure tags
       href: devtest-lab-add-tag.md
     - name: Configure access control
@@ -109,6 +107,8 @@
         href: devtest-lab-configure-vnet.md
       - name: Select IP configuration option
         href: devtest-lab-shared-ip.md
+      - name: Standard Load Balancer and Standard SKU Public IP addresses
+        href: devtest-lab-standard-load-balancer.md
     - name: Delete a lab or VM in a lab
       href: devtest-lab-delete-lab-vm.md
     - name: Export or delete personal data
