@@ -133,7 +133,7 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
 
 ## <a name="subscription-quota-metrics"></a> Subscription quota metrics (preview)
 
-Subscription quota metrics display two colums: your subscription's usage and the available limit.
+Subscription quota metrics display subscription-level quotas and existing limits. The metrics are displayed in two columns: the available limit and your subscription's consumption. 
 
 Subscription quota metrics are currently in preview. Before you can access subscription-level quota metrics, you need to register the feature: 
 
@@ -154,21 +154,27 @@ Subscription quota metrics are currently in preview. Before you can access subsc
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 - *Accounts per subscription*
+
     Number of NetApp accounts per region 
 
 - *Total backup enabled volumes per subscription*
+
     Maximum number of volumes that can be backed up per subscription 
 
 - *Total cool access volumes per subscription* 
+
     Total number of cool access volumes per subscription 
 
 - *Total DP volumes per subscription* 
+
     Total number of data protection volumes per subscription  
 
 - *Total TIBs per subscription* 
+
     Total regional capacity per subscription 
 
 - *Total volumes per subscription* 
+
     Total number of volumes per subscription  
     
 ## <a name="capacity_pools"></a>Usage metrics for capacity pools
