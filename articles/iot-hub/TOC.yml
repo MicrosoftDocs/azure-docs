@@ -157,7 +157,7 @@
       - name: Understanding IoT hub IP address
         displayName: service tags, firewall rules, IP filter
         href: iot-hub-understand-ip-address.md
-    - name: Scaling and availability
+    - name: Reliability and scaling
       items:
       - name: Best practices for large-scale IoT device deployments
         displayName: device provisioning, staggered provisioning schedule, reprovisioning devices, monitoring devices
@@ -165,6 +165,8 @@
       - name: High availability and disaster recovery
         displayName: HA, DR, availability zone, failover, failback
         href: iot-hub-ha-dr.md
+      - name: Reliability
+        href: ../reliability/reliability-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Authentication and authorization
       items:
       - name: Microsoft Entra ID
