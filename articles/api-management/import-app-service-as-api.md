@@ -75,8 +75,6 @@ The wildcard operation allows the same requests to the backend service as the op
     * [Tutorial: Create a web API with ASP.NET Core](/aspnet/core/tutorials/first-web-api).
     * [Publish an ASP.NET Core app to Azure with Visual Studio Code](/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode).
 
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
-
 ## <a name="create-api"> </a>Import and publish a backend API
 
 > [!TIP]
@@ -88,11 +86,11 @@ The wildcard operation allows the same requests to the backend service as the op
     :::image type="content" source="media/import-app-service-as-api/app-service.png" alt-text="Screeenshot that shows the App Service tile.":::
 
 1. Select **Browse** to see the list of app services in your subscription.
-1. Select an app service. If an OpenAPI definition is associated with the selected web app, API Management fetches it and imports it. 
+1. Select an app service and then click the **Seclect** button. If an OpenAPI definition is associated with the selected web app, API Management fetches it and imports it. 
 
     If an OpenAPI definition isn't found, API Management exposes the API by generating wildcard operations for common HTTP verbs. 
-1. Add an API URL suffix. The suffix is a name that identifies the API in the API Management instance. It has to be unique in the API Management instance.
-1. Publish the API by associating the API with a product. In this case, the **Unlimited** product is used. If you want the API to be published and be available to developers, you need to add it to a product. You can add it when you create the API or at a later time.
+1. Add an **API URL suffix**. The suffix is a name that identifies the API in the API Management instance. It has to be unique in the API Management instance.
+1. Publish the API by associating the API with a product. To associate the API with a product, you must first select **Full**. In this case, the **Unlimited** product is used. If you want the API to be published and be available to developers, you need to add it to a product. You can add it when you create the API or at a later time.
 
     > [!NOTE]
     > *Products* are associations of one or more APIs. You can include many APIs and offer them to developers via the Developer Portal. Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that's good for any API in the product. If you created the API Management instance, you're an administrator, so you're subscribed to every product by default.
@@ -127,8 +125,8 @@ When wildcard operations are generated, the operations might not map directly to
 
 To test the path `/api/TodoItems`:
 
-1. Select the API that you created, and then select the operation.
-1. On the **Test** tab, in **Template parameters**, update the value next to the wildcard (*) name. For example, enter `api/TodoItems`. This value gets appended to the path `/` for the wildcard operation.
+1. Select the API that you created, and then select an operation.
+1. On the **Test** tab, under **Template parameters**, update the value next to the wildcard (*) name. For example, enter `api/TodoItems`. This value gets appended to the path `/` for the wildcard operation.
 
     :::image type="content" source="media/import-app-service-as-api/test-wildcard-operation.png" alt-text="Screenshot that shows the steps for testing an operation." lightbox="media/import-app-service-as-api/test-wildcard-operation.png":::
 
