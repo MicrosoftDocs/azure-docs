@@ -3,48 +3,64 @@ title: Migrate workloads to Azure
 description: Before you migrate workloads, start with a strong foundation in Azure.
 author: robbyatmicrosoft
 ms.author: robbymillsap
-ms.date: 01/28/2025  
+ms.date: 03/24/2025  
 ms.topic: conceptual
 ---
 
 # Migrate workloads to Azure from other clouds
 
-Migrating a workload from another cloud to Azure typically follows these steps:
 
-1. Assess your current workload in its current environment
-1. Design a similar solution in Azure
-1. Prepar the current workload and Azure for migration
-1. Perform the migration
-1. Evaluate success
+This collection has been curated to help workload teams plan and execute the migration of their workloads from cloud platforms like Amazon Web Services (AWS) and Google Cloud to Microsoft Azure, with the goal of shutting down the source system after migration. It doesn't cover on-premises to Azure migrations, data center migrations, or region relocations. Additionally, it doesn't address running workloads on multiple clouds or its coexistance on both platforms simultaneously.
 
-These general steps are applicable for custom applications as well as for commercial off the shelf (COTS) solutions that you wish to migrate. Once the workload is on Azure, you can then further optimize your workload with services and features that will benefit your workload and its users.
+Migration to Azure typically involves replatforming the workload, which includes transitioning both the infrastructure and management layer. Finding the best match for your source on Azure is an important step in the migration process. Keep in mind that not all components will map one-to-one. You'll need to redesign the architecture to maintain functionality to accomplish your business objectives. This collection offers insights into such cloud-to-cloud transitions by comparing workload components and services, supported with example migration scenarios.
 
-Microsoft Azure has a collection of articles that can help guide you with some of these steps to have a successful migration.
 
-## Start with a solid foundation in Azure
+## Prerequisite to workload migration
 
-Before performing any workload migration, you need to make sure you've established a strong foundation on Azure. Follow the Azure adoption guidance in the [Cloud Adoption Framework](/azure/cloud-adoption-framework/get-started/) to build a solid platform for any workloads you'll be migrating.
+Workloads can be migrated only after the organization is fully committed to Azure. Before migrating workloads, we recommend that you understand the fundamental concepts on Azure and have an active Azure enrollment. Explore these Cloud Adoption Framework (CAF) resources to achieve those goals:
 
-There is also a Microsoft Learn training module available that teaches you how to [Use the Cloud Adoption Framework Migrate methodology to migrate your workload to the cloud](/training/modules/cloud-adoption-framework-migrate/).
+- [Azure fundamental concepts](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts). Learn about terms used in Azure, and how the concepts relate to one another.
 
-## Tools
+- [Use the Cloud Adoption Framework Migrate methodology to migrate your workload to the cloud](/training/modules/cloud-adoption-framework-migrate/). Complete the learning objectives in the training module to develop your organization's migration plan and identify the types of workloads that need to be migrated.
 
-Microsoft Azure has tooling specifically build to help customers address key components in their migration tasks.
+The next step involves the workload team planning and executing the migration. This includes assessing the current workload design, preparing a solution in Azure, making necessary code changes, and performing the migration. 
 
-- [Azure Migrate](/azure/migrate/migrate-services-overview) which primarily helps with core application platform components
-- [Azure SQL Migration for Azure Data Studio](/azure/dms/migration-using-azure-data-studio?tabs=azure-sql-mi) which primarily helps with migarting to Azure SQL targets
-- Use the [Microsoft Well-Architected Review assessment](/assessments/azure-architecture-review/) to evaluate your workload's current implementation decisions, you can use that after you migrate to help evaluate if there were any regressions.
 
-## Next steps
+## Target audience
 
-Microsoft Learn also hosts how-tos, example migration scenarios, and other articles to help make your workload migration a success.
+The content is applicable to workload roles and functions at the team level.
 
-If you're migrating a workload from Amazon Web Services (AWS) continue exploring the guidance at:
+- **Workload architect**. They might redesign certain aspects and validate the overall architecture to ensure it meets business requirements. Architects must address gaps considering the workload's specific characteristics and business constraints.
+
+- **Workload team members**. They must understand how their responsibilities will change during the migration process and post migration. For example, database administrators (DBAs) who manage scripts and perform daily backups on RDS must adapt to performing these tasks on Azure SQL Database. 
+
+
+## Content layout
+
+The content is organized by platform, starting with your source platform. Within each platform, you will find a comparison sheet to help you get started on comparing the capabilities of your workload and the services used in it. Additionally, example scenarios are provided to illustrate the comparisons. 
+
+We recommend starting your learning journey based on your source platform:
 
 > [!div class="nextstepaction"]
-> [Migrate a workload from AWS](./migrate-from-aws.md)
+> [Migrate a workload from Amazon Web Services (AWS)](./migrate-from-aws.md)
 
-If you're migrating a workload from Google cloud, see:
 
 > [!div class="nextstepaction"]
 > [Migrate a workload from Google Cloud](./migrate-from-google-cloud.md)
+
+You'll also find guidance that's applicable to all platforms. Such platform-agnostic guidance is included in all sections for convenience.
+
+> [!NOTE] 
+>
+> Keep checking for updates regularly. We're constantly incorporating new technology stacks and example scenarios.
+
+## Tools
+
+In addition to content, there are specialized tools to assist with migration tasks or might be helpful in measuring the success of the migration against business goals.
+
+|Tools|Use this to...|
+|---|---|
+|[Azure Migrate](/azure/migrate/migrate-services-overview)| Perform discovery and assessment of migration assets, primarily for infrastructure, applications, and data components. |
+|[Azure SQL Migration for Azure Data Studio](/azure/dms/migration-using-azure-data-studio?tabs=azure-sql-mi)| Simplify the process of migrating SQL Server databases to Azure. This tool also provides recommendations for migration, including compatibility checks and performance assessments.|
+|Well-Architected Review assessment of the source platform, if available.|Review and measure the business goals of your architecture on the source platform. This will help you baseline your expectations on Azure.|
+|[Microsoft Azure Well-Architected Review assessment](/assessments/azure-architecture-review/)| Evaluate your architecture decisions to identify any regressions from the source baseline. Also explore optimization opportunities to get the best on Azure.|
