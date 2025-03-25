@@ -103,9 +103,7 @@ To understand whether a feature is supported in your sensor version, check the r
 
 **Supported until**: 02/2026
 
-This version includes the following updates and enhancements:
-
-......................................................
+This version includes bug fixes for stability improvements.
 
 ### Version 25.1.0
 
