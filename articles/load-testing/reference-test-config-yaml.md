@@ -30,10 +30,10 @@ A load test configuration uses the following keys:
 | `testPlan` | string | Y |  | Reference to the test plan file.<br/><ul><li>If `testType: JMX`: relative path to the JMeter test script.</li><li>If `testType: Locust`: relative path to the Locust test script.</li><li>If `testType: URL`: relative path to the [requests JSON file](./how-to-add-requests-to-url-based-test.md).</li></ul> |
 | `engineInstances` | integer | Y |  | Number of parallel test engine instances for running the test plan. Learn more about [configuring high-scale load](./how-to-high-scale-load.md). |
 | `configurationFiles` | array of string | N |  | List of external files, required by the test script. For example, JMX fragment files, CSV data files, images, or any other data file.<br/>Azure Load Testing uploads all files in the same folder as the test script. In the JMeter script or the Locust script, only refer to external files using the file name, and remove any file path information. |
-| `failureCriteria` | object | N |  | List of load test fail criteria. See [failureCriteria](#failurecriteria-configuration) for more details. |
+| `failureCriteria` | object | N |  | L oad test fail criteria. See [failureCriteria](#failurecriteria-configuration) for more details. |
 | `autoStop` | string or object | N |  | Automatically stop the load test when the error percentage exceeds a value.<br/>Possible values:<br/>- `disable`: don't stop a load test automatically.<br/>- *object*: see [autostop](#autostop-configuration) configuration for more details. |
 | `properties` | object | N |  | <ul><li>If `testType: JMX`: JMeter user property file references.</li><li>If `testType: Locust`: Locust configuration file references.</li></ul> See [properties](#properties-configuration) for more details. |
-| `zipArtifacts` | array of string| N |  | Specifies the list of zip artifact files. For files other than the main JMeter script and user properties for JMeter-based tests and Locust script and configuration files for Locust-based tests, if the file size exceeds 50 MB, compress them into a ZIP file. Ensure that the ZIP file remains below 50 MB in size. Only 5 ZIP artifacts are allowed with a maximum of 1000 files in each and uncompressed size of 1 GB. Only applies for `testType: JMX` and `testType: Locust`. |
+| `zipArtifacts` | array of string| N |  | Specifies the list of zip artifact files. For files other than the main test script and user properties for JMeter-based tests and Locust script and configuration files for Locust-based tests, if the file size exceeds 50 MB, compress them into a ZIP file. Ensure that the ZIP file remains below 50 MB in size. Only 5 ZIP artifacts are allowed with a maximum of 1000 files in each and uncompressed size of 1 GB. Only applies for `testType: JMX` and `testType: Locust`. |
 | `splitAllCSVs` | boolean | N | False | Split the input CSV files evenly across all test engine instances. For more information, see [Read a CSV file in load tests](./how-to-read-csv-data.md#split-csv-input-data-across-test-engines). |
 | `secrets` | object | N |  | List of secrets that the Apache JMeter or Locust script references. See [secrets](#secrets-configuration) for more details. |
 | `env` | object | N |  | List of environment variables that the Apache JMeter script or Locust references. See [environment variables](#env-configuration) for more details. |
@@ -85,7 +85,7 @@ Test fail criteria enable you to define conditions to determine if a load test r
 You can define fail criteria that apply to the entire load test, or that apply to a specific request. Fail criteria have the following structure:
 
 - Test criteria at the load test level: `Aggregate_function (client_metric) condition threshold`.
-- Test criteria applied to specific JMeter requests: `Request: Aggregate_function (client_metric) condition threshold`.
+- Test criteria applied to specific requests: `Request: Aggregate_function (client_metric) condition threshold`.
 
 Azure Load Testing supports the following client metrics:
 
@@ -386,7 +386,7 @@ referenceIdentities:
 
 ## Requests JSON file
 
-If you use a URL-based test, you can specify the HTTP requests in a JSON file instead of using a JMeter test script. Make sure to set the `testType` to `URL` in the test configuration YAML file and reference the requests JSON file.
+If you use a URL-based test, you can specify the HTTP requests in a JSON file instead of using a test script. Make sure to set the `testType` to `URL` in the test configuration YAML file and reference the requests JSON file.
 
 ### HTTP requests
 
