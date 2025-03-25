@@ -143,7 +143,7 @@ The creation wizard generated the connectivity variables for you already as [app
         1. In the left menu of the App Service page, select **Settings > Environment variables**. 
         1. Select **AZURE_MYSQL_PASSWORD**. 
         1. In **Add/Edit application setting**, in the **Value** field, copy the password string for use later.
-        This app settings let you connect to the MySQL database secured behind private endpoints. However, the secrets are saved directly in the App Service app, which isn't the best. You'll change this.
+        The app settings you see let you connect to the MySQL database and Redis cache secured behind private endpoints. However, the secrets are saved directly in the App Service app, which isn't the best. You'll change this.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-1.png" alt-text="A screenshot showing how to see the value of an app setting." lightbox="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-1.png":::
@@ -263,7 +263,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
         1. In the **App settings** tab, select **Add**.
         1. In the **Name** field, enter *CACHE_DRIVER*.
         1. In the **Value** field, enter *redis*.
-        1. Click **Apply**, then **Apply** again, then **Confirm**.
+        1. Select **Apply**, then **Apply** again, then **Confirm**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-configure-laravel-variables-1.png" alt-text="A screenshot showing the Add/Edit application setting dialog for the CACHE_DRIVER setting." lightbox="./media/tutorial-php-mysql-app/azure-portal-configure-laravel-variables-1.png":::
@@ -278,7 +278,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
         - **APP_KEY**: Use *base64:Dsz40HWwbCqnq0oxMsjq7fItmKIeBfCBGORfspaI1Kw=* as the value. It's a [Laravel encryption variable](https://laravel.com/docs/10.x/encryption#configuration).
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-get-connection-string-4.png" alt-text="A screenshot showing how to save settings in the configuration page." lightbox="./media/tutorial-php-mysql-app/azure-portal-get-connection-string-4.png":::
+        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-configure-laravel-variables-2.png" alt-text="A screenshot showing how to save settings in the configuration page." lightbox="./media/tutorial-php-mysql-app/azure-portal-configure-laravel-variables-2.png":::
     :::column-end:::
 :::row-end:::
 
@@ -350,7 +350,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
             1. Replace `DB_USERNAME` (line 52) with `AZURE_MYSQL_USERNAME`.
             1. Replace `DB_PASSWORD` (line 53) with `AZURE_MYSQL_PASSWORD`.
             1. Replace `DB_PORT` (line 50) with `AZURE_MYSQL_PORT`.
-        1. scroll to the Redis `cache` section and make the following changes:
+        1. Scroll to the Redis `cache` section and make the following changes:
             1. Replace `REDIS_HOST` (line ) with `AZURE_REDIS_HOST`.
             1. Replace `REDIS_PASSWORD` with `AZURE_REDIS_PASSWORD`.
             1. Replace `REDIS_PORT` with `AZURE_REDIS_PORT`.
@@ -813,7 +813,7 @@ It means you haven't run database migrations, or database migrations weren't suc
 
 #### How much does this setup cost?
 
-Pricing for the create resources is as follows:
+Pricing for the created resources is as follows:
 
 - The App Service plan is created in **Basic** tier and can be scaled up or down. See [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
 - The MySQL flexible server is created in **B1ms** tier and can be scaled up or down. With an Azure free account, **B1ms** tier is free for 12 months, up to the monthly limits. See [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/).
@@ -831,7 +831,7 @@ Pricing for the create resources is as follows:
 
 #### How do I change the APP_KEY app setting to a Key Vault reference?
 
-From the portal steps above, you can change `APP_KEY` to a Key Vault reference by running the following Azure CLI commands in the GitHub codespace:
+From the portal steps in [4 - Configure Laravel variables](#4---configure-laravel-variables), you can change `APP_KEY` to a Key Vault reference by running the following Azure CLI commands in the GitHub codespace:
 
 ```azurecli-interactive
 # Change the following variables to match your environment
@@ -897,7 +897,7 @@ See [Set up GitHub Actions deployment from the Deployment Center](deploy-github-
 
 #### What can I do with GitHub Copilot in my codespace?
 
-You might have noticed that the GitHub Copilot chat view was already there for you when you created the codespace. For your convenience, we include the GitHub Copilot chat extension in the container definition (see *.devcontainer/devcontainer.json*). However, you need a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor) (30-day free trial available). 
+You might notice that the GitHub Copilot chat view was already there for you when you created the codespace. For your convenience, we include the GitHub Copilot chat extension in the container definition (see *.devcontainer/devcontainer.json*). However, you need a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor) (30-day free trial available). 
 
 A few tips for you when you talk to GitHub Copilot:
 
