@@ -1,8 +1,9 @@
 ---
 title: "Quickstart: Create an Azure Data Factory using Azure CLI"
 description: This quickstart creates an Azure Data Factory, including a linked service, datasets, and a pipeline. You can run the pipeline to do a file copy action.
-author: jianleishen
-ms.author: jianleishen
+author: whhender
+ms.author: whhender
+ms.reviewer: jianleishen
 ms.subservice: data-movement
 ms.topic: quickstart
 ms.date: 05/15/2024
