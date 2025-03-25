@@ -167,7 +167,8 @@ SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way th
 
   * For a Standard workflow in single-tenant Azure Logic Apps, see [Single-tenant prerequisites](#single-tenant-prerequisites).
 
-* By default, the SAP built-in connector operations are *stateless*. To run these operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](../../connectors/enable-stateful-affinity-built-in-connectors.md). Stateful communications must remain on the same processing instance of the workflow application. For example, these actions include the following:
+* By default, the SAP built-in connector operations are *stateless*. To run these operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](/azure/connectors/enable-stateful-affinity-built-in-connectors). Stateful communications must remain in the same processing instance as the workflow for the following kinds of operations:
+
   *  All actions that specify a **Session ID** value, e.g. the action named **[BAPI] Commit transaction**
   *  All actions that specify a **Transaction ID** value, except the actions named **[IDOC - RFC] Confirm transaction Id** and **[IDoc] Get IDoc list for transaction**
   *  **Respond to SAP server**
