@@ -5,14 +5,14 @@ ms.service: azure-netapp-files
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 10/15/2024
+ms.date: 03/25/2025
 ---
 # Data migration and protection FAQs for Azure NetApp Files
 
 This article answers frequently asked questions (FAQs) about Azure NetApp Files data migration and protection.
 
 ## How do I migrate data to Azure NetApp Files?
-Azure NetApp Files provides NFS and SMB volumes. You can use any file-based copy tool to migrate data to the service. 
+Azure NetApp Files provides NFS and SMB volumes. You can use any file-based copy tool to migrate data to the service. Azure NetApp Files also offers a [migration assistant tool](migrate-volumes.md) to migrate Cloud Volumes ONTAP or on-premises ONTAP volumes to Azure NetApp Files. 
 
 For more information about the Azure File Migration Program, see [Migrate the critical file data you need to power your applications](https://techcommunity.microsoft.com/t5/azure-storage-blog/migrate-the-critical-file-data-you-need-to-power-your/ba-p/3038751). Also, see [Azure Storage migration tools comparison - Unstructured data](../storage/solution-integration/validated-partners/data-management/migration-tools-comparison.md). 
 
