@@ -17,7 +17,7 @@ This article describes features, enhancements, and bug fixes released in 2025 fo
 
 ## March 2025
 ### FHIR Service
-**Preview capability for the bulk delete operation**: Added support for _include and _revinclude to conditional and bulk delete requests. Users can now use _include and _revinclude in the search criteria for conditional and bulk delete. Please note that this does not affect current behavior of singular deletes, which does not support extra parameters. Learn more [here](./fhir/fhir-bulk-delete.md).
+**Preview capability for the bulk delete operation**: Added support for _include and _revinclude to conditional and bulk delete requests. Users can now use _include and _revinclude as search criteria for conditional and bulk delete. Note that this does not affect the current behavior of singular deletes, which does not support extra parameters. Learn more [here](./fhir/fhir-bulk-delete.md).
 
 **Bundle Transactions Enhancement**: Improved bundle transactions for single-record bundles by applying new transaction logic, preventing HTTP 500 errors.
 
