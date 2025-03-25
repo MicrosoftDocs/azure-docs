@@ -1,6 +1,51 @@
 {
   "redirections": [
     {
+      "source_path": "articles/cdn/edgio-retirement-faq.md",
+      "redirect_url": "/previous-versions/azure/cdn/edgio-retirement-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-edge-performance.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-edge-performance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/migrate-cdn-to-front-door-retain-edge-domain.md",
+      "redirect_url": "/previous-versions/azure/cdn/migrate-cdn-to-front-door-retain-edge-domain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-peering/howto-subscription-association-powershell.md",
+      "redirect_url": "/previous-versions/azure/internet-peering/howto-subscription-association-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-peering/howto-peering-service-powershell.md",
+      "redirect_url": "/previous-versions/azure/internet-peering/howto-peering-service-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-peering/howto-direct-powershell.md",
+      "redirect_url": "/previous-versions/azure/internet-peering/howto-direct-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-peering/howto-legacy-direct-powershell.md",
+      "redirect_url": "/previous-versions/azure/internet-peering/howto-legacy-direct-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-peering/howto-exchange-powershell.md",
+      "redirect_url": "/previous-versions/azure/internet-peering/howto-exchange-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-peering/howto-legacy-exchange-powershell.md",
+      "redirect_url": "/previous-versions/azure/internet-peering/howto-legacy-exchange-powershell",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/databox-online/azure-stack-edge-overview.md",
       "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-overview",
       "redirect_document_id": false
@@ -3362,6 +3407,16 @@
     {
       "source_path_from_root": "/articles/databox/data-box-next-gen-quickstart-export.md",
       "redirect_url": "/azure/databox/data-box-quickstart-export?pivots=dbx-ng",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox/data-box-next-gen-safety.md",
+      "redirect_url": "/azure/databox/data-box-safety?pivots=dbx-ng",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox/data-box-next-gen-security.md",
+      "redirect_url": "/azure/databox/data-box-security?pivots=dbx-ng",
       "redirect_document_id": false
     },
     {
