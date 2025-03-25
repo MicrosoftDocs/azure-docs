@@ -10,9 +10,9 @@ ms.topic: conceptual
 # Migrate workloads to Azure from other clouds
 
 
-This collection has been curated to help workload teams plan and execute the migration of their workloads from cloud platforms like Amazon Web Services (AWS) and Google Cloud to Microsoft Azure, with the goal of shutting down the source system after migration. It doesn't cover on-premises to Azure migrations, data center migrations, or region relocations. Additionally, it doesn't address running workloads on multiple clouds or its coexistance on both platforms simultaneously.
+This collection has been curated to assist workload teams in planning and executing the migration of their workloads. It covers migrations from cloud platforms like Amazon Web Services (AWS) and Google Cloud to Microsoft Azure. The expected outcome is that the source system is shut down and it runs on Azure, after the migration is complete. It doesn't cover on-premises to Azure migrations, data center migrations, or region relocations. Additionally, it doesn't address running workloads on multiple clouds or its coexistence on both platforms simultaneously.
 
-Migration to Azure typically involves replatforming the workload, which includes transitioning both the infrastructure and management layer. Finding the best match for your source on Azure is an important step in the migration process. Keep in mind that not all components will map one-to-one. You'll need to redesign the architecture to maintain functionality to accomplish your business objectives. This collection offers insights into such cloud-to-cloud transitions by comparing workload components and services, supported with example migration scenarios.
+Migration to Azure typically involves replatforming the workload, which includes transitioning both the infrastructure and management layer. Finding the best match for your source on Azure is an important step in the migration process. Keep in mind that not all components map one-to-one. You'll need to redesign the architecture to maintain functionality to accomplish your business objectives. This collection offers insights into such cloud-to-cloud transitions by comparing workload components and services, supported with example migration scenarios.
 
 
 ## Prerequisite to workload migration
@@ -37,7 +37,7 @@ The content is applicable to workload roles and functions at the team level.
 
 ## Content layout
 
-The content is organized by platform, starting with your source platform. Within each platform, you will find a comparison sheet to help you get started on comparing the capabilities of your workload and the services used in it. Additionally, example scenarios are provided to illustrate the comparisons. 
+The content is organized by platform, starting with your source platform. Within each platform, you'll find a comparison sheet to help you get started on comparing the capabilities of your workload and the services used in it. Additionally, example scenarios are provided to illustrate the comparisons. 
 
 We recommend starting your learning journey based on your source platform:
 
