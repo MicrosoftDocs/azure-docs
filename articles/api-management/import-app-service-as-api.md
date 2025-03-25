@@ -22,7 +22,7 @@ This article shows how to use the Azure portal to import an Azure web app as an 
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Import a web app that's hosted in Azure App Service
+> * Import a web app, which is hosted in Azure App Service, as an API
 > * Test the API in the Azure portal
 
 ## Expose a web app by using API Management
@@ -119,14 +119,12 @@ You can call operations directly from the Azure portal. This method provides a c
 
 ### Test a wildcard operation in the portal
 
-When wildcard operations are generated, the operations might not map directly to the backend API. For example, a wildcard GET operation imported in API Management uses the path `/` by default. However, your backend API might support a GET operation at the following path:
+When wildcard operations are generated, the operations might not map directly to the backend API. For example, a wildcard GET operation imported in API Management uses the path `/` by default. However, your backend API might support a GET operation at the path `/api/todoItems`.
 
-`/api/TodoItems`
-
-To test the path `/api/TodoItems`:
+To test the path `/api/todoItems`:
 
 1. Select the API that you created, and then select an operation.
-1. On the **Test** tab, under **Template parameters**, update the value next to the wildcard (*) name. For example, enter **api/TodoItems**. This value gets appended to the path `/` for the wildcard operation.
+1. On the **Test** tab, under **Template parameters**, update the value next to the wildcard (*) name. For example, enter **api/todoItems**. This value gets appended to the path `/` for the wildcard operation.
 
     :::image type="content" source="media/import-app-service-as-api/test-wildcard-operation.png" alt-text="Screenshot that shows the steps for testing an operation." lightbox="media/import-app-service-as-api/test-wildcard-operation.png":::
 
