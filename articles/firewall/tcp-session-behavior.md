@@ -1,5 +1,5 @@
 ---
-title: Azure Firewall TCP session behavior
+title: Understanding Azure Firewall TCP session management and idle timeout behavior
 description: Learn about the behavior of long-running sessions and TCP idle timeout for Azure Firewall.
 services: firewall
 author: sujamiya
@@ -9,7 +9,7 @@ ms.date: 03/25/2025
 ms.author: duau
 ---
 
-# Azure Firewall TCP session behavior
+# Understanding Azure Firewall TCP session management and idle timeout behavior
 
 This article explains the behavior of long-running sessions and the TCP idle timeout for Azure Firewall. Understanding these concepts is crucial for maintaining network security, optimizing firewall resources, and ensuring uninterrupted connectivity for critical applications.
 
