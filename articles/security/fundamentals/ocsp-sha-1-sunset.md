@@ -10,7 +10,7 @@ ms.date: 04/11/2023
 
 ms.author: sarahlipsey
 author: shlipsey3
-manager: amycolannino
+manager: femila
 ms.reviewer: quentinb
 ---
 # Sunset for SHA-1 Online Certificate Standard Protocol signing

@@ -2,7 +2,7 @@
 title: Understand Azure role definitions - Azure RBAC
 description: Learn about Azure role definitions in Azure role-based access control (Azure RBAC) for fine-grained access management of Azure resources.
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.date: 02/12/2024

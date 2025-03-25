@@ -61,10 +61,10 @@ After downloading the OS image, verify its integrity using SHA1 checksum validat
 
 ### Step 1: Download the SHA checksum file  
 
-Use `wget` or any other utility to download the checksum file corresponding to the OS version:  
+Use `wget` or any other utility to download the checksum file corresponding to the OS version 24.11.2.
 
 ```bash
-wget https://ftp.opengear.com/download/opengear_appliances/OM/current/SHASUMS
+wget https://ftp.opengear.com/download/opengear_appliances/OM/archive/24.11.2/SHASUMS
 ```
 
 ### Step 2: Compute and compare the SHA1 checksum 

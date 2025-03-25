@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content, devx-track-azurecli
 ms.topic: how-to
-ms.date: 02/26/2025
+ms.date: 03/19/2025
 ms.author: kendownie
 ---
 
@@ -112,9 +112,15 @@ On other distributions, use the appropriate package manager or [compile from sou
 
 ## Permissions
 
-All mounting scripts in this article will mount the file shares using the default 0755 Linux file and folder permissions. This means read, write, and execute for the file/directory owner, read and execute for users in the owner group, and read and execute for other users. Depending on your organization's security policies, you might want to set alternate `uid`/`gid` or `dir_mode` and `file_mode` permissions in the mount options.
+All mounting scripts in this article will mount the file shares using the default 0755 Linux file and folder permissions. This means read, write, and execute for the file/directory owner, read and execute for users in the owner group, and read and execute for other users. Depending on your organization's security policies, you might want to set alternate `uid`/`gid` or `dir_mode` and `file_mode` permissions in the mount options. For more information on how to set permissions, see [Unix symbolic notation](https://en.wikipedia.org/wiki/File-system_permissions#Symbolic_notation). See [mount options](#mount-options) for a list of mount options.
 
-For more information on how to set permissions, see [Unix symbolic notation](https://en.wikipedia.org/wiki/File-system_permissions#Symbolic_notation). See [mount options](#mount-options) for a list of mount options.
+### Unix-style permissions support
+
+You can also get Unix-style permissions support for SMB Azure file shares by using client-enforced access control and adding `modefromsid,idsfromsid` mount options to your mount command. In order for this to work:
+
+- All clients accessing the share need to mount using `modefromsid,idsfromsid`
+- The UIDs/GIDs must be uniform across all clients
+- Clients must be running one of the following supported Linux distros: Ubuntu 20.04+, SLES 15 SP3+
 
 ## Mount the Azure file share on-demand with mount
 
