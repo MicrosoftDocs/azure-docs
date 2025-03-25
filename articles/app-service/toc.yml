@@ -149,15 +149,13 @@ items:
       - name: WordPress FAQ
         displayName: WordPress frequently asked questions
         href: wordpress-faq.md
-- name: Deploy a custom container
-  href: quickstart-custom-container.md
-- name: Deploy using ARM template
-  displayName: Resource Manager
-  href: quickstart-arm-template.md
 - name: Deployment and configuration
   items:
     - name: Deployment best practices
       href: deploy-best-practices.md
+    - name: Deploy using ARM template
+      displayName: Resource Manager
+      href: quickstart-arm-template.md
     - name: Deploy a REST API (tutorial)
       href: app-service-web-tutorial-rest-api.md
     - name: Configure common settings
@@ -435,6 +433,8 @@ items:
       href: overview-manage-costs.md
 - name: Custom containers
   items:
+    - name: Deploy a custom container
+      href: quickstart-custom-container.md
     - name: Configure custom container
       href: configure-custom-container.md
     - name: CI/CD to custom container
