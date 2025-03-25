@@ -16,8 +16,8 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 
 Understanding the terminology related to performance and capacity in Azure NetApp Files is essential to understanding the metrics available:  
 
-- **Capacity pool**: A capacity pool is how capacity is billed in Azure NetApp Files. Capacity pools contain volume. 
-- **Volume quota**: The amount of capacity provisioned to an Azure NetApp Files volume. Volume quota is directly tied to automatic Quality of Service (QoS), which impacts the volume performance. For more information, see [QoS types for capacity pools](azure-netapp-files-understand-storage-hierarchy.md#qos_types).
+- **Capacity pool**: A capacity pool is how capacity is billed in Azure NetApp Files. Capacity pools contain one or more volumes. 
+- **Volume quota**: The amount of capacity provisioned to an Azure NetApp Files volume. For Auto QoS volumes, throughput is proportional to volume size. For Manual QoS, you set the throughput independently from the volume capacity. For more information, see [QoS types for capacity pools](azure-netapp-files-understand-storage-hierarchy.md#qos_types).
 - **Throughput**: The amount of data transmitted across the wire (read/write/other) between Azure NetApp Files and the client. Throughput in Azure NetApp Files is measured in bytes per second. 
 - **Latency**: Latency is the amount of time for a storage operation to complete within storage from the time it arrives to the time it's processed and is ready to be sent back to the client. Latency in Azure NetApp Files is measured in milliseconds (ms). 
 
@@ -133,7 +133,9 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
 
 ## <a name="subscription-quota-metrics"></a> Subscription quota metrics (preview)
 
-Subscription quota metrics display subscription-level quotas and existing limits. The metrics are displayed in two columns: the available limit and your subscription's consumption. 
+Subscription quota metrics display subscription-level quotas relative to the imposed limits. These metrics are displayed in two columsn: the available limit and the consumption by your subscription.
+
+    :::image type="content" source="./media/azure-netapp-files-metrics/subscription-quota.png" alt-text="Screenshot of subscription quota metrics." lightbox="./media/azure-netapp-files-metrics/subscription-quota.png":::
 
 Subscription quota metrics are currently in preview. Before you can access subscription-level quota metrics, you need to register the feature: 
 
