@@ -6,6 +6,8 @@
     href: site-recovery-overview.md
   - name: Site Recovery - FAQ
     href: site-recovery-faq.yml
+  - name: Manage Site Recovery updates
+    href: service-updates-how-to.md
 - name: What's New
   items:
   - name: Release notes
@@ -30,8 +32,6 @@
   - name: Create a vault - Terraform
     displayName: ARM, Resource Manager
     href: quickstart-create-vault-terraform.md
-  - name: Manage Site Recovery updates
-    href: service-updates-how-to.md
 - name: Tutorials
   items:
   - name: Azure VM disaster recovery to Azure
@@ -460,6 +460,42 @@
           href: hyper-v-deployment-planner-analyze-report.md
         - name: Analyze the cost estimation report
           href: hyper-v-deployment-planner-cost-estimation.md
+  - name: Azure Stack VM disaster recovery
+    items:
+    - name: Walkthrough-Set up disaster recovery for Azure Stack Hub
+      href: azure-stack-site-recovery.md
+  - name: Disaster recovery for apps
+    items:
+    - name: About disaster recovery for on-premises apps
+      href: site-recovery-workload.md
+    - name: Active Directory and DNS
+      href: site-recovery-active-directory.md
+    - name: SQL Server
+      href: site-recovery-sql.md
+    - name: SharePoint
+      href: site-recovery-sharepoint.md
+    - name: Dynamics AX
+      href: site-recovery-dynamicsax.md
+    - name: RDS
+      href: site-recovery-workload.md#protect-remote-desktop-services
+    - name: Exchange
+      href: site-recovery-workload.md#protect-exchange
+    - name: SAP
+      href: site-recovery-sap.md
+    - name: File Server
+      href: file-server-disaster-recovery.md
+    - name: IIS based web applications
+      href: site-recovery-iis.md
+    - name: Citrix XenApp and XenDesktop
+      href: site-recovery-citrix-xenapp-and-xendesktop.md
+    - name: Other workloads
+      href: site-recovery-workload.md#workload-summary
+  - name: Backup center
+    items:
+    - name: Obtain insights
+      href: ../backup/backup-center-obtain-insights.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
+    - name: Perform actions
+      href: ../backup/backup-center-actions.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
   - name: Classic
     items:
         - name: VMware VM
@@ -504,42 +540,6 @@
                 href: physical-azure-disaster-recovery.md
               - name: Manage the configuration server
                 href: physical-manage-configuration-server.md
-  - name: Azure Stack VM disaster recovery
-    items:
-    - name: Walkthrough-Set up disaster recovery for Azure Stack Hub
-      href: azure-stack-site-recovery.md
-  - name: Disaster recovery for apps
-    items:
-    - name: About disaster recovery for on-premises apps
-      href: site-recovery-workload.md
-    - name: Active Directory and DNS
-      href: site-recovery-active-directory.md
-    - name: SQL Server
-      href: site-recovery-sql.md
-    - name: SharePoint
-      href: site-recovery-sharepoint.md
-    - name: Dynamics AX
-      href: site-recovery-dynamicsax.md
-    - name: RDS
-      href: site-recovery-workload.md#protect-remote-desktop-services
-    - name: Exchange
-      href: site-recovery-workload.md#protect-exchange
-    - name: SAP
-      href: site-recovery-sap.md
-    - name: File Server
-      href: file-server-disaster-recovery.md
-    - name: IIS based web applications
-      href: site-recovery-iis.md
-    - name: Citrix XenApp and XenDesktop
-      href: site-recovery-citrix-xenapp-and-xendesktop.md
-    - name: Other workloads
-      href: site-recovery-workload.md#workload-summary
-  - name: Backup center
-    items:
-    - name: Obtain insights
-      href: ../backup/backup-center-obtain-insights.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
-    - name: Perform actions
-      href: ../backup/backup-center-actions.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
 - name: Automation
   items:
   - name: Set up disaster recovery of Azure VMs using PowerShell
