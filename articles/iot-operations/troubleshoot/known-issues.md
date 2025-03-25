@@ -47,7 +47,7 @@ Follow these steps to resolve the issue.
       - `-dataflows`
       - `-schemaregistry`
 
-1. Using the release name components from step 1, retrieve the revision history of the stuck release. You need to run the following command for **each component from step 1**. For example, if components `-adr` and `-mqttbroker` are stuck, you run the following command twice, once for each component:
+1. Using the `<component-release-name>` from step 1, retrieve the revision history of the stuck release. You need to run the following command for **each component from step 1**. For example, if components `-adr` and `-mqttbroker` are stuck, you run the following command twice, once for each component:
 
    ```sh
    helm history <component-release-name> -n azure-iot-operations
