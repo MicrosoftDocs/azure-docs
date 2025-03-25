@@ -79,7 +79,7 @@ Q: Can I upgrade an existing cluster with Kubenet to CNI Overlay?
 
 A: Yes, however, installation of Application Gateway for Containers on a cluster with Kubenet isn't supported. Install Application Gateway for Containers post-upgrade to CNI Overlay.
 
-## Next Steps
+## Next steps
 
 * [Deploy ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md?tabs=install-helm-windows)
 * [Application Gateway for Containers components](application-gateway-for-containers-components.md)
