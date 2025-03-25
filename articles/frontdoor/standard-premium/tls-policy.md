@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 03/18/2025
+ms.date: 03/25/2025
 ---
 
 # Azure Front Door TLS policy (preview)
@@ -18,9 +18,9 @@ Azure Front Door supports [end-to-end TLS encryption](../end-to-end-tls.md). Whe
 Azure Front Door supports two versions of the TLS protocol: TLS versions 1.2 and 1.3. Currently, Azure Front Door doesn't support client/mutual authentication (mTLS).
 
 > [!NOTE]
-> As of March 1, 2025, TLS 1.0 and 1.1 are disallowed on Azure Front Door. If you didn't disable TLS 1.0 and 1.1 on legacy settings before this date, they'll still work temporarily but will be disabled in the future.
+> As of March 1, 2025, TLS 1.0 and 1.1 are disallowed on Azure Front Door. If you didn't disable TLS 1.0 and 1.1 on legacy settings before this date, they'll still work temporarily but will be disabled in April 2025.
 
-Azure Front Door offers two mechanisms for controlling TLS policy. You can use either a predefined policy or a custom policy per your own needs.
+Azure Front Door Standard and Premium offer two mechanisms for controlling TLS policy. You can use either a predefined policy or a custom policy per your own needs. If you use Azure Front Door (classic) and Microsoft CDN (classic), you will continue to use the minimum TLS 1.2 version.
 
 - Azure Front Door offers several predefined TLS policies. You can configure your AFD with any of these policies to get the appropriate level of security. These predefined policies are configured keeping in mind the best practices and recommendations from the Microsoft Security team. We recommend that you use the newest TLS policies to ensure the best TLS security.
 - If a TLS policy needs to be configured for your own business and security requirements, you can use a Custom TLS policy. With a custom TLS policy, you have complete control over the minimum TLS protocol version to support, and the supported cipher suites.
@@ -38,7 +38,7 @@ Azure Front Door offers several predefined TLS policies. You can configure your 
 
 The following table shows the list of cipher suites and minimum protocol version support for each predefined policy. The ordering of the cipher suites determines the priority order during TLS negotiation.
 
-By default, TLSv1.2_2023 will be selected. TLSv1.2_2022 maps to the minimum TLS 1.2 version in previous design.
+By default, TLSv1.2_2023 will be selected. TLSv1.2_2022 maps to the minimum TLS 1.2 version in previous design. Some might see a read-only TLSv1.0/1.1_2019 which maps to the minimum TLS 1.0/1.1 version in previous design, because they doesn't specifically switch to minimum TLS 1.2 version. The TLSv1.0/1.1_2019 policy for such will be totally removed and disabled in April 2025.
 
 | **OpenSSL** | **Cipher** **Suite** | **TLSv1.2_2023** | **TLSv1.2_2022** |
 |---|---|---|---|
@@ -48,10 +48,6 @@ By default, TLSv1.2_2023 will be selected. TLSv1.2_2022 maps to the minimum TLS 
 | **TLS_AES_128_GCM_SHA256** | TLS_AES_128_GCM_SHA256 | Yes | Yes |
 | **ECDHE-RSA-AES256-GCM-SHA384** | TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 | Yes | Yes |
 | **ECDHE-RSA-AES128-GCM-SHA256** | TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 | Yes | Yes | 
-| **AES256-GCM-SHA384** | TLS_RSA_WITH_AES_256_GCM_SHA384 | | Yes | 
-| **AES128-GCM-SHA256** | TLS_RSA_WITH_AES_128_GCM_SHA256 | | Yes | 
-| **AES256-SHA256** | TLS_RSA_WITH_AES_256_CBC_SHA256 | | Yes | 
-| **AES128-SHA256** | TLS_RSA_WITH_AES_128_CBC_SHA256 | | Yes | 
 | **DHE-RSA-AES256-GCM-SHA384** | TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 | | Yes | 
 | **DHE-RSA-AES128-GCM-SHA256** | TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 | | Yes | 
 | **ECDHE-RSA-AES256-SHA384** | TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 | | Yes | 
@@ -74,10 +70,6 @@ Azure Front Door supports the following cipher suites from which you can choose 
 - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-- TLS_RSA_WITH_AES_256_GCM_SHA384
-- TLS_RSA_WITH_AES_128_GCM_SHA256
-- TLS_RSA_WITH_AES_256_CBC_SHA256
-- TLS_RSA_WITH_AES_128_CBC_SHA256
 - TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 - TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
 
