@@ -18,9 +18,9 @@ Resiliency is a shared responsibility between you and Microsoft and so this arti
 
 Azure API Management helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. With API Management, you can create and manage modern API gateways for existing backend services hosted anywhere.
 
-::: zone pivot="basic,standard,developer,premium-classic,premium-v2"
+## Reliability architecture overview
 
-## Redundancy
+::: zone pivot="basic,standard,developer,premium-classic,premium-v2"
 
 When you deploy an Azure API Management instance, you configure one or more *units*, also called *scale units*. A unit is a logical representation of capacity. The Azure API Management platform provides resiliency even when you have a single unit. To learn more about units, see [Upgrade and scale an Azure API Management instance](../api-management/upgrade-and-scale.md).
 
@@ -29,8 +29,6 @@ When you configure a multi-zone or multi-region Azure API Managment instance, yo
 ::: zone-end
 
 ::: zone pivot="consumption"
-
-## Consumption tier reliability
 
 The consumption tier of Azure API Management has built-in resiliency capabilities, and is resilient to a range of faults within a single Azure datacenter. However, the consumption tier doesn't provide support for availability zones or multi-region deployments. To understand the expected uptime of a consumption tier Azure API Management instance, review the [service level agreement](#service-level-agreement).
 
@@ -68,9 +66,7 @@ If you use [workspaces](../api-management/workspaces-overview.md) to share a sin
 
 All applications should follow Azure's transient fault handling guidance when communicating with any cloud-hosted APIs, databases, and other components. To learn more about handling transient faults, see [Recommendations for handing transient faults](/azure/well-architected/reliability/handle-transient-faults).
 
-### Retries and circuit breakers
-
-When you use Azure API Management in front of an API, you might need to retry requests that fail due to transient requests. To protect your backend API from being overwhelmed by too many requests, [Backends in API Management](../api-management/backends.md) provides you with the ability to create retry and circuit breaker logic to support your API's needs. 
+When you use Azure API Management in front of an API, you might need to retry requests that fail due to transient requests. To protect your backend API from being overwhelmed by too many requests, [Backends in API Management](../api-management/backends.md) provides you with the ability to create retry and circuit breaker logic to support your API's needs.
 
 ## Availability zone support
 
