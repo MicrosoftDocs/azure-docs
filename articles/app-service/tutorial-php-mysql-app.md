@@ -143,7 +143,7 @@ The creation wizard generated the connectivity variables for you already as [app
         1. In the left menu of the App Service page, select **Settings > Environment variables**. 
         1. Select **AZURE_MYSQL_PASSWORD**. 
         1. In **Add/Edit application setting**, in the **Value** field, copy the password string for use later.
-        This app settings let you connect to the MySQL database secured behind private endpoints. However, the secrets are saved directly in the App Service app, which isn't the best. You'll change this. In addition, you will add a `APP_KEY` setting, which is required by your Laravel app.
+        This app settings let you connect to the MySQL database secured behind private endpoints. However, the secrets are saved directly in the App Service app, which isn't the best. You'll change this.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-1.png" alt-text="A screenshot showing how to see the value of an app setting." lightbox="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-1.png":::
@@ -243,18 +243,6 @@ The creation wizard generated the connectivity variables for you already as [app
         :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-8.png" alt-text="A screenshot showing how to see the value of MySQL password in Azure." lightbox="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-8.png":::
     :::column-end:::
 :::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 9:** The sample application reads the APP_KEY environment variable to set the [required APP_KEY setting](https://laravel.com/docs/10.x/encryption#configuration). You create it as an app setting in this step.
-        1. In the **App settings** tab, select **Add**.
-        1. Set **Name** to *APP_KEY*.
-        1. Set **Value** to a long random string.
-        1. Click **Apply**, then **Apply** again, then **Confirm**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-9.png" alt-text="A screenshot showing the Add/Edit application setting dialog." lightbox="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-9.png":::
-    :::column-end:::
-:::row-end:::
 
 To summarize, the process for securing your connection secrets involved:
 
@@ -262,9 +250,6 @@ To summarize, the process for securing your connection secrets involved:
 - Creating a key vault.
 - Creating a Key Vault connection with the system-assigned managed identity.
 - Updating the service connectors to store the secrets in the key vault.
-
-> [!NOTE]
-> Ideally, the `APP_KEY` app setting should be configured as a key vault reference too, which is a multi-step process. For more information, see [How do I change the APP_KEY app setting to a Key Vault reference?](#how-do-i-change-the-app_key-app-setting-to-a-key-vault-reference) 
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -300,7 +285,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 > [!IMPORTANT]
 > The `APP_KEY` value is used here for convenience. For production scenarios, it should be generated specifically for your deployment using `php artisan key:generate --show` in the command line.
 >
-> Ideally, the `APP_KEY` app setting should be configured as a key vault reference too, which is a multi-step process. For more information, see [How do I change the APP_KEY app setting to a Key Vault reference?](#how-do-i-change-the-app-key-app-setting-to-a-key-vault-reference) 
+> Ideally, the `APP_KEY` app setting should be configured as a key vault reference too, which is a multi-step process. For more information, see [How do I change the APP_KEY app setting to a Key Vault reference?](#how-do-i-change-the-app_key-app-setting-to-a-key-vault-reference) 
 
 
 ## 5 - Deploy sample code
@@ -810,6 +795,8 @@ It means you haven't run database migrations, or database migrations weren't suc
 - [How do I change the APP_KEY app setting to a Key Vault reference?](#how-do-i-change-the-app_key-app-setting-to-a-key-vault-reference)
 - [How does local app development work with GitHub Actions?](#how-does-local-app-development-work-with-github-actions)
 - [Why is the GitHub Actions deployment so slow?](#why-is-the-github-actions-deployment-so-slow)
+- [I don't have permissions to create a user-assigned identity](#i-dont-have-permissions-to-create-a-user-assigned-identity)
+- [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
 
 ::: zone-end
 
@@ -819,6 +806,8 @@ It means you haven't run database migrations, or database migrations weren't suc
 - [How do I connect to the MySQL database that's secured behind the virtual network with other tools?](#how-do-i-connect-to-the-mysql-database-thats-secured-behind-the-virtual-network-with-other-tools)
 - [How does local app development work with GitHub Actions?](#how-does-local-app-development-work-with-github-actions)
 - [Why is the GitHub Actions deployment so slow?](#why-is-the-github-actions-deployment-so-slow)
+- [I don't have permissions to create a user-assigned identity](#i-dont-have-permissions-to-create-a-user-assigned-identity)
+- [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
 
 ::: zone-end
 
@@ -901,6 +890,21 @@ The autogenerated workflow file from App Service defines build-then-deploy, two-
 - At the beginning of the `deploy` job, download the artifacts.
 
 Most of the time taken by the two-job process is spent uploading and download artifacts. If you want, you can simplify the workflow file by combining the two jobs into one, which eliminates the need for the upload and download steps.
+
+#### I don't have permissions to create a user-assigned identity
+
+See [Set up GitHub Actions deployment from the Deployment Center](deploy-github-actions.md#set-up-github-actions-deployment-from-the-deployment-center).
+
+#### What can I do with GitHub Copilot in my codespace?
+
+You might have noticed that the GitHub Copilot chat view was already there for you when you created the codespace. For your convenience, we include the GitHub Copilot chat extension in the container definition (see *.devcontainer/devcontainer.json*). However, you need a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor) (30-day free trial available). 
+
+A few tips for you when you talk to GitHub Copilot:
+
+- In a single chat session, the questions and answers build on each other and you can adjust your questions to fine-tune the answer you get.
+- By default, GitHub Copilot doesn't have access to any file in your repository. To ask questions about a file, open the file in the editor first.
+- To let GitHub Copilot have access to all of the files in the repository when preparing its answers, begin your question with `@workspace`. For more information, see [Use the @workspace agent](https://github.blog/2024-03-25-how-to-use-github-copilot-in-your-ide-tips-tricks-and-best-practices/#10-use-the-workspace-agent).
+- In the chat session, GitHub Copilot can suggest changes and (with `@workspace`) even where to make the changes, but it's not allowed to make the changes for you. It's up to you to add the suggested changes and test it.
 
 <a name="next"></a>
 
