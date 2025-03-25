@@ -63,11 +63,11 @@ You can restore a database to any Azure Database for PostgreSQL server of a diff
 
 ## Restore permissions on the target storage account
 
-Give the backup vault's managed service identity (MSI) permission to access the storage account containers:
+Give the backup vault's managed identity permission to access the storage account containers:
 
 1. In the Azure portal, go to **Storage Account** > **Access Control (IAM)**, and then select **Add**.
 
-1. On the **Add role assignment** pane, in the **Role** dropdown list, select the **Storage Blob Data Contributor** role for the backup vault's MSI.
+1. On the **Add role assignment** pane, in the **Role** dropdown list, select the **Storage Blob Data Contributor** role for the backup vault's managed identity.
 
    :::image type="content" source="./media/restore-azure-database-postgresql/assign-vault-msi-permission-to-access-storage-account-containers-azure-portal-inline.png" alt-text="Screenshot that shows selections for adding a role assignment in the Azure portal." lightbox="./media/restore-azure-database-postgresql/assign-vault-msi-permission-to-access-storage-account-containers-azure-portal-expanded.png":::
 
@@ -77,7 +77,7 @@ Alternatively, give granular permissions to the specific container that you're r
 az role assignment create --assignee $VaultMSI_AppId  --role "Storage Blob Data Contributor"   --scope $id
 ```
 
-Replace the `assignee` parameter's value with the application ID of the vault's MSI. For the value of the `scope` parameter, refer to your specific container. To get the application ID of the vault's MSI, select **All applications** under **Application type**. Search for the vault name and copy the **Application ID** value.
+Replace the `assignee` parameter's value with the application ID of the vault's managed identity. For the value of the `scope` parameter, refer to your specific container. To get the application ID of the vault's managed identity, select **All applications** under **Application type**. Search for the vault name and copy the **Application ID** value.
 
 :::image type="content" source="./media/restore-azure-database-postgresql/select-application-type-for-id-inline.png" alt-text="Screenshot that shows selections to get the application ID of a backup vault's managed service identity." lightbox="./media/restore-azure-database-postgresql/select-application-type-for-id-expanded.png":::
 

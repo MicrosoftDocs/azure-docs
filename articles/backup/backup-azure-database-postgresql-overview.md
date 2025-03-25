@@ -76,7 +76,7 @@ The workload admin is responsible for managing and rotating credentials. Azure B
 
 #### Permissions needed for PostgreSQL database backup
 
-1. Grant the following access permissions to the Azure Backup vault's managed service identity (MSI):
+1. Grant the following access permissions to the Azure Backup vault's managed identity:
 
    - **Reader** access on the Azure Database for PostgreSQL server.
    - **Key Vault Secrets User** access on Key Vault (**Get** and **List** permissions on secrets).
@@ -117,7 +117,7 @@ To grant all the access permissions that Azure Backup needs, use the following s
 
 ### Access permissions for the Azure Database for PostgreSQL server
 
-1. Set the Azure Backup vault's MSI **Reader** access on the Azure Database for PostgreSQL server.
+1. Set the Azure Backup vault's **Reader** access for the managed identity on the Azure Database for PostgreSQL server.
 
    :::image type="content" source="./media/backup-azure-database-postgresql-overview/set-reader-access-on-azure-postgresql-server-inline.png" alt-text="Screenshot that shows the option to set an Azure Backup vault's M S I Reader access on an Azure Database for PostgreSQL server." lightbox="./media/backup-azure-database-postgresql-overview/set-reader-access-on-azure-postgresql-server-expanded.png":::
 
@@ -127,12 +127,12 @@ To grant all the access permissions that Azure Backup needs, use the following s
 
 ### Access permissions for Key Vault (associated with the Azure Database for PostgreSQL server)
 
-1. Set the Azure Backup vault's MSI **Key Vault Secrets User** access on Key Vault (**Get** and **List** permissions on secrets). To assign permissions, you can use role assignments or access policies. You don't need to add the permissions by using both options, because it doesn't help.
+1. Set the Azure Backup vault's **Key Vault Secrets User** access for the managed identity on Key Vault (**Get** and **List** permissions on secrets). To assign permissions, you can use role assignments or access policies. You don't need to add the permissions by using both options, because it doesn't help.
 
    - To use Azure role-based access control (Azure RBAC) authorization:
 
      1. In **Access policies**, set **Permission model** to **Azure role-based access control**.
-     1. In **Access control (IAM)**, grant the Azure Backup vault's MSI **Key Vault Secrets User** access on Key Vault. Bearers of that role will be able to read secrets.
+     1. In **Access control (IAM)**, grant the Azure Backup vault's **Key Vault Secrets User** access for the managed identity on Key Vault. Bearers of that role will be able to read secrets.
 
      For more information, see [Provide access to Key Vault keys, certificates, and secrets with Azure role-based access control](/azure/key-vault/general/rbac-guide?tabs=azure-cli).
 

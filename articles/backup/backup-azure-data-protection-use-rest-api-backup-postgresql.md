@@ -45,9 +45,9 @@ The Azure Backup service doesn't store the username and password to connect to t
 
 #### Backup vault
 
-Backup vault has to connect to the PostgreSQL server, and then access the database via the keys present in the key vault. So, it requires access to PostgreSQL server and the key vault. Access is granted to the Backup vault's Managed Service Identity (MSI).
+Backup vault has to connect to the PostgreSQL server, and then access the database via the keys present in the key vault. So, it requires access to PostgreSQL server and the key vault. Access is granted to the Backup vault's managed identity.
 
-You need to grant permissions to back up vault's MSI on the PostgreSQL server and the Azure Key vault, where the keys to the database are stored. [Learn more](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-backup).
+You need to grant permissions to the back up vault's managed identity on the PostgreSQL server and the Azure Key vault, where the keys to the database are stored. [Learn more](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-backup).
 
 ### Prepare the request to configure backup
 
