@@ -97,7 +97,7 @@ The shared key must match the value you used for your VPN device configuration. 
 
 When the virtual network gateway and the local network gateway reside in different subscriptions and in different tenants, the connection commands need to be specified differently than in the previous section.
 
-For the LocalNetworkGateway that resides in Tenant2, Subscription 2, use the following commands. Adjust any variables to match your environment.
+For the LocalNetworkGateway that resides in Tenant 2, Subscription 2, use the following commands. Adjust any variables to match your environment.
 
 ```azurepowershell-interactive
 Connect-AzAccount -TenantID $Tenant2
