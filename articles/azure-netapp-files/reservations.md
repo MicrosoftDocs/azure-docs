@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/25/2025
+ms.date: 03/25/2025
 ms.author: anfdocs
 ---
 # Reserved capacity for Azure NetApp Files

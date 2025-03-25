@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 03/18/2025
+ms.date: 03/25/2025
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -36,6 +36,32 @@ Creating a capacity pool enables you to create volumes within it.
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFlexibleServiceLevel
         ```
         You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+
+### <a name="regions"></a> Supported regions for the Flexible service level
+
+>[!NOTE]
+>Standard, Premium, and Ultra service levels are supported in all Azure NetApp Files regions. This list only applies to the _Flexible_ service level. 
+The Flexible service level is currently available in the following regions:
+
+- Australia Central
+- Brazil South
+- Canada East
+- East Asia
+- East US
+- East US 2
+- France Central
+- Israel Central
+- Japan West
+- Korea Central
+- North Central US
+- Qatar Central
+- South Africa North
+- UAE North
+- US Gov Arizona
+- US Gov Texas
+- US Gov Virginia
+- West US 2
+- West US 3
 
 ## Considerations
 

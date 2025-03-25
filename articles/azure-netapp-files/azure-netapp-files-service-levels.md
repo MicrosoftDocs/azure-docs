@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 03/18/2025
+ms.date: 03/25/2025
 ms.author: anfdocs
 ---
 # Service levels for Azure NetApp Files
@@ -30,7 +30,7 @@ Azure NetApp Files supports four service levels: *Standard*, *Premium*, *Ultra*,
     The Flexible service level enables you to adjust throughput and size limits independently. This service level is designed for demanding applications such as Oracle or SAP HANA. You can also use the Flexible service level to create high-capacity volumes with (relatively) low throughput requirements or the reverse: low-capacity volumes with high throughput requirements. The minimum throughput to be assigned to a Flexible capacity pool is 128 MiB/second regardless of the pool quota. The first 128 MiB/s of throughput, known as the baseline, is included in the Flexible service level. The maximum throughput is 5 x 128 x the size of the capacity pool in TiB. For more information see [Flexible service level throughput examples](#flexible-examples). You can assign throughput and capacity to volumes that are part of a Flexible capacity pool in the same way you do volumes that are part of a manual QoS capacity pool of any service level. Cool access isn't currently supported with the Flexible service level. 
 
     >[!IMPORTANT]
-    >The Flexible service level is only supported for new _manual QoS_ capacity pools.
+    >The Flexible service level is only supported for new _manual QoS_ capacity pools. For a list of regions that support the Flexible service level, see [Create a capacity pool for Azure NetApp Files](azure-netapp-files-set-up-capacity-pool.md#regions).
 
 * Storage with cool access:      
     Cool access storage is available with the Standard, Premium, and Ultra service levels. The throughput experience for any of these service levels with cool access is the same for cool access as it is for data in the hot tier. It may differ when data that resides in the cool tier is accessed. For more information, see [Azure NetApp Files storage with cool access](cool-access-introduction.md) and [Performance considerations for storage with cool access](performance-considerations-cool-access.md). 
