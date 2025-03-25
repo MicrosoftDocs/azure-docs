@@ -58,15 +58,15 @@ To create a project in your dev center:
 1. Retrieve dev center resource ID:
 
     ```azurecli
-    DEVCID=$(az devcenter admin devcenter show -n <devcenterName> --query id -o tsv)
-    echo $DEVCID
+    $DEVCID = az devcenter admin devcenter show -n <devcenterName> --query id -o tsv
+    Write-Output $DEVCID
     ```
 
 1. Create project in dev center:
 
     ```azurecli
-    az devcenter admin project create -n <projectName> \
-    --description "My first project." \
+    az devcenter admin project create -n <projectName> `
+    --description "My first project." `
     --dev-center-id $DEVCID
     ```
 
@@ -85,22 +85,22 @@ In this quickstart, you assign the Owner role to the system-assigned managed ide
 1. Retrieve Subscription ID:
 
     ```azurecli
-    SUBID=$(az account show --name <subscriptionName> --query id -o tsv)
-    echo $SUBID
+    $SUBID = az account show --name <subscriptionName> --query id -o tsv
+    Write-Output $SUBID
     ```
 
 1. Retrieve the Object ID of the dev center's identity using the name of the dev center resource:
 
     ```azurecli
-    OID=$(az ad sp list --display-name <devcenterName> --query [].id -o tsv)
-    echo $OID
+    $OID = az ad sp list --display-name <devcenterName> --query [].id -o tsv
+    Write-Output $OID
     ```
 
 1. Assign the role of Owner to the dev center on the subscription:
 
     ```azurecli
-    az role assignment create --assignee $OID \
-    --role "Owner" \
+    az role assignment create --assignee $OID `
+    --role "Owner" `
     --scope "/subscriptions/$SUBID"
     ```
 
@@ -114,8 +114,8 @@ To configure a project, add a [project environment type](how-to-configure-projec
     # Remove group default scope for next command. Leave blank for group.
     az configure --defaults group=
 
-    ROID=$(az role definition list -n "Owner" --scope /subscriptions/$SUBID --query [].name -o tsv)
-    echo $ROID
+    $ROID = az role definition list -n "Owner" --scope /subscriptions/$SUBID --query [].name -o tsv
+    Write-Output $ROID
 
     # Set default resource group again
     az configure --defaults group=<resourceGroupName>
@@ -130,12 +130,14 @@ To configure a project, add a [project environment type](how-to-configure-projec
 1. Choose an environment type and create it for the project:
 
     ```azurecli
-    az devcenter admin project-environment-type create -n <availableEnvironmentType> \
-    --project <projectName> \
-    --identity-type "SystemAssigned" \
-    --roles "{\"${ROID}\":{}}" \
-    --deployment-target-id "/subscriptions/${SUBID}" \
-    --status Enabled
+    $roles = "{`"$($ROID)`":{}}"
+    az devcenter admin project-environment-type create `
+        -n <availableEnvironmentType> `
+        --project <projectName> `
+        --identity-type "SystemAssigned" `
+        --roles $roles `
+        --deployment-target-id "/subscriptions/$SUBID" `
+        --status Enabled
     ```
 
 > [!NOTE]
@@ -148,23 +150,23 @@ In this quickstart, you give access to your own ID. Optionally, you can replace 
 1. Retrieve your own Object ID:
 
     ```azurecli
-    MYOID=$(az ad signed-in-user show --query id -o tsv)
-    echo $MYOID
+    $MYOID = az ad signed-in-user show --query id -o tsv
+    Write-Output $MYOID
     ```
 
 1. Assign admin access:
 
     ```azurecli
-    az role assignment create --assignee $MYOID \
-    --role "DevCenter Project Admin" \
+    az role assignment create --assignee $MYOID `
+    --role "DevCenter Project Admin" `
     --scope "/subscriptions/$SUBID"
     ```
 
 1. Optionally, you can assign the Dev Environment User role:
 
     ```azurecli
-    az role assignment create --assignee $MYOID \
-    --role "Deployment Environments User" \
+    az role assignment create --assignee $MYOID `
+    --role "Deployment Environments User" `
     --scope "/subscriptions/$SUBID"
     ```
 
