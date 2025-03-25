@@ -1,20 +1,38 @@
 ---
 title: Create an Azure Functions app with auto scaling rules on Azure Container Apps
-description: Learn to create an Azure Functions app pre-configured with auto scaling rules in Azure Container Apps.
+description: Learn to create an Azure Functions app preconfigured with auto scaling rules in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  how-to
-ms.date: 03/19/2025
+ms.date: 03/25/2025
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
 
 # Use Azure Functions in Azure Container Apps
 
-you can create your container app pre-configured with auto-scaling rules fine-tuned for Azure Functions.
+Azure Functions allows you to run small pieces of code (functions) without worrying about application infrastructure. When you combine Azure Functions with Azure Container Apps, you get the best of both worlds: the simplicity and event-driven nature of Functions with the containerization and advanced deployment capabilities of Container Apps.
 
-TODO
+This article shows you how to create and deploy an Azure Functions app that runs within Azure Container Apps. You'll learn how to:
+
+- Set up a containerized Functions app with pre-configured auto scaling rules
+- Deploy your application using either the Azure portal or Azure CLI
+- Verify your deployed function with an HTTP trigger
+
+By running Functions in Container Apps, you benefit from automatic scaling based on HTTP traffic, easy configuration, and a fully managed container environment—all without having to manage the underlying infrastructure yourself.
+
+## Scenarios
+
+Azure Functions in Container Apps provides a versatile combination of services to meet the needs of your applications. The following scenarios are representative of the types of situations where paring Azure Container Apps with Azure Functions gives you the control and scaling features you need.
+
+- **Line-of-business APIs**: Package custom libraries, packages, and APIs with Functions for line-of-business applications.
+
+- **Migration support**: Migration of on-premises legacy and/or monolith applications to cloud native microservices on containers.
+
+- **Event-driven architecture**: Supports event-driven applications for workloads already running on Azure Container Apps.
+
+- **Serverless workloads**: Serverless workload processing of videos, images, transcripts, or any other processing intensive tasks that required  GPU compute resources.
 
 ## Prerequisites
 
@@ -65,9 +83,9 @@ TODO
 
 1. Under the *Container details* section, enter the following values.
 
-    | Property | value |
+    | Property | Value |
     |---|---|
-    | Name | This box is pre-filled with your selection in the last section. |
+    | Name | This box is prefilled with your selection in the last section. |
     | Image source | Select **Docker Hub or other registries** |
     | Subscription  | Select your subscription |
     | Image type | Select **Public**. |
@@ -76,7 +94,26 @@ TODO
 
 1. For *Development stack*, select **.NET**
 
+1. Select the **Ingress** to switch to the Ingress section and enter the following values.
+
+    | Property | Value |
+    |---|---|
+    | Ingress | Select the checkbox to enable ingress. |
+    | Ingress traffic | Select **Accepting traffic from anywhere**. |
+    | Ingress type | Select **HTTP**. |
+    | Target port | Enter **80**. |
+
 1. Select **Review + Create**.
+
+1. Select **Create**.
+
+1. Once the deployment is complete, select **Go to resource**.
+
+1. From the *Overview* page, select the link next to *Application URL* to open the application in a new browser tab.
+
+1. Append `/api/HttpExample` to the end of the URL.
+
+    A message stating "HTTP trigger function processed a request" is returned in the browser.
 
 :::zone-end
 
@@ -125,7 +162,7 @@ To sign in to Azure from the CLI, run the following command and follow the promp
 1. Create environment variables.
 
     ```bash
-    GROUP_NAME="my-aca-functions-group"
+    RESOURCE_GROUP_NAME="my-aca-functions-group"
     CONTAINER_APP_NAME="my-aca-functions-app"
     ENVIRONMENT_NAME="my-aca-functions-environment"
     LOCATION="westus"
@@ -135,25 +172,40 @@ To sign in to Azure from the CLI, run the following command and follow the promp
 
     ```azurecli
     az group create \
-      --name $GROUP_NAME \
+      --name $RESOURCE_GROUP_NAME \
       --location $LOCATION \
       --output none
     ```
 
-1. Create Functions container app.
+1. Create the Container Apps environment.
+
+    ```azurecli
+    az containerapp env create \
+        --name $ENVIRONMENT_NAME \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --location $LOCATION \
+        --output none
+    ```
+
+1. Create an Azure Functions container app.
 
     ```azurecli
     az containerapp create \
-      --resource-group $GROUP_NAME \
+      --resource-group $RESOURCE_GROUP_NAME \
       --name $CONTAINER_APP_NAME \
-      --environment $CONNECTED_ENVIRONMENT_ID \
-      --environment-type connected \
-      --image mcr.microsoft.com/k8se/quickstart:latest \
-      --target-port 80 \
+      --environment $ENVIRONMENT_NAME \
+      --image mcr.microsoft.com/azure-functions/dotnet8-quickstart-demo:1.0 \
       --ingress external \
-      --kind functions \
+      --target-port 80 \
+      --kind functionapp \
       --query properties.outputs.fqdn
     ```
+
+    This command returns the URL of your Functions app. Copy this URL and paste it into a web browser.
+
+1. Append `/api/HttpExample` to the end of the URL.
+
+    A message stating "HTTP trigger function processed a request" is returned in the browser.
 
 :::zone-end
 
