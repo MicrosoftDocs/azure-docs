@@ -15,16 +15,6 @@ ms.custom: subject-reliability
 Azure is continually expanding the number of services that support [availability zones](./availability-zones-overview.md), including both zonal and zone-redundant offerings. This article shows you which services support availability zones, as well as the type of offering they support. 
 
 
-## Nonregional services     
-
-Some Azure services don't support availability zones because they are:
-
-- Available across multiple Azure regions within a geographic area, or even across all Azure regions globally.
-- Resilient to zone-wide outages.
-- Resilient to region-wide outages.
-
-For a list of nonregional services, see [Nonregional Azure services](./regions-nonregional-services.md).
-
 ## Azure services with availability zone support
 
 The following table provides a list of zonal and zone-redundant Azure services. To learn more about zonal and zone-redundant services and how they work, see [Types of availability zone support](./availability-zones-overview.md#types-of-availability-zone-support).
