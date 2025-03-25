@@ -24,7 +24,7 @@ This article covers two ways to enable Azure Bastion browser connectivity to Dev
 ## Prerequisites
 
 - To enable and configure Azure Bastion for a lab, you need at least **Contributor**-level permissions in the Azure subscription the lab is in, and **Owner** or **Contributor** role in the lab.
-- To connect to Azure Bastion-enabled lab VMs through a browser, you need at least **DevTest Labs User** role in the lab and sign-in access to the VM.
+- To connect to an Azure Bastion-enabled lab virtual machine (VM) through a browser, you need at least **DevTest Labs User** role in the lab and sign-in access to the VM.
 
 For more information about DevTest Labs user roles and access, see [Add and configure lab users](devtest-lab-add-devtest-user.md).
 
@@ -36,7 +36,10 @@ You can create a new virtual network for your lab with an Azure Bastion subnet a
 1. Select **Create** at the top of the **Virtual networks** page.
 1. On the **Create virtual network** page, enter a **Name** for the new virtual network, and select the same **Subscription**, **Resource group**, and **Region** as your lab.
 1. Select **Next** or the **Security** tab.
-1. On the **Security** page, under **Azure Bastion**, select the **Enable Azure Bastion** checkbox.
+1. On the **Security** page, under **Azure Bastion**, select the **Enable Azure Bastion** checkbox. Accept or configure the values in the **Azure Bastion host name** and **Azure Bastion public IP address** fields.
+
+   :::image type="content" source="media/enable-browser-connection-lab-virtual-machines/create-bastion.png" alt-text="Screenshot that shows enabling Azure Bastion on the Security page.":::
+
 1. Select **Next** or the **IP Addresses** tab.
 1. On the **IP Addresses** page, ensure there are two subnets named **default** and **AzureBastionSubnet**, and configure or add IP address ranges if desired.
 
@@ -55,7 +58,7 @@ Follow these instructions to connect your lab to the new Azure Bastion-enabled v
 1. On the **Configuration and policies** page, in the left navigation under **External resources**, select **Virtual networks**.
 1. On the **Virtual networks** page, select **Add**.
 1. On the **Virtual network** page, select **Select virtual network**.
-1. On the **Choose virtual network** page, select the Azure Bastion-enabled virtual network you just created.
+1. On the **Choose virtual network** page, select the Azure Bastion-enabled virtual network you created.
 1. On the **Virtual network** page, select **Save**.
 1. On the **Virtual networks** page, remove any previous virtual network from the lab. Select **...** next to that virtual network, select **Delete**, and then select **Yes**. 
 

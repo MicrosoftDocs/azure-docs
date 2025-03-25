@@ -50,17 +50,17 @@ You can use the Azure portal to add artifacts during VM creation or to add artif
 1. On the **Add artifacts** page, select the arrow next to each artifact you want to add to the VM.
 1. On each **Add artifact** pane, enter any required and optional parameter values, and then select **OK**. The artifact appears under **Selected artifacts** on the **Add artifacts** page, and the number of configured artifacts updates.
 
-   :::image type="content" source="./media/add-artifact-vm/devtestlab-add-artifacts-blade-selected-artifacts.png" alt-text="Screenshot that shows adding artifacts on the Add artifacts pane.":::
+   :::image type="content" source="./media/add-artifact-vm/devtestlab-add-artifacts-blade-selected-artifacts.png" alt-text="Screenshot that shows adding artifacts.":::
 
 1. By default, artifacts install in the order you add them. To rearrange the order, select the ellipsis **...** next to the artifact in the **Selected artifacts** list, and select **Move up**, **Move down**, **Move to top**, or **Move to bottom**.
 
-   - To edit an artifact's parameters after you add it, select the pencil icon or select **...** next to the artifact and select **Edit** to reopen the **Add artifact** pane.
+   - To edit an artifact's parameters after you add it, select the pencil icon or select **...** next to the artifact and select **Edit** to reopen the artifact pane.
 
    - To delete an artifact from the **Selected artifacts** list, select **...** and then select **Delete**.
 
 1. When you're done adding, arranging, and configuring artifacts, select **OK** on the **Add artifacts** page.
 1. The **Artifacts** section of the **Create lab resource** screen shows the number of artifacts added. To add, edit, rearrange, or delete the artifacts before you create the VM, select **Add or Remove Artifacts** again.
-1. Optionally configure any **Advanced Settings** or **Tags**, and then select **Create** and **Create** again at the bottom of the **Create lab resource** screen to create the VM with added artifacts.
+1. Optionally configure any **Advanced Settings** or **Tags**, and then select **Create** and **Create** again at the bottom of the screen to create the VM with added artifacts.
 
 After you create the VM, the installed artifacts appear on the VM's **Artifacts** page. To see details about each artifact's installation, select the artifact name.
 
