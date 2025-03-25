@@ -126,7 +126,7 @@ When wildcard operations are generated, the operations might not map directly to
 To test the path `/api/TodoItems`:
 
 1. Select the API that you created, and then select an operation.
-1. On the **Test** tab, under **Template parameters**, update the value next to the wildcard (*) name. For example, enter `api/TodoItems`. This value gets appended to the path `/` for the wildcard operation.
+1. On the **Test** tab, under **Template parameters**, update the value next to the wildcard (*) name. For example, enter **api/TodoItems**. This value gets appended to the path `/` for the wildcard operation.
 
     :::image type="content" source="media/import-app-service-as-api/test-wildcard-operation.png" alt-text="Screenshot that shows the steps for testing an operation." lightbox="media/import-app-service-as-api/test-wildcard-operation.png":::
 
