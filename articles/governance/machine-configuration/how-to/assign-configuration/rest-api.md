@@ -50,7 +50,6 @@ Authorization Bearer <yourTokenHere>
 A request is composed of the following properties, which together make up a Machine Configuration
 Assignment.
 
-
 ### Azure Resource Properties
 
 These fields are the top level of properties as depicted in the sample request, and is made of the
