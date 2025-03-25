@@ -9,7 +9,7 @@ ms.date: 03/25/2025
 ms.author: cshoe
 ---
 
-# Use Azure Functions in Azure Container Apps
+# Azure Functions on Azure Container Apps overview
 
 Azure Functions allows you to run small pieces of code (functions) without worrying about application infrastructure. When you combine Azure Functions with Azure Container Apps, you get the best of both worlds: the simplicity and event-driven nature of Functions with the containerization and advanced deployment capabilities of Container Apps.
 
