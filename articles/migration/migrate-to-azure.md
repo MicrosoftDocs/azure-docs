@@ -66,5 +66,5 @@ In addition to content, there are specialized tools to assist with migration tas
 |Tool|Use to...|
 |---|---|
 |[Azure Migrate](/azure/migrate/migrate-services-overview)| Perform discovery and assessment of migration assets, primarily for infrastructure, applications, and data components. |
-|Well-Architected Review assessment of the source platform, if available.|Review and measure the business goals of your architecture on the source platform. This will help you baseline your expectations on Azure.|
+|Well-Architected Review assessment of the source platform, if available|Review and measure the business goals of your architecture on the source platform. This will help you baseline your expectations on Azure.|
 |[Microsoft Azure Well-Architected Review assessment](/assessments/azure-architecture-review/)| Evaluate your architecture decisions to identify any regressions from the source baseline. Also explore optimization opportunities to get the best on Azure.|
