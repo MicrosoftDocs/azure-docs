@@ -25,7 +25,7 @@ This article describes features, enhancements, and bug fixes released in 2025 fo
 
 **ValueSet size increase**: The maximum ValueSet size was reduced to 500 codes, preventing large valuesets from loading. This has been fixed, and the limit is now increased to 20,000 codes.
 
-**Search with _sort fix**: Resolved an issue in Search with the _sort parameter, where the bundle response included a next link leading to an empty page in some edge cases. Now, the next link will only appear if there are more resources to retrieve.
+**Search with _sort fix**: An issue in Search with the _sort parameter was resolved, where in some edge cases, the bundle response included a next link leading to an empty page. Now, the next link will only appear if there are more resources to retrieve.
 
 ## February 2025
 
