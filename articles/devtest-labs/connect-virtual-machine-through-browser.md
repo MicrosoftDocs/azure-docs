@@ -1,19 +1,22 @@
 ---
-title: Connect to lab VMs through Bastion
-description: Learn how to connect to Azure DevTest Labs virtual machines (VMs) in a browser if Bastion is enabled for the lab.
+title: Connect to lab VMs through a browser
+description: Learn how to connect to Azure DevTest Labs virtual machines (VMs) through an internet browser if Bastion is enabled for the lab.
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/24/2023
 ms.custom: UpdateFrequency2
+
+#customer intent: As a lab user, I want to connect to Bastion-enabled lab VMs through my browser, so I can connect securely without using public IP addresses or exposing RDP or SSH ports to the internet.
 ---
 
-# Connect to lab VMs in a browser via Azure Bastion
+# Connect to lab VMs through a browser via Azure Bastion
 
-This article describes how to connect to DevTest Labs virtual machines (VMs) through a browser by using [Azure Bastion](/azure/bastion/index). Bastion provides secure remote desktop protocol (RDP) or secure shell (SSH) access without using public IP addresses or exposing RDP or SSH ports to the internet.
+This article describes how to connect to your DevTest Labs virtual machines (VMs) through a browser by using [Azure Bastion](/azure/bastion/index). Bastion provides secure remote desktop protocol (RDP) or secure shell (SSH) access without using public IP addresses or exposing RDP or SSH ports to the internet.
 
 > [!IMPORTANT]
-> The lab must be in an Azure Bastion-configured virtual network that has Bastion connections enabled. For more information, see [Enable browser connection to DevTest Labs VMs with Azure Bastion](enable-browser-connection-lab-virtual-machines.md).
+> The VM and lab must be in an Azure Bastion-configured virtual network that has Bastion connections enabled. For more information, see [Enable browser connection to DevTest Labs VMs with Azure Bastion](enable-browser-connection-lab-virtual-machines.md).
+> You must have ownership or sign-in permissions on the VM.
 
 To connect to a lab VM through a browser:
 

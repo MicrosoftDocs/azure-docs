@@ -14,11 +14,11 @@ ms.custom: devx-track-azurepowershell, UpdateFrequency2
 
 This article describes how to add *artifacts* to Azure DevTest Labs virtual machines (VMs). Artifacts are tools, actions, or software you can add to lab VMs. For example, artifacts can run Windows PowerShell scripts or Bash commands, install tools or applications, or take other actions like joining a domain.
 
-DevTest Labs artifacts can come from the [public DevTest Labs Git repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) or from private Git repositories. Lab users can [create their own custom artifacts](devtest-lab-artifact-author.md) and store them in a repository, or use parameters to customize artifacts for their own needs.
+DevTest Labs artifacts can come from the [public DevTest Labs Git repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) or from private Git repositories. Lab users can [create their own custom artifacts](devtest-lab-artifact-author.md) and store them in a repository, and use parameters to customize existing artifacts for their own needs.
 
 A lab administrator can [add artifact repositories to a lab](add-artifact-repository.md) so all lab users can access them. Lab administrators can also [specify mandatory artifacts to be installed on all lab VMs](devtest-lab-mandatory-artifacts.md) at creation.
 
-You can't change or remove mandatory artifacts at VM creation time, but you can add and configure other available individual artifacts at or after creation time. This article describes how to add available artifacts to VMs by using the Azure portal or Azure PowerShell.
+You can't change or remove mandatory artifacts at VM creation time, but you can add and configure other available artifacts at or after VM creation time. This article describes how to add available artifacts to VMs by using the Azure portal or Azure PowerShell.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ You can't change or remove mandatory artifacts at VM creation time, but you can 
 ## Add artifacts to VMs
 
 # [Azure portal](#tab/portal)
-
+<a name="add-artifacts-to-vms-from-the-azure-portal"></a>
 You can use the Azure portal to add artifacts during VM creation or to add artifacts to an existing lab VM.
 
 ### Add artifacts during VM creation
@@ -54,12 +54,13 @@ You can use the Azure portal to add artifacts during VM creation or to add artif
 
 1. By default, artifacts install in the order you add them. To rearrange the order, select the ellipsis **...** next to the artifact in the **Selected artifacts** list, and select **Move up**, **Move down**, **Move to top**, or **Move to bottom**.
 
-   - To edit an artifact's parameters after you add it, select the pencil icon, or select **...** next to the artifact and select **Edit**, to reopen the **Add artifact** pane.
+   - To edit an artifact's parameters after you add it, select the pencil icon or select **...** next to the artifact and select **Edit** to reopen the **Add artifact** pane.
+
    - To delete an artifact from the **Selected artifacts** list, select **...** and then select **Delete**.
 
 1. When you're done adding, arranging, and configuring artifacts, select **OK** on the **Add artifacts** page.
 1. The **Artifacts** section of the **Create lab resource** screen shows the number of artifacts added. To add, edit, rearrange, or delete the artifacts before you create the VM, select **Add or Remove Artifacts** again.
-1. Optionally configure any **Advanced Settings** or **Tags**, and then select **Create** and **Create** again at the bottom of the **Create lab resource** screen to create the VM.
+1. Optionally configure any **Advanced Settings** or **Tags**, and then select **Create** and **Create** again at the bottom of the **Create lab resource** screen to create the VM with added artifacts.
 
 After you create the VM, the installed artifacts appear on the VM's **Artifacts** page. To see details about each artifact's installation, select the artifact name.
 
