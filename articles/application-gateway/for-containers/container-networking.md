@@ -1,5 +1,5 @@
 ---
-title: Container Networking with Azure Application Gateway for Containers
+title: Container networking with Azure Application Gateway for Containers
 description: Learn how Azure Application Gateway for Containers works with different container networking interfaces.
 services: application gateway
 author: greg-lindsay
@@ -9,9 +9,7 @@ ms.date: 3/24/2025
 ms.author: greglin
 ---
 
-# Container Networking with Application Gateway for Containers
-
-## Overview
+# Container networking with Application Gateway for Containers
 
 Kubernetes uses Container Networking Interface (CNI) plugins to manage networking in Kubernetes clusters. CNIs are responsible for assigning IP addresses to pods, network routing between pods, Kubernetes Service routing, and more.
 
@@ -30,8 +28,8 @@ When choosing a networking model, consider the use cases for each CNI plugin and
 
 | CNI plugin | Networking model | Use case highlights |
 |-------------|----------------------|-----------------------|
-| **Azure CNI Overlay** | Overlay | - Best for VNET IP conservation<br/>- Max node count supported by API Server + 250 pods per node<br/>- Simpler configuration<br/> -No direct external pod IP access |
-| **Azure CNI Pod Subnet** | Flat | - Direct external pod access<br/>- Modes for efficient VNet IP usage _or_ large cluster scale support(Preview) |
+| **Azure CNI Overlay** | Overlay | - Best for VNET IP conservation<br/>- Max node count supported by API Server + 250 pods per node<br/>- Simpler configuration<br/> - No direct external pod IP access |
+| **Azure CNI Pod Subnet** | Flat | - Direct external pod access<br/>- Modes for efficient VNet IP usage _or_ large cluster scale support (Preview) |
 | **Azure CNI Node Subnet** | Flat | - Direct external pod access<br/>- Simpler configuration <br/>- Limited scale <br/>- Inefficient use of VNet IPs |
 
 When provisioning Application Gateway for Containers into a cluster that has CNI Overlay or CNI enabled, Application Gateway for Containers automatically detects the intended network configuration. There are no changes needed in Gateway or Ingress API configuration to specify CNI Overlay or CNI.
@@ -75,7 +73,7 @@ Q: Can I upgrade an existing cluster with Application Gateway for Containers fro
 A: Yes, upgrade of the AKS cluster from CNI to CNI Overlay and Application Gateway for Containers automatically detects the change. It is recommended to schedule this during a maintenance window as it may take a few minutes post-cluster upgrade to detect and configure support for CNI Overlay.
 
 >[!WARNING]
-> Ensure the Application Gateway for Containers subnet is a /24 prior to upgrading. Upgrading from CNI to CNI Overlay with a larger subnet (i.e. /23) will lead to an outage and require the Application Gateway for Containers subnet to be recreated with a /24 subnet size.
+> Ensure the Application Gateway for Containers subnet is a /24 prior to upgrading. Upgrading from CNI to CNI Overlay with a larger subnet (i.e., /23) will lead to an outage and require the Application Gateway for Containers subnet to be recreated with a /24 subnet size.
 
 Q: Can I upgrade an existing cluster with Kubenet to CNI Overlay?
 
