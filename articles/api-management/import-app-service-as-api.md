@@ -86,7 +86,7 @@ The wildcard operation allows the same requests to the backend service as the op
     :::image type="content" source="media/import-app-service-as-api/app-service.png" alt-text="Screeenshot that shows the App Service tile.":::
 
 1. Select **Browse** to see the list of app services in your subscription.
-1. Select an app service and then click the **Seclect** button. If an OpenAPI definition is associated with the selected web app, API Management fetches it and imports it. 
+1. Select an app service and then click the **Select** button. If an OpenAPI definition is associated with the selected web app, API Management fetches it and imports it. 
 
     If an OpenAPI definition isn't found, API Management exposes the API by generating wildcard operations for common HTTP verbs. 
 1. Add an **API URL suffix**. The suffix is a name that identifies the API in the API Management instance. It has to be unique in the API Management instance.
@@ -99,7 +99,7 @@ The wildcard operation allows the same requests to the backend service as the op
     > * **Starter**
     > * **Unlimited**
 
-1. Enter other API settings. You can set these values when you ceate the API or configure them later by going to the **Settings** tab. The settings are explained in the [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
+1. Enter other API settings. You can set these values when you create the API or configure them later by going to the **Settings** tab. The settings are explained in the [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
 
 1. Select **Create**.
     :::image type="content" source="media/import-app-service-as-api/import-app-service.png" alt-text="Screenshot that shows the Create from App Service window." lightbox="media/import-app-service-as-api/import-app-service.png":::
@@ -111,7 +111,7 @@ You can call operations directly from the Azure portal. This method provides a c
 1. Select the API you created in the previous step.
 1. On the **Test** tab, select an operation.
 
-    The page displays fields for query parameters and fields for the headers. One of the headers is `Ocp-Apim-Subscription-Key`. This header is for the subscription key of the product that's associated with the API. If you created the API Management instance, you are an administrator already, so the key is filled in automatically.
+    The page displays fields for query parameters and fields for the headers. One of the headers is `Ocp-Apim-Subscription-Key`. This header is for the subscription key of the product that's associated with the API. If you created the API Management instance, you're an administrator already, so the key is filled in automatically.
 
 1. Press **Send**.
 
