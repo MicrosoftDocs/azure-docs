@@ -1,0 +1,60 @@
+### YamlMime:Landing
+
+title: Migrate <platform> to Azure
+summary: Replatforming an entire workload from <platform> to Azure involves migrating various components, including compute, databases, storage, and applications. This section offers service comparisons between both platforms and example scenarios to help integrate components for transition to Azure.
+metadata:
+  title: Migrate <platform> to Azure
+  description: Learn about resources that can help you transition your workload components from <platform> to Azure.
+  ms.topic: landing-page
+  author: martinekuan
+  ms.author: martinek
+  ms.date: 03/18/2025
+
+landingContent:
+  - title: Migration strategy
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: <strategy-content>
+            url: <strategy-content-url>
+          …
+
+  - title: Component migration
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: <component1>
+            url: <component1>.md
+          …
+		  
+  - title: Start with component comparisons
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: <service map>
+            url: service-map.md
+          …
+		  
+  - title: Migration examples
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Scenario 1
+            url: scenario1.md
+          …
+		  
+  - title: Migration training modules
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: <training module 1>
+            url: <training module url>
+          …
+
+  - title: Explore related resources
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: <resource>
+            url: <url>
+          …
