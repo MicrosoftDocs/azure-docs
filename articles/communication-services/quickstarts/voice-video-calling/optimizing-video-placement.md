@@ -81,7 +81,7 @@ Conversely, if the optimal count decreases and is [less than the current number 
 - You can place one 1080p incoming video with the rest smaller than 720P.
 - You can place two 720p incoming videos with the rest smaller than 720p.
 
-[!INCLUDE [Public Preview Disclaimer](../../../includes/public-preview-include.md)]
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include.md)]
 In [version 1.33]{https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1332-beta1-2025-01-30} and later of the public preview calling SDK support putting 2 720P videos simultaneously on a web page.
 
 For instance, in a group call where seven participants have their video cameras on, on each client page you can select two participants' videos are displayed at higher resolutions. These two participants set to show their video at 720p by setting their views on the web page to be 720 pixels in height by 1280 pixels in width (or greater). The remaining five participant videos should be set to a lower resolution, such as 360p or lower.
