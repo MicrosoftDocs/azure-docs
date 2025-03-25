@@ -74,7 +74,7 @@ Site-to-site connections to an on-premises network require a VPN device. In this
 
 ## <a name="CreateConnection"></a>Create the VPN connection
 
-Create a site-to-site VPN connection between your virtual network gateway and your on-premises VPN device. If you're using an active-active mode gateway (recommended), each gateway VM instance has a separate IP address. To properly configure [highly available connectivity](vpn-gateway-highlyavailable.md), you must establish a tunnel between each VM instance and your VPN device. Both tunnels are part of the same connection.
+Create a site-to-site VPN connection between your virtual network gateway and your on-premises VPN device. If you're using an active-active mode gateway (recommended), each gateway VM instance has a separate IP address. To properly configure [highly available connectivity](vpn-gateway-highlyavailable.md), you must establish a tunnel between each VM instance and your VPN device. Both tunnels are part of the same connection. If your local network gateway and virtual network gateway reside in different subscriptions and different tenants, see the [Connections with different tenants and different subscriptions](#tenants) section.
 
 The shared key must match the value you used for your VPN device configuration. Notice that the '-ConnectionType' for site-to-site is **IPsec**.
 
@@ -93,7 +93,7 @@ The shared key must match the value you used for your VPN device configuration. 
    -ConnectionType IPsec -SharedKey 'abc123'
    ```
 
-## <a name="tenants"></a>Connections with different tenants and different subscriptions
+### <a name="tenants"></a>Connections with different tenants and different subscriptions
 
 When the virtual network gateway and the local network gateway reside in different subscriptions and in different tenants, the connection commands need to be specified differently than in the previous section.
 
