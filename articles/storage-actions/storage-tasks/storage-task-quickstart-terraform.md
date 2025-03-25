@@ -52,16 +52,16 @@ In this how-to article, you'll learn how to create a storage task using Terrafor
 1. Create a directory in which to test and run the sample Terraform code, and make it the current directory.
 
 1. Create a file named `providers.tf` and insert the following code.
-:::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-actions-create-storage-task/providers.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-actions-create-storage-task/providers.tf":::
 
 1. Create a file named `main.tf` and insert the following code.
-:::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-actions-create-storage-task/main.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-actions-create-storage-task/main.tf":::
 
 1. Create a file named `variables.tf` and insert the following code.
-:::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-actions-create-storage-task/variables.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-actions-create-storage-task/variables.tf":::
 
 1. Create a file named `outputs.tf` and insert the following code.
-:::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-actions-create-storage-task/outputs.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-actions-create-storage-task/outputs.tf":::
 
 ## Initialize Terraform
 
