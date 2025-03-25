@@ -1,6 +1,6 @@
 ---
 title: "Optimizing Performance for Azure HPC and AI Virtual Machines"
-description: Learn about understanding and measuring the performance concepts and benchmarking methologies.
+description: Learn about understanding and measuring the performance concepts and benchmarking methodologies.
 author: padmalathas
 ms.author: padmalathas
 ms.date: 03/25/2025
@@ -17,9 +17,9 @@ This article provides a detailed guidance on how to enhance the performance of H
 
 ## Tool to Assist in Optimal Pinning of Processes/Threads for Azure HPC/AI VMs
 
-To maximize the performance of HPC applications, it is essential to distribute processes and threads evenly across the VM, utilizing all sockets, NUMA domains, and L3 caches. This distribution ensures that memory bandwidth and floating-point performance are optimized. In hybrid parallel applications, each process has several threads associated with it, and it is recommended to have a process and its threads on the same L3 cache to maximize data sharing and reuse.
+To maximize the performance of HPC applications, it is essential to distribute processes and threads evenly across the VM, utilizing all sockets, NUMA domains, and L3 caches. This distribution ensures that memory bandwidth and floating-point performance are optimized. In hybrid parallel applications, each process has multiple threads. To maximize data sharing and reuse, it's best to keep a process and its threads on the same L3 cache.
 
-Azure provides a tool called [**Check App Pinning**](https://github.com/Azure/azurehpc/tree/master/experimental/check_app_pinning_tool)  to assist in this process. This tool helps users view the VM CPU topology, check where parallel application processes and threads are running, and generate optimal MPI and Slurm scheduler process affinity arguments. By using this tool, users can ensure that their HPC/AI applications are running in an optimal manner on Azure HPC specialty VMs.
+Azure provides a tool called [**Check App Pinning**](https://github.com/Azure/azurehpc/tree/master/experimental/check_app_pinning_tool)  to help in this process. It helps view the VM CPU topology, check where parallel application processes, and threads are running, and generate optimal MPI and Slurm scheduler process affinity arguments. Using this tool, ensure that their HPC/AI applications are running in an optimal manner on Azure HPC specialty VMs.
 
 Example: Using the tool
 - View VM CPU topology
@@ -38,9 +38,9 @@ By leveraging this tool, you can achieve better performance for the HPC and AI w
 
 ### Optimal MPI process placement for Azure HB series VMs
 
-For MPI applications, optimal pinning of processes can lead to significant performance improvements, especially for undersubscribed systems. The introduction of AMDs Chiplet design has added complexity to this process. In the Chiplet design, AMD integrates smaller CPUs together to provide a socket with 64 cores. To maximize performance, it is important to balance the amount of L3 cache and memory bandwidth per core.
+For MPI applications, optimal pinning of processes can lead to significant performance improvements, especially for undersubscribed systems. The introduction of AMDs Chiplet design adds complexity to this process. In the Chiplet design, AMD integrates smaller CPUs together to provide a socket with 64 cores. To maximize performance, it is important to balance the amount of L3 cache and memory bandwidth per core.
 
-Azure HB series VMs, such as the HB60rs and HBv2, come with multiple NUMA domains and cores. For instance, the HB60rs VM has 60 AMD Naples cores, with each socket containing 8 NUMA domains. When undersubscribing the VM, users need to balance the L3 cache and memory bandwidth between cores. This can be achieved by selecting the appropriate number of cores per node and using specific MPI process placement strategies.
+Azure HB series VMs, such as the HB60rs and HBv2, come with multiple NUMA domains and cores. For instance, the HB60rs VM has 60 AMD Naples cores, with each socket containing 8 NUMA domains. When under subscribing the VM, you need to balance the L3 cache and memory bandwidth between cores. It can be achieved by selecting the appropriate number of cores per node and using specific MPI process placement strategies.
 
 Example: MPI Process Placement
 - Selecting number of cores per node
@@ -82,7 +82,7 @@ Different MPI implementations can have varying performance characteristics on Az
 
 Recommendations for MPI Setup and Process Pinning
 - OpenMPI 
-  * Use the --bind-to and --map-by options to control process placement
+  * Use the *--bind-to* and *--map-by* options to control process placement
     Example:
   ```bash
   # mpirun -np 60 --bind-to core --map-by ppr:8:node my_mpi_application
@@ -104,10 +104,10 @@ Recommendations for MPI Setup and Process Pinning
   # mpirun -np 60 my_mpi_application
   ```
   
-By following these recommendations and leveraging the tools and techniques provided by Azure, users can optimize the performance of their HPC and AI workloads, ensuring efficient and effective execution on Azure's HPC specialty VMs. 
+By following these recommendations and using the tools and techniques provided by Azure, you can optimize the performance of their HPC and AI workloads, ensuring efficient and effective execution on Azure's HPC specialty VMs. 
 
 ## Resources:
 
-- [Tool to assist in optimal pinning of processes/threads for Azure HPC/AI VM’s](https://techcommunity.microsoft.com/blog/azurehighperformancecomputingblog/tool-to-assist-in-optimal-pinning-of-processesthreads-for-azure-hpcai-vm%e2%80%99s/2672201).
+- [Tool to assist in optimal pinning of processes/threads for Azure HPC/AI VMs](https://techcommunity.microsoft.com/blog/azurehighperformancecomputingblog/tool-to-assist-in-optimal-pinning-of-processesthreads-for-azure-hpcai-vm%e2%80%99s/2672201).
 - [Optimal MPI Process Placement for Azure HB Series VMs](https://techcommunity.microsoft.com/blog/azurehighperformancecomputingblog/optimal-mpi-process-placement-for-azure-hb-series-vms/2450663).
 
