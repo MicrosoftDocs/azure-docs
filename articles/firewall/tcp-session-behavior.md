@@ -1,5 +1,5 @@
 ---
-title: Understanding Azure Firewall TCP session management and idle timeout behavior
+title: Understanding Azure Firewall TCP (Transmission Control Protocol) session management and idle timeout behavior
 description: Learn about the behavior of long-running sessions and TCP idle timeout for Azure Firewall.
 services: firewall
 author: sujamiya
@@ -16,7 +16,7 @@ This article explains the behavior of long-running sessions and the TCP idle tim
 ## Long-running TCP sessions
 ---
 
-Long-running sessions refer to TCP connections that stay active for extended durations. These are often utilized in applications like SSH, RDP, VPN tunnels, and database connections. To prevent unexpected disconnections, it's essential to configure these sessions appropriately. Understanding the factors that influence their stability is key to ensuring uninterrupted connectivity.
+Long-running sessions refer to TCP connections that stay active for extended durations. These long-running sessions are often utilized in applications like SSH, RDP, VPN tunnels, and database connections. To prevent unexpected disconnections, it's essential to configure these sessions appropriately. Understanding the factors that influence their stability is key to ensuring uninterrupted connectivity.
 
 Certain scenarios can lead to the dropping of long-running TCP sessions. Azure Firewall is designed to handle a large number of concurrent connections, but it might not be able to maintain long-running sessions under certain conditions.
 
@@ -54,7 +54,7 @@ The TCP idle timeout behavior differs for north-south and east-west traffic:
 
 When a TCP connection is terminated due to an idle timeout, the Azure Firewall sends a TCP reset packet (RST) to both the client and server. This packet notifies both parties that the connection closed. The behavior of TCP reset packets differs for north-south and east-west traffic.
 
-- **North-south traffic**: The Azure Firewall notifies both the client and server when an idle timeout occurs by send a TCP reset packet (RST).
+- **North-south traffic**: The Azure Firewall notifies both the client and server when an idle timeout occurs by sending a TCP reset packet (RST).
 - **East-west traffic**: Azure Firewall doesn't send a reset packet (RST) when an idle timeout occurs. This behavior can cause unexpected issues in applications. Configure a keep-alive mechanism within your application to keep long-running sessions active and prevent disruptions during scale-in, maintenance, or autorecovery events.
 
 Certain applications, such as traditional SAP GUI and SAP Remote Function Call (RFC)-based applications, are sensitive to session resets and can experience connectivity issues when sessions are terminated unexpectedly. To avoid these issues, you can implement a retry logic in your application to handle session resets gracefully. This mechanism should include logic to re-establish connections and resume operations seamlessly.
