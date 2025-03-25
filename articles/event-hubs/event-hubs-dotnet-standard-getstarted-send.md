@@ -2,7 +2,7 @@
 title: 'Quickstart: Send or receive events using .NET'
 description: A quickstart that shows you how to create a .NET Core application that sends events to and receive events from Azure Event Hubs.
 ms.topic: quickstart
-ms.date: 04/05/2024
+ms.date: 03/24/2025
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet
 #customer intent: As a .NET developer, I want to learn how to send events to an event hub and receive events from the event hub using C#. 
@@ -12,15 +12,15 @@ ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet
 In this quickstart, you learn how to send events to an event hub and then receive those events from the event hub using the **Azure.Messaging.EventHubs** .NET library. 
 
 > [!NOTE]
-> Quickstarts are for you to quickly ramp up on the service. If you are already familiar with the service, you might want to see .NET samples for Event Hubs in our .NET SDK repository on GitHub: [Event Hubs samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples), [Event processor samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples).
+> Quickstarts are for you to quickly ramp up on the service. If you're already familiar with the service, you might want to see .NET samples for Event Hubs in our .NET SDK repository on GitHub: [Event Hubs samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples), [Event processor samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples).
 
 ## Prerequisites
 If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) before you go through this quickstart. 
 
 To complete this quickstart, you need the following prerequisites:
 
-- **Microsoft Azure subscription**. To use Azure services, including Azure Event Hubs, you need a subscription.  If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com).
-- **Microsoft Visual Studio 2022**. The Azure Event Hubs client library makes use of new features that were introduced in C# 8.0.  You can still use the library with  previous C# language versions, but the new syntax isn't available. To make use of the full syntax, we recommend that you compile with the [.NET Core SDK](https://dotnet.microsoft.com/download) 3.0 or higher and [language version](/dotnet/csharp/language-reference/configure-language-version#override-a-default) set to `latest`. If you're using Visual Studio, versions before Visual Studio 2022 aren't compatible with the tools needed to build C# 8.0 projects. Visual Studio 2022, including the free Community edition, can be downloaded [here](https://visualstudio.microsoft.com/vs/).
+- **Microsoft Azure subscription**. To use Azure services, including Azure Event Hubs, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- **Microsoft Visual Studio 2022**. The Azure Event Hubs client library makes use of new features that were introduced in C# 8.0. You can still use the library with  previous C# language versions, but the new syntax isn't available. To make use of the full syntax, we recommend that you compile with the [.NET Core SDK](https://dotnet.microsoft.com/download) 3.0 or higher and [language version](/dotnet/csharp/language-reference/configure-language-version#override-a-default) set to `latest`. If you're using Visual Studio, versions before Visual Studio 2022 aren't compatible with the tools needed to build C# 8.0 projects. Visual Studio 2022, including the free Community edition, can be downloaded [here](https://visualstudio.microsoft.com/vs/).
 - **Create an Event Hubs namespace and an event hub**. The first step is to use the Azure portal to create an Event Hubs namespace and an event hub in the namespace. Then, obtain the management credentials that your application needs to communicate with the event hub. To create a namespace and an event hub, see [Quickstart: Create an event hub using Azure portal](event-hubs-create.md).
 
 ### Authenticate the app to Azure
@@ -47,6 +47,15 @@ This section shows you how to create a .NET Core console application to send eve
 
 ### Add the NuGet packages to the project
 
+### [Connection String](#tab/connection-string)
+
+1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
+1. Run the following command to install the **Azure.Messaging.EventHubs** NuGet package:
+
+    ```powershell
+    Install-Package Azure.Messaging.EventHubs
+    ```
+
 ### [Passwordless (Recommended)](#tab/passwordless)
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
@@ -57,19 +66,63 @@ This section shows you how to create a .NET Core console application to send eve
     Install-Package Azure.Identity
     ```
 
-### [Connection String](#tab/connection-string)
-
-1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
-1. Run the following command to install the **Azure.Messaging.EventHubs** NuGet package:
-
-    ```powershell
-    Install-Package Azure.Messaging.EventHubs
-    ```
 
 ---
 
 
 ### Write code to send events to the event hub
+
+## [Connection String](#tab/connection-string)
+
+1. Replace the existing code in the `Program.cs` file with the following sample code. Then, replace the `<CONNECTION_STRING>` and `<HUB_NAME>` placeholder values for the `EventHubProducerClient` parameters.
+
+    Here are the important steps from the code:
+
+    1. Creates a [EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient) object using the primary connection string to the namespace and the event hub name. 
+    1. Invokes the [CreateBatchAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.createbatchasync) method on the [EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient) object to create a [EventDataBatch](/dotnet/api/azure.messaging.eventhubs.producer.eventdatabatch) object.     
+    1. Add events to the batch using the [EventDataBatch.TryAdd](/dotnet/api/azure.messaging.eventhubs.producer.eventdatabatch.tryadd) method. 
+    1. Sends the batch of messages to the event hub using the [EventHubProducerClient.SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync) method.
+  
+
+    ```csharp
+    using Azure.Messaging.EventHubs;
+    using Azure.Messaging.EventHubs.Producer;
+    using System.Text;
+    
+    // number of events to be sent to the event hub
+    int numOfEvents = 3;
+    
+    // The Event Hubs client types are safe to cache and use as a singleton for the lifetime
+    // of the application, which is best practice when events are being published or read regularly.
+    // TODO: Replace the <CONNECTION_STRING> and <HUB_NAME> placeholder values
+    EventHubProducerClient producerClient = new EventHubProducerClient(
+        "<CONNECTION_STRING>",
+        "<HUB_NAME>");
+    
+    // Create a batch of events 
+    using EventDataBatch eventBatch = await producerClient.CreateBatchAsync();
+    
+    for (int i = 1; i <= numOfEvents; i++)
+    {
+        if (!eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes($"Event {i}"))))
+        {
+            // if it is too large for the batch
+            throw new Exception($"Event {i} is too large for the batch and cannot be sent.");
+        }
+    }
+    
+    try
+    {
+        // Use the producer client to send the batch of events to the event hub
+        await producerClient.SendAsync(eventBatch);
+        Console.WriteLine($"A batch of {numOfEvents} events has been published.");
+        Console.ReadLine();
+    }
+    finally
+    {
+        await producerClient.DisposeAsync();
+    }
+    ```
 
 ## [Passwordless (Recommended)](#tab/passwordless)
 
@@ -126,57 +179,7 @@ This section shows you how to create a .NET Core console application to send eve
     }
     ```
 
-## [Connection String](#tab/connection-string)
 
-1. Replace the existing code in the `Program.cs` file with the following sample code. Then, replace the `<CONNECTION_STRING>` and `<HUB_NAME>` placeholder values for the `EventHubProducerClient` parameters.
-
-    Here are the important steps from the code:
-
-    1. Creates a [EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient) object using the primary connection string to the namespace and the event hub name. 
-    1. Invokes the [CreateBatchAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.createbatchasync) method on the [EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient) object to create a [EventDataBatch](/dotnet/api/azure.messaging.eventhubs.producer.eventdatabatch) object.     
-    1. Add events to the batch using the [EventDataBatch.TryAdd](/dotnet/api/azure.messaging.eventhubs.producer.eventdatabatch.tryadd) method. 
-    1. Sends the batch of messages to the event hub using the [EventHubProducerClient.SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync) method.
-  
-
-    ```csharp
-    using Azure.Messaging.EventHubs;
-    using Azure.Messaging.EventHubs.Producer;
-    using System.Text;
-    
-    // number of events to be sent to the event hub
-    int numOfEvents = 3;
-    
-    // The Event Hubs client types are safe to cache and use as a singleton for the lifetime
-    // of the application, which is best practice when events are being published or read regularly.
-    // TODO: Replace the <CONNECTION_STRING> and <HUB_NAME> placeholder values
-    EventHubProducerClient producerClient = new EventHubProducerClient(
-        "<CONNECTION_STRING>",
-        "<HUB_NAME>");
-    
-    // Create a batch of events 
-    using EventDataBatch eventBatch = await producerClient.CreateBatchAsync();
-    
-    for (int i = 1; i <= numOfEvents; i++)
-    {
-        if (!eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes($"Event {i}"))))
-        {
-            // if it is too large for the batch
-            throw new Exception($"Event {i} is too large for the batch and cannot be sent.");
-        }
-    }
-    
-    try
-    {
-        // Use the producer client to send the batch of events to the event hub
-        await producerClient.SendAsync(eventBatch);
-        Console.WriteLine($"A batch of {numOfEvents} events has been published.");
-        Console.ReadLine();
-    }
-    finally
-    {
-        await producerClient.DisposeAsync();
-    }
-    ```
 ---
 
 2. Build the project, and ensure that there are no errors.
@@ -186,12 +189,12 @@ This section shows you how to create a .NET Core console application to send eve
     A batch of 3 events has been published.
     ```
     > [!NOTE]
-    > If you get an error "InvalidIssuer: Token issuer is invalid" when using Microsoft Entra authentication, it may be because the wrong Entra Tenant Id is being used. In you code replace'new DefaultAzureCredential()' with 'new DefaultAzureCredential(new DefaultAzureCredentialOptions {TenantId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"})' to explicitly specify Entra Tenant Id.
+    > If you get an error "InvalidIssuer: Token issuer is invalid" when using Microsoft Entra authentication, it might be because the wrong Microsoft Entra Tenant ID is being used. In your code, replace'new DefaultAzureCredential()' with 'new DefaultAzureCredential(new DefaultAzureCredentialOptions {TenantId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"})' to explicitly specify Microsoft Entra Tenant ID.
 
 
     > [!IMPORTANT]
-    > If you are using the Passwordless (Azure Active Directory's Role-based Access Control) authentication, select **Tools**, then select **Options**. In the **Options** window, expand **Azure Service Authentication**, and select **Account Selection**. Confirm that you are using the account that was added to the **Azure Event Hubs Data Owner** role on the Event Hubs namespace. 
-4. On the **Event Hubs Namespace** page in the Azure portal, you see three incoming messages in the **Messages** chart. Refresh the page to update the chart if needed. It might take a few seconds for it to show that the messages have been received. 
+    > If you're using the Passwordless (Microsoft Entra's Role-based Access Control) authentication, select **Tools**, then select **Options**. In the **Options** window, expand **Azure Service Authentication**, and select **Account Selection**. Confirm that you're using the account that was added to the **Azure Event Hubs Data Owner** role on the Event Hubs namespace. 
+4. On the **Event Hubs namespace** page in the Azure portal, you see three incoming messages in the **Messages** chart. Refresh the page to update the chart if needed. It might take a few seconds for it to show that the messages have been received. 
 
     :::image type="content" source="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png" alt-text="Image of the Azure portal page to verify that the event hub received the events" lightbox="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png":::
 
@@ -210,15 +213,15 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
 
 [!INCLUDE [storage-checkpoint-store-recommendations](./includes/storage-checkpoint-store-recommendations.md)]
 
-    
-## [Passwordless (Recommended)](#tab/passwordless)
-
-[!INCLUDE [event-hub-storage-assign-roles](../../includes/passwordless/event-hub/event-hub-storage-assign-roles.md)]
 ## [Connection String](#tab/connection-string)
 
 [Get the connection string to the storage account](../storage/common/storage-account-get-info.md#get-a-connection-string-for-the-storage-account)
 
 Note down the connection string and the container name. You use them in the code to receive events from the event hub. 
+    
+## [Passwordless (Recommended)](#tab/passwordless)
+
+[!INCLUDE [event-hub-storage-assign-roles](../../includes/passwordless/event-hub/event-hub-storage-assign-roles.md)]
 
 ---
 ### Create a project for the receiver
@@ -229,6 +232,17 @@ Note down the connection string and the container name. You use them in the code
 1. In the **Solution Explorer** window, right-click **EventHubsReceiver**, and select **Set as a Startup Project**. 
 
 ### Add the NuGet packages to the project
+
+### [Connection String](#tab/connection-string)
+
+1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
+1. In the **Package Manager Console** window, confirm that **EventHubsReceiver** is selected for the **Default project**. If not, use the drop-down list to select **EventHubsReceiver**.
+1. Run the following command to install the **Azure.Messaging.EventHubs** NuGet package:
+
+    ```powershell
+    Install-Package Azure.Messaging.EventHubs
+    Install-Package Azure.Messaging.EventHubs.Processor
+    ```
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
@@ -242,21 +256,69 @@ Note down the connection string and the container name. You use them in the code
     Install-Package Azure.Identity
     ```
 
-### [Connection String](#tab/connection-string)
-
-1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
-1. In the **Package Manager Console** window, confirm that **EventHubsReceiver** is selected for the **Default project**. If not, use the drop-down list to select **EventHubsReceiver**.
-1. Run the following command to install the **Azure.Messaging.EventHubs** NuGet package:
-
-    ```powershell
-    Install-Package Azure.Messaging.EventHubs
-    Install-Package Azure.Messaging.EventHubs.Processor
-    ```
-
 ---
 ### Update the code
 
 Replace the contents of **Program.cs** with the following code:
+
+## [Connection String](#tab/connection-string)
+
+1. Replace the existing code in the `Program.cs` file with the following sample code. Then, replace the `<AZURE_STORAGE_CONNECTION_STRING>` and `<BLOB_CONTAINER_NAME>` placeholder values for the `BlobContainerClient` URI. Replace the `<EVENT_HUB_NAMESPACE_CONNECTION_STRING>` and `<HUB_NAME>` placeholder values for the `EventProcessorClient` as well.
+
+    Here are the important steps from the code:
+    
+    1. Creates an [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object using the primary connection string to the namespace and the event hub. You need to build [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) object for the container in the Azure storage you created earlier.
+    1. Specifies handlers for the [ProcessEventAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.processeventasync) and [ProcessErrorAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.processerrorasync) events of the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object. 
+    1. Starts processing events by invoking the [StartProcessingAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.startprocessingasync) on the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object. 
+    1. Stops processing events after 30 seconds by invoking [StopProcessingAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.stopprocessingasync) on the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object.
+       
+    
+    ```csharp
+    using Azure.Messaging.EventHubs;
+    using Azure.Messaging.EventHubs.Consumer;
+    using Azure.Messaging.EventHubs.Processor;
+    using Azure.Storage.Blobs;
+    using System.Text;
+    
+    // Create a blob container client that the event processor will use 
+    BlobContainerClient storageClient = new BlobContainerClient(
+        "<AZURE_STORAGE_CONNECTION_STRING>", "<BLOB_CONTAINER_NAME>");
+    
+    // Create an event processor client to process events in the event hub
+    var processor = new EventProcessorClient(
+        storageClient,
+        EventHubConsumerClient.DefaultConsumerGroupName,
+        "<EVENT_HUBS_NAMESPACE_CONNECTION_STRING>",
+        "<HUB_NAME>");
+    
+    // Register handlers for processing events and handling errors
+    processor.ProcessEventAsync += ProcessEventHandler;
+    processor.ProcessErrorAsync += ProcessErrorHandler;
+    
+    // Start the processing
+    await processor.StartProcessingAsync();
+    
+    // Wait for 30 seconds for the events to be processed
+    await Task.Delay(TimeSpan.FromSeconds(30));
+    
+    // Stop the processing
+    await processor.StopProcessingAsync();
+    
+    Task ProcessEventHandler(ProcessEventArgs eventArgs)
+    {
+        // Write the body of the event to the console window
+        Console.WriteLine("\tReceived event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
+        return Task.CompletedTask;
+    }
+    
+    Task ProcessErrorHandler(ProcessErrorEventArgs eventArgs)
+    {
+        // Write details about the error to the console window
+        Console.WriteLine($"\tPartition '{eventArgs.PartitionId}': an unhandled exception was encountered. This was not expected to happen.");
+        Console.WriteLine(eventArgs.Exception.Message);
+        return Task.CompletedTask;
+    }
+    ```
 
 ## [Passwordless (Recommended)](#tab/passwordless)
 
@@ -324,64 +386,6 @@ Replace the contents of **Program.cs** with the following code:
     }
     ```
 
-## [Connection String](#tab/connection-string)
-
-1. Replace the existing code in the `Program.cs` file with the following sample code. Then, replace the `<AZURE_STORAGE_CONNECTION_STRING>` and `<BLOB_CONTAINER_NAME>` placeholder values for the `BlobContainerClient` URI. Replace the `<EVENT_HUB_NAMESPACE_CONNECTION_STRING>` and `<HUB_NAME>` placeholder values for the `EventProcessorClient` as well.
-
-    Here are the important steps from the code:
-    
-    1. Creates an [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object using the primary connection string to the namespace and the event hub. You need to build [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) object for the container in the Azure storage you created earlier.
-    1. Specifies handlers for the [ProcessEventAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.processeventasync) and [ProcessErrorAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.processerrorasync) events of the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object. 
-    1. Starts processing events by invoking the [StartProcessingAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.startprocessingasync) on the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object. 
-    1. Stops processing events after 30 seconds by invoking [StopProcessingAsync](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient.stopprocessingasync) on the [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) object.
-       
-    
-    ```csharp
-    using Azure.Messaging.EventHubs;
-    using Azure.Messaging.EventHubs.Consumer;
-    using Azure.Messaging.EventHubs.Processor;
-    using Azure.Storage.Blobs;
-    using System.Text;
-    
-    // Create a blob container client that the event processor will use 
-    BlobContainerClient storageClient = new BlobContainerClient(
-        "<AZURE_STORAGE_CONNECTION_STRING>", "<BLOB_CONTAINER_NAME>");
-    
-    // Create an event processor client to process events in the event hub
-    var processor = new EventProcessorClient(
-        storageClient,
-        EventHubConsumerClient.DefaultConsumerGroupName,
-        "<EVENT_HUBS_NAMESPACE_CONNECTION_STRING>",
-        "<HUB_NAME>");
-    
-    // Register handlers for processing events and handling errors
-    processor.ProcessEventAsync += ProcessEventHandler;
-    processor.ProcessErrorAsync += ProcessErrorHandler;
-    
-    // Start the processing
-    await processor.StartProcessingAsync();
-    
-    // Wait for 30 seconds for the events to be processed
-    await Task.Delay(TimeSpan.FromSeconds(30));
-    
-    // Stop the processing
-    await processor.StopProcessingAsync();
-    
-    Task ProcessEventHandler(ProcessEventArgs eventArgs)
-    {
-        // Write the body of the event to the console window
-        Console.WriteLine("\tReceived event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
-        return Task.CompletedTask;
-    }
-    
-    Task ProcessErrorHandler(ProcessErrorEventArgs eventArgs)
-    {
-        // Write details about the error to the console window
-        Console.WriteLine($"\tPartition '{eventArgs.PartitionId}': an unhandled exception was encountered. This was not expected to happen.");
-        Console.WriteLine(eventArgs.Exception.Message);
-        return Task.CompletedTask;
-    }
-    ```
    
 ---
 
