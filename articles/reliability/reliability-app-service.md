@@ -74,7 +74,7 @@ For App Service plans that aren't configured as zone redundant, virtual machine 
 
 ::: zone pivot="free-shared-basic,premium"
 
-Zone-redundant App Service plans can be deployed in [any region that supports availability zones](./availability-zones-region-support.md).
+Zone-redundant App Service plans can be deployed in [any region that supports availability zones](./regions-list.md).
 
 ::: zone-end
 
@@ -148,7 +148,7 @@ Zone redundancy can only be configured when you create a new App Service plan. I
 
 ### Capacity planning and management
 
-To prepare for availability zone failure, you should over-provision capacity of service. This approach ensures that the solution can tolerate 1/3 loss of capacity and continue to function without degraded performance during zone-wide outages. Since the platform spreads virtual machines across three zones and you need to account for at least the failure of one zone, multiply peak workload instance count by a factor of `zones/(zones-1)`, or 3/2. For example, if your typical peak workload requires four instances, you should provision six instances: (2/3 * 6 instances) = 4 instances.
+To prepare for availability zone failure, consider *over-provisioning* the capacity of your integration runtime. Over-provisioning allows the solution to tolerate some degree of capacity loss and still continue to function without degraded performance. To learn more about over-provisioning, see [Manage capacity with over-provisioning](./concept-redundancy-replication-backup.md#manage-capacity-with-over-provisioning).
 
 ### Traffic routing between zones
 

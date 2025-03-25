@@ -2,8 +2,8 @@
 title: Schedule and broadcast jobs (.NET)
 titleSuffix: Azure IoT Hub
 description: How to use the Azure IoT SDK for .NET to create backend service application code for job scheduling.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.devlang: csharp
 ms.topic: include

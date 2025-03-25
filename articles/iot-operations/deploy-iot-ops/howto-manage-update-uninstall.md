@@ -1,8 +1,8 @@
 ---
 title: Manage, update, or uninstall
 description: Use the Azure CLI or Azure portal to manage your Azure IoT Operations instances, including updating and uninstalling.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 10/24/2024

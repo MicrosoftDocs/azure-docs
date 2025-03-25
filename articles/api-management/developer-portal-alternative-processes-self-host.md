@@ -96,7 +96,7 @@ In [self-host a developer portal](developer-portal-self-host.md) we suggested us
 
 You can also front the files with a Content Delivery Network (CDN) to reduce page loading times. We recommend using [Azure CDN](https://azure.microsoft.com/services/cdn/).
 
-## Next steps
+## Related content
 
 Learn more about the developer portal:
 

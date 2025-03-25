@@ -1,12 +1,11 @@
 ---
 title: Create Azure RBAC resources by using Bicep
 description: Describes how to create role assignments and role definitions by using Bicep.
-author: johndowns
-ms.author: jodowns
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/23/2023
+ms.date: 03/17/2025
 ---
+
 # Create Azure RBAC resources by using Bicep
 
 Azure has a powerful role-based access control (RBAC) system. For more information on Azure RBAC, see [What is Azure Role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md) By using Bicep, you can programmatically define your RBAC role assignments and role definitions.
@@ -30,7 +29,7 @@ param storageSkuName string = 'Standard_LRS'
 param roleDefinitionResourceId string
 param principalId string
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
   name: storageAccountName
   location: location
   kind: 'StorageV2'

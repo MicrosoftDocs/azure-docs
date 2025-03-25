@@ -69,7 +69,3 @@ The [Access Azure Cache for Redis Monitoring data](https://github.com/rustd/Redi
 ## An X-style clone written using PHP and Redis
 
 The [Retwis](https://github.com/SyntaxC4-MSFT/retwis) sample is the Redis Hello World. It's a minimal X-style social network clone written using Redis and PHP using the [Predis](https://github.com/nrk/predis) client. The source code is designed to be simple and at the same time to show different Redis data structures.
-
-## Bandwidth monitor
-
-The [Bandwidth monitor](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) sample allows you to monitor the bandwidth used on the client. To measure the bandwidth, run the sample on the cache client machine, make calls to the cache, and observe the bandwidth reported by the bandwidth monitor sample.

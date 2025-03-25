@@ -32,7 +32,7 @@ sections:
           For APIs that are managed using an API management solution, Azure API Center can store metadata such as the runtime environment and deployment details. You can also link Azure API Management services as API sources for you inventory.
 
       - question: Does Azure API Center provide a developer portal?
-        answer: Yes, you have an option to build and self-host a developer portal where developers can discover APIs in your API center and view API details. A reference implementation is available in the [API Center portal starter](https://github.com/Azure/APICenter-Portal-Starter.git) repository. [Learn more](enable-api-center-portal.md).
+        answer: Yes, you enable the [API Center portal](set-up-api-center-portal.md), where developers can discover and filter APIs in your API center and view API details. 
 
           In the Azure API Center extension for Visual Studio Code, you can also provide an [API catalog](enable-platform-api-catalog-vscode-extension.md) view for app developers in your organization to discover APIs in your API center. 
       

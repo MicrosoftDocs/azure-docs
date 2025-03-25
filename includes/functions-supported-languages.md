@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 11/05/2024
+ms.date: 03/19/2025
 ms.author: glenga
 ms.custom:
   - include file
@@ -109,6 +109,7 @@ The following table shows the language versions supported for Python functions.
 
 | Supported version | Support level | Expected end-of-support date |
 | ---- | ---- |--- |
+| Python 3.12 | Preview | October 2028 |
 | Python 3.11 | GA | October 2027 |
 | Python 3.10 | GA | October 2026 |
 | Python 3.9 | GA | October 2025 |

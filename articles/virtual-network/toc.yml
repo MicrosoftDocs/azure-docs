@@ -134,6 +134,8 @@
       href: virtual-network-manage-peering.md
     - name: Update the address space for a peered virtual network
       href: update-virtual-network-peering-address-space.yml
+    - name: Configure subnet peering
+      href: how-to-configure-subnet-peering.md
   - name: Routing
     items: 
     - name: Manage route tables
@@ -227,7 +229,7 @@
   - name: Azure Policy Regulatory Compliance controls
     href: ./security-controls-policy.md
   - name: Azure security baseline for Virtual Network
-    href: /azure/baselines/virtual-network-security-baseline?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+    href: /security/benchmark/azure/baselines/virtual-network-security-baseline?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
   - name: Azure Security blog
     href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
   - name: DDoS protection

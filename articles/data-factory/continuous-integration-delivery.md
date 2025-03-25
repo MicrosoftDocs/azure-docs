@@ -4,7 +4,7 @@ description: Learn how to use continuous integration and delivery to move Azure 
 ms.subservice: ci-cd
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.topic: conceptual
 ms.date: 02/27/2025
 ms.custom:
