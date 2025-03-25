@@ -48,6 +48,8 @@ landingContent:
             url: regions-paired.md
           - text: Multi-region solutions in nonpaired regions
             url: regions-multi-region-nonpaired.md
+          - text: Nonregional Azure services
+            url: regions-nonregional-services.md
           - text: Azure regions list
             url: regions-list.md
   # Card
