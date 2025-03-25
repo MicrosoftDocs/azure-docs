@@ -135,7 +135,7 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
 
 Subscription quota metrics display subscription-level quotas relative to the imposed limits. These metrics are displayed in two columsn: the available limit and the consumption by your subscription.
 
-    :::image type="content" source="./media/azure-netapp-files-metrics/subscription-quota.png" alt-text="Screenshot of subscription quota metrics." lightbox="./media/azure-netapp-files-metrics/subscription-quota.png":::
+:::image type="content" source="./media/azure-netapp-files-metrics/subscription-quota.png" alt-text="Screenshot of subscription quota metrics." lightbox="./media/azure-netapp-files-metrics/subscription-quota.png":::
 
 Subscription quota metrics are currently in preview. Before you can access subscription-level quota metrics, you need to register the feature: 
 
