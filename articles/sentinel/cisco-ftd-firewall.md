@@ -1,5 +1,5 @@
 ---
-title: Collect data from Cisco FTD firewall devices in ASA or CEF format
+title: Collect data from Cisco FTD firewall devices running ASA and FXOS
 description: "Use Microsoft Sentinel connectors to collect logs from Cisco FTD firewall devices in Adaptive Security Appliance (ASA) and Common Event Format (CEF) formats."
 author: guywi-ms
 ms.date: 03/24/2025
