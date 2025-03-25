@@ -4,7 +4,7 @@ description: Learn how to add or configure artifacts on lab virtual machines (VM
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/24/2025
+ms.date: 03/25/2025
 ms.custom: devx-track-azurepowershell, UpdateFrequency2
 
 #customer intent: As a lab user, I want to add artifacts to my VMs so I can use them to run scripts or commands, install tools or applications, or take other actions on my VMs.
