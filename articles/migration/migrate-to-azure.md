@@ -66,6 +66,5 @@ In addition to content, there are specialized tools to assist with migration tas
 |Tool|Use to...|
 |---|---|
 |[Azure Migrate](/azure/migrate/migrate-services-overview)| Perform discovery and assessment of migration assets, primarily for infrastructure, applications, and data components. |
-|[Azure SQL Migration for Azure Data Studio](/azure/dms/migration-using-azure-data-studio?tabs=azure-sql-mi)| Simplify the process of migrating SQL Server databases to Azure. This tool also provides recommendations for migration, including compatibility checks and performance assessments.|
 |Well-Architected Review assessment of the source platform, if available.|Review and measure the business goals of your architecture on the source platform. This will help you baseline your expectations on Azure.|
 |[Microsoft Azure Well-Architected Review assessment](/assessments/azure-architecture-review/)| Evaluate your architecture decisions to identify any regressions from the source baseline. Also explore optimization opportunities to get the best on Azure.|
