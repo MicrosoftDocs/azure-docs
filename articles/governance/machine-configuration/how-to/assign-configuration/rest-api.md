@@ -94,12 +94,16 @@ An array of key-value pairs to pass into the Machine Configuration Assignment. F
 - The value defines the desired value to set or audit for the assignment.
 
 ### Configuration Setting
+
 These properties represent other configurable settings presented by Machine Configuration.
-```yaml
-ConfigurationMode: See "AssignmentType" above, supports same parameters.  Must match.
-ActionAfterReboot: Controls the action of the Machine Configuration Agent after applying a reboot.
-RebootIfNeeded: If supported by the module, allows for suppressing of Restarts if a Reboot is determined to be needed
-```
+
+
+- `ConfigurationMode` - Valid values are the same as [Assignment type](#assignment-type). This
+  value must be the same as the value for `Assignment Type`.
+- `ActionAfterReboot` - Controls the action of the Machine Configuration Agent after applying a
+  reboot.
+- `RebootIfNeeded` - If supported by the module, allows for suppressing of restarts if a reboot is
+  needed.
 
 ### Example Request
 
