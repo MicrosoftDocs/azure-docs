@@ -40,7 +40,8 @@ The following example assigns the `AuditSecureServer` built-in configuration.
 HTTP PUT https://<baseUrl>/<vm_name>/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/<configuration_Name>?api-version=2022-01-25
 ```
 
-This request requires Authentication, in the format of an Authorization header.  You can follow these steps to [retrieve an Azure Access Token][03].
+This request requires authentication in the format of an authorization header. You can use the
+[Get-AzAccessToken][03] cmdlet to retrieve an Azure Access Token.
 
 ```json
 Authorization Bearer <yourTokenHere>
