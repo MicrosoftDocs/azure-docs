@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 
-title: Migrate Amazon Web Services (AWS) to Azure
+title: Migrate Amazon Web Services (AWS) to Microsoft Azure
 summary: Replatforming an entire workload from Amazon Web Services (AWS) to Azure involves migrating various components, including compute, databases, storage, and applications. This section offers service comparisons between both platforms and example scenarios to help integrate components for transition to Azure.
 metadata:
-  title: Migrate Amazon Web Services (AWS) to Azure
+  title: Migrate Amazon Web Services (AWS) to Microsoft Azure
   description: Learn about resources that can help you transition your workload components from Amazon Web Services (AWS) to Azure.
   ms.topic: landing-page
   ms.service: azure-migrate
