@@ -25,7 +25,7 @@ This tutorial shows how to create a secure PHP app in Azure App Service connects
 * Knowledge of [PHP with Laravel development](https://laravel.com/).
 * **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
 
-## 1. Run the sample
+## 1 - Run the sample
 
 First, you set up a sample data-driven app as a starting point. For your convenience, the [sample repository](https://github.com/Azure-Samples/laravel-tasks), includes a [dev container](https://docs.github.com/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers) configuration. The dev container has everything you need to develop an application, including the database, cache, and all environment variables needed by the sample application. The dev container can run in a [GitHub codespace](https://docs.github.com/en/codespaces/overview), which means you can run the sample on any computer with a web browser.
 
@@ -75,7 +75,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ::: zone pivot="azure-portal"  
 
-## 2. Create App Service, database, and cache
+## 2 - Create App Service, database, and cache
 
 In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service, Azure Database for MySQL, and Azure Cache for Redis. For the creation process, you specify:
 
@@ -133,7 +133,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
     :::column-end:::
 :::row-end:::
 
-## 3. Secure connection secrets
+## 3 - Secure connection secrets
 
 The creation wizard generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You'll move your secrets to a key vault and change your app setting to [Key Vault references](app-service-key-vault-references.md) with the help of Service Connectors.
 
@@ -423,7 +423,7 @@ The creation wizard puts the MySQL database server behind a private endpoint, so
 > [!TIP]
 > In the SSH session, only changes to files in `/home` can persist beyond app restarts. Changes outside of `/home` aren't persisted.
 
-## 5 - Change site root
+## 7 - Change site root
 
 [Laravel application lifecycle](https://laravel.com/docs/10.x/lifecycle#lifecycle-overview) begins in the **/public** directory instead. The default PHP container for App Service uses Nginx, which starts in the application's root directory. To change the site root, you need to change the Nginx configuration file in the PHP container (*/etc/nginx/sites-available/default*). For your convenience, the sample repository contains a custom configuration file called *default*. As noted previously, you don't want to replace this file using the SSH shell, because the change is outside of `/home` and will be lost after an app restart. 
 
@@ -449,7 +449,7 @@ The creation wizard puts the MySQL database server behind a private endpoint, so
     :::column-end:::
 :::row-end:::
 
-## 6 - Browse to the app
+## 8 - Browse to the app
 
 :::row:::
     :::column span="2":::
@@ -474,7 +474,7 @@ The creation wizard puts the MySQL database server behind a private endpoint, so
 > [!TIP]
 > The sample application implements the [cache-aside](/azure/architecture/patterns/cache-aside) pattern. When you reload the page after making data changes, **Response time** in the webpage shows a much faster time because it's loading the data from the cache instead of the database.
 
-## 7 - Stream diagnostic logs
+## 9 - Stream diagnostic logs
 
 Azure App Service captures all messages logged to the console to assist you in diagnosing issues with your application. The sample app outputs console log messages in each of its endpoints to demonstrate this capability. By default, Laravel's logging functionality (for example, `Log::info()`) outputs to a local file. Your `LOG_CHANNEL` app setting from earlier makes log entries accessible from the App Service log stream.
 
