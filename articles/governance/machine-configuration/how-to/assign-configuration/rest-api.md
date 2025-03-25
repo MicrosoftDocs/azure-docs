@@ -9,7 +9,8 @@ ms.custom: devx-track-arm-rest-api
 
 # How to create a Machine Configuration Assignment using the Azure Rest API
 
-This article shows examples for deploying built-in configurations and can be performed using cUrl or any http client of your choice.
+This article shows examples for deploying built-in configurations and can be performed using `cUrl`
+or any http client of your choice.
 
 In each of the following sections, the example includes a **type** property where the name starts
 with `Microsoft.Compute/virtualMachines`. The guest configuration resource provider
