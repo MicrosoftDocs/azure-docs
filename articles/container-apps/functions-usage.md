@@ -21,6 +21,8 @@ This article shows you how to create an [Azure Functions app in Azure Container 
 - An Azure account with an active subscription.
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 
+## Create a Functions app
+
 1. Go to the Azure portal and search for **Container Apps** in the search bar.
 
 1. Select **Container Apps**.
@@ -29,7 +31,7 @@ This article shows you how to create an [Azure Functions app in Azure Container 
 
 1. Select **Container App**
 
-1. In the *Basics* tab, enter the following values.
+1. In the *Basics* section, enter the following values.
 
     Under *Project details*:
 
@@ -52,14 +54,14 @@ This article shows you how to create an [Azure Functions app in Azure Container 
 
     | Property | Value |
     |---|---|
-    | Environment name | Enter **my-aca-functions-environment**. |
+    | Environment name | Enter **my-aca-functions-environment** |
     | Zone redundancy | Disabled |
 
 1. Select **Create** to save your values.
 
-1. Select **Next: Container** to switch to the *Container* tab.
+1. Select **Next: Container** to switch to the *Container* section.
 
-1. In the *Container* tab, enter the following values:
+1. In the *Container* section, enter the following values:
 
 1. Next to *Use quickstart image*, leave this box unchecked.
 
@@ -76,7 +78,7 @@ This article shows you how to create an [Azure Functions app in Azure Container 
 
 1. For *Development stack*, select **.NET**
 
-1. Select the **Ingress** to switch to the Ingress section and enter the following values.
+1. Select **Next > Ingress** to switch to the Ingress section and enter the following values.
 
     | Property | Value |
     |---|---|
@@ -107,7 +109,7 @@ This article shows you how to create an [Azure Functions app in Azure Container 
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 
-## Setup
+## Create a Functions App
 
 To sign in to Azure from the CLI, run the following command and follow the prompts to complete the authentication process.
 
