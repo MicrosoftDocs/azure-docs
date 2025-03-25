@@ -144,7 +144,31 @@ Defender XDR incidents appear in the Microsoft Sentinel incidents queue with the
 
 As the incident evolves in Defender XDR, and more alerts or entities are added to it, the Microsoft Sentinel incident gets updated accordingly.
 
-Changes made to the status, closing reason, or assignment of a Defender XDR incident, in either Defender XDR or Microsoft Sentinel, likewise update accordingly in the other's incidents queue. The synchronization takes place in both portals immediately after the change to the incident is applied, with no delay. A refresh might be required to see the latest changes.
+Changes made to certain fields or attributes of a Defender XDR incident, in either Defender XDR or Microsoft Sentinel, likewise update accordingly in the other's incidents queue. The synchronization takes place in both portals immediately after the change to the incident is applied, with no delay. A refresh might be required to see the latest changes.
+
+The following fields are synchronized "as is" between incidents in the Defender portal and in Microsoft Sentinel in the Azure portal:
+
+- Title
+- Description
+- ProductName
+- Severity
+- Custom tags
+- AdditionalData
+- Comments (new only)
+- LastModifiedBy
+
+The following fields are transformed during synchronization so that their values comply with the schema of each platform:
+
+| Field      | Value in the Defender portal | Value in Microsoft Sentinel |
+| ---------- | ---------------------------- | --------------------------- |
+| **Status** |                              |                             |
+|            | Active                       | New                         |
+| **Classification/<br>*Classification reason*** |  |                     |
+|            | True Positive/<br>*any* | True Positive/<br>*Suspicious activity* |
+|            | False Positive/<br>*any*   | False Positive/<br>*Inaccurate data* |
+|            | N/A          | False Positive/<br>*Inaccurate alert logic* |
+| | Benign Positive/<br>*Informational expected activity* | Benign Positive/<br>*Suspicious but expected* |
+|            | Not set                      | Undetermined                |
 
 In Defender XDR, all alerts from one incident can be transferred to another, resulting in the incidents being merged. When this merge happens, the Microsoft Sentinel incidents reflect the changes. One incident contains all the alerts from both original incidents, and the other incident is automatically closed, with a tag of "redirected" added.
 
