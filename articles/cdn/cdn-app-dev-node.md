@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 03/20/2024
 ms.author: erikre
 ms.custom: devx-track-js
+ROBOTS: NOINDEX
 ---
 
 # Get started with Azure CDN development

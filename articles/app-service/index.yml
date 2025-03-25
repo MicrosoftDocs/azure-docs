@@ -1,12 +1,7 @@
 ### YamlMime:Landing
 
 title: App Service documentation
-summary: Azure App Service enables you to build and host web apps, mobile back ends, and RESTful APIs in the 
-         language stack of your choice without managing infrastructure, including .NET, Java 
-         (Java SE, Tomcat, and JBoss EAP), Node.js, Python, and PHP. It can also run any language stack with 
-         custom containers. It provides auto-scaling and high availability, supports both Windows and Linux, and 
-         enables automated deployments from GitHub, Azure DevOps, or any Git repo. Learn how to use Azure App 
-         Service with our quickstarts, tutorials, and samples. 
+summary: Use Azure App Service, a fully managed platform as a service (PaaS), to create web applications in popular languages like .NET, Java, Node.js, and Python.
 
 metadata:
   title: Azure App Service documentation

@@ -42,14 +42,6 @@ This article lists the known issues for Azure IoT Operations.
 
 - MQTT broker resources created in your cluster using Kubernetes aren't visible Azure portal. This is expected because [managing Azure IoT Operations components using Kubernetes is in preview](../deploy-iot-ops/howto-manage-update-uninstall.md#preview-manage-components-using-kubernetes-deployment-manifests), and synchronizing resources from the edge to the cloud isn't currently supported.
 
-- You can't update the Broker resource after the initial deployment. You can't make configuration changes to cardinality, memory profile, or disk buffer.
-
-  As a workaround, when deploying Azure IoT Operations with the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command, you can include the `--broker-config-file` parameter with a JSON configuration file for the MQTT broker. For more information, see [Advanced MQTT broker config](https://github.com/Azure/azure-iot-ops-cli-extension/wiki/Advanced-Mqtt-Broker-Config) and [Configure core MQTT broker settings](../manage-mqtt-broker/howto-configure-availability-scale.md).
-
-- If a Broker only has one backend replica (`backendChain.redundancyFactor` is set to 1) upgrading Azure IoT Operations might fail. Only upgrade Azure IoT Operations if the Broker has more than one backend replica.
-
-- Even though the MQTT broker's [diagnostics](../manage-mqtt-broker/howto-broker-diagnostics.md) produces telemetry on its own topic, you might still get messages from the self-test when you subscribe to `#` topic.
-
 - Deployment might fail if the **cardinality** and **memory profile** values are set to be too large for the cluster. To resolve this issue, set the replicas count to `1` and use a smaller memory profile, like `low`.
 
 - Don't publish or subscribe to diagnostic probe topics that start with `azedge/dmqtt/selftest`. Publishing or subscribing to these topics might affect the probe or self-test checks resulting in invalid results. Invalid results might be listed in diagnostic probe logs, metrics, or dashboards. For example, you might see the issue *Path verification failed for probe event with operation type 'Publish'* in the diagnostics-probe logs.
@@ -67,8 +59,6 @@ This article lists the known issues for Azure IoT Operations.
 - If DNS queries don't resolve to the expected IP address while using [CoreDNS](../manage-layered-network/howto-configure-layered-network.md#configure-coredns) service running on child network level, upgrade to Ubuntu 22.04 and reinstall K3S.
 
 ## Connector for OPC UA
-
-- Azure Device Registry asset definitions let you use numbers in the attribute section while OPC supervisor expects only strings.
 
 - When you add a new asset with a new asset endpoint profile to the OPC UA broker and trigger a reconfiguration, the deployment of the `opc.tcp` pods changes to accommodate the new secret mounts for username and password. If the new mount fails for some reason, the pod does not restart and therefore the old flow for the correctly configured assets stops as well.
 
@@ -111,14 +101,14 @@ kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
 
 ## Data flows
 
-- Data flow custom resources created in your cluster aren't visible in the operations experience UI. This is expected because [managing Azure IoT Operations components using Kubernetes is in preview](../deploy-iot-ops/howto-manage-update-uninstall.md#preview-manage-components-using-kubernetes-deployment-manifests), and synchronizing resources from the edge to the cloud isn't currently supported.
+- Data flow custom resources created in your cluster aren't visible in the operations experience web UI. This is expected because [managing Azure IoT Operations components using Kubernetes is in preview](../deploy-iot-ops/howto-manage-update-uninstall.md#preview-manage-components-using-kubernetes-deployment-manifests), and synchronizing resources from the edge to the cloud isn't currently supported.
 
 - X.509 authentication for custom Kafka endpoints isn't supported yet.
 
-- Deserializing and validating messages using a schema isn't supported yet. Specifying a schema in the source configuration only allows the operations experience portal to display the list of data points, but the data points aren't validated against the schema.
+- Deserializing and validating messages using a schema isn't supported yet. Specifying a schema in the source configuration only allows the operations experience to display the list of data points, but the data points aren't validated against the schema.
 
 <!-- TODO: double check -->
-- Creating an X.509 secret in the operations experience portal results in a secret with incorrectly encoded data. To work around this issue, create the [multi-line secrets through Azure Key Vault](/azure/key-vault/secrets/multiline-secrets), then select it from the list of secrets in the operations experience portal.
+- Creating an X.509 secret in the operations experience results in a secret with incorrectly encoded data. To work around this issue, create the [multi-line secrets through Azure Key Vault](/azure/key-vault/secrets/multiline-secrets), then select it from the list of secrets in the operations experience.
 
 - When connecting multiple IoT Operations instances to the same Event Grid MQTT namespace, connection failures may occur due to client ID conflicts. Client IDs are currently derived from data flow resource names, and when using Infrastructure as Code (IaC) patterns for deployment, the generated client IDs may be identical. As a temporary workaround, add randomness to the data flow names in your deployment templates.
 

@@ -24,7 +24,7 @@ The most important setting is the instance count, which determines the number of
 By default, a data flow profile named *default* is created when Azure IoT Operations is deployed. This data flow profile has a single instance count. You can use this data flow profile to get started with Azure IoT Operations.
 
 > [!IMPORTANT]
-> Currently, the default data flow profile is the only profile supported by the [operations experience portal](https://iotoperations.azure.com/). All data flows created using the operations experience portal use the default data flow profile.
+> Currently, the default data flow profile is the only profile supported by the [operations experience web UI](https://iotoperations.azure.com/). All data flows created using the operations experience use the default data flow profile.
 
 # [Bicep](#tab/bicep)
 

@@ -91,7 +91,7 @@ Yes, support will continue for your workloads on Azure Spring Apps until the ret
 
 No, we won't take up any feature requests from customers, and we won't be building any features in the Azure Spring Apps service. Instead, we'll prioritize new features and enhancements on Azure Container Apps.
 
-### What will happen to customers who can't migrate off of the Azure Spring Apps Enterprise plan by Aug 2025?
+### What will happen to customers who can't migrate off the Azure Spring Apps Enterprise plan by Aug 2025?
 
 If you still use any of the three unsupported Tanzu components - App Live View, App Accelerator, and App Configuration Service - be aware that support for these components will be discontinued starting from September 2025. Moreover, Microsoft reserves the right to remove these unsupported components should a critical vulnerability be identified.
 
@@ -148,4 +148,4 @@ We want to reassure you that the decision to retire Azure Spring Apps is focused
 
 ### Is there any change on the pricing of Tanzu components in Azure Spring Apps Enterprise?
 
-There's an important update regarding the VMware IP cost for running commercial Tanzu components in Azure Spring Apps Enterprise. With the conclusion of the free promotion period since May 2024 by Broadcom, billing of Tanzu components will be reinstated starting from April 21 PDT 2025, remaining the same price as before the promotion started. The invoice content will be updated as Microsoft will now collect this portion of the payment from customers directly and then distribute it to Broadcom. This update is a change from the previous process where customers would directly distribute the payment to Broadcom/VMware via the [Azure Marketplace offer](https://aka.ms/ascmpoffer). For more information, see [Azure Spring Apps pricing](https://aka.ms/springcloudpricing).
+There's an important update regarding the VMware IP cost for running commercial Tanzu components in Azure Spring Apps Enterprise. With the conclusion of the free promotion period since May 2024 by Broadcom, billing of Tanzu components will be reinstated starting from April 21, 2025, remaining the same price as before the promotion started. The invoice content will be updated as Microsoft will now collect this portion of the payment from customers directly and then distribute it to Broadcom. This update is a change from the previous process where customers would directly distribute the payment to Broadcom via the [Azure Marketplace offer](https://aka.ms/ascmpoffer). For more information, see [Azure Spring Apps pricing](https://aka.ms/springcloudpricing).
