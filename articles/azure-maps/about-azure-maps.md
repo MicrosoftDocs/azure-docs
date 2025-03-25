@@ -72,7 +72,7 @@ For more information, see [Geolocation] in the Azure Maps REST API documentation
 >
 > **Azure Maps Render v1 service retirement**
 >
-> The Azure Maps [Render v1] service is now deprecated and will be retired on 9/17/26. To avoid service disruptions, all calls to Render v1 API will need to be updated to use [Render v2] API by 9/17/26.
+> The Azure Maps [Render v1] service is now deprecated and will be retired on 9/17/26. To avoid service disruptions, all calls to Render v1 API will need to be updated to use [Render v2024-04-01] API by 9/17/26.
 
 ### Route service
 
@@ -217,7 +217,7 @@ Stay up to date on Azure Maps:
 [Get Weather along route API]: /rest/api/maps/weather/getweatheralongroute
 [Render]: /rest/api/maps/render
 [Render v1]: /rest/api/maps/render?view=rest-maps-1.0
-[Render v2]: /rest/api/maps/render
+[Render v2024-04-01]: /rest/api/maps/render
 [REST APIs]: /rest/api/maps/
 [Route]: /rest/api/maps/route
 [Search]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
