@@ -133,8 +133,8 @@ Make sure that the identity has access to the key vault secret that contains the
 1. Retrieve the Object ID of your dev center's identity:
 
     ```azurecli
-   OID=$(az ad sp list --display-name <devcenterName> --query [].id -o tsv)
-   echo $OID
+   $OID = az ad sp list --display-name <devcenterName> --query [].id -o tsv
+   Write-Output $OID
    ```
 
 1. Add a Key Vault policy to allow the dev center to get secrets from Key Vault:
@@ -171,15 +171,15 @@ You can use this [sample catalog](https://github.com/Azure/deployment-environmen
 1. Retrieve the secret identifier:
 
    ```azurecli
-   SECRETID=$(az keyvault secret show --vault-name <keyvaultName> --name GHPAT --query id -o tsv)
-   echo $SECRETID
+   $SECRETID = az keyvault secret show --vault-name <keyvaultName> --name GHPAT --query id -o tsv
+   Write-Output $SECRETID
    ```
 
 1. Add the catalog.
 
    ```azurecli
    # Sample catalog example
-   REPO_URL="https://github.com/Azure/deployment-environments.git"
+   $REPO_URL = "https://github.com/Azure/deployment-environments.git"
    az devcenter admin catalog create --git-hub path="/Environments" branch="main" secret-identifier=$SECRETID uri=$REPO_URL -n <catalogName> -d <devcenterName>
    ```
 
