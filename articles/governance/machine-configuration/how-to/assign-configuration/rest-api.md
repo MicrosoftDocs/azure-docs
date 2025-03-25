@@ -20,13 +20,18 @@ To modify the example for other resource types such as [Arc-enabled servers][02]
 type to the name of the resource provider. For Arc-enabled servers, the resource provider is
 `Microsoft.HybridCompute/machines`.
 
-Replace the following "<>" fields with values specific to your environment:
+Replace the following `<>` fields with values specific to your environment:
 
-- `<base_url>` : The same for all requests, but be certain to update the provider to specify between `Microsoft.Compute/virtualMachines` or `Microsoft.HybridCompute/machines` as appropriate:
-```https://management.azure.com/subscriptions/<vm_Subscription>/resourceGroups/<vm_ResourceGroup>/providers/<providerType>```
-- `<vm_name>`: Specify the name of the Machine Resource for this assignment
-- `<configuration_name>`: Specify the name of the configuration to apply.
-- `<api_version>` : Select the appropriate API-version, the newest version is `2022-01-25`
+- `<base_url>` - The same for all requests, but be certain to update the provider to specify
+  between `Microsoft.Compute/virtualMachines` or `Microsoft.HybridCompute/machines` as appropriate:
+
+  ```text
+  https://management.azure.com/subscriptions/<vm_Subscription>/resourceGroups/<vm_ResourceGroup>/providers/<providerType>
+  ```
+- `<vm_name>` - Specify the name of the Machine Resource for this assignment
+- `<configuration_name>` - Specify the name of the configuration to apply.
+- `<api_version>` - Select the appropriate API-version. The latest version is `2022-01-25`.
+
 ## Assign a built-in configuration
 
 The following example assigns the `AuditSecureServer` built-in configuration.
