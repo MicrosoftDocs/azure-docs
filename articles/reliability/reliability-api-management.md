@@ -74,12 +74,12 @@ When you use Azure API Management in front of an API, you might need to retry re
 
 Azure API Management supports availability zones in both zonal and zone-redundant configurations:
 
+- *Zone-redundant*: Enabling zone redundancy for an API Management instance in a supported region provides redundancy for all service components, including the gateway, management plane, and developer portal. Azure automatically replicates all service components across the zones that you select.
+
 - *Zonal*: The API Management gateway and the control plane of your API Management instance (management API, developer portal, Git configuration) are deployed in a single zone that you select within an Azure region.  
 
-    > [!NOTE] 
-    > Pinning to a single availability zone doesn’t increase resiliency. To improve resiliency, you need to explicitly deploy resources into multiple zones (zone redundancy). 
-
-- *Zone-redundant*: Enabling zone redundancy for an API Management instance in a supported region provides redundancy for all service components, including the gateway, management plane, and developer portal. Azure automatically replicates all service components across the zones that you select.
+    > [!IMPORTANT]
+    > Pinning to a single availability zone is only recommended when cross-zone latency is too high for your needs, and when you have verified that the latency doesnt meet your requirements. By itself, a zonal instance doesn’t increase resiliency. To improve the resiliency of a zonal instance, you need to explicitly deploy separate instances into multiple availability zones and configure traffic routing and failover.
 
 ### Region support 
 
