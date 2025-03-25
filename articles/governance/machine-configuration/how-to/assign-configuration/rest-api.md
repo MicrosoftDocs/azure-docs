@@ -52,14 +52,13 @@ Assignment.
 
 ### Azure Resource Properties
 
-These fields comprise the top level of properties as depicted in the sample request, and is made of the following properties.
+These fields are the top level of properties as depicted in the sample request, and is made of the
+following properties.
 
-
-```yaml
-Name: Name of the Built-In Machine Configuration Package
-Location: Location of the Hybrid Compute or Virtual Machine Resource
-Guest Configuration Parameters: Contains a JSON Object of additional parameters specific to Guest Configuration.
-```
+- `Name` - The name of the Built-In Machine Configuration Package
+- `Location` - The location of the Hybrid Compute or Virtual Machine Resource
+- `Guest Configuration Parameters` - A JSON Object of additional parameters specific to Guest
+  Configuration.
 
 ### Guest Configuration parameters
 These parameters represent most of a Machine Configuration Assignment and are defined as follows.
