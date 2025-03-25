@@ -1,15 +1,15 @@
 ---
-title: Use packet capture to do proactive network monitoring with alerts - Azure Functions
+title: Use packet capture to proactively monitor you network
 description: Learn how to create an alert-triggered packet capture by using Azure Network Watcher and Azure Functions.
 author: halkazwini
 ms.author: halkazwini 
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 02/14/2024
+ms.date: 03/25/2025
 ms.custom: devx-track-azurepowershell
 ---
 
-# Monitor networks proactively with alerts and Azure Functions by using packet capture
+# Monitor networks proactively with alerts and Azure Functions using packet capture
 
 The packet capture feature of Azure Network Watcher creates capture sessions to track traffic in and out of virtual machines (VMs). The capture file can have a filter that you define to track only the traffic that you want to monitor. This data is stored in a storage blob or locally on the guest machine.
 
@@ -35,7 +35,7 @@ This scenario assumes that you have an existing instance of Network Watcher and 
 
 Here's the workflow for packet capture:
 
-1. An incident triggers an alert on your VM.
+1. An incident triggers an alert on your virtual machine (VM).
 1. The alert calls your Azure function.
 1. Your Azure function processes the alert and starts a Network Watcher packet capture session.
 1. The packet capture runs on the VM and collects data.
@@ -58,7 +58,7 @@ To create an Azure function to process the alert and create a packet capture, yo
 
 1. Select **+ Create**.
 
-1. On the **Basics** tab of **Create Function App**, enter or select values for the following settings:
+1. On the **Basics** tab of **Create Function App**, enter, or select values for the following settings:
 
    - Under **Project Details**, select the subscription for which you want to create the function app and the resource group to contain the app.
    - Under **Instance Details**:
@@ -307,7 +307,7 @@ if ($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines") {
 }                               
  ```
 
-## Configure an alert on a VM
+## Configure an alert on a virtual machine
 
 You can configure alerts to notify individuals when a specific metric crosses a threshold that you assigned to it. In this example, the alert is on the **Network Out Total** metric that's sent, but you can trigger the alert for many other metrics.
 
@@ -344,8 +344,9 @@ If the capture file is stored locally, you can get it by signing in to the virtu
 
 For instructions on downloading files from Azure storage accounts, see the [quickstart for the Azure Blob Storage client library for .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). You can also use the [Azure Storage Explorer](https://storageexplorer.com/) tool.
 
-After you download your capture, you can view it by using tools like [Wireshark](https://www.wireshark.org/) that can read a *.cap* file.
+After you download your capture, you can view it using tools like [Wireshark](https://www.wireshark.org/) that can read a *.cap* file.
 
 ## Next step
 
-Learn how to view your packet captures by reading [Inspect and analyze Network Watcher packet capture files](network-watcher-deep-packet-inspection.md).
+> [!div class="nextstepaction"]
+> [Inspect and analyze Network Watcher packet capture files](network-watcher-deep-packet-inspection.md)
