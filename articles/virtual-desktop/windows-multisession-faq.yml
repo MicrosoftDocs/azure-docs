@@ -4,7 +4,7 @@ metadata:
   description: Frequently asked questions and best practices for using Windows Enterprise multi-session for Azure Virtual Desktop.
   author: dknappettmsft
   ms.topic: faq
-  ms.date: 08/02/2024
+  ms.date: 03/25/2025
   ms.author: daknappe
   ms.custom: docs_inherited
 title: Windows Enterprise multi-session FAQ
@@ -37,9 +37,9 @@ sections:
 
       - question: How do I customize the Windows Enterprise multi-session image for my organization?
         answer: |
-          You can start a VM in Azure with Windows Enterprise multi-session and customize it by installing LOB applications, sysprep/generalize, and then create an image using the Azure portal.
+          We recommend you use [Custom image templates](custom-image-templates.md). Alternatively, you can start a VM in Azure with Windows Enterprise multi-session and customize it by installing LOB applications, sysprep/generalize, and then create an image using the Azure portal.
           
-          To get started, create a VM in Azure with Windows Enterprise multi-session. Instead of starting the VM in Azure, you can download the VHD directly. After that, you'll be able to use the VHD you downloaded to create a new Generation 1 VM on a Windows PC with Hyper-V enabled.
+          To get started, create a VM in Azure with Windows Enterprise multi-session. Instead of starting the VM in Azure, you can download the VHD directly. After that, you're  able to use the VHD you downloaded to create a new VM on a Windows PC with Hyper-V enabled. Make sure you use the same VM generation for the new VM as the VHD.
           
           Customize the image to your needs by installing LOB applications and sysprep the image. When you're done customizing, upload the image to Azure with the VHD inside. After that, get Azure Virtual Desktop from the Azure Marketplace and use it to deploy a new host pool with the customized image.
           
@@ -100,9 +100,9 @@ sections:
           5. Click the **Apply** button.
           6. Click the **OK** button.
           
-      - question: Can Windows Enterprise multi-session and 11 Enterprise multi-session receive feature updates through Windows Server Update Services (WSUS)?
+      - question: Can Windows Enterprise multi-session receive feature updates through Windows Server Update Services (WSUS)?
         answer: |
-          Yes. You can update Windows Enterprise multi-session and Windows 11 Enterprise multi-session with the appropriate feature updates published to WSUS. The underlying VM must meet the [hardware requirements for Windows 11](/windows/whats-new/windows-11-requirements#virtual-machine-support).
+          Yes. You can update Windows Enterprise multi-session with the appropriate feature updates published to WSUS. The underlying VM must meet the hardware requirements for the operating system you're using. If you're upgrading in-place from Windows 10 to Windows 11 make sure the VM your upgrading meets the [hardware requirements for Windows 11](/windows/whats-new/windows-11-requirements#virtual-machine-support), such as being a generation 2 VM.
           
 additionalContent: |
 
