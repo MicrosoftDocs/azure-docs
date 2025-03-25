@@ -16,7 +16,7 @@ This overview introduces the key concepts around processing messages sent from y
 
 ## [Edge-based solution](#tab/edge)
 
-The following diagram shows a high-level view of the components in a typical cloud-based IoT solution. This article focuses on the message processing components of a cloud-based IoT solution.
+The following diagram shows a high-level view of the components in a typical edge-based IoT solution. This article focuses on the message processing components of a edge-based IoT solution.
 
 <!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-message-processing/iot-edge-message-architecture.svg" alt-text="Diagram that shows the high-level edge-based IoT solution architecture highlighting message processing areas." border="false" lightbox="media/iot-overview-message-processing/iot-edge-message-architecture.svg":::
@@ -111,7 +111,9 @@ Enrichments and transformations can be applied to data during the processing sta
 
 The [schema registry](../iot-operations/connect-to-cloud/concept-schema-registry.md) stores schemas for messages coming from your assets. Data flows use these message schemas to decode messages from various formats so they can be processed by data flows.
 
-The operations experience web UI provides a no-code environment for building and running the transformations in your data flows. To learn more, see [Enrich data by using data flows](../iot-operations/connect-to-cloud/concept-dataflow-enrich.md).
+The operations experience web UI provides a no-code environment for building and running the transformations in your data flows. 
+
+To learn more, see [Enrich data by using data flows](../iot-operations/connect-to-cloud/concept-dataflow-enrich.md).
 
 In Azure IoT Operations, you can deploy your own highly available edge applications to the Kubernetes cluster. The edge applications can interact with the built-in MQTT broker to:
 
@@ -142,7 +144,7 @@ IoT Central has two options for transforming telemetry messages:
 - Use [mappings](../iot-central/core/howto-map-data.md) to transform complex device telemetry into structured data on ingress to IoT Central.
 - Use [transformations](../iot-central/core/howto-transform-data-internally.md) to manipulate the format and structure of the device data before you export it to a destination.
 
-### IoT edge message processing
+### IoT Edge message processing
 
 An Azure IoT Edge module can process telemetry from an attached sensor or device before it sends it to an IoT hub. For example, before it sends data to the cloud an IoT Edge module can:
 
