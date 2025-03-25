@@ -1,0 +1,90 @@
+---
+title: Create a storage task using Terraform
+titleSuffix: Azure Storage Actions Preview
+description: Learn how to create a storage task using Terraform. A storage task can perform on blobs in one or more Azure Storage accounts. 
+author: normesta
+ms.service: azure-storage-actions
+ms.custom: devx-track-terraform;build-2023-metadata-update
+ms.topic: how-to
+ms.author: normesta
+ms.date: 03/25/2025
+#customer intent: As a Terraform user, I want to see how to create a storage task using Terraform.
+content_well_notification: 
+  - AI-contribution
+---
+
+# Create a storage task using Terraform
+
+A storage task can perform operations on blobs in an Azure Storage account. As you create a task, you can define the conditions that must be met by each object (container or blob), and the operations to perform on the object. You can also identify one or more Azure Storage account targets. See [What are Azure Storage Actions?](../overview.md).
+
+In this how-to article, you'll learn how to create a storage task using Terraform.
+
+> [!IMPORTANT]
+> Azure Storage Actions is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+[!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
+
+> [!div class="checklist"]
+> * Retrieve the current Azure client configuration.
+> * Generate a random name for the resource group.
+> * Create a new Azure resource group with the generated name.
+> * Generate a random string to be used as the storage task name.
+> * Calculate a future date by offsetting the current date by a certain number of days.
+> * Create a new Azure API resource of type "Microsoft.StorageActions/storageTasks".
+> * Specify the required providers for Terraform, including their sources and versions.
+> * Configure the Azure provider with specific features.
+> * Define several variables, including the location of the resource group, the prefix for the resource group name, the number of offset days, and the description of the storage task.
+
+## Prerequisites
+
+- Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
+
+## Implement the Terraform code
+
+> [!NOTE]
+> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-storage-actions-create-storage-task). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-storage-actions-create-storage-task/TestRecord.md).
+> 
+> See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
+
+1. Create a directory in which to test and run the sample Terraform code, and make it the current directory.
+
+1. Create a file named `providers.tf` and insert the following code.
+:::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-actions-create-storage-task/providers.tf":::
+
+1. Create a file named `main.tf` and insert the following code.
+:::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-actions-create-storage-task/main.tf":::
+
+1. Create a file named `variables.tf` and insert the following code.
+:::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-actions-create-storage-task/variables.tf":::
+
+1. Create a file named `outputs.tf` and insert the following code.
+:::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-actions-create-storage-task/outputs.tf":::
+
+## Initialize Terraform
+
+[!INCLUDE [terraform-init.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-init.md)]
+
+## Create a Terraform execution plan
+
+[!INCLUDE [terraform-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan.md)]
+
+## Apply a Terraform execution plan
+
+[!INCLUDE [terraform-apply-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-apply-plan.md)]
+
+## Clean up resources
+
+[!INCLUDE [terraform-plan-destroy.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan-destroy.md)]
+
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](/azure/developer/terraform/troubleshoot).
+
+## See also
+
+- [Azure Storage Actions overview](../overview.md)
+- [Create, assign, and run a storage task](storage-task-quickstart-portal.md)
+- [Define conditions and operations](storage-task-conditions-operations-edit.md)
