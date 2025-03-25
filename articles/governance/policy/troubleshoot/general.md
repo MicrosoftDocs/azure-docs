@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot problems with creating policy definitions, the various SDKs, and the add-on for Kubernetes.
-ms.date: 06/27/2024
+ms.date: 03/04/2025
 ms.topic: troubleshooting
 ---
 

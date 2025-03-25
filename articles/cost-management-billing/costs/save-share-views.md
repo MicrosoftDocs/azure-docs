@@ -1,14 +1,15 @@
 ---
 title: Save and share customized views
 titleSuffix: Microsoft Cost Management
-description: This article explains how to save and share a customized view with others.
+description: Learn how to save and share customized views in Cost Management. This guide explains how to preserve cost analysis views and share them with others.
 author: bandersmsft
 ms.author: banders
 ms.date: 01/07/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: micflan
+ms.reviewer: shasulin
+#customer intent: As a billing administrator, I want to learn how to save and share views so that I can share views with others.
 ---
 
 # Save and share customized views
@@ -21,7 +22,7 @@ A *view* is a saved query in Cost Management. When you save a view, all settings
 
 Check out the [Sharing and saving views](https://www.youtube.com/watch?v=kQkXXj-SmvQ) video.
 
-After you save a view, you can share a link to it with others using the **Share** command. The link is specific to your current scope and view configuration. The link doesn't grant others access to the view itself, which might change over time, or the underlying data. If you don't have access to the scope, an `access denied` message is shown. We recommend using the Cost Management Contributor role to allow others to save and share views with others.
+After you save a view, you can share a link to it with others using the **Share** command. The link is specific to your current scope and view configuration. The link doesn't grant others access to the view itself, which might change over time, or the underlying data. If you don't have access to the scope, an `access denied` message is shown. We recommend using the Cost Management Contributor role to allow others to save and share views. A saved view, whether it's private or shared, saves only the specific filters selected for the view. To update the filters in a saved or shared view, you might need to remove the existing filters and recreate a new one with the updated values.
 
 You can also pin the current view to an Azure portal dashboard. Pinning only includes a snapshot of the main chart or table and doesn't update when the view is updated. A pinned dashboard isn't the same thing as a saved view.
 

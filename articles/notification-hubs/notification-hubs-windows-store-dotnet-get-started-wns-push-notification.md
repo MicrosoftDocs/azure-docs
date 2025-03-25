@@ -3,7 +3,7 @@ title: Send notifications to Universal Windows Platform apps using Azure Notific
 description: Lean how to use Azure Notification Hubs to push notifications to a Windows Universal Platform application.
 services: notification-hubs
 author: sethmanheim
-manager: femila
+manager: lizross
 
 ms.service: azure-notification-hubs
 ms.tgt_pltfrm: mobile-windows

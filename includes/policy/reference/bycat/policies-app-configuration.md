@@ -1,7 +1,7 @@
 ---
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/20/2025
+ms.date: 03/17/2025
 ms.author: davidsmatlak
 author: davidsmatlak
 ms.custom: generated

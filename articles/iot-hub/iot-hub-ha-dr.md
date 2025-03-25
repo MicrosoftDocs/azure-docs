@@ -1,12 +1,12 @@
 ---
 title: Azure IoT Hub high availability and disaster recovery
 description: Describes the Azure and IoT Hub features that help you to build highly available Azure IoT solutions with disaster recovery capabilities.
-author: kgremban
+author: SoniaLopezBravo
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/25/2025
-ms.author: kgremban
+ms.author: sonialopez
 ms.custom: references_regions
 ---
 

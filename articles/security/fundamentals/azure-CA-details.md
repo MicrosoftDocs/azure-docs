@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 02/15/2025
 ms.author: sarahlipsey
 author: shlipsey3
-manager: amycolannino
+manager: femila
 ms.reviewer: quentinb
 ---
 # Azure Certificate Authority details

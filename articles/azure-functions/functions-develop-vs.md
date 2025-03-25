@@ -4,7 +4,7 @@ description: Learn how to develop and test Azure Functions by using Azure Functi
 ms.devlang: csharp
 ms.custom: devdivchpfy22
 ms.topic: conceptual
-ms.date: 01/30/2024
+ms.date: 03/17/2025
 zone_pivot_groups: function-worker-process
 ---
 
@@ -213,7 +213,7 @@ As with triggers, input and output bindings are added to your function as bindin
 
    The connection to Queue storage is obtained from the `QueueStorage` setting. For more information, see the reference article for the specific binding. 
 
-For a full list of the bindings supported by Functions, see [Supported bindings](functions-triggers-bindings.md?tabs=csharp#supported-bindings).
+For a full list of the bindings supported by Functions, see [Supported bindings](functions-triggers-bindings.md?tabs=csharp#supported-bindings). For a more complete example of this scenario, see [Connect functions to Azure Storage using Visual Studio](functions-add-output-binding-storage-queue-vs.md).
 
 ## Run functions locally
 
