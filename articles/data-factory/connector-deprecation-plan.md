@@ -80,10 +80,10 @@ The following V1 connectors or version 1.0 now have new updated versions availab
 
 The following connectors have reached the End of Support stage, and new updated versions are now available in Azure Data Factory. You should upgrade to the latest versions of these connectors.
 
-- [Google BigQuery](connector-google-bigquery.md#upgrade-the-google-bigquery-linked-service)
-- [MariaDB](connector-mariadb.md#upgrade-the-mariadb-driver-version)
-- [MySQL](connector-mysql.md#upgrade-the-mysql-driver-version)
-- [PostgreSQL](connector-postgresql.md#upgrade-the-postgresql-linked-service)
+- [Google BigQuery (V1)](connector-google-bigquery-legacy.md)
+- [MariaDB (version 1.0)](connector-mariadb.md)
+- [MySQL (version 1.0)](connector-mysql.md) 
+- [PostgreSQL (V1)](connector-postgresql-legacy.md) 
 
 The following connectors are at End of Support stage. You should migrate to [alternative solutions for linked services](#options-to-replace-deprecated-connectors) that use these connectors.
 
