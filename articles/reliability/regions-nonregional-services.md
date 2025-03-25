@@ -74,4 +74,4 @@ Microsoft publishes a [a list of services, which includes nonregional services](
 ## Related content
 
 - [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/)
-- [Azure regions lists](./regions-list.md)
+- [Azure regions list](./regions-list.md)
