@@ -3,7 +3,7 @@ items:
   href: ./index.yml
   items:
   - name: Migrate to Azure
-    href: ./overview.md
+    href: ./migrate-to-azure.md
 #  - name: Workload migration strategy
 #    href: ./migrate-workload.md
   - name: Migrate from AWS
