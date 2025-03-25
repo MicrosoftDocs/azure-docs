@@ -10,11 +10,11 @@ ms.topic: conceptual
 # Migrate workloads to Azure from other clouds
 
 
-This collection has been curated to assist workload teams in planning and executing the migration of their workloads. It covers migrations from cloud platforms like Amazon Web Services (AWS) and Google Cloud to Microsoft Azure. The expected outcome is that, after the migration is complete, the system will be shut down on the source platform and will run on Azure. 
+This collection is curated to assist workload teams in planning and executing the migration of their workloads. It covers migrations from cloud platforms like Amazon Web Services (AWS) and Google Cloud to Microsoft Azure. The expected outcome is that, after the migration is complete, the system will be shut down on the source platform and will run on Azure. 
 
 > [!IMPORTANT] 
 >
-> Certain migration scenarios are out of scope for this collection. It doesn't cover on-premises to Azure migrations, data center migrations, or region relocations. Additionally, it doesn't address running workloads on multiple clouds or its coexistence on both platforms simultaneously..
+> Certain migration scenarios are out of scope for this collection. It doesn't cover on-premises to Azure migrations, data center migrations, or region relocations. Additionally, it doesn't address running workloads on multiple clouds or its coexistence on both platforms simultaneously.
 
 Migration to Azure typically involves _replatforming the workload_, which includes transitioning both the infrastructure and management layer. Finding the best match for your source on Azure is an important step in the migration process. Keep in mind that not all components map one-to-one. You'll need to redesign the architecture to maintain functionality to accomplish your business objectives. This collection offers insights into such cloud-to-cloud transitions by comparing workload components and services, supported with example migration scenarios.
 
@@ -29,9 +29,9 @@ Workloads can be migrated only after the organization is fully committed to Azur
 
 - Complete the learning objectives in the training module to develop your organization's migration plan and identify the types of workloads that need to be migrated.
 
-    [**Use the Cloud Adoption Framework Migrate methodology to migrate your workload to the cloud**](/training/modules/cloud-adoption-framework-migrate/). 
+    [**Use the Cloud Adoption Framework Migrate methodology to migrate your workload**](/training/modules/cloud-adoption-framework-migrate/). 
 
-The next step involves the workload team planning and executing the migration. This includes assessing the current workload design, preparing a solution in Azure, making necessary code changes, and performing the migration. 
+The next phase involves the workload team planning and executing the migration. This includes assessing the current workload design, preparing a solution in Azure, making necessary code changes, and performing the migration. 
 
 
 ## Target audience
@@ -40,7 +40,7 @@ The content is applicable to workload roles and functions at the team level.
 
 - **Workload architect**. They might redesign certain aspects and validate the overall architecture to ensure it meets business requirements. Architects must address gaps considering the workload's specific characteristics and business constraints.
 
-- **Workload team members**. They must understand how their responsibilities will change during the migration process and post migration. For example, database administrators (DBAs) who manage scripts and perform daily backups on RDS must adapt to performing these tasks on Azure SQL Database. 
+- **Workload team members**. They must understand how their responsibilities will change during the migration process and post migration. For example, database administrators (DBAs) who manage scripts and perform daily backups on Amazon RDS must adapt to performing these tasks on Azure SQL Database. 
 
 
 ## Content layout
