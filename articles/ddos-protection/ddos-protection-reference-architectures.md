@@ -5,7 +5,7 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: azure-ddos-protection
 ms.topic: concept-article
-ms.date: 11/20/2024
+ms.date: 03/17/2025
 ms.author: abell
 ms.custom: fasttrack-edit, linux-related-content
 ---
