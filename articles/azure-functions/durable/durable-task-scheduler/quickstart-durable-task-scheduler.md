@@ -72,37 +72,16 @@ Install the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.D
 
 ::: zone pivot="other"  
 
-Until the durable task scheduler package is added to the extension bundles, you need to manually install the latest version of these packages using [Azure Functions Core Tools](../../functions-run-local.md#install-the-azure-functions-core-tools):
-  - [Microsoft.Azure.WebJobs.Extensions.DurableTask.AzureManaged](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask.AzureManaged/)
-  - [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)
+In host.json, update the `extensionBundle` property to use the preview version that contains the durable task scheduler package:
 
-For example: 
-```bash
-func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask.AzureManaged --version 0.4.2-alpha
+```json
+{
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[4.29.0]"
+  }
+}
 ```
-```bash
-func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask --version 3.0.4
-```
-
-These commands should automatically generate a *extensions.csproj* file. If the package references aren't added to the file, check to ensure that `net8.0` is the target framework and run the commands again. The file should have content similar to the following example:
-
-```xml
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-	<WarningsAsErrors></WarningsAsErrors>
-	<DefaultItemExcludes>**</DefaultItemExcludes>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.DurableTask" Version="3.0.4" />
-    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.DurableTask.AzureManaged" Version="0.4.2-alpha" />
-    <PackageReference Include="Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator" Version="1.1.3" />
-  </ItemGroup>
-</Project>
-```
-
-> [!NOTE]
-> Remember to remove the reference to extension bundles in `host.json`. 
 
 ::: zone-end 
 
@@ -134,7 +113,7 @@ Add connection information for local development:
   "Values": {
     "FUNCTIONS_WORKER_RUNTIME": "<DEPENDENT ON YOUR PROGRAMMING LANGUAGE>",
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    "DURABLE_TASK_SCHEDULER_CONNECTION_STRING": "Endpoint=http://localhost:<port number>;Authentication=None",
+    "DURABLE_TASK_SCHEDULER_CONNECTION_STRING": "Endpoint=http://localhost:8080;Authentication=None",
     "TASKHUB_NAME": "default"
   }
 }
@@ -153,23 +132,20 @@ Get the durable task scheduler emulator port number in [the next step](#set-up-d
 1. Run the emulator.
 
    ```bash
-   docker run -itP mcr.microsoft.com/dts/dts-emulator:v0.0.5
+   docker run -d -p 8080:8080 -p 8082:8082 mcr.microsoft.com/dts/dts-emulator:v0.0.5
    ```
    
    The following output indicates the emulator started successfully.
 
      :::image type="content" source="media/quickstart-durable-task-scheduler/emulator-started.png" alt-text="Screenshot showing emulator started successfully on terminal.":::
 
-1. Make note of the ports exposed on Docker desktop. These static ports are exposed by the container and mapped dynamically by default. The scheduler exposes multiple ports for different purposes:  
+1. Make note of the ports exposed on Docker desktop. The scheduler exposes multiple ports for different purposes:  
 
    - `8080`: gRPC endpoint that allows an app to connect to the scheduler
    - `8082`: Endpoint for durable task scheduler dashboard
 
    :::image type="content" source="media/quickstart-durable-task-scheduler/docker-ports.png" alt-text="Screenshot of ports on Docker.":::
 
-1. Update the connection string in *local.settings.json* with the gRPC endpoint port number. 
-
-   In the previous example, port `55000` is mapped to the gRPC `8080` endpoint, so the connection string should be `Endpoint=http://localhost:55000;Authentication=None`.
 
 ## Test locally 
 
@@ -210,9 +186,7 @@ Get the durable task scheduler emulator port number in [the next step](#set-up-d
      }
    ```
 
-1. To view more details about the orchestration instance, go to the Docker desktop app and click the `8082` link to access the durable task scheduler dashboard. 
-
-   :::image type="content" source="media/quickstart-durable-task-scheduler/docker-ports.png" alt-text="Screenshot of ports on Docker.":::
+1. To view more details about the orchestration instance, go to **http://localhost:8082/** access the durable task scheduler dashboard. 
 
 1. Click on the *default* task hub to see its dashboard. 
 
