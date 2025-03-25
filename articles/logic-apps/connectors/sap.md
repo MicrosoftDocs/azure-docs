@@ -171,7 +171,8 @@ SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way th
 
   *  All actions that specify a **Session ID** value such as the action named **[BAPI] Commit transaction**.
 
-  *  All actions that specify a **Transaction ID** value, except the actions named **[IDOC - RFC] Confirm transaction Id** and **[IDoc] Get IDoc list for transaction**
+  *  All actions that specify a **Transaction ID** value, except for the actions named **[IDOC - RFC] Confirm transaction Id** and **[IDoc] Get IDoc list for transaction**.
+
   *  **Respond to SAP server**
 
 * To use either the SAP managed or built-in connector trigger named **When a message is received**, complete the following tasks:
