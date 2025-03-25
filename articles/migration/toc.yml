@@ -70,20 +70,18 @@ items:
           href: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-online
       - name: Migrate MySQL on AWS to Azure Database for MySQL
         href: /azure/azure-sql/migration-guides/database/mysql-to-sql-database-guide?view=azuresql-db&preserve-view=true
+      - name: Migrate Amazon SQL Server to Azure SQL Database
+        href: /data-migration/sql-server/database/guide
       - name: Amazon DynamoDB
         items:
         - name: Migrate a DynamoDB application to Azure Cosmos DB for NoSQL
           href: /azure/cosmos-db/nosql/dynamo-to-cosmos
         - name: Migrate DynamoDB data to Azure Cosmos DB for NoSQL
           href: /azure/cosmos-db/nosql/dynamodb-data-migration-cosmos-db
-      - name: Amazon ElastiCache
-        items:
-        - name: Migrate to Azure Cache for Redis
-          href: /azure/azure-cache-for-redis/cache-migration-guide
-      - name: CouchBase on AWS
-        items:
-        - name: Migrate to Azure Cosmos DB for NoSQL
-          href: /azure/cosmos-db/nosql/couchbase-cosmos-migration
+      - name: Migrate Amazon ElastiCache to Azure Cache for Redis
+        href: /azure/azure-cache-for-redis/cache-migration-guide
+      - name: Migrate CouchBase on AWS to Azure Cosmos DB for NoSQL
+        href: /azure/cosmos-db/nosql/couchbase-cosmos-migration
     - name: Storage
       items:
       - name: Migrate storage components
