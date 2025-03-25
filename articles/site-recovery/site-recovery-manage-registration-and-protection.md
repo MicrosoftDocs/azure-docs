@@ -4,7 +4,7 @@ description: This article describes how to unregister servers from a Site Recove
 author: ankitaduttaMSFT
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 07/08/2024
+ms.date: 03/25/2025
 ms.author: ankitadutta
 
 ---
@@ -12,15 +12,6 @@ ms.author: ankitadutta
 # Remove servers and disable protection
 
 This article describes how to unregister servers from a Recovery Services vault, and how to disable protection for machines protected by Site Recovery.
-
-
-## Unregister a  configuration server
-
-If you replicate VMware VMs or Windows/Linux physical servers to Azure, you can unregister an unconnected configuration server from a vault as follows:
-
-1. [Disable protection of virtual machines](#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure).
-2. [Disassociate or delete](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) replication policies.
-3. [Delete the configuration server](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server)
 
 ## Unregister a VMM server
 

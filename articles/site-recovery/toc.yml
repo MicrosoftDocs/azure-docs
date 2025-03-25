@@ -30,6 +30,8 @@
   - name: Create a vault - Terraform
     displayName: ARM, Resource Manager
     href: quickstart-create-vault-terraform.md
+  - name: Manage Site Recovery updates
+    href: service-updates-how-to.md
 - name: Tutorials
   items:
   - name: Azure VM disaster recovery to Azure
@@ -284,8 +286,6 @@
         href: azure-to-azure-autoupdate.md
       - name: Migrate from a Run As account to Managed Identities
         href: how-to-migrate-run-as-accounts-managed-identity.md
-      - name: Manage Site Recovery updates
-        href: service-updates-how-to.md
       - name: Remove servers and disable protection
         href: site-recovery-manage-registration-and-protection.md
       - name: Delete a vault
@@ -377,11 +377,7 @@
       - name: Set up IP addressing for failover
         href: concepts-on-premises-to-azure-networking.md     
     - name: Set up disaster recovery
-      items:
-      - name: Set up the source environment
-        href: physical-azure-set-up-source.md      
-      - name: Walkthrough-Set up disaster recovery
-        href: physical-azure-disaster-recovery.md
+      items:      
       - name: Set up the target environment
         href: vmware-azure-set-up-target.md
       - name: Enable on-premises replication with private endpoints
@@ -395,17 +391,13 @@
         - name: Deploy the Mobility service with Configuration Manager
           href: vmware-azure-mobility-install-configuration-mgr.md
     - name: Set up disaster recovery at scale
-      href: vmware-physical-large-deployment.md
-    - name: Run failover and failback
-      href: physical-to-azure-failover-failback.md 
+      href: vmware-physical-large-deployment.md 
     - name: Enable on-premises replication with private endpoints
       href: ./hybrid-how-to-enable-replication-private-endpoints.md          
     - name: Manage
       items:
       - name: Manage the Mobility service
         href: vmware-physical-manage-mobility-service.md
-      - name: Manage the configuration server
-        href: physical-manage-configuration-server.md
       - name: Manage process servers
         href: vmware-azure-manage-process-server.md
       - name: Manage Site Recovery updates
@@ -492,7 +484,7 @@
                 href: vmware-physical-large-deployment.md
               - name: Set up the target environment
                 href: vmware-azure-set-up-target.md
-              - name: Deploy the configuration server
+              - name: Deploy a configuration server
                 href: vmware-azure-deploy-configuration-server.md
               - name: Manage vCenter servers
                 href: vmware-azure-manage-vcenter.md
@@ -502,6 +494,16 @@
                 href: vmware-azure-reprotect.md
               - name: Fail back from Azure to on-premises
                 href: vmware-azure-failback.md
+        - name: Physical VM
+          items:
+              - name: Run failover and failback
+                href: physical-to-azure-failover-failback.md
+              - name: Set up the source environment
+                href: physical-azure-set-up-source.md
+              - name: Walkthrough-Set up disaster recovery
+                href: physical-azure-disaster-recovery.md
+              - name: Manage the configuration server
+                href: physical-manage-configuration-server.md
   - name: Azure Stack VM disaster recovery
     items:
     - name: Walkthrough-Set up disaster recovery for Azure Stack Hub
@@ -592,7 +594,7 @@
       href: vmware-azure-troubleshoot-replication.md
     - name: Configuration server errors
       href: vmware-azure-troubleshoot-configuration-server.md
-    - name: Process server errors
+    - name: Process server errors (Classic)
       href: vmware-physical-azure-troubleshoot-process-server.md
     - name: Replication appliance health
       href: vmware-troubleshoot-appliance-health-issue.md
