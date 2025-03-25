@@ -87,10 +87,10 @@ When a new constraint is added to a table, a related statistic is created in the
 
 ### Enable TDE gateway time-outs in ARM deployment 
 
-Updating TDE (Transparent data encryption) is internally implemented as a synchronous operation, subject to a time-out which can be exceeded. Although the time-out has been exceeded, behind the scenes the TDE operation in most cases succeeds, but causes successor operations in the ARM template to be rejected.
+Updating TDE (Transparent data encryption) is internally implemented as a synchronous operation, subject to a time-out which can be exceeded. Although the time-out was exceeded, behind the scenes the TDE operation in most cases succeeds, but causes successor operations in the ARM template to be rejected.
 
-**Workaround**: There are two ways to mitigate this. The preferred option is to split the ARM template into multiple templates, so that one of those contains TDE update. That will reduce the chance of a time-out. 
-Other option is to retry the deployment after several minutes. During the wait time the TDE update operation most likely will succeed and re-deploying the template the second time could execute previously rejected operations.
+**Workaround**: There are two ways to mitigate this issue. The preferred option is to split the ARM template into multiple templates, so that one of the templates contains TDE update. That action reduces the chance of a time-out. 
+Other option is to retry the deployment after several minutes. During the wait time, the TDE update operation most likely will succeed and re-deploying the template the second time could execute previously rejected operations.
 
 ### Tag updates appear to fail
 
