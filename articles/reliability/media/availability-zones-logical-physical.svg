@@ -6,7 +6,7 @@
 		class="st12">
 	<style type="text/css">
 	<![CDATA[
-		.st1 {fill:#ffffff;stroke:none;stroke-width:0.25}
+		.st1 {fill-opacity="0.4";stroke:none;stroke-width:0.25}
 		.st2 {fill:#fae2bd;stroke:#4472c4;stroke-dasharray:3.5,2.5;stroke-width:0.5}
 		.st3 {fill:#f2f2f2;stroke:#000000;stroke-dasharray:3.5,2.5;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
 		.st4 {fill:#000000;font-family:Segoe UI;font-size:1.08334em;font-weight:bold}
