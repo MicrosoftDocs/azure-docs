@@ -16,7 +16,7 @@ This overview introduces the key concepts around processing messages sent from y
 
 ## [Edge-based solution](#tab/edge)
 
-The following diagram shows a high-level view of the components in a typical edge-based IoT solution. This article focuses on the message processing components of a edge-based IoT solution.
+The following diagram shows a high-level view of the components in a typical edge-based IoT solution. This article focuses on the message processing components of an edge-based IoT solution.
 
 <!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-message-processing/iot-edge-message-architecture.svg" alt-text="Diagram that shows the high-level edge-based IoT solution architecture highlighting message processing areas." border="false" lightbox="media/iot-overview-message-processing/iot-edge-message-architecture.svg":::
