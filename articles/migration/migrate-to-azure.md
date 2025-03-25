@@ -16,12 +16,12 @@ This collection is curated to assist workload teams in planning and executing th
 >
 > Certain migration scenarios are out of scope for this collection. It doesn't cover on-premises to Azure migrations, full data center migrations, or region relocations. Additionally, it doesn't address concurrently running a workload on multiple clouds.
 
-Migration to Azure typically involves _replatforming the workload_, which includes transitioning both the infrastructure and management layer. Finding the best match for your source on Azure is an important step in the migration process. Keep in mind that not all components map one-to-one. You'll need to redesign the architecture to maintain functionality to accomplish your business objectives. This collection offers insights into such cloud-to-cloud transitions by comparing workload components and services, supported with example migration scenarios.
+Migration to Azure typically involves _replatforming the workload_, which includes transitioning both the infrastructure and management layer from the source cloud provider to Azure. Finding the best match for your source components on Azure is an important step in the migration process. Keep in mind that not all components map one-to-one. You'll need to redesign the architecture or revisit some code to maintain functionality to accomplish your business objectives. This collection offers insights into such cloud-to-cloud transitions by comparing workload components and services, supported with example migration scenarios.
 
 
 ## Prerequisite to workload migration
 
-Workloads can be migrated only after the organization is fully committed to Azure. Before migrating workloads, we recommend that you understand the fundamental concepts on Azure and have an active Azure enrollment. Explore these Cloud Adoption Framework (CAF) resources to achieve these goals:
+Workloads should be migrated only after the organization is committed to Azure and have established their approach for adopting Azure. Before migrating workloads, we recommend that you understand the fundamental concepts on Azure and have an active Azure enrollment. Explore these Cloud Adoption Framework (CAF) resources to achieve these goals:
 
 - Learn about terms used in Azure, and how the concepts relate to one another.
 
@@ -58,9 +58,6 @@ We recommend starting your learning journey based on your source platform:
 
 You'll also find guidance that's applicable to all platforms. Such platform-agnostic guidance is included in all sections for convenience.
 
-> [!TIP] 
->
-> Keep checking for updates regularly. We're constantly incorporating new technology stacks and example scenarios.
 
 ## Tools
 
