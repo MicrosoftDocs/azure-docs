@@ -25,10 +25,10 @@ Refer to these migration guides as examples for framing your migration process.
 
 | Scenario | Key services | Description |
 |--|--|--|
-| [Use AzCopy to move data from AWS S3 to Azure Storage](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-s3) | Amazon S3 -> Azure Blob Storage, AzCopy | Demonstrates how to transfer data from S3 to Azure using AzCopy. |
-| [Data Factory guidance for migrating S3 to Azure Storage](https://learn.microsoft.com/en-us/azure/data-factory/data-migration-guidance-s3-azure-storage) | Amazon S3 -> Azure Storage, Azure Data Factory | Covers planning and execution steps for migrating data from S3 to Azure, including operational details. |
+| [Use AzCopy to move data from AWS S3 to Azure Storage](/azure/storage/common/storage-use-azcopy-s3) | Amazon S3 -> Azure Blob Storage, AzCopy | Demonstrates how to transfer data from S3 to Azure using AzCopy. |
+| [Data Factory guidance for migrating S3 to Azure Storage](/azure/data-factory/data-migration-guidance-s3-azure-storage) | Amazon S3 -> Azure Storage, Azure Data Factory | Covers planning and execution steps for migrating data from S3 to Azure, including operational details. |
 | [Move your data from AWS S3 to Azure Storage using AzCopy](https://azure.microsoft.com/en-us/blog/move-your-data-from-aws-s3-to-azure-storage-using-azcopy/) | Amazon S3 -> Azure Storage, AzCopy | Showcases best practices and tips for transferring data from S3 to Azure Storage using AzCopy. |
-| [Solution template for migrating S3 to Azure Storage](https://learn.microsoft.com/en-us/azure/data-factory/solution-template-migration-s3-azure) | Amazon S3 -> Azure Storage, Azure Data Factory | Provides a prebuilt approach to help automate your data migration from S3 to Azure Storage. |
+| [Solution template for migrating S3 to Azure Storage](/azure/data-factory/solution-template-migration-s3-azure) | Amazon S3 -> Azure Storage, Azure Data Factory | Provides a prebuilt approach to help automate your data migration from S3 to Azure Storage. |
 
 ## Related workload components
 
