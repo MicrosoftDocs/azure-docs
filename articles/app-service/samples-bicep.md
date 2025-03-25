@@ -19,6 +19,7 @@ To learn about the Bicep syntax and properties for App Services resources, see [
 |-|-|
 | [App Service plan and basic Linux app](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-basic-linux) | Deploys an App Service app that is configured for Linux. |
 | [App Service plan and basic Windows app](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-basic-windows) | Deploys an App Service app that is configured for Windows. |
+| [App Service plan and Windows container app](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/app-service-docs-windows-container) | Deploys an App Service app that is configured for a Windows container. |
 | **Configuring an app** | **Description** |
 | [App with log analytics module](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-loganalytics)| Deploys an App Service app with log analytics. |
 | [App with regional VNet integration](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/app-service-regional-vnet-integration)| Deploys an App Service app with regional VNet integration enabled. |

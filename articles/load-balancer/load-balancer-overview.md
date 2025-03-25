@@ -17,7 +17,7 @@ ms.custom: template-overview, engagement-fy23
 >[!Important]
 >On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to the retirement date. For guidance on upgrading, visit [Upgrading from Basic Load Balancer - Guidance](load-balancer-basic-upgrade-guidance.md).
 
-*Load balancing* refers to efficiently distributing incoming network traffic across a group of backend servers or resources.
+*Load balancing* refers to efficiently distributing incoming network traffic across a group of backend virtual machines (VMs) or virtual machine scale sets (VMSS).
 
 Azure Load Balancer operates at layer 4 of the Open Systems Interconnection (OSI) model. It's the single point of contact for clients. The service distributes inbound flows that arrive at the load balancer's frontend to backend pool instances. These flows are distributed according to configured load-balancing rules and health probes. The backend pool instances can be Azure virtual machines (VMs) or virtual machine scale sets.
 
@@ -63,7 +63,7 @@ Key scenarios that you can accomplish by using Azure Standard Load Balancer incl
 
 - Load balance TCP and UDP flow on all ports simultaneously by using [high-availability ports](./load-balancer-ha-ports-overview.md).
 
-- Chain Standard Load Balancer and [Gateway Load Balancer](./tutorial-gateway-portal.md).
+- Chain Standard Load Balancer and [Gateway Load Balancer](./tutorial-create-gateway-load-balancer.md).
 
 ### <a name="securebydefault"></a>Security by default
 

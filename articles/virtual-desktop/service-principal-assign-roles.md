@@ -36,7 +36,7 @@ Before you can assign a role to an Azure Virtual Desktop service principal, you 
 
 - To assign Azure RBAC roles, you must have the `Microsoft.Authorization/roleAssignments/write` permission to an Azure subscription in order to assign roles on that subscription. This permission is part of the [Owner](../role-based-access-control/built-in-roles.md) or [User Access Administrator](../role-based-access-control/built-in-roles.md) built in roles.
 
-- To assign Microsoft Entra roles, you must have the [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator) or [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator) role.
+- To assign Microsoft Entra roles, you must have the [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator) or equivalent.
 
 - If you want to use Azure PowerShell or Azure CLI locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module or [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 

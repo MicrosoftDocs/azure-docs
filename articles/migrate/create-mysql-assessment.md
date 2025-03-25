@@ -54,7 +54,7 @@ To create and run a MySQL assessment, follow these steps:
    | **Environment type** | The environment for the MySQL deployments to apply Azure Database for MySQL configuration and cost recommendations applicable to Production or Dev/Test.
    | **Licensing program**  | The Azure offer if you're enrolled. Currently, the field is Pay-as-you-go by default, which gives you retail Azure prices.
    | **Currency** | The billing currency for your account.
-   | **Savings options**  | Specify the reserved capacity savings option that you want the assessment to consider and optimize your Azure compute cost. <br/><br> [Azure reservations](https://learn.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations) (one year or three years reserved) are a good option for the most consistently running resources. <br/><br> When you select **None**, the Azure compute cost is based on the Pay-as-you-go rate or based on actual usage. <br/><br> You need to select pay-as-you-go in the offer/licensing program to be able to use Reserved Instances. When you select any savings option other than 'None', the 'Discount (%)' setting isn’t applicable. The monthly cost estimates are calculated by multiplying 744 hours with the hourly price of the recommended SKU.
+   | **Savings options**  | Specify the reserved capacity savings option that you want the assessment to consider and optimize your Azure compute cost. <br/><br> [Azure reservations](/azure/cost-management-billing/reservations/save-compute-costs-reservations) (one year or three years reserved) are a good option for the most consistently running resources. <br/><br> When you select **None**, the Azure compute cost is based on the Pay-as-you-go rate or based on actual usage. <br/><br> You need to select pay-as-you-go in the offer/licensing program to be able to use Reserved Instances. When you select any savings option other than 'None', the 'Discount (%)' setting isn’t applicable. The monthly cost estimates are calculated by multiplying 744 hours with the hourly price of the recommended SKU.
    | **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
 
    **Assessment criteria**
@@ -74,7 +74,7 @@ To create and run a MySQL assessment, follow these steps:
 
 1. Select **OK**.
 
-   :::image type="content" source="./media/create-mysql-assessment/save-mysql-assessment-settings.png" alt-text="Screenshot on how to edit mysql assessment settings.":::
+   :::image type="content" source="./media/create-mysql-assessment/save-mysql-assessment-settings.png" alt-text="Screenshot on how to save mysql assessment settings.":::
    
 1. In **Assess Servers**, select **Next**.
 1. In **Select servers to assess**, specify a name for the assessment in the **Assessment name**.
@@ -162,4 +162,4 @@ Azure Migrate assigns a confidence rating to all MySQL assessments based on the 
 ## Next steps
 
  - Learn more about [how MySQL assessments are calculated](assessments-overview-migrate-to-azure-db-mysql.md).
- - [Get started on your MySQL migration journey to Azure Database for MySQL](https://learn.microsoft.com/training/modules/choose-tool-to-migrate-data-to-azure-database-for-mysql/).
+ - [Get started on your MySQL migration journey to Azure Database for MySQL](/training/modules/choose-tool-to-migrate-data-to-azure-database-for-mysql/).

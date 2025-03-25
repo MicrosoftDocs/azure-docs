@@ -6,11 +6,11 @@ summary: The IoT Hub Device Provisioning Service (DPS) is a helper service for I
 metadata:
   title: Azure IoT Hub Device Provisioning Service Documentation
   description: Azure IoT Hub Device Provisioning Service (DPS) - Tutorials, Quickstarts, HowTos, and API Reference
-  author: kgremban
+  author: SoniaLopezBravo
   ms.service: azure-iot-hub
   ms.topic: landing-page
   ms.date: 08/16/2024
-  ms.author: kgremban
+  ms.author: sonialopez
   ms.subservice: azure-iot-hub-dps
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new

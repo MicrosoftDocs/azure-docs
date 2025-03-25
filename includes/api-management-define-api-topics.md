@@ -4,10 +4,10 @@ ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: include
-ms.date: 10/05/2023
+ms.date: 03/12/2025
 ms.author: danlep
 ---
-## Related topics
+## Related content
 
 * [API import limitations](../articles/api-management/api-management-api-import-restrictions.md)
 * [Import an OpenAPI specification](../articles/api-management/import-api-from-oas.md)

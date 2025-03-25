@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: whyistheinternetbroken
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 01/29/2025
+ms.date: 03/11/2025
 ms.author: anfdocs
 ---
 
@@ -148,7 +148,7 @@ SMB services in Azure NetApp Files are initially configured by setting up an [Ac
 - Active Directory DNS name*
 - Active Directory site name (for DC discovery) (required)
 - SMB server prefix name
-- Organizational unit (where machine accounts should be stored in the Azure AD domain)
+- Organizational unit (where where SMB server computer accounts are created)
 - AES encryption enable/disable
 - LDAP signing enable/disable
 - LDAP configuration
@@ -157,7 +157,7 @@ SMB services in Azure NetApp Files are initially configured by setting up an [Ac
 - Username/password credentials of user with OU permissions
 
 >[!NOTE]
->Only one Azure Active Directory (AD) connection is allowed per account. Once the Azure AD connection is created, any new Azure NetApp Files SMB volume uses the Azure AD connection configuration.
+>Only one Azure Active Directory (AD) connection is allowed per account. Once the AD connection is created, any new Azure NetApp Files SMB volume uses the AD connection configuration.
 
 ### SMB Kerberos machine account
 
@@ -178,10 +178,10 @@ New machine accounts are created when an Azure NetApp Files SMB volume is provis
 
 The SMB machine account created for the Azure NetApp Files SMB (or dual-protocol) volume uses a naming convention that adheres to the [15-character maximum that is enforced by Active Directory](/troubleshoot/windows-server/active-directory/naming-conventions-for-computer-domain-site-ou). The name uses the structure of [SMB Server prefix specified in Azure AD connection configuration]-[unique numeric identifier].
 
-For instance, if you've [configured your Azure AD connections](create-active-directory-connections.md) to use the SMB server prefix "AZURE," the SMB machine account that Azure NetApp Files creates resembles "AZURE-7806." That same name is used in the UNC path for the SMB share (for example, \\AZURE-7806) and is the name that dynamic DNS services use to create the A/AAAA record. 
+For instance, if you've [configured your AD connections](create-active-directory-connections.md) to use the SMB server prefix "AZURE," the SMB machine account that Azure NetApp Files creates resembles "AZURE-7806." That same name is used in the UNC path for the SMB share (for example, \\AZURE-7806) and is the name that dynamic DNS services use to create the A/AAAA record. 
 
 >[!NOTE]
->Because a name like “AZURE-7806” can be hard to remember, it's beneficial to create a CNAME record as a DNS alias for Azure NetApp Files volumes. For more information, see [Creating SMB server aliases](#creating-smb-server-aliases).
+>Because a name like "AZURE-7806" can be difficult to remember, it's beneficial to create a CNAME record as a DNS alias for Azure NetApp Files volumes. For more information, see [Creating SMB server aliases](#creating-smb-server-aliases).
 
 :::image type="content" source="media/kerberos/multiple-dns-smb.png" alt-text="Diagram of multiple machine accounts/DNS entries in Azure NetApp Files." lightbox="media/kerberos/multiple-dns-smb.png":::
 
@@ -230,7 +230,7 @@ In most cases, knowing detailed steps in depth isn't necessary for day-to-day ad
 - ICMP (ping) is sent to check that the IP addresses returned from DNS are reachable. 
 - If ping is blocked on the network by firewall policies, then the ICMP request fails. Instead, LDAP pings are used.
 - Another LDAP ping is performed to search for available legacy NetLogon servers using the query (`&(&(DnsDomain=CONTOSO.COM)(Host=KDChostname.contoso.com))(NtVer=0x00000006)`) with the attribute filter NetLogon. Newer Windows domain controller versions (greater than 2008) don't have the [NtVer](/openspecs/windows_protocols/ms-adts/8e6a9efa-6312-44e2-af12-06ad73afbfa5) value present.
-- An AS-REQ authentication is sent from the Azure NetApp Files service using the username configured with the Active directory connection.
+- An AS-REQ authentication is sent from the Azure NetApp Files service using the username configured with the Active Directory connection.
 - The DC responds with `KRB5KDC_ERR_PREAUTH_REQUIRED`, which is asking the service to send the password for the user securely.
 - A second AS-REQ is sent with the [preauthentication data](https://datatracker.ietf.org/doc/html/rfc6113) needed to authenticate with the KDC for access to proceed with machine account creation. If successful, a Ticket Granting Ticket (TGT) is sent to the service.
 - If successful, a TGS-REQ is sent by the service to request the CIFS service ticket (cifs/kdc.contoso.com) from the KDC using the TGT received in the AS-REP.
@@ -349,7 +349,7 @@ When an Azure NetApp Files volume is mounting using Kerberos, a Kerberos ticket 
 
 ## Creating SMB server aliases
 
-When Azure NetApp Files creates an SMB server using a naming convention of [SMB Server prefix specified in Azure AD connection configuration]-[unique numeric identifier]. (For details about the unique numeric identifier, see [SMB Kerberos machine account](#smb-kerberos-machine-account)).
+When Azure NetApp Files creates an SMB server using a naming convention of [SMB Server prefix specified in the AD connection configuration]-[unique numeric identifier]. (For details about the unique numeric identifier, see [SMB Kerberos machine account](#smb-kerberos-machine-account)).
 This formatting means SMB server names aren't constructed in a user-friendly way. For instance, a name of "SMB-7806" is harder to remember than something similar to "AZURE-FILESHARE."
 
 Because of this behavior, administrators may want to create user-friendly alias names for Azure NetApp Files volumes. Doing this requires pointing a [DNS canonical name (CNAME)](/microsoft-365/admin/dns/create-dns-records-using-windows-based-dns#add-cname-records) to the existing DNS A/AAAA record in the server.
@@ -414,7 +414,7 @@ The NFS Kerberos realm is configured when the Kerberos realm information is fill
 
 :::image type="content" source="media/kerberos/kerberos-realm.png" alt-text="Screenshot of Kerberos realm configuration." lightbox="media/kerberos/multiple-dns-smb.png":::
  
-The Azure AD Server Name and KDC IP are used to connect to the Azure AD KDC services on the initial machine account creation. The Azure NetApp Files service leverages the existing domain information to fill out the rest of the realm configuration. For example:
+The AD Server Name and KDC IP are used to connect to the AD KDC services on the initial machine account creation. The Azure NetApp Files service leverages the existing domain information to fill out the rest of the realm configuration. For example:
 
 ```
 Kerberos Realm: CONTOSO.COM
@@ -536,7 +536,7 @@ When an Azure NetApp Files NFS Kerberos mount is accessed by a user (other than 
 
 Azure NetApp Files relies on LDAP for NFS Kerberos. NFS Kerberos in Azure NetApp Files requires Kerberos for UNIX name mappings for incoming user SPNs. Because Azure NetApp Files doesn't support creation of local UNIX users, LDAP is needed to perform lookups for UNIX users when a name mapping is requested.
 
-- When an Azure AD connection is created, the Active Directory domain name is used to specify the process to look up LDAP servers.
+- When an Active Directory connection is created, the Active Directory domain name is used to specify the process to look up LDAP servers.
 - When an LDAP server is needed, `_ldap.domain.com` is used for the SRV lookup for LDAP servers.
 - Once a list of servers are discovered, the best available server (based on ping response time) is used as the LDAP server for connection over port 389.
 -  An LDAP bind is attempted using the SMB machine account via GSS/Kerberos.

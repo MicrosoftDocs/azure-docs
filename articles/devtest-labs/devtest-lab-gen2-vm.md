@@ -12,7 +12,7 @@ ms.custom: UpdateFrequency2
 
 Azure DevTest Labs allows you to choose between Generation 1 and Generation 2 version of the same marketplace image while creating a VM using Azure DevTest Labs portal. Generation 2 Virtual Machines (VMs) support key capabilities that are not supported in Generation 1 VMs such as increased memory, Intel Software Guard Extensions (Intel SGX), and virtualized persistent memory (vPMEM). Generation 2 VMs might have improved boot and installation times.
 
-For a VM instance to be a Generation 2 VM, it must use the specific Generation 2 base image and its VM size must support Generation 2. To learn more about Generation 2 VMs on Azure, the series of VMs that support Generation 2 images, and other limitations, please visit [Support for Generation 2 VMs on Azure](https://learn.microsoft.com/azure/virtual-machines/generation-2).
+For a VM instance to be a Generation 2 VM, it must use the specific Generation 2 base image and its VM size must support Generation 2. To learn more about Generation 2 VMs on Azure, the series of VMs that support Generation 2 images, and other limitations, please visit [Support for Generation 2 VMs on Azure](/azure/virtual-machines/generation-2).
 
 This article explains how to use Generation 2 images in Azure DevTest Labs.
 

@@ -4,7 +4,7 @@ description: Lists the permissions for the Azure resource providers in the Conta
 ms.service: role-based-access-control
 ms.topic: reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
 ms.date: 02/05/2025
 ms.custom: generated

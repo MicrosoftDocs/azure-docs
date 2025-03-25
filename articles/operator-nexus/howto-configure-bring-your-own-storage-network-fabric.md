@@ -33,7 +33,7 @@ Before proceeding, ensure you have:
 
 Create the UAMI(s) required for accessing the necessary resources.
 
-For more information on creating managed identities, refer to [Manage user-assigned managed identities](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp)
+For more information on creating managed identities, refer to [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp)
 
 ## Step 2: Configure the storage account
 
