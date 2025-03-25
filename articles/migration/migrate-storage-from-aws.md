@@ -29,8 +29,6 @@ Refer to these migration guides as examples for framing your migration process.
 | [Data Factory guidance for migrating S3 to Azure Storage](https://learn.microsoft.com/en-us/azure/data-factory/data-migration-guidance-s3-azure-storage) | Amazon S3 -> Azure Storage, Azure Data Factory | Covers planning and execution steps for migrating data from S3 to Azure, including operational details. |
 | [Move your data from AWS S3 to Azure Storage using AzCopy](https://azure.microsoft.com/en-us/blog/move-your-data-from-aws-s3-to-azure-storage-using-azcopy/) | Amazon S3 -> Azure Storage, AzCopy | Showcases best practices and tips for transferring data from S3 to Azure Storage using AzCopy. |
 | [Solution template for migrating S3 to Azure Storage](https://learn.microsoft.com/en-us/azure/data-factory/solution-template-migration-s3-azure) | Amazon S3 -> Azure Storage, Azure Data Factory | Provides a prebuilt approach to help automate your data migration from S3 to Azure Storage. |
-| [Migrate Amazon EFS to Azure Files](https://learn.microsoft.com/en-us/azure/storage/files/storage-files-migration-overview) | Amazon EFS -> Azure Files, Azure File Sync | Guidelines for migrating file shares from Amazon EFS to Azure Files. |
-| [Move Amazon EBS volumes to Azure Managed Disks](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell) | Amazon EBS -> Azure Managed Disks | Process for converting and uploading Amazon EBS volumes to Azure Managed Disks. |
 
 ## Related workload components
 
