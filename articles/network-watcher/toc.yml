@@ -118,7 +118,7 @@
       - name: Inspect to find anomalies
         href: packet-capture-inspect.md
       - name: Proactive network monitoring with Azure Functions
-        href: network-watcher-alert-triggered-packet-capture.md
+        href: packet-capture-alert-triggered.md
       - name: Perform intrusion detection using open source tools
         href: network-watcher-intrusion-detection-open-source-tools.md
       - name: Visualize network traffic patterns using open source tools

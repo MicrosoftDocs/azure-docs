@@ -143,7 +143,7 @@
     - name: Azure Functions 
       href: reliability-functions.md
     - name: Azure Kubernetes Service (AKS)
-      href: /azure/aks/availability-zones?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-aks.md
     - name: Azure Service Fabric
       items:
       - name: Availability zones
@@ -179,7 +179,7 @@
       - name: Disaster recovery
         href: /azure/container-registry/container-registry-geo-replication?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Kubernetes Service (AKS)
-      href: /azure/aks/availability-zones?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-aks.md
     - name: Azure Service Fabric
       items:
       - name: Availability zones
