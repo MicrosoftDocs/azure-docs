@@ -38,3 +38,4 @@ spec:
 ## Related content
 
 - [Application Gateway for Containers](for-containers/overview.md)
+- [Application Gateway for Containers - Session Affinity](for-containers/session-affinity.md)

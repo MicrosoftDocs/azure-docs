@@ -3,8 +3,9 @@ title: 'Tutorial: Access data with managed identity in Java using Service Connec
 description: Secure Azure Database for PostgreSQL connectivity with managed identity from a sample Java Quarkus app, and deploy it to Azure Container Apps.
 ms.devlang: java
 author: KarlErickson
+ms.author: karler
+ms.reviewer: edburns
 ms.topic: tutorial
-ms.author: edburns
 ms.service: azure-container-apps
 ms.date: 02/03/2025
 ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, passwordless-java, service-connector, devx-track-javaee-quarkus-aca
@@ -82,7 +83,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
    <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-identity-extensions</artifactId>
-      <version>1.1.20</version>
+      <version>1.2.0</version>
    </dependency>
    ```
 

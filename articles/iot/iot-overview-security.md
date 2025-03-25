@@ -1,5 +1,5 @@
 ---
-title: Security best practices
+title: Security best practices for IoT solutions
 description: Security best practices for building, deploying, and operating your IoT solution. Includes recommendations for assets, devices, data, and infrastructure
 author: asergaz
 ms.service: azure-iot
@@ -21,7 +21,7 @@ The following diagram shows a high-level view of the components in a typical edg
 <!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-security/iot-edge-security-architecture.svg" alt-text="Diagram that shows the high-level IoT edge-based solution architecture highlighting security." border="false":::
 
-You can divide security in an edge-based IoT solution into the following three areas:
+You can divide security in an edge-based IoT solution into the following four areas:
 
 - **Asset security**: Secure the physical or virtual item of value that you want to manage, monitor, and collect data from.
 
@@ -82,8 +82,6 @@ Both Defender for IoT and Defender for Containers can automatically monitor some
 - **Always use X.509 certificates or Kubernetes service account tokens for authentication with your MQTT broker**: An MQTT broker supports multiple authentication methods for clients. You can configure each listener port to have its own authentication settings with a BrokerAuthentication resource. To learn more, see [Configure MQTT broker authentication](../iot-operations/manage-mqtt-broker/howto-configure-authentication.md).
 
 - **Provide the least privilege needed for the topic asset in your MQTT broker**: Authorization policies determine what actions the clients can perform on the broker, such as connecting, publishing, or subscribing to topics. Configure the MQTT broker to use one or multiple authorization policies with the BrokerAuthorization resource. To learn more, see [Configure MQTT broker authorization](../iot-operations/manage-mqtt-broker/howto-configure-authorization.md).
-
-- **Configure isolated network environments by using Azure IoT Layered Network Management (preview)**: Azure IoT Layered Network Management (preview) is a component that facilitates the connection between Azure and clusters in isolated network environments. In industrial scenarios, the isolated networks follow the *[ISA-95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95)/[Purdue Network architecture](https://en.wikipedia.org/wiki/Purdue_Enterprise_Reference_Architecture)*. To learn more, see [What is Azure IoT Layered Network Management (preview)?](../iot-operations/manage-layered-network/overview-layered-network.md).
 
 ## Cloud security
 

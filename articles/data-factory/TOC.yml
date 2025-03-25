@@ -300,8 +300,8 @@ items:
     href: concepts-roles-permissions.md
   - name: Naming rules
     href: naming-rules.md
-  - name: Data redundancy
-    href: concepts-data-redundancy.md
+  - name: Reliability
+    href: /azure/reliability/reliability-data-factory?toc=/azure/data-factory/toc.json
 - name: How-to guides
   items:
   - name: Create a data factory in UI

@@ -4,6 +4,9 @@ description: Learn how to plan Azure HDInsight security with Enterprise Security
 ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive, has-azure-ad-ps-ref
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf 
 ms.date: 11/20/2024
 ---
 

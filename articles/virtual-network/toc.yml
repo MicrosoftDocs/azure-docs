@@ -84,8 +84,6 @@
       href: quick-create-terraform.md
   - name: Create and associate service endpoint policies
     href: virtual-network-service-endpoint-policies.md
-  - name: Deploy dedicated Azure services
-    href: virtual-network-for-azure-services.md
   - name: Filter network traffic
     href: tutorial-filter-network-traffic.md
   - name: Restrict network access to PaaS resources
@@ -136,6 +134,8 @@
       href: virtual-network-manage-peering.md
     - name: Update the address space for a peered virtual network
       href: update-virtual-network-peering-address-space.yml
+    - name: Configure subnet peering
+      href: how-to-configure-subnet-peering.md
   - name: Routing
     items: 
     - name: Manage route tables
@@ -222,14 +222,16 @@
     href: virtual-network-troubleshoot-connectivity-problem-between-vms.md
   - name: Troubleshoot virtual network deletion failures
     href: virtual-network-troubleshoot-cannot-delete-vnet.md
-- name: Security and compliance
+- name: Security
   items:
   - name: Azure Kubernetes network policies
     href: kubernetes-network-policies.md
   - name: Azure Policy Regulatory Compliance controls
     href: ./security-controls-policy.md
   - name: Azure security baseline for Virtual Network
-    href: /azure/baselines/virtual-network-security-baseline?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+    href: /security/benchmark/azure/baselines/virtual-network-security-baseline?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+  - name: Azure Security blog
+    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
   - name: DDoS protection
     items:
     - name: Overview
@@ -289,8 +291,8 @@
   items:
   - name: Build your skills with Microsoft Learn training
     href: /training/browse/
-  - name: Networking blog
-    href: https://azure.microsoft.com/blog/category/networking
+  - name: Azure Networking blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
   - name: Networking feedback
     href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789
   - name: Pricing

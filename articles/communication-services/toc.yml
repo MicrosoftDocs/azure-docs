@@ -16,20 +16,12 @@ items:
   items:
   - name: Create a Communication Services resource
     href: quickstarts/create-communication-resource.md
-  - name: Create an access token
-    href: quickstarts/identity/access-tokens.md
-  - name: Events overview
-    href: ../event-grid/event-schema-communication-services.md
-  - name: Subscribe to events
-    href: quickstarts/events/subscribe-to-events.md
 #  - name: Geolocation
 #    href: /rest/api/maps/geolocation
   - name: SDKs and APIs
     href: concepts/sdk-options.md
   - name: Service limits
     href: concepts/service-limits.md
-  - name: Enable managed identity
-    href: how-tos/managed-identity.md
 #  - name: Design your architecture
 #    href: /azure/architecture/guide/mobile/mobile-start-here
   - name: Privacy, compliance, and security
@@ -46,10 +38,12 @@ items:
   items:
   - name: Overview
     href: concepts/identity-model.md
+  - name: Access tokens for end users
+    href: quickstarts/identity/access-tokens.md
   - name: Authenticate services
     href: concepts/authentication.md
-  - name: Authenticate participants
-    href: quickstarts/identity/access-tokens.md
+  - name: Enable managed identity
+    href: how-tos/managed-identity.md
   - name: Understand identifiers
     href: concepts/identifiers.md
   - name: Credentials best practices
@@ -94,18 +88,22 @@ items:
     href: how-tos/chat-sdk/translating-chats.md
   - name: Events
     items:
+    - name: Events overview
+      href: ../event-grid/event-schema-communication-services.md
+    - name: Subscribe to events
+      href: quickstarts/events/subscribe-to-events.md
     - name: Chat events
       href: ../event-grid/communication-services-chat-events.md
     - name: Server events
       href: concepts/chat/concepts.md#server-events
   - name: Logging and analytics
     items:
+    - name: Enable logging with Azure Monitor
+      href: concepts/analytics/enable-logging.md
     - name: Chat metrics
       href: concepts/analytics/chat-metrics.md
     - name: Chat logs
       href: concepts/analytics/logs/chat-logs.md
-    - name: Enable logging with Azure Monitor
-      href: concepts/analytics/enable-logging.md
     - name: Chat insights
       href: concepts/analytics/insights/chat-insights.md
     - name: Export SDK telemetry to Application Insights
@@ -180,6 +178,8 @@ items:
       href: quickstarts/email/add-azure-managed-domains.md
     - name: Add a custom domain
       href: quickstarts/email/add-custom-verified-domains.md
+    - name: Troubleshooting domain configuration issues
+      href: concepts/email/email-domain-configuration-troubleshooting.md
     - name: Connect domain to send email
       href: quickstarts/email/connect-email-communication-resource.md
     - name: Add multiple sender addresses
@@ -234,14 +234,14 @@ items:
       href: concepts/email/email-domain-and-sender-authentication.md
     - name: Best practices for sender authentication support
       href: concepts/email/email-authentication-best-practice.md
-    - name: Troubleshooting domain configuration issues
-      href: concepts/email/email-domain-configuration-troubleshooting.md
     - name: Messaging policy
       href: concepts/sms/messaging-policy.md
   - name: Events
     items:
-    - name: Overview
+    - name: Events overview
       href: ../event-grid/event-schema-communication-services.md
+    - name: Subscribe to events
+      href: quickstarts/events/subscribe-to-events.md
     - name: Email events
       href: ../event-grid/communication-services-email-events.md
     - name: View email events
@@ -296,18 +296,26 @@ items:
     href: concepts/sms/messaging-policy.md
   - name: Short code program brief filling guidelines
     href: concepts/sms/program-brief-guidelines.md
-  - name: SMS events
-    href: ../event-grid/communication-services-telephony-sms-events.md
+  - name: Opt-Out management overview
+    href: concepts/sms/opt-out-api-concept.md
+  - name: Events
+    items:
+    - name: Events overview
+      href: ../event-grid/event-schema-communication-services.md
+    - name: Subscribe to events
+      href: quickstarts/events/subscribe-to-events.md
+    - name: SMS events
+      href: ../event-grid/communication-services-telephony-sms-events.md
   - name: Toll-free verification guidelines
     href: concepts/sms/toll-free-verification-guidelines.md
   - name: Logging and analytics
     items:
+    - name: Enable logging with Azure Monitor
+      href: concepts/analytics/enable-logging.md
     - name: SMS logs
       href: concepts/analytics/logs/sms-logs.md
     - name: SMS metrics
       href: concepts/analytics/sms-metrics.md
-    - name: Enable logging with Azure Monitor
-      href: concepts/analytics/enable-logging.md
     - name: SMS insights
       href: concepts/analytics/insights/sms-insights.md
     - name: Export SDK telemetry to Application Insights
@@ -360,6 +368,8 @@ items:
     href: quickstarts/advanced-messaging/whatsapp/whatsapp-business-account-faq.md
   - name: Logging and analytics
     items:
+    - name: Enable logging with Azure Monitor
+      href: concepts/analytics/enable-logging.md
     - name: Advanced Messaging logs
       href: concepts/advanced-messaging/logs.md
     - name: Message analysis
@@ -484,6 +494,11 @@ items:
         href: tutorials/add-video-augmented-reality-tutorial.md
     - name: Set video constraints in a calling app
       href: quickstarts/voice-video-calling/get-started-video-constraints.md
+    - name: Local preview mirroring
+      href: quickstarts/voice-video-calling/local-preview-mirroring.md
+    - name: Optimize video placement on your web app
+      href: quickstarts/voice-video-calling/optimizing-video-placement.md
+      displayName: Optimal Video Count, OVC, dual pin
     - name: Simulcast
       href: concepts/voice-video-calling/simulcast.md
       displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
@@ -533,8 +548,10 @@ items:
       href: how-tos/calling-sdk/closed-captions-teams-interop-how-to.md
   - name: Events
     items:
-    - name: Overview
+    - name: Events overview
       href: ../event-grid/event-schema-communication-services.md
+    - name: Subscribe to events
+      href: quickstarts/events/subscribe-to-events.md
     - name: Voice and video events
       href: ../event-grid/communication-services-voice-video-events.md
     - name: View calling events
@@ -859,6 +876,8 @@ items:
     href: concepts/pstn-pricing.md
   - name: Phone number types
     href: concepts/numbers/number-types.md
+  - name: Define your caller identity
+    href: concepts/telephony/how-to-manage-your-calling-identity.md
   - name: Country availability
     href: concepts/numbers/sub-eligibility-number-capability.md
   - name: Trial phone numbers
@@ -877,6 +896,8 @@ items:
       href: concepts/numbers/number-lookup-concept.md
     - name: Number Lookup SDK
       href: concepts/numbers/number-lookup-sdk.md
+    - name: Try Number Lookup
+      href: concepts/telephony/try-number-lookup.md
   - name: Direct routing
     items:
     - name: Connect to existing telephony
@@ -915,8 +936,6 @@ items:
       href: quickstarts/telephony/get-phone-number.md
     - name: Lookup number type and carrier details
       href: quickstarts/telephony/number-lookup.md
-    - name: Make an outbound call
-      href: quickstarts/call-automation/quickstart-make-an-outbound-call.md
     - name: Add a Teams user to an existing call
       href: how-tos/call-automation/teams-interop-call-automation.md
     - name: Add outbound phone calling to your app
@@ -951,68 +970,90 @@ items:
     href: concepts/call-automation/call-automation.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/communication-services/
-  - name: Answer a call
-    href: concepts/call-automation/incoming-call-notification.md
-  - name: Connect to Azure AI
-    href: concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md
-  - name: Gather user input
-    href: concepts/call-automation/recognize-action.md
-  - name: Play audio
-    href: concepts/call-automation/play-action.md
-  - name: Call recording
-    href: concepts/voice-video-calling/call-recording.md
-  - name: Get audio streams from a call
-    href: concepts/call-automation/audio-streaming-concept.md
-  - name: Get real-time audio insights using transcriptions
-    href: concepts/call-automation/real-time-transcription.md
-  - name: Ring Teams users
-    href: concepts/call-automation/call-automation-teams-interop.md
-  - name: Call Automation known issues
-    href: concepts/voice-video-calling/known-issues-call-automation.md
-  - name: Logging and analytics
+  - name: Call management
     items:
-    - name: Call Automation insights
-      href: concepts/analytics/insights/call-automation-insights.md
-    - name: Call Automation logs
-      href: concepts/analytics/logs/call-automation-logs.md
-    - name: Call Automation metrics
-      href: concepts/analytics/logs/call-automation-metrics.md
-    - name: Recording logs
-      href: concepts/analytics/logs/recording-logs.md
-    - name: Call recording insights
-      href: concepts/analytics/insights/call-recording-insights.md
-  - name: Samples and tutorials
-    items:
+    - name: Answer a call
+      href: concepts/call-automation/incoming-call-notification.md
+    - name: Make an outbound call
+      href: quickstarts/call-automation/quickstart-make-an-outbound-call.md
     - name: Control and steer calls
       href: how-tos/call-automation/actions-for-call-control.md
+    - name: Mute participants during a call
+      href: how-tos/call-automation/mute-participants.md
+    - name: Pass contextual data between calls
+      href: how-tos/call-automation/custom-context.md
+    - name: Ring Teams users
+      href: concepts/call-automation/call-automation-teams-interop.md
+  - name: Interactive voice and AI
+    items:
+    - name: Connect to Azure AI
+      href: concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md
+    - name: Play audio
+      href: concepts/call-automation/play-action.md
+    - name: Gather user input
+      href: concepts/call-automation/recognize-action.md
     - name: Control mid call media actions
       href: how-tos/call-automation/control-mid-call-media-actions.md
     - name: Customize voice prompts to users with play action
       href: how-tos/call-automation/play-action.md
     - name: Gather user input with recognize action
       href: how-tos/call-automation/recognize-action.md
-    - name: Call recording
-      items:
-      - name: Record a call
-        href: quickstarts/voice-video-calling/get-started-call-recording.md
-      - name: Record every call in the resource
-        href: how-tos/call-automation/record-every-call.md
+    - name: Implement Answer Machine Detection
+      href: concepts/call-automation/answer-machine-detection.md
+  - name: Call recording
+    items:
+    - name: Call recording overview
+      href: concepts/voice-video-calling/call-recording.md
+    - name: Record a call
+      href: quickstarts/voice-video-calling/get-started-call-recording.md
+    - name: Record a call automatically
+      href: how-tos/call-automation/record-every-call.md
+  - name: Transcripts
+    items:
+    - name: Get real-time audio insights using transcriptions
+      href: concepts/call-automation/real-time-transcription.md
     - name: Add real-time transcription
       href: how-tos/call-automation/real-time-transcription-tutorial.md
+  - name: Audio streaming
+    items:
+    - name: Get audio streams from a call
+      href: concepts/call-automation/audio-streaming-concept.md
+    - name: Implement audio streaming
+      href: how-tos/call-automation/audio-streaming-quickstart.md
+  - name: Logging and analytics
+    items:
+    - name: Enable logging with Azure Monitor
+      href: concepts/analytics/enable-logging.md
+    - name: Call Automation insights
+      href: concepts/analytics/insights/call-automation-insights.md
+    - name: Call Automation logs
+      href: concepts/analytics/logs/call-automation-logs.md
+    - name: Call Automation metrics
+      href: concepts/analytics/logs/call-automation-metrics.md
+    - name: Call recording logs
+      href: concepts/analytics/logs/recording-logs.md
+    - name: Call recording insights
+      href: concepts/analytics/insights/call-recording-insights.md
+  - name: Troubleshooting and known issues
+    items:
+    - name: Troubleshooting response codes
+      href: resources/troubleshooting/voice-video-calling/troubleshooting-codes.md?pivots=automation
+    - name: Call Automation known issues
+      href: concepts/voice-video-calling/known-issues-call-automation.md
+  - name: Samples and tutorials
+    items:
     - name: Secure webhook endpoints
       href: how-tos/call-automation/secure-webhook-endpoint.md
     - name: Handle Call Automation events with EventProcessor
       href: how-tos/call-automation/handle-events-with-event-processor.md
-    - name: Pass contextual data between calls
-      href: how-tos/call-automation/custom-context.md
-    - name: Implement audio streaming
-      href: how-tos/call-automation/audio-streaming-quickstart.md
     - name: Call Automation Azure OpenAI sample
       href: samples/call-automation-azure-openai-sample.md
     - name: Call Automation AI sample
       href: samples/call-automation-ai.md
   - name: References
     items:
+    - name: Call Automation (REST)
+      href: /rest/api/communication/callautomation/operation-groups
     - name: Call Automation (JavaScript)
       href: /javascript/api/overview/azure/communication-call-automation-readme
     - name: Call Automation (.NET)
