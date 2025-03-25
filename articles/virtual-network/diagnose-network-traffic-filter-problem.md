@@ -7,7 +7,7 @@ author: asudbring
 ms.assetid: a54feccf-0123-4e49-a743-eb8d0bdd1ebc
 ms.service: azure-virtual-network
 ms.topic: troubleshooting
-ms.date: 03/25/2025
+ms.date: 05/29/2018
 ms.author: allensu
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
@@ -27,13 +27,9 @@ The steps that follow assume you have an existing VM to view the effective secur
 
 ## Diagnose using Azure portal
 
-1. Sign-in to the Azure [portal](https://portal.azure.com) with an Azure account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
-
-1. At the top of the Azure portal, enter the name of the VM in the search box. When the name of the VM appears in the search results, select it.
-
-1. Expand the **Networking** section of the virtual machine. Select **Network settings**.
-
-1. Under **SETTINGS**, select **Networking**, as shown in the following picture:
+1. Log into the Azure [portal](https://portal.azure.com) with an Azure account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
+2. At the top of the Azure portal, enter the name of the VM in the search box. When the name of the VM appears in the search results, select it.
+3. Under **SETTINGS**, select **Networking**, as shown in the following picture:
 
    ![Screenshot shows the Azure portal with Networking settings for my V M V M Nic.](./media/diagnose-network-traffic-filter-problem/view-security-rules.png)
 
