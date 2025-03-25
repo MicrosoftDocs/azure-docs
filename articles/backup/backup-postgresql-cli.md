@@ -76,7 +76,7 @@ The policy object defines what types of backups are triggered, how they're trigg
 
 The default PowerShell object for PostgreSQL says to trigger a *full* backup every week. The backups reach the vault, where they're stored for three months.
 
-If you want to add the archive tier to the policy, you have to decide when the data will be moved from the vault to the archive, how long will the data stay in the archive, and which of the scheduled backups should be tagged as archivable. You have to add a retention rule that defines the life cycle of the backup data from the vault datastore to the archive datastore. The retention rule also defines how long the backup data will stay in the archive datastore. Then you need to add a tag that marks the scheduled backups as eligible to be archived.
+If you want to add the archive tier to the policy, you have to decide when the data will be moved from the vault to the archive, how long the data will stay in the archive, and which of the scheduled backups should be tagged as archivable. You have to add a retention rule that defines the life cycle of the backup data from the vault datastore to the archive datastore. The retention rule also defines how long the backup data will stay in the archive datastore. Then you need to add a tag that marks the scheduled backups as eligible to be archived.
 
 The resultant PowerShell object is as follows:
 
@@ -227,7 +227,7 @@ If you want to add archive protection, you need to modify the policy template.
 
 The default template has a life cycle for the initial datastore under the default retention rule. In this scenario, the rule says to delete the backup data after three months. You should add a new retention rule that defines when the data is moved to the archive datastore. That is, backup data is first copied to the archive datastore, and then it's deleted in the vault datastore.
 
-Also, the rule should define long to keep the data in the archive datastore. To create new life cycles, use the [`az dataprotection backup-policy retention-rule create-lifecycle`](/cli/azure/dataprotection/backup-policy/retention-rule#az-dataprotection-backup-policy-retention-rule-create-lifecycle) command. To associate those life cycles with new or existing rules, use the [`az dataprotection backup-policy retention-rule set`](/cli/azure/dataprotection/backup-policy/retention-rule#az-dataprotection-backup-policy-retention-rule-set) command.
+Also, the rule should define how long to keep the data in the archive datastore. To create new life cycles, use the [`az dataprotection backup-policy retention-rule create-lifecycle`](/cli/azure/dataprotection/backup-policy/retention-rule#az-dataprotection-backup-policy-retention-rule-create-lifecycle) command. To associate those life cycles with new or existing rules, use the [`az dataprotection backup-policy retention-rule set`](/cli/azure/dataprotection/backup-policy/retention-rule#az-dataprotection-backup-policy-retention-rule-set) command.
 
 The following example creates a new retention rule named `Monthly`. In this rule, the first successful backup of every month is retained in the vault for six months, moved to the archive tier, and kept in the archive tier 24 months.
 
@@ -293,7 +293,7 @@ keyURI="https://testkeyvaulteus.vault.azure.net/secrets/ossdbkey"
 
 #### Backup vault
 
-A backup vault has to connect to the PostgreSQL server and then access the database via the keys present in the key vault. Therefore, it requires access to the PostgreSQL server and the key vault. Access is granted to the backup vault's managed identity.
+A backup vault has to connect to the PostgreSQL server and then access the database via the keys present in the key vault. So, it requires access to the PostgreSQL server and the key vault. Access is granted to the backup vault's managed identity.
 
 [Read about the permissions](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-backup) that you should grant to the backup vault's managed identity on the PostgreSQL server and the key vault that stores the keys to the database.
 

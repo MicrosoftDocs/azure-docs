@@ -55,7 +55,7 @@ You can configure a backup on multiple databases across multiple Azure Database 
 
       :::image type="content" source="./media/backup-azure-database-postgresql/enter-secret-uri-inline.png" alt-text="Screenshot that shows how to get a secret U R I." lightbox="./media/backup-azure-database-postgresql/enter-secret-uri-expanded.png":::
 
-      However, with this option, Azure Backup has no visibility into the key vault that you referenced. Access permissions on the key vault can't be granted inline. The backup admin, along with the PostgreSQL and/or key vault admin, needs to ensure that the backup vault's [access on the key vault is granted manually](backup-azure-database-postgresql-overview.md#access-permissions-on-the-azure-key-vault-associated-with-the-postgresql-server) outside the [configure backup](#configure-a-backup-on-azure-postgresql-databases) flow for the backup operation to succeed.
+      However, with this option, Azure Backup has no visibility into the key vault that you referenced. Access permissions on the key vault can't be granted inline. The backup admin, along with the PostgreSQL and/or key vault admin, needs to ensure that the backup vault's [access on the key vault is granted manually](backup-azure-database-postgresql-overview.md#access-permissions-on-the-azure-key-vault-associated-with-the-postgresql-server) outside the [configure backup](#configure-a-backup-on-postgresql-databases) flow for the backup operation to succeed.
 
    - **Select from key vault**: Use this option if you know the key vault and secret names. Then click **Select a key vault and secret** and enter the details.
 

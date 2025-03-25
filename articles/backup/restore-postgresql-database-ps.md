@@ -11,9 +11,9 @@ ms.author: jsuri
 
 # Restore PostgreSQL databases by using Azure PowerShell
 
-This article explains how to use Azure PowerShell to restore PostgreSQL databases to an [Azure Database for PostgreSQL](/azure/postgresql/overview#azure-database-for-postgresql---single-server) server that you backed up via Azure Backup. It then describes how to track the status of a restore operation.
+This article explains how to use Azure PowerShell to restore PostgreSQL databases to an [Azure Database for PostgreSQL](/azure/postgresql/overview#azure-database-for-postgresql---single-server) server that you backed up via Azure Backup.
 
-Because a PostgreSQL database is platform as a service (PaaS) database, the Original-Location Recovery (OLR) option to restore by replacing the existing database (from where the backups were taken) isn't supported. You can restore from a recovery point to create a new database in the same Azure Database for PostgreSQL server or in another PostgreSQL server. This option is called Alternate-Location Recovery (ALR). ALR  helps to keep both the source database and the restored (new) database.
+Because a PostgreSQL database is a platform as a service (PaaS) database, the Original-Location Recovery (OLR) option to restore by replacing the existing database (from where the backups were taken) isn't supported. You can restore from a recovery point to create a new database in the same Azure Database for PostgreSQL server or in any other PostgreSQL server. This option is called Alternate-Location Recovery (ALR). ALR helps to keep both the source database and the restored (new) database.
 
 The examples in this article refer to an existing backup vault named `TestBkpVault` under the resource group `testBkpVaultRG`:
 
@@ -27,7 +27,7 @@ $TestBkpVault = Get-AzDataProtectionBackupVault -VaultName TestBkpVault -Resourc
 
 A backup vault uses a managed identity to access other Azure resources. To restore from a backup, the backup vault's managed identity requires a set of permissions on the Azure Database for PostgreSQL server to which the database should be restored.
 
-To assign the relevant permissions for vault's system-assigned managed identity on the target PostgreSQL server, see the [set of permissions needed to back up a PostgreSQL database](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-restore).
+To assign the relevant permissions for a vault's system-assigned managed identity on the target PostgreSQL server, see the [set of permissions needed to back up a PostgreSQL database](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-restore).
 
 To restore the recovery point as files to a storage account, the [backup vault's system-assigned managed identity needs access on the target storage account](./restore-azure-database-postgresql.md#restore-permissions-on-the-target-storage-account).
 
@@ -83,10 +83,10 @@ $OssRestoreReq = Initialize-AzDataProtectionRestoreRequest -DatasourceType Azure
 
 For an archive-based recovery point, you need to:
 
-1. Rehydrate from the archive datastore to the vault store.
+1. Rehydrate from the archive datastore to the vault datastore.
 1. Modify the source datastore.
 1. Add other parameters to specify the rehydration priority.
-1. Specify the duration for which the rehydrated recovery point should be retained in the vault data store.
+1. Specify the duration for which the rehydrated recovery point should be retained in the vault datastore.
 1. Restore as a database from this recovery point.
 
 Use the following command to prepare the request for all the previously mentioned operations at once:
@@ -125,9 +125,9 @@ Start-AzDataProtectionBackupInstanceRestore -BackupInstanceName $AllInstances[2]
 
 ## Track jobs
 
-Track all the jobs by using the [`Get-AzDataProtectionJob`](/powershell/module/az.dataprotection/get-azdataprotectionjob) command. You can list all jobs and fetch a particular job detail.
+Track jobs by using the [`Get-AzDataProtectionJob`](/powershell/module/az.dataprotection/get-azdataprotectionjob) command. You can list all jobs and fetch a particular job detail.
 
-You can also use `Az.ResourceGraph` to track jobs across all backup vaults. Use the [`Search-AzDataProtectionJobInAzGraph`](/powershell/module/az.dataprotection/search-azdataprotectionjobinazgraph) command to get the relevant job, which is across all backup vaults:
+You can also use `Az.ResourceGraph` to track jobs across all backup vaults. Use the [`Search-AzDataProtectionJobInAzGraph`](/powershell/module/az.dataprotection/search-azdataprotectionjobinazgraph) command to get the relevant job that's across all backup vaults:
 
 ```azurepowershell-interactive
 $job = Search-AzDataProtectionJobInAzGraph -Subscription $sub -ResourceGroupName "testBkpVaultRG" -Vault $TestBkpVault.Name -DatasourceType AzureDatabaseForPostgreSQL -Operation OnDemandBackup
