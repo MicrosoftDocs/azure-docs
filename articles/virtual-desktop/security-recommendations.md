@@ -182,7 +182,7 @@ By restricting operating system capabilities, you can strengthen the security of
 
 - Grant users limited permissions when they access local and remote file systems. You can restrict permissions by making sure your local and remote file systems use access control lists with least privilege. This way, users can only access what they need and can't change or delete critical resources.
 
-- Prevent unwanted software from running on session hosts. RemoteApp is not a security feature, and its use does not prevent the launch of applications beyond those published to an application group. To ensure that only the apps you allow can run on the host, use [Windows application control](/windows/security/application-security/application-control/app-control-for-business/appcontrol) features like App Control or AppLocker.
+- Prevent unwanted software from running on session hosts. RemoteApp isn't a security feature, and its use doesn't prevent the launch of applications beyond those applications published to an application group. To ensure that only the applications you allow can run on a session host, you can use [Application Control for Windows](/windows/security/application-security/application-control/app-control-for-business/appcontrol) features like App Control or AppLocker.
 
 ## Trusted launch
 
