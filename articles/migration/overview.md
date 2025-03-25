@@ -42,7 +42,7 @@ Microsoft Learn also hosts how-tos, example migration scenarios, and other artic
 If you're migrating a workload from Amazon Web Services (AWS) continue exploring the guidance at:
 
 > [!div class="nextstepaction"]
-> [Migrate a workload from AWS](./migrate-from-aws.md)
+> [Migrate a workload from AWS](./migrate-from-aws.yml)
 
 If you're migrating a workload from Google cloud, see:
 
