@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.topic: how-to
 ms.reviewer: estfan, divswa, pravagar, azla
-ms.date: 03/07/2025
+ms.date: 03/20/2025
 # As a B2B integration solutions developer, I want to learn how to monitor and track B2B transactions in my Standard workflows created with Azure Logic Apps.
 ---
 

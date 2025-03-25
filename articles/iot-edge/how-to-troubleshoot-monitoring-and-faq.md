@@ -6,7 +6,7 @@ author: veyalla
 ms.author: veyalla
 ms.date: 06/09/2021
 ms.topic: conceptual
-ms.reviewer: kgremban
+ms.reviewer: sonialopez
 ms.service: azure-iot-edge
 services: iot-edge
 zone_pivot_groups: how-to-troubleshoot-monitoring-and-faq-zpg

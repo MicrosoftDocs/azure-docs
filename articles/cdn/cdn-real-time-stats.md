@@ -8,6 +8,7 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
 ms.author: erikre
+ROBOTS: NOINDEX
 ---
 
 # Real-time status in Microsoft Azure Content Delivery Network
