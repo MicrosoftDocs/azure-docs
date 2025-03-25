@@ -1,12 +1,13 @@
 ---
 title: Create Azure Data Factory using .NET SDK
 description: Create an Azure Data Factory and pipeline using .NET SDK to copy data from one location in Azure Blob storage to another location.
-author: jianleishen
+author: whhender
 ms.subservice: data-movement
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 12/15/2023
-ms.author: binluwang
+ms.author: whhender
+ms.reviewer: binluwang
 ms.custom: mode-api, devx-track-dotnet
 ---
 # Quickstart: Create a data factory and pipeline using .NET SDK

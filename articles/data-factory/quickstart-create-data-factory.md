@@ -5,7 +5,8 @@ author: whhender
 ms.topic: quickstart
 ms.subservice: authoring
 ms.date: 09/25/2024
-ms.author: xupzhou
+ms.author: whhender
+ms.reviewer: xupzhou
 ---
 
 # Quickstart: Create a data factory by using the Azure portal

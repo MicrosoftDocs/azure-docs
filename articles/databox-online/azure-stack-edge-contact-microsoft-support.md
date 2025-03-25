@@ -5,15 +5,13 @@ services: databox
 author: alkohli
 ms.service: azure-stack-edge
 ms.topic: how-to
-ms.date: 02/27/2024
+ms.date: 03/20/2025
 ms.author: alkohli
 ---
 
 # Open a support ticket for Azure Stack Edge and Azure Data Box Gateway
 
-[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-fpga-databox-gateway-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-fpga-databox-gateway-sku.md)]
-
-[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article applies to Azure Stack Edge and Azure Data Box Gateway both of which are managed by the Azure Stack Edge / Azure Data Box Gateway service. If you encounter any issues with your service, you can create a service request for technical support. This article walks you through:
 
@@ -96,6 +94,5 @@ After creating a support ticket, you can manage the lifecycle of the ticket from
 
 ## Next steps
 
-- [Troubleshoot issues related to Azure Stack Edge FPGA](azure-stack-edge-troubleshoot.md).
 - [Troubleshoot device issues for Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot.md).
 - [Troubleshoot issues related to Data Box Gateway](../databox-gateway/data-box-gateway-troubleshoot.md).
