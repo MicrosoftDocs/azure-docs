@@ -55,7 +55,7 @@ Follow these steps to resolve the issue.
 
     Make sure to replace `<component-release-name>` with the release name of the components that are stuck. In the output, look for the last revision that has a status of `Deployed` or `Superseded` and note the revision number.
 
-1. Using the **revision number from step 2**, rollback the Helm release to the last successful revision. You need to run the following command for each component, `<component-release-name>`, and its revision number, `<revision-number>`, from steps 1 and 2.
+1. Using the **revision number from step 2**, roll back the Helm release to the last successful revision. You need to run the following command for each component, `<component-release-name>`, and its revision number, `<revision-number>`, from steps 1 and 2.
 
     ```sh
     helm rollback <component-release-name> <revision-number> -n azure-iot-operations
