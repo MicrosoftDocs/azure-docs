@@ -76,7 +76,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 For the latest supported API version, see [Data Collection Rules - REST API (Azure Monitor) | Microsoft Learn](/rest/api/monitor/data-collection-rules).
 
-:::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-dcr-api-version.png" alt-text="Screenshot of the API version's appearance in the DCR documentation.":::
+:::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-dcr-api-version.png" border="false" alt-text="Screenshot of the API version's appearance in the DCR documentation.":::
 
 ### Request body
 
