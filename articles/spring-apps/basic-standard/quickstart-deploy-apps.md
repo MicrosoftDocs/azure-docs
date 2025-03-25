@@ -54,7 +54,7 @@ Use the following steps to download the sample app. If you've been using the Azu
 
 Use the following steps to deploy the PlanetWeatherProvider project.
 
-1. Create an app for the PlanetWeatherProvider project in your Azure Spring Apps instance.
+1. Create an app for the `PlanetWeatherProvider` project in your Azure Spring Apps instance.
 
    ```azurecli
    az spring app create --name planet-weather-provider --runtime-version NetCore_31
@@ -119,11 +119,11 @@ Use the following steps to deploy the SolarSystemWeather project.
    az spring app create --name solar-system-weather --runtime-version NetCore_31
    ```
 
-   `solar-system-weather` is the name that is specified in the SolarSystemWeather project's **appsettings.json** file.
+   `solar-system-weather` is the name that is specified in the `SolarSystemWeather` project's **appsettings.json** file.
 
    This command may take several minutes to run.
 
-1. Change directory to the SolarSystemWeather project.
+1. Change directory to the `SolarSystemWeather` project.
 
    ```console
    cd ../solar-system-weather
