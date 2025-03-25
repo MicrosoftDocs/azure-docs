@@ -48,7 +48,7 @@ sections:
 
       - question: Can Windows Enterprise multi-session be Microsoft Entra joined?
         answer: |
-          Windows Enterprise multi-session can be Microsoft Entra joined. To get started, follow the steps to [Deploy Microsoft Entra joined virtual machines](deploy-azure-ad-joined-vm.md).
+          Windows Enterprise multi-session can be Microsoft Entra joined. To get started, follow the steps to [Deploy Microsoft Entra joined virtual machines](deploy-azure-ad-joined-vm.md). We don't allow customers to run Windows Enterprise multi-session in production environments outside of the Azure Virtual Desktop service. For more information, see [Can I run Windows Enterprise multi-session outside of the Azure Virtual Desktop service](#can-i-run-windows-enterprise-multi-session-outside-of-the-azure-virtual-desktop-service).
           
       - question: Where can I find the Windows Enterprise multi-session image and what does it include?
         answer: |
@@ -64,7 +64,7 @@ sections:
           > All named applications that come pre-installed are the latest version that is available the 2nd Tuesday of that month. Any app updates after that day can only be considered in the image update in the upcoming month.
 
       - question: Which Windows Enterprise multi-session versions are supported?
-        answer: Windows Enterprise multi-session, versions 1909 and later are supported and are available in the Azure gallery. These releases follow the same support lifecycle policy as Windows Enterprise, which means the March release is supported for 18 months and the September release for 30 months.
+        answer: Windows Enterprise multi-session releases follow the same support lifecycle policy as Windows Enterprise. For more information, see [Operating systems and licenses](prerequisites.md#operating-systems-and-licenses).
 
       - question: Which profile management solution should I use for Windows Enterprise multi-session?
         answer: |

@@ -1,4 +1,5 @@
 ---
+ROBOTS: NOINDEX
 title: 'Tutorial: Access storage blobs using an Azure Content Delivery Network custom domain over HTTPS'
 description: Learn how to add an Azure Content Delivery Network custom domain and enable HTTPS on that domain for your custom blob storage endpoint.
 services: cdn

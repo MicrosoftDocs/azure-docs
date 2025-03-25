@@ -1,4 +1,5 @@
 ---
+ROBOTS: NOINDEX
 title: Azure CDN Standard from Microsoft (classic) retirement FAQ
 titleSuffix:  Azure CDN Standard from Microsoft
 description: Common questions about the retirement of Azure CDN Standard from Microsoft (classic).

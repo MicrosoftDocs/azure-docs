@@ -2,12 +2,12 @@
 title: Review your Microsoft Partner Agreement invoice - Azure
 description: Learn how to review your bill and resource usage and to verify charges for your Microsoft Partner Agreement invoice.
 author: bandersmsft
-ms.reviewer: judupont
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
 ms.date: 03/21/2024
-ms.author: banders
+ms.author: jkinma
 ---
 
 # Tutorial: Review your Microsoft Partner Agreement invoice
