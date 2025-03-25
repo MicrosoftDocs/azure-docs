@@ -14,8 +14,18 @@ ms.custom: references_regions
 # Release notes 2025: Azure Health Data Services
 
 This article describes features, enhancements, and bug fixes released in 2025 for the FHIR&reg; service, Azure API for FHIR, DICOM&reg; service, and MedTech service in Azure Health Data Services.
+
 ## March 2025
-**Bulk Delete Enhancement**: Added support for _include and _revinclude to conditional and bulk delete requests. Users can now use _include and _revinclude in the search criteria for conditional and bulk delete. Please note that this does not affect current behavior of singular deletes, which does not support extra parameters. 
+### FHIR Service
+**Preview capability for the bulk delete operation**: Added support for _include and _revinclude to conditional and bulk delete requests. Users can now use _include and _revinclude in the search criteria for conditional and bulk delete. Please note that this does not affect current behavior of singular deletes, which does not support extra parameters. Learn more [here](./fhir/fhir-bulk-delete).
+
+**Bundle Transactions Enhancement**: Improved bundle transactions for single-record bundles by applying new transaction logic, preventing HTTP 500 errors.
+
+### Bug fixes
+
+**ValueSet size increase**: The maximum ValueSet size was reduced to 500 codes, preventing large valuesets from loading. This has been fixed, and the limit is now increased to 20,000 codes.
+
+**Search with _sort fix**: Resolved an issue in Search with the _sort parameter, where the bundle response included a next link leading to an empty page in some edge cases. Now, the next link will only appear if there are more resources to retrieve.
 
 ## February 2025
 
