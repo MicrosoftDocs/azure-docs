@@ -29,7 +29,7 @@ Workloads can be migrated only after the organization is fully committed to Azur
 
 - Complete the learning objectives in the training module to develop your organization's migration plan and identify the types of workloads that need to be migrated.
 
-    [**Use the Cloud Adoption Framework Migrate methodology to migrate your workload**](/training/modules/cloud-adoption-framework-migrate/). 
+    [**Use the Cloud Adoption Framework Migrate methodology to migrate your workload**](/training/modules/cloud-adoption-framework-migrate/)
 
 The next phase involves the workload team planning and executing the migration. This includes assessing the current workload design, preparing a solution in Azure, making necessary code changes, and performing the migration. 
 
