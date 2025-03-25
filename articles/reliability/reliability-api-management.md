@@ -8,7 +8,6 @@ ms.custom: subject-reliability, references_regions
 ms.service: azure-api-management
 ms.date: 12/09/2024
 zone_pivot_groups: api-management-sku
-#Customer intent: As an engineer responsible for business continuity, I want to understand the details of how Azure API Management works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow during different kinds of situations. 
 ---
 
 # Reliability in Azure API Management
@@ -43,7 +42,7 @@ If you need more resiliency than the consumption tier provides, use a tier that 
 
 - Use Premium (classic) tier with the `stv2` compute platform for your API Management instance. The Premium tier provides the features you need to ensure high availability and reliability for your production workloads.
 
-<!-- TODO would we recommend using multiple scale units? -->
+<!-- Would we recommend using multiple scale units as a general best practice? -->
 
 - [Enable zone redundancy](#availability-zone-support), which requires your API Management service to deploy at least one unit in each availability zone. This configuration ensures that your API Management instance is resilient to datacenter-level failures.
 
@@ -81,8 +80,8 @@ Azure API Management supports availability zones in both zonal and zone-redundan
 
 - *Zonal*: The API Management gateway and the control plane of your API Management instance (management API, developer portal, Git configuration) are deployed in a single zone that you select within an Azure region.  
 
-    >[!NOTE] 
-    >Pinning to a single zone doesn’t increase resiliency. To improve resiliency, you need to explicitly deploy resources into multiple zones (zone-redundancy). 
+    > [!NOTE] 
+    > Pinning to a single availability zone doesn’t increase resiliency. To improve resiliency, you need to explicitly deploy resources into multiple zones (zone redundancy). 
 
 - *Zone-redundant*: Enabling zone redundancy for an API Management instance in a supported region provides redundancy for all service components, including the gateway, management plane, and developer portal. Azure automatically replicates all service components across the zones that you select.
 
@@ -118,7 +117,7 @@ Adding units incurs additional costs. For information, see [API Management prici
 
 ### Configure availability zone support 
 
-To enable zone redundancy for an API Management instance, see [Enable zone redundancy for an API Management instance](/azure/api-management/enable-zone-redundancy).
+To enable availability zone support on an API Management instance, see [Enable availability zone support on Azure API Management instances](../api-management/enable-availability-zone-support.md). There are no downtime requirements for any of the configuration options.
 
 [!INCLUDE [Availability zone numbering](./includes/reliability-availability-zone-numbering-include.md)]
 
@@ -126,30 +125,38 @@ To enable zone redundancy for an API Management instance, see [Enable zone redun
 
 Use [capacity metrics](/azure/api-management/api-management-capacity) and your own testing to decide the number of units that provide your required gateway performance. For more information about scaling and upgrading your service instance, see [Upgrade and scale an Azure API Management instance](/azure/api-management/upgrade-and-scale).
 
-In a zone-down scenario, there's no guarantee that requests for additional capacity in another availability zone will succeed. The back filling of lost units occurs on a best-effort basis. If you need guaranteed capacity when an availability zone is lost, you should create and configure your API Management instance to account for losing a zone. You can do that by overprovisioning the capacity of your API Management instance.
+In a zone-down scenario, there's no guarantee that requests for additional capacity in another availability zone will succeed. The back filling of lost units occurs on a best-effort basis. If you need guaranteed capacity when an availability zone is lost, you should create and configure your API Management instance to account for losing a zone. You can do that by over-provisioning the capacity of your API Management instance. To learn more about the principle of over-provisioning, see [Manage capacity with over-provisioning](./concept-redundancy-replication-backup.md#manage-capacity-with-over-provisioning)
 
-### Traffic routing between zones
+### Normal operations
 
-During normal operations, traffic is routed between all of your available API Management units across all selected availability zones.
+- **Traffic routing between zones:** During normal operations, traffic is routed between all of your available API Management units across all selected availability zones.
 
 ### Zone-down experience
-<!-- TODO verify with PG -->
+<!-- Please verify all of this with the PG -->
 
-**Detection and response:** The Azure API Management platform is responsible for detecting a failure in an availability zone and responding. You don't need to do anything to initiate a zone failover.
+- **Detection and response:** For zone-redundant instances, The Azure API Management platform is responsible for detecting a failure in an availability zone and responding. You don't need to do anything to initiate a zone failover.
 
-**Active requests:** When an availability zone is unavailable, any requests in progress that are connected to an API Management unit in the faulty availability zone are terminated and need to be retried.
+    For zonal instances, you need to detect the loss of an availability zone and initiate a failover to a secondary instance that you create in another availability zone.
 
-**Traffic rerouting:** When a zone is unavailable, Azure API Management detects the lost units from that zone. It automatically attempts to find new replacement units. Then, it spreads traffic across the new units as needed.
+- **Active requests:** When an availability zone is unavailable, any requests in progress that are connected to an API Management unit in the faulty availability zone are terminated and need to be retried.
+
+- **Traffic rerouting:** For zone-redundant instances, when a zone is unavailable, Azure API Management detects the lost units from that zone. It automatically attempts to find new replacement units. Then, it spreads traffic across the new units as needed.
+
+    For zonal instances, when a zone is unavailable, your instance is unavailable. If you have a secondary instance in another availability zone, you're responsible for rerouting traffic to that secondary instance.
 
 ### Failback
-<!-- TODO confirm with PG -->
+<!-- Please confirm with PG -->
 
-When the availability zone recovers, Azure API Management automatically restores units in the availability zone and reroutes traffic between your units as normal.
+For zone-redundant instances, when the availability zone recovers, Azure API Management automatically restores units in the availability zone and reroutes traffic between your units as normal.
+
+For zonal instances, you're responsible for rerouting traffic to the instance in the original availability zone after the availability zone recovers.
 
 ### Testing for zone failures
-<!-- TODO confirm with PG. I assume there's no way to shut down a zonal instance either? -->
+<!-- Please confirm with PG -->
 
-The Azure API Management platform manages traffic routing, failover, and failback for zone-redundant API Management instances. Because this feature is fully managed, you don't need to initiate or validate availability zone failure processes.
+For zone-redundant instances, the Azure API Management platform manages traffic routing, failover, and failback. Because this feature is fully managed, you don't need to initiate or validate availability zone failure processes.
+
+For zonal instances, there's no way to simulate an outage of the availability zone that contains your Azure API Management instance. However, you can manually configure upstream gateways or load balancers to redirect traffic to a different instance in a different availability zone.
 
 ::: zone-end
 
