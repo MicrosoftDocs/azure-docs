@@ -1,5 +1,5 @@
 ---
-title: Enable zone-redundancy n Azure API Management instances
+title: Enable zone-redundancy in Azure API Management instances
 description: Learn how to enable zone redundancy in your Azure API Management instances.
 author: shaunjacob 
 ms.service: azure-api-management
