@@ -70,6 +70,8 @@ items:
           href: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-online
       - name: Migrate Amazon RDS for MySQL to Azure Database for MySQL
         href: /azure/azure-sql/migration-guides/database/mysql-to-sql-database-guide?view=azuresql-db&preserve-view=true
+      - name: Migrate Amazon SQL Server to Azure SQL Database
+        href: /data-migration/sql-server/database/guide
       - name: Amazon DynamoDB
         items:
         - name: Migrate a DynamoDB application to Azure Cosmos DB for NoSQL
