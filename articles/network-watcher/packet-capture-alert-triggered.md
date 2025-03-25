@@ -73,7 +73,7 @@ To create an Azure function to process the alert and create a packet capture, yo
       - **Functions Premium**: For enterprise-level, serverless applications with event-based scaling and network isolation.
       - **App Service plan**: For reusing compute from an existing Azure App Service plan.
 
-   :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/create-function-app-basics.png" alt-text="Screenshot of the Create Function App page in the Azure portal." lightbox="./media/network-watcher-alert-triggered-packet-capture/create-function-app-basics.png":::
+   :::image type="content" source="./media/packet-capture-alert-triggered/create-function-app-basics.png" alt-text="Screenshot of the Create Function App page in the Azure portal." lightbox="./media/packet-capture-alert-triggered/create-function-app-basics.png":::
 
 1. Select **Review + create** to create the app.
 
@@ -81,7 +81,7 @@ Now you can create a function:
 
 1. In the function app that you created, select **Functions**, and then select **Create** to open the **Create function** pane.
 
-   :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/create-function.png" alt-text="Screenshot of the Create function pane.":::
+   :::image type="content" source="./media/packet-capture-alert-triggered/create-function.png" alt-text="Screenshot of the Create function pane.":::
 
 2. For **Development environment**, select **Develop in portal**.
 3. Under **Select a template**, select **HTTP trigger**.
@@ -183,7 +183,7 @@ To store the environment variables:
 
 1. Go to the function app. Select **Configurations** > **Application settings**.
 
-   :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/application-insights.png" alt-text="Screenshot of the tab for application settings.":::
+   :::image type="content" source="./media/packet-capture-alert-triggered/application-insights.png" alt-text="Screenshot of the tab for application settings.":::
 
 1. Add the environment variables and their values to the app settings, and then select **Save**.
 
@@ -333,7 +333,7 @@ Go to an existing virtual machine and [add an alert rule](/azure/azure-monitor/a
 5. On the **Notifications** tab, for **Action type**, select **Azure Function**.
 6. On the **Azure Function** pane, select the **Subscription**, **Resource group**, **Function app**, and **Azure Function** values.
 
-   :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/action-group.png" alt-text="Screenshot of the page for creating an action group and the pane for details about an Azure function.":::
+   :::image type="content" source="./media/packet-capture-alert-triggered/action-group.png" alt-text="Screenshot of the page for creating an action group and the pane for details about an Azure function.":::
 7. In **Enable the common alert schema** slider, select **No**. Then select **OK**.
 
 ## Review the results
