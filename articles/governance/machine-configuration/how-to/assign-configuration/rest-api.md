@@ -87,12 +87,11 @@ values are:
 - `ApplyOnce` - Apply the settings once.
 
 ### Configuration Parameter
-An array of key-value pairs to pass into the Machine Configuration Assignment.
 
-```yaml
-Name: The name of the parameter to configure
-Value: The desired value to set or audit for the assignment.
-```
+An array of key-value pairs to pass into the Machine Configuration Assignment. For each pair:
+
+- The key defines the name of the parameter to configure.
+- The value defines the desired value to set or audit for the assignment.
 
 ### Configuration Setting
 These properties represent other configurable settings presented by Machine Configuration.
