@@ -46,11 +46,11 @@ To create a new API from an Azure function app:
 
 1. Under **Create from Azure resource**, select **Function App**:
 
-    :::image type="content" source="./media/import-function-app-as-api/add-01.png" alt-text="Screenshot that shows the Function App tile.":::
+    :::image type="content" source="./media/import-function-app-as-api/add-01.png" alt-text="Screenshot that shows the Function App tile in the Azure portal.":::
 
 1. Select the **Browse** button.
 
-    :::image type="content" source="./media/import-function-app-as-api/add-02.png" alt-text="Screenshot that shows the Browse button." lightbox="./media/import-function-app-as-api/add-02.png":::
+    :::image type="content" source="./media/import-function-app-as-api/add-02.png" alt-text="Screenshot that highlights the Browse button." lightbox="./media/import-function-app-as-api/add-02.png":::
 
 1. Select the **Function App** section to choose from the list of available function apps:
 
@@ -136,7 +136,7 @@ For APIs created after April 4, 2019, the host key is passed in HTTP requests fr
 
 1. Find the keys in the **Host keys** section:
 
-    :::image type="content" source="./media/import-function-app-as-api/keys-03.png" alt-text="Screenshot that shows the host keys. lightbox="./media/import-function-app-as-api/keys-03.png"":::
+    :::image type="content" source="./media/import-function-app-as-api/keys-03.png" alt-text="Screenshot that shows the host keys. lightbox="./media/import-function-app-as-api/keys-03.png":::
 
 ### Access the named value in API Management
 
