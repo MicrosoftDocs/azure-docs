@@ -131,7 +131,7 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
    
     :::image type="content" source="./media/azure-netapp-files-metrics/metrics-navigate-volume.png" alt-text="Snapshot that shows how to navigate to the Metric pull-down." lightbox="./media/azure-netapp-files-metrics/metrics-navigate-volume.png":::
 
-## <a name="subscription-quota-metrics"><a> Subscription quota metrics (preview)
+## <a name="subscription-quota-metrics"></a> Subscription quota metrics (preview)
 
 Subscription quota metrics display two colums: your subscription's usage and the available limit.
 
