@@ -8,6 +8,7 @@ manager: kumudd
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Monitor the health of Azure Content Delivery Network resources

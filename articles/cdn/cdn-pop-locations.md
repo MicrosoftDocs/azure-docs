@@ -9,6 +9,7 @@ ms.service: azure-cdn
 ms.topic: concept-article
 ms.date: 03/20/2024
 ms.custom: references_regions
+ROBOTS: NOINDEX
 ---
 
 # Azure Content Delivery Network Coverage by Metro

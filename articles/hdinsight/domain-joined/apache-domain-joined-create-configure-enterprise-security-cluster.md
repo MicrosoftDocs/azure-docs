@@ -4,6 +4,9 @@ description: Learn how to create and configure Enterprise Security Package clust
 services: hdinsight
 ms.service: azure-hdinsight
 ms.topic: how-to
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf 
 ms.date: 12/11/2024
 ms.custom: devx-track-azurepowershell
 ---

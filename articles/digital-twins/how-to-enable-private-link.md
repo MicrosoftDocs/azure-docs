@@ -168,7 +168,7 @@ Once a private endpoint has been created for your Azure Digital Twins instance, 
 
 For more information and examples, see the [az dt network private-endpoint reference documentation](/cli/azure/dt/network/private-endpoint).
 
-[!INCLUDE [digital-twins-cli-issue](../../includes/digital-twins-cli-issue.md)]
+[!INCLUDE [digital-twins-cli-issue](includes/digital-twins-cli-issue.md)]
 
 ### Get more Private Link information
 
@@ -202,7 +202,7 @@ To disable or enable public network access in the [Azure portal](https://portal.
 
 # [CLI](#tab/cli-2)
 
-[!INCLUDE [digital-twins-cli-issue.md](../../includes/digital-twins-cli-issue.md)]
+[!INCLUDE [digital-twins-cli-issue.md](includes/digital-twins-cli-issue.md)]
 
 In the Azure CLI, you can disable or enable public network access by adding a `--public-network-access` parameter to the `az dt create` command. While this command can also be used to create a new instance, you can use it to edit the properties of an existing instance by providing it the name of an instance that already exists. (For more information about this command, see its [reference documentation](/cli/azure/dt#az-dt-create) or the [general instructions for setting up an Azure Digital Twins instance](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
 
