@@ -2316,10 +2316,10 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | networkSecurityPerimeters | Yes | Yes |
 > | networkVirtualAppliances | Yes | Yes |
 > | networkWatchers | Yes | Yes |
-> | networkWatchers / connectionMonitors | Yes | No |
-> | networkWatchers / flowLogs | Yes | No |
-> | networkWatchers / lenses | Yes | No |
-> | networkWatchers / pingMeshes | Yes | No |
+> | networkWatchers / connectionMonitors | No | No |
+> | networkWatchers / flowLogs | No | No |
+> | networkWatchers / lenses | No | No |
+> | networkWatchers / pingMeshes | No | No |
 > | p2sVpnGateways | Yes | Yes |
 > | privateDnsZones | Yes | Yes |
 > | privateDnsZones / A | No | No |
