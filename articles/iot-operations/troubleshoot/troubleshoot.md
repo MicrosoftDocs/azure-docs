@@ -60,6 +60,18 @@ To resolve the issue, either elevate principal permissions, or don't deploy reso
 > [!NOTE]
 > Legacy AIO CLIs had an opt-out mechanism by using the `--disable-rsync-rules`.
 
+### Deployment of MQTT broker fails
+
+A deployment can fail if the cluster doesn't have sufficient resources for the specified MQTT broker cardinality and memory profile. To resolve this situation,  adjust the replica count, workers, sharding, and memory profile settings to appropriate values for your cluster.
+
+> [!WARNING]
+> Setting the replica count to one can result in data loss in node failure scenarios.
+
+> [!TIP]
+> Setting lower sharding, workers, or memory profile values lowers the broker's capacity to handle message load. Before you deploy to production, test your scenario with the MQTT broker configuration, to ensure the broker is can handle the maximum expected load.
+
+To learn more about how to choose suitable values for these parameters, see [Configure broker settings for high availability, scaling, and memory usage](../manage-mqtt-broker/howto-configure-availability-scale.md).
+
 ## Troubleshoot Azure Key Vault secret management
 
 If you see the following error message related to secret management, you need to update your Azure Key Vault contents:
