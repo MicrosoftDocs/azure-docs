@@ -59,7 +59,7 @@
       - name: Azure Container Instances
         href: migrate-container-instances.md
       - name: Azure Container Registry
-        href: /azure/container-registry/zone-redundancy?toc=/azure/reliability?toc=/azure/reliability
+        href: /azure/container-registry/zone-redundancy?toc=/azure/reliability
       - name: Azure Cosmos DB for NoSQL
         href: migrate-cosmos-nosql.md
       - name: Azure Database for MySQL - Flexible Server
