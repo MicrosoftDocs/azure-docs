@@ -108,6 +108,7 @@ sections:
           You can downgrade an App Configuration store from the Premium tier to the Standard tier. For other tiers, you can create a new store in the desired tier and then [import configuration data into that store](howto-import-export-data.md).
 
       - question: What can I do if fail to downgrade an App Configuration store?
+        answer: |
           You can view the error message in the response for details about the downgrade failure.
 
           - **The target SKU does not support downgrade.**: The target SKU is not eligible for downgrade.
