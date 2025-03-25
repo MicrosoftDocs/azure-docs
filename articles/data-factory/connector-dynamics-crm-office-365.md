@@ -433,7 +433,7 @@ The optimal combination of **writeBatchSize** and **parallelCopies** depends on 
 ]
 ```
 
-When you select an elastic table in Dataverse connector sink, since all [elastic tables](/power-apps/developer/data-platform/elastic-tables#partitioning-and-horizontal-scaling) contain a system-defined `partitionid` column, the Dataverse connector mapping supports the `partitionid` column. This connector supports mapping custom source data columns to the sink's `partitionid` column. If the `partitionid` column value is not specified or the `partitionid` column is deleted, the primary key value is used as the default `partitionid` value. For more information about the `partitionid` column in Dataverse elastic tables, see this [article](/power-apps/developer/data-platform/use-elastic-tables?tabs=sdk#specify-partitionid).
+When you select an [elastic tables](/power-apps/developer/data-platform/elastic-tables#partitioning-and-horizontal-scaling) in the copy activity sink, the connector mapping supports the `partitionid` column, as the elastic table contains a system-defined `partitionid` column. You can map your source data column to the sink's `partitionid` column. If not mapped, the primary key value is used as the default value for the `partitionid` column. For more information about the `partitionid` column in Dataverse elastic tables, see this [article](/power-apps/developer/data-platform/use-elastic-tables?tabs=sdk#specify-partitionid).
 
 ## Retrieving data from views
 
