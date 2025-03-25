@@ -122,7 +122,7 @@
       href: migrate-tutorial-windows-server-2008.md
     - name: Migrate AWS instances to Azure
       href: migrate-tutorial-aws-azure.md
-  - name: VMware VM disaster recovery to Azure (Classic)
+  - name: VMware VM disaster recovery to Azure
     items:
     - name: Prepare Azure
       href: tutorial-prepare-azure.md
