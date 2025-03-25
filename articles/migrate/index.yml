@@ -31,7 +31,7 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Assess Hyper-V VMs with Server Assessment
+          - text: Discover servers running on Hyper-V 
             url: ./tutorial-discover-hyper-v.md
           - text: Assess physical servers with Server Assessment
             url: ./tutorial-discover-physical.md

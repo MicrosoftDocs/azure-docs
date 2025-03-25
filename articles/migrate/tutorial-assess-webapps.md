@@ -6,7 +6,7 @@ ms.date: 02/07/2025
 ms.service: azure-migrate
 ms.custom: engagement-fy24, devx-track-extended-java
 zone_pivot_groups: web-apps-assessment-app-service
-monikerRange: migrate-classic
+::: moniker range="migrate"
 ---
 
 
