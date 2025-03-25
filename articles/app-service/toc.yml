@@ -70,14 +70,14 @@ items:
           - name: Spring Boot with MongoDB
             href: tutorial-java-spring-cosmosdb.md
           - name: Tomcat with MySQL
-            href: tutorial-java-tomcat-mysql-app.md            
-          - name: JBoss with MySQL
-            href: tutorial-java-jboss-mysql-app.md  
+            href: tutorial-java-tomcat-mysql-app.md             
           - name: Java Tomcat to Postgres
             href: tutorial-java-tomcat-connect-managed-identity-postgresql-database.md
+          - name: JBoss with MySQL
+            href: tutorial-java-jboss-mysql-app.md 
       - name: Migrate
         items:
-        - name: Java
+        - name: Java SE
           href: app-service-java-migration.md
         - name: Tomcat
           href: /azure/developer/java/migration/migrate-tomcat-to-tomcat-app-service?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
