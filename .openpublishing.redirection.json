@@ -1,6 +1,21 @@
 {
   "redirections": [
     {
+      "source_path": "articles/cdn/edgio-retirement-faq.md",
+      "redirect_url": "/previous-versions/azure/cdn/edgio-retirement-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-edge-performance.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-edge-performance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/migrate-cdn-to-front-door-retain-edge-domain.md",
+      "redirect_url": "/previous-versions/azure/cdn/migrate-cdn-to-front-door-retain-edge-domain",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/internet-peering/howto-subscription-association-powershell.md",
       "redirect_url": "/previous-versions/azure/internet-peering/howto-subscription-association-powershell",
       "redirect_document_id": false
