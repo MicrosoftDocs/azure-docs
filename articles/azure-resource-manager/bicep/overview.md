@@ -3,7 +3,7 @@ title: What is Bicep?
 description: Understand the Bicep language for deploying infrastructure to Azure. Gain an improved authoring experience over one with JSON to develop templates.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 02/28/2025
+ms.date: 03/25/2025
 ---
 
 # What is Bicep?
