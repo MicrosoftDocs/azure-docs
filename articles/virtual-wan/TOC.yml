@@ -176,38 +176,38 @@
             href: point-to-site-vpn-client-certificate-windows-openvpn-client-version-2.md
           - name: Version 3.x
             href: point-to-site-vpn-client-certificate-windows-openvpn-client-version-3.md
-        - name: Linux clients
+      - name: Linux clients
+        items:
+        - name: Azure VPN Client
+          href: point-to-site-azure-vpn-client-certificate-linux.md
+        - name: OpenVPN client
+          href: point-to-site-vpn-client-certificate-openvpn-linux.md
+        - name: IKEv2 - strongSwan
+          href: point-to-site-vpn-client-certificate-ike-linux.md
+      - name: macOS and iOS clients
+        items:
+        - name: Native VPN client
+          href: point-to-site-vpn-client-cert-mac.md
+        - name: OpenVPN client - macOS
+          href: point-to-site-vpn-client-certificate-openvpn-mac.md
+        - name: OpenVPN client - iOS
+          href: point-to-site-vpn-client-certificate-openvpn-ios.md  
+      - name: Generate self-signed certificates
+        items:
+        - name: .cer and .pfx files
           items:
-          - name: Azure VPN Client
-            href: point-to-site-azure-vpn-client-certificate-linux.md
-          - name: OpenVPN client
-            href: point-to-site-vpn-client-certificate-openvpn-linux.md
-          - name: IKEv2 - strongSwan
-            href: point-to-site-vpn-client-certificate-ike-linux.md
-        - name: macOS and iOS clients
+          - name: Azure PowerShell
+            href: certificates-point-to-site.md
+          - name: MakeCert
+            href: certificates-point-to-site-makecert.md
+        - name: .pem files
           items:
-          - name: Native VPN client
-            href: point-to-site-vpn-client-cert-mac.md
-          - name: OpenVPN client - macOS
-            href: point-to-site-vpn-client-certificate-openvpn-mac.md
-          - name: OpenVPN client - iOS
-            href: point-to-site-vpn-client-certificate-openvpn-ios.md  
-        - name: Generate self-signed certificates
-          items:
-          - name: .cer and .pfx files
-            items:
-            - name: Azure PowerShell
-              href: certificates-point-to-site.md
-            - name: MakeCert
-              href: certificates-point-to-site-makecert.md
-          - name: .pem files
-            items:
-            - name: Linux - OpenSSL
-              href: ../vpn-gateway/point-to-site-certificates-linux-openssl.md
-            - name: Linux - strongSwan
-              href: ../vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md
-        - name: Install client certificates
-          href: install-client-certificates.md
+          - name: Linux - OpenSSL
+            href: point-to-site-certificates-linux-openssl.md
+          - name: Linux - strongSwan
+            href: point-to-site-certificates-linux-strongswan.md
+      - name: Install client certificates
+        href: install-client-certificates.md
   - name: Configure P2S - Microsoft Entra ID authentication
     items:
     - name: P2S server configuration
@@ -228,11 +228,11 @@
         href: openvpn-azure-ad-tenant-multi-app.md
     - name: VPN client configuration
       items:
-      - name: Windows clients
+      - name: Azure VPN Client - Windows
         href: point-to-site-entra-vpn-client-windows.md
-      - name: macOS clients
+      - name: Azure VPN Client - macOS
         href: point-to-site-entra-vpn-client-mac.md
-      - name: Linux clients
+      - name: Azure VPN Client - Linux
         href: point-to-site-entra-vpn-client-linux.md
       - name: VPN client profiles
         items:
@@ -240,7 +240,7 @@
           href: global-hub-profile.md
         - name: Extract and view profile information
           href: about-vpn-profile-download.md
-        - name: Intune- Deploy VPN client profile
+        - name: Intune - Deploy VPN client profile
           href: vpn-profile-intune.md
   - name: Azure VPN Client versions & settings
     items:

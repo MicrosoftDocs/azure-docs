@@ -9,6 +9,7 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
 ms.custom: mvc
+ROBOTS: NOINDEX
 ---
 
 # Create an Azure Content Delivery Network endpoint

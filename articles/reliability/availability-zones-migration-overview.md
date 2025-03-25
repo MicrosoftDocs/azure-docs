@@ -54,6 +54,6 @@ To improve the reliability of your solution, it's a good practice to enable avai
 ## Related resources
 - [Azure reliability guides](overview-reliability-guidance.md)
 - [Azure services with availability zones](availability-zones-service-support.md)
-- [Azure regions with availability zones](availability-zones-region-support.md)
+- [List of Azure regions](regions-list.md)
 - [Microsoft commitment to expand Azure availability zones to more regions](https://azure.microsoft.com/blog/our-commitment-to-expand-azure-availability-zones-to-more-regions/)
 - [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones)
