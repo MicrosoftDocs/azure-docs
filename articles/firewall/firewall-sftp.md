@@ -108,8 +108,6 @@ $firewall = New-AzFirewall `
     -PublicIpAddress $pip `
     -FirewallPolicyId $policy.id
 
-
-
 ```
 
 ## Create a storage account and container

@@ -4,7 +4,7 @@ description: Learn how Azure API Management supports monetization strategies for
 author: dlepow
 ms.author: danlep
 ms.date: 02/10/2022
-ms.topic: article
+ms.topic: concept-article
 ms.service: azure-api-management
 ---
 

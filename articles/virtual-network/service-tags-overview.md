@@ -164,7 +164,7 @@ The following is a list of tags currently unsupported for use with user defined 
 
 ## Service tags on-premises  
 
-You can obtain the current service tag and range information to include as part of your on-premises firewall configurations. This information is the current point-in-time list of the IP ranges that correspond to each service tag. You can obtain the information programmatically or via a JSON file download, as described in the following sections.
+You can obtain the current service tag and range information to include as part of your on-premises firewall configurations. This information is the current point-in-time list of the IP ranges that correspond to each service tag. You should obtain the information programmatically or via a JSON file download, as described in the following sections.
 
 ### Use the Service Tag Discovery API
 

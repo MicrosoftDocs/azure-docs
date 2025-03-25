@@ -11,7 +11,7 @@ ms.author: jsuri
 
 # Immutable vault for Azure Backup
 
-Immutable vault can help you protect your backup data by blocking any operations that could lead to loss of recovery points. Further, you can lock the Immutable vault setting to make it irreversible and use WORM storage for backups to prevent any malicious actors from disabling immutability and deleting backups.
+Immutable vault can help you protect your backup data by blocking any operations that could lead to loss of recovery points. Further, you can lock the Immutable vault setting to make it irreversible and use WORM (Write Once, Read Many) storage for backups to prevent any malicious actors from disabling immutability and deleting backups.
 
 ## Supported scenarios for WORM storage
 
