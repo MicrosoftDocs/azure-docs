@@ -1,9 +1,9 @@
 ---
 title: Stream and filter Windows DNS logs with the AMA connector 
-description: Use the AMA connector to upload and filter data from your Windows DNS server logs. You can then dive into your logs to protect your DNS servers from threats and attacks.
+description: Ingest and filter data from your Windows DNS server logs with this data connector. Query this data to protect your DNS servers from threats and attacks.
 author: yelevin
 ms.topic: how-to
-ms.date: 11/11/2024
+ms.date: 03/25/2025
 ms.author: yelevin
 
 #Customer intent: As a security engineer, I want to stream and filter DNS server logs using a cloud-based monitoring agent so that analysts can detect and mitigate potential threats efficiently.
@@ -71,9 +71,13 @@ Use the following example as a template to create or update a DCR:
 ### Request URL and header  
 
 ```http
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dataCollectionRuleName}?api-version=2019-11-01-preview
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dataCollectionRuleName}?api-version={latest-supported-version}
 ```
- 
+
+For the latest supported API version, see [Data Collection Rules - REST API (Azure Monitor) | Microsoft Learn](/rest/api/monitor/data-collection-rules).
+
+:::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-dcr-api-version.png" alt-text="Screenshot of the API version's appearance in the DCR documentation.":::
+
 ### Request body
 
 ```json
