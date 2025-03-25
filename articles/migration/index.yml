@@ -104,22 +104,16 @@ conceptualContent:
             itemType: concept
           - url: /azure/aks/aks-migration
             text: Migrate to Azure Kubernetes Service (AKS)
-            itemType: tutorial
+            itemType: overview
           - url: /azure/aks/eks-web-overview
             text: Migrate a web app from EKS to AKS
             itemType: tutorial
           - url: /azure/aks/eks-edw-overview
             text: Migrate an event-driven EKS workload to AKS
             itemType: tutorial
-          - url: /azure/migrate/tutorial-migrate-aws-virtual-machines
-            text: Migrate to Azure Virtual Machines (Azure Migrate)
-            itemType: tutorial
-          - url: /azure/virtual-machines/windows/on-prem-to-azure
-            text: Migrate virtual machine images to Azure Managed Disks
-            itemType: tutorial
-          - url: /azure/migrate/vmware/migrate-support-matrix-vmware
-            text: Migrate VMware Services to Azure
-            itemType: tutorial
+        footerLink:
+          text: See more
+          url: ./migrate-compute-from-aws.md
       - title: Databases and data
         links:
           - url: ./migrate-databases-from-aws.md
@@ -133,36 +127,21 @@ conceptualContent:
             itemType: reference
           - url: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aws-offline
             text: Amazon RDS for PostgreSQL for PostgreSQL (offline)
-            itemType: tutorial
+            itemType: overview
           - url: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aws-online
             text: Amazon RDS for PostgreSQL for PostgreSQL (online)
-            itemType: tutorial
+            itemType: overview
           - url: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-offline
             text: Amazon Aurora PostgreSQL (offline)
-            itemType: tutorial
-          - url: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-online
-            text: Amazon Aurora PostgreSQL (online)
-            itemType: tutorial
-          - url: /azure/azure-sql/migration-guides/database/mysql-to-sql-database-guide?view=azuresql-db&preserve-view=true
-            text: Migrate MySQL on AWS to Azure Database for MySQL
-            itemType: how-to-guide
-          - url: /azure/cosmos-db/nosql/dynamo-to-cosmos
-            text: Migrate DynamoDB app to Azure Cosmos DB for NoSQL
-            itemType: how-to-guide
-          - url: /azure/cosmos-db/nosql/dynamodb-data-migration-cosmos-db
-            text: Migrate DynamoDB data to Azure Cosmos DB for NoSQL
-            itemType: how-to-guide
-          - url: /azure/azure-cache-for-redis/cache-migration-guide
-            text: Migrate from AWS ElasticCache to Azure Cache for Redis
-            itemType: how-to-guide
-          - url: /azure/cosmos-db/nosql/couchbase-cosmos-migration
-            text: Migrate from CouchBase to Azure Cosmos DB for NoSQL
-            itemType: how-to-guide
+            itemType: overview
+        footerLink:
+          text: See more
+          url: ./migrate-databases-from-aws.md
       - title: Storage
         links:
           - url: ./migrate-storage-from-aws.md
             text: Migrate storage components
-            itemType: tutorial
+            itemType: get-started
           - url: /azure/architecture/aws-professional/storage
             text: Azure storage services map
             itemType: tutorial
