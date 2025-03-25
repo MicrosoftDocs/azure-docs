@@ -50,8 +50,8 @@ Application Gateway for Containers supports Azure Network Policies, Calico, and 
 
 * ALB Controller: You must be running version 1.5.0 or greater to take advantage of CNI Overlay.
 * Subnet Size: The Application Gateway for Containers subnet must be a /24 prefix; only one deployment is supported per subnet. A larger or smaller prefix isn't supported.
-* Regional VNet Peering: Application Gateway for Containers deployed in a virtual network in region A and the AKS cluster nodes in a virtual network in region A is not supported.
-* Global VNet Peering: Application Gateway for Containers deployed in a virtual network in region A and the AKS cluster nodes in a virtual network in region B is not supported.
+* Regional VNet Peering: Application Gateway for Containers deployed in a virtual network in region A and the AKS cluster nodes in a virtual network in region A isn't supported.
+* Global VNet Peering: Application Gateway for Containers deployed in a virtual network in region A and the AKS cluster nodes in a virtual network in region B isn't supported.
 
 ## CNI and Application Gateway for Containers
 
@@ -70,10 +70,10 @@ Kubenet isn't supported by Application Gateway for Containers. If using Kubenet,
 
 Q: Can I upgrade an existing cluster with Application Gateway for Containers from CNI to CNI Overlay?
 
-A: Yes, upgrade of the AKS cluster from CNI to CNI Overlay and Application Gateway for Containers automatically detects the change. It is recommended to schedule this during a maintenance window as it may take a few minutes post-cluster upgrade to detect and configure support for CNI Overlay.
+A: Yes, upgrade of the AKS cluster from CNI to CNI Overlay and Application Gateway for Containers automatically detects the change. It's recommended to schedule the upgrade during a maintenance window because it can take a few minutes post-cluster upgrade to detect and configure support for CNI Overlay.
 
->[!WARNING]
-> Ensure the Application Gateway for Containers subnet is a /24 prior to upgrading. Upgrading from CNI to CNI Overlay with a larger subnet (i.e., /23) will lead to an outage and require the Application Gateway for Containers subnet to be recreated with a /24 subnet size.
+> [!WARNING]
+> Ensure the Application Gateway for Containers subnet is a /24 before upgrading. Upgrading from CNI to CNI Overlay with a larger subnet (/23 or larger) will lead to an outage and require the Application Gateway for Containers subnet to be recreated with a /24 subnet size.
 
 Q: Can I upgrade an existing cluster with Kubenet to CNI Overlay?
 
