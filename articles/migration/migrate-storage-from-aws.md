@@ -10,7 +10,7 @@ ms.topic: conceptual
 
 # Migrate storage from Amazon Web Services (AWS)
 
-Storage services are foundational components of most enterprise workloads. These include file storage, blob storage, data lakes, virtual machine images, and file shares that store critical data for various purposes. Whether supporting custom applications, AI/ML training processes, business intelligence operations, or commercial off-the-shelf (COTS) solutions, your storage infrastructure requires careful migration planning. Microsoft Azure provides comprehensive guidance to help you successfully migrate workloads that depend on these essential data storage and security components.
+Storage services are foundational components of most enterprise workloads. Examples include file storage, blob storage, data lakes, virtual machine images, and file shares that store critical data for various purposes. Whether supporting custom applications, AI/ML training processes, business intelligence operations, or commercial off-the-shelf (COTS) solutions, your storage infrastructure requires careful migration planning. Microsoft Azure provides comprehensive guidance to help you successfully migrate workloads that depend on essential data storage components.
 
 ## Component comparison
 
