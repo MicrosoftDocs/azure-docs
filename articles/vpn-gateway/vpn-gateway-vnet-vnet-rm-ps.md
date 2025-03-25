@@ -447,7 +447,7 @@ In this example, because the gateways are in the different subscriptions, we've 
    New-AzVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
    ```
 
-### <a name="tenant"></a>Different subscriptions and different tenants
+### <a name="tenant"></a>Connect VNets in different subscriptions and different tenants
 
 This scenario makes use of the previous scenario steps, but with a few key differences. In this scenario, TestVNet5 resides in Subscription 1, Tenant 1. TestVNet1 resides in Subscription2, Tenant 2.
 
