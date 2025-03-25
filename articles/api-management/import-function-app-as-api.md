@@ -33,7 +33,7 @@ You'll learn how to:
 ## Prerequisites
 
 * Complete the [Create an Azure API Management instance](get-started-create-service-instance.md) quickstart.
-* Make sure you have an Azure function app in your subscription. For more information, see [Create an Azure Function App](../azure-functions/functions-get-started.md). Functions must have an HTTP trigger. The authorization level must be set to *Anonymous* or *Function*.
+* Make sure you have an Azure function app in your subscription. For more information, see [Getting started with Azure Functions](../azure-functions/functions-get-started.md). Functions must have an HTTP trigger. The authorization level must be set to *Anonymous* or *Function*.
 
 > [!NOTE]
 > You can use the API Management Extension for Visual Studio Code to import and manage your APIs. Complete the [API Management Extension tutorial](visual-studio-code-tutorial.md) to get started.
@@ -136,7 +136,7 @@ For APIs created after April 4, 2019, the host key is passed in HTTP requests fr
 
 1. Find the keys in the **Host keys** section:
 
-    :::image type="content" source="./media/import-function-app-as-api/keys-03.png" alt-text="Screenshot that shows the host keys. lightbox="./media/import-function-app-as-api/keys-03.png":::
+    :::image type="content" source="./media/import-function-app-as-api/keys-03.png" alt-text="Screenshot that shows the host keys." lightbox="./media/import-function-app-as-api/keys-03.png":::
 
 ### Access the named value in API Management
 
