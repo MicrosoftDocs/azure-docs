@@ -7,6 +7,8 @@ description: 'Azure CLI samples for managing Azure Cache for Redis: Create a cac
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 03/11/2022 
+appliesto:
+  - ✅ Azure Cache for Redis
 ms.custom: devx-track-azurecli
 ---
 # Manage Azure Cache for Redis with Azure CLI

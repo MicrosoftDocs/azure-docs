@@ -5,6 +5,7 @@ services: app-service
 ms.custom: devx-track-arm-template, ignite-2024
 ms.topic: conceptual
 ms.date: 01/05/2024
+appliesto:
   - ✅ Azure Cache for Redis
 
 ---

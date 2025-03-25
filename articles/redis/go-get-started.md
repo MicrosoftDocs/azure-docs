@@ -8,6 +8,7 @@ ms.devlang: golang
 ms.topic: quickstart
 ms.date: 09/09/2021
 ms.custom: mode-api, devx-track-go, ignite-2024
+appliesto:
   - ✅ Azure Cache for Redis
 
 ---

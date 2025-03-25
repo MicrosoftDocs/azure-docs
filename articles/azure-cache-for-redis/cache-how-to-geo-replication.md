@@ -5,6 +5,8 @@ description: Learn how to use cross-region replication to provide disaster recov
 ms.topic: how-to
 ms.custom: engagement-fy23
 ms.date: 11/15/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 
 ---
 

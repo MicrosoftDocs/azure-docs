@@ -4,6 +4,7 @@ description: Use Bicep to deploy web app with Azure Cache for Redis.
 ms.custom: devx-track-bicep, ignite-2024
 ms.topic: conceptual
 ms.date: 05/24/2022
+appliesto:
   - ✅ Azure Cache for Redis
 
 ---

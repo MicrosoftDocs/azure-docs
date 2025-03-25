@@ -4,6 +4,8 @@ description: Learn how to replicate your Azure Cache for Redis Enterprise instan
 ms.custom: devx-track-azurecli, ignite-2024
 ms.topic: conceptual
 ms.date: 01/15/2025
+appliesto:
+  - ✅ Azure Cache for Redis
 ---
 
 # Configure active geo-replication for Enterprise Azure Cache for Redis instances

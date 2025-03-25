@@ -9,6 +9,8 @@ ms.topic: conceptual
 ms.custom:
   - ignite-2024
 ms.date: 10/17/2023
+appliesto:
+  - ✅ Azure Cache for Redis
 ---
 
 # What is Retired in Azure Cache for Redis

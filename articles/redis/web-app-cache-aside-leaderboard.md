@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.devlang: csharp
 ms.custom: "devx-track-csharp, mvc"
 ms.date: 06/09/2021
+appliesto:
   - ✅ Azure Cache for Redis
 
 

@@ -6,6 +6,9 @@ description: Learn how to use diagnostic settings to monitor connected ip addres
 
 ms.topic: how-to
 ms.date: 12/18/2023
+appliesto:
+  - ✅ Azure Cache for Redis
+
 ms.custom: template-how-to, devx-track-azurecli, ignite-2024
 ms.devlang: azurecli
 ---

@@ -7,6 +7,8 @@ description: In this quickstart, learn how to create an instance of Azure Cache 
 ms.custom: mvc, mode-other
 ms.topic: quickstart
 ms.date: 05/06/2022
+appliesto:
+  - ✅ Azure Cache for Redis
 
 ---
 # Quickstart: Create an open-source Redis cache

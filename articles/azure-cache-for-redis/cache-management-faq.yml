@@ -8,6 +8,8 @@ metadata:
   ms.topic: faq
   ms.custom: devx-track-csharp, ignite-2024
   ms.date: 04/04/2023
+  appliesto:
+    - ✅ Azure Cache for Redis
 title: Azure Cache for Redis management FAQs
 summary: This article provides answers to common questions about how to manage Azure Cache for Redis.
 

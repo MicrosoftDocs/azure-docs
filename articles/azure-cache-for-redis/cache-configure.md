@@ -6,6 +6,8 @@ description: Understand the default Redis configuration for Azure Cache for Redi
 
 ms.topic: conceptual
 ms.date: 05/07/2024
+appliesto:
+  - ✅ Azure Cache for Redis
  
 ms.custom: engagement-fy23
 ---

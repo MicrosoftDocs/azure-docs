@@ -10,6 +10,9 @@ ms.custom:
   - migration
   - aws-to-azure
 ms.date: 11/17/2021
+appliesto:
+  - ✅ Azure Cache for Redis
+
 ---
 # Migrate to Azure Cache for Redis
 

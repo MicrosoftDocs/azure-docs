@@ -7,6 +7,8 @@ description: Learn how to install the Azure classic CLI on any platform, how to 
 
 ms.topic: conceptual
 ms.date: 05/25/2021
+appliesto:
+  - ✅ Azure Cache for Redis
  
 ms.custom: engagement-fy23
 ---

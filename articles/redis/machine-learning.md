@@ -7,6 +7,7 @@ description: In this article, you deploy a model from Azure Machine Learning as 
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 06/09/2021
+appliesto:
   - ✅ Azure Cache for Redis
 
 ---

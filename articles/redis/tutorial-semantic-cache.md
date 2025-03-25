@@ -6,6 +6,7 @@ description: In this tutorial, you learn how to use Azure Cache for Redis as a s
 ms.collection: ce-skilling-ai-copilot
 ms.topic: tutorial
 ms.date: 01/08/2024
+appliesto:
   - ✅ Azure Cache for Redis
 
 

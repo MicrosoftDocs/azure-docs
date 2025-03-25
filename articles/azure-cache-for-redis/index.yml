@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Azure Cache for Redis Documentation
-summary: Learn how to use the open-source Redis, our Azure Cache for Redis offering. Either of our Redis services can be used as a secure data cache or  messaging broker to provide high throughput and low-latency access to data for applications. These tutorials, API references, and other documentation show you how to use Redis from any application on Azure. For information about Azure Managed Redis, see the links on this page.
+summary: Azure Cache for Redis is a fully managed Redis service based on the community edition of Redis. It can be used as a data cache, session store, or message broker that provides high throughput and low-latency access to data for applications. These tutorials, API references, and other documentation show you how to use Redis from any application on Azure. For the latest and most performant Redis experience, see the links on this page for Azure Managed Redis, the newest Redis offering on Azure. 
 metadata:
   title: Azure Cache for Redis Documentation
   description: Learn how to use Azure Cache for Redis, a secure data cache and messaging broker that give applications fast access to data. Tutorials, API references, and more.
@@ -11,6 +11,9 @@ metadata:
 
 
   ms.date: 03/11/2025
+  appliesto:
+    - ✅ Azure Cache for Redis
+
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -73,10 +76,10 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Managed Redis?
-            url: /redis/overview.md
+            url: ../redis/overview.md
           - text: What's new?
-            url: /redis/whats-new.md
+            url: ../redis/whats-new.md
           - text: Azure Managed Redis architecture
-            url: /redis/architecture.md
+            url: ../redis/architecture.md
           - text: Moving to Azure Managed Redis from Azure Cache for Redis
-            url: /redis/migrate/migrate-overview.md
+            url: ../redis/migrate/migrate-overview.md
