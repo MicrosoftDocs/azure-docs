@@ -77,14 +77,14 @@ following list:
   information, see [Configuration Setting](#configuration-setting)
 
 ### Assignment Type
-Instructions to the Guest Configuration agent as to how it should process the assignment.
 
-```yaml
-Audit:  Will only assess compliance with an assignment, will not attempt to make any changes
-ApplyAndAutoCorrect: Will continuously audit and auto-correct for compliance
-ApplyAndMonitor: Will apply the settings once and monitor for compliance but will not attempt to correct settings a second time
-ApplyOnce: Will apply the settings once but will not monitor or check for compliance thereafter
-```
+An assignment type defines how the Guest Configuration agent should process the assignment. Valid
+values are:
+
+- `Audit` -  Only assess compliance with an assignment. Don't make any changes.
+- `ApplyAndAutoCorrect` - Continuously audit and auto-correct for compliance.
+- `ApplyAndMonitor` - Apply the settings once, then monitor for compliance but don't correct settings.
+- `ApplyOnce` - Apply the settings once.
 
 ### Configuration Parameter
 An array of key-value pairs to pass into the Machine Configuration Assignment.
