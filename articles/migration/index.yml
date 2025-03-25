@@ -88,7 +88,7 @@ conceptualContent:
             text: Azure Solutions Architect training
             itemType: training
 
-    - title: Migrate from Aws
+    - title: Migrate from AWS
 
       items:
       - title: Compute
