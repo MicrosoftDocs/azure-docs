@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 03/26/2025
 ---
 
-# How to configure TLS policy on a Front Door custom domain onboarded on Front Door (preview)
+# Configure TLS policy on a Front Door custom domain (preview)
 
 > [!IMPORTANT]
 > TLS policy is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -51,6 +51,8 @@ In this article, you learn how to configure TLS policy on a Front Door custom do
 
     > [!NOTE]
     > You can reuse the custom TLS policy setting from other domains in the portal by selecting the domain in **Reuse setting from other domain**. 
+
+1. Select **Add** to add the domain.
 
 ## Verify TLS policy configurations
 
