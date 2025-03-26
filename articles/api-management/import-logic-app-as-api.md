@@ -34,9 +34,10 @@ In this article, you learn how to:
 -   Complete the quickstart [Create an Azure API Management instance](get-started-create-service-instance.md).
 -   Make sure there's a Consumption plan-based Logic App resource in your subscription that exposes an HTTP endpoint. For more information, see [Trigger workflows with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md).
 
-## <a name="create-api"> </a>Import and publish a backend API
+## Import and publish a backend API
 
-1. Navigate to your API Management service in the [Azure portal](https://portal.azure.com) and select **APIs** in the left pane.
+1. Navigate to your API Management service in the [Azure portal](https://portal.azure.com).
+1. In the left menu, in the **APIs** section, select **APIs**, and then select **+ Add API**.
 
 1. Select **Logic App** in the **Create from Azure resource** list:
 
@@ -50,7 +51,7 @@ In this article, you learn how to:
 
     :::image type="content" source="./media/import-logic-app-as-api/select-logic-app-import-2.png" alt-text="Screenshot that shows the Select Logic App to import window." lightbox="./media/import-logic-app-as-api/select-logic-app-import-2.png":::
 
-    API Management finds the swagger that's associated with the selected app, fetches it, and imports it.
+    API Management finds the Swagger document that's associated with the selected app, fetches it, and imports it.
 
 1. Add an API URL suffix. The suffix uniquely identifies the API in the API Management instance.
 
@@ -59,9 +60,9 @@ In this article, you learn how to:
 1. If you want the API to be published and available to developers, switch to the **Full** view and associate the API with a **Product**. This example uses the **Unlimited** product. (You can add your API to a product when you create it or later via the **Settings** tab.)
 
     >[!NOTE]
-    > Products are associations of one or more APIs offered to developers via the Developer Portal. First, developers must subscribe to a product to get access to the API. After they subscribe, they get a subscription key for any API in the product. As creator of the API Management instance, you're an administrator and are subscribed to every product by default.
+    > Products are associations of one or more APIs offered to developers via the developer portal. First, developers must subscribe to a product to get access to the API. After they subscribe, they get a subscription key for any API in the product. As creator of the API Management instance, you're an administrator and are subscribed to every product by default.
     >
-    > Each API Management instance comes with two default sample products:
+    > In certain tiers, each API Management instance comes with two default sample products:
     > - **Starter**
     > - **Unlimited**
 
