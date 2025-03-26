@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/07/2025
+ms.date: 03/21/2025
 ms.author: jianleishen
 ---
 # Copy data from Cassandra using Azure Data Factory or Synapse Analytics
@@ -347,6 +347,16 @@ The following tables show the virtual tables that renormalize the data from the 
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
+## Upgrade the Cassandra connector
+
+Here are steps that help you upgrade the Cassandra connector:
+
+1. In **Edit linked service** page, select version 2.0 (Preview) and configure the linked service by referring to [Linked service properties](#linked-service-properties).
+
+2. In version 2.0 (Preview), the `query` in the copy activity source supports only CQL query, not SQL-92 query. For more information, see [Cassandra as source](#cassandra-as-source).
+
+3. The data type mapping for version 2.0 (Preview) is different from that for version 1.0. To learn the latest data type mapping, see [Data type mapping for Cassandra](#data-type-mapping-for-cassandra). 
+
 ## Differences between Cassandra version 2.0 (Preview) and version 1.0 
 
 The Cassandra connector version 2.0 (Preview) offers new functionalities and is compatible with most features of version 1.0. The table below shows the feature differences between version 2.0 (Preview) and version 1.0. 
@@ -357,16 +367,6 @@ The Cassandra connector version 2.0 (Preview) offers new functionalities and is 
 | Support specifying `keyspace` and `tableName` separately in dataset. | Support editing `keyspace` when you select enter manually table name in dataset. |
 | No virtual tables are created for collection types. For more information, see [Work with collections when using version 2.0 (Preview)](#work-with-collections-when-using-version-20-preview).  | Virtual tables are created for collection types. For more information, see [Work with Cassandra collection types using virtual table when using version 1.0](#work-with-collections-using-virtual-table-when-using-version-10). |
 | The following mappings are used from Cassandra data types to interim service data type. <br><br> SMALLINT -> Short <br> TINYINT -> SByte | The following mappings are used from Cassandra data types to interim service data type. <br><br> SMALLINT -> Int16 <br> TINYINT -> Int16 | 
-
-## Upgrade the Cassandra connector
-
-Here are steps that help you upgrade the Cassandra connector:
-
-1. In **Edit linked service** page, select version 2.0 (Preview) and configure the linked service by referring to [Linked service properties](#linked-service-properties).
-
-2. In version 2.0 (Preview), the `query` in the copy activity source supports only CQL query, not SQL-92 query. For more information, see [Cassandra as source](#cassandra-as-source).
-
-3. The data type mapping for version 2.0 (Preview) is different from that for version 1.0. To learn the latest data type mapping, see [Data type mapping for Cassandra](#data-type-mapping-for-cassandra). 
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

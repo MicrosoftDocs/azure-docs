@@ -70,6 +70,8 @@
       href: planned-maintenance.md
     - name: Build and deliver apps with Container Apps (video)
       href: https://youtu.be/OxmVds31qL8
+    - name: Reduce cold-start times
+      href: cold-start.md
 - name: Develop & deploy
   items:
     - name: Deployment options
@@ -396,10 +398,10 @@
       - name: Launch your first Java app
         items:
         - name: Dockerfile
-          href: /azure/developer/java/toolkit-for-intellij/java-get-started-dockerfile
+          href: java-get-started-dockerfile.md
           displayName: java
         - name: Github repository
-          href: /azure/developer/java/toolkit-for-intellij/java-get-started-github-repository
+          href: java-get-started-github-repository.md
           displayName: java
         - name: IntelliJ
           href: /azure/developer/java/toolkit-for-intellij/create-container-apps-intellij?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
