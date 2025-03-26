@@ -1,28 +1,28 @@
 ---
-title: manifest.yaml schema
-description: Learn how to use manifest.yaml to define parameters in your environment definition.
+title: environment.yaml schema
+description: Learn how to use environment.yaml to define parameters in your environment definition.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: azure-deployment-environments
 ms.topic: concept-article
 ms.date: 03/20/2025
 
-# Customer intent: As a developer, I want to know the properties and parameters that I can use in manifest.yaml.
+# Customer intent: As a developer, I want to know the properties and parameters that I can use in environment.yaml.
 
 ---
 
-# Properties and parameters in manifest.yaml
+# Properties and parameters in environment.yaml
 
-Azure Deployment Environments environment definitions are infrastructure as code (IaC) that are written in Bicep or Terraform and stored in repositories. You can modify and adapt environment definitions for your requirements and then use them to create a deployment environment on Azure. The manifest.yaml schema defines and describes the types of Azure resources included in environment definitions.
+Azure Deployment Environments environment definitions are infrastructure as code (IaC) that are written in Bicep or Terraform and stored in repositories. You can modify and adapt environment definitions for your requirements and then use them to create a deployment environment on Azure. The environment.yaml schema defines and describes the types of Azure resources included in environment definitions.
 
 
-## What is manifest.yaml?
+## What is environment.yaml?
 
-The manifest.yaml file describes the resources used and the template location for the environment definition.
+The environment.yaml file describes the resources used and the template location for the environment definition.
 
-### Sample manifest.yaml
+### Sample environment.yaml
 
-The following script is an example of the manifest.yaml that's required for your environment definition.
+The following script is an example of the environment.yaml that's required for your environment definition.
 
 ```yml
 name: WebApp
@@ -35,7 +35,7 @@ templatePath: azuredeploy.json
 
 ### Definitions
 
-The following table describes the properties that you can use in manifest.yaml.
+The following table describes the properties that you can use in environment.yaml.
 
 | Property | Type | Description   | Required?|Example|
 | ------------ | -------- |------- | ------------ | ---------------- |
@@ -47,13 +47,13 @@ The following table describes the properties that you can use in manifest.yaml.
 | `templatePath` | string   | The relative path of the entry template file.      | Yes          | main.tf </br> main.bicep </br> azuredeploy.json |
 | `parameters`   | array    | Input parameters to use when creating the environment and running actions. |      No        | #/definitions/Parameter               |
 
-## Parameters in manifest.yaml
+## Parameters in environment.yaml
 
 Parameters enable you to reuse an environment definition in different scenarios. For example, you might want developers in different regions to deploy the same environment. You can define a location parameter to prompt developers to enter the desired location as they create their environments. 
 
-### Sample manifest.yaml with parameters
+### Sample environment.yaml with parameters
 
-The following script is an example of a manifest.yaml file that includes two parameters: `location` and `name`.
+The following script is an example of a environment.yaml file that includes two parameters: `location` and `name`.
 
 ```yml
 name: WebApp
@@ -78,7 +78,7 @@ parameters:
 
 ### Parameter definitions
 
-The following table describes the data types that you can use in manifest.yaml. The data type names used in the manifest.yaml file differ from the ones used in ARM templates.
+The following table describes the data types that you can use in environment.yaml. The data type names used in the environment.yaml file differ from the ones used in ARM templates.
 
 Each parameter can use any of the following properties:
 
@@ -95,7 +95,7 @@ Each parameter can use any of the following properties:
 
 ## YAML schema
 
-There's a defined schema for Azure Deployment Environments manifest.yaml files. It can make editing these files a little easier. You can add the schema definition to the beginning of your manifest.yaml file:
+There's a defined schema for Azure Deployment Environments environment.yaml files. It can make editing these files a little easier. You can add the schema definition to the beginning of your environment.yaml file:
 
 ```yml
 # yaml-language-server: $schema=https://github.com/Azure/deployment-environments/releases/download/2022-11-11-preview/manifest.schema.json
