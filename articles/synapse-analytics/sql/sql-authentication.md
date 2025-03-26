@@ -7,7 +7,7 @@ ms.subservice: sql
 ms.topic: overview
 ms.date: 11/07/2024
 ms.author: vvasic
-ms.reviewer:  wiassaf
+
 ---
 
 # SQL Authentication in Azure Synapse Analytics

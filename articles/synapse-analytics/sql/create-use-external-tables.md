@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 12/11/2024
 ms.author: vvasic
-ms.reviewer:  wiassaf
+
 ---
 
 # Create and use native external tables using SQL pools in Azure Synapse Analytics
