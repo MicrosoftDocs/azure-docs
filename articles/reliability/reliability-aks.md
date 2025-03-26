@@ -135,22 +135,22 @@ For more information, see [Zone resiliency considerations for AKS](/azure/aks/ak
 
 ### Failback
 
-When the availability zone recovers, failback behavior differs depending on the component:
+When the availability zone recovers, failback behavior depends on the component:
 
 - **Control plane:** AKS automatically restores control plane operations across all availability zones. No manual intervention is required.
 
-- **Node pools and nodes:** Immediately after failback, nodes remain in the previously healthy zones and don't get restored into the recovered zone. However, the next time a node scaling operation is performed, such as when you scale out your node pool, the node pool can create nodes in the recovered zone.
+- **Node pools and nodes:** Immediately after failback, nodes remain in the previously healthy zones and aren't restored into the recovered zone. However, the next time you perform a node-scaling operation, such as when you scale out your node pool, the node pool can create nodes in the recovered zone.
 
-- **Pods:** Immediately after failback, pods continue to run on the nodes they're already running on. When new pods are created or existing pods are recreated, they're eligible to use nodes in the recovered zone.
+- **Pods:** Immediately after failback, pods continue to run on the nodes that they currently run on. When new pods are created or existing pods are re-created, they're eligible to use nodes in the recovered zone.
 
 - **Storage:** Any storage attached to pods recovers based on [how zone-redundant storage works](/azure/storage/common/storage-redundancy).
 
 ### Testing for zone failures
 
-You can test your resiliency to availability zone failures using the following methods:
+You can test your resiliency to availability zone failures by using the following methods:
 
 - [Cordon and drain nodes in a single availability zone](/azure/aks/aks-zone-resiliency#method-1-cordon-and-drain-nodes-in-a-single-az)
-- [Simulate an availability zone failure using Azure Chaos Studio](/azure/aks/aks-zone-resiliency#method-2-simulate-an-az-failure-using-azure-chaos-studio)
+- [Simulate an availability zone failure by using Azure Chaos Studio](/azure/aks/aks-zone-resiliency#method-2-simulate-an-az-failure-using-azure-chaos-studio)
 
 ## Multiple-region support
 
@@ -158,39 +158,39 @@ AKS clusters are single-region resources. If the region is unavailable, your AKS
 
 ### Alternative multiple-region approaches
 
-If you need to deploy your Kubernetes workload to multiple Azure regions, you have two categories of options to manage the orchestration of these clusters:
+If you need to deploy your Kubernetes workload to multiple Azure regions, you have two options to manage the orchestration of these clusters.
 
-- **[Azure Kubernetes Fleet Manager (Fleet)](/azure/kubernetes-fleet/overview)**  offers a simple and more managed experience. With Fleet, you can:
+- Use [Azure Kubernetes Fleet Manager](/azure/kubernetes-fleet/overview) if you want a simpler, managed experience. By using Azure Kubernetes Fleet Manager, you can:
 
   - Manage a set of AKS clusters as a single unit, and those clusters can be distributed across multiple Azure regions.
 
   - Automate certain aspects of cluster management, such as cluster and node image upgrades.
 
-  - Use Fleet traffic distribution capabilities to spread traffic across the clusters and automatically fail over if a region is unavailable.
+  - Use traffic distribution capabilities to spread traffic across the clusters and automatically fail over if a region is unavailable.
 
-- **Orchestrate failover with a manual active-active or active-passive deployment model** if your workload requires more nuanced control over the different components of inter-region failovers. For more information, see [High availability and disaster recovery overview for Azure Kubernetes Service (AKS)](/azure/aks/ha-dr-overview).
+- Orchestrate failover with a manual active-active or active-passive deployment model if your workload requires more nuanced control over the different components of interregional failovers. For more information, see [High availability and disaster recovery overview for AKS](/azure/aks/ha-dr-overview).
 
 ## Backups
 
-With Azure Backup, you can use a backup extension to back up AKS cluster resources and persistent volumes attached to the cluster. The Backup vault communicates with the AKS cluster through the extension to perform backup and restore operations.
+By using Azure Backup, you can use a backup extension to back up AKS cluster resources and persistent volumes that attach to the cluster. The Backup vault communicates with the AKS cluster through the extension to perform backup and restore operations.
 
 If your AKS cluster is in a [region with a pair](./regions-paired.md), you can configure backups to be stored in geo-redundant storage. You can restore geo-redundant backups into the paired region.
 
 For more information, see the following articles:
 
-- [About AKS backup using Azure Backup](/azure/backup/azure-kubernetes-service-backup-overview)
-- [Back up AKS using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-backup)
+- [What is Azure Kubernetes Service backup?](/azure/backup/azure-kubernetes-service-backup-overview)
+- [Back up AKS by using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-backup)
 
-For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements, and strive to use stateless clusters that minimize the need for backup. Store data in external storage systems and databases instead of within your cluster.
+For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. Strive to use stateless clusters that minimize the need for backup. Store data in external storage systems and databases instead of within your cluster.
 
-If you maintain state in your cluster, backups protect against some risks that other approaches don't. For more information, see [What are redundancy, replication, and backup?](concept-redundancy-replication-backup.md)
+If you maintain state in your cluster, backups protect against some risks that other approaches don't. For more information, see [Redundancy, replication, and backup](concept-redundancy-replication-backup.md).
 
-## Service-level agreement
+## Service-level agreement and pricing tiers
 
-The service-level agreement (SLA) for Azure Logic Apps describes the expected availability of the service. This agreement also describes the conditions to meet for achieving this expectation. To understand these conditions, make sure that you review the [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+The service-level agreement (SLA) for Azure Logic Apps describes the expected availability of the service. This agreement also describes the conditions to meet to achieve this expectation. To understand these conditions, review [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
-AKS offers three pricing tiers for cluster management: **Free**, **Standard**, and **Premium**. For more information, see [Free, Standard, and Premium pricing tiers for Azure Kubernetes Service (AKS) cluster management](/azure/aks/free-standard-pricing-tiers). The Free tier enables you to use AKS to test your workloads. The Standard and Premium tiers are designed for production workloads. When you deploy an AKS cluster with availability zones enabled, the uptime percentage defined in the SLA increases. However, you're only covered by the SLA if you deploy a cluster in the Standard or Premium pricing tiers.
+AKS offers three pricing tiers for cluster management: **Free**, **Standard**, and **Premium**. For more information, see [Free, Standard, and Premium pricing tiers for AKS cluster management](/azure/aks/free-standard-pricing-tiers). The Free tier enables you to use AKS to test your workloads. The Standard and Premium tiers are designed for production workloads. When you deploy an AKS cluster that has availability zones enabled, the uptime percentage defined in the SLA increases. However, the SLA applies only if you deploy a cluster in the Standard or Premium pricing tier.
 
 ## Related content
 
-- [Reliability in Azure](./overview.md).
+[Reliability in Azure](./overview.md)
