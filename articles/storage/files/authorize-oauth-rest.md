@@ -63,7 +63,7 @@ This feature provides two new built-in roles that include these new actions.
 
 These new roles are similar to the existing [Storage File Data SMB Share Reader](../../role-based-access-control/built-in-roles.md#storage-file-data-smb-share-reader) and [Storage File Data SMB Share Elevated Contributor](../../role-based-access-control/built-in-roles.md#storage-file-data-smb-share-elevated-contributor) built-in roles, but there are some differences:
 
-- The new roles contain the additional data actions that are required for OAuth access.
+- The new roles contain the additional data actions that are required for OAuth access. Note that RBAC actions on the data plane differ for file data operations versus file management operations. The data plane requires the resource type `fileShares` as opposed to `shares` in RBAC scope and data action strings.
 
 - When the user, group, or service principal that's assigned **Storage File Data Privileged Reader** or **Storage File Data Privileged Contributor** roles calls the FilesREST Data API using OAuth, the user, group, or the service principal will have:
   - **Storage File Data Privileged Reader:** Full read access on all the data in the shares for all the configured storage accounts regardless of the file/directory level NTFS permissions that are set.
@@ -150,7 +150,7 @@ namespace FilesOAuthSample
 
 ## Authorize access using FileREST data plane API
 
-You can also authorize access to file data using the Azure portal or Azure PowerShell.
+You can also authorize access to file data using the Azure portal, Azure PowerShell, or Azure CLI.
 
 # [Azure portal](#tab/portal)
 
