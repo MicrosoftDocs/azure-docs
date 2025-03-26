@@ -7,6 +7,7 @@ items:
     - name: Introduction
       href: iot-introduction.md
     - name: IoT solution components
+      expanded: true
       items:
       - name: Device development
         href: iot-overview-device-development.md
