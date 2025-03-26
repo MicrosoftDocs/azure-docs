@@ -156,6 +156,8 @@
       href: vmware-azure-common-questions.md
     - name: Hyper-V to Azure disaster recovery
       href: hyper-v-azure-common-questions.md
+    - name: Classic to Modernized
+      href: classic-to-modernized-common-questions.md
     - name: Monitoring
       href: monitoring-common-questions.md
   - name: About Azure VM disaster recovery
