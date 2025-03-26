@@ -71,7 +71,7 @@
       - name: Enable API Center portal
         href: set-up-api-center-portal.md
       - name: Enable API Center portal - VS Code extension
-        href: enable-api-center-portal-vscode-extension.md
+        href: enable-api-center-portal-vs-code-extension.md
       - name: Self-host Azure API Center portal
         href: self-host-api-center-portal.md
       - name: Discover and consume APIs - VS Code extension

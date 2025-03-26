@@ -29,7 +29,7 @@ sections:
         answer: |
           Azure API Center is a stand-alone Azure service that's complementary to Azure API Management and API management services from other providers. API Center provides a unified API inventory for all APIs in the organization, including APIs that don't run in API gateways (such as those that are still in design) and those that are managed with different API management solutions.
 
-          For APIs that are managed using an API management solution, Azure API Center can store metadata such as the runtime environment and deployment details. You can also link Azure API Management services as API sources for you inventory.
+          For APIs that are managed using an API management solution, Azure API Center can store metadata such as the runtime environment and deployment details. You can also link Azure API Management services as API sources for your inventory.
 
       - question: Does Azure API Center provide a developer portal?
         answer: Yes, you enable the [API Center portal](set-up-api-center-portal.md), where developers can discover and filter APIs in your API center and view API details. 

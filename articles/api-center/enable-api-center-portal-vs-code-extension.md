@@ -1,5 +1,5 @@
 ---
-title: Enable platform API Center portal - Azure API Center - VS Code extension
+title: Enable API Center portal - Azure API Center - VS Code extension
 description: Enable enterprise developers to view the enterprise's API Center portal including API definitions using the Visual Studio Code Extension for Azure API Center.
 author: dlepow
 ms.service: azure-api-center
@@ -47,10 +47,11 @@ The following sections provide steps for API center administrators to enable ent
 Enterprise developers must sign in with a Microsoft account to see the API Center portal for your API center. If needed, [add or invite developers](/entra/external-id/b2b-quickstart-add-guest-users-portal) to your Microsoft Entra tenant. 
 
 [!INCLUDE [api-center-portal-user-sign-in](includes/api-center-portal-user-sign-in.md)]
+
 ### For API center administrators
 ## Steps for enterprise developers to access the API Center portal 
 
-Developers can follow these steps to connect and sign in to view a API Center portal using the Visual Studio Code extension. Settings to connect to the API center need to be provided by the API center administrator.
+Developers can follow these steps to connect and sign in to view an API Center portal using the Visual Studio Code extension. Settings to connect to the API center need to be provided by the API center administrator.
 
 ### Connect to an API center
 
@@ -58,7 +59,7 @@ Developers can follow these steps to connect and sign in to view a API Center po
 
 1. In Visual Studio Code, in the Activity Bar on the left, select API Center.
 
-    :::image type="content" source="media/enable-api-center-portal-vscode-extension/api-center-activity-bar.png" alt-text="Screenshot of the API Center icon in the Activity Bar.":::
+    :::image type="content" source="media/enable-api-center-portal-vs-code-extension/api-center-activity-bar.png" alt-text="Screenshot of the API Center icon in the Activity Bar.":::
 
 1. Use the **Ctrl+Shift+P** keyboard shortcut to open the Command Palette. Type **Azure API Center: Connect to an API Center** and hit **Enter**.
 1. Answer the prompts to input the following information:
@@ -74,11 +75,11 @@ Developers can follow these steps to connect and sign in to view a API Center po
 
 1. To view the APIs in the API center, under the API center name, select **Sign in to Azure**. Sign-in is allowed with a Microsoft account that is assigned the **Azure API Center Data Reader** role in the API center. 
 
-    :::image type="content" source="media/enable-api-center-portal-vscode-extension/api-center-pane-initial.png" alt-text="Screenshot of API Center portal in VS Code extension." :::
+    :::image type="content" source="media/enable-api-center-portal-vs-code-extension/api-center-pane-initial.png" alt-text="Screenshot of API Center portal in VS Code extension." :::
 
 1. After signing in, select **APIs** to list the APIs in the API center. Expand an API to explore its versions and definitions.
 
-    :::image type="content" source="media/enable-api-center-portal-vscode-extension/api-center-pane-apis.png" alt-text="Screenshot of API Center portal with APIs in VS Code extension." :::
+    :::image type="content" source="media/enable-api-center-portal-vs-code-extension/api-center-pane-apis.png" alt-text="Screenshot of API Center portal with APIs in VS Code extension." :::
 
 1. Repeat the preceding steps to connect to more API centers, if access is configured.
 
