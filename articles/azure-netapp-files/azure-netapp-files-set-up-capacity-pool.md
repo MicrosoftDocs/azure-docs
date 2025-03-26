@@ -1,11 +1,11 @@
 ---
-title: Create a capacity pool for Azure NetApp Files | Microsoft Docs
+title: Create a capacity pool for Azure NetApp Files 
 description: Describes how to create a capacity pool so that you can create volumes within it.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 03/25/2025
+ms.date: 03/26/2025
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -123,7 +123,7 @@ The Flexible service level is currently available in the following regions:
         >
         > After the capacity pool is created, you can’t modify the setting (switching between `single` or `double`) for the encryption type.  
 
-    :::image type="content" source="./media/shared/azure-netapp-files-new-capacity-pool.png" alt-text="Screenshot showing the New Capacity Pool window.":::
+    :::image type="content" source="./media/azure-netapp-files-set-up-capacity-pool/flexible-service.png" alt-text="Screenshot showing the New Capacity Pool window.":::
 
 4. Select **Create**.
 
