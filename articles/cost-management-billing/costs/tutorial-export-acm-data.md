@@ -2,8 +2,8 @@
 title: Tutorial - Create and manage exported data from Cost Management
 titleSuffix: Microsoft Cost Management
 description: This article shows you how you can create and manage exported Cost Management data so that you can use it in external systems.
-author: jojoh
-ms.author: jojopm
+author: jojohpm
+ms.author: jojoh
 ms.date: 01/07/2025
 ms.topic: tutorial
 ms.service: cost-management-billing
