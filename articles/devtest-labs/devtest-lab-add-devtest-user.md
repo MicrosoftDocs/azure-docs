@@ -48,7 +48,7 @@ The following table shows the actions that the DevTest Labs **Owner**, **Contrib
 
 Azure permissions propagate from parent scope to child scope. Owners of an Azure subscription that contains labs are automatically **Owner**s of the subscription's labs.
 
-Azure subscription [Owners](/azure/role-based-access-control/built-in-roles/privileged#owner) and [User Access Administrators](/azure/role-based-access-control/built-in-roles/privileged#user-access-administrator) can add and assign DevTest Labs **Owner**s, **Contributor**s, and **DevTest Labs Users** to labs in their subscriptions. Azure subscription [Contributors](/azure/role-based-access-control/built-in-roles/privileged#contributor) can create labs, but they are **Owners** of those labs only if a subscription Owner or User Access Administrator assigns them the lab **Owner** role.
+Azure subscription [Owners](/azure/role-based-access-control/built-in-roles/privileged#owner) and [User Access Administrators](/azure/role-based-access-control/built-in-roles/privileged#user-access-administrator) can add and assign DevTest Labs **Owner**s, **Contributor**s, and **DevTest Labs Users** to labs in their subscriptions. Azure subscription [Contributors](/azure/role-based-access-control/built-in-roles/privileged#contributor) can create labs, but they're **Owners** of those labs only if a subscription Owner or User Access Administrator assigns them the lab **Owner** role.
 
 Lab users that are granted the **Owner** role can add and assign **Owner**s, **Contributor**s, and **DevTest Labs User**s for their own labs. However, added lab owners have a narrower scope of administration than Azure subscription-based owners. Added owners don't have full access to some resources that the DevTest Labs service creates.
 
@@ -64,7 +64,7 @@ Lab users that are granted the **Owner** role can add and assign **Owner**s, **C
 - You must be a lab **Owner**, either by assignment from a subscription owner or by inheritance as a subscription owner.
 - The user to add must have a valid [Microsoft account](/windows-server/identity/ad-ds/manage/understand-microsoft-accounts). They don't need an Azure subscription.
 - This PowerShell script requires the added user to be in the Microsoft Entra ID. You can add an external user to Microsoft Entra ID as a guest. For more information, see [Add a new guest user](/entra/fundamentals/how-to-create-delete-users#invite-an-external-user). If you can't add the user to Microsoft Entra ID, use the portal procedure instead.
-- Azure PowerShell. You can either:
+- You need access to Azure PowerShell. You can either:
   - [Use Azure Cloud Shell](/azure/cloud-shell/quickstart). Be sure to select the **PowerShell** environment in Cloud Shell.
   - [Install Azure PowerShell](/powershell/azure/install-azure-powershell) to use on a physical or virtual machine. If necessary, run `Update-Module -Name Az` to update your installation.
 
