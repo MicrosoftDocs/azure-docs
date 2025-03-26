@@ -13,15 +13,15 @@ ms.author: cherylmc
 ---
 # VPN Gateway SKU consolidation and migration
 
-We're simplifying our VPN Gateway SKU portfolio. Due to the lack of redundancy, lower availability, and potential higher costs associated with additional failover solutions, we're transitioning all non availability zone (AZ) supported SKUs to AZ supported SKUs. This article helps you understand the upcoming changes for VPN Gateway virtual network gateway SKUs. This article expands on the [official announcement.](https://azure.microsoft.com/updates/v2/vpngw1-5-non-az-skus-will-be-retired-on-30-september-2026)
+We're simplifying our VPN Gateway SKU portfolio. Due to the lack of redundancy, lower availability, and potential higher costs associated with failover solutions, we're transitioning all non availability zone (AZ) supported SKUs to AZ supported SKUs. This article helps you understand the upcoming changes for VPN Gateway virtual network gateway SKUs. This article expands on the [official announcement.](https://azure.microsoft.com/updates/v2/vpngw1-5-non-az-skus-will-be-retired-on-30-september-2026)
 
 * **Effective June 1, 2025**: Creation of new VPN gateways using VpnGw1-5 SKUs (non-AZ) will no longer be possible. This date has been updated from the originally announced January 1, 2025 date
 * **Migration period**: From June 2025 to September 2026, all existing VPN gateways using VpnGw1-5 SKUs (non-AZ SKUs) will be seamlessly migrated to VpnGw1-5 SKUs (AZ).
 
-To support this migration, we're reducing the prices on AZ SKUs. Refer to the [FAQ](#faq) section of this article for more information about SKUs and pricing.
+To support this migration, we're reducing the prices on AZ SKUs. For more information about SKUs and pricing, see the [FAQ](#faq) section of this article.
 
 > [!NOTE]
-> This article doesn't apply to the following legacy gateway SKUs: Standard or High Performance. For information legacy SKUS, including legacy SKU migration, see [Working with VPN Gateway legacy SKUs](vpn-gateway-about-skus-legacy.md).
+> This article doesn't apply to the following legacy gateway SKUs: Standard or High Performance. For information legacy SKUs, including legacy SKU migration, see [Working with VPN Gateway legacy SKUs](vpn-gateway-about-skus-legacy.md).
 
 ## Mapping old SKUs to new SKUs
 
@@ -64,8 +64,8 @@ Yes, effective June 2025 you will be able to deploy AZ SKUs in all regions. If a
 
 ### Can I migrate my Gen 1 gateway to Gen 2 gateway?
 
-* For gateways using Basic IP, you will need to migrate your gateway to use Standard IP when the migration tool becomes available. As part of the Basic IP to Standard IP migration, the gateways will be upgraded to Gen2 with no further action needed. 
-* For gateways already using Standard IP, we will migrate them to Gen2 separately before Sep 30, 2026. This will be done seamlessly during regular updates, with no downtime involved. 
+* For gateways using Basic IP, you will need to migrate your gateway to use Standard IP when the migration tool becomes available. As part of the Basic IP to Standard IP migration, the gateways will be upgraded to Gen2 with no further action needed.
+* For gateways already using Standard IP, we will migrate them to Gen2 separately before September 30, 2026. This will be done seamlessly during regular updates, with no downtime involved. 
 
 ### Will there be downtime during migrating my Non-AZ gateways?
 
