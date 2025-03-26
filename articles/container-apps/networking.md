@@ -401,6 +401,9 @@ The static IP address of the Container Apps environment is available in the Azur
 
 When you deploy an internal or an external environment into your own network, a new resource group is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform. Don't modify the services in this group or the resource group itself.
 
+> [!NOTE]
+> User-defined tags assigned to your Container Apps environment are replicated to the [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
+
 ### Workload profiles environment
 
 The name of the resource group created in the Azure subscription where your environment is hosted is prefixed with `ME_` by default, and the resource group name *can* be customized as you create your container app environment.
