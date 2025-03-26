@@ -6,6 +6,7 @@ ms.topic: overview
 ms.date: 03/10/2025
 ms.author: msangapu
 author: msangapu-msft
+ms.service: azure-app-service
 ms.custom: UpdateFrequency3
 ms.collection: ce-skilling-ai-copilot
 ---

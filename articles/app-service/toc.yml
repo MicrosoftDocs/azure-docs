@@ -224,6 +224,8 @@ items:
       href: tutorial-secure-domain-certificate.md
     - name: Domain names
       items:
+        - name: Overview of custom domains
+          href: overview-custom-domains.md
         - name: Connect a domain name
           href: app-service-web-tutorial-custom-domain.md
           displayName: Map a custom domain, connect a custom domain, custom domain
