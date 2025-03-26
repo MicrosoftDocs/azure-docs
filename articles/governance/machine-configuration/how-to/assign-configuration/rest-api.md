@@ -14,9 +14,10 @@ or any http client of your choice.
 
 In each of the following sections, the example includes a **type** property where the name starts
 with `Microsoft.Compute/virtualMachines`. The guest configuration resource provider
-`Microsoft.GuestConfiguration` is an [extension resource][01] that must reference a parent type.
+`Microsoft.GuestConfiguration` is an [extension resource](azure/azure-resource-manager/management/extension-resource-types
+) that must reference a parent type.
 
-To modify the example for other resource types such as [Arc-enabled servers][02], change the parent
+To modify the example for other resource types such as [Arc-enabled servers](/azure/azure-arc/servers/overview), change the parent
 type to the name of the resource provider. For Arc-enabled servers, the resource provider is
 `Microsoft.HybridCompute/machines`.
 
@@ -41,7 +42,7 @@ HTTP PUT https://<baseUrl>/<vm_name>/providers/Microsoft.GuestConfiguration/gues
 ```
 
 This request requires authentication in the format of an authorization header. You can use the
-[Get-AzAccessToken][03] cmdlet to retrieve an Azure Access Token.
+[Get-AzAccessToken](powershell/module/az.accounts/get-azaccesstoken) cmdlet to retrieve an Azure Access Token.
 
 ```json
 Authorization Bearer <yourTokenHere>
@@ -187,9 +188,3 @@ The response contains the created assignment, and any additional needed paramete
   "location": "westus2"
 }
 ```
-
-<!-- Link reference definitions -->
-articles/app-service/configure-authentication-oauth-tokens.md
-[01]: /azure/azure-resource-manager/management/extension-resource-types
-[02]: /azure/azure-arc/servers/overview
-[03]: /powershell/module/az.accounts/get-azaccesstoken
