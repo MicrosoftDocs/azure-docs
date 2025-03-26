@@ -1,5 +1,5 @@
 ---
-title: Resiliency Insight for ExpressRoute virtual network gateway (preview)
+title: Resiliency Insights for ExpressRoute virtual network gateway (preview)
 description: Learn about the resiliency features of ExpressRoute gateway and how they can help you maintain connectivity to your on-premises network.
 services: expressroute
 author: duongau
@@ -10,17 +10,28 @@ ms.author: duau
 ms.custom: ai-usage
 ---
 
-# Resiliency Insight for ExpressRoute virtual network gateway (preview)
+# Resiliency Insights for ExpressRoute virtual network gateway (preview)
 
 ExpressRoute enables private connections between your on-premises networks and Azure workloads. These connections are established through a virtual network gateway, which acts as the entry point to Microsoft's network. The virtual network gateway plays a critical role in the ExpressRoute architecture by providing routing and forwarding capabilities that ensure secure and reliable connectivity between your on-premises network and Azure. 
 
-In this article, we explore the resiliency insight feature of the ExpressRoute virtual network gateway and explain how the resiliency index score can help you evaluate the reliability of your ExpressRoute connectivity.
+In this article, we explore the Resiliency Insights feature of the ExpressRoute virtual network gateway and explain how the resiliency index score can help you evaluate the reliability of your ExpressRoute connectivity.
+
+> [!NOTE]
+> To participate in the preview, contact the [**Azure ExpressRoute team**](mailto:exrpm@service.microsoft.com).
 
 :::image type="content" source="media/resiliency-insights/resiliency-insights.png" alt-text="Screenshot of the Resiliency Insights feature, accessible under the monitoring section in the left-hand menu of the ExpressRoute gateway resource.":::
 
 > [!IMPORTANT]
-> **Azure ExpressRoute Resiliency Insight** is currently in PREVIEW.  
+> **Azure ExpressRoute Resiliency Insights** is currently in PREVIEW.  
 > Refer to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for the legal terms applicable to Azure features in beta, preview, or other prerelease stages.
+
+## Route set
+
+The Resiliency Insights topology provides a detailed view of your route sets, helping you determine if they're site-resilient. It also highlights issues such as Private peering BGP (Border Gateway Protocol) session failures at any peering location or uneven route advertisement across ExpressRoute connections. By expanding the route sets, you can trace how routes propagate through each circuit and connection at the peering location.
+
+:::image type="content" source="media/resiliency-insights/route-set.png" alt-text="Screenshot of the route set section in the Resiliency Insights feature, showing the routes associated with ExpressRoute circuit.":::
+
+A route set represents a group of routes advertised from your on-premises network to the ExpressRoute virtual network gateway. These routes are shared across one or more connections within a common set of ExpressRoute circuits. By analyzing the route sets associated with your gateway, you can evaluate the resiliency of your ExpressRoute connections and identify potential areas for improvement.
 
 ## Resiliency index
 
@@ -32,14 +43,6 @@ The resiliency index score is a metric designed to assess the reliability of you
 | [Zone redundant virtual network gateway](#redundancy) | 10% |
 | [Resiliency recommendation](#recommendation) | 10% |
 | [Resiliency validation readiness test score](#readiness) | Route score multiplier |
-
-## Route set
-
-A route set represents a group of routes advertised from your on-premises network to the ExpressRoute virtual network gateway. These routes are shared across one or more connections within a common set of ExpressRoute circuits. By analyzing the route sets associated with your gateway, you can evaluate the resiliency of your ExpressRoute connections and identify potential areas for improvement.
-
-The Resiliency Insights topology provides a detailed view of your route sets, helping you determine if they're site-resilient. It also highlights issues such as Private peering BGP (Border Gateway Protocol) session failures at any peering location or uneven route advertisement across ExpressRoute connections. By expanding the route sets, you can trace how routes propagate through each circuit and connection at the peering location.
-
-## Understanding the resiliency index scores
 
 ### <a name="route"></a> Route resiliency score
 
