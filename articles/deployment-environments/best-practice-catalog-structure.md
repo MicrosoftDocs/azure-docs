@@ -19,7 +19,7 @@ This article describes best practices for structuring an Azure Deployment Enviro
 
 Platform engineers should structure catalogs in a way that makes it easier and quicker for Azure Deployment Environments to find and cache environment definitions. By organizing the repository into a specific structure, you can better target files for caching and improve the overall performance of the deployment process. To ensure optimal results, platform engineers need to understand these guidelines and structure their repositories accordingly.
 
-When you attach a catalog to a dev center, Deployment Environments scans the catalog for a manifest.yaml file. When it locates the file, Azure Deployment Environments assumes the files in that folder and subfolders form an environment definition. Azure Deployment Environments caches only the required files, not the entire repository. 
+When you attach a catalog to a dev center, Deployment Environments scans the catalog for an environment.yaml or a manifest.yaml file. When it locates the file, Azure Deployment Environments assumes the files in that folder and subfolders form an environment definition. Azure Deployment Environments caches only the required files, not the entire repository. 
 
 The following diagram shows the recommended structure for a repo. Each template resides within a single folder.
 
@@ -35,7 +35,7 @@ Over time, environment definitions need updates. You make those updates in your 
 
 ## Files outside of the recommended structure
 
-In the following example, the Azuredeploy.json file is above the manifest.yaml file in the folder structure. This structure isn't valid. Environment definitions can't reference content outside of the catalog item folder.
+In the following example, the Azuredeploy.json file is above the environment.yaml (or manifest.yaml) file in the folder structure. This structure isn't valid. Environment definitions can't reference content outside of the catalog item folder.
 
 :::image type="content" source="media/best-practice-catalog-structure/deployment-environments-catalog-structure-not-supported.png" alt-text="Diagram that shows an unsupported structure for an Azure Deployment Environments catalog." lightbox="media/best-practice-catalog-structure/deployment-environments-catalog-structure-not-supported.png":::
 
