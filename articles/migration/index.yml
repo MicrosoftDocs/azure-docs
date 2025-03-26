@@ -199,9 +199,6 @@ conceptualContent:
           - url: /azure/azure-sql/migration-guides/database/mysql-to-sql-database-guide?view=azuresql-db&preserve-view=true
             text: Migrate MySQL on Google Cloud to Azure Database for MySQL
             itemType: tutorial
-          - url: /azure/azure-sql/migration-guides/database/mysql-to-sql-database-guide?view=azuresql-db&preserve-view=true
-            text: Migrate MySQL on Google Cloud to Azure Database for MySQL
-            itemType: tutorial
           
       - title: Security
         links:
