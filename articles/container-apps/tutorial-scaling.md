@@ -37,7 +37,7 @@ Create and deploy your container app with the `containerapp up` command. This co
 
 If any of these resources already exist, the command uses the existing resources rather than creating new ones.
 
-Lastly, the command creates and deploys the container app using a public container image.
+Lastly, the command creates and deploys the container app using a public container image, `mcr.microsoft.com/dotnet/samples:aspnetapp`. This image is used to trigger the scale rules you create in this article. You don't need to know or use .NET to complete this procedure.
 
 # [Bash](#tab/bash)
 
