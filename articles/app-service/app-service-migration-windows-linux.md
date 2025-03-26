@@ -8,7 +8,9 @@ ms.topic: overview
 ms.date: 03/25/2025
 ms.author: jefmarti
 ---
-Azure App Service supports both Windows and Linux. The supported OS will depend on your apps runtime of choice. If a given runtime is no longer supported on an OS, you may need to migrate your application to a supported OS. 
+# What to consider when migrating from Windows to Linux on App Service
+
+Azure App Service supports both Windows and Linux. The supported OS depends on your apps runtime of choice. If a given runtime is no longer supported on an OS, you may need to migrate your application to a supported OS. 
 
 If you received a notification that you need to migrate your Python on Windows apps to Linux, consider the following topics when migrating. 
 
@@ -22,18 +24,18 @@ If you use continuous deployment tools like GitHub Actions or Azure Pipelines, y
 
 ### App Service features 
 
-While most App Service features will have parity between Windows and Linux, some Windows specific features like the Console are replaced by SSH tools on Linux. 
+While most App Service features will have parity between Windows and Linux, some Windows specific features like the Console are replaced with SSH tools on Linux. 
 
 ### Domain name 
 
-Deploying a new Linux application will require a new name for your app. Keep in mind any connected custom domains will need to be updated to route to the new name as well. 
+Deploying a new Linux application requires a new name for your app. Keep in mind any connected custom domains need to be updated to route to the new name as well. 
 
 ### Networking 
 
-When redeploying your application to Linux, your inbound IP address will change. See the documentation for more information on inbound IP addresses. 
+When redeploying your application to Linux, your inbound IP address changes. See the documentation for more information on inbound IP addresses. 
 
 ### Managed Identity 
 
-If you have managed identity configured with your applications, be sure to update your granted permissions to use the deployed Linux application. 
+If you managed identity is configured with your applications, be sure to update your granted permissions to use the deployed Linux application. 
 
  
