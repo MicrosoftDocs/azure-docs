@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: tutorial
-ms.date: 03/20/2025
+ms.date: 03/26/2025
 ms.author: cshoe
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
@@ -48,7 +48,7 @@ az containerapp up \
   --location centralus \
   --environment 'my-container-apps' \
   --image mcr.microsoft.com/k8se/quickstart:latest \
-  --target-port 8080 \
+  --target-port 80 \
   --ingress external \
   --query properties.configuration.ingress.fqdn \
 ```
@@ -62,7 +62,7 @@ az containerapp up `
   --location centralus `
   --environment my-container-apps `
   --image mcr.microsoft.com/k8se/quickstart:latest `
-  --target-port 8080 `
+  --target-port 80 `
   --ingress external `
   --query properties.configuration.ingress.fqdn `
 ```
@@ -159,7 +159,7 @@ The `show` command returns entries from the system logs for your container app i
 }
 {
     "TimeStamp":"2023-08-01T16:47:31.9481264+00:00",
-    "Log":"Now listening on: http://[::]:8080"
+    "Log":"Now listening on: http://[::]:80"
 }
 {
     "TimeStamp":"2023-08-01T16:47:31.9490917+00:00",
@@ -310,7 +310,7 @@ Add a CPU scale rule to your container app by running the `az containerapp updat
 > [!NOTE]
 > When you use the Azure CLI to add a scale rule to a container app that already has a scale rule, the new scale rule replaces the old scale rule. To see how to add multiple scale rules, see [Multiple scale rules](#multiple-scale-rules).
 
-Before running the following command, replace the `<PLACEHOLDERS>` with your values.
+Before running the following command, replace the `<PLACEHOLDERS>` with your values. For this tutorial, replace `<UTILIZATION>` with `1`. This causes your container app to scale when its CPU utilization reaches 1%. This value is for the purpose of demonstration only. The number of replicas is limited to 10 by the `--max-replicas 10` you specified when running `az containerapp update`.
 
 # [Bash](#tab/bash)
 
@@ -349,7 +349,7 @@ Add a memory scale rule to your container app by running the `az containerapp up
 > [!NOTE]
 > When you use the Azure CLI to add a scale rule to a container app that already has a scale rule, the new scale rule replaces the old scale rule. To see how to add multiple scale rules, see [Multiple scale rules](#multiple-scale-rules).
 
-Before running the following command, replace the `<PLACEHOLDERS>` with your values. The memory utilization value is the percentage of memory utilization at which you want to scale your app.
+Before running the following command, replace the `<PLACEHOLDERS>` with your values. For this tutorial, replace `<UTILIZATION>` with `1`. This causes your container app to scale when its memory utilization reaches 1%. This value is for the purpose of demonstration only. The number of replicas is limited to 10 by the `--max-replicas 10` you specified when running `az containerapp update`.
 
 # [Bash](#tab/bash)
 
