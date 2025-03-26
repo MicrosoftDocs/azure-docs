@@ -17,7 +17,7 @@ Azure is continually expanding the number of services that support [availability
 
 ## Azure services with availability zone support
 
-The following table provides a list of zonal and zone-redundant Azure services. To learn more about zonal and zone-redundant services and how they work, see [Types of availability zone support](./availability-zones-overview.md#types-of-availability-zone-support).
+The following table provides a list of zonal and zone-redundant Azure services. Some services support both types of deployments. To learn more about zonal and zone-redundant services and how they work, see [Types of availability zone support](./availability-zones-overview.md#types-of-availability-zone-support).
 
 Some Azure services are *nonregional*, which means that you don't deploy the service into a specific Azure region or configure availability zone support. To learn more, see [Nonregional Azure services](./regions-nonregional-services.md).
 
