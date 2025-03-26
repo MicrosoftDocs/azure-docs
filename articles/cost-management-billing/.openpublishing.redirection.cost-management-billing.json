@@ -1346,6 +1346,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "articles/cost-management-billing/reservations/transition-azure-openai-provisioned-deployments.md",
+            "redirect_url": "articles/cost-management-billing/reservations/azure-openai.md",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cost-management/use-reports.md",
             "redirect_url": "/azure/cost-management-billing/cloudyn/use-reports",
             "redirect_document_id": true
