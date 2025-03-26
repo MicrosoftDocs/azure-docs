@@ -12,24 +12,24 @@ ms.author: dayshen
 
 # Configure a custom domain for Azure SignalR Service
 
-In addition to the default domain provided with Azure SignalR Service, you can also add a custom DNS domain to your service. In this article, you learn how to add a custom domain to your Azure SignalR Service resource.
+In addition to the default domain provided with Azure SignalR Service, you can also add a custom Domain Name System (DNS) domain to your service. In this article, you learn how to add a custom domain to your Azure SignalR Service resource.
 
 ## Prerequisites
 
-- A custom domain registered through Azure App Service or a third-party registrar.
+- A custom domain registered through Azure App Service or a non-Microsoft registrar.
 - An Azure account with an active subscription. If you don't have one, you can [create one for free](https://azure.microsoft.com/free/).
 - An Azure resource group.
 - An Azure SignalR Service resource.
 - An Azure Key Vault instance.
-- A custom domain Secure Sockets Layer (SSL) certificate stored in your Key Vault instance. For more information, see [Get started with Key Vault certificates](/azure/key-vault/certificates/certificate-scenarios)
+- A custom domain TLS/SSL certificate stored in your Key Vault instance. For more information, see [Get started with Key Vault certificates](/azure/key-vault/certificates/certificate-scenarios)
 - An Azure DNS zone (optional).
 
 ## Add a custom certificate
 
-Before you can add a custom domain, you need to add a custom SSL certificate. Your Azure SignalR Service resource accesses the certificate stored in your key vault through a managed identity.
+Before you can add a custom domain, you need to add a custom TLS/SSL certificate. Your Azure SignalR Service resource accesses the certificate stored in your key vault through a managed identity.
 
 > [!NOTE]
-> Custom domains is a Premium tier feature. Standard tier resources can be upgraded to Premium tier without downtime.
+> The custom domains feature is a Premium tier feature. You can upgrade Standard tier resources to Premium tier without downtime.
 
 ### Enable managed identity in an Azure SignalR Service
 
@@ -49,7 +49,7 @@ After the identity is created, the object (principal) ID appears. Azure SignalR 
 
 Azure SignalR Service uses a [managed identity](~/articles/active-directory/managed-identities-azure-resources/overview.md) to access your key vault. You must give the managed identity permission to access your key vault.
 
-The steps to grant permission depends on whether you selected **Vault access policy** or **Azure role-based access control** as your key vault permission model.
+The steps to grant permission depend on whether you selected **Vault access policy** or **Azure role-based access control** as your key vault permission model.
 
 #### [Vault access policy](#tab/vault-access-policy)
 
@@ -86,7 +86,7 @@ When you use the Azure role-based access control permission model, follow this p
 
    :::image type="content" alt-text="Screenshot that shows Azure role-based access control selected as the vault permission model." source="media/howto-custom-domain/portal-key-vault-perm-model-rbac.png" :::
 
-1. Go to your key vault resource.
+1. Go to your Key Vault resource.
 1. On the menu on the left, select **Access control (IAM)**.
 1. Select **Add** > **Add role assignment**.
 
@@ -97,8 +97,8 @@ When you use the Azure role-based access control permission model, follow this p
    :::image type="content" alt-text="Screenshot that shows the Role tab when you add a role assignment to Key Vault." source="media/howto-custom-domain/portal-key-vault-role.png" :::
 
 1. On the **Members** tab, under **Assign access to**, select **Managed identity**.
-1. Select **+Select members**. The **Select members** pane opens on the right.
-1. Search for the Azure SignalR Service resource name or the user-assigned identity name. Select **Select**.
+1. Choose **+ Select members** to open the **Select managed identities** pane.
+1. Search for the Azure SignalR Service resource name or the user-assigned identity name. Choose **Select**.
 
    :::image type="content" alt-text="Screenshot that shows the Members tab when you add a role assignment to Key Vault." source="media/howto-custom-domain/portal-key-vault-members.png" :::
 
@@ -106,32 +106,32 @@ When you use the Azure role-based access control permission model, follow this p
 
 -----
 
-### Add a custom certificate to your Azure SignalR Service
+### Add a custom certificate to your Azure SignalR Service resource
 
-To add the custom certificate to your Azure SignalR Service, follow these steps :
+To add the custom certificate to your Azure SignalR Service resource, follow these steps:
 
 1. In the Azure portal, go to your Azure SignalR Service resource.
-1. On the menu pane, select **Custom domain**.
+1. On the menu on the left, select **Custom domain**.
 1. Under **Custom certificate**, select **Add**.
 
    :::image type="content" alt-text="Screenshot that shows custom certificate management." source="media/howto-custom-domain/portal-custom-certificate-management.png" :::
 
 1. Enter a name of the custom certificate.
-1. To choose a key vault certificate, choose **Select from your Key Vault**. After your selection, **Key Vault Base URI** and **Key Vault Secret Name** fill automatically. Alternatively, fill in the fields manually.
-1. Optionally, you can specify a **Key Vault Secret Version** if you want to pin the certificate to a specific version.
+1. To choose a Key Vault certificate, choose **Select from your Key Vault**. After you make your selection, **Key Vault Base URI** and **Key Vault Secret Name** fill automatically. Alternatively, fill in the fields manually.
+1. Optionally, you can specify a value for **Key Vault Secret Version** if you want to pin the certificate to a specific version.
 1. Select **Add**.
 
    :::image type="content" alt-text="Screenshot that shows adding a custom certificate." source="media/howto-custom-domain/portal-custom-certificate-add.png" :::
 
-   The Azure SignalR Service fetches the certificate and validates its content. When it succeeds, **Provisioning State** shows **Succeeded** for the certificate.
+   Azure SignalR Service fetches the certificate and validates its content. When it succeeds, **Provisioning State** shows **Succeeded** for the certificate.
 
     :::image type="content" alt-text="Screenshot that shows an added custom certificate." source="media/howto-custom-domain/portal-custom-certificate-added.png" :::
 
 ## Create a custom domain CNAME record
 
-You must create a CNAME record for your custom domain in an Azure DNS zone or with your third-party registrar service. The CNAME record creates an alias from your custom domain to the default domain of Azure SignalR Service.  The Azure SignalR Service uses the record to validate the ownership of your custom domain.
+You must create a CNAME record for your custom domain in an Azure DNS zone or with your non-Microsoft registrar service. The CNAME record creates an alias from your custom domain to the default domain of Azure SignalR Service. Azure SignalR Service uses the record to validate the ownership of your custom domain.
 
-For example, if your default domain is `contoso.service.signalr.net` and your custom domain is `contoso.example.com`, you need to create a CNAME record on `example.com`.  
+For example, if your default domain is `contoso.service.signalr.net` and your custom domain is `contoso.example.com`, you need to create a CNAME record on `example.com`.
 
 After you create the CNAME record, you can perform a DNS lookup to see the CNAME information. In the example, the output from the `linux dig` (DNS lookup) command looks similar to this output:
 
@@ -139,24 +139,24 @@ After you create the CNAME record, you can perform a DNS lookup to see the CNAME
  contoso.example.com. 0 IN CNAME contoso.service.signalr.net.
 ```
 
-If you're using Azure DNS zone, see [Manage DNS records](~/articles/dns/dns-operations-recordsets-portal.md) to learn how to add a CNAME record.
+If you're using an Azure DNS zone, see [Manage DNS records](~/articles/dns/dns-operations-recordsets-portal.md) to learn how to add a CNAME record.
 
-   :::image type="content" alt-text="Screenshot that shows adding a CNAME record in Azure DNS zone." source="media/howto-custom-domain/portal-dns-cname.png" :::
+   :::image type="content" alt-text="Screenshot that shows adding a CNAME record in an Azure DNS zone." source="media/howto-custom-domain/portal-dns-cname.png" :::
 
 If you're using other DNS providers, follow the provider's guide to create a CNAME record.
 
 ## Add a custom domain
 
-Now add the custom domain to your Azure SignalR Service.
+Now add the custom domain to your Azure SignalR Service resource.
 
 1. In the Azure portal, go to your Azure SignalR Service resource.
-1. On the menu, select **Custom domain**.
+1. On the menu on the left, select **Custom domain**.
 1. Under **Custom domain**, select **Add**.
 
    :::image type="content" alt-text="Screenshot that shows custom domain management." source="media/howto-custom-domain/portal-custom-domain-management.png" :::
 
 1. Enter a name for the custom domain.
-1. Enter the full domain name of your custom domain. For example, use `contoso.com`.
+1. Enter the full domain name of your custom domain. For example, use **contoso.com**.
 1. Select a custom certificate that applies to this custom domain.
 1. Select **Add**.
 
@@ -200,7 +200,7 @@ It should return the `200` status code without any certificate error.
 
 If you configured a [private endpoint](../private-link/private-endpoint-overview.md) to your key vault, Azure SignalR Service can't access your key vault via a public network. You can give Azure SignalR Service access to your key vault through a private network by creating a [shared private endpoint](./howto-shared-private-endpoints-key-vault.md).
 
-After you create a shared private endpoint, add a custom certificate. For instructions, see [Add a custom certificate to Azure SignalR Service](#add-a-custom-certificate-to-your-azure-signalr-service).
+After you create a shared private endpoint, add a custom certificate. For more information, see [Add a custom certificate to Azure SignalR Service](#add-a-custom-certificate-to-your-azure-signalr-service).
 
 >[!IMPORTANT]
 >You don't have to change the domain in your key vault URI. For example, if your key vault base URI is `https://contoso.vault.azure.net`, you use this URI to configure a custom certificate.
@@ -218,7 +218,7 @@ Alternatively, you can pin a custom certificate to a specific secret version in 
 If you don't plan to use the resources you created in this article, you can delete the resource group.
 
 >[!CAUTION]
-> Deleting the resource group deletes all resources contained within it. If resources outside the scope of this article exist in the specified resource group, they're' also deleted.
+> Deleting the resource group deletes all resources contained within it. If resources outside the scope of this article exist in the specified resource group, they're also deleted.
 
 ## Related content
 
