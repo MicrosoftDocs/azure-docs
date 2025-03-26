@@ -42,7 +42,8 @@ You'll learn how to:
 
 To create a new API from an Azure function app:
 
-1. Navigate to your API Management service in the Azure portal, and then select **APIs** in the left pane.
+1. Navigate to your API Management service in the Azure portal
+1. Select **APIs** > **APIs** in the left pane.
 
 1. Under **Create from Azure resource**, select **Function App**:
 
