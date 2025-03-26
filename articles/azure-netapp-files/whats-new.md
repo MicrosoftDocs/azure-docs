@@ -48,6 +48,20 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## February 2025
 
+* [Azure Application Consistent Snapshot tool (AzAcSnap) 11](azacsnap-introduction.md) is now generally available (GA)
+
+    Version 11 of the AzAcSnap tool is now generally available. Azure Application Consistent Snapshot Tool (AzAcSnap) is a command-line tool that enables you to simplify data protection for third-party databases in Linux and Windows environments. 
+    
+    AzAcSnap 11 introduces the following new capabilities and improvements:
+    - Features moved to GA (generally available):
+        - Microsoft SQL Server 2022 on Windows
+    - Dependency updates:
+        - Updated to .NET 8 (List of supported operation systems [.NET 8 - Supported OS versions](https://github.com/dotnet/core/blob/main/release-notes/8.0/supported-os.md))
+        - Azure SDK updated to Track 2 (latest security and significant performance improvements)
+    - Fixes and Improvements:
+        - (NEW) Configurable Data Volume backup attempts
+        - Backup (-c backup) changes: Storage snapshot retention management is now performed after the database exits "backup-mode" to minimize the duration the database remains in a "backup-enabled" state.
+
 * [Network security group (NSG) support for private link connectivity](azure-netapp-files-network-topologies.md) (Preview)
 
     Azure NetApp Files now supports private links with NSGs in all regions. This feature enables you to apply NSG policies to private link endpoints, enhancing the security of your workload deployments. 
