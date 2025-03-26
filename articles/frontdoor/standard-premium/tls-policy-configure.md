@@ -1,6 +1,6 @@
 ---
-title: Configure Azure Front Door TLS Policy (preview)
-description: This article shows you how you can configure TLS policy to meet security requirements for your Front Door custom domains.
+title: Configure Azure Front Door TLS policy (preview)
+description: Learn how you can configure TLS policy to meet security requirements for your Front Door custom domains.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
