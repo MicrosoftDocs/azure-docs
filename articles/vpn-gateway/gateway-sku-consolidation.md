@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 09/26/2024
+ms.date: 03/26/2025
 
 ms.author: cherylmc
 
