@@ -25,7 +25,7 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | -------------- | ----------------------- | ----------------------------- | -------------------------------- | ---------|
 | Australia East | Australia East (Sydney) | ✓         | ✓      |   Dual   |
 | Japan East | Japan East (Tokyo) | ✓         |       |   Dual   |
-|  Singapore |Singapore (Singapore) | ✓         |       |   Dual   |
+| Southeast Asia |Singapore (Singapore) | ✓         |       |   Dual   |
 
 
 ## Brazil
@@ -54,6 +54,7 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | Canada Central | Canada Southeast (Toronto) | ✓ |  ✓ | Single  |
 | West US | US West (San Jose)  | ✓  |          ✓  | Single    |
 | Central US | US Midwest (Chicago)  | ✓  |          ✓  | Dual    |
+| East US 2 | US East (Ashburn) | ✓  |           | Single    |
 
 > [!NOTE]
 > To provision Oracle Database@Azure resources in a supported region, your tenancy must be subscribed to the target region. Learn how to [manage regions](https://docs.oracle.com/iaas/Content/Identity/regions/managingregions.htm#Managing_Regions) and [subscribe to an infrastructure region](https://docs.oracle.com/iaas/Content/Identity/regions/To_subscribe_to_an_infrastructure_region.htm#subscribe).

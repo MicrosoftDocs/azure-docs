@@ -1,12 +1,13 @@
 ---
-title: Create a capacity pool for Azure NetApp Files | Microsoft Docs
+title: Create a capacity pool for Azure NetApp Files 
 description: Describes how to create a capacity pool so that you can create volumes within it.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/30/2024
+ms.date: 03/26/2025
 ms.author: anfdocs
+ms.custom: references_regions
 ---
 # Create a capacity pool for Azure NetApp Files
 
@@ -16,11 +17,65 @@ Creating a capacity pool enables you to create volumes within it.
 
 * You need [a NetApp account](azure-netapp-files-create-netapp-account.md).   
 * If you're using Azure CLI, ensure that you're using the latest version. For more information, see [How to update the Azure CLI](/cli/azure/update-azure-cli).
+* To enable cool access, ensure you are registered to use [cool access](manage-cool-access.md).
 * If you're using PowerShell, ensure that you're using the latest version of the Az.NetAppFiles module. To update to the latest version, use the 'Update-Module Az.NetAppFiles' command. For more information, see [Update-Module](/powershell/module/powershellget/update-module).
 * If you're using the Azure REST API, ensure that you specify the latest version.
     >[!IMPORTANT]
-    >To create a 1-TiB capacity pool with a tag, you must use API versions `2023-07-01_preview` to `2024-01-01_preview` or stable releases from `2024-01-01`. 
-    
+    >To create a 1-TiB capacity pool with a tag, you must use API versions `2023-07-01_preview` to `2024-01-01_preview` or stable releases from `2024-01-01`.
+* The Standard, Premium, and Ultra service levels are generally available (GA). No registration is required. 
+* The **Flexible** service level is currently in preview. Before creating a Flexible service level capacity pool, you must first register the feature:  
+
+    1. Register the feature: 
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFlexibleServiceLevel
+        ```
+    2. Check the status of the feature registration: 
+        > [!NOTE]
+        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFlexibleServiceLevel
+        ```
+        You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+
+### <a name="regions"></a> Supported regions for the Flexible service level
+
+>[!NOTE]
+>Standard, Premium, and Ultra service levels are supported in all Azure NetApp Files regions. This list only applies to the _Flexible_ service level. 
+
+The Flexible service level is currently available in the following regions:
+
+- Australia Central
+- Brazil South
+- Canada East
+- East Asia
+- East US
+- East US 2
+- France Central
+- Israel Central
+- Japan West
+- Korea Central
+- North Central US
+- Qatar Central
+- South Africa North
+- UAE North
+- US Gov Arizona
+- US Gov Texas
+- US Gov Virginia
+- West US 2
+- West US 3
+
+## Considerations
+
+* If you're using the **Flexible** service level:
+    * The Flexible service level is only available for manual QoS capacity pools. 
+    * The Flexible service level is only available on newly created capacity pools. You can't convert an existing capacity pool to use the Flexible service level. 
+        * Flexible service level capacity pools can't be converted to the Standard, Premium, or Ultra service level. 
+    * The minimum throughput for Flexible service level capacity pools is 128 MiB/second. Maximum throughput is calculated based on the size of the capacity pool using the formula 5 x 128 x capacity pool size in TiB. If your capacity pool is 1 TiB, the maximum is 640 MiB/second (5 x 128 x 1). For more examples, see [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md#flexible-examples).
+    * You can increase the throughput of a Flexible service level pool at any time. Decreases to throughput on Flexible service level capacity pools can only occur following a 24-hour cool-down period. The 24-hour cool-down period initiates after any change to the throughput of the Flexible service level capacity pool.
+    * Cool access isn't currently supported with the Flexible service level. 
+    * Only single encryption is currently supported for Flexible service level capacity pools. 
+    * Volumes in Flexible service level capacity pools can't be moved to capacity pools of a different service level. Similarly, you can't move volumes from capacity pools with different service levels into a Flexible service level capacity pool.
+
 ## Steps 
 
 1. In the Azure portal, go to your NetApp account. From the navigation pane, select **Capacity pools**.  
@@ -37,7 +92,10 @@ Creating a capacity pool enables you to create volumes within it.
 
    * **Service level**   
      This field shows the target performance for the capacity pool.  
-     Specify the service level for the capacity pool: [**Ultra**](azure-netapp-files-service-levels.md#Ultra), [**Premium**](azure-netapp-files-service-levels.md#Premium), or [**Standard**](azure-netapp-files-service-levels.md#Standard).
+     Specify the service level for the capacity pool: [**Ultra**](azure-netapp-files-service-levels.md#Ultra), [**Premium**](azure-netapp-files-service-levels.md#Premium), [**Standard**](azure-netapp-files-service-levels.md#Standard), or [**Flexible**](azure-netapp-files-service-levels.md#Flexible).
+
+    >[!NOTE]
+    >The **Flexible** service level is only supported for manual QoS capacity pools.
 
     * **Size**     
      Specify the size of the capacity pool that you're purchasing.        
@@ -46,8 +104,11 @@ Creating a capacity pool enables you to create volumes within it.
     >[!NOTE]
     >[!INCLUDE [Limitations for capacity pool minimum of 1 TiB](includes/2-tib-capacity-pool.md)]
 
+    * **Throughput** 
+        This option is only available for Flexible service level capacity pools. The minimum value is 128 MiB/second. Maximum throughput depends on the size of the capacity pool. For calculation details, see [Considerations](#considerations).  
+
     * **Enable cool access**
-        This option specifies whether volumes in the capacity pool support cool access. For details about using this option, see [Manage Azure NetApp Files storage with cool access](manage-cool-access.md). 
+        This option specifies whether volumes in the capacity pool support cool access. For details about using this option, see [Manage Azure NetApp Files storage with cool access](manage-cool-access.md). Cool access isn't currently supported on Flexible service level. 
 
     * **QoS**   
         Specify whether the capacity pool should use the **Manual** or **Auto** QoS type.  See [Storage Hierarchy](azure-netapp-files-understand-storage-hierarchy.md) and [Performance Considerations](azure-netapp-files-performance-considerations.md) to understand the QoS types.  
@@ -63,7 +124,7 @@ Creating a capacity pool enables you to create volumes within it.
         >
         > After the capacity pool is created, you can’t modify the setting (switching between `single` or `double`) for the encryption type.  
 
-    :::image type="content" source="./media/shared/azure-netapp-files-new-capacity-pool.png" alt-text="Screenshot showing the New Capacity Pool window.":::
+    :::image type="content" source="./media/azure-netapp-files-set-up-capacity-pool/flexible-service.png" alt-text="Screenshot showing the New Capacity Pool window.":::
 
 4. Select **Create**.
 
