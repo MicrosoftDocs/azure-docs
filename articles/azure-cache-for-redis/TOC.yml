@@ -95,7 +95,7 @@
       - name: Create and manage a cache
         href: /azure/redis/scripts/create-managed-cache
       - name: Create and manage a premium cache
-        href: ./scripts/create-manage-premium-cache-cluster
+        href: scripts/create-manage-premium-cache-cluster.md
 
   - name: Development and client libraries
     items:
