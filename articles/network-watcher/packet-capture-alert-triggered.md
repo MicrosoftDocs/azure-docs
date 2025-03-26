@@ -1,15 +1,15 @@
 ---
-title: Use packet capture to do proactive network monitoring with alerts - Azure Functions
+title: Use packet capture to proactively monitor your network
 description: Learn how to create an alert-triggered packet capture by using Azure Network Watcher and Azure Functions.
 author: halkazwini
 ms.author: halkazwini 
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 02/14/2024
+ms.date: 03/25/2025
 ms.custom: devx-track-azurepowershell
 ---
 
-# Monitor networks proactively with alerts and Azure Functions by using packet capture
+# Monitor networks proactively with alerts and Azure Functions using packet capture
 
 The packet capture feature of Azure Network Watcher creates capture sessions to track traffic in and out of virtual machines (VMs). The capture file can have a filter that you define to track only the traffic that you want to monitor. This data is stored in a storage blob or locally on the guest machine.
 
@@ -35,7 +35,7 @@ This scenario assumes that you have an existing instance of Network Watcher and 
 
 Here's the workflow for packet capture:
 
-1. An incident triggers an alert on your VM.
+1. An incident triggers an alert on your virtual machine (VM).
 1. The alert calls your Azure function.
 1. Your Azure function processes the alert and starts a Network Watcher packet capture session.
 1. The packet capture runs on the VM and collects data.
@@ -56,8 +56,6 @@ To create an Azure function to process the alert and create a packet capture, yo
 
 1. In the search box at the top of the portal, enter *function app*. Select **Function App** from the search results.
 
-    :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/function-app-portal-search.png" alt-text="Screenshot that shows how to search for function apps in the Azure portal." lightbox="./media/network-watcher-alert-triggered-packet-capture/function-app-portal-search.png":::
-
 1. Select **+ Create**.
 
 1. On the **Basics** tab of **Create Function App**, enter or select values for the following settings:
@@ -75,7 +73,7 @@ To create an Azure function to process the alert and create a packet capture, yo
       - **Functions Premium**: For enterprise-level, serverless applications with event-based scaling and network isolation.
       - **App Service plan**: For reusing compute from an existing Azure App Service plan.
 
-   :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/create-function-app-basics.png" alt-text="Screenshot of the Create Function App page in the Azure portal." lightbox="./media/network-watcher-alert-triggered-packet-capture/create-function-app-basics.png":::
+   :::image type="content" source="./media/packet-capture-alert-triggered/create-function-app-basics.png" alt-text="Screenshot of the Create Function App page in the Azure portal." lightbox="./media/packet-capture-alert-triggered/create-function-app-basics.png":::
 
 1. Select **Review + create** to create the app.
 
@@ -83,7 +81,7 @@ Now you can create a function:
 
 1. In the function app that you created, select **Functions**, and then select **Create** to open the **Create function** pane.
 
-   :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/create-function.png" alt-text="Screenshot of the Create function pane.":::
+   :::image type="content" source="./media/packet-capture-alert-triggered/create-function.png" alt-text="Screenshot of the Create function pane.":::
 
 2. For **Development environment**, select **Develop in portal**.
 3. Under **Select a template**, select **HTTP trigger**.
@@ -185,7 +183,7 @@ To store the environment variables:
 
 1. Go to the function app. Select **Configurations** > **Application settings**.
 
-   :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/application-insights.png" alt-text="Screenshot of the tab for application settings.":::
+   :::image type="content" source="./media/packet-capture-alert-triggered/application-insights.png" alt-text="Screenshot of the tab for application settings.":::
 
 1. Add the environment variables and their values to the app settings, and then select **Save**.
 
@@ -309,7 +307,7 @@ if ($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines") {
 }                               
  ```
 
-## Configure an alert on a VM
+## Configure an alert on a virtual machine
 
 You can configure alerts to notify individuals when a specific metric crosses a threshold that you assigned to it. In this example, the alert is on the **Network Out Total** metric that's sent, but you can trigger the alert for many other metrics.
 
@@ -335,7 +333,7 @@ Go to an existing virtual machine and [add an alert rule](/azure/azure-monitor/a
 5. On the **Notifications** tab, for **Action type**, select **Azure Function**.
 6. On the **Azure Function** pane, select the **Subscription**, **Resource group**, **Function app**, and **Azure Function** values.
 
-   :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/action-group.png" alt-text="Screenshot of the page for creating an action group and the pane for details about an Azure function.":::
+   :::image type="content" source="./media/packet-capture-alert-triggered/action-group.png" alt-text="Screenshot of the page for creating an action group and the pane for details about an Azure function.":::
 7. In **Enable the common alert schema** slider, select **No**. Then select **OK**.
 
 ## Review the results
@@ -346,8 +344,9 @@ If the capture file is stored locally, you can get it by signing in to the virtu
 
 For instructions on downloading files from Azure storage accounts, see the [quickstart for the Azure Blob Storage client library for .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). You can also use the [Azure Storage Explorer](https://storageexplorer.com/) tool.
 
-After you download your capture, you can view it by using tools like [Wireshark](https://www.wireshark.org/) that can read a *.cap* file.
+After you download your capture, you can view it using tools like [Wireshark](https://www.wireshark.org/) that can read a *.cap* file.
 
 ## Next step
 
-Learn how to view your packet captures by reading [Inspect and analyze Network Watcher packet capture files](network-watcher-deep-packet-inspection.md).
+> [!div class="nextstepaction"]
+> [Inspect and analyze Network Watcher packet capture files](network-watcher-deep-packet-inspection.md)

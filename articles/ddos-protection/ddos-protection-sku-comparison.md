@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: Abell
 ms.service: azure-ddos-protection
 ms.topic: concept-article
-ms.date: 11/20/2024
+ms.date: 03/17/2025
 ms.custom: template-concept
 ---
 
@@ -42,13 +42,13 @@ The following table shows features and corresponding tiers.
 | Price | Per protected IP | Per 100 protected IP addresses |
 
 > [!NOTE]
-> At no additional cost, Azure DDoS infrastructure protection protects every Azure service that uses public IPv4 and IPv6 addresses. This DDoS protection service helps to protect all Azure services, including platform as a service (PaaS) services such as Azure DNS. For more information on supported PaaS services, see [DDoS Protection reference architectures](ddos-protection-reference-architectures.md). Azure DDoS infrastructure protection requires no user configuration or application changes. Azure provides continuous protection against DDoS attacks. DDoS protection does not store customer data.
+> At no additional cost, Azure DDoS infrastructure protection protects every Azure service that uses public IPv4 and IPv6 addresses. This DDoS protection service helps to protect all Azure services, including platform as a service (PaaS) services such as Azure DNS. For more information on supported PaaS services, see [DDoS Protection reference architectures](ddos-protection-reference-architectures.md). Azure DDoS infrastructure protection requires no user configuration or application changes. Azure provides continuous protection against DDoS attacks. DDoS protection doesn't store customer data.
 
 ## Limitations
 
 DDoS Network Protection and DDoS IP Protection have the following limitations:
 
-- PaaS services (multi-tenant), which includes Azure App Service Environment for Power Apps, Azure API Management in deployment modes other than APIM with virtual network integration, and Azure Virtual WAN aren't currently supported. For more information, see [Azure DDoS Protection APIM in VNET Integration](https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-ddos-standard-protection-now-supports-apim-in-vnet/ba-p/3641671)
+- PaaS services (multitenant), which includes Azure App Service Environment for Power Apps, Azure API Management in deployment modes other than APIM with virtual network integration, and Azure Virtual WAN aren't currently supported. For more information, see [Azure DDoS Protection APIM in VNET Integration](https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-ddos-standard-protection-now-supports-apim-in-vnet/ba-p/3641671)
 - Protecting a public IP resource attached to a NAT Gateway isn't supported.
 - Virtual machines in Classic/RDFE deployments aren't supported.
 - VPN gateway or Virtual network gateway is protected by a DDoS policy. Adaptive tuning isn't supported at this stage. 

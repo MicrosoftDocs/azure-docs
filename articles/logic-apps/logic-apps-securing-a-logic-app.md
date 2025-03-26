@@ -1591,7 +1591,7 @@ For more information about securing services by using client certificate authent
 
 * [Improve security for APIs by using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates-for-clients.md)
 * [Improve security for back-end services by using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates.md)
-* [Improve security for your RESTfuL service by using client certificates](../active-directory-b2c/secure-rest-api.md)
+* [Improve security for your RESTful service by using client certificates](../active-directory-b2c/secure-rest-api.md)
 * [Certificate credentials for application authentication](/entra/identity-platform/certificate-credentials)
 * [Use a TLS/SSL certificate in your code in Azure App Service](../app-service/configure-ssl-certificate-in-code.md)
 
