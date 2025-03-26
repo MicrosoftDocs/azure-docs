@@ -20,7 +20,7 @@ Azure Front Door supports two versions of the TLS protocol: TLS versions 1.2 and
 > [!NOTE]
 > As of March 1, 2025, TLS 1.0 and 1.1 are disallowed on Azure Front Door. If you didn't disable TLS 1.0 and 1.1 on legacy settings before this date, they'll still work temporarily but will be disabled in April 2025.
 
-Azure Front Door Standard and Premium offer two mechanisms for controlling TLS policy. You can use either a predefined policy or a custom policy per your own needs. If you use Azure Front Door (classic) and Microsoft CDN (classic), you will continue to use the minimum TLS 1.2 version.
+Azure Front Door Standard and Premium offer two mechanisms for controlling TLS policy. You can use either a predefined policy or a custom policy per your own needs. If you use Azure Front Door (classic) and Microsoft CDN (classic), you'll continue to use the minimum TLS 1.2 version.
 
 - Azure Front Door offers several predefined TLS policies. You can configure your AFD with any of these policies to get the appropriate level of security. These predefined policies are configured keeping in mind the best practices and recommendations from the Microsoft Security team. We recommend that you use the newest TLS policies to ensure the best TLS security.
 - If a TLS policy needs to be configured for your own business and security requirements, you can use a Custom TLS policy. With a custom TLS policy, you have complete control over the minimum TLS protocol version to support, and the supported cipher suites.
@@ -38,7 +38,7 @@ Azure Front Door offers several predefined TLS policies. You can configure your 
 
 The following table shows the list of cipher suites and minimum protocol version support for each predefined policy. The ordering of the cipher suites determines the priority order during TLS negotiation.
 
-By default, TLSv1.2_2023 will be selected. TLSv1.2_2022 maps to the minimum TLS 1.2 version in previous design. Some might see a read-only TLSv1.0/1.1_2019 which maps to the minimum TLS 1.0/1.1 version in previous design, because they doesn't specifically switch to minimum TLS 1.2 version. The TLSv1.0/1.1_2019 policy for such will be totally removed and disabled in April 2025.
+By default, TLSv1.2_2023 will be selected. TLSv1.2_2022 maps to the minimum TLS 1.2 version in previous design. Some might see a read-only TLSv1.0/1.1_2019 which maps to the minimum TLS 1.0/1.1 version in previous design, because they don't specifically switch to minimum TLS 1.2 version. The TLSv1.0/1.1_2019 policy for such will be removed and disabled in April 2025.
 
 | **OpenSSL** | **Cipher** **Suite** | **TLSv1.2_2023** | **TLSv1.2_2022** |
 |---|---|---|---|

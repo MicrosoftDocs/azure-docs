@@ -13,17 +13,17 @@ ms.date: 03/26/2025
 > [!IMPORTANT]
 > TLS policy is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure Front Door Standard and Premium offer two mechanisms for controlling TLS policy. You can use either a predefined policy or a custom policy per your own needs. If you use Azure Front Door (classic) and Microsoft CDN (classic), you will continue to use the minimum TLS 1.2 version.
+Azure Front Door Standard and Premium offer two mechanisms for controlling TLS policy. You can use either a predefined policy or a custom policy per your own needs. If you use Azure Front Door (classic) and Microsoft CDN (classic), you'll continue to use the minimum TLS 1.2 version.
 
 - Azure Front Door offers several predefined TLS policies. You can configure your AFD with any of these policies to get the appropriate level of security. These predefined policies are configured keeping in mind the best practices and recommendations from the Microsoft Security team. We recommend that you use the newest TLS policies to ensure the best TLS security.
 
-- If a TLS policy needs to be configured for your own business and security requirements, you can use a Custom TLS policy. With a custom TLS policy, you have complete control over the minimum TLS protocol version to support, as well as the supported cipher suites.
+- If a TLS policy needs to be configured for your own business and security requirements, you can use a Custom TLS policy. With a custom TLS policy, you have complete control over the minimum TLS protocol version to support, and the supported cipher suites.
 
 In this article, you learn how to configure TLS policy on a Front Door custom domain.
 
 ## Prerequisites
 
-- A Standard or Premium Front Door. For more information, see [Quickstart: Create a Front Door](/azure/frontdoor/quickstart-create-front-door).
+- A Front Door. For more information, see [Quickstart: Create a Front Door using the Azure portal](/azure/frontdoor/quickstart-create-front-door).
 
 - A custom domain. If you don't have a custom domain, you must first purchase one with a domain provider. For more information, see [Buy a custom domain name](/azure/app-service/manage-custom-dns-buy-domain).
 
@@ -41,7 +41,7 @@ In this article, you learn how to configure TLS policy on a Front Door custom do
 
     :::image type="content" source="../media/tls-policy-configure/tls-policy.png" alt-text="Screenshot that shows the TLS policy option in Add a domain page." lightbox="../media/tls-policy-configure/tls-policy.png":::
 
-    You can also view the supported cipher suites by selecting **View policy details**.
+    You can view the supported cipher suites by selecting **View policy details**.
 
     :::image type="content" source="../media/tls-policy-configure/tls-policy-details.png" alt-text="Screenshot that shows the TLS policy details." lightbox="../media/tls-policy-configure/tls-policy-details.png":::
 
