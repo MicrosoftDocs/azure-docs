@@ -3,7 +3,7 @@ title: Reference existing resource in Bicep
 description: Learn how to reference resources that exist.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 03/14/2025
+ms.date: 03/25/2025
 ---
 
 # Reference existing resources in Bicep

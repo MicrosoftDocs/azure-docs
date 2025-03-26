@@ -3,7 +3,7 @@ title: Decompile a JSON Azure Resource Manager template to Bicep
 description: Learn the commands for decompiling JSON Azure Resource Manager templates to Bicep files.
 ms.topic: how-to
 ms.custom: devx-track-bicep, devx-track-arm-template
-ms.date: 03/14/2025
+ms.date: 03/25/2025
 ---
 
 # Decompile a JSON Azure Resource Manager template to Bicep

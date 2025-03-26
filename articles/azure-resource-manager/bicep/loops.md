@@ -3,7 +3,7 @@ title: Iterative loops in Bicep
 description: Learn how to use loops to iterate over collections in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 03/14/2025
+ms.date: 03/25/2025
 ---
 
 # Iterative loops in Bicep

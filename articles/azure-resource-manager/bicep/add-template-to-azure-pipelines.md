@@ -3,7 +3,7 @@ title: 'Quickstart: Integrate Bicep with Azure Pipelines'
 description: This quickstart explains how to use Bicep and `.bicepparam` files to configure continuous integration and continuous deployments in Azure Pipelines, plus how to use an Azure CLI task to deploy a `.bicepparam` file.
 ms.topic: quickstart
 ms.custom: devx-track-bicep, devx-track-azurecli
-ms.date: 03/14/2025
+ms.date: 03/25/2025
 ---
 
 # Quickstart: Integrate Bicep with Azure Pipelines
