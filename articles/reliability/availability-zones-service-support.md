@@ -4,7 +4,7 @@ description: Learn which Azure services offer availability zone support.
 ms.service: azure
 ms.subservice: azure-reliability
 ms.topic: conceptual
-ms.date: 03/25/2025
+ms.date: 03/26/2025
 ms.author: anaharris
 author: anaharris-ms
 ms.custom: subject-reliability
@@ -17,7 +17,7 @@ Azure is continually expanding the number of services that support [availability
 
 ## Azure services with availability zone support
 
-The following table provides a list of zonal and zone-redundant Azure services. To learn more about zonal and zone-redundant services and how they work, see [Types of availability zone support](./availability-zones-overview.md#types-of-availability-zone-support).
+The following table provides a list of zonal and zone-redundant Azure services. Some services support both types of deployments. To learn more about zonal and zone-redundant services and how they work, see [Types of availability zone support](./availability-zones-overview.md#types-of-availability-zone-support).
 
 Some Azure services are *nonregional*, which means that you don't deploy the service into a specific Azure region or configure availability zone support. To learn more, see [Nonregional Azure services](./regions-nonregional-services.md).
 
@@ -40,6 +40,7 @@ Some Azure services are *nonregional*, which means that you don't deploy the ser
 | [Azure Bastion](../bastion/bastion-overview.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: |
 | [Azure Batch](./reliability-batch.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: ||
 | [Azure Cache for Redis](./migrate-cache-redis.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: |
+| Azure Compute Gallery | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: | |
 | [Azure Container Apps](reliability-azure-container-apps.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: | |
 | [Azure Container Instances](migrate-container-instances.md) | | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: |
 | [Azure Container Registry](/azure/container-registry/zone-redundancy) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: | |
