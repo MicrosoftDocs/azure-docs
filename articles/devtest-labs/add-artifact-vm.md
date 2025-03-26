@@ -82,8 +82,6 @@ If necessary, sign in to your Azure account by using the [Connect-AzAccount](/po
 Run the following PowerShell script to apply an artifact to a VM by using the [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) cmdlet. Provide the information the script calls for when prompted.
 
 ```powershell
-#Requires -Module Az.Resources
-
 param (
 [Parameter(Mandatory=$true, HelpMessage="The ID of the subscription that contains the lab")]
    [string] $SubscriptionId,
@@ -107,12 +105,22 @@ $resourceGroupName = (Get-AzResource -ResourceType 'Microsoft.DevTestLab/labs' |
 if ($resourceGroupName -eq $null) { throw "Unable to find lab $DevTestLabName in subscription $SubscriptionId." }
 
 # Get the internal repository name
-$repository = Get-AzResource -ResourceGroupName $resourceGroupName -ResourceType 'Microsoft.DevTestLab/labs/artifactsources' -ResourceName $DevTestLabName -ApiVersion 2016-05-15 | Where-Object { $RepositoryName -in ($_.Name, $_.Properties.displayName) } | Select-Object -First 1
+$repository = Get-AzResource -ResourceGroupName $resourceGroupName `
+                    -ResourceType 'Microsoft.DevTestLab/labs/artifactsources' `
+                    -ResourceName $DevTestLabName `
+                    -ApiVersion 2016-05-15 `
+                    | Where-Object { $RepositoryName -in ($_.Name, $_.Properties.displayName) } `
+                    | Select-Object -First 1
 
 if ($repository -eq $null) { "Unable to find repository $RepositoryName in lab $DevTestLabName." }
 
 # Get the internal artifact name
-$template = Get-AzResource -ResourceGroupName $resourceGroupName -ResourceType "Microsoft.DevTestLab/labs/artifactSources/artifacts" -ResourceName "$DevTestLabName/$($repository.Name)" -ApiVersion 2016-05-15 | Where-Object { $ArtifactName -in ($_.Name, $_.Properties.title) } | Select-Object -First 1
+$template = Get-AzResource -ResourceGroupName $resourceGroupName `
+                -ResourceType "Microsoft.DevTestLab/labs/artifactSources/artifacts" `
+                -ResourceName "$DevTestLabName/$($repository.Name)" `
+                -ApiVersion 2016-05-15 `
+                | Where-Object { $ArtifactName -in ($_.Name, $_.Properties.title) } `
+                | Select-Object -First 1
 
 if ($template -eq $null) { throw "Unable to find template $ArtifactName in lab $DevTestLabName." }
 
