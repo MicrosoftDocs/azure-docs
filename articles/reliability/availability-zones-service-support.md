@@ -93,8 +93,6 @@ Some Azure services are *nonregional*, which means that you don't deploy the ser
 | [Azure VMware Solution](../azure-vmware/architecture-private-clouds.md) | | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: |
 | [SQL Server on Azure Virtual Machines](/azure/azure-sql/database/high-availability-sla) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: | |
 
-\* For more information on older-generation virtual machines, see [Previous generations of virtual machine sizes](/azure/virtual-machines/sizes-previous-gen).
-
 
 ## Next steps
 
