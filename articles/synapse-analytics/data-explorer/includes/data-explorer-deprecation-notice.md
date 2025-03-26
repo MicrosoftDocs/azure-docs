@@ -7,4 +7,4 @@ ms.service: azure-synapse-analytics
 ms.subservice: data-explorer
 ---
 > [!IMPORTANT]
-> Azure Synapse Analytics Data Explorer (Preview) will be retired on October 7, 2025. We recommend [migrating to Eventhouse](/fabric/real-time-intelligence/migrate-synapse-data-explorer) in Microsoft Fabric.
+> Azure Synapse Analytics Data Explorer (Preview) will be retired on October 7, 2025. After this date, workloads running on Synapse Data Explorer will be deleted, and the associated application data will be lost. We highly recommend [migrating to Eventhouse](/fabric/real-time-intelligence/migrate-synapse-data-explorer) in Microsoft Fabric.
