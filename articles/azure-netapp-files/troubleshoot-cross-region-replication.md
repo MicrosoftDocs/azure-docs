@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: troubleshooting
-ms.date: 08/02/2022
+ms.date: 08/02/2024
 ms.author: anfdocs
 ---
 # Troubleshoot cross-region replication errors
