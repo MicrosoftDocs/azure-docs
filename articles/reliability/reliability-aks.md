@@ -32,7 +32,7 @@ When you create an AKS cluster, the Azure platform automatically creates and con
 
 After this initial node pool setup is complete, you can [add or delete node pools](/azure/aks/create-node-pools) for your own user workloads. AKS doesn't manage node pools for reliability, and you must ensure that your workloads are resilient to infrastructure failures.
 
-:::image type="content" source="./media/reliability-aks/control-plane-and-nodes.png" alt-text="Diagram that shows the Kubernetes control plane and node components.":::
+:::image type="content" source="./media/reliability-aks/control-plane-and-nodes.png" alt-text="Diagram that shows the Kubernetes control plane and node components." border="false" lightbox="./media/reliability-aks/control-plane-and-nodes.png":::
 
 Resiliency is a shared responsibility between you and Microsoft. As a compute service, AKS manages some aspects of your cluster's reliability, but you're responsible for managing other aspects.
 
