@@ -81,12 +81,12 @@ Standard and High Performance SKUs will be deprecated September 30, 2025. The pr
 
 ## SKU deprecation
 
-The Standard and High Performance SKUs will be deprecated on September 30, 2025. The product team will make a migration path available for these SKUs by November 30, 2024. **At this time, there's no action that you need to take**.
+The Standard and High Performance SKUs will be deprecated on September 30, 2025. The product team will do backend seamless migration for these SKUs starting June 2025. This is a change from originally announced November 2024 date **At this time, there's no action that you need to take**.
 
 * View the [Announcement](https://go.microsoft.com/fwlink/?linkid=2255127)
 * See the SKU deprecation [FAQs](#sku-deprecation-faqs)
 
-When the migration path becomes available, you can migrate your legacy SKUs to the following SKUs:
+When the migration path becomes available, the product team will automatically migrate your legacy SKUs to the following SKUs:
 
 * **Standard SKU:** -> **VpnGw1**
 * **High Performance SKU:** -> **VpnGw2**
@@ -96,7 +96,7 @@ There are no [price](https://azure.microsoft.com/pricing/details/vpn-gateway/) c
 * **Standard SKU:** 6.5x
 * **High Performance SKU:** 5x
 
-If you don't migrate your gateway SKUs by September 30, 2025, your gateway will be automatically migrated and upgraded to an AZ gateway SKU:
+Following this, your gateway will be automatically migrated and upgraded to an AZ gateway SKU:
 
 * **Standard SKU:** -> **VpnGw1AZ**
 * **High Performance SKU:** -> **VpnGw2AZ**
@@ -104,7 +104,7 @@ If you don't migrate your gateway SKUs by September 30, 2025, your gateway will 
 Important Dates:
 
 * **December 1, 2023**: No new gateway creations are possible using Standard or High Performance SKUs.
-* **November 30, 2024**: Begin migrating gateways to other SKUs.
+* **May 31, 2025**: Begin migrating gateways to other SKUs.
 * **September 30, 2025**: Standard/High Performance SKUs will be retired and remaining deprecated legacy gateways will be automatically migrated and upgraded to AZ SKUs.
 
 ## SKU deprecation FAQs
