@@ -5,8 +5,8 @@ ms.topic: quickstart
 ms.date: 03/25/2025
 ms.custom: devx-track-terraform
 ms.service: azure-virtual-network
-author: abell
-ms.author: abell
+author: asudbring
+ms.author: allensu
 content_well_notification: 
   - AI-contribution
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint by using Terraform.
