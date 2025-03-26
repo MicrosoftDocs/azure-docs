@@ -44,10 +44,7 @@ In this how-to article, you'll learn how to create a storage task using Terrafor
 
 ## Implement the Terraform code
 
-> [!NOTE]
-> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-storage-actions-create-storage-task). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-storage-actions-create-storage-task/TestRecord.md).
-> 
-> See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
+The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-storage-actions-create-storage-task). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-storage-actions-create-storage-task/TestRecord.md). See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
 
 1. Create a directory in which to test and run the sample Terraform code, and make it the current directory.
 
@@ -62,6 +59,13 @@ In this how-to article, you'll learn how to create a storage task using Terrafor
 
 1. Create a file named `outputs.tf` and insert the following code.
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-actions-create-storage-task/outputs.tf":::
+
+> [!IMPORTANT]
+> If you are using the 4.x azurerm provider, you must [specify the subscription ID](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#specifying-subscription-id-is-now-mandatory) to authenticate the Azure before running the Terraform commands.
+>
+> One way to specify the Azure subscription ID without hard coding it into your providers.tf file, is to specify the subscription ID in an environment variable named `ARM_SUBSCRIPTION_id`.
+>
+> For more information, see the [Azure provider reference documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#argument-reference).
 
 ## Initialize Terraform
 
