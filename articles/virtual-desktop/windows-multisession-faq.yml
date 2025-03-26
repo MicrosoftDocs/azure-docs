@@ -16,7 +16,7 @@ sections:
     questions:
       - question: What is Windows Enterprise multi-session?
         answer: |
-          Windows 10 Enterprise multi-session and Windows 11 Enterprise multi-session, allows multiple concurrent interactive sessions. Previously, only Windows Server could do this. This capability gives users a familiar Windows experience while IT can benefit from the cost advantages of multi-session and use existing per-user Windows licensing instead of RDS Client Access Licenses (CALs). For more information about licenses and pricing, see [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+          Windows 10 Enterprise multi-session and Windows 11 Enterprise multi-session, allows multiple concurrent interactive sessions. Previously, only Windows Server could do this. This capability gives users a familiar Windows experience for session hosts in a pooled host pool. IT can benefit from the cost advantages of multi-session and use existing per-user Windows licensing, instead of RDS Client Access Licenses (CALs). For more information about licenses and pricing, see [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
           
       - question: How many users can simultaneously have an interactive session on Windows Enterprise multi-session?
         answer: |
@@ -33,7 +33,7 @@ sections:
         answer: No. It's not currently possible to upgrade an existing virtual machine (VM) that's running Windows Professional or Enterprise to Windows Enterprise multi-session. Also, if you deploy a Windows Enterprise multi-session VM and then update the product key to another edition, you won't be able to switch the VM back to Windows Enterprise multi-session and will need to redeploy the VM. Changing your Azure Virtual Desktop VM SKU to another edition is not supported.
         
       - question: Does Windows Enterprise multi-session support Remote Desktop IP Virtualization?
-        answer: No. Azure Virtual Desktop [supported virtual machine OS images](prerequisites.md#operating-systems-and-licenses) do not support Remote Desktop IP Virtualization. 
+        answer: No. Azure Virtual Desktop [supported virtual machine OS images](prerequisites.md#operating-systems-and-licenses) don't support Remote Desktop IP Virtualization. 
 
       - question: How do I customize the Windows Enterprise multi-session image for my organization?
         answer: |
@@ -102,7 +102,7 @@ sections:
           
       - question: Can Windows Enterprise multi-session receive feature updates through Windows Server Update Services (WSUS)?
         answer: |
-          Yes. You can update Windows Enterprise multi-session with the appropriate feature updates published to WSUS. The underlying VM must meet the hardware requirements for the operating system you're using. If you're upgrading in-place from Windows 10 to Windows 11 make sure the VM your upgrading meets the [hardware requirements for Windows 11](/windows/whats-new/windows-11-requirements#virtual-machine-support), such as being a generation 2 VM.
+          Yes. You can update Windows Enterprise multi-session with the appropriate feature updates published to WSUS, the same as a single-session version of Windows. The underlying VM must meet the hardware requirements for the operating system you're using, such as the [hardware requirements for Windows 11](/windows/whats-new/windows-11-requirements#virtual-machine-support). In-place upgrade of Windows, for example from Windows 10 to Windows 11, isn't supported for session hosts in a pooled host pool. For more information, see [Can I do an in-place upgrade of a session host's operating system](faq.yml#can-i-do-an-in-place-upgrade-of-a-session-host-s-operating-system).
           
 additionalContent: |
 
