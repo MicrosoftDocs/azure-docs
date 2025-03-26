@@ -19,9 +19,9 @@ Azure Front Door supports Azure-managed certificates and customer-managed certif
 
 ## Prerequisites
 
-* Before you can configure HTTPS for your custom domain, you must first create an Azure Front Door profile. For more information, see [Create an Azure Front Door profile](../create-front-door-portal.md).
-* If you don't already have a custom domain, you must first purchase one with a domain provider. For example, see [Buy a custom domain name](../../app-service/manage-custom-dns-buy-domain.md).
-* If you're using Azure to host your [DNS domains](../../dns/dns-overview.md), you must delegate the domain provider's domain name system (DNS) to an Azure DNS. For more information, see [Delegate a domain to Azure DNS](../../dns/dns-delegate-domain-azure-dns.md). Otherwise, if you're using a domain provider to handle your DNS domain, you must manually validate the domain by entering prompted DNS TXT records.
+- An Azure Front Door profile. For more information, see [Quickstart: Create an Azure Front Door Standard/Premium](create-front-door-portal.md).
+- A custom domain. If you don't have a custom domain, you must first purchase one from a domain provider. For more information, see [Buy a custom domain name](/azure/app-service/manage-custom-dns-buy-domain?toc=/azure/frontdoor/TOC.json).
+- If you're using Azure to host your [DNS domains](../../dns/dns-overview.md), you must delegate the domain provider's domain name system (DNS) to an Azure DNS. For more information, see [Delegate a domain to Azure DNS](../../dns/dns-delegate-domain-azure-dns.md?toc=/azure/frontdoor/TOC.json). Otherwise, if you're using a domain provider to handle your DNS domain, you must manually validate the domain by entering prompted DNS TXT records.
 
 ## Azure Front Door-managed certificates for non-Azure prevalidated domains
 
@@ -77,16 +77,16 @@ There are currently two ways to authenticate Azure Front Door to access your Key
 - **App registration**: Azure Front Door uses an app registration to authenticate to your Key Vault. This method is being deprecated and will be retired in the future. For more information, see [Use app registration in Azure Front Door](#register-azure-front-door).
 
 > [!WARNING]
-> *Azure Front Door currently only supports Key Vault in the same subscription. Selecting Key Vault under a different subscription results in a failure.
-> * Azure Front Door doesn't support certificates with elliptic curve cryptography algorithms. Also, your certificate must have a complete certificate chain with leaf and intermediate certificates. The root CA also must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
+> - Azure Front Door currently only supports Key Vault in the same subscription. Selecting Key Vault under a different subscription results in a failure.
+> - Azure Front Door doesn't support certificates with elliptic curve cryptography algorithms. Also, your certificate must have a complete certificate chain with leaf and intermediate certificates. The root CA also must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
 
 #### Register Azure Front Door
 
 Register the service principal for Azure Front Door as an app in your Microsoft Entra ID using Microsoft Graph PowerShell or the Azure CLI.
 
 > [!NOTE]
-> * This action requires you to have User Access Administrator permissions in Microsoft Entra ID. The registration only needs to be performed *once per Microsoft Entra tenant*.
-> * The application IDs of **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** and **d4631ece-daab-479b-be77-ccb713491fc0** are predefined by Azure for Azure Front Door Standard and Premium across all Azure tenants and subscriptions. Azure Front Door (classic) has a different application ID.
+> - This action requires you to have User Access Administrator permissions in Microsoft Entra ID. The registration only needs to be performed *once per Microsoft Entra tenant*.
+> - The application IDs of **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** and **d4631ece-daab-479b-be77-ccb713491fc0** are predefined by Azure for Azure Front Door Standard and Premium across all Azure tenants and subscriptions. Azure Front Door (classic) has a different application ID.
 
 # [Microsoft Graph PowerShell](#tab/powershell)
 
@@ -187,6 +187,6 @@ You can change a domain between using an Azure Front Door-managed certificate an
 
 ## Related content
 
-- Learn about [caching with Azure Front Door Standard/Premium](../front-door-caching.md)
-- [Understand custom domains](../domain.md) on Azure Front Door
-- Learn about [end-to-end TLS with Azure Front Door](../end-to-end-tls.md)
+- [Caching with Azure Front Door](../front-door-caching.md)
+- [Custom domains in Azure Front Door](../domain.md)
+- [End-to-end TLS with Azure Front Door](../end-to-end-tls.md)

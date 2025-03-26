@@ -24,10 +24,8 @@ In this article, you learn how to configure TLS policy on a Front Door custom do
 ## Prerequisites
 
 - A Front Door. For more information, see [Quickstart: Create a Front Door using the Azure portal](/azure/frontdoor/quickstart-create-front-door).
-
-- A custom domain. If you don't have a custom domain, you must first purchase one with a domain provider. For more information, see [Buy a custom domain name](/azure/app-service/manage-custom-dns-buy-domain).
-
-- If you're using Azure to host your [DNS domains](/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS. For more information, see [Delegate a domain to Azure DNS](/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using a domain provider to handle your DNS domain, see [Create a CNAME DNS record](/azure/frontdoor/front-door-custom-domain).
+- A custom domain. If you don't have a custom domain, you must first purchase one from a domain provider. For more information, see [Buy a custom domain name](/azure/app-service/manage-custom-dns-buy-domain?toc=/azure/frontdoor/TOC.json).
+- If you're using Azure to host your [DNS domains](/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS. For more information, see [Delegate a domain to Azure DNS](/azure/dns/dns-delegate-domain-azure-dns?toc=/azure/frontdoor/TOC.json). Otherwise, if you're using a domain provider to handle your DNS domain, see [Create a CNAME DNS record](/azure/frontdoor/front-door-custom-domain).
 
 ## Configure TLS policy
 
