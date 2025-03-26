@@ -9,7 +9,7 @@ items:
   - name: Migrate from AWS
     items:
     - name: Getting started
-      href: ./migrate-from-aws.md
+      href: ./migrate-from-aws.yml
 #    - name: Workload migration process
 #      items:
 #      - name: 1. Assess your current workload
