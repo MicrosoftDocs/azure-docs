@@ -113,4 +113,4 @@ The sample code for this article is located in the [Azure Terraform GitHub repo]
 
 ## Next steps
 
-[Create a storage task](storage-task-create.md)
+[Create and manage a storage task assignment](storage-task-assignment-create.md)
