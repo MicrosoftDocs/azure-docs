@@ -215,13 +215,17 @@ While the initial synchronization may take a few days, once the data is fully sy
 
 - Changes made to your user profiles, groups, and roles in Microsoft Entra ID are updated in the **IdentityInfo** table within 15-30 minutes.
 
-- Every 14 days, Microsoft Sentinel re-synchronizes with your entire Microsoft Entra ID to ensure that stale records are fully updated.
+- Every 14 days, Microsoft Sentinel re-synchronizes with your entire Microsoft Entra ID to ensure that stale records are fully updated. See note in the next section about changes to groups.
 
 - Default retention time in the **IdentityInfo** table is 30 days.
 
 #### Limitations
 
 - Currently, only built-in roles are supported.
+
+- Support for groups (as listed in the *GroupMembership* field) is limited to 500 groups. These groups are transitive, not direct.
+
+- Changes made to groups in your [Active Directory or (?)] Microsoft Entra ID result in updates to the *IdentityInfo* table for any users who are members of the changed groups. **These updates carry a synchronization charge.**
 
 - Data about deleted groups, where a user was removed from a group, is not currently supported.
 
