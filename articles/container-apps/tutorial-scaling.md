@@ -301,16 +301,22 @@ You should prefer [HTTP scale rules](/azure/container-apps/scale-app#http) to CP
 
 After you add a CPU or memory scale rule, you can test it by [sending requests to your container app](#send-requests) and [viewing the scaling in Azure portal](#view-scaling-in-azure-portal-optional).
 
+After you send requests to your scale app, it might take a minute before the scale rule is triggered and the new replicas are created.
+
 ### CPU scaling
 
-CPU scaling allows your app to scale in or out depending on how much the CPU is being used. CPU scaling doesn't allow your container app to scale to zero. For more information about this trigger, see [KEDA CPU scale trigger](https://keda.sh/docs/scalers/cpu/).
+CPU scaling allows your app to scale in or out depending on how much the CPU is being used.
+
+For example, if you create a CPU scale rule with a utilization value of `50`, Azure Container Apps creates additional replicas of your container app when the average CPU utilization for all replicas reaches 50%.
+
+CPU scaling doesn't allow your container app to scale to zero. For more information about this trigger, see [KEDA CPU scale trigger](https://keda.sh/docs/scalers/cpu/).
 
 Add a CPU scale rule to your container app by running the `az containerapp update` command.
 
 > [!NOTE]
 > When you use the Azure CLI to add a scale rule to a container app that already has a scale rule, the new scale rule replaces the old scale rule. To see how to add multiple scale rules, see [Multiple scale rules](#multiple-scale-rules).
 
-Before running the following command, replace the `<PLACEHOLDERS>` with your values. For this tutorial, replace `<UTILIZATION>` with `1`. This causes your container app to scale when its CPU utilization reaches 1%. This value is for the purpose of demonstration only. The number of replicas is limited to 10 by the `--max-replicas 10` you specified when running `az containerapp update`.
+Before running the following command, replace the `<PLACEHOLDERS>` with your values. For this tutorial, replace `<UTILIZATION>` with `1`. This causes your container app to scale when the average CPU utilization for all replicas reaches 1%. This value is for the purpose of demonstration only. The number of replicas is limited to 10 by the `--max-replicas 10` you specified when running `az containerapp update`.
 
 # [Bash](#tab/bash)
 
@@ -342,14 +348,18 @@ az containerapp update `
 
 ### Memory scaling
 
-Memory scaling allows your app to scale in or out depending on how much memory is being used. Memory scaling doesn't allow your container app to scale to zero. For more information about this trigger, see [KEDA memory scale trigger](https://keda.sh/docs/scalers/memory/).
+Memory scaling allows your app to scale in or out depending on how much memory is being used.
+
+For example, if you create a memory scale rule with a utilization value of `50`, Azure Container Apps creates additional replicas of your container app when the average memory utilization for all replicas reaches 50%.
+
+Memory scaling doesn't allow your container app to scale to zero. For more information about this trigger, see [KEDA memory scale trigger](https://keda.sh/docs/scalers/memory/).
 
 Add a memory scale rule to your container app by running the `az containerapp update` command.
 
 > [!NOTE]
 > When you use the Azure CLI to add a scale rule to a container app that already has a scale rule, the new scale rule replaces the old scale rule. To see how to add multiple scale rules, see [Multiple scale rules](#multiple-scale-rules).
 
-Before running the following command, replace the `<PLACEHOLDERS>` with your values. For this tutorial, replace `<UTILIZATION>` with `1`. This causes your container app to scale when its memory utilization reaches 1%. This value is for the purpose of demonstration only. The number of replicas is limited to 10 by the `--max-replicas 10` you specified when running `az containerapp update`.
+Before running the following command, replace the `<PLACEHOLDERS>` with your values. For this tutorial, replace `<UTILIZATION>` with `1`. This causes your container app to scale when the average memory utilization for all replicas reaches 1%. This value is for the purpose of demonstration only. The number of replicas is limited to 10 by the `--max-replicas 10` you specified when running `az containerapp update`.
 
 # [Bash](#tab/bash)
 
