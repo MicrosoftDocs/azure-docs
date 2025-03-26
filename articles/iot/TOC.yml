@@ -110,6 +110,8 @@ items:
       href: iot-glossary.md
     - name: Azure IoT services
       items:
+      - name: Azure IoT Operations
+        href: ../iot-operations/index.yml
       - name: IoT Hub
         href: ../iot-hub/index.yml
       - name: IoT Hub Device Provisioning Service
@@ -126,6 +128,8 @@ items:
       items:
       - name: Device and Service SDKs
         href: iot-sdks.md
+      - name: Azure IoT Operations SDKs
+        href: https://github.com/Azure/iot-operations-sdks
     - name: Azure IoT Tools for VS Code
       href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
     - name: Azure IoT Explorer tool

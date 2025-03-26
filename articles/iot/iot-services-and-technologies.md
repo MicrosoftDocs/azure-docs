@@ -28,13 +28,13 @@ In a *cloud-based IoT solution*, your IoT devices connect directly to the cloud 
 
 In an *edge-based IoT solution*, your IoT assets connect to an edge environment that processes their messages before forwarding them to the cloud for storage and analysis. You typically monitor and control your assets from the cloud, through the edge runtime environment. It's also possible to monitor and control your assets directly from the edge. For example:
 
-- For a single pane of glass to manage your edge-based solution with [Azure Arc](/azure/azure-arc/overview), and remove barriers between Operational technology (OT) and IT systems, use Azure IoT Operations.
-- To expand IoT Hub capabilities, and bring analytics and intelligence to the edge, use IoT Edge.
+- To manage your edge-based solution with a single pane of glass using [Azure Arc](/azure/azure-arc/overview) and Kubernetes native applications, use Azure IoT Operations.
+- To expand IoT Hub capabilities and enable offline decision making, use IoT Edge.
 
 In a *hybrid IoT solution*, you combine cloud-based and edge-based components to meet your specific requirements. For example: 
 
-- To follow Microsoft's [adaptive cloud approach](#choose-adaptive-cloud) to integrate cloud and edge components, use Azure IoT Operations.
-- To manage some devices connected directly to the cloud and others on the edge, use IoT Hub and IoT Edge.
+- To follow Microsoft's [adaptive cloud approach](#choose-adaptive-cloud) and bridge the gap between Operational Technology (OT) and IT systems, use Azure IoT Operations.
+- To manage devices connected directly to the cloud and others on the edge, use IoT Hub and IoT Edge.
 
 ## Choose adaptive cloud
 
@@ -52,7 +52,7 @@ The following table summarizes current options for assets, devices, and connecti
 |---------------------------------|----------------------|---------------------|
 | Connected object types          | IoT devices                                          | IoT devices, and assets (a broader set of physical or virtual entities that includes IoT devices)                                     |
 | Device connectivity protocols   | HTTP, AMQP, MQTT v3.1.1                              | HTTP, AMQP, MQTT v3.1.1, MQTT v5. In [Azure IoT Operations](../iot-operations/overview-iot-operations.md), connectors enable other protocols. Azure IoT Operations includes connector for OPC UA, media connector, and connector for ONVIF. Custom connectors are possible.                          |
-| Device implementation           | Microsoft IoT device SDKs and embedded device SDKs   | Microsoft IoT device SDKs and embedded device SDKs |
+| Device implementation           | Microsoft Azure IoT [device SDKs](iot-sdks.md#device-sdks) and [embedded device SDKs](iot-sdks.md#embedded-device-sdks)   | Microsoft Azure IoT [device SDKs](iot-sdks.md#device-sdks) and [embedded device SDKs](iot-sdks.md#embedded-device-sdks) |
 | Device management               | [IoT DPS](../iot-dps/index.yml), [Device Update](../iot-hub-device-update/index.yml), [IoT Central](../iot-central/index.yml)  | In Azure IoT Operations, use [Azure Device Registry](../iot-operations/discover-manage-assets/overview-manage-assets.md). Use Akri to enable automated asset/device discovery with native protocols. In [IoT Edge](../iot-edge/index.yml), use [IoT DPS](../iot-dps/index.yml) for large-scale device management.|
 
 ## IoT services comparisons
@@ -70,7 +70,7 @@ The following table summarizes current deployment options:
 
 | Current offerings (GA) | Cloud-based solution | Edge-based solution |
 |------------------------|----------------------|---------------------|
-| Topology               | Devices connect directly to cloud messaging services such as [IoT Hub](../iot-hub/index.yml). Managed in the cloud using Azure Resource Manager (ARM) or IoT service SDKs.  | [Azure IoT Operations](../iot-operations/overview-iot-operations.md) provides a way to connect assets to an on-premises Kubernetes cluster. Assets connect to the Azure IoT Operations MQTT broker, either directly over standard networking protocols, or through intermediate devices. Managed in the cloud using Azure Arc-enabled services. You can also use [IoT Edge](../iot-edge/index.yml), which runs on a gateway device like an industrial PC, and provides cloud connectivity for devices by connecting to [IoT Hub](../iot-hub/index.yml). |
+| Topology               | Devices connect directly to cloud messaging services such as [IoT Hub](../iot-hub/index.yml). Managed in the cloud using Azure Resource Manager (ARM) or [IoT Hub service SDKs](iot-sdks.md#iot-hub-service-sdks).  | [Azure IoT Operations](../iot-operations/overview-iot-operations.md) provides a way to connect assets to an on-premises Kubernetes cluster. Assets connect to the Azure IoT Operations MQTT broker, either directly over standard networking protocols, or through intermediate devices. Managed in the cloud using Azure Arc-enabled services. You can also use [IoT Edge](../iot-edge/index.yml), which runs on a gateway device like an industrial PC, and provides cloud connectivity for devices by connecting to [IoT Hub](../iot-hub/index.yml). |
 | Infrastructure         | Cloud services like [IoT Hub](../iot-hub/index.yml), and standard computing devices that contain a CPU/MPU, or constrained and embedded devices that contain an MCU. | [Azure IoT Operations](../iot-operations/overview-iot-operations.md), which runs on a Kubernetes cluster, and assets or devices that connect to the cluster. You can also use [IoT Edge](../iot-edge/index.yml), which runs on a gateway device like a Raspberry Pi or an industrial PC, and devices that connect to the gateway device. Devices can include standard computing devices that contain a CPU/MPU, or constrained and embedded devices that contain an MCU. |
 
 ## Security comparisons
@@ -79,13 +79,13 @@ The following table summarizes current security options:
 
 | Current offerings (GA)  | Cloud-based solution | Edge-based solution |
 |-------------------------|----------------------|---------------------|
-| Authentication          | SAS, X.509                                                                         | SAS, X.509, and SAT (security account tokens) for on-cluster authentication |
+| Authentication          | Shared Access Signatures (SAS), X.509                                                                         | [User-assigned and system-assigned managed identities](/entra/identity/managed-identities-azure-resources/overview), Service Account Tokens (SAT), SAS and X.509 for on-cluster authentication |
 | Authorization           | Proprietary within current service offerings like [IoT Hub](../iot-hub/index.yml)  | Azure IoT Operations uses [Microsoft Entra ID](/entra/fundamentals/whatis) identity for role-based access control (RBAC). [IoT Edge](../iot-edge/index.yml) uses a proprietary authorization scheme that communicates with [IoT Hub](../iot-hub/index.yml) but handles authorization locally. |
 
 ## Next steps
 
 For a hands-on experience, try one of the quickstarts:
 
-- [Manage your devices and workloads with Azure Iot Operations](../iot-operations/get-started-end-to-end-sample/quickstart-deploy.md)
-- [Create an Azure IoT Central application](../iot-central/core/quick-deploy-iot-central.md)
-- [Send telemetry from a device to an IoT hub](../iot-hub/quickstart-send-telemetry-cli.md)
+- [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../iot-operations/get-started-end-to-end-sample/quickstart-deploy.md)
+- [Quickstart: Use your smartphone as a device to send telemetry to an IoT Central application](../iot-central/core/quick-deploy-iot-central.md)
+- [Quickstart: Send telemetry from a device to an IoT hub and monitor it with the Azure CLI](../iot-hub/quickstart-send-telemetry-cli.md)
