@@ -53,7 +53,7 @@ To enable External Data Sources Preview on your Azure Data Manager for Energy, c
 - Key Vault name (created in [Prerequisites](#prerequisites)) 
 
 > [!NOTE]
-> Support for [multiple data partitions](https://community.opengroup.org/osdu/platform/data-flow/ingestion/external-data-sources/core-external-data-workflow/-/issues/51) is currently enabled for manual triggering of the EDS Ingest DAG, but this feature has not yet been implemented for the EDS Scheduler.
+> Support for [multiple data partitions](https://community.opengroup.org/osdu/platform/data-flow/ingestion/external-data-sources/core-external-data-workflow/-/issues/51) is currently enabled for manual triggering of the EDS Ingest DAG, but this feature hasn't yet been implemented for the EDS Scheduler.
 
 We notify you once EDS preview is enabled in your Azure Data Manager for Energy resource.
 
@@ -66,7 +66,7 @@ We notify you once EDS preview is enabled in your Azure Data Manager for Energy 
         - When an application tries to get an invalid deleted secret. 
 
 ## Limitations
-Manifest ingestion by Reference DAG ([Sandbox feature](https://osdu.projects.opengroup.org/pmc/work-products/pmc-portal/pmc-policies/main/maturity/maturity-list.html)) is not supported yet. Therefore, you will not be able to ingest manifest payloads larger than 12MB. To work around this issue, you can alter the CSDJ filter condition to retrieve external data in smaller chunks at regular intervals.
+Manifest ingestion by Reference DAG ([Sandbox feature](https://osdu.projects.opengroup.org/pmc/work-products/pmc-portal/pmc-policies/main/maturity/maturity-list.html)) isn't supported yet. Therefore, you won't be able to ingest manifest payloads larger than 12MB. To work around this issue, you can alter the CSDJ filter condition to retrieve external data in smaller chunks at regular intervals.
  
 ## FAQ
 See [External data sources FAQ.](faq-energy-data-services.yml#external-data-sources)
