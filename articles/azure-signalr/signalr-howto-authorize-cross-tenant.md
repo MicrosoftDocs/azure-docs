@@ -152,7 +152,7 @@ The key point is to use an inner credential to get a `clientAssertion` parameter
 
 Your goal is to get a token with the following claims. Use [jwt.io](https://jwt.io/) to help you decode the token:
 
-- **oid**: The value should be equal to your enterprise application object ID. If you don't know where to get it, see [How to retrieve an Enterprise Object ID](/answers/questions/1007608/how-retrieve-enterprise-object-id-from-azure-activ).
+- **oid**: The value should be equal to your enterprise application object ID. If you don't know where to get it, see [Retrieve an enterprise object ID](/answers/questions/1007608/how-retrieve-enterprise-object-id-from-azure-activ).
 - **tid**: The value should be equal to the directory ID of your tenant B. If you aren't sure about your tenant ID, see [Find your Microsoft Entra tenant](/azure/azure-portal/get-subscription-tenant-id#find-your-microsoft-entra-tenant).
 - **audience**: The audience must be `https://signalr.azure.com/.default` to access Azure SignalR Service resources.
 
