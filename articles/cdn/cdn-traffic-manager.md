@@ -1,4 +1,5 @@
 ---
+ROBOTS: NOINDEX
 title: Fail over across multiple endpoints with Traffic Manager
 titleSuffix: Azure Content Delivery Network
 description: Learn how to configure failover across multiple Azure Content Delivery Network endpoints by using Azure Traffic Manager.

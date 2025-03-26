@@ -75,7 +75,13 @@ You might also consider the following alternative solutions:
 
 Azure Spring Apps Standard consumption and dedicated plan (preview) isn't accepting new customers. Existing customers will remain operational until these plans are retired on March 31, 2025.
 
-Azure Spring Apps Basic, Standard, and Enterprise plans won't accept new customers after March 17, 2025. Existing customers will remain operational until the plans are phased out on March 31, 2028.
+Azure Spring Apps Basic, Standard, and Enterprise plans won't accept new customers after March 17, 2025. Existing customers can continue using the service, including creating, updating or deleting instances within the same tenant, until the plans are phased out on March 31, 2028.
+
+### How do you distinguish between new and existing customers for Azure Spring Apps?
+
+For the Azure Spring Apps Consumption and dedicated plan, if you created an Azure Spring Apps service instance before Sep 30, 2024, you're considered an existing customer. If you never created an Azure Spring Apps service instance before that date, you're considered a new customer.
+
+For Azure Spring Apps Basic, Standard, and Enterprise plans, if you created an Azure Spring Apps service instance before March 17, 2025, you're considered an existing customer. If you never created an Azure Spring Apps service instance before that date or have not had an Azure Spring Apps service instance in the past 3 months, you're considered a new customer.
 
 ### Will Microsoft continue to support my current workloads?
 
@@ -85,7 +91,7 @@ Yes, support will continue for your workloads on Azure Spring Apps until the ret
 
 No, we won't take up any feature requests from customers, and we won't be building any features in the Azure Spring Apps service. Instead, we'll prioritize new features and enhancements on Azure Container Apps.
 
-### What will happen to customers who can't migrate off of the Azure Spring Apps Enterprise plan by Aug 2025?
+### What will happen to customers who can't migrate off the Azure Spring Apps Enterprise plan by Aug 2025?
 
 If you still use any of the three unsupported Tanzu components - App Live View, App Accelerator, and App Configuration Service - be aware that support for these components will be discontinued starting from September 2025. Moreover, Microsoft reserves the right to remove these unsupported components should a critical vulnerability be identified.
 
@@ -94,12 +100,6 @@ If you still use any of the three unsupported Tanzu components - App Live View, 
 After March 31, 2025, the Azure Spring Apps Standard consumption and dedicated plan (preview) will be completely discontinued. As a result, you will no longer receive support and access to your workloads and Azure Spring Apps services.
 
 After March 31, 2028, Azure Spring Apps Basic, Standard and Enterprise plans will be completely discontinued. As a result, you will no longer receive support and access to your workloads and Azure Spring Apps services. We strongly suggest you migrate your workloads to Azure Container Apps by March 31, 2028.
-
-### How do you distinguish between new and existing customers for Azure Spring Apps?
-
-For the Azure Spring Apps Consumption and dedicated plan, if you created an Azure Spring Apps service instance before Sep 30, 2024, you're considered an existing customer. If you never created an Azure Spring Apps service instance before that date, you're considered a new customer.
-
-For Azure Spring Apps basic, standard and enterprise plans, if you created an Azure Spring Apps service instance before March 17, 2025, you're considered an existing customer. If you never created an Azure Spring Apps service instance before that date, you're considered a new customer.
 
 ### Does Azure Container Apps offer feature parity with Azure Spring Apps?
 
@@ -145,3 +145,7 @@ If you have any questions, you can open a support ticket through the Azure porta
 ### What's the impact of retiring Azure Spring Apps on the overall Java on Azure investment?
 
 We want to reassure you that the decision to retire Azure Spring Apps is focused solely on that specific product and doesn't affect Microsoft's overall commitment to Java on Azure. In fact, we're increasing our investment in Azure Container Apps and enhancing our Java tooling to provide even better support for running Java applications on Azure.
+
+### Is there any change on the pricing of Tanzu components in Azure Spring Apps Enterprise?
+
+There's an important update regarding the VMware IP cost for running commercial Tanzu components in Azure Spring Apps Enterprise. With the conclusion of the free promotion period since May 2024 by Broadcom, billing of Tanzu components will be reinstated starting from April 21, 2025, remaining the same price as before the promotion started. The invoice content will be updated as Microsoft will now collect this portion of the payment from customers directly and then distribute it to Broadcom. This update is a change from the previous process where customers would directly distribute the payment to Broadcom via the [Azure Marketplace offer](https://aka.ms/ascmpoffer). For more information, see [Azure Spring Apps pricing](https://aka.ms/springcloudpricing).
