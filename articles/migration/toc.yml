@@ -117,7 +117,7 @@ items:
   - name: Migrate from Google Cloud
     items:
     - name: Getting started
-      href: ./migrate-from-google-cloud.md
+      href: ./migrate-from-google-cloud.yml
 #    - name: Workload migration process
 #      items:
 #      - name: 1. Assess your current workload
@@ -152,3 +152,5 @@ items:
         href: /azure/architecture/gcp-professional/services#security-and-identity
       - name: Migrate your SIEM in Google Cloud to Microsoft Sentinel
         href: /azure/sentinel/migration
+      - name: Google Cloud Platform IAM (using Azure Functions) connector for Microsoft Sentinel
+        href:  /azure/sentinel/data-connectors/google-cloud-platform-iam                       
