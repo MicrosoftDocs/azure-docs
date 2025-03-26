@@ -44,17 +44,17 @@ The modernized Recovery Services vault should be located in the same region and 
 
 ### Will my replication continue while the migration is happening?
 
-No, the replication will break for some time while the migration is in progress. During this time, the last created recovery point, in the classic Recovery Services vault, will be available for you to failover to. Once the migration is complete, a new recovery point is generated in the modernized Recovery Services vault.  
+No, the replication breaks for some time while the migration is in progress. During this time, the last created recovery point, in the classic Recovery Services vault, is available for you to failover to. Once the migration is complete, a new recovery point is generated in the modernized Recovery Services vault.  
 
 ### When will my migration operation be marked as complete?
 
-Migration operation will only be marked complete once the first recovery point has been successfully created in the modernized Recovery Services vault.  
+Migration operation is only be marked complete once the first recovery point has been successfully created in the modernized Recovery Services vault.  
 
 ### What operations can be performed from my classic Recovery Services vault, after migration is done?  
 
-You can perform failover from your classic vault after the migration. The failover operation will continue to be available in the classic vault until the recovery points expire.
+You can perform failover from your classic vault after the migration. The failover operation continues to be available in the classic vault until the recovery points expire.
 
-For example, if the retention period for a replicated item is 72 hours (three days), the latest recovery point on the classic vault will continue to be available for 72 hours (three days), after a successful migration. After the stipulated time, Azure Site Recovery will automatically trigger a purge replication operation on the replicated item and perform the cleanup of all associated storage and billing-causing items.   
+For example, if the retention period for a replicated item is 72 hours (three days), the latest recovery point on the classic vault continues to be available for 72 hours (three days), after a successful migration. After the stipulated time, Azure Site Recovery automatically triggers a purge replication operation on the replicated item and perform the cleanup of all associated storage and billing-causing items.   
 
 ### What if a disaster strikes my machine while the migration operation is in progress?
 
@@ -73,9 +73,9 @@ No, the same resources, which were being used previously will be defaulted to in
 
 ### How will my replication policies be moved to the modernized vault?
 
-As a prerequisite, Site Recovery will create replication policies in the modernized vault with the same configuration as in the classic vault. So, before a replicated item is moved, the associated policy is created in the modernized vault. We recommend that you avoid making changes to the configuration of replication policies in the classic vault after the migration has been triggered, as these changes won't be reflected in the modernized vault. It's best to make these changes before starting the migration process.
+As a prerequisite, Site Recovery creates replication policies in the modernized vault with the same configuration as in the classic vault. So, before a replicated item is moved, the associated policy is created in the modernized vault. We recommend that you avoid making changes to the configuration of replication policies in the classic vault after the migration has been triggered, as these changes won't be reflected in the modernized vault. It's best to make these changes before starting the migration process.
  
-The replication policy created in the modernized vault will have its name changed in the modernized vault. It is prefixed with resource group name and vault name of the modernized Recovery Services vault. So, if the policy name was “default replication policy” in the classic vault, then in the modernized vault, this policy’s name is `default replication policy contoso-modern-vault_contoso-rg`, given the vault’s name is contoso-modern-vault and the vault’s resource group is contoso-rg.  
+The replication policy created in the modernized vault has its name changed in the modernized vault. It is prefixed with resource group name and vault name of the modernized Recovery Services vault. So, if the policy name was `default replication policy` in the classic vault, then in the modernized vault, this policy’s name is `default replication policy contoso-modern-vault_contoso-rg`, given the vault’s name is contoso-modern-vault and the vault’s resource group is contoso-rg.  
 
 ### Can I edit my replication policy during migration or post migration in the classic vault?
 
@@ -90,7 +90,7 @@ All replicated items that are part of a replication group are migrated together.
 ### Can I migrate my classic setup with public endpoint to modernized setup with private endpoint?
 
 No, you can only move classic disaster recovery setup with public endpoint to modernized public endpoint setup. 
-Note that, non-private endpoint to private endpoint migration is not supported, but private endpoint to private endpoint migration is supported.
+Note that, nonprivate endpoint to private endpoint migration is not supported, but private endpoint to private endpoint migration is supported.
 
 
 ## Next steps
