@@ -105,9 +105,9 @@ sections:
         answer: |
           You can upgrade an App Configuration store at any time, for example, from the Free tier to the Standard or Premium tier, or from the Standard tier to the Premium tier.
           
-          You can downgrade an App Configuration store to a production-purpose tier, for example, from the Premium tier to the Standard tier. However, downgrading to a non-production purpose tier is not supported. You can create a new store in the desired tier and then [import configuration data into that store](howto-import-export-data.md).
-
-          Before downgrading to a production-purpose tier, ensure that your key-value and snapshot storage usage is below the maximum allowance for the target SKU. You can verify your current usage easily through the Azure monitoring metrics dashboard.
+          You can downgrade an App Configuration store from the Premium tier to the Standard tier, as both tiers are designed for production usage. However, downgrading to a non-production tier, such as the Free tier, is not supported. To achieve this, you can create a new store in the desired tier and then [import configuration data into that store](howto-import-export-data.md).
+          
+          Before downgrading an App Configuration store from the Premium tier to the Standard tier, ensure that your usage of regular storage and snapshot storage is below the limits of the Standard tier. You can verify your current usage through the Azure Monitor metrics, Daily Storage Usage and Snapshot Storage Size, of your App Configuration store in the Azure portal.
 
       - question: Where does data stored in App Configuration reside? 
         answer: |
