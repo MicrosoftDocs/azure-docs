@@ -102,6 +102,16 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
  ## October 2024
 
+* [Azure Application Consistent Snapshot tool (AzAcSnap) 10a](azacsnap-introduction.md) updates
+
+    AzAcSnap 10a is being released with the following fixes and improvements:
+
+    - Fixes and Improvements:
+        - Allow configurable wait time-out for Microsoft SQL Server. This option helps you increase time out for slow responding systems (default and minimum value is 30 seconds).
+        - Added a global override variable `MSSQL_CMD_TIMEOUT_SECS` to be used in either the .azacsnaprc file or as an environment variable set to the required wait time out in seconds. For details on configuration, see the [global override settings to control AzAcSnap behavior](azacsnap-tips.md#global-override-settings-to-control-azacsnap-behavior).
+
+    Learn more in the [AzAcSnap release notes](azacsnap-release-notes.md#azacsnap-10a-build-1b79ba).
+
 * [Edit network features enhancement: no downtime](configure-network-features.md#no-downtime) (Preview)
 
     Azure NetApp Files now supports the ability to edit network features (that is, upgrade from Basic to Standard network features) with no downtime for Azure NetApp Files volumes. Standard Network Features provide you with an enhanced virtual networking experience for a seamless and consistent experience along with security posture for Azure NetApp Files. 
@@ -149,6 +159,29 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) is now generally available (GA). 
 
 ## July 2024
+
+* [Azure Application Consistent Snapshot tool (AzAcSnap) 10](azacsnap-introduction.md) is generally available (GA)
+
+    AzAcSnap 10 is being released with the following fixes and improvements:
+    
+    - Features added to [Preview](azacsnap-preview.md):
+        - **Microsoft SQL Server** support adding options to configure, test, and snapshot backup Microsoft SQL Server in an application consistent manner.
+    - Features moved to GA (generally available):
+        - **Windows** support with AzAcSnap now able to be run on supported Linux distributions and Windows.
+        - New configuration file layout.
+            - To upgrade pre-AzAcSnap 10 configurations, use the `azacsnap -c configure --configuration new` command to create a new configuration file and use the values in your existing configuration file.
+        - Azure Large Instance storage management via REST API over HTTPS.
+            - This change to the REST API allows the use of Consistency Group snapshots on supported Azure Large Instance storage.
+    - Fixes and improvements:
+        - New `--flush` option which flushes in memory file buffers for local storage, useful for Azure Large Instance and Azure Managed Disk when connected as block storage
+        - Logging improvements
+    - Features removed:
+        - AzAcSnap installer for Linux
+            - AzAcSnap is now downloadable as a binary for supported versions of Linux and Windows to simplify access to the AzAcSnap program allowing you to get started quickly.
+    - Azure Large Instance storage management via CLI over SSH
+        - CLI over SSH replaced with the REST API over HTTPS
+
+    Learn more in the [AzAcSnap release notes](azacsnap-release-notes.md#azacsnap-10a-build-1b79ba).
 
 * Availability zone volume placement enhancement - [**Populate existing volumes**](manage-availability-zone-volume-placement.md#populate-an-existing-volume-with-availability-zone-information) is now generally available (GA).
 
