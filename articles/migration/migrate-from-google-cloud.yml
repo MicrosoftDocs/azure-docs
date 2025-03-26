@@ -24,8 +24,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Google Cloud Platform IAM (using Azure Functions) connector for Microsoft Sentinel
-            url:  /azure/sentinel/data-connectors/google-cloud-platform-iam
+          - text: Migrate databases
+            url:  migrate-databases-from-google-cloud.md
 
 
   - title: Start with component comparisons
@@ -55,6 +55,8 @@ landingContent:
             url: /azure/azure-sql/migration-guides/database/mysql-to-sql-database-guide?view=azuresql-db&preserve-view=true
           - text: Migrate your SIEM in Google Cloud to Microsoft Sentinel
             url: /azure/sentinel/migration
+          - text: Google Cloud Platform IAM (using Azure Functions) connector for Microsoft Sentinel
+            url:  /azure/sentinel/data-connectors/google-cloud-platform-iam               
 
   - title: Migration training modules
     linkLists:
