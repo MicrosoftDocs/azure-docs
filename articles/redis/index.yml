@@ -129,7 +129,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Cache for Redis?
-            url: ../azure-cache-for-redis/cache-overview.md
+            url: /azure/azure-cache-for-redis/cache-overview
       - linkListType: video
         links:
           - text: Azure Cache for Redis Community Standup 
@@ -137,5 +137,5 @@ landingContent:
       - linkListType: whats-new
         links:
           - text: What's new with Azure Cache for Redis?
-            url: ../azure-cache-for-redis/cache-whats-new.md
+            url: /azure/azure-cache-for-redis/cache-whats-new
   
