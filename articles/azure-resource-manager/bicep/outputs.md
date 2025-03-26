@@ -3,7 +3,7 @@ title: Outputs in Bicep
 description: Learn how to define output values in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 03/14/2025
+ms.date: 03/25/2025
 ---
 
 # Outputs in Bicep
