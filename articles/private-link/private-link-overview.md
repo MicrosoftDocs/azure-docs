@@ -5,7 +5,7 @@ services: private-link
 author: abell
 ms.service: azure-private-link
 ms.topic: overview
-ms.date: 12/03/2024
+ms.date: 03/25/2025
 ms.author: abell
 ms.custom: template-overview, fasttrack-edit, references_regions, FY23 content-maintenance, ignite-2024
 ---

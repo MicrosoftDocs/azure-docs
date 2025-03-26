@@ -4,7 +4,7 @@ description: Learn how Azure App Service helps you develop and host web applicat
 
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
-ms.date: 01/22/2025
+ms.date: 03/18/2025
 ms.custom: UpdateFrequency3, linux-related-content
 ms.author: msangapu
 author: msangapu-msft
@@ -18,7 +18,7 @@ author: msangapu-msft
 
 App Service adds the power of Microsoft Azure to your application, including improved security, load balancing, autoscaling, and automated management. Additionally, you can take advantage of its DevOps capabilities, such as continuous deployment from Azure DevOps, GitHub, Docker Hub, and other sources, package management, staging environments, custom domains, and TLS/SSL certificates.
 
-With App Service, you pay for the Azure compute resources you use. The compute resources you use are determined by the *App Service plan* that you run your apps on. For more information, see [Azure App Service plans overview](overview-hosting-plans.md).
+With App Service, you pay for the Azure compute resources you use. The *App Service plan* that you run your apps on determines the compute resources you use. For more information, see [Azure App Service plans overview](overview-hosting-plans.md).
 
 ## Why use App Service?
 

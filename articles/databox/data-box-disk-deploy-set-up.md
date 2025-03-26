@@ -12,7 +12,7 @@ ms.author: shaas
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
 
-::: zone target="docs"
+<!--::: zone target="docs"-->
 
 # Tutorial: Unpack, connect, and unlock Azure Data Box Disk
 
@@ -22,7 +22,7 @@ ms.author: shaas
 > Azure Data Box disk with hardware encryption requires a SATA III connection. All other connections, including USB, are not supported.
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+> This article references CentOS, a Linux distribution that is end of support status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This tutorial describes how to unpack, connect, and unlock your Azure Data Box Disk.
 
@@ -34,15 +34,15 @@ In this tutorial, you learn how to:
 > * Unlock disks on Windows client
 > * Unlock disks on Linux client
 
-::: zone-end
+<!--::: zone-end-->
 
-::: zone target="chromeless"
+<!--::: zone target="chromeless"
 
 ## Unpack, connect, and unlock Azure Data Box Disk
 
-::: zone-end
+::: zone-end-->
 
-::: zone target="docs"
+<!--::: zone target="docs"-->
 
 ## Prerequisites
 
@@ -466,9 +466,9 @@ Perform the following steps to connect and unlock software encrypted Data Box di
 
 ---
 
-::: zone-end
+<!--::: zone-end-->
 
-::: zone target="chromeless"
+<!--::: zone target="chromeless"
 
 1. Unpack disks and use the included cable to connect the disk to the client computer.
 2. Download and extract the Data Box Disk toolset on the same computer that you will use to copy the data.
@@ -511,9 +511,9 @@ After the disk is unlocked, you can view the contents of the disk.
 
 For more information on how to set up and unlock disks, go to [Set up Data Box Disk](data-box-disk-deploy-set-up.md).
 
-::: zone-end
+::: zone-end-->
 
-::: zone target="docs"
+<!--::: zone target="docs"-->
 
 ## Next steps
 
@@ -525,10 +525,11 @@ In this tutorial, you learned about Azure Data Box Disk topics such as:
 > * Unlock disks on Windows client
 > * Unlock disks on Linux client
 
-
 Advance to the next tutorial to learn how to copy data on your Data Box Disk.
 
 > [!div class="nextstepaction"]
 > [Copy data on your Data Box Disk](./data-box-disk-deploy-copy-data.md)
 
-::: zone-end
+<!--::: zone-end-->
+
+
