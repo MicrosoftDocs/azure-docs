@@ -6,7 +6,7 @@ author: AbdullahBell
 ms.service: azure-ddos-protection
 ms.topic: how-to
 ms.author: abell
-ms.date: 11/06/2023
+ms.date: 03/17/2025
 ---
 
 # Inline L7 DDoS Protection with Gateway Load Balancer and Partner NVAs

@@ -7,6 +7,7 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+# Customer intent: "As a cloud architect, I want to select and configure VM sizes for Cloud Services (extended support) so that I can optimize performance, cost, and scalability for my workloads."
 ---
 
 # Available sizes for Azure Cloud Services (extended support)
