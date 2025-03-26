@@ -5,18 +5,17 @@ author: SnehaSudhir
 ms.author: sudhirsneha 
 ms.service: azure-migrate 
 ms.topic: conceptual 
-ms.date: 03/20/2025 
-ms.custom: engagement-fy24
-monikerRange: migrate
+ms.date: 04/24/2024 
+ms.custom: engagement-fy24 
 --- 
 
 # Assessment Report 
 
-Every assessment provides four major outputs, namely Azure readiness, right-sized target recommendations, cost details, and migration guidance.   
+Each assessment provides four key outputs: Azure readiness, right-sized target recommendations, cost details, and migration guidance. 
 
 ## Understanding Azure readiness 
 
-Not all workloads are suitable to run in Azure. An Azure Migrate assessment assesses all workloads in the group and assigns them a readiness category. 
+Not all workloads are suitable to run in Azure. An Azure Migrate assessment evaluates all workloads in the group and categorizes them based on their readiness.
 
 - **Ready for Azure**: The workloads can be migrated as-is to Azure without any changes. It starts in Azure with full Azure support. 
 

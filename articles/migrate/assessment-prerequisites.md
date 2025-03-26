@@ -5,8 +5,7 @@ author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/20/2025
-monikerRange: migrate
+ms.date: 10/16/2024
 ---
 
 # Prerequisites for assessments 
@@ -23,8 +22,8 @@ Azure Migrate assessments identifies the readiness and right-sized Azure targets
 
 The discovery source might vary for different workloads depending on the data required for creating the assessments. You can discover your on-premises servers by using either of the following methods: 
 
-   - Deploying a light-weight Azure Migrate appliance to perform agentless discovery. 
-   - Importing the workload information using predefined templates. 
+   - [[Deploying](vmware/tutorial-discover-vmware.md)] a light-weight Azure Migrate appliance to perform agentless discovery. 
+   - [Importing](vmware/tutorial-import-vmware-using-rvtools-xlsx.md) the workload information using predefined templates. 
 
 The recommended discovery source is the Azure Migrate appliance as it provides an in-depth view of your machines and ensures regular flow of configuration and performance data, and accounts for changes in the source environment.  
 

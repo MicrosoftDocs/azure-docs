@@ -2,16 +2,15 @@
 title:  Performance vs As-is on-premises assessments
 description: Describes how Azure Migrate provides sizing recommendations for the assessed workloads.
 author: rashi-ms
-ms.author: rajosh
+ms.author: v-uhabiba
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 03/20/2025
-monikerRange: migrate
+ms.date: 02/06/2025
 ---
 
 # Target right-sizing 
 
-Azure Migrate assessments identify the readiness of the source workloads, right-sized targets, and cost of hosting the workload on Azure. After it identifies the readiness of the source workload, the assessment makes sizing recommendations for the assessed workloads. The sizing calculations depend on whether you're using as-is on-premises sizing or performance-based sizing. 
+Azure Migrate assessments evaluate the readiness of source workloads, recommend right sized targets, and estimate the cost of hosting these workloads on Azure. Once the readiness of the source workload is determined, the assessment provides sizing recommendations based on either as-is on-premises sizing or performance-based sizing.
 
 ## Sizing criteria
 
@@ -24,7 +23,7 @@ Azure Migrate supports two types of target sizing:
 
 For identifying the right-sized Azure target that isn't overprovisioned but still resilient, we recommend creating performance-based assessments. The performance-based assessments use resource utilization data (CPU & memory utilization etc.) and resource configuration data. The appliance collects the required performance data at regular intervals and modeled to perform the assessments.  
 
-### How does the appliance aggregate and model performance data? 
+### Appliance aggregate and model performance data 
 
 If you use the appliance for discovery, it collects performance data directly from the hypervisor your workloads are hosted on. This is how a typical performance data modeling process looks: 
 
@@ -55,4 +54,4 @@ For example, let us consider for a server with 16 vCPUs attached. The performanc
 > Since the appliance does not collect any performance data for web apps, they will be assessed only for As-is on premises sizing. Servers and SQL databases can be assessed for targets using both performance-based and as-is on premises sizing.  
 
 ## Next steps
-Review the Azure VM assessment report.
+[Review the Azure VM assessment report](review-assessment.md)

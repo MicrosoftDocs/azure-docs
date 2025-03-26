@@ -1,6 +1,8 @@
 ---
 title: Create an Azure SQL assessment
 description: Learn how to assess SQL instances for migration to Azure SQL Managed Instance and Azure SQL Database
+author: rashi-ms
+ms.author: rajosh
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 08/13/2024

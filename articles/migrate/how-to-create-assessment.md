@@ -1,25 +1,27 @@
 ---
 title: Create an Azure VM assessment with Azure Migrate Discovery and assessment tool | Microsoft Docs
 description: Describes how to create an Azure VM assessment with the Azure Migrate Discovery and assessment tool
+author: rashi-ms
+ms.author: v-uhabiba
+ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 03/20/2025
+ms.date: 02/06/2025
 ms.custom: engagement-fy23
-monikerRange: migrate
 ---
 
 # Create an Azure VM assessment
 
-This article explains how to create Azure VM assessments. For more on general Azure Migrate assessment concepts, refer to the assessment overview. To quickly migrate your on-premises or public cloud servers to Azure using lift and shift, create an Azure VM assessment to check readiness, cost, and get migration advice for your workloads. 
+This article explains how to create an Azure VM assessments. For more information on general Azure Migrate assessment concepts, refer to the assessment overview. To quickly migrate your on-premises or public cloud servers to Azure using lift and shift, create an Azure VM assessment to check readiness, cost, and get migration advice for your workloads. 
 
 > [!Note]
 > All assessments you create with Azure Migrate are a point-in-time snapshot of data. The assessment results are subject to change based on aggregated server performance data collected or change in the source configuration.  
 
 ## Prerequisites 
 
-Before you start creating assessments, ensure you have discovered the inventory of your on-premises servers, and you can view all the servers in the **Infrastructure** tab. For more details about prerequisites, see [Prerequisites for assessments](assessment-prerequisites.md). 
+Before you start creating assessments, ensure you have discovered the inventory of your on-premises servers, and you can view all the servers in the **Infrastructure** tab. For more information about prerequisites, see [Prerequisites for assessments](assessment-prerequisites.md). 
 
-You can discover your on-premises servers using wither of the following: 
+You can discover your on-premises servers using either of the following: 
 
 - [Discover servers using the Azure Migrate appliance](tutorial-discover-hyper-v.md)
 - [Discover the servers using an import](tutorial-discover-import.md) 
@@ -27,6 +29,8 @@ You can discover your on-premises servers using wither of the following:
 Once you have discovered your servers, identify if you want to create an As-is on-premises assessment or Performance-based assessment. Check [Performance vs. As-is on-premises assessments](target-right-sizing.md) for more details.  
 
 ## Create an assessment 
+
+Follow the steps to create an assessment:
 
 1. To create an Azure VM assessment, go to **Infrastructure** tab and select all the VMs you would like to assess.
 1. You can apply column based or custom tags-based filters to identify and add VMs to the scope of your assessment. 

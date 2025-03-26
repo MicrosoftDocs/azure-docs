@@ -1,5 +1,5 @@
 ---
-title: Tutorial to review the assessments created for migration to SQL Server on Azure VM, Azure SQL Managed Instance and Azure SQL Database
+title: How to review the assessments created for migration to SQL Server on Azure VM, Azure SQL Managed Instance and Azure SQL Database
 description: Learn how to review assessment for Azure SQL in Azure Migrate
 author: ankitsurkar06
 ms.author: ankitsurkar
@@ -7,19 +7,18 @@ ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 02/06/2025
 ms.custom: engagement-fy24
-monikerRange: migrate
 ---
 
 # Review a SQL assessment
 
-This article describes the various components of an assessment and how you can review the assessment after it's created.
+This article describes the various components of a SQL assessment and how you can review the assessment after it's created.
 
 ## View an assessment
 
 Follow these steps to view the assessment that you created.
 
 1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to Azure SQL assessment.
-2. Select the assessment name, which you wish to view. As an example(estimations and costs, for example, only):
+2. Select the assessment name, which you wish to view. For example, estimations and costs.
       
       :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-summary-inline.png" alt-text="Screenshot of Overview of SQL assessment." lightbox="./media/tutorial-assess-sql/assessment-sql-summary-expanded.png":::
 
@@ -33,8 +32,7 @@ This indicates the number of SQL servers, instances, and databases that were ass
 
 This indicates the different migration strategies that you can consider for your SQL deployments. You can review the readiness for target deployment types and the cost estimates for SQL Servers/Instances/Databases that are marked ready or ready with conditions: 
 
-- **Recommended deployment**: 
-This is a strategy where an Azure SQL deployment type that is the most compatible with your SQL instance. It is the most cost-effective and is recommended. Migrating to a Microsoft-recommended target reduces your overall migration effort. If your instance is ready for SQL Server on Azure VM, Azure SQL Managed Instance and Azure SQL Database, the target deployment type, which has the least migration readiness issues and is the most cost-effective is recommended.
+- **Recommended deployment**: This is a strategy where an Azure SQL deployment type is the most compatible with your SQL instance. It is the most cost-effective and is recommended. Migrating to a Microsoft-recommended target reduces your overall migration effort. If your instance is ready for SQL Server on Azure VM, Azure SQL Managed Instance and Azure SQL Database, the target deployment type, which has the least migration readiness issues and is the most cost-effective is recommended.
 You can see the SQL Server instance readiness for different recommended deployment targets and monthly cost estimates for SQL instances marked *Ready* and *Ready with conditions*.
 
     - You can go to the Readiness report to:
@@ -90,7 +88,7 @@ You can review readiness reports for different migration strategies:
 1. Review the readiness for the assessed SQL instances/SQL Servers/Databases:
     - **Ready**: The instance/server is ready to be migrated to SQL Server on Azure VM/Azure SQL MI/Azure SQL DB without any migration issues or warnings. 
         - Ready: The instance is ready to be migrated to Azure VM/Azure SQL MI/Azure SQL DB without any migration issues but has some migration warnings that you need to review. You can select the hyperlink to review the migration warnings and the recommended remediation guidance.
-    - **Ready with conditions**: The instance/server has one or more migration issues for migrating to Azure VM/Azure SQL MI/Azure SQL DB. You can select on the hyperlink and review the migration issues and the recommended remediation guidance.
+    - **Ready with conditions**: The instance/server has one or more migration issues for migrating to Azure VM/Azure SQL MI/Azure SQL DB. You can select the hyperlink and review the migration issues and the recommended remediation guidance.
     - **Not ready**: The assessment could not find a SQL Server on Azure VM/Azure SQL MI/Azure SQL DB configuration meeting the desired configuration and performance characteristics. Select the hyperlink to review the recommendation to make the instance/server ready for the desired target deployment type.
     - **Unknown**: Azure Migrate can't assess readiness, because the discovery is in progress or there are issues during discovery that need to be fixed from the notifications blade. If the issue persists, contact [Microsoft support](https://support.microsoft.com).
 
@@ -107,12 +105,12 @@ The assessment summary shows the estimated monthly compute and storage costs for
     
       :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-cost-inline.png" alt-text="Screenshot of cost details." lightbox="./media/tutorial-assess-sql/assessment-sql-cost-expanded.png":::
 
-    - The compute and storage costs are split in the individual cost estimates reports and at instance/server/database level.
+    - The compute and storage costs are split into the individual cost estimates reports and at instance/server/database level.
 1. You can drill down at an instance level to see Azure SQL configuration and cost estimates at an instance level.  
 1. You can also drill down to the database list to review the Azure SQL configuration and cost estimates per database when an Azure SQL Database configuration is recommended.
 
 ### Review confidence rating
-Azure Migrate assigns a confidence rating to all Azure SQL assessments based on the availability of the performance/utilization data points needed to compute the assessment for all the assessed SQL instances and databases. Rating is from one star (lowest) to five stars (highest).
+Azure Migrate assigns a confidence rating to all Azure SQL assessments based on the availability of the performance/utilization data points needed to compute the assessment for all the assessed SQL instances and databases. The rating is from one star (lowest) to five stars (highest).
 The confidence rating helps you estimate the reliability of size recommendations in the assessment. Confidence ratings are as follows:
 
 **Data point availability** | **Confidence rating**
