@@ -131,9 +131,30 @@ To serve HTTPS traffic, App Service requires a TLS/SSL certificate that is bound
 
 ### Types of certificates
 
-- **App Service certificates (ASC)**. Fully managed certificates issued and renewed automatically by Azure, stored securely in Azure Key Vault.
+## TLS/SSL certificates on App Service
 
-- **Bring your own certificate (BYOC)**. Upload and manage certificates (in PFX format) issued by third-party Certificate Authorities (CAs).
+To serve HTTPS traffic, App Service requires a TLS/SSL certificate that is bound to your custom domain. App Service offers multiple certificate options, ranging from fully managed free certificates to customer-managed certificates.
+
+### Types of certificates
+
+- **App Service managed certificates** (Free)  
+  - Provided at no cost.  
+  - Fully managed by Azure App Service, including **automatic renewal**.  
+  - Stored in **App Service Key Vault** (KV); **customers cannot access, export, or use these certificates outside of App Service**.  
+  - Supports basic domain validation but **does not support wildcard or custom root CAs**.
+
+- **App Service certificates (ASC)**  
+  - Paid certificates **resold from GoDaddy** via Azure.  
+  - **Customer owns and manages** the certificate.  
+  - Stored in the **customer’s Key Vault (KV)** and **can be exported and used outside of App Service**.  
+  - Technically considered **"bring your own certificate (BYOC)"** because the customer controls it after purchase, but App Service provides **seamless integration**.
+
+- **Bring your own certificate (BYOC)**  
+  - Upload and manage your own TLS/SSL certificates (**PFX format**) issued by **third-party Certificate Authorities (CAs)**.  
+  - Fully customer-managed, including **renewals and private key storage**.  
+  - Supports **wildcard certificates, custom root CAs, and externally issued certificates**.
+
+Each of these options provides flexibility based on your security and management needs.
 
 ### Bind certificates to custom domains
 
