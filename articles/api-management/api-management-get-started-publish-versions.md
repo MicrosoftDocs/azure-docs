@@ -6,7 +6,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
-ms.date: 03/24/2025
+ms.date: 03/26/2025
 ms.author: danlep
 
 #customer intent: As a developer, I want to publish mutliple versions of an API so that all callers to the API don't need to use the same version.
@@ -41,7 +41,7 @@ In this tutorial, you learn how to:
 ## Add a new version
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-1. Select **APIs**.
+1. In the left menu, in the **APIs** section, select **APIs**.
 1. Locate **Swagger Petstore - OpenAPI 3.0** in the API list. Select the ellipsis (**...**) next to **Swagger Petstore - OpenAPI 3.0** and then select **Add version**. You'll add values to the resulting window in the next section.
 
 :::image type="content" source="media/api-management-get-started-publish-versions/add-version-menu.png" alt-text="Screenshot showing the steps for adding a version." lightbox="media/api-management-get-started-publish-versions/add-version-menu.png":::
