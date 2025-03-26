@@ -23,6 +23,7 @@ This set of articles explains how to work with [Azure Database for MySQL](/azure
 |---------|---------|
 | Read data from a database | [Input binding](./functions-bindings-azure-mysql-input.md) |
 | Save data to a database |[Output binding](./functions-bindings-azure-mysql-output.md) |
+| Trigger a function when a change is detected on a MySQL Table | [Trigger binding](./functions-bindings-azure-mysql-trigger.md) |
 
 ::: zone pivot="programming-language-csharp"
 
@@ -171,4 +172,4 @@ In addition to the samples for C#, Java, JavaScript, PowerShell, and Python avai
 
 - [Read data from a database (Input binding)](./functions-bindings-azure-mysql-input.md)
 - [Save data to a database (Output binding)](./functions-bindings-azure-mysql-output.md)
-
+- [Trigger a function when a change is detected on a table (Trigger binding)](./functions-bindings-azure-mysql-trigger.md)

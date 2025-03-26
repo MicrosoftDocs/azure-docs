@@ -1,8 +1,7 @@
 ---
-author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: include
-ms.date: 02/20/2025
+ms.date: 03/26/2025
 ms.author: cshoe
 ---
 

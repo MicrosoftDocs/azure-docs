@@ -203,7 +203,7 @@ The following fields represent information about the network session when the fi
 
 ### Target application fields
 
-The following fields represent information about the destination application performing the file activity on behalf of the user. A destination application is usually related to over-the-network file activity, for example using Saas (Software as a service) applications.  
+The following fields represent information about the destination application performing the file activity on behalf of the user. A destination application is usually related to over-the-network file activity, for example using SaaS (Software as a service) applications.  
 
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|

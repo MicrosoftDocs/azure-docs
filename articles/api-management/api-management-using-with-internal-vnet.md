@@ -164,7 +164,7 @@ This section has moved. See [Virtual network configuration reference](virtual-ne
 [!INCLUDE [api-management-virtual-network-troubleshooting](../../includes/api-management-virtual-network-troubleshooting.md)]
 
 
-## Next steps
+## Related content
 
 Learn more about:
 

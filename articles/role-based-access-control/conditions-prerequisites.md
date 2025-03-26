@@ -2,7 +2,7 @@
 title: Prerequisites for Azure role assignment conditions - Azure ABAC
 description: Prerequisites for Azure role assignment conditions.
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual

@@ -364,7 +364,7 @@ The following table details the features and limits of the Basic, Standard, and 
 > [!NOTE]
 > Some areas of this service have adjustable limits, and others do not. The following tables use the *Adjustable?* column to represent this condition. When the limit can be adjusted, the *Adjustable?* value is *Yes*.
 
-[!INCLUDE [digital-twins-limits](../../../includes/digital-twins-limits.md)]
+[!INCLUDE [digital-twins-limits](../../digital-twins/includes/digital-twins-limits.md)]
 
 ## Azure Event Grid limits
 

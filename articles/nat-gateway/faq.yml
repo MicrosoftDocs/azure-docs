@@ -3,6 +3,7 @@ metadata:
   title: Azure NAT Gateway frequently asked questions
   description: Answers to common questions about using Azure NAT Gateway.
   ms.topic: faq
+  ms.service: azure-nat-gateway
   ms.date: 12/10/2024
 
 title: Frequently asked questions for Azure NAT Gateway
