@@ -17,7 +17,7 @@ ExpressRoute enables private connections between your on-premises networks and A
 In this article, we explore the Resiliency Insights feature of the ExpressRoute virtual network gateway and explain how the resiliency index score can help you evaluate the reliability of your ExpressRoute connectivity.
 
 > [!NOTE]
-> To participate in the preview, contact the [**Azure ExpressRoute team**](mailto:exrpm@service.microsoft.com).
+> To participate in the preview, contact the [**Azure ExpressRoute team**](mailto:exr-resiliency@microsoft.com).
 
 :::image type="content" source="media/resiliency-insights/resiliency-insights.png" alt-text="Screenshot of the Resiliency Insights feature, accessible under the monitoring section in the left-hand menu of the ExpressRoute gateway resource.":::
 

@@ -44,7 +44,7 @@ Another key aspect of this feature is the ability to identify misconfigurations 
 
 ## Prerequisites
 
-- To participate in the preview, contact the [**Azure ExpressRoute**](mailto:exrpm@service.microsoft.com) team.
+- To participate in the preview, contact the [**Azure ExpressRoute**](mailto:exr-resiliency@microsoft.com) team.
 - Ensure that you have an ExpressRoute circuit in at least two distinct peering locations and an ExpressRoute gateway connected to those circuits.
 
 ## Using the gateway resiliency validation
