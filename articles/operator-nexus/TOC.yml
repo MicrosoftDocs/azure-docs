@@ -233,6 +233,8 @@
     - name: Cluster
       expanded: false
       items:
+        - name: BareMetal BMM Device Recovery, Reimage, Replace Best Practices
+          href: howto-baremetal-best-practices.md
         - name: BareMetal Actions
           expanded: false
           items:
