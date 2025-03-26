@@ -58,6 +58,7 @@ The following services are currently supported for Customer Lockbox for Microsof
 - ElasticSan
 - Kusto (Dashboards)
 - Microsoft Azure Attestation
+- Microsoft Entra Diagnostics Data
 - OpenAI
 - Spring Cloud
 - Unified Vision Service

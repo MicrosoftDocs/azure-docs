@@ -1,13 +1,14 @@
 ---
 title: Monitor Azure Front Door
 description: Learn how to monitor Azure Front Door using Azure Monitor, including data collection, analysis, and alerting.
+author: halkazwini
+ms.author: halkazwini
+ms.service: azure-frontdoor
+ms.topic: concept-article
 ms.date: 01/21/2025
 ms.custom: horz-monitor
-ms.topic: conceptual
-author: duongau
-ms.author: duau
-ms.service: azure-frontdoor
 zone_pivot_groups: front-door-tiers
+
 #customer intent: As the engineer responsible for my team's Azure Front Door configuration, I want to understand the monitoring capabilities of the service.
 ---
 

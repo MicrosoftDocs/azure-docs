@@ -2,9 +2,9 @@
 title: Tutorial - IoT data visualization with Power BI
 titleSuffix: Azure IoT Hub
 description: This tutorial uses Power BI to visualize temperature and humidity data that is collected from the sensor and sent to your Azure IoT hub.
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: tutorial
 ms.tgt_pltfrm: arduino

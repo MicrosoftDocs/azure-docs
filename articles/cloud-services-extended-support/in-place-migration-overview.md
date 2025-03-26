@@ -112,7 +112,7 @@ For more information, see [Overview of Platform-supported migration of IaaS reso
 - 	User Defined Routes
 - 	Internal load balancer
 - 	Certificate migration to key vault
-- 	Plugins and Extension (XML and Json based)
+- 	Plugins and Extension (XML and JSON based)
 - 	On Start / On Stop Tasks
 - 	Deployments with Accelerated Networking
 - 	Deployments using single or multiple roles

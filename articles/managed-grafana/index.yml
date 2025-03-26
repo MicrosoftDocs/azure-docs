@@ -24,9 +24,9 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Create an instance in the Azure portal
+          - text: Create a workspace in the Azure portal
             url: quickstart-managed-grafana-portal.md
-          - text: Create an instance in the Azure CLI
+          - text: Create a workspace in the Azure CLI
             url: quickstart-managed-grafana-cli.md
   
   - title: Manage dashboards
@@ -87,11 +87,13 @@ landingContent:
         links:
           - text: Encryption
             url: encryption.md
-  - title: Configure monitoring
+  - title: Monitor and alert
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Monitor an instance
+          - text: Monitor using metrics
+            url: how-to-monitor-managed-grafana-metrics.md
+          - text: Monitor using diagnostic settings
             url: how-to-monitor-managed-grafana-workspace.md
           - text: Configure SMTP settings
             url: how-to-smtp-settings.md

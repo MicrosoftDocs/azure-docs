@@ -2,7 +2,8 @@
 title: Migrate to Azure Container Apps automation tools
 description: Describes how to use automation tools of Azure Container Apps to achieve CI/CD.
 author: KarlErickson
-ms.author: dixue
+ms.author: karler
+ms.reviewer: dixue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article
 ms.date: 01/29/2025

@@ -24,8 +24,6 @@ There could be several different ways that your application could be disrupted. 
 
 A: The virtual network and the resources in the affected region remains inaccessible during the time of the service disruption.
 
-:::image type="content" source="./media/virtual-network-disaster-recovery-guidance/vnet.png" alt-text="Diagram of a simple network.":::
-
 **Q: What can I do to re-create the same virtual network in a different region?**
 
 A: Virtual networks are fairly lightweight resources. You can invoke Azure APIs to create a virtual network with the same address space in a different region. To recreate the same environment that was present in the affected region, redeploy the virtual machines and other resources.  If you have on-premises connectivity, such as in a hybrid deployment, you have to deploy a new VPN Gateway, and connect to your on-premises network.

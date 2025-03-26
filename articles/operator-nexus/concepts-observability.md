@@ -105,6 +105,10 @@ You can use the sample Azure Resource Manager workbook templates for [Operator N
 
 You can use the sample Azure Resource Manager alarm templates for [Operator Nexus alerting rules](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Nexus#alert-rules). You should specify thresholds and conditions for the alerts. You can then deploy these alert templates on your on-premises environment.
 
+#### Hardware capacity alerts
+
+The hardware capacity threshold for devices is set at 60%, and the TrafficPolicy limit thresholds are set at 35%. All alerts will be published via syslog.
+
 ## Log Analytic Workspace
 
 A [Log Analytics Workspace (LAW)](/azure/azure-monitor/logs/log-analytics-workspace-overview) is a unique environment to log data from Azure Monitor and other Azure services. Each workspace has its own data repository and configuration but may combine data from multiple services. Each workspace consists of multiple data tables.

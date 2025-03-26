@@ -1,7 +1,7 @@
 ---
 title: Configure customer-managed keys in the same tenant for a new storage account
 titleSuffix: Azure Storage
-description: Learn how to configure Azure Storage encryption with customer-managed keys for a new storage account by using the Azure portal, PowerShell, or Azure CLI. Customer-managed keys are stored in an Azure key vault.
+description: Learn how to configure Azure Storage encryption with customer-managed keys for a new storage account by using the Azure portal, PowerShell, or Azure CLI. Customer-managed keys are stored in an Azure Key Vault.
 services: storage
 author: normesta
 
@@ -20,7 +20,7 @@ Azure Storage encrypts all data in a storage account at rest. By default, data i
 
 This article shows how to configure encryption with customer-managed keys at the time that you create a new storage account. The customer-managed keys are stored in a key vault.
 
-To learn how to configure customer-managed keys for an existing storage account, see [Configure customer-managed keys in an Azure key vault for an existing storage account](customer-managed-keys-configure-existing-account.md).
+To learn how to configure customer-managed keys for an existing storage account, see [Configure customer-managed keys in an Azure Key Vault for an existing storage account](customer-managed-keys-configure-existing-account.md).
 
 > [!NOTE]
 > Azure Key Vault and Azure Key Vault Managed HSM support the same APIs and management interfaces for configuration of customer-managed keys. Any action that is supported for Azure Key Vault is also supported for Azure Key Vault Managed HSM.
@@ -213,5 +213,5 @@ Disabling the key will cause attempts to access data in the storage account to f
 
 - [Azure Storage encryption for data at rest](storage-service-encryption.md)
 - [Customer-managed keys for Azure Storage encryption](customer-managed-keys-overview.md)
-- [Configure customer-managed keys in an Azure key vault for an existing storage account](customer-managed-keys-configure-existing-account.md)
+- [Configure customer-managed keys in an Azure Key Vault for an existing storage account](customer-managed-keys-configure-existing-account.md)
 - [Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM](customer-managed-keys-configure-key-vault-hsm.md)
