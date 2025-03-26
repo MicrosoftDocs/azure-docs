@@ -30,7 +30,7 @@ items:
         href: ./migrate-compute-from-aws.md
       - name: Azure compute services map
         href: /azure/architecture/aws-professional/compute
-      - name: Migrate AWS Lambda to Azure Functions
+      - name: AWS Lambda 
         items:
         - name: Overview
           href: /azure/azure-functions/migration/lambda-functions-migration-overview
