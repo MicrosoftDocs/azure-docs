@@ -7,6 +7,8 @@ ms.service: azure-managed-redis
 ms.topic: conceptual
 ms.custom: devx-track-csharp, ignite-2024
 ms.date: 11/15/2024
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 
 # Troubleshoot Azure Managed Redis (preview) latency and timeouts

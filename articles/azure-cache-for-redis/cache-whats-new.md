@@ -8,6 +8,8 @@ ms.custom: references_regions
 
 ms.topic: conceptual
 ms.date: 11/15/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 
 ---
 

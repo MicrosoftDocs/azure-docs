@@ -8,6 +8,9 @@ ms.topic: tutorial
 ms.custom:
   - ignite-2024
 ms.date: 02/27/2025
+appliesto:
+  - ✅ Azure Cache for Redis
+
 
 #CustomerIntent: As a developer, I want to develop some code using a sample so that I see an example of a vector similarity with an AI-based large language model.
 ---

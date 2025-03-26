@@ -5,6 +5,8 @@ ms.service: azure-managed-redis
 ms.custom: references_regions, ignite-2024
 ms.topic: conceptual
 ms.date: 11/15/2024
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 
 # Use Microsoft Entra for cache authentication with Azure Managed Redis (preview)

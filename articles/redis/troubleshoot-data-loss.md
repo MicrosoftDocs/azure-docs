@@ -8,6 +8,8 @@ ms.custom:
   - ignite-2024
 ms.topic: conceptual
 ms.date: 03/05/2025
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 
 # Troubleshoot data loss in Azure Managed Redis (preview)

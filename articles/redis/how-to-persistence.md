@@ -8,6 +8,8 @@ ms.service: azure-managed-redis
 ms.custom: devx-track-azurecli, ignite-2024
 ms.topic: conceptual
 ms.date: 11/15/2024
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 # Configure data persistence for an Azure Managed Redis (preview) instance
 

@@ -7,6 +7,8 @@ metadata:
   
   ms.topic: faq
   ms.date: 02/02/2022
+  appliesto:
+    - ✅ Azure Cache for Redis
 title: Azure Cache for Redis planning FAQs
 summary: |
           This article provides answers to common questions about how to plan for Azure Cache for Redis.

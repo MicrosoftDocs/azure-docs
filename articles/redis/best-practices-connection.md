@@ -7,6 +7,8 @@ ms.service: azure-managed-redis
 ms.custom: linux-related-content, ignite-2024
 ms.topic: conceptual
 ms.date: 11/15/2024
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 
 # Connection resilience with Azure Managed Redis (preview)

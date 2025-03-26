@@ -6,6 +6,8 @@ description: This article describes Azure Monitor insights for Azure Cache for R
 ms.topic: conceptual
 
 ms.date: 03/25/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 ms.custom: subject-monitoring
 ---
 
@@ -33,13 +35,13 @@ To view the utilization and performance of your Azure Cache for Redis instances 
 
 Azure Cache for Redis insights are based on the [workbooks feature of Azure Monitor](/azure/azure-monitor/visualize/workbooks-overview) that provides rich visualizations for metrics and other data. Azure Cache for Redis insights provides two workbooks by default:
 
-   :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-workbook.png" alt-text="Screenshot showing the workbooks selected in the Resource menu.":::
+   :::image type="content" source="media/cache-insights-overview/cache-monitoring-workbook.png" alt-text="Screenshot showing the workbooks selected in the Resource menu.":::
 
 - **Azure Cache For Redis Resource Overview** combines many of the most commonly used metrics so that the health and performance of the cache instance can be viewed at a glance.
-    :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-resource-overview.png" alt-text="Screenshot of graphs showing a resource overview for the cache.":::
+    :::image type="content" source="media/cache-insights-overview/cache-monitoring-resource-overview.png" alt-text="Screenshot of graphs showing a resource overview for the cache.":::
 
 - **Geo-Replication Dashboard** pulls geo-replication health and status metrics from both the geo-primary and geo-secondary cache instances to give a complete picture of geo-replication health. Using this dashboard is recommended, as some geo-replication metrics are only emitted from either the geo-primary or geo-secondary.
-    :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-geo-dashboard.png" alt-text="Screenshot showing the geo-replication dashboard with a geo-primary and geo-secondary cache set.":::
+    :::image type="content" source="media/cache-insights-overview/cache-monitoring-geo-dashboard.png" alt-text="Screenshot showing the geo-replication dashboard with a geo-primary and geo-secondary cache set.":::
 
 ### Overview
 

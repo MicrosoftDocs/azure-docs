@@ -7,6 +7,8 @@ ms.service: azure-managed-redis
 ms.topic: conceptual
 ms.date: 11/15/2024
 ms.custom: references_regions, ignite-2024
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 # High availability and disaster recovery with Azure Managed Redis (preview)
 

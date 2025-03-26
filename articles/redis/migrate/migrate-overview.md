@@ -8,6 +8,9 @@ ms.custom:
   - references_regions
 ms.topic: how-to
 ms.date: 11/15/2024
+appliesto:
+  - ✅ Azure Managed Redis
+  - ✅ Azure Cache for Redis
 
 #CustomerIntent: As a developer, I want to see how to move from Azure Cache for Redis to Azure Managed Redis.
 ---

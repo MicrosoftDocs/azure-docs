@@ -7,6 +7,9 @@ ms.custom: devx-track-csharp, mvc, mode-other, devx-track-dotnet, ignite-2024
 ms.topic: quickstart
 ms.date: 12/20/2024
 zone_pivot_groups: redis-type
+appliesto:
+  - ✅ Azure Managed Redis
+  - ✅ Azure Cache for Redis
 #Customer intent: As a .NET developer, new to Azure Redis, I want to create a new Node.js app that uses Azure Managed Redis or Azure Cache for Redis.
 ---
 

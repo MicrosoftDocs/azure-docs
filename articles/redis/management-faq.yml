@@ -5,6 +5,9 @@ metadata:
   ms.date: 11/15/2024
   ms.topic: faq
   ms.custom: devx-track-csharp, ignite-2024
+  appliesto:
+  - ✅ Azure Managed Redis
+  
 title: Azure Managed Redis (preview) management FAQs
 summary: This article provides answers to common questions about how to manage Azure Managed Redis.
 
@@ -56,7 +59,7 @@ sections:
       - question: |
           How can I benchmark and test the performance of my cache?
         answer: |
-          * [Enable cache diagnostics](../azure-cache-for-redis/cache-how-to-monitor.md#use-a-storage-account-to-export-cache-metrics) so you can [monitor](../azure-cache-for-redis/cache-how-to-monitor.md) the health of your cache. You can view the metrics in the Azure portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
+          * Enable cache diagnostics so you can [monitor](monitor-cache.md) the health of your cache. You can view the metrics in the Azure portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
           * See [Performance testing with Azure Managed Redis](best-practices-performance.md) for example benchmarks and instructions for running your own performance tests on Azure Managed Redis. 
           
       - question: |
