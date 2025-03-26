@@ -271,7 +271,7 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 Here are steps that help you upgrade the Presto connector:
 
-1. In **Edit linked service** page, select 2.0 version and configure the linked service by referring to [linked service version 2.0 (Preview) properties](#version-20-preview).
+1. In **Edit linked service** page, select version 2.0 (Preview) and configure the linked service by referring to [linked service version 2.0 (Preview) properties](#version-20-preview).
 
 2. The data type mapping for the Presto linked service version 2.0 (Preview) is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Presto](#data-type-mapping-for-presto).
 
