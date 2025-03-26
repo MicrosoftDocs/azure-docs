@@ -1,9 +1,9 @@
 ---
 title: What is Microsoft Azure Data Manager for Energy?
 description: This article provides an overview of Azure Data Manager for Energy
-author: sharad4u
+author: bharathim
 ms.service: azure-data-manager-energy
-ms.author: sharadag
+ms.author: bselvaraj
 
 ms.topic: overview
 ms.date: 02/08/2023

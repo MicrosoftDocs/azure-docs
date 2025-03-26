@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot issues during data copies to your Azure Data Box, Azure Data Box Heavy
-description: Describes how to troubleshoot issues when copying data to Azure Data Box and Azure Data Box Heavy devices.
+title: Troubleshoot issues during data copies to your Azure Data Box, Data Box Next-gen, and Azure Data Box Heavy devices
+description: Describes how to troubleshoot issues when copying data to Azure Data Box, Data Box Next-gen, and Azure Data Box Heavy devices.
 services: databox
 author: stevenmatthew
 
@@ -10,12 +10,11 @@ ms.date: 03/22/2022
 ms.author: shaas
 ---
 
-# Troubleshoot data copy issues on Azure Data Box and Azure Data Box Heavy
+# Troubleshoot data copy issues on Azure Data Box, Data Box Next-gen, and Azure Data Box Heavy
 
-This article describes how to troubleshoot issues when performing data copies or data uploads for an Azure Data Box or Azure Data Box Heavy import order. The article includes the list of possible errors seen when data is copied to the Data Box or uploaded from Data Box.
+This article describes how to troubleshoot issues when performing data copies or data uploads for an Azure Data Box, Azure Data Box Next-gen, or Azure Data Box Heavy import order. The article includes the list of possible errors seen when data is copied to the Data Box or uploaded from Data Box.
 
-For help troubleshooting issues with accessing the shares on your device, see [Troubleshoot share connection failure during data copy](data-box-troubleshoot-share-access.md).
-
+For help on troubleshooting issues with accessing the shares on your device, see [Troubleshoot share connection failure during data copy](data-box-troubleshoot-share-access.md).
 
 > [!NOTE]
 > The information in this article applies to import orders only.
@@ -26,13 +25,13 @@ The errors in Data Box and Data Box Heavy are summarized as follows:
 
 | Error category        | Description        | Recommended action    |
 |----------------------------------------------|---------|--------------------------------------|
-| Container or share names<sup>*</sup> | The container or share names do not follow the Azure naming rules.  |Download the error lists. <br> Rename the containers or shares. [Learn more](#container-or-share-name-errors).  |
+| Container or share names<sup>*</sup> | The container or share names don't follow the Azure naming rules.  |Download the error lists. <br> Rename the containers or shares. [Learn more](#container-or-share-name-errors).  |
 | Container or share size limit<sup>*</sup> | The total data in containers or shares exceeds the Azure limit.   |Download the error lists. <br> Reduce the overall data in the container or share. [Learn more](#container-or-share-size-limit-errors).|
 | Object or file size limit<sup>*</sup> | The object or files in containers or shares exceeds the Azure limit.|Download the error lists. <br> Reduce the file size in the container or share. [Learn more](#object-or-file-size-limit-errors). |    
-| Data or file type<sup>*</sup> | The data format or the file type is not supported. |Download the error lists. <br> For page blobs or managed disks, ensure the data is 512-bytes aligned and copied to the pre-created folders. [Learn more](#data-or-file-type-errors). |
-| Folder or file internal errors<sup>*</sup> | The file or folder have an internal error. |Download the error lists. <br> Remove the file and copy again. For a folder, modify it by renaming or adding or deleting a file. The error should go away in 30 minutes.  [Learn more](#folder-or-file-internal-errors). |
+| Data or file type<sup>*</sup> | The data format or the file type isn't supported. |Download the error lists. <br> For page blobs or managed disks, ensure the data is 512-bytes aligned and copied to the pre-created folders. [Learn more](#data-or-file-type-errors). |
+| Folder or file internal errors<sup>*</sup> | The file or folder has an internal error. |Download the error lists. <br> Remove the file and copy again. For a folder, modify it by renaming or adding or deleting a file. The error should go away in 30 minutes.  [Learn more](#folder-or-file-internal-errors). |
 | General error<sup>*</sup> | Internal exceptions or error paths in the code caused a critical error. | Reboot the device and rerun the **Prepare to Ship** operation. If the error doesn't go away, contact Microsoft Support. [Learn more](#general-errors). |
-| Non-critical blob or file errors  | The blob or file names do not follow the Azure naming rules or the file type is not supported. | These blob or files may not be copied or the names may be changed. [Learn how to fix these errors](#non-critical-blob-or-file-errors). |
+| Non-critical blob or file errors  | The blob or file names don't follow the Azure naming rules or the file type isn't supported. | These blob or files may not be copied or the names may be changed. [Learn how to fix these errors](#non-critical-blob-or-file-errors). |
 
 <sup>*</sup> Errors in this category are critical errors that must be fixed before you can proceed to **Prepare to Ship**.
 
@@ -113,7 +112,7 @@ These errors are related to data exceeding the size of data allowed in a contain
 
 ### ERROR_CONTAINER_OR_SHARE_CAPACITY_EXCEEDED
 
-**Error description:** Large file shares are not enabled on your storage account(s). 
+**Error description:** Large file shares aren't enabled on your storage account(s). 
 
 **Suggested resolution:** To disregard this error, follow these steps:
  
@@ -128,7 +127,7 @@ These errors are related to data exceeding the size of data allowed in a contain
 1. **Enable large file shares** on your storage account(s) in the Azure portal. 
 
 > [!NOTE]
-> If large file shares are not enabled for the indicated storage accounts on the Azure portal, the data upload to these storage accounts will fail.
+> If large file shares aren't enabled for the indicated storage accounts on the Azure portal, the data upload to these storage accounts will fail.
   
 ## Object or file size limit errors
 
@@ -141,7 +140,7 @@ These errors are related to data exceeding the maximum size of object or the fil
 **Suggested resolution:** The blob or the file sizes exceed the maximum limit allowed for upload.
 
 - On the **Connect and copy** page of the local web UI, download, and review the error files.
-- Make sure that the blob and file sizes do not exceed the Azure object size limits.
+- Make sure that the blob and file sizes don't exceed the Azure object size limits.
 
 ## Data or file type errors
 
@@ -164,28 +163,28 @@ For more information, see [Overview of Page blobs](../storage/blobs/storage-blob
 **Suggested resolution:**
 
 - Make sure that you only upload the fixed VHDs to create managed disks.
-- VHDX files or **dynamic** and **differencing** VHDs are not supported.
+- VHDX files or **dynamic** and **differencing** VHDs aren't supported.
 
 ### ERROR_DIRECTORY_DISALLOWED_FOR_TYPE
 
-**Error description:** A directory is not allowed in any of the pre-existing folders for the managed disks. Only fixed VHDs are allowed in these folders.
+**Error description:** A directory isn't allowed in any of the preexisting folders for the managed disks. Only fixed VHDs are allowed in these folders.
 
 **Suggested resolution:** For managed disks, within each share, the following three folders are created which correspond to containers in your storage account: Premium SSD, Standard HDD, and Standard SSD. These folders correspond to the performance tier for the managed disk.
 
 - Make sure that you copy your page blob data (VHDs) into one of these existing folders.
-- A folder or directory is not allowed in these existing folders. Remove any folders that you have created inside the pre-existing folders.
+- A folder or directory isn't allowed in these existing folders. Remove any folders that you have created inside the preexisting folders.
 
 For more information, see [Copy to managed disks](data-box-deploy-copy-data-from-vhds.md#connect-to-data-box).
 
 ### REPARSE_POINT_ERROR
 
-**Error description:** Symbolic links are not allowed in Linux. 
+**Error description:** Symbolic links aren't allowed in Linux. 
 
 **Suggested resolution:** The symbolic links are usually links, pipes, and other such files. Either remove the links, or resolve the links and copy the data.
 
 ## Folder or file internal errors
 
-**Error description:** The file or folder are in an internal error state.
+**Error description:** The file or folder is in an internal error state.
 
 **Suggested resolution:** If this is a file, remove the file and copy it again. If this is a folder, modify the folder. Either rename the folder or add or delete a file from the folder. The error should clear on its own in 30 minutes. Contact Microsoft Support, if the error persists.
 

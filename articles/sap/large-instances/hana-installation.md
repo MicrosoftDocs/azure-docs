@@ -36,10 +36,15 @@ The installation of SAP HANA is your responsibility. You can start installing a 
 When you're planning to install HANA 2.0, see [SAP support note #2235581 - SAP HANA: Supported operating systems](https://launchpad.support.sap.com/#/notes/2235581/E). Make sure the operating system (OS) is supported with the SAP HANA release you're installing. The supported OS for HANA 2.0 is more restrictive than the supported OS for HANA 1.0. Confirm that the OS release you're interested in is supported for the particular HANA Large Instance. Use this [list](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120); select the HLI to see the details of the supported OS list for that unit. 
 
 Validate the following before you begin the HANA installation:
-- [HLI unit(s)](#validate-the-hana-large-instance-units)
-- [Operating system configuration](#operating-system)
-- [Network configuration](#networking)
-- [Storage configuration](#storage)
+- [Install and configure SAP HANA (Large Instances) on Azure](#install-and-configure-sap-hana-large-instances-on-azure)
+  - [Prerequisites](#prerequisites)
+  - [Planning your installation](#planning-your-installation)
+  - [Validate the HANA Large Instance unit(s)](#validate-the-hana-large-instance-units)
+  - [Operating system](#operating-system)
+    - [Time synchronization](#time-synchronization)
+  - [Networking](#networking)
+  - [Storage](#storage)
+  - [Next steps](#next-steps)
 
 
 ## Validate the HANA Large Instance unit(s)
@@ -52,7 +57,7 @@ After you receive the HANA Large Instances from Microsoft, establish access and 
 
     The HANA Large Instance can connect to this SMT instance. (For more information, see [How to set up SMT server for SUSE Linux](hana-setup-smt.md)). If you're using a Red Hat OS, it needs to be registered with the Red Hat Subscription Manager that you'll connect to. For more information, see the remarks in [What is SAP HANA on Azure (Large Instances)?](./hana-overview-architecture.md?toc=/azure/virtual-machines/linux/toc.json). 
 
-    This step is necessary for patching the OS, which is your responsibility. For SUSE, see the documentation on [installing and configuring SMT](https://documentation.suse.com/soc/9/html/suse-openstack-cloud-crowbar-all/app-deploy-smt.html).
+    This step is necessary for patching the OS, which is your responsibility. For SUSE, see the documentation on [installing and configuring SMT](https://documentation.suse.com/soc/9).
 
 3. Check for new patches and fixes of the specific OS release/version. Verify that the HANA Large Instance has the latest patches. Sometimes the latest patches aren't included, so be sure to check.
 

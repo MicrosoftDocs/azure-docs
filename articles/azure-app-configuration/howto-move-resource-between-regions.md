@@ -103,10 +103,4 @@ Follow these steps to delete your source configuration store in the Azure CLI:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Automatically back up key-values from Azure App Configuration stores](./howto-move-resource-between-regions.md)
-
-> [!div class="nextstepaction"]
-> [Azure App Configuration resiliency and disaster recovery](./concept-disaster-recovery.md)
-
-> [!div class="nextstepaction"]
-> [How to enable geo-replication](./howto-geo-replication.md)  
+> [Enable geo-replication](./howto-geo-replication.md)  

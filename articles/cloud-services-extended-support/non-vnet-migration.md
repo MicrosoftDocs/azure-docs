@@ -7,6 +7,7 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mattmcinnes
 ms.date: 07/24/2024
+# Customer intent: As a cloud administrator, I want to migrate legacy cloud services to a virtual network, so that I can enhance security, preserve DNS and IP settings, and minimize downtime during the transition.
 ---
 
 # Migrate cloud services not in a virtual network to a virtual network
