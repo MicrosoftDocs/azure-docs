@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 11/05/2024
+ms.date: 03/19/2025
 ms.author: glenga
 ms.custom:
   - include file
@@ -108,11 +108,10 @@ The following table shows the language versions supported for Python functions.
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
+| Python 3.12 | Preview | October 2028 |
 | Python 3.11 | GA | October 2027 |
 | Python 3.10 | GA | October 2026 |
 | Python 3.9 | GA | October 2025 |
 
 For more information, see [Azure Functions Python developer guide](../articles/azure-functions/functions-reference-python.md#python-version).
 ::: zone-end
-
-For information about planned changes to language support, see [Azure roadmap](https://azure.microsoft.com/roadmap/?tag=functions).

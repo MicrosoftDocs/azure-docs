@@ -24,7 +24,7 @@ The following diagram shows several example Azure regions. Regions 1 and 2 suppo
 
 :::image type="content" source="media/regions-availability-zones.png" alt-text="Diagram of physically separate availability zone locations within an Azure region." border="false":::
 
-To see which regions support availability zones, see [Azure regions with availability zone support](availability-zones-region-support.md).
+To see which regions support availability zones, see [List of Azure regions](regions-list.md).
 
 <a name='zonal-and-zone-redundant-services'></a>
 ## Types of availability zone support
@@ -109,7 +109,7 @@ For more detailed information on how to use regions and availability zones in a 
 
 - [Azure services with availability zones](availability-zones-service-support.md)
 
-- [Azure regions with availability zones](availability-zones-region-support.md)
+- [List of Azure regions](regions-list.md)
 
 - [Availability zone migration guidance](availability-zones-migration-overview.md)
 

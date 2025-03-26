@@ -554,6 +554,11 @@ The following websites are known to work with call redirection, and which work b
 - [`Content Guru Storm App`](https://www.contentguru.com/en-us/news/content-guru-announces-its-storm-ccaas-solution-is-now-compatible-with-microsoft-azure-virtual-desktop/)
 - [`Twilio Flex`](https://www.twilio.com/en-us/blog/public-beta-flex-microsoft-azure-virtual-desktop#join-the-flex-for-azure-virtual-desktop-public-beta)
 - [`8x8`](https://www.8x8.com/)
+- [Dialpad](https://www.dialpad.com/)
+- [Five9](https://www.five9.com/)
+
+> [!TIP]
+> If you represent an ISV and you want your website to be added to this list, see [Submit your website for review or request assistance](multimedia-redirection-developer-integration.md#submit-your-website-for-review-or-request-assistance).
 
 ### Test call redirection
 

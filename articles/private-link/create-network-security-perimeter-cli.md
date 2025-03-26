@@ -21,9 +21,6 @@ Get started with network security perimeter by creating a network security perim
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-  
-[!INCLUDE [network-security-perimeter-add-preview](../../includes/network-security-perimeter-add-preview.md)]
-
 - The [latest Azure CLI](/cli/azure/install-azure-cli), or you can use Azure Cloud Shell in the portal.
   - This article **requires version 2.38.0 or later** of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 - After upgrading to the latest version of Azure CLI, import the network security perimeter commands using `az extension add --name nsp`.

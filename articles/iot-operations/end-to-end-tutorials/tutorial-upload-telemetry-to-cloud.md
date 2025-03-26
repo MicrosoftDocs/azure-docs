@@ -98,7 +98,7 @@ az role assignment create --role "Azure Event Hubs Data Sender" --assignee $PRIN
 
 ## Create a data flow to send telemetry to an event hub
 
-Use the operations experience UI to create and configure a data flow in your cluster that:
+Use the operations experience web UI to create and configure a data flow in your cluster that:
 
 - Renames the `temperature` field in the incoming message to `TemperatureF`.
 - Adds a field called `AssetId` that contains the name of the asset.
@@ -106,7 +106,7 @@ Use the operations experience UI to create and configure a data flow in your clu
 
 To create the data flow:
 
-1. Browse to the operations experience UI and locate your instance. Then select **Data flow endpoints** and select **+ New** in the **Azure Event Hubs** tile:
+1. Browse to the operations experience web UI and locate your instance. Then select **Data flow endpoints** and select **+ New** in the **Azure Event Hubs** tile:
 
     :::image type="content" source="media/tutorial-upload-telemetry-to-cloud/new-event-hubs-endpoint.png" alt-text="Screenshot of the data flow endpoints page.":::
 
