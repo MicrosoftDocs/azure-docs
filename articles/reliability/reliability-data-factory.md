@@ -81,7 +81,7 @@ Zone-redundant Data Factory resources can be deployed in [any region that suppor
 
 **IRs:** Zone redundancy support depends on the type of IR that you use.
 
-- *Azure IR* supports zone redundancy, and Microsoft manages this capability.
+- *An Azure IR* supports zone redundancy, and Microsoft manages this capability.
 
 - *An Azure-SSIS IR* requires you to deploy at least two nodes. These nodes are allocated into different availability zones automatically.
 
@@ -93,7 +93,7 @@ Zone-redundant Data Factory resources can be deployed in [any region that suppor
 
 **IRs:** The cost of zone redundancy varies depending on the type of IR that you use.
 
-- *Azure IR* includes zone redundancy at no extra cost.
+- *An Azure IR* includes zone redundancy at no extra cost.
 
 - *An Azure-SSIS IR* requires you to deploy at least two nodes to achieve zone redundancy. For more information about how each node is billed, see [Pricing example: Run SSIS packages on an Azure-SSIS IR](../data-factory/pricing-examples-ssis-on-azure-ssis-integration-runtime.md#pricing-model-for-azure-ssis-integration-runtime).
 
@@ -105,7 +105,7 @@ Zone-redundant Data Factory resources can be deployed in [any region that suppor
 
 **IRs:**
 
-- *Azure IR:* No configuration required. Azure IR automatically enables zone redundancy.
+- *An Azure IR:* No configuration required. The Azure IR automatically enables zone redundancy.
 
 - *An Azure-SSIS IR:* No configuration required. An Azure-SSIS IR automatically enables zone redundancy when it's deployed with two or more nodes.
 
@@ -117,7 +117,7 @@ Zone-redundant Data Factory resources can be deployed in [any region that suppor
 
 **IRs:** 
 
-- *Azure IR* scales automatically based on demand, and you don't need to plan or manage capacity.
+- *An Azure IR* scales automatically based on demand, and you don't need to plan or manage capacity.
 
 - *An Azure-SSIS IR* requires you to specifically configure the number of nodes that you use. To prepare for availability zone failure, consider over-provisioning the capacity of your IR. Over-provisioning allows the solution to tolerate some degree of capacity loss and still continue to function without degraded performance. For more information, see [Manage capacity by over-provisioning](./concept-redundancy-replication-backup.md#manage-capacity-with-over-provisioning).
 
