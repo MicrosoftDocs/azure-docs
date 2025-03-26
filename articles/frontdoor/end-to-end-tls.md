@@ -1,11 +1,12 @@
 ---
-title: TLS encryption with Azure Front Door
+title: TLS encryption
+titleSuffix: Azure Front Door
 description: Learn about end-to-end TLS encryption, supported TLS versions, and supported cipher suites with Azure Front Door.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 03/18/2025
+ms.date: 03/26/2025
 zone_pivot_groups: front-door-tiers
 ---
 
@@ -109,7 +110,7 @@ For your own custom TLS/SSL certificate:
 
 ## Supported cipher suites
 
-For TLS 1.2/1.3 the following cipher suites are supported:
+For TLS 1.2/1.3, the following cipher suites are supported:
 
 - TLS_AES_256_GCM_SHA384 (TLS 1.3 only)
 - TLS_AES_128_GCM_SHA256 (TLS 1.3 only)
@@ -120,7 +121,7 @@ For TLS 1.2/1.3 the following cipher suites are supported:
 - TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 
 - TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 
-Azure Front Door doesn’t support disabling or configuring specific cipher suites for your profile.
+To configure specific cipher suites for your profile, use TLS policy. Azure Front Door Standard and Premium offer two mechanisms for controlling TLS policy. You can use either a predefined policy or a custom policy per your own needs. For more information, see [Configure TLS policy on a Front Door custom domain](standard-premium/tls-policy-configure.md).
 
 > [!NOTE]
 > For Windows 10 and later versions, we recommend enabling one or both of the ECDHE_GCM cipher suites for better security. Windows 8.1, 8, and 7 aren't compatible with these ECDHE_GCM cipher suites. The ECDHE_CBC and DHE cipher suites have been provided for compatibility with those operating systems. 
@@ -129,6 +130,7 @@ Azure Front Door doesn’t support disabling or configuring specific cipher suit
 
 ::: zone pivot="front-door-standard-premium"
 
+- [Azure Front Door TLS policy](standard-premium/tls-policy.md)
 - [Domains in Azure Front Door](domain.md)
 - [Configure a custom domain on Azure Front Door](standard-premium/how-to-add-custom-domain.md)
 

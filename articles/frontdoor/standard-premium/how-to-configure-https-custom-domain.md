@@ -1,16 +1,17 @@
 ---
-title: 'Configure HTTPS for your custom domain - Azure Front Door'
-description: In this article, you learn how to configure HTTPS on an Azure Front Door custom domain by using the Azure portal.
+title: Configure HTTPS for your custom domain
+titleSuffix: Azure Front Door
+description: In this article, you learn how to configure HTTPS on an Azure Front Door custom domain using the Azure portal.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 04/30/2024
+ms.date: 03/26/2025
 
 #Customer intent: As a website owner, I want to add a custom domain to my Azure Front Door configuration so that my users can use my custom domain to access my content.
 ---
 
-# Configure HTTPS on an Azure Front Door custom domain by using the Azure portal
+# Configure HTTPS on an Azure Front Door custom domain using the Azure portal
 
 Azure Front Door enables secure Transport Layer Security (TLS) delivery to your applications by default when you use your own custom domains. To learn more about custom domains, including how custom domains work with HTTPS, see [Domains in Azure Front Door](../domain.md).
 
@@ -50,7 +51,7 @@ If you have your own domain, and the domain is associated with [another Azure se
 
 1. On the **Add a domain** pane, enter or select the following information. Then select **Add** to onboard the custom domain.
 
-    :::image type="content" source="../media/how-to-configure-https-custom-domain/add-pre-validated-domain.png" alt-text="Screenshot that shows the Add a domain pane with a prevalidated domain.":::
+    :::image type="content" source="../media/pre-validated-custom-domain.png" alt-text="Screenshot that shows the Add a domain pane with a prevalidated domain.":::
 
     | Setting | Value |
     |--|--|
@@ -81,7 +82,7 @@ There are currently two ways to authenticate Azure Front Door to access your Key
 
 #### Register Azure Front Door
 
-Register the service principal for Azure Front Door as an app in your Microsoft Entra ID by using Microsoft Graph PowerShell or the Azure CLI.
+Register the service principal for Azure Front Door as an app in your Microsoft Entra ID using Microsoft Graph PowerShell or the Azure CLI.
 
 > [!NOTE]
 > * This action requires you to have User Access Administrator permissions in Microsoft Entra ID. The registration only needs to be performed *once per Microsoft Entra tenant*.
@@ -99,7 +100,7 @@ Register the service principal for Azure Front Door as an app in your Microsoft 
      New-MgServicePrincipal -AppId '205478c0-bd83-4e1b-a9d6-db63a3e1e1c8'
      ```
 
-    Azure government cloud:
+    Azure Government cloud:
 
     ```azurepowershell-interactive
      New-MgServicePrincipal -AppId 'd4631ece-daab-479b-be77-ccb713491fc0'
@@ -117,7 +118,7 @@ Register the service principal for Azure Front Door as an app in your Microsoft 
     az ad sp create --id 205478c0-bd83-4e1b-a9d6-db63a3e1e1c8
     ```
 
-    Azure government cloud:
+    Azure Government cloud:
 
     ```azurecli-interactive
      az ad sp create --id d4631ece-daab-479b-be77-ccb713491fc0
@@ -184,8 +185,8 @@ You can change a domain between using an Azure Front Door-managed certificate an
 
 1. Select **Update** to change the associated certificate with a domain.
 
-## Next steps
+## Related content
 
-* Learn about [caching with Azure Front Door Standard/Premium](../front-door-caching.md).
-* [Understand custom domains](../domain.md) on Azure Front Door.
-* Learn about [end-to-end TLS with Azure Front Door](../end-to-end-tls.md).
+- Learn about [caching with Azure Front Door Standard/Premium](../front-door-caching.md)
+- [Understand custom domains](../domain.md) on Azure Front Door
+- Learn about [end-to-end TLS with Azure Front Door](../end-to-end-tls.md)

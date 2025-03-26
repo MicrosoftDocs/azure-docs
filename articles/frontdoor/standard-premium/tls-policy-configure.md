@@ -39,7 +39,7 @@ In this article, you learn how to configure TLS policy on a Front Door custom do
 
 1. For **TLS policy**, select the predefined policy from the dropdown list or **Custom** to customize the cipher suites per your needs.
 
-    :::image type="content" source="../media/tls-policy-configure/tls-policy.png" alt-text="Screenshot that shows the TLS policy option in Add a domain page." lightbox="../media/tls-policy-configure/tls-policy.png":::
+    :::image type="content" source="../media/add-domain.png" alt-text="Screenshot that shows the TLS policy option in Add a domain page." lightbox="../media/add-domain.png":::
 
     You can view the supported cipher suites by selecting **View policy details**.
 
