@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: conceptual
-ms.date: 03/24/2025
+ms.date: 03/26/2025
 ms.author: duau
 ms.custom: ai-usage
 ---
@@ -102,43 +102,39 @@ The dashboard provides a detailed overview of all ExpressRoute circuits connecte
 
 ## Frequently asked questions
 
-1.	Can control the gateway validation tests other than the Azure portal?
+1. Can control the gateway validation tests other than the Azure portal?
 
     Yes, you can use REST API to start and stop the Gateway resiliency validation tests.  
 
-2.	What happens if I don't terminate a test?
+1. What happens if I don't terminate a test?
 
     The tests continue to run indefinitely.
 
-3.	What metrics or alerts are available to monitor during the test?
+1. What metrics or alerts are available to monitor during the test?
 
     The purpose of configuring redundant connections is to ensure network resilience during outages. If a single circuit is utilized at more than 50% of its bandwidth, packet drops might occur. During validation tests, the **Test Status** tab helps monitor traffic through the connections. You should expect [alerts](monitor-expressroute.md#alerts) if they're configured, providing an opportunity to validate their effectiveness.
 
     For more information, see [Circuit utilization](monitor-expressroute-reference.md#category-circuit-traffic) or [Connection traffic](monitor-expressroute-reference.md#category-traffic) for metrics you can set up alerts on.
 
-4. Can I control traffic on demand using the gateway resiliency validation tool?
+1. Can I control traffic on demand using the gateway resiliency validation tool?
 
     Yes, the gateway resiliency validation tool allows you to control traffic on demand. This is useful for testing different traffic scenarios and ensuring your network can handle various failovers. It can also be used to validate connectivity after successful site migrations before disconnecting the redundant circuit.
 
-5.	Are there specific Role-Based Access Controls (RBAC) policies for this feature?
+1. Are there specific Role-Based Access Controls (RBAC) policies for this feature?
 
     Yes, there are specific RBAC policies to ensure that only authorized users with contributor access to the gateway can initiate downtime.
 
-6.	When can I run this feature in a Virtual WAN setup or other resiliency models?
-
-    For feedback or other requests, contact the [**ExpressRoute PM**](mailto:exrpm@service.microsoft.com).
-
-7.	Does this feature work with FastPath and Private Link?
+1. Does this feature work with FastPath and Private Link?
 
     For FastPath, although the data path bypasses the gateway, the gateway still manages control plane activities like route management. During a disconnect between the ExpressRoute circuit and the ExpressRoute gateway, routes are withdrawn from the gateway. However, connectivity for the failover connection to FastPath and Private Link is maintained during the failover.
 
-8.	Is packet loss expected during this activity?
+1. Is packet loss expected during this activity?
 
     During the failover simulation, a brief connectivity disruption occurs as BGP (Border Gateway Protocol) reestablishes. Performance tests using iPerf on TCP (Transmission Control Protocol) up to 500 Mbps show no packet loss. However, in a real outage scenario, some packet loss occurs until the traffic successfully fails over.
 
-9.	How long does it take to fail over?
+1. How long does it take to fail over?
 
-    Once the simulation start, it can take up to 15 seconds for the traffic to fail over.
+    Once the simulation starts, it can take up to 15 seconds for the traffic to fail over.
 
 ## Next steps
 
