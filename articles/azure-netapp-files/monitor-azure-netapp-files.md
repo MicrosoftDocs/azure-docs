@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 01/24/2022
+ms.date: 01/24/2024
 ms.author: anfdocs
 ---
 # Ways to monitor Azure NetApp Files
