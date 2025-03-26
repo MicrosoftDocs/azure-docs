@@ -18,7 +18,7 @@ Azure Deployment Environments environment definitions are infrastructure as code
 
 ## What is environment.yaml?
 
-The environment.yaml file describes the resources used and the template location for the environment definition.
+The environment.yaml file acts as a manifest, describing the resources used and the template location for the environment definition.
 
 ### Sample environment.yaml
 
@@ -78,7 +78,7 @@ parameters:
 
 ### Parameter definitions
 
-The following table describes the data types that you can use in environment.yaml. The data type names used in the environment.yaml file differ from the ones used in ARM templates.
+The following table describes the data types that you can use in environment.yaml. The data type names used in the environment.yaml manifest file differ from the ones used in ARM templates.
 
 Each parameter can use any of the following properties:
 
