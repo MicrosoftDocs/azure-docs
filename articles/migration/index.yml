@@ -22,6 +22,10 @@ productDirectory:
       imageSrc: images/postgresql-icon.svg
       summary: "Learn about the migration service in Azure Database for PostgreSQL and how it simplifies the process of moving your PostgreSQL databases to Azure."
       url: /azure/postgresql/migrate/migration-service/overview-migration-service-postgresql
+    - title: Migrate AWS Lambda to Azure Functions
+      url: /azure/azure-functions/migration/lambda-functions-migration-overview
+      summary: "This article provides an overview of how to migrate serverless applications from AWS Lambda to Azure Functions."
+      imageSrc: images/azure.svg
     - title: AKS for EKS Professionals
       imageSrc: images/azure-kubernetes-service.svg
       summary: "Assists Amazon EKS professionals in understanding Azure Kubernetes Service (AKS) through comparisons and migration strategies."
