@@ -1,10 +1,10 @@
 ---
 title: Change an Azure reservation directory
 description: This article helps reservation owners transfer a reservation order from one Microsoft Entra tenant (directory) to another.
-author: bandersmsft
+author: pri-mittal
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.author: banders
+ms.author: primittal
 ms.reviewer: bshy
 ms.topic: troubleshooting
 ms.date: 12/06/2024

@@ -81,7 +81,6 @@ You can use an Azure Resource Group deployment task or an Azure CLI task to depl
     - task: AzureResourceManagerTemplateDeployment@3
       inputs:
         deploymentScope: 'Resource Group'
-        azureSubscription: '${{ parameters.azureServiceConnection }}'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '$(resourceGroupName)'
         location: '$(location)'
@@ -91,6 +90,7 @@ You can use an Azure Resource Group deployment task or an Azure CLI task to depl
         overrideParameters: '-storageAccountType Standard_LRS'
         deploymentMode: 'Incremental'
         deploymentName: 'DeployPipelineTemplate'
+        connectedServiceName: '${{ parameters.azureServiceConnection }}'
     ```
 
 1. Update the values of `azureServiceConnection` and `location`.
