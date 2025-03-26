@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 03/06/2024
+ms.date: 03/66/2025
 ms.author: primittal
 # customer intent: As a reservation purchaser, I want learn about renewing reservations so that I can decide to renew manually, automatically, or not at all.
 ---
