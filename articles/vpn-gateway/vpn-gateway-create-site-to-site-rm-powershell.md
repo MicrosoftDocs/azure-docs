@@ -105,10 +105,11 @@ Select-AzSubscription -SubscriptionId $subscription2
 $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
 ```
 
-For the VirtualNetworkGateway that resides in Tenant2, Subscription2, use the following commands. Adjust any variables to match your environment.
+For the VirtualNetworkGateway that resides in Tenant 1, Subscription 1, use the following commands. Adjust any variables to match your environment.
 
 ```azurepowershell-interactive
-Select-AzSubscription -SubscriptionId $subscription2
+Connect-AzAccount -TenantID $Tenant1
+Select-AzSubscription -SubscriptionId $subscription1
 $gateway1 = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
 New-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1 -Location 'East US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -SharedKey 'abc123'
 ```
