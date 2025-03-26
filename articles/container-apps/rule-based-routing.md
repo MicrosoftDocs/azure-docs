@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, devx-track-bicep
 ms.topic: how-to
-ms.date: 03/20/2025
+ms.date: 03/26/2025
 ms.author: cshoe
 zone_pivot_groups: azure-cli-bicep
 ---
@@ -115,7 +115,7 @@ $ROUTE_CONFIG_NAME="my-route-config"
       --target-port $CONTAINER_APP_2_TARGET_PORT \
       --ingress external \
       --query properties.configuration.ingress.fqdn
-```
+    ```
 
 ## Create HTTP route configuration
 
