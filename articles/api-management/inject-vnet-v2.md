@@ -5,7 +5,7 @@ author: dlepow
 ms.author: danlep
 ms.service: azure-api-management
 ms.topic: how-to 
-ms.date: 11/18/2024
+ms.date: 03/20/2025
 ---
 
 # Inject an Azure API Management instance in a private virtual network - Premium v2 tier
@@ -13,6 +13,9 @@ ms.date: 11/18/2024
 [!INCLUDE [api-management-availability-premiumv2](../../includes/api-management-availability-premiumv2.md)] 
 
 This article guides you through the requirements to inject your Azure API Management Premium v2 (preview) instance in a virtual network. 
+
+> [!NOTE]
+> The Premium v2 tier is currently in limited preview. To sign up, fill [this form](https://aka.ms/premiumv2).
 
 > [!NOTE]
 > To inject a classic Developer or Premium tier instance in a virtual network, the requirements and configuration are different. [Learn more](virtual-network-injection-resources.md).
@@ -54,7 +57,7 @@ If you want to enable *public* inbound access to an API Management instance in t
 
 ### Network security group
 
-A network security group must be associated with the subnet.
+A network security group must be associated with the subnet. No specific rules are required. To set up a network security group, see [Create a network security group](../virtual-network/manage-network-security-group.md).
 
 ### Subnet delegation
 

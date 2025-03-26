@@ -7,7 +7,11 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
 ms.date: 02/07/2025
-ms.custom: vmware-scenario-422, engagement-fy24
+ms.custom:
+  - vmware-scenario-422
+  - engagement-fy24
+  - migration
+  - aws-to-azure
 ---
 
 # Support matrix for VMware discovery

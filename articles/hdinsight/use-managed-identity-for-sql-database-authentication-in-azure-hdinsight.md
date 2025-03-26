@@ -3,6 +3,9 @@ title: Use Managed Identity for SQL Database authentication in Azure HDInsight
 description: Learn how to use managed identity for SQL Database authentication in Azure HDInsight. 
 ms.service: azure-hdinsight 
 ms.topic: how-to 
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 01/09/2025 
 ---
 

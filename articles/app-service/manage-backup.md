@@ -329,6 +329,8 @@ The following table shows which app configurations are restored when you choose 
 
 A custom backup (on-demand backup or scheduled backup) includes all content and configuration that's included in an [automatic backup](#whats-included-in-an-automatic-backup), plus any linked database, up to the allowable maximum size.
 
+Each backup contains a .zip file with backup data and an .xml file {siteName}-{dateTime}.xml, which lists the contents, including [custom domains](app-service-web-tutorial-custom-domain.md). When restoring a custom backup, custom domains from the .xml file will be added to the destination app if no DNS conflict exists (i.e., the domain is available for binding), and if the destination app has different custom domains than the .xml file's custom domain list, those custom domains will be removed.
+
 When [backing up over Azure Virtual Network](#back-up-and-restore-over-azure-virtual-network), you can't [back up the linked database](#back-up-and-restore-a-linked-database).
 
 ### Why is my linked database not backed up?

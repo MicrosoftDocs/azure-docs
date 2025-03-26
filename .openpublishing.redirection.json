@@ -1,6 +1,51 @@
 {
   "redirections": [
     {
+      "source_path": "articles/cdn/edgio-retirement-faq.md",
+      "redirect_url": "/previous-versions/azure/cdn/edgio-retirement-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-edge-performance.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-edge-performance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/migrate-cdn-to-front-door-retain-edge-domain.md",
+      "redirect_url": "/previous-versions/azure/cdn/migrate-cdn-to-front-door-retain-edge-domain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-peering/howto-subscription-association-powershell.md",
+      "redirect_url": "/previous-versions/azure/internet-peering/howto-subscription-association-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-peering/howto-peering-service-powershell.md",
+      "redirect_url": "/previous-versions/azure/internet-peering/howto-peering-service-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-peering/howto-direct-powershell.md",
+      "redirect_url": "/previous-versions/azure/internet-peering/howto-direct-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-peering/howto-legacy-direct-powershell.md",
+      "redirect_url": "/previous-versions/azure/internet-peering/howto-legacy-direct-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-peering/howto-exchange-powershell.md",
+      "redirect_url": "/previous-versions/azure/internet-peering/howto-exchange-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-peering/howto-legacy-exchange-powershell.md",
+      "redirect_url": "/previous-versions/azure/internet-peering/howto-legacy-exchange-powershell",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/databox-online/azure-stack-edge-overview.md",
       "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-overview",
       "redirect_document_id": false
@@ -2820,6 +2865,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/bastion/quickstart-developer-sku.md",
+      "redirect_url": "/azure/bastion/quickstart-developer",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/bastion/bastion-connect-vm-rdp.md",
       "redirect_url": "/azure/bastion/bastion-connect-vm-rdp-windows",
       "redirect_document_id": false
@@ -3357,6 +3407,16 @@
     {
       "source_path_from_root": "/articles/databox/data-box-next-gen-quickstart-export.md",
       "redirect_url": "/azure/databox/data-box-quickstart-export?pivots=dbx-ng",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox/data-box-next-gen-safety.md",
+      "redirect_url": "/azure/databox/data-box-safety?pivots=dbx-ng",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox/data-box-next-gen-security.md",
+      "redirect_url": "/azure/databox/data-box-security?pivots=dbx-ng",
       "redirect_document_id": false
     },
     {
@@ -6288,6 +6348,16 @@
       "source_path_from_root": "/articles/virtual-network/virtual-network-for-azure-services.md",
       "redirect_url": "/azure/virtual-network/vnet-integration-for-azure-services",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/reliability/availability-zones-region-support.md",
+      "redirect_url": "/azure/reliability/regions-list",
+      "redirect_document_id": false
+    },
+    {  
+      "source_path_from_root": "/articles/cyclecloud/how-to/ccws/cleanup-roles.md",
+      "redirect_url": "/azure/cyclecloud/how-to/ccws/deploy-with-cli",
+      "redirect_document_id": false      
     },
     {
       "source_path": "articles/cloud-services/applications-dont-support-tls-1-2.md",

@@ -84,7 +84,7 @@ You can install AzCopy by using a Linux package that is hosted on the [Linux Sof
    ```
 
 
-### [zypper (OpenSUSE, SLES)](#tab/zypper)
+### [zypper (openSUSE, SLES)](#tab/zypper)
 
 1. Download the repository configuration package.
 

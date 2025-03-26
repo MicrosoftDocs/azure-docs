@@ -4,8 +4,8 @@ metadata:
   title: Transfer Azure subscriptions between subscribers and Cloud Solution Providers
   description: Learn how you can transfer Azure subscriptions between subscribers and Cloud Solution Providers (CSPs).
   author: bandersmsft
-  ms.author: banders
-  ms.reviewer: sgautam
+  ms.author: presharm
+  ms.reviewer: presharm
   ms.date: 01/22/2025
   ms.service: cost-management-billing
   ms.subservice: billing
