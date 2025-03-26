@@ -9,7 +9,7 @@ ms.author: cherylmc
 ---
 # Working with VPN Gateway legacy SKUs
 
-This article contains information about the legacy (old) virtual network gateway SKUs. The legacy SKUs still work in both deployment models for VPN gateways that have already been created. Classic VPN gateways continue to use the legacy SKUs, both for existing gateways, and for new gateways. When creating new Resource Manager VPN gateways, use the new gateway SKUs. For information about the new SKUs, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
+This article contains information about the legacy (old) virtual network gateway SKUs. The legacy SKUs still work in both deployment models for existing VPN gateways. Classic VPN gateways continue to use the legacy SKUs, both for existing gateways, and for new gateways. When creating new Resource Manager VPN gateways, use the new gateway SKUs. For information about the new SKUs, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
 
 ## <a name="gwsku"></a>Legacy gateway SKUs
 
@@ -29,8 +29,8 @@ The UltraPerformance gateway SKU isn't represented in this table. For informatio
 
 |  | **VPN Gateway throughput (1)** | **VPN Gateway max IPsec tunnels (2)** | **ExpressRoute Gateway throughput** | **VPN Gateway and ExpressRoute coexist** |
 | --- | --- | --- | --- | --- |
-| **Standard SKU (3)(4)** |100 Mbps |10 |1000 Mbps |Yes |
-| **High Performance SKU (3)** |200 Mbps |30 |2000 Mbps |Yes |
+| **Standard SKU (3)(4)** |100 Mbps |10 |1,000 Mbps |Yes |
+| **High Performance SKU (3)** |200 Mbps |30 |2,000 Mbps |Yes |
 
 (1) The VPN throughput is a rough estimate based on the measurements between VNets in the same Azure region. It isn't a guaranteed throughput for cross-premises connections across the Internet. It's the maximum possible throughput measurement.
 
@@ -75,7 +75,7 @@ A gateway SKU migration process is similar to a resize. It requires fewer steps 
 
 ### <a name="change"></a>Change to the new gateway SKUs
 
-Standard and High Performance SKUs will be deprecated September 30, 2025. The product team will make a migration path available for legacy SKUs. See the [Legacy SKU deprecation](#sku-deprecation) section for more information. You can choose to change from a legacy SKU to one of the new SKUs at any point. However, changing to a new SKU requires more steps than migrating and incurs more downtime.
+Standard and High Performance SKUs will be deprecated September 30, 2025. The product team will make a migration path available for legacy SKUs. For more information, See the [Legacy SKU deprecation](#sku-deprecation) section. You can choose to change from a legacy SKU to one of the new SKUs at any point. However, changing to a new SKU requires more steps than migrating and incurs downtime.
 
 [!INCLUDE [Change to the new SKUs](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
@@ -96,7 +96,7 @@ There are no [price](https://azure.microsoft.com/pricing/details/vpn-gateway/) c
 * **Standard SKU:** 6.5x
 * **High Performance SKU:** 5x
 
-Following this, your gateway will be automatically migrated and upgraded to an AZ gateway SKU:
+As next steps, your gateway will be automatically migrated and upgraded to an AZ gateway SKU:
 
 * **Standard SKU:** -> **VpnGw1AZ**
 * **High Performance SKU:** -> **VpnGw2AZ**
