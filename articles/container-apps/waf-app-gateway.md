@@ -5,7 +5,7 @@ services: container-apps
 author: cachai2
 ms.service: azure-container-apps
 ms.topic:  how-to
-ms.date: 03/06/2025
+ms.date: 03/26/2025
 ms.author: cachai
 ---
 
@@ -50,9 +50,11 @@ Use the following steps to retrieve the values of the **default domain** and the
 
 To create and configure an Azure Private DNS zone, perform the following steps:
 
-1. On the Azure portal menu or the *Home* page, select **Create a resource**.
+1. Go to the Azure portal.
 
-1. Search for *Private DNS Zone*, and select **Private DNS Zone** from the search results.
+1. In the search bar, enter **Private DNS Zone**.
+
+1. Select **Private DNS Zone** from the search results.
 
 1. Select the **Create** button.
 
@@ -114,8 +116,11 @@ To create and configure an Azure Private DNS zone, perform the following steps:
 
 To create and configure an Azure Application Gateway, perform the following steps:
 
-1. On the Azure portal menu or the *Home* page, select **Create a resource**.
-1. Search for *Application Gateway*, and select **Application Gateway** from the search results.
+1. Go to the Azure portal.
+
+1. In the search bar, enter **Application Gateway**.
+
+1. Select **Application Gateway** from the search results.
 
 Now, enter the required details under the *Basics* tab, *Frontends* tab, *Backends* tab, and *Configuration* tab.
 
