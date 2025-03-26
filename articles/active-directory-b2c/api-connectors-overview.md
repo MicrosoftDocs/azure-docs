@@ -165,7 +165,7 @@ A null value in a database is used when the value in a column is unknown or miss
 When an element is null, either:
 
 - Omit the key-value pair from the JSON.
-- Return a value that corresponds to the Azure AD B2C claim data type. For example, for a `string` data type, return empty string `""`. For an `integer` data type, return a zero value `0`. For a `dateTime`  data type, return a minimum value `1970-00-00T00:00:00.0000000Z`.
+- Return a value that corresponds to the Azure AD B2C claim data type. For example, for a `string` data type, return empty string `""`. For an `integer` data type, return a zero value `0`. For a `dateTime`  data type, return a minimum value `0001-01-01T00:00:00.0000000Z`.
 
 The following example demonstrates how to handle a null value. The email is omitted from the JSON:
 
