@@ -7,7 +7,6 @@ ms.topic: how-to
 ms.date: 03/30/2022
 author: gillharmeet
 ms.author: harmeetgill
-
 ---
 
 # Move an Azure Synapse Analytics workspace from one region to another
