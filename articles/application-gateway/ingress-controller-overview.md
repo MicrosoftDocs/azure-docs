@@ -74,11 +74,9 @@ With Azure CNI Overlay, please consider the following limitations:
 * Subnet Size: The Application Gateway subnet must be a maximum /24 prefix; only one deployment is supported per subnet.
 * Regional VNet Peering: Application Gateway deployed in a virtual network in region A and the AKS cluster nodes in a virtual network in region A is not supported.
 * Global VNet Peering: Application Gateway deployed in a virtual network in region A and the AKS cluster nodes in a virtual network in region B is not supported.
+* Azure CNI Overlay with Application Gateway Ingress Controller is not supported in Azure Government cloud or Microsoft Azure operated by 21Vianet (Azure in China).
 
-Migration from Kubenet or CNI to Azure CNI Overlay is supported, however it is important to plan your migration to ensure successful migration.
-
->[!NOTE]
-> Azure CNI Overlay with Application Gateway Ingress Controller is not supported in Azure Government cloud or Microsoft Azure operated by 21Vianet (Azure in China).
+Migration from Kubenet or CNI to Azure CNI Overlay is supported, however it is important to plan your migration to ensure successful migration. It's recommended to schedule the upgrade during a maintenance window because it can take a few minutes post-cluster upgrade to detect and configure support for CNI Overlay.
 
 >[!WARNING]
 > Ensure the Application Gateway subnet is a /24 or smaller subnet prior to upgrading. Upgrading from CNI to CNI Overlay with a larger subnet (i.e. /23) will lead to an outage and require the Application Gateway subnet to be recreated with a supported subnet size.
