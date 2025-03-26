@@ -75,6 +75,36 @@ In this how-to article, you'll learn how to create a storage task using Terrafor
 
 [!INCLUDE [terraform-apply-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-apply-plan.md)]
 
+## Verify the results
+
+#### [Azure PowerShell](#tab/azure-powershell)
+
+1. Get the Azure resource group name.
+
+    ```console
+    $resource_group_name=$(terraform output -raw resource_group_name)
+    ```
+
+1. Get the storage task name.
+
+    ```console
+    $storage_task_name=$(terraform output -raw storage_task_name)
+    ```
+
+1. Ensure that the `ARM_SUBSCRIPTION_ID` environment variable is set to the Azure subscription IDl
+
+    ```azurepowershell
+    $env:ARM_SUBSCRIPTION_ID = <your_subscription_id>
+    ```
+
+1. Run [Get-AzStorageActionTask](/powershell/module/az.storageaction/get-azstorageactiontask) to get the storage task properties.
+
+    ```azurepowershell
+    Get-AzStorageActionTask -Name $storage_task_name -ResourceGroupName $resource_group_name
+    ```
+
+---
+
 ## Clean up resources
 
 [!INCLUDE [terraform-plan-destroy.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan-destroy.md)]
@@ -82,7 +112,6 @@ In this how-to article, you'll learn how to create a storage task using Terrafor
 ## Troubleshoot Terraform on Azure
 
 [Troubleshoot common problems when using Terraform on Azure](/azure/developer/terraform/troubleshoot).
-
 
 ## Next steps
 
