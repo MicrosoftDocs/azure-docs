@@ -1,7 +1,7 @@
 ---
 title: Programmatically create Azure subscriptions for a Microsoft Partner Agreement with the latest APIs
 description: Learn how to create Azure subscriptions for a Microsoft Partner Agreement programmatically using the latest versions of REST API, Azure CLI, Azure PowerShell, and Azure Resource Manager templates.
-author: bandersmsft
+author: PreetiSGit
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
