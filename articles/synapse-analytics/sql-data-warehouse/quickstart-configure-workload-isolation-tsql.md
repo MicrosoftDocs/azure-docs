@@ -1,6 +1,7 @@
 ---
 title: "Quickstart: Configure workload isolation - T-SQL"
-description: Use T-SQL to configure workload author: ajagadish-24
+description: "Use T-SQL to configure workload"
+author: ajagadish-24
 ms.author: ajagadish
 ms.date: 04/27/2020
 ms.service: azure-synapse-analytics
