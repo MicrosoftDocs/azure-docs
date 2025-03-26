@@ -26,7 +26,7 @@ To append an API to an existing API:
 
     :::image type="content" source="./media/api-management-append-apis/service-page-1.png" alt-text="Screenshot that shows the API Management services page." lightbox="./media/api-management-append-apis/service-page-1.png":::
 
-1. Select **APIs** on the **Overview** page or in the menu on the left.
+1. Select **APIs** on the **Overview** page or select **APIs** > **APIs** in the menu on the left.
 
     :::image type="content" source="./media/api-management-append-apis/api-select-1.png" alt-text="Screenshot that shows the APIs selection on the Overview page." lightbox="./media/api-management-append-apis/api-select-1.png":::
 
@@ -36,6 +36,4 @@ To append an API to an existing API:
 
     :::image type="content" source="./media/api-management-append-apis/append-02.png" alt-text="Screenshot that shows the Import command." lightbox="./media/api-management-append-apis/append-02.png":::
 
-1. Select a service from which to import an API:
-
-    :::image type="content" source="./media/api-management-append-apis/select-to-import.png" alt-text="Screenshot that shows services from which to import an API.":::
+1. Select a service from which to import an API.

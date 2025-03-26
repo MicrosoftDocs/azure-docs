@@ -46,10 +46,10 @@ In this article, you learn how to:
 
     :::image type="content" source="./media/restify-soap-api/soap-to-rest.png" alt-text="Screenshot that shows the SOAP to REST option." lightbox="./media/restify-soap-api/soap-to-rest.png":::
 
-1. The **Display name** and **Name** boxes are filled automatically with information from the SOAP API. Select **Create**.
+1. The **Display name** and **Name** boxes are filled automatically with information from the SOAP API. 
    
    **Display name**, **URL**, and **Description** information is automatically entered for operations. Operations also receive a system-generated **Name**.
-1. Enter other API settings. You can set the values when you create the API or configure them later by going to the **Settings** tab. 
+1. Enter other API settings, and then select **Create**. You can also configure these values later by going to the **Settings** tab. 
 
     For more information about API settings, see [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api).
 
