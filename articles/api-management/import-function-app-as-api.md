@@ -53,9 +53,9 @@ To create a new API from an Azure function app:
 
     :::image type="content" source="./media/import-function-app-as-api/add-02.png" alt-text="Screenshot that highlights the Browse button." lightbox="./media/import-function-app-as-api/add-02.png":::
 
-1. Select the **Function App** section to choose from the list of available function apps:
+1. Click the **Select** button under **Configure requred settings** to choose from the list of available function apps:
 
-    :::image type="content" source="./media/import-function-app-as-api/add-03.png" alt-text="Screenshot that shows the Function App section." lightbox="./media/import-function-app-as-api/add-03.png":::
+    :::image type="content" source="./media/import-function-app-as-api/add-03.png" alt-text="Screenshot that shows the Select button." lightbox="./media/import-function-app-as-api/add-03.png":::
 
 1. Find the function app that you want to import functions from, select it, and then click **Select**:
 
