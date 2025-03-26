@@ -7,7 +7,7 @@ ms.date: 01/07/2025
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: jojo
+ms.reviewer: jojoh
 ms.custom: devx-track-arm-template, devx-track-azurepowershell
 ---
 

@@ -2,13 +2,13 @@
 title: Understand Cost Management data
 titleSuffix: Microsoft Cost Management
 description: This article helps you better understand data included in Cost Management. It also explains how frequently data is processed, collected, shown, and closed.
-author: bandersmsft
-ms.author: banders
+author: shasulin
+ms.author: shasulin
 ms.date: 02/10/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: micflan
+ms.reviewer: shasulin
 ---
 
 # Understand Cost Management data
