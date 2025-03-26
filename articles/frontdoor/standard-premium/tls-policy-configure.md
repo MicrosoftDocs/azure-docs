@@ -49,8 +49,8 @@ In this article, you learn how to configure TLS policy on a Front Door custom do
 
     :::image type="content" source="../media/tls-policy-configure/tls-policy-customize.png" alt-text="Screenshot that shows how to customize your TLS policy." lightbox="../media/tls-policy-configure/tls-policy-customize.png":::
 
-> [!NOTE]
-> You can reuse the custom TLS policy setting from other domains in the portal by selecting the domain in **Reuse setting from other domain**. 
+    > [!NOTE]
+    > You can reuse the custom TLS policy setting from other domains in the portal by selecting the domain in **Reuse setting from other domain**. 
 
 ## Verify TLS policy configurations
 
