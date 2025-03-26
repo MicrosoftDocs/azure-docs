@@ -37,7 +37,7 @@ Decription: The **External Enabled** setting controls the public sharing of snap
 
 Default: enabled. Toggle off to restrict public sharing of snapshots.
 
-## Viewers Can Edit
+### Viewers Can Edit
 
 Decription: The **Viewers Can Edit** setting enables users with the Grafana Viewer role to edit dashboards without saving changes permanently. This feature is designed to enable Grafana Viewers to run tests and interact with dashboards without making permanent changes. With this setting enabled, Grafana Viewers can:
 
@@ -46,19 +46,19 @@ Decription: The **Viewers Can Edit** setting enables users with the Grafana View
 
 Default: disabled. Toggle on to enable this setting.
 
-## Editors Can Admin (Preview)
+### Editors Can Admin (Preview)
 
 Decription: The **Editors Can Admin (Preview)** setting enables users with the Grafana Editor role to administrate dashboards, folders and teams they create.
 
 Default: disabled. Toggle on the switch to enable this setting.
 
-## CSRF Always Check
+### CSRF Always Check
 
 Description: The **CSRF Always Check** setting enhances security by rejecting requests that have an origin header that does not match the origin of the Grafana instance. This setting helps to prevent Cross-Site Request Forgery (CSRF) attacks. 
 
 Default: disabled. Toggle the switch to enable or disable this setting based on your security requirements.
 
-## Capture Enabled (Preview)
+### Capture Enabled (Preview)
 
 Description: The **Capture Enabled (Preview)** setting enables Grafana to take screenshots of dashboards or panels and include them in alert notifications. This option requires a remote HTTP image rendering service. Refer to [rendering](https://github.com/grafana/grafana-image-renderer) for further configuration options.
 
