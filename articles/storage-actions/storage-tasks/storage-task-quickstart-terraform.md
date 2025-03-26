@@ -91,12 +91,6 @@ In this how-to article, you'll learn how to create a storage task using Terrafor
     $storage_task_name=$(terraform output -raw storage_task_name)
     ```
 
-1. Ensure that the `ARM_SUBSCRIPTION_ID` environment variable is set to the Azure subscription IDl
-
-    ```azurepowershell
-    $env:ARM_SUBSCRIPTION_ID = <your_subscription_id>
-    ```
-
 1. Run [Get-AzStorageActionTask](/powershell/module/az.storageaction/get-azstorageactiontask) to get the storage task properties.
 
     ```azurepowershell
