@@ -33,7 +33,7 @@ In an *edge-based IoT solution*, your IoT assets connect to an edge environment 
 
 In a *hybrid IoT solution*, you combine cloud-based and edge-based components to meet your specific requirements. For example: 
 
-- To follow Microsoft's [adaptive cloud approach](#adaptive-cloud-approach) to integrate cloud and edge components, use Azure IoT Operations.
+- To follow Microsoft's [adaptive cloud approach](#choose-adaptive-cloud) to integrate cloud and edge components, use Azure IoT Operations.
 - To manage some devices connected directly to the cloud and others on the edge, use IoT Hub and IoT Edge.
 
 ## Choose adaptive cloud
@@ -86,6 +86,6 @@ The following table summarizes current security options:
 
 For a hands-on experience, try one of the quickstarts:
 
-- [Manage your devices and workloads with Azure Iot Operations](../iot-operations/get-started-end-to-end-sample/quickstart-deploy)
+- [Manage your devices and workloads with Azure Iot Operations](../iot-operations/get-started-end-to-end-sample/quickstart-deploy.md)
 - [Create an Azure IoT Central application](../iot-central/core/quick-deploy-iot-central.md)
 - [Send telemetry from a device to an IoT hub](../iot-hub/quickstart-send-telemetry-cli.md)

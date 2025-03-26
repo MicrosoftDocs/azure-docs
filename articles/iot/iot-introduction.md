@@ -159,7 +159,7 @@ Both cloud-based and edge-based solutions can use other cloud services to provid
 To learn more about IoT services and deployment comparisons, see:
 
 - [IoT services comparisons](iot-services-and-technologies.md#iot-services-comparisons)
-- [Deployment comparisons](iot-services-and-technologies.md#deployment-comparisons).
+- [Deployment comparisons](iot-services-and-technologies.md#deployment-comparisons)
 
 ## Solution-wide concerns
 
