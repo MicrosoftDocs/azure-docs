@@ -91,7 +91,7 @@ Some Azure services are *nonregional*, which means that you don't deploy the ser
 | [Azure Virtual Network](../virtual-network/virtual-networks-overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#virtual-networks-and-availability-zones) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: | |
 | [Azure Virtual WAN](../virtual-wan/virtual-wan-faq.md#how-are-availability-zones-and-resiliency-handled-in-virtual-wan) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: | |
 | [Azure VMware Solution](../azure-vmware/architecture-private-clouds.md) | | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: |
-| [SQL Server on Azure Virtual Machines](/azure/azure-sql/database/high-availability-sla) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: | |
+| [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview) | | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: |
 
 
 ## Next steps
