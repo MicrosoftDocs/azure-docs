@@ -28,9 +28,9 @@ Some Azure services are *nonregional*, which means that you don't deploy the ser
 
 | **Product**   | **Zone-redundant**  | **Zonal** | 
 | --- | --- |---|
-| [Azure AI Search](/azure/search/search-reliability#availability-zones) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: | |
-| [Azure API Center](../api-center/overview.md)|:::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: | |
-| [Azure API Management](migrate-api-mgt.md) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: |
+| [Azure AI Search](/azure/search/search-reliability#availability-zones) | :::image type="icon" source="media/icon-checkmark.svg"  border="false"::: | |
+| [Azure API Center](../api-center/overview.md)|:::image type="icon" source="media/icon-checkmark.svg"  | |
+| [Azure API Management](migrate-api-mgt.md) | :::image type="icon" source="media/icon-checkmark.svg"  | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: |
 | [Azure App Configuration](../azure-app-configuration/faq.yml#how-does-app-configuration-ensure-high-data-availability) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: | |
 | [Azure App Service](./reliability-app-service.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: | |
 | [Azure App Service: App Service Environment](./reliability-app-service.md#availability-zone-support) | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: | :::image type="content" source="media/icon-checkmark.svg" alt-text="Icon that is a checkmark, indicating yes." border="false"::: |
