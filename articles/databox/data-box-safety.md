@@ -6,7 +6,7 @@ author: stevenmatthew
 
 ms.service: azure-databox
 ms.topic: conceptual
-ms.date: 03/11/2025
+ms.date: 03/25/2025
 ms.author: shaas
 zone_pivot_groups: data-box-sku
 ---
@@ -61,6 +61,10 @@ Hazard symbols identified in the manual are:
 * When using an equipment rack, the rack might tip over causing serious personal injury. Verify the equipment rack is anchored to the floor and/or bayed to its adjacent equipment racks before installing, extending, or removing equipment. Failure to do so could allow the rack system to tip over leading to death, injury, or damage. 
 * When installed into an equipment rack, don't extend more than one equipment (for example, storage or server) from the rack at one time to prevent the equipment rack from becoming dangerously unstable.
 
+:::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-next-gen-safety/icon-heavy-weight-hazard.png" border="false":::**WARNING:**
+* A fully configured enclosure can weigh up to 50 lbs (22.7 kg); don't try to lift it by yourself. Be aware that any attempts to lift this weight can cause severe injuries. 
+* Conform to local occupational health and safety requirements when moving and lifting this equipment. Use mechanical assistance or other suitable assistance when moving and lifting equipment.
+
 :::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-next-gen-safety/icon-overload-tip-hazard.jpg" border="false"::::::image type="icon" source="media/data-box-next-gen-safety/icon-safety-tip-hazard.png" border="false"::: **WARNING:**
 * This equipment isn't to be used as shelves or work spaces. Don't place objects on top of the equipment. Adding any type of load to a rack or wall mounted equipment can create a potential tip or crush hazard which could lead to injury, death, or product damage. 
 
@@ -114,10 +118,6 @@ Hazard symbols identified in the manual are:
 :::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-next-gen-safety/icon-safety-electric-shock.png" border="false"::::::image type="icon" source="media/data-box-next-gen-safety/icon-rotating-fan-blade.png" border="false":::**WARNING:**
 * To reduce the risk of electrical shock, injury from moving parts, damage, or loss of data, always make sure to disconnect the equipment from the AC electrical source when working inside the equipment. Powering down the system doesn’t ensure there’s no electrical activity inside the equipment.
 
-:::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-next-gen-safety/icon-heavy-weight-hazard.png" border="false":::**WARNING:**
-* A fully configured enclosure can weigh up to 50 lbs (22.7 kg); don't try to lift it by yourself. Be aware that any attempts to lift this weight can cause severe injuries. 
-* Conform to local occupational health and safety requirements when moving and lifting this equipment. Use mechanical assistance or other suitable assistance when moving and lifting equipment.
-
 ## Electrostatic precautions
 
 :::image type="icon" source="media/data-box-next-gen-safety/icon-notice-sml.png" border="false":::**NOTICE:**
@@ -161,7 +161,7 @@ Cet appareil numérique de la classe A est conforme à la norme NMB-003 du Canad
 
 Le présent appareil est conforme aux CNR d'Industrie Canada applicables aux appareils radio exempts de licence. L'exploitation est autorisée aux deux conditions suivantes: (1) l'appareil ne doit pas produire de brouillage, et (2) l'utilisateur de l'appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d'en compromettre le fonctionnement.
 
-CAN ICES-3(A)/NMB-3(A)
+CAN ICES(A)/NMB(A)
 
 Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA.
 
@@ -179,7 +179,9 @@ Disposal of Waste Batteries and Electrical & Electronic Equipment:
 
 :::image type="icon" source="media/data-box-next-gen-safety/icon-ewaste-disposal.jpg" border="false"::: This symbol on the product or its batteries or its packaging means that this product and any batteries it contains must not be disposed of with your household waste. Instead, it is your responsibility to hand it over to an applicable collection point for the recycling of batteries and electrical and electronic equipment. This separate collection and recycling will help to conserve natural resources and prevent potential negative consequences for human health and the environment due to the possible presence of hazardous substances in batteries and electrical and electronic equipment, which could be caused by inappropriate disposal. For more information about where to drop off your batteries and electrical and electronic waste, please contact your local city/municipality office, your household waste disposal service, or the shop where you purchased this product. Contact erecycle@microsoft.com for additional information on WEEE. 
 
-This product might contain Lithium-Ion and/or Lithium Metal battery(ies).
+:::image type="icon" source="media/data-box-safety/ce-logo.png" border="false":::
+
+This product might contain Lithium-Ion and/or Lithium Metal battery(ies). The batteries contained in this product comply with regulatory requirements of EU REGULATION (EU) 2023/1542 as applicable.
 
 Microsoft Ireland Sandyford Ind Est Dublin D18 KX32 IRL
 
