@@ -50,7 +50,7 @@ The content is organized by platform, starting with your source platform. Within
 We recommend starting your learning journey based on your source platform:
 
 > [!div class="nextstepaction"]
-> [Migrate a workload from Amazon Web Services (AWS)](./migrate-from-aws.md)
+> [Migrate a workload from Amazon Web Services (AWS)](./migrate-from-aws.yml)
 
 
 > [!div class="nextstepaction"]
