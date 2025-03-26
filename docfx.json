@@ -1067,7 +1067,7 @@
       },
       "ms.reviewer": {
         "articles/advisor/*.md": "ikhapova",
-        "articles/healthcare-apis/*.md": "leeclontz"
+        "articles/healthcare-apis/*.md": "leeclontz",
         "articles/application-gateway/**/*.yml": "cherylmc, abell",
         "articles/automanage/**/*.yml": "jacobjaygbay",
         "articles/avere-vfxt/**/*.yml": "cherylmc, abell",
