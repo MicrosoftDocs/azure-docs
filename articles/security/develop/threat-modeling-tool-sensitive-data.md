@@ -11,26 +11,26 @@ ms.author: jegeib
 ms.custom: devx-track-csharp
 ---
 
-# Security Frame: Sensitive Data | Mitigations 
+# Security Frame: Sensitive Data | Mitigations
 | Product/Service | Article |
 | --------------- | ------- |
-| **Machine Trust Boundary** | <ul><li>[Ensure that binaries are obfuscated if they contain sensitive information](#binaries-info)</li><li>[Consider using Encrypted File System (EFS) is used to protect confidential user-specific data](#efs-user)</li><li>[Ensure that sensitive data stored by the application on the file system is encrypted](#filesystem)</li></ul> | 
-| **Web Application** | <ul><li>[Ensure that sensitive content is not cached on the browser](#cache-browser)</li><li>[Encrypt sections of Web App's configuration files that contain sensitive data](#encrypt-data)</li><li>[Explicitly disable the autocomplete HTML attribute in sensitive forms and inputs](#autocomplete-input)</li><li>[Ensure that sensitive data displayed on the user screen is masked](#data-mask)</li></ul> | 
-| **Database** | <ul><li>[Implement dynamic data masking to limit sensitive data exposure non privileged users](#dynamic-users)</li><li>[Ensure that passwords are stored in salted hash format](#salted-hash)</li><li>[Ensure that sensitive data in database columns is encrypted](#db-encrypted)</li><li>[Ensure that database-level encryption (TDE) is enabled](#tde-enabled)</li><li>[Ensure that database backups are encrypted](#backup)</li></ul> | 
-| **Web API** | <ul><li>[Ensure that sensitive data relevant to Web API is not stored in browser's storage](#api-browser)</li></ul> | 
-| Azure Document DB | <ul><li>[Encrypt sensitive data stored in Azure Cosmos DB](#encrypt-docdb)</li></ul> | 
-| **Azure IaaS VM Trust Boundary** | <ul><li>[Use Azure Disk Encryption to encrypt disks used by Virtual Machines](#disk-vm)</li></ul> | 
-| **Service Fabric Trust Boundary** | <ul><li>[Encrypt secrets in Service Fabric applications](#fabric-apps)</li></ul> | 
-| **Dynamics CRM** | <ul><li>[Perform security modeling and use Business Units/Teams where required](#modeling-teams)</li><li>[Minimize access to share feature on critical entities](#entities)</li><li>[Train users on the risks associated with the Dynamics CRM Share feature and good security practices](#good-practices)</li><li>[Include a development standards rule proscribing showing config details in exception management](#exception-mgmt)</li></ul> | 
-| **Azure Storage** | <ul><li>[Use Azure Storage Service Encryption (SSE) for Data at Rest (Preview)](#sse-preview)</li><li>[Use Client-Side Encryption to store sensitive data in Azure Storage](#client-storage)</li></ul> | 
-| **Mobile Client** | <ul><li>[Encrypt sensitive or PII data written to phones local storage](#pii-phones)</li><li>[Obfuscate generated binaries before distributing to end users](#binaries-end)</li></ul> | 
-| **WCF** | <ul><li>[Set clientCredentialType to Certificate or Windows](#cert)</li><li>[WCF-Security Mode is not enabled](#security)</li></ul> | 
+| **Machine Trust Boundary** | <ul><li>[Ensure that binaries are obfuscated if they contain sensitive information](#binaries-info)</li><li>[Consider using Encrypted File System (EFS) is used to protect confidential user-specific data](#efs-user)</li><li>[Ensure that sensitive data stored by the application on the file system is encrypted](#filesystem)</li></ul> |
+| **Web Application** | <ul><li>[Ensure that sensitive content is not cached on the browser](#cache-browser)</li><li>[Encrypt sections of Web App's configuration files that contain sensitive data](#encrypt-data)</li><li>[Explicitly disable the autocomplete HTML attribute in sensitive forms and inputs](#autocomplete-input)</li><li>[Ensure that sensitive data displayed on the user screen is masked](#data-mask)</li></ul> |
+| **Database** | <ul><li>[Implement dynamic data masking to limit sensitive data exposure non privileged users](#dynamic-users)</li><li>[Ensure that passwords are stored in salted hash format](#salted-hash)</li><li>[Ensure that sensitive data in database columns is encrypted](#db-encrypted)</li><li>[Ensure that database-level encryption (TDE) is enabled](#tde-enabled)</li><li>[Ensure that database backups are encrypted](#backup)</li></ul> |
+| **Web API** | <ul><li>[Ensure that sensitive data relevant to Web API is not stored in browser's storage](#api-browser)</li></ul> |
+| Azure Document DB | <ul><li>[Encrypt sensitive data stored in Azure Cosmos DB](#encrypt-docdb)</li></ul> |
+| **Azure IaaS VM Trust Boundary** | <ul><li>[Use Azure Disk Encryption to encrypt disks used by Virtual Machines](#disk-vm)</li></ul> |
+| **Service Fabric Trust Boundary** | <ul><li>[Encrypt secrets in Service Fabric applications](#fabric-apps)</li></ul> |
+| **Dynamics CRM** | <ul><li>[Perform security modeling and use Business Units/Teams where required](#modeling-teams)</li><li>[Minimize access to share feature on critical entities](#entities)</li><li>[Train users on the risks associated with the Dynamics CRM Share feature and good security practices](#good-practices)</li><li>[Include a development standards rule proscribing showing config details in exception management](#exception-mgmt)</li></ul> |
+| **Azure Storage** | <ul><li>[Use Azure Storage Service Encryption (SSE) for Data at Rest (Preview)](#sse-preview)</li><li>[Use Client-Side Encryption to store sensitive data in Azure Storage](#client-storage)</li></ul> |
+| **Mobile Client** | <ul><li>[Encrypt sensitive or PII data written to phones local storage](#pii-phones)</li><li>[Obfuscate generated binaries before distributing to end users](#binaries-end)</li></ul> |
+| **WCF** | <ul><li>[Set clientCredentialType to Certificate or Windows](#cert)</li><li>[WCF-Security Mode is not enabled](#security)</li></ul> |
 
 ## <a id="binaries-info"></a>Ensure that binaries are obfuscated if they contain sensitive information
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Machine Trust Boundary | 
+| **Component**               | Machine Trust Boundary |
 | **SDL Phase**               | Deployment |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
@@ -41,7 +41,7 @@ ms.custom: devx-track-csharp
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Machine Trust Boundary | 
+| **Component**               | Machine Trust Boundary |
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
@@ -52,7 +52,7 @@ ms.custom: devx-track-csharp
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Machine Trust Boundary | 
+| **Component**               | Machine Trust Boundary |
 | **SDL Phase**               | Deployment |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
@@ -63,7 +63,7 @@ ms.custom: devx-track-csharp
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Web Application | 
+| **Component**               | Web Application |
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic, Web Forms, MVC5, MVC6 |
 | **Attributes**              | N/A  |
@@ -86,7 +86,7 @@ ms.custom: devx-track-csharp
 ```
 
 ### Example
-This may be implemented through a filter. Following example may be used: 
+This may be implemented through a filter. Following example may be used:
 ```csharp
 public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
@@ -110,13 +110,13 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
             base.OnActionExecuting(filterContext);
         }
-``` 
+```
 
 ## <a id="encrypt-data"></a>Encrypt sections of Web App's configuration files that contain sensitive data
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Web Application | 
+| **Component**               | Web Application |
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
@@ -127,7 +127,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Web Application | 
+| **Component**               | Web Application |
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
@@ -146,7 +146,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Web Application | 
+| **Component**               | Web Application |
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
@@ -157,7 +157,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Database | 
+| **Component**               | Database |
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Sql Azure, OnPrem |
 | **Attributes**              | SQL Version - V12, SQL Version - MsSQL2016 |
@@ -168,18 +168,18 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Database | 
+| **Component**               | Database |
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [Password Hashing using .NET Crypto APIs](https://docs.asp.net/en/latest/security/data-protection/consumer-apis/password-hashing.html) |
-| **Steps** | Passwords should not be stored in custom user store databases. Password hashes should be stored with salt values instead. Make sure the salt for the user is always unique and you apply b-crypt, s-crypt or PBKDF2 before storing the password, with a minimum work factor iteration count of 150,000 loops to eliminate the possibility of brute forcing.| 
+| **Steps** | Passwords should not be stored in custom user store databases. Password hashes should be stored with salt values instead. Make sure the salt for the user is always unique and you apply b-crypt, s-crypt or PBKDF2 before storing the password, with a minimum work factor iteration count of 150,000 loops to eliminate the possibility of brute forcing.|
 
 ## <a id="db-encrypted"></a>Ensure that sensitive data in database columns is encrypted
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Database | 
+| **Component**               | Database |
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | SQL Version - All |
@@ -190,7 +190,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Database | 
+| **Component**               | Database |
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
@@ -201,7 +201,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Database | 
+| **Component**               | Database |
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | SQL Azure, OnPrem |
 | **Attributes**              | SQL Version - V12, SQL Version - MsSQL2014 |
@@ -212,15 +212,15 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Web API | 
+| **Component**               | Web API |
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | MVC 5, MVC 6 |
 | **Attributes**              | Identity Provider - ADFS, Identity Provider - Microsoft Entra ID |
 | **References**              | N/A  |
-| **Steps** | <p>In certain implementations, sensitive artifacts relevant to Web API's authentication are stored in browser's local storage. E.g., Microsoft Entra authentication artifacts like adal.idtoken, adal.nonce.idtoken, adal.access.token.key, adal.token.keys, adal.state.login, adal.session.state, adal.expiration.key etc.</p><p>All these artifacts are available even after sign out or browser is closed. If an adversary gets access to these artifacts, he/she can reuse them to access the protected resources (APIs). Ensure that all sensitive artifacts related to Web API is not stored in browser's storage. In cases where client-side storage is unavoidable (e.g., Single Page Applications (SPA) that leverage Implicit OpenIdConnect/OAuth flows need to store access tokens locally), use storage choices with do not have persistence. e.g., prefer SessionStorage to LocalStorage.</p>| 
+| **Steps** | <p>In certain implementations, sensitive artifacts relevant to Web API's authentication are stored in browser's local storage. E.g., Microsoft Entra authentication artifacts like adal.idtoken, adal.nonce.idtoken, adal.access.token.key, adal.token.keys, adal.state.login, adal.session.state, adal.expiration.key etc.</p><p>All these artifacts are available even after sign out or browser is closed. If an adversary gets access to these artifacts, he/she can reuse them to access the protected resources (APIs). Ensure that all sensitive artifacts related to Web API is not stored in browser's storage. In cases where client-side storage is unavoidable (e.g., Single Page Applications (SPA) that leverage Implicit OpenIdConnect/OAuth flows need to store access tokens locally), use storage choices with do not have persistence. e.g., prefer SessionStorage to LocalStorage.</p>|
 
 ### Example
-The below JavaScript snippet is from a custom authentication library which stores authentication artifacts in local storage. Such implementations should be avoided. 
+The below JavaScript snippet is from a custom authentication library which stores authentication artifacts in local storage. Such implementations should be avoided.
 ```javascript
 ns.AuthHelper.Authenticate = function () {
 window.config = {
@@ -236,29 +236,29 @@ cacheLocation: 'localStorage', // enable this for Internet Explorer, as sessionS
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure Document DB | 
+| **Component**               | Azure Document DB |
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | Encrypt sensitive data at application level before storing in document DB or store any sensitive data in other storage solutions like Azure Storage or Azure SQL| 
+| **Steps** | Encrypt sensitive data at application level before storing in document DB or store any sensitive data in other storage solutions like Azure Storage or Azure SQL|
 
 ## <a id="disk-vm"></a>Use Azure Disk Encryption to encrypt disks used by Virtual Machines
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure IaaS VM Trust Boundary | 
+| **Component**               | Azure IaaS VM Trust Boundary |
 | **SDL Phase**               | Deployment |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [Using Azure Disk Encryption to encrypt disks used by your virtual machines](../../storage/blobs/security-recommendations.md#data-protection) |
-| **Steps** | <p>Azure Disk Encryption is a new feature that is currently in preview. This feature allows you to encrypt the OS disks and Data disks used by an IaaS Virtual Machine. For Windows, the drives are encrypted using industry-standard BitLocker encryption technology. For Linux, the disks are encrypted using the DM-Crypt technology. This is integrated with Azure Key Vault to allow you to control and manage the disk encryption keys. The Azure Disk Encryption solution supports the following three customer encryption scenarios:</p><ul><li>Enable encryption on new IaaS VMs created from customer-encrypted VHD files and customer-provided encryption keys, which are stored in Azure Key Vault.</li><li>Enable encryption on new IaaS VMs created from the Azure Marketplace.</li><li>Enable encryption on existing IaaS VMs already running in Azure.</li></ul>| 
+| **Steps** | <p>Azure Disk Encryption is a new feature that is currently in preview. This feature allows you to encrypt the OS disks and Data disks used by an IaaS Virtual Machine. For Windows, the drives are encrypted using industry-standard BitLocker encryption technology. For Linux, the disks are encrypted using the DM-Crypt technology. This is integrated with Azure Key Vault to allow you to control and manage the disk encryption keys. The Azure Disk Encryption solution supports the following three customer encryption scenarios:</p><ul><li>Enable encryption on new IaaS VMs created from customer-encrypted VHD files and customer-provided encryption keys, which are stored in Azure Key Vault.</li><li>Enable encryption on new IaaS VMs created from the Azure Marketplace.</li><li>Enable encryption on existing IaaS VMs already running in Azure.</li></ul>|
 
 ## <a id="fabric-apps"></a>Encrypt secrets in Service Fabric applications
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Service Fabric Trust Boundary | 
+| **Component**               | Service Fabric Trust Boundary |
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Environment - Azure |
@@ -269,7 +269,7 @@ cacheLocation: 'localStorage', // enable this for Internet Explorer, as sessionS
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Dynamics CRM | 
+| **Component**               | Dynamics CRM |
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
@@ -280,7 +280,7 @@ cacheLocation: 'localStorage', // enable this for Internet Explorer, as sessionS
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Dynamics CRM | 
+| **Component**               | Dynamics CRM |
 | **SDL Phase**               | Deployment |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
@@ -291,7 +291,7 @@ cacheLocation: 'localStorage', // enable this for Internet Explorer, as sessionS
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Dynamics CRM | 
+| **Component**               | Dynamics CRM |
 | **SDL Phase**               | Deployment |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
@@ -302,7 +302,7 @@ cacheLocation: 'localStorage', // enable this for Internet Explorer, as sessionS
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Dynamics CRM | 
+| **Component**               | Dynamics CRM |
 | **SDL Phase**               | Deployment |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
@@ -313,18 +313,18 @@ cacheLocation: 'localStorage', // enable this for Internet Explorer, as sessionS
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure Storage | 
+| **Component**               | Azure Storage |
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | StorageType - Blob |
 | **References**              | [Azure Storage Service Encryption for Data at Rest (Preview)](../../storage/common/storage-service-encryption.md) |
-| **Steps** | <p>Azure Storage Service Encryption (SSE) for Data at Rest helps you protect and safeguard your data to meet your organizational security and compliance commitments. With this feature, Azure Storage automatically encrypts your data prior to persisting to storage and decrypts prior to retrieval. The encryption, decryption and key management is totally transparent to users. SSE applies only to block blobs, page blobs, and append blobs. The other types of data, including tables, queues, and files, will not be encrypted.</p><p>Encryption and Decryption Workflow:</p><ul><li>The customer enables encryption on the storage account</li><li>When the customer writes new data (PUT Blob, PUT Block, PUT Page, etc.) to Blob storage; every write is encrypted using 256-bit AES encryption, one of the strongest block ciphers available</li><li>When the customer needs to access data (GET Blob, etc.), data is automatically decrypted before returning to the user</li><li>If encryption is disabled, new writes are no longer encrypted and existing encrypted data remains encrypted until rewritten by the user. While encryption is enabled, writes to Blob storage will be encrypted. The state of data does not change with the user toggling between enabling/disabling encryption for the storage account</li><li>All encryption keys are stored, encrypted, and managed by Microsoft</li></ul><p>Please note that at this time, the keys used for the encryption are managed by Microsoft. Microsoft generates the keys originally, and manage the secure storage of the keys as well as the regular rotation as defined by internal Microsoft policy. In the future, customers will get the ability to manage their own encryption keys, and provide a migration path from Microsoft-managed keys to customer-managed keys.</p>| 
+| **Steps** | <p>Azure Storage Service Encryption (SSE) for Data at Rest helps you protect and safeguard your data to meet your organizational security and compliance commitments. With this feature, Azure Storage automatically encrypts your data prior to persisting to storage and decrypts prior to retrieval. The encryption, decryption and key management is totally transparent to users. SSE applies only to block blobs, page blobs, and append blobs. The other types of data, including tables, queues, and files, will not be encrypted.</p><p>Encryption and Decryption Workflow:</p><ul><li>The customer enables encryption on the storage account</li><li>When the customer writes new data (PUT Blob, PUT Block, PUT Page, etc.) to Blob storage; every write is encrypted using 256-bit AES encryption, one of the strongest block ciphers available</li><li>When the customer needs to access data (GET Blob, etc.), data is automatically decrypted before returning to the user</li><li>If encryption is disabled, new writes are no longer encrypted and existing encrypted data remains encrypted until rewritten by the user. While encryption is enabled, writes to Blob storage will be encrypted. The state of data does not change with the user toggling between enabling/disabling encryption for the storage account</li><li>All encryption keys are stored, encrypted, and managed by Microsoft</li></ul><p>Please note that at this time, the keys used for the encryption are managed by Microsoft. Microsoft generates the keys originally, and manage the secure storage of the keys as well as the regular rotation as defined by internal Microsoft policy. In the future, customers will get the ability to manage their own encryption keys, and provide a migration path from Microsoft-managed keys to customer-managed keys.</p>|
 
 ## <a id="client-storage"></a>Use Client-Side Encryption to store sensitive data in Azure Storage
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure Storage | 
+| **Component**               | Azure Storage |
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
@@ -335,15 +335,15 @@ cacheLocation: 'localStorage', // enable this for Internet Explorer, as sessionS
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Mobile Client | 
+| **Component**               | Mobile Client |
 | **SDL Phase**               | Build |  
-| **Applicable Technologies** | Generic, Xamarin  |
+| **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Manage settings and features on your devices with Microsoft Intune policies](/mem/intune/configuration/), [Keychain Valet](https://components.xamarin.com/view/square.valet) |
+| **References**              | [Manage settings and features on your devices with Microsoft Intune policies](/mem/intune/configuration/) |
 | **Steps** | <p>If the application writes sensitive information like user's PII (email, phone number, first name, last name, preferences etc.)- on mobile's file system, then it should be encrypted before writing to the local file system. If the application is an enterprise application, then explore the possibility of publishing application using Windows Intune.</p>|
 
 ### Example
-Intune can be configured with following security policies to safeguard sensitive data: 
+Intune can be configured with following security policies to safeguard sensitive data:
 ```csharp
 Require encryption on mobile device    
 Require encryption on storage cards
@@ -351,7 +351,7 @@ Allow screen capture
 ```
 
 ### Example
-If the application is not an enterprise application, then use platform provided keystore, keychains to store encryption keys, using which cryptographic operation may be performed on the file system. Following code snippet shows how to access key from keychain using xamarin: 
+If the application is not an enterprise application, then use platform provided keystore, keychains to store encryption keys, using which cryptographic operation may be performed on the file system. Following code snippet shows how to access key from keychain using .NET for iOS:
 ```csharp
         protected static string EncryptionKey
         {
@@ -385,7 +385,7 @@ If the application is not an enterprise application, then use platform provided 
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Mobile Client | 
+| **Component**               | Mobile Client |
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
@@ -396,26 +396,26 @@ If the application is not an enterprise application, then use platform provided 
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | WCF | 
+| **Component**               | WCF |
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | .NET Framework 3 |
 | **Attributes**              | N/A  |
 | **References**              | [Fortify](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_token) |
-| **Steps** | Using a UsernameToken with a plaintext password over an unencrypted channel exposes the password to attackers who can sniff the SOAP messages. Service Providers that use the UsernameToken might accept passwords sent in plaintext. Sending plaintext passwords over an unencrypted channel can expose the credential to attackers who can sniff the SOAP message. | 
+| **Steps** | Using a UsernameToken with a plaintext password over an unencrypted channel exposes the password to attackers who can sniff the SOAP messages. Service Providers that use the UsernameToken might accept passwords sent in plaintext. Sending plaintext passwords over an unencrypted channel can expose the credential to attackers who can sniff the SOAP message. |
 
 ### Example
-The following WCF service provider configuration uses the UsernameToken: 
+The following WCF service provider configuration uses the UsernameToken:
 ```
-<security mode="Message"> 
+<security mode="Message">
 <message clientCredentialType="UserName" />
-``` 
-Set clientCredentialType to Certificate or Windows. 
+```
+Set clientCredentialType to Certificate or Windows.
 
 ## <a id="security"></a>WCF-Security Mode is not enabled
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | WCF | 
+| **Component**               | WCF |
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic, .NET Framework 3 |
 | **Attributes**              | Security Mode - Transport, Security Mode - Message |
@@ -423,34 +423,34 @@ Set clientCredentialType to Certificate or Windows.
 | **Steps** | No transport or message security has been defined. Applications that transmit messages without transport or message security cannot guarantee the integrity or confidentiality of the messages. When a WCF security binding is set to None, both transport and message security are disabled. |
 
 ### Example
-The following configuration sets the security mode to None. 
+The following configuration sets the security mode to None.
 ```
-<system.serviceModel> 
-  <bindings> 
-    <wsHttpBinding> 
-      <binding name=""MyBinding""> 
-        <security mode=""None""/> 
-      </binding> 
-  </bindings> 
-</system.serviceModel> 
+<system.serviceModel>
+  <bindings>
+    <wsHttpBinding>
+      <binding name=""MyBinding"">
+        <security mode=""None""/>
+      </binding>
+  </bindings>
+</system.serviceModel>
 ```
 
 ### Example
-Security Mode Across all service bindings there are five possible security modes: 
-* None. Turns security off. 
-* Transport. Uses transport security for mutual authentication and message protection. 
-* Message. Uses message security for mutual authentication and message protection. 
-* Both. Allows you to supply settings for transport and message-level security (only MSMQ supports this). 
-* TransportWithMessageCredential. Credentials are passed with the message and message protection and server authentication are provided by the transport layer. 
+Security Mode Across all service bindings there are five possible security modes:
+* None. Turns security off.
+* Transport. Uses transport security for mutual authentication and message protection.
+* Message. Uses message security for mutual authentication and message protection.
+* Both. Allows you to supply settings for transport and message-level security (only MSMQ supports this).
+* TransportWithMessageCredential. Credentials are passed with the message and message protection and server authentication are provided by the transport layer.
 * TransportCredentialOnly. Client credentials are passed with the transport layer and no message protection is applied. Use transport and message security to protect the integrity and confidentiality of messages. The configuration below tells the service to use transport security with message credentials.
   ```
   <system.serviceModel>
   <bindings>
     <wsHttpBinding>
-    <binding name=""MyBinding""> 
-    <security mode=""TransportWithMessageCredential""/> 
-    <message clientCredentialType=""Windows""/> 
-    </binding> 
-  </bindings> 
-  </system.serviceModel> 
+    <binding name=""MyBinding"">
+    <security mode=""TransportWithMessageCredential""/>
+    <message clientCredentialType=""Windows""/>
+    </binding>
+  </bindings>
+  </system.serviceModel>
   ```
