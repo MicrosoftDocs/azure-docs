@@ -26,7 +26,7 @@ items:
         href: iot-overview-security.md
       - name: Scalability, high availability
         href: iot-overview-scalability-high-availability.md
-    - name: Azure IoT services and technologies
+    - name: Choose an Azure IoT service
       href: iot-services-and-technologies.md
 
   - name: How-to guides
