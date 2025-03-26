@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 03/18/2025
+ms.date: 03/26/2025
 ---
 
 # How to configure TLS policy on a Front Door custom domain onboarded on Front Door (preview)
@@ -13,7 +13,7 @@ ms.date: 03/18/2025
 > [!IMPORTANT]
 > TLS policy is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure Front Door Standard and Premium offers two mechanisms for controlling TLS policy. You can use either a predefined policy or a custom policy per your own needs. If you use Azure Front Door (classic) and Microsoft CDN (classic), you will continue to use the minimum TLS 1.2 version.
+Azure Front Door Standard and Premium offer two mechanisms for controlling TLS policy. You can use either a predefined policy or a custom policy per your own needs. If you use Azure Front Door (classic) and Microsoft CDN (classic), you will continue to use the minimum TLS 1.2 version.
 
 - Azure Front Door offers several predefined TLS policies. You can configure your AFD with any of these policies to get the appropriate level of security. These predefined policies are configured keeping in mind the best practices and recommendations from the Microsoft Security team. We recommend that you use the newest TLS policies to ensure the best TLS security.
 
@@ -23,7 +23,7 @@ In this article, you learn how to configure TLS policy on a Front Door custom do
 
 ## Prerequisites
 
-- A Front Door. For more information, see [Quickstart: Create a Front Door](/azure/frontdoor/quickstart-create-front-door).
+- A Standard or Premium Front Door. For more information, see [Quickstart: Create a Front Door](/azure/frontdoor/quickstart-create-front-door).
 
 - A custom domain. If you don't have a custom domain, you must first purchase one with a domain provider. For more information, see [Buy a custom domain name](/azure/app-service/manage-custom-dns-buy-domain).
 
@@ -31,18 +31,30 @@ In this article, you learn how to configure TLS policy on a Front Door custom do
 
 ## Configure TLS policy
 
-1. Under **Settings**, select **Domains** for your Azure Front Door profile. Then select **+** **Add** to add a new domain.
+1. Go to your Azure Front Door profile that you want to configure the TLS policy for.
 
-2. On the Add a domain pane, follow [How to add a custom domain - Azure Front Door | Microsoft Learn](/azure/frontdoor/standard-premium/how-to-add-custom-domain) and [Configure HTTPS for your custom domain - Azure Front Door | Microsoft Learn](/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain) to configure the following information.
+1. Under **Settings**, select **Domains** . Then select **+** **Add** to add a new domain.
 
-3. For **TLS policy**, choose the predefined policy from the dropdown listor Custom  to customize the cipher suites per your needs. You can also view the supported cipher suites by clicking **View policy details**. When you choose **Custom**, you can choose the Minimum TLS version and the corresponding cipher suites. 
+1. On the **Add a domain** page, follow the instructions in [Configure a custom domain on Azure Front Door](/azure/frontdoor/standard-premium/how-to-add-custom-domain) and [Configure HTTPS on an Azure Front Door custom domain](/azure/frontdoor/standard-premium/how-to-configure-https-custom-domain) to configure the domain.
+
+1. For **TLS policy**, select the predefined policy from the dropdown list or **Custom** to customize the cipher suites per your needs.
+
+    :::image type="content" source="../media/tls-policy-configure/tls-policy.png" alt-text="Screenshot that shows the TLS policy option in Add a domain page." lightbox="../media/tls-policy-configure/tls-policy.png":::
+
+    You can also view the supported cipher suites by selecting **View policy details**.
+
+    :::image type="content" source="../media/tls-policy-configure/tls-policy-details.png" alt-text="Screenshot that shows the TLS policy details." lightbox="../media/tls-policy-configure/tls-policy-details.png":::
+
+    When you select **Custom**, you can choose the Minimum TLS version and the corresponding cipher suites by selecting **Select cipher suites**.
+
+    :::image type="content" source="../media/tls-policy-configure/tls-policy-customize.png" alt-text="Screenshot that shows how to customize your TLS policy." lightbox="../media/tls-policy-configure/tls-policy-customize.png":::
 
 > [!NOTE]
 > You can reuse the custom TLS policy setting from other domains in the portal by selecting the domain in **Reuse setting from other domain**. 
 
 ## Verify TLS policy configurations
 
-View the supported cipher suit of your domain via [www.ssllabs.com/ssltest](https://www.ssllabs.com/ssltest/) or use the sslscan tool.
+View the supported cipher suite of your domain via [www.ssllabs.com/ssltest](https://www.ssllabs.com/ssltest/) or use the sslscan tool.
 
 ## Related content
 
