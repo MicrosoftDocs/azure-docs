@@ -18,7 +18,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Migrate workloads to Azure from other cloud based services
-            url:  overview.md
+            url:  ./migrate-to-azure.md
 
   - title: Component migration
     linkLists:
