@@ -5,16 +5,21 @@ author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 03/20/2025
+ms.date: 03/26/2025
 ms.custom: engagement-fy24
-monikerRange: migrate
 ---
 
-# Review a SAP assessment
+# Tutorial: Review a SAP assessment
 
 This tutorial explains how to review assessments created for your on-premises SAP systems.
 
-## View an assessment 
+In this tutorial, you'll learn: 
+
+* Step-by-step instructions to review assessments created for on-premises SAP systems using Azure Migrate. 
+* Navigate to the Azure Migrate page to access the relevant options to view assessments for SAP systems.
+* Navigate Assessments page to view detailed information, including SAP system essentials, assessed entities, and cost estimates.
+
+## Review an assessment 
  
 To review an assessment, follow these steps:
 

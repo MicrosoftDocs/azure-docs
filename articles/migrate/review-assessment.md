@@ -5,8 +5,7 @@ author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/20/2025
-monikerRange: migrate
+ms.date: 03/26/2025
 ---
 
 # Review Azure VM assessment 
@@ -17,20 +16,20 @@ This article describes the various components of an Azure VM assessment and how 
 
 Once you create the Azure VM assessment, you can review it at **Decide and plan** > **Assessments** > **Workloads**.  
 
-If it's a performance-based assessment with servers discovered using appliance, you can review the confidence rating of the assessment before you look at the report. The confidence rating is an indicator of the quality of the data that was available for creating assessments. [Learn more](confidence-ratings.md).
+If it's a performance-based assessment with servers discovered using appliance, you can review the confidence rating of the assessment before you look at the report. The confidence rating is an indicator of the quality of the data that was available for creating assessments. [Learn more](confidence-ratings.md)
 
 On the **Overview** page, you can review the overall readiness and estimated monthly cost of hosting the VMs on Azure after migration using the lift and shift method. 
 
 To review the assessment report for each on-premises VM, select **Servers to Azure VM (Lift and shift)**. Search for the desired on-premises server and select it to review the assessment result. For each on-premises server, you can review the readiness, source properties that were used to identify the desired targets, and Target recommendations.  
  
 ## Azure Readiness 
-For each source server, you can review the Azure readiness. Azure readiness is defined as the compatibility of the on-premises server with the Azure target. The readiness for Azure VM depends on the Operating system, Boot type, OS disk size, storage, compute, and security requirements. Each on-premises server is divided in the following categories: 
+For each source server, you can review the Azure readiness. Azure readiness is defined as the compatibility of the on-premises server with the Azure target. The readiness for Azure VM depends on the operating system, boot type, OS disk size, storage, compute, and security requirements. Each on-premises server is divided in the following categories: 
 
 - **Ready for Azure**: The workloads can be migrated as-is to Azure without any changes. It will start in Azure with full Azure support. 
 
-- **Conditionally ready for Azure**: The workloads might start in Azure but might not have full Azure support. For example, Azure doesn't support a server that's running an old version of Windows Server. You must be careful before you migrate these servers to Azure. To fix any readiness problems, follow the remediation guidance the assessment suggests. 
+- **Conditionally ready for Azure**: The workloads might start in Azure but might not have full Azure support. For example, Azure doesn't support a server that's running an old version of Windows Server. You must be careful before you migrate these servers to Azure. To fix any readiness issue, follow the remediation guidance the assessment suggests. 
 
-- **Not ready for Azure**: The server won't start in Azure. For example, if an on-premises server's disk stores more than 64 TB, Azure can't host the server. Follow the remediation guidance to fix the problem before migration. 
+- **Not ready for Azure**: The server won't start in Azure. For example, if an on-premises server's disk stores more than 64 TB, Azure can't host the server. Follow the remediation guidance to fix the issue before migration. 
 
 - **Readiness unknown**: Azure Migrate can't determine the readiness of the server because of insufficient metadata. 
 
@@ -43,7 +42,7 @@ After the server is marked as ready for Azure, the assessment makes sizing recom
 | **Performance-based** | The compute recommendation is based on CPU and memory utilization data. <br> The storage recommendation is based on the input/output operations per second (IOPS) and throughput of the on-premises disks. Available disk types are Azure Standard HDD, Azure Standard SSD, Azure Premium disks, and Azure Ultra disks.  |
 | **As-is on-premises** | The compute recommendation is based on the on-premises server size. <br> The recommended storage is based on the selected storage type for the assessment.|
 
-You can review the source properties that were used for right-sizing the targets. For each on-premises workload, the configuration properties and the aggregated performance data are available. Review the allocated cores, allocated memory, CPU utilization, and memory utilization for compute right-sizing and disk size, read IO/s, and throughput for storage recommendations.  
+You can review the source properties that were used for right-sizing the targets. For each on-premises workload, the configuration properties and the aggregated performance data are available. Review the allocated cores, allocated memory, CPU utilization, and memory utilization for compute right sizing and disk size, read IO/s, and throughput for storage recommendations.  
 
 On the **Target recommendations** page, you can review the target configuration and the recommendation reasoning for each target component like compute, storage, network etc.  
 
@@ -63,9 +62,9 @@ If you use performance-based sizing in an Azure VM assessment, the assessment ma
 The assessment considers the performance (resource utilization) history of the server along with the [processor benchmark](common-questions-discovery-assessment.md#i-see-a-banner-on-my-assessment-that-the-assessment-now-also-considers-processor-parameters-what-will-be-the-impact-of-recalculating-the-assessment) to identify the VM size and disk type in Azure. 
 
 > [!Note]
-> If you import servers by using a CSV file, the performance values you specify (CPU utilization, Memory utilization, Disk IOPS and throughput) are used if you choose performance-based sizing. You will not be able to provide performance history and percentile information. 
+> If you import servers using a CSV file, the performance values you specify (CPU utilization, Memory utilization, Disk IOPS and throughput) are used if you choose performance-based sizing. You will not be able to provide performance history and percentile information. 
 
-This method is especially helpful if you overallocated the on-premises server, utilization is low, and you want to right-size the Azure VM to save costs. 
+This method is especially helpful if you overallocated the on-premises server, utilization is low, and you want to right size the Azure VM to save costs. 
 
 If you don't want to use the performance data, reset the sizing criteria to as-is on-premises, as described in the previous section. 
 
@@ -134,7 +133,7 @@ The cost for Standard or Premium disks is calculated based on the selected/recom
 
 ### Ultra disk 
 
-The cost for Ultra disk is calculated based on the provisioned size, provisioned IOPS, and provisioned throughput. Learn more 
+The cost for Ultra disk is calculated based on the provisioned size, provisioned IOPS, and provisioned throughput. [Learn more](/pricing/details/managed-disks/)
 
 The cost is calculated using the following logic: 
 
@@ -142,7 +141,7 @@ The cost is calculated using the following logic:
 - Cost of provisioned IOPS is calculated by multiplying provisioned IOPS by hourly provisioned IOPS price.
 - Cost of provisioned throughput is calculated by multiplying provisioned throughput by hourly provisioned throughput price.
 
-The Ultra disk VM reservation fee isn't added in the total cost. [Learn More](https://azure.microsoft.com/pricing/details/managed-disks/) 
+The Ultra disk VM reservation fee isn't added in the total cost. [Learn more](https://azure.microsoft.com/pricing/details/managed-disks/) 
 
 The assessment calculates the total monthly storage costs by aggregating the storage costs of all servers. Currently, the calculation doesn't consider offers specified in the assessment settings. 
 

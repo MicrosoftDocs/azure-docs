@@ -4,14 +4,13 @@ description: Learn how to create assessment for web apps in Azure Migrate
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: tutorial
-ms.date: 03/20/2025
+ms.date: 03/26/2025
 ms.service: azure-migrate
 ms.custom: engagement-fy24
-monikerRange: migrate
 ---
 # Create web app assessment for modernization 
 
-This article shows you how to create a web app assessment for modernization to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) or Azure App Service using Azure Migrate. Creating an assessment for your web apps provides the recommended targets for them and key insights such as app-readiness, target right-sizing, and cost to host, and run these apps month over month. 
+This article describes how to create a web app assessment for modernization to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) or Azure App Service using Azure Migrate. Creating an assessment for your web apps provides the recommended targets for them and key insights such as app-readiness, target right-sizing, and cost to host, and run these apps month over month. 
 
 In this article, you learn how to: 
 
@@ -71,7 +70,7 @@ To create an assessment, follow these steps.
 ## Next steps 
 
 - Understand the [assessment insights](https://microsoftapc.sharepoint.com/:w:/t/AzureCoreIDC/EQ8jF5QuAeJDqoYwJ8Y_k1IBOH8E2zjyGIChYANVLUxRdw?e=WIsw26) to make data-driven decisions for web app modernization. 
-- [Optimize](https://learn.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=%2Fazure%2Faks%2Fcontext%2Faks-context) Windows Dockerfiles. 
-- Review and implement [best practices](https://learn.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=%2Fazure%2Faks%2Fcontext%2Faks-context) to build and manage apps on AKS. 
+- [Optimize](/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=%2Fazure%2Faks%2Fcontext%2Faks-context) Windows Dockerfiles. 
+- Review and implement [best practices](/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=%2Fazure%2Faks%2Fcontext%2Faks-context) to build and manage apps on AKS. 
 
  
