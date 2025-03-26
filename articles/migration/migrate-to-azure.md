@@ -54,7 +54,7 @@ We recommend starting your learning journey based on your source platform:
 
 
 > [!div class="nextstepaction"]
-> [Migrate a workload from Google Cloud](./migrate-from-google-cloud.md)
+> [Migrate a workload from Google Cloud](./migrate-from-google-cloud.yml)
 
 You'll also find guidance that's applicable to all platforms. Such platform-agnostic guidance is included in all sections for convenience.
 

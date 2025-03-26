@@ -117,7 +117,7 @@ items:
   - name: Migrate from Google Cloud
     items:
     - name: Getting started
-      href: ./migrate-from-google-cloud.md
+      href: ./migrate-from-google-cloud.yml
 #    - name: Workload migration process
 #      items:
 #      - name: 1. Assess your current workload
