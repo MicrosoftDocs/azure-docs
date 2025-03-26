@@ -4,7 +4,7 @@ description: "Understand partnering opportunities enabled by Azure DDoS Protecti
 ms.service: azure-ddos-protection
 author: AbdullahBell
 ms.topic: how-to
-ms.date: 11/06/2023
+ms.date: 03/17/2025
 ms.author: abell
 ---
 
@@ -53,7 +53,7 @@ The following are key benefits you can derive by integrating with the Azure DDoS
 - Partners' protected applications are backed by a DDoS SLA guarantee and cost protection in the event of DDoS attacks.
 
 ## Technical integration overview
-Azure DDoS Protection partnering opportunities are made available via Azure portal, APIs, and CLI/PS.
+Azure DDoS Protection partnering opportunities are made available via Azure portal, APIs, CLI, and PowerShell.
 
 ### Integrate with DDoS Protection
 The following steps are required for partners to configure integration with Azure DDoS Protection:

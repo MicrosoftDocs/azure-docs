@@ -8,6 +8,7 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud developer, I want to deploy Azure Cloud Services (extended support) using the SDK so that I can manage role-based applications and configurations programmatically through Resource Manager.
 ---
 
 # Deploy Cloud Services (extended support) by using the Azure SDK
