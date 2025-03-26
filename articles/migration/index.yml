@@ -186,7 +186,7 @@ conceptualContent:
         links:
           - url: ./migrate-databases-from-google-cloud.md
             text: Migrate databases
-            itemType: get-started
+            itemType: get-started        
           - url: /azure/architecture/gcp-professional/services#data-platform
             text: Azure databases services map
             itemType: reference
@@ -199,6 +199,10 @@ conceptualContent:
           - url: /azure/azure-sql/migration-guides/database/mysql-to-sql-database-guide?view=azuresql-db&preserve-view=true
             text: Migrate MySQL on Google Cloud to Azure Database for MySQL
             itemType: tutorial
+          - url: /azure/azure-sql/migration-guides/database/mysql-to-sql-database-guide?view=azuresql-db&preserve-view=true
+            text: Migrate MySQL on Google Cloud to Azure Database for MySQL
+            itemType: tutorial
+          
       - title: Security
         links:
           - url: /azure/architecture/gcp-professional/services#security-and-identity
