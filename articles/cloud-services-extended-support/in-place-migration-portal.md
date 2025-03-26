@@ -8,6 +8,7 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+# Customer intent: As an IT administrator, I want to migrate classic Cloud Services to extended support using the Azure portal, so that I can modernize deployments while retaining operational continuity.
 ---
 
 # Migrate to Cloud Services (extended support) using the Azure portal

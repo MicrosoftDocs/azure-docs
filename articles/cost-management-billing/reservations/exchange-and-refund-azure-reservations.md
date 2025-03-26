@@ -1,13 +1,13 @@
 ---
 title: Self-service exchanges and refunds for Azure Reservations
 description: Learn how you can exchange or refund Azure Reservations. You must have owner access to the Reservation Order to exchange or refund reservations.
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 03/06/2025
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 # customer intent: As a reservation purchaser, I want learn how to exchange or refund Azure reservations.
 ---
 
