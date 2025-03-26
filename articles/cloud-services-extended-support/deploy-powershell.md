@@ -8,6 +8,7 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud administrator, I want to deploy Azure Cloud Services (extended support) using PowerShell, so that I can automate and manage multi-role applications efficiently within my Azure environment.
 ---
 
 # Deploy Cloud Services (extended support) by using Azure PowerShell
