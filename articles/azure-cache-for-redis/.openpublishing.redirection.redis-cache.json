@@ -437,7 +437,7 @@
             "redirect_document_id": true
          },
         {
-            "source_path_from_root": "articles/azure-cache-for-redis/scripts/create-manage-cache.md",
+            "source_path_from_root": "/articles/azure-cache-for-redis/scripts/create-manage-cache.md",
             "redirect_url": "/azure/redis/scripts/create-manage-cache",
             "redirect_document_id": true
         }
