@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 # Migrate databases from Google Cloud Platform (GCP) to Microsoft Azure
 
-Migrating data is a critical part when moving from Google Cloud Platform (GCP) to Microsoft Azure. This process involves transitioning your databases while making sure they work similarly in the new environment. The scope of this migration covers various database types, including relational databases, NoSQL databases, and data warehouses. For example, a workload that involves migrating an Google Cloud SQL for PostgreSQL database to Azure Database for PostgreSQL.
+Migrating data is a critical part when moving from Google Cloud Platform (GCP) to Microsoft Azure. This process involves transitioning your databases while making sure they work similarly in the new environment. The scope of this migration covers various database types, including relational databases, NoSQL databases, and data warehouses. For example, a workload that involves migrating a Google Cloud SQL for PostgreSQL database to Azure Database for PostgreSQL.
 
 ## Component comparison
 
