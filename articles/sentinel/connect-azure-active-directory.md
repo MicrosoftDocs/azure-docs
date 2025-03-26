@@ -19,7 +19,7 @@ ms.author: guywild
 
 This table lists the logs you can send from Microsoft Entra ID to Microsoft Sentinel using the Microsoft Entra ID data connector. Sentinel stores these logs in the Log Analytics workspace linked to your Microsoft Sentinel workspace.
 
-| **Log type** | **Inf descriptionrmation contained in logs** | **Log schema** |
+| **Log type** | **Description** | **Log schema** |
 |--------------|-----------------------------------|----------------|
 | [**Audit logs**](../active-directory/reports-monitoring/concept-audit-logs.md) | System activity related to user and group management, managed applications, and directory activities. | [AuditLogs](/azure/azure-monitor/reference/tables/auditlogs) |
 | [**Sign-in logs**](../active-directory/reports-monitoring/concept-all-sign-ins.md) | Interactive user sign-ins where a user provides an authentication factor. | [SigninLogs](/azure/azure-monitor/reference/tables/signinlogs) |
@@ -44,7 +44,7 @@ This table lists the logs you can send from Microsoft Entra ID to Microsoft Sent
 
 ## Prerequisites
 
-- A Microsoft Entra ID P1 or P2 license is required to ingest sign-in logs into Microsoft Sentinel. Any Microsoft Entra ID license (Free/O365/P1 or P2) is sufficient to ingest the other log types. Other per-gigabyte charges may apply for Azure Monitor (Log Analytics) and Microsoft Sentinel.
+- A Microsoft Entra ID P1 or P2 license is required to ingest sign-in logs into Microsoft Sentinel. Any Microsoft Entra ID license (Free/O365/P1 or P2) is sufficient to ingest the other log types. Other per-gigabyte charges might apply for Azure Monitor (Log Analytics) and Microsoft Sentinel.
 
 - Your user must be assigned the [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) role on the workspace.
 
