@@ -15,9 +15,15 @@ Durable Function orchestrations are implemented in code and can use the programm
 
 [!INCLUDE [functions-nodejs-durable-model-description](../../../includes/functions-nodejs-durable-model-description.md)]
 
-## Errors in activity functions
+## Errors in Activity Functions and SubOrchestration
 
-Any exception that is thrown in an activity function is marshaled back to the orchestrator function and thrown as a `FunctionFailedException`. You can write error handling and compensation code that suits your needs in the orchestrator function.
+In Durable Functions using C#, unhandled exceptions thrown within activity functions or sub-orchestrations are marshaled back to the orchestrator function using standardized exception types:
+- .NET In-Process: Exceptions are thrown as (FunctionFailedException)[https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.functionfailedexception?view=azure-dotnet].
+- .NET Isolated: Exceptions are thrown as (TaskFailedException)[https://learn.microsoft.com/en-us/dotnet/api/microsoft.durabletask.taskfailedexception?view=durabletask-dotnet-1.x].
+
+The exception's message clearly indicates which activity function or sub-orchestration caused the exception. To get more detailed information about the error propagation:
+- In-Process (FunctionFailedException): Inspect the `InnerException` property.
+- Isolated (TaskFailedException): Inspect the `FailureDetails` property.
 
 For example, consider the following orchestrator function that transfers funds from one account to another:
 
@@ -45,7 +51,7 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
                 Amount = transferDetails.Amount
             });
     }
-    catch (Exception)
+    catch (FunctionFailedException)
     {
         // Refund the source account.
         // Another try/catch could be used here based on the needs of the application.
@@ -85,7 +91,7 @@ public static async Task Run(
                 Amount = transferDetails.Amount
             });
     }
-    catch (Exception)
+    catch (TaskFailedException)
     {
         // Refund the source account.
         // Another try/catch could be used here based on the needs of the application.
