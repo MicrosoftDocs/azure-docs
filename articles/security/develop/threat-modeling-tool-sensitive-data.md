@@ -15,16 +15,16 @@ ms.custom: devx-track-csharp
 | Product/Service | Article |
 | --------------- | ------- |
 | **Machine Trust Boundary** | <ul><li>[Ensure that binaries are obfuscated if they contain sensitive information](#binaries-info)</li><li>[Consider using Encrypted File System (EFS) is used to protect confidential user-specific data](#efs-user)</li><li>[Ensure that sensitive data stored by the application on the file system is encrypted](#filesystem)</li></ul> |
-| **Web Application** | <ul><li>[Ensure that sensitive content is not cached on the browser](#cache-browser)</li><li>[Encrypt sections of Web App's configuration files that contain sensitive data](#encrypt-data)</li><li>[Explicitly disable the autocomplete HTML attribute in sensitive forms and inputs](#autocomplete-input)</li><li>[Ensure that sensitive data displayed on the user screen is masked](#data-mask)</li></ul> |
+| **Web Application** | <ul><li>[Ensure that sensitive content isn't cached on the browser](#cache-browser)</li><li>[Encrypt sections of Web App's configuration files that contain sensitive data](#encrypt-data)</li><li>[Explicitly disable the autocomplete HTML attribute in sensitive forms and inputs](#autocomplete-input)</li><li>[Ensure that sensitive data displayed on the user screen is masked](#data-mask)</li></ul> |
 | **Database** | <ul><li>[Implement dynamic data masking to limit sensitive data exposure non privileged users](#dynamic-users)</li><li>[Ensure that passwords are stored in salted hash format](#salted-hash)</li><li>[Ensure that sensitive data in database columns is encrypted](#db-encrypted)</li><li>[Ensure that database-level encryption (TDE) is enabled](#tde-enabled)</li><li>[Ensure that database backups are encrypted](#backup)</li></ul> |
-| **Web API** | <ul><li>[Ensure that sensitive data relevant to Web API is not stored in browser's storage](#api-browser)</li></ul> |
+| **Web API** | <ul><li>[Ensure that sensitive data relevant to Web API isn't stored in browser's storage](#api-browser)</li></ul> |
 | Azure Document DB | <ul><li>[Encrypt sensitive data stored in Azure Cosmos DB](#encrypt-docdb)</li></ul> |
 | **Azure IaaS VM Trust Boundary** | <ul><li>[Use Azure Disk Encryption to encrypt disks used by Virtual Machines](#disk-vm)</li></ul> |
 | **Service Fabric Trust Boundary** | <ul><li>[Encrypt secrets in Service Fabric applications](#fabric-apps)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Perform security modeling and use Business Units/Teams where required](#modeling-teams)</li><li>[Minimize access to share feature on critical entities](#entities)</li><li>[Train users on the risks associated with the Dynamics CRM Share feature and good security practices](#good-practices)</li><li>[Include a development standards rule proscribing showing config details in exception management](#exception-mgmt)</li></ul> |
 | **Azure Storage** | <ul><li>[Use Azure Storage Service Encryption (SSE) for Data at Rest (Preview)](#sse-preview)</li><li>[Use Client-Side Encryption to store sensitive data in Azure Storage](#client-storage)</li></ul> |
 | **Mobile Client** | <ul><li>[Encrypt sensitive or PII data written to phones local storage](#pii-phones)</li><li>[Obfuscate generated binaries before distributing to end users](#binaries-end)</li></ul> |
-| **WCF** | <ul><li>[Set clientCredentialType to Certificate or Windows](#cert)</li><li>[WCF-Security Mode is not enabled](#security)</li></ul> |
+| **WCF** | <ul><li>[Set clientCredentialType to Certificate or Windows](#cert)</li><li>[WCF-Security Mode isn't enabled](#security)</li></ul> |
 
 ## <a id="binaries-info"></a>Ensure that binaries are obfuscated if they contain sensitive information
 
@@ -35,7 +35,7 @@ ms.custom: devx-track-csharp
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | Ensure that binaries are obfuscated if they contain sensitive information such as trade secrets, sensitive business logic that should not reversed. This is to stop reverse engineering of assemblies. Tools like `CryptoObfuscator` may be used for this purpose. |
+| **Steps** | Ensure that binaries are obfuscated if they contain sensitive information such as trade secrets, sensitive business logic that shouldn't be reversed. This is to stop reverse engineering of assemblies. Tools like `CryptoObfuscator` may be used for this purpose. |
 
 ## <a id="efs-user"></a>Consider using Encrypted File System (EFS) is used to protect confidential user-specific data
 
@@ -57,7 +57,7 @@ ms.custom: devx-track-csharp
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | Ensure that sensitive data stored by the application on the file system is encrypted (e.g., using DPAPI), if EFS cannot be enforced |
+| **Steps** | Ensure that sensitive data stored by the application on the file system is encrypted (e.g., using DPAPI), if EFS can't be enforced |
 
 ## <a id="cache-browser"></a>Ensure that sensitive content is not cached on the browser
 
@@ -151,7 +151,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | Sensitive data such as passwords, credit card numbers, SSN etc. should be masked when displayed on the screen. This is to prevent unauthorized personnel from accessing the data (e.g., shoulder-surfing passwords, support personnel viewing SSN numbers of users). Ensure that these data elements aren't visible in plain text and are appropriately masked. This has to be taken care while accepting them as input (e.g,. input type="password") as well as displaying back on the screen (e.g., display only the last 4 digits of the credit card number). |
+| **Steps** | Sensitive data such as passwords, credit card numbers, SSN etc. should be masked when displayed on the screen. This is to prevent unauthorized personnel from accessing the data (e.g., shoulder-surfing passwords, support personnel viewing SSN numbers of users). Ensure that these data elements aren't visible in plain text and are appropriately masked. This has to be taken care while accepting them as input (e.g., input type="password") as well as displaying back on the screen (e.g., display only the last 4 digits of the credit card number). |
 
 ## <a id="dynamic-users"></a>Implement dynamic data masking to limit sensitive data exposure non privileged users
 
@@ -162,7 +162,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Applicable Technologies** | Sql Azure, OnPrem |
 | **Attributes**              | SQL Version - V12, SQL Version - MsSQL2016 |
 | **References**              | [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking) |
-| **Steps** | The purpose of dynamic data masking is to limit exposure of sensitive data, preventing users who should not have access to the data from viewing it. Dynamic data masking does not aim to prevent database users from connecting directly to the database and running exhaustive queries that expose pieces of the sensitive data. Dynamic data masking is complementary to other SQL Server security features (auditing, encryption, row level security…) and it's highly recommended to use this feature in conjunction with them in addition in order to better protect the sensitive data in the database. Please note that this feature is supported only by SQL Server starting with 2016 and Azure SQL Database. |
+| **Steps** | The purpose of dynamic data masking is to limit exposure of sensitive data, preventing users who shouldn't have access to the data from viewing it. Dynamic data masking doesn't aim to prevent database users from connecting directly to the database and running exhaustive queries that expose pieces of the sensitive data. Dynamic data masking is complementary to other SQL Server security features (auditing, encryption, row level security…) and it's highly recommended to use this feature in conjunction with them in addition in order to better protect the sensitive data in the database. Please note that this feature is supported only by SQL Server starting with 2016 and Azure SQL Database. |
 
 ## <a id="salted-hash"></a>Ensure that passwords are stored in salted hash format
 
@@ -173,7 +173,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [Password Hashing using .NET Crypto APIs](https://docs.asp.net/en/latest/security/data-protection/consumer-apis/password-hashing.html) |
-| **Steps** | Passwords should not be stored in custom user store databases. Password hashes should be stored with salt values instead. Make sure the salt for the user is always unique and you apply b-crypt, s-crypt or PBKDF2 before storing the password, with a minimum work factor iteration count of 150,000 loops to eliminate the possibility of brute forcing.|
+| **Steps** | Passwords shouldn't be stored in custom user store databases. Password hashes should be stored with salt values instead. Make sure the salt for the user is always unique and you apply b-crypt, s-crypt or PBKDF2 before storing the password, with a minimum work factor iteration count of 150,000 loops to eliminate the possibility of brute forcing.|
 
 ## <a id="db-encrypted"></a>Ensure that sensitive data in database columns is encrypted
 
@@ -263,7 +263,7 @@ cacheLocation: 'localStorage', // enable this for Internet Explorer, as sessionS
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Environment - Azure |
 | **References**              | [Managing secrets in Service Fabric applications](/azure/service-fabric/service-fabric-application-secret-management) |
-| **Steps** | Secrets can be any sensitive information, such as storage connection strings, passwords, or other values that should not be handled in plain text. Use Azure Key Vault to manage keys and secrets in service fabric applications. |
+| **Steps** | Secrets can be any sensitive information, such as storage connection strings, passwords, or other values that shouldn't be handled in plain text. Use Azure Key Vault to manage keys and secrets in service fabric applications. |
 
 ## <a id="modeling-teams"></a>Perform security modeling and use Business Units/Teams where required
 
@@ -318,7 +318,7 @@ cacheLocation: 'localStorage', // enable this for Internet Explorer, as sessionS
 | **Applicable Technologies** | Generic |
 | **Attributes**              | StorageType - Blob |
 | **References**              | [Azure Storage Service Encryption for Data at Rest (Preview)](../../storage/common/storage-service-encryption.md) |
-| **Steps** | <p>Azure Storage Service Encryption (SSE) for Data at Rest helps you protect and safeguard your data to meet your organizational security and compliance commitments. With this feature, Azure Storage automatically encrypts your data prior to persisting to storage and decrypts prior to retrieval. The encryption, decryption, and key management is totally transparent to users. SSE applies only to block blobs, page blobs, and append blobs. The other types of data, including tables, queues, and files, won't be encrypted.</p><p>Encryption and Decryption Workflow:</p><ul><li>The customer enables encryption on the storage account</li><li>When the customer writes new data (PUT Blob, PUT Block, PUT Page, etc.) to Blob storage; every write is encrypted using 256-bit AES encryption, one of the strongest block ciphers available</li><li>When the customer needs to access data (GET Blob, etc.), data is automatically decrypted before returning to the user</li><li>If encryption is disabled, new writes are no longer encrypted and existing encrypted data remains encrypted until rewritten by the user. While encryption is enabled, writes to Blob storage will be encrypted. The state of data does not change with the user toggling between enabling/disabling encryption for the storage account</li><li>All encryption keys are stored, encrypted, and managed by Microsoft</li></ul><p>Please note that at this time, the keys used for the encryption are managed by Microsoft. Microsoft generates the keys originally, and manages the secure storage of the keys as well as the regular rotation as defined by internal Microsoft policy. In the future, customers will get the ability to manage their own encryption keys, and provide a migration path from Microsoft-managed keys to customer-managed keys.</p>|
+| **Steps** | <p>Azure Storage Service Encryption (SSE) for Data at Rest helps you protect and safeguard your data to meet your organizational security and compliance commitments. With this feature, Azure Storage automatically encrypts your data prior to persisting to storage and decrypts prior to retrieval. The encryption, decryption, and key management is totally transparent to users. SSE applies only to block blobs, page blobs, and append blobs. The other types of data, including tables, queues, and files, won't be encrypted.</p><p>Encryption and Decryption Workflow:</p><ul><li>The customer enables encryption on the storage account</li><li>When the customer writes new data (PUT Blob, PUT Block, PUT Page, etc.) to Blob storage; every write is encrypted using 256-bit AES encryption, one of the strongest block ciphers available</li><li>When the customer needs to access data (GET Blob, etc.), data is automatically decrypted before returning to the user</li><li>If encryption is disabled, new writes are no longer encrypted and existing encrypted data remains encrypted until rewritten by the user. While encryption is enabled, writes to Blob storage will be encrypted. The state of data doesn't change with the user toggling between enabling/disabling encryption for the storage account</li><li>All encryption keys are stored, encrypted, and managed by Microsoft</li></ul><p>Please note that at this time, the keys used for the encryption are managed by Microsoft. Microsoft generates the keys originally, and manages the secure storage of the keys as well as the regular rotation as defined by internal Microsoft policy. In the future, customers will get the ability to manage their own encryption keys, and provide a migration path from Microsoft-managed keys to customer-managed keys.</p>|
 
 ## <a id="client-storage"></a>Use Client-Side Encryption to store sensitive data in Azure Storage
 
@@ -329,7 +329,7 @@ cacheLocation: 'localStorage', // enable this for Internet Explorer, as sessionS
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](../../storage/common/storage-client-side-encryption.md), [Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault](../../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md), [Storing Data Securely in Azure Blob Storage with Azure Encryption Extensions](/archive/blogs/partnercatalystteam/storing-data-securely-in-azure-blob-storage-with-azure-encryption-extensions) |
-| **Steps** | <p>The Azure Storage Client Library for .NET Nuget package supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with Azure Key Vault for storage account key management. Here's a brief description of how client side encryption works:</p><ul><li>The Azure Storage client SDK generates a content encryption key (CEK), which is a one-time-use symmetric key</li><li>Customer data is encrypted using this CEK</li><li>The CEK is then wrapped (encrypted) using the key encryption key (KEK). The KEK is identified by a key identifier and can be an asymmetric key pair or a symmetric key and can be managed locally or stored in Azure Key Vault. The Storage client itself never has access to the KEK. It just invokes the key wrapping algorithm that is provided by Key Vault. Customers can choose to use custom providers for key wrapping/unwrapping if they want</li><li>The encrypted data is then uploaded to the Azure Storage service. Check the links in the references section for low-level implementation details.</li></ul>|
+| **Steps** | <p>The Azure Storage Client Library for .NET NuGet package supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with Azure Key Vault for storage account key management. Here's a brief description of how client side encryption works:</p><ul><li>The Azure Storage client SDK generates a content encryption key (CEK), which is a one-time-use symmetric key</li><li>Customer data is encrypted using this CEK</li><li>The CEK is then wrapped (encrypted) using the key encryption key (KEK). The KEK is identified by a key identifier and can be an asymmetric key pair or a symmetric key and can be managed locally or stored in Azure Key Vault. The Storage client itself never has access to the KEK. It just invokes the key wrapping algorithm that is provided by Key Vault. Customers can choose to use custom providers for key wrapping/unwrapping if they want</li><li>The encrypted data is then uploaded to the Azure Storage service. Check the links in the references section for low-level implementation details.</li></ul>|
 
 ## <a id="pii-phones"></a>Encrypt sensitive or PII data written to phones local storage
 
@@ -420,7 +420,7 @@ Set clientCredentialType to Certificate or Windows.
 | **Applicable Technologies** | Generic, .NET Framework 3 |
 | **Attributes**              | Security Mode - Transport, Security Mode - Message |
 | **References**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [Fundamentals of WCF Security CoDe Magazine](https://www.codemag.com/article/0611051) |
-| **Steps** | No transport or message security has been defined. Applications that transmit messages without transport or message security cannot guarantee the integrity or confidentiality of the messages. When a WCF security binding is set to None, both transport and message security are disabled. |
+| **Steps** | No transport or message security has been defined. Applications that transmit messages without transport or message security can't guarantee the integrity or confidentiality of the messages. When a WCF security binding is set to None, both transport and message security are disabled. |
 
 ### Example
 The following configuration sets the security mode to None.
