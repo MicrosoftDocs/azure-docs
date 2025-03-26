@@ -35,7 +35,7 @@ Over time, environment definitions need updates. You make those updates in your 
 
 ## Files outside of the recommended structure
 
-In the following example, the Azuredeploy.json file is above the manifest.yaml file in the folder structure. This structure isn't valid. Environment definitions can't reference content outside of the catalog item folder.
+In the following example, the Azuredeploy.json file is above the environment.yaml (or manifest.yaml) file in the folder structure. This structure isn't valid. Environment definitions can't reference content outside of the catalog item folder.
 
 :::image type="content" source="media/best-practice-catalog-structure/deployment-environments-catalog-structure-not-supported.png" alt-text="Diagram that shows an unsupported structure for an Azure Deployment Environments catalog." lightbox="media/best-practice-catalog-structure/deployment-environments-catalog-structure-not-supported.png":::
 
