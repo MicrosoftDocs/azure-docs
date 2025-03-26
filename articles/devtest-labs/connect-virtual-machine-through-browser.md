@@ -4,7 +4,7 @@ description: Learn how to connect to Azure DevTest Labs virtual machines (VMs) t
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/25/2023
+ms.date: 03/26/2023
 ms.custom: UpdateFrequency2
 
 #customer intent: As a lab user, I want to connect to Bastion-enabled lab VMs through my browser, so I can connect securely without using public IP addresses or exposing RDP or SSH ports to the internet.
@@ -15,8 +15,7 @@ ms.custom: UpdateFrequency2
 This article describes how to connect to your DevTest Labs virtual machine (VM) through a browser by using [Azure Bastion](/azure/bastion/index). Bastion provides secure remote desktop protocol (RDP) or secure shell (SSH) access without using public IP addresses or exposing RDP or SSH ports to the internet.
 
 > [!IMPORTANT]
-> - The VM must be in an Azure Bastion-configured virtual network in a lab that has Bastion connections enabled. For more information, see [Enable browser connection to DevTest Labs VMs with Azure Bastion](enable-browser-connection-lab-virtual-machines.md).
-> - You must have ownership or sign-in permissions on the VM.
+> The VM must be in an Azure Bastion-configured virtual network in a lab that has Bastion connections enabled. For more information, see [Enable browser connection to DevTest Labs VMs with Azure Bastion](enable-browser-connection-lab-virtual-machines.md).
 
 To connect to a lab VM through a browser:
 

@@ -4,7 +4,7 @@ description: Learn how to integrate Azure Bastion with DevTest Labs to enable ac
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/25/2025
+ms.date: 03/26/2025
 ms.custom: UpdateFrequency2
 
 #customer intent: As a lab owner, I want to enable Azure Bastion for my lab virtual network so lab users can connect to their VMs through their browsers.
@@ -12,7 +12,7 @@ ms.custom: UpdateFrequency2
 
 # Enable browser connection to lab VMs through Azure Bastion
 
-Azure DevTest Labs integrates with [Azure Bastion](/azure/bastion/index) to allow connecting to lab virtual machines (VMs) through a browser. When a lab owner enables browser access to lab VMs through Bastion, all lab users can connect to their VMs through their browsers without needing any other client, agent, or software.
+Azure DevTest Labs integrates with [Azure Bastion](/azure/bastion/index) to allow connecting to lab virtual machines (VMs) through a browser. When a lab owner enables browser access to lab VMs through Bastion, lab users can connect to their VMs through their browsers without needing any other client, agent, or software.
 
 Azure Bastion provides secure and seamless remote desktop protocol (RDP) and secure shell (SSH) connectivity over transport layer security (TLS), directly from the Azure portal. Lab VMs don't need public IP addresses.
 
@@ -24,7 +24,7 @@ This article covers two ways to enable Azure Bastion browser connectivity to Dev
 ## Prerequisites
 
 - To enable and configure Azure Bastion for a lab, you need **Owner** or **Contributor** role in the lab.
-- To connect to an Azure Bastion-enabled lab virtual machine (VM) through a browser, you need **DevTest Labs User** role in the lab and sign-in access to the VM.
+- To connect to an Azure Bastion-enabled lab virtual machine (VM) through a browser, you need ownership access to the VM and at least **DevTest Labs User** role in the lab.
 
 For more information about DevTest Labs user roles and access, see [Add and configure lab users](devtest-lab-add-devtest-user.md).
 

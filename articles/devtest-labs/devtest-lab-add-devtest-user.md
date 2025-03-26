@@ -4,7 +4,7 @@ description: Learn about the Azure DevTest Labs Owner, Contributor, and DevTest 
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/25/2025
+ms.date: 03/26/2025
 ms.custom: devx-track-azurepowershell, UpdateFrequency2
 
 #customer intent: As a lab owner, I want to add and configure users for my lab so I can grant the access necessary to do specific lab tasks.
@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell, UpdateFrequency2
 
 # Add and configure lab users in Azure DevTest Labs
 
-Azure DevTest Labs has three built-in roles: **Owner**, **Contributor**, and **DevTest Labs User**, that use Azure [role-based access control](/azure/role-based-access-control/overview) (RBAC) to define the access necessary to do specific lab tasks. This article lists the tasks each role can do, and describes how Lab Owners can add members to lab roles by using the Azure portal or an Azure PowerShell script.
+Azure DevTest Labs has three built-in roles: **Owner**, **Contributor**, and **DevTest Labs User**, that define the access necessary to do specific lab tasks. Lab owners use Azure [role-based access control](/azure/role-based-access-control/overview) (RBAC) to add lab users with assigned roles. This article lists the tasks each role can do, and describes how Lab Owners can add members to lab roles by using the Azure portal or an Azure PowerShell script.
 
 <a name="devtest-labs-user"></a>
 ## Owners, Contributors, and DevTest Labs Users
@@ -44,29 +44,39 @@ The following table shows the actions that the DevTest Labs **Owner**, **Contrib
 > [!NOTE]
 > Lab users automatically have the **Owner** role on VMs they create.
 
-### Required permissions
+### Lab Owner role
 
-Azure permissions propagate from parent scope to child scope. Owners of an Azure subscription that contains labs are automatically owners of the subscription's labs.
+Azure permissions propagate from parent scope to child scope. Owners of an Azure subscription that contains labs are automatically **Owner**s of the subscription's labs.
 
-Azure subscription [Owners](/azure/role-based-access-control/built-in-roles#owner) and [User Access Administrators](/azure/role-based-access-control/built-in-roles#user-access-administrator) can add DevTest Labs **Owner**s, **Contributor**s, and **DevTest Labs Users** to labs in the subscription.
+Azure subscription [Owners](/azure/role-based-access-control/built-in-roles/privileged#owner) and [User Access Administrators](/azure/role-based-access-control/built-in-roles/privileged#user-access-administrator) can add and assign DevTest Labs **Owner**s, **Contributor**s, and **DevTest Labs Users** to labs in their subscriptions. Azure subscription [Contributors](/azure/role-based-access-control/built-in-roles/privileged#contributor) can create labs, but they are **Owners** of those labs only if a subscription Owner or User Access Administrator assigns them the lab **Owner** role.
 
-Users that are granted the lab **Owner** role can add and configure **Owner**s, **Contributor**s, and **DevTest Labs User**s for their own labs. However, added lab owners have a narrower scope of administration than Azure subscription-based owners. Added owners don't have full access to some resources that the DevTest Labs service creates.
+Lab users that are granted the **Owner** role can add and assign **Owner**s, **Contributor**s, and **DevTest Labs User**s for their own labs. However, added lab owners have a narrower scope of administration than Azure subscription-based owners. Added owners don't have full access to some resources that the DevTest Labs service creates.
 
-DevTest Labs Users must have a valid [Microsoft account](/windows-server/identity/ad-ds/manage/understand-microsoft-accounts), but they don't need an Azure subscription.
+## Prerequisites
 
-## Add a member to a lab
+# [Azure portal](#tab/portal)
+
+- You must be a lab **Owner**, either by assignment from a subscription owner or by inheritance as a subscription owner.
+- The user to be added must have a valid [Microsoft account](/windows-server/identity/ad-ds/manage/understand-microsoft-accounts). They don't need an Azure subscription.
+
+# [Azure PowerShell](#tab/PowerShell)
+
+- You must be a lab **Owner**, either by assignment from a subscription owner or by inheritance as a subscription owner.
+- The user to add must have a valid [Microsoft account](/windows-server/identity/ad-ds/manage/understand-microsoft-accounts). They don't need an Azure subscription.
+- This PowerShell script requires the added user to be in the Microsoft Entra ID. You can add an external user to Microsoft Entra ID as a guest. For more information, see [Add a new guest user](/entra/fundamentals/how-to-create-delete-users#invite-an-external-user). If you can't add the user to Microsoft Entra ID, use the portal procedure instead.
+- Azure PowerShell. You can either:
+  - [Use Azure Cloud Shell](/azure/cloud-shell/quickstart). Be sure to select the **PowerShell** environment in Cloud Shell.
+  - [Install Azure PowerShell](/powershell/azure/install-azure-powershell) to use on a physical or virtual machine. If necessary, run `Update-Module -Name Az` to update your installation.
+
+---
+
+## Add a user to a lab
 
 Lab Owners can add members to lab roles by using the Azure portal or an Azure PowerShell script.
 
 # [Azure portal](#tab/portal)
 
-### Prerequisite
-
-- Lab **Owner** role, either by assignment from a subscription owner or by inheritance as a subscription owner.
-
-### Add a lab member
-
-The following procedure adds a **DevTest Labs User** member to a lab. If you're an owner of the Azure subscription the lab is in, you can also do this procedure from the subscription's **Access control (IAM)** page.
+The following procedure adds a user to a lab with **DevTest Labs User** role. If you're an owner of the Azure subscription the lab is in, you can also do this procedure from the subscription's **Access control (IAM)** page.
 
 1. On the lab's home page, select **Configuration and policies** from the left navigation.
 1. On the **Configuration and policies** page, select **Access control (IAM)** from the left navigation.
@@ -85,26 +95,14 @@ The following procedure adds a **DevTest Labs User** member to a lab. If you're 
 # [Azure PowerShell](#tab/PowerShell)
 <a name="add-an-external-user-to-a-lab-using-powershell"></a>
 
-### Prerequisites
-
-- Lab **Owner** role, either by assignment from a subscription owner or by inheritance as a subscription owner.
-- Azure PowerShell. You can either:
-  - [Use Azure Cloud Shell](/azure/cloud-shell/quickstart). Be sure to select the **PowerShell** environment in Cloud Shell.
-  - [Install Azure PowerShell](/powershell/azure/install-azure-powershell) to use on a physical or virtual machine. If necessary, run `Update-Module -Name Az` to update your installation.
-
->[!NOTE]
->This PowerShell script requires the added user to be in the Microsoft Entra ID. You can add an external user to Microsoft Entra ID as a guest. For more information, see [Add a new guest user](/entra/fundamentals/how-to-create-delete-users#invite-an-external-user). If you can't add the user to Microsoft Entra ID, use the portal procedure instead.
-
-### Add a member
-
-The following PowerShell script adds a member to a lab with **DevTest Labs User** role. To use the script, replace the parameter values under the `# Values to change` comment with your own values. You can get the `subscriptionId`, `labResourceGroup`, and `labName` values from the lab's main page in the Azure portal.
+The following PowerShell script adds a user to a lab with **DevTest Labs User** role. To use the script, replace the parameter values under the `# Values to change` comment with your own values. You can get the `subscriptionId`, `labResourceGroup`, and `labName` values from the lab's main page in the Azure portal.
 
 ```azurepowershell
 # Values to change
 $subscriptionId = "<Azure subscription ID>"
-$labResourceGroup = "<Lab's resource group name>"
+$labResourceGroup = "<Lab resource group name>"
 $labName = "<Lab name>"
-$userDisplayName = "<User's display name>"
+$userDisplayName = "<User display name>"
 
 # Sign into your Azure account.
 Connect-AzAccount

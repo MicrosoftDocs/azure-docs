@@ -4,7 +4,7 @@ description: Learn how to add or configure artifacts on lab virtual machines (VM
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/25/2025
+ms.date: 03/26/2025
 ms.custom: devx-track-azurepowershell, UpdateFrequency2
 
 #customer intent: As a lab user, I want to add artifacts to my VMs so I can use them to run scripts or commands, install tools or applications, or take other actions on my VMs.
@@ -12,13 +12,11 @@ ms.custom: devx-track-azurepowershell, UpdateFrequency2
 
 # Add artifacts to DevTest Labs VMs
 
-This article describes how to add *artifacts* to Azure DevTest Labs virtual machines (VMs). Artifacts are tools, actions, or software you can add to lab VMs. For example, artifacts can run Windows PowerShell scripts or Bash commands, install tools or applications, or take other actions like joining a domain.
+This article describes how to add *artifacts* to Azure DevTest Labs virtual machines (VMs) by using the Azure portal or Azure PowerShell. Artifacts are tools, actions, or software you can add to lab VMs. For example, artifacts can run Windows PowerShell scripts or Bash commands, install tools or applications, or take other actions like joining a domain.
 
 DevTest Labs artifacts can come from the [public DevTest Labs Git repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) or from private Git repositories. Lab users can [create their own custom artifacts](devtest-lab-artifact-author.md) and store them in a repository, and use parameters to customize existing artifacts for their own needs.
 
-A lab administrator can [add artifact repositories to a lab](add-artifact-repository.md) so all lab users can access them. Lab administrators can also [specify mandatory artifacts to be installed on all lab VMs](devtest-lab-mandatory-artifacts.md) at creation.
-
-You can't change or remove mandatory artifacts at VM creation time, but you can add and configure other available artifacts at or after VM creation time. This article describes how to add available artifacts to VMs by using the Azure portal or Azure PowerShell.
+A lab administrator can [add artifact repositories to a lab](add-artifact-repository.md) so all lab users can access them. Lab administrators can also [specify mandatory artifacts to be installed on all lab VMs](devtest-lab-mandatory-artifacts.md) at creation. Lab users can't change or remove mandatory artifacts at VM creation time, but they can add and configure other available artifacts at or after VM creation time.
 
 ## Prerequisites
 
