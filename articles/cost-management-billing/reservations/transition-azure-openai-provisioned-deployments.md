@@ -1,13 +1,13 @@
 ---
 title: Transition to OpenAI Service provisioned deployment reservations
 description: Learn about how to transition to Azure OpenAI Service provisioned deployment reservations, including new Global and data zone options.
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: kvuyyuru
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
 ms.date: 12/06/2024
-ms.author: banders
+ms.author: primittal
 #customer intent: As a reservation admin, I want to understand how to transition to Azure OpenAI Service provisioned deployment reservations so that I can manage my resources effectively.
 ---
 

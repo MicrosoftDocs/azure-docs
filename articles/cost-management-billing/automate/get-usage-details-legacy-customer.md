@@ -2,8 +2,8 @@
 title: Get Azure cost details for a pay-as-you go subscription
 titleSuffix: Microsoft Cost Management
 description: This article explains how you get cost data if you have a MOSP pay-as-you-go subscription.
-author: bandersmsft
-ms.author: banders
+author: jojopm
+ms.author: jojoh
 ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
