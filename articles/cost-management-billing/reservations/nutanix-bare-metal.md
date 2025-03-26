@@ -1,13 +1,13 @@
 ---
 title: Save costs with reservations for Nutanix Cloud Clusters on Azure BareMetal infrastructure
 description: Save costs with Nutanix on Azure BareMetal reservations by committing to a reservation for your provisioned throughput units.
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
 ms.date: 12/06/2024
-ms.author: banders
+ms.author: primittal
 # customer intent: As a billing administrator, I want to learn about saving costs with Nutanix Cloud Clusters on Azure BareMetal Infrastructure Reservations and buy one.
 ---
 
