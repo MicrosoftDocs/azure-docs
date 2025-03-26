@@ -57,7 +57,7 @@ reboots are allowed can be set in properties of the extension. As part of the sh
 Configuration, you will want to manage reboots using Azure Resource Manager.
 
 The zip file artifact used by DSC Extension is not compatible with Azure machine configuration.
-Plan to use the machine configuration [PowerShell cmdlets](../../../how-to/develop-custom-package/overview)
+Plan to use the machine configuration [PowerShell cmdlets](/how-to/develop-custom-package/overview)
 to repackage the configuration and required PowerShell modules and republish to Azure Storage.
 
 ## Understand migration
