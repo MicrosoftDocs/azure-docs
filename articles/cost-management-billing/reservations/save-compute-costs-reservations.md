@@ -6,7 +6,7 @@ ms.reviewer: bshy
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 02/11/2025
+ms.date: 03/26/2025
 ms.author: primittal
 ---
 
