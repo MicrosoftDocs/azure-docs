@@ -48,4 +48,4 @@ This script uses the following commands to create a resource group and a Premium
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-For an Azure Cache for Redis CLI script sample that creates a managed cache, see [Azure Managed Redis](../../redis/scripts/create-managed-cache.md).
+For an Azure Cache for Redis CLI script sample that creates a managed cache, see [Azure Managed Redis](../../redis/scripts/create-manage-cache.md).
