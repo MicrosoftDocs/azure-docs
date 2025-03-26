@@ -48,7 +48,7 @@ The following example uses Bash. Note the secret identifier of the relevant key.
 
 A backup vault has to connect to the PostgreSQL server and then access the database via the keys present in the key vault. So, it requires access to the PostgreSQL server and the key vault. Access is granted to the backup vault's managed identity.
 
-You need to grant permissions to the backup vault's managed identity on the PostgreSQL server and the key vault that stores the keys to the database. [Learn more](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-backup).
+You need to grant permissions to the backup vault's managed identity on the PostgreSQL server and the key vault that stores the keys to the database. [Learn more](./backup-azure-database-postgresql-overview.md#permissions-needed-for-postgresql-database-backup).
 
 ### Prepare the request
 

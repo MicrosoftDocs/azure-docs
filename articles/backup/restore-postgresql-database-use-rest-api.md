@@ -272,7 +272,7 @@ For an archive-based recovery point, modify the source datastore. Add the rehydr
 
 #### Validate the restore request
 
-After you prepare the request body, validate it by using the [Validate For Restore API](/rest/api/dataprotection/backup-instances/validate-for-restore). Like the Validate For Backup API, this is a `POST` operation.
+After you prepare the request body, validate it by using the [Validate For Restore API](/rest/api/dataprotection/backup-instances/validate-for-restore). Like the Validate For Backup API, this API is a `POST` operation.
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/backupVaults/{vaultName}/backupInstances/{backupInstanceName}/validateRestore?api-version=2021-07-01

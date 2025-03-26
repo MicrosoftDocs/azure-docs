@@ -39,7 +39,7 @@ However, your existing PostgreSQL single-server database backups are retained in
 As of March 31, 2025, you're no longer charged the Protected Instance (PI) fee for protecting your PostgreSQL single-server databases. But the fee for storing your backups still applies. To avoid the storage fee, delete all restore points from the Azure Business Continuity Center.
 
 > [!NOTE]
-> Azure Backup retains the last restore point even after the expiration of its retention period. This feature ensures that you have access to the last restore point for future use. You can only delete the last restore point manually. If you want to delete the last restore point and avoid the storage fee, [stop the database protection](manage-azure-database-postgresql.md#stop-protection).
+> Azure Backup retains the last restore point even after the expiration of its retention period. This feature ensures that you have access to the last restore point for future use. You can only delete the last restore point manually. If you want to delete the last restore point and avoid the storage fee, [stop the database protection](manage-azure-database-postgresql.md#stop-backup).
 
 ### Changes in restore
 
@@ -89,11 +89,11 @@ The workload admin is responsible for managing and rotating credentials. Azure B
 1. Set the database user's backup privileges on the database.
 
 > [!NOTE]
-> You can grant these permissions within the [configure backup](backup-azure-database-postgresql.md##configure-a-backup-on-azure-postgresql-databases) flow with a single click if you, as the backup admin, have write access on the intended resources. If you don't have the required permissions (when multiple personas are involved), use an Azure Resource Manager template.
+> You can grant these permissions within the [configure backup](backup-azure-database-postgresql.md#configure-a-backup-on-postgresql-databases) flow with a single click if you, as the backup admin, have write access on the intended resources. If you don't have the required permissions (when multiple personas are involved), use an Azure Resource Manager template.
 
 #### Permissions needed for PostgreSQL database restore
 
-Permissions for restore are similar to the ones that you need for backup. You need to [manually grant the permissions on the target Azure Database for PostgreSQL server and the corresponding key vault](#steps-for-manually-granting-access-on-the-azure-database-for-postgresql-server-and-on-key-vault). Unlike in the [configure backup](backup-azure-database-postgresql.md##configure-a-backup-on-azure-postgresql-databases) flow, the experience to grant these permissions inline is currently not available.
+Permissions for restore are similar to the ones that you need for backup. You need to [manually grant the permissions on the target Azure Database for PostgreSQL server and the corresponding key vault](#steps-for-manually-granting-access-on-the-azure-database-for-postgresql-server-and-on-key-vault). Unlike in the [configure backup](backup-azure-database-postgresql.md#configure-a-backup-on-postgresql-databases) flow, the experience to grant these permissions inline is currently not available.
 
 Ensure that the database user (corresponding to the credentials stored in the key vault) has the following restore privileges on the database:
 
