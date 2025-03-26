@@ -1,6 +1,6 @@
 ---
 title: Service limits for Azure Communication Services
-titleSuffix: An Azure Communication Services how-to document
+titleSuffix: An Azure Communication Services article
 description: Learn how to handle service limits for Azure Communication Services APIs.
 author: tophpalmer
 manager: sundraman
@@ -19,7 +19,7 @@ This article explains the limitations of Azure Communication Services APIs and p
 
 ## Throttling patterns and architecture
 
-When you reach service limitations, you receive an HTTP status code 429 (too many requests). In general, the following best practices are used for throttling:
+When you reach service limitations, you receive an HTTP status code 429 (too many requests). In general, follow these best practices for throttling:
 
 - Reduce the number of operations per request.
 - Reduce the frequency of calls.
@@ -124,11 +124,11 @@ If the failure rate increases after a quota increase, Azure Communication Servic
 
 Azure Communication Services provides rich logs and analytics to help monitor and manage failure rates. For more information, see the following articles:
 
-- [Improve sender reputation in Azure Communication Services email](./email/sender-reputation-managed-suppression-list.md)
-- [Email Insights](./analytics/insights/email-insights.md)
-- [Enable logs via Diagnostic Settings in Azure Monitor](./analytics/enable-logging.md)
-- [Quickstart: Handle Email events](../quickstarts/email/handle-email-events.md)
-- [Quickstart: Manage domain suppression lists in Azure Communication Services using the management client libraries](../quickstarts/email/manage-suppression-list-management-sdks.md)
+- [Improve sender reputation in Azure Communication Services email](./email/sender-reputation-managed-suppression-list.md).
+- [Email Insights](./analytics/insights/email-insights.md).
+- [Enable logs via Diagnostic Settings in Azure Monitor](./analytics/enable-logging.md).
+- [Handle Email events](../quickstarts/email/handle-email-events.md).
+- [Manage domain suppression lists in Azure Communication Services using the management client libraries](../quickstarts/email/manage-suppression-list-management-sdks.md).
 
 > [!NOTE]
 > To request higher limits, follow the instructions at [Quota increase for email domains](./email/email-quota-increase.md). Higher quotas are only available for verified custom domains, not Azure-managed domains.
