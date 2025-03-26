@@ -4,8 +4,8 @@ description: Set up your SynapseML or MMLSpark pipeline with Azure AI services i
 ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.reviewer:  negust, ruxu
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: NelGson
+ms.author: negust
 ms.topic: how-to
 ms.date: 7/18/2023
 ms.devlang: python

@@ -1,8 +1,8 @@
 ---
 title: Connection strings for Synapse SQL
 description: Connection strings for Synapse SQL
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: azaricstefan
+ms.author: stefanazaric
 ms.service: azure-synapse-analytics
 ms.topic: overview 
 ms.subservice: sql

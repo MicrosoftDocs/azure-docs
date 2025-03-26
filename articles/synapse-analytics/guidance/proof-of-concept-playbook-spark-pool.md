@@ -1,8 +1,8 @@
 ---
 title: "Synapse POC playbook: Big data analytics with Apache Spark pool in Azure Synapse Analytics"
 description: "A high-level methodology for preparing and running an effective Azure Synapse Analytics proof of concept (POC) project for Apache Spark pool."
-author: cmfinlan
-ms.author: chrisfin
+author: ms-arali
+ms.author: arali
 ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 05/23/2022

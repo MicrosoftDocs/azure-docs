@@ -5,8 +5,8 @@ ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: overview
 ms.reviewer:  negust, ruxu, jessiwang
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: NelGson
+ms.author: negust
 ms.date: 05/13/2024
 ---
 
