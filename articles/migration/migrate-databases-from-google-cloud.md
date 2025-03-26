@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 # Migrate databases from Google Cloud Platform (GCP) to Microsoft Azure
 
-Migrating data is a critical part when moving from Google Cloud Platform (GCP) to Microsoft Azure. This process involves transitioning your databases while making sure they work similarly in the new environment. The scope of this migration covers various database types, including relational databases, NoSQL databases, and data warehouses. For example, a workload that involves migrating an Google Cloud SQL for PostgreSQL database to Azure Database for PostgreSQL.
+Migrating data is a critical part when moving from Google Cloud Platform (GCP) to Microsoft Azure. This process involves transitioning your databases while making sure they work similarly in the new environment. The scope of this migration covers various database types, including relational databases, NoSQL databases, and data warehouses. For example, a workload that involves migrating a Google Cloud SQL for PostgreSQL database to Azure Database for PostgreSQL.
 
 ## Component comparison
 
@@ -29,5 +29,9 @@ Refer to these scenarios as examples for framing your migration process.
 | [Migrate to Azure Database for PostgreSQL (offline)](/azure/postgresql/migrate/migration-service/tutorial-migration-service-cloud-sql-offline) | Google Cloud SQL for PostgreSQL -> Azure Database for PostgreSQL | This scenario involves migrating a Google Cloud SQL for PostgreSQL instance to Azure Database for PostgreSQL offline, ensuring minimal downtime and data integrity. |
 | [Migrate to Azure Database for PostgreSQL (online)](/azure/postgresql/migrate/migration-service/tutorial-migration-service-cloud-sql-online) | Google Cloud SQL for PostgreSQL -> Azure Database for PostgreSQL | This article explores how to migrate your PostgreSQL database from Google Cloud SQL for PostgreSQL to Azure Database for PostgreSQL online. |
 | [Migrate MySQL on Google Cloud to Azure Database for MySQL](/azure/azure-sql/migration-guides/database/mysql-to-sql-database-guide?view=azuresql-db&preserve-view=true) | Google Cloud SQL for MySQL -> Azure Database for MySQL | In this guide, you learn how to migrate your MySQL database to an Azure SQL database by using SQL Server Migration Assistant for MySQL (SSMA for MySQL).|
-| [Migrate your SIEM in Google Cloud to Microsoft Sentinel](/azure/sentinel/migration?branch=main) | Microsoft Sentinel  |In this guide, you learn how to migrate your legacy SIEM to Microsoft Sentinel.|
-| [Google Cloud Platform IAM (using Azure Functions) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/google-cloud-platform-iam) | Google Cloud Platform Identity and Access Management (IAM) -> Microsoft Sentinel  |In this guide, you learn how to migrate your legacy SIEM to Microsoft Sentinel.|
+
+## Additional links:
+The following list provides additional articles for migrating to GCP. These scenarios are platform-agnostic but provide generic guidance on migrating security components.
+
+* [Migrate your SIEM in Google Cloud to Microsoft Sentinel](/azure/sentinel/migration)
+* [Google Cloud Platform IAM (using Azure Functions) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/google-cloud-platform-iam)
