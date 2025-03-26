@@ -34,6 +34,10 @@ landingContent:
             url: quickstart-create-and-run-load-test.md
           - text: Create a load test with a JMeter script
             url: how-to-create-and-run-load-test-with-JMeter-script.md
+          - text: Create a load test with a Locust script
+            url: quickstart-create-run-load-test-with-locust.md
+          - text: Create and run a load test from Visual Studio Code
+            url: quickstart-create-run-load-tests-from-visual-studio-code.md                   
           - text: Automate load tests with Azure Pipelines
             url: quickstart-add-load-test-cicd.md
       - linkListType: tutorial
