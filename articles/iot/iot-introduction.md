@@ -80,6 +80,8 @@ An IoT asset is a broader concept than an IoT device and refers to any item of v
 
 In Azure IoT Operations, the term *asset* also refers to the virtual representation of a physical asset. In an Azure IoT Operations deployment, you use [Azure Device Registry](../iot-operations/discover-manage-assets/overview-manage-assets.md) to manage your assets across both Azure and your Kubernetes cluster as a part of the adaptive cloud approach. The Azure Device Registry service stores information about your assets, such as their metadata, and their connection information and enables you to use tools such as Azure Resource Manager to manage them.
 
+To learn more about device and asset comparisons, see [Device and asset comparisons](iot-services-and-technologies.md#device-and-asset-comparisons).
+
 ### Device connectivity
 
 Typically, IoT devices send data from their attached sensors to cloud services in your solution. However, other types of communication are possible such as a cloud service sending commands to your devices. The following are examples of device-to-cloud and cloud-to-device communication:
@@ -112,7 +114,7 @@ In an edge-based solution, IoT assets connect to an edge environment that proces
 
 In the edge-based solution diagram shown previously, the *southbound connectors* represent the protocols and standards that assets use to connect to the edge environment.
 
-To learn more about device and asset comparisons, see [Device and asset comparisons](iot-services-and-technologies.md#device-and-asset-comparisons).
+To learn more about processing messages sent from your assets and devices, see [Message processing in an IoT solution](iot-overview-message-processing.md).
 
 ## Services and applications
 
@@ -129,13 +131,6 @@ In a cloud-based IoT solution, the IoT cloud services typically:
 - Manage the firmware installed on your devices.
 
 For example, in a remote monitoring solution for an oil pumping station, the services use sensor data from the pumps to identify anomalous behavior. When a cloud service identifies an anomaly, it can automatically send a command to the device to take a corrective action. This process implements an automated feedback loop between the device and the cloud that greatly increases the solution efficiency.
-
-To learn more, see:
-
-- [IoT asset and device management and control](iot-overview-device-management.md)
-- [Message processing in an IoT solution](iot-overview-message-processing.md)
-- [Extend your IoT solution](iot-overview-solution-extensibility.md)
-- [Analyze and visualize your IoT data](iot-overview-analyze-visualize.md)
 
 ### Edge runtime
 
@@ -155,10 +150,11 @@ Both cloud-based and edge-based solutions can use other cloud services to provid
 - Microsoft Fabric to store and analyze sensor data.
 - Microsoft Power BI to visualize sensor data.
 
-To learn more about IoT services and deployment comparisons, see:
+To learn more, see:
 
-- [IoT services comparisons](iot-services-and-technologies.md#iot-services-comparisons)
-- [Deployment comparisons](iot-services-and-technologies.md#deployment-comparisons)
+- [IoT asset and device management and control](iot-overview-device-management.md)
+- [Extend your IoT solution](iot-overview-solution-extensibility.md)
+- [Analyze and visualize your IoT data](iot-overview-analyze-visualize.md)
 
 ## Solution-wide concerns
 
@@ -168,14 +164,13 @@ Any IoT solution must address the following solution-wide concerns:
 - [Security](iot-overview-security.md) including physical security, authentication, authorization, and encryption.
 - [Scalability, high availability and disaster recovery](iot-overview-scalability-high-availability.md) for all the components in your solution.
 
-To learn more about security comparisons, see [Security comparisons](iot-services-and-technologies.md#security-comparisons).
-
 ## Next steps
 
 Suggested next steps to explore Azure IoT further include:
 
 - [IoT asset and device development](iot-overview-device-development.md)
-- [IoT asset and device connectivity and infrastructure](iot-overview-device-connectivity.md)
+- [Message processing in an IoT solution](iot-overview-message-processing.md)
+- [Manage your IoT solution](iot-overview-solution-management.md)
 - [Choose an Azure IoT service](iot-services-and-technologies.md)
 
 To learn more about Azure IoT architectures, see:
