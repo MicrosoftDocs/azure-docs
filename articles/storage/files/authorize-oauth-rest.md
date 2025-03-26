@@ -4,7 +4,7 @@ description: Authorize admin-level read and write access to Azure file shares an
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 03/25/2025
+ms.date: 03/26/2025
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell
 ---
@@ -63,7 +63,7 @@ This feature provides two new built-in roles that include these new actions.
 
 These new roles are similar to the existing [Storage File Data SMB Share Reader](../../role-based-access-control/built-in-roles.md#storage-file-data-smb-share-reader) and [Storage File Data SMB Share Elevated Contributor](../../role-based-access-control/built-in-roles.md#storage-file-data-smb-share-elevated-contributor) built-in roles, but there are some differences:
 
-- The new roles contain the additional data actions that are required for OAuth access. Note that RBAC actions on the data plane differ for file data operations versus file management operations. The data plane requires the resource type `fileShares` as opposed to `shares` in RBAC scope and data action strings.
+- The new roles contain the additional data actions that are required for OAuth access.
 
 - When the user, group, or service principal that's assigned **Storage File Data Privileged Reader** or **Storage File Data Privileged Contributor** roles calls the FilesREST Data API using OAuth, the user, group, or the service principal will have:
   - **Storage File Data Privileged Reader:** Full read access on all the data in the shares for all the configured storage accounts regardless of the file/directory level NTFS permissions that are set.
@@ -78,6 +78,10 @@ With the new roles and data actions, this feature will provide storage account-w
 - data services (the data in the file share)
 
 There are many [built-in roles](../../role-based-access-control/built-in-roles.md) that provide access to management services. You can also [create custom roles](../../role-based-access-control/custom-roles.md) with the appropriate permissions. To learn more about role-based access control, see [Azure RBAC](../../role-based-access-control/overview.md). For more information about how built-in roles are defined, see [Understand role definitions](../../role-based-access-control/role-definitions.md).
+
+Keep in mind that for the file share resource type, the corresponding RBAC scope uses `shares` in the control plane (management operations), but uses `fileshares` in the data plane (data operations). If you try to use a file share resource ID that contains `shares` in RBAC scope or data action strings, it won't work. You must use `fileshares` in the scope of RBAC assignments, for example:
+
+- `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>/fileServices/default/fileshares/<share-name>`
 
 > [!IMPORTANT]
 > Any wildcard use cases defined for the path `Microsoft.Storage/storageAccounts/fileServices/*` or higher scope will automatically inherit the additional access and permissions granted through this new data action. To prevent unintended or over-privileged access to Azure Files, we've implemented additional checks that require users and applications to explicitly indicate their intent to use the additional privilege. Furthermore, we strongly recommend that customers review their user RBAC role assignments and replace any wildcard usage with explicit permissions to ensure proper data access management.
