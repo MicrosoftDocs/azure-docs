@@ -84,7 +84,7 @@ You can also enable the DDoS protection plan for an existing virtual network fro
 1. Search for **DDoS protection plans** in the **Search resources, services, and docs box** at the top of the Azure portal. When it appears, select it.
 1. Select the desired DDoS protection plan from the list.
 1. Under **Settings**, select **Protected resources**.
-1. Select **Add**, choose the subscription, resource group, and virtual network, then select **Add** again."
+1. Select **Add**, choose the subscription, resource group, and virtual network, then select **Add** again.
 
 ## Configure an Azure DDoS Protection Plan using Azure Firewall Manager 
 
