@@ -57,8 +57,8 @@ reboots are allowed can be set in properties of the extension. As part of the sh
 Configuration, you will want to manage reboots using Azure Resource Manager.
 
 The zip file artifact used by DSC Extension is not compatible with Azure machine configuration.
-Plan to use the machine configuration authoring tools to repackage the configuration
-and required PowerShell modules and republish to Azure Storage.
+Plan to use the machine configuration [PowerShell cmdlets](../how-to/develop-custom-package/overview)
+to repackage the configuration and required PowerShell modules and republish to Azure Storage.
 
 ## Understand migration
 
@@ -68,9 +68,9 @@ new solution for new machines.
 The expected steps for migration are:
 
 1. Download and expand the `.zip` package used for the DSC extension.
-1. Examine the Managed Object Format (MOF) file and resources to understand the scenario.
-1. Make any required changes to the configuration or resources.
-1. Use the machine configuration authoring module to create, test, and publish a new package.
+1. Examine the DSC configuraiton file to understand the scenario.
+1. Make any required changes to the configuration.
+1. Use the machine configuration PowerShell cmdlets to create, test, and publish a new package.
 1. Use machine configuration for future deployments rather than DSC extension.
 
 #### Consider decomposing complex configuration files
