@@ -48,7 +48,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## February 2025
 
-* [Azure Application Consistent Snapshot tool (AzAcSnap) 11](azacsnap-introduction.md) is now generally available (GA)
+* [General Availability: AzAcSnap 11 — Azure Application Consistent Snapshot tool updates](azacsnap-introduction.md)
 
     Version 11 of the AzAcSnap tool is now generally available. Azure Application Consistent Snapshot Tool (AzAcSnap) is a command-line tool that enables you to simplify data protection for third-party databases in Linux and Windows environments. 
     
@@ -61,7 +61,9 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     - Fixes and Improvements:
         - (NEW) Configurable Data Volume backup attempts
         - Backup (-c backup) changes: Storage snapshot retention management is now performed after the database exits "backup-mode" to minimize the duration the database remains in a "backup-enabled" state.
-
+ 
+   Learn more in the [AzAcSnap release notes](azacsnap-release-notes.md#azacsnap-10a-build-1b79ba).
+    
 * [Network security group (NSG) support for private link connectivity](azure-netapp-files-network-topologies.md) (Preview)
 
     Azure NetApp Files now supports private links with NSGs in all regions. This feature enables you to apply NSG policies to private link endpoints, enhancing the security of your workload deployments. 
@@ -102,11 +104,11 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
  ## October 2024
 
-* [Azure Application Consistent Snapshot tool (AzAcSnap) 10a](azacsnap-introduction.md) updates
+* [General Availability: AzAcSnap 10a — Azure Application Consistent Snapshot tool updates](azacsnap-introduction.md)
 
-    AzAcSnap 10a is being released with the following fixes and improvements:
+    AzAcSnap 10a has been released with the following fixes and improvements:
 
-    - Fixes and Improvements:
+    - Fixes and improvements:
         - Allow configurable wait time-out for Microsoft SQL Server. This option helps you increase time out for slow responding systems (default and minimum value is 30 seconds).
         - Added a global override variable `MSSQL_CMD_TIMEOUT_SECS` to be used in either the .azacsnaprc file or as an environment variable set to the required wait time out in seconds. For details on configuration, see the [global override settings to control AzAcSnap behavior](azacsnap-tips.md#global-override-settings-to-control-azacsnap-behavior).
 
@@ -160,26 +162,30 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## July 2024
 
-* [Azure Application Consistent Snapshot tool (AzAcSnap) 10](azacsnap-introduction.md) is generally available (GA)
+* [General Availability: AzAcSnap 10 — Azure Application Consistent Snapshot tool updates](azacsnap-introduction.md)
 
-    AzAcSnap 10 is being released with the following fixes and improvements:
+    AzAcSnap 10 has been released with the following fixes and improvements:
     
     - Features added to [Preview](azacsnap-preview.md):
         - **Microsoft SQL Server** support adding options to configure, test, and snapshot backup Microsoft SQL Server in an application consistent manner.
     - Features moved to GA (generally available):
         - **Windows** support with AzAcSnap now able to be run on supported Linux distributions and Windows.
         - New configuration file layout.
-            - To upgrade pre-AzAcSnap 10 configurations, use the `azacsnap -c configure --configuration new` command to create a new configuration file and use the values in your existing configuration file.
+
+            To upgrade pre-AzAcSnap 10 configurations, use the `azacsnap -c configure --configuration new` command to create a new configuration file and use the values in your existing configuration file.
         - Azure Large Instance storage management via REST API over HTTPS.
-            - This change to the REST API allows the use of Consistency Group snapshots on supported Azure Large Instance storage.
+        
+            This change to the REST API allows the use of Consistency Group snapshots on supported Azure Large Instance storage.
     - Fixes and improvements:
         - New `--flush` option which flushes in memory file buffers for local storage, useful for Azure Large Instance and Azure Managed Disk when connected as block storage
         - Logging improvements
     - Features removed:
         - AzAcSnap installer for Linux
-            - AzAcSnap is now downloadable as a binary for supported versions of Linux and Windows to simplify access to the AzAcSnap program allowing you to get started quickly.
-    - Azure Large Instance storage management via CLI over SSH
-        - CLI over SSH replaced with the REST API over HTTPS
+        
+            AzAcSnap is now downloadable as a binary for supported versions of Linux and Windows to simplify access to the AzAcSnap program allowing you to get started quickly.
+        - Azure Large Instance storage management via CLI over SSH
+        
+            CLI over SSH replaced with the REST API over HTTPS
 
     Learn more in the [AzAcSnap release notes](azacsnap-release-notes.md#azacsnap-10a-build-1b79ba).
 
@@ -246,6 +252,15 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     This feature is now generally available in all [supported regions](backup-introduction.md#supported-regions). 
 
 ## April 2024 
+
+* [General Availability: AzAcSnap 9a — Azure Application Consistent Snapshot tool updates](azacsnap-introduction.md)
+
+    AzAcSnap 9a has been released with the following fixes and improvements:
+
+    - Fixes and improvements: Allow AzAcSnap to have Azure Management Endpoints manually configured to allow it to work in Azure Sovereign Clouds.
+        - Added a global override variable `AZURE_MANAGEMENT_ENDPOINT` to be used in either the .azacsnaprc file or as an environment variable set to the appropriate Azure management endpoint. For details on configuration refer to the [global override settings to control AzAcSnap behavior](azacsnap-tips.md#global-override-settings-to-control-azacsnap-behavior).
+
+    Learn more in the [AzAcSnap release notes](azacsnap-release-notes.md#azacsnap-10a-build-1b79ba).
 
 * [Application volume group for Oracle](application-volume-group-oracle-introduction.md) (Preview)
 
@@ -367,6 +382,22 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## August 2023
 
+* [General Availability: AzAcSnap 9 — Azure Application Consistent Snapshot tool updates](azacsnap-introduction.md)
+
+    AzAcSnap 9 has been released with the following fixes and improvements:
+
+    - Features moved to GA (generally available):
+        - IBM Db2 Database support
+        - [System Managed Identity](azacsnap-configure-storage.md#azure-system-managed-identity) support for easier setup while improving security posture
+    - Fixes and improvements:
+        - Configure (-c configure) changes:
+            Allows for a blank value for authFile in the configuration file when using System Managed Identity.
+    - No Features added to [Preview](azacsnap-preview.md):
+    - Features removed:
+        - Azure Key Vault support removed from Preview. It isn't needed now AzAcSnap supports a System Managed Identity directly.
+
+    Learn more in the [AzAcSnap release notes](azacsnap-release-notes.md#azacsnap-10a-build-1b79ba).
+
 * [Cross-region replication enhancement: re-establish deleted volume replication](reestablish-deleted-volume-relationships.md) (Preview)
 
     Azure NetApp Files now allows you to re-establish a replication relationship between two volumes in case you had previously deleted it. If the destination volume remained operational and no snapshots were deleted, the replication re-establish operation will use the last common snapshot and incrementally synchronize the destination volume based on the last known good snapshot. In that case, no baseline replication is required.
@@ -392,6 +423,21 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     You can now move volumes from a manual QoS capacity pool to an auto QoS capacity pool. When you move a volume to an auto QoS capacity pool, the throughput is changed according to the allocated volume size (quota) of the target pool's service level:  `<throughput> = <volume quota> x <Service Level Throughput / TiB>`
 
 ## June 2023
+
+* [General Availability: AzAcSnap 8b — Azure Application Consistent Snapshot tool updates](azacsnap-introduction.md)
+
+    AzAcSnap 8b has been released with the following fixes and improvements:
+
+    - Fixes and improvements:
+        - General improvement to `azacsnap` command exit codes.
+            - The `azacsnap` command should return an exit code of 0 (zero) when run as expected, otherwise it should return an exit code of non-zero. For example, running `azacsnap` returns a non-zero value as there's nothing to do and shows usage information, whereas `azacsnap -h` returns exit-code of zero as it's performing as expected by returning usage information.
+            - Any failure in `--runbefore` exits before any backup activity and returns the `--runbefore` exit code.
+            - Any failure in `--runafter` returns the `--runafter` exit code.
+        - Backup (-c backup) changes:
+            - Change in the Db2 workflow to move the protected-paths query outside the WRITE SUSPEND, Storage Snapshot, WRITE RESUME workflow to improve resilience. (Preview)
+            - Fix for missing snapshot name (`azSnapshotName`) in `--runafter` command environment.
+
+    Learn more in the [AzAcSnap release notes](azacsnap-release-notes.md#azacsnap-10a-build-1b79ba).
 
 * [Cloud Backup for Virtual Machines on Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/install-cloud-backup-virtual-machines.md) (Preview)
 
