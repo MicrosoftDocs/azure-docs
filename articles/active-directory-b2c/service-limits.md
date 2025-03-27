@@ -230,9 +230,9 @@ As a protection for our customers, Microsoft places some restrictions on telepho
 | 94 |  Sri Lanka | 100  |  500 |
 | 95 |	Myanmar (Burma) | 10	| 30 |
 | 961 |	Lebanon  |	10	| 30 |
-| 967 |	Yemen	|50	| 200 |
+| 967 |	Yemen	|10	| 30 |
 | 970 |  State of Palestine| 10  |  30  |
-| 972 |	Israel  |	10	| 30 |
+| 972 |	Israel  |	50	| 200 |
 | 976 |	Mongolia  |	10	| 30 |
 | 992 | Tajikistan | 10 | 30 |
 | 993 | Turkmenistan | 10 | 30 |
