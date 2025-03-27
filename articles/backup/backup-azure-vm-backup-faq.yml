@@ -300,9 +300,12 @@ sections:
         answer: |
           After you unmount disks from the Azure portal, run the Python script with `clean` parameter (`python scriptName.py clean`) to clear the session and remove the mount paths of the recovery point from the machine.     
 
-      - question: Why Azure Backup can't restore VMs with Offer, SKU, or Publisher?
+      - question: Why do restored VMs lose the Offer/SKU/Publisher properties of the source VM?
         answer: |
-          These details appear only when a VM is created from a Marketplace image. Offer, publisher, and sku are read only information that come from the VM Image in the Marketplace since the VM's `createoption` is `from image`. When a VM is created from disks (restored, uploaded, created from snapshots, and so on), the VM's `createoption` is `Attach`.
+          During a virtual machine (VM) restore using Azure Backup, you might notice that the restored VM doesn't retain the Offer, SKU, and Publisher properties that were present on the source VM. This is an expected behavior, and happens due to the following reasons:
+
+          - **MarketPlace Image VMs**: Only VMs created from a MarketPlace image will have the Offer, SKU, and Publisher details. These properties are derived from the VM image itself. When a VM is created from a MarketPlace image, the createOption is set to **from image**. This ensures that the Offer, SKU, and Publisher properties are included during the VM creation process. 
+          - **VMs Created from Disks**: When a VM is created from disks (such as restored VMs, uploaded VMs, or VMs created from snapshots), the createOption is set to **Attach** instead of "from image". In this case, the Offer, SKU, and Publisher properties are not included because these properties are read-only and can only be added during the initial VM creation process when the createOption is **from image**. 
 
   - name: Manage VM backups
     questions:
