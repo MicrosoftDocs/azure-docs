@@ -1,13 +1,13 @@
 ---
-title: Configure authentication in a sample React SPA by using Azure Active Directory B2C
-description: Learn how to use Azure Active Directory B2C to sign in and sign up users in a React SPA.
+title: Configure authentication in a sample React SPA by using Azure AD B2C
+description: Learn how to use Azure AD B2C to sign in and sign up users in a React SPA. Securely call a protected web API with MSAL React.
 
 author: kengaderdus
 manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: how-to
-ms.date: 01/11/2024
+ms.date: 02/19/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 ms.custom: "b2c-support"

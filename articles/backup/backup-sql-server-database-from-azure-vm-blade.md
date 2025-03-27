@@ -4,8 +4,8 @@ description: In this article, learn how to back up SQL Server databases from the
 ms.topic: how-to
 ms.date: 07/23/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Back up a SQL Server from the Azure SQL Server VM blade
 

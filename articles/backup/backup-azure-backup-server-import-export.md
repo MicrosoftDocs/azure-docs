@@ -4,8 +4,8 @@ description: With Azure Backup, you can send data off the network by using the A
 ms.topic: how-to
 ms.date: 05/24/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Offline seeding for DPM/MABS using customer-owned disks with Azure Import/Export

@@ -6,9 +6,9 @@ metadata:
   title: Azure Data Factory Documentation
   description: Learn how to use Data Factory, a cloud data integration service, to compose data storage, movement, and processing services into automated data pipelines. Tutorials and other documentation show you how to set up and manage data pipelines, and how to move and transform data for analysis.
   ms.topic: landing-page
-  author: jonburchel
-  ms.author: jburchel
-  ms.date: 01/05/2024
+  author: whhender
+  ms.author: whhender
+  ms.date: 02/13/2025
 landingContent:
   - title: What's New in Azure Data Factory
     linkLists:

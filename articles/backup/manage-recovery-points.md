@@ -2,9 +2,9 @@
 title: Manage recovery points
 description: Learn how the Azure Backup service manages recovery points for virtual machines
 ms.topic: how-to
-ms.date: 01/22/2025
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 03/27/2025
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Manage recovery points

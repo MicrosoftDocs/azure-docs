@@ -6,11 +6,11 @@ summary: Learn how to use Azure Route Server to simplify dynamic routing between
 metadata:
   title: Azure Route Server documentation 
   description: Learn about Azure Route Server
-  ms.service: azure-route-server
-  ms.topic: landing-page 
   author: halkazwini 
   ms.author: halkazwini 
-  ms.date: 09/23/2024
+  ms.service: azure-route-server
+  ms.topic: landing-page 
+  ms.date: 02/07/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -87,7 +87,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Troubleshooting Route Server
+          - text: Troubleshoot Route Server
             url: troubleshoot-route-server.md
           - text: Monitor Route Server
             url: monitor-route-server.md
@@ -103,3 +103,19 @@ landingContent:
             url: /cli/azure/network/routeserver
           - text: Route Server FAQ
             url: route-server-faq.md
+
+  # Card
+  - title: Network foundation
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Network foundation
+            url: /azure/networking/foundations
+      - linkListType: overview
+        links:
+          - text: What is Azure Virtual Network?
+            url: /azure/virtual-network/virtual-networks-overview
+          - text: What is Azure Bastion?
+            url: /azure/bastion/bastion-overview
+          - text: Azure DNS overview
+            url: /azure/dns/dns-overview

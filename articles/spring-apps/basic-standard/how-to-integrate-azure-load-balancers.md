@@ -39,7 +39,7 @@ We recommend that the domain name, as seen by the browser, is the same as the ho
 
 ## Integrate Azure Spring Apps with Azure Traffic Manager
 
-To integrate Azure Spring Apps with Traffic Manager, add its public endpoints as traffic manager’s endpoints and then configure custom domain for both traffic manager and Azure Spring Apps.
+To integrate Azure Spring Apps with Traffic Manager, add its public endpoints as traffic manager's endpoints and then configure custom domain for both traffic manager and Azure Spring Apps.
 
 ### Add Endpoint in Traffic Manager
 
@@ -57,7 +57,7 @@ Add endpoints in traffic manager:
 
 To finish the configuration:
 
-1. Sign in to the website of your domain provider, and create a CNAME record mapping from your custom domain to traffic manager’s Azure default domain name.
+1. Sign in to the website of your domain provider, and create a CNAME record mapping from your custom domain to traffic manager's Azure default domain name.
 
 ## Integrate Azure Spring Apps with Azure App Gateway
 
@@ -65,7 +65,7 @@ To integrate with Azure Spring Apps service, complete the following configuratio
 
 ### Configure Backend Pool
 
-1. Specify **Target type** as *IP address* or *FQDN*.
+1. Specify **Target type** as **IP address** or **FQDN**.
 1. Enter your Azure Spring Apps public endpoints.
 
    :::image type="content" source="media/how-to-integrate-azure-load-balancers/app-gateway-1.png" alt-text="Screenshot of the Azure portal that shows the Add backend pool page with the Backend targets values highlighted." lightbox="media/how-to-integrate-azure-load-balancers/app-gateway-1.png":::

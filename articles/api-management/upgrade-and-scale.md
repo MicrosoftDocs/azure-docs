@@ -40,7 +40,7 @@ You can choose between the following dedicated tiers: **Developer**, **Basic**, 
 
 * The **Developer** tier should be used to evaluate the service; it shouldn't be used for production. The **Developer** tier doesn't have SLA and you can't scale this tier (add/remove units). 
 
-* **Basic**, **Basic v2**, **Standard**, **Standard v2**, **Premium**, and **Premium v2** are production tiers that have SLA and can be scaled. For pricing details and scale limits, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/#pricing).
+* **Basic**, **Basic v2**, **Standard**, **Standard v2**, **Premium**, and **Premium v2** (limited preview) are tiers that have SLA and can be scaled. For pricing details and scale limits, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/#pricing).
 
 * The **Premium** tier enables you to distribute a single Azure API Management instance across any number of desired Azure regions. When you initially create an Azure API Management service, the instance contains only one unit and resides in a single Azure region (the **primary** region).
 
@@ -49,7 +49,7 @@ You can choose between the following dedicated tiers: **Developer**, **Basic**, 
 * You can upgrade and downgrade to and from certain dedicated services tiers: 
     * You can upgrade and downgrade to and from classic tiers (**Developer**, **Basic**, **Standard**, and **Premium**).
     
-    * You can upgrade and downgrade to and from v2 tiers (**Basic v2**, **Standard v2**, and **Premium v2**). 
+    * You can upgrade and downgrade to and from the **Basic v2** and **Standard v2** tiers. 
 
     Downgrading can remove some features. For example, downgrading to **Standard** or **Basic** from the **Premium** tier can remove virtual networks or multi-region deployment.
 
@@ -108,4 +108,4 @@ If your security requirements include [compute isolation](../azure-government/az
 - [How to deploy an Azure API Management service instance to multiple Azure regions](api-management-howto-deploy-multi-region.md)
 - [How to automatically scale an Azure API Management service instance](api-management-howto-autoscale.md)
 - [Plan and manage costs for API Management](plan-manage-costs.md)
-- [API Management limits](../azure-resource-manager/management/azure-subscription-service-limits.md#api-management-limits)
+- [API Management limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-api-management-limits)

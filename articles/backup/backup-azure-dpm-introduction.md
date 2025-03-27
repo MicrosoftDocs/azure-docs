@@ -4,8 +4,8 @@ description: In this article, learn how to prepare for System Center Data Protec
 ms.topic: overview
 ms.date: 12/24/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Prepare to back up workloads to Azure with System Center DPM

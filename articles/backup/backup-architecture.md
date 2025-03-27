@@ -4,8 +4,8 @@ description: Provides an overview of the architecture, components, and processes
 ms.topic: overview
 ms.date: 07/18/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 
