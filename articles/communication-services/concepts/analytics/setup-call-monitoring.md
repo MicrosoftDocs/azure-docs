@@ -21,7 +21,7 @@ This guide will help ACS Calling customers set up monitoring and alerting for th
 
 ## Prerequisite: Enable Call Logging and Diagnostics
 
-Before configuring monitoring, ensure that call logging and diagnostics are enabled for your Direct Routing setup. This process involves configuring Azure Communication Services (ACS) to collect call data. Detailed instructions can be found here: [Azure Communication Services-Enable Azure Monitor - An Azure Communication Services concept document | Microsoft Learn](https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/enable-logging).
+Before configuring monitoring, ensure that call logging and diagnostics are enabled for your Direct Routing setup. This process involves configuring Azure Communication Services (ACS) to collect call data. Detailed instructions can be found here: [Azure Communication Services-Enable Azure Monitor - An Azure Communication Services concept document | Microsoft Learn](./enable-logging).
 
 ## Step-by-Step Instructions
 
@@ -35,7 +35,7 @@ Before configuring monitoring, ensure that call logging and diagnostics are enab
 | extend FailureRate = (UnsuccessfulCalls * 100.0) / TotalCalls 
 | where FailureRate > 10</pre>
 
-![image.png](/.attachments/image-aa25f1b3-b948-48e6-a340-e187300af171.png)
+:::image type="content" source="media\setup-call-monitoring\sample-query.png" alt-text="Example Query for Call Failure Rates":::
 
 ### Configure Alerts
 
@@ -48,11 +48,11 @@ Before configuring monitoring, ensure that call logging and diagnostics are enab
     *   Aggregation Type: Total
     *   Aggregation granularity: 1 hour 
 
-![image.png](/.attachments/image-a050090d-9eb0-4b9e-895a-4831647fa6e0.png)
+:::image type="content" source="media\setup-call-monitoring\create-alert-rule.png" alt-text="Create Alert Rule":::
 
 6.  Adjust the alerting logic to suit your requirements and click on **Next: Actions** when done. 
 
-![image.png](/.attachments/image-c20f1a73-4f00-483f-9672-3eea6ddaf3a0.png)
+:::image type="content" source="media\setup-call-monitoring\split-by-dimensions.png" alt-text="Split Alert by DImensions":::
 
 ### Create Action Group
 
@@ -60,23 +60,23 @@ Before configuring monitoring, ensure that call logging and diagnostics are enab
 2.  Select your Subscription, Resource group & Region.
 3.  Provide an Action group name and Display name, and then click on **Next: Notifications**. 
 
-![image.png](/.attachments/image-edeb7d8f-626f-4213-b827-4099d89deb6a.png)
+:::image type="content" source="media\setup-call-monitoring\create-action-group" alt-text="Create Action Group":::
 
 ### Set Up Notifications
 
 1.  Choose how you want to get notified and once done, click on **Review + create**, and wait for your alert rule to get created. 
 
-![image.png](/.attachments/image-3d15df0c-4f48-4166-a884-859069777e27.png)
+:::image type="content" source="media\setup-call-monitoring\setup-notifications" alt-text="Set Up Notifications":::
 
 2.  Once completed, click on **Next: Details**.
 3.  Provide the additional requested details as shown in the screen below.
 4.  Click on **Review + create**.
 5.  Congratulations, you can now monitor your ACS calling setup! 
 
-![image.png](/.attachments/image-63ead467-68dd-449f-8ad6-f814c7f576ac.png)
+:::image type="content" source="media\setup-call-monitoring\alert-rule-details" alt-text="Set Up Alert Rule Details":::
 
 * * * 
 Here’s what a sample email alert looks like when triggered: Email Alert
 
-![image.png](/.attachments/image-378eb46c-80c1-4578-a577-e4395974fd44.png)
+:::image type="content" source="media\setup-call-monitoring\sample-email-alert" alt-text="Sample Email Alert":::
 
