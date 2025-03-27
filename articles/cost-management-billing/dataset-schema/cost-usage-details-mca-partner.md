@@ -66,9 +66,9 @@ This article applies to cost and usage details file schema for Microsoft Partner
 |46|pricingCurrency|Currency used when rating based on negotiated prices.|
 |47|costInBillingCurrency|Cost of the charge in the billing currency before credits or taxes.|
 |48|costInPricingCurrency|Cost of the charge in the pricing currency before credits or taxes.|
-|49|costInUsd|  |
-|50|paygCostInBillingCurrency|  |
-|51|paygCostInUsd|  |
+|49|costInUsd| Cost of the charge in USD currency before credits or taxes. |
+|50|paygCostInBillingCurrency| The amount of Pay-As-You-Go (PayG) cost before tax in billing currency. You can compute `paygCostInBillingCurrency` by multiplying `PayGPrice`, `quantity` and `exchangeRatePricingToBilling`.   |
+|51|paygCostInUsd| The amount of Pay-As-You-Go (PayG) cost before tax in USD currency. You can compute `paygCostInUsd` by multiplying `PayGPrice` and `quantity`.  |
 |52|exchangeRatePricingToBilling|Exchange rate used to convert the cost in the pricing currency to the billing currency.|
 |53|exchangeRateDate|Date the exchange rate was established.|
 |54|isAzureCreditEligible|Indicates if the charge is eligible to be paid for using Azure credits (Values: `True` or `False`).|
@@ -78,7 +78,7 @@ This article applies to cost and usage details file schema for Microsoft Partner
 |58|tags|Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](../../azure-resource-manager/management/tag-resources.md).|
 |59|partnerEarnedCreditRate|Rate of discount applied if there's a partner earned credit (PEC), based on partner admin link access.|
 |60|partnerEarnedCreditApplied|Indicates whether the partner earned credit was applied.|
-|61|PayGPrice|Retail price for the resource.|
+|61|PayGPrice|The market price, also referred to as retail or list price, for a given product or service. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 |62|frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
 |63|term|Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption.|
 |64|reservationId|Unique identifier for the purchased reservation instance.|
@@ -141,9 +141,9 @@ This article applies to cost and usage details file schema for Microsoft Partner
 |46|pricingCurrency|Currency used when rating based on negotiated prices.|
 |47|costInBillingCurrency|Cost of the charge in the billing currency before credits or taxes.|
 |48|costInPricingCurrency|Cost of the charge in the pricing currency before credits or taxes.|
-|49|costInUsd|  |
-|50|paygCostInBillingCurrency|  |
-|51|paygCostInUsd|  |
+|49|costInUsd| Cost of the charge in USD currency before credits or taxes. |
+|50|paygCostInBillingCurrency| The amount of Pay-As-You-Go (PayG) cost before tax in billing currency. You can compute `paygCostInBillingCurrency` by multiplying `PayGPrice`, `quantity` and `exchangeRatePricingToBilling`. |
+|51|paygCostInUsd| The amount of Pay-As-You-Go (PayG) cost before tax in USD currency. You can compute `paygCostInUsd` by multiplying `PayGPrice` and `quantity`. |
 |52|exchangeRatePricingToBilling|Exchange rate used to convert the cost in the pricing currency to the billing currency.|
 |53|exchangeRateDate|Date the exchange rate was established.|
 |54|isAzureCreditEligible|Indicates if the charge is eligible to be paid for using Azure credits (Values: `True` or `False`).|
@@ -153,7 +153,7 @@ This article applies to cost and usage details file schema for Microsoft Partner
 |58|tags|Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](../../azure-resource-manager/management/tag-resources.md).|
 |59|partnerEarnedCreditRate|Rate of discount applied if there's a partner earned credit (PEC), based on partner admin link access.|
 |60|partnerEarnedCreditApplied|Indicates whether the partner earned credit was applied.|
-|61|PayGPrice|Retail price for the resource.|
+|61|PayGPrice|The market price, also referred to as retail or list price, for a given product or service. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 |62|frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
 |63|term|Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption.|
 |64|reservationId|Unique identifier for the purchased reservation instance.|
@@ -216,9 +216,9 @@ This article applies to cost and usage details file schema for Microsoft Partner
 |46|pricingCurrency|Currency used when rating based on negotiated prices.|
 |47|costInBillingCurrency|Cost of the charge in the billing currency before credits or taxes.|
 |48|costInPricingCurrency|Cost of the charge in the pricing currency before credits or taxes.|
-|49|costInUsd|  |
-|50|paygCostInBillingCurrency|  |
-|51|paygCostInUsd|  |
+|49|costInUsd| Cost of the charge in USD currency before credits or taxes. |
+|50|paygCostInBillingCurrency| The amount of Pay-As-You-Go (PayG) cost before tax in billing currency. You can compute `paygCostInBillingCurrency` by multiplying `PayGPrice`, `quantity` and `exchangeRatePricingToBilling`. |
+|51|paygCostInUsd| The amount of Pay-As-You-Go (PayG) cost before tax in USD currency. You can compute `paygCostInUsd` by multiplying `PayGPrice` and `quantity`. |
 |52|exchangeRatePricingToBilling|Exchange rate used to convert the cost in the pricing currency to the billing currency.|
 |53|exchangeRateDate|Date the exchange rate was established.|
 |54|isAzureCreditEligible|Indicates if the charge is eligible to be paid for using Azure credits (Values: `True` or `False`).|
@@ -228,7 +228,7 @@ This article applies to cost and usage details file schema for Microsoft Partner
 |58|tags|Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](../../azure-resource-manager/management/tag-resources.md).|
 |59|partnerEarnedCreditRate|Rate of discount applied if there's a partner earned credit (PEC), based on partner admin link access.|
 |60|partnerEarnedCreditApplied|Indicates whether the partner earned credit was applied.|
-|61|PayGPrice|Retail price for the resource.|
+|61|PayGPrice|The market price, also referred to as retail or list price, for a given product or service. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 |62|frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
 |63|term|Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption.|
 |64|reservationId|Unique identifier for the purchased reservation instance.|
@@ -288,9 +288,9 @@ This article applies to cost and usage details file schema for Microsoft Partner
 |46|pricingCurrency|Currency used when rating based on negotiated prices.|
 |47|costInBillingCurrency|Cost of the charge in the billing currency before credits or taxes.|
 |48|costInPricingCurrency|Cost of the charge in the pricing currency before credits or taxes.|
-|49|costInUsd|  |
-|50|paygCostInBillingCurrency|  |
-|51|paygCostInUsd|  |
+|49|costInUsd| Cost of the charge in USD currency before credits or taxes. |
+|50|paygCostInBillingCurrency| The amount of Pay-As-You-Go (PayG) cost before tax in billing currency. You can compute `paygCostInBillingCurrency` by multiplying `PayGPrice`, `quantity` and `exchangeRatePricingToBilling`. |
+|51|paygCostInUsd| The amount of Pay-As-You-Go (PayG) cost before tax in USD currency. You can compute `paygCostInUsd` by multiplying `PayGPrice` and `quantity`. |
 |52|exchangeRatePricingToBilling|Exchange rate used to convert the cost in the pricing currency to the billing currency.|
 |53|exchangeRateDate|Date the exchange rate was established.|
 |54|isAzureCreditEligible|Indicates if the charge is eligible to be paid for using Azure credits (Values: `True` or `False`).|
@@ -300,7 +300,7 @@ This article applies to cost and usage details file schema for Microsoft Partner
 |58|tags|Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](../../azure-resource-manager/management/tag-resources.md).|
 |59|partnerEarnedCreditRate|Rate of discount applied if there's a partner earned credit (PEC), based on partner admin link access.|
 |60|partnerEarnedCreditApplied|Indicates whether the partner earned credit was applied.|
-|61|payGPrice|Retail price for the resource.|
+|61|payGPrice|The market price, also referred to as retail or list price, for a given product or service. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 |62|frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
 |63|term|Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption.|
 |64|reservationId|Unique identifier for the purchased reservation instance.|

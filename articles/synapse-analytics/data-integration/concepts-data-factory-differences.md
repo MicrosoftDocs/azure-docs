@@ -25,5 +25,6 @@ Check below table for features availability:
 | **Template Gallery and Knowledge center** | Solution Templates | ✓ *Azure Data Factory Template Gallery* | ✓ *Synapse Workspace Knowledge center* |
 | **GIT Repository Integration** | GIT Integration | ✓ | ✓ |
 | **Monitoring**           | Monitoring of Spark Jobs for Data Flow | ✗ | ✓ *Use the Synapse Spark pools* |
+| **Deployment**           | Pipelines and flows deployable using ARM templates | ✓ | ✗ |
 
 Get started with data integration in your Synapse workspace by learning how to [ingest data into an Azure Data Lake Storage gen2 account](data-integration-data-lake.md).

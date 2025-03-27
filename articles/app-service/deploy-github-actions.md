@@ -61,9 +61,9 @@ Alternatively, you can authenticate with a User-assigned Managed Identity, a ser
 
 # [OpenID Connect](#tab/openid)
 
-The following procedure describes the steps for creating an active directory application, service principal, and federated credentials using Azure CLI statements. To learn how to create an active directory application, service principal, and federated credentials in Azure portal, see [Connect GitHub and Azure](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
+The following procedure describes the steps for creating an Microsoft Entra application, service principal, and federated credentials using Azure CLI statements. To learn how to create an Microsoft Entra application, service principal, and federated credentials in Azure portal, see [Connect GitHub and Azure](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
 
-1. If you don't have an existing application, register a [new Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Create the Active Directory application.
+1. If you don't have an existing application, register a [new Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Create the Microsoft Entra application.
 
    ```azurecli-interactive
    az ad app create --display-name myApp
@@ -89,7 +89,7 @@ The following procedure describes the steps for creating an active directory app
     az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --scope /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Web/sites/$webappName --assignee-principal-type ServicePrincipal
     ```
 
-1. Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your active directory application.
+1. Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your Entra app.
 
     - Replace `APPLICATION-OBJECT-ID` with the **appId (generated while creating app)** for your Active Directory application.
     - Set a value for `CREDENTIAL-NAME` to reference later.

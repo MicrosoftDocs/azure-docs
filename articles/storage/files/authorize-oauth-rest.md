@@ -4,7 +4,7 @@ description: Authorize admin-level read and write access to Azure file shares an
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 05/08/2024
+ms.date: 03/25/2025
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell
 ---
@@ -14,13 +14,15 @@ ms.custom: devx-track-azurepowershell
 Azure Files OAuth over REST enables admin-level read and write access to Azure file shares for users and applications via the [OAuth](https://oauth.net/) authentication protocol, using Microsoft Entra ID for REST API based access. Users, groups, first-party services such as Azure portal, and third-party services and applications using REST interfaces can now use OAuth authentication and authorization with a Microsoft Entra account to access data in Azure file shares. PowerShell cmdlets and Azure CLI commands that call REST APIs can also use OAuth to access Azure file shares. You must call the REST API using an explicit header to indicate your intent to use the additional privilege. This is also true for Azure PowerShell and Azure CLI access.
 
 > [!IMPORTANT]
-> This article explains how to enable admin-level access to Azure file shares for specific [customer use cases](#customer-use-cases). If you're looking for a more general article on identity-based authentication for end users, see [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md).
+> This article explains how to enable admin-level access to Azure file shares for specific [customer use cases](#customer-use-cases). If you're looking for a more general article on identity-based authentication for end users, see [Overview of Azure Files identity-based authentication for SMB access](storage-files-active-directory-overview.md).
 
 ## Limitations
 
-Azure Files OAuth over REST only supports the FileREST Data APIs that support operations on files and directories. OAuth isn't supported on FilesREST data plane APIs that manage FileService and FileShare resources. These management APIs are called using the Storage Account Key or SAS token, and are exposed through the data plane for legacy reasons. We recommend using the control plane APIs (the storage resource provider - Microsoft.Storage) that support OAuth for all management activities related to FileService and FileShare resources.
+Authorizing file data operations with Microsoft Entra ID is supported only for REST API versions 2022-11-02 and later. 
 
-Authorizing file data operations with Microsoft Entra ID is supported only for REST API versions 2022-11-02 and later. See [Versioning for Azure Storage](/rest/api/storageservices/versioning-for-the-azure-storage-services).
+Azure Files OAuth over REST support for Azure Files REST data plane APIs that manage FileService and FileShare resources is available with REST API versions 2024-11-04 and later.
+
+See [Versioning for Azure Storage](/rest/api/storageservices/versioning-for-the-azure-storage-services).
 
 ## Customer use cases
 
@@ -88,7 +90,7 @@ An advantage of the Azure Identity client library is that it enables you to use 
 
 The access token returned by the Azure Identity client library is encapsulated in a token credential. You can then use the token credential to get a service client object to use in performing authorized operations against the Azure Files service.  
 
-Here's some sample code:
+The following code example shows how to authorize a client object using Microsoft Entra ID and perform operations at the directory and file level. This example assumes that the file share already exists.
 
 ```aspx-csharp
 using Azure.Core;
@@ -105,15 +107,11 @@ namespace FilesOAuthSample
             string tenantId = "";
             string appId = "";
             string appSecret = "";
-            string aadEndpoint = "";
-            string accountUri = "";
-            string connectionString = "";
+            string entraEndpoint = "";
+            string accountUri = "https://<storage-account-name>.file.core.windows.net/";
             string shareName = "test-share";
-            string directoryName = "testDirectory";
-            string fileName = "testFile"; 
-
-            ShareClient sharedKeyShareClient = new ShareClient(connectionString, shareName); 
-            await sharedKeyShareClient.CreateIfNotExistsAsync(); 
+            string directoryName = "test-directory";
+            string fileName = "test-file";  
 
             TokenCredential tokenCredential = new ClientSecretCredential(
                 tenantId,
@@ -121,19 +119,18 @@ namespace FilesOAuthSample
                 appSecret,
                 new TokenCredentialOptions()
                 {
-                    AuthorityHost = new Uri(aadEndpoint)
+                    AuthorityHost = new Uri(entraEndpoint)
                 });
 
-            ShareClientOptions clientOptions = new ShareClientOptions(ShareClientOptions.ServiceVersion.V2023_05_03);
-
-            // Set Allow Trailing Dot and Source Allow Trailing Dot.
+            // Set client options
+            ShareClientOptions clientOptions = new ShareClientOptions();
             clientOptions.AllowTrailingDot = true;
             clientOptions.AllowSourceTrailingDot = true;
 
             // x-ms-file-intent=backup will automatically be applied to all APIs
-            // where it is required in derived clients.
-
+            // where it is required in derived clients
             clientOptions.ShareTokenIntent = ShareTokenIntent.Backup;
+
             ShareServiceClient shareServiceClient = new ShareServiceClient(
                 new Uri(accountUri),
                 tokenCredential,
@@ -146,7 +143,6 @@ namespace FilesOAuthSample
             ShareFileClient fileClient = directoryClient.GetFileClient(fileName);
             await fileClient.CreateAsync(maxSize: 1024);
             await fileClient.GetPropertiesAsync();
-            await sharedKeyShareClient.DeleteIfExistsAsync();
         }
     }
 }

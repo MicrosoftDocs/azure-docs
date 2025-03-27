@@ -50,7 +50,7 @@ Apart from the **Incident tasks workbook**, you can audit task activity by query
 
     You can add any number of statements to the query to filter and narrow down the results. To demonstrate how to view and understand the results, we're going to add statements to filter the results so that we only see the tasks for a single incident, and we'll also add a `project` statement so that we see only those fields that will be useful for our purposes, without a lot of clutter.
 
-    [Learn more about using Kusto Query Language](/kusto/query/kusto-sentinel-overview).
+    For more information, see [Kusto Query Language overview](/kusto/query/?view=microsoft-sentinel&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json).
 
     ```kusto
     SecurityIncident

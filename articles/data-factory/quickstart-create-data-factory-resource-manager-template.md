@@ -2,16 +2,15 @@
 title: Create an Azure Data Factory using an Azure Resource Manager template (ARM template)
 description: Create a sample Azure Data Factory pipeline using an Azure Resource Manager template (ARM template).
 tags: azure-resource-manager
-author: ssabat
-ms.author: susabat
-ms.reviewer: jburchel, jingwang
+author: whhender
+ms.author: whhender
+ms.reviewer: susabat, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.date: 10/20/2023
 ---
 
 # Quickstart: Create an Azure Data Factory using ARM template
-
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 

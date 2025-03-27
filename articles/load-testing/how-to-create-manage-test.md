@@ -25,7 +25,7 @@ Learn how to create and manage [load tests](./concept-load-testing-concepts.md#t
 There are two options to create a load test in the Azure portal:
 
 - Create a quick test by using a web application URL (URL-based test).
-- Create a test by uploading a JMeter test script (JMX).
+- Create a test by uploading a test script (JMX). You can upload a JMeter script or a Locust script.
 
 :::image type="content" source="media/how-to-create-manage-test/create-test-dropdown.png" alt-text="Screenshot that shows the options to create a new test in the Azure portal.":::
 
@@ -46,9 +46,9 @@ To create a quick test in the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com), and go to your load testing resource.
 
-1. Select **Quick test** on the **Overview** page.
+1. Select **Add HTTP requests** on the **Overview** page.
 
-    Alternately, select **Tests** in the left pane, select **+ Create**, and then select **Create a quick test**.
+    Alternately, select **Tests** in the left pane, select **+ Create**, and then select **Create a URL-based test**.
 
 1. Enter the target URL and load parameters.
 
@@ -60,17 +60,17 @@ To create a quick test in the Azure portal:
 
 After running a quick test, you can further [edit the load test configuration](#edit-a-test). For example, you can add app components to [monitor server-side metrics](./how-to-monitor-server-side-metrics.md), [configure high scale load](./how-to-high-scale-load.md), or to edit the generated JMeter script.
 
-### Create a test by using a JMeter script
+### Create a test by using a test script
 
-To reuse an existing JMeter test script, or for more advanced test scenarios, create a test by uploading a JMX file. For example, to [read data from a CSV input file](./how-to-read-csv-data.md), or to [configure JMeter user properties](./how-to-configure-user-properties.md). For more information, see [Create a load test by using an existing JMeter script](./how-to-create-and-run-load-test-with-jmeter-script.md).
+To reuse an existing JMeter or Locust test script, or for more advanced test scenarios, create a test by uploading the test script. For example, to [read data from a CSV input file](./how-to-read-csv-data.md), or to [configure JMeter user properties](./how-to-configure-user-properties.md). For more information, see [Create a load test by using an existing JMeter script](./how-to-create-and-run-load-test-with-jmeter-script.md) and [Create a load test with a Locust script](./quickstart-create-run-load-test-with-locust.md).
 
-If you're not familiar with creating a JMeter script, see [Getting started with Apache JMeter](https://jmeter.apache.org/usermanual/get-started.html).
+If you're not familiar with creating a JMeter script, see [Getting started with Apache JMeter](https://jmeter.apache.org/usermanual/get-started.html). To get started with Locust, see [Getting started with Locust](https://docs.locust.io/en/stable/quickstart.html)
 
 1. In the [Azure portal](https://portal.azure.com), and go to your load testing resource.
 
 1. Select **Create** on the **Overview** page. 
     
-    Alternately, select **Tests** in the left pane, select **+ Create**, and then select **Upload a JMeter script**.
+    Alternately, select **Tests** in the left pane, select **+ Create**, and then select **Upload scripts**.
 
 1. On the **Basics** page, enter the basic test information.
 
@@ -80,7 +80,7 @@ If you're not familiar with creating a JMeter script, see [Getting started with 
 
 #### Test plan
 
-The test plan contains all files that are needed for running your load test. At a minimum, the test plan should contain one `*.jmx` JMeter script. Azure Load Testing only supports one JMX file per load test.
+The test plan contains all files that are needed for running your load test. At a minimum, the test plan should contain one `*.jmx` JMeter script or one `.py` Locust script. 
 
 Alongside the test script, you can upload a user property file, configuration files, or input data files, such as CSV files.
 
@@ -90,7 +90,7 @@ Alongside the test script, you can upload a user property file, configuration fi
 
     :::image type="content" source="media/how-to-create-manage-test/test-plan-upload-files.png" alt-text="Screenshot that shows the test plan page for creating a test in the Azure portal, highlighting the upload functionality.":::
 
-    Azure Load Testing stores all files in a single repository. If your test script references configuration or data files, make sure to remove any relative path names in the JMX file.
+    Azure Load Testing stores all files in a single repository. If your test script references configuration or data files, make sure to remove any relative path names in the test script.
 
 1. If your test uses CSV input data, you can choose to enable **Split CSV evenly between test engines**.
 
@@ -105,7 +105,7 @@ Alongside the test script, you can upload a user property file, configuration fi
 
 #### Parameters
 
-You can use parameters to make your test plan configurable instead of hard-coding values in the JMeter script. Specify key-value pairs in the load test configuration, and reference the value in the JMeter script by using the parameter name. For more information, see [Parameterize a load test with environment variables and secrets](./how-to-parameterize-load-tests.md).
+You can use parameters to make your test plan configurable instead of hard-coding values in the test script. Specify key-value pairs in the load test configuration, and reference the value in the test script by using the parameter name. For more information, see [Parameterize a load test with environment variables and secrets](./how-to-parameterize-load-tests.md).
 
 :::image type="content" source="media/how-to-create-manage-test/configure-parameters.png" alt-text="Screenshot that shows how to configure parameters when creating a test in the Azure portal.":::
 
@@ -133,7 +133,7 @@ You can use parameters to make your test plan configurable instead of hard-codin
 
 1. Specify the number of test engine instances.
 
-    Azure Load Testing automatically scales your load test across all instances. The JMeter test script is run in parallel across all instances. The total number of simulated users equals the number of virtual users (threads) you specify in the JMeter script, multiplied by the number of test engine instances. For more information, see [Configure a test for high-scale load](./how-to-high-scale-load.md).
+    Azure Load Testing automatically scales your load test across all instances. The JMeter test script is run in parallel across all instances. The total number of simulated users equals the number of virtual users (threads) you specify in the JMeter script, multiplied by the number of test engine instances. For Locust-based tests, specify the total users required in the load configuration in Azure Load Testing, in the test script, or in the Locust configuration file and select the engine instances required to generate the load. For more information, see [Configure a test for high-scale load](./how-to-high-scale-load.md).
 
 1. Configure virtual network connectivity.
 
@@ -155,7 +155,7 @@ You can use parameters to make your test plan configurable instead of hard-codin
 	- Latency
 	- Error percentage
 
-    You can specify fail criteria for the entire load test, or assign them to specific requests in the JMeter script. For example, to validate that the home page response time doesn't exceed a specific response time. For more information, see [Configure test fail criteria](./how-to-define-test-criteria.md).
+    You can specify fail criteria for the entire load test, or assign them to specific requests in the test script. For example, to validate that the home page response time doesn't exceed a specific response time. For more information, see [Configure test fail criteria](./how-to-define-test-criteria.md).
 
 1. Configure auto stop criteria.
 

@@ -46,8 +46,6 @@ items:
     href: authentication-best-practices.md
   - name: Azure Maps Event Grid integration
     href: azure-maps-event-grid-integration.md
-  - name: Choose the right pricing tier
-    href: choose-pricing-tier.md
   - name: Azure Maps geographic scope
     href: geographic-scope.md
   - name: Consent management
@@ -146,6 +144,12 @@ items:
       href: migrate-from-google-maps-android-app.md
     - name: Migrate a web service
       href: migrate-from-google-maps-web-services.md
+  - name: Migrate from previous versions
+    items:
+    - name: Migrate Azure Maps Route 1.0 APIs
+      href: migrate-route-v1-api.md
+    - name: Migrate Azure Maps Traffic 1.0 APIs
+      href: migrate-traffic-v1-api.md
   - name: Manage Maps accounts
     items:
     - name: Create account with ARM template

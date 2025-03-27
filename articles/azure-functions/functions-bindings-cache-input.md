@@ -318,6 +318,8 @@ The input binding expects to receive a string from the cache.
 When you use a custom type as the binding parameter, the extension tries to deserialize a JSON-formatted string into the custom type of this parameter.
 ::: zone-end  
 
+[!INCLUDE [functions-azure-redis-cache-authentication-note](../../includes/functions-azure-redis-cache-authentication-note.md)]
+
 ## Related content
 
 - [Introduction to Azure Functions](functions-overview.md)

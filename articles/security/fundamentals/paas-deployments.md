@@ -149,7 +149,7 @@ In this article, we focused on security advantages of an Azure PaaS deployment a
 - [Azure Cloud Services](../../cloud-services/security-baseline.md)
 - Azure Cache for Redis
 - Azure Service Bus
-- Web Application Firewall
+- Web Application Firewall for [Azure Application Gateway](../../web-application-firewall/ag/ag-overview.md) and [Azure Front Door](../../web-application-firewall/afds/afds-overview.md)
 
 See [Develop secure applications on Azure](../develop/secure-dev-overview.md) for security questions and controls you should consider at each phase of the software development lifecycle when developing applications for the cloud.
 

@@ -82,14 +82,14 @@ Before installing the software on the Dell appliance, you need to adjust the app
 
 To install the Dell PowerEdge R340XL appliance, you need:
 
-- An Enterprise license for Dell Remote Access Controller (iDrac)
+- An Enterprise license for Dell Remote Access Controller (iDRAC)
 
 - A BIOS configuration XML
 
 - One of the following server firmware versions:
 
   - BIOS version 2.1.6 or later
-  - iDrac version 3.23.23.23 or later
+  - iDRAC version 3.23.23.23 or later
 
 ### Configure the Dell BIOS
 

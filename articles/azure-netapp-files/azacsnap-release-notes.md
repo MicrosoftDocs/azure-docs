@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 01/14/2025
+ms.date: 02/01/2025
 ms.author: phjensen
 ---
 
@@ -17,6 +17,27 @@ Download the latest release of the binary for [Linux](https://aka.ms/azacsnap-li
 
 For specific information on Preview features, refer to the [AzAcSnap Preview](azacsnap-preview.md) page.
 
+## Feb-2025
+
+### AzAcSnap 11 (Build: 1BA0C3*)
+
+AzAcSnap 11 is being released with the following fixes and improvements:
+
+
+- Features moved to GA (generally available):
+  - Microsoft SQL Server 2022 on Windows.
+- Dependency updates:
+  - Updated to .NET 8
+    - List of supported operation systems [.NET 8 - Supported OS versions](https://github.com/dotnet/core/blob/main/release-notes/8.0/supported-os.md).
+  -	Azure SDK updated to Track 2 (latest security and performance improvements).
+- Fixes and Improvements:
+  - (NEW) Configurable Data Volume Backup Attempts:
+    - This feature allows you to set the number of times the system will try to perform a data volume backup. It's useful for databases where locking issues might occur. By default, the system will try 3 times, but you can set it to any number from 1. You can configure this by adding the `DATA_BACKUP_ATTEMPTS` variable to the `.azacsnaprc` file or as an environment variable.  Currently, this feature is only available for Microsoft SQL Server.  For details on configuration refer to the [global override settings to control AzAcSnap behavior](azacsnap-tips.md#global-override-settings-to-control-azacsnap-behavior).
+  -	Backup (-c backup) changes:
+    -	Storage snapshot retention management moved to after database taken out of "backup-mode" to reduce time the database is in a "backup-enabled" state.
+
+Download the binary of [AzAcSnap 11 for Linux](https://aka.ms/azacsnap-11-linux) ([signature file](https://aka.ms/azacsnap-11-linux-signature)) or [AzAcSnap 11 for Windows](https://aka.ms/azacsnap-11-windows).
+
 ## Oct-2024
 
 ### AzAcSnap 10a (Build: 1B79BA*)
@@ -27,7 +48,7 @@ AzAcSnap 10a is being released with the following fixes and improvements:
   - Allow configurable wait time-out for Microsoft SQL Server. This option helps you increase time-out for slow responding systems (default and minimum value is 30 seconds).
     - Added a global override variable `MSSQL_CMD_TIMEOUT_SECS` to be used in either the `.azacsnaprc` file or as an environment variable set to the required wait time-out in seconds. For details on configuration refer to the [global override settings to control AzAcSnap behavior](azacsnap-tips.md#global-override-settings-to-control-azacsnap-behavior).
 
-Download the binary of [AzAcSnap 10a for Linux](https://aka.ms/azacsnap-10a-linux)([signature file](https://aka.ms/azacsnap-10a-linux-signature)) or [AzAcSnap 10a for Windows](https://aka.ms/azacsnap-10a-windows).
+Download the binary of [AzAcSnap 10a for Linux](https://aka.ms/azacsnap-10a-linux) ([signature file](https://aka.ms/azacsnap-10a-linux-signature)) or [AzAcSnap 10a for Windows](https://aka.ms/azacsnap-10a-windows).
 
 ## Jul-2024
 

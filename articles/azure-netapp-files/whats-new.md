@@ -1,12 +1,12 @@
 ---
-title: What's new in Azure NetApp Files | Microsoft Docs
+title: What's new in Azure NetApp Files 
 description: Provides a summary about the latest new features and enhancements of Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 01/29/2025
+ms.date: 03/25/2025
 ms.author: anfdocs
 ---
 
@@ -14,9 +14,53 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-## January 2025
+## March 2025
 
-* [Application volume group for Oracle](application-volume-group-oracle-introduction.md) and [application volume group for SAP HANA extension one](application-volume-group-introduction.md) now support customer-managed keys. 
+* [Flexible service level](azure-netapp-files-set-up-capacity-pool.md) (preview)
+ 
+    The [Flexible service level](azure-netapp-files-service-levels.md) allows you to independently configure storage capacity and throughput, optimizing costs by right-sizing according to storage and performance requirements. With separate pricing for capacity and throughput, the Flexible service level prevents overprovisioning and supports up to 640 MiB/second per TiB. This throughput is five times the performance of the Ultra service level, making it ideal for demanding workloads and offering higher throughput for smaller capacity pools and adapting to changing requirements without the need for volume moves. 
+    
+    The Flexible service level is only supported with _new_ manual QoS capacity pools. The Flexible service level offers a minimum throughput of 128 MiB/s and a maximum of 640 MiB/s per TiB [per pool](azure-netapp-files-service-levels.md#flexible-service-level-throughput-examples). This new service level is suitable for applications such as Oracle or SAP HANA and for creating high-capacity volumes with low throughput needs. You can adjust throughput and size limits independently, ensuring flexibility and precise scaling to meet your price-performance requirements. 
+
+* [Network security group (NSG) support for private link connectivity](azure-netapp-files-network-topologies.md) is now generally available (GA)
+
+    Azure NetApp Files now supports private links with NSGs in all regions. This feature enables you to apply NSG policies to private link endpoints, enhancing the security of your workload deployments. 
+
+* [Application volume group for Oracle](application-volume-group-oracle-introduction.md) is now generally available (GA)
+
+    Application volume group for Oracle enables you to deploy all volumes required to install and operate Oracle databases at enterprise scale, with optimal performance and according to best practices in a single one-step and optimized workflow. The application volume group feature uses the Azure NetApp Files ability to place all volumes in the same availability zone as the VMs to achieve automated, latency-optimized deployments. Azure NetApp Files application volume group shortens Oracle database deployment time and increases overall application performance and stability, including the use of multiple storage endpoints. The application volume group feature supports a wide range of Oracle database layouts from small databases with a single volume up to multi 100-TiB sized databases. Application volume group for Oracle is supported in all Azure NetApp Files-enabled regions.
+
+* [Application volume group for SAP HANA extension one](application-volume-group-introduction.md) is now generally available (GA)
+
+    Application volume group for SAP HANA extension one enables you to improve your volume group deployment experience for SAP HANA. Key improvements include: 
+
+    - Support for availability zone volume placement, avoiding the manual AVset pining requirement (when using PPG) 
+    - Support for Standard network features for SAP HANA volumes 
+    - Support for customer-managed keys for increased security and compliance
+
+* [Storage with cool access enhancement:](manage-cool-access.md) snapshot-only tiering policy
+
+    Azure NetApp Files storage with cool access now supports a snapshots-only policy. With this policy enabled, only snapshots are moved to the cool tier. 
+
+* [Edit network features enhancement: no downtime](configure-network-features.md#no-downtime) is now generally available (GA)
+
+    Azure NetApp Files now supports the ability to edit network features (that is, upgrade from Basic to Standard network features) with no downtime for Azure NetApp Files volumes. Standard Network Features provide you with an enhanced virtual networking experience for a seamless and consistent experience along with security posture for Azure NetApp Files. This feature is available in all Azure NetApp Files regions. 
+
+## February 2025
+
+* [Network security group (NSG) support for private link connectivity](azure-netapp-files-network-topologies.md) (Preview)
+
+    Azure NetApp Files now supports private links with NSGs in all regions. This feature enables you to apply NSG policies to private link endpoints, enhancing the security of your workload deployments. 
+
+* [New volume usage metric](azure-netapp-files-metrics.md#volumes): volume inodes percentage 
+
+    The new ‘volume inodes percentage’ metric for Azure NetApp Files lets you keep an eye on [inodes](maxfiles-concept.md) usage (also known as `maxfiles`), which is the maximum number of files a volume can hold. This metric is especially useful for workloads with high file counts, such as high-performance compute (HPC) or electronic design automation (EDA), where you might have millions of small files. By monitoring this metric, you can avoid running out of inodes, keeping your storage running smoothly, and making it easier to plan for future needs.
+
+## January 2025 
+
+* [Application volume group for Oracle](application-volume-group-oracle-introduction.md) and [application volume group for SAP HANA extension one](application-volume-group-introduction.md) now support customer-managed keys. (Preview)
+
+    Azure NetApp Files application volume groups for SAP HANA (with extension 1) and Oracle now support customer-managed keys, providing increased security and compliance. This feature is now in preview.
 
 ## December 2024
 
@@ -47,8 +91,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Edit network features enhancement: no downtime](configure-network-features.md#no-downtime) (Preview)
 
     Azure NetApp Files now supports the ability to edit network features (that is, upgrade from Basic to Standard network features) with no downtime for Azure NetApp Files volumes. Standard Network Features provide you with an enhanced virtual networking experience for a seamless and consistent experience along with security posture for Azure NetApp Files. 
-
-    This feature is currently in preview in the Australia East, Central India, East Asia, North Central US, Switzerland North, UK South, US Central, US East, US East 2, and US South, US West and US West 2 regions.
   
 ## September 2024 
 

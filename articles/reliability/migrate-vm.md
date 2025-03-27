@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 09/21/2023
 ms.author: anaharris 
 ms.reviewer: anaharris
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 ---
  
 # Migrate Virtual Machines and Virtual Machine Scale Sets to availability zone support
@@ -155,7 +155,7 @@ The following table describes the support matrix for moving virtual machines fro
 | VMs within an Availability Set | Not supported | |
 | VMs inside Virtual Machine Scale Sets with uniform orchestration | Not supported | |
 | VMs inside Virtual Machine Scale Sets with flexible orchestration | Not supported | |
-| Supported regions | Supported | Only availability zone supported regions are supported. Learn [more](availability-zones-region-support.md) to learn about the region details. |
+| Supported regions | Supported | Only availability zone supported regions are supported. Learn [more](regions-list.md) to learn about the region details. |
 | VMs already located in an availability zone | Not supported | Cross-zone move isn't supported. Only VMs that are within the same region can be moved to another availability zone. |
 | VM extensions | Not Supported | VM move is supported, but extensions aren't copied to target zonal VM. |
 | VMs with trusted launch | Supported | Re-enable the **Integrity Monitoring** option in the portal and save the configuration after the move. |
@@ -242,7 +242,7 @@ The following requirements should be part of a disaster recovery strategy that h
 ## Next Steps
 
 - [Azure services with availability zones](availability-zones-service-support.md)
-- [Azure regions with availability zones](availability-zones-region-support.md)
+- [Azure regions with availability zones](regions-list.md)
 - [Reliability in Virtual Machines](./reliability-virtual-machines.md)
 - [Reliability in Virtual Machine Scale Sets](./reliability-virtual-machine-scale-sets.md)
 - [Move single instance Azure VMs from regional to zonal configuration using PowerShell](/azure/virtual-machines/move-virtual-machines-regional-zonal-powershell)

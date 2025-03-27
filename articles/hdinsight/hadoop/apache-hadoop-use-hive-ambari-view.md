@@ -4,6 +4,9 @@ description: Learn how to use the Hive View from your web browser to submit Hive
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, linux-related-content
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 07/12/2024
 ---
 

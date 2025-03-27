@@ -1,12 +1,11 @@
 ---
 title: 'Secure your Origin with Private Link in Azure Front Door Premium'
 description: This page provides information about how to secure connectivity to your origin using Private Link.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 08/12/2024
-ms.author: duau
 ms.custom: references_regions, ignite-2024
 ---
 
@@ -29,8 +28,6 @@ After you enable an origin for Private Link and approve the private endpoint con
 
 Once your request is approved, a private IP address gets assigned from the Azure Front Door managed virtual network. Traffic between your Azure Front Door and your origin communicates using the established private link over the Microsoft backbone network. Incoming traffic to your origin is now secured when arriving at your Azure Front Door.
 
-:::image type="content" source="./media/private-link/enable-private-endpoint.png" alt-text="Screenshot of enable Private Link service checkbox from origin configuration page.":::
-
 ## Supported origins
 
 Origin support for direct private endpoint connectivity is currently limited to:
@@ -38,8 +35,8 @@ Origin support for direct private endpoint connectivity is currently limited to:
 * Web App
 * Internal load balancers, or any services that expose internal load balancers such as Azure Kubernetes Service, Azure Container Apps or Azure Red Hat OpenShift
 * Storage Static Website
+* API Management
 * Application Gateway (Public Preview. Don't use in production environments)
-* API Management (Public Preview. Don't use in production environments)
 * Azure Container Apps (Public Preview. Don't use in production environments)
 
 > [!NOTE]
@@ -130,4 +127,4 @@ If AFD-Profile-1 gets deleted, then the PE1 private endpoint across all the orig
 * Learn how to [connect Azure Front Door Premium to a storage static website origin with Private Link](how-to-enable-private-link-storage-static-website.md).
 * Learn how to [connect Azure Front Door Premium to an application gateway origin with Private Link](how-to-enable-private-link-application-gateway.md).
 * Learn how to [connect Azure Front Door Premium to an API Management origin with Private Link](standard-premium/how-to-enable-private-link-apim.md).
-* Learn how to [connect Azure Front Door Premium to an Azure Container Apps origin with Private Link](../container-apps/how-to-use-private-endpoint.md).
+* Learn how to [connect Azure Front Door Premium to an Azure Container Apps origin with Private Link](../container-apps/how-to-integrate-with-azure-front-door.md).
