@@ -11,6 +11,7 @@ metadata:
   ms.author: maghan
   ms.reviewr: robbymillsap, chkittel, prwilk
   ms.date: 03/25/2025
+  ms.custom: migration
 
 landingContent:
   - title: Migration strategy
@@ -58,12 +59,8 @@ landingContent:
             url: /azure/azure-functions/migration/lambda-functions-migration-overview
           - text: Migrate Amazon RDS for PostgreSQL to Azure Database for PostgreSQL (offline)
             url:  /azure/postgresql/migrate/migration-service/tutorial-migration-service-aws-offline
-          - text: Migrate Amazon RDS for PostgreSQL to Azure Database for PostgreSQL (online)
-            url:  /azure/postgresql/migrate/migration-service/tutorial-migration-service-aws-online
           - text: Migrate Amazon Aurora PostgreSQL to Azure Database for PostgreSQL (offline)
             url:  /azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-offline
-          - text: Migrate Amazon Aurora PostgreSQL to Azure Database for PostgreSQL (online)
-            url:  /azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-online
           - text: AKS for Amazon EKS professionals
             url:  /azure/architecture/aws-professional/eks-to-aks/
           - text: Copy data from Amazon S3 to Azure Storage (AzCopy)

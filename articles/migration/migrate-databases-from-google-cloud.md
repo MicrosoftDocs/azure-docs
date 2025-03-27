@@ -5,6 +5,7 @@ author: robbyatmicrosoft
 ms.author: robbymillsap
 ms.date: 01/28/2025
 ms.topic: conceptual
+ms.custom: migration
 ---
 
 # Migrate databases from Google Cloud Platform (GCP) to Microsoft Azure
@@ -15,7 +16,7 @@ Migrating data is a critical part when moving from Google Cloud Platform (GCP) t
 
 Start the process by comparing the Google Cloud Platform (GCP) database and services used in the workload to their closest Azure counterparts. The goal is to identify the most suitable Azure services for your workload.
 
-- [Compare GCP and Azure database technology](/azure/architecture/gcp-professional/services#data-platform)
+- [Compare Google Cloud and Azure database](/azure/architecture/gcp-professional/services#data-platform)
 
 > [!NOTE]
 > This comparison shouldn't be considered an exact representation of these services' functionality in your workload.

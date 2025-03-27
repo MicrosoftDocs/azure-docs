@@ -5,6 +5,7 @@ author: robbyatmicrosoft
 ms.author: robbymillsap
 ms.date: 03/24/2025
 ms.topic: conceptual
+ms.custom: migration
 ---
 
 # Migrate workloads to Azure from other clouds

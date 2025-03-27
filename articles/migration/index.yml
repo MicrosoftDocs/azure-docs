@@ -18,10 +18,10 @@ productDirectory:
   title: Discover top picks
   summary: Explore a curated selection of the latest noteworthy content to inspire your migration learning journey.
   items:
-    - title: Migrate AWS PostgreSQL to Azure Database for PostgreSQL
-      imageSrc: images/postgresql-icon.svg
-      summary: "Learn about the migration service in Azure Database for PostgreSQL and how it simplifies the process of moving your PostgreSQL databases to Azure."
-      url: /azure/postgresql/migrate/migration-service/overview-migration-service-postgresql
+    - title: Migrate AWS Lambda to Azure Functions
+      imageSrc: images/functions.svg
+      summary: "Learn how to migrate serverless applications from AWS Lambda to Azure Functions."
+      url: /azure/azure-functions/migration/lambda-functions-migration-overview
     - title: AKS for EKS Professionals
       imageSrc: images/azure-kubernetes-service.svg
       summary: "Assists Amazon EKS professionals in understanding Azure Kubernetes Service (AKS) through comparisons and migration strategies."
@@ -30,14 +30,14 @@ productDirectory:
       imageSrc: images/azure.svg
       summary: "Discover articles for AWS professionals that explain Microsoft Azure's platform, services, and key differences, offering comparisons relevant to multicloud solutions and migration."
       url: /azure/architecture/aws-professional/
-    - title: Azure for GCP Professionals
+    - title: Azure for Google Cloud Professionals
       imageSrc: images/azure.svg
       summary: "Understand Azure's account organization and resource management practices for Google Cloud experts."
       url: /azure/architecture/gcp-professional/
 
 conceptualContent:
   sections:
-    - title: Planning you migration
+    - title: Planning your migration
       summary: "Explore the aspects of migrating to Microsoft Azure. Discover essential steps, best practices, and technical resources to support a successful migration. Select a topic to access comprehensive insights and practical guidance customized to your migration needs."
       items:
       - title: Adopt Azure
@@ -79,7 +79,7 @@ conceptualContent:
             text: Introduction to migrating from AWS to Azure
             itemType: training
           - url: /training/modules/introduction-to-migrating-gcp-to-azure/
-            text: Introduction to migrating from GCP to Azure
+            text: Introduction to migrating from Google Cloud to Azure
             itemType: training
           - url: /training/courses/az-104t00
             text: Azure Administrator certification training
@@ -88,7 +88,7 @@ conceptualContent:
             text: Azure Solutions Architect training
             itemType: training
 
-    - title: Migrate from AWS
+    - title: Plan your migration to Azure
       items:
       - title: Compute
         links:
@@ -156,6 +156,9 @@ conceptualContent:
           - url: /azure/data-factory/solution-template-migration-s3-azure
             text: Migrate to Azure Data Lake Storage
             itemType: how-to-guide
+        footerLink:
+          text: See more
+          url: ./migrate-storage-from-aws.md            
       - title: Networking
         links:
          - text: Azure networking services mapping
@@ -181,7 +184,7 @@ conceptualContent:
             text: Migrate your SIEM in AWS to Microsoft Sentinel
             itemType: how-to-guide
 
-    - title: Migrate from GCP
+    - title: Migrate workloads from Google Cloud
 
       items:
       - title: Database and data
@@ -201,6 +204,9 @@ conceptualContent:
           - url: /azure/azure-sql/migration-guides/database/mysql-to-sql-database-guide?view=azuresql-db&preserve-view=true
             text: Migrate MySQL on Google Cloud to Azure Database for MySQL
             itemType: tutorial
+        footerLink:
+          text: See more
+          url: ./migrate-databases-from-google-cloud.md            
           
       - title: Security
         links:
