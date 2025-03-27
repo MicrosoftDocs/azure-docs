@@ -28,7 +28,7 @@ The high-level steps are:
 
 ## Prerequisites
 
-- Complete the [Quickstart: Route custom events to web endpoint](../event-grid/custom-event-quickstart-portal.md) in the source region. Do this step so that you can test steps in this article. 
+- Complete the [Quickstart: Route custom events to web endpoint](../../../event-grid/custom-event-quickstart-portal.md) in the source region. Do this step so that you can test steps in this article. 
 - Ensure that the Event Grid service is available in the target region. See [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
 
 ## Prepare
@@ -94,7 +94,7 @@ Deploy the template to create a custom topic in the target region.
     :::image type="content" source="media/relocation/event-grid/move-custom-topics-across-regions/navigate-custom-topic.png" alt-text="Screenshot of go to resource page.":::
 
 1. Confirm that you see the **Event Grid Topic** page for the custom topic.
-1. Follow steps in the [Route custom events to a web endpoint](../event-grid/custom-event-quickstart-portal.md#send-an-event-to-your-topic) to send events to the topic. Verify that the webhook event handler is invoked.
+1. Follow steps in the [Route custom events to a web endpoint](../../../event-grid/custom-event-quickstart-portal.md#send-an-event-to-your-topic) to send events to the topic. Verify that the webhook event handler is invoked.
 
 ## Discard or clean up
 
@@ -118,4 +118,4 @@ To delete the resource group that contains the custom topic by using the Azure p
 
 - [Relocate system topics across regions](relocation-event-grid-system-topics.md).
 - [Relocate domains across regions](relocation-event-grid-domains.md).
-- [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+- [Move resources to a new resource group or subscription](../move-resource-group-and-subscription.md).

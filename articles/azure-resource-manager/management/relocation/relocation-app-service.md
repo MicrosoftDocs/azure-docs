@@ -15,9 +15,9 @@ This article describes how to move App Service resources to a different Azure re
 
 [!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
 
-App Service resources are region-specific and can't be moved across regions. You must create a copy of your existing App Service resources in the target region, then relocate your content over to the new app. If your source app uses a custom domain, you can [migrate it to the new app in the target region](../app-service/manage-custom-dns-migrate-domain.md) after completion of the relocation.
+App Service resources are region-specific and can't be moved across regions. You must create a copy of your existing App Service resources in the target region, then relocate your content over to the new app. If your source app uses a custom domain, you can [migrate it to the new app in the target region](../../../app-service/manage-custom-dns-migrate-domain.md) after completion of the relocation.
 
-To make copying your app easier, you can [backup and restore individual App Service app](../app-service/manage-backup.md?tabs=portal) into an App Service plan in another region.
+To make copying your app easier, you can [backup and restore individual App Service app](../../../app-service/manage-backup.md?tabs=portal) into an App Service plan in another region.
 
 ## Prerequisites
 
@@ -32,14 +32,14 @@ To make copying your app easier, you can [backup and restore individual App Serv
 Identify all the App Service resources that you're currently using. For example:
 
 - App Service apps
-- [App Service plans](../app-service/overview-hosting-plans.md)
-- [Deployment slots](../app-service/deploy-staging-slots.md)
-- [Custom domains purchased in Azure](../app-service/manage-custom-dns-buy-domain.md)
-- [TLS/SSL certificates](../app-service/configure-ssl-certificate.md)
-- [Azure Virtual Network integration](../app-service/overview-vnet-integration.md)
-- [Hybrid connections](../app-service/app-service-hybrid-connections.md).
-- [Managed identities](../app-service/overview-managed-identity.md)
-- [Backup settings](../app-service/manage-backup.md)
+- [App Service plans](../../../app-service/overview-hosting-plans.md)
+- [Deployment slots](../../../app-service/deploy-staging-slots.md)
+- [Custom domains purchased in Azure](../../../app-service/manage-custom-dns-buy-domain.md)
+- [TLS/SSL certificates](../../../app-service/configure-ssl-certificate.md)
+- [Azure Virtual Network integration](../../../app-service/overview-vnet-integration.md)
+- [Hybrid connections](../../../app-service/app-service-hybrid-connections.md).
+- [Managed identities](../../../app-service/overview-managed-identity.md)
+- [Backup settings](../../../app-service/manage-backup.md)
 
 Certain resources, such as imported certificates or hybrid connections, contain integration with other Azure services. For information on how to move those resources across regions, see the [documentation for the respective services](overview-relocation.md).
 
@@ -153,12 +153,12 @@ Keep in mind that for App Service Environment (Isolated) tiers, you need to rede
 
 **To relocate your App Service resources to a new region using Azure portal:**
 
-1. [Create a back up of the source app](../app-service/manage-backup.md).
-1. [Create an app in a new App Service plan, in the target region](../app-service/app-service-plan-manage.md#create-an-app-service-plan).
-1. [Restore the back up in the target app](../app-service/manage-backup.md)
-1. If you use a custom domain, [bind it preemptively to the target app](../app-service/manage-custom-dns-migrate-domain.md#2-create-the-dns-records) with `asuid.` and [enable the domain in the target app](../app-service/manage-custom-dns-migrate-domain.md#3-enable-the-domain-for-your-app).
+1. [Create a back up of the source app](../../../app-service/manage-backup.md).
+1. [Create an app in a new App Service plan, in the target region](../../../app-service/app-service-plan-manage.md#create-an-app-service-plan).
+1. [Restore the back up in the target app](../../../app-service/manage-backup.md)
+1. If you use a custom domain, [bind it preemptively to the target app](../../../app-service/manage-custom-dns-migrate-domain.md#2-create-the-dns-records) with `asuid.` and [enable the domain in the target app](../../../app-service/manage-custom-dns-migrate-domain.md#3-enable-the-domain-for-your-app).
 1. Configure everything else in your target app to be the same as the source app and verify your configuration.
-1. When you're ready for the custom domain to point to the target app, [remap the domain name](../app-service/manage-custom-dns-migrate-domain.md#4-remap-the-active-dns-name).
+1. When you're ready for the custom domain to point to the target app, [remap the domain name](../../../app-service/manage-custom-dns-migrate-domain.md#4-remap-the-active-dns-name).
 
 ### Relocate using IaC
 
@@ -169,7 +169,7 @@ SLA requirements should determine how much additional effort is required. For ex
 The inclusion of external, global traffic routing edge services, such as Traffic Manager, or Azure Front Door help to facilitate cut-over for external users and applications.
 
 >[!TIP]
->It's possible to use Traffic Manager (ATM) when failing over App Services behind private endpoints. Although the private endpoints are not reachable by Traffic Manager Probes - if all endpoints are degraded, then ATM allows routing. For more information, see [Controlling Azure App Service traffic with Azure Traffic Manager](../app-service/web-sites-traffic-manager.md).
+>It's possible to use Traffic Manager (ATM) when failing over App Services behind private endpoints. Although the private endpoints are not reachable by Traffic Manager Probes - if all endpoints are degraded, then ATM allows routing. For more information, see [Controlling Azure App Service traffic with Azure Traffic Manager](../../../app-service/web-sites-traffic-manager.md).
 
 ## Validate
 
@@ -188,8 +188,8 @@ Once the relocation is completed, test and validate Azure App Service with the r
 
 ## Clean up
 
-Delete the source app and App Service plan. [An App Service plan in the non-free tier carries a charge, even if no app is running in it.](../app-service/app-service-plan-manage.md#delete-an-app-service-plan)
+Delete the source app and App Service plan. [An App Service plan in the non-free tier carries a charge, even if no app is running in it.](../../../app-service/app-service-plan-manage.md#delete-an-app-service-plan)
 
 ## Next steps
 
-[Azure App Service App Cloning Using PowerShell](../app-service/app-service-web-app-cloning.md)
+[Azure App Service App Cloning Using PowerShell](../../../app-service/app-service-web-app-cloning.md)

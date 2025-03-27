@@ -17,7 +17,7 @@ This article shows you how to relocate Azure Container Registry resources to ano
 
 - You can only relocate a registry within the same Active Directory tenant. This limitation applies to registries that are encrypted and unencrypted with a [customer-managed key](/azure/container-registry/tutorial-enable-customer-managed-keys).
 
-- If the source registry has [availability zones](../reliability/availability-zones-overview.md) enabled, then the target region must also support availability zones. For more information on availability zone support for Azure Container Registry, see [Enable zone redundancy in Azure Container Registry](/azure/container-registry/zone-redundancy).
+- If the source registry has [availability zones](../../../reliability/availability-zones-overview.md) enabled, then the target region must also support availability zones. For more information on availability zone support for Azure Container Registry, see [Enable zone redundancy in Azure Container Registry](/azure/container-registry/zone-redundancy).
 
 ## Considerations for Service Endpoints
 
@@ -58,7 +58,7 @@ To understand the possible downtimes involved, see [Cloud Adoption Framework for
 
 ### Export template
 
-To get started, export a Resource Manager template. This template contains settings that describe your Container Registry. For more information on how to use exported templates, see [Use exported template from the Azure portal](../azure-resource-manager/templates/template-tutorial-export-template.md) and the [template reference](/azure/templates/microsoft.containerregistry/registries).
+To get started, export a Resource Manager template. This template contains settings that describe your Container Registry. For more information on how to use exported templates, see [Use exported template from the Azure portal](../template-tutorial-export-template.md) and the [template reference](/azure/templates/microsoft.containerregistry/registries).
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your source registry.
 1. In the menu, under **Automation**, select **Export template** > **Download**.
@@ -184,7 +184,7 @@ After you have successfully deployed the target registry, migrated content, and 
 
 ## Related content
 
-- To move registry resources to a new resource group either in the same subscription or a [new subscription], see [Move Azure resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+- To move registry resources to a new resource group either in the same subscription or a [new subscription], see [Move Azure resources to a new resource group or subscription](../move-resource-group-and-subscription.md).
 
 - Learn more about [importing container images](/azure/container-registry/container-registry-import-images) to an Azure container registry from a public registry or another private registry.
 - See the [Resource Manager template reference](/azure/templates/microsoft.containerregistry/registries) for Azure Container Registry.

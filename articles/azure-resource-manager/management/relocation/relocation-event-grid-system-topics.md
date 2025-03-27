@@ -25,7 +25,7 @@ Here are the high-level steps covered in this article:
 
 ## Prerequisites
 
-- Complete the [Quickstart: Route Blob storage events to web endpoint with the Azure portal](../event-grid/blob-event-quickstart-portal.md) in the source region. This step is **optional**. Do it to test steps in this article. Keep the storage account in a separate resource group from the App Service and App Service plan.
+- Complete the [Quickstart: Route Blob storage events to web endpoint with the Azure portal](../../../event-grid/blob-event-quickstart-portal.md) in the source region. This step is **optional**. Do it to test steps in this article. Keep the storage account in a separate resource group from the App Service and App Service plan.
 - Ensure that the Event Grid service is available in the target region. See [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
 
 ## Prepare
@@ -109,7 +109,7 @@ Deploy the template to create a storage account and a system topic for the stora
 
 1. After the deployment succeeds, select **Goto resource group**.
 1. On the **Resource group** page, verify that the event source (in this example, Azure Storage account) and the system topic are created.
-1. Upload a file to a container in the Azure Blob storage, and verify that the webhook has received the event. For more information, see [Send an event to your endpoint](../event-grid/blob-event-quickstart-portal.md#send-an-event-to-your-endpoint).
+1. Upload a file to a container in the Azure Blob storage, and verify that the webhook has received the event. For more information, see [Send an event to your endpoint](../../../event-grid/blob-event-quickstart-portal.md#send-an-event-to-your-endpoint).
 
 ## Discard or clean up
 
@@ -129,4 +129,4 @@ To delete a resource group (source or target) by using the Azure portal:
 
 - [Relocate custom topics across regions](relocation-event-grid-custom-topics.md).
 - [Relocate domains across regions](relocation-event-grid-domains.md).
-- [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+- [Move resources to a new resource group or subscription](../move-resource-group-and-subscription.md).

@@ -460,7 +460,7 @@
   - name: Relocate
     items:
     - name: Relocate volume to another region
-      href: ../operational-excellence/relocation-netapp.md?toc=/azure/azure-netapp-files/toc.json
+      href: ../azure-resource-manager/management/relocation/relocation-netapp.md?toc=/azure/azure-netapp-files/toc.json
   - name: Develop
     items:
     - name: REST API

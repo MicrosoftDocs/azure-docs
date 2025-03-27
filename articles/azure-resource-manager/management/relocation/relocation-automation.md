@@ -10,7 +10,7 @@ ms.custom:
 
 # Relocate Azure Automation to another region
 
-This article covers relocation guidance for relocating [Azure Automation](../automation/overview.md) across regions.
+This article covers relocation guidance for relocating [Azure Automation](../../../automation/overview.md) across regions.
 
 [!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
 
@@ -62,5 +62,5 @@ In the diagram below, the red flow lines illustrate redeployment of the target i
 
 To learn more about moving resources between regions and disaster recovery in Azure, refer to:
 
-- [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
-- [Move Azure VMs to another region](../site-recovery/azure-to-azure-tutorial-migrate.md)
+- [Move resources to a new resource group or subscription](../move-resource-group-and-subscription.md)
+- [Move Azure VMs to another region](../../../site-recovery/azure-to-azure-tutorial-migrate.md)

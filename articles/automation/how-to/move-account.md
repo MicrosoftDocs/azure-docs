@@ -130,7 +130,5 @@ When the move is complete, verify that the capabilities listed below are enabled
 
 ## Next steps
 
-
-To learn how to move Automation to a new region, see [Move Automation account to another region](../../operational-excellence/relocation-automation.md).
-
-To learn about moving resources in Azure, see [Move resources in Azure](../../azure-resource-manager/management/move-support-resources.md).
+- To learn how to move Automation to a new region, see [Move Automation account to another region](../../azure-resource-manager/management/relocation/relocation-automation.md).
+- To learn about moving resources in Azure, see [Move resources in Azure](../../azure-resource-manager/management/move-support-resources.md).

@@ -41,7 +41,7 @@ ms.custom:
 
 To relocate Application Gateway and optional WAF, you must create a separate Application Gateway deployment with a new public IP address at the target location. Workloads are then migrated from the source Application Gateway setup to the new one.  Since you're changing the public IP address, changes to DNS configuration, virtual networks, and subnets are also required.
 
-If you only want to relocate in order to gain availability zones support, see [Migrate Application Gateway and WAF to availability zone support](../reliability/migrate-app-gateway-v2.md).
+If you only want to relocate in order to gain availability zones support, see [Migrate Application Gateway and WAF to availability zone support](../../../reliability/migrate-app-gateway-v2.md).
 
 **To create a separate Application Gateway, WAF (optional) and IP address:**
 
@@ -54,10 +54,10 @@ If you only want to relocate in order to gain availability zones support, see [M
 1. Confirm that the backend pool server or service, such as VM, Virtual Machine Scale Sets, PaaS, is relocated *before* you relocate.
 
 1. Create an Application Gateway and configure a new Frontend Public IP Address for the virtual network:
-    - Without WAF:  [Create an application gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway).
-    - With WAF: [Create an application gateway with a Web Application Firewall](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md).
+    - Without WAF:  [Create an application gateway](../../../application-gateway/quick-create-portal.md#create-an-application-gateway).
+    - With WAF: [Create an application gateway with a Web Application Firewall](../../../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md).
 
-1. If you have a WAF config or custom rules-only WAF Policy, [transition it to to a full WAF policy](../web-application-firewall/ag/migrate-policy.md).
+1. If you have a WAF config or custom rules-only WAF Policy, [transition it to to a full WAF policy](../../../web-application-firewall/ag/migrate-policy.md).
 
 1. If you use a zero-trust network (source region) for web applications with Azure Firewall and Application Gateway, follow the guidelines and strategies in [Zero-trust network for web applications with Azure Firewall and Application Gateway](/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall).
 

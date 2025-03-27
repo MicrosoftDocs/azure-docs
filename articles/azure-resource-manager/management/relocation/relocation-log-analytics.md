@@ -33,6 +33,7 @@ If you want to relocate your Log Analytics workspace to a region that supports a
 - To export the workspace configuration to a template that can be deployed to another region, you need the [Log Analytics Contributor](../../../role-based-access-control/built-in-roles.md#log-analytics-contributor) or [Monitoring Contributor](../../../role-based-access-control/built-in-roles.md#monitoring-contributor) role, or higher.
 
 - Identify all the resources that are currently associated with your workspace, including:
+ 
   - *Connected agents*: Enter **Logs** in your workspace and query a [heartbeat](/azure/azure-monitor/insights/solution-agenthealth#azure-monitor-log-records) table to list connected agents.
 
     ```kusto
@@ -69,6 +70,7 @@ If you want to relocate your Log Analytics workspace to a region that supports a
   - *Alerts*: To list alerts, select **Alerts** on your workspace navigation pane, and then select **Manage alert rules** on the toolbar. Alerts in workspaces created after June 1, 2019, or in workspaces that were [upgraded from the Log Analytics Alert API to the scheduledQueryRules API](/azure/azure-monitor/alerts/alerts-log-api-switch) can be included in the template.
   
      You can [check if the scheduledQueryRules API is used for alerts in your workspace](/azure/azure-monitor/alerts/alerts-log-api-switch#check-switching-status-of-workspace). Alternatively, you can configure alerts manually in the target workspace.
+
   - *Query packs*: A workspace can be associated with multiple query packs. To identify query packs in your workspace, select **Logs** on the workspace navigation pane, select **queries** on the left pane, and then select the ellipsis to the right of the search box. A dialog with the selected query packs opens on the right. If your query packs are in the same resource group as the workspace that you're moving, you can include it with this migration.
 - Verify that your Azure subscription allows you to create Log Analytics workspaces in the target region.
 

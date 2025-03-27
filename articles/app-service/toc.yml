@@ -426,7 +426,7 @@ items:
     - name: Restore deleted app
       href: app-service-undelete.md
     - name: Relocate app to another region
-      href: ../operational-excellence/relocation-app-service.md?toc=/azure/app-service/toc.json
+      href: ../azure-resource-manager/management/relocation/relocation-app-service.md?toc=/azure/app-service/toc.json
     - name: Move app between subscriptions
       href: ../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/app-service/toc.json#checklist-before-moving-resources
     - name: About cost management

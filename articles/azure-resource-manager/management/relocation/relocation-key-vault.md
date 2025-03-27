@@ -15,7 +15,6 @@ ms.custom: subject-relocation, devx-track-azurepowershell
 
 [!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
 
-
 Azure Key Vault doesn't support key vault relocation to another region. 
 
 Instead of relocation, you need to:
@@ -28,27 +27,22 @@ Instead of relocation, you need to:
 ## Prerequisites
 
 - Verify that your Azure subscription allows you to create key vaults in the target region.
-
 - Create a dependency map with all the Azure services used by the Key Vault. For the services that are in scope of the relocation, you must choose the appropriate relocation strategy. 
-
 - Depending on your Key Vault design, you may need to deploy and configure the [Virtual Network](./relocation-virtual-network.md) in the target region.
-
 - Document and plan to re-configure in the Key Vault in the target region:
   - Access Policies and Network configuration settings.
   - Soft delete and purge protection.
   - Autorotation settings.
-   
+
 ## Downtime
 
 To understand the possible downtimes involved, see [Cloud Adoption Framework for Azure: Select a relocation method](/azure/cloud-adoption-framework/relocate/select#select-a-relocation-method).
 
-
 ## Consideration for Service Endpoints
 
-The virtual network service endpoints for Azure Key Vault restrict access to a specified virtual network. The endpoints can also restrict access to a list of IPv4 (internet protocol version 4) address ranges. Any user connecting to the Key Vault from outside those sources is denied access. If Service endpoints were configured in the source region for the Key Vault resource, the same would need to be done in the target one. 
+The virtual network service endpoints for Azure Key Vault restrict access to a specified virtual network. The endpoints can also restrict access to a list of IPv4 (internet protocol version 4) address ranges. Any user connecting to the Key Vault from outside those sources is denied access. If Service endpoints were configured in the source region for the Key Vault resource, the same would need to be done in the target one.
 
 For a successful recreation of the Key Vault to the target region, the VNet and Subnet must be created beforehand. In case the move of these two resources is being carried out with the Azure Resource Mover tool, the service endpoints won’t be configured automatically. Hence, they need to be configured manually, which can be done through the [Azure portal](/azure/key-vault/general/quick-create-portal), the [Azure CLI](/azure/key-vault/general/quick-create-cli), or [Azure PowerShell](/azure/key-vault/general/quick-create-powershell).
-
 
 ## Consideration for Private Endpoint
 
@@ -77,14 +71,10 @@ You can use the following options to configure your DNS settings for private end
 To export a template by using Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-
-2. Select **All resources** and then select your key vault.
-
-3. Select > **Automation** > **Export template**.
-
-4. Choose **Download** in the **Export template** blade.
-
-5. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
+1. Select **All resources** and then select your key vault.
+1. Select > **Automation** > **Export template**.
+1. Choose **Download** in the **Export template** blade.
+1. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
 
    This zip file contains the .json files that comprise the template and scripts to deploy the template.
 
@@ -98,14 +88,14 @@ To export a template by using PowerShell:
    Connect-AzAccount
    ```
 
-2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the key vault that you want to move.
+1. If your identity is associated with more than one subscription, then set your active subscription to subscription of the key vault that you want to move.
 
    ```azurepowershell-interactive
    $context = Get-AzSubscription -SubscriptionId <subscription-id>
    Set-AzContext $context
    ```
 
-3. Export the template of your source key vault. These commands save a json template to your current directory.
+1. Export the template of your source key vault. These commands save a json template to your current directory.
 
    ```azurepowershell-interactive
    $resource = Get-AzResource `
@@ -135,18 +125,12 @@ Modify the template by changing the key vault name and region.
 To deploy the template by using Azure portal:
 
 1. In the Azure portal, select **Create a resource**.
-
-2. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
-
-3. Select **Template deployment**.
-
-4. Select **Create**.
-
-5. Select **Build your own template in the editor**.
-
-6. Select **Load file**, and then follow the instructions to load the **template.json** file that you downloaded in the last section.
-
-7. In the **template.json** file, name the key vault by setting the default value of the key vault name. This example sets the default value of the key vault name to `mytargetaccount`.
+1. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
+1. Select **Template deployment**.
+1. Select **Create**.
+1. Select **Build your own template in the editor**.
+1. Select **Load file**, and then follow the instructions to load the **template.json** file that you downloaded in the last section.
+1. In the **template.json** file, name the key vault by setting the default value of the key vault name. This example sets the default value of the key vault name to `mytargetaccount`.
 
    ```json
    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -159,35 +143,35 @@ To deploy the template by using Azure portal:
    },
    ```
 
-8. Edit the **location** property in the **template.json** file to the target region. This example sets the target region to `centralus`.
+1. Edit the **location** property in the **template.json** file to the target region. This example sets the target region to `centralus`.
 
    ```json
    "resources": [
-       {
-           "type": "Microsoft.KeyVault/vaults",
-           "apiVersion": "2023-07-01",
-           "name": "[parameters('vaults_name')]",
-           "location": "centralus",
-           ...
-       },
-       ...
+      {
+        "type": "Microsoft.KeyVault/vaults",
+        "apiVersion": "2023-07-01",
+        "name": "[parameters('vaults_name')]",
+        "location": "centralus",
+        ...
+      },
+      ...
    ]
    ```
 
    To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/). The code for a region is the region name with no spaces, **Central US** = **centralus**.
 
-9. Remove resources of typ private endpoint in the template.
+1. Remove resources of typ private endpoint in the template.
 
    ```json
    {
-   "type": "Microsoft.KeyVault/vaults/privateEndpointConnections",
-   ...
+     "type": "Microsoft.KeyVault/vaults/privateEndpointConnections",
+     ...
    }
    ```
 
-10. In case you configured a service endpoint in your key vault, in the _networkAcl_ section, under _virtualNetworkRules_, add the rule for the target subnet. Ensure that the _ignoreMissingVnetServiceEndpoint_ flag is set to False, so that the IaC fails to deploy the Key Vault in case the service endpoint isn’t configured in the target region. 
+1. In case you configured a service endpoint in your key vault, in the _networkAcl_ section, under _virtualNetworkRules_, add the rule for the target subnet. Ensure that the _ignoreMissingVnetServiceEndpoint_ flag is set to False, so that the IaC fails to deploy the Key Vault in case the service endpoint isn’t configured in the target region. 
 
-    _parameter.json_
+    **parameter.json**
 
     ```json
     {
@@ -204,20 +188,20 @@ To deploy the template by using Azure portal:
     }
     ```
 
-    \_template.json
+    **template.json**
 
     ```json
-        "networkAcls": {
-            "bypass": "AzureServices",
-            "defaultAction": "Deny",
-            "ipRules": [],
-            "virtualNetworkRules": [
-                {
-                    "id": "[concat(parameters('target_vnet_externalid'), concat('/subnets/', parameters('target_subnet_name')]",
-                    "ignoreMissingVnetServiceEndpoint": false
-                }
-            ]
+    "networkAcls": {
+      "bypass": "AzureServices",
+      "defaultAction": "Deny",
+      "ipRules": [],
+      "virtualNetworkRules": [
+        {
+            "id": "[concat(parameters('target_vnet_externalid'), concat('/subnets/', parameters('target_subnet_name')]",
+            "ignoreMissingVnetServiceEndpoint": false
         }
+      ]
+    }
     ```
 
 ### [PowerShell](#tab/azure-powershell)
@@ -230,25 +214,25 @@ To deploy the template by using PowerShell:
    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
    "contentVersion": "1.0.0.0",
    "parameters": {
-       "vaults_name": {
-           "defaultValue": "key-vault-name",
-           "type": "String"
-       }
-   },
+      "vaults_name": {
+        "defaultValue": "key-vault-name",
+        "type": "String"
+      }
+   }
    ```
 
-2. Edit the **location** property in the **template.json** file to the target region. This example sets the target region to `eastus`.
+1. Edit the **location** property in the **template.json** file to the target region. This example sets the target region to `eastus`.
 
    ```json
    "resources": [
-       {
-           "type": "Microsoft.KeyVault/vaults",
-           "apiVersion": "2023-07-01",
-           "name": "[parameters('vaults_name')]",
-           "location": "eastus",
-           ...
-       },
-       ...
+      {
+        "type": "Microsoft.KeyVault/vaults",
+        "apiVersion": "2023-07-01",
+        "name": "[parameters('vaults_name')]",
+        "location": "eastus",
+        ...
+      },
+      ...
    ]
    ```
 
@@ -258,18 +242,18 @@ To deploy the template by using PowerShell:
    Get-AzLocation | format-table
    ```
 
-3. Remove resources of typ private endpoint in the template.
+1. Remove resources of typ private endpoint in the template.
 
    ```json
    {
-   "type": "Microsoft.KeyVault/vaults/privateEndpointConnections",
-   ...
+     "type": "Microsoft.KeyVault/vaults/privateEndpointConnections",
+     ...
    }
    ```
 
-4. In case you have configured a service endpoint in your key vault, in the _networkAcl_ section, under _virtualNetworkRules_, add the rule for the target subnet. Ensure that the _ignoreMissingVnetServiceEndpoint_ flag is set to False, so that the IaC fails to deploy the Key Vault in case the service endpoint isn’t configured in the target region.
+1. In case you have configured a service endpoint in your key vault, in the _networkAcl_ section, under _virtualNetworkRules_, add the rule for the target subnet. Ensure that the _ignoreMissingVnetServiceEndpoint_ flag is set to False, so that the IaC fails to deploy the Key Vault in case the service endpoint isn’t configured in the target region.
 
-   _parameter.json_
+   **parameter.json**
 
    ```json
    {
@@ -286,19 +270,19 @@ To deploy the template by using PowerShell:
    }
    ```
 
-   _template.json_
+   **template.json**
 
    ```json
    "networkAcls": {
-       "bypass": "AzureServices",
-       "defaultAction": "Deny",
-       "ipRules": [],
-       "virtualNetworkRules": [
-           {
-               "id": "[concat(parameters('target_vnet_externalid'), concat('/subnets/', parameters('target_subnet_name')]",
-               "ignoreMissingVnetServiceEndpoint": false
-           }
-       ]
+      "bypass": "AzureServices",
+      "defaultAction": "Deny",
+      "ipRules": [],
+      "virtualNetworkRules": [
+        {
+            "id": "[concat(parameters('target_vnet_externalid'), concat('/subnets/', parameters('target_subnet_name')]",
+            "ignoreMissingVnetServiceEndpoint": false
+        }
+      ]
    }
    ```
 
@@ -311,18 +295,14 @@ Deploy the template to create a new key vault in the target region.
 #### [Portal](#tab/azure-portal)
 
 1. Save the **template.json** file.
-
-2. Enter or select the property values:
+1. Enter or select the property values:
 
    - **Subscription**: Select an Azure subscription.
-
    - **Resource group**: Select **Create new** and give the resource group a name.
-
    - **Location**: Select an Azure location.
 
-3. Select **I agree to the terms and conditions stated above**, and then select **Select Purchase**.
-
-4. Access Policies and Network configuration settings (private endpoints) need to be re-configured in the new Key Vault. Soft delete and purge protection need to be re-configured in the new key vault and the _Autorotation settings_.
+1. Select **I agree to the terms and conditions stated above**, and then select **Select Purchase**.
+1. Access Policies and Network configuration settings (private endpoints) need to be re-configured in the new Key Vault. Soft delete and purge protection need to be re-configured in the new key vault and the _Autorotation settings_.
 
 #### [PowerShell](#tab/azure-powershell)
 
@@ -332,7 +312,7 @@ Deploy the template to create a new key vault in the target region.
    Get-AzSubscription
    ```
 
-2. Use these commands to deploy your template:
+1. Use these commands to deploy your template:
 
    ```azurepowershell-interactive
    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -342,20 +322,20 @@ Deploy the template to create a new key vault in the target region.
    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "<name of your local template file>"
    ```
 
-3. Access Policies and Network configuration settings (private endpoints) need to be re-configured in the new Key Vault. Soft delete and purge protection need to be re-configured in the new key vault and as the _Autorotation settings_.
----
+1. Access Policies and Network configuration settings (private endpoints) need to be re-configured in the new Key Vault. Soft delete and purge protection need to be re-configured in the new key vault and as the _Autorotation settings_.
 
+---
 
 > [!TIP]
 > If you receive an error which states that the XML specified is not syntactically valid, compare the JSON in your template with the schemas described in the Azure Resource Manager documentation.
 
 ### Redeploy with data migration
 
->[!IMPORTANT] 
->If you plan to move a Key Vault across regions but within the same geography, it's recommended that you do  a [backup and restore for secrets, keys and certificates](/azure/key-vault/general/backup) is recommended. 
+>[!IMPORTANT]
+>If you plan to move a Key Vault across regions but within the same geography, it's recommended that you do  a [backup and restore for secrets, keys and certificates](/azure/key-vault/general/backup) is recommended.
 
 1. Follow steps described in the [redeploy approach](#redeploy).
-2. For [secrets](/azure/key-vault/secrets/about-secrets):
+1. For [secrets](/azure/key-vault/secrets/about-secrets):
     1. Copy and save the secret value in the source key vault.
     1. Recreate the secret in the target key vault and set the value to saved secret.
 1. For [certificates](/azure/key-vault/certificates/about-certificates):

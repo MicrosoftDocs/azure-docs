@@ -108,4 +108,4 @@ To delete the resource group that contains the domain by using the Azure portal:
 
 - [Relocate system topics across regions](relocation-event-grid-system-topics.md).
 - [Relocate custom topics across regions](relocation-event-grid-custom-topics.md).
-- [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+- [Move resources to a new resource group or subscription](../move-resource-group-and-subscription.md).
