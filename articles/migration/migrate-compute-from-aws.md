@@ -31,6 +31,7 @@ Refer to the following scenarios as examples for framing your migration process:
 | [Migrate AWS event-driven workloads to Azure](/azure/aks/eks-edw-overview) | Amazon Elastic Kubernetes Service (AKS) to Azure Kubernetes Service (AKS) | This scenario involves migrating an EKS event-driven workload with KEDA and Karpenter to AKS. |
 | [Migrate EKS web application workloads to AKS](/azure/aks/eks-web-overview) | Amazon Elastic Kubernetes Service (AKS) to Azure Kubernetes Service (AKS) | This scenario involves migrating an EKS web application to AKS. |
 | [Migrate Amazon EC2 instances to Azure](/azure/migrate/tutorial-migrate-aws-virtual-machines) | Amazon EC2 instances -> Azure VMs | This scenario involves migrating AWS EC2 instances to Azure VMs. |
+| [Migrate AWS Lambda to Azure Functions](/azure/azure-functions/migration/lambda-functions-migration-overview) | AWS Lambda -> Azure Functions | This scenarios involves migrating serverless applications from AWS Lambda to Azure Functions. |
 
 The following list provides additional articles for migrating compute services. These scenarios are platform-agnostic but provide generic guidance for landing the service on Azure.
 
