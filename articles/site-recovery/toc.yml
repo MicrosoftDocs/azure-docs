@@ -160,6 +160,8 @@
       href: classic-to-modernized-common-questions.md
     - name: Monitoring
       href: monitoring-common-questions.md
+    - name: Shared disks
+      href: shared-disks-common-questions.md      
   - name: About Azure VM disaster recovery
     items:
     - name: Azure to Azure disaster recovery architecture

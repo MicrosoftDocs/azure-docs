@@ -8,10 +8,11 @@ ms.date: 03/26/2025
 ms.service: azure-site-recovery
 
 ---
-# Common questions: Classic to Modernized
+# Common questions about Classic to Modernized
+
+This article provides answers to common questions about transitioning from classic to modernized VMware disaster recovery using Azure Site Recovery.
 
 ## Frequently Asked Questions
-
 
 ### Why should I migrate my machines to the modernized architecture?
 

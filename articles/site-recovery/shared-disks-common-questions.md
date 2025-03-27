@@ -8,8 +8,11 @@ ms.date: 03/26/2025
 ms.service: azure-site-recovery
 
 ---
-# Common questions: Shared Disks
+# Common questions about Azure to Azure Shared Disks
 
+This article answers common questions about using shared disks (Azure to Azure) with Azure Site Recovery, focusing on the current capabilities and limitations during the public preview phase.
+
+## Frequently Asked Questions
 
 #### Does Azure Site Recovery support Linux VMs with shared disks?
 No, Azure Site Recovery does not support Linux VMs with shared disks. Only VMs with WSFC-based shared disks are supported.
