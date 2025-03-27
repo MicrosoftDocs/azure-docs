@@ -4,7 +4,7 @@ description: "include file"
 services: app-service
 author: cephalin
 ms.service: azure-app-service
-ms.topic: "include"
+ms.topic: include
 ms.date: 03/29/2019
 ms.author: cephalin
 ms.custom: "include file"

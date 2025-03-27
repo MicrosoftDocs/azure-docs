@@ -242,13 +242,11 @@ To rewrite or redirect a URL, use the [URL rewriting middleware in ASP.NET Core]
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Tutorial: ASP.NET Core app with SQL Database](tutorial-dotnetcore-sqldb-app.md)
+[Tutorial: ASP.NET Core app with SQL Database](tutorial-dotnetcore-sqldb-app.md)
 
 ::: zone pivot="platform-linux"
 
-> [!div class="nextstepaction"]
-> [App Service Linux FAQ](faq-app-service-linux.yml)
+[App Service Linux FAQ](faq-app-service-linux.yml)
 
 ::: zone-end
 
