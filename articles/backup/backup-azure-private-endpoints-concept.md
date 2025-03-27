@@ -3,7 +3,7 @@ title: Private endpoints for Azure Backup - Overview
 description: This article explains about the concept of private endpoints for Azure Backup that helps to perform backups while maintaining the security of your resources.
 ms.topic: overview
 ms.service: azure-backup
-ms.date: 03/19/2025
+ms.date: 03/27/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -93,7 +93,7 @@ When the workload extension or MARS agent is installed for Recovery Services vau
 >- [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
 >- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
-To auto-update the MARS Agent allow access to [this download site](https://download.microsoft.com/download/MARSagent/*).
+To auto-update the MARS Agent allow access to the `*.login.microsoft.com` domain.
 
 For a Recovery Services vault with private endpoint setup, the name resolution for the FQDNs (`privatelink.<geo>.backup.windowsazure.com`, `*.blob.core.windows.net`, `*.queue.core.windows.net`, `*.blob.storage.azure.net`) should return a private IP address. This can be achieved by using: 
 
