@@ -21,7 +21,7 @@ API developers in your organization can discover and consume APIs in your [API c
 API developers can also take advantage of features in the extension to [register APIs](build-register-apis-vscode-extension.md) in the API center and ensure [API governance](govern-apis-vscode-extension.md).
 
 > [!TIP]
-> If you want enterprise app developers to discover APIs in a centralized location, optionally enable a [platform API catalog](enable-platform-api-catalog-vscode-extension.md) for your API center in Visual Studio Code. The platform API catalog is a read-only view of the API inventory.
+> If you want enterprise app developers to discover your APIs in a centralized location, optionally enable the read-only [API Center portal](enable-api-center-portal-vs-code-extension.md) in Visual Studio Code. 
 
 [!INCLUDE [vscode-extension-basic-prerequisites](includes/vscode-extension-basic-prerequisites.md)]  
     
@@ -108,5 +108,5 @@ You can also export a specification using the Command Palette:
 * [Azure API Center - key concepts](key-concepts.md)
 * [Build and register APIs with the Azure API Center extension for Visual Studio Code](build-register-apis-vscode-extension.md)
 * [Govern APIs with the Azure API Center extension for Visual Studio Code](govern-apis-vscode-extension.md)
-* [Enable and view platform API catalog in Visual Studio Code](enable-platform-api-catalog-vscode-extension.md)
+* [Enable and view API Center portal in Visual Studio Code](enable-api-center-portal-vs-code-extension.md)
 
