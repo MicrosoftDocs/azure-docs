@@ -4,7 +4,7 @@ description: Learn how to deploy Tomcat, JBoss EAP, or Java SE apps to run on Az
 keywords: azure app service, web app, windows, oss, java, tomcat, jboss, spring boot, quarkus
 ms.devlang: java
 ms.topic: article
-ms.date: 03/19/2025
+ms.date: 03/27/2025
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, linux-related-content
 zone_pivot_groups: app-service-java-hosting
 adobe-target: true
@@ -485,7 +485,7 @@ $JBOSS_HOME/bin/jboss-cli.sh --connect
 
 Depending on where JBoss EAP is in the server lifecycle, you might not be able to connect. Wait a few minutes and try again. This approach is useful for quick checks of your current server state (for example, to see if a data source is properly configured).
 
-Also, changes you make to the server with JBoss CLI in the SSH session doesn't persist after the app restarts. Each time the app starts, the JBoss EAP server begins with a clean installation. During the [startup lifecycle](#jboss-server-lifecycle), App Service makes the necessary server configurations and deploys the app. To make any persistent changes in the JBoss EAP server, use a [custom startup script or a startup command](#3-server-configuration-phase). For an end-to-end example, see [Configure data sources for a Java SE, Tomcat, or JBoss EAP app in Azure App Service](configure-language-java-data-sources.md?pivots=java-jboss).
+Also, changes you make to the server with JBoss CLI in the SSH session doesn't persist after the app restarts. Each time the app starts, the JBoss EAP server begins with a clean installation. During the [startup lifecycle](#jboss-eap-server-lifecycle), App Service makes the necessary server configurations and deploys the app. To make any persistent changes in the JBoss EAP server, use a [custom startup script or a startup command](#3-server-configuration-phase). For an end-to-end example, see [Configure data sources for a Java SE, Tomcat, or JBoss EAP app in Azure App Service](configure-language-java-data-sources.md?pivots=java-jboss).
 
 Alternatively, you can manually configure App Service to run any file on startup. For example:
 
