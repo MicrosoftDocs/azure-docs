@@ -2180,11 +2180,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/devtest-labs/devtest-lab-trusted-launch.md",
-      "redirect_url": "/azure/devtest-labs/devtest-lab-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/devtest-labs/integrate-environments-devops-pipeline.md",
       "redirect_url": "/previous-versions/azure/devtest-labs/integrate-environments-devops-pipeline",
       "redirect_document_id": false
