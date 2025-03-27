@@ -33,7 +33,7 @@ You'll learn how to:
 ## Prerequisites
 
 * Complete the [Create an Azure API Management instance](get-started-create-service-instance.md) quickstart.
-* Make sure you have an Azure function app in your subscription. For more information, see [Getting started with Azure Functions](../azure-functions/functions-get-started.md). Functions must have an HTTP trigger. The authorization level must be set to *Anonymous* or *Function*.
+* Make sure you have an Azure function app in your subscription. For more information, see [Getting started with Azure Functions](../azure-functions/functions-get-started.md). The function must have an HTTP trigger. The authorization level must be set to *Anonymous* or *Function*.
 
 > [!NOTE]
 > You can use the API Management Extension for Visual Studio Code to import and manage your APIs. Complete the [API Management Extension tutorial](visual-studio-code-tutorial.md) to get started.
@@ -42,14 +42,14 @@ You'll learn how to:
 
 To create a new API from an Azure function app:
 
-1. Navigate to your API Management service in the Azure portal
+1. Navigate to your API Management service in the Azure portal.
 1. Select **APIs** > **APIs** in the left pane.
 
 1. Under **Create from Azure resource**, select **Function App**:
 
     :::image type="content" source="./media/import-function-app-as-api/add-01.png" alt-text="Screenshot that shows the Function App tile in the Azure portal.":::
 
-1. Select the **Browse** button.
+1. Select the **Browse** button:
 
     :::image type="content" source="./media/import-function-app-as-api/add-02.png" alt-text="Screenshot that highlights the Browse button." lightbox="./media/import-function-app-as-api/add-02.png":::
 
@@ -69,7 +69,7 @@ To create a new API from an Azure function app:
 1. As needed, specify other settings. You can also specify settings later via the **Settings** tab. These settings are explained in the [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
 
     >[!NOTE]
-    > *Products* are associations of one or more APIs that are offered to developers via the Developer Portal. First, developers must subscribe to a product to get access to the API. When they subscribe, they get a subscription key for any API in the product. If you created the API Management instance, you're an administrator and are subscribed to every product by default.
+    > *Products* are associations of one or more APIs that are offered to developers via the developer portal. First, developers must subscribe to a product to get access to the API. When they subscribe, they get a subscription key for any API in the product. If you created the API Management instance, you're an administrator and are subscribed to every product by default.
     >
     > In some pricing tiers, API Management instances come with two default sample products:
     > - **Starter**
@@ -83,7 +83,7 @@ To append a function app to an existing API:
 
 1. In your **Azure API Management** service instance, select **APIs** > **APIs** in the left pane.
 
-1. Choose an API that you want to import a function app to. Select the ellipsis (**...**), and then select **Import**:
+1. Choose an API that you want to import a function app to. Select the ellipsis (**...**) next to the API, and then select **Import**:
 
     :::image type="content" source="./media/import-function-app-as-api/append-function-api-1.png" alt-text="Screenshot that shows the Import menu option." lightbox="./media/import-function-app-as-api/append-function-api-1.png":::
 
@@ -163,6 +163,6 @@ You can call operations directly from the Azure portal. Using the Azure portal i
 
 1. Select **Send**.
 
-    When the test succeeds, the back end responds with **200 OK** and some data.
+    When the test succeeds, the backend responds with **200 OK** and some data.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
