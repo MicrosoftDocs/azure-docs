@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 ms.subservice: data
 ---
 
-# Setting up ACS Call Monitoring and Alerting
+# Setting up Call Monitoring and Alerting
 
 
 ## Overview
