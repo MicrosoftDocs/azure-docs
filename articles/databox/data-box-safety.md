@@ -468,7 +468,7 @@ Hazardous Substances Table:
     :::column:::
     ○
     :::column-end:::
-
+:::row-end:::
 :::row:::
     :::column:::
     风扇
