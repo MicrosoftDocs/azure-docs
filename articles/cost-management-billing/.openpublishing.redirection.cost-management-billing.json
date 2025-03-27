@@ -1346,7 +1346,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/cost-management/tutorial-export-acm-data.md",
+            "source_path_from_root": "/articles/cost-management-billing/costs/tutorial-export-acm-data.md",
             "redirect_url": "/azure/cost-management-billing/costs/tutorial-improved-exports",
             "redirect_document_id": false
         },
