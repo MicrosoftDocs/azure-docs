@@ -6,7 +6,6 @@ ms.topic: how-to
 ms.subservice: pipeline 
 author: linda33wj
 ms.author: jingwang
-ms.reviewer: whhender
 ms.date: 12/11/2024
 ---
 
