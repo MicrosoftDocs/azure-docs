@@ -64,7 +64,7 @@ After setting up the appliance and completing discovery, you can begin replicati
 
 Enable replication as follows:
 
-1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization**, select **Replicate**.
+1. In the Azure Migrate project > **Execute** > **Migration**, select **Replicate**.
 
     :::image type="content" source="../media/tutorial-migrate-vmware/select-replicate.png" alt-text="Screenshot on selecting Replicate option.":::
 
