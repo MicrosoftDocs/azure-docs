@@ -58,7 +58,7 @@ To understand the possible downtimes involved, see [Cloud Adoption Framework for
 
 ### Export template
 
-To get started, export a Resource Manager template. This template contains settings that describe your Container Registry. For more information on how to use exported templates, see [Use exported template from the Azure portal](../template-tutorial-export-template.md) and the [template reference](/azure/templates/microsoft.containerregistry/registries).
+To get started, export a Resource Manager template. This template contains settings that describe your Container Registry. For more information on how to use exported templates, see [Use exported template from the Azure portal](../../templates/template-tutorial-export-template.md) and the [template reference](/azure/templates/microsoft.containerregistry/registries).
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your source registry.
 1. In the menu, under **Automation**, select **Export template** > **Download**.
@@ -128,9 +128,7 @@ az deployment group create --resource-group myResourceGroup \
 After creating the registry in the target region:
 
 1. Use the [az acr import](/cli/azure/acr#az-acr-import) command, or the equivalent PowerShell command `Import-AzContainerImage`, to import images and other artifacts you want to preserve from the source registry to the target registry. For command examples, see [Import container images to a container registry](/azure/container-registry/container-registry-import-images).
-
 1. Use the Azure CLI commands [az acr repository list](/cli/azure/acr/repository#az-acr-repository-list) and [az acr repository show-tags](/cli/azure/acr/repository#az-acr-repository-show-tags), or Azure PowerShell equivalents, to help enumerate the contents of your source registry.
-
 1. Run the import command for individual artifacts, or script it to run over a list of artifacts.
 
 The following sample Azure CLI script enumerates the source repositories and tags and then imports the artifacts to a target registry in the same Azure subscription. Modify as needed to import specific repositories or tags. To import from a registry in a different subscription or tenant, see examples in [Import container images to a container registry](/azure/container-registry/container-registry-import-images).
@@ -156,19 +154,14 @@ done
 ```
 
 1. Associate the dependent resources to the target Azure Container Registry such as log analytics workspace in Diagnostic settings.
-
 1. Configure Azure Container Registry integration with both type of AKS clusters, provisioned or yet to be provisioned by running the following command:
 
 ```azurecli
-
 Set-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup -AcrNameToAttach <acr-name>
-
 ```
 
 1. Make the necessary changes to the Kubernetes manifest file to integrate same with relocated Azure Container Registry (ACR).
-
 1. Update development and deployment systems to use the target registry instead of the source registry.
-
 1. Update any client firewall rules to allow access to the target registry.
 
 ## Verify

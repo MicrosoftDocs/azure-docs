@@ -240,7 +240,7 @@ Modify the template by changing the Event Hubs namespace name and region.
     },
    ```
 
-2. Edit the **location** property in the **template.json** file to the target region. This example sets the target region to `centralus`.
+1. Edit the **location** property in the **template.json** file to the target region. This example sets the target region to `centralus`.
 
    ```json
    "resources": [
@@ -323,7 +323,7 @@ Modify the template by changing the Event Hubs namespace name and region.
    Get-AzLocation | format-table
    ```
 
-3. Remove resources of typ private endpoint in the template.
+1. Remove resources of typ private endpoint in the template.
 
    ```json
     {
@@ -331,30 +331,30 @@ Modify the template by changing the Event Hubs namespace name and region.
     }
    ```
 
-4. If you configured a service endpoint in your Event Hubs, in the `networkrulesets` section, under `virtualNetworkRules`, add the rule for the target subnet. Ensure that the `ignoreMissingVnetServiceEndpoint` flag is set to False, so that the IaC fails to deploy the Event Hubs in case the service endpoint isn’t configured in the target region.
+1. If you configured a service endpoint in your Event Hubs, in the `networkrulesets` section, under `virtualNetworkRules`, add the rule for the target subnet. Ensure that the `ignoreMissingVnetServiceEndpoint` flag is set to False, so that the IaC fails to deploy the Event Hubs in case the service endpoint isn’t configured in the target region.
 
-   **parameter.json**
+    **parameter.json**
 
-   ```json
-   {
-     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-     "contentVersion": "1.0.0.0",
-     "parameters": {
-       ...
-       "target_vnet_externalid": {
-         "value": "virtualnetwork-externalid"
-       },
-       "target_subnet_name": {
-         "value": "subnet-name"
-       }
-     }
-   }
-   ```
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        ...
+        "target_vnet_externalid": {
+          "value": "virtualnetwork-externalid"
+        },
+        "target_subnet_name": {
+          "value": "subnet-name"
+        }
+      }
+    }
+    ```
 
-   **_template.json**
+    **_template.json**
 
-   ```json
-  {
+    ```json
+    {
     "type": "Microsoft.EventHub/namespaces/networkrulesets",
     "apiVersion": "2023-01-01-preview",
     "name": "[concat(parameters('namespaces_name'), '/default')]",
@@ -376,10 +376,11 @@ Modify the template by changing the Event Hubs namespace name and region.
       "ipRules": [],
       "trustedServiceAccessEnabled": false
     }
-  }
-  ```
+    }
+    ```
 
 1. Select **Save** to save the template.
+
 ---
 
 ## Redeploy

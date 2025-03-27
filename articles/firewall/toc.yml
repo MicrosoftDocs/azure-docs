@@ -210,7 +210,7 @@ items:
   - name: Best practices for performance
     href: firewall-best-practices.md
   - name: Relocate to another region
-    href: ../operational-excellence/relocation-firewall.md?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
+    href: ../azure-resource-manager/management/relocation/relocation-firewall.md?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
   - name: Remote work support
     href: remote-work-support.md
 - name: Reference

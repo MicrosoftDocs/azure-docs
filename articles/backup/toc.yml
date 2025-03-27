@@ -309,7 +309,7 @@
       - name: Delete
         href: backup-azure-delete-vault.md
       - name: Relocate
-        href: ../operational-excellence/relocation-backup.md?toc=/azure/backup/toc.json
+        href: ../azure-resource-manager/management/relocation/relocation-backup.md?toc=/azure/backup/toc.json
       - name: Manage
         href: backup-azure-manage-windows-server.md
     - name: Backup vault

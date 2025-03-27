@@ -55,7 +55,7 @@ The new cluster isn’t billed during its first day to avoid double billing duri
 
 Learn more about:
 
-- [Relocate Log Analytics workspaces to another region](../operational-excellence/relocation-log-analytics.md)
+- [Relocate Log Analytics workspaces to another region](../azure-resource-manager/management/relocation/relocation-log-analytics.md)
 
 - [Azure Monitor Logs Dedicated Clusters](/azure/azure-monitor/logs/logs-dedicated-clusters)
 

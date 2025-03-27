@@ -102,7 +102,7 @@
             - name: Move encrypted Azure VMs to another region
               href: ../../resource-mover/tutorial-move-region-encrypted-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
           - name: Virtual Machine Scale Sets
-            href: ./relocation-virtual-machine-scale-sets.md
+            href: ./relocation/relocation-virtual-machine-scale-sets.md
         - name: Containers
           items:
           - name: Azure Container Registry
