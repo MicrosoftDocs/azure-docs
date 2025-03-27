@@ -54,6 +54,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
+          - text: Migrate AWS Lambda to Azure Functions
+            url: /azure/azure-functions/migration/lambda-functions-migration-overview
           - text: Migrate Amazon RDS for PostgreSQL to Azure Database for PostgreSQL (offline)
             url:  /azure/postgresql/migrate/migration-service/tutorial-migration-service-aws-offline
           - text: Migrate Amazon RDS for PostgreSQL to Azure Database for PostgreSQL (online)
