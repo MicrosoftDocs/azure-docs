@@ -127,7 +127,7 @@ ms.topic: faq
   Azure Files only supports Windows, Linux, and macOS. Accessing an Azure file share directly from a printer or scanner isn't supported. However, if you're already using Azure File Sync, you can print or scan to your Windows file server and then sync the file to an Azure file share.
 
 * <a id="alternate-data-streams"></a>
-**Are alternate data streams supported in Azure Files?**
+**Does Azure Files support alternate data streams?**
 
   Azure Files does not support [alternate data streams](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-fscc/e2b19412-a925-4360-b009-86e3b8a020c8). Transferring data via SMB will throw a **file already exists** message if an alternate data stream is found. Alternate streams can be checked by using the PowerShell command
 
