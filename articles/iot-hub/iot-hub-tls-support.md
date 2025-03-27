@@ -2,11 +2,11 @@
  title: Azure IoT Hub TLS support
  description: Learn about using secure TLS connections for devices and services communicating with IoT Hub
  services: iot-hub
- author: kgremban
+ author: SoniaLopezBravo
  ms.service: azure-iot-hub
  ms.topic: conceptual
  ms.date: 02/24/2025
- ms.author: kgremban
+ ms.author: sonialopez
 ---
 
 # Transport Layer Security (TLS) support in IoT Hub

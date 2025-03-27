@@ -1,8 +1,8 @@
 ---
 title: Dedicated SQL pool Azure Advisor recommendations
 description: Learn about Synapse SQL recommendations and how they are generated
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 06/26/2020
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw

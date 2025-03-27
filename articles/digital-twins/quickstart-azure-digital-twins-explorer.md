@@ -48,7 +48,7 @@ You also need to download the materials for the sample graph used in the quickst
 
 The first step in working with Azure Digital Twins is to create an Azure Digital Twins instance that holds all your graph data. In this section, you create an instance of the service, and open it in Azure Digital Twins Explorer.
 
-[!INCLUDE [digital-twins-quickstart-setup.md](../../includes/digital-twins-quickstart-setup.md)]
+[!INCLUDE [digital-twins-quickstart-setup.md](includes/digital-twins-quickstart-setup.md)]
 
 ### Open instance in Azure Digital Twins Explorer
 
@@ -56,7 +56,7 @@ After deployment completes, use the **Go to resource** button to navigate to the
 
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/deployment-complete.png" alt-text="Screenshot of the deployment page for Azure Digital Twins in the Azure portal. The page indicates that deployment is complete.":::
 
-[!INCLUDE [digital-twins-access-explorer.md](../../includes/digital-twins-access-explorer.md)]
+[!INCLUDE [digital-twins-access-explorer.md](includes/digital-twins-access-explorer.md)]
 
 ## Build out the sample scenario
 
@@ -234,7 +234,7 @@ To clean up after this quickstart, choose which Azure Digital Twins resources yo
 
 * If you plan to continue through the Azure Digital Twins quickstarts and tutorials, you can reuse the instance in this quickstart for those articles, and you don't need to remove it.
 
-[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
+[!INCLUDE [digital-twins-cleanup-clear-instance.md](includes/digital-twins-cleanup-clear-instance.md)]
  
 * If you don't need your Azure Digital Twins instance anymore, you can delete it using the [Azure portal](https://portal.azure.com).
     
