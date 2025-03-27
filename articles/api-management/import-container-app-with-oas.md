@@ -30,7 +30,7 @@ In this article, you learn how to:
 
 [Azure Container Apps](../container-apps/overview.md) allows you to deploy containerized apps without managing complex infrastructure. API developers can write code using their preferred programming language or framework, build microservices with full support for Distributed Application Runtime (Dapr), and scale based on HTTP traffic or other events.
 
-By using API Management to expose a web API that's hosted in a container app, you gain the following benenfits:
+By using API Management to expose a web API that's hosted in a container app, you gain the following benefits:
 
 * Decouple managing and securing the frontend that's exposed to API consumers from managing and monitoring the backend web API.
 * Manage web APIs hosted as container apps in the same environment as your other APIs.
@@ -109,7 +109,7 @@ To test the API in the Azure portal:
 1. Select the **Test** tab.
 1. Select an operation.
 
-    The page displays fields for query parameters and fields for the headers. One of the headers is `Ocp-Apim-Subscription-Key`. This header is for the subscription key of the product that's associated with the API. If you created the API Management instance, you are an administrator, so the key is filled in automatically.
+    The page displays fields for query parameters and fields for the headers. One of the headers is `Ocp-Apim-Subscription-Key`. This header is for the subscription key of the product that's associated with the API. If you created the API Management instance, you're an administrator, so the key is filled in automatically.
 
 1. Select **Send**.
 
