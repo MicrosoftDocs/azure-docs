@@ -1,5 +1,5 @@
 ---
-title: Set up a sign-up and sign-in flow with a social account by using Azure Active Directory B2C custom policy
+title: Set up a sign-in flow with a social account in Azure AD B2C custom policy
 titleSuffix: Azure AD B2C
 description: Learn how to configure a sign-up and sign-in flow for a social account, Facebook, by using Azure Active Directory B2C custom policy.  
 
@@ -10,7 +10,7 @@ ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 10/11/2024
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: b2c
@@ -691,6 +691,6 @@ Use the following steps to add a combined local and social account:
 
     You can observe that a user can sign up or sign in by using either a local account or a social account. 
 
-## Next steps 
+## Related content
 
 - Learn more about how to [Define an OAuth2 technical profile in an Azure Active Directory B2C custom policy](oauth2-technical-profile.md).

@@ -1,9 +1,6 @@
 ---
 title: Business case in Azure Migrate 
 description: Learn about Business case in Azure Migrate 
-author: rashi-ms
-ms.author: rajosh
-ms.manager: ronai
 ms.topic: conceptual
 ms.service: azure-migrate
 ms.date: 10/29/2024

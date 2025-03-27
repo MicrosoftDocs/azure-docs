@@ -163,8 +163,6 @@ One benefit of disabling a rule is that if you know all traffic that contains a 
 
 If you want to use Azure PowerShell, see [Customize web application firewall rules through PowerShell](application-gateway-customize-waf-rules-powershell.md). If you want to use Azure CLI, see [Customize web application firewall rules through the Azure CLI](application-gateway-customize-waf-rules-cli.md).
 
-![WAF rules](../media/web-application-firewall-troubleshoot/waf-rules.png)
-
 ## Finding request attribute names
 
 With the help of [Fiddler](https://www.telerik.com/fiddler), you inspect individual requests and determine what specific fields of a web page are called. This can help to exclude certain fields from inspection using Exclusion Lists.

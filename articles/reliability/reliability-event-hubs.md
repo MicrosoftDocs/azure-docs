@@ -27,7 +27,7 @@ Event Hubs implements transparent failure detection and failover mechanisms so t
 
 ### Prerequisites
 
-Availability zone support is only available in [Azure regions with availability zones](./availability-zones-region-support.md). 
+Availability zone support is only available in [Azure regions with availability zones](./regions-list.md). 
 
 
 ### Create a resource with availability zones enabled
