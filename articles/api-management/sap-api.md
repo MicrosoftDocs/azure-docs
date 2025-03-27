@@ -65,7 +65,7 @@ Choose one of the following methods to import your API to API Management:
 
 1. Convert the OData XML to OpenAPI JSON format. Use an OASIS open-source tool for [OData v2](https://github.com/oasis-tcs/odata-openapi/tree/main/tools) or [OData v4](https://github.com/oasis-tcs/odata-openapi/tree/main/lib), depending on your metadata XML. 
 
-   The following is an example command to convert OData v2 XML for the test service `epm_ref_apps_prod_man_srv`:
+   The following example converts OData v2 XML for the test service `epm_ref_apps_prod_man_srv`:
 
    ```console
    odata-openapi -p --basePath '/sap/opu/odata/sap/epm_ref_apps_prod_man_srv' \
