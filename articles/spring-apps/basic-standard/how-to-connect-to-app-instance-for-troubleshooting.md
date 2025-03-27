@@ -203,7 +203,7 @@ The following list shows the tools available, which depend on your service plan 
 - Custom image deployment: Depends on the installed tool set in your image.
 
 > [!NOTE]
-> JDK tools aren't included in the path for the *source code* deployment type. Run `export PATH="$PATH:/layers/tanzu-buildpacks_microsoft-openjdk/jdk/bin"` before running any JDK commands.
+> JDK tools aren't included in the path for the source code deployment type. Run `export PATH="$PATH:/layers/tanzu-buildpacks_microsoft-openjdk/jdk/bin"` before running any JDK commands.
 
 ## Limitations
 
