@@ -116,8 +116,6 @@
     items:
     - name: Active change, retirement, and end of life notices
       href: https://github.com/Azure/Batch/labels/notice
-    - name: Cloud Service Configuration Pools
-      href: batch-pool-cloud-service-to-virtual-machine-configuration.md
     - name: VHD and Managed Images
       href: batch-custom-image-pools-to-azure-compute-gallery-migration-guide.md
     - name: Low-priority virtual machines
