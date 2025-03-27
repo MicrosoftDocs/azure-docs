@@ -3,7 +3,7 @@ title: Apache Spark version support
 description: Supported versions of Spark, Scala, Python
 author: ms-arali
 ms.author: arali
-ms.reviewer: maghan, whhender, whhender
+ms.reviewer: maghan
 ms.date: 03/08/2024
 ms.service: azure-synapse-analytics
 ms.subservice: spark

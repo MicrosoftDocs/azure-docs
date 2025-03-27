@@ -50,7 +50,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - Azure Backup for AKS is currently not supported for Network Isolated AKS clusters.
 
-- Don't install AKS Backup Extension along with Velero or other Velero-based backup services. This could lead to disruption of backup service during any future Velero upgrades driven by you or AKS backup  
+- Don't install AKS Backup Extension along with Velero or other Velero-based backup services. Addtionally ensure that your Kubernetes resources does not have labels of annotations containing word `velero.io` except in recommended scenarios, otherwise this could lead to unexpected behaviour.
 
 - You must install the backup extension in the AKS cluster. If you're using Azure CLI to install the backup extension, ensure that the version is 2.41 or later. Use `az upgrade` command to upgrade the Azure CLI.
 
