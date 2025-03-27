@@ -12,8 +12,6 @@ ms.custom:
 
 # Enable and view Azure API Center portal - VS Code extension
 
-[!INCLUDE [api-center-availability-all-tiers](../includes/api-center-availability-all-tiers.md)]
-
 This article shows how to provide enterprise developers access to the Azure API Center portal in the Visual Studio Code extension for [Azure API Center](overview.md). Using the portal, developers can discover APIs in your Azure API center, view API definitions, and optionally generate API clients when they don't have access to manage the API center itself or add APIs to the inventory. Access to the API Center portal is managed using Microsoft Entra ID and Azure role-based access control.
 
 > [!TIP]
