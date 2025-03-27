@@ -88,7 +88,7 @@ conceptualContent:
             text: Azure Solutions Architect training
             itemType: training
 
-    - title: Plan your migration to Azure
+    - title: Migrate workloads from Amazon Web Services
       items:
       - title: Compute
         links:
