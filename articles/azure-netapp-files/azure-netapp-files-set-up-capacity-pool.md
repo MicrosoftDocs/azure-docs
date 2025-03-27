@@ -23,13 +23,16 @@ Creating a capacity pool enables you to create volumes within it.
     >[!IMPORTANT]
     >To create a 1-TiB capacity pool with a tag, you must use API versions `2023-07-01_preview` to `2024-01-01_preview` or stable releases from `2024-01-01`.
 * The Standard, Premium, and Ultra service levels are generally available (GA). No registration is required. 
+* The **Flexible** service level is currently in preview. You must submit a waitlist request to access the Flexible service level by using [the request form](https://aka.ms/ANFFlexibleSLpreviewsignup). After you submit the waitlist request, it can take approximately one week to enable the feature.
+    
+    Check the status of feature registration with the command:
 
-## Register for the Flexible service level
-
-The **Flexible** service level is currently in preview. You must submit a waitlist request to access the Flexible service level by using [the request form](). After you submit the waitlist request, it can take approximately one week to enable the feature.
-
-Check the status of feature registration by using the command `Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFlexibleServiceLevel`. You can also use [Azure CLI commands](/cli/azure/feature) `az feature show` to register the feature and display the registration status. 
-
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFlexibleServiceLevel
+    ```
+    
+    You can also use [Azure CLI commands](/cli/azure/feature) `az feature show` to register the feature and display the registration status. 
+    
 ### <a name="regions"></a> Supported regions for the Flexible service level
 
 >[!NOTE]
