@@ -85,7 +85,7 @@ Using Azure AD B2C, you can add your own business logic to a user journey by cal
 ![Diagram of a RESTful service claims exchange](media/api-connectors-overview/restful-service-claims-exchange.png)
 
 > [!NOTE]
-> If there is slow or no response from the RESTful service to Azure AD B2C, the timeout is 30 seconds and the retry count is two times (meaning there are 3 tries in total). Currently, you can't configure the timeout and retry count settings.
+> HTTP requests may be cancelled if there is a slow or no response from the RESTful service to Azure AD B2C The default timeout is 10 seconds and the default retry count is one (meaning there are 2 tries in total). Depending on policy type, timeout and retries can be more restrictive. These settings are configuarable to be less than the default.
 
 ## Calling a RESTful service
 
