@@ -7,7 +7,7 @@ ms.date: 02/20/2025
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: banders
+ms.reviewer: jojoh
 ---
 
 # Tutorial: Improved exports experience - Preview
