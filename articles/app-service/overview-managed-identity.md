@@ -2,7 +2,7 @@
 title: Managed Identities
 description: Learn how managed identities work in Azure App Service and Azure Functions and how to configure a managed identity and generate a token for a back-end resource.
 ms.topic: how-to
-ms.date: 03/20/2025
+ms.date: 03/27/2025
 ms.reviewer: yevbronsh,mahender
 author: cephalin
 ms.author: cephalin
