@@ -10,9 +10,9 @@ ms.author: cephalin
 ms.custom: "include file"
 ---
 
-To make open a direct SSH session with your container, your app should be running.
+To open a direct SSH session with your container, your app should be running.
 
-Paste the following URL into your browser and replace `<app-name>` with your app name:
+Paste the following URL into your browser and replace *\<app-name>* with your app name:
 
 ```
 https://<app-name>.scm.azurewebsites.net/webssh/host
