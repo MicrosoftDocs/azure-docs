@@ -117,7 +117,7 @@ When you deploy an AKS cluster that uses availability zones, it's important to e
 
 If you run a stateless workload, you should use managed Azure services, such [Azure databases](https://azure.microsoft.com/products/category/databases/), [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview), or [Azure Storage](https://azure.microsoft.com/products/category/storage/) to store the application data. By using these services, you can ensure that your traffic can be moved across nodes and zones without risking data loss or affecting the user experience. You can use Kubernetes [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), [Services](https://kubernetes.io/docs/concepts/services-networking/service/), and [Health Probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) to manage stateless pods and ensure even distribution across zones.
 
-    If you need to store state within your cluster by using Azure disks, use Azure zone-redundant storage to ensure that your data is replicated across multiple availability zones. For more information, see [Choose the right disk type based on application needs](/azure/aks/aks-zone-resiliency#make-your-storage-disk-decision).
+If you need to store state within your cluster by using Azure disks, use Azure zone-redundant storage to ensure that your data is replicated across multiple availability zones. For more information, see [Choose the right disk type based on application needs](/azure/aks/aks-zone-resiliency#make-your-storage-disk-decision).
 
 ### Zone-down experience
 
