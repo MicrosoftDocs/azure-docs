@@ -2,7 +2,7 @@
 title: Manage Azure Managed Disks
 description: Learn about managing Azure Managed Disk from the Azure portal.
 ms.topic: how-to
-ms.date: 03/21/2024
+ms.date: 01/16/2025
 author: jyothisuri
 ms.author: jsuri
 ms.service: azure-backup
