@@ -78,7 +78,7 @@ In host.json, update the `extensionBundle` property to use the preview version t
 {
   "extensionBundle": {
     "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[4.29.0]"
+    "version": "[4.29.0, 5.0.0)"
   }
 }
 ```
