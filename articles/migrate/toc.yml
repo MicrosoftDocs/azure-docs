@@ -153,21 +153,35 @@ items:
     items: 
     - name: Overview of Migration method
       href: server-migrate-overview.md
-    - name: Agentbase migrations
-      href: tutorial-migrate-vmware.md
+    - name: Agent-based migrations
+      items:
+      - name: Agent-based migration using portal
+        href: vmware/tutorial-migrate-vmware-agent.md
     - name: Agentless migrations
-      href: tutorial-migrate-vmware.md
-    - name: Agent-based migration
-      href: tutorial-migrate-vmware-agent.md
+      items:
+      - name: Agentless migrations using portal
+        href: vmware/tutorial-migrate-vmware.md
+      - name: Agentless migrations using scripts
+        href: vmware/tutorial-migrate-vmware-powershell.md
     - name: Webapp migration
       href: tutorial-modernize-asp-net-aks.md
     - name: Limitations
 - name: Modernize applications
   items:
-  - name: Application containerization 
-    href: tutorial-app-containerization-aspnet-kubernetes.md
-  - name: Modernization to App service code
-    href: tutorial-modernize-asp-net-appservice-code.md
+  - name: Web App Migration and Modernization
+    items:
+    - name: Containerize ASP.NET apps and migrate to AKS
+      href: tutorial-app-containerization-aspnet-kubernetes.md
+    - name: Containerize Java web apps and migrate to AKS
+      href: tutorial-app-containerization-java-kubernetes.md
+    - name: Containerize Java web apps and migrate to App Service containers
+      href: tutorial-app-containerization-java-app-service.md 
+    - name: Modernize ASP.NET web apps to App Service code
+      href: tutorial-modernize-asp-net-appservice-code.md
+    - name: CI/CD for Day 2 operations
+      href: tutorial-app-containerization-azure-pipeline.md
+    - name: Modernization to App service code
+      href: tutorial-modernize-asp-net-appservice-code.md
 - name: Tutorials 
   items:
   - name: Migration Scenarios
