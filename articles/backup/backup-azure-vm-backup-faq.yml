@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 01/30/2025
+  ms.date: 03/27/2025
   author: jyothisuri
   ms.author: jsuri
 
@@ -442,6 +442,9 @@ sections:
         answer: |
           For Initial Replica, a full backup will be re-initiated in case of failure. However, for Incremental the snapshot from the last successful backup will be compared to the latest snapshot to copy the changed data into the vault.
 
-      - question: Why SSD V2 with GRS Vaults/Cross Region Restore is currently  not supported?
+      - question: Why SSD V2 with GRS Vaults/Cross Region Restore is  not supported?
         answer: |
-          The Geo-redundant storage (GRS) support will be enabled once Premium SSD v2 is available in all regions. This is because the paired regions need to be supported to copy the data. 
+          SSD V2/Ultra disks are currently not available in all regions, so Geo-Redundant Storage (GRS) can't be enabled.
+
+          >[!Note]
+          >GRS functions only when both paired regions support SSD V2/Ultra disks. 
