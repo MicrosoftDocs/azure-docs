@@ -149,6 +149,8 @@
       href: tag-support.md
     - name: Azure Resource Graph queries
       href: ./resource-graph-samples.md
+    - name: Mission critical workload labeling
+      href: tag-mission-critical-workload.md
   - name: Private link access
     items:
     - name: Create - portal
