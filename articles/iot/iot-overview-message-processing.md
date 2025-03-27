@@ -45,7 +45,7 @@ To route messages from your assets to various endpoints, Azure IoT Operations us
 | [Data Lake](../iot-operations/connect-to-cloud/howto-configure-adlsv2-endpoint.md) | For uploading data to Azure Data Lake Gen2 storage accounts. |
 | [Microsoft Fabric OneLake](../iot-operations/connect-to-cloud/howto-configure-fabric-endpoint.md) | For uploading data to Microsoft Fabric OneLake lakehouses. |
 | [Azure Data Explorer](../iot-operations/connect-to-cloud/howto-configure-adx-endpoint.md) | For uploading data to Azure Data Explorer databases. |
-| [Local storage](../iot-operations/connect-to-cloud/howto-configure-local-storage-endpoint.md) | For sending data to a locally available persistent volume, through which you can upload data via Azure Container Storage enabled by Azure Arc edge volumes. |
+| [Local storage](../iot-operations/connect-to-cloud/howto-configure-local-storage-endpoint.md) | For sending data to a locally available persistent volume, optionally configurable with Azure Container Storage enabled by Azure Arc. |
 
 The operations experience web UI provides a no-code environment for building and running your data flows.
 
