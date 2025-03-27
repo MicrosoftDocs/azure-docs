@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create and run load tests from Visual Studio Code'
 titleSuffix: Azure Load Testing
-description: 'This quickstart shows how to create and run load tests using the Visual Studio code extension for Azure Load Testing. Azure Load Testing is a managed, cloud-based load testing tool.'
+description: 'This quickstart shows how to create and run load tests using the Visual Studio Code extension for Azure Load Testing. Azure Load Testing is a managed, cloud-based load testing tool.'
 services: load-testing
 ms.service: azure-load-testing
 ms.topic: quickstart
@@ -10,11 +10,11 @@ ms.author: vevippar
 ms.date: 04/04/2024
 ---
 
-# Quickstart: Create and run a load test from Visual Studio Code with Azure Load Testing
+# Quickstart: Create and run a load test with Visual Studio Code and GitHub Copilot
 
 Learn how to use the Azure Load Testing extension for Visual Studio Code to easily create Locust load tests using Copilot, iterate locally, and scale effortlessly in Azure. Whether you're new to Locust or a performance testing expert, the Azure Load Testing extension streamlines test creation, iteration, and scaling, right from your VS Code environment. Azure Load Testing is a managed service that lets you run a load test at cloud scale. [Locust](https://locust.io/) is an open source load testing tool that enables you to describe all your test in Python code.
 
-This quickstart guides you through generating, refining, and running realistic load tests. By the end, you'll have a fully functional load test script generated from a **Postman collection**, **Insomnia collection**, or **.http file**, enhanced with Copilot-powered improvements, and ready to scale in **Azure Load Testing**.
+This quickstart guides you through generating, refining, and running realistic load tests. By the end, you have a fully functional load test script generated from a **Postman collection**, **Insomnia collection**, or **.http file**, enhanced with Copilot-powered improvements, and ready to scale in **Azure Load Testing**.
 
     :::image type="content" source="./media/quickstart-create-run-load-tests-from-visual-studio-code/create-locust-test.gif" alt-text="Image sequence that shows the creation of a Locust script using Azure Load Testing VS Code extension" lightbox="./media/quickstart-create-run-load-tests-from-visual-studio-code/create-locust-test.gif":::
 
@@ -43,7 +43,7 @@ You can also access the features directly from the command palette by using the 
 
 ## Generate a Locust script with Copilot
 
-You can generate a Locust script from any existing Postman collection, Insomnia collection, or .http file. If the file contains multiple requests, Copilot will attempt to sequence them into a cohesive scenario. 
+You can generate a Locust script from any existing Postman collection, Insomnia collection, or .http file. If the file contains multiple requests, Copilot attempts to sequence them into a cohesive scenario. 
 
 1. For this quickstart, download and save the [sample PetStore .http file](https://aka.ms/malt-vscode/http-sample) in your current VS Code workspace.
 
@@ -59,9 +59,9 @@ You can generate a Locust script from any existing Postman collection, Insomnia 
 
 1. Select the sample file which you saved earlier to your workspace: [**`petstore-sample.http`**](https://aka.ms/malt-vscode/http-sample). 
 
-1. Copilot will analyze the selected file and generate a **Locust-based load test script**, automatically sequencing API requests to simulate real-world usage and handling authentication securely. 
+1. Copilot analyzes the selected file and generate a **Locust-based load test script**, automatically sequencing API requests to simulate real-world usage and handling authentication securely. 
 
-1. Once the script is generated, the **Copilot Chat** window will suggest additional setup steps, such as defining **environment variables**. If Copilot suggests environment variables, create a `.env` file in your project and add the recommended values.  
+1. Once the script is generated, the **Copilot Chat** window will suggest other setup steps, such as defining **environment variables**. If Copilot suggests environment variables, create a `.env` file in your project and add the recommended values.  
 
 ## Customize the load test script
 
@@ -82,12 +82,12 @@ To make the test more dynamic by randomizing the request payload:
 
 1. Open the **Copilot Chat** panel.
 2. Type: `Randomize request payloads` and press Enter.
-3. Copilot will generate a suggested modification to introduce randomization.
+3. Copilot generates a suggested modification to introduce randomization.
 4. Click **Apply in Editor** that appears above the generated code snippet in Copilot Chat window.
 5. After reviewing the changes, click **Keep** to accept and update your script.
 6. Save the file
 
-Now, each request simulates a more realistic user interaction. The code will look something like the following:
+Now, each request simulates a more realistic user interaction. The code looks something like the following snippet:
 
 ```python
 payload = {
@@ -111,9 +111,9 @@ To quickly validate your test, run it locally using Locust from **Visual Studio 
 
 1. Open the command palette and run: **Load Testing: Run load test (local)**. 
 
-1. This will automatically launch the **Locust web UI** in a browser. It can take a few seconds for the Locust server to be ready and for the browser to open. 
+1. The **Locust web UI** gets automatically launched in a browser. It can take a few seconds for the Locust server to be ready and for the browser to open. 
 
-1. In the **Start new load test** page, review the input fields and click **Start**. Locust will begin sending requests, logging any failures, and tracking performance statistics.
+1. In the **Start new load test** page, review the input fields and click **Start**. Locust starts sending requests, logging any failures, and tracking performance statistics.
 
     :::image type="content" source="./media/quickstart-create-run-load-tests-from-visual-studio-code/locust-start-new-load-test.png" alt-text="Screenshot that shows the Locust web UI to run a load test locally." lightbox="./media/quickstart-create-run-load-tests-from-visual-studio-code/locust-start-new-load-test.png":::
 
@@ -135,7 +135,7 @@ If you prefer running the test from a **VS Code Terminal**:
     ```
     * `-f path/to/locustfile.py`: Specifies the Locust test script.
     * `-u 10`: Simulates up to 10 virtual users.
-    * `-r 2`: Ramps up 2 virtual users per second.
+    * `-r 2`: Ramps up two virtual users per second.
     * `--run-time 1m`: Runs the test for 1 minute.
 1. Open a browser to `http://0.0.0.0:8089` to view the Locust web UI.
 
@@ -156,8 +156,8 @@ To execute a large-scale test:
 
     - Choosing load test regions to distribute traffic globally.
 
-1. Once the setup is complete, a YAML configuration file (e.g., `loadtest.config.yaml`) is generated and added to your workspace root folder.  
-    - This file defines the Locust script, load parameters, environment variables, regions, and any additional files (e.g., CSV datasets). 
+1. Once the setup is complete, a YAML configuration file (for example, `loadtest.config.yaml`) is generated and added to your workspace root folder.  
+    - This file defines the Locust script, load parameters, environment variables, regions, and any other files (for example, CSV datasets). 
 
     - Defaults are 200 virtual users running for 120 seconds in each selected region.
 
@@ -172,9 +172,7 @@ To execute a large-scale test:
 > [!NOTE]
 > To quickly access test results from previous runs, use the command: **Load Testing: View load test runs**.
 
-![Azure Load Testing report](media/run-load-test-azure.gif)
     :::image type="content" source="./media/quickstart-create-run-load-tests-from-visual-studio-code/run-load-test-azure.gif" alt-text="Image sequence that shows the test results dashboard in Azure Load Testing." lightbox="./media/quickstart-create-run-load-tests-from-visual-studio-code/run-load-test-azure.gif":::
-
 
 ## Next Steps
 
@@ -184,7 +182,7 @@ So far in this quickstart, sensitive variables like `API_KEY` were stored in a `
 
 1. Open the **Copilot Chat** window, type `@testing /setupLoadTestSecretsInAzure` and hit Enter.
 
-1. Copilot will guide you through:
+1. Copilot guides you through:
     - Creating an Azure Key Vault.
     - Assigning a managed identity to your Azure Load Testing resource.
     - Adding secrets to Azure Key Vault.
