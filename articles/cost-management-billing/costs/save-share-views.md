@@ -2,8 +2,8 @@
 title: Save and share customized views
 titleSuffix: Microsoft Cost Management
 description: Learn how to save and share customized views in Cost Management. This guide explains how to preserve cost analysis views and share them with others.
-author: bandersmsft
-ms.author: banders
+author: shasulin
+ms.author: shasulin
 ms.date: 01/07/2025
 ms.topic: how-to
 ms.service: cost-management-billing

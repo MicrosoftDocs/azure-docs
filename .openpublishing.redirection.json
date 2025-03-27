@@ -1,6 +1,51 @@
 {
   "redirections": [
     {
+      "source_path": "articles/cdn/edgio-retirement-faq.md",
+      "redirect_url": "/previous-versions/azure/cdn/edgio-retirement-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-edge-performance.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-edge-performance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/migrate-cdn-to-front-door-retain-edge-domain.md",
+      "redirect_url": "/previous-versions/azure/cdn/migrate-cdn-to-front-door-retain-edge-domain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-peering/howto-subscription-association-powershell.md",
+      "redirect_url": "/previous-versions/azure/internet-peering/howto-subscription-association-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-peering/howto-peering-service-powershell.md",
+      "redirect_url": "/previous-versions/azure/internet-peering/howto-peering-service-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-peering/howto-direct-powershell.md",
+      "redirect_url": "/previous-versions/azure/internet-peering/howto-direct-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-peering/howto-legacy-direct-powershell.md",
+      "redirect_url": "/previous-versions/azure/internet-peering/howto-legacy-direct-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-peering/howto-exchange-powershell.md",
+      "redirect_url": "/previous-versions/azure/internet-peering/howto-exchange-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/internet-peering/howto-legacy-exchange-powershell.md",
+      "redirect_url": "/previous-versions/azure/internet-peering/howto-legacy-exchange-powershell",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/databox-online/azure-stack-edge-overview.md",
       "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-overview",
       "redirect_document_id": false
@@ -6309,10 +6354,10 @@
       "redirect_url": "/azure/reliability/regions-list",
       "redirect_document_id": false
     },
-    {  
+    {
       "source_path_from_root": "/articles/cyclecloud/how-to/ccws/cleanup-roles.md",
       "redirect_url": "/azure/cyclecloud/how-to/ccws/deploy-with-cli",
-      "redirect_document_id": false      
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cloud-services/applications-dont-support-tls-1-2.md",
@@ -6647,6 +6692,16 @@
     {
       "source_path": "articles/operational-excellence/relocation-managed-identity.md",
       "redirect_url": "/entra/identity/managed-identities-azure-resources/how-to-managed-identity-regional-move",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/notification-hubs/xamarin-notification-hubs-ios-push-notification-apns-get-started.md",
+      "redirect_url": "/dotnet/maui/data-cloud/push-notifications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/notification-hubs/xamarin-notification-hubs-push-notifications-android-gcm.md",
+      "redirect_url": "/dotnet/maui/data-cloud/push-notifications",
       "redirect_document_id": false
     }
   ]
