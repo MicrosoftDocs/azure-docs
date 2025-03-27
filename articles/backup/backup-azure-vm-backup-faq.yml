@@ -129,7 +129,7 @@ sections:
 
       - question: Will a new disk added to VM be backed up automatically?
         answer: |
-          Yes, a new disk added to a VM will be backed up automatically during the next backup, unless selective disk backup is configured on the VM. A newly added disks to the VM will have a Full snapshot (Initial Replica) taken on the first backup, the existing disks will continue the Incremental logic chain.
+          Yes, a new disk added to a VM will be backed up automatically during the next backup, unless selective disk backup is configured on the VM. A newly added disk to the VM will have a Full snapshot (Initial Replica) taken on the first backup, the existing disks will continue the Incremental logic chain.
           
       
       - question: Can I restore the files and folders from an encrypted VM backup?
@@ -436,9 +436,9 @@ sections:
         answer: |
           This is the directory used by Backup Extension VMSnapshotLinux and it gets created when backups are enabled on VM using Recovery Services Vault. Logs are written in this location during backups, restores or extension operations such as schedule updates, generally they should use up only a few GB and the size of the logs is not proportional with the size of the backup. 
 
-      - question: If I remove one of the disks from VM and increase the size of existing disk,what happens to the backups and if next backup create Full Backup for all disk?
+      - question: If I remove one of the disks from VM and increase the size of existing disk, what happens to the backups and if next backup creates Full Backup for all disk?
         answer: |
-          Removing a disk, will simply not run any snapshot or data transfer for the removed disk. Number of disks included in the restore point will differ depending on the VM state at the time of the backup.
+          If you remove a disk, the snapshot or data transfer operations won't run for the removed disk. Number of disks included in the restore point will differ depending on the VM state at the time of the backup.
 
           Resizing a disk will continue with incremental backups unless the underlying storage account of the disk changes, which results in a full backup.
 
@@ -446,3 +446,9 @@ sections:
         answer: |
           For Initial Replica, a full backup will be re-initiated in case of failure. However, for Incremental the snapshot from the last successful backup will be compared to the latest snapshot to copy the changed data into the vault.
 
+      - question: Why SSD V2 with GRS Vaults/Cross Region Restore is not supported?
+        answer: |
+          SSD V2/Ultra disks are currently not available in all regions, so Geo-Redundant Storage (GRS) can't be enabled.
+
+          >[!Note]
+          >GRS functions only when both paired regions support SSD V2/Ultra disks. 
