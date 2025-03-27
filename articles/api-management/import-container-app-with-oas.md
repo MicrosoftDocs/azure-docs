@@ -85,7 +85,7 @@ The wildcard operation allows the same requests to the backend service as the op
 1. Select **Browse** to see a list of container apps in your subscription.
 1. Select a container app. If an OpenAPI definition is associated with the selected container app, API Management fetches it and imports it. If an OpenAPI definition isn't found, API Management exposes the API by generating wildcard operations for common HTTP verbs.
 1. Add an **API URL suffix**. The suffix is a name that identifies the API in the API Management instance. It has to be unique in the API Management instance.
-1. Publish the API by associating the API with a product. In this case, the **Unlimited** product is used. If you want the API to be published and be available to developers, add it to a product.
+1. Associate the API with a product. Select **Full** and then, in **Product**, select the product. In this case, the **Unlimited** product is used. If you want the API to be published and be available to developers, you need to add it to a product.
 
     > [!NOTE]
     > *Products* are associations of one or more APIs. You can include many APIs and offer them to developers through the developer portal. Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the API Management instance, you're an administrator and subscribed to every product by default.
