@@ -1,8 +1,6 @@
 ---
 title: Azure App Service assessments in Azure Migrate Discovery and assessment tool
 description: Learn about Azure App Service assessments in Azure Migrate Discovery and assessment tool
-author: rashi-ms
-ms.author: rajosh
 ms.topic: conceptual
 ms.service: azure-migrate
 ms.date: 09/26/2024

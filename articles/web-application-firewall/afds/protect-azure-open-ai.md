@@ -1,8 +1,8 @@
 ---
 title: Protect Azure OpenAI using Azure Web Application Firewall on Azure Front Door
 description: Learn how to Protect Azure OpenAI using Azure Web Application Firewall on Azure Front Door
-author: sowmyam2019
-ms.author: victorh
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 08/28/2023
@@ -22,16 +22,14 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 
 ## Create Azure OpenAI instance using the gpt-35-turbo model
-First, create an OpenAI instance.
 
+First, create an OpenAI instance.
 
 1. Create an Azure OpenAI instance and deploy a gpt-35-turbo model using [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource).
 1. Identify the Azure OpenAI endpoint and the API key.
 
    Open the Azure OpenAI service in the Azure AI Foundry portal and open the **Chat** option under **Playground**.
    Use the **View code** option to display the endpoint and the API key.
-   :::image type="content" source="../media/protect-azure-open-ai/view-code.png" alt-text="Screenshot showing the Azure AI Foundry portal Chat playground." lightbox="../media/protect-azure-open-ai/view-code.png":::
-   <br>
 
    :::image type="content" source="../media/protect-azure-open-ai/sample-code.png" alt-text="Screenshot showing Azure OpenAI sample code with Endpoint and Key.":::
 
@@ -51,9 +49,8 @@ First, create an OpenAI instance.
    }
 
    ```
-   :::image type="content" source="../media/protect-azure-open-ai/post-body.png" alt-text="Screenshot showing the post body." lightbox="../media/protect-azure-open-ai/post-body.png":::
-1. In response to the POST, you should receive a *200 OK*:
-   :::image type="content" source="../media/protect-azure-open-ai/post-200-ok.png" alt-text="Screenshot showing the POST 200 OK." lightbox="../media/protect-azure-open-ai/post-200-ok.png":::
+
+1. In response to the POST, you should receive a *200 OK*.
 
    The Azure OpenAI also generates a response using the GPT model.
 
@@ -73,8 +70,6 @@ Now use the Azure portal to create an Azure Front Door instance with Azure WAF.
 
 Enable the WAF policy in prevention mode and ensure **Microsoft_DefaultRuleSet_2.1** and **Microsoft_BotManagerRuleSet_1.0** are enabled.
 
-:::image type="content" source="../media/protect-azure-open-ai/web-application-firewall-policy.png" alt-text="Screenshot showing a WAF policy." lightbox="../media/protect-azure-open-ai/web-application-firewall-policy.png":::
-
 ## Verify access to Azure OpenAI via Azure Front Door endpoint
 
 Now verify your Azure Front Door endpoint.
@@ -82,8 +77,11 @@ Now verify your Azure Front Door endpoint.
 1. Retrieve the Azure Front Door endpoint from the Front Door Manager.
 
    :::image type="content" source="../media/protect-azure-open-ai/front-door-endpoint.png" alt-text="Screenshot showing the Azure Front Door endpoint." lightbox="../media/protect-azure-open-ai/front-door-endpoint.png":::
+
 2. Use your favorite API test method, such as [Visual Studio](/aspnet/core/test/http-files) or [Insomnia](https://insomnia.rest/) to send a POST request to the Azure Front Door endpoint.
-   1. Replace the Azure OpenAI endpoint with the AFD endpoint in the POST request.
+
+3. Replace the Azure OpenAI endpoint with the AFD endpoint in the POST request.
+
    :::image type="content" source="../media/protect-azure-open-ai/test-final.png" alt-text="Screenshot showing the final POST." lightbox="../media/protect-azure-open-ai/test-final.png":::
 
    Azure OpenAI also generates a response using the GPT model.

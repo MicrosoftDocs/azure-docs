@@ -30,40 +30,7 @@ In the diagrams, you see how IP address mapping works before and after enabling 
 
 You configure Floating IP on a Load Balancer rule via the Azure portal, REST API, CLI, PowerShell, or other client. In addition to the rule configuration, you must also configure your virtual machine's Guest OS in order to use Floating IP.
 
-:::image type="content" source="media/load-balancer-floating-ip/load-balancer-multivip-dsr.png" alt-text="Diagram of load balancer traffic for multiple frontend IPs with floating IP.":::
-
-For this scenario, every VM in the backend pool has three network interfaces:
-
-* Backend IP: a Virtual NIC associated with the VM (IP configuration of Azure's NIC resource).
-* Frontend 1 (FIP1): a loopback interface within guest OS that is configured with IP address of FIP1.
-* Frontend 2 (FIP2): a loopback interface within guest OS that is configured with IP address of FIP2.
-
-Let's assume the same frontend configuration as in the previous scenario:
-
-| Frontend | IP address | protocol | port |
-| --- | --- | --- | --- |
-| ![green frontend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
-| ![purple frontend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
-
-We define two floating IP rules:
-
-| Rule | Frontend | Map to backend pool |
-| --- | --- | --- |
-| 1 |![green rule](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) FIP1:80 |![green backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) FIP1:80 (in VM1 and VM2) |
-| 2 |![purple rule](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) FIP2:80 |![purple backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) FIP2:80 (in VM1 and VM2) |
-
-The following table shows the complete mapping in the load balancer:
-
-| Rule | Frontend IP address | protocol | port | Destination | port |
-| --- | --- | --- | --- | --- | --- |
-| ![green rule](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |same as frontend (65.52.0.1) |same as frontend (80) |
-| ![purple rule](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |same as frontend (65.52.0.2) |same as frontend (80) |
-
-The destination of the inbound flow is now the frontend IP address on the loopback interface in the VM. Each rule must produce a flow with a unique combination of destination IP address and destination port. Port reuse is possible on the same VM by varying the destination IP address to the frontend IP address of the flow. Your service is exposed to the load balancer by binding it to the frontend’s IP address and port of the respective loopback interface. 
-
-You notice the destination port doesn't change in the example. In floating IP scenarios, Azure Load Balancer also supports defining a load balancing rule to change the backend destination port and to make it different from the frontend destination port.
-
-The Floating IP rule type is the foundation of several load balancer configuration patterns. One example that is currently available is the [Configure one or more Always On availability group listeners](/azure/azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure) configuration. Over time, we'll document more of these scenarios. For more detailed information on the specific Guest OS configurations required to enable Floating IP, please refer to [Azure Load Balancer Floating IP configuration](load-balancer-floating-ip.md) in the next section.
+The Floating IP rule type is the foundation of several load balancer configuration patterns. One example that is currently available is the [Configure one or more Always On availability group listeners](/azure/azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure) configuration. Over time, we'll document more of these scenarios.
 
 ## Floating IP Guest OS configuration
 
@@ -92,17 +59,17 @@ netsh interface ipv4 show interface
 For the VM NIC (Azure managed), type this command.
 
 ```console
-netsh interface ipv4 set interface "interfacename" weakhostreceive=enabled
+netsh interface ipv4 set interface <interfacename> weakhostreceive=enabled
 ```
 (replace **"interfacename"** with the name of this interface)
 
 For each loopback interface you added, repeat these commands:
 
 ```console
-netsh interface ipv4 add addr floatingipaddress floatingip floatingipnetmask
-netsh interface ipv4 set interface floatingipaddress weakhostreceive=enabled  weakhostsend=enabled 
+netsh interface ipv4 add addr <loopbackinterfacename> floatingip floatingipnetmask
+netsh interface ipv4 set interface <loopbackinterfacename> weakhostreceive=enabled  weakhostsend=enabled 
 ```
-(replace **loopbackinterface** with the name of this loopback interface and **floatingip** and **floatingipnetmask** with the appropriate values that correspond to the load balancer frontend IP) 
+(replace **loopbackinterfacename** with the name of this loopback interface and **floatingip** and **floatingipnetmask** with the appropriate values that correspond to the load balancer frontend IP) 
 
 Finally, if the guest host uses a firewall, ensure a rule set up so the traffic can reach the VM on the appropriate ports.
 
@@ -131,7 +98,7 @@ ip addr
 For each loopback interface, repeat these commands, which assign the floating IP to the loopback alias:
 
 ```console
-sudo ip addr add floatingip/floatingipnetmask dev lo:0
+sudo ip addr add <floatingip>/<floatingipnetmask> dev lo:0
 ```
 (replace **floatingip** and **floatingipnetmask** with the appropriate values that correspond to the load balancer frontend IP) 
 

@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 04/20/2022
+ms.date: 01/30/2025
 ms.author: cshoe
 ---
 
@@ -105,7 +105,7 @@ In the [Azure portal](https://portal.azure.com), you can edit your container app
   With this option, you don't need to write any authentication code in your app. Finer authorization, such as role-specific authorization, can be handled by inspecting the user's claims (see [Access user claims](#access-user-claims-in-application-code)).
 
   > [!CAUTION]
-  > Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications.
+  > Restricting access to your application applies to all requests to your app. These restrictions may not be preferable for apps with a publicly available web page, as is typical in many single-page applications.
 
   > [!NOTE]
   > By default, any user in your Microsoft Entra tenant can request a token for your application from Microsoft Entra ID. You can [configure the application in Microsoft Entra ID](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) if you want to restrict access to your app to a defined set of users.
@@ -132,6 +132,9 @@ In the sign-in page, or the navigation bar, or any other location of your app, a
 ```
 
 When the user selects on one of the links, the UI for the respective providers is displayed to the user.
+
+> [!WARNING]
+> For client-side apps, the client's route manager may intercept the `/.auth/login/` routes, preventing the auth side-car from receiving requests. Ensure your client-side routing configuration allows the server to process these routes.
 
 To redirect the user post-sign-in to a custom URL, use the `post_login_redirect_uri` query string parameter (not to be confused with the Redirect URI in your identity provider configuration). For example, to navigate the user to `/Home/Index` after sign-in, use the following HTML code:
 
@@ -215,7 +218,7 @@ For all language frameworks, Container Apps makes the claims in the incoming tok
 Code that is written in any language or framework can get the information that it needs from these headers.
 
 > [!NOTE]
-> Different language frameworks may present these headers to the app code in different formats, such as lowercase or title case.
+> Different language frameworks might present these headers to the app code in different formats, such as lowercase or title case.
 
 ## Next steps
 

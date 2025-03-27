@@ -1,8 +1,8 @@
 ---
 title: Azure Device Update for IoT Hub using a simulator agent
 description: Get started with Device Update for Azure IoT Hub using the Ubuntu 18.04 simulator agent.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.date: 12/17/2024
 ms.topic: tutorial
 ms.service: azure-iot-hub
@@ -243,7 +243,7 @@ You should see the device group that contains the simulated device you set up in
 
 1. Select **View deployment details** next to the deployment you created. Select **Refresh** to view the latest status details.
 
-   :::image type="content" source="media/device-update-simulator/view-deployment-details.png" alt-text="Screenshot that shows Deployment details." lightbox="media/deploy-update/deployment-details.png":::
+   :::image type="content" source="media/device-update-simulator/view-deployment-details.png" alt-text="Screenshot that shows Deployment details." lightbox="media/device-update-simulator/view-deployment-details.png":::
 
 ## Clean up resources
 

@@ -2,13 +2,12 @@
 title: Create rate limiting custom rules for Application Gateway WAF v2
 titleSuffix: Azure Web Application Firewall
 description: Learn how to configure rate limit custom rules for Application Gateway WAF v2.
-services: web-application-firewall
 author: joeolerich
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.date: 11/01/2023
-ms.author: victorh
 ms.topic: how-to 
+ms.date: 01/22/2025
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Create rate limiting custom rules for Application Gateway WAF v2
@@ -19,25 +18,25 @@ Rate limiting enables you to detect and block abnormally high levels of traffic 
 
 Use the following information to configure Rate Limit Rules for Application Gateway WAFv2. 
 
-**Scenario One** -  Create rule to rate-limit traffic by Client IP that exceed the configured threshold, matching all traffic. 
+**Scenario One** -  Create rule to rate-limit traffic by Client IP that exceeds the configured threshold, matching all traffic. 
 
 #### [Portal](#tab/browser)
 
-1. Open an existing Application Gateway WAF Policy 
-1. Select Custom Rules 
-1. Add Custom Rule 
-1. Add Name for the Custom Rule 
-1. Select the Rate limit Rule Type radio button 
-1. Enter a Priority for the rule 
-1. Choose 1 minute for Rate limit duration 
-1. Enter 200 for Rate limit threshold (requests) 
-1. Select Client address for Group rate limit traffic by
-1. Under Conditions, choose IP address for Match Type
-1. For Operation, select the Does not contain radio button
-1. For match condition, under IP address or range, enter 255.255.255.255/32
-1. Leave action setting to Deny traffic  
-1. Select Add to add the custom rule to the policy 
-1. Select Save to save the configuration and make the custom rule active for the WAF policy. 
+1. Open an existing Application Gateway WAF Policy.
+1. Select **Custom Rules**.
+1. Select **Add Custom Rule**.
+1. Type a name for the custom rule.
+1. For the **Rule type**, select **Rate limit**. 
+1. Type a **Priority** for the rule. 
+1. Choose **1 minute** for **Rate limit duration**. 
+1. Type **200** for **Rate limit threshold (requests)**.
+1. Select **Client address** for **Group rate limit traffic by**.
+1. Under **Conditions**, choose **IP address** for **Match type**.
+1. For **Operation**, select **Does not contain**.
+1. For match condition, under **IP address or range**, type **255.255.255.255/32**.
+1. Leave action setting to **Deny traffic**. 
+1. Select **Add** to add the custom rule to the policy.
+1. Select **Save** to save the configuration and make the custom rule active for the WAF policy. 
 
 #### [PowerShell](#tab/powershell)
 
@@ -55,26 +54,26 @@ az network application-gateway waf-policy custom-rule match-condition add --matc
 ```
 * * *
 
-**Scenario Two** - Create Rate Limit Custom Rule to match all traffic except for traffic originating from the United States.  Traffic will be grouped, counted and rate limited based on the GeoLocation of the Client Source IP address 
+**Scenario Two** - Create Rate Limit Custom Rule to match all traffic except for traffic originating from the United States.  Traffic is grouped, counted, and rate limited based on the GeoLocation of the Client Source IP address 
 
 #### [Portal](#tab/browser)
 
-1. Open an existing Application Gateway WAF Policy 
-1. Select Custom Rules 
-1. Add Custom Rule 
-1. Add Name for the Custom Rule 
-1. Select the Rate limit Rule Type radio button 
-1. Enter a Priority for the rule 
-1. Choose 1 minute for Rate limit duration 
-1. Enter 500 for Rate limit threshold (requests) 
-1. Select Geo location for Group rate limit traffic by 
-1. Under Conditions, choose Geo location for Match Type 
-1. In the Match variables section, select RemoteAddr for Match variable 
-1. Select the Is not radio button for operation 
-1. Select United States for Country/Region 
-1. Leave action setting to Deny traffic  
-1. Select Add to add the custom rule to the policy 
-1. Select Save to save the configuration and make the custom rule active for the WAF policy. 
+1. Open an existing Application Gateway WAF Policy.
+1. Select **Custom Rules**.
+1. Select **Add Custom Rule**.
+1. Type a name for the custom rule.
+1. For the **Rule type**, select **Rate limit**. 
+1. Type a **Priority** for the rule. 
+1. Choose **1 minute** for **Rate limit duration**. 
+1. Type **500** for **Rate limit threshold (requests)**. 
+1. Select **Geo location** for **Group rate limit traffic by**.
+1. Under **Conditions**, choose **Geo location** for **Match type**. 
+1. In the **Match variables section, select **RemoteAddr** for **Match variable**. 
+1. Select **Is not** for **Operation**.
+1. Select **United States** for **Country/Region**. 
+1. Leave action setting to **Deny traffic**.  
+1. Select **Add** to add the custom rule to the policy. 
+1. Select **Save** to save the configuration and make the custom rule active for the WAF policy. 
 
 #### [PowerShell](#tab/powershell)
 ```azurepowershell
@@ -95,23 +94,24 @@ az network application-gateway waf-policy custom-rule match-condition add --matc
 
 #### [Portal](#tab/browser)
 
-1. Open an existing Application Gateway WAF Policy 
-1. Select Custom Rules 
-1. Add Custom Rule 
-1. Add Name for the Custom Rule 
-1. Select the Rate limit Rule Type radio button 
-1. Enter a Priority for the rule 
-1. Choose 1 minute for Rate limit duration 
-1. Enter 100 for Rate limit threshold (requests) 
-1. Select None for Group rate limit traffic by 
-1. Under Conditions, choose String for Match Type 
-1. In the Match variables section, select RequestUri for Match variable 
-1. Select the Is not radio button for operation 
-1. For Operator select contains 
-1. Enter Login page path for match Value.  In this example we use /login 
-1. Leave action setting to Deny traffic  
-1. Select Add to add the custom rule to the policy 
-1. Select Save to save the configuration and make the custom rule active for the WAF policy. 
+1. Open an existing Application Gateway WAF Policy.
+1. Select **Custom Rules**.
+1. Select **Add Custom Rule**.
+1. Type a name for the custom rule.
+1. For the **Rule type**, select **Rate limit**. 
+1. Type a **Priority** for the rule. 
+1. Choose **1 minute** for **Rate limit duration**. 
+1. Type **100** for **Rate limit threshold (requests)**. 
+1. Select **None** for **Group rate limit traffic by**.
+1. Under **Conditions**, choose **String** for **Match type**.
+1. In the **Match variables** section, select **RequestUri** for **Match variable**. 
+1. Select **Is not** for **Operation**.
+1. For **Operator** select **Contains**.
+1. Selecting a transformation is optional. 
+1. Enter Login page path for match Value.  In this example we use **/login**.
+1. Leave action setting to **Deny traffic**.  
+1. Select **Add** to add the custom rule to the policy 
+1. Select **Save** to save the configuration and make the custom rule active for the WAF policy. 
 
 #### [PowerShell](#tab/powershell)
 ```azurepowershell

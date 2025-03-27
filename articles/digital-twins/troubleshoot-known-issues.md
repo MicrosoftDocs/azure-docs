@@ -6,7 +6,7 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.service: azure-digital-twins
-ms.date: 04/19/2024
+ms.date: 03/17/2025
 ---
 
 # Azure Digital Twins known issues
@@ -20,6 +20,14 @@ This article provides information about known issues associated with Azure Digit
 | Does this affect me? | Cause | Resolution |
 | --- | --- | --- |
 | If you're using Azure&nbsp;Digital&nbsp;Twins with a private endpoint/Private Link, this issue will affect you when trying to view your instance in Azure&nbsp;Digital&nbsp;Twins Explorer. | Azure Digital Twins Explorer does not offer support for private endpoints. | You can deploy your own version of the Azure Digital Twins Explorer codebase privately in the cloud. For instructions on how to do this, see [Azure Digital Twins Explorer: Running in the cloud](https://github.com/Azure-Samples/digital-twins-explorer#running-in-the-cloud). Alternatively, you can manage your Azure Digital Twins instance using the [APIs and SDKs](./concepts-apis-sdks.md) instead. |
+
+## az dt commands fail in Azure CLI version 2.70
+
+**Issue description:** CLI commands from the `az dt` command set fail in version 2.70 of the Azure CLI. The error message ends in *AttributeError: 'CredentialAdaptor' object has no attribute 'signed_session'*. 
+
+| Does this affect me? | Cause | Resolution |
+| --- | --- | --- |
+| If you're using version 2.70 of the Azure CLI, this affects all `az dt` CLI commands. | This is a [known issue](https://github.com/Azure/azure-cli/issues/31042) with version 2.70 of the Azure CLI. | To bypass this issue, use the local Azure CLI (not Cloud Shell) and downgrade your CLI to version 2.69. You can revert to an earlier version by [uninstalling the Azure CLI](/cli/azure/install-azure-cli-windows?pivots=winget#uninstall) and then [reinstalling](/cli/azure/install-azure-cli-windows?pivots=winget#install-or-update) the specific CLI version. On Windows, the reinstall command is `winget install --exact --id Microsoft.AzureCLI --version 2.69.0`. |
 
 ## "400 Client Error: Bad Request" in Cloud Shell
 

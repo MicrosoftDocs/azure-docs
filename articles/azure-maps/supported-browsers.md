@@ -69,8 +69,6 @@ The [Render Azure Maps in Leaflet] Azure Maps sample shows how to render Azure M
 
 For more code samples using Azure Maps in Leaflet, see [Azure Maps Samples].
 
-For a list of third-party map control plug-ins, see [Azure Maps community - Open-source projects].
-
 ## Next steps
 
 Learn more about the Azure Maps Web SDK:
@@ -82,7 +80,6 @@ Learn more about the Azure Maps Web SDK:
 > [Services module]
 
 [atlas.isSupported]: /javascript/api/azure-maps-control/atlas#issupported-boolean-
-[Azure Maps community - Open-source projects]: open-source-projects.md#third-party-map-control-plugins
 [Azure Maps Leaflet plugin]: https://github.com/azure-samples/azure-maps-leaflet
 [Azure Maps Samples]: https://samples.azuremaps.com/?search=leaflet
 [documentation]: how-to-use-services-module.md

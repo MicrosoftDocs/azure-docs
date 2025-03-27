@@ -3,11 +3,11 @@ title: Quickstart - Configure vaulted backup for an Azure Kubernetes Service (AK
 description: Learn how to quickly configure backup for a Kubernetes cluster using Terraform.
 ms.service: azure-backup
 ms.topic: quickstart
-ms.date: 11/04/2024
+ms.date: 01/21/2025
 ms.custom: devx-track-terraform, devx-track-extended-azdevcli
 ms.reviewer: rajats
-ms.author: v-abhmallick
-author: AbhishekMallick-MS
+ms.author: jsuri
+author: jyothisuri
 content_well_notification: 
  - AI-contribution
 #Customer intent: As a developer or backup operator, I want to quickly configure backup for an Azure Kubernetes Cluster using Azure Backup for AKS.
@@ -33,6 +33,10 @@ Things to ensure before you configure AKS backup:
 * You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
+
+> [!NOTE]
+>
+> Ensure that the Terraform version being used is 3.99 or later
 
 * [Download kubectl](https://kubernetes.io/releases/download/).
 
@@ -210,6 +214,8 @@ To implement the Terraform code for AKS backup flow, run the following scripts:
          "configuration.backupStorageLocation.config.resourceGroup" = azurerm_storage_account.backupsa.resource_group_name
          "configuration.backupStorageLocation.config.subscriptionId" =  data.azurerm_client_config.current.subscription_id
          "credentials.tenantId" = data.azurerm_client_config.current.tenant_id
+         "configuration.backupStorageLocation.config.useAAD" = true
+         "configuration.backupStorageLocation.config.storageAccountURI" = azurerm_storage_account.backupsa.primary_blob_endpoint
         }
       depends_on = [azurerm_storage_container.backupcontainer]
     }
@@ -217,7 +223,7 @@ To implement the Terraform code for AKS backup flow, run the following scripts:
     #Assign Role to Extension Identity over Storage Account
     resource "azurerm_role_assignment" "extensionrole" {
       scope                = azurerm_storage_account.backupsa.id
-      role_definition_name = "Storage Account Contributor"
+      role_definition_name = "Storage Blob Data Contributor"
       principal_id         = azurerm_kubernetes_cluster_extension.dataprotection.aks_assigned_identity[0].principal_id
       depends_on = [azurerm_kubernetes_cluster_extension.dataprotection]
     }
@@ -408,6 +414,7 @@ Learn more about:
 
 > [!div class="nextstepaction"]
 > [Overview of AKS backup](azure-kubernetes-service-backup-overview.md).
+> [Restore AKS Cluster using Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md).
 > [How to use Azure Backup for AKS.][aks-home]
 
 <!-- LINKS - internal -->

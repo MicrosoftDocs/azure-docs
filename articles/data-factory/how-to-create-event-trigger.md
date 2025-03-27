@@ -6,9 +6,9 @@ ms.subservice: orchestration
 ms.custom: synapse
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.topic: conceptual
-ms.date: 05/24/2024
+ms.date: 02/13/2025
 ---
 
 # Create a trigger that runs a pipeline in response to a storage event

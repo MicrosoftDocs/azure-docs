@@ -3,8 +3,7 @@ title: Create and provision an IoT Edge for Linux on Windows device by using a T
 description: Use a simulated TPM on a Linux on Windows device to test the Azure device provisioning service for Azure IoT Edge.
 author: PatAltimore
 ms.author: patricka
-ms.reviewer: fcabrera
-ms.date: 06/03/2024
+ms.date: 01/21/2025
 ms.topic: how-to
 ms.service: azure-iot-edge
 ms.custom: linux-related-content

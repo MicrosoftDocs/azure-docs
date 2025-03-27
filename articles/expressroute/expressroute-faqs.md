@@ -266,6 +266,13 @@ No. From a routing perspective, all virtual networks linked to the same ExpressR
 
 Yes. You can link a single virtual network with up to four ExpressRoute circuits in the same location or up to 16 ExpressRoute circuits in different peering locations. 
 
+### Service Endpoint Policy on the Gateway Subnet?
+
+Configuring a Service Endpoint Policy (SEP) on the Gateway Subnet is not advisable due to potential issues, including:
+* Failures in gateway service deployment
+* Challenges with scaling and service healing
+
+
 ### Do virtual networks connected to ExpressRoute circuits have Internet connectivity?
 
 Yes. If a default routes (0.0.0.0/0) or Internet route prefixes isn't advertised through the BGP session, you can connect to the Internet from a virtual network linked to an ExpressRoute circuit.

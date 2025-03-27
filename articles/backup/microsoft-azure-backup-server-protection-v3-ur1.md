@@ -5,8 +5,8 @@ ms.date: 11/23/2024
 ms.topic: reference
 ms.custom: engagement-fy24, linux-related-content
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # MABS (Azure Backup Server) V3 UR1 (and later) protection matrix

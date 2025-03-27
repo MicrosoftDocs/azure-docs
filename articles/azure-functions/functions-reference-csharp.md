@@ -3,7 +3,7 @@ title: Azure Functions C# script developer reference
 description: Understand how to develop Azure Functions using C# script.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 08/15/2023
+ms.date: 12/29/2024
 ---
 # Azure Functions C# script (.csx) developer reference
 
@@ -88,6 +88,10 @@ public static void Run(CloudQueueMessage myQueueItem, ILogger log)
 ```
 
 The `#r` statement is explained [later in this article](#referencing-external-assemblies).
+
+## Connections
+
+When possible, use managed identity-based connections in your triggers and bindings. For more information, see the [Function developer guide](./functions-reference.md#connections).
 
 ## Supported types for bindings
 

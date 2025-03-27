@@ -1,8 +1,9 @@
 ---
 title: Quickstart - Create a budget with Bicep
 description: Quickstart showing how to create a budget with Bicep.
-author: bandersmsft 
-ms.author: banders 
+author: jojohpm 
+ms.author: jojoh
+ms.reviewer: jojoh 
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart

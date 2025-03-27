@@ -387,7 +387,7 @@
     - name: Best practices
       href: best-practices.md
     - name: Visual Studio Code
-      displayName: vscode,vs code
+      displayName: vscode,vs code,deployment pane
       href: visual-studio-code.md
     - name: Private module registry
       href: private-module-registry.md
@@ -584,6 +584,10 @@
       href: deploy-powershell.md
     - name: Deploy - Cloud Shell
       href: deploy-cloud-shell.md
+  - name: Export 
+    items:
+    - name: Portal
+      href: export-bicep-portal.md
   - name: Configure settings
     items:
     - name: Bicep config file
@@ -633,6 +637,8 @@
       href: diagnostics/bcp037.md
     - name: BCP040
       href: diagnostics/bcp040.md
+    - name: BCP048
+      href: diagnostics/bcp048.md
     - name: BCP052
       href: diagnostics/bcp052.md
     - name: BCP053
@@ -645,6 +651,8 @@
       href: diagnostics/bcp062.md
     - name: BCP063
       href: diagnostics/bcp063.md
+    - name: BCP070
+      href: diagnostics/bcp070.md
     - name: BCP071
       href: diagnostics/bcp071.md
     - name: BCP072
@@ -677,6 +685,8 @@
       href: diagnostics/bcp129.md
     - name: BCP132
       href: diagnostics/bcp132.md
+    - name: BCP135
+      href: diagnostics/bcp135.md
     - name: BCP139
       href: diagnostics/bcp139.md
     - name: BCP147
@@ -687,8 +697,14 @@
       href: diagnostics/bcp153.md
     - name: BCP166
       href: diagnostics/bcp166.md
+    - name: BCP170
+      href: diagnostics/bcp170.md
     - name: BCP192
       href: diagnostics/bcp192.md
+    - name: BCP201
+      href: diagnostics/bcp201.md
+    - name: BCP238
+      href: diagnostics/bcp238.md
     - name: BCP266
       href: diagnostics/bcp266.md
     - name: BCP288

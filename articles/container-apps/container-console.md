@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 07/12/2024
+ms.date: 02/03/2025
 ms.author: cshoe
 ---
 
@@ -14,6 +14,9 @@ ms.author: cshoe
 # Connect to a container console in Azure Container Apps
 
 Connecting to a container's console is useful when you want to troubleshoot your application inside a container. Azure Container Apps allows you to connect to a container's console using the Azure portal or Azure CLI.
+
+> [!NOTE]
+> Azure Container Apps platform offers a [debug console](container-debug-console.md) to help you troubleshoot your applications if your applications use containers that only include your application and its runtime dependencies, or a "distroless" image.
 
 ## Azure portal
 
@@ -41,7 +44,7 @@ az containerapp exec \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp exec `
   --name <CONTAINER_APP_NAME> `
   --resource-group <RESOURCE_GROUP>
@@ -70,7 +73,7 @@ az containerapp revision list \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp revision list `
   --name <CONTAINER_APP_NAME> `
   --resource-group <RESOURCE_GROUP> `
@@ -93,7 +96,7 @@ az containerapp replica list \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp replica list `
   --name <CONTAINER_APP_NAME> `
   --resource-group <RESOURCE_GROUP> `
@@ -118,7 +121,7 @@ az containerapp exec \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp exec `
   --name <CONTAINER_APP_NAME> `
   --resource-group <RESOURCE_GROUP> `

@@ -128,9 +128,9 @@ In the following steps, you change the private IP address **static** for the VM 
 
 2. In **Virtual machines**, select **myVM** from the list.
 
-3. On the **myVM** page, under **Settings**, select **Networking**.
+3. On the **myVM** page, select **Network settings** under **Networking**.
 
-4. In **Networking**, select the name of the network interface next to **Network interface**.
+4. On the **Network settings** page, select the name of the network interface next to **Network interface**.
 
 5. On the **Network interface** page, under **Settings**, select **IP configurations**.
 
@@ -138,10 +138,9 @@ In the following steps, you change the private IP address **static** for the VM 
 
 7. Under **Assignment**, select **Static**. Change the private **IP address** if you want a different one, and then select **Save**.
 
-    > [!WARNING]
-    > If you change the private IP address, the VM associated with the network interface will be restarted to utilize the new IP address.
-
 > [!WARNING]
+> If you change the private IP address, the VM associated with the network interface will be restarted to utilize the new IP address.
+>
 > From within the operating system of a VM, avoid associating a static *private* IP address on an Azure VM. Only assign a static private IP when it's necessary, such as when [assigning many IP addresses to VMs](virtual-network-multiple-ip-addresses-portal.md).
 >
 >If you manually set the private IP address within the operating system, make sure it matches the private IP address assigned to the Azure [network interface](virtual-network-network-interface-addresses.md#change-ip-address-settings). Otherwise, you can lose connectivity to the VM. For more information, see [private IP address settings](virtual-network-network-interface-addresses.md#private).

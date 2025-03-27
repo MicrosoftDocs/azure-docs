@@ -2,9 +2,9 @@
 title: Azure Instant Restore Capability
 description: Azure Instant Restore Capability and FAQs for VM backup stack, Resource Manager deployment model
 ms.topic: overview
-ms.date: 01/10/2025
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 03/05/2025
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Get improved backup and restore performance with Azure Backup Instant Restore capability
@@ -57,8 +57,7 @@ Enhanced policy uses Managed disk snapshots for Instant Restore functionality. T
 For example, a VM with 100GB in size has a change rate of 2% and retention of 5 days for Instant Restore. In this case, the snapshot storage billed will be 108GB (100 + 100 X 0.02 X 4).
 
 >[!NOTE]
->- Snapshot retention is fixed to 5 days for weekly policies for Standard policy and can vary between 5 to 20 days for enhanced policy.
->- Trusted Launch virtual machines protected using standard policy uses managed disk snapshots for Instant Restore functionality. In this scenario, the snapshot storage billed is same as that of enhanced policy.
+>Snapshot retention is fixed to 5 days for weekly policies for Standard policy and can vary between 5 to 20 days for enhanced policy.
 
 ## Configure snapshot retention
 

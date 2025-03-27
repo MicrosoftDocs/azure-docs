@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2024
 ms.topic:  how-to
-ms.date: 11/6/2024
+ms.date: 02/03/2025
 ms.author: cshoe
 ---
 
@@ -35,6 +35,8 @@ In this article, you learn how to connect directly from Azure Front Door to your
     > Starting in May 2024, Azure CLI extensions no longer enable preview features by default. To access Container Apps [preview features](./whats-new.md), install the Container Apps extension with `--allow-preview true`.
 
 - This feature is only supported for workload profile environments.
+
+- This feature is only available in [supported regions](/azure/frontdoor/private-link#region-availability).
 
 For more information about prerequisites and setup, see [Quickstart: Deploy your first container app with containerapp up](get-started.md?tabs=bash).
 
@@ -261,7 +263,7 @@ If you're not going to continue to use this application, you can remove the **my
 > [!CAUTION]
 > The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this guide exist in the specified resource group, they will also be deleted.
 
-```azurecli-interactive
+```azurecli
 az group delete --name $RESOURCE_GROUP
 ```
 

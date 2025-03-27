@@ -5,8 +5,8 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: conceptual
-ms.date: 07/12/2024
+ms.topic: concept-article
+ms.date: 02/10/2025
 ms.author: danlep
 ---
 
@@ -16,16 +16,16 @@ ms.author: danlep
 
 Observability is the ability to understand the internal state of a system from the data it produces and the ability to explore that data to answer questions about what happened and why. 
 
-Azure API Management helps organizations centralize the management of all APIs. Since it serves as a single point of entry of all API traffic, it is an ideal place to observe the APIs.
+Azure API Management helps organizations centralize the management of all APIs. Since it serves as a single point of entry of all API traffic, it's an ideal place to observe the APIs.
 
 ## Overview
 
 Azure API Management allows you to choose to use the managed gateway or [self-hosted gateway](self-hosted-gateway-overview.md), either self-deployed or by using an [Azure Arc extension](how-to-deploy-self-hosted-gateway-azure-arc.md).
 
-The table below summarizes all the observability capabilities supported by API Management to operate APIs and what deployment models they support. These capabilities can be used by API publishers and others who have permissions to operate or manage the API Management instance. 
+The following table summarizes all the observability capabilities supported by API Management to operate APIs and what deployment models they support. API publishers and others with permissions to operate or manage the API Management instance can use these capabilities. 
 
 > [!NOTE]
-> For API consumers who use the developer portal, a built-in API report is available. It only provides information about their individual API usage during the preceding 90 days. Currently, the built-in API report is not available in the developer portal for the v2 service tiers.
+> For API consumers who use the developer portal, a built-in API report is available. It only provides information about their individual API usage during the preceding 90 days. Currently, the built-in API report isn't available in the developer portal for the v2 service tiers.
 >  
 | Tool        | Useful for    | Data lag | Retention | Sampling | Data kind | Supported Deployment Model(s) |
 |:------------- |:-------------|:---- |:----|:---- |:--- |:---- |
@@ -41,9 +41,9 @@ The table below summarizes all the observability capabilities supported by API M
 
 *2. Optional, depending on the configuration of the gateway*
 
-*3. The [self-hosted gateway](self-hosted-gateway-overview.md) currently does not send diagnostic logs to Azure Monitor. However, it is possible to configure and persist logs locally where the self-hosted gateway is deployed. For more information, please see [configuring local metrics and logs for self-hosted gateway](how-to-configure-local-metrics-logs.md)*
+*3. The [self-hosted gateway](self-hosted-gateway-overview.md) currently doesn't send diagnostic logs to Azure Monitor. However, it's possible to configure and persist logs locally where the self-hosted gateway is deployed. For more information, please see [configuring local metrics and logs for self-hosted gateway](how-to-configure-local-metrics-logs.md)*
 
-## Next Steps
+## Related content
 
 - Get started with [Azure Monitor for API Management](monitor-api-management.md)
 - Learn how to log requests with [Application Insights](api-management-howto-app-insights.md)

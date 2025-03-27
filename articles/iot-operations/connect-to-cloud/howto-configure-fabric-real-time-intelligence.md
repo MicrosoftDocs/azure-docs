@@ -1,6 +1,6 @@
 ---
-title: Configure dataflow endpoints for Microsoft Fabric Real-Time Intelligence
-description: Learn how to configure dataflow endpoints for  Microsoft Fabric Real-Time Intelligence in Azure IoT Operations.
+title: Configure data flow endpoints for Microsoft Fabric Real-Time Intelligence
+description: Learn how to configure data flow endpoints for  Microsoft Fabric Real-Time Intelligence in Azure IoT Operations.
 author: PatAltimore
 ms.author: patricka
 ms.service: azure-iot-operations
@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/30/2024
 ai-usage: ai-assisted
 
-#CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for  Microsoft Fabric Real-Time Intelligence in Azure IoT Operations so that I can send real-time data to Microsoft Fabric.
+#CustomerIntent: As an operator, I want to understand how to configure data flow endpoints for  Microsoft Fabric Real-Time Intelligence in Azure IoT Operations so that I can send real-time data to Microsoft Fabric.
 ---
 
-# Configure dataflow endpoints for Microsoft Fabric Real-Time Intelligence
+# Configure data flow endpoints for Microsoft Fabric Real-Time Intelligence
 
-To send data to Microsoft Fabric Real-Time Intelligence from Azure IoT Operations, you can configure a dataflow endpoint. This configuration allows you to specify the destination endpoint, authentication method, topic, and other settings.
+To send data to Microsoft Fabric Real-Time Intelligence from Azure IoT Operations, you can configure a data flow endpoint. This configuration allows you to specify the destination endpoint, authentication method, topic, and other settings.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ To send data to Microsoft Fabric Real-Time Intelligence from Azure IoT Operation
 - [Add a Custom Endpoint as a source](/fabric/real-time-intelligence/event-streams/add-source-custom-app#add-custom-endpoint-data-as-a-source)
 
 > [!NOTE]
-> Event Stream supports multiple input sources including Azure Event Hubs. If you have an existing dataflow to Azure Event Hubs, you can bring that into Fabric as shown in the [Quickstart](../get-started-end-to-end-sample/quickstart-get-insights.md#ingest-data-into-real-time-intelligence). This article shows you how to flow real-time data directly into Microsoft Fabric without any other hops in between.
+> Event Stream supports multiple input sources including Azure Event Hubs. If you have an existing data flow to Azure Event Hubs, you can bring that into Fabric as shown in the [Quickstart](../get-started-end-to-end-sample/quickstart-get-insights.md#ingest-data-into-real-time-intelligence). This article shows you how to flow real-time data directly into Microsoft Fabric without any other hops in between.
 
 ## Retrieve Custom Endpoint connection details
 Retrieve the [Kafka-compatible connection details for the Custom Endpoint](/fabric/real-time-intelligence/event-streams/add-source-custom-app#kafka). You need:
@@ -32,7 +32,7 @@ Retrieve the [Kafka-compatible connection details for the Custom Endpoint](/fabr
 :::image type="content" source="media/howto-configure-fabric-real-time-intelligence/event-stream-kafka.png" alt-text="Screenshot in Microsoft Fabric that has the Custom Endpoint connection details.":::
 
 #### Hostname
-The bootstrap server address is used for the hostname property in Dataflow endpoint. 
+The bootstrap server address is used for the hostname property in data flow endpoint. 
 
 #### Topic name
 The event hub name is used as the Kafka topic and is of the form *es_xxxxxxx*.
@@ -41,29 +41,29 @@ The event hub name is used as the Kafka topic and is of the form *es_xxxxxxx*.
 The connection string with the primary key. 
 
 
-## Create a Microsoft Fabric Real-Time Intelligence dataflow endpoint
+## Create a Microsoft Fabric Real-Time Intelligence data flow endpoint
 
-To configure a dataflow endpoint for Microsoft Fabric Real-Time Intelligence, you need to use Simple Authentication and Security Layer (SASL) based authentication.
+To configure a data flow endpoint for Microsoft Fabric Real-Time Intelligence, you need to use Simple Authentication and Security Layer (SASL) based authentication.
 
-Azure Key Vault is the recommended way to sync the connection string to the Kubernetes cluster so that it can be referenced in the dataflow. [Secure settings](../deploy-iot-ops/howto-enable-secure-settings.md) must be enabled to configure this endpoint using the operations experience Portal.
+Azure Key Vault is the recommended way to sync the connection string to the Kubernetes cluster so that it can be referenced in the data flow. [Secure settings](../deploy-iot-ops/howto-enable-secure-settings.md) must be enabled to configure this endpoint using the operations experience web UI.
 
 # [Portal](#tab/portal)
 
-1. In the IoT Operations portal, select the **Dataflow endpoints** tab.
-1. Under **Create new dataflow endpoint**, select **Microsoft Fabric Real-Time Intelligence** > **New**.
+1. In the IoT Operations portal, select the **Data flow endpoints** tab.
+1. Under **Create new data flow endpoint**, select **Microsoft Fabric Real-Time Intelligence** > **New**.
 
-    :::image type="content" source="media/howto-configure-fabric-real-time-intelligence/event-stream-sasl.png" alt-text="Screenshot using operations experience to create a new Fabric Real-Time Intelligence dataflow endpoint.":::
+    :::image type="content" source="media/howto-configure-fabric-real-time-intelligence/event-stream-sasl.png" alt-text="Screenshot using operations experience to create a new Fabric Real-Time Intelligence data flow endpoint.":::
 
 1. Enter the following settings for the endpoint:
 
     | Setting               | Description                                                                                       |
     | --------------------- | ------------------------------------------------------------------------------------------------- |
-    | Name                  | The name of the dataflow endpoint.                                                              |
+    | Name                  | The name of the data flow endpoint.                                                              |
     | Host                  | The hostname of the Event Stream Custom Endpoint in the format `*.servicebus.windows.net:9093`. Use the bootstrap server address noted previously. |
     | Authentication method | *SASL* is the currently the only supported authentication method. |
     | SASL type             | Choose *Plain* |
-    | Synced secret name    | Name of secret that will be synced to the Kubernetes cluster. You can choose any name. |
-    | Username reference of token secret | Create a new or choose an existing Key Vault reference. The secret value must be the literal string *$ConnectionString*. It isn't an environment variable. |
+    | Synced secret name    | Enter a name for the syned secret. A Kubernetes secret with this name will be created on the cluster. |
+    | Username reference of token secret | Create a new or choose an existing Key Vault reference. The secret value must be exactly the text **$ConnectionString** (literal string, not an environment variable reference). |
     | Password reference of token secret | Create a new or choose an existing Key Vault reference. The secret value must be the Custom Endpoint connection string noted earlier. |
 
 1. Select **Apply** to provision the endpoint.
@@ -84,4 +84,4 @@ The advanced settings for this endpoint are identical to the [advanced settings 
 
 ## Next steps
 
-To learn more about dataflows, see [Create a dataflow](howto-create-dataflow.md).
+To learn more about data flows, see [Create a data flow](howto-create-dataflow.md).

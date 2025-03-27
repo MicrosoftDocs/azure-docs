@@ -7,7 +7,7 @@ author: haroldcampos
 ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/10/2024
+ms.date: 01/27/2025
 
 #CustomerIntent: As a developer, I want to create rules for my Azure Logic Apps Rules Engine project using the Microsoft Rules Composer so that I can integrate business logic with my Standard logic app workflows.
 ---

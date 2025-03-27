@@ -41,22 +41,22 @@ For more information about SNC, see [Getting started with SAP SNC for RFC integr
 
 [Microsoft Entra ID Governance](/entra/id-governance/identity-governance-overview) and built-in integrations with SAP Cloud Identity Service are an ideal fit to handle SAP user lifecycle and their authorizations across both eco-systems.
 
-Learn more from this [Microsoft Learn article](/entra/id-governance/scenarios/migrate-from-sap-idm) and [this blog post series](https://community.sap.com/t5/technology-blogs-by-members/identity-and-access-management-with-microsoft-entra-part-i-managing-access/ba-p/13873276).
+Learn more from this [Microsoft Learn article](/entra/id-governance/scenarios/migrate-from-sap-idm) and [our SAP scenarios hub](https://aka.ms/EntraSAPHub).
 
-## Copilot for Security with SAP RISE
+## Microsoft Security Copilot with SAP RISE
 
-[Copilot for Security](/copilot/security/microsoft-security-copilot) is a generative AI security product that empowers security and IT professionals respond to cyber threats, process signals, and assess risk exposure at the speed and scale of AI. It has its own [portal](https://securitycopilot.microsoft.com/) and embedded experiences in Microsoft Defender XDR, Microsoft Sentinel, and Intune.
+[Security Copilot](/copilot/security/microsoft-security-copilot) is a generative AI security product that empowers security and IT professionals respond to cyber threats, process signals, and assess risk exposure at the speed and scale of AI. It has its own [portal](https://securitycopilot.microsoft.com/) and embedded experiences in Microsoft Defender XDR, Microsoft Sentinel, and Intune.
 
 It can be used with any data source that Defender XDR and Sentinel support, including SAP RISE/ECS. Below shows the stand-alone experience.
 
-:::image type="complex" source="./media/sap-rise-integration/sap-rise-security-copilot.png" alt-text="Screenshot of Copilot for Security experience with SAP RISE/ECS incidents." lightbox="./media/sap-rise-integration/sap-rise-security-copilot.png":::
-   This image shows an example of the Microsoft Copilot for Security experience using a prompt to investigate an SAP incident.
+:::image type="complex" source="./media/sap-rise-integration/sap-rise-security-copilot.png" alt-text="Screenshot of Security Copilot experience with SAP RISE/ECS incidents." lightbox="./media/sap-rise-integration/sap-rise-security-copilot.png":::
+   This image shows an example of the Microsoft Security Copilot experience using a prompt to investigate an SAP incident.
 :::image-end:::
 
-In addition to that the Copilot for Security experience is embedded on the Defender XDR portal. Next to an AI-generated summary, recommendations and remediation like password reset for SAP are provided out-of-the-box. Learn more about automatic SAP attack disruption [here](../../sentinel/sap/deployment-attack-disrupt.md).
+In addition to that the Security Copilot experience is embedded on the Defender XDR portal. Next to an AI-generated summary, recommendations and remediation like password reset for SAP are provided out-of-the-box. Learn more about automatic SAP attack disruption [here](../../sentinel/sap/deployment-attack-disrupt.md).
 
-:::image type="complex" source="./media/sap-rise-integration/sap-rise-security-copilot-defender-portal.png" alt-text="Screenshot of embedded Copilot for Security experience in Defender with SAP RISE/ECS incidents." lightbox="./media/sap-rise-integration/sap-rise-security-copilot-defender-portal.png":::
-   This image shows an example of Microsoft Copilot for Security analyzing an incident detected on SAP RISE through Defender XDR. Data ingestion is done through the Microsoft Sentinel solution for SAP applications.
+:::image type="complex" source="./media/sap-rise-integration/sap-rise-security-copilot-defender-portal.png" alt-text="Screenshot of embedded Security Copilot experience in Defender with SAP RISE/ECS incidents." lightbox="./media/sap-rise-integration/sap-rise-security-copilot-defender-portal.png":::
+   This image shows an example of Microsoft Security Copilot analyzing an incident detected on SAP RISE through Defender XDR. Data ingestion is done through the Microsoft Sentinel solution for SAP applications.
 :::image-end:::
 
 ## Microsoft Sentinel with SAP RISE

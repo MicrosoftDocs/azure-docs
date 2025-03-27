@@ -47,7 +47,7 @@ Azure Automation now supports PowerShell 7.2 runbooks in Government clouds.
  
 ### Changes in Process Automation subscription and service limits and quotas
  
-Find the changes in Azure Automation limits and quotas [here](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). These changes are aimed towards improving the reliability and performance of the service by ensuring fair access to cloud resources for all users. We recommend to use other regions or other subscriptions within the same Azure geography to create more Automation accounts.
+Find the changes in Azure Automation limits and quotas [here](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-automation-limits). These changes are aimed towards improving the reliability and performance of the service by ensuring fair access to cloud resources for all users. We recommend to use other regions or other subscriptions within the same Azure geography to create more Automation accounts.
 
 ## February 2024
 
