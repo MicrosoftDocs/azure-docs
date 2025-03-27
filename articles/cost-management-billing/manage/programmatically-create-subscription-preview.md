@@ -1,13 +1,13 @@
 ---
 title: Programmatically create Azure subscriptions with legacy APIs
 description: Learn how to create additional Azure subscriptions programmatically using legacy versions of REST API, Azure CLI, and Azure PowerShell.
-author: bandersmsft
+author: PreetiSGit
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.date: 01/22/2025
-ms.reviewer: sgautam
-ms.author: banders
+ms.reviewer: presharm
+ms.author: presharm
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 

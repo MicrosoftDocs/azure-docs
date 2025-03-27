@@ -6,13 +6,14 @@ author: wchigit
 ms.author: wchi
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 01/29/2024
+ms.date: 03/03/2025
 ms.collection: ce-skilling-ai-copilot
 ---
 
 # Connect to Azure AI services using Service Connector
 
-This page provides information on supported authentication methods and clients, along with sample code for connecting Azure AI services to other cloud services using Service Connector. This page also lists default environment variable names and values obtained when creating the service connection. 
+This page provides information on supported authentication methods and clients, along with sample code for connecting your apps to Azure AI services using Service Connector. This page also lists default environment variable names and values obtained when creating the service connection. 
+
 
 ## Supported compute services
 

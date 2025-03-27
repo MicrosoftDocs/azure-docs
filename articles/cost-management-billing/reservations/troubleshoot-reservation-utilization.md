@@ -1,13 +1,13 @@
 ---
 title: Troubleshoot Azure reservation utilization
 description: This article helps you understand and troubleshoot Azure reservations that show no or zero utilization in the Azure portal. Utilization that doesn't match is also explained.
-author: bandersmsft
+author: pri-mittal
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.author: banders
+ms.author: primittal
 ms.reviewer: primittal
 ms.topic: troubleshooting
-ms.date: 12/06/2024
+ms.date: 03/26/2025
 ---
 
 # Troubleshoot reservation utilization
