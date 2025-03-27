@@ -66,11 +66,11 @@ The detailed information includes:
 >
 >* `Restore-AzDeletedWebApp` isn't supported for function apps hosted on the Consumption plan or Elastic Premium plan.
 >* The `Restore-AzDeletedWebApp` cmdlet restores a deleted web app. The web app specified by `TargetResourceGroupName`, `TargetName`, and `TargetSlot` is overwritten with the contents and settings of the deleted web app. If the target parameters aren't specified, they're automatically filled with the deleted web app's resource group, name, and slot. If the target web app doesn't exist, it's automatically created in the App Service plan specified by `TargetAppServicePlanName`.
->* By default `Restore-AzDeletedWebApp` restores both your app configuration and any content. If you want to only restore content, you use the `-RestoreContentOnly` flag with this commandlet.
+>* By default `Restore-AzDeletedWebApp` restores both your app configuration and any content. If you want to only restore content, you use the `-RestoreContentOnly` flag with this cmdlet.
 >* Custom domains, bindings, or certs that you import to your app isn't restored. You'll need to add them again after your app is restored.
 
 After identifying the app you want to restore, you can restore it by using `Restore-AzDeletedWebApp`, as shown in the following examples.
->You can find the full commandlet reference here: [`Restore-AzDeletedWebApp`](/powershell/module/az.websites/restore-azdeletedwebapp).
+>You can find the full cmdlet reference here: [`Restore-AzDeletedWebApp`](/powershell/module/az.websites/restore-azdeletedwebapp).
 
 >Restore to the original app name:
 ```powershell
@@ -88,10 +88,12 @@ Restore-AzDeletedWebApp -TargetResourceGroupName <my_rg> -Name <my_app> -TargetA
 ```
 
 > [!NOTE]
-> Deployment slots aren't restored as part of your app. If you need to restore a staging slot, use the `-Slot <slot-name>`  flag.
-> The commandlet restores the original slot to the target app's production slot.
-> By default, `Restore-AzDeletedWebApp` restores both your app configuration as well any content to the target app. If you want to only restore content, you use the `-RestoreContentOnly` flag with this commandlet.
->Restore only site content to the target app
+> Deployment slots aren't restored as part of your app. If you need to restore a staging slot, use the `-Slot <slot-name>` flag.
+> The cmdlet restores the original slot to the target app's production slot.
+> By default, `Restore-AzDeletedWebApp` restores both your app configuration as well any content to the target app. If you want to only restore content, you use the `-RestoreContentOnly` flag with this cmdlet.
+
+> Restore only site content to the target app:
+
 ```powershell
 Restore-AzDeletedWebApp -TargetResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp> -RestoreContentOnly
 ```
@@ -109,7 +111,7 @@ The inputs for command are:
 - **Name**: Name for the app. We recommend that it's globally unique.
 - **`ResourceGroupName`**: Original resource group for the deleted app, you can get it from `Get-AzDeletedWebApp -Name <your_deleted_app> -Location <your_deleted_app_location>` 
 - **Slot**: Slot for the deleted app.
-- **`RestoreContentOnly`**: By default `Restore-AzDeletedWebApp` restores both your app configuration as well any content. If you want to only restore content, you can use the `-RestoreContentOnly` flag with this commandlet.
+- **`RestoreContentOnly`**: By default `Restore-AzDeletedWebApp` restores both your app configuration as well any content. If you want to only restore content, you can use the `-RestoreContentOnly` flag with this cmdlet.
 
 > [!NOTE]
 > If the app was hosted on and then deleted from an App Service Environment, it can be restored only if the corresponding App Service Environment still exists.

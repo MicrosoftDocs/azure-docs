@@ -14,7 +14,7 @@ ms.author: cephalin
 
 # Deploy and configure a Tomcat, JBoss, or Java SE app in Azure App Service
 
-This article shows you the most common deployment and runtime configuration for Java apps in App Service. If this is your first time using Azure App Service, you should first read through the [Java quickstart](quickstart-java.md). You can find the answers to general questions about using App Service that aren't specific to Java development in the [App Service FAQ](faq-configuration-and-management.yml).
+This article shows you the most common deployment and runtime configuration for Java apps in App Service. If it's your first time using Azure App Service, you should first read through the [Java quickstart](quickstart-java.md). You can find the answers to general questions about using App Service that aren't specific to Java development in the [App Service FAQ](faq-configuration-and-management.yml).
 
 [!INCLUDE [java-variants](includes/configure-language-java/java-variants.md)]
 
@@ -93,17 +93,17 @@ For more information on version support, see [App Service language runtime suppo
 
 ## Deploying your app
 
-### Build Tools
+### Build tools
 
 #### Maven
 
-By using the [Maven Plugin for Azure Web Apps](https://github.com/microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), you can easily prepare your Maven Java project for Azure Web App with one command in your project root:
+By using the [Maven Plugin for Azure Web Apps](https://github.com/microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), you can easily prepare your project with one command in your project root:
 
 ```shell
 mvn com.microsoft.azure:azure-webapp-maven-plugin:2.13.0:config
 ```
 
-This command adds an `azure-webapp-maven-plugin` plugin and the related configuration by prompting you to select an existing Azure Web App or create a new one. During configuration, it attempts to detect whether your application should be deployed to Java SE, Tomcat, or (Linux only) JBoss EAP. Then you can deploy your Java app to Azure by using the following command:
+This command adds an `azure-webapp-maven-plugin` plugin and the related configuration by prompting you to select an existing Azure Web App or create a new one. During configuration, it attempts to detect whether your application should be deployed to Java SE, Tomcat, or (Linux only) JBoss Enterprise Application Platform (EAP). Then you can deploy your Java app to Azure by using the following command:
 
 ```shell
 mvn package azure-webapp:deploy
@@ -184,7 +184,7 @@ Here's a sample configuration, for details, refer to this [document](https://git
 
 ### IDEs
 
-Azure provides seamless Java App Service development experience in popular Java IDEs, including:
+Azure provides seamless Java App Service development experience in popular Java Integrated Development Environments (IDEs), including:
 
 - **VS Code**: [Java Web Apps with Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp#_deploy-web-apps-to-the-cloud).
 - **IntelliJ IDEA**:[Create a Hello World web app for Azure App Service by using IntelliJ](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app).
@@ -197,19 +197,19 @@ Azure provides seamless Java App Service development experience in popular Java 
 To deploy .jar files to Java SE, use the `/api/publish` endpoint of the Kudu site. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
 
 > [!NOTE]
-> Your .jar application must be named `app.jar` for App Service to identify and run your application. The [Maven plugin](#maven) does this for you automatically during deployment. If you don't wish to rename your JAR to `app.jar`, you can upload a shell script with the command to run your .jar app. Paste the absolute path to this script in the [Startup File](./faq-app-service-linux.yml) text box in the **Configuration** section of the portal. The startup script doesn't run from the directory it's in. Therefore, always use absolute paths to reference files in your startup script (for example: `java -jar /home/myapp/myapp.jar`).
+> Your .jar application must be named `app.jar` for App Service to identify and run your application. The [Maven plugin](#maven) automatically names the application for you during deployment. If you don't wish to rename your JAR to `app.jar`, you can upload a shell script with the command to run your .jar app. Paste the absolute path to this script in the [Startup File](./faq-app-service-linux.yml) text box in the **Configuration** section of the portal. The startup script doesn't run from the directory it's in. Therefore, always use absolute paths to reference files in your startup script (for example: `java -jar /home/myapp/myapp.jar`).
 
 ::: zone-end
 
 ::: zone pivot="java-tomcat"
 
-To deploy .war files to Tomcat, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
+To deploy .war files to Tomcat, use the `/api/wardeploy/` endpoint to `POST` your archive file. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
 
 ::: zone-end
 
 ::: zone pivot="java-jboss"
 
-To deploy .war files to JBoss, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
+To deploy .war files to JBoss, use the `/api/wardeploy/` endpoint to `POST` your archive file. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
 
 To deploy .ear files, [use FTP](deploy-ftp.md). Your .ear application is deployed to the context root defined in your application's configuration. For example, if the context root of your app is `<context-root>myapp</context-root>`, then you can browse the site at the `/myapp` path: `http://my-app-name.azurewebsites.net/myapp`. If you want your web app to be served in the root path, ensure that your app sets the context root to the root path: `<context-root>/</context-root>`. For more information, see [Setting the context root of a web application](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html).
 
@@ -259,19 +259,19 @@ For more information, see [Stream logs in Cloud Shell](troubleshoot-diagnostic-l
 
 The built-in Java images are based on the [Alpine Linux](https://alpine-linux.readthedocs.io/en/latest/getting_started.html) operating system. Use the `apk` package manager to install any troubleshooting tools or commands.
 
-### Java Profiler
+### Java profiler
 
-All Java runtimes on Azure App Service come with the JDK Flight Recorder for profiling Java workloads. You can use it to record JVM, system, and application events, and troubleshoot problems in your applications.
+All Java runtimes on Azure App Service come with the Java Development Kit (JDK) Flight Recorder for profiling Java workloads. You can use it to record Java Virtual Machine (JVM), system, and application events, and troubleshoot problems in your applications.
 
-To learn more about the Java Profiler, visit the [Azure Application Insights documentation](/azure/azure-monitor/app/java-standalone-profiler).
+To learn more about the Java profiler, visit the [Azure Application Insights documentation](/azure/azure-monitor/app/java-standalone-profiler).
 
-### Flight Recorder
+### Java Flight Recorder
 
 All Java runtimes on App Service come with the Java Flight Recorder. You can use it to record JVM, system, and application events and troubleshoot problems in your Java applications.
 
 # [Linux](#tab/linux)
 
-SSH into your App Service and run the `jcmd` command to see a list of all the Java processes running. In addition to `jcmd` itself, you should see your Java application running with a process ID number (paid).
+SSH into your App Service and run the `jcmd` command to see a list of all the Java processes running. In addition to `jcmd` itself, you should see your Java application running with a Process ID (PID) number.
 
 ```shell
 078990bbcd11:/home# jcmd
@@ -280,7 +280,7 @@ Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
 116 /home/site/wwwroot/app.jar
 ```
 
-Execute the following command to start a 30-second recording of the JVM. It profiles the JVM and creates a JFR file named *jfr_example.jfr* in the home directory. (Replace 116 with the pid of your Java app.)
+Execute the following command to start a 30-second recording of the JVM. It profiles the JVM and creates a Java Flight Recorder (JFR) file named *jfr_example.jfr* in the home directory. Replace `116` with the PID of your Java app.
 
 ```shell
 jcmd 116 JFR.start name=MyRecording settings=profile duration=30s filename="/home/jfr_example.jfr"
@@ -288,9 +288,9 @@ jcmd 116 JFR.start name=MyRecording settings=profile duration=30s filename="/hom
 
 During the 30-second interval, you can validate the recording is taking place by running `jcmd 116 JFR.check`. The command shows all recordings for the given Java process.
 
-#### Continuous Recording
+#### Continuous recording
 
-You can use Java Flight Recorder to continuously profile your Java application with minimal impact on runtime performance. To do so, run the following Azure CLI command to create an App Setting named `JAVA_OPTS` with the necessary configuration. The contents of the `JAVA_OPTS` App Setting are passed to the `java` command when your app starts.
+You can use Java Flight Recorder to continuously profile your Java application with minimal impact on runtime performance. To do so, run the following Azure CLI command to create an app setting named `JAVA_OPTS` with the necessary configuration. The contents of the `JAVA_OPTS` app setting are passed to the `java` command when your app starts.
 
 ```azurecli
 az webapp config appsettings set -g <your_resource_group> -n <your_app_name> --settings JAVA_OPTS=-XX:StartFlightRecording=disk=true,name=continuous_recording,dumponexit=true,maxsize=1024m,maxage=1d
@@ -304,11 +304,11 @@ jcmd <pid> JFR.dump name=continuous_recording filename="/home/recording1.jfr"
 
 # [Windows](#tab/windows)
 
-#### Timed Recording
+#### Timed recording
 
-To take a timed recording, you need the PID (Process ID) of the Java application. To find the PID, open a browser to your web app's SCM site at `https://<your-site-name>.scm.azurewebsites.net/ProcessExplorer/`. This page shows the running processes in your web app. Find the process named "java" in the table and copy the corresponding PID (Process ID).
+To take a timed recording, you need the Process ID (PID) of the Java application. To find the PID, open a browser to your web app's SCM site at `https://<your-site-name>.scm.azurewebsites.net/ProcessExplorer/`. This page shows the running processes in your web app. Find the process named "java" in the table and copy the corresponding PID.
 
-Next, open the **Debug Console** in the top toolbar of the SCM site and run the following command. Replace `<pid>` with the process ID you copied earlier. This command starts a 30-second profiler recording of your Java application and generates a file named `timed_recording_example.jfr` in the `C:\home` directory.
+Next, open the **Debug Console** in the top toolbar of the SCM site and run the following command. Replace `<pid>` with the PID you copied earlier. This command starts a 30-second profiler recording of your Java application and generates a file named `timed_recording_example.jfr` in the `C:\home` directory.
 
 ```
 jcmd <pid> JFR.start name=TimedRecording settings=profile duration=30s filename="C:\home\timed_recording_example.JFR"
@@ -316,9 +316,9 @@ jcmd <pid> JFR.start name=TimedRecording settings=profile duration=30s filename=
 
 ---
 
-#### Analyze `.jfr` files
+#### Analyze .jfr files
 
-Use [FTPS](deploy-ftp.md) to download your JFR file to your local machine. To analyze the JFR file, download and install [Java Mission Control](https://www.oracle.com/java/technologies/javase/products-jmc8-downloads.html). For instructions on how to use Java Mission Control, see the [JMC documentation](https://docs.oracle.com/en/java/java-components/jdk-mission-control/) and the [installation instructions](https://www.oracle.com/java/technologies/javase/jmc8-install.html).
+Use [FTPS](deploy-ftp.md) to download your JFR file to your local machine. To analyze the JFR file, download and install [Java Mission Control (JMC)](https://www.oracle.com/java/technologies/javase/products-jmc8-downloads.html). For instructions on how to use Java Mission Control, see the [JMC documentation](https://docs.oracle.com/en/java/java-components/jdk-mission-control/) and the [installation instructions](https://www.oracle.com/java/technologies/javase/jmc8-install.html).
 
 ### App logging
 
@@ -475,7 +475,7 @@ If you choose to pin the minor version, you need to periodically update the JVM 
 
 ::: zone pivot="java-jboss"
 
-## Run JBoss CLI
+## Run the JBoss CLI
 
 In your JBoss app's SSH session, you can run the JBoss CLI with the following command:
 
@@ -507,7 +507,7 @@ App Service supports clustering for JBoss EAP versions 7.4.1 and greater. To ena
 > [!NOTE]
 > If you're enabling your virtual network integration with an ARM template, you need to manually set the property `vnetPrivatePorts` to a value of `2`. If you enable virtual network integration from the CLI or portal, this property is set for you automatically.  
 
-When clustering is enabled, the JBoss EAP instances use the `FILE_PING` JGroups discovery protocol to discover new instances and persist cluster information (For example: the cluster members, their identifiers, and their IP addresses). On App Service, these files are under `/home/clusterinfo/`. The first EAP instance to start obtains read/write permissions on the cluster membership file. Other instances read the file, find the primary node, and coordinate with that node to be included in the cluster and added to the file.
+When clustering is enabled, the JBoss EAP instances use the `FILE_PING` Groups discovery protocol to discover new instances and persist cluster information (For example: the cluster members, their identifiers, and their IP addresses). On App Service, these files are under `/home/clusterinfo/`. The first EAP instance to start obtains read/write permissions on the cluster membership file. Other instances read the file, find the primary node, and coordinate with that node to be included in the cluster and added to the file.
 
 > [!Note]
 > You can avoid JBoss clustering timeouts by [cleaning up obsolete discovery files during your app startup](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/JBOSS/avoid_timeouts_obsolete_nodes.md).
@@ -545,7 +545,7 @@ See the following sections for details and opportunities to customize (such as t
 ### 1. Environment setup phase
 
 - The SSH service is started to enable [secure SSH sessions](configure-linux-open-ssh-session.md) with the container. 
-- The Keystore of the Java runtime is updated with any public and private certificates that are defined in the Azure portal. 
+- The Java runtime keystore is updated with any public and private certificates that are defined in the Azure portal.
     - Public certificates are provided by the platform in the `/var/ssl/certs` directory, and they're loaded to `$JRE_HOME/lib/security/cacerts`.
     - Private certificates are provided by the platform in the `/var/ssl/private` directory, and they're loaded to `$JRE_HOME/lib/security/client.jks`.
 - If any certificates are loaded in the Java keystore in this step, the properties `javax.net.ssl.keyStore`, `javax.net.ssl.keyStorePassword`, and `javax.net.ssl.keyStoreType` are added to the `JAVA_TOOL_OPTIONS` environment variable.
@@ -564,17 +564,17 @@ See the following sections for details and opportunities to customize (such as t
 - Regardless if JBoss starting in the `clustering` or `standalone` configuration, if the server version is 7.4 or above and the runtime uses Java 17, then the configuration is updated to enable the Elytron subsystem for security.
 - If you configure the app setting `WEBSITE_JBOSS_OPTS`, the value is passed to the JBoss launcher script. This setting can be used to provide paths to property files and more flags that influence the startup of JBoss.
 
-### 3. Server configuration phase 
+### 3. Server configuration phase
 
 - At the start of this phase, App Service first waits for both the JBoss server and the admin interface to be ready to receive requests before continuing. This process can take a few more seconds if Application Insights is enabled.
 - When both JBoss Server and the admin interface are ready, App Service takes the following actions:
     - Adds the JBoss module `azure.appservice`, which provides utility classes for logging and integration with App Service.
     - Updates the console logger to use a colorless mode so that log files aren't full of color-escaping sequences.
     - Sets up the integration with Azure Monitor logs.
-    - Updates the binding IP addresses of the WSDL and management interfaces.
+    - Updates the binding IP addresses of the Web Services Description Language (WSDL) and management interfaces.
     - Adds the JBoss module `azure.appservice.easyauth` for integration with [App Service authentication](overview-authentication-authorization.md) and Microsoft Entra ID.
     - Updates the logging configuration of access logs and the name and rotation of the main server log file.
-- Unless the app setting `WEBSITE_SKIP_AUTOCONFIGURE_DATABASE` is defined, App Service autodetects JDBC URLs in the App Service app settings. If valid JDBC URLs exist for PostgreSQL, MySQL, MariaDB, Oracle, SQL Server, or Azure SQL Database, it adds the corresponding drivers to the server, adds a data source for each of the JDBC URLs, and sets the JNDI name for each data source to `java:jboss/env/jdbc/<app-setting-name>_DS`, where `<app-setting-name>` is the name of the app setting.
+- Unless the app setting `WEBSITE_SKIP_AUTOCONFIGURE_DATABASE` is defined, App Service autodetects Java Database Connectivity (JDBC) URLs in the App Service app settings. If valid JDBC URLs exist for PostgreSQL, MySQL, MariaDB, Oracle, SQL Server, or Azure SQL Database, it adds the corresponding drivers to the server, adds a data source for each of the JDBC URLs, and sets the Java Naming and Directory Interface (JNDI) name for each data source to `java:jboss/env/jdbc/<app-setting-name>_DS`, where `<app-setting-name>` is the name of the app setting.
 - If the `clustering` configuration is enabled, the console logger to be configured is checked. 
 - If there are JAR files deployed to the `/home/site/libs` directory, a new global module is created with all of these JAR files.
 - At the end of the phase, App Service runs the custom startup script, if one exists. The search logic for the custom startup script is defined as follows:
@@ -582,7 +582,7 @@ See the following sections for details and opportunities to customize (such as t
     - If the path `/home/site/scripts/startup.sh` exists, use it. If not:
     - If the path `/home/startup.sh` exists, use it.
 
-The custom startup command or script runs as the root user (no need for `sudo`), so they can install Linux packages or launch the JBoss CLI to perform more JBoss install/customization commands (creating datasources, installing resource adapters), etc. For information on Ubuntu package management commands, see the [Ubuntu Server documentation](https://documentation.ubuntu.com/server/how-to/software/package-management/). For JBoss CLI commands, see the [JBoss Management CLI Guide](https://docs.redhat.com/en/documentation/red_hat_jboss_enterprise_application_platform/7.4/html-single/management_cli_guide/index#how_to_cli).
+The custom startup command or script runs as the root user (no need for `sudo`), so they can install Linux packages or launch the JBoss CLI to perform more JBoss install/customization commands (creating data sources, installing resource adapters), etc. For information on Ubuntu package management commands, see the [Ubuntu Server documentation](https://documentation.ubuntu.com/server/how-to/software/package-management/). For JBoss CLI commands, see the [JBoss Management CLI Guide](https://docs.redhat.com/en/documentation/red_hat_jboss_enterprise_application_platform/7.4/html-single/management_cli_guide/index#how_to_cli).
 
 ### 4. App deployment phase 
 
@@ -657,11 +657,11 @@ az webapp config appsettings set --resource-group myResourceGroup --name myApp -
 <Host appBase="${site.appbase}" xmlBase="${site.xmlbase}" unpackWARs="${site.unpackwars}" workDir="${site.tempdir}" errorReportValveClass="com.microsoft.azure.appservice.AppServiceErrorReportValve" name="localhost" autoDeploy="true">
 ```
 
-* `appBase` is set to `AZURE_SITE_APP_BASE`, which defaults to local `WebappsLocalPath`
-* `xmlBase` is set to `AZURE_SITE_HOME`, which defaults to `/site/wwwroot`
-* `unpackWARs` is set to `AZURE_UNPACK_WARS`, which defaults to `true`
-* `workDir` is set to `JAVA_TMP_DIR`, which defaults `TMP`
-* `errorReportValveClass` uses our custom error report valve
+* `appBase` is set to `AZURE_SITE_APP_BASE`, which defaults to local `WebappsLocalPath`.
+* `xmlBase` is set to `AZURE_SITE_HOME`, which defaults to `/site/wwwroot`.
+* `unpackWARs` is set to `AZURE_UNPACK_WARS`, which defaults to `true`.
+* `workDir` is set to `JAVA_TMP_DIR`, which defaults `TMP`.
+* `errorReportValveClass` uses our custom error report valve.
  
 ### Valve
 
