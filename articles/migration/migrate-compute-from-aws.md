@@ -5,6 +5,7 @@ author: robbyatmicrosoft
 ms.author: robbymillsap
 ms.date: 03/25/2025
 ms.topic: conceptual
+ms.custom: migration
 ---
 
 # Migrate compute from Amazon Web Services (AWS)
@@ -37,6 +38,7 @@ The following list provides additional articles for migrating compute services. 
 
 * [Migrate machines as physical servers to Azure](/azure/migrate/tutorial-migrate-physical-virtual-machines)
 * [Assess Hyper-V VMs for migration to Azure](/azure/migrate/tutorial-assess-hyper-v)
+* [Migrate VMware Services to Azure](/azure/migrate/vmware/migrate-support-matrix-vmware)
 
 ## Related workload components
 

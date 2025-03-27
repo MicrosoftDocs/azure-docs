@@ -6,6 +6,7 @@ ms.author: maghan
 ms.reviewer: prwilk, chkittel
 ms.date: 03/24/2025
 ms.topic: concept-article
+ms.custom: migration
 ---
 
 # Migrate databases from Amazon Web Services (AWS) to Microsoft Azure
@@ -16,8 +17,8 @@ Migrating data is a critical part when moving from Amazon Web Services (AWS) to 
 
 Start the process by comparing the Amazon Web Services (AWS) database and services used in the workload to their closest Azure counterparts. The goal is to identify the most suitable Azure services for your workload.
 
-- [Azure for AWS Data and AI professionals](/azure/architecture/aws-professional/data-ai)
 - [Compare AWS and Azure database technology](/azure/architecture/aws-professional/databases)
+- [Compare AWS and Azure data and AI technology](/azure/architecture/aws-professional/data-ai)
 
 > [!NOTE]
 > This comparison shouldn't be considered an exact representation of these services' functionality in your workload.
@@ -37,7 +38,7 @@ Refer to these scenarios as examples for framing your migration process.
 | [Amazon DynamoDB application to Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/dynamodb-data-migration-cosmos-db) | Amazon DynamoDB application -> Azure Cosmos DB for NoSQL | This scenario involves migrating an Amazon DynamoDB application to Azure Cosmos DB, ensuring minimal downtime and data integrity. |
 | [Amazon DynamoDB data to Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/dynamodb-data-migration-cosmos-db) | Amazon DynamoDB data -> Azure Cosmos DB for NoSQL | This scenario involves migrating an Amazon DynamoDB data to Azure Cosmos DB, ensuring minimal downtime and data integrity. |
 | [Amazon ElastiCache to Azure Cache for Redis](/azure/azure-cache-for-redis/cache-migration-guide) | Amazon ElastiCache -> Azure Cache for Redis | This scenario involves migrating an Amazon ElastiCache to Azure Cache for Redis, ensuring minimal downtime and data integrity. |
-| [CouchBase on AWS to Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/couchbase-cosmos-migration) | CouchBase on AWS -> Azure Cosmos DB for NoSQL] | This scenario involves migrating Java applications that are connected to Couchbase on AWS to an API for NoSQL account in Azure Cosmos DB, ensuring minimal downtime and data integrity. |
+| [CouchBase on AWS to Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/couchbase-cosmos-migration) | CouchBase on AWS -> Azure Cosmos DB for NoSQL | This scenario involves migrating Java applications that are connected to Couchbase on AWS to an API for NoSQL account in Azure Cosmos DB, ensuring minimal downtime and data integrity. |
 
 ## Related workload components
 
