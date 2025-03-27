@@ -209,13 +209,12 @@ The following tables describe the enrichments featured in the **ActivityInsights
 
 ### IdentityInfo table
 
-After you [enable UEBA](enable-entity-behavior-analytics.md) for your Microsoft Sentinel workspace, data from your Microsoft Entra ID is synchronized to the *IdentityInfo* table in Log Analytics for use in Microsoft Sentinel.
+After you [enable and configure UEBA](enable-entity-behavior-analytics.md) for your Microsoft Sentinel workspace, data from your Microsoft identity providers is synchronized to the *IdentityInfo* table in Log Analytics for use in Microsoft Sentinel.
 
-If you have on-premises Active Directory, its data is synchronized to the *IdentityInfo* table as well, if the following two conditions are met:
+Those identity providers are either or both of the following, depending on which you selected when you configured UEBA:
 
-- You have a subscription to Microsoft Defender for Identity or Microsoft Defender XDR.
-- You configured UEBA to ingest records from on-premises Active Directory.  
-    (For more information, see [How to enable User and Entity Behavior Analytics](enable-entity-behavior-analytics.md#how-to-enable-user-and-entity-behavior-analytics).)
+- Microsoft Entra ID (cloud-based)
+- Microsoft Active Directory (on-premises, requires Microsoft Defender for Identity))
 
 You can query the *IdentityInfo* table in analytics rules, hunting queries, and workbooks, enhancing your analytics to fit your use cases and reducing false positives.
 
@@ -237,9 +236,9 @@ While the initial synchronization may take a few days, once the data is fully sy
 
 - Currently, only built-in roles are supported.
 
-- Support for groups (as listed in the *GroupMembership* field) is limited to 500 groups, including subgroups.
+- Support for groups (as listed in the *GroupMembership* field) is limited to 500 groups, including subgroups. If an organization has more than 500 groups, only the first 500 are synchronized with the *IdentityInfo* table. The groups are not evaluated in any particular order, though, so at each new synchronization (every 14 days), it's possible that a different set of groups will be updated.
 
-- When a group is deleted, its member user records are not updated immediately. They will be updated at the next full sync.
+- When a group is deleted, or if a group with more than 100 members has its name changed, that group's member user records are not updated. If a different change causes one of those users' records to be updated, the updated group information will be included at that point.
 
 #### Versions of the IdentityInfo table
 
