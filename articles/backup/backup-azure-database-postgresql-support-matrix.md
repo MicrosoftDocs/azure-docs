@@ -26,7 +26,7 @@ Azure Database for PostgreSQL server backup is available in all regions, except 
 
 ## Feature considerations and limitations
 
-- Recommended limit for the maximum database size is 400 GB.
+- The maximum supported database size is 400GB, which is a hard limit for a single server..
 - Cross-region backup isn't supported. Therefore, you can't back up an Azure PostgreSQL server to a vault in another region. Similarly, you can only restore a backup to a server within the same region as the vault. However, we support cross-subscription backup and restore. 
 - Private endpoint-enabled Azure PostgreSQL servers can be backed up by allowing trusted Microsoft services in the network settings.
 - Only the data is recovered during restore; _roles_ aren't restored.

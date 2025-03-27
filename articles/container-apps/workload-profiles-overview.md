@@ -22,7 +22,7 @@ Profiles are configured to fit the different needs of your applications.
 | Profile type | Description | Potential use |
 |--|--|--|
 | Consumption | Automatically added to any new environment. | Apps that don't require specific hardware requirements |
-| Consumption GPU (preview) | Scale-to-zero serverless GPUs are available in West US 3, Australia East, and Sweden Central regions. | Apps that require GPU |
+| Consumption GPU | Scale-to-zero serverless GPUs are available in West US 3, Australia East, and Sweden Central regions. | Apps that require GPU |
 | Dedicated (General purpose) | Balance of memory and compute resources | Apps that require larger amounts of CPU and/or memory |
 | Dedicated (Memory optimized) | Increased memory resources | Apps that need access to large in-memory data, in-memory machine learning models, or other high memory requirements |
 | Dedicated (GPU enabled) (preview) | GPU enabled with increased memory and compute resources available in West US 3 and North Europe regions. | Apps that require GPU |
@@ -55,8 +55,8 @@ There are different types and sizes of workload profiles available by region. By
 | Display name | Name | vCPU | Memory (GiB) | GPU | Category | Allocation | Quota name |
 |---|---|---|---|---|---|---|
 | Consumption | Consumption | 4 | 8 | - | Consumption | per replica | Managed Environment Consumption Cores |
-| Consumption-GPU-NC24-A100 (preview) | Consumption-GPU-NC24-A100 | 24 | 220 | 1 | Consumption GPU | per replica | Subscription Consumption NCA 100 Gpus |
-| Consumption-GPU-NC8as-T4 (preview) | Consumption-GPU-NC8as-T4 | 8 | 56 | 1 | Consumption GPU | per replica | Subscription Consumption T 4 Gpus |
+| Consumption-GPU-NC24-A100 | Consumption-GPU-NC24-A100 | 24 | 220 | 1 | Consumption GPU | per replica | Subscription Consumption NCA 100 Gpus |
+| Consumption-GPU-NC8as-T4 | Consumption-GPU-NC8as-T4 | 8 | 56 | 1 | Consumption GPU | per replica | Subscription Consumption T 4 Gpus |
 | Dedicated-D4 | D4 | 4 | 16 | - | General purpose | per node | Managed Environment General Purpose Cores |
 | Dedicated-D8 | D8 | 8 | 32 | - | General purpose | per node | Managed Environment General Purpose Cores |
 | Dedicated-D16 | D16 | 16 | 64 | - | General purpose | per node | Managed Environment General Purpose Cores |

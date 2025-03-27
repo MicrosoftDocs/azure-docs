@@ -476,7 +476,7 @@ For more information about pricing, see [Block Blob pricing](https://azure.micro
 
 - Each rule can have up to 10 case-sensitive prefixes and up to 10 blob index tag conditions.
 
-- A lifecycle management policy can't change the tier of a blob that uses an encryption scope.
+- A lifecycle management policy can't be used to change the tier of a blob that uses an encryption scope to the archive tier.
 
 - The delete action of a lifecycle management policy won't work with any blob in an immutable container. With an immutable policy, objects can be created and read, but not modified or deleted. For more information, see [Store business-critical blob data with immutable storage](./immutable-storage-overview.md).
 

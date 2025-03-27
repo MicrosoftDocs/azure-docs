@@ -7,6 +7,7 @@ ms.date: 07/24/2024
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
+# Customer intent: As a cloud solution architect, I want to configure custom load balancer probes in my service definition file, so that I can implement advanced health checks and optimize traffic routing to role instances.
 ---
 
 # Azure Cloud Services (extended support) definition LoadBalancerProbe schema

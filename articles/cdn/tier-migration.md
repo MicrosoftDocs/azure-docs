@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 06/25/2024
+ROBOTS: NOINDEX
 ---
 
 # About Azure CDN from Microsoft (classic) to Azure Front Door migration
