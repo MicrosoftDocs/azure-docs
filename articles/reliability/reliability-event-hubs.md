@@ -37,14 +37,6 @@ When you use the Azure portal, zone redundancy is automatically enabled. When yo
 :::image type="content" source="../event-hubs/media/event-hubs-geo-dr/eh-az.png" alt-text="Screenshot showing the Create Namespace page with a region that has availability zones.":::
 
 
-### Disable availability zones
-
-The Azure portal doesn't support disabling availability zones. To disable availability zones, use one of the following methods:
-
-- Azure CLI command [`az eventhubs namespace`](/cli/azure/eventhubs/namespace#az-eventhubs-namespace-create) with `--zone-redundant=false` 
-
-- PowerShell command [`New-AzEventHubNamespace`](/powershell/module/az.eventhub/new-azeventhubnamespace) with `-ZoneRedundant=false` to create a namespace with zone redundancy disabled. 
-
 ### Availability zone migration
 
 When you create availability zones in a region that supports them, availability zones are automatically enabled. If you wish to learn how to move your Event Hubs namespace to a new region that supports availability zones, see
