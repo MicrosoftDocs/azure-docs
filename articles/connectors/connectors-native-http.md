@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/08/2024
+ms.date: 03/27/2025
 ---
 
 # Call external HTTP or HTTPS endpoints from workflows in Azure Logic Apps
