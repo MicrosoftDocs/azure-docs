@@ -1,5 +1,5 @@
 ---
-title: Import an Azure function app as an API in API Management
+title: Import an Azure Function App as an API in API Management
 titleSuffix: Azure API Management
 description: Learn how to import an Azure function app into Azure API Management as an API.
 services: api-management
@@ -149,7 +149,7 @@ Navigate to your API Management instance and select **Named values** in the left
 
 You can call operations directly from the Azure portal. Using the Azure portal is a convenient way to view and test the operations of an API.  
 
-:::image type="content" source="./media/import-function-app-as-api/test-api.png" alt-text="Screenshot that shows the steps for testing an API.":::
+:::image type="content" source="./media/import-function-app-as-api/test-api.png" alt-text="Screenshot that shows the steps for testing an API." lightbox="./media/import-function-app-as-api/test-api.png":::
 
 1. Select the API that you created in the preceding section.
 
