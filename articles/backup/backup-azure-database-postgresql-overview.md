@@ -70,7 +70,7 @@ Azure Backup follows strict security guidelines from Azure. Permissions on the r
 
 The Azure Backup service needs to connect to the Azure Database for PostgreSQL server while taking each backup. Although a username and password (or a connection string) that correspond to the database are used to make this connection, these credentials aren't stored with Azure Backup. Instead, the database admin needs to securely seed these credentials in [Azure Key Vault as a secret](/azure/key-vault/secrets/about-secrets).
 
-The workload admin is responsible for managing and rotating credentials. Azure Backup calls for the most recent secret details from Key Vault to take the backup.
+The workload admin is responsible for managing and rotating credentials. Azure Backup calls for the most recent secret details from the key vault to take the backup.
 
 :::image type="content" source="./media/backup-azure-database-postgresql-overview/key-vault-based-authentication-model.png" alt-text="Diagram that shows the workload or database flow.":::
 
@@ -93,7 +93,7 @@ The workload admin is responsible for managing and rotating credentials. Azure B
 
 #### Permissions needed for PostgreSQL database restore
 
-Permissions for restore are similar to the ones that you need for backup. You need to [manually grant the permissions on the target Azure Database for PostgreSQL server and the corresponding key vault](#steps-for-manually-granting-access-on-the-azure-database-for-postgresql-server-and-on-key-vault). Unlike in the [configure backup](backup-azure-database-postgresql.md#configure-a-backup-on-postgresql-databases) flow, the experience to grant these permissions inline is currently not available.
+Permissions for restore are similar to the ones that you need for backup. You need to [manually grant the permissions on the target Azure Database for PostgreSQL server and the corresponding key vault](#steps-for-manually-granting-access-on-the-azure-database-for-postgresql-server-and-on-the-key-vault). Unlike in the [configure backup](backup-azure-database-postgresql.md#configure-a-backup-on-postgresql-databases) flow, the experience to grant these permissions inline is currently not available.
 
 Ensure that the database user (corresponding to the credentials stored in the key vault) has the following restore privileges on the database:
 
@@ -111,11 +111,11 @@ To get an automated script and related instructions to use the Microsoft Entra I
 > [!NOTE]
 > All the newly configured protection takes place with the new Key Vault authentication model only. However, all the existing backup instances with protection configured through Microsoft Entra ID-based authentication will continue to exist and have regular backups taken. To restore these backups, you need to follow the Microsoft Entra ID-based authentication.
 
-## Steps for manually granting access on the Azure Database for PostgreSQL server and on Key Vault
+## Steps for manually granting access on the Azure Database for PostgreSQL server and on the key vault
 
 To grant all the access permissions that Azure Backup needs, use the following steps.
 
-### Access permissions for the Azure Database for PostgreSQL server
+### Access permissions on the Azure Database for PostgreSQL server
 
 1. Set the Azure Backup vault's **Reader** access for the managed identity on the Azure Database for PostgreSQL server.
 
@@ -125,14 +125,14 @@ To grant all the access permissions that Azure Backup needs, use the following s
 
    :::image type="content" source="./media/backup-azure-database-postgresql-overview/network-line-of-sight-access-on-azure-postgresql-server.png" alt-text="Screenshot that shows the option to set network line-of-sight access on an Azure Database for PostgreSQL server." lightbox="./media/backup-azure-database-postgresql-overview/network-line-of-sight-access-on-azure-postgresql-server.png":::
 
-### Access permissions for Key Vault (associated with the Azure Database for PostgreSQL server)
+### Access permissions on the key vault
 
-1. Set the Azure Backup vault's **Key Vault Secrets User** access for the managed identity on Key Vault (**Get** and **List** permissions on secrets). To assign permissions, you can use role assignments or access policies. You don't need to add the permissions by using both options, because it doesn't help.
+1. Set the Azure Backup vault's **Key Vault Secrets User** access for the managed identity on the key vault (**Get** and **List** permissions on secrets). To assign permissions, you can use role assignments or access policies. You don't need to add the permissions by using both options, because it doesn't help.
 
    - To use Azure role-based access control (Azure RBAC) authorization:
 
      1. In **Access policies**, set **Permission model** to **Azure role-based access control**.
-     1. In **Access control (IAM)**, grant the Azure Backup vault's **Key Vault Secrets User** access for the managed identity on Key Vault. Bearers of that role will be able to read secrets.
+     1. In **Access control (IAM)**, grant the Azure Backup vault's **Key Vault Secrets User** access for the managed identity on the key vault. Bearers of that role will be able to read secrets.
 
      For more information, see [Provide access to Key Vault keys, certificates, and secrets with Azure role-based access control](/azure/key-vault/general/rbac-guide?tabs=azure-cli).
 

@@ -238,7 +238,7 @@ $keyURI = "https://testkeyvaulteus.vault.azure.net/secrets/ossdbkey"
 
 You need to connect the backup vault to the PostgreSQL server and then access the database via the keys present in the key vault. Therefore, the backup vault requires access to the PostgreSQL server and the key vault. Access is granted to the backup vault's managed identity.
 
-[Read about the appropriate permissions](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-backup) that you should grant to the backup vault's managed identity on the PostgreSQL server and Azure Key Vault, where the keys to the database are stored.
+[Read about the appropriate permissions](./backup-azure-database-postgresql-overview.md#permissions-needed-for-postgresql-database-backup) that you should grant to the backup vault's managed identity on the PostgreSQL server and Azure Key Vault, where the keys to the database are stored.
 
 ### Prepare the request
 

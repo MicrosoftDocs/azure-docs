@@ -13,7 +13,7 @@ ms.author: jsuri
 
 This article explains how to restore a database to an Azure Database for PostgreSQL server that you backed up by using Azure Backup.
 
-You can restore a database to any Azure Database for PostgreSQL server of a different subscription or the same subscription but within the same region of the vault, if the service has the appropriate [set of permissions](backup-azure-database-postgresql-overview.md#azure-backup-authentication-with-the-postgresql-server) on the target server.
+You can restore a database to any Azure Database for PostgreSQL server of a different subscription or the same subscription but within the same region of the vault, if the service has the appropriate [set of permissions](backup-azure-database-postgresql-overview.md#azure-backup-authentication-with-the-azure-database-for-postgresql-server) on the target server.
 
 ## Restore a PostgreSQL database
 
@@ -41,7 +41,7 @@ You can restore a database to any Azure Database for PostgreSQL server of a diff
 
      1. For **Select key vault to authenticate with target server**, select a vault that stores the credentials to connect to the target server.
 
-     1. Select **Review and restore** to trigger validation that checks if the service has [restore permissions on the target server](backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-restore). These permissions must be [granted manually](backup-azure-database-postgresql-overview.md#grant-access-on-the-azure-postgresql-server-and-key-vault-manually).
+     1. Select **Review and restore** to trigger validation that checks if the service has [restore permissions on the target server](backup-azure-database-postgresql-overview.md#permissions-needed-for-postgresql-database-restore). These permissions must be [granted manually](backup-azure-database-postgresql-overview.md#steps-for-manually-granting-access-on-the-azure-database-for-postgresql-server-and-on-the-key-vault).
 
      :::image type="content" source="./media/restore-azure-database-postgresql/restore-as-database-inline.png" alt-text="Screenshot that shows the selected option to restore as a database." lightbox="./media/restore-azure-database-postgresql/restore-as-database-expanded.png":::
 

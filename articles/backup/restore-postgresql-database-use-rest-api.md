@@ -28,7 +28,7 @@ The examples in this article refer to an existing backup vault named `TestBkpVau
 
 A backup vault uses a managed identity to access other Azure resources. To restore from a backup, a backup vault's managed identity requires a set of permissions on the Azure Database for PostgreSQL server to which the database should be restored.
 
-To assign the relevant permissions for vault's system-assigned managed identity on the target PostgreSQL server, see the [permissions needed to back up a PostgreSQL database](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-restore).
+To assign the relevant permissions for vault's system-assigned managed identity on the target PostgreSQL server, see the [permissions needed to back up a PostgreSQL database](./backup-azure-database-postgresql-overview.md#permissions-needed-for-postgresql-database-restore).
 
 To restore the recovery point as files to a storage account, the backup vault's system-assigned managed identity needs [access on the target storage account](./restore-azure-database-postgresql.md#restore-permissions-on-the-target-storage-account).
 
