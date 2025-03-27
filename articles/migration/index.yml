@@ -98,9 +98,9 @@ conceptualContent:
           - url: /azure/architecture/aws-professional/compute
             text: Azure compute services map
             itemType: reference
-          - text: Migrate AWS Lambda to Azure Functions
-            url: /azure/azure-functions/migration/lambda-functions-migration-overview
-            itemType: tutorial         
+          - url: /azure/azure-functions/migration/lambda-functions-migration-overview
+            text: Migrate AWS Lambda to Azure Functions
+            itemType: tutorial
           - url: /azure/architecture/aws-professional/eks-to-aks/
             text: AKS for Amazon EKS professionals
             itemType: concept

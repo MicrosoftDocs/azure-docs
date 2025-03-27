@@ -64,8 +64,6 @@ landingContent:
             url:  /azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-offline
           - text: Migrate Amazon Aurora PostgreSQL to Azure Database for PostgreSQL (online)
             url:  /azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-online
-          - text: Migrate AWS Lambda to Azure Functions
-            url:  /azure/azure-functions/migration/lambda-functions-migration-overview
           - text: AKS for Amazon EKS professionals
             url:  /azure/architecture/aws-professional/eks-to-aks/
           - text: Copy data from Amazon S3 to Azure Storage (AzCopy)

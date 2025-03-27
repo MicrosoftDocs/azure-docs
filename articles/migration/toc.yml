@@ -30,16 +30,8 @@ items:
         href: ./migrate-compute-from-aws.md
       - name: Azure compute services map
         href: /azure/architecture/aws-professional/compute
-      - name: AWS Lambda 
-        items:
-        - name: Overview
-          href: /azure/azure-functions/migration/lambda-functions-migration-overview
-        - name: Discover
-          href: /azure/azure-functions/migration/lambda-functions-migration-discover
-        - name: Assess
-          href: /azure/azure-functions/migration/lambda-functions-migration-assess
-        - name: Migrate
-          href: /azure/azure-functions/migration/lambda-functions-migration-migrate
+      - name: Migrate AWS Lambda to Azure Functions
+        href: /azure/azure-functions/migration/lambda-functions-migration-overview
       - name: Elastic Kubernetes Service (EKS)
         items:
         - name: AKS for Amazon EKS professionals
