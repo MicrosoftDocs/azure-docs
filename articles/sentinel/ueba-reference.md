@@ -209,25 +209,37 @@ The following tables describe the enrichments featured in the **ActivityInsights
 
 ### IdentityInfo table
 
-After you [enable UEBA](enable-entity-behavior-analytics.md) for your Microsoft Sentinel workspace, data from your Microsoft Entra ID is synchronized to the **IdentityInfo** table in Log Analytics for use in Microsoft Sentinel. You can embed user data synchronized from your Microsoft Entra ID in your analytics rules to enhance your analytics to fit your use cases and reduce false positives.
+After you [enable UEBA](enable-entity-behavior-analytics.md) for your Microsoft Sentinel workspace, data from your Microsoft Entra ID is synchronized to the *IdentityInfo* table in Log Analytics for use in Microsoft Sentinel.
+
+If you have on-premises Active Directory, its data is synchronized to the *IdentityInfo* table as well, if the following two conditions are met:
+
+- You have a subscription to Microsoft Defender for Identity or Microsoft Defender XDR.
+- You configured UEBA to ingest records from on-premises Active Directory.  
+    (For more information, see [How to enable User and Entity Behavior Analytics](enable-entity-behavior-analytics.md#how-to-enable-user-and-entity-behavior-analytics).)
+
+You can query the *IdentityInfo* table in analytics rules, hunting queries, and workbooks, enhancing your analytics to fit your use cases and reducing false positives.
 
 While the initial synchronization may take a few days, once the data is fully synchronized:
 
-- Changes made to your user profiles, groups, and roles in Microsoft Entra ID are updated in the **IdentityInfo** table within 15-30 minutes.
+- Every 14 days, Microsoft Sentinel re-synchronizes with your entire Microsoft Entra ID (and your on-premises Active Directory, if applicable) to ensure that stale records are fully updated.
 
-- Every 14 days, Microsoft Sentinel re-synchronizes with your entire Microsoft Entra ID to ensure that stale records are fully updated. See note in the next section about changes to groups.
+- Besides these regular full synchronizations, whenever changes are made to your user profiles, groups, and built-in roles in Microsoft Entra ID, the affected user records are re-ingested and updated in the *IdentityInfo* table within 15-30 minutes. This ingestion is billed at regular rates. For example:
 
-- Default retention time in the **IdentityInfo** table is 30 days.
+    - Group A has 100 users in it. 5 users are added to the group or removed from the group. In this case, those 5 user records are re-ingested.
+
+    - Group A has 100 users in it. Ten users are added to Group A. Also, groups A1 and A2, each with 10 users, are added to Group A. In this case, 30 user records are re-ingested. This happens because group membership is transitive, so changes to groups affect all their subgroups.
+
+    - Group B (with 50 users) is renamed to Group BeGood. In this case, 50 user records are re-ingested. If there are subgroups in that group, all their members' records are also re-ingested.
+
+- Default retention time in the *IdentityInfo* table is 30 days.
 
 #### Limitations
 
 - Currently, only built-in roles are supported.
 
-- Support for groups (as listed in the *GroupMembership* field) is limited to 500 groups. These groups are transitive, not direct.
+- Support for groups (as listed in the *GroupMembership* field) is limited to 500 groups, including subgroups.
 
-- Changes made to groups in your [Active Directory or (?)] Microsoft Entra ID result in updates to the *IdentityInfo* table for any users who are members of the changed groups. **These updates carry a synchronization charge.**
-
-- Data about deleted groups, where a user was removed from a group, is not currently supported.
+- When a group is deleted, its member user records are not updated immediately. They will be updated at the next full sync.
 
 #### Versions of the IdentityInfo table
 

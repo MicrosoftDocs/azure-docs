@@ -133,7 +133,7 @@ The following limit applies to UEBA in Microsoft Sentinel. The limit for UEBA in
 | Description | Limit | Dependency |
 | ----------- | ----- | ---------- |
 | Lowest retention configuration in days for the [IdentityInfo](/azure/azure-monitor/reference/tables/identityinfo) table. All data stored on the IdentityInfo table in Log Analytics is refreshed every 14 days. | 14 days  | Log Analytics |
-| Groups listed in the *GroupMembership* field in the [IdentityInfo](ueba-reference.md#identityinfo-table) table | 500 | |
+| Groups listed in the *GroupMembership* field in the [IdentityInfo](ueba-reference.md#identityinfo-table) table (including subgroups) | 500 | |
 
 ## Watchlist limits
 
@@ -158,9 +158,9 @@ Workbook limits for Sentinel are the same result limits found in Azure Monitor. 
 
 The following limits apply to workspace manager in Microsoft Sentinel.
 
-|Description                   | Limit        |Dependency|
-|--|-------------------------|--------------------|
-|Number of published operations in a group<br>*Published operations* = (*member workspaces*) * (*content items*)| 2000 published operations |None|
+| Description | Limit | Dependency |
+| ----------- | ----- | ---------- |
+| Number of published operations in a group<br>*Published operations* = (*member workspaces*) * (*content items*) | 2000 published operations | None |
 
 ## Next steps
 
