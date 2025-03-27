@@ -1,9 +1,6 @@
 ---
 title: Relocation guidance for Azure Firewall
 description: Learn how to relocate Azure Firewall to a new region
-author: anaharris-ms
-ms.author: anaharris
-ms.reviewer: anaharris
 ms.date: 07/23/2024
 ms.service: azure-firewall
 ms.topic: how-to

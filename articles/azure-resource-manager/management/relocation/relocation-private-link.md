@@ -1,9 +1,6 @@
 ---
 title: Relocate Azure Private Link Service to another region
 description: Learn how to relocate an Azure Private Link Service to a new region
-author: anaharris-ms
-ms.author: anaharris
-ms.reviewer: anaharris
 ms.date: 01/31/2024
 ms.service: azure-private-link
 ms.topic: concept-article

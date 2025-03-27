@@ -1,9 +1,6 @@
 ---
 title: Relocate Azure Virtual Network to another region
 description: Learn how to relocate Azure Virtual Network to another region
-author: anaharris-ms
-ms.author: anaharris
-ms.reviewer: anaharris
 ms.date: 03/13/2024
 ms.service: azure-virtual-network
 ms.topic: concept-article

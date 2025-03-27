@@ -1,9 +1,6 @@
 ---
 title: Relocate Azure Static Web Apps to another region
 description: Learn how to relocate Azure Static Web Apps to another region
-author: anaharris-ms
-ms.author: anaharris
-ms.reviewer: anaharris
 ms.date: 08/19/2024
 ms.service: azure-static-web-apps
 ms.topic: how-to

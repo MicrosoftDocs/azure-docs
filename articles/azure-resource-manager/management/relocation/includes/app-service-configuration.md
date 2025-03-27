@@ -1,9 +1,7 @@
 ---
-author: anaharris-ms
 ms.service: app-service
 ms.topic: include
 ms.date: 08/12/2024
-ms.author: anaharris
 ---
 
 ### Configuration

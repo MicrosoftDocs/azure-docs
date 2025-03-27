@@ -1,9 +1,6 @@
 ---
 title: Relocate an Azure Event Hubs dedicated cluster to another region
 description: This article shows you how to relocate an Azure Event Hubs dedicated cluster to another region. 
-author: anaharris-ms
-ms.author: anaharris
-ms.reviewer: anaharris
 ms.date: 01/24/2024
 ms.service: azure-event-hubs
 ms.topic: concept-article

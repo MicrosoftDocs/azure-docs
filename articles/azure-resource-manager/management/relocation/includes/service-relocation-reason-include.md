@@ -1,11 +1,9 @@
 ---
  title: include file
  description: include file
- author: anaharris-ms
  ms.service: azure
  ms.topic: include
  ms.date: 06/25/2024
- ms.author: anaharris
  ms.custom: include file
 ---
 

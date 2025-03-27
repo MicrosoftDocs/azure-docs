@@ -1,8 +1,6 @@
 ---
 title: Relocate Azure Database for PostgreSQL to another region
 description: Learn how to relocate an Azure Database for PostgreSQL to another region using Azure services and tools.
-author: anaharris-ms
-ms.author: anaharris
 ms.reviewer: maghan
 ms.date: 02/14/2024
 ms.service: azure-database-postgresql
