@@ -8,7 +8,7 @@ ms.reviewer: whhender
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/26/2024
+ms.date: 03/20/2025
 ---
 
 # ForEach activity in Azure Data Factory and Azure Synapse Analytics
@@ -214,7 +214,7 @@ In the ForEach activity, provide an array to be iterated over for the property *
 ```
 
 ## Iterate over multiple activities
-It's possible to iterate over multiple activities (for example: copy and web activities) in a ForEach activity. In this scenario, we recommend that you abstract out multiple activities into a separate pipeline. Then, you can use the [ExecutePipeline activity](control-flow-execute-pipeline-activity.md) in the pipeline with ForEach activity to invoke the separate pipeline with multiple activities. 
+It's possible to iterate over multiple activities (for example: copy and web activities) in a ForEach activity. In this scenario, we recommend that you abstract out multiple activities into a separate pipeline. Then, you can use the [ExecutePipeline activity](control-flow-execute-pipeline-activity.md) in the pipeline with ForEach activity to invoke the separate pipeline with multiple activities. If you iterate over multiple activities, there is potential delay in exiting the loop because of aggregation and cleanup work performed by the pipeline. 
 
 
 ### Syntax

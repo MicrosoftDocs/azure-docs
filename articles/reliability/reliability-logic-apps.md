@@ -90,7 +90,7 @@ For Standard workflows with the App Service Environment v3 hosting option, you c
 
 ::: zone pivot="consumption"
 
-Consumption logic apps that are deployed in [any region that supports availability zones](./availability-zones-region-support.md) are automatically zone redundant. Japan West is the exception, which currently doesn't support zone-redundant logic apps because some dependency services don't yet support zone redundancy.
+Consumption logic apps that are deployed in [any region that supports availability zones](./regions-list.md) are automatically zone redundant. Japan West is the exception, which currently doesn't support zone-redundant logic apps because some dependency services don't yet support zone redundancy.
 
 ::: zone-end
 

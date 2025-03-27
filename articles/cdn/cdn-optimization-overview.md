@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Optimize Azure Content Delivery Network for the type of content delivery

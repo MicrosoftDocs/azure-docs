@@ -4,8 +4,8 @@ description: Follow this guide to migrate your databases to an Azure Synapse Ana
 ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: conceptual
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: juluczni
+ms.author: juluczni
 ms.date: 04/12/2023
 ---
 # Migrate a data warehouse to a dedicated SQL pool in Azure Synapse Analytics

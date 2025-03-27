@@ -1,8 +1,8 @@
 ---
 title: "Troubleshoot: Workspaces created by SDK can't launch Synapse Studio"
 description: Steps to resolve workspaces created by SDK unable to launch Synapse Studio
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: Danzhang-msft
+ms.author: danzhang
 ms.topic: troubleshooting
 ms.service: azure-synapse-analytics
 ms.subservice: troubleshooting
