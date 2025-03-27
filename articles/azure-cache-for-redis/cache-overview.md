@@ -6,6 +6,8 @@ description: Learn about Azure Cache for Redis to enable cache-aside, content ca
 
 ms.topic: overview
 ms.date: 11/15/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 ---
 
 # What is Azure Cache for Redis?

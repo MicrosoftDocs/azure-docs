@@ -8,6 +8,8 @@ ms.topic: conceptual
 ms.date: 11/15/2024
 ms.devlang: csharp
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2024
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 
 # Scale an Azure Managed Redis (preview) instance

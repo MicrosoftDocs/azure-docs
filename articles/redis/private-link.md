@@ -8,6 +8,8 @@ ms.service: azure-managed-redis
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, ignite-2024
 ms.topic: conceptual
 ms.date: 11/15/2024
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 
 # What is Azure Managed Redis (preview) with Azure Private Link?

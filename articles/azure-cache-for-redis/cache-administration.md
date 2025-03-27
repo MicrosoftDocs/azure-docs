@@ -4,6 +4,8 @@ description: Learn how to perform administration tasks such as reboot and schedu
 
 ms.topic: conceptual
 ms.date: 05/29/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 
 ---
 # How to administer Azure Cache for Redis

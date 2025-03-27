@@ -4,8 +4,13 @@ metadata:
   description: Learn the answers to common questions that help you plan for Azure Managed Redis
   ms.date: 11/15/2024
   ms.topic: faq
+  appliesto:
+    - ✅ Azure Managed Redis
   ms.custom:
     - ignite-2024
+
+
+
 title: Azure Managed Redis (preview) planning FAQs
 summary: |
           This article provides answers to common questions about how to plan for Azure Managed Redis deployments.

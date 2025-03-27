@@ -8,6 +8,9 @@ ms.topic: how-to
 ms.date: 11/15/2024
 ms.custom: template-how-to, devx-track-azurecli, ignite-2024
 ms.devlang: azurecli
+appliesto:
+  - ✅ Azure Managed Redis
+  - ✅ Azure Cache for Redis
 ---
 
 # Monitor Azure Managed Redis (preview) data using diagnostic settings

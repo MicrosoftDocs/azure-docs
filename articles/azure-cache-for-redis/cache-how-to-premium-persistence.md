@@ -5,6 +5,8 @@ description: Learn how to configure and manage data persistence your Premium tie
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 02/21/2025
+appliesto:
+  - ✅ Azure Cache for Redis
 ---
 # Configure data persistence for an Azure Cache for Redis instance
 

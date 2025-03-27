@@ -7,6 +7,8 @@ description: Learn how to resolve common latency and timeout issues with Azure C
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 12/02/2023
+appliesto:
+  - ✅ Azure Cache for Redis
 
 ---
 

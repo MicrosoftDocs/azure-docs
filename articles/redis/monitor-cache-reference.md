@@ -4,6 +4,11 @@ description: This article contains important reference material you need when yo
 ms.date: 05/13/2024
 ms.custom: horz-monitor, ignite-2024
 ms.topic: reference
+
+appliesto:
+  - ✅ Azure Managed Redis
+  - ✅ Azure Cache for Redis
+
 ---
 
 # Azure Cache for Redis monitoring data reference

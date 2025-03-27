@@ -7,6 +7,8 @@ ms.custom:
   - ignite-2024
 ms.topic: conceptual
 ms.date: 11/15/2024
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 # Use the Redis command-line tool with Azure Managed Redis (preview)
 

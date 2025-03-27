@@ -6,6 +6,8 @@ description: Learn how to resolve common server issues, such as memory pressure,
 
 ms.topic: conceptual
 ms.date: 02/02/2022
+appliesto:
+  - ✅ Azure Cache for Redis
 
 ---
 

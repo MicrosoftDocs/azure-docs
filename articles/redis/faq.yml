@@ -3,7 +3,8 @@ metadata:
   title: Azure Managed Redis and Azure Cache for Redis FAQ
   description: Learn the answers to common questions, patterns, and best practices for Azure Managed Redis and Azure Cache for Redis
   
-  
+  appliesto:
+  - ✅ Azure Managed Redis
   
   ms.topic: faq
   ms.custom:

@@ -8,6 +8,9 @@ ms.custom:
   - ignite-2024
 ms.topic: conceptual
 ms.date: 11/15/2024
+appliesto:
+  - ✅ Azure Managed Redis
+  - ✅ Azure Cache for Redis
 ---
 # Migrate to Azure Managed Redis (preview)
 

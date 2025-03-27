@@ -9,6 +9,9 @@ ms.topic: quickstart
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-javaee, mode-api, mvc, devx-track-extended-java, ignite-2024
 zone_pivot_groups: redis-type
+appliesto:
+  - ✅ Azure Managed Redis
+  - ✅ Azure Cache for Redis
 ---
 
 # Quickstart: Use Azure Cache for Redis in Java with Jedis Redis client

@@ -6,6 +6,9 @@ description: Learn how to resolve data-loss problems with Azure Cache for Redis,
 
 ms.topic: conceptual
 ms.date: 03/05/2025
+appliesto:
+  - ✅ Azure Cache for Redis
+
 ---
 
 # Troubleshoot data loss in Azure Cache for Redis
