@@ -544,18 +544,22 @@ Hazardous Substances Table:
 :::row:::
     :::column span="11":::
     ○ : 表示该有毒有害物质在该部件所有均质材料中的含量均在 SJ/T 11364-2024(现由 GB/T 26572第一号修改单取代)标准规定的限量要求以下。
+
     Indicates that this hazardous substance contained in all homogeneous materials of such component is within the limits specified in SJ/T 11364-2024 (now replaced by GB/T 26572 amendment order No.1).
 
     X :  表示该有毒有害物质至少在该部件的某一均质材料中的含量超出 SJ/T 11364-2024(现由 GB/T 26572第一号修改单取代)标准规定的限量要求。
+
     Indicates that the content of such hazardous substance in at least a homogeneous material of such component exceeds the limits specified in SJ/T 11364-2024 (now replaced by GB/T 26572 amendment order No.1).
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="11":::
     a.	对销售之日的所售产品,本表显示我公司供应链的电子信息产品可能包含这些物质。注意：在所售产品中可能会也可能不会含有所有所列的部件。
+
     This table shows where these substances may be found in the supply chain of our electronic information products, as of the date of sale of the enclosed product. Note that some of the component types listed above may or may not be a part of the enclosed product.
 
     b.	除非另外特别的标注,此标志为针对所涉及产品的环保使用期限标志. 某些可更换的零部件可能会有一个不同的环保使用期限(例如,电池单元模块).此环保使用期限只适用于产品在产品手册中所规定的条件下工作.
+
     The Environment-Friendly Use Period (EFUP) for all enclosed products and their parts are per the symbol shown here, unless otherwise marked. Certain field-replaceable parts may have a different EFUP (for example, battery modules) number.  The Environment-Friendly Use Period is valid only when the product is operated under the conditions defined in the product manual.
  
     :::image type="icon" source="media/data-box-next-gen-safety/icon-efup.png" border="false":::
