@@ -18,7 +18,6 @@ Storage services are foundational components of most enterprise workloads and th
 
 Start the process by comparing the AWS storage service used in the workload with the closest Azure counterpart. The goal is to identify the most suitable Azure services for your workload.
 
-- [Azure for AWS professionals](/azure/architecture/aws-professional/)
 - [Comparing AWS and Azure storage services](/azure/architecture/aws-professional/storage)
 
 > [!NOTE]
