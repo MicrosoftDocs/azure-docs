@@ -135,7 +135,7 @@ ms.topic: faq
   get-item <file path+name> -Stream *
 ```
 
-If more than one stream is shown, they can be removed using the following PowerShell command
+If more than one stream is shown, you can remove them using the following PowerShell command:
 
 ```powershell
   Remove-Item <file path+name> -Stream *`
