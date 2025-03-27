@@ -16,7 +16,7 @@ ms.custom: engagement-fy25
 This article describes how to set up agentless dependency analysis using Azure Migrate: Discovery and assessment tool. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across servers for assessment and migration to Azure.
 
  > [!Note]
- > In this article, you'll explore the new experience with agentless dependency analysis. You should continue only if you have upgraded to the new experience by following these [prerequisites](./how-to-create-group-machine-dependencies-agentless.md#switch-to-new-visualization).
+ > In this article, you'll explore the new experience with agentless dependency analysis. You should continue only if you've upgraded to the new experience by following these [prerequisites](./how-to-create-group-machine-dependencies-agentless.md#switch-to-new-visualization).
 
 ## Current limitations
 
@@ -35,7 +35,7 @@ The existing users can follow steps provided [here](how-to-create-group-machine-
 
 The new users need to follow the below steps:
 
-1. Ensure that you have [created a project](./create-manage-projects.md) with the Azure Migrate: Discovery and assessment tool added to it.
+1. Ensure that you've [created a project](./create-manage-projects.md) with the Azure Migrate: Discovery and assessment tool added to it.
 2. Review the requirements based on your environment and the appliance you're setting up to perform agentless dependency analysis:
 
 |**Environment** | **Requirements**|
@@ -60,7 +60,7 @@ The new users need to follow the below steps:
 1. Open the appliance configuration manager, complete the prerequisite checks and registration of the appliance.
 2. Navigate to the **Manage credentials and discovery sources** panel.
 3.  In **Step 1: Provide credentials for discovery source**, select on **Add credentials** to  provide credentials for the discovery source that the appliance uses to discover servers running in your environment.
-4. In **Step 2: Provide discovery source details**, click on **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the discovery source.
+4. In **Step 2: Provide discovery source details**, select **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the discovery source.
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="The screenshot shows the panel 3 on appliance configuration manager for vCenter Server details." lightbox="./media/tutorial-discover-vmware/appliance-manage-sources.png":::
 
 5. In **Step 3: Provide server credentials to perform software inventory and agentless dependency analysis**, select **Add credentials** to provide multiple server credentials to perform guest-based discovery like software inventory, agentless dependency analysis, and discovery of databases and web applications.
@@ -153,7 +153,7 @@ Process count | Representing the count of processes as per the process type filt
 
 ## Export dependency data
 
-1. In **All inventory** or **Infrastructure inventory** view, click the **Dependency analysis** drop-down.
+1. In **All inventory** or **Infrastructure inventory** view, select the **Dependency analysis** drop-down.
 2. Select **Export application dependencies**.
 3. In the **Export application dependencies** page, choose the appliance name that is discovering the desired servers.
 4. Select the start time and end time. You can download the data only for the last 30 days.
@@ -192,7 +192,7 @@ If you're an existing user who has already set up an Azure Migrate project, perf
 
 3. On the dependency view, you see an information box prompting you to complete some prerequisites for switching to the new visualization.
 4. As a prerequisite, you need to ensure that the discovery agent on the appliances registered with the project have been upgraded to version <> or above.
-5. Select proceed to create a new resource in the same Resource Group as the project. Ensure that you have atleast **Contributor** role on the Resource Group else this step isn't complete.
+5. Select proceed to create a new resource in the same Resource Group as the project. Ensure that you've atleast **Contributor** role on the Resource Group else this step isn't complete.
 
 > [!NOTE]
 > Even if the new resource creation goes through, you might not see the new visualization if the discovery agent version on the Azure Migrate appliance isn't up to date. Ensure that auto-update service on the appliance is enabled. [Learn more](migrate-appliance.md#appliance-upgrades)
@@ -234,7 +234,7 @@ Dependency analysis is auto-enabled on all discovered servers which have passed 
     Connect-AzAccount -EnvironmentName AzureUSGovernment
     ```
 
-2. Select the subscription in which you have created the project 
+2. Select the subscription in which you've created the project 
 
     ```PowerShell
     select-azsubscription -subscription "Contoso Demo Subscription"
@@ -315,7 +315,7 @@ Azure Migrate offers a Power BI template that you can use to visualize network c
     Connect-AzAccount -EnvironmentName AzureUSGovernment
     ```
 
-2. Select the subscription in which you have created the project 
+2. Select the subscription in which you've created the project 
 
     ```PowerShell
     select-azsubscription -subscription "Contoso Demo Subscription"
