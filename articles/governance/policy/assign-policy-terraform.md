@@ -101,3 +101,4 @@ A scope determines what resources or grouping of resources the policy assignment
 
 > [!div class="nextstepaction"]
 > [Tutorial: Create and manage policies to enforce compliance](./tutorials/create-and-manage.md)
+ 
