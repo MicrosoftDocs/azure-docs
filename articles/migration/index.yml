@@ -37,7 +37,7 @@ productDirectory:
 
 conceptualContent:
   sections:
-    - title: Planning your migration
+    - title: Plan your migration
       summary: "Explore the aspects of migrating to Microsoft Azure. Discover essential steps, best practices, and technical resources to support a successful migration. Select a topic to access comprehensive insights and practical guidance customized to your migration needs."
       items:
       - title: Adopt Azure
@@ -158,7 +158,7 @@ conceptualContent:
             itemType: how-to-guide
         footerLink:
           text: See more
-          url: ./migrate-storage-from-aws.md            
+          url: ./migrate-storage-from-aws.md
       - title: Networking
         links:
          - text: Azure networking services mapping

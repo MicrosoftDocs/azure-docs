@@ -18,7 +18,7 @@ Migrating data is a critical part when moving from Amazon Web Services (AWS) to 
 Start the process by comparing the Amazon Web Services (AWS) database and services used in the workload to their closest Azure counterparts. The goal is to identify the most suitable Azure services for your workload.
 
 - [Compare AWS and Azure database technology](/azure/architecture/aws-professional/databases)
-- [Compute AWS and Azure data and AI technology](/azure/architecture/aws-professional/data-ai)
+- [Compare AWS and Azure data and AI technology](/azure/architecture/aws-professional/data-ai)
 
 > [!NOTE]
 > This comparison shouldn't be considered an exact representation of these services' functionality in your workload.
