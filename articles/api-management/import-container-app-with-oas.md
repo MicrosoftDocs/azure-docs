@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 11/03/2021
+ms.date: 03/31/2025
 ms.author: danlep
 
 ---
