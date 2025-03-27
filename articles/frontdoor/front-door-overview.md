@@ -105,7 +105,7 @@ For pricing information, see [Front Door Pricing](https://azure.microsoft.com/pr
 
 Subscribe to the RSS feed and view the latest Azure Front Door feature updates on the [Azure Updates](https://azure.microsoft.com/updates?filters=%5B%22Azure+Front+Door%22%5D) page.
 
-## Next steps
+## Related content
 
 * Learn about [Azure Front Door routing architecture](front-door-routing-architecture.md)
 * Learn how to [create an Azure Front Door profile](create-front-door-portal.md).
