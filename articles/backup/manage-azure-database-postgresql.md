@@ -12,7 +12,7 @@ ms.author: jsuri
 
 This article describes how to manage an Azure Database for PostgreSQL server that you back up by using the Azure Backup service.
 
-## Change a policy
+## <a name = "change-policy"></a>Change a policy
 
 You can change the policy that's associated with a backup instance.
 
@@ -26,7 +26,7 @@ Changing the backup policy does not affect existing recovery points and their re
 
    :::image type="content" source="./media/manage-azure-database-postgresql/reassign-policy.png" alt-text="Screenshot that shows the Reassign Policy pane.":::
 
-## Stop backup
+## <a name = "stop-protection"></a>Stop backup
 
 There are three ways to stop backing up an Azure Database for PostgreSQL server:
 
@@ -36,7 +36,7 @@ There are three ways to stop backing up an Azure Database for PostgreSQL server:
 
 - **Stop backup and delete data**: This option helps you stop all future backup jobs for your Azure Database for PostgreSQL server and delete all the recovery points. You can't restore the database or use the **Resume backup** option.
 
-### Stop backup and retain data
+### <a name = "stop-protection-and-retain-data"></a>Stop backup and retain data
 
 1. In the Azure portal, go to **Backup center** and select **Azure Database for PostgreSQL server**.
 
@@ -61,7 +61,7 @@ There are three ways to stop backing up an Azure Database for PostgreSQL server:
 
    :::image type="content" source="./media/manage-azure-database-postgresql/confirmation-to-stop-backup-inline.png" alt-text="Screenshot that shows the confirmation for stopping a backup." lightbox="./media/manage-azure-database-postgresql/confirmation-to-stop-backup-expanded.png":::
 
-### Stop backup and delete data
+### <a name = "stop-protection-and-delete-data"></a>Stop backup and delete data
 
 1. In the Azure portal, go to **Backup center** and select **Azure Database for PostgreSQL server**.
 
@@ -81,7 +81,7 @@ There are three ways to stop backing up an Azure Database for PostgreSQL server:
 
    :::image type="content" source="./media/manage-azure-database-postgresql/confirmation-to-stop-backup-inline.png" alt-text="Screenshot of the confirmation for stopping a backup." lightbox="./media/manage-azure-database-postgresql/confirmation-to-stop-backup-expanded.png":::
 
-## Resume backup
+## <a name = "resume-protection"></a>Resume backup
 
 If you selected the option to stop backup and retain data, you can resume backing up your Azure Database for PostgreSQL server.
 
