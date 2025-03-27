@@ -2180,11 +2180,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/devtest-labs/devtest-lab-trusted-launch.md",
-      "redirect_url": "/azure/devtest-labs/devtest-lab-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/devtest-labs/integrate-environments-devops-pipeline.md",
       "redirect_url": "/previous-versions/azure/devtest-labs/integrate-environments-devops-pipeline",
       "redirect_document_id": false
@@ -6354,10 +6349,10 @@
       "redirect_url": "/azure/reliability/regions-list",
       "redirect_document_id": false
     },
-    {  
+    {
       "source_path_from_root": "/articles/cyclecloud/how-to/ccws/cleanup-roles.md",
       "redirect_url": "/azure/cyclecloud/how-to/ccws/deploy-with-cli",
-      "redirect_document_id": false      
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cloud-services/applications-dont-support-tls-1-2.md",
@@ -6692,6 +6687,16 @@
     {
       "source_path": "articles/operational-excellence/relocation-managed-identity.md",
       "redirect_url": "/entra/identity/managed-identities-azure-resources/how-to-managed-identity-regional-move",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/notification-hubs/xamarin-notification-hubs-ios-push-notification-apns-get-started.md",
+      "redirect_url": "/dotnet/maui/data-cloud/push-notifications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/notification-hubs/xamarin-notification-hubs-push-notifications-android-gcm.md",
+      "redirect_url": "/dotnet/maui/data-cloud/push-notifications",
       "redirect_document_id": false
     }
   ]

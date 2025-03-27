@@ -3,7 +3,7 @@ title: Quickstart on Azure Synapse lake database and database templates
 description: Quickstart how to create a new lake database leveraging database templates.
 author: gsaurer
 ms.author: gesaur
-ms.reviewer: wiassaf, jovanpop
+ms.reviewer:  jovanpop
 ms.service: azure-synapse-analytics
 ms.subservice: database-editor
 ms.topic: quickstart

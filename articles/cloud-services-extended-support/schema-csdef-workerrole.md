@@ -7,6 +7,7 @@ ms.date: 07/24/2024
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
+# Customer intent: As a cloud developer, I want to understand the WorkerRole schema and its attributes, so that I can configure and deploy background-processing roles effectively within my cloud services application.
 ---
 
 # Azure Cloud Services (extended-support) definition WorkerRole schema

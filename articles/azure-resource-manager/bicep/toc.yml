@@ -387,7 +387,7 @@
     - name: Best practices
       href: best-practices.md
     - name: Visual Studio Code
-      displayName: vscode,vs code
+      displayName: vscode,vs code,deployment pane
       href: visual-studio-code.md
     - name: Private module registry
       href: private-module-registry.md
