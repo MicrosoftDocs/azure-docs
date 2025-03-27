@@ -16,19 +16,19 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-This article describes how to import an Azure Container App to Azure API Management and test the imported API by using the Azure portal.  
+This article describes how to import an Azure container app to Azure API Management as an API and test the imported API by using the Azure portal.  
 
 [!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Import a Container App that exposes a web API
+> * Import a container app that exposes a web API
 > * Test the API in the Azure portal
 
 ## Expose a container app by using API Management
 
-[Azure Container Apps](../container-apps/overview.md) allows you to deploy containerized apps without managing complex infrastructure. API developers can write code using their preferred programming language or framework, build microservices with full support for Distributed Application Runtime (Dapr), and scale based on HTTP traffic or other events.
+[Azure Container Apps](../container-apps/overview.md) allows you to deploy containerized apps without managing complex infrastructure. API developers can write code with their preferred programming language or framework, build microservices with full support for Distributed Application Runtime (Dapr), and scale based on HTTP traffic or other events.
 
 By using API Management to expose a web API that's hosted in a container app, you gain the following benefits:
 
@@ -41,7 +41,7 @@ For more information, see [About API Management](api-management-key-concepts.md)
 
 ## OpenAPI specification vs. wildcard operations
 
-API Management supports importing container apps that provide an OpenAPI specification (a Swagger definition). However, an OpenAPI specification isn't required. We recommend that you provide an OpenAPI specification.  API Management can import individual operations, which allows you to validate, manage, secure, and update configurations for each operation separately.
+API Management supports importing container apps that provide an OpenAPI specification (a Swagger definition). An OpenAPI specification isn't required, but we recommend that you provide an one.  API Management can import individual operations, which allows you to validate, manage, secure, and update configurations for each operation separately.
 
 If the container app exposes an OpenAPI specification, API Management creates API operations that map directly to the definition. API Management will look in several locations for an OpenAPI specification:
 
@@ -58,10 +58,10 @@ In either case, you can [edit](edit-api.md) or [add](add-api-manually.md) operat
 
 Your backend container app might support two GET operations:
 
-*  `https://myappservice.azurewebsites.net/customer/{id}`
-*  `https://myappservice.azurewebsites.net/customers`
+*  `https://<app-service>.azurewebsites.net/customer/{id}`
+*  `https://<app-service>.azurewebsites.net/customers`
 
-You import the container app to your API Management service at a path like `https://contosoapi.azure-api.net/store`. The following table shows the operations that are imported to API Management, either with or without an OpenAPI specification: 
+You import the container app to your API Management service at a path like `https://<api>.azure-api.net/store`. The following table shows the operations that are imported to API Management, either with or without an OpenAPI specification: 
 
 | Type |Imported operations  |Sample requests |
 |---------|---------|---------|
@@ -88,7 +88,7 @@ The wildcard operation allows the same requests to the backend service as the op
 1. Associate the API with a product. Select **Full** and then, in **Product**, select the product. In this case, the **Unlimited** product is used. If you want the API to be published and be available to developers, you need to add it to a product.
 
     > [!NOTE]
-    > *Products* are associations of one or more APIs. You can include many APIs and offer them to developers through the developer portal. Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the API Management instance, you're an administrator and subscribed to every product by default.
+    > *Products* are associations of one or more APIs. You can include many APIs and offer them to developers through the developer portal. Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that's good for any API in that product. If you created the API Management instance, you're an administrator and subscribed to every product by default.
     >
     > In some pricing tiers, an API Management instance comes with two sample products when you create it:
     > * **Starter**
@@ -101,7 +101,7 @@ The wildcard operation allows the same requests to the backend service as the op
 
 ## Test the new API in the Azure portal
 
-Operations can be called directly from the Azure portal. This method is a convenient way to view and test the operations of an API. You can also test the API in the [developer portal](api-management-howto-developer-portal.md) or by using your own REST client tools.
+You can call operations directly from the Azure portal. This method is a convenient way to view and test the operations of an API. You can also test the API in the [developer portal](api-management-howto-developer-portal.md) or by using your own REST client tools.
 
 To test the API in the Azure portal:
 
@@ -121,7 +121,7 @@ When wildcard operations are generated, the operations might not map directly to
 
 `/api/TodoItems`
 
-You can test the path `/api/TodoItems` as follows:
+To test the `/api/TodoItems` path:
 
 1. Select the API that you created, and then select the operation.
 1. Select the **Test** tab.
