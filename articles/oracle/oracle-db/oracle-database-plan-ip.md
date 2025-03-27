@@ -47,12 +47,12 @@ The following table shows scenarios of provisioned virtual machine clusters of v
 
 |Scenario|/27|/26|/25|/24|/23|/22|
 |--------|---|---|---|---|---|---|
-|One virtual machine cluster with two virtual machines *(11 IPs + 17 IPs for networking services = 28 IPs)*|1|4|10|21|45|91|
-|One virtual machine cluster with three virtual machines *(15 IPs + 17 IPs for networking services = 32* IPs)|1|3|7|15|33|67|
-|One virtual machine cluster with four virtual machines *(19 IPs + 17 IPs for networking services = 36 IPs)*| |2|5|12|26|53|
-|Two virtual machine clusters with two virtual machines each *(22 IPs + 17 IPs for networking services = 39 IPs)*| |2|5|10|22|45|
-|Two virtual machine clusters with three virtual machines each *(30 IPs + 17 IPs for networking services = 47 IPs)*| |1|3|7|16|33|
-|Two virtual machine clusters with four virtual machines each *(38 IPs + 17 IPs for networking services = 55 IPs)*| |1|2|6|13|26|
+|One virtual machine cluster with two virtual machines *(11 IPs + 13 IPs for networking services = 24 IPs)*|1|4|10|21|45|91|
+|One virtual machine cluster with three virtual machines *(15 IPs + 13 IPs for networking services = 28* IPs)|1|3|7|15|33|67|
+|One virtual machine cluster with four virtual machines *(19 IPs + 13 IPs for networking services = 34 IPs)*| |2|5|12|26|53|
+|Two virtual machine clusters with two virtual machines each *(22 IPs + 13 IPs for networking services = 35 IPs)*| |2|5|10|22|45|
+|Two virtual machine clusters with three virtual machines each *(30 IPs + 13 IPs for networking services = 43 IPs)*| |1|3|7|16|33|
+|Two virtual machine clusters with four virtual machines each *(38 IPs + 13 IPs for networking services = 51 IPs)*| |1|2|6|13|26|
 
 ## Backup subnet requirements
 
@@ -71,8 +71,8 @@ The following table shows scenarios of provisioned virtual machine clusters of d
 |--------|---|---|---|---|---|---|
 |One virtual machine cluster with two virtual machines *(6 IPs + 3 for networking services = 9 IPs)*|1|3|7|14|28|56|
 |One virtual machine cluster with three virtual machines *(9 IPs + 3 for networking services = 12 IPs)*|1|2|5|10|21|42|
-|One virtual machine cluster with four virtual machines *(12 IPs + 3 for networking services = 15 IPs)*|1|2|4|8|17|34|
-|Two virtual machine clusters with two virtual machines each *(12 IPs + 3 for networking services = 15 IPs)*|1|2|4|8|17|34|
+|One virtual machine cluster with four virtual machines *(12 IPs + 3 for networking services = 15 IPs)*|1|2|4|8|13|34|
+|Two virtual machine clusters with two virtual machines each *(12 IPs + 3 for networking services = 15 IPs)*|1|2|4|8|13|34|
 |Two virtual machine clusters with three virtual machines each *(18 IPs + 3 for networking services = 21 IPs)*| |1|3|6|12|24|
 |Two virtual machine clusters with four virtual machines each *(24 IPs + 3 for networking services = 27 IPs)*| |1|2|4|9|18|
 
@@ -85,13 +85,13 @@ The following table shows the number of IP addresses that are available for virt
 
 |Subnet CIDR|Reserved networking IPs for a client subnet|Usable IPs for a client subnet (virtual machines and SCANs)|Reserved networking IPs for a backup subnet|Usable IPs for a backup subnet (virtual machines and SCANs)|
 |-----------|-----------------------------------------|-----------------------------------------------------------|-----------------------------------------|-----------------------------------------------------------|
-|/28|17|0 (2<4 - 17)|3|13 (2^4 - 3)|
-|/27|17|15 (2^5 - 17)|3|29 (2^5 - 3)|
-|/26|17|47 (2^6 - 17)|3|61 (2^6 - 3)|
-|/25|17|111 (2^7 - 17)|3|125 (2^7 - 3)|
-|/24|17|239 (2^8 - 17)|3|253 (2^8 - 3)|
-|/23|17|495 (2^9 - 17)|3|509 (2^9 - 3)|
-|/22|17|1,007 (2^10 - 17)|3|1,021 (2^10 - 3)|
+|/28|13|0 (2<4 - 13)|3|13 (2^4 - 3)|
+|/27|13|15 (2^5 - 13)|3|29 (2^5 - 3)|
+|/26|13|47 (2^6 - 13)|3|61 (2^6 - 3)|
+|/25|13|111 (2^7 - 13)|3|125 (2^7 - 3)|
+|/24|13|239 (2^8 - 13)|3|253 (2^8 - 3)|
+|/23|13|495 (2^9 - 13)|3|509 (2^9 - 3)|
+|/22|13|1,007 (2^10 - 13)|3|1,021 (2^10 - 3)|
 
 ## Related content
 

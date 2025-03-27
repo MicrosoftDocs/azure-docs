@@ -96,7 +96,8 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||Azure Maps|atlas.microsoft.com|atlas.azure.us||
 ||Notification Hubs|servicebus.windows.net|servicebus.usgovcloudapi.net||
 |**Management and governance**|Azure Automation|azure-automation.net|azure-automation.us||
-||Azure Monitor|mms.microsoft.com|oms.microsoft.us|Log Analytics workspace portal|
+||Azure Monitor<br>*Application Insights*|{region}.in.applicationinsights.azure.com|{region}.in.applicationinsights.azure.us|[Additional endpoints](/azure/azure-monitor/ip-addresses#outgoing-ports)|
+||Azure Monitor<br>*Log Analytics*|mms.microsoft.com|oms.microsoft.us|Log Analytics workspace portal|
 |||ods.opinsights.azure.com|ods.opinsights.azure.us|[Data collector API](/azure/azure-monitor/logs/data-collector-api)|
 |||oms.opinsights.azure.com|oms.opinsights.azure.us||
 |||portal.loganalytics.io|portal.loganalytics.us||
@@ -106,7 +107,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||Azure Resource Manager|management.azure.com|management.usgovcloudapi.net||
 ||Gallery URL|gallery.azure.com|gallery.azure.us||
 ||Microsoft Azure portal|portal.azure.com|portal.azure.us||
-||Microsoft Intune|enterpriseregistration.windows.net|enterpriseregistration.microsoftonline.us|Enterprise registration|
+||Microsoft Intune|enterpriseresgistration.windows.net|enterpriseregistration.microsoftonline.us|Enterprise registration|
 |||manage.microsoft.com|manage.microsoft.us|Enterprise enrollment|
 |**Migration**|Azure Site Recovery|hypervrecoverymanager.windowsazure.com|hypervrecoverymanager.windowsazure.us|Site Recovery service|
 |||backup.windowsazure.com|backup.windowsazure.us|Protection service|
@@ -333,11 +334,7 @@ Application Insights (part of Azure Monitor) enables the same features in both A
 >[!NOTE]
 >Although these addresses are static, it's possible that we'll need to change them from time to time. All Application Insights traffic represents outbound traffic except for availability monitoring and webhooks, which require inbound firewall rules.
 
-You need to open some **outgoing ports** in your server's firewall to allow the Application Insights SDK and/or Status Monitor to send data to the portal:
-
-|Purpose|URL|IP address|Ports|
-|-------|---|----------|-----|
-|Telemetry|dc.applicationinsights.us|23.97.4.113|443|
+To allow the Application Insights SDK/agent to send data to the Application Insights resource, you need to allow access to the regional endpoint defined in your connection string and open the **outgoing port 443** in your firewall. To learn more about the endpoint suffix, see [Connection strings in Application Insights](/azure/azure-monitor/app/connection-strings#connection-string-with-an-endpoint-suffix).
 
 ### [Cost Management and Billing](../cost-management-billing/index.yml)
 
@@ -379,10 +376,7 @@ For an overview of ExpressRoute, see [What is Azure ExpressRoute?](../expressrou
 
 ### [Azure Front Door](../frontdoor/index.yml)
 
-Azure Front Door (AFD) Standard and Premium tiers are available in general availability in Azure Government regions US Gov Arizona and US Gov Texas. The following Azure Front Door feature **isn’t supported** in Azure Government:
-
-- Managed certificate for enabling HTTPS; instead use your own certificate.
-
+Azure Front Door (AFD) Standard and Premium tiers are available in general availability in Azure Government regions US Gov Arizona and US Gov Texas.
 
 ### [Private Link](../private-link/index.yml)
 

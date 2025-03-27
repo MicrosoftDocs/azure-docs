@@ -116,7 +116,7 @@ Install the [Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-netw
    > [!NOTE]
    > An IP address is assigned from the pool of public IP addresses reserved for an Azure region. For a list of the address pools used in each region, see [Azure IP ranges and service tags](https://www.microsoft.com/download/details.aspx?id=56519). If you need the address to be assigned from a specific prefix, use a [Public IP address prefix](public-ip-address-prefix.md).
 
-1. Open the necessary ports in your security groups by adjusting the security rules in the network security groups. For information, see [Allow network traffic to the VM](#allow-network-traffic-to-the-vm).
+1. Open the necessary ports in your network security groups by adjusting the inbound security rules. For information, see [Allow network traffic to the VM](#allow-network-traffic-to-the-vm).
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -214,7 +214,7 @@ Install [Azure PowerShell](/powershell/azure/install-azure-powershell) on your m
    > [!NOTE]
    > An IP address is assigned from the pool of public IP addresses reserved for an Azure region. For a list of the address pools used in each region, see [Azure IP ranges and service tags](https://www.microsoft.com/download/details.aspx?id=56519). If you need the address to be assigned from a specific prefix, use a [Public IP address prefix](public-ip-address-prefix.md).
 
-1. Open the necessary ports in your security groups by adjusting the security rules in the network security groups. For information, see [Allow network traffic to the VM](#allow-network-traffic-to-the-vm).
+1. Open the necessary ports in your network security groups by adjusting the inbound security rules. For information, see [Allow network traffic to the VM](#allow-network-traffic-to-the-vm).
 
 ---
 > [!NOTE]  
@@ -222,14 +222,18 @@ Install [Azure PowerShell](/powershell/azure/install-azure-powershell) on your m
 
 ## Allow network traffic to the VM
 
-Before you can connect to a public IP address from the internet, you must open the necessary ports in your security groups. These ports must be open in any network security group that you might have associated to the network interface, the subnet of the network interface, or both. Although security groups filter traffic to the private IP address of the network interface, after inbound internet traffic arrives at the public IP address, Azure translates the public address to the private IP address. Therefore, if a network security group prevents the traffic flow, the communication with the public IP address fails.
+Before you can connect to a public IP address from the internet, you must open the necessary ports/protocols in your network security groups. These ports must be open in any network security group that you might have associated to the network interface, the subnet of the network interface, or both. Although network security groups filter traffic to the private IP address of the network interface, after inbound internet traffic arrives at the public IP address, Azure translates the public address to the private IP address. Therefore, if a network security group prevents the traffic flow, the communication with the public IP address fails.
 
 You can view the effective security rules for a network interface and its subnet for the [Azure portal](../../virtual-network/diagnose-network-traffic-filter-problem.md#diagnose-using-azure-portal), the [Azure CLI](../../virtual-network/diagnose-network-traffic-filter-problem.md#diagnose-using-azure-cli), or [Azure PowerShell](../../virtual-network/diagnose-network-traffic-filter-problem.md#diagnose-using-powershell).
+
+## Limits
+* If a new public IP address is added to the VM and traffic needs to switch over to the new IP address, the VM needs to be restarted as this will reset all existing flows. 
 
 ## Next steps
 
 In this article, you learned how to associate a public IP address to a VM using the Azure portal, Azure CLI, or Azure PowerShell.
 
 - Use a [network security group](../../virtual-network/network-security-groups-overview.md) to allow inbound internet traffic to your VM.
+- 
 
 - Learn how to [create a network security group](../../virtual-network/manage-network-security-group.md#work-with-network-security-groups).

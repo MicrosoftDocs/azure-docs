@@ -1,153 +1,153 @@
 ---
-title: Deploy an update by using Device Update for Azure IoT Hub | Microsoft Docs
-description: Deploy an update by using Device Update for Azure IoT Hub.
-author: vimeht
-ms.author: vimeht
-ms.date: 10/31/2022
+title: Deploy an update by using Azure Device Update for IoT Hub | Microsoft Docs
+description: Learn how to deploy an update to IoT devices by using Azure Device Update for IoT Hub in the Azure portal or with Azure CLI.
+author: andrewbrownmsft
+ms.author: andbrown
+ms.date: 01/24/2025
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.custom: devx-track-azurecli
 ms.subservice: device-update
 ---
 
-# Deploy an update by using Device Update for Azure IoT Hub
+# Deploy an update by using Azure Device Update for IoT Hub
 
-Learn how to deploy an update to an IoT device by using Device Update for Azure IoT Hub.
+In this article, you learn how to deploy an update to IoT devices by using Azure Device Update for IoT Hub in the Azure portal or with Azure CLI.
 
 ## Prerequisites
 
-* Access to [an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md). We recommend that you use an S1 (Standard) tier or above for your IoT Hub.
-* An [imported update for the provisioned device](import-update.md).
-* An IoT device (or simulator) provisioned for Device Update within IoT Hub.
-* The device is part of at least one default group or [user-created update group](create-update-group.md).
-
-# [Azure portal](#tab/portal)
-
-Supported browsers:
-
-* [Microsoft Edge](https://www.microsoft.com/edge)
-* Google Chrome
-
-# [Azure CLI](#tab/cli)
-
-An Azure CLI environment:
-
-* Use the Bash environment in [Azure Cloud Shell](../cloud-shell/quickstart.md).
-
-  :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
-
-* Or, if you prefer to run CLI reference commands locally, [install the Azure CLI](/cli/azure/install-azure-cli)
-
-  1. Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
-  2. Run [az version](/cli/azure/reference-index#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az-upgrade).
-  3. When prompted, install Azure CLI extensions on first use. The commands in this article use the **azure-iot** extension. Run `az extension update --name azure-iot` to make sure you're using the latest version of the extension.
-
->[!TIP]
->The Azure CLI commands in this article use the backslash `\` character for line continuation so that the command arguments are easier to read. This syntax works in Bash environments. If you're running these commands in PowerShell, replace each backslash with a backtick `\``, or remove them entirely.
-
----
+- A Standard (S1) or higher instance of [Azure IoT Hub](/azure/iot-hub/create-hub?tabs=portal) with [Device Update for IoT Hub enabled](create-device-update-account.md).
+- An IoT device or simulator [provisioned for Device Update](device-update-agent-provisioning.md) within the IoT hub. The provisioned device can be a member of a [user-created device group](create-update-group.md) or the default group.
+- An [imported update for the provisioned device](import-update.md).
 
 ## Deploy the update
+
+This section describes how to deploy the update by using the Azure portal or Azure CLI.
 
 # [Azure portal](#tab/portal)
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
 
-1. Select **Updates** from the navigation menu to open the **Device Update** page of your IoT Hub instance.
+1. Select **Updates** under **Device management** in the left navigation.
 
-    :::image type="content" source="media/deploy-update/device-update-iot-hub.png" alt-text="Screenshot that shows the Get started with the Device Update for IoT Hub page." lightbox="media/deploy-update/device-update-iot-hub.png":::
+   :::image type="content" source="media/deploy-update/device-update-iot-hub.png" alt-text="Screenshot that shows the Get started with the Device Update for IoT Hub page." lightbox="media/deploy-update/device-update-iot-hub.png":::
 
-1. Select the **Groups and Deployments** tab at the top of the page. For more information, see [Device groups](device-update-groups.md).
+1. On the **Updates** page, select the **Groups and Deployments** tab and view the [update compliance chart](device-update-compliance.md) and [device group list](device-update-groups.md). You might need to refresh the view to see recently imported updates available for your device group.
 
-   :::image type="content" source="media/deploy-update/updated-view.png" alt-text="Screenshot that shows the Groups and Deployments tab." lightbox="media/deploy-update/updated-view.png":::
+1. Under **Status** in the group list, select **Deploy** next to **One or more new updates are available for this group**.
 
+   :::image type="content" source="media/deploy-update/compliance-1.png" alt-text="Screenshot of the compliance view for Groups and Deployments." lightbox="media/deploy-update/compliance-1.png":::
+   
 1. View the update compliance chart and group list. You should see a new update available for your tag based or default group. You might need to refresh once. For more information, see [Device Update compliance](device-update-compliance.md).
 
-1. Select Deploy next to the **one or more updates available**, and confirm that the descriptive label you added when importing is present and looks correct.
+1. Select **Deploy** next to the **one or more updates available** status.
 
-1. Confirm that the correct group is selected as the target group and select **Deploy**.
+1. From the list on the right, select the desired update to deploy.
 
-1. To start the deployment, go to the **Current deployment** tab. Select the **Deploy** link next to the desired update from the **Available updates** section. The best available update for a given group is denoted with a **Best** highlight.
-
-   :::image type="content" source="media/deploy-update/select-update.png" alt-text="Screenshot that shows Best highlighted." lightbox="media/deploy-update/select-update.png":::
-
+   :::image type="content" source="media/deploy-update/deploy-3.png" alt-text="Screenshot of the deployment view for selecting updates." lightbox="media/deploy-update/deploy-3.png":::
+   
 1. Schedule your deployment to start immediately or in the future.
 
    > [!TIP]
-   > By default, the **Start** date and time is set to Immediately. Be sure to select a different date and time if you want the deployment to begin later.
+   > By default, the **Start** date and time is 24 hours from your current time. Be sure to select a different date and time if you want the deployment to begin sooner or later.
 
    :::image type="content" source="media/deploy-update/create-deployment.png" alt-text="Screenshot that shows the Create deployment screen" lightbox="media/deploy-update/create-deployment.png":::
 
 1. Create an automatic rollback policy if needed. Then select **Create**.
 
-1. In the deployment details, **Status** turns to **Active**. The deployed update is marked with **(deploying)**.
+1. In the **Current updates** tab, you can view the status of your deployment.
 
-   :::image type="content" source="media/deploy-update/deployment-active.png" alt-text="Screenshot that shows deployment as Active." lightbox="media/deploy-update/deployment-active.png":::
+   :::image type="content" source="media/deploy-update/current-updates-4.png" alt-text="A screenshot of the Current updates view." lightbox="media/deploy-update/current-updates-4.png":::
+   
+1. In the **Group basics** view, the compliance chart shows that the update is now in progress.
 
-1. View the compliance chart to see that the update is now in progress.
-
-   :::image type="content" source="media/deploy-update/update-in-progress.png" alt-text="Screenshot that shows Updates in progress." lightbox="media/deploy-update/update-in-progress.png":::
-
-1. After your device is successfully updated, you see that your compliance chart and deployment details updated to reflect the same.
-
-   :::image type="content" source="media/deploy-update/update-succeeded.png" alt-text="Screenshot that shows the update succeeded." lightbox="media/deploy-update/update-succeeded.png":::
+   After your device successfully updates, your compliance chart and deployment details update to reflect that status.
 
 # [Azure CLI](#tab/cli)
 
- 
+You can use the Bash environment in [Azure Cloud Shell](/azure/cloud-shell/quickstart) to run the following commands. Select **Launch Cloud Shell** to open Cloud Shell, or select the Cloud Shell icon in the top toolbar of the Azure portal.
 
-The [`az iot du device group list`](/cli/azure/iot/du/device/group#az-iot-du-device-group-list) to verify the best available update for your group. The command takes the following arguments:
+:::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
-* `--account`: The Device Update account name.
-* `--instance`: The Device Update instance name.
-* `--group-id`: The device group ID that you're targeting with this deployment. This ID is the value of the **ADUGroup** tag, or `$default` for devices with no tag.
-* `--best-updates`: This flag indicates the command should fetch the best available updates for the device group including a count of how many devices need each update. 
-* `--resource-group -g': Device Update account resource group name.
-* '--update-compliance': This flag indicates the command should fetch device group update compliance information such as how many devices are on their latest update, how many need new updates, and how many are in progress on receiving a new update.
+Or, if you prefer, you can run the Azure CLI commands locally:
 
-```azurecli
-az iot du device group list \
-    --account <Device Update account name> \
-    --instance <Device Update instance name>\
-    --gid <device group id>\
-    --best-updates {false, true}
-```
+1. [Install Azure CLI](/cli/azure/install-azure-cli). Run [az version](/cli/azure/reference-index#az-version) to see the installed Azure CLI version and dependent libraries, and run [az upgrade](/cli/azure/reference-index#az-upgrade) to install the latest version.
+1. Sign in to Azure by running [az login](/cli/azure/reference-index#az-login).
+1. Install the `azure-iot` extension when prompted on first use. To make sure you're using the latest version of the extension, run `az extension update --name azure-iot`.
 
-Use [az iot du device deployment create](/cli/azure/iot/du/device/deployment#az-iot-du-device-deployment-create) to create a deployment for a device group.
+>[!TIP]
+>The Azure CLI commands in this article use the backslash \\ character for line continuation so that the command arguments are easier to read. This syntax works in Bash environments. If you run these commands in PowerShell, replace each backslash with a backtick \`, or remove them entirely.
 
-The `device deployment create` command takes the following arguments:
+### Verify update availability
 
-* `--account`: The Device Update account name.
-* `--instance`: The Device Update instance name.
-* `--group-id`: The device group ID that you're targeting with this deployment. This ID is the value of the **ADUGroup** tag, or `$default` for devices with no tag.
-* `--deployment-id`: An ID to identify this deployment.
-* `--update-name`, `--update-provider`, and `--update-version`: These three parameters define the **updateId** object that is a unique identifier for the update that you're using in this deployment.
+1. Use the [`az iot du device group list`](/cli/azure/iot/du/device/group#az-iot-du-device-group-list) command to identify your device group.
+
+   ```azurecli
+   az iot du device group list \
+       --account <Device Update account name> \
+       --instance <Device Update instance name>\
+   ```
+
+1. Then use [`az iot du device group show`](/cli/azure/iot/du/device/group#az-iot-du-device-group-show) to show the best available update for your group. The command takes the following arguments:
+
+   - `--account`: The Device Update account name.
+   - `--instance`: The Device Update instance name.
+   - `--group-id`: The device group ID that you're targeting with this deployment, which is either the value of the `ADUGroup` tag, or `$default` for devices with no tag.
+   - `--resource-group`: The Device Update account resource group name.
+   - `--best-updates`: Returns the best available updates for the device group, including a count of how many devices need each update.
+   - `--update-compliance`: Returns device group update compliance information, such as how many devices are on their latest update, how many need new updates, and how many are currently receiving a new update.
+
+   To verify the best available update for your group, run the command as follows:
+   
+   ```azurecli
+   az iot du device group show \
+       --account <Device Update account name> \
+       --instance <Device Update instance name>\
+       --group-id <device group ID>\
+       --best-updates
+   ```
+
+### Create the deployment
+
+Use [`az iot du device deployment create`](/cli/azure/iot/du/device/deployment#az-iot-du-device-deployment-create) to create a deployment for the device group. The command takes the following arguments:
+
+- `--account`: The Device Update account name.
+- `--instance`: The Device Update instance name.
+- `--group-id`: The device group ID that you're targeting with this deployment, which is either the value of the `ADUGroup` tag, or `$default` for devices with no tag.
+- `--deployment-id`: An ID to identify this deployment.
+- `--update-name`, `--update-provider`, and `--update-version`: The parameters that define the `updateId` object, a unique identifier for the update in this deployment.
+
+Run the command as follows:
 
 ```azurecli
 az iot du device deployment create \
     --account <Device Update account name> \
     --instance <Device Update instance name> \
-    --group-id <device group id> \
-    --deployment-id <deployment id> \
+    --group-id <device group ID> \
+    --deployment-id <deployment ID> \
     --update-name <update name> \
     --update-provider <update provider> \
     --update-version <update version>
 ```
 
-Optional arguments allow you to configure the deployment. For the full list, see [Optional parameters](/cli/azure/iot/du/device/deployment#az-iot-du-device-deployment-create-optional-parameters)
+### Use optional arguments
 
-If you want to create an automatic rollback policy, add the following parameters:
+Optional arguments allow you to further configure the deployment. For the full list of optional arguments, see [Optional parameters](/cli/azure/iot/du/device/deployment#az-iot-du-device-deployment-create-optional-parameters).
 
-* `--failed-count`: The number of failed devices in a deployment that will trigger a rollback.
-* `--failed-percentage`: The percentage of failed devices in a deployment that will trigger a rollback.
-* `--rollback-update-name`, `--rollback-update-provider`, `--rollback-update-version`: The updateID for the update that the device group will use if a rollback is initiated.
+To create an automatic rollback policy, add the following parameters:
+
+- `--failed-count`: The number of failed devices in a deployment that triggers a rollback.
+- `--failed-percentage`: The percentage of failed devices in a deployment that triggers a rollback.
+- `--rollback-update-name`, `--rollback-update-provider`, `--rollback-update-version`: The parameters for the update to use if a rollback is initiated.
+
+Run the command as follows:
 
 ```azurecli
 az iot du device deployment create \
     --account <Device Update account name> \
     --instance <Device Update instance name> \
-    --group-id <device group id> \
-    --deployment-id <deployment id> \
+    --group-id <device group ID> \
+    --deployment-id <deployment ID> \
     --update-name <update name> \
     --update-provider <update provider> \
     --update-version <update version> \
@@ -158,7 +158,7 @@ az iot du device deployment create \
     --rollback-update-version <rollback update version>
 ```
 
-If you want the deployment to start in the future, use the `--start-time` parameter to provide the target datetime for the deployment.
+To set the deployment start time, use the `--start-time` parameter to provide the target date and time for the deployment, as follows:
 
 ```azurecli
 az iot du device deployment create \
@@ -174,25 +174,27 @@ az iot du device deployment create \
 
 ---
 
-## Monitor an update deployment
+## Monitor deployment status
 
 # [Azure portal](#tab/portal)
 
-1. Select the group you deployed to, and go to the **Current updates** or **Deployment history** tab to confirm that the deployment is in progress
+1. On the **Groups and Deployments** tab of the **Updates** page, select the group you deployed to.
+
+1. On the **Group details** page, go to the **Current deployment** or **Deployment history** tab to confirm that a deployment is in progress.
 
    :::image type="content" source="media/deploy-update/deployments-history.png" alt-text="Screenshot that shows the Deployment history tab." lightbox="media/deploy-update/deployments-history.png":::
 
-1. Select **Details** next to the deployment you created. Here you can view the deployment details, update details, and target device class details. You can optionally add a friendly name for the device class.
-
-   :::image type="content" source="media/deploy-update/deployment-details.png" alt-text="Screenshot that shows deployment details." lightbox="media/deploy-update/deployment-details.png":::
+1. Select **Details** next to a deployment to view the deployment details, update details, and target device class details. You can optionally add a friendly name for the device class.
 
 1. Select **Refresh** to view the latest status details.
 
-1. You can go to the group basics view to search the status for a particular device, or filter to view devices that have failed the deployment
+   :::image type="content" source="media/deploy-update/deployment-details.png" alt-text="Screenshot that shows deployment details." lightbox="media/deploy-update/deployment-details.png":::
+
+Go to the **Group basics** tab of the **Group details** page to search for the status of a particular device, or filter to view devices that failed the deployment.
 
 # [Azure CLI](#tab/cli)
 
-Use [az iot du device deployment list](/cli/azure/iot/du/device/deployment#az-iot-du-device-deployment-list) to view all deployment for a device group.
+Use [az iot du device deployment list](/cli/azure/iot/du/device/deployment#az-iot-du-device-deployment-list) to view all deployments for a device group.
 
 ```azurecli
 az iot du device deployment list \
@@ -226,13 +228,11 @@ az iot du device deployment show \
 
 ## Retry an update deployment
 
-If your deployment fails for some reason, you can retry the deployment for failed devices.
+If your deployment fails, you can retry the deployment for failed devices.
 
 # [Azure portal](#tab/portal)
 
 1. Go to the **Current deployment** tab on the **Group details** screen.
-
-    :::image type="content" source="media/deploy-update/deployment-active.png" alt-text="Screenshot that shows the deployment as Active." lightbox="media/deploy-update/deployment-active.png":::
 
 1. Select **Retry failed devices** and acknowledge the confirmation notification.
 
@@ -253,6 +253,7 @@ az iot du device deployment retry \
 
 ---
 
-## Next steps
+## Related content
 
-[Troubleshoot common issues](troubleshoot-device-update.md)
+- [Device Update deployments](device-update-deployments.md)
+- [Device Update Troubleshooting Guide](troubleshoot-device-update.md)

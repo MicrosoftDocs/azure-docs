@@ -2,12 +2,12 @@
 title: "Quickstart: Configure an Azure Kubernetes Services cluster backup"
 description: Learn how to configure backup for an Azure Kubernetes Service (AKS) cluster, and then use Azure Backup to back up specific items in the cluster.
 ms.topic: quickstart
-ms.date: 11/14/2024
+ms.date: 01/21/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Quickstart: Configure backup for an AKS cluster
@@ -84,5 +84,8 @@ Before you configure vaulted backup for AKS cluster, ensure the following prereq
 
 ## Next step
 
+Restore a backup for an AKS cluster using:
+
 > [!div class="nextstepaction"]
-> [Restore a backup for an AKS cluster](./azure-kubernetes-service-cluster-restore.md)
+>- [Azure portal](./azure-kubernetes-service-cluster-restore.md)
+>- [Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md)

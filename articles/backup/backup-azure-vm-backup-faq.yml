@@ -4,9 +4,9 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 01/22/2025
-  author: AbhishekMallick-MS
-  ms.author: v-abhmallick
+  ms.date: 03/27/2025
+  author: jyothisuri
+  ms.author: jsuri
 
 title: Frequently asked questions-Back up Azure VMs
 summary: |
@@ -113,7 +113,7 @@ sections:
         answer: All the VM configurations required to perform the restore operations are stored in the VM backup. That includes the encryption copies of the VM encrypted keys, which are accessible to you on restore. The encryption copies can only be decrypted using the key vault. Temporary disks and memory state aren't captured in the snapshot.
       
       - question: Can we back up tags from Azure VM? If so, how many tags?
-        answer: Azure Backup can back up and restore tags, except NICs and IPs. Azure Backup honors the subscription limitations of Azure Resource Group and restores up to 50 tags.<br><br>For detailed information, see [Subscription limits](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
+        answer: Azure Backup can back up and restore tags, except NICs and IPs. Azure Backup honors the subscription limitations of Azure Resource Group and restores up to 50 tags.<br><br>For detailed information, see [Subscription limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-subscription-limits).
 
       - question: Can I take on-demand (ad-hoc) backup without scheduling backup for an Azure VM?
         answer: |
@@ -442,7 +442,17 @@ sections:
 
           Resizing a disk will continue with incremental backups unless the underlying storage account of the disk changes, which results in a full backup.
 
+      - question: What is directory "/var/log/azure/Microsoft.Azure.RecoveryServices.VMSnapshotLinux"?
+        answer: |
+          This is the directory used by Backup Extension VMSnapshotLinux and it gets created when backups are enabled on VM using Recovery Services Vault. Logs are written in this location during backups, restores or extension operations such as schedule updates, generally they should use up only a few GB and the size of the logs is not proportional with the size of the backup. 
+
       - question: If backup fails with time out error for large disk VMs after running sometime, when can I re-trigger the backup job again and will the backup continue from where it failed?
         answer: |
           For Initial Replica, a full backup will be re-initiated in case of failure. However, for Incremental the snapshot from the last successful backup will be compared to the latest snapshot to copy the changed data into the vault.
 
+      - question: Why SSD V2 with GRS Vaults/Cross Region Restore is not supported?
+        answer: |
+          SSD V2/Ultra disks are currently not available in all regions, so Geo-Redundant Storage (GRS) can't be enabled.
+
+          >[!Note]
+          >GRS functions only when both paired regions support SSD V2/Ultra disks. 

@@ -243,5 +243,5 @@ Learn more about Azure Virtual Desktop Insights at these articles:
 
 - [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md).
 - Use the [glossary](insights-glossary.md) to learn more about terms and concepts.
-- If you encounter a problem, check out our [troubleshooting guide](troubleshoot-insights.md) for help.
+- If you encounter a problem, check out our [troubleshooting guide](/troubleshoot/azure/virtual-desktop/troubleshoot-insights) for help.
 - Check out [Azure Monitor cost and usage](/azure/azure-monitor/cost-usage) to learn more about managing your monitoring costs.

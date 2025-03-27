@@ -1,19 +1,13 @@
 ---
-# Mandatory fields.
 title: Azure Digital Twins query language reference - MATCH clause
 titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language MATCH clause
 author: baanders
-ms.author: baanders # Microsoft employees only
-ms.date: 11/01/2022
-ms.topic: article
+ms.author: baanders
+ms.date: 01/27/2025
+ms.topic: reference
 ms.service: azure-digital-twins
 ms.custom: engagement-fy23
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Azure Digital Twins query language reference: MATCH clause

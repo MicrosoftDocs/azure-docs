@@ -4,6 +4,9 @@ description: Use the extended features in the Apache Spark History Server to deb
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 09/06/2024
 ---
 

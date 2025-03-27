@@ -6,8 +6,8 @@ ms.date: 11/21/2024
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up SAP ASE (Sybase) database on Azure VMs via Azure Backup
@@ -281,7 +281,7 @@ If you're using Azure Firewall, create an application rule by using the AzureBac
 
 ### Allow access to service IP ranges
 
-If you choose to allow access service IPs, see the [IP ranges in the JSON file](https://www.microsoft.com/download/confirmation.aspx?id=56519). You need to allow access to IPs corresponding to Azure Backup, Azure Storage, and Microsoft Entra ID.
+If you choose to allow access service IPs, see the [IP ranges in the JSON file](https://www.microsoft.com/download/details.aspx?id=56519). You need to allow access to IPs corresponding to Azure Backup, Azure Storage, and Microsoft Entra ID.
 
 ### Allow access to service FQDNs
 

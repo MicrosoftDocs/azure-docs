@@ -2,10 +2,10 @@
 title: About Azure Database for PostgreSQL backup
 description: An overview on Azure Database for PostgreSQL backup
 ms.topic: overview
-ms.date: 11/20/2024
+ms.date: 03/18/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # About Azure Database for PostgreSQL backup
@@ -21,16 +21,36 @@ Azure Backup and Azure Database Services have come together to build an enterpri
 
 You can use this solution independently or in addition to the [native backup solution offered by Azure PostgreSQL](/azure/postgresql/concepts-backup) that offers retention up to 35 days. The native solution is suited for operational recoveries, such as when you want to recover from the latest backups. The Azure Backup solution helps you with your compliance needs and more granular and flexible backup/restore.
 
+## Changes to Vaulted backups for PostgreSQL single server
+
+Azure Database for PostgreSQL single servers is scheduled for retirement on **March 28, 2025**. On this date, changes will be implemented to Azure Backup for PostgreSQL single servers. Learn more [about the retirement announcement here](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server).
+
+Azure Backup provides compliance and resiliency solutions, including vaulted backups and long-term retention of restore points. Starting **March 28, 2025**, the following changes will take effect:
+
+- The backup configuration won't be allowed for new PostgreSQL single server workloads.
+- All scheduled backup jobs will be permanently discontinued.
+- Creation of new backup policies or modification of existing ones for this workload won't be possible.
+
+Scheduled backup jobs for your PostgreSQL single server databases will be permanently stopped, and no new restore points will be created after this date.
+However, your existing PostgreSQL single server database backups will be retained as per the backup policy. The restore point will only be deleted after the expiration of the retention period. To retain the restore points indefinitely or delete them before the expiration of their retention period, see the [Azure Business Continuity Center console](https://portal.azure.com/#view/Microsoft_Azure_BCDRCenter/AbcCenterMenuBlade/~/overview).
+
+### Changes in billing
+
+You'll no longer be charged **Protected Instance (PI)** fee after **March 31, 2025** for protecting your PostgreSQL single server databases. But, **Storage** fee for storing your backups will still apply after **March 31, 2025**. To avoid the Storage fee, delete all restore points from the Azure Business Continuity Center.
+
 >[!Note]
->Azure Database for PostgreSQL - Single Server is on the retirement path and is scheduled for retirement by March 28, 2025. 
->
->If you currently have an Azure Database for PostgreSQL - Single Server service hosting production servers, we're glad to inform you that you can migrate your Azure Database for PostgreSQL - Single Server to the Azure Database for PostgreSQL - Flexible Server. 
->
->Azure Database for PostgreSQL - Flexible Server is a fully managed production-ready> database service designed for more granular control and flexibility over database management functions and configuration settings with the enterprise grade [backup solution by Azure Backup](backup-azure-database-postgresql-flex-overview.md). For more information about Azure Database for PostgreSQL - Flexible Server, visit Azure Database for PostgreSQL - Flexible Server.
+>Azure Backup will retain the last restore point even after the expiration of its retention period. This feature ensures that you have access to the last restore point for future use. You can only delete the last restore point manually. If you want to delete the last restore point and save on Storage fee, [stop the database protection](manage-azure-database-postgresql.md#stop-protection).
+
+### Changes in restore
+
+You can restore PostgreSQL single server databases as **Restore as Files**. Then you need to manually [create a new PostgreSQL flexible server](/azure/postgresql/migrate/how-to-migrate-using-dump-and-restore?tabs=psql) from the restored files. 
+
+>[!Note]
+>**Restore as Database** won't be supported after **March 28, 2025**; only **Restore as Files** will be supported.
 
 ## Backup process
 
-1. As a backup admin, you can specify the Azure PostgreSQL databases that you intend to back up. Additionally, you can also specify the details of the Azure key vault that stores the credentials needed to connect to the specified database(s). These credentials are securely seeded by the database admin in the Azure key vault.
+1. As a backup admin, you can specify the Azure PostgreSQL databases that you intend to back up. Additionally, you can also specify the details of Azure Key Vault, which stores the credentials needed to connect to the specified database(s). These credentials are securely seeded by the database admin in Key Vault.
 1. The backup service then validates if it has [appropriate permissions to authenticate](#azure-backup-authentication-with-the-postgresql-server) with the specified PostgreSQL server and to back up its databases.
 1. Azure Backup spins up a worker role (VM) with a backup extension installed in it to communicate with the protected PostgreSQL server. This extension consists of a coordinator and a PostgreSQL plugin. The coordinator triggers workflows for various operations, such as backup and restore, and the plugin manages the actual data flow.
 1. At the scheduled time, the coordinator communicates with the plugin, for it to start streaming the backup data from the PostgreSQL server using **pg_dump (custom)**.
@@ -44,7 +64,7 @@ Azure Backup follows strict security guidelines laid down by Azure; permissions 
 
 ### Key-vault based authentication model
 
-The Azure Backup service needs to connect to the Azure PostgreSQL while taking each backup. While ‘username + password’ (or connection string), corresponding to the database, are used to make this connection, these credentials aren’t stored with Azure Backup. Instead, these credentials need to be securely seeded by the database admin in the [Azure key vault as a secret](/azure/key-vault/secrets/about-secrets). The workload admin is responsible to manage and rotate credentials; Azure Backup calls for the most recent secret details from the key vault to take the backup.
+The Azure Backup service needs to connect to the Azure PostgreSQL while taking each backup. While ‘username + password’ (or connection string), corresponding to the database, are used to make this connection, these credentials aren’t stored with Azure Backup. Instead, these credentials need to be securely seeded by the database admin in [Azure Key Vault as a secret](/azure/key-vault/secrets/about-secrets). The workload admin is responsible to manage and rotate credentials; Azure Backup calls for the most recent secret details from the key vault to take the backup.
  
 :::image type="content" source="./media/backup-azure-database-postgresql-overview/key-vault-based-authentication-model.png" alt-text="Diagram showing the workload or database flow.":::
 
@@ -53,7 +73,7 @@ The Azure Backup service needs to connect to the Azure PostgreSQL while taking e
 1. Grant the following access permissions to the Backup vault’s MSI:
 
    - _Reader_ access on the Azure PostgreSQL server.
-   - _Key Vault Secrets User_ (or get, list secrets) access on the Azure key vault.
+   - _Key Vault Secrets User_ (or get, list secrets) access on Key Vault.
 
 1. Network line of sight access on:
 
@@ -101,12 +121,12 @@ To grant all the access permissions needed by Azure Backup, refer to the followi
 
 ### Access permissions on the Azure Key vault (associated with the PostgreSQL server)
 
-1. Set Backup vault’s MSI **Key Vault Secrets User** (or **get**, **list** secrets) access on the Azure key vault. To assign permissions, you can use role assignments or access policies. It’s not required to add the permission using both the options as it doesn’t help.
+1. Set Backup vault’s MSI **Key Vault Secrets User** (or **get**, **list** secrets) access on Key Vault. To assign permissions, you can use role assignments or access policies. It’s not required to add the permission using both the options as it doesn’t help.
 
    - Using Azure role-based access control (Azure RBAC) authorization (that is, Permission model is set to Azure role-based access control):
 
      - Under Access control, grant the backup vault’s MSI _Key Vault Secrets User_ access on the key vault. Bearers of that role will be able to read secrets.
-     - [Grant permission to applications to access an Azure key vault using Azure RBAC](/azure/key-vault/general/rbac-guide?tabs=azure-cli).
+     - [Grant permission to applications to access Key Vault using Azure RBAC](/azure/key-vault/general/rbac-guide?tabs=azure-cli).
 
    :::image type="content" source="./media/backup-azure-database-postgresql-overview/key-vault-secrets-user-access-inline.png" alt-text="Screenshot showing the option to provide secret user access." lightbox="./media/backup-azure-database-postgresql-overview/key-vault-secrets-user-access-expanded.png":::
 
@@ -175,4 +195,5 @@ You can add new databases and database users to the server. For database users, 
 
 ## Next steps
 
-[Azure Database for PostgreSQL backup](backup-azure-database-postgresql.md)
+- [Frequently asked questions](/azure/backup/backup-azure-database-postgresql-server-faq).
+- [Back up Azure Database for PostgreSQL](backup-azure-database-postgresql.md).

@@ -5,7 +5,7 @@ author: dlepow
 ms.author: danlep
 ms.service: azure-api-management
 ms.topic: how-to 
-ms.date: 11/18/2024
+ms.date: 03/20/2025
 ---
 
 # Integrate an Azure API Management instance with a private virtual network for outbound connections 
@@ -37,9 +37,9 @@ If you want to inject a Premium v2 API Management instance into a virtual networ
 
 * The virtual network must be in the same region and Azure subscription as the API Management instance.
 
-### Subnet requirements
+### Dedicated subnet
 
-* The subnet can't be shared with another Azure resource.
+* The subnet used for virtual network integration can only be used by a single API Management instance. It can't be shared with another Azure resource.
 
 ### Subnet size 
 
@@ -48,7 +48,7 @@ If you want to inject a Premium v2 API Management instance into a virtual networ
 
 ### Network security group
 
-A network security group must be associated with the subnet. 
+A network security group must be associated with the subnet. No specific rules are required. To set up a network security group, see [Create a network security group](../virtual-network/manage-network-security-group.md).
 
 ### Subnet delegation
 

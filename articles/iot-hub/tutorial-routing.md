@@ -2,12 +2,12 @@
 title: Tutorial - Configure message routing
 titleSuffix: Azure IoT Hub
 description: Tutorial - Route device messages to an Azure Storage account with message routing for Azure IoT Hub using the Azure CLI and the Azure portal
-author: kgremban
+author: SoniaLopezBravo
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 05/11/2023
-ms.author: kgremban
+ms.author: sonialopez
 ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-azurecli]
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. This step of the tutorial needs to show me how to set up my base resources using CLI and the Azure Portal.
 ---
@@ -36,7 +36,7 @@ In this tutorial, you perform the following tasks:
   * Download or clone the SDK repo to your development machine.
   * Have .NET Core 3.0.0 or greater on your development machine. Check your version by running `dotnet --version` and [Download .NET](https://dotnet.microsoft.com/download) if necessary.
 
-* Make sure that port 8883 is open in your firewall. The sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
+* Make sure that port 8883 is open in your firewall. The sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connect-to-iot-hub).
 
 * Optionally, install [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer). This tool helps you observe the messages as they arrive at your IoT hub. This article uses Azure IoT Explorer.
 

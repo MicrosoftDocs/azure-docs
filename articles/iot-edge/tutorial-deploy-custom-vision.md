@@ -77,7 +77,7 @@ Once your image classifier is built and trained, you can export it as a Docker c
    | Project Types | **Classification** |
    | Classification Types | **Multiclass (single tag per image)** |
    | Domains | **General (compact)** |
-   | Export Capabilities | **Basic platforms (Tensorflow, CoreML, ONNX, ...)** |
+   | Export Capabilities | **Basic platforms (TensorFlow, CoreML, ONNX, ...)** |
 
 5. Select **Create project**.
 

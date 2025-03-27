@@ -29,7 +29,7 @@ For Microsoft Sentinel in the Azure portal, you can:
 
 - **Manage multiple workspaces with workspace manager**: Centrally manage multiple workspaces within one or more Azure tenants. For more information, see [Centrally manage multiple Microsoft Sentinel workspaces with workspace manager](workspace-manager.md).
 
-Only one Microsoft Sentinel workspace per tenant is currently supported in the unified security operations platform. For more information, see [Microsoft Defender multitenant management](/defender-xdr/mto-overview).
+Only one Microsoft Sentinel workspace per tenant is currently supported in the Microsoft Defender portal. For more information, see [Microsoft Defender multitenant management](/defender-xdr/mto-overview).
 
 ## Next steps
 

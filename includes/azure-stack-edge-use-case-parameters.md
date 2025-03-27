@@ -34,5 +34,5 @@ Azure Stack Edge is optimized for edge scenarios that typically involve hundreds
 Use the following links to get information about alternate infrastructure solutions:
 
 - [Azure Arc – Hybrid and multicloud management solution](https://azure.microsoft.com/products/azure-arc/#overview>).
-- [Azure Stack HCI – Hyperconverged infrastructure solution](https://azure.microsoft.com/products/azure-stack/hci/#overview>).
-- Explore the [HCI Integrated Systems catalog](https://azurestackhcisolutions.azure.microsoft.com/#/catalog).
+- [Azure Local infrastructure solution](https://azure.microsoft.com/products/azure-stack/hci/#overview>).
+- Explore the [Azure Local Integrated Systems catalog](https://azurestackhcisolutions.azure.microsoft.com/#/catalog).

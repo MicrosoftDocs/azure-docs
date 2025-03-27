@@ -4,7 +4,7 @@ description: Learn how to find help, get technical information or open a support
 author: maud-lv
 ms.service: azure-managed-grafana
 ms.topic: troubleshooting
-ms.date: 04/12/2024
+ms.date: 01/21/2025
 ms.author: malev
 ---
 
@@ -18,7 +18,7 @@ Before creating a support ticket, check out the following resources for answers 
 
 * [Technical documentation for Azure Managed Grafana](./index.yml): find content such as how-to guides, tutorials and the [troubleshooting guide](troubleshoot-managed-grafana.md) for Azure Managed Grafana.
 * [Microsoft Q&A](/answers/tags/249/azure-managed-grafana): browse existing questions and answers, and ask your questions around Azure Managed Grafana.
-* [Microsoft Technical Community](https://techcommunity.microsoft.com/) is the place for IT professionals and customers to collaborate, share, and learn. The website contains [Grafana-related content](https://techcommunity.microsoft.com/search?q=grafana).
+* [Microsoft Technical Community](https://techcommunity.microsoft.com/) is the place for IT professionals and customers to collaborate, share, and learn. The website contains [Grafana-related content](https://techcommunity.microsoft.com/tag/Azure%20Managed%20Grafana?nodeId=board%3AAzureObservabilityBlog)
 
 ## Open a support ticket
 
@@ -26,12 +26,13 @@ If you're unable to find answers using the above self-help resources, open an on
 
 ### How to open a support ticket for Azure Managed Grafana in the Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Open an Azure Managed Grafana instance.
-1. In the left menu, under **Support + troubleshooting**, select **New Support Request**.
+1. Open your Azure Managed Grafana workspace.
+1. In the left menu, under **Help**, select **Support + Troubleshooting**.
     :::image type="content" source="media/support/open-ticket.png" alt-text="Screenshot of how to find help and submit support ticket part 1.":::
-1. In the **1. Problem description** tab:
-   1. For **Summary**, describe your issue.
+1. Briefly describe your issue in the search bar and select **Go**.
+1. Provide additional details about the issue by selecting the appropriate options and then select **Next**.
+1. Review the answers and resources provided. If your problem persists, create a support request by selecting **Contact support** and then **Create a support request**.
+1. Follow the prompts to share more information as requested and select **Next**.
    1. For **Issue type**, select **Technical**.
    1. For **Subscription**, select your Azure subscription.
    1. For **Service**, select **Azure Managed Grafana**.
@@ -53,10 +54,7 @@ If you're unable to find answers using the above self-help resources, open an on
 
 1. If the details of your support ticket are accurate, select **Create** to submit the support ticket. Otherwise, select **Previous** to make corrections.
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Microsoft Q&A](/answers/tags/249/azure-managed-grafana)
+## Next step
 
 > [!div class="nextstepaction"]
 > [Troubleshooting](troubleshoot-managed-grafana.md)

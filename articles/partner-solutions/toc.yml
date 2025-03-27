@@ -20,8 +20,6 @@ items:
     href: ./elastic/index.yml
   - name: Informatica (Preview)
     href: ./informatica/index.yml
-  - name: Logz.io
-    href: ./logzio/index.yml
   - name: Neon Serverless Postgres (Preview)
     href: ./neon/index.yml 
   - name: New Relic

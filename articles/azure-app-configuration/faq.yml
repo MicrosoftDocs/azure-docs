@@ -105,8 +105,10 @@ sections:
         answer: |
           You can upgrade an App Configuration store at any time, for example, from the Free tier to the Standard or Premium tier, or from the Standard tier to the Premium tier.
           
-          You can't downgrade an App Configuration store, for example, from the Premium tier to the Standard tier, or from the Standard tier to the Free tier. However, you can create a new store in the desired tier and then [import configuration data into that store](howto-import-export-data.md).
+          You can downgrade an App Configuration store from the Premium tier to the Standard tier, as both tiers are designed for production usage. However, downgrading to a non-production tier, such as the Free tier, is not supported. To achieve this, you can create a new store in the desired tier and then [import configuration data into that store](howto-import-export-data.md).
           
+          Before downgrading an App Configuration store from the Premium tier to the Standard tier, ensure that your usage of regular storage and snapshot storage is below the limits of the Standard tier. You can verify your current usage through the [Azure Monitor metrics](monitor-app-configuration.md#analyzing-metrics), Daily Storage Usage and Snapshot Storage Size, of your App Configuration store in the Azure portal.
+
       - question: Where does data stored in App Configuration reside? 
         answer: |
           Customer data stored in App Configuration reside in the region where the customer's App Configuration store was created. Customer data is replicated to another region only if the customer enables [geo-replication](./concept-geo-replication.md) for that region. This applies to all available regions. Customers may move, copy, or access their data from any location globally.
@@ -129,11 +131,13 @@ sections:
         answer: |
           Let's take an example and assume you have an application with 1,000 configuration settings. Your application loads all those settings from App Configuration upon startup. After that, it checks for a sentinel key for configuration changes every 30 seconds. Whether you're running on Kubernetes, App Service, or VMs, let's assume you have 50 instances of your application running simultaneously.
 
-          Firstly, let's estimate the requests for configuration monitoring. Each instance of your application sends one request for the sentinel key to App Configuration every 30 seconds, so it sends 120 (=3600/30) requests in an hour. Given you have 50 instances of your application, your application sends 6,000 (=120x50) total requests every hour for configuration monitoring. Note that because the sentinel key requests are frequent and mostly unchanged, the majority of them don't count against the store hourly quota limits† for a Standard tier store.
+          Firstly, let's estimate the requests for configuration monitoring. Each instance of your application sends one request for the sentinel key* to App Configuration every 30 seconds, so it sends 120 (=3600/30) requests in an hour. Given you have 50 instances of your application, your application sends 6,000 (=120x50) total requests every hour for configuration monitoring. Note that because the sentinel key requests are frequent and mostly unchanged, the majority of them don't count against the store hourly quota limits† for a Standard tier store.
 
           Secondly, let's estimate the requests for configuration loading/reloading. Your application loads all settings at the startup or whenever a sentinel key change is detected. Each request to App Configuration can retrieve up to 100 key-values, so it takes 10 (=1000/100) requests to load all settings. Given you have 50 application instances, you send 500 (=10x50) total requests when your application restarts or reloads its configuration.
 
           Finally, let's put it together. Assuming you updated the sentinel key twice within an hour, your App Configuration store will thus receive 7,000 (=6,000+500x2) total requests for that hour. Note that out of these requests, only about 1,000 (=500x2) requests use the available hourly quota for a Standard tier store. Update the numbers in this example to match your specific setup and design accordingly so you have a sufficient buffer against the hourly quota limit.
+          
+          *Feature flags don't use the sentinel key for monitoring changes and are monitored separately from configuration. It takes one request to monitor every 100 feature flags per refresh interval.
           
           †Free tier stores don't have frequent, repeated requests excluded from their daily limit.
 

@@ -53,6 +53,7 @@ The following table indicates the recommended `WEBSITE_RUN_FROM_PACKAGE` values 
 + When deploying your function app to Windows, you should set `WEBSITE_RUN_FROM_PACKAGE` to `1` and publish with zip deployment.
 + When you run from a package, the `wwwroot` folder is read-only and you receive an error if you write files to this directory. Files are also read-only in the Azure portal.
 + The maximum size for a deployment package file is 1 GB.
+  + The deployment uses temporary storage when unpacking your project files. This means that your function app must have enough available temporary storage space to hold the contents of your package. Keep in mind that the temporary storage limit for a Consumption plan is [500 MB per plan](functions-scale.md#service-limits). To learn about how to troubleshoot issues with temporary storage, see [How to troubleshoot temporary storage on Azure App Service](/troubleshoot/azure/app-service/temporary-storage-for-azure-app-service).
 + You can't use the local cache when running from a deployment package.
 + If your project needs to use remote build, don't use the `WEBSITE_RUN_FROM_PACKAGE` app setting. Instead, add the `SCM_DO_BUILD_DURING_DEPLOYMENT=true` deployment customization app setting. For Linux, also add the `ENABLE_ORYX_BUILD=true` setting. For more information, see [Remote build](functions-deployment-technologies.md#remote-build).
 

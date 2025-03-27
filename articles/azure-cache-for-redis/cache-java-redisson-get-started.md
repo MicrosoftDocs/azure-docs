@@ -2,12 +2,14 @@
 title: "Quickstart: Use Azure Cache for Redis in Java with Redisson Redis client"
 description: In this quickstart, you create a new Java app that uses Azure Cache for Redis and Redisson as Redis client.
 author: KarlErickson
-ms.author: zhihaoguo
+ms.author: karler
+ms.reviewer: zhihaoguo
 ms.date: 01/18/2024
 ms.topic: quickstart
 ms.devlang: java
 ms.custom: mvc, seo-java-january2024, seo-java-february2024, mode-api, devx-track-java, devx-track-extended-java, devx-track-javaee, ignite-2024
 #Customer intent: As a Java developer, new to Azure Cache for Redis, I want to create a new Java app that uses Azure Cache for Redis and Redisson as Redis client.
+zone_pivot_groups: redis-type
 ---
 
 # Quickstart: Use Azure Cache for Redis in Java with Redisson Redis client
@@ -24,9 +26,23 @@ This quickstart uses the Maven archetype feature to generate the scaffolding for
 - [Use Microsoft Entra ID for cache authentication](cache-azure-active-directory-for-authentication.md)
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
-## Create an Azure Cache for Redis
+::: zone pivot="azure-managed-redis"
+
+## Create an Azure Managed Redis (preview) instance
+
+[!INCLUDE [managed-redis-create](includes/managed-redis-create.md)]
+
+::: zone-end
+
+::: zone pivot="azure-cache-redis"
+
+## Create an Azure Cache for Redis instance
 
 [!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
+
+[!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
+
+::: zone-end
 
 ## Set up the working environment
 
@@ -57,13 +73,13 @@ This quickstart uses the Maven archetype feature to generate the scaffolding for
    <dependency>
        <groupId>com.azure</groupId>
        <artifactId>azure-identity</artifactId>
-       <version>1.11.2</version> <!-- {x-version-update;com.azure:azure-identity;dependency} -->
+       <version>1.15.0</version> <!-- {x-version-update;com.azure:azure-identity;dependency} -->
    </dependency>
 
    <dependency>
        <groupId>org.redisson</groupId>
        <artifactId>redisson</artifactId>
-       <version>3.27.0</version> <!-- {x-version-update;org.redisson:redisson;external_dependency} -->
+       <version>3.36.0</version> <!-- {x-version-update;org.redisson:redisson;external_dependency} -->
    </dependency>
    ```
 
@@ -75,7 +91,7 @@ This quickstart uses the Maven archetype feature to generate the scaffolding for
    <dependency>
        <groupId>org.redisson</groupId>
        <artifactId>redisson</artifactId>
-       <version>3.27.0</version> <!-- {x-version-update;org.redisson:redisson;external_dependency} -->
+       <version>3.36.0</version> <!-- {x-version-update;org.redisson:redisson;external_dependency} -->
    </dependency>
    ```
 
@@ -149,7 +165,7 @@ This quickstart uses the Maven archetype feature to generate the scaffolding for
            // Connect to the Azure Cache for Redis over the TLS/SSL port using the key
            Config redissonconfig = new Config();
            redissonconfig.useSingleServer()
-                   .setAddress(String.format("rediss://%s:6380", System.getenv("REDIS_CACHE_HOSTNAME")))
+                   .setAddress(String.format("rediss://%s:%s", System.getenv("REDIS_CACHE_HOSTNAME"),  System.getenv("REDIS_CACHE_PORT")))
                    .setUsername(System.getenv("USER_NAME")) // (Required) Username is Object ID of your managed identity or service principal
                    .setPassword(token); // Microsoft Entra access token as password is required.
            return redissonconfig;
@@ -213,7 +229,7 @@ This quickstart uses the Maven archetype feature to generate the scaffolding for
            // Connect to the Azure Cache for Redis over the TLS/SSL port using the key
            Config redissonconfig = new Config();
            redissonconfig.useSingleServer().setPassword(System.getenv("REDIS_CACHE_KEY"))
-                   .setAddress(String.format("rediss://%s:6380", System.getenv("REDIS_CACHE_HOSTNAME")));
+                   .setAddress(String.format("rediss://%s:%s", System.getenv("REDIS_CACHE_HOSTNAME"), System.getenv("REDIS_CACHE_PORT")));
            return redissonconfig;
        }
    }

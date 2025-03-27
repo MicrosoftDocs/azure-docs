@@ -5,7 +5,7 @@ author: nabhishek
 ms.author: abnarain
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ---
 
 # Use Azure Key Vault secrets in pipeline activities

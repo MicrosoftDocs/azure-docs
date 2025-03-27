@@ -2,12 +2,12 @@
 title: "Tutorial: Configure item-level backup for an Azure Kubernetes Service cluster"
 description: Learn how to configure backup for an Azure Kubernetes Service (AKS) cluster, and use Azure Backup to back up specific items from the cluster.
 ms.topic: tutorial
-ms.date: 10/01/2024
+ms.date: 01/21/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Tutorial: Configure item-level backup for an Azure Kubernetes Service cluster
@@ -114,4 +114,4 @@ The Backup vault communicates with the cluster via the Backup extension to compl
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Restore a backup for an AKS cluster](./azure-kubernetes-service-cluster-restore.md)
+> Restore a backup for an AKS cluster using [Azure portal](./azure-kubernetes-service-cluster-restore.md), [Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md)

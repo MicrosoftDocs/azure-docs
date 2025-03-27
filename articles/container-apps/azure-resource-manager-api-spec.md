@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: reference
-ms.date: 12/04/2024
+ms.date: 01/23/2025
 ms.author: cshoe
 ms.custom: build-2023
 ---
@@ -295,7 +295,17 @@ The following example ARM template snippet deploys a container app.
               "mountPath": "/mysecrets",
               "volumeName": "mysecrets"
             }
-              ]
+          ],
+          "env": [
+            {
+              "name": "non-secret-env-var",
+              "value": "non-secret env var value"
+            },
+            {
+              "name": "secret-env-var",
+              "secretRef": "mysecret"
+            }
+          ]
         }
       ],
       "initContainers": [
@@ -312,6 +322,16 @@ The following example ARM template snippet deploys a container app.
           "args": [
             "-c",
             "while true; do echo hello; sleep 10;done"
+          ],
+          "env": [
+            {
+              "name": "non-secret-env-var",
+              "value": "non-secret env var value"
+            },
+            {
+              "name": "secret-env-var",
+              "secretRef": "mysecret"
+            }
           ]
         }
       ],
@@ -452,6 +472,11 @@ properties:
         volumeName: azure-files-volume
       - mountPath: "/mysecrets"
         volumeName: mysecrets
+      env:
+      - name: "non-secret-env-var"
+        value: "non-secret env var value"
+      - name: "secret-env-var"
+        secretRef: "mysecret"
     initContainers:
     - image: repo/testcontainerApp0:v4
       name: testinitcontainerApp0
@@ -463,6 +488,11 @@ properties:
       args:
       - "-c"
       - while true; do echo hello; sleep 10;done
+      env:
+      - name: "non-secret-env-var"
+        value: "non-secret env var value"
+      - name: "secret-env-var"
+        secretRef: "mysecret"
     scale:
       minReplicas: 1
       maxReplicas: 5

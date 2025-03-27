@@ -5,9 +5,9 @@ ms.service: role-based-access-control
 ms.topic: reference
 ms.workload: identity
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 12/12/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -1333,17 +1333,17 @@ Lets you manage everything under your Modeling and Simulation Workbench chamber.
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/*/read |  |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/* |  |
+> | Microsoft.ModSimWorkbench/*/read |  |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/* |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | **NotActions** |  |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/fileRequests/manage/action | manage fileRequests |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/connector/setCopyPaste/action |  |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/fileRequests/manage/action |  |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/connector/setCopyPaste/action |  |
 > | **DataActions** |  |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/upload/action |  |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/files/* |  |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/upload/action |  |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/files/* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -1390,17 +1390,17 @@ Lets you view everything under your Modeling and Simulation Workbench chamber, b
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/*/read |  |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/workloads/* |  |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/getUploadUri/action | getUploadUri chambers |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/fileRequests/getDownloadUri/action | getDownloadUri fileRequests |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/*/read |  |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/workloads/* |  |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/getUploadUri/action |  |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/fileRequests/getDownloadUri/action |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/upload/action |  |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/upload/action |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 

@@ -1,2 +1,0 @@
-> [!IMPORTANT]
-> Cloud Services (classic) is now deprecated for all customers as of September 1st, 2024. Any existing running deployments will be stopped and shut down by Microsoft and the data will be permanently lost starting October 2024. New deployments should use the new Azure Resource Manager based deployment model **[Azure Cloud Services (extended support)](../../cloud-services-extended-support/overview.md)**. 

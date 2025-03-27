@@ -1,12 +1,12 @@
 ---
-title: Asset and device development introduction
+title: IoT asset and device development
 description: An overview of Azure IoT asset and device development including an introduction to the device SDKs, modeling, IoT Edge modules, and a survey of the available tools.
 ms.service: azure-iot
 services: iot
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 02/28/2024
+ms.date: 01/20/2025
 ms.custom: template-overview
 # Customer intent: As a solution builder or asset/device developer I want a high-level overview of the issues around asset and device development so that I can easily find relevant content.
 ---
@@ -18,6 +18,8 @@ This overview introduces the key concepts around developing assets and devices t
 # [Edge-based solution](#tab/edge)
 
 The following diagram shows a high-level view of the components in a typical edge-based IoT solution. This article focuses on the assets and connectors shown in the diagram:
+
+<!-- Art Library Source# ConceptArt-0-000-025 -->
 
 :::image type="content" source="media/iot-overview-device-development/iot-edge-device-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting asset connectivity areas." border="false":::
 
@@ -32,6 +34,8 @@ You can create your own, custom connectors to connect to assets that use protoco
 # [Cloud-based solution](#tab/cloud)
 
 The following diagram shows a high-level view of the components in a typical cloud-based IoT solution. This article focuses on the devices and gateway shown in the diagram:
+
+<!-- Art Library Source# ConceptArt-0-000-025 -->
 
 :::image type="content" source="media/iot-overview-device-development/iot-cloud-device-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting device connectivity areas." border="false":::
 
@@ -48,7 +52,7 @@ In Azure IoT, a device developer writes the code to run on the devices in the so
 
 ## Asset and device types
 
-An IoT solution can contain many types of [assets](iot-glossary.md#asset) and [devices](iot-glossary.md#device). You typically find devices in cloud-based solutions and assets in edge-based solutions. It's also possible to have a hybrid solutions that contain both devices and assets.
+An IoT solution can contain many types of [assets](iot-glossary.md#asset) and [devices](iot-glossary.md#device). You typically find devices in cloud-based solutions and assets in edge-based solutions. It's also possible to have a hybrid solution that contain both devices and assets.
 
 # [Edge-based solution](#tab/edge)
 
@@ -135,7 +139,7 @@ Although you're recommended to use one of the device SDKS, there might be scenar
 
 For more information, see:
 
-- [Using the MQTT protocol directly (as a device)](iot-mqtt-connect-to-iot-hub.md#using-the-mqtt-protocol-directly-as-a-device)
+- [Using the MQTT protocol directly (as a device)](iot-mqtt-connect-to-iot-hub.md#use-the-mqtt-protocol-directly-from-a-device)
 - [Using the AMQP protocol directly (as a device)](../iot-hub/iot-hub-amqp-support.md#device-client)
 
 ---
@@ -192,7 +196,7 @@ If you use containers, such as in Docker, to run your device code you can deploy
 Azure IoT Edge runs device code in containers. You can use Azure IoT Edge to deploy code modules to your devices. To learn more, see [Develop your own IoT Edge modules](../iot-edge/module-development.md).
 
 > [!TIP]
-> Azure IoT Edge enables multiple scenarios. In addition to running your IoT device code in containers, you can use Azure IoT Edge to run Azure services on your devices and implement [field gateways](iot-overview-device-connectivity.md#field-gateways). For more information, see [What is Azure IoT Edge?](../iot-edge/about-iot-edge.md)
+> Azure IoT Edge enables multiple scenarios. In addition to running your IoT device code in containers, you can use Azure IoT Edge to run Azure services on your devices and implement [field gateways](iot-overview-device-connectivity.md#edge-gateways). For more information, see [What is Azure IoT Edge?](../iot-edge/about-iot-edge.md)
 
 ---
 

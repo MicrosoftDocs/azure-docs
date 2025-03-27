@@ -5,9 +5,9 @@ ms.service: role-based-access-control
 ms.topic: reference
 ms.workload: identity
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 01/09/2025
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -169,6 +169,13 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.IoTSecurity](./permissions/internet-of-things.md#microsoftiotsecurity) |  | [IoT security](/azure/iot/iot-security-architecture) |
 > | [Microsoft.StreamAnalytics](./permissions/internet-of-things.md#microsoftstreamanalytics) | Real-time data stream processing from millions of IoT devices. | [Stream Analytics](/azure/stream-analytics/) |
 
+## Mixed reality
+
+> [!div class="mx-tableFixed"]
+> | Resource provider | Description | Azure service |
+> | --- | --- | --- |
+> | [Microsoft.MixedReality](./permissions/mixed-reality.md#microsoftmixedreality) | Blend your physical and digital worlds to create immersive, collaborative experiences. |  |
+
 <a name='microsoftapimanagement'></a>
 
 ## Integration
@@ -185,7 +192,6 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.HealthcareApis](./permissions/integration.md#microsofthealthcareapis) |  | [Azure API for FHIR](/azure/healthcare-apis/azure-api-for-fhir/) |
 > | [Microsoft.HealthDataAIServices](./permissions/integration.md#microsofthealthdataaiservices) |  | [Azure Health Data Services](/azure/healthcare-apis/healthcare-apis-overview) |
 > | [Microsoft.Logic](./permissions/integration.md#microsoftlogic) | Automate the access and use of data across clouds without writing code. | [Logic Apps](/azure/logic-apps/) |
-> | [Microsoft.ModSimWorkbench](./permissions/integration.md#microsoftmodsimworkbench) |  | [Azure Modeling and Simulation Workbench](/azure/modeling-simulation-workbench/modeling-simulation-workbench-overview) |
 > | [Microsoft.NotificationHubs](./permissions/integration.md#microsoftnotificationhubs) | Send push notifications to any platform from any back end. | [Notification Hubs](/azure/notification-hubs/) |
 > | [Microsoft.Relay](./permissions/integration.md#microsoftrelay) | Expose services that run in your corporate network to the public cloud. | [Azure Relay](/azure/azure-relay/relay-what-is-it) |
 > | [Microsoft.ResourceNotifications](./permissions/integration.md#microsoftresourcenotifications) |  | [Azure Event Grid](/azure/event-grid/overview) |

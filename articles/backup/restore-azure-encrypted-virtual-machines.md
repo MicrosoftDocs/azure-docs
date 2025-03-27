@@ -2,9 +2,9 @@
 title: Restore encrypted Azure VMs
 description: Describes how to restore encrypted Azure VMs with the Azure Backup service.
 ms.topic: how-to
-ms.date: 11/22/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 03/27/2025
+author: jyothisuri
+ms.author: jsuri
 ---
 # Restore encrypted Azure virtual machines
 
@@ -43,7 +43,7 @@ When your virtual machine uses managed disks and you select the **Create virtual
 When your virtual machine uses unmanaged disks, they're restored as blobs to the storage account.
 
    > [!NOTE]
-   > After you restore the VM disk, you can manually swap the OS disk of the original VM with the restored VM disk without re-creating it. [Learn more](https://azure.microsoft.com/blog/os-disk-swap-managed-disks/).
+   > After you restore the VM disk, you can manually swap the OS disk of the original VM with the restored VM disk without re-creating it. [Learn more](/azure/virtual-machines/windows/os-disk-swap).
 
 ### Step 2: Recreate the virtual machine instance 
 

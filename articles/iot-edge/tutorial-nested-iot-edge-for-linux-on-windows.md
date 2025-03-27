@@ -114,7 +114,7 @@ You create a group of nested edge devices with containing a parent device with o
    az iot edge devices create \
       --hub-name <hub-name> \
       --output-path <config-bundle-output-path> \
-      --default-edge-agent "mcr.microsoft.com/azureiotedge-agent:1.4" \
+      --default-edge-agent "mcr.microsoft.com/azureiotedge-agent:1.5" \
       --device id=<parent-device-name> \
          deployment=<parent-deployment-manifest> \
          hostname=<parent-fqdn-or-ip> \
@@ -130,7 +130,7 @@ You create a group of nested edge devices with containing a parent device with o
    az iot edge devices create \
       --hub-name my-iot-hub \
       --output-path ./output \
-      --default-edge-agent "mcr.microsoft.com/azureiotedge-agent:1.4" \
+      --default-edge-agent "mcr.microsoft.com/azureiotedge-agent:1.5" \
       --device id=parent-1 \
          deployment=./deploymentTopLayer.json \
          hostname=10.0.0.4 \
@@ -362,17 +362,17 @@ If a downstream device has a different processor architecture from the parent de
 
 ```toml
 [agent.config]
-image = "$upstream:443/azureiotedge-agent:1.4.10-linux-amd64"
+image = "$upstream:443/azureiotedge-agent:1.5.15-linux-amd64"
 
 "systemModules": {
    "edgeAgent": {
       "settings": {
-            "image": "$upstream:443/azureiotedge-agent:1.4.10-linux-amd64"
+            "image": "$upstream:443/azureiotedge-agent:1.5.15-linux-amd64"
       },
    },
    "edgeHub": {
       "settings": {
-            "image": "$upstream:443/azureiotedge-hub:1.4.10-linux-amd64",
+            "image": "$upstream:443/azureiotedge-hub:1.5.15-linux-amd64",
       }
    }
 }
