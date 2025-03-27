@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 11/30/2024
+  ms.date: 03/27/2025
   author: jyothisuri
   ms.author: jsuri
 
@@ -431,6 +431,10 @@ sections:
           Storage Spaces Direct is not supported since it has data spread across two different virtual machines.
 
           Storage spaces in a single VM not supported for application consistent VM backup. For application consistent VM backup, VSS freezes the I/O and ensures that disk snapshots are consistent. Storage Spaces can still perform writes in the background, breaking the application consistent guarantee. This can result in a small probability that the backup taken is not application consistent. Today, backup and recovery of VM with storage spaces is not blocked in the product.
+
+      - question: What is directory "/var/log/azure/Microsoft.Azure.RecoveryServices.VMSnapshotLinux"?
+        answer: |
+          This is the directory used by Backup Extension VMSnapshotLinux and it gets created when backups are enabled on VM using Recovery Services Vault. Logs are written in this location during backups, restores or extension operations such as schedule updates, generally they should use up only a few GB and the size of the logs is not proportional with the size of the backup. 
 
       - question: If I remove one of the disks from VM and increase the size of existing disk,what happens to the backups and if next backup create Full Backup for all disk?
         answer: |
