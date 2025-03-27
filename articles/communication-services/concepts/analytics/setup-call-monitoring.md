@@ -21,7 +21,7 @@ This guide will help ACS Calling customers set up monitoring and alerting for th
 
 ## Prerequisite: Enable Call Logging and Diagnostics
 
-Before configuring monitoring, ensure that call logging and diagnostics are enabled for your Direct Routing setup. This process involves configuring Azure Communication Services (ACS) to collect call data. Detailed instructions can be found here: [Azure Communication Services-Enable Azure Monitor - An Azure Communication Services concept document | Microsoft Learn](./enable-logging).
+Before configuring monitoring, ensure that call logging and diagnostics are enabled for your Direct Routing setup. This process involves configuring Azure Communication Services (ACS) to collect call data. Detailed instructions can be found here: [Enable Azure Monitor](enable-logging.md).
 
 ## Step-by-Step Instructions
 
@@ -60,23 +60,23 @@ Before configuring monitoring, ensure that call logging and diagnostics are enab
 2.  Select your Subscription, Resource group & Region.
 3.  Provide an Action group name and Display name, and then click on **Next: Notifications**. 
 
-:::image type="content" source="media\setup-call-monitoring\create-action-group" alt-text="Create Action Group":::
+:::image type="content" source="media\setup-call-monitoring\create-action-group.png" alt-text="Create Action Group":::
 
 ### Set Up Notifications
 
 1.  Choose how you want to get notified and once done, click on **Review + create**, and wait for your alert rule to get created. 
 
-:::image type="content" source="media\setup-call-monitoring\setup-notifications" alt-text="Set Up Notifications":::
+:::image type="content" source="media\setup-call-monitoring\setup-notifications.png" alt-text="Set Up Notifications":::
 
 2.  Once completed, click on **Next: Details**.
 3.  Provide the additional requested details as shown in the screen below.
 4.  Click on **Review + create**.
 5.  Congratulations, you can now monitor your ACS calling setup! 
 
-:::image type="content" source="media\setup-call-monitoring\alert-rule-details" alt-text="Set Up Alert Rule Details":::
+:::image type="content" source="media\setup-call-monitoring\alert-rule-details.png" alt-text="Set Up Alert Rule Details":::
 
 * * * 
 Here’s what a sample email alert looks like when triggered: Email Alert
 
-:::image type="content" source="media\setup-call-monitoring\sample-email-alert" alt-text="Sample Email Alert":::
+:::image type="content" source="media\setup-call-monitoring\sample-email-alert.png" alt-text="Sample Email Alert":::
 
