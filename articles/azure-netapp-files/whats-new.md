@@ -58,7 +58,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     - Dependency updates:
         - Updated to .NET 8 (List of supported operation systems [.NET 8 - Supported OS versions](https://github.com/dotnet/core/blob/main/release-notes/8.0/supported-os.md))
         - Azure SDK updated to Track 2 (latest security and significant performance improvements)
-    - Fixes and Improvements:
+    - Fixes and improvements:
         - (NEW) Configurable Data Volume backup attempts
         - Backup (-c backup) changes: Storage snapshot retention management is now performed after the database exits "backup-mode" to minimize the duration the database remains in a "backup-enabled" state.
  
