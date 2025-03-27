@@ -64,7 +64,7 @@ Azure Key Vault is the recommended way to sync the connection string to the Kube
     | --------------------- | ----------------------------------------------------------------- |
     | Name                  | The name of the data flow endpoint. |
     | Host                  | The hostname of the event stream custom endpoint in the format `*.servicebus.windows.net:9093`. Use the bootstrap server address noted previously. |
-    | Authentication method | *SASL* is the currently the only supported authentication method. |
+    | Authentication method | *SASL* is currently the only supported authentication method. |
     | SASL type             | Choose *Plain* |
     | Synced secret name    | Enter a name for the synced secret. A Kubernetes secret with this name is created on the cluster. |
 
