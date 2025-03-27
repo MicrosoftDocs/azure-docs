@@ -1,5 +1,5 @@
 ---
-title: Import an SAP API using the Azure portal | Microsoft Docs
+title: Import an SAP API by Using the Azure Portal | Microsoft Docs
 titleSuffix:
 description: Learn how to import OData metadata from SAP as an API to Azure API Management, either directly or by converting the metadata to an OpenAPI specification.
 ms.service: azure-api-management
@@ -9,46 +9,51 @@ author: martinpankraz
 ms.author: mapankra
 ms.topic: how-to
 ms.date: 03/31/2025
+
+#customer intent: As an API developer, I want to import an SAP API to API Management.
 ---
 
 # Import SAP OData metadata as an API
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-This article shows how to import an OData service using its metadata description. In this article, [SAP Gateway Foundation](https://help.sap.com/viewer/product/SAP_GATEWAY) serves as an example. 
+This article describes how to import an OData service by using its metadata description. [SAP Gateway Foundation](https://help.sap.com/viewer/product/SAP_GATEWAY) is used as an example. 
 
-In this article, you'll: 
+In this article, you: 
 > [!div class="checklist"]
 > * Retrieve OData metadata from your SAP service
-> * Import OData metadata to API Management, either directly or after conversion to an OpenAPI specification
+> * Import OData metadata to Azure API Management, either directly or after converting it to an OpenAPI specification
 > * Complete API configuration
 > * Test the API in the Azure portal
 
 ## Prerequisites
 
-- An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
-- An SAP system and service exposed as OData v2 or v4. 
-- If your SAP backend uses a self-signed certificate (for test purposes), you may need to disable the verification of the trust chain for SSL. To do so, configure a [backend](backends.md) in your API Management instance:
+- An API Management instance. If you don't have one, complete the steps in  [Create an API Management instance by using the Azure portal](get-started-create-service-instance.md).
+- An SAP system and service that's exposed as OData v2 or v4. 
+- If your SAP backend uses a self-signed certificate (for testing), you might need to disable the verification of the trust chain for SSL. To do so, configure a [backend](backends.md) in your API Management instance:
     1. In the Azure portal, under **APIs**, select **Backends** > **+ Add**.
-    1.  Add a **Custom URL** pointing to the SAP backend service.
-    1.  Uncheck **Validate certificate chain** and **Validate certificate name**. 
+    1.  Add a **Custom URL** that points to the SAP backend service.
+    1.  Clear the **Validate certificate chain** and **Validate certificate name** checkboxes. 
 
     > [!NOTE]
-    > For production scenarios, use proper certificates for end-to-end SSL verification.
+    > In production scenarios, use proper certificates for end-to-end SSL verification.
+
 ## Retrieve OData metadata from your SAP service
 
-Retrieve metadata XML from your SAP service, using one of the following methods. If you plan to convert the metadata XML to an OpenAPI specification, save the file locally. 
+Use one of the following methods to retrieve metadata XML from your SAP service. If you plan to convert the metadata XML to an OpenAPI specification, save the file locally. 
 
-* Use the SAP Gateway Client (transaction `/IWFND/GW_CLIENT`), or 
+* Use the SAP Gateway Client (transaction `/IWFND/GW_CLIENT`).  
+  or
 * Make a direct HTTP call to retrieve the XML:
-`http://<OData server URL>:<port>/<path>/$metadata`
-
+`http://<OData server URL>:<port>/<path>/$metadata`.
 
 [!INCLUDE [api-management-navigate-to-instance](../../includes/api-management-navigate-to-instance.md)]
 
-## Import API to API Management
+## Import an API to API Management
 
-Choose one of the following methods to import your API to API Management: import the metadata XML as an OData API directly, or convert the metadata XML to an OpenAPI specification.
+Choose one of the following methods to import your API to API Management: 
+- Import the metadata XML as an OData API directly.
+- Convert the metadata XML to an OpenAPI specification.
 
 #### [OData metadata](#tab/odata)
 
