@@ -2,7 +2,7 @@
 title: Role-based access control for Azure Batch service
 description: Learn how to use Azure role-based access control for managing individual access to Azure Batch account.
 ms.topic: how-to
-ms.date: 12/11/2024
+ms.date: 03/27/2025
 ---
 
 # Role-based access control for Azure Batch service
@@ -73,11 +73,11 @@ Grants full access to manage all Batch resources, including Batch accounts, pool
 > | [Microsoft.Insights](/azure/role-based-access-control/permissions/monitor#microsoftinsights)/alertRules/* | Create and manage a classic metric alert. |
 > | [Microsoft.Resources](/azure/role-based-access-control/permissions/management-and-governance#microsoftresources)/deployments/* | Create and manage a deployment. |
 > | [Microsoft.Resources](/azure/role-based-access-control/permissions/management-and-governance#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.Batch](/azure/role-based-access-control/permissions/compute#microsoftbatch)/batchAccounts/* |  |
+> | [Microsoft.Batch](/azure/role-based-access-control/permissions/compute#microsoftbatch)/* |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.Batch](/azure/role-based-access-control/permissions/compute#microsoftbatch)/batchAccounts/* |  |
+> | [Microsoft.Batch](/azure/role-based-access-control/permissions/compute#microsoftbatch)/* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -92,13 +92,13 @@ Grants full access to manage all Batch resources, including Batch accounts, pool
         {
             "actions": [
                 "Microsoft.Authorization/*/read",
-                "Microsoft.Batch/batchAccounts/*",
+                "Microsoft.Batch/*",
                 "Microsoft.Insights/alertRules/*",
                 "Microsoft.Resources/deployments/*",
                 "Microsoft.Resources/subscriptions/resourceGroups/read"
             ],
             "dataActions": [
-                "Microsoft.Batch/batchAccounts/*"
+                "Microsoft.Batch/*"
             ],
             "notActions": [],
             "notDataActions": []
@@ -116,8 +116,7 @@ Lets you view all resources including pools and jobs in the Batch account.
 
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Batch](/azure/role-based-access-control/permissions/compute#microsoftbatch)/batchAccounts/read | Lists Batch accounts or gets the properties of a Batch account. |
-> | [Microsoft.Batch](/azure/role-based-access-control/permissions/compute#microsoftbatch)/batchAccounts/*/read | View all resources in Batch account. |
+> | [Microsoft.Batch](/azure/role-based-access-control/permissions/compute#microsoftbatch)/*/read | View all resources in Batch account. |
 > | [Microsoft.Resources](/azure/role-based-access-control/permissions/management-and-governance#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | **NotActions** |  |
 > | *none* |  |
@@ -136,12 +135,11 @@ Lets you view all resources including pools and jobs in the Batch account.
     "permissions": [
         {
             "actions": [
-                "Microsoft.Batch/batchAccounts/read",
-                "Microsoft.Batch/batchAccounts/*/read",
+                "Microsoft.Batch/*/read",
                 "Microsoft.Resources/subscriptions/resourceGroups/read"
             ],
             "dataActions": [
-                "Microsoft.Batch/batchAccounts/*/read"
+                "Microsoft.Batch/*/read"
             ],
             "notActions": [],
             "notDataActions": []
