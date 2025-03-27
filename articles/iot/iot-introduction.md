@@ -44,7 +44,7 @@ An edge-based solution can still forward data from your assets to the cloud for 
 
 :::image type="content" source="media/iot-introduction/iot-edge-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture for edge-based solutions." border="false":::
 
-You can build edge-based solutions with [Azure IoT Operations](../iot-operations/overview-iot-operations.md) or [Azure IoT Edge](../iot-edge/about-iot-edge.md). Azure IoT Operations is a new offering that follows Microsoft's [adaptive cloud approach](iot-services-and-technologies.md#choose-adaptive-cloud) to integrate cloud and edge components.
+You can build edge-based solutions with [Azure IoT Operations](../iot-operations/overview-iot-operations.md) or [Azure IoT Edge](../iot-edge/about-iot-edge.md). Azure IoT Operations is a new offering that follows Microsoft's [adaptive cloud approach](#solution-management) to integrate cloud and edge components.
 
 ## Devices, assets, and connectivity
 
@@ -114,6 +114,8 @@ In an edge-based solution, IoT assets connect to an edge environment that proces
 
 In the edge-based solution diagram shown previously, the *southbound connectors* represent the protocols and standards that assets use to connect to the edge environment.
 
+To learn more about processing messages sent from your assets and devices, see [Message processing in an IoT solution](iot-overview-message-processing.md).
+
 ### Device and asset comparisons
 
 The following table summarizes current options for assets, devices, and connectivity:
@@ -141,6 +143,8 @@ In a cloud-based IoT solution, the IoT cloud services typically:
 
 For example, in a remote monitoring solution for an oil pumping station, the services use sensor data from the pumps to identify anomalous behavior. When a cloud service identifies an anomaly, it can automatically send a command to the device to take a corrective action. This process implements an automated feedback loop between the device and the cloud that greatly increases the solution efficiency.
 
+To learn more about key concepts around managing and controlling assets and devices, see [IoT asset and device management and control](iot-overview-device-management.md).
+
 ### Edge runtime
 
 In an edge-based IoT solution, the on-premises services hosted in the edge runtime environment typically:
@@ -159,6 +163,11 @@ Both cloud-based and edge-based solutions can use other cloud services to provid
 - Microsoft Fabric to store and analyze sensor data.
 - Microsoft Power BI to visualize sensor data.
 
+To learn more, see:
+
+- [Extend your IoT solution](iot-overview-solution-extensibility.md)
+- [Analyze and visualize your IoT data](iot-overview-analyze-visualize.md)
+
 ### IoT services comparisons
 
 The following table summarizes current service and edge application options:
@@ -168,6 +177,22 @@ The following table summarizes current service and edge application options:
 | Services                  | [IoT Hub](../iot-hub/index.yml), [IoT DPS](../iot-dps/index.yml), [IoT Hub Device Update](../iot-hub-device-update/index.yml), [Azure Digital Twins](../digital-twins/index.yml) | [Azure IoT Operations](../iot-operations/overview-iot-operations.md), with [Azure Device Registry](../iot-operations/discover-manage-assets/overview-manage-assets.md). You can also use [IoT Edge](../iot-edge/index.yml).  |
 | Edge applications options | None                                                  | [DAPR](../iot-operations/create-edge-apps/howto-deploy-dapr.md) (distributed application runtime apps). With [IoT Edge](../iot-edge/index.yml), you can use IoT Edge modules.           |
 
+## Solution-wide concerns
+
+Any IoT solution must address the following solution-wide concerns:
+
+- [Solution management](iot-overview-solution-management.md) including deployment and monitoring.
+- [Security](iot-overview-security.md) including physical security, authentication, authorization, and encryption.
+- [Scalability, high availability and disaster recovery](iot-overview-scalability-high-availability.md) for all the components in your solution.
+
+### Solution management
+
+The [adaptive cloud](/azure/adaptive-cloud/) approach unifies siloed teams, distributed sites, and disparate systems into a single operations, security, application, and data model. This approach enables you to use the same cloud and AI technologies to manage and monitor edge-based, cloud-based, and hybrid IoT solutions.
+
+Solutions based on IoT Hub, IoT Central, and IoT Edge offer limited support for an adaptive cloud approach. Although IoT Hub, IoT Central, and IoT Edge instances are themselves Azure resources, they don't natively expose capabilities, such as device management and data transformation, as resources you can manage as standard Azure resources.
+
+In contrast, solutions based on Azure IoT Operations provide a unified management experience for all the components in your solution. Azure IoT Operations uses Azure Arc-enabled services to manage and monitor your edge-based solution as if it were a cloud-based solution. For example, assets and data transformations running on the edge are exposed as cloud resources in Azure. This approach enables you to use standard Azure technologies to manage and monitor your entire edge-based solution.
+
 ### Deployment comparisons
 
 The following table summarizes current deployment options:
@@ -176,14 +201,6 @@ The following table summarizes current deployment options:
 |------------------------|----------------------|---------------------|
 | Topology               | Devices connect directly to cloud messaging services such as [IoT Hub](../iot-hub/index.yml). Managed in the cloud using Azure Resource Manager (ARM) or [IoT Hub service SDKs](iot-sdks.md#iot-hub-service-sdks).  | [Azure IoT Operations](../iot-operations/overview-iot-operations.md) provides a way to connect assets to an on-premises Kubernetes cluster. Assets connect to the Azure IoT Operations MQTT broker, either directly over standard networking protocols, or through intermediate devices. Managed in the cloud using Azure Arc-enabled services. You can also use [IoT Edge](../iot-edge/index.yml), which runs on a gateway device like an industrial PC, and provides cloud connectivity for devices by connecting to [IoT Hub](../iot-hub/index.yml). |
 | Infrastructure         | Cloud services like [IoT Hub](../iot-hub/index.yml), and standard computing devices that contain a CPU/MPU, or constrained and embedded devices that contain an MCU. | [Azure IoT Operations](../iot-operations/overview-iot-operations.md), which runs on a Kubernetes cluster, and assets or devices that connect to the cluster. You can also use [IoT Edge](../iot-edge/index.yml), which runs on a gateway device like a Raspberry Pi or an industrial PC, and devices that connect to the gateway device. Devices can include standard computing devices that contain a CPU/MPU, or constrained and embedded devices that contain an MCU. |
-
-## Solution-wide concerns
-
-Any IoT solution must address the following solution-wide concerns:
-
-- [Solution management](iot-overview-solution-management.md) including deployment and monitoring.
-- [Security](iot-overview-security.md) including physical security, authentication, authorization, and encryption.
-- [Scalability, high availability and disaster recovery](iot-overview-scalability-high-availability.md) for all the components in your solution.
 
 ### Security comparisons
 
