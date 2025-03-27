@@ -24,7 +24,7 @@ Private clouds are installed and managed within an Azure subscription. The numbe
 
 The following diagram describes the architectural components of the Azure VMware Solution.
 
-:::image type="content" source="media/concepts/hosts-clusters-private-clouds-final.png" alt-text="Diagram illustrating a single Azure subscription containing two private clouds for development and production environments." border="false"  lightbox="media/concepts/hosts-clusters-private-clouds-final.png":::
+:::image type="content" source="media/concepts/hosts-clusters-private-clouds-final.png" alt-text="Diagram that shows a single Azure subscription that contains two private clouds for development and production environments." border="false"  lightbox="media/concepts/hosts-clusters-private-clouds-final.png":::
 
 Each Azure VMware Solution architectural component has the following function:
 
@@ -32,9 +32,9 @@ Each Azure VMware Solution architectural component has the following function:
 - **Azure Region**: Groups datacenters into availability zones and then groups availability zones into regions.
 - **Azure Resource Group**: Places Azure services and resources into logical groups.
 - **Azure VMware Solution Private Cloud**: Offers compute, networking, and storage resources by using VMware software, including vCenter Server, NSX software-defined networking, vSAN software-defined storage, and Azure bare-metal ESXi hosts. Azure NetApp Files, Azure Elastic SAN, and Pure Cloud Block Store are also supported.
-- **Azure VMware Solution Resource Cluster**: Provides compute, networking, and storage resources for customer workloads by scaling out the Azure VMware Solution private cloud using VMware software, including vSAN software-defined storage and Azure bare-metal ESXi hosts. Azure NetApp Files, Azure Elastic SAN, and Pure Cloud Block Store are also supported.
+- **Azure VMware Solution Resource Cluster**: Provides compute, networking, and storage resources for customer workloads by scaling out the Azure VMware Solution private cloud by using VMware software, including vSAN software-defined storage and Azure bare-metal ESXi hosts. Azure NetApp Files, Azure Elastic SAN, and Pure Cloud Block Store are also supported.
 - **VMware HCX**: Delivers mobility, migration, and network extension services.
-- **VMware Site Recovery**: Automates disaster recovery and storage replication services with VMware vSphere Replication. Third-party disaster recovery solutions Zerto Disaster Recovery and JetStream Software Disaster Recovery are also supported.
+- **VMware Site Recovery**: Automates disaster recovery and storage replication services with VMware vSphere Replication. Non-Microsoft disaster recovery solutions Zerto Disaster Recovery and JetStream Software Disaster Recovery are also supported.
 - **Dedicated Microsoft Enterprise Edge (D-MSEE)**: Router that connects Azure cloud and the Azure VMware Solution private cloud instance.
 - **Azure Virtual Network**: Connects Azure services and resources together.
 - **Azure Route Server**: Exchanges dynamic route information with Azure networks.
@@ -46,20 +46,20 @@ Each Azure VMware Solution architectural component has the following function:
 
 [!INCLUDE [disk-capabilities-of-the-host](includes/disk-capabilities-of-the-host.md)]
 
-## Azure Region availability zone to SKU mapping table
+## Azure region availability zone to SKU mapping table
 
-When planning your Azure VMware Solution design, use the following table to understand what SKUs are available in each physical Availability Zone of an [Azure region](https://azure.microsoft.com/explore/global-infrastructure/geographies/#geographies). 
+When you plan your Azure VMware Solution design, use the following table to understand what SKUs are available in each physical availability zone of an [Azure region](https://azure.microsoft.com/explore/global-infrastructure/geographies/#geographies).
 
 >[!IMPORTANT]
 > This mapping is important for placing your private clouds in close proximity to your Azure native workloads, including integrated services such as Azure NetApp Files and Pure Cloud Block Store (CBS).
 
-The Multi-AZ capability for Azure VMware Solution Stretched Clusters is also tagged in the following table. Customer quota for Azure VMware Solution is assigned by Azure region, and you aren't able to specify the Availability Zone during private cloud provisioning. An auto selection algorithm is used to balance deployments across the Azure region. If you have a particular Availability Zone you want to deploy to, open a [Service Request](https://rc.portal.azure.com/#create/Microsoft.Support) with Microsoft requesting a "special placement policy" for your subscription, Azure region, Availability Zone, and SKU type. This policy remains in place until you request it be removed or changed.
+The Multi-AZ capability for Azure VMware Solution Stretched Clusters is also tagged in the following table. The customer quota for Azure VMware Solution is assigned by Azure region. You can't specify the availability zone during private cloud provisioning. An auto-selection algorithm is used to balance deployments across the Azure region. If you have a particular availability zone to which you want to deploy, open a [Service Request](https://rc.portal.azure.com/#create/Microsoft.Support) with Microsoft. Request a "special placement policy" for your subscription, Azure region, availability zone, and SKU type. This policy remains in place until you request it to be removed or changed.
 
-**SKUs** marked in **bold** are of limited availability due to customer consumption and quota may not be available upon request. The AV64 SKU should be used instead when AV36, AV36P, or AV52 SKUs are limited.
+SKUs marked in **boldface** are of limited availability because of customer consumption, and quota might not be available upon request. Use the AV64 SKU when AV36, AV36P, or AV52 SKUs are limited.
 
-AV64 SKUs are available per Availability Zone, the table below lists the Azure regions that support this SKU. For RAID-6 FTT2 and RAID-1 FTT3 storage policies, six and seven Fault Domains (FDs) are needed respectively, the FD count for each Azure region is listed in the "AV64 FDs Supported" column.
+AV64 SKUs are available per availability zone. The following table lists the Azure regions that support this SKU. For RAID-6 FTT2 and RAID-1 FTT3 storage policies, six and seven fault domains are needed, respectively. The fault domain count for each Azure region is listed in the column labeled "AV64 fault domains supported."
 
-| Azure region | Availability zone | SKU   | Multi-AZ SDDC | AV64 FDs supported |
+| Azure region | Availability zone | SKU   | Multi-AZ SDDC | AV64 fault domains supported |
 | :---         | :---:             | :---: | :---:         | :---:           |
 | Australia East | AZ01 | AV36P, AV64 | Yes | 7 |
 | Australia East | AZ02 | AV36, AV64| Yes | 7 |
@@ -136,9 +136,9 @@ Azure VMware Solution continuously monitors the health of both the VMware compon
 Host remediation involves replacing the faulty node with a new healthy node in the cluster. Then, when possible, the faulty host is placed in VMware vSphere maintenance mode. VMware vSphere vMotion moves the VMs off the faulty host to other available servers in the cluster, potentially allowing zero downtime for live migration of workloads. If the faulty host can't be placed in maintenance mode, the host is removed from the cluster. Before the faulty host is removed, the customer workloads are migrated to a newly added host.
 
 > [!TIP]
-> **Customer communication:** An email is sent to the customer's email address before the replacement is initiated and again after the replacement is successful. 
-> 
-> To receive emails related to host replacement, you need to be added to any of the following Azure RBAC roles in the subscription: 'ServiceAdmin', 'CoAdmin', 'Owner', 'Contributor'.
+> **Customer communication**: An email is sent to the customer's email address before the replacement is initiated and again after the replacement is successful.
+>
+> To receive emails related to host replacement, you must be added to any of the following Azure role-based access control roles in the subscription: ServiceAdmin, CoAdmin, Owner, or Contributor.
 
 Azure VMware Solution monitors the following conditions on the host:
 
