@@ -4,7 +4,7 @@ description: How to work with the old virtual network gateway SKUs; Standard, an
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 08/06/2024
+ms.date: 03/27/2025
 ms.author: cherylmc 
 ---
 # Working with VPN Gateway legacy SKUs
