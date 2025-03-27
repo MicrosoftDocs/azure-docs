@@ -446,7 +446,7 @@ sections:
         answer: |
           For Initial Replica, a full backup will be re-initiated in case of failure. However, for Incremental the snapshot from the last successful backup will be compared to the latest snapshot to copy the changed data into the vault.
 
-      - question: Why SSD V2 with GRS Vaults/Cross Region Restore is  not supported?
+      - question: Why SSD V2 with GRS Vaults/Cross Region Restore is not supported?
         answer: |
           SSD V2/Ultra disks are currently not available in all regions, so Geo-Redundant Storage (GRS) can't be enabled.
 
