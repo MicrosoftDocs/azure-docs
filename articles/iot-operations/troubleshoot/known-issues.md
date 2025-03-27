@@ -13,6 +13,8 @@ This article lists the current known issues for Azure IoT Operations.
 
 ## Deploy, update, and uninstall issues
 
+This section lists current known issues that might occur when you deploy, update, or uninstall Azure IoT Operations.
+
 ### Unable to retrieve some image pull secrets
 
 ---
@@ -123,6 +125,8 @@ To work around this issue, follow these steps:
 
 ## MQTT broker issues
 
+This section lists current known issues for the MQTT broker.
+
 ### MQTT broker high memory usage
 
 ---
@@ -174,7 +178,7 @@ There's currently no workaround for this issue.
 
 ---
 
-Issue ID: 0000
+Issue ID: 1567
 
 ---
 
@@ -188,11 +192,13 @@ There's currently no workaround for this issue.
 
 ## Azure IoT Layered Network Management (preview) issues
 
+This section lists current known issues for  Azure IoT Layered Network Management.
+
 ### Layered Network Management service doesn't get an IP address
 
 ---
 
-Issue ID: 0000
+Issue ID: 7864
 
 ---
 
@@ -214,7 +220,7 @@ To learn more, see [Networking | K3s](https://docs.k3s.io/networking#traefik-ing
 
 ---
 
-Issue ID: 0000
+Issue ID: 7955
 
 ---
 
@@ -228,11 +234,13 @@ To work around this issue, upgrade to Ubuntu 22.04 and reinstall K3S.
 
 ## Connector for OPC UA issues
 
+This section lists current known issues for the connector for OPC UA.
+
 ### Connector pod doesn't restart after configuration change
 
 ---
 
-Issue ID: 0000
+Issue ID: 7518
 
 ---
 
@@ -242,13 +250,11 @@ Log signature: N/A
 
 When you add a new asset with a new asset endpoint profile to the OPC UA broker and trigger a reconfiguration, the deployment of the `opc.tcp` pods changes to accommodate the new secret mounts for username and password. If the new mount fails for some reason, the pod does not restart and therefore the old flow for the correctly configured assets stops as well.
 
-To work around this issue...
-
 ### OPC UA servers reject application certificate
 
 ---
 
-Issue ID: 0000
+Issue ID: 7679
 
 ---
 
@@ -262,7 +268,7 @@ The subject name and application URI must exactly match the provided certificate
 
 ---
 
-Issue ID: 0000
+Issue ID: 8446
 
 ---
 
@@ -272,13 +278,83 @@ Log signature: N/A
 
 Providing a new invalid OPC UA application instance certificate after a successful installation of AIO can lead to connection errors. To resolve the issue, delete your Azure IoT Operations instances and restart the installation.
 
+## Connector for media and connector for ONVIF issues
+
+This section lists current known issues for the connector for media and the connector for ONVIF.
+
+### Cleanup of unused media-connector resources
+
+---
+
+Issue ID: 2142
+
+---
+
+Log signature: N/A
+
+---
+
+If you delete all the `Microsoft.Media` asset endpoint profiles the deployment for media processing is not deleted.
+
+To work around this issue, run the following command using the full name of your media connector deployment:
+
+```bash
+kubectl delete deployment aio-opc-media-... -n azure-iot-operations
+```
+
+### Cleanup of unused onvif-connector resources
+
+---
+
+Issue ID: 3322
+
+---
+
+Log signature: N/A
+
+---
+
+If you delete all the `Microsoft.Onvif` asset endpoint profiles the deployment for media processing is not deleted.
+
+To work around this issue, run the following command using the full name of your ONVIF connector deployment:
+
+```bash
+kubectl delete deployment aio-opc-onvif-... -n azure-iot-operations
+```
+
+### AssetType CRD removal process doesn't complete
+
+---
+
+Issue ID: 6065
+
+---
+
+Log signature: `"Error HelmUninstallUnknown: Helm encountered an error while attempting to uninstall the release aio-118117837-connectors in the namespace azure-iot-operations. (caused by: Unknown: 1 error occurred: * timed out waiting for the condition"`
+
+---
+
+Sometimes, when you attempt to uninstall Azure IoT Operations from the cluster, the system can get to a state where CRD removal job is stuck in pending state and that blocks cleanup of Azure IoT Operations.
+
+To work around this issue, you need to manually delete the CRD and finish the uninstall. To do this, complete the following steps:
+
+1. Delete the AssetType CRD manually: `kubectl delete crd assettypes.opcuabroker.iotoperations.azure.com --ignore-not-found=true`
+
+1. Delete the job definition: `kubectl delete job aio-opc-delete-crds-job-<version> -n azure-iot-operations`
+
+1. Find the Helm release for the connectors, it's the one with `-connectors` suffix: `helm ls -a -n azure-iot-operations`
+
+1. Uninstall Helm release without running the hook: `helm uninstall aio-<id>-connectors -n azure-iot-operations --no-hooks`
+
 ## OPC PLC simulator issues
+
+This section lists current known issues for the OPC PLC simulator.
 
 ### The simulator doesn't send data to the MQTT broker after you create an asset endpoint
 
 ---
 
-Issue ID: 0000
+Issue ID: 8616
 
 ---
 
@@ -335,11 +411,13 @@ kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
 
 ## Data flows issues
 
+This section lists current known issues for data flows.
+
 ### Data flow resources aren't visible in the operations experience web UI
 
 ---
 
-Issue ID: 0000
+Issue ID: 8724
 
 ---
 
@@ -355,7 +433,7 @@ There's currently no workaround for this issue.
 
 ---
 
-Issue ID: 0000
+Issue ID: 8750
 
 ---
 
@@ -369,7 +447,7 @@ X.509 authentication for custom Kafka endpoints isn't currently supported.
 
 ---
 
-Issue ID: 0000
+Issue ID: 8794
 
 ---
 
@@ -383,7 +461,7 @@ When you create a data flow, you can specify a schema in the source configuratio
 
 ---
 
-Issue ID: 0000
+Issue ID: 8841
 
 ---
 
@@ -400,7 +478,7 @@ To work around this issue, create the [multi-line secrets through Azure Key Vaul
 
 ---
 
-Issue ID: 0000
+Issue ID: 8891
 
 ---
 
@@ -416,7 +494,7 @@ To work around this issue, add randomness to the data flow names in your deploym
 
 ---
 
-Issue ID: 0000
+Issue ID: 8953
 
 ---
 
@@ -432,7 +510,7 @@ To work around this issue, restart your data flow pods.
 
 ---
 
-Issue ID: 0000
+Issue ID: 9289
 
 ---
 
@@ -448,7 +526,7 @@ To work around this issue, avoid using control characters in Kafka headers.
 
 ---
 
-Issue ID: 0000
+Issue ID: 9411
 
 ---
 
@@ -486,3 +564,17 @@ To work around this issue, use the following steps to manually delete the data f
 1. Run `kubectl delete pod aio-dataflow-operator-0 -n azure-iot-operations` to delete the data flow operator pod. Deleting the pod clears the crash status and restarts the pod.
 
 1. Wait for the operator pod to restart and deploy the data flow.
+
+### Data flows error metrics
+
+---
+
+Issue ID: 2382
+
+---
+
+Log signature: N/A
+
+---
+
+Data flows marks message retries and reconnects as errors, and as a result data flows may look unhealthy. This behavior is only seen in previous versions of data flows. Review the logs to determine if the data flow is healthy.
