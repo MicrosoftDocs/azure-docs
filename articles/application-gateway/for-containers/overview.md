@@ -2,12 +2,11 @@
 title: What is Application Gateway for Containers?
 description: Overview of Azure Application Load Balancer Application Gateway for Containers features, resources, architecture, and implementation. Learn how Application Gateway for Containers works and how to use Application Gateway for Containers resources in Azure.
 services: application-gateway
-author: greglin
+author: greg-lindsay
 ms.custom: references_regions
-ms.service: azure-application-gateway
-ms.subservice: appgw-for-containers
+ms.service: azure-appgw-for-containers
 ms.topic: overview
-ms.date: 9/16/2024
+ms.date: 1/14/2025
 ms.author: greglin
 ---
 
@@ -45,7 +44,7 @@ Application Gateway for Containers offers some entirely new features at release,
 - Mutual authentication to the backend target
 - Kubernetes support for Ingress and Gateway API
 - Flexible [deployment strategies](#deployment-strategies)
-- Increased performance, offering near real-time updates to add or move pods, routes, and probes
+- Increased performance, offering near real-time updates to add or remove pods, routes, and probes
 
 Application Gateway for Containers offers an elastic and scalable ingress to AKS clusters and comprises a new data plane as well as control plane with [new set of ARM APIs](#implementation-of-gateway-api), different from existing Application Gateway. These APIs are different from the current implementation of Application Gateway. Application Gateway for Containers is outside the AKS cluster data plane and is responsible for ingress. The service is managed by an ALB controller component that runs inside the AKS cluster and adheres to Kubernetes Gateway APIs.
 
@@ -78,6 +77,7 @@ Application Gateway for Containers supports the following features for traffic m
 - TLS policies
 - URL redirect
 - URL rewrite
+- WebSocket support
 
 ### Deployment strategies
 
@@ -145,7 +145,7 @@ For Application Gateway for Containers SLA information, see [Service Level Agree
 
 ## What's new
 
-To learn what's new with Application Gateway for Containers, see [Azure updates](https://azure.microsoft.com/updates/?category=networking&query=Application%20Gateway%20for%20Containers).
+To learn what's new with Application Gateway for Containers, see [Azure updates](https://azure.microsoft.com/updates?filters=%5B%22Application+Gateway%22%5D&searchterms=Application+Gateway+for+Containers).
 
 ## Next steps
 

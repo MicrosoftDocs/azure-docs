@@ -1,0 +1,56 @@
+### YamlMime:Landing
+
+title: Neon Serverless Postgres (Preview)
+summary: Neon in Microsoft Azure
+
+metadata:
+  title: Neon Serverless Postgres (Preview)
+  description: Neon offers a serverless Postgres solution that leverages the principles of serverless computing to provide scalable and flexible database services.
+  ms.topic: landing-page
+  ms.custom:
+  ms.date: 11/26/2024
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+
+  - title: About Neon Serverless Postgres (Preview)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Neon Serverless Postgres?
+            url: overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage your Neon Serverless Postgres resource
+            url: manage.md
+
+  - title: Create a Neon Serverless Postgres resource
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Get started with Neon Serverless Postgres
+            url: create.md
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshooting Neon Serverless Postgres
+            url: troubleshoot.md
+  
+  - title: Tools
+    linkLists:
+      - linkListType: reference 
+        links:
+        - text: Neon Serverless Postgres developer tools 
+          url: tools.md
+        - text: Azure CLI
+          url: /cli/azure/neon
+        - text: Go
+          url: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/neonpostgres/armneonpostgres@v0.1.0
+        - text: Java
+          url: https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-neonpostgres/1.0.0-beta.1
+        - text: JavaScript
+          url: https://www.npmjs.com/package/@azure/arm-neonpostgres/v/1.0.0-beta.1
+        - text: .NET
+          url: https://www.nuget.org/packages/Azure.ResourceManager.NeonPostgres/1.0.0-beta.1 
+        - text: Python  
+          url: https://pypi.org/project/azure-mgmt-neonpostgres/
+  

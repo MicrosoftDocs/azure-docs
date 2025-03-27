@@ -1,19 +1,16 @@
 ---
- title: include file
- description: include file
- services: frontdoor
- author: duongau
- ms.service: azure-frontdoor
- ms.topic: include
- ms.date: 06/01/2023
- ms.author: duau
- ms.custom: include file
+author: halkazwini
+ms.author: halkazwini
+ms.service: azure-frontdoor
+ms.topic: include
+ms.date: 06/01/2023
+ms.custom: include file
 ---
 
 | Abbreviation | Location | Region |
 | --- | --- | --- |
 | AKL | Auckland, New Zealand | New Zealand North, Asia |
-| AMS | Amsterdam, Netherlands | West Europe |
+| AMS / AM | Amsterdam, Netherlands | West Europe |
 | ASH | Ashburn, Virginia, USA | EAST US, United States |
 | ATA | Atlanta, Georgia, USA | East US, United States |
 | ATH | Athens, Greece | Greece Central, Europe |

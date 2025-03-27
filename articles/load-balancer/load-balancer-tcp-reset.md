@@ -5,10 +5,9 @@ description: With this article, learn about Azure Load Balancer with bidirection
 services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/31/2024
 ms.author: mbender
-ms.custom: template-concept, engagement-fy23
 ---
 
 # Load Balancer TCP Reset and Idle Timeout
@@ -62,6 +61,7 @@ It's important to take into account how the idle timeout values set for differen
 - TCP reset only sent during TCP connection in ESTABLISHED state.
 - TCP idle timeout doesn't affect load balancing rules on UDP protocol.
 - TCP reset isn't supported for Internal Load Balancer HA ports when a network virtual appliance is in the path. A workaround could be to use outbound rule with TCP reset from Network Virtual Appliance.
+- TCP idle timeout isn't supported for Internal Load Balancer (ILB) HA ports when a User Defined Route (UDR) is used to forward traffic to the ILB.  
 
 ## Next steps
 

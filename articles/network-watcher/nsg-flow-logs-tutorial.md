@@ -43,7 +43,7 @@ In this section, you create **myVNet** virtual network with one subnet for the v
 
 1. In the search box at the top of the portal, enter ***virtual networks***. Select **Virtual networks** from the search results.
 
-    :::image type="content" source="./media/nsg-flow-logs-tutorial/virtual-network-azure-portal.png" alt-text="Screenshot shows searching for virtual networks in the Azure portal." lightbox="./media/nsg-flow-logs-tutorial/virtual-network-azure-portal.png":::
+    :::image type="content" source="./media/virtual-networks-portal-search.png" alt-text="Screenshot that shows how to search for virtual networks in the Azure portal." lightbox="./media/virtual-networks-portal-search.png":::
 
 1. Select **+ Create**. In **Create virtual network**, enter or select the following values in the **Basics** tab:
 
@@ -130,7 +130,7 @@ NSG flow logging requires the **Microsoft.Insights** provider. To check its stat
 
 1. Confirm the status of the provider displayed is **Registered**. If the status is **NotRegistered**, select the **Microsoft.Insights** provider then select **Register**.
 
-    :::image type="content" source="./media/nsg-flow-logs-tutorial/register-microsoft-insights.png" alt-text="Screenshot of registering Microsoft Insights provider in the Azure portal." lightbox="./media/nsg-flow-logs-tutorial/register-microsoft-insights.png":::
+    :::image type="content" source="./media/register-microsoft-insights.png" alt-text="Screenshot that shows how to register Microsoft Insights provider in the Azure portal." lightbox="./media/register-microsoft-insights.png":::
 
 ## Create a storage account
 
@@ -232,7 +232,7 @@ Open the downloaded `PT1H.json` file using a text editor of your choice. The fol
     "systemId": "00000000-0000-0000-0000-000000000000",
     "macAddress": "112233445566",
     "category": "NetworkSecurityGroupFlowEvent",
-    "resourceId": "/SUBSCRIPTIONS/abcdef01-2345-6789-0abc-def012345678/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/MYVM-NSG",
+    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/MYVM-NSG",
     "operationName": "NetworkSecurityGroupFlowEvents",
     "properties": {
         "Version": 2,

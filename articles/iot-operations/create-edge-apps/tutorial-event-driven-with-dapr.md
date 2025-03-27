@@ -5,14 +5,13 @@ author: PatAltimore
 ms.author: patricka 
 ms.subservice: azure-mqtt-broker
 ms.topic: tutorial
-ms.date: 07/02/2024
+ms.date: 10/22/2024
 
 #CustomerIntent: As an operator, I want to configure MQTT broker to bridge to Azure Event Grid MQTT broker PaaS so that I can process my IoT data at the edge and in the cloud.
+ms.service: azure-iot-operations
 ---
 
 # Tutorial: Build an event-driven app with Dapr and MQTT broker
-
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 In this walkthrough, you deploy a Dapr application to the cluster. The Dapr application consumes simulated MQTT data published to MQTT broker, applies a windowing function, and then publishes the result back to MQTT broker. The published output represents how high volume data can be aggregated on the edge to reduce message frequency and size. The Dapr application is stateless, and uses the MQTT broker state store to cache past values needed for the window calculations.
 
@@ -29,7 +28,7 @@ The Dapr application performs the following steps:
 
 ## Prerequisites
 
-* Azure IoT Operations Preview installed - [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md)
+* Azure IoT Operations installed - [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md)
 * MQTT broker Dapr components installed - [Install MQTT broker Dapr Components](./howto-deploy-dapr.md)
  
 ## Deploy the Dapr application
@@ -41,7 +40,7 @@ To start, create a yaml file that uses the following definitions:
 | Component | Description |
 |-|-|
 | `volumes.mqtt-client-token` | The SAT used for authenticating the Dapr pluggable components with the MQTT broker and State Store |
-| `volumes.aio-mq-ca-cert-chain` | The chain of trust to validate the MQTT broker TLS cert |
+| `volumes.aio-internal-ca-cert-chain` | The chain of trust to validate the MQTT broker TLS cert |
 | `containers.mq-event-driven` | The prebuilt Dapr application container. | 
 
 1. Save the following deployment yaml to a file named `app.yaml`:
@@ -53,7 +52,7 @@ To start, create a yaml file that uses the following definitions:
       name: dapr-client
       namespace: azure-iot-operations
       annotations:
-        aio-mq-broker-auth/group: dapr-workload
+        aio-broker-auth/group: dapr-workload
     ---    
     apiVersion: apps/v1
     kind: Deployment
@@ -84,13 +83,13 @@ To start, create a yaml file that uses the following definitions:
               sources:
                 - serviceAccountToken:
                     path: mqtt-client-token
-                    audience: aio-mq
+                    audience: aio-internal
                     expirationSeconds: 86400
 
           # Certificate chain for Dapr to validate the MQTT broker
           - name: aio-ca-trust-bundle
             configMap:
-              name: aio-ca-trust-bundle-test-only
+              name: azure-iot-operations-aio-ca-trust-bundle
 
           containers:
           - name: mq-event-driven-dapr
@@ -177,18 +176,18 @@ To verify the MQTT bridge is working, deploy an MQTT client to the cluster.
         - name: mqtt-client-token
           mountPath: /var/run/secrets/tokens
         - name: aio-ca-trust-bundle
-          mountPath: /var/run/certs/aio-mq-ca-cert/
+          mountPath: /var/run/certs/aio-internal-ca-cert/
       volumes:
       - name: mqtt-client-token
         projected:
           sources:
           - serviceAccountToken:
               path: mqtt-client-token
-              audience: aio-mq
+              audience: aio-internal
               expirationSeconds: 86400
       - name: aio-ca-trust-bundle
         configMap:
-          name: aio-ca-trust-bundle-test-only
+          name: azure-iot-operations-aio-ca-trust-bundle
     ```
 
 1. Apply the deployment file with kubectl:
@@ -214,7 +213,7 @@ To verify the MQTT bridge is working, deploy an MQTT client to the cluster.
 1. Subscribe to the `sensor/window_data` topic to observe the published output from the Dapr application:
 
     ```bash
-    mosquitto_sub -L mqtt://aio-mq-dmqtt-frontend/sensor/window_data
+    mosquitto_sub -L mqtt://aio-broker/sensor/window_data
     ```
 
 1. Verify the application is outputting a sliding windows calculation for the various sensors every 10 seconds:

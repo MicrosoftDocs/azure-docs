@@ -11,7 +11,7 @@ ms.topic: how-to
 
 # Alternative approaches to self-host developer portal
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 There are several alternative approaches you can explore when you [self-host a developer portal](developer-portal-self-host.md):
 
@@ -96,7 +96,7 @@ In [self-host a developer portal](developer-portal-self-host.md) we suggested us
 
 You can also front the files with a Content Delivery Network (CDN) to reduce page loading times. We recommend using [Azure CDN](https://azure.microsoft.com/services/cdn/).
 
-## Next steps
+## Related content
 
 Learn more about the developer portal:
 

@@ -136,7 +136,7 @@ A:g:GROUP@:rtncy
 A::EVERYONE@:rtncy
 ```
 
-When a "no-propogate" (n) flag is set on an ACL, the flags clear on subsequent directory creations below the parent. In the following example, `user2` has the `n` flag set. As a result, the subdirectory clears the inherit flags for that principal and objects created below that subdirectory don’t inherit the ACE from `user2`.
+When a "no-propagate" (n) flag is set on an ACL, the flags clear on subsequent directory creations below the parent. In the following example, `user2` has the `n` flag set. As a result, the subdirectory clears the inherit flags for that principal and objects created below that subdirectory don’t inherit the ACE from `user2`.
 
 ```bash
 #  nfs4_getfacl /mnt/acl-dir

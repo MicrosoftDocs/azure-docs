@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 06/30/2023
+ms.date: 10/18/2024
 ms.author: duau
 ---
 # ExpressRoute for Cloud Solution Providers (CSP)
@@ -16,7 +16,7 @@ Microsoft provides hyper-scale services for traditional resellers and distributo
 ExpressRoute is composed of a pair of circuits for high availability that are attached to a single customer's subscription(s) and can't be shared by multiple customers. Each circuit should be terminated in a different router to maintain the high availability.
 
 > [!NOTE]
-> There are limits to the bandwidth and number of connections possible on each ExpressRoute circuit. If a single customer's needs exceed these limits, they will require multiple ExpressRoute circuits for their hybrid network implementation.
+> There are limits to the bandwidth and number of connections possible on each ExpressRoute circuit. If a single customer's needs exceed these limits, they will require multiple ExpressRoute circuits for their hybrid network implementation. For more information, see [ExpressRoute limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-expressroute-limits).
 > 
 
 Microsoft Azure provides a growing number of services that you can offer to your customers. ExpressRoute helps you and your customers take advantage of these services by providing high-speed low latency access to the Microsoft Azure environment.
@@ -65,9 +65,8 @@ The choices between these two options are based on your customer’s needs and y
 ExpressRoute supports network speeds from 50 Mb/s to 10 Gb/s. This allows customers to purchase the amount of network bandwidth needed for their unique environment.
 
 > [!NOTE]
-> Network bandwidth can be increased as needed without disrupting communications, but to reduce the network speed requires tearing down the circuit and recreating it at the lower network speed.  
-> 
-> 
+> Network bandwidth can be increased as needed without disrupting communications, but to reduce the network speed requires tearing down the circuit and recreating it at the lower network speed. For more information, see [Modify an ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md#modify)
+>
 
 ExpressRoute supports the connection of multiple VNets to a single ExpressRoute circuit for better utilization of the higher-speed connections. A single ExpressRoute circuit can be shared among multiple Azure subscriptions owned by the same customer.
 
@@ -118,7 +117,7 @@ Depending on which model is in use, Connect-To or Connect-Through, your customer
 2. **Network Security Group (NSG)** rules are for defining allowed traffic into and out of the subnets within VNets in Azure. By default, the NSG contains Block rules to block traffic from the Internet to the VNet and Allow rules for traffic within a VNet. For more information about Network Security Groups, look [here](https://azure.microsoft.com/blog/network-security-groups/).
 3. **Force tunneling**—This is an option to redirect internet bound traffic originating in Azure to be redirected over the 
    ExpressRoute connection to the on premises datacenter. For more information about Forced tunneling, look [here](expressroute-routing.md#advertising-default-routes).  
-4. **Encryption**—Even though the ExpressRoute circuits are dedicated to a specific customer, there's the possibility that the network provider could be breached, allowing an intruder to examine packet traffic. To address this potential, a customer or CSP can encrypt traffic over the connection by defining IPSec tunnel-mode policies for all traffic flowing between the on premises resources and Azure resources (refer to the optional Tunnel mode IPSec for Customer 1 in Figure 5: ExpressRoute Security, above). The second option would be to use a firewall appliance at each the end point of the ExpressRoute circuit. This requires another third-party firewall VMs/Appliances to be installed on both ends to encrypt the traffic over the ExpressRoute circuit.
+4. **Encryption**—Even though the ExpressRoute circuits are dedicated to a specific customer, there's the possibility that the network provider could be breached, allowing an intruder to examine packet traffic. To address this potential, a customer or CSP can encrypt traffic over the connection by defining IPsec tunnel-mode policies for all traffic flowing between the on premises resources and Azure resources (refer to the optional Tunnel mode IPsec for Customer 1 in Figure 5: ExpressRoute Security, above). The second option would be to use a firewall appliance at each the end point of the ExpressRoute circuit. This requires another third-party firewall VMs/Appliances to be installed on both ends to encrypt the traffic over the ExpressRoute circuit.
 
 ![alt text](./media/expressroute-for-cloud-solution-providers/expressroute-security.png)  
 

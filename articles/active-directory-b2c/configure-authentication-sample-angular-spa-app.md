@@ -1,15 +1,15 @@
 ---
-title: Configure authentication in a sample Angular SPA by using Azure Active Directory B2C
-description: Learn how to use Azure Active Directory B2C to sign in and sign up users in an Angular SPA.
+title: Configure authentication in a sample Angular SPA by using Azure AD B2C
+description: Learn how to configure authentication in an Angular SPA using Azure AD B2C. Securely sign in users and call a protected web API with MSAL Angular.
 
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
-ms.date: 01/11/2024
+ms.date: 02/19/2025
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: "b2c-support"
 
 
@@ -62,7 +62,7 @@ The following diagram describes the app registrations and the app architecture.
 Before you follow the procedures in this article, make sure that your computer is running:
 
 * [Visual Studio Code](https://code.visualstudio.com/) or any other code editor.
-* [Node.js runtime](https://nodejs.org/en/download/) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/).
+* [Node.js runtime](https://nodejs.org/en/download/package-manager/) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/).
 * [Angular CLI](https://angular.io/cli).
 
 ## Step 1: Configure your user flow
@@ -190,7 +190,7 @@ Your final configuration file should look like the following JSON:
 ```json
 {
     "credentials": {
-        "tenantName": "<your-tenant-namee>",
+        "tenantName": "<your-tenant-name>",
         "clientID": "<your-webapi-application-ID>",
         "issuer": "https://<your-tenant-name>.b2clogin.com/<your-tenant-ID>/v2.0/"
     },
@@ -273,7 +273,7 @@ You can add and modify redirect URIs in your registered applications at any time
 * The reply URL must begin with the scheme `https`.
 * The reply URL is case-sensitive. Its case must match the case of the URL path of your running application. 
 
-## Next steps
+## Related content
 
 * [Learn more about the code sample](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/)
 * [Enable authentication in your own Angular application](enable-authentication-angular-spa-app.md)

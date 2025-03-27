@@ -8,6 +8,10 @@ ms.author: cwatson
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal.
+
+
+#Customer intent: As a security operations center (SOC) analyst, I want to delete Microsoft Sentinel out-of-the-box content and solutions so that I can manage and customize my security monitoring environment effectively.
+
 ---
 
 # Delete installed Microsoft Sentinel out-of-the-box content and solutions

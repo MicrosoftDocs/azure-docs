@@ -3,7 +3,7 @@
  description: include file
  services: iot-hub
  author: dominicbetts
- ms.service: iot-hub
+ ms.service: azure-iot-hub
  ms.topic: include
  ms.date: 02/20/2023
  ms.author: dobett

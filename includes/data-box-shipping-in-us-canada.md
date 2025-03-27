@@ -1,7 +1,6 @@
 ---
 author: stevenmatthew
-ms.service: databox  
-ms.subservice: pod
+ms.service: azure-databox
 ms.topic: include
 ms.date: 10/21/2021
 ms.author: shaas
@@ -9,16 +8,17 @@ ms.author: shaas
 
 Take the following steps if returning the device in US or Canada.
 
-1. Make sure that the device is powered off and cables are removed.
-2. Spool and securely place the power cord that was provided with device in the back of the device.
-3. Ensure that the shipping label is displayed on the E-ink display and schedule a pickup with your carrier. If the label is damaged or lost or not displayed on the E-ink display, contact Microsoft Support. If the Support suggests, then you can go to **Overview > Download shipping label** in the Azure portal. Download the shipping label and affix on the device. 
-4. Schedule a pickup with UPS if returning the device. To schedule a pickup:
-
-    * Call the local UPS (country/region-specific toll free number).
-    * In your call, quote the reverse shipment tracking number as shown in the E-ink display or your printed label. If you don't quote the tracking number, UPS will require an additional charge during pickup.
-    * If any issues come up while you're scheduling a pickup, or you're asked to pay additional fees, contact Azure Data Box Operations. Send email to [adbops@microsoft.com](mailto:adbops@microsoft.com).
-
-    Instead of scheduling the pickup, you can also drop off the Data Box at the nearest drop-off location.
-4. Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
+**If you receive the device packaged in a box, retain the box, and DO NOT discard it**.
+1.	Make sure the data copy to device is complete, and the **Prepare to ship** step is completed successfully.
+1.	Note down the tracking number (shown as reference number on the Prepare to Ship page of the Data Box local web UI). The tracking number is available after the Prepare to Ship step completes successfully. **Download the shipping label from this page and paste on the packing box**. If you received a device without a box, ensure that the shipping label is displayed on the E-ink display. If the label is damaged or lost or not displayed on the E-ink display, contact Microsoft Support.
+1.	Make sure that the device is powered off and cables are removed.
+1.	Spool and securely place the power cord that was provided with device in the back of the device.
+1.	**Package the device using the original box that was used for shipping. Ensure that the return label is included.**
+1.	Schedule a pickup with UPS if returning the device. To schedule a pickup:
+    - Call the local UPS (country/region-specific toll-free number).
+    - In your call, quote the reverse shipment tracking number as shown in the E-ink display or your printed label. If you don't quote the tracking number, UPS will require an additional charge during pickup.
+    - If any issues are encountered while scheduling a pickup, or you're asked to pay additional fees, contact Azure Data Box Operations. Send email to adbops@microsoft.com.
+Instead of scheduling the pickup, you can also drop off the Data Box at the nearest drop-off location.
+1.	Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
 
 

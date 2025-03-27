@@ -4,12 +4,12 @@ description: Learn how to create a simple Node.js console application that demon
 services: cdn
 author: zhangmanling
 manager: erikre
-ms.assetid: c4bb6a61-de3d-4f0c-9dca-202554c43dfa
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
 ms.author: erikre
 ms.custom: devx-track-js
+ROBOTS: NOINDEX
 ---
 
 # Get started with Azure CDN development

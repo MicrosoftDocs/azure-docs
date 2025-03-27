@@ -7,7 +7,7 @@ author: haroldcampos
 ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/02/2023
+ms.date: 02/20/2025
 ---
 
 # Parse and generate host files from IBM mainframes for Standard workflows in Azure Logic Apps

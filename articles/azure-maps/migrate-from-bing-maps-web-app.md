@@ -965,7 +965,7 @@ GeoJSON data can be directly imported in Azure Maps using the `importDataFromUrl
                 map.layers.add([
                     //Create a bubble layer for rendering clustered data points.
                     new atlas.layer.BubbleLayer(datasource, null, {
-                        //Scale the size of the clustered bubble based on the number of points inthe cluster.
+                        //Scale the size of the clustered bubble based on the number of points in the cluster.
                         radius: [
                             'step',
                             ['get', 'point_count'],
@@ -1380,8 +1380,8 @@ Running this code in a browser displays a map that looks like the following imag
         function initMap() {
             map = new Microsoft.Maps.Map('#myMap', {
                 credentials: '<Your Bing Maps Key>',
-                center: new Microsoft.Maps.Location(40.747, -73.985),
-                zoom: 12
+                center: new Microsoft.Maps.Location(41.875825, -87.627515),
+                zoom: 10
             });
                 
             Microsoft.Maps.loadModule('Microsoft.Maps.GeoXml', function () {
@@ -1465,7 +1465,7 @@ In Azure Maps, GeoJSON is the main data format used in the web SDK, more spatial
 
                         //Check to see if there are any icons in the data set that need to be loaded into the map resources.
                         if (r.icons) {
-                            //For each icon image, create a promise to add it to the map, then run the promises in parrallel.
+                            //For each icon image, create a promise to add it to the map, then run the promises in parallel.
                             var imagePromises = [];
 
                             //The keys are the names of each icon image.
@@ -1544,7 +1544,7 @@ In Bing Maps the `DrawingTools` module is loaded using the `Microsoft.Maps.loadM
             //Create an instance of the DrawingTools class and bind it to the map.
             var tools = new Microsoft.Maps.DrawingTools(map);
 
-            //Show the drawing toolbar and enable editting on the map.
+            //Show the drawing toolbar and enable editing on the map.
             tools.showDrawingManager(function (manager) {
                 //Store a reference to the drawing manager as it will be useful later.
                 drawingManager = manager;
@@ -1703,8 +1703,6 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [Azure Maps Glossary]: glossary.md
 [Azure Maps React Component]: https://github.com/WiredSolutions/react-azure-maps
 [AzureMapsControl.Components]: https://github.com/arnaudleclerc/AzureMapsControl.Components
-[Cesium plugin]: /samples/azure-samples/azure-maps-cesium/azure-maps-cesium-js-plugin
-[Cesium]: https://www.cesium.com/
 [Choose a map style]: choose-map-style.md
 [Cluster point data]: clustering-point-data-web-sdk.md
 [Clustering point data in the Web SDK]: clustering-point-data-web-sdk.md
@@ -1720,9 +1718,6 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [HTML marker class]: /javascript/api/azure-maps-control/atlas.htmlmarker
 [HTML marker options]: /javascript/api/azure-maps-control/atlas.htmlmarkeroptions
 [Image layer class]: /javascript/api/azure-maps-control/atlas.layer.imagelayer
-[Leaflet code samples]: https://samples.azuremaps.com/?search=leaflet
-[Leaflet plugin]: /samples/azure-samples/azure-maps-leaflet/azure-maps-leaflet-plugin
-[Leaflet]: https://leafletjs.com/
 [Line layer options]: /javascript/api/azure-maps-control/atlas.linelayeroptions
 [Load a map]: #load-a-map
 [Localization support in Azure Maps]: supported-languages.md
@@ -1743,10 +1738,8 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [Microsoft.Maps.Traffic]: /bingmaps/v8-web-control/modules/traffic-module/
 [Microsoft.Maps.SpatialMath]: /bingmaps/v8-web-control/modules/spatial-math-module/
 [ng-azure-maps]: https://github.com/arnaudleclerc/ng-azure-maps
-[OpenLayers plugin]: /samples/azure-samples/azure-maps-OpenLayers/azure-maps-OpenLayers-plugin
-[OpenLayers]: https://openlayers.org/
-[open-source Azure Maps Web SDK modules]: open-source-projects.md#open-web-sdk-modules
-[open-source modules for the web SDK]: open-source-projects.md#open-web-sdk-modules
+[open-source Azure Maps Web SDK modules]: open-source-projects.md#open-source-web-sdk-modules
+[open-source modules for the web SDK]: open-source-projects.md#open-source-web-sdk-modules
 [Overlay a tile layer]: #overlay-a-tile-layer
 [Overlay an image]: map-add-image-layer.md
 [Polygon layer options]: /javascript/api/azure-maps-control/atlas.polygonlayeroptions
@@ -1755,13 +1748,10 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [Popup with Media Content]: https://samples.azuremaps.com/?sample=popup-with-media-content
 [Popups on Shapes]: https://samples.azuremaps.com/?sample=popups-on-shapes
 [Pushpin clustering]: #pushpin-clustering
-[Render]: /rest/api/maps/render
 [Reusing Popup with Multiple Pins]: https://samples.azuremaps.com/?sample=reusing-popup-with-multiple-pins
 [REST SDK]: rest-sdk-developer-guide.md
 [Route API]: /rest/api/maps/route
 [Route Matrix API]: /rest/api/maps/route/post-route-matrix
-[road tiles]: /rest/api/maps/render/get-map-tile
-[satellite tiles]: /rest/api/maps/render/get-map-static-image
 [Setting the map view]: #setting-the-map-view
 [Search API]: /rest/api/maps/search
 [Shared Key authentication]: azure-maps-authentication.md#shared-key-authentication

@@ -1,14 +1,14 @@
 ---
-title: Enable VMware VMs for disaster recovery using Azure Site Recovery
-description: This article describes how to enable VMware VM replication for disaster recovery using the Azure Site Recovery service
+title: Enable VMware VMs (Modernized) for disaster recovery using Azure Site Recovery
+description: This article describes how to enable VMware VM replication for disaster recovery using the Azure Site Recovery service.
 author: ankitaduttaMSFT
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.author: ankitadutta
-ms.date: 09/24/2024
+ms.date: 12/19/2024
 ---
 
-# Enable replication to Azure for VMware VMs
+# Enable replication to Azure for VMware VMs - Modernized
 
 This article describes how to enable replication of on-premises VMware virtual machines (VM) to Azure.
 
@@ -56,7 +56,7 @@ To enable replication, follow these steps:
 1. In the **Source** page > **Source**, select the configuration server.
 1. For **Machine type**, select **Virtual Machines** or **Physical Machines**.
 1. In **vCenter/vSphere Hypervisor**, select the vCenter server that manages the vSphere host, or select the host. This setting isn't relevant if you're replicating physical computers.
-1. Select the process server. If there are no additional process servers created, the inbuilt process server of configuration server will be available in the dropdown menu. The health status of each process server is indicated as per recommended limits and other parameters. Choose a healthy process server. A [critical](vmware-physical-azure-monitor-process-server.md#process-server-alerts) process server can't be chosen. You can either [troubleshoot and resolve](vmware-physical-azure-troubleshoot-process-server.md) the errors **or** set up a [scale-out process server](vmware-azure-set-up-process-server-scale.md).
+1. Select the process server. If there are no additional process servers created, the inbuilt process server of configuration server will be available in the dropdown menu. The health status of each process server is indicated as per recommended limits and other parameters. Choose a healthy process server. A [critical](vmware-physical-azure-monitor-process-server.md#process-server-alerts) appliance can't be chosen. You can either [troubleshoot and resolve](vmware-physical-azure-troubleshoot-process-server.md) the errors **or** set up a [scale-out process server](vmware-azure-set-up-process-server-scale.md).
 
    :::image type="content" source="./media/vmware-azure-enable-replication/ps-selection.png" alt-text="Enable replication source window":::
 

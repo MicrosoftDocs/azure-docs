@@ -1,13 +1,13 @@
 ---
 title: Use Azure Firewall to protect Azure Kubernetes Service (AKS) clusters
 description: Learn how to use Azure Firewall to protect Azure Kubernetes Service (AKS) clusters
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.custom: devx-track-azurecli, build-2023
 services: firewall
 ms.topic: how-to
 ms.date: 09/30/2024
-ms.author: victorh
+ms.author: duau
 ---
 
 # Use Azure Firewall to protect Azure Kubernetes Service (AKS) clusters
@@ -26,9 +26,9 @@ However, in a production environment, communications with a Kubernetes cluster s
 
 The simplest solution uses a firewall device that can control outbound traffic based on domain names. A firewall typically establishes a barrier between a trusted network and an untrusted network, such as the Internet. Azure Firewall, for example, can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination, giving you fine-grained egress traffic control, but at the same time allows you to provide access to the FQDNs encompassing an AKS cluster’s outbound dependencies (something that NSGs can't do). Likewise, you can control ingress traffic and improve security by enabling threat intelligence-based filtering on an Azure Firewall deployed to a shared perimeter network. This filtering can provide alerts, and deny traffic to and from known malicious IP addresses and domains.
 
-See the following video by Abhinav Sriram for a quick overview on how this works in practice on a sample environment:
+See the following video for a quick overview on how this works in practice on a sample environment:
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE529Qc]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=1017969f-6450-4495-939a-60b26561f357]
 
 You can download a zip file from the [Microsoft Download Center](https://download.microsoft.com/download/0/1/3/0131e87a-c862-45f8-8ee6-31fa103a03ff/aks-azfw-protection-setup.zip) that contains a bash script file and a yaml file to automatically configure the sample environment used in the video. It configures Azure Firewall to protect both ingress and egress traffic. The following guides  walk through each step of the script in more detail so you can set up a custom configuration.
 
@@ -146,6 +146,11 @@ When the previous command has succeeded, save the firewall frontend IP address f
 
 FWPUBLIC_IP=$(az network public-ip show -g $RG -n $FWPUBLICIP_NAME --query "ipAddress" -o tsv)
 FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurations[0].privateIPAddress" -o tsv)
+
+
+# set fw as vnet dns server so dns queries are visible in fw logs
+
+az network vnet update -g $RG --name $VNET_NAME --dns-servers $FWPRIVATE_IP
 ```
 
 > [!NOTE]
@@ -191,6 +196,11 @@ az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aks
 
 ```azurecli
 az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwar' -n 'fqdn' --source-addresses '*' --protocols 'http=80' 'https=443' --fqdn-tags "AzureKubernetesService" --action allow --priority 100
+
+# set fw application rule to allow kubernetes to reach storage and image resources
+
+az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwarweb' -n 'storage' --source-addresses '10.42.1.0/24' --protocols 'https=443' --target-fqdns '*.blob.storage.azure.net' '*.blob.core.windows.net' --action allow --priority 101
+az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwarweb' -n 'website' --source-addresses '10.42.1.0/24' --protocols 'https=443' --target-fqdns 'ghcr.io' '*.docker.io' '*.docker.com' '*.githubusercontent.com' 
 ```
 
 See [Azure Firewall documentation](overview.md) to learn more about the Azure Firewall service.

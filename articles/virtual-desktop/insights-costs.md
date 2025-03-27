@@ -161,7 +161,7 @@ Run the following custom query template for a Log Analytics workspace to track f
 >Make sure to replace the template's placeholder values with the values your environment uses, otherwise the query won't work.
 
 ```kusto
-let WVDHosts = dynamic(['Host1.MyCompany.com', 'Host2.MyCompany.com']); 
+let WVDHosts = dynamic(['host1.contoso.com', 'host2.contoso.com']); 
 Perf 
 | where TimeGenerated > ago(1d) 
 | where Computer in (WVDHosts) 
@@ -212,7 +212,7 @@ Your true monitoring costs will depend on your environment size, usage, and heal
 The performance counters the session hosts use will probably be your largest source of ingested data for Azure Virtual Desktop Insights. The following custom query template for a Log Analytics workspace can track frequency and megabytes ingested per performance counter over the last day:
 
 ```azure
-let WVDHosts = dynamic(['Host1.MyCompany.com', 'Host2.MyCompany.com']);
+let WVDHosts = dynamic(['host1.contoso.com', 'host2.contoso.com']);
 Perf
 | where TimeGenerated > ago(1d)
 | where Computer in (WVDHosts)
@@ -243,5 +243,5 @@ Learn more about Azure Virtual Desktop Insights at these articles:
 
 - [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md).
 - Use the [glossary](insights-glossary.md) to learn more about terms and concepts.
-- If you encounter a problem, check out our [troubleshooting guide](troubleshoot-insights.md) for help.
+- If you encounter a problem, check out our [troubleshooting guide](/troubleshoot/azure/virtual-desktop/troubleshoot-insights) for help.
 - Check out [Azure Monitor cost and usage](/azure/azure-monitor/cost-usage) to learn more about managing your monitoring costs.

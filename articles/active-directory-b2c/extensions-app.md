@@ -6,12 +6,12 @@ description: Restoring the b2c-extensions-app.
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 09/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As an Azure AD B2C administrator, I want to verify the presence of the b2c-extensions-app in my directory, so that I can ensure the correct functioning of Azure AD B2C and avoid any loss of user information.

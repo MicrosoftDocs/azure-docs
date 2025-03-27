@@ -2,7 +2,7 @@
 title: Understand scope for Azure RBAC
 description: Learn about scope for Azure role-based access control (Azure RBAC) and how to determine the scope for a resource.
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.date: 06/02/2023
@@ -53,7 +53,7 @@ Management groups are a level above subscriptions and have the broadest (least s
 /providers
     /Microsoft.Management
         /managementGroups
-            /{managmentGroupName}
+            /{managementGroupName}
 ```
 
 ## Scope examples

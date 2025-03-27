@@ -2,9 +2,9 @@
 title: Azure Instant Restore Capability
 description: Azure Instant Restore Capability and FAQs for VM backup stack, Resource Manager deployment model
 ms.topic: overview
-ms.date: 09/11/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 03/27/2025
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Get improved backup and restore performance with Azure Backup Instant Restore capability
@@ -37,12 +37,12 @@ A recovery point is created as soon as the snapshot is finished and this recover
 
 * The snapshots are stored along with the disks to boost recovery point creation and to speed up restore operations. As a result, you'll see storage costs that correspond to snapshots taken during this period.
 * For standard policy, all snapshots are incremental in nature and are stored as page blobs. All the users using unmanaged disks are charged for the snapshots stored in their local storage account. Since the restore point collections used by Managed VM backups use blob snapshots at the underlying storage level, for managed disks you'll see costs corresponding to blob snapshot pricing and they're incremental.
-* For premium storage accounts, the snapshots taken for instant recovery points count towards the 10-TB limit of allocated space. For Enhanced policy, only Managed VM backups are supported. The initial snapshot is a full copy of the disk(s). The subsequent snapshots are incremental in nature and occupy only delta changes to disks since the last snapshot.
- When you use an Instant Restore recovery point, you must restore the VM or disks to a subscription and resource group that don't require CMK-encrypted disks via Azure Policy. 
+* For premium storage accounts, the snapshots taken for instant recovery points count towards the 10-TB limit of allocated space. For Enhanced policy, only Managed VM backups are supported. The initial snapshot is a full copy of the disk(s). The subsequent snapshots are incremental in nature and occupy only delta changes to disks since the last snapshot. When you use an Instant Restore recovery point, you must restore the VM or disks to a subscription and resource group that don't require CMK-encrypted disks via Azure Policy.
+* When you perform Instant Restores for unmanaged disks, ensure that the storage account hosting the snapshot/vhd files has public network access or similar is enabled. If necessary network access from the Storage Account isn't available, then a standard recovery point restore is triggered, which will cause a slower restore time.
 
 ## Cost impact
 
-Instant Restore feature for snapshots (stored along with the disks) boosts recovery point creation and speed up restore operations. This incurs additional storage costs for the corresponding snapshots taken during this period. The snapshot storage cost varies depending on the type of backup policy.
+Instant Restore feature for snapshots (stored along with the disks) boosts recovery point creation and speeds up the restore operations. This incurs additional storage costs for the corresponding snapshots taken during this period. The snapshot storage cost varies depending on the type of backup policy.
 
 ### Cost impact of standard policy 
 
@@ -57,7 +57,7 @@ Enhanced policy uses Managed disk snapshots for Instant Restore functionality. T
 For example, a VM with 100GB in size has a change rate of 2% and retention of 5 days for Instant Restore. In this case, the snapshot storage billed will be 108GB (100 + 100 X 0.02 X 4).
 
 >[!NOTE]
-> Snapshot retention is fixed to 5 days for weekly policies for Standard policy and can vary between 5 to 20 days for enhanced policy.
+>Snapshot retention is fixed to 5 days for weekly policies for Standard policy and can vary between 5 to 20 days for enhanced policy.
 
 ## Configure snapshot retention
 
@@ -126,7 +126,7 @@ In a scenario where a retention policy is set as “1”, you can find two snaps
 - The garbage collector (GC) in the backend is under heavy load.
 
 > [!NOTE]
-> Azure Backup manages backups in automatic way. Azure Backup retains old snapshots as these are needed to mantain this backup for consistency purpose. If you delete snapshot manually, you might encounter problem in backup consistency.
+> Azure Backup manages backups in automatic way. Azure Backup retains old snapshots as these are needed to maintain this backup for consistency purpose. If you delete snapshot manually, you might encounter problem in backup consistency.
 > If there are errors in your backup history, you need to stop backup with retain data option and resume the backup.
 > Consider creating a **backup strategy** if you've a particular scenario (for example, a virtual machine with multiple disks and requires oversize space). You need to separately create a backup for **VM with OS Disk** and create a different backup for **the other disks**.
 

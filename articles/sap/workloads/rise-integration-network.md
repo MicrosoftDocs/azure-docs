@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.date: 12/21/2023
+ms.date: 11/15/2024
 ms.author: robiro
 ---
 
@@ -18,11 +18,11 @@ With your SAP landscape operated within RISE and running in a separate virtual n
 
 ## Virtual network peering with SAP RISE/ECS
 
-A virtual network (vnet) peering is the most performant way to connect securely between two virtual networks, all in a private network address space. The peered networks appear as one for connectivity purposes, allowing applications to talk to each other. Applications running in different virtual networks, subscriptions, Azure tenants or regions can communicate directly. Like network traffic on a single virtual network, peering traffic remains in a private address space and doesn't traverse the internet.
+A virtual network (vnet) peering is the most performant way to connect securely between two virtual networks, all in a private network address space. The peered networks appear as one for connectivity purposes, allowing applications to talk to each other. Applications running in different virtual networks, subscriptions, Azure tenants or regions can communicate directly. Like network traffic on a single virtual network, peering traffic remains in a private address space and doesn't traverse the internet. Virtual network peering charges apply.
 
 For SAP RISE/ECS deployments, virtual peering is the preferred way to establish connectivity with customer’s existing Azure environment. Primary benefits are:
 - Minimized network latency and maximum throughput between SAP RISE landscape and own applications and services running in Azure.
-- No extra complexity and cost with different on-premises communication path for SAP RISE, instead using existing Azure network hub(s).
+- No extra complexity and cost with a dedicated on-premises communication path for SAP RISE workload. Instead using on-premises communication path of the existing Azure network hub(s).
 
 Virtual network peering can be set up within the same region as your SAP managed environment, but also through [global virtual network peering](../../virtual-network/virtual-network-peering-overview.md) between any two Azure regions. With SAP RISE/ECS available in many [Azure regions](https://azure.microsoft.com/global-infrastructure/geographies/), the region should match with workload running in customer virtual networks due to latency and peering cost considerations. However, some of the scenarios (for example, central S/4HANA deployment for a globally present company) also require to peer networks globally. For such globally distributed SAP landscape, we recommend to use multi-region network architecture within your own Azure environment, with SAP RISE peering locally in each geography to your network hubs.
 
@@ -116,7 +116,7 @@ Applications within a customer’s own virtual network connect to the Internet d
 
 SAP Business Technology Platform (BTP) provides a multitude of applications typically accessed through public IP/hostname via the Internet. Customer's services running in their Azure subscriptions access BTP through the configured [outbound access method](../../virtual-network/ip-services/default-outbound-access.md), such as central firewall or outbound public IPs. Some SAP BTP services, such as SAP Data Intelligence, however is by design accessed through a [separate virtual network peering](https://help.sap.com/docs/SAP_DATA_INTELLIGENCE/ca509b7635484070a655738be408da63/a7d98ac925e443ea9d4a716a91e0a604.html) instead of a public endpoint.
 
-SAP offers [Private Link Service](https://blogs.sap.com/2022/06/22/sap-private-link-service-on-azure-is-now-generally-available-ga/) for customers using SAP BTP on Azure. The SAP Private Link Service connects SAP BTP services through a private IP range into customer’s Azure network and thus accessible privately through the private link service instead of through the Internet. Contact SAP for availability of this service for SAP RISE/ECS workloads.
+SAP offers [Private Link Service](https://help.sap.com/docs/private-link/private-link1/what-is-sap-private-link-service) for customers using SAP BTP on Azure for uni-directional requests originating from BTP. The SAP Private Link Service connects SAP BTP services through a private IP range into customer’s Azure network and thus accessible privately through the private link service instead of through the Internet. Contact SAP for availability of this service for SAP RISE/ECS workloads. Learn more about the SAP Private Link support for RISE [here](https://community.sap.com/t5/technology-blogs-by-sap/quot-sap-private-link-and-azure-private-link-quot-in-the-context-of-sap/ba-p/13719685).
 
 See [SAP's documentation](https://help.sap.com/docs/private-link/private-link1/consume-azure-services-in-sap-btp) and a series of blog posts on the architecture of the SAP BTP Private Link Service and private connectivity methods, dealing with DNS and certificates in following SAP blog series [Getting Started with BTP Private Link Service for Azure](https://blogs.sap.com/2021/12/29/getting-started-with-btp-private-link-service-for-azure/). 
 

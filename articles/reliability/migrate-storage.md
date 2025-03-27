@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 02/27/2023
 ms.author: anaharris 
 ms.reviewer: anaharris
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 ---
 
 # Migrate Azure Storage accounts to availability zone support
@@ -173,4 +173,7 @@ Learn more about:
 > [Azure Storage redundancy](../storage/common/storage-redundancy.md)
 
 > [!div class="nextstepaction"]
-> [Azure services and regions that support availability zones](availability-zones-service-support.md)
+> [Azure services that support availability zones](availability-zones-service-support.md)
+
+> [!div class="nextstepaction"]
+> [Azure regions that support availability zones](regions-list.md)

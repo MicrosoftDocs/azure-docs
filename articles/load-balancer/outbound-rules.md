@@ -4,10 +4,9 @@ description: This article explains how to configure outbound rules to control ou
 services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/11/2024
 ms.author: mbender
-ms.custom: template-how-to, engagement-fy23
 ---
 
 # <a name="outboundrules"></a>Outbound rules Azure Load Balancer

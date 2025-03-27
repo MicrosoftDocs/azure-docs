@@ -7,7 +7,7 @@ ms.author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ---
 
 # Supported file formats and compression codecs in Azure Data Factory and Synapse Analytics (legacy)
@@ -17,12 +17,12 @@ ms.date: 05/15/2024
 *This article applies to the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), and [SFTP](connector-sftp.md).*
 
 >[!IMPORTANT]
->The service introduced new format-based dataset model, see corresponding format article with details: <br>- [Avro format](format-avro.md)<br>- [Binary format](format-binary.md)<br>- [Delimited text format](format-delimited-text.md)<br>- [JSON format](format-json.md)<br>- [ORC format](format-orc.md)<br>- [Parquet format](format-parquet.md)<br>The rest configurations mentioned in this article are still supported as-is for backward compabitility. You are suggested to use the new model going forward. 
+>The service introduced new format-based dataset model, see corresponding format article with details: <br>- [Avro format](format-avro.md)<br>- [Binary format](format-binary.md)<br>- [Delimited text format](format-delimited-text.md)<br>- [JSON format](format-json.md)<br>- [ORC format](format-orc.md)<br>- [Parquet format](format-parquet.md)<br>The rest configurations mentioned in this article are still supported as-is for backward compatibility. You are suggested to use the new model going forward. 
 
 ## <a name="text-format"></a> Text format (legacy)
 
 >[!NOTE]
->Learn the new model from [Delimited text format](format-delimited-text.md) article. The following configurations on file-based data store dataset is still supported as-is for backward compabitility. You are suggested to use the new model going forward.
+>Learn the new model from [Delimited text format](format-delimited-text.md) article. The following configurations on file-based data store dataset is still supported as-is for backward compatibility. You are suggested to use the new model going forward.
 
 If you want to read from a text file or write to a text file, set the `type` property in the `format` section of the dataset to **TextFormat**. You can also specify the following **optional** properties in the `format` section. See [TextFormat example](#textformat-example) section on how to configure.
 
@@ -76,7 +76,7 @@ To use an `escapeChar` instead of `quoteChar`, replace the line with `quoteChar`
 ## <a name="json-format"></a> JSON format (legacy)
 
 >[!NOTE]
->Learn the new model from [JSON format](format-json.md) article. The following configurations on file-based data store dataset is still supported as-is for backward compabitility. You are suggested to use the new model going forward.
+>Learn the new model from [JSON format](format-json.md) article. The following configurations on file-based data store dataset is still supported as-is for backward compatibility. You are suggested to use the new model going forward.
 
 To **import/export a JSON file as-is into/from Azure Cosmos DB**, see Import/export JSON documents section in [Move data to/from Azure Cosmos DB](connector-azure-cosmos-db.md) article.
 
@@ -403,7 +403,7 @@ The output dataset with **JsonFormat** type is defined as follows: (partial defi
 ## <a name="parquet-format"></a> Parquet format (legacy)
 
 >[!NOTE]
->Learn the new model from [Parquet format](format-parquet.md) article. The following configurations on file-based data store dataset is still supported as-is for backward compabitility. You are suggested to use the new model going forward.
+>Learn the new model from [Parquet format](format-parquet.md) article. The following configurations on file-based data store dataset is still supported as-is for backward compatibility. You are suggested to use the new model going forward.
 
 If you want to parse the Parquet files or write the data in Parquet format, set the `format` `type` property to **ParquetFormat**. You do not need to specify any properties in the Format section within the typeProperties section. Example:
 
@@ -463,7 +463,7 @@ Example: set variable `_JAVA_OPTIONS` with value `-Xms256m -Xmx16g`. The flag `X
 ## <a name="orc-format"></a> ORC format (legacy)
 
 >[!NOTE]
->Learn the new model from [ORC format](format-orc.md) article. The following configurations on file-based data store dataset is still supported as-is for backward compabitility. You are suggested to use the new model going forward.
+>Learn the new model from [ORC format](format-orc.md) article. The following configurations on file-based data store dataset is still supported as-is for backward compatibility. You are suggested to use the new model going forward.
 
 If you want to parse the ORC files or write the data in ORC format, set the `format` `type` property to **OrcFormat**. You do not need to specify any properties in the Format section within the typeProperties section. Example:
 
@@ -515,7 +515,7 @@ For copy running on Self-hosted IR with ORC file serialization/deserialization, 
 ## <a name="avro-format"></a> AVRO format (legacy)
 
 >[!NOTE]
->Learn the new model from [Avro format](format-avro.md) article. The following configurations on file-based data store dataset is still supported as-is for backward compabitility. You are suggested to use the new model going forward.
+>Learn the new model from [Avro format](format-avro.md) article. The following configurations on file-based data store dataset is still supported as-is for backward compatibility. You are suggested to use the new model going forward.
 
 If you want to parse the Avro files or write the data in Avro format, set the `format` `type` property to **AvroFormat**. You do not need to specify any properties in the Format section within the typeProperties section. Example:
 

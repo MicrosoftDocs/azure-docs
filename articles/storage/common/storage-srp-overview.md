@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: azure-storage
 ms.topic: overview
-ms.date: 08/01/2024
+ms.date: 11/19/2024
 ms.custom: devguide-csharp, devguide-java, devguide-javascript, devguide-python, devguide-go
 ---
 

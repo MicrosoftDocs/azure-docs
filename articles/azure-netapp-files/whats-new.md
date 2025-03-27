@@ -1,18 +1,122 @@
 ---
-title: What's new in Azure NetApp Files | Microsoft Docs
+title: What's new in Azure NetApp Files 
 description: Provides a summary about the latest new features and enhancements of Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 09/27/2024
+ms.date: 03/25/2025
 ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+
+## March 2025
+
+* [Flexible service level](azure-netapp-files-set-up-capacity-pool.md) (preview)
+ 
+    The [Flexible service level](azure-netapp-files-service-levels.md) allows you to independently configure storage capacity and throughput, optimizing costs by right-sizing according to storage and performance requirements. With separate pricing for capacity and throughput, the Flexible service level prevents overprovisioning and supports up to 640 MiB/second per TiB. This throughput is five times the performance of the Ultra service level, making it ideal for demanding workloads and offering higher throughput for smaller capacity pools and adapting to changing requirements without the need for volume moves. 
+    
+    The Flexible service level is only supported with _new_ manual QoS capacity pools. The Flexible service level offers a minimum throughput of 128 MiB/s and a maximum of 640 MiB/s per TiB [per pool](azure-netapp-files-service-levels.md#flexible-service-level-throughput-examples). This new service level is suitable for applications such as Oracle or SAP HANA and for creating high-capacity volumes with low throughput needs. You can adjust throughput and size limits independently, ensuring flexibility and precise scaling to meet your price-performance requirements. 
+
+* [Network security group (NSG) support for private link connectivity](azure-netapp-files-network-topologies.md) is now generally available (GA)
+
+    Azure NetApp Files now supports private links with NSGs in all regions. This feature enables you to apply NSG policies to private link endpoints, enhancing the security of your workload deployments. 
+
+* [Application volume group for Oracle](application-volume-group-oracle-introduction.md) is now generally available (GA)
+
+    Application volume group for Oracle enables you to deploy all volumes required to install and operate Oracle databases at enterprise scale, with optimal performance and according to best practices in a single one-step and optimized workflow. The application volume group feature uses the Azure NetApp Files ability to place all volumes in the same availability zone as the VMs to achieve automated, latency-optimized deployments. Azure NetApp Files application volume group shortens Oracle database deployment time and increases overall application performance and stability, including the use of multiple storage endpoints. The application volume group feature supports a wide range of Oracle database layouts from small databases with a single volume up to multi 100-TiB sized databases. Application volume group for Oracle is supported in all Azure NetApp Files-enabled regions.
+
+* [Application volume group for SAP HANA extension one](application-volume-group-introduction.md) is now generally available (GA)
+
+    Application volume group for SAP HANA extension one enables you to improve your volume group deployment experience for SAP HANA. Key improvements include: 
+
+    - Support for availability zone volume placement, avoiding the manual AVset pining requirement (when using PPG) 
+    - Support for Standard network features for SAP HANA volumes 
+    - Support for customer-managed keys for increased security and compliance
+
+* [Storage with cool access enhancement:](manage-cool-access.md) snapshot-only tiering policy
+
+    Azure NetApp Files storage with cool access now supports a snapshots-only policy. With this policy enabled, only snapshots are moved to the cool tier. 
+
+* [Edit network features enhancement: no downtime](configure-network-features.md#no-downtime) is now generally available (GA)
+
+    Azure NetApp Files now supports the ability to edit network features (that is, upgrade from Basic to Standard network features) with no downtime for Azure NetApp Files volumes. Standard Network Features provide you with an enhanced virtual networking experience for a seamless and consistent experience along with security posture for Azure NetApp Files. This feature is available in all Azure NetApp Files regions. 
+
+## February 2025
+
+* [General Availability: AzAcSnap 11 — Azure Application Consistent Snapshot tool updates](azacsnap-introduction.md)
+
+    Version 11 of the AzAcSnap tool is now generally available. Azure Application Consistent Snapshot Tool (AzAcSnap) is a command-line tool that enables you to simplify data protection for third-party databases in Linux and Windows environments. 
+    
+    AzAcSnap 11 introduces the following new capabilities and improvements:
+    - Features moved to GA (generally available):
+        - Microsoft SQL Server 2022 on Windows
+    - Dependency updates:
+        - Updated to .NET 8 (List of supported operation systems [.NET 8 - Supported OS versions](https://github.com/dotnet/core/blob/main/release-notes/8.0/supported-os.md))
+        - Azure SDK updated to Track 2 (latest security and significant performance improvements)
+    - Fixes and improvements:
+        - (NEW) Configurable Data Volume backup attempts
+        - Backup (-c backup) changes: Storage snapshot retention management is now performed after the database exits "backup-mode" to minimize the duration the database remains in a "backup-enabled" state.
+ 
+   Learn more in the [AzAcSnap release notes](azacsnap-release-notes.md#azacsnap-10a-build-1b79ba).
+    
+* [Network security group (NSG) support for private link connectivity](azure-netapp-files-network-topologies.md) (Preview)
+
+    Azure NetApp Files now supports private links with NSGs in all regions. This feature enables you to apply NSG policies to private link endpoints, enhancing the security of your workload deployments. 
+
+* [New volume usage metric](azure-netapp-files-metrics.md#volumes): volume inodes percentage 
+
+    The new ‘volume inodes percentage’ metric for Azure NetApp Files lets you keep an eye on [inodes](maxfiles-concept.md) usage (also known as `maxfiles`), which is the maximum number of files a volume can hold. This metric is especially useful for workloads with high file counts, such as high-performance compute (HPC) or electronic design automation (EDA), where you might have millions of small files. By monitoring this metric, you can avoid running out of inodes, keeping your storage running smoothly, and making it easier to plan for future needs.
+
+## January 2025 
+
+* [Application volume group for Oracle](application-volume-group-oracle-introduction.md) and [application volume group for SAP HANA extension one](application-volume-group-introduction.md) now support customer-managed keys. (Preview)
+
+    Azure NetApp Files application volume groups for SAP HANA (with extension 1) and Oracle now support customer-managed keys, providing increased security and compliance. This feature is now in preview.
+
+## December 2024
+
+* [Volume enhancement: Azure NetApp Files 50 GiB minimum volume sizes](azure-netapp-files-create-volumes.md) is now generally available (GA)
+
+    This enhancement allows you to create an Azure NetApp Files volume as small as 50 GiB—a reduction from the initial minimum size of 100 GiB. This reduced size can save costs for workloads that require volumes smaller than 100 GiB, allowing you to appropriately size storage volumes. All volume workflows which were supported with a 100 GiB minimum volume size are now supported with this new minimum size of 50 GiB.
+
+* [Volume enhancement: creating volumes with the same file path, share name, or volume path in different availability zones](manage-availability-zone-volume-placement.md#file-path-uniqueness) is now generally available (GA)
+
+    Azure NetApp Files allows you to create volumes with the same file path (NFS), share name (SMB), or volume path (dual-protocol) as long as they are in different availability zones. For more information, see [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md), [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md), or [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md). This feature is now generally available. 
+
+* [Cloud Backup for Virtual Machines on Azure NetApp Files datastores for Azure VMware Solution:](../azure-vmware/install-cloud-backup-virtual-machines.md) enhanced backup capabilities (Preview)
+
+    Cloud Backup for Virtual Machines now integrates with [Azure NetApp Files backup](backup-introduction.md), significantly enhancing data protection by offering a fully managed backup solution for long-term recovery, archiving, and compliance. This integration allows you to mount a datastore from a snapshot or Azure NetApp Files backup to restore files. You can [mount the backup](../azure-vmware/configure-cloud-backup-virtual-machine.md) to either the Azure VMware Solution host where it was created or to an alternate host.
+    
+    Cloud Backup for Virtual Machines now also includes the capability to [attach one or more VMDKs](../azure-vmware/configure-cloud-backup-virtual-machine.md) from a backup to the parent VM, to an alternate VM on the same Azure VMware Solution host, or to an alternate VM on an alternate host managed by the same vCenter instance.
+    
+    Cloud Backup for Virtual Machines also enables you [to restore a virtual machine](../azure-vmware/restore-azure-netapp-files-vms.md) to an alternate location on the same Azure VMware Solution host or a different host managed by the same vCenter instance. Additionally, it supports [restoring guest files and folders from a snapshot or an Azure NetApp Files backup](../azure-vmware/restore-guest-files-folders.md).
+
+## November 2024
+
+* [Cool access support for large volumes](large-volumes-requirements-considerations.md#register-the-feature)
+
+    Azure NetApp Files storage with [cool access](cool-access-introduction.md) is now available with [large volumes](large-volumes.md). You must be registered to use _both_ cool access and large volumes to create a cool access-enabled large volume. 
+
+ ## October 2024
+
+* [General Availability: AzAcSnap 10a — Azure Application Consistent Snapshot tool updates](azacsnap-introduction.md)
+
+    AzAcSnap 10a has been released with the following fixes and improvements:
+
+    - Fixes and improvements:
+        - Allow configurable wait time-out for Microsoft SQL Server. This option helps you increase time out for slow responding systems (default and minimum value is 30 seconds).
+        - Added a global override variable `MSSQL_CMD_TIMEOUT_SECS` to be used in either the .azacsnaprc file or as an environment variable set to the required wait time out in seconds. For details on configuration, see the [global override settings to control AzAcSnap behavior](azacsnap-tips.md#global-override-settings-to-control-azacsnap-behavior).
+
+    Learn more in the [AzAcSnap release notes](azacsnap-release-notes.md#azacsnap-10a-build-1b79ba).
+
+* [Edit network features enhancement: no downtime](configure-network-features.md#no-downtime) (Preview)
+
+    Azure NetApp Files now supports the ability to edit network features (that is, upgrade from Basic to Standard network features) with no downtime for Azure NetApp Files volumes. Standard Network Features provide you with an enhanced virtual networking experience for a seamless and consistent experience along with security posture for Azure NetApp Files. 
   
 ## September 2024 
 
@@ -40,7 +144,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     With the announcement of cool access's general availability, you can now enable cool access for volumes in Premium and Ultra service level capacity pools, in addition to volumes in Standard service levels capacity pools. With cool access, you can transparently store data in a more cost effective manner on Azure storage accounts based on the data's access pattern. 
 
-    The cool access feature provides the ability to configure a capacity pool with cool access, that moves cold (infrequently accessed) data transparently to Azure storage account to help you reduce the total cost of storage. There's a difference in data access latency as data blocks might be tiered to Azure storage account. The cool access feature provides options for the "coolness period" to optimize the days in which infrequently accessed data moves to cool tier and network transfer cost, based on your workload and read/write patterns. The "coolness period" feature is provided at the volume level. 
+    The cool access feature provides the ability to configure a capacity pool with cool access, which moves cold (infrequently accessed) data transparently to Azure storage account to help you reduce the total cost of storage. There's a difference in data access latency as data blocks might be tiered to Azure storage account. The cool access feature provides options for the "coolness period" to optimize the days in which infrequently accessed data moves to cool tier and network transfer cost, based on your workload and read/write patterns. The "coolness period" feature is provided at the volume level. 
 
     In a cross-region or cross-zone replication setting, cool access can now be configured for destination only volumes to ensure data protection. This capability provides cost savings without any latency impact on source volumes.
 
@@ -50,13 +154,40 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Volume encryption with customer-managed keys with managed HSM extends the [customer-managed keys](configure-customer-managed-keys.md), enabling you to store your keys in a more secure FIPS 140-2 Level 3 HSM service instead of the FIPS 140-2 Level 1 or 2 encryption offered with Azure Key Vault. 
 
-* [Volume enhancement: Azure NetApp Files now supports 50 GiB minimum volume sizes](azure-netapp-files-create-volumes.md#50-gib) (preview)
+* [Volume enhancement: Azure NetApp Files now supports 50 GiB minimum volume sizes](azure-netapp-files-create-volumes.md) (preview)
 
-    You can now create an Azure NetApp Files volume as small as [50 GiB](azure-netapp-files-resource-limits.md)--a reduction from the initial minimum size of 100 GiB. 50 GiB volumes save costs for workloads that require volumes smaller than 100 GiB, allowing you to appropriately size storage volumes. 50 GiB volumes are supported for all protocols with Azure NetApp Files: [NFS](azure-netapp-files-create-volumes.md#50-gib), [SMB](azure-netapp-files-create-volumes-smb.md#50-gib), and [dual-protocol](create-volumes-dual-protocol.md#50-gib). You must register for the feature before creating a volume smaller than 100 GiB. 
+    You can now create an Azure NetApp Files volume as small as [50 GiB](azure-netapp-files-resource-limits.md)--a reduction from the initial minimum size of 100 GiB. 50 GiB volumes save costs for workloads that require volumes smaller than 100 GiB, allowing you to appropriately size storage volumes. 50 GiB volumes are supported for all protocols with Azure NetApp Files: [NFS](azure-netapp-files-create-volumes.md), [SMB](azure-netapp-files-create-volumes-smb.md), and [dual-protocol](create-volumes-dual-protocol.md). You must register for the feature before creating a volume smaller than 100 GiB. 
 
 * [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) is now generally available (GA). 
 
 ## July 2024
+
+* [General Availability: AzAcSnap 10 — Azure Application Consistent Snapshot tool updates](azacsnap-introduction.md)
+
+    AzAcSnap 10 has been released with the following fixes and improvements:
+    
+    - Features added to [Preview](azacsnap-preview.md):
+        - **Microsoft SQL Server** support adding options to configure, test, and snapshot backup Microsoft SQL Server in an application consistent manner.
+    - Features moved to GA (generally available):
+        - **Windows** support with AzAcSnap now able to be run on supported Linux distributions and Windows.
+        - New configuration file layout.
+
+            To upgrade pre-AzAcSnap 10 configurations, use the `azacsnap -c configure --configuration new` command to create a new configuration file and use the values in your existing configuration file.
+        - Azure Large Instance storage management via REST API over HTTPS.
+        
+            This change to the REST API allows the use of Consistency Group snapshots on supported Azure Large Instance storage.
+    - Fixes and improvements:
+        - New `--flush` option which flushes in memory file buffers for local storage, useful for Azure Large Instance and Azure Managed Disk when connected as block storage
+        - Logging improvements
+    - Features removed:
+        - AzAcSnap installer for Linux
+        
+            AzAcSnap is now downloadable as a binary for supported versions of Linux and Windows to simplify access to the AzAcSnap program allowing you to get started quickly.
+        - Azure Large Instance storage management via CLI over SSH
+        
+            CLI over SSH replaced with the REST API over HTTPS
+
+    Learn more in the [AzAcSnap release notes](azacsnap-release-notes.md#azacsnap-10a-build-1b79ba).
 
 * Availability zone volume placement enhancement - [**Populate existing volumes**](manage-availability-zone-volume-placement.md#populate-an-existing-volume-with-availability-zone-information) is now generally available (GA).
 
@@ -64,7 +195,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Cross-zone replication allows you to replicate your Azure NetApp Files volumes asynchronously from one Azure availability zone (AZ) to another within the same region. Using technology similar to the cross-region replication feature and Azure NetApp Files availability zone volume placement feature, cross-zone replication replicates data in-region across different zones; only changed blocks are sent over the network in a compressed, efficient format. It helps you protect your data from unforeseeable zone failures without the need for host-based data replication. This feature minimizes the amount of data required to replicate across the zones, limiting data transfers required and shortens the replication time so you can achieve a smaller Restore Point Objective (RPO). Cross-zone replication doesn’t involve any network transfer costs and is highly cost-effective. 
     
-    Cross-zone replication is available in all [AZ-enabled regions](../reliability/availability-zones-service-support.md) with [Azure NetApp Files presence](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
+    Cross-zone replication is available in all [regions with availability zones](../reliability/availability-zones-region-support.md) and with [Azure NetApp Files presence](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
     
 * [Transition a volume to customer-managed keys](configure-customer-managed-keys.md#transition) (Preview)
 
@@ -121,6 +252,15 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     This feature is now generally available in all [supported regions](backup-introduction.md#supported-regions). 
 
 ## April 2024 
+
+* [General Availability: AzAcSnap 9a — Azure Application Consistent Snapshot tool updates](azacsnap-introduction.md)
+
+    AzAcSnap 9a has been released with the following fixes and improvements:
+
+    - Fixes and improvements: Allow AzAcSnap to have Azure Management Endpoints manually configured to allow it to work in Azure Sovereign Clouds.
+        - Added a global override variable `AZURE_MANAGEMENT_ENDPOINT` to be used in either the .azacsnaprc file or as an environment variable set to the appropriate Azure management endpoint. For details on configuration refer to the [global override settings to control AzAcSnap behavior](azacsnap-tips.md#global-override-settings-to-control-azacsnap-behavior).
+
+    Learn more in the [AzAcSnap release notes](azacsnap-release-notes.md#azacsnap-10a-build-1b79ba).
 
 * [Application volume group for Oracle](application-volume-group-oracle-introduction.md) (Preview)
 
@@ -242,6 +382,22 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## August 2023
 
+* [General Availability: AzAcSnap 9 — Azure Application Consistent Snapshot tool updates](azacsnap-introduction.md)
+
+    AzAcSnap 9 has been released with the following fixes and improvements:
+
+    - Features moved to GA (generally available):
+        - IBM Db2 Database support
+        - [System Managed Identity](azacsnap-configure-storage.md#azure-system-managed-identity) support for easier setup while improving security posture
+    - Fixes and improvements:
+        - Configure (-c configure) changes:
+            Allows for a blank value for authFile in the configuration file when using System Managed Identity.
+    - No Features added to [Preview](azacsnap-preview.md):
+    - Features removed:
+        - Azure Key Vault support removed from Preview. It isn't needed now AzAcSnap supports a System Managed Identity directly.
+
+    Learn more in the [AzAcSnap release notes](azacsnap-release-notes.md#azacsnap-10a-build-1b79ba).
+
 * [Cross-region replication enhancement: re-establish deleted volume replication](reestablish-deleted-volume-relationships.md) (Preview)
 
     Azure NetApp Files now allows you to re-establish a replication relationship between two volumes in case you had previously deleted it. If the destination volume remained operational and no snapshots were deleted, the replication re-establish operation will use the last common snapshot and incrementally synchronize the destination volume based on the last known good snapshot. In that case, no baseline replication is required.
@@ -267,6 +423,21 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     You can now move volumes from a manual QoS capacity pool to an auto QoS capacity pool. When you move a volume to an auto QoS capacity pool, the throughput is changed according to the allocated volume size (quota) of the target pool's service level:  `<throughput> = <volume quota> x <Service Level Throughput / TiB>`
 
 ## June 2023
+
+* [General Availability: AzAcSnap 8b — Azure Application Consistent Snapshot tool updates](azacsnap-introduction.md)
+
+    AzAcSnap 8b has been released with the following fixes and improvements:
+
+    - Fixes and improvements:
+        - General improvement to `azacsnap` command exit codes.
+            - The `azacsnap` command should return an exit code of 0 (zero) when run as expected, otherwise it should return an exit code of non-zero. For example, running `azacsnap` returns a non-zero value as there's nothing to do and shows usage information, whereas `azacsnap -h` returns exit-code of zero as it's performing as expected by returning usage information.
+            - Any failure in `--runbefore` exits before any backup activity and returns the `--runbefore` exit code.
+            - Any failure in `--runafter` returns the `--runafter` exit code.
+        - Backup (-c backup) changes:
+            - Change in the Db2 workflow to move the protected-paths query outside the WRITE SUSPEND, Storage Snapshot, WRITE RESUME workflow to improve resilience. (Preview)
+            - Fix for missing snapshot name (`azSnapshotName`) in `--runafter` command environment.
+
+    Learn more in the [AzAcSnap release notes](azacsnap-release-notes.md#azacsnap-10a-build-1b79ba).
 
 * [Cloud Backup for Virtual Machines on Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/install-cloud-backup-virtual-machines.md) (Preview)
 
@@ -385,7 +556,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     * Restore (`-c restore`) improvements
     * Test (`-c test`) improvements
     * Validation improvements
-    * Timeout improvements
+    * Time-out improvements
     * Azure Backup integration improvements
     * Features moved to GA (generally available):
         None
@@ -403,7 +574,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     The public preview of the feature is currently available in the following regions: Australia East, Brazil South, Canada Central, Central US, East Asia, East US, East US 2, France Central, Germany West Central, Japan East, North Europe, Norway East, Southeast Asia, South Central US, UK South, West Europe, West US 2, and West US 3.
 
-    In the future, cross-zone replication is planned for all [AZ-enabled regions](../availability-zones/az-overview.md#azure-regions-with-availability-zones) with [Azure NetApp Files presence](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
+    In the future, cross-zone replication is planned for all [AZ-enabled regions](../reliability/availability-zones-region-support.md) with [Azure NetApp Files presence](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
 
 * [Azure Virtual WAN](configure-virtual-wan.md) (Preview)
 
@@ -421,7 +592,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Availability zone volume placement](manage-availability-zone-volume-placement.md) (Preview)
 
-    Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures. Using Azure availability zones lets you design and operate applications and databases that automatically transition between zones without interruption. Azure NetApp Files lets you deploy new volumes in the logical availability zone of your choice to support enterprise, mission-critical HA deployments across multiple AZs. Azure’s push towards the use of [availability zones (AZs)](../availability-zones/az-overview.md#availability-zones) has increased, and the use of high availability (HA) deployments with availability zones are now a default and best practice recommendation in Azure’s [Well-Architected Framework](/azure/architecture/framework/resiliency/design-best-practices#use-zone-aware-services).
+    Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures. Using Azure availability zones lets you design and operate applications and databases that automatically transition between zones without interruption. Azure NetApp Files lets you deploy new volumes in the logical availability zone of your choice to support enterprise, mission-critical HA deployments across multiple AZs. Azure’s push towards the use of [availability zones (AZs)](../reliability/availability-zones-overview.md) has increased, and the use of high availability (HA) deployments with availability zones are now a default and best practice recommendation in Azure’s [Well-Architected Framework](/azure/architecture/framework/resiliency/design-best-practices#use-zone-aware-services).
 
 * [Application volume group for SAP HANA](application-volume-group-introduction.md) now generally available (GA)
 

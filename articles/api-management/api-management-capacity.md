@@ -6,14 +6,14 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 08/26/2024
+ms.date: 10/01/2024
 ms.author: danlep
 ms.custom: fasttrack-edit
 ---
 
 # Capacity of an Azure API Management instance
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 API Management provides [Azure Monitor metrics](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) to detect use of system capacity, helping you troubleshoot gateway problems and make informed decisions whether to [scale or upgrade](upgrade-and-scale.md) an API Management instance to accommodate more load. 
 

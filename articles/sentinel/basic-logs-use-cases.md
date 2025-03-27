@@ -9,6 +9,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to ingest high-volume, verbose logs into a cost-effective storage solution so that I can enhance my threat hunting and incident investigation capabilities.
+
 ---
 # Log sources to use for Auxiliary Logs ingestion
 

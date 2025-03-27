@@ -2,7 +2,7 @@
 title: "Microsoft Exchange Logs and Events connector for Microsoft Sentinel"
 description: "Learn how to install the connector Microsoft Exchange Logs and Events to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 04/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
@@ -51,14 +51,14 @@ To integrate with Microsoft Exchange Logs and Events make sure you have:
 
 
 > [!NOTE]
-   >  This solution is based on options. This allows you to choose which data will be ingest as some options can generate a very high volume of data. Depending on what you want to collect, track in your Workbooks, Analytics Rules, Hunting capabilities you will choose the option(s) you will deploy. Each options are independant for one from the other. To learn more about each option: ['Microsoft Exchange Security' wiki](https://aka.ms/ESI_DataConnectorOptions)
+   >  This solution is based on options. This allows you to choose which data will be ingest as some options can generate a very high volume of data. Depending on what you want to collect, track in your Workbooks, Analytics Rules, Hunting capabilities you will choose the option(s) you will deploy. Each options are independent for one from the other. To learn more about each option: ['Microsoft Exchange Security' wiki](https://aka.ms/ESI_DataConnectorOptions)
 
 1.  Download and install the agents needed to collect logs for Microsoft Sentinel
 
 Type of servers (Exchange Servers, Domain Controllers linked to Exchange Servers or all Domain Controllers) depends on the option you want to deploy.
 
 
-2.  Deploy log injestion following choosed options
+2.  Deploy log ingestion following chosen options
 
 
 

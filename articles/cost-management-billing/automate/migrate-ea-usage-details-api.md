@@ -2,9 +2,9 @@
 title: Migrate from the EA Usage Details APIs
 titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Usage Details APIs.
-author: bandersmsft
-ms.author: banders
-ms.date: 03/07/2024
+author: jojopm
+ms.author: jojoh
+ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -77,7 +77,7 @@ The following table provides a summary of the old fields available in the soluti
 
 | **Old field** | **New field** | **Comments** |
 | --- | --- | --- |
-| accountId |  | _Not available -_ Use AccountName to get the account information. |
+| accountId |  ||
 | accountName | AccountName |     |
 | accountOwnerEmail | AccountOwnerId |     |
 | additionalInfo | AdditionalInfo |     |
@@ -88,12 +88,12 @@ The following table provides a summary of the old fields available in the soluti
 | cost | CostInBillingCurrency |     |
 | costCenter | CostCenter |     |
 | date | Date | The format in the old field was yyyy-mm-dd, while the new field is in the format mm/dd/yyyy. |
-| departmentId | InvoiceSectionId |  The field is currently empty. Use `DepartmentName` to get the department information.   |
+| departmentId | InvoiceSectionId ||
 | departmentName | InvoiceSectionName |     |
 | extendedCost | CostInBillingCurrency |     |
 | instanceId | ResourceId |     |
 | isRecurringCharge |     | Where applicable, use the `Frequency` and `Term fields` moving forward. |
-| location | ResourceLocationNormalized | `ResourceLocationNormalized` is present in Cost Details report, but not yet in exports. |
+| location | ResourceLocationNormalized | |
 | meterCategory | MeterCategory |     |
 | meterId | MeterId |     |
 | meterName | MeterName |     |

@@ -4,34 +4,35 @@ titleSuffix: Microsoft Sentinel
 description: This article explains how to detect threats with Microsoft-generated threat intelligence in Microsoft Sentinel.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 3/14/2024
+ms.date: 01/28/2025
 ms.author: austinmc
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#Customer intent: As an SOC analyst, I want to match my security data with Microsoft threat intelligence so that I can generate high-fidelity alerts and incidents.
+
+
+#Customer intent: As a security operations analyst, I want to match my security data with Microsoft threat intelligence so I can generate high fidelity alerts and incidents.
+
 ---
 
 # Use matching analytics to detect threats
 
 Take advantage of threat intelligence produced by Microsoft to generate high-fidelity alerts and incidents with the **Microsoft Defender Threat Intelligence Analytics** rule. This built-in rule in Microsoft Sentinel matches indicators with Common Event Format (CEF) logs, Windows DNS events with domain and IPv4 threat indicators, syslog data, and more.
 
-> [!IMPORTANT]
-> Matching analytics is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for more legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-
 ## Prerequisites
 
 You must install one or more of the supported data connectors to produce high-fidelity alerts and incidents. A premium Microsoft Defender Threat Intelligence license isn't required. Install the appropriate solutions from the **Content hub** to connect these data sources:
 
-  - Common Event Format
-  - DNS (preview)
-  - Syslog
-  - Office activity logs
+  - Common Event Format (CEF) via Legacy Agent
+  - Windows DNS via Legacy Agent (Preview)
+  - Syslog via Legacy Agent
+  - Microsoft 365 (formerly, Office 365)
   - Azure activity logs
+  - Windows DNS via AMA
+  - ASIM Network sessions
 
-  :::image type="content" source="media/use-matching-analytics-to-detect-threats/data-sources.png" alt-text="A screenshot that shows the Microsoft Defender Threat Intelligence Analytics rule data source connections."::: 
+  :::image type="content" source="media/use-matching-analytics-to-detect-threats/matching-analytics-template-ga.png" alt-text="A screenshot that shows the Microsoft Defender Threat Intelligence Analytics rule data source connections."::: 
 
   For example, depending on your data source, you might use the following solutions and data connectors:
 
@@ -41,7 +42,8 @@ You must install one or more of the supported data connectors to produce high-fi
   |[Windows Server DNS](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-dns?tab=Overview)  |[DNS connector for Microsoft Sentinel](data-connectors/dns.md) |
   |[Syslog solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-syslog?tab=Overview)  |[Syslog connector for Microsoft Sentinel](data-connectors/syslog.md)  |
   |[Microsoft 365 solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-office365?tab=Overview) | [Office 365 connector for Microsoft Sentinel](data-connectors/office-365.md)    |
-  |[Azure Activity solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-azureactivity?tab=Overview)    |  [Azure Activity connector for Microsoft Sentinel](data-connectors/azure-activity.md)       |
+  |[Azure Activity solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-azureactivity?tab=Overview)    |  [Azure Activity connector for Microsoft Sentinel](data-connectors/azure-activity.md)   |
+  |[Windows Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-windowsfirewall?tab=Overview)  | [Windows Firewall Events via AMA connector](data-connectors/windows-firewall-events-via-ama.md)  |
 
 ## Configure the matching analytics rule
 
@@ -59,7 +61,7 @@ Matching analytics is configured when you enable the **Microsoft Defender Threat
 
 1. Select **Review** > **Create**.
 
-:::image type="content" source="media/use-matching-analytics-to-detect-threats/configure-matching-analytics-rule.png" alt-text="Screenshot that shows the Microsoft Defender Threat Intelligence Analytics rule enabled on the Active rules tab.":::
+:::image type="content" source="media/use-matching-analytics-to-detect-threats/configure-matching-analytics-rule.png" alt-text="Screenshot that shows the Microsoft Defender Threat Intelligence Analytics rule enabled on the Active rules tab." lightbox="media/use-matching-analytics-to-detect-threats/configure-matching-analytics-rule.png":::
 
 ## Data sources and indicators
 
@@ -70,6 +72,8 @@ Microsoft Defender Threat Intelligence Analytics matches your logs with domain,
 - **Syslog events**, where `Facility == "cron"` ingested into the `Syslog` table matches domain and IPv4 indicators directly from the `SyslogMessage` field.
 - **Office activity logs** ingested into the `OfficeActivity` table match IPv4 indicators directly from the `ClientIP` field.
 - **Azure activity logs** ingested into the `AzureActivity` table match IPv4 indicators directly from the `CallerIpAddress` field.
+- **ASIM DNS logs** ingested into the `ASimDnsActivityLogs` table match domain indicators if populated in the `DnsQuery` field, and IPv4 indicators in the `DnsResponseName` field.
+- **ASIM Network Sessions** ingested into the `ASimNetworkSessionLogs` table match IPv4 indicators if populated in one or more of the following fields: `DstIpAddr`, `DstNatIpAddr`, `SrcNatIpAddr`, `SrcIpAddr`, `DvcIpAddr`.
 
 ## Triage an incident generated by matching analytics
 
@@ -77,7 +81,7 @@ If Microsoft's analytics finds a match, any alerts generated are grouped into in
 
 Use the following steps to triage through the incidents generated by the **Microsoft Defender Threat Intelligence Analytics** rule:
 
-1. In the Microsoft Sentinel workspace where you enabled the **Microsoft Defender Threat Intelligence Analytics** rule, select **Incidents**, and search for **Microsoft Defender Threat Intelligence Analytics**.
+1. In the Microsoft Sentinel workspace where you enabled the **Microsoft Defender Threat Intelligence Analytics** rule, select **Incidents**, and search for *Microsoft Defender Threat Intelligence Analytics*.
 
     Any incidents that are found appear in the grid.
 
@@ -91,23 +95,23 @@ Use the following steps to triage through the incidents generated by the **Micro
 
     Alerts are then grouped on a per-observable basis of the indicator. For example, all alerts generated in a 24-hour time period that match the `contoso.com` domain are grouped into a single incident with a severity assigned based on the highest alert severity.
 
-1. Observe the indicator information. When a match is found, the indicator is published to the Log Analytics `ThreatIntelligenceIndicators` table, and it appears on the **Threat Intelligence** page. For any indicators published from this rule, the source is defined as **Microsoft Defender Threat Intelligence Analytics**.
+1. Observe the indicator information. When a match is found, the indicator is published to the Log Analytics `ThreatIntelligenceIndicators` table, and it appears on the **Threat Intelligence** page. For any indicators published from this rule, the source is defined as `Microsoft Threat Intelligence Analytics`.
 
 Here's an example of the `ThreatIntelligenceIndicators` table.
 
 :::image type="content" source="media/use-matching-analytics-to-detect-threats/matching-analytics-logs.png" alt-text="Screenshot that shows the ThreatIntelligenceIndicator table showing indicator with SourceSystem of Microsoft Threat Intelligence Analytics." lightbox="media/use-matching-analytics-to-detect-threats/matching-analytics-logs.png":::
 
-Here's an example of the **Threat Intelligence** page.
+Here's an example of searching for the indicators in the management interface.
 
 :::image type="content" source="media/use-matching-analytics-to-detect-threats/matching-analytics-threat-intelligence.png" alt-text="Screenshot that shows the Threat Intelligence overview with indicator selected showing the source as Microsoft Threat Intelligence Analytics." lightbox="media/use-matching-analytics-to-detect-threats/matching-analytics-threat-intelligence.png":::
 
 ## Get more context from Microsoft Defender Threat Intelligence
 
-Along with high-fidelity alerts and incidents, some Microsoft Defender Threat Intelligence indicators include a link to a reference article in the Microsoft Defender Threat Intelligence community portal.
+Along with high-fidelity alerts and incidents, some Microsoft Defender Threat Intelligence indicators include a link to a reference article in Intel Explorer.
 
 :::image type="content" source="media/use-matching-analytics-to-detect-threats/mdti-article-link.png" alt-text="Screenshot that shows an incident with a link to the Microsoft Defender Threat Intelligence reference article.":::
 
-For more information, see [What is Microsoft Defender Threat Intelligence?](/defender/threat-intelligence/what-is-microsoft-defender-threat-intelligence-defender-ti).
+For more information, see [Searching and pivoting with Intel Explorer](/defender/threat-intelligence/searching-and-pivoting).
 
 ## Related content
 

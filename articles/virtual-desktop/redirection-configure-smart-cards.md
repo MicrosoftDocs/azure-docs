@@ -152,9 +152,9 @@ To allow or disable smart card device redirection using Microsoft Intune:
 
 1. Expand the **Administrative templates** category, then toggle the switch for **Do not allow smart card device redirection**, depending on your requirements:
 
-   - To allow smart card device redirection, toggle the switch to **Disabled**, then select **OK**. 
+   - To allow smart card device redirection, toggle the switch to **Disabled**. 
 
-   - To disable smart card device redirection, toggle the switch to **Enabled**, then select **OK**. 
+   - To disable smart card device redirection, toggle the switch to **Enabled**. 
 
 1. Select **Next**.
 
@@ -170,7 +170,7 @@ To allow or disable smart card device redirection using Microsoft Intune:
 
 To allow or disable smart card device redirection using Group Policy:
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 

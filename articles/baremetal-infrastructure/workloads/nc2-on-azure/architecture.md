@@ -42,7 +42,7 @@ Each NC2 on Azure architectural component has the following function:
 - Nutanix Cost Governance: Provides multi-cloud optimization to reduce cost & enhance cloud security.
 - Azure Virtual Network (VNet): Private network used to connect AHV hosts, Azure services and resources together.
 - Azure Route Server: Enables network appliances to exchange dynamic route information with Azure networks.
-- Azure Virtual Network Gateway: Cross premises gateway for connecting Azure services and resources to other private networks using IPSec VPN, ExpressRoute, and VNet to VNet.
+- Azure Virtual Network Gateway: Cross premises gateway for connecting Azure services and resources to other private networks using IPsec VPN, ExpressRoute, and VNet to VNet.
 - Azure ExpressRoute: Provides high-speed private connections between Azure data centers and on-premises or colocation infrastructure.
 - Azure Virtual WAN (vWAN): Aggregates networking, security, and routing functions together into a single unified Wide Area Network (WAN).
 
@@ -112,12 +112,16 @@ When planning your NC2 on Azure design, use the following table to understand wh
 | Azure region | SKU   |
 | :---         | :---: |
 | Australia East | AN36P |
+| Central India | AN36P |
 | East US | AN36 |
 | East US 2 | AN36P |
 | Germany West Central | AN36P |
 | Japan East | AN36P |
 | North Central US | AN36P |
+| Qatar Central | AN36P |
 | Southeast Asia | AN36P |
+| South India | AN36P |
+| UAE North | AN36P |
 | UK South | AN36P |
 | West Europe | AN36P |
 | West US 2 | AN36 |
@@ -182,7 +186,7 @@ The following table describes what’s supported for each network features confi
 |Delegated subnet per VNet |1|
 |[Network Security Groups](../../../virtual-network/network-security-groups-overview.md) on NC2 on Azure-delegated subnets|No|
 |VWAN enables traffic inspection via NVA (Virtual WAN Hub routing intent)|Yes|
-[User-defined routes (UDRs)](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) on NC2 on Azure-delegated subnets without VWAN| No|
+|[User-defined routes (UDRs)](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) on NC2 on Azure-delegated subnets without VWAN| Yes|
 |Connectivity from BareMetal to [private endpoints](../../../private-link/private-endpoint-overview.md) in the same Vnet on Azure-delegated subnets|No|
 |Connectivity from BareMetal to [private endpoints](../../../private-link/private-endpoint-overview.md) in a different spoke Vnet connected to vWAN|Yes|
 |Load balancers for NC2 on Azure traffic|No|

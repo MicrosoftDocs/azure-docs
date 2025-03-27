@@ -1,20 +1,20 @@
 ---
 title: Save on select Linux VMs for a limited time
 description: Learn how to save up to 56% on select Linux VMs with a limited-time offer by purchasing a one-year Azure Reserved Virtual Machine Instance.
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: shreyabaheti
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 09/17/2024
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 ms.custom: references_regions
 #customer intent: I want to learn how to save money with reservations and buy one.
 ---
 
 # Save on select Linux VMs for a limited time
 
-Save up to 15 percent in addition to the existing one-year [Azure Reserved Virtual Machine (VM) Instances](/azure/virtual-machines/prepay-reserved-vm-instances?toc=%2Fazure%2Fcost-management-billing%2Freservations%2Ftoc.json&source=azlto3) discount for select Linux VMs for a limited period. Customers could potentially see total savings of to up to 56% compared to running an Azure VM on a pay-as-you-go basis. This offer is available between October 1, 2024, and March 31, 2025.
+Save up to 15 percent in addition to the existing one-year [Azure Reserved Virtual Machine (VM) Instances](/azure/virtual-machines/prepay-reserved-vm-instances?toc=%2Fazure%2Fcost-management-billing%2Freservations%2Ftoc.json&source=azlto3) discount for select Linux VMs for a limited period. Customers could potentially see total savings of to up to 56% compared to running an Azure VM on a pay-as-you-go basis. This offer is available between October 1, 2024, and March 31, 2025. The pricing pages and the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator) reflect the adjusted price, inclusive of the promotional discounts.
 
 ## Purchase the offer
 
@@ -38,9 +38,11 @@ You can view the reservation in the [Reservations](https://portal.azure.com/#bla
 
 These terms and conditions (hereinafter referred to as "terms") govern the promotional offer ("offer") provided by Microsoft to customers purchasing a one-year Azure Reserved VM Instance in a qualified region between October 1, 2024 (12 AM Pacific Standard Time) and March 31, 2025 (11:59 PM Pacific Standard Time), for any of the following VM series:
 
+- Dadsv5³ ⁴
 - Dadsv6¹
 - Daldsv6¹
 - Dalsv6¹
+- Dasv5³ ⁴
 - Dasv6¹
 - DCadsv5
 - DCasv5
@@ -53,7 +55,9 @@ These terms and conditions (hereinafter referred to as "terms") govern the promo
 - Dpsv6
 - Dsv5²
 - Dv5²
+- Eadsv5³
 - Eadsv6¹
+- Easv5³
 - Easv6¹
 - ECadsv5
 - ECasv5
@@ -66,9 +70,13 @@ These terms and conditions (hereinafter referred to as "terms") govern the promo
 - Lasv3
 - Lsv3
 
-*¹ VM isn't available for the offer in US East.*
+*¹ VM isn't available for the offer in the US East region.*
 
-*² VM isn't available for the offer in US Government Iowa and US Government Virginia.*
+*² VM isn't available for the offer in US Government Iowa and US Government Virginia regions.*
+
+*³ VM isn't available for the offer in US West 3, US Central, and US South Central regions.*
+
+*⁴ VM isn't available for the offer in all China (CN) regions.*
 
 Instance size flexibility is available for these VMs. For more information about instance size flexibility, see [Virtual machine size flexibility](/azure/virtual-machines/reserved-vm-instance-size-flexibility?source=azlto7).
 
@@ -86,6 +94,7 @@ The offer is available based on the following criteria:
   - Enterprise (MS-AZR-0017P or MS-AZR-0148P)
   - Pay-as-you-go (MS-AZR-0003P or MS-AZR-0023P)
   - Microsoft Customer Agreement
+  - 21v Customer Agreement
 - Cloud solution providers can use the Azure portal or [Partner Center](/partner-center/azure-reservations?source=azlto1) to purchase Azure Reservations. You can't purchase a reservation if you have a custom role that mimics owner role or reservation purchaser role on an Azure subscription. You must use the built-in owner or built-in reservation purchaser role.
 - For more information about who can purchase a reservation, see [Buy an Azure reservation](prepare-buy-reservation.md?source=azlto2).
 

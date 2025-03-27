@@ -179,6 +179,15 @@ Content-Type: `application/json`
 }
 ```
 
+## Troubleshooting 
+
+**Can I delete multiple patient observations or all patient resources in a single API call?**
+
+The $bulk-delete operation allows you to delete resources from the FHIR server asynchronously. You can execute the $bulk-delete operation either at the system level or for specific resource types.
+[Bulk-delete](fhir-bulk-delete.md)
+
+
+
 ## Related content
 
 [Overview of FHIR search](overview-of-search.md)

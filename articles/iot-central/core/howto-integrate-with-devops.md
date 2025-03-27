@@ -5,7 +5,7 @@ author: troyhopwood
 ms.author: troyhop
 ms.date: 06/12/2023
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 ms.custom: devx-track-azurecli
 ---
 
@@ -50,7 +50,7 @@ You need the following prerequisites to complete the steps in this guide:
 
 ## Download the sample code
 
-To get started, fork the IoT Central CI/CD GitHub repository and then clne your fork to your local machine:o
+To get started, fork the IoT Central CI/CD GitHub repository and then clone your fork to your local machine:
 
 1. To fork the GitHub repository, open the [IoT Central CI/CD GitHub repository](https://github.com/Azure/iot-central-CICD-sample) and select **Fork**.
 

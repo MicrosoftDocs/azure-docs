@@ -4,8 +4,7 @@ description: Describes how to back up data on virtual machine disks running on y
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.topic: how-to
 ms.date: 06/25/2021

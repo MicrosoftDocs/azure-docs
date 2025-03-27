@@ -1,19 +1,16 @@
 ---
-title: Manage session hosts with Microsoft Intune - Azure Virtual Desktop
-description: Recommended ways for you to manage your Azure Virtual Desktop session hosts.
+title: Manage the operating system of session hosts - Azure Virtual Desktop
+description: Recommended ways for you to manage your Azure Virtual Desktop session hosts, such as Microsoft Intune and Microsoft Configuration Manager.
 author: dknappettmsft
 ms.topic: conceptual
 ms.date: 04/11/2023
 ms.author: daknappe
 ms.custom: docs_inherited
 ---
-# Manage session hosts with Microsoft Intune
+
+# Manage the operating system of session hosts
 
 We recommend using [Microsoft Intune](https://www.microsoft.com/endpointmanager) to manage your Azure Virtual Desktop environment. Microsoft Intune is a unified management platform that includes Microsoft Configuration Manager and Microsoft Intune.
-
-## Microsoft Configuration Manager
-
-Microsoft Configuration Manager versions 1906 and later can manage your domain-joined and Microsoft Entra hybrid joined session hosts. For more information, see [Supported OS versions for clients and devices for Configuration Manager](/mem/configmgr/core/plan-design/configs/supported-operating-systems-for-clients-and-devices#azure-virtual-desktop).
 
 ## Microsoft Intune
 
@@ -23,6 +20,10 @@ For Windows 11 and Windows 10 multi-session hosts, Intune supports both device-b
 
 > [!NOTE]
 > Managing Azure Virtual Desktop session hosts using Intune is currently supported in the Azure Public and [Azure Government clouds](/enterprise-mobility-security/solutions/ems-intune-govt-service-description).
+
+## Microsoft Configuration Manager
+
+Microsoft Configuration Manager versions 1906 and later can manage your domain-joined and Microsoft Entra hybrid joined session hosts. For more information, see [Supported OS versions for clients and devices for Configuration Manager](/mem/configmgr/core/plan-design/configs/supported-operating-systems-for-clients-and-devices#azure-virtual-desktop).
 
 ## Licensing
 

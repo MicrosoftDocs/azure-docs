@@ -1,0 +1,52 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Managed Redis (preview) planning FAQs
+  description: Learn the answers to common questions that help you plan for Azure Managed Redis
+  ms.date: 11/15/2024
+  ms.topic: faq
+  ms.custom:
+    - ignite-2024
+title: Azure Managed Redis (preview) planning FAQs
+summary: |
+          This article provides answers to common questions about how to plan for Azure Managed Redis deployments.
+
+sections:
+  - name: Ignored
+    questions:
+      - question: |
+          How can I measure Azure Managed Redis (preview) performance?
+        answer: |
+          For guidance on how to benchmark the performance of your Azure Managed Redis (preview) instance and for sample benchmarking numbers, please see the [Performance testing](managed-redis-best-practices-performance.md) page.
+          
+      - question: |
+          In what region should I locate my cache?
+        answer: |
+          For best performance and lowest latency, locate your Azure Managed Redis in the same region as your cache client application. You can use [active geo replication](managed-redis-how-to-active-geo-replication.md) to distribute data to multiple regions for optimized latency. 
+
+      - question: |
+          Where does my cached data reside?
+        answer: |
+         In Azure Managed Redis (preview), your application data is stored in the RAM of the VM or VMs (depending on the tier and size configuration) that host your Redis instance. Your data resides strictly in the Azure region you've selected by default. 
+         If you set up [active geo-replication](managed-redis-how-to-active-geo-replication.md), however, your data is replicated to each Redis instance in the geo-replication group. If Redis instances in the geo-replication group reside in other regions (as is typical), then your data is replicated to that region.
+         You need to explicitly configure Azure Managed Redis to use this feature and have complete control over the region(s) chosen. 
+          
+          >[!NOTE] 
+          >The Flash Optimized tier also stores data on an ephemeral NVMe flash disk. This disk is mounted to the cache instance VM and therefore resides in the same region as the instance.
+          >
+
+      - question: |
+          How am I billed for Azure Managed Redis?
+        answer: |
+          Azure Managed Redis pricing is [here](https://azure.microsoft.com/pricing/details/managed-redis/). The pricing page lists pricing as an hourly and monthly rate. Caches are billed on a per-minute basis. The period is measured from time a cache is created until the time that a cache is deleted.
+          There's no option for stopping or pausing the billing of a cache.
+          
+      - question: |
+          Can I use Azure Managed Redis with Azure Government Cloud or Azure operated by 21Vianet Cloud?
+        answer: |
+          Azure Managed Redis is only available in the Public Azure cloud during preview. 
+          
+additionalContent: |
+
+  ## Next steps
+  
+  Learn about other [Azure Managed Redis FAQs](managed-redis-faq.yml).

@@ -2,12 +2,12 @@
 title: Configure the self-hosted integration runtime for log analytics collection
 titleSuffix: Azure Data Factory & Azure Synapse
 description: This article describes how to instrument the self-hosted integration runtime for log analytics collection.
-author: jonburchel
-ms.subservice: 
+author: whhender
 ms.custom: synapse
 ms.topic: how-to
-ms.date: 01/05/2024
-ms.author: jburchel
+ms.date: 10/03/2024
+ms.subservice: integration-runtime
+ms.author: whhender
 ---
 
 # Configure the self-hosted integration runtime (SHIR) for log analytics collection

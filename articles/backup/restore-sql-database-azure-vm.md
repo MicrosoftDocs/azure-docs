@@ -4,8 +4,8 @@ description: This article describes how to restore SQL Server databases that are
 ms.topic: how-to
 ms.date: 09/19/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Restore SQL Server databases on Azure VMs
 

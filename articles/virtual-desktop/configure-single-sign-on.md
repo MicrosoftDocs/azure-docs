@@ -60,7 +60,6 @@ Before you can enable single sign-on, you must meet the following prerequisites:
 - To configure your Microsoft Entra tenant, you must be assigned one of the following [Microsoft Entra built-in roles](/entra/identity/role-based-access-control/manage-roles-portal) or equivalent:
 
    - [Application Administrator](/entra/identity/role-based-access-control/permissions-reference#application-administrator)
-
    - [Cloud Application Administrator](/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)
 
 - Your session hosts must be running one of the following operating systems with the relevant cumulative update installed:
@@ -77,17 +76,20 @@ Before you can enable single sign-on, you must meet the following prerequisites:
 
 - [Install the Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation) version 2.9.0 or later on your local device or in [Azure Cloud Shell](../cloud-shell/overview.md).
 
-- A supported Remote Desktop client to connect to a remote session. The following clients are supported:
+- Use a supported version of Windows App or the Remote Desktop client to connect to a remote session. The following platforms and versions are supported:
 
-   - [Windows Desktop client](users/connect-windows.md) on local PCs running Windows 10 or later. There's no requirement for the local PC to be joined to Microsoft Entra ID or an Active Directory domain.
+   - Windows App:
+      - Windows: All versions of Windows App. There's no requirement for the local PC to be joined to Microsoft Entra ID or an Active Directory domain.
+      - macOS: version 10.9.10 or later.
+      - iOS/iPadOS: version 10.5.2 or later.
+      - Web browser.
 
-   - [Web client](users/connect-web.md).
-
-   - [macOS client](users/connect-macos.md), version 10.8.2 or later.
-
-   - [iOS client](users/connect-ios-ipados.md), version 10.5.1 or later.
-
-   - [Android client](users/connect-android-chrome-os.md), version 10.0.16 or later.
+   - Remote Desktop client:
+      - [Windows Desktop client](users/connect-windows.md) on local PCs running Windows 10 or later. There's no requirement for the local PC to be joined to Microsoft Entra ID or an Active Directory domain.
+      - [Web client](users/connect-web.md).
+      - [macOS client](users/connect-macos.md), version 10.8.2 or later.
+      - [iOS client](users/connect-ios-ipados.md), version 10.5.1 or later.
+      - [Android client](users/connect-android-chrome-os.md), version 10.0.16 or later.
 
 ## Enable Microsoft Entra authentication for RDP
 
@@ -140,7 +142,7 @@ To configure the service principal, use the [Microsoft Graph PowerShell SDK](/po
    Get-MgServicePrincipalRemoteDesktopSecurityConfiguration -ServicePrincipalId $WCLspId
    ```
 
-   The output should be:
+   The output to both commands should be:
 
    ```output
    Id IsRemoteDesktopProtocolEnabled
@@ -195,21 +197,21 @@ To configure the service principal, use the [Microsoft Graph PowerShell SDK](/po
    Remove-MgServicePrincipalRemoteDesktopSecurityConfigurationTargetDeviceGroup -ServicePrincipalId $WCLspId -TargetDeviceGroupId "<Group object ID>"
    ```
 
-## Create a Kerberos Server object
+## Create a Kerberos server object
 
-If your session hosts meet the following criteria, you must [Create a Kerberos Server object](../active-directory/authentication/howto-authentication-passwordless-security-key-on-premises.md#create-a-kerberos-server-object):
+If your session hosts meet the following criteria, you must create a Kerberos server object. For more information, see [Enable passwordless security key sign-in to on-premises resources by using Microsoft Entra ID](/entra/identity/authentication/howto-authentication-passwordless-security-key-on-premises), specifically the section to [Create a Kerberos Server object](../active-directory/authentication/howto-authentication-passwordless-security-key-on-premises.md#create-a-kerberos-server-object):
 
-- Your session host is Microsoft Entra hybrid joined. You must have a Kerberos Server object to complete authentication to a domain controller.
+- Your session host is Microsoft Entra hybrid joined. You must have a Kerberos server object to complete authentication to a domain controller.
 
-- Your session host is Microsoft Entra joined and your environment contains Active Directory domain controllers. You must have a Kerberos Server object for users to access on-premises resources, such as SMB shares, and Windows-integrated authentication to websites.
+- Your session host is Microsoft Entra joined and your environment contains Active Directory domain controllers. You must have a Kerberos server object for users to access on-premises resources, such as SMB shares and Windows-integrated authentication to websites.
 
 > [!IMPORTANT]
-> If you enable single sign-on on Microsoft Entra hybrid joined session hosts without creating a Kerberos server object, one of the following things can happen: 
+> If you enable single sign-on on Microsoft Entra hybrid joined session hosts without creating a Kerberos server object, one of the following things can happen when you try to connect to a remote session: 
 >
 > - You receive an error message saying the specific session doesn't exist.
 > - Single sign-on will be skipped and you see a standard authentication dialog for the session host. 
 >
-> To resolve these issues, create the Kerberos Server object, then connect again.
+> To resolve these issues, create the Kerberos server object, then connect again.
 
 ## Review your conditional access policies
 
@@ -231,4 +233,4 @@ To enable single sign-on on your host pool, you must configure the following RDP
 
 - For more information about Microsoft Entra Kerberos, see [Deep dive: How Microsoft Entra Kerberos works](https://techcommunity.microsoft.com/t5/itops-talk-blog/deep-dive-how-azure-ad-kerberos-works/ba-p/3070889).
 
-- If you encounter any issues, go to [Troubleshoot connections to Microsoft Entra joined VMs](troubleshoot-azure-ad-connections.md).
+- If you encounter any issues, go to [Troubleshoot connections to Microsoft Entra joined VMs](/troubleshoot/azure/virtual-desktop/troubleshoot-azure-ad-connections).

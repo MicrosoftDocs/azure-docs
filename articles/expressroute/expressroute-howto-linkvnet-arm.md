@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 09/30/2024
+ms.date: 03/26/2025
 ms.author: duau
 ms.custom: devx-track-azurepowershell
 ---
@@ -250,12 +250,12 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 ``` 
 ### FastPath Virtual Network Peering, User-Defined-Routes (UDRs) and Private Link support for ExpressRoute Direct Connections
 
-With Virtual Network Peering and UDR support, FastPath will send traffic directly to VMs deployed in "spoke" Virtual Networks (connected via Virtual Network Peering) and honor any UDRs configured on the GatewaySubnet. This capability is now generally available (GA).
+With Virtual Network Peering and UDR support, FastPath will send traffic directly to VMs deployed in "spoke" Virtual Networks (connected via Virtual Network Peering) and honor any UDRs configured on the GatewaySubnet. This capability is now generally available (GA). For customers that wish to enable these GA features on an existing connection, please disable and then re-enable FastPath on the connection.
 
 With FastPath and Private Link, Private Link traffic sent over ExpressRoute bypasses the ExpressRoute virtual network gateway in the data path. With both of these features enabled, FastPath will directly send traffic to a Private Endpoint deployed in a "spoke" Virtual Network.
 
-These scenarios are Generally Available for limited scenarios with connections associated to 10 Gbps and 100 Gbps ExpressRoute Direct circuits. To enable, follow the below guidance:
-1. Complete this [Microsoft Form](https://aka.ms/fastpathlimitedga) to request to enroll your subscription. Requests may take up to 4 weeks to complete, so plan deployments accordingly.
+This scenarios is Generally Available for limited scenarios with connections associated to 10 Gbps and 100 Gbps ExpressRoute Direct circuits. To enable, follow the below guidance:
+1. Complete this [Microsoft Form](https://aka.ms/fplimitedga) to request to enroll your subscription. Requests may take up to 4 weeks to complete, so plan deployments accordingly.
 2. Once you receive a confirmation from Step 1, run the following Azure PowerShell command in the target Azure subscription.
  ```azurepowershell-interactive
 $connection = Get-AzVirtualNetworkGatewayConnection -ResourceGroupName <resource-group> -ResourceName <connection-name>

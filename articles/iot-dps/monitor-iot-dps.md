@@ -4,9 +4,10 @@ description: Start here to learn how to monitor metrics and logs from the Azure 
 ms.date: 06/28/2024
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: conceptual
-author: kgremban
-ms.author: kgremban
-ms.service: iot-dps
+author: SoniaLopezBravo
+ms.author: sonialopez
+ms.service: azure-iot-hub
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Monitor Azure IoT Hub Device Provisioning Service

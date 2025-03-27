@@ -5,8 +5,8 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 08/21/2024
-ms.custom: mvc, subject-rbac-steps, engagement-fy24, references_regions
+ms.date: 02/07/2025
+ms.custom: mvc, subject-rbac-steps, engagement-fy25, references_regions
 ---
 
 # Tutorial: Discover Spring Boot applications running in your datacenter (preview)
@@ -56,7 +56,7 @@ After you have performed server discovery and software inventory using the Azure
 ### Onboard Kubernetes-based appliance
 
 1. Go to the [Azure portal](https://aka.ms/migrate/springboot). Sign in with your Azure account and search for Azure Migrate.
-2. On the **Overview** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
+2. In **Servers, databases and web apps**, select **Discover, assess and migrate**.
 1. Select the project where you set up the Azure Migrate appliance as part of the prerequisites.
 1. You see a message above Azure Migrate: Discovery and assessment tile to onboard a Kubernetes-based appliance to enable discovery of Spring Boot applications.
 
@@ -91,7 +91,7 @@ After you have performed server discovery and software inventory using the Azure
     ---- | ----
     **Supported Linux OS** | Ubuntu 20.04, RHEL 9
     **Hardware configuration required** | 8 GB RAM, with 30 GB storage, 4 Core CPU
-    **Network Requirements** | Access to the following endpoints: <br/><br/> *.docker.io <br/></br> *.docker.com <br/><br/>api.snapcraft.io <br/><br/> https://dc.services.visualstudio.com/v2/track <br/><br/> https://legoonboarding.blob.core.windows.net </br></br> [Azure Arc-enabled Kubernetes network requirements](/azure/azure-arc/kubernetes/network-requirements) <br/><br/>[Azure CLI endpoints for proxy bypass](/cli/azure/azure-cli-endpoints) 
+    **Network Requirements** | Access to the following endpoints: <br/><br/> *.docker.io <br/></br> *.docker.com <br/><br/>api.snapcraft.io <br/><br/> https://dc.services.visualstudio.com/v2/track <br/><br/>  [Azure Arc-enabled Kubernetes network requirements](/azure/azure-arc/kubernetes/network-requirements) <br/><br/>[Azure CLI endpoints for proxy bypass](/cli/azure/azure-cli-endpoints) 
 
 After copying the script, you can go to your Linux server, save the script as *Deploy.sh* on the server. 
 
@@ -145,8 +145,9 @@ If your machine is behind an outbound proxy server, requests must be routed via 
 After you save the script on the Linux server, follow these steps:
 
 > [!Note]
-> This script needs to be run after you connect to a Linux machine on its terminal that has met the networking pre-requisite and OS compatibility.  
-> Ensure that you have curl installed on the server. For Ubuntu, you can install it using the command `sudo apt-get install curl`, and for other OS (RHEL), you can use the command `yum install curl`.  
+> - This script needs to be run after you connect to a Linux machine on its terminal that has met the networking pre-requisite and OS compatibility.  
+> - Ensure that you install curl on the server. For Ubuntu, you can install it using the command `sudo apt-get install curl`, and for other OS (RHEL), you can use the command `yum install curl`.
+> - Ensure that you install microk8s 1.29 on the server. For Ubuntu, you can install using the command `sudo snap install microk8s --classic --channel=1.29/stable`. Learn more on [how to install microk8s on Red Hat Enterprise Linux 9](https://snapcraft.io/install/microk8s/rhel).
 
 > [!Important]
 > Don't edit the script unless you want to clean up the setup.

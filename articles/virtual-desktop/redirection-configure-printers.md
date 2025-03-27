@@ -159,9 +159,9 @@ To allow or disable printer redirection using Microsoft Intune:
 
 1. Expand the **Administrative templates** category, then toggle the switch for **Do not allow client printer redirection** to **Enabled** or **Disabled**, depending on your requirements:
 
-   - To allow printer redirection, toggle the switch to **Disabled**, then select **OK**.
+   - To allow printer redirection, toggle the switch to **Disabled**.
 
-   - To disable printer redirection, toggle the switch to **Enabled**, then select **OK**.
+   - To disable printer redirection, toggle the switch to **Enabled**.
 
 1. Select **Next**.
 
@@ -177,7 +177,7 @@ To allow or disable printer redirection using Microsoft Intune:
 
 To allow or disable printer redirection using Group Policy:
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 
@@ -217,7 +217,7 @@ To test printer redirection:
       Get-Printer | ? DriverName -eq "Remote Desktop Easy Print" | Sort-Object | FT -AutoSize
       ```
       
-      The output is similar to the following output:
+      The output is similar to the following example:
 
       ```output
       Name                                         ComputerName Type  DriverName                PortName Shared Published DeviceType

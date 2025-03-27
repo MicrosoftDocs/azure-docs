@@ -3,10 +3,10 @@ title: Troubleshoot backup errors with Azure VMs
 description: In this article, learn how to troubleshoot errors encountered with backup and restore of Azure virtual machines.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 09/20/2023
+ms.date: 01/21/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Troubleshooting backup failures on Azure virtual machines
@@ -79,12 +79,23 @@ Error message: Failed to freeze one or more mount-points of the VM to take a fil
 
 If you can't un-mount the devices then you can update the VM backup configuration to ignore certain mount points. For example, if '/mnt/resource' mount point can't be un-mounted and causing the VM backup failures, you can update the VM backup configuration files with the `MountsToSkip` property as follows.
 
-```bash
-cat /var/lib/waagent/Microsoft.Azure.RecoveryServices.VMSnapshotLinux-1.0.9170.0/main/tempPlugin/vmbackup.conf[SnapshotThread]
-fsfreeze: True
-MountsToSkip = /mnt/resource
-SafeFreezeWaitInSeconds=600
-```
+
+
+
+
+
+
+1. Check if there is the **vmbackup.conf** file under the `/etc/azure/` directory.
+1. If there's no `/etc/azure/vmbackup.conf`, you can copy file from the `/var/lib/waagent/Microsoft.Azure.RecoveryServices.VMSnapshotLinux-1.0.XXX.0/main/tempPlugin/vmbackup.conf`.
+1. In the `/etc/azure/vmbackup.conf` file, add the following configuration for Azure VM Backup to skip `fsfreeze` and take snapshot for the `/mnt/resource` mount point.
+
+    ```bash
+    cat  /etc/azure/vmbackup.conf[SnapshotThread]
+    fsfreeze: True
+    MountsToSkip = /mnt/resource
+    SafeFreezeWaitInSeconds=600
+
+    ```
 
 **Step 2:**
 
@@ -343,7 +354,8 @@ Error code: ExtensionVCRedistInstallationFailure <br/> Error message: The snapsh
 
 Error code:  UserErrorRequestDisallowedByPolicy <BR> Error message: An invalid policy is configured on the VM which is preventing Snapshot operation.
 
-If you have an Azure Policy that [governs tags within your environment](../governance/policy/tutorials/govern-tags.md), either consider changing the policy from a [Deny effect](../governance/policy/concepts/effects.md#deny) to a [Modify effect](../governance/policy/concepts/effects.md#modify), or create the resource group manually according to the [naming schema required by Azure Backup](./backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
+If you have an Azure Policy that [governs tags within your environment](../governance/policy/tutorials/govern-tags.md), either consider changing the policy from a [Deny effect](/azure/governance/policy/concepts/effect-deny) to a [Modify effect](/azure/governance/policy/concepts/effect-modify), or create the resource group manually according to the [naming schema required by Azure Backup](./backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
+
 
 ### UserErrorUnableToOpenMount
 
@@ -372,7 +384,8 @@ If after restore, you notice the disks are offline then:
 * Ensure you are not restoring to the same source, [Learn more](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 ### Folder is missing when a Linux VM is recovered as a new VM
-This issue can occur if disks are mounted to a directory using the device name (e.g., /dev/sdc1) instead of UUID. When the VM reboots or when it is recovered as a new VM, the device names are assigned in a random order. To ensure that the right drive is mounted to your directory, always mount drives using UUID obtained from the `blkid` utility. [Learn more](/azure/virtual-machines/linux/attach-disk-portal).
+This issue can occur if disks are mounted to a directory using the device name (e.g., /dev/sdc1) instead of UUID. When the VM reboots or when it is recovered as a new VM, the device names are assigned in a random order. To ensure that the right drive is mounted to your directory, always mount drives using UUID obtained from the `blkid` utility. [Learn more](/azure/virtual-machines/linux/attach-disk-portal#mount-the-disk).
+
 
 ### UserErrorInstantRpNotFound - Restore failed because the Snapshot of the VM was not found
 
@@ -424,33 +437,33 @@ To resolve this issue:
 >- With a different name than the original one, **or**
 >- In a different resource group with the same name.
 
-#### UserErrorCrossSubscriptionRestoreNotSuppportedForOLR  
+#### UserErrorCrossSubscriptionRestoreNotSupportedForOLR  
 
-**Error code**: UserErrorCrossSubscriptionRestoreNotSuppportedForOLR 
+**Error code**: UserErrorCrossSubscriptionRestoreNotSupportedForOLR 
 
 **Error message**: Operation failed as Cross Subscription Restore is not supported for Original Location Recovery.
 
 **Resolution**: Ensure that you [select Create New/ Restore Disk](backup-azure-arm-restore-vms.md#restore-disks) for restore operation.
 
-#### UserErrorCrossSubscriptionRestoreNotSuppportedForUnManagedAzureVM   
+#### UserErrorCrossSubscriptionRestoreNotSupportedForUnManagedAzureVM   
 
-**Error code**: UserErrorCrossSubscriptionRestoreNotSuppportedForUnManagedAzureVM  
+**Error code**: UserErrorCrossSubscriptionRestoreNotSupportedForUnManagedAzureVM  
 
 **Error message**: Operation failed as Cross Subscription Restore is not supported for Azure VMs with Unmanaged Disks.
 
 **Resolution**: Perform standard restores within the same subscription instead.
 
-#### UserErrorCrossSubscriptionRestoreNotSuppportedForCRR
+#### UserErrorCrossSubscriptionRestoreNotSupportedForCRR
 
-**Error code**: UserErrorCrossSubscriptionRestoreNotSuppportedForCRR  
+**Error code**: UserErrorCrossSubscriptionRestoreNotSupportedForCRR  
 
 **Error message**: Operation failed as Cross Subscription Restore is not supported along-with Cross Region Restore.
 
 **Resolution**: Use either Cross Subscription Restore' or Cross Region Restore.  
   
-#### UserErrorCrossSubscriptionRestoreNotSuppportedFromSnapshot  
+#### UserErrorCrossSubscriptionRestoreNotSupportedFromSnapshot  
 
-**Error code**: UserErrorCrossSubscriptionRestoreNotSuppportedFromSnapshot 
+**Error code**: UserErrorCrossSubscriptionRestoreNotSupportedFromSnapshot 
 
 **Error message**: Operation failed as Cross Subscription Restore is not supported when restoring from a Snapshot recovery point.
 
@@ -472,17 +485,17 @@ To resolve this issue:
 
 **Resolution**:  Ensure the target subscription is registered to the Recovery Services Resource Provider before you attempt a cross subscription restore. Creating a vault in the target Subscription should register the Subscription to Recovery Services Resource Provider.
  
-#### UserErrorCrossSubscriptionRestoreNotSuppportedForEncryptedAzureVM 
+#### UserErrorCrossSubscriptionRestoreNotSupportedForEncryptedAzureVM 
 
-**Error code**: UserErrorCrossSubscriptionRestoreNotSuppportedForEncryptedAzureVM
+**Error code**: UserErrorCrossSubscriptionRestoreNotSupportedForEncryptedAzureVM
 
 **Error message**: Operation failed as Cross Subscription Restore is not supported for Encrypted Azure VMs.
 
 **Resolution**: Use the same subscription for Restore of Encrypted AzureVMs. 
  
-#### UserErrorCrossSubscriptionRestoreNotSuppportedForTrustedLaunchAzureVM 
+#### UserErrorCrossSubscriptionRestoreNotSupportedForTrustedLaunchAzureVM 
 
-**Error code**: UserErrorCrossSubscriptionRestoreNotSuppportedForTrustedLaunchAzureVM
+**Error code**: UserErrorCrossSubscriptionRestoreNotSupportedForTrustedLaunchAzureVM
 
 **Error message**: Operation failed as Cross Subscription Restore is not supported for Trusted Launch Azure VMs (TVMs).
 

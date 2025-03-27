@@ -166,7 +166,7 @@ groups:
   - id: create-option-vscode
     title: Visual Studio Code
 # Service-specific groups
-##### Begin azure-functions    
+##### Begin azure-functions
 - id: functions-nodejs-model
   title: Node.js Programming model
   prompt: Choose a programming model
@@ -211,18 +211,26 @@ groups:
   title: Function app hosting options
   prompt: Choose a hosting option for your function app
   pivots:
-  - id: consumption-plan
-    title: Consumption plan
   - id: flex-consumption-plan
-    title: Flex Consumption plan (preview)
+    title: Flex Consumption plan
   - id: premium-plan
     title: Premium plan
   - id: dedicated-plan
     title: Dedicated plan
   - id: container-apps
     title: Container Apps
+  - id: consumption-plan
+    title: Consumption plan
   - id: azure-arc
     title: Azure Arc
+- id: dts-runtime
+  title: Application languages for Durable Task Scheduler
+  prompt: Choose an option
+  pivots:
+  - id: csharp
+    title: .NET (isolated)
+  - id: other
+    title: non-.NET
 ### end azure-functions
 #Owner: jiayma
 - id: bring-third-party-dependency-programming-functions
@@ -397,7 +405,7 @@ groups:
   prompt: Choose how you want to deploy your Java app
   pivots:
   - id: java-javase
-    title: Embed your own server (e.g. embedded Tomcat, Quarkus, Spring Boot)
+    title: Embed your own server (such as embedded Tomcat, Quarkus, Spring Boot)
   - id: java-tomcat
     title: To a Tomcat server
   - id: java-jboss
@@ -407,7 +415,7 @@ groups:
   prompt: Choose how your Java app is hosted
   pivots:
   - id: java-javase
-    title: Java SE (e.g. embedded Tomcat, Quarkus, Spring Boot)
+    title: Java SE (such as embedded Tomcat, Quarkus, Spring Boot)
   - id: java-tomcat
     title: Tomcat
   - id: java-jboss
@@ -452,12 +460,12 @@ groups:
   pivots:
   - id: stack-net
     title: .NET
-  - id: stack-python
-    title: Python
-  - id: stack-nodejs
-    title: Node.js
   - id: stack-java
     title: Java
+  - id: stack-nodejs
+    title: Node.js
+  - id: stack-python
+    title: Python
   - id: stack-php
     title: PHP
 - id: programming-languages-spring-apps
@@ -521,6 +529,22 @@ groups:
   title: Programming languages
   prompt: Choose a programming language
   pivots:
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+- id: acs-js-csharp-java-python-azcli-ps
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-azcli
+    title: Azure CLI
+  - id: programming-language-powershell
+    title: Azure PowerShell
   - id: programming-language-csharp
     title: C#
   - id: programming-language-javascript
@@ -613,7 +637,7 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
-- id: acs-azcli-js-csharp-java-python-portal-nocode
+- id: acs-azcli-js-csharp-java-python-portal-nocode-ps
   title: Programming languages
   prompt: Choose a programming language
   pivots:
@@ -630,7 +654,9 @@ groups:
   - id: programming-language-python
     title: Python
   - id: platform-nocode
-    title: Power Platform 
+    title: Power Platform
+  - id: platform-powershell
+    title: Azure PowerShell
 - id: acs-plat-web-ios-android
   title: Platform
   prompt: Choose a platform
@@ -781,6 +807,24 @@ groups:
     title: Java
   - id: openai-node
     title: Node
+    # Owner: jefmarti
+- id: app-service-containers-github-actions
+  title: App Service GitHub actions
+  prompt: Choose a platform
+  pivots:
+  - id: github-actions-containers-linux
+    title: Linux
+  - id: github-actions-containers-windows
+    title: Windows
+    # Owner: jefmarti
+- id: app-service-bicep
+  title: App Service Bicep
+  prompt: Choose a platform
+  pivots:
+  - id: app-service-bicep-linux
+    title: Linux
+  - id: app-service-bicep-windows-container
+    title: Windows container
 # Owner: msangapu
 - id: app-spaces-component-types
   title: App Spaces components
@@ -815,12 +859,12 @@ groups:
 # Owner: farazgis
 - id: azure-maps-coverage
   title: Azure Maps coverage
-  prompt: Choose the API version
+  prompt: Choose the service version
   pivots:
-  - id: route-v1
-    title: Route
-  - id: route-v2
-    title: Route v2
+  - id: service-previous
+    title: Previous
+  - id: service-latest
+    title: Latest
 # Owner: richbrun
 - id: azure-maps-android
   title: Programming languages
@@ -831,7 +875,7 @@ groups:
   - id: programming-language-kotlin
     title: Kotlin (Android)
 - id: iot-develop-set1
-# Owner: timlt
+# Owner: dobett
   title: Programming languages
   prompt: Choose a programming language
   pivots:
@@ -986,12 +1030,14 @@ groups:
   - id: callend
     title: Call end
 # Owner: prakulka
-- id: acs-tollfree-shortcode-alphanumeric
+- id: acs-tollfree-shortcode-alphanumeric-tendlc
   title: Number Type
   prompt: Choose a Number Type
   pivots:
   - id: tollfree
     title: Toll-Free
+  - id: tendlc
+    title: 10DLC
   - id: shortcode
     title: Short Code
   - id: alphanumeric-senderid
@@ -1014,6 +1060,15 @@ groups:
     title: Azure Pipelines agent
   - id: container-apps-jobs-self-hosted-ci-cd-github-actions
     title: GitHub Actions runner
+# Owner: cshoe
+- id: static-web-apps-ci-cd
+  title: CI/CD system
+  prompt: Select a CI/CD system
+  pivots:
+  - id: github-actions
+    title: GitHub Actions
+  - id: azure-pipelines
+    title: Azure Pipelines
 # Owner: cshoe
 - id: static-web-apps-api-protocols
   title: API protocol
@@ -1154,6 +1209,16 @@ groups:
   - id: expressroute-preview
     title: Preview
 # Owner: hmb
+- id: front-door-dev-exp-portal-ps-cli
+  title: Front Door Developer experience
+  prompt: "Select the developer experience:"
+  pivots:
+  - id: front-door-portal
+    title: Azure portal
+  - id: front-door-ps
+    title: Azure PowerShell
+  - id: front-door-cli
+    title: Azure CLI
 - id: front-door-dev-exp-portal-cli
   title: Front Door Developer experience
   prompt: "Select the developer experience:"
@@ -1282,15 +1347,6 @@ groups:
     title: .NET
   - id: framework-spring
     title: Spring Framework
-# Owner: zhiyuanliang
-- id: feature-management
-  title: Library version pivots
-  prompt: Choose a release
-  pivots:
-  - id: stable-version
-    title: Stable release
-  - id: preview-version
-    title: Preview release
 # Owner: avanigupta
 - id: appconfig-data-plane-api-version
   title: API version pivots
@@ -1299,7 +1355,7 @@ groups:
   - id: v1
     title: "1.0"
   - id: v23-10
-    title: "2023-10-01"  
+    title: "2023-10-01"
   - id: v23-11
     title: "2023-11-01"
 # Owner: v-yilinhu
@@ -1338,16 +1394,14 @@ groups:
   - id: programming-language-swift
     title: iOS
   - id: programming-language-kotlin
-    title: Android  
+    title: Android
 # Owner: jorgegarc
-- id: acs-maui-xamarin-react
+- id: acs-maui-react
   title: Cross-platform pivots
   prompt: Choose a platform
   pivots:
   - id: platform-maui
     title: .NET MAUI
-  - id: platform-xamarin
-    title: Xamarin
   - id: platform-react
     title: React Native
 # Owner: jodowns
@@ -1434,6 +1488,22 @@ groups:
     title: Windows 365
   - id: dev-box
     title: Microsoft Dev Box
+- id: azure-virtual-desktop-host-pool-management-approaches
+  title: Host pool management approaches
+  prompt: "Choose a host pool management approach:"
+  pivots:
+  - id: host-pool-standard
+    title: Standard
+  - id: host-pool-session-host-configuration
+    title: Session host configuration (preview)
+- id: autoscale
+  title: Create and assign an autoscale scaling plan
+  prompt: "Choose an autoscaling method:"
+  pivots:
+  - id: power-management
+    title: Power management autoscaling
+  - id: dynamic
+    title: Dynamic autoscaling (preview)
 # Owner: kevinguo-ed
 - id: azure-web-pubsub-create-resource-methods
   title: Create a resource using any one of the methods
@@ -1562,6 +1632,28 @@ groups:
     title: New Maintenance Configuration
   - id: existing-mc
     title: Existing Maintenance Configuration
+# Owner: sudhirsneha
+- id: support-matrix-updates
+  title: Support for updates, one time updates, periodic assessments and scheduled patching
+  prompt: Choose the environment
+  pivots:
+  - id: azure-vm
+    title: Azure Virtual Machines
+  - id: azure-arc-enabled-servers
+    title: Azure Arc-enabled servers
+  - id: win-iot-arc-servers
+    title: Windows IoT Enterprise on Arc enabled servers (preview)
+# Owner: sudhirsneha
+- id: enable-change-tracking-inventory-using-monitoring-agent
+  title: Requirements to enable change tracking and inventory using monitoring agent
+  prompt: Choose a deployment environment
+  pivots:
+  - id: single-portal
+    title: Single Azure VM and Azure Arc-enabled VM
+  - id: multiple-portal-cli
+    title: Multiple VMs using Azure portal and Azure CLI
+  - id: at-scale-policy
+    title: At scale using policy
 # Owner: marymichael
 - id: web-apps-assessment-app-service
   title: Assess ASP.NET web apps for migration to Azure App Service
@@ -1616,7 +1708,7 @@ groups:
     title: JavaScript
   - id: programming-language-csharp
     title: C#
-# Owner: kgremban
+# Owner: sonialopez
 - id: iot-hub-howto-c2d-1
   title: Programming languages
   prompt: Choose a programming language
@@ -1625,6 +1717,17 @@ groups:
     title: .NET/C#
   - id: programming-language-java
     title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-node
+    title: Node
+# Owner: sonialopez
+- id: iot-hub-howto-c2d-2
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: .NET/C#
   - id: programming-language-python
     title: Python
   - id: programming-language-node
@@ -1666,6 +1769,15 @@ groups:
     title: Service Connector
   - id: manual
     title: Manual
+# Owner: franlanglois
+- id: redis-type
+  title: Redis version
+  prompt: Choose the version of Azure Redis you are using
+  pivots:
+  - id: azure-managed-redis
+    title: Azure Managed Redis
+  - id: azure-cache-redis
+    title: Azure Cache for Redis
 # Owner: rosemalcolm
 - id: ade-extensibility-iac-framework
   title: IaC frameworks
@@ -1676,4 +1788,124 @@ groups:
   - id: terraform
     title: Terraform
   - id: pulumi
-    title: Pulumi   
+    title: Pulumi
+# Owner: malev
+- id: grafana-cli-portal
+  title: Experience
+  prompt: Choose an experience
+  pivots:
+  - id: experience-azcli
+    title: Azure CLI
+  - id: experience-gui
+    title: Grafana UI
+# Owner: danlep
+- id: api-management-howto-add-products
+  title: Interactive or Script
+  prompt: Choose Interactive for Azure CLI and Azure Portal instructions, or Terraform
+  pivots:
+  - id: interactive
+    title: Interactive
+  - id: terraform
+    title: Terraform
+# Owner: jodowns
+- id: app-service-sku
+  title: App Service tier
+  prompt: Choose an App Service tier
+  pivots:
+  - id: free-shared-basic
+    title: Free, Shared, Basic
+  - id: premium
+    title: Premium v2 and Premium v3
+  - id: isolated
+    title: Isolated v2 (App Service Environment)
+#Owner: yassirbisteni
+- id: acs-plat-web-windows-android-ios
+  title: Platforms
+  prompt: Choose a platform
+  pivots:
+  - id: platform-web
+    title: JavaScript
+  - id: platform-windows
+    title: Windows
+  - id: platform-android
+    title: Android
+  - id: platform-ios
+    title: iOS
+- id: acs-plat-windows-android-ios
+  title: Platforms
+  prompt: Choose a platform
+  pivots:
+  - id: platform-windows
+    title: Windows
+  - id: platform-android
+    title: Android
+  - id: platform-ios
+    title: iOS
+# Owner: bagol
+- id: sentinel-sap-connection
+  title: Connection
+  prompt: Choose a connection type
+  pivots:
+  - id: connection-agentless
+    title: Agentless data connector (Preview)
+  - id: connection-agent
+    title: Data connector agent
+# Owner: jodowns
+- id: logic-app-hosting-types
+  title: Azure Logic Apps hosting model
+  prompt: Choose an Azure Logic Apps hosting model
+  pivots:
+  - id: consumption
+    title: Consumption
+  - id: standard-workflow-service-plan
+    title: Standard (Workflow Service Plan)
+  - id: standard-app-service-environment
+    title: Standard (App Service Environment v3)
+#owner: dariagrigoriu
+- id: acs-azcli-js-csharp-java-python-portal-nocode
+  title: Platforms
+  prompt: Choose a platform
+  pivots:
+  - id: platform-azcli
+    title: Azure CLI
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+  - id: platform-azportal
+    title: Azure portal
+  - id: platform-nocode
+    title: Power Platform
+#owner: jiayma
+- id: dts-devexp
+  title: DTS development experience
+  prompt: Choose an option
+  pivots:
+  - id: az-cli
+    title: Azure CLI
+  - id: az-portal
+    title: Azure portal
+# Owner: Deepika0530
+- id: acs-ps-azclips-azclipython
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: platform-powershell
+    title: Azure PowerShell
+  - id: platform-azclips
+    title: Azure CLI in PowerShell script
+  - id: platform-azclipython
+    title: Azure CLI in Python script
+#owner: shaas
+- id: data-box-sku
+  title: Data Box SKUs
+  prompt: Choose a Data Box SKU
+  pivots:
+  - id: dbx-ng
+    title: Data Box Next Gen
+  - id: dbx
+    title: Data Box

@@ -1,9 +1,6 @@
 ---
 title: Assess Hyper-V VMs for migration to Azure VMs with Azure Migrate
 description: Learn how to assess Hyper-V VMs for migration to Azure VMs with Azure Migrate.
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 08/08/2024
 ms.service: azure-migrate
@@ -52,7 +49,7 @@ Decide whether you want to run an assessment using sizing criteria based on serv
 
 Run an assessment as follows:
 
-1. 1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
+1. In **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
    ![Screenshot of Get started screen.](./media/tutorial-assess-vmware-azure-vm/assess.png)
 

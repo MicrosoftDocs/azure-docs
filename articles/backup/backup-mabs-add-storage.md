@@ -2,10 +2,10 @@
 title: Use Modern Backup Storage with Azure Backup Server
 description: Learn about the new features in Azure Backup Server. This article describes how to upgrade your Backup Server installation.
 ms.topic: how-to
-ms.date: 03/27/2024
+ms.date: 12/03/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 
@@ -41,7 +41,7 @@ To create a volume for Modern Backup Storage, follow these steps:
 
 1. In Server Manager, select **File and Storage Services** > **Volumes** > **Storage Pools**. Under **PHYSICAL DISKS**, select **New Storage Pool**.
 
-    ![Screenshow shows how to start creating a new storage poo.l](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
+    ![Screenshot shows how to start creating a new storage poo.l](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 
 2. In the **TASKS** drop-down box, select **New Virtual Disk**.
 
@@ -92,7 +92,7 @@ Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-Datasour
 
 The following screenshot shows the Update-DPMDiskStorage cmdlet in the PowerShell window.
 
-![Screenshot shows the Update-DPMDiskStorage command in the PowerShel.l window](./media/backup-mabs-add-storage/mabs-add-storage-8.png)
+![Screenshot shows the Update-DPMDiskStorage command in the PowerShell window](./media/backup-mabs-add-storage/mabs-add-storage-8.png)
 
 The changes you make by using PowerShell are reflected in the Backup Server Administrator Console.
 

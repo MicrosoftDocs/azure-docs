@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 06/18/2024
+ms.date: 11/19/2024
 ms.author: radeltch
 ---
 
@@ -321,7 +321,7 @@ This article assumes that:
      Start_Program_01 = local $(_EN) pf=$(_PF)
 
      # Add the keep alive parameter, if using ENSA1
-     enque/encni/set_so_keepalive = true
+     enque/encni/set_so_keepalive = TRUE
      ```
 
      For both ENSA1 and ENSA2, make sure that the `keepalive` OS parameters are set as described in SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736).

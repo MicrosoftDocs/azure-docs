@@ -370,9 +370,9 @@ After the locations in the cuOpt response are mapped to the corresponding coordi
 [Azure Maps Route Matrix API]: /rest/api/maps/route/post-route-matrix
 [Azure Maps]: /azure/azure-maps/
 [Azure Marketplace]: https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nvidia.nvidia-ai-enterprise?tab=Overview
-[cuOpt best practices]: https://docs.nvidia.com/cuopt/user-guide/best-practices.html
-[cuOpt Supported Features]: https://docs.nvidia.com/cuopt/user-guide/supported-features.html
-[List of cuOpt supported features]: https://docs.nvidia.com/cuopt/user-guide/supported-features.html
+[cuOpt best practices]: https://docs.nvidia.com/cuopt/service/latest/best-practices.html
+[cuOpt Supported Features]: https://docs.nvidia.com/cuopt/user-guide/index.html
+[List of cuOpt supported features]: https://docs.nvidia.com/cuopt/user-guide/index.html
 [Multi Itinerary Optimization]: https://samples.azuremaps.com/rest-services/mio
 [NVIDIA cuOpt]: https://www.nvidia.com/en-us/ai-data-science/products/cuopt/
 [Route Directions]: /rest/api/maps/route/post-directions

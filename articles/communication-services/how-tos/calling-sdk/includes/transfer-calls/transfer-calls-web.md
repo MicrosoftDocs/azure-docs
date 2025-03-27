@@ -30,7 +30,7 @@ Call transfers involve three parties:
 
 1. There's already a connected call between the *transferor* and the *transferee*. The *transferor* decides to transfer the call from the *transferee* to the *transfer target*.
 1. The *transferor* calls the `transfer` API.
-1. The *transfer target* receives an incoming call only if the *transferee* accepts the transfer request.
+1. The *transfer target* receives an incoming call.
 
 To transfer a current call, you can use the `transfer` API. `transfer` takes the optional `transferCallOptions`, which allows you to set a `disableForwardingAndUnanswered` flag:
 
@@ -53,7 +53,7 @@ const transfer = callTransferApi.transfer({targetParticipant: id});
 2. There's already a connected call between the *transferor* and the *transfer target*.
 3. The *transferor* decides to transfer the call with the *transferee* to the call with *transfer target*.
 4. The *transferor* calls the `transfer` API.
-6. The *transfer target* receives an incoming call only if the *transferee* accepts the transfer request.
+6. The *transfer target* receives an incoming call.
 
 To transfer a current call, you can use the `transfer` API.
 
@@ -145,4 +145,16 @@ transfer.on('stateChanged', () => {
        call.hangUp();
    }
 });
+```
+
+### Initial Caller and Transferor information
+When forwarding or transferring a call, `transferInfo` is populated with information about the prior call state. This includes `callerInfo` which describes the initial caller and `transferorInfo` which describes the entity transferring or forwarding the call. For example, if an ACS user places a call to a Teams call queue which then distributes the call to a M365 user, the `callerInfo` would specify the ACS user and the `transferorInfo` would specify the Teams call queue. Callers and transferors have the ability to update their displayName, and if this occurs the callerInfoChanged or transferorInfoChanged events will fire. For more information on change events see [Event: callerInfoChanged](../../events.md?pivots=platform-web#event-callerinfochanged) and [Event: transferorInfoChanged](../../events.md?pivots=platform-web#event-transferorinfochanged). This applies to all calls and for any identity (BYOI or M365).
+```js
+const incomingCallHandler = async (args: { incomingCall: IncomingCall }) => {
+    const incomingCall = args.incomingCall;
+    // Get information about initial caller
+    const callerInfo = incomingCall.callerInfo
+    // Get information about initial caller
+    const transferorInfo = incomingCall.transferorInfo
+};
 ```

@@ -3,7 +3,7 @@ title: Use an alert to trigger an Azure Automation runbook
 description: This article tells how to trigger a runbook to run when an Azure alert is raised.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/28/2024
+ms.date: 10/22/2024
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a developer, I want to trigger a runbook so that VMs can be stopped under certain conditions.
@@ -34,7 +34,7 @@ You can use automation runbooks with three alert types:
 > [!NOTE]
 > The common alert schema standardizes the consumption experience for alert notifications in Azure. Historically, the three alert types in Azure (metric, log, and activity log) have had their own email templates, webhook schemas, etc. To learn more, see [Common alert schema](/azure/azure-monitor/alerts/alerts-common-schema).
 
-When an alert calls a runbook, the actual call is an HTTP POST request to the webhook. The body of the POST request contains a JSON-formated object that has useful properties that are related to the alert. The following table lists links to the payload schema for each alert type:
+When an alert calls a runbook, the actual call is an HTTP POST request to the webhook. The body of the POST request contains a JSON-formatted object that has useful properties that are related to the alert. The following table lists links to the payload schema for each alert type:
 
 |Alert  |Description|Payload schema  |
 |---------|---------|---------|
@@ -302,6 +302,7 @@ Azure Automation provides scripts for common Azure VM management operations like
 
 ## Next steps
 
+* Learn more on how to [create budget and associate it with Automation runbook](../cost-management-billing/manage/cost-management-budget-scenario.md).
 * Discover different ways to start a runbook, see [Start a runbook](./start-runbooks.md).
 * Create an activity log alert, see [Create activity log alerts](/azure/azure-monitor/alerts/activity-log-alerts).
 * Learn how to create a near real-time alert, see [Create an alert rule in the Azure portal](/azure/azure-monitor/alerts/alerts-metric?toc=/azure/azure-monitor/toc.json).

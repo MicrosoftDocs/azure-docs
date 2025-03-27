@@ -9,7 +9,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customer intent: As a security architect or SOC analyst, I want to connect my data source so that I can ingest data into Microsoft Sentinel for security monitoring and threat protection.
+
+
+#Customer intent: As a security analyst, I want to install and configure data connectors in my SIEM platform so that I can ingest and analyze data from various sources for threat detection and response.
+
 ---
 
 # Connect your data sources to Microsoft Sentinel by using data connectors
@@ -47,6 +50,8 @@ After you or someone in your organization installs the solution that includes th
 
    :::image type="content" source="media/configure-data-connector/open-connector-page-option-defender-portal.png" alt-text="Screenshot of data connector details page in the Defender portal.":::
 
+   ---
+
 1. Review the **Prerequisites**. To configure the data connector, fulfill all the prerequisites.
 1. Follow the steps outlined in the **Configurations** section.
   
@@ -57,6 +62,22 @@ After you or someone in your organization installs the solution that includes th
    After you configure the data connector, it might take some time for the data to be ingested into Microsoft Sentinel. When the data connector is connected, you see a summary of the data in the **Data received** graph, and the connectivity status of the data types.  
 
    :::image type="content" source="media/configure-data-connector/connected-data-connector.png" alt-text="Screenshot of a data connector page with status connected and graph that shows the data received.":::
+
+## Find your data
+
+After you enable the connector successfully, the connector begins to stream data to the table schemas related to the data types you configurated.
+
+To view the data:
+
+   #### [Azure portal](#tab/azure-portal-1)
+
+   Query the tables in the Microsoft Sentinel workspace linked to your Microsoft Sentinel workspace.
+
+   #### [Defender portal](#tab/defender-portal-1)
+   
+   See [Where to find your Microsoft Sentinel data in Microsoft Defender portal](/defender-xdr/advanced-hunting-microsoft-defender#where-to-find-your-microsoft-sentinel-data).
+
+   ---
 
 ## Find support for a data connector
 

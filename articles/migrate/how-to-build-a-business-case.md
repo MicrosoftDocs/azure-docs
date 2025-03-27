@@ -1,12 +1,9 @@
 ---
 title: Build a Business case with Azure Migrate | Microsoft Docs
 description: Describes how to build a Business case with Azure Migrate
-author: rashi-ms
-ms.author: rajosh
-ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 05/22/2024
+ms.date: 10/14/2024
 ms.custom: engagement-fy23
 
 ---
@@ -31,6 +28,8 @@ This article describes how to build a Business case for on-premises servers and 
 The Business case capability helps you build a business proposal to understand how Azure can bring the most value to your business. It highlights:
 
 - On-premises vs Azure total cost of ownership.
+- (Optional) Current on-premises vs On-premises with Arc total cost of ownership.
+- (Optional) the cost savings and other benefits of using Azure security (Microsoft Defender for Cloud) and management (Azure Monitor and Update Management) via Arc, as well ESUs enabled by Arc for your on-premises servers.
 - Year on year cashflow analysis.
 - Resource utilization based insights to identify servers and workloads that are ideal for cloud.
 - Quick wins for migration and modernization including end of support Windows OS and SQL versions.
@@ -58,7 +57,7 @@ There are three types of migration strategies that you can choose while building
 
 To build a business case, follow these steps:
 
-1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
+1. In **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
     :::image type="content" source="./media/how-to-build-a-business-case/assess-inline.png" alt-text="Screenshot of the discover, assess and migrate servers button." lightbox="./media/how-to-build-a-business-case/assess-expanded.png":::
 

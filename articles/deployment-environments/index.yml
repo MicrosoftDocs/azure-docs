@@ -27,8 +27,6 @@ landingContent:
             url: overview-what-is-azure-deployment-environments.md
           - text: Key concepts
             url: concept-environments-key-concepts.md
-          - text: Azure Deployment Environments roadmap 
-            url: ade-roadmap.md
             
   # Card
   - title: Get started
@@ -41,10 +39,7 @@ landingContent:
             url: quickstart-create-dev-center-project-azure-resource-manager.md
           - text: 'Create & access environments'
             url: quickstart-create-access-environments.md
-      - linkListType: how-to-guide
-        links:
-          - text: Create an environment with Azure Developer CLI
-            url: how-to-create-environment-with-azure-developer.md  
+
   
   # Card
   - title: Configure the Deployment Environments service
@@ -63,8 +58,14 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Configure container image to execute deployments
-            url: how-to-configure-extensibility-model-custom-image.md
+          - text: What is the ADE Extensibility Model?
+            url: concept-extensibility-model.md
+          - text: Create an ARM or Bicep custom image
+            url: /azure/deployment-environments/how-to-configure-extensibility-model-custom-image?tabs=sample%2Cprivate-registry&pivots=arm-bicep
+          - text: Create a Terraform custom image
+            url: /azure/deployment-environments/how-to-configure-extensibility-model-custom-image?tabs=custom-script%2Cprivate-registry&pivots=terraform
+          - text: Create a Pulumi custom image
+            url: /azure/deployment-environments/how-to-configure-extensibility-model-custom-image?tabs=sample%2Cprivate-registry&pivots=pulumi
           - text: Troubleshoot custom image errors and warnings
             url: troubleshoot-custom-image-logs-errors.md  
 
@@ -95,3 +96,15 @@ landingContent:
             url: how-to-configure-project-admin.md
           - text: Grant access to create environments
             url: how-to-configure-deployment-environments-user.md
+
+  # Card
+  - title: Use Azure Developer CLI with ADE
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Use Azure Developer CLI (azd) with ADE
+            url: concept-azure-developer-cli-with-deployment-environments.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create environments with Azure Developer CLI (azd)
+            url: how-to-configure-azure-developer-cli-deployment-environments.md 

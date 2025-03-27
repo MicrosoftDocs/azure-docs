@@ -4,7 +4,10 @@ description: This quickstart shows how to use the Azure portal to create an Apac
 ms.service: azure-hdinsight
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
-ms.date: 11/29/2023
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
+ms.date: 11/25/2024
 #Customer intent: As a developer new to Apache Spark on Azure, I need to see how to create a Spark cluster and query some data.
 ---
 
@@ -26,6 +29,7 @@ An Azure account with an active subscription. [Create an account for free](https
 ## Create an Apache Spark cluster in HDInsight
 
 You use the Azure portal to create an HDInsight cluster that uses Azure Storage Blobs as the cluster storage. For more information on using Data Lake Storage Gen2, see [Quickstart: Set up clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -123,15 +127,18 @@ SQL (Structured Query Language) is the most common and widely used language for 
 
 HDInsight saves your data in Azure Storage or Azure Data Lake Storage, so you can safely delete a cluster when it isn't in use. You're also charged for an HDInsight cluster, even when it isn't in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they aren't in use. If you plan to work on the tutorial listed in [Next steps](#next-steps) immediately, you might want to keep the cluster.
 
+
 Switch back to the Azure portal, and select **Delete**.
 
 :::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-portal/hdinsight-azure-portal-delete-cluster.png " alt-text="Azure portal delete an HDInsight cluster." border="true":::sight cluster" border="true":::
+
 
 You can also select the resource group name to open the resource group page, and then select **Delete resource group**. By deleting the resource group, you delete both the HDInsight cluster, and the default storage account.
 
 ## Next steps
 
 In this quickstart, you learned how to create an Apache Spark cluster in HDInsight and run a basic Spark SQL query. Advance to the next tutorial to learn how to use an HDInsight cluster to run interactive queries on sample data.
+
 
 > [!div class="nextstepaction"]
 > [Run interactive queries on Apache Spark](./apache-spark-load-data-run-query.md)

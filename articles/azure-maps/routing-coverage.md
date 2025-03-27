@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Learn what level of coverage Azure Maps provides in various regions for routing, routing with traffic, and truck routing. 
 author: farazgis
 ms.author: fsiddiqui
-ms.date: 10/21/2022
+ms.date: 03/19/2025
 ms.topic: conceptual
 ms.service: azure-maps
 ms.subservice: routing
@@ -19,8 +19,8 @@ This article provides coverage information for Azure Maps routing. Upon a search
 
 The following information is available in the [Azure Maps routing coverage tables]:
 
-::: zone pivot="route-v1"
-<!-----------------------------ROUTING V1 ------------------------------------------------------------------------------>
+::: zone pivot="service-previous"
+<!-----------------------------  ROUTING v1   ---------------------------------------------------------------------------->
 
 ### Calculate Route
 
@@ -36,8 +36,8 @@ The Matrix Routing service calculates travel time and distance between all possi
 
 ::: zone-end
 
-<!-----------------------------ROUTING V2 ------------------------------------------------------------------------------>
-::: zone pivot="route-v2"
+<!-----------------------------  ROUTING v2025-01-01   --------------------------------------------------------------------->
+::: zone pivot="service-latest"
 
 ### Road Data / Routing (Driving and Walking)
 
@@ -65,11 +65,11 @@ The Azure Maps Truck Routing API provides travel routes that take truck attribut
 
 Azure Maps supports truck routing in the countries/regions indicated in the following tables.
 
-::: zone pivot="route-v2"
+::: zone pivot="service-latest"
 
 ### Route direction services
 
-Route Directions API (preview) returns the ideal route between a start location, or origin, and an end location, or destination. You can choose to get a route for walking, automobile (driving) or commercial trucks. You can also request route details such as distance, estimated travel time, and step-by-step instructions to navigate the route.
+Route Directions API returns the ideal route between a start location, or origin, and an end location, or destination. You can choose to get a route for walking, automobile (driving) or commercial trucks. You can also request route details such as distance, estimated travel time, and step-by-step instructions to navigate the route.
 
 For more information about the Route Directions API, see [Azure Maps Route Service] in the REST API documentation.
 
@@ -77,7 +77,7 @@ For more information about the Route Directions API, see [Azure Maps Route Servi
 
 ## Azure Maps routing coverage tables
 
-::: zone pivot="route-v1"
+::: zone pivot="service-previous"
 
 <!------------------------------------------------------------------
 ### Legend
@@ -350,10 +350,10 @@ The following tables provide coverage information for version 1 of the Azure Map
 
 ::: zone-end
 
-<!-----------------------------ROUTING V2 ------------------------------------------------------------------------------>
-::: zone pivot="route-v2"
+<!-----------------------------  ROUTING v2025-01-01   --------------------------------------------------------------------->
+::: zone pivot="service-latest"
 
-The Azure Maps Routing service (preview) contains different levels of geographic coverage for every country/region in the world. The following table contains details about coverage for:
+The Azure Maps Routing service contains different levels of geographic coverage for every country/region in the world. The following table contains details about coverage for:
 
 - Road Data / Routing (Driving and Walking)
 - Real-time traffic (Driving and Walking)
@@ -399,11 +399,11 @@ The Azure Maps Routing service (preview) contains different levels of geographic
 | Bulgaria                               | Good                | ✓                     | ✓                 | ✓                         |
 | Burkina Faso                           | Fair                |                       | ✓                 |                            |
 | Burundi                                | Good                |                       | ✓                 |                            |
+| Cabo Verde                             | Good                |                       | ✓                 |                            |
 | Cambodia                               | Good                |                       | ✓                 |                            |
 | Cameroon                               | Fair                |                       | ✓                 |                            |
 | Canada                                 | Good                | ✓                     | ✓                 | ✓                         |
-| Cape Verde                             | Good                |                       | ✓                 |                            |
-| Caribbean Netherlands                  |                     |                       | ✓                 |                            |
+| Cabo Verde                             |                     |                       | ✓                 |                            |
 | Cayman Islands                         | Good                |                       | ✓                 |                            |
 | Central African Republic               | Major Roads Only    |                       | ✓                 |                            |
 | Chad                                   | Major Roads Only    |                       | ✓                 |                            |
@@ -547,12 +547,12 @@ The Azure Maps Routing service (preview) contains different levels of geographic
 | Russia                                 | Good                | ✓                     | ✓                 | ✓                         |
 | Rwanda                                 | Good                |                       | ✓                 |                            |
 | Saba                                   | Good                |                       |                   |                            |
-| Saint Barthélemy                       | Good                |                       |                   |                            |
+| Saint Barthélemy                       | Good                |                       | ✓                 |                            |
 | Saint Kitts & Nevis                    | Good                |                       |                   |                            |
-| Saint Lucia                            | Good                |                       |                   |                            |
-| Saint Martin                           | Good                |                       |                   |                            |
-| Saint Pierre & Miquelon                | Good                |                       |                   |                            |
-| Saint Vincent & the Grenadines         | Good                |                       |                   |                            |
+| Saint Lucia                            | Good                |                       | ✓                 |                            |
+| Saint Martin                           | Good                |                       | ✓                 |                            |
+| Saint Pierre & Miquelon                | Good                |                       | ✓                 |                            |
+| Saint Vincent & the Grenadines         | Good                |                       | ✓                 |                            |
 | Samoa                                  | Major Roads Only    |                       | ✓                 |                            |
 | San Marino                             | Good                | ✓                     | ✓                 | ✓                         |
 | São Tomé & Príncipe                    | Major Roads Only    |                       | ✓                 |                            |
@@ -573,13 +573,7 @@ The Azure Maps Routing service (preview) contains different levels of geographic
 | South Sudan                            | Major Roads Only    |                       | ✓                 |                            |
 | Spain                                  | Good                | ✓                     | ✓                 | ✓                         |
 | Sri Lanka                              | Major Roads Only    |                       | ✓                 |                            |
-| St. Barthélemy                         |                     |                       | ✓                 |                            |
 | St Helena, Ascension, Tristan da Cunha | Major Roads Only    |                       | ✓                 |                            |
-| St. Kitts & Nevis                      |                     |                       | ✓                 |                            |
-| St. Lucia                              |                     |                       | ✓                 |                            |
-| St. Martin                             |                     |                       | ✓                 |                            |
-| St. Pierre & Miquelon                  |                     |                       | ✓                 |                            |
-| St. Vincent & Grenadines               |                     |                       | ✓                 |                            |
 | Sudan                                  | Major Roads Only    |                       | ✓                 |                            |
 | Suriname                               | Good                |                       | ✓                 |                            |
 | Svalbard                               | Good                |                       |                   |                            |
@@ -596,7 +590,7 @@ The Azure Maps Routing service (preview) contains different levels of geographic
 | Tonga                                  | Major Roads Only    |                       | ✓                 |                            |
 | Trinidad & Tobago                      | Good                |                       | ✓                 |                            |
 | Tunisia                                | Good                |                       | ✓                 |                            |
-| Turkey                                 | Good                | ✓                     | ✓                 | ✓                         |
+| Türkiye                                | Good                | ✓                     | ✓                 | ✓                         |
 | Turkmenistan                           | Major Roads Only    |                       | ✓                 |                            |
 | Turks & Caicos Islands                 | Good                |                       | ✓                 |                            |
 | Tuvalu                                 | Major Roads Only    |                       | ✓                 |                            |
@@ -631,7 +625,6 @@ For more coverage tables, see:
 - Check out coverage for [Render].
 
 [Azure Maps routing coverage tables]: #azure-maps-routing-coverage-tables
-<!----- TODO: Update with link to route v2 docs when available ----------->
 [Azure Maps Route Service]: /rest/api/maps/route/
 [Geocoding]: geocoding-coverage.md
 [Get Route Directions]: /rest/api/maps/route/get-route-directions

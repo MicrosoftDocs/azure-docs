@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: Add tags to digital twins
 titleSuffix: Azure Digital Twins
 description: Learn how to implement marker and value tags on models and digital twins
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 06/29/2023
 ms.topic: how-to
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Add tags to digital twins 

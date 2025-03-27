@@ -106,7 +106,7 @@ In these fields, you must provide a URL of the website where customers discover 
 #### Guidelines for designing the call-to-action:
 1. The call-to-action needs to be clear as to what program the customer is joining or agreeing to.
    - Call-to-action must be clear and accurate; consent must not be obtained through deceptive means
-   - Enrolling a user in multiple programs based on a single opt-in is prohibited, even when all programs operate on the same short code. Refer to the [CTIA monitoring handbook](https://www.wmcglobal.com/hubfs/CTIA%20Short%20Code%20Monitoring%20Handbook%20-%20v1.8.pdf) for best practices.
+   - Enrolling a user in multiple programs based on a single opt-in is prohibited, even when all programs operate on the same short code. Refer to the [CTIA monitoring handbook](https://api.ctia.org/wp-content/uploads/2024/01/CTIA-Short-Code-Monitoring-Handbook-v1.9-FINAL.pdf) for best practices.
 2. The call-to-action needs to include the abbreviated terms and conditions, which include:
    -	Program Name – as previously described
    -	Message frequency (recurring message/subscriptions)
@@ -115,7 +115,7 @@ In these fields, you must provide a URL of the website where customers discover 
    -	Link to privacy policy (or complete text)
 
 > [!Note]
-> Additional information might be required for sweepstakes or other special programs. Please check the [CTIA monitoring handbook](https://www.wmcglobal.com/hubfs/CTIA%20Short%20Code%20Monitoring%20Handbook%20-%20v1.8.pdf).
+> Additional information might be required for sweepstakes or other special programs. Please check the [CTIA monitoring handbook](https://api.ctia.org/wp-content/uploads/2024/01/CTIA-Short-Code-Monitoring-Handbook-v1.9-FINAL.pdf).
 
 ##### Examples:
 **SMS**

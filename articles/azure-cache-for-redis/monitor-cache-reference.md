@@ -2,11 +2,8 @@
 title: Monitoring data reference for Azure Cache for Redis
 description: This article contains important reference material you need when you monitor Azure Cache for Redis.
 ms.date: 05/13/2024
-ms.custom: horz-monitor
+ms.custom: horz-monitor, ignite-2024
 ms.topic: reference
-author: rboucher
-ms.author: robb
-
 ---
 
 # Azure Cache for Redis monitoring data reference
@@ -43,7 +40,6 @@ The following list provides details and more information about the supported Azu
   - Depicts the worst-case (99th percentile) latency of server-side commands. Measured by issuing `PING` commands from the load balancer to the Redis server and tracking the time to respond.
   - Useful for tracking the health of your Redis instance. Latency increases if the cache is under heavy load or if there are long running commands that delay the execution of the `PING` command.
   - This metric is only available in Standard and Premium tier caches.
-  - This metric is not available for caches that are affected by Cloud Service retirement. See more information [here](cache-faq.yml#caches-with-a-dependency-on-cloud-services--classic)
 - Cache Latency (preview)
   - The latency of the cache calculated using the internode latency of the cache. This metric is measured in microseconds, and has three dimensions: `Avg`, `Min`, and `Max`. The dimensions represent the average, minimum, and maximum latency of the cache during the specified reporting interval.
 - Cache Misses

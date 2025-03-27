@@ -24,6 +24,10 @@
       href: understand-azure-cache-for-redis-reservation-charges.md
     - name: Azure Data Factory
       href: /azure/data-factory/data-flow-understand-reservation-charges?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure SQL Database
+      href: understand-reservation-charges.md
+    - name: Azure SQL Managed Instance
+      href: understand-reservation-charges-sql-managed-instance.md
     - name: Azure VMware Solution
       href: /azure/azure-vmware/reserved-instance?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Cosmos DB
@@ -53,14 +57,10 @@
       href: understand-suse-reservation-charges.md
     - name: Storage
       href: understand-storage-charges.md
-    - name: SQL Database
-      href: understand-reservation-charges.md
     - name: Synapse Analytics - Data warehouse
       href: reservation-discount-azure-sql-dw.md
     - name: Virtual machines
       href: ../manage/understand-vm-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Virtual machine software
-      href: understand-vm-software-reservation-discount.md
   - name: Windows and SQL costs not included
     href: reserved-instance-windows-software-costs.md
   - name: Usage data for individual subscriptions
@@ -113,7 +113,7 @@
     - name: Azure NetApp Files
       href: /azure/azure-netapp-files/reservations?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure OpenAI
-      href: azure-openai.md#buy-a-microsoft-azure-openai-reservation
+      href: azure-openai.md#buy-a-microsoft-azure-openai-service-reservation
     - name: Azure VMware Solution
       href: /azure/azure-vmware/reserved-instance?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Cosmos DB
@@ -134,6 +134,10 @@
       href: fabric-capacity.md
     - name: Microsoft Sentinel - Pre-Purchase
       href: /azure/sentinel/billing-pre-purchase-plan?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Nutanix on Azure BareMetal
+      href: nutanix-bare-metal.md
+    - name: Red Hat OpenShift
+      href: prepay-red-hat-openshift.md
     - name: SAP HANA Large Instances
       href: prepay-hana-large-instances-reserved-capacity.md
     - name: Software plans

@@ -7,7 +7,7 @@ metadata:
   title: Azure confidential computing
   description: Learn about how Azure confidential computing protects data in use and learn ways to build confidential workloads in the cloud.
   ms.service: azure-virtual-machines
-  ms.subservice: confidential-computing
+  ms.subservice: azure-confidential-computing
   ms.topic: landing-page
   author: michamcr 
   ms.author: mmcrey
@@ -81,6 +81,8 @@ landingContent:
             url: quick-create-confidential-vm-arm.md
           - text: Create confidential VM with Azure CLI
             url: quick-create-confidential-vm-azure-cli.md
+          - text: Create VMSS with Confidential Disk Encryption
+            url: https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vmss-cvm-fde#readme
       - linkListType: how-to-guide
         links:
           - text: Use sample app for guest attestation
@@ -105,8 +107,8 @@ landingContent:
             url: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
       - linkListType: whats-new
         links:
-          - text: Azure confidential VMs with NVIDIA H100 Tensor Core GPUs (Public Preview)
-            url: https://aka.ms/cvm-h100-blog
+          - text: Azure confidential VMs with NVIDIA H100 Tensor Core GPUs
+            url: https://techcommunity.microsoft.com/blog/azureconfidentialcomputingblog/general-availability-azure-confidential-vms-with-nvidia-h100-tensor-core-gpus/4242644
 
   # Card
   - title: Container compute
@@ -124,14 +126,14 @@ landingContent:
         links:
           - text: Hello world with Confidential containers with Azure Container Instances (ACI)
             url: /azure/container-instances/container-instances-tutorial-deploy-confidential-containers-cce-arm
+          - text: Confidential VM node pools on AKS
+            url: /azure/aks/use-cvm
           - text: CLI based provisioning with a hello from enclave container app on AKS
             url: confidential-enclave-nodes-aks-get-started.md
           - text: Confidential containers with Intel SGX quickstart
             url: confidential-containers-enclaves.md
           - text: App enclave aware container samples
             url: enclave-aware-containers.md
-          - text: Confidential VM node pools on AKS
-            url: /azure/aks/use-cvm
       - linkListType: reference
         links:
           - text: Azure architecture center confidential container scenarios

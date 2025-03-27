@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-peering-service
 ms.topic: how-to
-ms.date: 02/08/2024
+ms.date: 03/03/2025
 ms.custom: devx-track-azurecli
 
 #CustomerIntent: As an administrator, I want to learn how to create and manage a Peering Service connection using the Azure CLI so I can enhance the connectivity to Microsoft services over the public internet.
@@ -40,12 +40,12 @@ az provider register --name Microsoft.Peering
 
 ## List Peering Service locations and service providers 
 
-Use [az peering service country list](/cli/azure/peering/service/country#az-peering-service-country-list) to list the countries/regions where Peering Service is available and [az peering service location list](/cli/azure/peering/service/location#az-peering-service-location-list) to list the available metro locations in a specific country where you can get the Peering Service:
+Use [az peering service country list](/cli/azure/peering/service/country#az-peering-service-country-list) to list the countries/regions where Peering Service is available and [az peering service location list](/cli/azure/peering/service/location#az-peering-service-location-list) to list the available metro locations in a specific country/region where you can get the Peering Service:
 
 ```azurecli-interactive
 # List the countries/regions available for Peering Service.
 az peering service country list --out table
-# List metro locations serviced in a country
+# List metro locations serviced in a country/region
 az peering service location list --country "united states" --output table
 ```
 

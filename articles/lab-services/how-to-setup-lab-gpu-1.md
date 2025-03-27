@@ -3,7 +3,7 @@ title: Set up a lab with GPUs in Azure Lab Services when using lab accounts | Mi
 description: Learn how to set up a lab with graphics processing unit (GPU) virtual machines when using lab accounts. 
 author: nicolela
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 11/13/2024
 ms.service: azure-lab-services
 ---
 
@@ -26,18 +26,20 @@ On the first page of the lab creation wizard, in the **Which virtual machine siz
 
 In this process, you have the option of selecting either **Visualization** or **Compute** GPUs.  It's important to choose the type of GPU that's based on the software that your students will use.  
 
-As described in the following table, the *compute* GPU size is intended for compute-intensive applications.  For example, the [Deep Learning in Natural Language Processing class type](./class-type-deep-learning-natural-language-processing.md) uses the **Small GPU (Compute)** size.  The compute GPU is suitable for this type of class, because students use deep learning frameworks and tools that are provided by the [Data Science Virtual Machine image](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) to train deep learning models with large sets of data.
+The *compute* GPU size is intended for compute-intensive applications.
 
-| Size | vCPUs | RAM | Description |
-| ---- | ----- | --- | ----------- |
-| Small GPU (Compute) | 6  vCPUs | 56 GB RAM  | [Standard_NC6](/azure/virtual-machines/nc-series). This size is best suited for compute-intensive applications such as artificial intelligence (AI) and deep learning. |
+| Size | vCPUs | Memory (GB) | Series | Suggested use | GPU/Accelerator | Accelerator Memory (GB) |
+| - | - | - | - | - | - | - |
+| Small GPU (Compute) | 8 | 56 | [NC8asT4_v3](/azure/virtual-machines/sizes/gpu-accelerated/ncast4v3-series) | Computer-intensive applications like AI and deep learning | NVIDIA Tesla T4 | 16 |
+| | 6 | 112 | [NC6s_v3](/azure/virtual-machines/ncv3-series) | Computer-intensive applications like AI and deep learning | NVIDIA Tesla V100 | 16 |
 
-The *visualization* GPU sizes are intended for graphics-intensive applications.  For example, the [SOLIDWORKS engineering class type](./class-type-solidworks.md) shows using the **Small GPU (Visualization)** size.  The visualization GPU is suitable for this type of class, because students interact with the SOLIDWORKS 3D computer-aided design (CAD) environment for modeling and visualizing solid objects.
+The *visualization* GPU sizes are intended for graphics-intensive applications.
 
-| Size | vCPUs | RAM | Description |
-| ---- | ----- | --- | ----------- |
-| Small GPU (Visualization) | 6 vCPUs | 56 GB RAM  | [Standard_NV6](/azure/virtual-machines/nv-series).  This size is best suited for remote visualization, streaming, gaming, and encoding that use frameworks such as OpenGL and DirectX. |
-| Medium GPU (Visualization) | 12 vCPUs  | 112 GB RAM  | [Standard_NV12](/azure/virtual-machines/nv-series?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  This size is best suited for remote visualization, streaming, gaming, and encoding that use frameworks such as OpenGL and DirectX. |
+| Size | vCPUs | Memory (GB) | Series | Suggested use | GPU/Accelerator | Accelerator Memory (GB) |
+| - | - | - | - | - | - | - |
+| Small GPU (Visualization) | 12 | 110 | [NV12ads_A10_v5](/azure/virtual-machines/sizes/gpu-accelerated/nvadsa10v5-series) | Remote visualization,and streaming | NVIDIA A10 (1/3) | 8 |
+| Medium GPU (Visualization) | 18 | 220 | [NV18ads_A10_v5](/azure/virtual-machines/sizes/gpu-accelerated/nvadsa10v5-series) | Remote visualization and streaming | NVIDIA A10 (1/2) | 12 |
+| | 12 | 112 | [NV12_v3](/azure/virtual-machines/nvv3-series) | Remote visualization and streaming | NVIDIA Tesla M60 | 8 |
 
 > [!NOTE]
 > You may not see some of these VM sizes in the list when creating a lab. The list is populated based on the current capacity of the lab's location. For availability of VMs, see [Products available by region](https://azure.microsoft.com/regions/services/?products=virtual-machines).
@@ -48,9 +50,8 @@ To take advantage of the GPU capabilities of your lab VMs, ensure that the appro
 
 ![Screenshot of the "New lab" showing the "Install GPU drivers" option](./media/how-to-setup-gpu-1/lab-gpu-drivers.png)
 
-As shown in the preceding image, this option is enabled by default, which ensures that recently released drivers are installed for the type of GPU and image that you selected:
+The GPU driver option is enabled by default, which will install recently released drivers for the type of GPU and image that you selected.
 
-- When you select a *compute* GPU size, your lab VMs are powered by the [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) GPU.  In this case, recent [Compute Unified Device Architecture (CUDA)](http://developer.download.nvidia.com/compute/cuda/2_0/docs/CudaReferenceManual_2.0.pdf) drivers are installed, which enables high-performance computing.
 - When you select a *visualization* GPU size, your lab VMs are powered by the [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU and [GRID technology](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/NVIDIA_GRID_vPC_Solution_Overview.pdf).  In this case, recent GRID drivers are installed, which enables the use of graphics-intensive applications.
 
 > [!IMPORTANT]
@@ -117,7 +118,7 @@ This section describes how to validate that your GPU drivers are properly instal
       > [!IMPORTANT]
       > The NVIDIA Control Panel settings can be accessed only for *visualization* GPUs.  If you attempt to open the NVIDIA Control Panel for a compute GPU, you'll get the following error: "NVIDIA Display settings are not available.  You are not currently using a display attached to an NVIDIA GPU."  Similarly, the GPU performance information in Task Manager is provided only for visualization GPUs.
 
- Depending on your scenario, you may also need to do additional validation to ensure the GPU is properly configured.  Read the class type about [Python and Jupyter Notebooks](class-type-jupyter-notebook.md#template-machine-configuration) that explains an example where specific versions of drivers are needed.
+ Depending on your scenario, you may also need to do additional validation to ensure the GPU is properly configured.  
 
 #### Linux images
 
@@ -128,5 +129,3 @@ Follow the instructions in the "Verify driver installation" section of [Install 
 See the following articles:
 
 - [Create and manage labs](how-to-manage-labs.md)
-- [SOLIDWORKS computer-aided design (CAD) class type](class-type-solidworks.md)
-- [MATLAB (matrix laboratory) class type](class-type-matlab.md)

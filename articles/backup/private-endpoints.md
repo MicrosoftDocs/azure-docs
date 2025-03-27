@@ -2,11 +2,11 @@
 title: Create and use private endpoints for Azure Backup
 description: Understand the process to creating private endpoints for Azure Backup where using private endpoints helps maintain the security of your resources.
 ms.topic: how-to
-ms.date: 04/16/2024
+ms.date: 03/27/2025
 ms.custom: devx-track-azurepowershell
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Create and use private endpoints (v1 experience) for Azure Backup
@@ -256,7 +256,7 @@ After you run the first backup and you're using a custom DNS server (without con
 1. Navigate to your Resource Group, and search for the private endpoint you created.
 1. Aside from the three private endpoints discussed earlier, you'll now see a fourth private endpoint with its name starting with `<the name of the private endpoint>_prot` and are suffixed with `_blob`.
 
-    ![Private endpoing with suffix "prot"](./media/private-endpoints/private-endpoint-prot.png)
+    ![Private endpoint with suffix "prot"](./media/private-endpoints/private-endpoint-prot.png)
 
 1. Navigate to this new private endpoint. In the DNS configuration option, you'll see a record with an FQDN and an IP address. Add these to your private DNS server, in addition to the ones described earlier.
 
@@ -553,7 +553,9 @@ To configure a proxy server for Azure VM or on-premises machine, follow these st
 
 The following diagram shows a setup (while using the Azure Private DNS zones) with a proxy server, whose VNet is linked to a private DNS zone with required DNS entries. The proxy server can also have its own custom DNS server, and the above domains can be conditionally forwarded to 168.63.129.16. If you're using a custom DNS server/host file for DNS resolution, see the sections on [managing DNS entries](#manage-dns-records) and [configuring protection](#configure-backup).
 
-:::image type="content" source="./media/private-endpoints/setup-with-proxy-server-inline.png" alt-text="Diagram showing a setup with a proxy server." lightbox="./media/private-endpoints/setup-with-proxy-server-expanded.png":::
+:::image type="content" source="./media/private-endpoints/setup-with-proxy-server.png" alt-text="Diagram showing a setup with a proxy server." lightbox="./media/private-endpoints/setup-with-proxy-server.png":::
+
+3. To auto-update the MARS Agent allow access to the `*.login.microsoft.com` domain.
 
 ### Create DNS entries when the DNS server/DNS zone is present in another subscription
 

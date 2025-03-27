@@ -2,12 +2,29 @@
 title: What's new? Azure Event Grid
 description: Learn what is new with Azure Event Grid, such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 ms.topic: overview
-ms.date: 05/21/2024
+ms.date: 11/18/2024
 ---
 
 # What's new in Azure Event Grid?
 
 Azure Event Grid receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about the features that are added or updated in a release. 
+
+## November 2024
+The following features of Event Grid Namespaces moved from public preview to general availability (GA).
+
+- [Push delivery to Webhooks](namespace-handler-webhook.md)
+- [Custom domains](custom-domains-namespaces.md)
+
+The following features are released in Preview: 
+
+- [Forward events from one Azure Event Grid namespace topic to another namespace topic](forward-events-to-another-namespace-topic.md)
+- [Network security perimeter in Azure Event Grid](configure-network-security-perimeter.md)
+
+We also published the following new articles:
+
+- [Transport Layer Security support](transport-layer-security.md)
+- [Cross-tenant delivery in Azure Event Grid](cross-tenant-delivery-using-managed-identity.md)
+- [How to send events from Event Grid Basic to Event Grid namespace topics](handler-event-grid-namespace-topic.md)
 
 ## May 2024 
 

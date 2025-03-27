@@ -1,13 +1,13 @@
 ---
 title: Save on select VMs in US West for a limited time
 description: Learn about how to save up to 50% on select VMs in US West for a limited time.
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: kyleikeda
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 03/01/2024
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 ms.custom: references_regions
 ---
 

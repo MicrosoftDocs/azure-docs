@@ -2,7 +2,7 @@
 title: Create and provision an Azure IoT Edge for Linux on Windows device using X.509 certificates
 description: Create and provision a single IoT Edge for Linux on Windows device in IoT Hub using manual provisioning with X.509 certificates
 author: PatAltimore
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ms.topic: how-to
@@ -12,7 +12,7 @@ ms.author: patricka
 
 # Create and provision an IoT Edge for Linux on Windows device using X.509 certificates
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This article provides end-to-end instructions for registering and provisioning an IoT Edge for Linux on Windows device.
 

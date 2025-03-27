@@ -5,9 +5,9 @@ ms.service: role-based-access-control
 ms.topic: reference
 ms.workload: identity
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -47,6 +47,7 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.ComputeSchedule](./permissions/compute.md#microsoftcomputeschedule) |  | [Azure Virtual Desktop](/azure/virtual-desktop/overview) |
 > | [microsoft.connectedvmwarevsphere](./permissions/compute.md#microsoftconnectedvmwarevsphere) |  | [Azure Arc-enabled VMware vSphere](/azure/azure-arc/vmware-vsphere/) |
 > | [Microsoft.DesktopVirtualization](./permissions/compute.md#microsoftdesktopvirtualization) | The best virtual desktop experience, delivered on Azure. | [Azure Virtual Desktop](/azure/virtual-desktop/) |
+> | [Microsoft.Quantum](./permissions/compute.md#microsoftquantum) |  | [Azure Quantum](/azure/quantum/overview-azure-quantum) |
 > | [Microsoft.ServiceFabric](./permissions/compute.md#microsoftservicefabric) | Develop microservices and orchestrate containers on Windows or Linux. | [Service Fabric](/azure/service-fabric/) |
 
 <a name='microsoftnetwork'></a>
@@ -173,7 +174,7 @@ Click the resource provider name in the following list to see the list of permis
 > [!div class="mx-tableFixed"]
 > | Resource provider | Description | Azure service |
 > | --- | --- | --- |
-> | [Microsoft.MixedReality](./permissions/mixed-reality.md#microsoftmixedreality) | Blend your physical and digital worlds to create immersive, collaborative experiences. | [Azure Spatial Anchors](/azure/spatial-anchors/) |
+> | [Microsoft.MixedReality](./permissions/mixed-reality.md#microsoftmixedreality) | Blend your physical and digital worlds to create immersive, collaborative experiences. |  |
 
 <a name='microsoftapimanagement'></a>
 
@@ -191,7 +192,6 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.HealthcareApis](./permissions/integration.md#microsofthealthcareapis) |  | [Azure API for FHIR](/azure/healthcare-apis/azure-api-for-fhir/) |
 > | [Microsoft.HealthDataAIServices](./permissions/integration.md#microsofthealthdataaiservices) |  | [Azure Health Data Services](/azure/healthcare-apis/healthcare-apis-overview) |
 > | [Microsoft.Logic](./permissions/integration.md#microsoftlogic) | Automate the access and use of data across clouds without writing code. | [Logic Apps](/azure/logic-apps/) |
-> | [Microsoft.ModSimWorkbench](./permissions/integration.md#microsoftmodsimworkbench) |  | [Azure Modeling and Simulation Workbench](/azure/modeling-simulation-workbench/modeling-simulation-workbench-overview) |
 > | [Microsoft.NotificationHubs](./permissions/integration.md#microsoftnotificationhubs) | Send push notifications to any platform from any back end. | [Notification Hubs](/azure/notification-hubs/) |
 > | [Microsoft.Relay](./permissions/integration.md#microsoftrelay) | Expose services that run in your corporate network to the public cloud. | [Azure Relay](/azure/azure-relay/relay-what-is-it) |
 > | [Microsoft.ResourceNotifications](./permissions/integration.md#microsoftresourcenotifications) |  | [Azure Event Grid](/azure/event-grid/overview) |
@@ -304,7 +304,7 @@ Click the resource provider name in the following list to see the list of permis
 > | Resource provider | Description | Azure service |
 > | --- | --- | --- |
 > | [Microsoft.AzureStack](./permissions/hybrid-multicloud.md#microsoftazurestack) | Build and run innovative hybrid applications across cloud boundaries. | [Azure Stack](/azure-stack/) |
-> | [Microsoft.AzureStackHCI](./permissions/hybrid-multicloud.md#microsoftazurestackhci) |  | [Azure Stack HCI](/azure-stack/hci/) |
+> | [Microsoft.AzureStackHCI](./permissions/hybrid-multicloud.md#microsoftazurestackhci) |  | [Azure Local](/azure-stack/hci/) |
 > | [Microsoft.ExtendedLocation](./permissions/hybrid-multicloud.md#microsoftextendedlocation) |  | [Custom locations](/azure/azure-arc/platform/conceptual-custom-locations) |
 > | [Microsoft.HybridCompute](./permissions/hybrid-multicloud.md#microsofthybridcompute) |  | [Azure Arc](/azure/azure-arc/) |
 > | [Microsoft.HybridConnectivity](./permissions/hybrid-multicloud.md#microsofthybridconnectivity) |  |  |

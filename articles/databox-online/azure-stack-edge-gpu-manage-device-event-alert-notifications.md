@@ -4,8 +4,7 @@ description: Describes how to define alert processing rules to manage alert noti
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 03/13/2023
 ms.author: alkohli

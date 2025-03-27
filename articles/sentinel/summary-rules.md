@@ -4,7 +4,7 @@ description: Learn how to aggregate large sets of Microsoft Sentinel data across
 author: batamig
 ms.author: bagol
 ms.topic: how-to #Don't change
-ms.date: 07/23/2024
+ms.date: 10/16/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -22,7 +22,7 @@ Use [summary rules](/azure/azure-monitor/logs/summary-rules) in Microsoft Sentin
 - **Cost savings** on verbose logs, which you can retain for as little or as long as you need in a less expensive log tier, and send as summarized data only to an Analytics table for analysis and reports.
 - **Security and data privacy**, by removing or obfuscating privacy details in summarized shareable data and limiting access to tables with raw data.
 
-Access summary rule results via Kusto Query Language (KQL) across detection, investigation, hunting, and reporting activities. Use summary rule results for longer in historical investigations, hunting, and compliance activities.
+Access summary rule results via Kusto Query Language (KQL) across detection, investigation, hunting, and reporting activities. Use summary rule results for longer periods in historical investigations, hunting, and compliance activities.
 
 Summary rule results are stored in separate tables under the **Analytics** data plan, and charged accordingly. For more information on data plans and storage costs, see [Select a table plan based on usage patterns in a Log Analytics workspace](/azure/azure-monitor/logs/basic-logs-configure)
 
@@ -40,7 +40,7 @@ To create summary rules in Microsoft Sentinel:
 
 - You must be able to access Microsoft Sentinel with [**Microsoft Sentinel Contributor**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) permissions. For more information, see [Roles and permissions in Microsoft Sentinel](roles.md).
 
-- To create summary rules in the Microsoft Defender portal, you must first onboard your workspace to the unified security operations platform. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard).
+- To create summary rules in the Microsoft Defender portal, you must first onboard your workspace to the Defender portal. For more information, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/microsoft-365/security/defender/microsoft-sentinel-onboard).
 
 We recommend that you [experiment with your summary rule query](hunts.md) in the **Logs** page before creating your rule. Verify that the query doesn't reach or near the [query limit](/azure/azure-monitor/logs/summary-rules#restrictions-and-limitations), and check that the query produces the intended schema and expected results. If the query is close to the query limits, consider using a smaller `binSize` to process less data per bin. You can also modify the query to return fewer records or remove fields with higher volume.
 
@@ -134,7 +134,7 @@ This section reviews common scenarios for creating summary rules in Microsoft Se
 
     ```kusto
     let csl_columnmatch=(column_name: string) {
-    CommonSecurityLog
+    summarized_CommonSecurityLog
     | where isnotempty(column_name)
     | extend
         Date = format_datetime(TimeGenerated, "yyyy-MM-dd"),
@@ -167,35 +167,26 @@ Most of the data sources are raw logs that are noisy and have high volume, but h
 
 **Solution**: We recommend using summary rules to do the following:
 
-1. Summarize McAfee firewall logs every 10 minutes, updating the data in the same custom table with each run. [ASIM functions](normalization-functions.md) might be helpful in the summary query when interacting with your McAfee logs.
+1. **Create a summary rule**: 
 
-1. Create an analytics rule to trigger an alert for anytime a domain name in the summary data matches an entry on the threat intelligence list. For example:
+    1. Extend your query to extract key fields, such as the source address, destination address, and destination port from the **CommonSecurityLog_CL** table, which is the **CommonSecurityLog** with the Auxiliary plan.
+       
+    1. Perform an inner lookup against the active Threat Intelligence Indicators to identify any matches with our source address. This allows you to cross-reference your data with known threats.
+       
+    1. Project relevant information, including the time generated, activity type, and any malicious source IPs, along with the destination details. Set the frequency you want the query to run, and the destination table, such as **MaliciousIPDetection** . The results in this table are in the analytic tier and are charged accordingly.
 
-    ```kusto
-    //let timeRange = 5m;
-    //let httpstrim = "https://";
-    //let httptrim = "http://";
-    let timeRangeStart = now (-10m);
-    let timeRangeEnd = (timeRangeStart + 10m);
-    //Take visited domains from McAfee proxy
-    adx('https://adxfwlog01.northeurope.kusto.windows.net/nwlogs').MappedMcAfeeSyslog
-    | where timestamp between (timeRangeStart .. timeRangeEnd)
-    | where isnotempty(URL)
-    | extend URLDomain = parse_url(URL).Host
-    | extend URLDomain = iff(isempty(URLDomain),URL,URLDomain)
-    | extend URLDomain = extract(@"([0-9a-zA-Z-]{1,}\.[0-9a-zA-Z-]{2,3}\.[0-9a-zA-Z-]{2,3}|[0-9a-zA-Z-]{1,}\.[0-9a-zA-Z-]{2,10})$", 0, URLDomain)
-    | where isnotempty(URLDomain)
-    | summarize by URLDomain
-    //Match visited domains with TI DomainName list
-    | join kind=inner (ThreatIntelligenceIndicator
-        | where isnotempty(DomainName)
-        | where Active == true
-        | where ExpirationDateTime > now()
-        | summarize LatestIndicatorTime = arg_max(TimeGenerated, *) by DomainName
-          ) on $left.URLDomain == $right.DomainName
-    | extend LogicApp = "SOC-McAfee-ADX-DstDomainAgainstThreatIntelligence"
-    | project LatestIndicatorTime, TI_Domain = DomainName, Description, ConfidenceScore, AdditionalInformation, LogicApp
-    ```
+1. **Create an alert**:
+
+    Creating an analytics rule in Microsoft Sentinel that alerts based on results from the **MaliciousIPDetection** table. This step is crucial for proactive threat detection and incident response.
+
+**Sample summary rule**:
+
+```kusto
+CommonSecurityLog_CL​
+| extend sourceAddress = tostring(parse_json(Message).sourceAddress), destinationAddress = tostring(parse_json(Message).destinationAddress), destinationPort = tostring(parse_json(Message).destinationPort)​
+| lookup kind=inner (ThreatIntelligenceIndicator | where Active == true ) on $left.sourceAddress == $right.NetworkIP​
+| project TimeGenerated, Activity, Message, DeviceVendor, DeviceProduct, sourceMaliciousIP =sourceAddress, destinationAddress, destinationPort
+```
 
 ## Use summary rules with auxiliary logs (sample process)
 
@@ -253,6 +244,32 @@ This procedure describes a sample process for using summary rules with [auxiliar
           | project TimeGenerated, SentBytes, DeviceVendor 
           | make-series TotalBytesSent=sum(SentBytes) on TimeGenerated from startofday(ago(starttime)) to startofday(ago(endtime)) step timeframe by DeviceVendor 
         ```
+
+See more information on the following items used in the preceding examples, in the Kusto documentation:
+- [***let*** statement](/kusto/query/let-statement?view=microsoft-sentinel&preserve-view=true)
+- [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+- [***extend*** operator](/kusto/query/extend-operator?view=microsoft-sentinel&preserve-view=true)
+- [***project*** operator](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true)
+- [***summarize*** operator](/kusto/query/summarize-operator?view=microsoft-sentinel&preserve-view=true)
+- [***lookup*** operator](/kusto/query/lookup-operator?view=microsoft-sentinel&preserve-view=true)
+- [***union*** operator](/kusto/query/union-operator?view=microsoft-sentinel&preserve-view=true)
+- [***make-series*** operator](/kusto/query/make-series-operator?view=microsoft-sentinel&preserve-view=true)
+- [***isnotempty()*** function](/kusto/query/isnotempty-function?view=microsoft-sentinel&preserve-view=true)
+- [***format_datetime()*** function](/kusto/query/format-datetime-function?view=microsoft-sentinel&preserve-view=true)
+- [***column_ifexists()*** function](/kusto/query/column-ifexists-function?view=microsoft-sentinel&preserve-view=true)
+- [***iff()*** function](/kusto/query/iff-function?view=microsoft-sentinel&preserve-view=true)
+- [***ipv4_is_private()*** function](/kusto/query/ipv4-is-private-function?view=microsoft-sentinel&preserve-view=true)
+- [***min()*** function](/kusto/query/min-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+- [***tostring()*** function](/kusto/query/tostring-function?view=microsoft-sentinel&preserve-view=true)
+- [***ago()*** function](/kusto/query/ago-function?view=microsoft-sentinel&preserve-view=true)
+- [***startofday()*** function](/kusto/query/startofday-function?view=microsoft-sentinel&preserve-view=true)
+- [***parse_json()*** function](/kusto/query/parse-json-function?view=microsoft-sentinel&preserve-view=true)
+- [***count()*** aggregation function](/kusto/query/count-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+- [***make_set()*** aggregation function](/kusto/query/make-set-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+- [***dcount()*** aggregation function](/kusto/query/dcount-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+- [***sum()*** aggregation function](/kusto/query/sum-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+
+[!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
 
 ## Related content
 

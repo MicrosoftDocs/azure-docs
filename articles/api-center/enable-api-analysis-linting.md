@@ -3,7 +3,7 @@ title: Perform API linting and analysis - Azure API Center
 description: Configure linting of API definitions in your API center to analyze compliance of APIs with the organization's API style guide.
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 06/29/2024
+ms.date: 12/03/2024
 ms.author: danlep
 author: dlepow
 ms.custom: devx-track-azurecli
@@ -12,10 +12,10 @@ ms.custom: devx-track-azurecli
 
 # Enable API analysis in your API center - self-managed
 
-This article explains how to enable API analysis in [Azure API Center](overview.md) by manually setting up a linting engine and triggers. API analysis offers linting capabilities to analyze API definitions in your organization's API center. Linting ensures your API definitions adhere to organizational style rules, generating both individual and summary reports. Use API analysis to identify and correct common errors and inconsistencies in your API definitions.
+This article explains how to enable API analysis in [Azure API Center](overview.md) by manually setting up a linting engine and triggers. These capabilities analyze your API definitions for adherence to organizational style rules, generating both individual and summary reports. API analysis helps identify and correct common errors and inconsistencies in your API definitions.
 
 > [!NOTE]
-> In preview, Azure API Center can also automatically set up a linting engine and any required dependencies and triggers. [Learn more](enable-managed-api-analysis-linting.md). 
+> In preview, Azure API Center [automatically configures](enable-managed-api-analysis-linting.md) a default linting engine and dependencies for API analysis. If you enable self-managed analysis as described in this article, you override these built-in features.  
 
 > [!VIDEO https://www.youtube.com/embed/m0XATQaVhxA]
 

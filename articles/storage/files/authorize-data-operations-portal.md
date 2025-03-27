@@ -4,13 +4,16 @@ description: When you access file data using the Azure portal, the portal makes 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 08/19/2024
+ms.date: 12/16/2024
 ms.author: kendownie
 ---
 
 # Choose how to authorize access to file data in the Azure portal
 
 When you access file data using the [Azure portal](https://portal.azure.com?azure-portal=true), the portal makes requests to Azure Files behind the scenes. These requests can be authorized using either your Microsoft Entra account or the storage account access key. The portal indicates which method you're using, and enables you to switch between the two if you have the appropriate permissions.
+
+> [!IMPORTANT]
+> Accessing a file share using storage account keys carries inherent security risks, so authenticate with Microsoft Entra when possible. For information on how to protect and manage your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
 
 You can also specify how to authorize an individual file share operation in the Azure portal. By default, the portal uses whichever method you're already using to authorize all file shares, but you have the option to change this setting for individual file shares.
 

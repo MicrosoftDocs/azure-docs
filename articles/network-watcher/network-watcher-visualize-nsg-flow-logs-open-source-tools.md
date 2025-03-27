@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 09/26/2024
+ms.date: 10/23/2024
 ---
 
 # Visualize Azure Network Watcher NSG flow logs using open source tools
@@ -37,7 +37,7 @@ By connecting NSG flow logs with the Elastic Stack, we can create a Kibana dashb
 
 The following instructions are used to install Elasticsearch in Ubuntu Azure VMs. For instructions on how to install elastic search in Red Hat Enterprise Linux, see [Install Elasticsearch with RPM](https://www.elastic.co/guide/en/elasticsearch/reference/8.6/rpm.html).
 
-1. The Elastic Stack from version 5.0 and above requires Java 8. Run the command `java -version` to check your version. If you don't have Java installed, see the documentation on the [Azure-suppored JDKs](/azure/developer/java/fundamentals/java-support-on-azure).
+1. The Elastic Stack from version 5.0 and above requires Java 8. Run the command `java -version` to check your version. If you don't have Java installed, see the documentation on the [Azure-supported JDKs](/azure/developer/java/fundamentals/java-support-on-azure).
 2. Download the correct binary package for your system:
 
    ```bash
@@ -227,19 +227,13 @@ The sample dashboard provides several visualizations of the flow logs:
 
 3. Number of Flows and Earliest Log Time – metrics showing you the number of flows recorded and the date of the earliest log captured.
 
-   ![Screenshot shows a sample dashboard with the number of flows and the earliest log time.][4]
-
 4. Flows by NSG and Rule – a bar graph showing you the distribution of flows within each NSG, and the distribution of rules within each NSG. , you can see which NSG and rules generated the most traffic.
 
    ![Screenshot shows a sample dashboard with flows by N S G and rule.][5]
 
 5. Top 10 Source/Destination IPs – bar charts showing the top 10 source and destination IPs. You can adjust these charts to show more or less top IPs. From here, you can see the most commonly occurring IPs and the traffic decision (allow or deny) being made towards each IP.
 
-   ![Screenshot shows a sample dashboard with flows by top ten source and destination I P addresses.][6]
-
-6. Flow Tuples – this table shows you the information contained within each flow tuple, and its corresponding NGS and rule.
-
-   ![Screenshot shows flow tuples in a table.][7]
+6. Flow Tuples – a table showing the information contained within each flow tuple, and its corresponding NGS and rule.
 
 Using the query bar at the top of the dashboard, you can filter down the dashboard based on any parameter of the flows, such as subscription ID, resource groups, rule, or any other variable of interest. For more about Kibana's queries and filters, see the [official documentation](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
 
@@ -247,7 +241,7 @@ Using the query bar at the top of the dashboard, you can filter down the dashboa
 
 By combining the network security group flow logs with the Elastic Stack, we have come up with powerful and customizable way to visualize our network traffic. These dashboards allow you to quickly gain and share insights about your network traffic, and filter down and investigate on any potential anomalies. Using Kibana, you can tailor these dashboards and create specific visualizations to meet any security, audit, and compliance needs.
 
-## Next steps
+## Next step
 
 Learn how to visualize your NSG flow logs with Power BI by visiting [Visualize NSG flows logs with Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
@@ -257,7 +251,4 @@ Learn how to visualize your NSG flow logs with Power BI by visiting [Visualize N
 [1]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure1.png
 [2]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure2.png
 [3]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure3.png
-[4]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure4.png
 [5]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure5.png
-[6]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure6.png
-[7]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure7.png

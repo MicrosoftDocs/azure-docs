@@ -3,7 +3,7 @@ title: What's new in the Azure Virtual Desktop SxS Network Stack? - Azure
 description: New features and product updates for the Azure Virtual Desktop SxS Network Stack.
 author: sipastak
 ms.topic: release-notes
-ms.date: 08/13/2024
+ms.date: 03/18/2025
 ms.author: sipastak
 ms.custom: references_regions
 ---
@@ -31,9 +31,58 @@ Here's information about the SxS Network Stack.
 
 | Release | Latest version |
 |--|--|
-| Production | 1.0.2404.16760  |
-| Validation | 1.0.2404.16760  |
+| Production | 1.0.2409.29850  |
+| Validation | 1.0.2501.05600  |
 
+## Version 1.0.2501.05600
+
+*Published March 2025*
+
+In this release, we've made the following changes:
+
+- Connection reliability bug fixes.
+- Improved diagnostics checkpoints for UDP connections.
+- Added a diagnostic checkpoint to log all graphics codecs in use and whether hardware graphics encoding is active for each connection session.
+- Resolved a RemoteApp issue where the Office clipboard status box would disrupt the local work area.
+- Fixed an issue with high-contrast settings to ensure proper RemoteApp connection establishment.
+
+## Version 1.0.2409.29850
+
+*Published: March 2025*
+
+In this release, we've made the following changes:
+
+- A fix has been implemented to resolve a deadlock issue that was causing session hosts to stop accepting new Azure Virtual Desktop connections. 
+
+## Version 1.0.2409.29800
+
+*Published: January 2025*
+
+In this release, we've made the following changes:
+
+- Fixed a bug that caused UDP connection failures when network latency exceeded 500ms RTT.
+- Fixed a bug where disabling UDP Shortpath Public also unintentionally disabled Shortpath Private. This update ensures independent control of both settings.
+- Addressed a key detection issue and enhanced diagnostic capabilities for RemoteApp execution.
+
+## Version 1.0.2409.29600 
+
+*Published: November 2024*
+
+In this release, we've made the following changes:
+
+- Rearchitected RemoteApp server processes for better shell integration.   
+- Added EventLog for ImageQuality and Chroma settings; added graphics profile name in existing Eventlog. 
+- Fixed Battery Status redirection to show status text of battery upon mouse hover. 
+
+## Version 1.0.2407.05700
+
+*Published: September 2024*
+
+In this release, we've made the following changes:
+
+- Support for the [preview of graphics encoding with HEVC/H.265](whats-new.md#enabling-hevc-gpu-acceleration-for-azure-virtual-desktop-is-now-in-preview).
+- Addressed an issue when using a RemoteApp that could cause the text highlight color in the File Explorer's address bar to appear incorrectly.
+  
 ## Version 1.0.2404.16760
 
 *Published: July 2024*

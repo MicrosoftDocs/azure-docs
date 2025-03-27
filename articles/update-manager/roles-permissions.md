@@ -4,7 +4,7 @@ description: This article explains th roles and permission required to manage Az
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 07/19/2024
+ms.date: 10/06/2024
 ms.topic: overview
 ---
  
@@ -18,8 +18,9 @@ The built-in roles provide blanket permissions on a virtual machine, which inclu
 
 | **Resource** | **Role** |
 |---|---|
-| **Azure VM** | Azure Virtual Machine Contributor or Azure [Owner](../role-based-access-control/built-in-roles.md)|
+| **Azure VM** | Azure Virtual Machine Contributor or Azure [Owner](../role-based-access-control/built-in-roles/general.md#azure-built-in-roles-for-general).
 | **Azure Arc-enabled server** | [Azure Connected Machine Resource Administrator](/azure/azure-arc/servers/security-overview)|
+
 
 ## Permissions
 
@@ -61,12 +62,22 @@ Note that below permissions would be required in addition to permissions on indi
 |---|---|---|
 | **Register the subscription for the** **Microsoft.Maintenance resource provider** | Microsoft.Maintenance/register/action | Subscription |
 | **Create/modify maintenance configuration** | Microsoft.Maintenance/maintenanceConfigurations/write | Subscription/resource group |
+| **Read maintenance configuration** | Microsoft.Maintenance/maintenanceConfigurations/read | Subscription/resource group |
+| **Delete maintenance configuration** | Microsoft.Maintenance/maintenanceConfigurations/delete | Subscription/resource group |
 | **Create/modify configuration assignments** | Microsoft.Maintenance/configurationAssignments/write | Subscription/Resource group / machine |
-| **Read permission for Maintenance updates resource** | Microsoft.Maintenance/updates/read | Machine |
-| **Read permission for Maintenance apply updates resource** | Microsoft.Maintenance/applyUpdates/read | Machine |
+| **Read configuration assignments** | Microsoft.Maintenance/configurationAssignments/read | Subscription/Resource group / machine |
+| **Delete configuration assignments** | Microsoft.Maintenance/configurationAssignments/delete | Subscription/Resource group / machine |
+| **Read maintenance updates resource** | Microsoft.Maintenance/updates/read | Machine |
+| **Read maintenance apply updates resource** | Microsoft.Maintenance/applyUpdates/read | Machine |
 | **Get list of update  deployment** | Microsoft.Resources/deployments/read | Maintenance configuration and virtual machine subscription |
 | **Create or update an update deployment** | Microsoft.Resources/deployments/write | Maintenance configuration and virtual machine subscription |
-| **Get a list of update deployment operation statuses** | Microsoft.Resources/deployments/operation statuses | Maintenance configuration and virtual machine subscription |
+| **Get a list of update deployment operation statuses** | Microsoft.Resources/deployments/operationstatuses | Maintenance configuration and virtual machine subscription |
+| **Read maintenance configuration assignment for InGuestPatch maintenance scope** | Microsoft.Maintenance/configurationAssignments/maintenanceScope/InGuestPatch/read | Subscription/Resource group / machine |
+| **Create/modify maintenance configuration assignment for InGuestPatch maintenance scope** | Microsoft.Maintenance/configurationAssignments/maintenanceScope/InGuestPatch/write | Subscription/Resource group / machine |
+| **Delete maintenance configuration assignment for InGuestPatch maintenance scope** | Microsoft.Maintenance/configurationAssignments/maintenanceScope/InGuestPatch/delete | Subscription/Resource group / machine |
+| **Read maintenance configuration for InGuestPatch maintenance scope** | Microsoft.Maintenance/maintenanceConfigurations/maintenanceScope/InGuestPatch/read | Subscription/resource group |
+| **Create/modify maintenance configuration for InGuestPatch maintenance scope** | Microsoft.Maintenance/maintenanceConfigurations/maintenanceScope/InGuestPatch/write | Subscription/resource group |
+| **Delete maintenance configuration for InGuestPatch maintenance scope** | Microsoft.Maintenance/maintenanceConfigurations/maintenanceScope/InGuestPatch/delete | Subscription/resource group |
 
 ## Next steps
 - [Prerequisites of Update Manager](prerequisites.md).

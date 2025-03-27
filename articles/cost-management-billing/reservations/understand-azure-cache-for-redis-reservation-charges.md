@@ -1,11 +1,13 @@
 ---
 title: Understand how the reservation discount is applied to Azure Cache for Redis | Microsoft Docs
 description: Learn how reservation discount is applied to Azure Cache for Redis instances.
-author: flang-msft
-ms.author: franlanglois
-ms.service: azure-cache-redis
 ms.topic: conceptual
-ms.date: 05/14/2024
+ms.service: cost-management-billing
+ms.subservice: reservations
+ms.author: primittal
+ms.reviewer: franlanglois
+author: pri-mittal
+ms.date: 03/26/2025
 
 ---
 

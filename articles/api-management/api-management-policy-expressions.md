@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.custom: devx-track-dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 03/07/2023
 ms.author: danlep
 ---
@@ -243,21 +243,13 @@ The `context` variable is implicitly available in every policy [expression](api-
 |`bool VerifyNoRevocation(input: this System.Security.Cryptography.X509Certificates.X509Certificate2)`|Performs an X.509 chain validation without checking certificate revocation status.<br /><br />`input` - certificate object<br /><br />Returns `true` if the validation succeeds; `false` if the validation fails.|
 
 
-## Related content
-
-For more information working with policies, see:
-
-+ [Policies in API Management](api-management-howto-policies.md)
-+ [Tutorial: Transform and protect APIs](transform-api.md)
-+ [Policy reference](./api-management-policies.md) for a full list of policy statements and their settings
-+ [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)	
-+ [Author policies using Microsoft Copilot in Azure](/azure/copilot/author-api-management-policies?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
+[!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]
 
 For more information:
 
 - See how to supply context information to your backend service. Use the [Set query string parameter](set-query-parameter-policy.md) and [Set HTTP header](set-header-policy.md) policies to supply this information.
 - See how to use the [Validate JWT](validate-jwt-policy.md) policy to pre-authorize access to operations based on token claims.
-- See how to use an [API Inspector](./api-management-howto-api-inspector.md) trace to detect how policies are evaluated and the results of those evaluations.
+- See how to use [API tracing](./api-management-howto-api-inspector.md) to detect how policies are evaluated and the results of those evaluations.
 - See how to use expressions with the [Get from cache](cache-lookup-policy.md) and [Store to cache](cache-store-policy.md) policies to configure API Management response caching. Set a duration that matches the response caching of the backend service as specified by the backed service's `Cache-Control` directive.
 - See how to perform content filtering. Remove data elements from the response received from the backend using the [Control flow](choose-policy.md) and [Set body](set-body-policy.md) policies.
 - To download the policy statements, see the [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies) GitHub repo.

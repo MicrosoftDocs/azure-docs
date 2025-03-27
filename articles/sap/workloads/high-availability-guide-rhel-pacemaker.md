@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.custom: linux-related-content
-ms.date: 07/22/2024
+ms.date: 10/28/2024
 ms.author: radeltch
 ---
 
@@ -834,9 +834,10 @@ Based on the selected fencing mechanism, follow only one section for relevant in
 2. **[1]** Run the appropriate command depending on whether you're using a managed identity or a service principal for the Azure fence agent.
 
    > [!NOTE]
-   > The option `pcmk_host_map` is *only* required in the command if the RHEL hostnames and the Azure VM names are *not* identical. Specify the mapping in the format **hostname:vm-name**.
-   >
-   > Refer to the bold section in the command. For more information, see [What format should I use to specify node mappings to fencing devices in pcmk_host_map?](https://access.redhat.com/solutions/2619961).
+   > When using Azure government cloud, you must specify `cloud=` option when configuring fence agent. For example, `cloud=usgov` for the Azure US government cloud. For details on RedHat support on Azure government cloud, see [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341).
+
+   > [!TIP]
+   > The option `pcmk_host_map` is *only* required in the command if the RHEL hostnames and the Azure VM names are *not* identical. Specify the mapping in the format **hostname:vm-name**. For more information, see [What format should I use to specify node mappings to fencing devices in pcmk_host_map?](https://access.redhat.com/solutions/2619961).
 
    #### [Managed identity](#tab/msi)
 
@@ -959,10 +960,11 @@ When the cluster health attribute is set for a node, the location constraint tri
    ```bash
    sudo pcs resource create health-azure-events \
    ocf:heartbeat:azure-events-az \
+   meta failure-timeout=120s \
    op monitor interval=10s timeout=240s \
    op start timeout=10s start-delay=90s
 
-   sudo pcs resource clone health-azure-events allow-unhealthy-nodes=true failure-timeout=120s
+   sudo pcs resource clone health-azure-events allow-unhealthy-nodes=true
    ```
 
 6. Take the Pacemaker cluster out of maintenance mode.

@@ -6,12 +6,12 @@ description: Notes for developers on configuring and maintaining Azure AD B2C wi
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 02/24/2024
+ms.date: 10/10/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer using Azure Active Directory B2C, I want to understand the available features and their availability, so that I can make informed decisions about which features to use in my application development.
@@ -54,7 +54,7 @@ The following table summarizes the OAuth 2.0 and OpenId Connect application auth
 [Authorization code with PKCE](authorization-code-flow.md)| GA | GA | Allows users to sign in to mobile and single-page applications. The application receives an authorization code using proof key for code exchange (PKCE). The authorization code is redeemed to acquire a token to call web APIs.  |
 [Client credentials flow](client-credentials-grant-flow.md)| Preview | Preview | Allows access web-hosted resources by using the identity of an application. Commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. |
 [Device authorization grant](https://tools.ietf.org/html/rfc8628)| NA | NA | Allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer.  |
-[Implicit flow](implicit-flow-single-page-application.md) | GA | GA |  Allows users to sign in to single-page applications. The app gets tokens directly without performing a back-end server credential exchange.|
+[Implicit flow](implicit-flow-single-page-application.md) | GA | GA |  Allows users to sign in to single-page applications. The app gets tokens directly without performing a back-end server credential exchange. <br> **Note:** The recommended flow for supporting SPAs is [OAuth 2.0 Authorization code flow (with PKCE)](./authorization-code-flow.md).|
 [On-behalf-of](../active-directory/develop/v2-oauth2-on-behalf-of-flow.md)| NA | NA | An application invokes a service or web API, which in turn needs to call another service or web API. <br />  <br /> For the middle-tier service to make authenticated requests to the downstream service, pass a *client credential* token in the authorization header. Optionally, you can include a custom header with the Azure AD B2C user's token.  |
 [OpenId Connect](openid-connect.md) | GA | GA | OpenID Connect introduces the concept of an ID token, which is a security token that allows the client to verify the identity of the user. |
 [OpenId Connect hybrid flow](openid-connect.md) | GA | GA | Allows a web application retrieve the ID token on the authorize request along with an authorization code.  |

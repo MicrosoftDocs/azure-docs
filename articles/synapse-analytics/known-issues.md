@@ -4,11 +4,11 @@ titleSuffix: Azure Synapse Analytics
 description: Learn about the currently known issues with Azure Synapse Analytics and their possible workarounds or resolutions.
 author: charithcaldera
 ms.author: ccaldera
-ms.reviewer: wiassaf, joanpo
-ms.date: 04/08/2024
+ms.reviewer:  joanpo
+ms.date: 01/30/2025
 ms.service: azure-synapse-analytics
 ms.subservice: overview
-ms.topic: conceptual
+ms.topic: troubleshooting-known-issue
 ---
 
 # Azure Synapse Analytics known issues
@@ -21,10 +21,13 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 
 |Azure Synapse Component|Status|Issue|
 |:---------|:---------|:---------|
+|Azure Synapse dedicated SQL pool|[Data Factory copy command fails with error "The request could not be performed because of an I/O device error"](#data-factory-copy-command-fails-with-error-the-request-could-not-be-performed-because-of-an-io-device-error)|Has workaround|
+|Azure Synapse dedicated SQL pool|[COPY INTO statement fails with error “An internal DMS error occurred that caused this operation to fail.”  when managed identity is used](#copy-into-statement-fails-with-error-an-internal-dms-error-occurred-that-caused-this-operation-to-fail--when-managed-identity-is-used)|Has workaround|
 |Azure Synapse dedicated SQL pool|[Customers are unable to monitor their usage of dedicated SQL pool by using metrics](#customers-are-unable-to-monitor-their-usage-of-dedicated-sql-pool-by-using-metrics)|Has workaround|
 |Azure Synapse dedicated SQL pool|[Query failure when ingesting a parquet file into a table with AUTO_CREATE_TABLE='ON'](#query-failure-when-ingesting-a-parquet-file-into-a-table-with-auto_create_tableon)|Has workaround|
 |Azure Synapse dedicated SQL pool|[Queries failing with Data Exfiltration Error](#queries-failing-with-data-exfiltration-error)|Has workaround|
 |Azure Synapse dedicated SQL pool|[UPDATE STATISTICS statement fails with error: "The provided statistics stream is corrupt."](#update-statistics-failure)|Has workaround|
+|Azure Synapse dedicated SQL pool|[Enable TDE gateway time-outs in ARM deployment](#enable-tde-gateway-time-outs-in-arm-deployment)|Has workaround|
 |Azure Synapse serverless SQL pool|[Query failures from serverless SQL pool to Azure Cosmos DB analytical store](#query-failures-from-serverless-sql-pool-to-azure-cosmos-db-analytical-store)|Has workaround|
 |Azure Synapse serverless SQL pool|[Azure Cosmos DB analytical store view propagates wrong attributes in the column](#azure-cosmos-db-analytical-store-view-propagates-wrong-attributes-in-the-column)|Has workaround|
 |Azure Synapse serverless SQL pool|[Query failures in serverless SQL pools](#query-failures-in-serverless-sql-pools)|Has workaround|
@@ -36,11 +39,21 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 |Azure Synapse Workspace|[Known issue incorporating square brackets [] in the value of Tags](#known-issue-incorporating-square-brackets--in-the-value-of-tags)|Has workaround|
 |Azure Synapse Workspace|[Deployment Failures in Synapse Workspace using Synapse-workspace-deployment v1.8.0 in GitHub actions with ARM templates](#deployment-failures-in-synapse-workspace-using-synapse-workspace-deployment-v180-in-github-actions-with-arm-templates)|Has workaround|
 |Azure Synapse Workspace|[No `GET` API operation dedicated to the `Microsoft.Synapse/workspaces/trustedServiceBypassEnabled` setting](#no-get-api-operation-dedicated-to-the-microsoftsynapseworkspacestrustedservicebypassenabled-setting)|Has workaround|
-|Azure Synapse Apache Spark pool|[Query failure with a LIKE clause using Synapse Dedicated SQL Pool Connector in Spark 3.4 runtime](#query-failure-with-a-like-clause-using-synapse-dedicated-sql-pool-connector-in-spark-34-runtime)|Has Workaround|
-
 
 
 ## Azure Synapse Analytics dedicated SQL pool active known issues summary
+
+### Data Factory copy command fails with error "The request could not be performed because of an I/O device error"
+
+Azure Data Factory pipelines use the `COPY INTO` Transact-SQL statement to ingest data at scale into dedicated SQL pool tables. In some rare cases, the `COPY INTO` statement can fail when loading CSV files into dedicated SQL pool table when file split is used in an Azure Data Factory pipeline. File splitting is a mechanism that improves load performance when a small number of larger (1 GB+) files are loaded in a single copy task. When file splitting is enabled, a single file can be loaded by multiple parallel threads, where every thread is assigned a part of the file.
+
+**Workaround**: Impacted customers should disable file split in Azure Data Factory.
+
+### COPY INTO statement fails with error “An internal DMS error occurred that caused this operation to fail.”  when managed identity is used
+
+When using `COPY INTO` command with a managed identity, the statement can fail after a long-running query with error message “An internal DMS error occurred that caused this operation to fail”.
+
+**Workaround**: Impacted customers may use an alternative authentication method for the storage account, such as a Shared Access Key. 
 
 ### Customers are unable to monitor their usage of dedicated SQL pool by using metrics
 
@@ -71,6 +84,13 @@ Some dedicated SQL Pools can encounter an exception when executing an `UPDATE ST
 When a new constraint is added to a table, a related statistic is created in the distributions. If a clustered index is also created on the table, it must include the same columns (in the same order) as the constraint, otherwise `UPDATE STATISTICS` commands on those columns might fail.
 
 **Workaround**: Identify if a constraint and clustered index exist on the table. If so, DROP both the constraint and clustered index. After that, recreate the clustered index and then the constraint *ensuring that both include the same columns in the same order.* If the table does not have a constraint and clustered index, or if the above step results in the same error, contact the Microsoft Support Team for assistance.
+
+### Enable TDE gateway time-outs in ARM deployment 
+
+Updating TDE (Transparent data encryption) is internally implemented as a synchronous operation, subject to a time-out which can be exceeded. Although the time-out was exceeded, behind the scenes the TDE operation in most cases succeeds, but causes successor operations in the ARM template to be rejected.
+
+**Workaround**: There are two ways to mitigate this issue. The preferred option is to split the ARM template into multiple templates, so that one of the templates contains TDE update. That action reduces the chance of a time-out. 
+Other option is to retry the deployment after several minutes. During the wait time, the TDE update operation most likely will succeed and re-deploying the template the second time could execute previously rejected operations.
 
 ### Tag updates appear to fail
 
@@ -231,18 +251,6 @@ When you query the view for which the underlying schema has changed after the vi
 
 **Workaround**: Manually adjust the view definition. 
 
-## Azure Synapse Analytics Apache Spark pool active known issues summary
-
-The following are known issues with the Synapse Spark.
-
-### Query failure with a LIKE clause using Synapse Dedicated SQL Pool Connector in Spark 3.4 runtime
-
-The open source Apache Spark 3.4 has introduced an [issue](https://issues.apache.org/jira/browse/SPARK-46029), which escapes special characters, but Synapse SQL does not support the escape keyword. When customers use the [Azure Synapse Dedicated SQL Pool Connector for Apache Spark](spark/synapse-spark-sql-pool-import-export.md), it can generate an invalid SQL query for Synapse SQL and the Synapse Spark notebook or batch job would throw an error similar to:
-
-`com.microsoft.spark.sqlanalytics.SQLAnalyticsConnectorException: com.microsoft.sqlserver.jdbc.SQLServerException: Parse error at line: 1, column: XXX: Incorrect syntax near ''%test%''`
-
-**Workaround**: The engineering team is currently aware of this behavior and working on a fix. If you encountered a similar error, please engage Microsoft Support Team for assistance and to provide a temporary workaround.
-
 
 ## Recently closed known issues
 
@@ -252,6 +260,7 @@ The open source Apache Spark 3.4 has introduced an [issue](https://issues.apache
 |Azure Synapse serverless SQL pool|[Query failures while reading Cosmos DB data using OPENROWSET](#query-failures-while-reading-azure-cosmos-db-data-using-openrowset)|Resolved|March 2023|
 |Azure Synapse Apache Spark pool|[Failed to write to SQL Dedicated Pool from Synapse Spark using Azure Synapse dedicated SQL pool Connector for Apache Spark when using notebooks in pipelines](#failed-to-write-to-sql-dedicated-pool-from-synapse-spark-using-azure-synapse-dedicated-sql-pool-connector-for-apache-spark-when-using-notebooks-in-pipelines)|Resolved|June 2023|
 |Azure Synapse Apache Spark pool|[Certain spark job or task fails too early with Error Code 503 due to storage account throttling](#certain-spark-job-or-task-fails-too-early-with-error-code-503-due-to-storage-account-throttling)|Resolved|November 2023|
+|Azure Synapse Apache Spark pool|[Query failure with a LIKE clause using Synapse Dedicated SQL Pool Connector in Spark 3.4 runtime](#query-failure-with-a-like-clause-using-synapse-dedicated-sql-pool-connector-in-spark-34-runtime)|Resolved|October 2024|
 
 ## Azure Synapse Analytics serverless SQL pool recently closed known issues summary
 
@@ -284,6 +293,14 @@ While using Azure Synapse dedicated SQL pool Connector for Apache Spark to write
 ### Certain spark job or task fails too early with Error Code 503 due to storage account throttling
 
 Between October 3, 2023 and November 16, 2023, few Azure Synapse Analytics Apache Spark pools could have experienced spark job/task failures due to storage API limit threshold being exceeded.
+
+**Status**: Resolved
+
+### Query failure with a LIKE clause using Synapse Dedicated SQL Pool Connector in Spark 3.4 runtime
+
+The open source Apache Spark 3.4 has introduced an [issue](https://issues.apache.org/jira/browse/SPARK-46029), which escapes special characters, but Synapse SQL does not support the escape keyword. When customers use the [Azure Synapse Dedicated SQL Pool Connector for Apache Spark](spark/synapse-spark-sql-pool-import-export.md), it can generate an invalid SQL query for Synapse SQL and the Synapse Spark notebook or batch job would throw an error similar to:
+
+`com.microsoft.spark.sqlanalytics.SQLAnalyticsConnectorException: com.microsoft.sqlserver.jdbc.SQLServerException: Parse error at line: 1, column: XXX: Incorrect syntax near ''%test%''`
 
 **Status**: Resolved
 

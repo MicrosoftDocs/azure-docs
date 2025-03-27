@@ -6,6 +6,10 @@ ms.topic: reference
 ms.date: 11/17/2021
 ms.author: ofshezaf
 
+
+
+#Customer intent: As a security analyst, I want to understand the common schema fields in the Advanced Security Information Model (ASIM) so that I can accurately interpret and normalize event data across different sources.
+
 ---
 
 # The Advanced Security Information Model (ASIM) common schema fields reference (preview)

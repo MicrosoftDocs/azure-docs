@@ -406,7 +406,7 @@ It isn't required to store the team statistics in multiple formats in the cache 
     }
     ```
 
-    The `GetFromList` method reads the team statistics from cache as a serialized `List<Team>`. If the statistics aren't present in the cache, a cache miss occurs. For a cache miss, the team statistics are read from the database and then stored in the cache for the next request. In this sample, JSON.NET serialization is used to serialize the .NET objects to and from the cache. For more information, see [How to work with .NET objects in Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
+    The `GetFromList` method reads the team statistics from cache as a serialized `List<Team>`. If the statistics aren't present in the cache, a cache miss occurs. For a cache miss, the team statistics are read from the database and then stored in the cache for the next request. In this sample, JSON.NET serialization is used to serialize the .NET objects to and from the cache.
 
     ```csharp
     List<Team> GetFromList()

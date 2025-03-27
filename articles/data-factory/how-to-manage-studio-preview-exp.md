@@ -5,6 +5,7 @@ author: n0elleli
 ms.author: noelleli
 ms.topic: tutorial
 ms.date: 01/05/2024
+ms.subservice: authoring
 ---
 
 # Manage Azure Data Factory studio preview experience

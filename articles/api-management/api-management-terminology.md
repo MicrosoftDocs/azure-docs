@@ -3,9 +3,8 @@ title: Azure API Management terminology | Microsoft Docs
 description: This article gives definitions for the terms that are specific to API Management.
 services: api-management
 author: dlepow
-manager: cfowler
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: concept-article
 ms.date: 05/09/2022
 ms.author: danlep
 ---
@@ -27,8 +26,7 @@ This article gives definitions for the terms that are specific to Azure API Mana
 -   **Policy** - A policy is a reusable and composable component, implementing some commonly used API-related functionality. API Management offers over 50 built-in policies that take care of critical but undifferentiated horizontal concerns - for example, request transformation, routing, security, protection, caching. The policies can be applied at various scopes, which determine the affected APIs or operations and dynamically configured using policy expressions. For more information, see [Policies in Azure API Management](api-management-howto-policies.md).
 -   **Developer portal** - The developer portal is a component of API Management. It provides a customizable experience for API discovery and self-service onboarding to API consumers. For more information, see [Customize the Developer portal](api-management-customize-styles.md).
 
-## Next steps
+## Related content
 
-> [!div class="nextstepaction"]
-> 
-> [Create an instance](get-started-create-service-instance.md)
+* [What is API Management?](api-management-key-concepts.md)
+* [Create an instance](get-started-create-service-instance.md)

@@ -84,12 +84,12 @@ param vmDeviceModel string = 'T2'
 param vmImage string
 
 @description('Credentials used to login to the image repository.')
-param vmImageRepositoryCredentials object
+param vmImageRepositoryCredentials object = {}
 // password: "string"
 // registryUrl: "string"
 // username: "string"
 
-resource vm 'Microsoft.NetworkCloud/virtualMachines@2023-07-01' = {
+resource vm 'Microsoft.NetworkCloud/virtualMachines@2025-02-01' = {
   name: vmName
   location: location
   extendedLocation: {
@@ -102,7 +102,6 @@ resource vm 'Microsoft.NetworkCloud/virtualMachines@2023-07-01' = {
     bootMethod: (empty(bootMethod) ? null : bootMethod)
     cloudServicesNetworkAttachment: {
       attachedNetworkId: cloudServicesNetworkId
-      defaultGateway: 'False'
       ipAllocationMethod: 'Dynamic'
     }
     cpuCores: cpuCores

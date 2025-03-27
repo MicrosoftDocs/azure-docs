@@ -1,12 +1,9 @@
 ---
 title: Common issues in Azure Migrate assessments
 description: Get help with assessment issues in Azure Migrate.
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.service: azure-migrate
-ms.date: 02/20/2024
+ms.date: 09/26/2024
 ms.custom: engagement-fy24
 ---
 
@@ -213,7 +210,7 @@ The required privileges of guest operations haven't been enabled on the vCenter 
 
 #### Recommended Action
 
-Ensure that the vCenter Server user account has privileges enabled for **Virtual Machines** > **Guest Operations** to interact with the server and pull the required data. [Learn more](./vmware/tutorial-discover-vmware.md#create-an-account-to-access-vcenter-server) on how to set up the vCenter Server account with required privileges.
+Ensure that the vCenter Server user account has privileges enabled for **Virtual Machines** > **Guest Operations** to interact with the server and pull the required data. [Learn more](tutorial-discover-vmware.md#create-an-account-to-access-vcenter-server) on how to set up the vCenter Server account with required privileges.
 
 ### Error Code: 9022: The access is denied to run the Get-WmiObject cmdlet on the server.
 
@@ -263,7 +260,7 @@ The server might start in Azure, but Azure provides no operating system support.
 
 #### Fix
 
-The operating system of the VM was specified as **Other** in vCenter Server or could not be identified as a known OS in Azure Migrate. This behavior blocks Azure Migrate from verifying the Azure readiness of the VM. Ensure that the operating system is [supported](./migrate-support-matrix-vmware-migration.md#azure-vm-requirements) by Azure before you migrate the server.
+The operating system of the VM was specified as **Other** in vCenter Server or could not be identified as a known OS in Azure Migrate. This behavior blocks Azure Migrate from verifying the Azure readiness of the VM. Ensure that the operating system is [supported](migrate-support-matrix-vmware-migration.md#azure-vm-requirements) by Azure before you migrate the server.
 
 ### Issue: Unsupported bit version
 

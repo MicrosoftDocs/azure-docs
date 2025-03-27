@@ -1,10 +1,14 @@
 ---
 title: "Microsoft Sentinel migration: Ingest data into target platform | Microsoft Docs"
 description: Learn how to ingest historical data into your selected target platform.
-author: limwainstein
-ms.author: lwainstein
+author: cwatson-cat
+ms.author: cwatson
 ms.topic: how-to
 ms.date: 05/03/2022
+
+
+#Customer intent: As a data engineer, I want to ingest historical data into my target platform so that I can ensure seamless data migration and integration for analysis and reporting.
+
 ---
 
 # Ingest historical data into your target platform
@@ -39,7 +43,7 @@ To ingest your historical data into Azure Data Explorer (ADX) (option 1 in the [
 
 To ingest your historical data into Microsoft Sentinel Basic Logs (option 2 in the [diagram above](#export-data-from-the-legacy-siem)): 
 
-1. If you don't have an existing Log Analytics workspace, create a new workspace and [install Microsoft Sentinel](quickstart-onboard.md#enable-microsoft-sentinel-).
+1. If you don't have an existing Log Analytics workspace, create a new workspace and [install Microsoft Sentinel](quickstart-onboard.md#enable-microsoft-sentinel).
 1. [Create an App registration to authenticate against the API](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#create-azure-ad-application).
 1. [Create a custom log table](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#create-new-table-in-log-analytics-workspace) to store the data, and provide a data sample. In this step, you can also define a transformation before the data is ingested.
 1. [Collect information from the data collection rule](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#collect-information-from-the-dcr) and assign permissions to the rule.

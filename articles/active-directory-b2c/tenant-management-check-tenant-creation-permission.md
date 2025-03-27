@@ -6,14 +6,14 @@ description: Learn how to check tenant creation permission in Azure Active Direc
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: tutorial
 ms.custom: b2c-docs-improvements
 ms.date: 09/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: "As an Azure AD B2C administrator, I want to restrict non-admin users from creating tenants, so that I can ensure security and prevent unauthorized access. Additionally, as a non-admin user, I want to check if I have permission to create a tenant, so that I can proceed with the necessary actions."

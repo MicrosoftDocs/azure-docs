@@ -1,14 +1,15 @@
 ---
 title: Calculate EA reservations cost savings
 titleSuffix: Microsoft Cost Management
-description: Learn how Enterprise Agreement users manually calculate their reservations savings.
-author: bandersmsft
+description: Learn how Enterprise Agreement users can manually calculate reservation savings by downloading data, preparing an Excel worksheet, and performing calculations.
+author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 11/17/2023
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
+#customer intent: As an Enterprise Agreement user, I want to learn about manually calculating my reservations savings.
 ---
 
 # Calculate EA reservations cost savings
@@ -56,19 +57,22 @@ Because Azure usage files are in CSV format, you need to prepare the data for us
     :::image type="content" source="./media/calculate-ea-reservations-savings/charge-type-selection-small.png" alt-text="Screenshot showing ChargeType selection." lightbox="./media/calculate-ea-reservations-savings/charge-type-selection.png" :::
 8. To the right of **UnitPrice** , insert add a column and label it with a title like **TotalUsedSavings**.
 9. In the first cell under TotalUsedSavings, create a formula that calculates (_UnitPrice – EffectivePrice) \* Quantity_.  
+    > [!NOTE]
+    >  If the unit price is $0.00, make sure that you don’t have any [Cost Allocation rules](../costs/allocate-costs.md#current-limitations) enabled. If Cost allocation rules are enabled, the unit price isn't displayed.  
+    
     :::image type="content" source="./media/calculate-ea-reservations-savings/total-used-savings-formula.png" alt-text="Screenshot showing the TotalUsedSavings formula." lightbox="./media/calculate-ea-reservations-savings/total-used-savings-formula.png" :::
-10. Copy the formula to all the other empty TotalUsedSavings cells.
-11. At the bottom of the TotalUsedSavings column, sum the column's values.  
+11. Copy the formula to all the other empty TotalUsedSavings cells.
+12. At the bottom of the TotalUsedSavings column, sum the column's values.  
     :::image type="content" source="./media/calculate-ea-reservations-savings/total-used-savings-summed.png" alt-text="Screenshot showing the summed values." lightbox="./media/calculate-ea-reservations-savings/total-used-savings-summed.png" :::
-12. Somewhere under your data, create a cell named _TotalUsedSavingsValue_. Next to it, copy the TotalUsed cell and paste it as **Values**. This step is important because the next step will change the applied filter and affect the summed total.  
+13. Somewhere under your data, create a cell named _TotalUsedSavingsValue_. Next to it, copy the TotalUsed cell and paste it as **Values**. This step is important because the next step will change the applied filter and affect the summed total.  
     :::image type="content" source="./media/calculate-ea-reservations-savings/paste-value-used.png" alt-text="Screenshot showing pasting the TotalUsedSavings cell as Values." lightbox="./media/calculate-ea-reservations-savings/paste-value-used.png" :::
-13. For the **ChargeType** column, set a filter on it to select only **UnusedReservation**. Clear any other selections.
-14. To the right of the TotalUsedSavings column, insert a column and label it with a title like **TotalUnused**.
-15. In the first cell under TotalUnused, create a formula that calculates _EffectivePrice \* Quantity_.  
+14. For the **ChargeType** column, set a filter on it to select only **UnusedReservation**. Clear any other selections.
+15. To the right of the TotalUsedSavings column, insert a column and label it with a title like **TotalUnused**.
+16. In the first cell under TotalUnused, create a formula that calculates _EffectivePrice \* Quantity_.  
     :::image type="content" source="./media/calculate-ea-reservations-savings/total-unused-formula.png" alt-text="Screenshot showing the TotalUnused formula." lightbox="./media/calculate-ea-reservations-savings/total-unused-formula.png" :::
-16. At the bottom of the TotalUnused column, sum the column's values.
-17. Somewhere under your data, create a cell named _TotalUnusedValue_. Next to it, copy the TotalUnused cell and paste it as **Values**.
-18. Under the TotalUsedSavingsValue and TotalUnusedValue cells, create a cell named _ReservationSavings_. Next to it, subtract TotalUnusedValue from TotalUsedSavingsValue. The calculation result is your reservation savings.  
+17. At the bottom of the TotalUnused column, sum the column's values.
+18. Somewhere under your data, create a cell named _TotalUnusedValue_. Next to it, copy the TotalUnused cell and paste it as **Values**.
+19. Under the TotalUsedSavingsValue and TotalUnusedValue cells, create a cell named _ReservationSavings_. Next to it, subtract TotalUnusedValue from TotalUsedSavingsValue. The calculation result is your reservation savings.  
     :::image type="content" source="./media/calculate-ea-reservations-savings/reservation-savings.png" alt-text="Screenshot showing the ReservationSavings calculation and final savings." lightbox="./media/calculate-ea-reservations-savings/reservation-savings.png" :::
 
 If you see a negative savings value, then you likely have many unused reservations. You should review your reservation usage to maximize them. For more information, see [Optimize reservation use](manage-reserved-vm-instance.md#optimize-reservation-use).

@@ -4,9 +4,9 @@ description: Lists the permissions for the Azure resource providers in the Datab
 ms.service: role-based-access-control
 ms.topic: reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -407,8 +407,14 @@ Azure service: [Azure Database for PostgreSQL](/azure/postgresql/)
 > | Microsoft.DBforPostgreSQL/flexibleServers/replicas/read |  |
 > | Microsoft.DBforPostgreSQL/flexibleServers/topQueryStatistics/read |  |
 > | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/read | Returns the list of Tuning Options available for the Azure Database for PostgreSQL Flexible Server |
-> | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/read |  |
+> | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/read | Returns a tuning option |
+> | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/startSession/action | Starts a server configuration tuning session on a server |
+> | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/stopSession/action | Stops the server configuration tuning session on a server |
+> | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/enable/action | Enables server configuration tuning feature on the server |
+> | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/disable/action | Disables server configuration tuning feature on the server |
 > | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/recommendations/read | Returns the list of recommended indexes for the Azure Database for PostgreSQL Flexible Server |
+> | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/sessionDetails/read | Gets the list of iterations for a specified server configuration tuning session on a server |
+> | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/sessions/read | Gets the list of server configuration tuning sessions on a server |
 > | Microsoft.DBforPostgreSQL/flexibleServers/virtualendpoints/write | Creates or Updates VirtualEndpoint |
 > | Microsoft.DBforPostgreSQL/flexibleServers/virtualendpoints/write | Patches the VirtualEndpoint. Currently patch does a full replace |
 > | Microsoft.DBforPostgreSQL/flexibleServers/virtualendpoints/delete | Deletes the VirtualEndpoint |

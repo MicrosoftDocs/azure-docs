@@ -6,7 +6,7 @@ ms.service: azure-deployment-environments
 ms.custom: devx-track-azurecli, devx-track-bicep
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 09/28/2024
+ms.date: 01/17/2025
 ms.topic: how-to
 zone_pivot_groups: ade-extensibility-iac-framework
 
@@ -15,32 +15,18 @@ zone_pivot_groups: ade-extensibility-iac-framework
 
 # Configure container image to execute deployments
 
+Azure Deployment Environments (ADE) supports an extensibility model that enables you to Configure your environment definition with your preferred IaC template framework. You can store custom images in a container registry like Azure Container Registry (ACR) or Docker Hub and then reference them in your environment definitions to deploy environments.
+
 ::: zone pivot="arm-bicep"
-In this article, you learn how to build custom Bicep container images to deploy your environment definitions in Azure Deployment Environments (ADE).
+In this article, you learn how to build custom Bicep container images to deploy your environment definitions in ADE. You learn how to use a standard image provided by Microsoft or how to configure a custom image provision infrastructure using the Bicep Infrastructure-as-Code (IaC) framework.
 ::: zone-end
 
 ::: zone pivot="terraform"
-In this article, you learn how to build custom Terraform container images to deploy your environment definitions in Azure Deployment Environments (ADE). You learn how to configure a custom image to provision infrastructure using the Terraform Infrastructure-as-Code (IaC) framework.
+In this article, you learn how to build custom Terraform container images to create deployment environments with Azure Deployment Environments (ADE). You learn how to configure a custom image to provision infrastructure using the Terraform Infrastructure-as-Code (IaC) framework.
 ::: zone-end
 
 ::: zone pivot="pulumi"
-In this article, you learn how to utilize [Pulumi](https://pulumi.com) for deployments in Azure Deployment Environments (ADE). You learn how to use a sample image provided by Pulumi or how to configure a custom image to provision infrastructure using the Pulumi Infrastructure-as-Code (IaC) framework.
-::: zone-end
-
-ADE supports an extensibility model that enables you to create custom images that you can use in your environment definitions. To use this extensibility model, create your own custom images and store them in a container registry like Azure Container Registry (ACR) or Docker Hub. You can then reference these images in your environment definitions to deploy your environments. 
-
-::: zone pivot="arm-bicep"
-An [environment definition](configure-environment-definition.md) comprises at least two files: a template file, like *azuredeploy.json* or *main.bicep*, and a manifest file named *environment.yaml*. ADE uses containers to deploy environment definitions. 
-
-The ADE team provides a selection of images to get you started, including a core image, and an Azure Resource Manager (ARM)-Bicep image. You can access these sample images in the [Runner-Images](https://aka.ms/deployment-environments/runner-images) folder.
-::: zone-end
-
-::: zone pivot="terraform"
-An [environment definition](configure-environment-definition.md) comprises at least two files: a template file, like *main.tf*, and a manifest file named *environment.yaml*. You use a container to deploy environment definition that uses Terraform.
-::: zone-end
-
-::: zone pivot="pulumi"
-An [environment definition](configure-environment-definition.md) comprises at least two files: a Pulumi project file, *Pulumi.yaml*, and a manifest file named *environment.yaml*. It might also contain a user program written in your preferred programming language: C#, TypeScript, Python, etc. ADE uses containers to deploy environment definitions.
+In this article, you learn how to utilize [Pulumi](https://pulumi.com) for deployments in ADE. You learn how to use a standard image provided by Pulumi or how to configure a custom image to provision infrastructure using the Pulumi Infrastructure-as-Code (IaC) framework.
 ::: zone-end
 
 ## Prerequisites
@@ -49,35 +35,23 @@ An [environment definition](configure-environment-definition.md) comprises at le
 - Azure Deployment Environments set up in your Azure subscription. 
   - To set up ADE, follow the [Quickstart: Configure Azure Deployment Environments](quickstart-create-and-configure-devcenter.md).
 
+
+<!-- ====== ARM-Bicep ========================================================================================================= -->
+
+::: zone pivot="arm-bicep"
 ## Use container images with ADE
 
 You can take one of the following approaches to use container images with ADE:
-- **Use a sample container image** For simple scenarios, use the sample ARM-Bicep container image provided by ADE.
+- **Use a standard container image** For simple scenarios, use the standard ARM-Bicep container image provided by ADE.
 - **Create a custom container image** For more complex scenarios, create a custom container image that meets your specific requirements.
- 
-The main steps you'll follow when using a container image are:
-1. Choose the image type you want to use: a sample image or a custom image.
-    - If you use a custom image, you begin with a sample image and then customize it to fit your requirements.
-1. Build the image.
-1. Upload the image to a private registry or a public registry.
-1. Configure access to the registry.
-    - For a public registry, configure anonymous pull.
-    - For a private registry, give the DevCenter ACR permissions.
-1. Add your image location to the `runner` parameter in your environment definition
-1. Deploy environments that use your custom image.
- 
-The first step in the process is to choose the type of image you want to use. Select the corresponding tab to see the process.
 
-### [Use a sample container image](#tab/sample/)
+## Use a standard container image
 
-::: zone pivot="arm-bicep"
-### Use a sample container image
+ADE supports Azure Resource Manager (ARM) and Bicep without requiring any extra configuration. You can create an environment definition that deploys Azure resources for a deployment environment by adding the template files (like *azuredeploy.json* and *environment.yaml*) to your catalog. ADE then uses the standard ARM-Bicep container image to create the deployment environment.
 
-ADE supports ARM and Bicep without requiring any extra configuration. You can create an environment definition that deploys Azure resources for a deployment environment by adding the template files (like *azuredeploy.json* and *environment.yaml*) to your catalog. ADE then uses the sample ARM-Bicep container image to create the deployment environment.
+In the *environment.yaml* file, the `runner` property specifies the location of the container image you want to use. To use the standard image published on the Microsoft Artifact Registry, use the respective identifiers `runner`.
 
-In the *environment.yaml* file, the `runner` property specifies the location of the container image you want to use. To use the sample image published on the Microsoft Artifact Registry, use the respective identifiers `runner`.
-
-The following example shows a `runner` that references the sample ARM-Bicep container image:
+The following example shows a `runner` that references the standard ARM-Bicep container image:
 ```yaml
     name: WebApp
     version: 1.0.0
@@ -86,96 +60,136 @@ The following example shows a `runner` that references the sample ARM-Bicep cont
     runner: Bicep
     templatePath: azuredeploy.json
 ```
-You can see the sample Bicep container image in the ADE sample repository under the [Runner-Images folder for the ARM-Bicep](https://github.com/Azure/deployment-environments/tree/main/Runner-Images/ARM-Bicep) image.
+You can see the standard Bicep container image in the ADE standard repository under the [Runner-Images folder for the ARM-Bicep](https://github.com/Azure/deployment-environments/tree/main/Runner-Images/ARM-Bicep) image.
 
 For more information about how to create environment definitions that use the ADE container images to deploy your Azure resources, see [Add and configure an environment definition](configure-environment-definition.md).
-::: zone-end
 
-::: zone pivot="pulumi"
-### Use a sample container image provided by Pulumi
+## Create a custom container image
 
-The Pulumi team provides a prebuilt image to get you started, which you can see in the [Runner-Image](https://github.com/pulumi/azure-deployment-environments/tree/main/Runner-Image) folder. This image is publicly available at Pulumi's Docker Hub as [`pulumi/azure-deployment-environments`](https://hub.docker.com/repository/docker/pulumi/azure-deployment-environments), so you can use it directly from your ADE environment definitions.
+### [Create a custom image by using a script](#tab/custom-script/)
+### Create a custom container image by using a script
 
-Here's a sample *environment.yaml* file that utilizes the prebuilt image:
+Creating a custom container image allows you to customize your deployments to fit your requirements. You can create and build an image based on the ADE standard image and push it to your container registry by using a quick start script provided by Microsoft. You can find the script in the [Deployment Environments repo](https://aka.ms/ade/arm-bicep-repo-script). To use the quick start script, fork the repo and then run the script locally.
 
-```yaml
-name: SampleDefinition
-version: 1.0.0
-summary: First Pulumi-Enabled Environment
-description: Deploys a Storage Account with Pulumi
-runner: pulumi/azure-deployment-environments:0.1.0
-templatePath: Pulumi.yaml
+The script builds an image and pushes it to the specified Azure Container Registry (ACR) under the repository 'ade' and the tag 'latest'. This script requires your registry name and directory for your custom image, have the Azure CLI and Docker Desktop installed and in your PATH variables, and requires that you have permissions to push to the specified registry. 
+
+To use the quickstart script to quickly build and push this sample image to an Azure Container Registry, you will need to:
+
+- Fork this repository into your personal account.
+- Ensure the Azure CLI and the Docker Desktop application are installed on your computer and within your PATH variables.
+- Ensure you have permissions to push images to your selected Azure Container Registry.
+
+You can call the script using the following command in PowerShell:
+
+```azurepowershell
+.\quickstart-image-build.ps1 -Registry '{YOUR_REGISTRY}' -Directory '{DIRECTORY_TO_YOUR_IMAGE}'
 ```
 
-You can find a few sample environment definitions in the [Environments folder](https://github.com/pulumi/azure-deployment-environments/tree/main/Environments).
+Additionally, if you would like to push to a specific repository and tag name, you can run:
+
+```azurepowershell
+.\quickstart-image.build.ps1 -Registry '{YOUR_REGISTRY}' -Directory '{DIRECTORY_TO_YOUR_IMAGE}' -Repository '{YOUR_REPOSITORY}' -Tag '{YOUR_TAG}'
+```
+
+To use the image in your environment deployments, you need to add the location of the image to your manifest file [Connect the image to your environment definition](#connect-the-image-to-your-environment-definition) and you might need to configure permissions for the ACR to [make the custom image available to ADE](#make-the-custom-image-available-to-ade).
+
+### [Create a custom image manually](#tab/custom-manual/)
+### Create a custom container image manually
+
+Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the ADE standard images.
+
+After you complete the image customization, you can build the image and push it to your container registry manually.
+
+[!INCLUDE [custom-image-create](includes/custom-image-create-arm.md)]
+
+### Build the custom image
+
+[!INCLUDE [custom-image-manual-build](includes/custom-image-manual-build.md)]
+
+---
+
 ::: zone-end
 
-### [Create a custom image](#tab/custom/)
+<!-- =========== TERRAFORM ======================================================================================================== -->
 
-### Create a custom image
 
-Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the ADE sample images.
+::: zone pivot="terraform"
+## Use container images with ADE
+
+You can take one of the following approaches to use container images with ADE:
+- **Create a custom container image by using a script:** Use the published script to create a Terraform specific image.
+- **Create a custom container image leveraging a GitHub workflow:** Use the published GitHub workflow from the Leveraging ADE's Extensibility Model With Terraform repository.
+- **Create a custom container image manually:** Create a customized Terraform specific image manually
+
+## Create a custom container image
+
+### [Create an image using a script](#tab/terraform-script/)
+
+## Create a custom container image by using a script
+
+Creating a custom container image allows you to customize your deployments to fit your requirements. You can build an image based on the ADE standard image and push it to your container registry by using a quick start script provided by Microsoft. You can find the script in the [Deployment Environments with Terraform repo](https://aka.ms/ade/terraform-repo-script). To use the quick start script, fork the repo and then run the script locally.
+
+To use the quickstart script to quickly build and push this sample image to an Azure Container Registry, you will need to:
+
+- Fork this repository into your personal account.
+- Ensure the Azure CLI and the Docker Desktop application are installed on your computer and within your PATH variables.
+- Ensure you have permissions to push images to your selected Azure Container Registry.
+
+The script builds an image and pushes it to the specified Azure Container Registry (ACR) under the repository 'ade' and the tag 'latest'. This script requires your registry name and directory for your custom image, have the Azure CLI and Docker Desktop installed and in your PATH variables, and requires that you have permissions to push to the specified registry. You can call the script using the following command in PowerShell:
+
+```azurepowershell
+.\quickstart-image-build.ps1 -Registry '{YOUR_REGISTRY}' -Directory '{DIRECTORY_TO_YOUR_IMAGE}'
+```
+
+Additionally, if you would like to push to a specific repository and tag name, you can run:
+
+```azurepowershell
+.\quickstart-image.build.ps1 -Registry '{YOUR_REGISTRY}' -Directory '{DIRECTORY_TO_YOUR_IMAGE}' -Repository '{YOUR_REPOSITORY}' -Tag '{YOUR_TAG}'
+```
+
+To use the image in your environment deployments, you need to add the location of the image to your manifest file [Connect the image to your environment definition](#connect-the-image-to-your-environment-definition) and you might need to configure permissions for the ACR to [make the custom image available to ADE](#make-the-custom-image-available-to-ade).
+
+### [Create an image using a GitHub workflow](#tab/github-workflow/)
+
+## Create a custom container image by using a GitHub workflow
+
+To start with, you can use the published GitHub workflow from the Leveraging ADE's Extensibility Model With Terraform repository.
+
+In order to use the workflow, you will need to:
+
+- Fork this repository into your personal account
+- Allow GitHub Actions to connect to Azure via an Microsoft Entra ID application's federated credentials through OIDC. You can find more documentation about this process here
+- Set up Repository Secrets for your repository containing your Microsoft Entra ID application's application ID set as AZURE_CLIENT_ID, the subscription ID set as AZURE_SUBSCRIPTION_ID, and the tenant ID set as AZURE_TENANT_ID
+- Set up Repository Variables for your repository containing your personal Azure Container Registry (ACR) name as REGISTRY_NAME, your preferred repository name as REPOSITORY_NAME, and your preferred tag as TAG for the created image. You can modify your variables between workflow runs to push the generated image to different registries, repositories and tags.
+ 
+Run the workflow by navigating to the Actions tab in your forked repository and selecting the workflow you would like to run. You can then select the Run workflow button to start the workflow.
+
+To use the image in your environment deployments, you need to add the location of the image to your manifest file [Connect the image to your environment definition](#connect-the-image-to-your-environment-definition) and you might need to configure permissions for the ACR to [make the custom image available to ADE](#make-the-custom-image-available-to-ade).
+
+### [Create an image manually](#tab/terraform-manual/)
+
+## Create a custom container image manually
+
+Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the ADE standard images.
 
 After you complete the image customization, you must build the image and push it to your container registry.
 
-::: zone pivot="arm-bicep"
- You can build and push the image manually, or use a script provided by Microsoft to automate the process.
-::: zone-end
+You can build and push the image manually, or use a script provided by Microsoft to automate the process.
 
-::: zone pivot="terraform"
-Alternatively, you can fork the repo [Leveraging ADE's Extensibility Model With Terraform](https://github.com/Azure/ade-extensibility-model-terraform) to build and push the Terraform image to a provided ACR.
-::: zone-end
+The published GitHub Action helps to build and push an image to an Azure Container Registry (ACR). You can reference a provided ACR image link within an environment definition in ADE to deploy or delete an environment with the provided image.
 
-You build custom images by using the ADE sample images as a base with ADE CLI, which is preinstalled on the sample images. To learn more about the ADE CLI, see the [CLI Custom Runner Image reference](https://aka.ms/deployment-environments/ade-cli-reference).
-
-In this example, you learn how to build a Docker image to utilize ADE deployments and access the ADE CLI, basing your image off of one of the ADE authored images.
-
-::: zone pivot="arm-bicep"
 To create an image configured for ADE, follow these steps:
-1. Create a custom image based on a sample image.
-1. Install desired packages.
-1. Configure operation shell scripts.
-1. Create operation shell scripts to deploy ARM or Bicep templates.
-::: zone-end
-
-::: zone pivot="terraform"
-To create an image configured for ADE, follow these steps:
-1. Create a custom image based on a sample image.
+1. Create a custom image based on a GitHub workflow.
 1. Install desired packages.
 1. Configure operation shell scripts.
 1. Create operation shell scripts that use the Terraform CLI. 
-::: zone-end
 
-::: zone pivot="pulumi"
-To create an image configured for ADE, follow these steps:
-1. Create a custom image based on a sample image.
-1. Install desired packages.
-1. Configure operation shell scripts.
-1. Create operation shell scripts that use the Pulumi CLI.
-::: zone-end
+**1. Create a custom image based on a GitHub workflow**
 
-**1. Create a custom image based on a sample image**
+Use the [published repository](https://github.com/Azure/ade-extensibility-model-terraform/blob/main/README.md#azure-deployment-environments---leveraging-ades-extensibility-model-with-terraform) to take advantage of the GitHub workflow. The repository contains ADE-compatible sample image components, including a Dockerfile and shell scripts for deploying and deleting environments using Terraform IaC templates. This sample code helps you create your own container image. 
 
-Create a DockerFile that includes a FROM statement pointing to a sample image hosted on Microsoft Artifact Registry. 
-
-Here's an example FROM statement, referencing the sample core image:
-
-```docker
-FROM mcr.microsoft.com/deployment-environments/runners/core:latest
-```
-
-This statement pulls the most recently published core image, and makes it a basis for your custom image.
 
 **2. Install required packages**
-::: zone pivot="arm-bicep"
-In this step, you install any packages you require in your image, including Bicep. You can install the Bicep package with the Azure CLI by using the RUN statement, as shown in the following example:
-
-```azure cli
-RUN az bicep install
-```
-::: zone-end
-
-::: zone pivot="terraform"
 In this step, you install any packages you require in your image, including Terraform. You can install the Terraform CLI to an executable location so that it can be used in your deployment and deletion scripts. 
 
 Here's an example of that process, installing version 1.7.5 of the Terraform CLI:
@@ -188,39 +202,13 @@ RUN mv terraform /usr/bin/terraform
 
 > [!Tip]
 > You can get the download URL for your preferred version of the Terraform CLI from [Hashicorp releases](https://aka.ms/deployment-environments/terraform-cli-zip).
-::: zone-end
 
-::: zone pivot="pulumi"
-You can install the Pulumi CLI to an executable location so that it can be used in your deployment and deletion scripts. 
-
-Here's an example of that process, installing the latest version of the Pulumi CLI:
-
-```docker
-RUN apk add curl
-RUN curl -fsSL https://get.pulumi.com | sh
-ENV PATH="${PATH}:/root/.pulumi/bin"
-```
-
-Depending on which programming language you intend to use for Pulumi programs, you might need to install one or more corresponding runtimes. The Python runtime is already available in the base image.
-
-Here's an example of installing Node.js and TypeScript:
-
-```docker
-# install node.js, npm, and typescript
-RUN apk add nodejs npm
-RUN npm install typescript -g
-```
-::: zone-end
-
-The ADE sample images are based on the Azure CLI image, and have the ADE CLI and JQ packages preinstalled. You can learn more about the [Azure CLI](/cli/azure/), and the [JQ package](https://devdocs.io/jq/).
-
-To install any more packages you need within your image, use the RUN statement.
 
 **3. Configure operation shell scripts**
 
-Within the sample images, operations are determined and executed based on the operation name. Currently, the two operation names supported are *deploy* and *delete*.
+Within the standard images, operations are determined and executed based on the operation name. Currently, the two operation names supported are *deploy* and *delete*.
 
-To set up your custom image to utilize this structure, specify a folder at the level of your Dockerfile named *scripts*, and specify two files, *deploy.sh*, and *delete.sh*. The deploy shell script runs when your environment is created or redeployed, and the delete shell script runs when your environment is deleted. You can see examples of shell scripts in the repository under the [Runner-Images folder for the ARM-Bicep](https://github.com/Azure/deployment-environments/tree/main/Runner-Images/ARM-Bicep) image.
+To set up your custom image to utilize this structure, specify a folder at the level of your Dockerfile named *scripts*, and specify two files, *deploy.sh*, and *delete.sh*. The deploy shell script runs when your environment is created or redeployed, and the delete shell script runs when your environment is deleted. You can see examples of shell scripts in the repository in the [scripts folder for Terraform](https://github.com/Azure/ade-extensibility-model-terraform/tree/main/scripts).
 
 To ensure these shell scripts are executable, add the following lines to your Dockerfile:
 
@@ -229,116 +217,6 @@ COPY scripts/* /scripts/
 RUN find /scripts/ -type f -iname "*.sh" -exec dos2unix '{}' '+'
 RUN find /scripts/ -type f -iname "*.sh" -exec chmod +x {} \;
 ```
-
-::: zone pivot="arm-bicep"
-
-**4. Create operation shell scripts to deploy ARM or Bicep templates**
-
-To ensure you can successfully deploy ARM or Bicep infrastructure through ADE, you must:
-1. Convert ADE parameters to ARM-acceptable parameters
-1. Resolve linked templates if they're used in the deployment
-1. Use privileged managed identity to perform the deployment
-
-During the core image's entrypoint, any parameters set for the current environment are stored under the variable `$ADE_OPERATION_PARAMETERS`. In order to convert them to ARM-acceptable parameters, you can run the following command using JQ:
-```bash
-# format the parameters as arm parameters
-deploymentParameters=$(echo "$ADE_OPERATION_PARAMETERS" | jq --compact-output '{ "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#", "contentVersion": "1.0.0.0", "parameters": (to_entries | if length == 0 then {} else (map( { (.key): { "value": .value } } ) | add) end) }' )
-```
-
-Next, to resolve any linked templates used within an ARM JSON-based template, you can decompile the main template file, which resolves all the local infrastructure files used into many Bicep modules. Then, rebuild those modules back into a single ARM template with the linked templates embedded into the main ARM template as nested templates. This step is only necessary during the deployment operation. The main template file can be specified using the `$ADE_TEMPLATE_FILE` set during the core image's entrypoint, and you should reset this variable with the recompiled template file. See the following example:
-```bash
-if [[ $ADE_TEMPLATE_FILE == *.json ]]; then
-
-    hasRelativePath=$( cat $ADE_TEMPLATE_FILE | jq '[.. | objects | select(has("templateLink") and (.templateLink | has("relativePath")))] | any' )
-
-    if [ "$hasRelativePath" = "true" ]; then
-        echo "Resolving linked ARM templates"
-
-        bicepTemplate="${ADE_TEMPLATE_FILE/.json/.bicep}"
-        generatedTemplate="${ADE_TEMPLATE_FILE/.json/.generated.json}"
-
-        az bicep decompile --file "$ADE_TEMPLATE_FILE"
-        az bicep build --file "$bicepTemplate" --outfile "$generatedTemplate"
-
-        # Correctly reassign ADE_TEMPLATE_FILE without the $ prefix during assignment
-        ADE_TEMPLATE_FILE="$generatedTemplate"
-    fi
-fi
-```
-To provide the permissions a deployment requires to execute the deployment and deletion of resources within the subscription, use the privileged managed identity associated with the ADE project environment type. If your deployment needs special permissions to complete, such as particular roles, assign those roles to the project environment type's identity. Sometimes, the managed identity isn't immediately available when entering the container; you can retry until the sign-in is successful. 
-```bash
-echo "Signing into Azure using MSI"
-while true; do
-    # managed identity isn't available immediately
-    # we need to do retry after a short nap
-    az login --identity --allow-no-subscriptions --only-show-errors --output none && {
-        echo "Successfully signed into Azure"
-        break
-    } || sleep 5
-done
-```
-
-To begin deployment of the ARM or Bicep templates, run the `az deployment group create` command. When running this command inside the container, choose a deployment name that doesn't override any past deployments, and use the `--no-prompt true` and `--only-show-errors` flags to ensure the deployment doesn't fail on any warnings or stall on waiting for user input, as shown in the following example:
-
-```bash
-deploymentName=$(date +"%Y-%m-%d-%H%M%S")
-az deployment group create --subscription $ADE_SUBSCRIPTION_ID \
-    --resource-group "$ADE_RESOURCE_GROUP_NAME" \
-    --name "$deploymentName" \
-    --no-prompt true --no-wait \
-    --template-file "$ADE_TEMPLATE_FILE" \
-    --parameters "$deploymentParameters" \
-    --only-show-errors
-```
-
-To delete an environment, perform a Complete-mode deployment and provide an empty ARM template, which removes all resources within the specified ADE resource group, as shown in the following example:
-```bash
-deploymentName=$(date +"%Y-%m-%d-%H%M%S")
-az deployment group create --resource-group "$ADE_RESOURCE_GROUP_NAME" \
-    --name "$deploymentName" \
-    --no-prompt true --no-wait --mode Complete \
-    --only-show-errors \
-    --template-file "$DIR/empty.json"
-```
-
-You can check the provisioning state and details by running the below commands. ADE uses some special functions to read and provide more context based on the provisioning details, which you can find in the [Runner-Images](https://github.com/Azure/deployment-environments/tree/main/Runner-Images) folder. A simple implementation could be as follows:
-```bash
-if [ $? -eq 0 ]; then # deployment successfully created
-    while true; do
-
-        sleep 1
-
-        ProvisioningState=$(az deployment group show --resource-group "$ADE_RESOURCE_GROUP_NAME" --name "$deploymentName" --query "properties.provisioningState" -o tsv)
-        ProvisioningDetails=$(az deployment operation group list --resource-group "$ADE_RESOURCE_GROUP_NAME" --name "$deploymentName")
-
-        echo "$ProvisioningDetails"
-
-        if [[ "CANCELED|FAILED|SUCCEEDED" == *"${ProvisioningState^^}"* ]]; then
-
-            echo -e "\nDeployment $deploymentName: $ProvisioningState"
-
-            if [[ "CANCELED|FAILED" == *"${ProvisioningState^^}"* ]]; then
-                exit 11
-            else
-                break
-            fi
-        fi
-    done
-fi
-```
-
-Finally, to view the outputs of your deployment and pass them to ADE to make them accessible via the Azure CLI, you can run the following commands:
-```bash
-deploymentOutput=$(az deployment group show -g "$ADE_RESOURCE_GROUP_NAME" -n "$deploymentName" --query properties.outputs)
-if [ -z "$deploymentOutput" ]; then
-    deploymentOutput="{}"
-fi
-echo "{\"outputs\": $deploymentOutput}" > $ADE_OUTPUTS
-```
-
-::: zone-end
-
-::: zone pivot="terraform"
 
 **4. Create operation shell scripts that use the Terraform CLI**
 
@@ -349,6 +227,7 @@ There are three steps to deploy infrastructure via Terraform:
 
 During the core image's entrypoint, any existing state files are pulled into the container and the directory saved under the environment variable ```$ADE_STORAGE```. Additionally, any parameters set for the current environment stored under the variable ```$ADE_OPERATION_PARAMETERS```. In order to access the existing state file, and set your variables within a *.tfvars.json* file, run the following commands:
 ```bash
+set -e #set script to exit on error
 EnvironmentState="$ADE_STORAGE/environment.tfstate"
 EnvironmentPlan="/environment.tfplan"
 EnvironmentVars="/environment.tfvars.json"
@@ -410,9 +289,82 @@ tfOutputs=$(jq 'walk(if type == "object" then
 
 echo "{\"outputs\": $tfOutputs}" > $ADE_OUTPUTS
 ```
+
+### Build the custom image
+
+[!INCLUDE [custom-image-manual-build](includes/custom-image-manual-build.md)]
+
 ::: zone-end
 
+<!-- ======== PULUMI ==================================================================================================================== -->
+
 ::: zone pivot="pulumi"
+
+## Use a standard container image provided by Pulumi
+
+The Pulumi team provides a prebuilt image to get you started, which you can see in the [Runner-Image](https://github.com/pulumi/azure-deployment-environments/tree/main/Runner-Image) folder. This image is publicly available at Pulumi's Docker Hub as [`pulumi/azure-deployment-environments`](https://hub.docker.com/repository/docker/pulumi/azure-deployment-environments), so you can use it directly from your ADE environment definitions.
+
+Here's a sample *environment.yaml* file that utilizes the prebuilt image:
+
+```yaml
+name: SampleDefinition
+version: 1.0.0
+summary: First Pulumi-Enabled Environment
+description: Deploys a Storage Account with Pulumi
+runner: pulumi/azure-deployment-environments:0.1.0
+templatePath: Pulumi.yaml
+```
+
+You can find a few sample environment definitions in the [Environments folder](https://github.com/pulumi/azure-deployment-environments/tree/main/Environments).
+
+## Create a custom image
+
+Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the Pulumi standard images, and customize them to meet your requirements. After you complete the image customization, you must build the image and push it to your container registry.
+
+To create an image configured for ADE, follow these steps:
+1. Create a custom image based on a standard image.
+1. Install desired packages.
+1. Configure operation shell scripts.
+1. Create operation shell scripts that use the Pulumi CLI.
+
+**1. Create a custom image based on a standard image**
+
+Create a DockerFile that includes a FROM statement pointing to a standard image hosted on Microsoft Artifact Registry. 
+
+Here's an example FROM statement, referencing the standard core image:
+
+```docker
+FROM mcr.microsoft.com/deployment-environments/runners/core:latest
+```
+
+This statement pulls the most recently published core image, and makes it a basis for your custom image.
+
+**2. Install required packages**
+
+You can install the Pulumi CLI to an executable location so that it can be used in your deployment and deletion scripts. 
+
+Here's an example of that process, installing the latest version of the Pulumi CLI:
+
+```docker
+RUN apk add curl
+RUN curl -fsSL https://get.pulumi.com | sh
+ENV PATH="${PATH}:/root/.pulumi/bin"
+```
+
+Depending on which programming language you intend to use for Pulumi programs, you might need to install one or more corresponding runtimes. The Python runtime is already available in the base image.
+
+Here's an example of installing Node.js and TypeScript:
+
+```docker
+# install node.js, npm, and typescript
+RUN apk add nodejs npm
+RUN npm install typescript -g
+```
+
+The ADE standard images are based on the Azure CLI image, and have the ADE CLI and JQ packages preinstalled. You can learn more about the [Azure CLI](/cli/azure/), and the [JQ package](https://devdocs.io/jq/).
+
+To install any more packages you need within your image, use the RUN statement.
+
 There are four steps to deploy infrastructure via Pulumi: 
 
 1. `pulumi login` - connect to the state storage, either in local file system or in [Pulumi Cloud](https://www.pulumi.com/product/pulumi-cloud/)
@@ -477,22 +429,12 @@ Finally, to make the outputs of your deployment uploaded and accessible when acc
 stackout=$(pulumi stack output --json | jq -r 'to_entries|.[]|{(.key): {type: "string", value: (.value)}}')
 echo "{\"outputs\": ${stackout:-{\}}}" > $ADE_OUTPUTS
 ```
+
+### Build the custom image
+
+[!INCLUDE [custom-image-manual-build](includes/custom-image-manual-build.md)]
+
 ::: zone-end
----
-
-## Build an image
-
-You can build your image using the Docker CLI. Ensure the [Docker Engine is installed](https://docs.docker.com/desktop/) on your computer. Then, navigate to the directory of your Dockerfile, and run the following command:
-
-```docker
-docker build . -t {YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}
-```
-
-For example, if you want to save your image under a repository within your registry named `customImage`, and upload with the tag version of `1.0.0`, you would run:
-
-```docker
-docker build . -t {YOUR_REGISTRY}.azurecr.io/customImage:1.0.0
-```
 
 ## Make the custom image available to ADE
 
@@ -586,14 +528,6 @@ When you're ready to push your image to your registry, run the following command
 docker push {YOUR_REGISTRY}.azurecr.io/{YOUR_IMAGE_LOCATION}:{YOUR_TAG}
 ```
 ---
-
-::: zone pivot="arm-bicep,terraform"
-### Build a container image with a script
-
-Rather than building your custom image and pushing it to a container registry yourself, you can use a script to build and push it to a specified container registry. 
-
-[!INCLUDE [custom-image-script](includes/custom-image-script.md)]
-::: zone-end
 
 ## Connect the image to your environment definition
 

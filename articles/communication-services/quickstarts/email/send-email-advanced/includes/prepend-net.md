@@ -12,6 +12,8 @@ ms.service: azure-communication-services
 
 Get started with Azure Communication Services by using the Communication Services .NET Email client library to send Email messages.
 
+Completing this quick start incurs a small cost of a few USD cents or less in your Azure account.
+
 > [!TIP]
 > Jump-start your email sending experience with Azure Communication Services by skipping straight to the [Basic Email Sending](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmail) and [Advanced Email Sending](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmailAdvanced) sample code on GitHub.
 
@@ -23,7 +25,7 @@ The following classes and interfaces handle some of the major features of the Az
 | Name                | Description                                                                                                                                          |
 | --------------------| -----------------------------------------------------------------------------------------------------------------------------------------------------|
 | EmailAddress        | This class contains an email address and an option for a display name.                                                                               |
-| EmailAttachment     | This class creates an email attachment by accepting a unique ID, email attachment [MIME type](../../../../concepts/email/email-attachment-allowed-mime-types.md) string, and binary data for content.                               |
+| EmailAttachment     | This class creates an email attachment by accepting a unique ID, email attachment [MIME type](../../../../concepts/email/email-attachment-allowed-mime-types.md) string, binary data for content, and an optional content ID to define it as an inline attachment. |
 | EmailClient         | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages.                  |
 | EmailClientOptions  | This class can be added to the EmailClient instantiation to target a specific API version.                                                           |
 | EmailContent        | This class contains the subject and the body of the email message. You have to specify at least one of PlainText or Html content   |
@@ -46,7 +48,7 @@ EmailSendResult returns the following status on the email operation performed.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - The latest version [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - An Azure Email Communication Services Resource created and ready with a provisioned domain [Get started with Creating Email Communication Resource](../../create-email-communication-resource.md)
 - An active Communication Services resource connected with Email Domain and a Connection String. [Get started by Connecting Email Resource with a Communication Resource](../../connect-email-communication-resource.md)
@@ -141,7 +143,7 @@ EmailClient emailClient = new EmailClient(new Uri(resourceEndpoint), new Default
 
 #### [AzureKeyCredential](#tab/azurekeycredential)
 
-Email clients can also be authenticated using an [AzureKeyCredential](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.credentials.AzureKeyCredential). Both the `key` and the `endpoint` can be founded on the "Keys" pane under "Settings" in your Communication Services Resource.
+Email clients can also be authenticated using an [AzureKeyCredential](/python/api/azure-core/azure.core.credentials.azurekeycredential). Both the `key` and the `endpoint` can be founded on the "Keys" pane under "Settings" in your Communication Services Resource.
 
 ```csharp
 var key = new AzureKeyCredential("<your-key-credential>");

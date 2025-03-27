@@ -1,16 +1,16 @@
 ---
+ROBOTS: NOINDEX
 title: Manage expiration of Azure Blob storage
 titleSuffix: Azure Content Delivery Network
 description: Learn about the options for controlling time to live for blobs in Azure Content Delivery Network caching.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
-ms.assetid: ad4801e9-d09a-49bf-b35c-efdc4e6034e8
 ms.service: azure-cdn
 ms.devlang: csharp
 ms.topic: how-to
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 2/25/2025
 ms.custom: devx-track-azurepowershell, devx-track-dotnet
 ---
 
@@ -22,6 +22,9 @@ ms.custom: devx-track-azurepowershell, devx-track-dotnet
 > - [Azure web content](cdn-manage-expiration-of-cloud-service-content.md)
 > - [Azure Blob storage](cdn-manage-expiration-of-blob-content.md)
 >
+
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
 The [Blob storage service](../storage/common/storage-introduction.md#blob-storage) in Azure Storage is one of several Azure-based origins integrated with Azure Content Delivery Network. Any publicly accessible blob content can be cached in Azure Content Delivery Network until its time to live (TTL) elapses. The TTL gets determined by the `Cache-Control` header in the HTTP response from the origin server. This article describes several ways that you can set the `Cache-Control` header on a blob in Azure Storage.
 
@@ -40,20 +43,13 @@ You can also control cache settings from the Azure portal by setting content del
 
 The preferred method for setting a blob's `Cache-Control` header is to use caching rules in the Azure portal. For more information about content delivery network caching rules, see [Control Azure Content Delivery Network caching behavior with caching rules](cdn-caching-rules.md).
 
-> [!NOTE]
-> Caching rules are available only for **Azure CDN Standard from Edgio** profiles. For **Azure CDN Premium from Edgio** profiles, you must use the [Azure Content Delivery Network rules engine](./cdn-verizon-premium-rules-engine.md) in the **Manage** portal for similar functionality.
-
 **To navigate to the CDN caching rules page**:
 
 1. In the Azure portal, select a content delivery network profile, then select the endpoint for the blob.
 
 2. In the left pane under Settings, select **Caching rules**.
 
-   ![Screenshot of the content delivery network caching rules button.](./media/cdn-manage-expiration-of-blob-content/cdn-caching-rules-btn.png)
-
    The **Caching rules** page appears.
-
-   ![Screenshot of the content delivery network caching page.](./media/cdn-manage-expiration-of-blob-content/cdn-caching-page.png)
 
 **To set a Blob storage service's Cache-Control headers by using global caching rules:**
 
@@ -171,7 +167,7 @@ You can use the [Azure Storage services REST API](/rest/api/storageservices/) to
 
 ## Testing the Cache-Control header
 
-You can easily verify the TTL settings of your blobs. With your browser's developer tools, test that your blob includes the `Cache-Control` response header. You can also use a tool such as [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/), or [Fiddler](https://www.telerik.com/fiddler) to examine the response headers.
+You can easily verify the TTL settings of your blobs. With your browser's developer tools, test that your blob includes the `Cache-Control` response header. You can also use a tool such as [Wget](https://www.gnu.org/software/wget/) or [Fiddler](https://www.telerik.com/fiddler) to examine the response headers.
 
 ## Next Steps
 

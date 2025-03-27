@@ -4,8 +4,7 @@ description: Learn about the supported versions for APIs, SDKs, and client libra
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: alkohli

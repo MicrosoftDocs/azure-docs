@@ -4,9 +4,8 @@ description: Find out about reliability in Azure Application Gateway for Contain
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
-ms.service: azure-application-gateway
-ms.subservice: appgw-for-containers
-ms.custom: subject-reliability, references_regions
+ms.service: azure-appgw-for-containers
+ms.custom: subject-reliability
 ms.date: 02/07/2024 
 ---
 
@@ -26,9 +25,9 @@ Application Gateway for Containers (AGC) is always deployed in a highly availabl
 
 ### Prerequisites
 
-To deploy with availability zone support, you must choose a region that supports availability zones. To see which regions support availability zones, see the [list of supported regions](availability-zones-service-support.md#azure-regions-with-availability-zone-support). 
+To deploy with availability zone support, you must choose a region that supports availability zones. To see which regions support availability zones, see the [list of supported regions](regions-list.md). 
 
 
 ## Next steps
 
-- [Reliability in Azure](/azure/availability-zones/overview)
+- [Reliability in Azure](/azure/reliability/overview)

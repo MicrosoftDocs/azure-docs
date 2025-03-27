@@ -4,7 +4,7 @@ titleSuffix: Azure NAT Gateway
 description: Get started using this article to learn how to troubleshoot issues and errors with Azure NAT Gateway.
 services: virtual-network
 author: asudbring
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: troubleshooting
 ms.date: 02/14/2024
 ms.author: allensu
@@ -194,6 +194,13 @@ NAT gateway can be used with public IP addresses designated to a specific zone, 
 
 >[!NOTE]
 >If you need to know the zone that your NAT gateway resides in, make sure to designate it to a specific availability zone. 
+
+### Can't use DDoS protected public IPs with NAT gateway 
+
+NAT gateway doesn't support public IP addresses with DDoS protection enabled. DDoS protected IPs are generally more critical for inbound traffic, since most DDoS attacks are designed to overwhelm the target's resources by flooding them with a large volume of incoming traffic. To learn more about DDoS protection, review the following articles below. 
+* [Azure DDoS Protection features](/azure/ddos-protection/ddos-protection-features)
+* [Azure DDoS Protection best practices](/azure/ddos-protection/fundamental-best-practices)
+* [Types of attacks Azure DDoS protection mitigates](/azure/ddos-protection/types-of-attacks)
 
 ## More troubleshooting guidance
 

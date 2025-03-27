@@ -2,9 +2,9 @@
 title: Migrate from EA Marketplace Store Charge API
 titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Marketplace Store Charge API.
-author: bandersmsft
+author: maddieminn
 ms.author: banders
-ms.date: 06/14/2024
+ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management

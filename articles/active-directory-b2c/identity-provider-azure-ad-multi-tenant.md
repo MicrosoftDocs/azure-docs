@@ -4,12 +4,12 @@ titleSuffix: Azure AD B2C
 description: Add a multitenant Microsoft Entra identity provider using custom policies in Azure Active Directory B2C.
 author: garrodonnell
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 11/16/2023
+ms.date: 11/16/2024
 ms.custom: project-no-code
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 #Customer Intent: As a developer using Azure Active Directory B2C, I want to set up sign-in for multi-tenant Microsoft Entra ID, so that users from multiple Entra tenants can sign in without configuring an identity provider for each tenant.
@@ -119,7 +119,7 @@ You can define Microsoft Entra ID as a claims provider by adding Microsoft Entra
           <Metadata>
             <Item Key="METADATA">https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration</Item>
             <!-- Update the Client ID below to the Application ID -->
-            <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+            <Item Key="client_id">00001111-aaaa-2222-bbbb-3333cccc4444</Item>
             <Item Key="response_types">code</Item>
             <Item Key="scope">openid profile</Item>
             <Item Key="response_mode">form_post</Item>
@@ -169,7 +169,7 @@ To obtain the values, look at the OpenID Connect discovery metadata for each of 
 
 Perform these steps for each Microsoft Entra tenant that should be used to sign in:
 
-1. Open your browser and go to the OpenID Connect metadata URL for the tenant. Find the `issuer` object and record its value. It should look similar to `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0`.
+1. Open your browser and go to the OpenID Connect metadata URL for the tenant. Find the `issuer` object and record its value. It should look similar to `https://login.microsoftonline.com/ aaaabbbb-0000-cccc-1111-dddd2222eeee/v2.0`.
 1. Copy and paste the value into the **ValidTokenIssuerPrefixes** key. Separate multiple issuers with a comma. An example with two issuers appears in the previous `ClaimsProvider` XML sample.
 
 [!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]

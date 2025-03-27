@@ -4,10 +4,9 @@ description: Learn about important system requirements for your Azure Data Box a
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: pod
+ms.service: azure-databox
 ms.topic: conceptual
-ms.date: 10/21/2022
+ms.date: 03/06/2025
 ms.author: shaas
 ---
 

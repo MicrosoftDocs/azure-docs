@@ -2,11 +2,11 @@
 title: Prepare to deploy a private mobile network
 titleSuffix: Azure Private 5G Core
 description: Learn how to complete the prerequisite tasks for deploying a private mobile network with Azure Private 5G Core.
-author: robswain
-ms.author: robswain
+author: anzaman
+ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: how-to 
-ms.date: 03/30/2023
+ms.date: 01/15/2025
 ms.custom: template-how-to, devx-track-azurecli
 zone_pivot_groups: ase-pro-version
 ---
@@ -90,7 +90,7 @@ Depending on your networking requirements (for example, if a limited set of subn
 - Default gateway.
 - One IP address for the management port (port 2) on the Azure Stack Edge Pro 2 device.
   - HA: four IP addresses (two for each Azure Stack Edge device).
-- Six sequential IP addresses for the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster nodes.
+- Six sequential IP addresses for the Azure Kubernetes Service on Azure Local (AKS on Azure Local) cluster nodes.
   - HA: seven sequential IP addresses.
 - One service IP address for accessing local monitoring tools for the packet core instance.
 
@@ -107,7 +107,7 @@ Additional IP addresses for the two node Azure Stack Edge cluster in an HA deplo
 - One IP address for the management port
   - Choose a port between 2 and 4 to use as the Azure Stack Edge Pro GPU device's management port as part of [setting up your Azure Stack Edge Pro device](#order-and-set-up-your-azure-stack-edge-pro-devices).*
   - HA: two IP addresses (one for each Azure Stack Edge device)
-- Six sequential IP addresses for the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster nodes.
+- Six sequential IP addresses for the AKS on Azure Local cluster nodes.
   - HA: seven sequential IP addresses.
 - One service IP address for accessing local monitoring tools for the packet core instance.
 

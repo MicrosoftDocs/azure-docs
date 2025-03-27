@@ -75,7 +75,7 @@ To try the **Compose** action, follow these steps by using the workflow designer
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), Visual Studio, or Visual Studio Code, open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
 
    This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by several **Variables** actions named **Initialize variable**. These actions are set up to create two string variables and an integer variable.
 
@@ -200,7 +200,7 @@ To try the  **Create CSV table** action, follow these steps by using the workflo
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), Visual Studio, or Visual Studio Code, open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
 
    This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up to create a variable where the initial value is an array that has some properties and values in JSON format.
 
@@ -388,7 +388,7 @@ To try the **Create HTML table** action, follow these steps by using the workflo
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), Visual Studio, or Visual Studio Code, open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
 
    This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up to create a variable where the initial value is an array that has some properties and values in JSON format.
 
@@ -586,7 +586,7 @@ To try the **Filter array** action, follow these steps by using the workflow des
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), Visual Studio, or Visual Studio Code, open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
 
    This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up to create where the initial value is an array that has some sample integer values.
 
@@ -693,7 +693,7 @@ To try the **Join** action, follow these steps by using the workflow designer. O
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), Visual Studio, or Visual Studio Code, open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
 
    This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. This action is set up to create a variable where the initial value is an array that has some sample integer values.
 
@@ -783,7 +783,7 @@ For more information about this action in your underlying workflow definition, s
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), Visual Studio, or Visual Studio Code, open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
 
    This example uses the Azure portal and a sample workflow with a **Recurrence** trigger followed by an **Initialize variable** action. This action is set up to create a variable whose initial value is the following JSON object with properties and values:
 
@@ -969,12 +969,12 @@ To try the **Select** action, follow these steps by using the workflow designer.
 > [!TIP]
 >
 > For an example that creates create an array with strings or integers built from the values in a JSON object array, 
-> see the **Select** and **Initliaze variable** action definitions in 
+> see the **Select** and **Initialize variable** action definitions in 
 > [Data operation code examples - Select](logic-apps-data-operations-code-samples.md#select-action-example).
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), Visual Studio, or Visual Studio Code, open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
 
    This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up for create a variable where the initial value is an array that has some sample integers.
 

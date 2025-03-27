@@ -16,6 +16,10 @@ ms.date: 08/30/2023
 
 This article lists significant updates and new features available in Azure Container Apps.
 
+## November 2024 and beyond
+
+Azure Container Apps updates can be found in [GitHub](https://aka.ms/aca/updates) now.
+
 ## May 2024 
 
 | Feature | Description |

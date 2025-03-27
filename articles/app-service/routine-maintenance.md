@@ -24,7 +24,7 @@ Like personal computers, mobile phones, and other devices, machines in the cloud
 
 Because a typical cloud solution consists of multiple applications, databases, storage accounts, functions, and other resources, parts of your solutions can undergo maintenance at different times. Some of this coordination is related to geography, region, datacenters, and availability zones. It can also be due to the cloud, where not everything is touched simultaneously. For more information, see [Safe deployment practices](/devops/operate/safe-deployment-practices).
 
-The following screenshot shows an example of a maintenance event.
+The following screenshot shows an example of a maintenance event:
 
 :::image type="content" source="./media/routine-maintenance/routine-maintenance.png" alt-text="Screenshot of a maintenance event in the Azure portal.":::
 
@@ -33,6 +33,23 @@ In order from top to bottom, the example shows:
 - A descriptive title of the maintenance event.
 - Affected regions and subscriptions.
 - The expected maintenance window.
+
+The following screenshots show additional information available through the Impacted Resources dropdown:
+
+:::image type="content" source="./media/routine-maintenance/routine-maintenance-first-page.png" alt-text="Screenshot of the Impacted Resources blade in the Azure portal.":::
+
+In order from left to right, the example shows:
+
+- Selecting the "Impacted Resources" dropdown.
+- The "More info" option.
+
+:::image type="content" source="./media/routine-maintenance/routine-maintenance-more.png" alt-text="Screenshot of more info for a maintenance event in the Azure portal.":::
+
+This example shows:
+
+- The state of the maintenance, which can be pending, started, or completed.
+- Once maintenance starts, timestamps can be viewed under "More info."
+
 
 ## Frequently asked questions
 
@@ -60,7 +77,7 @@ Maintenance operations upgrade machines iteratively while App Service monitors t
 
 ### Are business hours reflected?
 
-Maintenance operations are optimized to start outside the standard business hours of 9 AM to 5 PM. Statistically, that's the best time for any interruptions and restarts of workloads because there's less stress on the system (in customer applications and transitively on the platform itself). For App Service plans and App Service Environment v2, maintenance can continue into business hours during longer maintenance events.
+Yes, business hours are reflected for the time zone of the region. Maintenance operations are optimized to start outside the standard business hours of 9 AM to 5 PM. Statistically, that's the best time for any interruptions and restarts of workloads because there's less stress on the system (in customer applications and transitively on the platform itself). App Service maintenance makes a best effort to reduce maintenance operations during these business hours. If resources are still upgrading by 9 AM in a given region, the upgrade will continue until reaching a safe stopping point, pausing before the next critical step and until the end of business hours.
 
 ### What are my options to control routine maintenance?
 

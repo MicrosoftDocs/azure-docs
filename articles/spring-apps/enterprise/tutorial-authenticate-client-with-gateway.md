@@ -1,11 +1,12 @@
 ---
-title: Tutorial - Authenticate client with Spring Cloud Gateway on Azure Spring Apps
+title: Tutorial - Authenticate Client with Spring Cloud Gateway on Azure Spring Apps
 description: Learn how to authenticate client with Spring Cloud Gateway on Azure Spring Apps.
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: tutorial
 ms.date: 08/28/2024
-ms.author: v-shilichen
+ms.author: karler
+ms.reviewer: v-shilichen
 ms.custom: devx-track-java, devx-track-extended-java, mode-other, engagement-fy23
 ---
 
@@ -13,7 +14,7 @@ ms.custom: devx-track-java, devx-track-extended-java, mode-other, engagement-fy2
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Standard consumption and dedicated (Preview) 
+**This article applies to:** ✅ Standard consumption and dedicated (Preview) 
 
 This quickstart shows you how to secure communication between a client application and a microservice application that is hosted on Azure Spring Apps and shielded with a Spring Cloud Gateway app. The client application is verified as a security principal to initiate contact with the microservice deployed on Azure Spring Apps, using the app built with [Spring Cloud Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/). This method employs Spring Cloud Gateway's Token Relay and Spring Security's Resource Server features for the processes of authentication and authorization, realized through the execution of the [OAuth 2.0 client credentials flow](/entra/identity-platform/v2-oauth2-client-creds-grant-flow).
 
@@ -52,22 +53,22 @@ You can access the Books SPA app that communicates with the Books RESTful APIs t
 ## 7. Next steps
 
 > [!div class="nextstepaction"]
-> [Structured application log for Azure Spring Apps](./structured-app-log.md)
+> [Structured application log for Azure Spring Apps](../basic-standard/structured-app-log.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Map an existing custom domain to Azure Spring Apps](./how-to-custom-domain.md)
+> [Map an existing custom domain to Azure Spring Apps](../basic-standard/how-to-custom-domain.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Set up Azure Spring Apps CI/CD with GitHub Actions](./how-to-github-actions.md)
+> [Set up Azure Spring Apps CI/CD with GitHub Actions](../basic-standard/how-to-github-actions.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Set up Azure Spring Apps CI/CD with Azure DevOps](./how-to-cicd.md)
+> [Set up Azure Spring Apps CI/CD with Azure DevOps](../basic-standard/how-to-cicd.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Use managed identities for applications in Azure Spring Apps](./how-to-use-managed-identities.md)
+> [Use managed identities for applications in Azure Spring Apps](../basic-standard/how-to-use-managed-identities.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
-> [Run microservice apps (Pet Clinic)](./quickstart-sample-app-introduction.md)
+> [Run microservice apps (Pet Clinic)](../basic-standard/quickstart-sample-app-introduction.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 > [!div class="nextstepaction"]
 > [Run polyglot apps on Enterprise plan (ACME Fitness Store)](./quickstart-sample-app-acme-fitness-store-introduction.md)

@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Filter network traffic with a network security group (NSG) - Azure portal"
+title: "Tutorial: Filter network traffic with a network security group (NSG)"
 titlesuffix: Azure Virtual Network
-description: In this tutorial, you learn how to filter network traffic to a subnet, with a network security group (NSG), using the Azure portal.
+description: In this tutorial, you learn how to filter network traffic to a subnet with a network security group (NSG).
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: tutorial
@@ -17,7 +17,7 @@ ai-usage: ai-assisted
 # Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
 ---
 
-# Tutorial: Filter network traffic with a network security group using the Azure portal
+# Tutorial: Filter network traffic with a network security group
 
 You can use a network security group to filter inbound and outbound network traffic to and from Azure resources in an Azure virtual network.
 
@@ -277,8 +277,6 @@ In this section, you associate the network security group with the subnet of the
 1. Select **Subnets** from the **Settings** section of **nsg-1**.
 
 1. In the **Subnets** page, select **+ Associate**:
-
-   :::image type="content" source="./media/tutorial-filter-network-traffic/associate-nsg-subnet.png" alt-text="Screenshot of Associate a network security group to a subnet." border="true" lightbox="./media/tutorial-filter-network-traffic/associate-nsg-subnet.png":::
 
 1. Under **Associate subnet**, select **vnet-1 (test-rg)** for **Virtual network**.
 

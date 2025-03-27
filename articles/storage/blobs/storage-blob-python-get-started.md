@@ -7,7 +7,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/05/2024
+ms.date: 10/02/2024
 ms.custom: devx-track-python, devguide-python
 ai-usage: ai-assisted
 ---
@@ -16,7 +16,9 @@ ai-usage: ai-assisted
 
 [!INCLUDE [storage-dev-guide-selector-getting-started](../../../includes/storage-dev-guides/storage-dev-guide-selector-getting-started.md)]
 
-This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library for Python. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
+This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library for Python. Once connected, use the [developer guides](#build-your-app) to learn how your code can operate on containers, blobs, and features of the Blob Storage service.
+
+If you're looking to start with a complete example, see [Quickstart: Azure Blob Storage client library for Python](storage-quickstart-blobs-python.md).
 
 [API reference](/python/api/azure-storage-blob) | [Package (PyPi)](https://pypi.org/project/azure-storage-blob/) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob) | [Samples](../common/storage-samples-python.md?toc=/azure/storage/blobs/toc.json#blob-samples) | [Give feedback](https://github.com/Azure/azure-sdk-for-python/issues)
 
@@ -146,10 +148,8 @@ To learn more about generating and managing SAS tokens, see the following articl
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json)
 - [Create an account SAS with Python](../common/storage-account-sas-create-python.md)
-- [Create a service SAS for a container with Python](sas-service-create-python-container.md)
-- [Create a service SAS for a blob with Python](sas-service-create-python.md)
-- [Create a user delegation SAS for a container with Python](storage-blob-container-user-delegation-sas-create-python.md)
-- [Create a user delegation SAS for a blob with Python](storage-blob-user-delegation-sas-create-python.md)
+- [Create a service SAS with Python](sas-service-create-python.md)
+- [Create a user delegation SAS with Python](storage-blob-user-delegation-sas-create-python.md)
 
 > [!NOTE]
 > For scenarios where shared access signatures (SAS) are used, Microsoft recommends using a user delegation SAS. A user delegation SAS is secured with Microsoft Entra credentials instead of the account key. 
@@ -194,11 +194,10 @@ The following guides show you how to access data and perform specific actions us
 | [Configure a retry policy](storage-retry-policy-python.md) | Implement retry policies for client operations. |
 | [Copy blobs](storage-blob-copy-python.md) | Copy a blob from one location to another. |
 | [Create a container](storage-blob-container-create-python.md) | Create blob containers. |
-| [Create a user delegation SAS (blobs)](storage-blob-user-delegation-sas-create-python.md) | Create a user delegation SAS for a blob. |
-| [Create a user delegation SAS (containers))](storage-blob-container-user-delegation-sas-create-python.md) | Create a user delegation SAS for a container. |
+| [Create a user delegation SAS](storage-blob-user-delegation-sas-create-python.md) | Create a user delegation SAS for a container or blob. |
 | [Create and manage blob leases](storage-blob-lease-python.md) | Establish and manage a lock on a blob. |
 | [Create and manage container leases](storage-blob-container-lease-python.md) | Establish and manage a lock on a container. |
-| [Delete and restore](storage-blob-delete-python.md) | Delete blobs and restore soft-deleted blobs.  |
+| [Delete and restore blobs](storage-blob-delete-python.md) | Delete blobs and restore soft-deleted blobs.  |
 | [Delete and restore containers](storage-blob-container-delete-python.md) | Delete containers and restore soft-deleted containers.  |
 | [Download blobs](storage-blob-download-python.md) | Download blobs by using strings, streams, and file paths. |
 | [Find blobs using tags](storage-blob-tags-python.md) | Set and retrieve tags, and use tags to find blobs. |

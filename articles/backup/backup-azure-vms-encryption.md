@@ -4,8 +4,8 @@ description: Describes how to back up and restore encrypted Azure VMs with the A
 ms.topic: how-to
 ms.date: 08/13/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Back up and restore encrypted Azure virtual machines
 

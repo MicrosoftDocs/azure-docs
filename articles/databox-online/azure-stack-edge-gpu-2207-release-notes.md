@@ -4,8 +4,7 @@ description: Describes critical open issues and resolutions for the Azure Stack 
 services: databox
 author: alkohli
  
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 11/21/2022
 ms.author: alkohli

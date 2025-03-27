@@ -12,12 +12,15 @@ ms.devlang: csharp
 # Tutorial: Build a Blazor Server chat app
 
 This tutorial shows you how to build and modify a Blazor Server app. You learn how to:
+
 > [!div class="checklist"] 
 > * Build a simple chat room with the Blazor Server app template.
 > * Work with Razor components.
 > * Use event handling and data binding in Razor components.
 > * Quick-deploy to Azure App Service in Visual Studio.
 > * Migrate from local SignalR to Azure SignalR Service.
+
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
 
 Ready to start?
 
@@ -388,7 +391,7 @@ When you deploy the Blazor app to Azure App Service, we recommend that you use [
    * **Specific target**: All types of **Azure App Service** are supported.
    * **App Service**: Create or select the App Service instance.
 
-   [ ![The animation shows selection of Azure as target, and then Azure App Serice as specific target.](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-profile.gif) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-profile.gif#lightbox)
+   [ ![The animation shows selection of Azure as target, and then Azure App Service as specific target.](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-profile.gif) ](media/signalr-tutorial-build-blazor-server-chat-app/blazor-chat-profile.gif#lightbox)
 
 1. Add the Azure SignalR Service dependency.
 
@@ -441,7 +444,9 @@ When you deploy the Blazor app to Azure App Service, we recommend that you use [
 > [!NOTE]
 > Step 2 can be replaced with configuring [Hosting Startup Assemblies](/aspnet/core/fundamentals/host/platform-specific-configuration) to use the SignalR SDK.
 >
-> 1. Add the configuration to turn on Azure SignalR Service in *appsettings.json*:
+> 1. Add the configuration to turn on Azure SignalR Service in *appsettings.json*.
+>
+>    [!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 >
 >     ```json
 >     "Azure": {

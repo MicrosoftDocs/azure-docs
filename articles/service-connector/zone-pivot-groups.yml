@@ -24,3 +24,13 @@ groups:
     title: Connection string
   - id: service-principal
     title: Service principal
+
+- id: aks-authtype
+  title: Select an authentication method
+  prompt: Select an authentication method
+  pivots:
+  - id: workload-id
+    title: Workload ID (Recommended)
+  - id: connection-string
+    title: Connection string
+

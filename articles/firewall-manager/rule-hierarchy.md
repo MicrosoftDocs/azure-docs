@@ -2,11 +2,11 @@
 title: Use Azure Firewall policy to define a rule hierarchy
 description: Learn how to use Azure Firewall policy to define a rule hierarchy and enforce compliance.
 services: firewall-manager
-author: vhorne
+author: duongau
 ms.service: azure-firewall-manager
 ms.topic: how-to
 ms.date: 03/12/2024
-ms.author: victorh
+ms.author: duau
 ms.custom: FY23 content-maintenance
 ---
 

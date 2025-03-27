@@ -7,7 +7,7 @@ metadata:
   
   ms.topic: faq
   ms.devlang: csharp
-  ms.custom: devx-track-csharp
+  ms.custom: devx-track-csharp, ignite-2024
   ms.date: 04/18/2024
 title: Azure Cache for Redis development FAQs
 summary: This article provides answers to common questions about how to develop for Azure Cache for Redis.
@@ -51,18 +51,15 @@ sections:
           ### Timeout values
             * Consider your workload and set the values to match. If you're storing large values, set the timeout to a higher value.
             * Set `AbortOnConnectFail` to false and let StackExchange.Redis reconnect for you.
-            * Use a single, long-lived `ConnectionMultiplexer` instance rather than creating a new connection for each request. For an example of how to manage a connection, see the `RedisConnection` class in [Connect to the cache by using RedisConnection](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache-by-using-redisconnection).
+            * Use a single, long-lived `ConnectionMultiplexer` instance rather than creating a new connection for each request. 
             * Set the `ConnectionMultiplexer.ClientName` property to an app instance unique name for diagnostic purposes.
             * Use multiple `ConnectionMultiplexer` instances for custom workloads.
-
-              You can follow this model if you have varying loads in your application. For example:  
-
+              * You can follow this model if you have varying load in your application. For example:
               * You can have one multiplexer for dealing with large keys.
               * You can have one multiplexer for dealing with small keys.
-              * You can set different values for connection timeouts and retry logic for each `ConnectionMultiplexer` that you use.
+              * You can set different values for connection timeouts and retry logic for each ConnectionMultiplexer that you use.
               * Set the `ClientName` property on each multiplexer to help with diagnostics.
-              
-              Following this guidance might lead to more streamlined latency per `ConnectionMultiplexer`.
+              * This guidance might lead to more streamlined latency per `ConnectionMultiplexer`.
           
       - question: |
           What Azure Cache for Redis clients can I use?
@@ -110,7 +107,7 @@ sections:
         answer: |
           Microsoft Azure Cache for Redis is based on the popular open-source in-memory data store, Redis. You can use a wide variety of [Redis clients](https://redis.io/docs/connect/clients/) for many programming languages. Each client has its own API that makes calls to the Azure Cache for Redis instance using [Redis commands](https://redis.io/commands).
           
-          Because each client is different, you can't find one centralized class reference on MSDN. Each client maintains its own reference documentation. Besides the reference documentation, there are several tutorials showing how to get started with Azure Cache for Redis using different languages and cache clients. To access these tutorials, see [How to use Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) and it's sibling articles in the table of contents.
+          Because each client is different, you can't find one centralized class reference on MSDN. Each client maintains its own reference documentation. Besides the reference documentation, there are several tutorials showing how to get started with Azure Cache for Redis using different languages and cache clients. To access these tutorials, see [How to use Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) and its sibling articles in the table of contents.
           
       - question: |
           Can I use Azure Cache for Redis as a PHP session cache?
