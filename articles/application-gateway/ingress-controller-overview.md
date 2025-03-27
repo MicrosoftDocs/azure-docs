@@ -76,7 +76,7 @@ With Azure CNI Overlay, please consider the following limitations:
 * Global VNet Peering: Application Gateway deployed in a virtual network in region A and the AKS cluster nodes in a virtual network in region B is not supported.
 * Azure CNI Overlay with Application Gateway Ingress Controller is not supported in Azure Government cloud or Microsoft Azure operated by 21Vianet (Azure in China).
 
->![Note]
+>[!Note]
 >Upgrade of the AKS cluster from Kubnet or CNI to CNI Overlay is automatically detected by Application Gateway Ingress Controller. It's recommended to schedule the upgrade during a maintenance window as traffic disruption can occur. The controller may take a few minutes post-cluster upgrade to detect and configure support for CNI Overlay.
 
 >[!WARNING]
