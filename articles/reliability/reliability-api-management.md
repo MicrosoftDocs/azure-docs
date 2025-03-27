@@ -22,9 +22,9 @@ Azure API Management helps organizations publish APIs to external, partner, and 
 
 ::: zone pivot="basic,standard,developer,premium-classic,premium-v2"
 
-When you deploy an Azure API Management instance, you configure one or more *units*, also called *scale units*. A unit is a logical representation of capacity. The Azure API Management platform provides resiliency even when you have a single unit. To learn more about units, see [Upgrade and scale an Azure API Management instance](../api-management/upgrade-and-scale.md).
+When you deploy an Azure API Management instance, you configure one or more *units*, also called *scale units*. A unit is a logical representation of capacity.
 
-When you configure a multi-zone or multi-region Azure API Managment instance, you need to configure enough units so that units can be distributed across the zones or regions.
+the Azure API Management platform provides resiliency to many types of failures even when you have a single unit. However, to be resilient to availability zone or region failures, you need to configure enough units so that they can be distributed across multiple zones or regions. To learn more about units, see [Upgrade and scale an Azure API Management instance](../api-management/upgrade-and-scale.md).
 
 ::: zone-end
 
@@ -230,7 +230,7 @@ When the primary region recovers, Azure API Management automatically restores un
 
 ### Testing for region failures  
 
-You can simulate a region failure by disabling routing to a regional gateway. To learn more, see [Disable routing to a regional gateway](../api-management/api-management-howto-deploy-multi-region.md#disable-routing-to-a-regional-gateway). Regularly test your responses to region failures so that you can be ready for unexpected region outages.
+To be ready for unexpected region outages, it's recommended that you regularly test your responses to region failures. You can simulate a region failure by [disabling routing to a regional gateway](../api-management/api-management-howto-deploy-multi-region.md#disable-routing-to-a-regional-gateway).
 
 ::: zone-end
 
