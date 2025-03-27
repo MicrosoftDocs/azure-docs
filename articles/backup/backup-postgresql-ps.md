@@ -174,7 +174,7 @@ The default template has a life cycle for the initial datastore under the defaul
 
 Also, the rule should define how long to keep the data in the archive datastore. To create new life cycles, use the [`New-AzDataProtectionRetentionLifeCycleClientObject`](/powershell/module/az.dataprotection/new-azdataprotectionretentionlifecycleclientobject) command. To associate those life cycles with new or existing rules, use the [`Edit-AzDataProtectionPolicyRetentionRuleClientObject`](/powershell/module/az.dataprotection/edit-azdataprotectionpolicyretentionruleclientobject) command.
 
-The following example creates a new retention rule named `Monthly`. In this rule, the first successful backup of every month is retained in the vault for six months, moved to the archive tier, and kept in the archive tier 24 months.
+The following example creates a new retention rule named `Monthly`. In this rule, the first successful backup of every month is retained in the vault for six months, moved to the archive tier, and kept in the archive tier for 24 months.
 
 ```azurepowershell-interactive
 $VaultToArchiveLifeCycle = New-AzDataProtectionRetentionLifeCycleClientObject -SourceDataStore VaultStore -SourceRetentionDurationType Months -SourceRetentionDurationCount 6 -TargetDataStore ArchiveStore -CopyOption CopyOnExpiryOption
@@ -236,7 +236,7 @@ $keyURI = "https://testkeyvaulteus.vault.azure.net/secrets/ossdbkey"
 
 #### Backup vault
 
-You need to connect the backup vault to the PostgreSQL server and then access the database via the keys present in the key vault. Therefore, the backup vault requires access to the PostgreSQL server and the key vault. Access is granted to the backup vault's managed identity.
+You need to connect the backup vault to the PostgreSQL server and then access the database via the keys present in the key vault. So, the backup vault requires access to the PostgreSQL server and the key vault. Access is granted to the backup vault's managed identity.
 
 [Read about the appropriate permissions](./backup-azure-database-postgresql-overview.md#permissions-needed-for-postgresql-database-backup) that you should grant to the backup vault's managed identity on the PostgreSQL server and Azure Key Vault, where the keys to the database are stored.
 
@@ -265,7 +265,7 @@ Fetch the relevant backup instance on which you need to trigger a backup by usin
 $instance = Get-AzDataProtectionBackupInstance -SubscriptionId "xxxx-xxx-xxx" -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -Name "BackupInstanceName"
 ```
 
-You can specify a retention rule while triggering a backup. To view the retention rules in a policy, browse through the policy object. In the following example, the rule with name *default* is displayed. This article uses that example rule for the on-demand backup.
+You can specify a retention rule while triggering a backup. To view the retention rules in a policy, browse through the policy object. In the following example, the rule with the name `Default` is displayed. This article uses that example rule for the on-demand backup.
 
 ```azurepowershell-interactive
 $ossPol.PolicyRule | fl

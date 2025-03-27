@@ -1,5 +1,5 @@
 ---
-title: Restore PostgreSQL Databases by Using the Azure Data Protection REST API
+title: Restore PostgreSQL Databases by Using the Data Protection REST API
 description: Learn how to restore PostgreSQL databases in Azure Database for PostgreSQL by using the Azure Backup Data Protection REST API.
 ms.topic: how-to
 ms.date: 02/09/2025
@@ -8,7 +8,7 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# Restore PostgreSQL databases by using the Azure data protection REST API
+# Restore PostgreSQL databases by using the Data Protection REST API
 
 This article explains how to use the Data Protection REST API to restore PostgreSQL databases to an [Azure Database for PostgreSQL](/azure/postgresql/overview#azure-database-for-postgresql---single-server) server that you backed up via Azure Backup.
 
@@ -52,7 +52,7 @@ After you submit the `GET` request, it returns the following responses. It also 
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|`200 OK`     |    [AzureBackupRecoveryPointResourceList](/rest/api/dataprotection/recovery-points/list#azurebackuprecoverypointresourcelist)     |   The result is OK.      |
+|`200 OK`     |    [AzureBackupRecoveryPointResourceList](/rest/api/dataprotection/recovery-points/list#azurebackuprecoverypointresourcelist)     |   The request is completed.      |
 |Other status codes     |    [CloudError](/rest/api/dataprotection/recovery-points/list#clouderror)     |     The error response describes the reason for the operation failure.    |
 
 Here's an example response:
@@ -380,7 +380,7 @@ GET https://management.azure.com/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5
 }
 ```
 
-The response indicates errors that you have to solve before you submit the restore request. The following example represents when the target database is of a lower version, so it can't be restored:
+The response indicates errors that you have to solve before you submit the restore request. The following example represents what happens when the target database is of a lower version, so it can't be restored:
 
 ```http
 ---------- Response (1892 ms) ------------
@@ -579,7 +579,7 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 
 After a restore job is triggered, you can track the resultant job ID by using the [GET Jobs API](/rest/api/dataprotection/jobs/get).
 
-Use the following `GET` command to track the `jobId` value in the [response to the triggered restore operation](#response-to-trigger-restore-requests).
+Use the following `GET` command to track the `jobId` value in the [response to the triggered restore operation](#response-to-trigger-restore-requests):
 
 ```http
  GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupJobs/cccc2c2c-dd3d-ee4e-ff5f-aaaaaa6a6a6a?api-version=2021-07-01

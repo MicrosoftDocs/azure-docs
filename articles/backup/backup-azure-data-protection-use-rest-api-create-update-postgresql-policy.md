@@ -59,7 +59,7 @@ The resultant PowerShell object is as follows:
 > [!IMPORTANT]
 > Currently, updating or modifying an existing policy isn't supported. Instead, create a new policy with the required details and assign it to the relevant backup instance.
 
-To create an Azure Backup policy, use the following `PUT` operation:
+To create an backup policy, use the following `PUT` operation:
 
 ```http
 PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/backupVaults/{vaultName}/backupPolicies/{policyName}?api-version=2021-01-01
@@ -385,7 +385,7 @@ The backup policy creation or update is a synchronous operation. After the opera
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|`200 OK`     |     [`BaseBackupPolicyResource`](/rest/api/dataprotection/backup-policies/create-or-update#basebackuppolicyresource)     |  OK       |
+|`200 OK`     |     [`BaseBackupPolicyResource`](/rest/api/dataprotection/backup-policies/create-or-update#basebackuppolicyresource)     |  The operation is completed.       |
 
 ### Example response
 

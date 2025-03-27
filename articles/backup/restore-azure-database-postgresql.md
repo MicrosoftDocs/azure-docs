@@ -30,10 +30,10 @@ You can restore a database to any Azure Database for PostgreSQL server of a diff
    If the restore point is in the archive tier, you must rehydrate the recovery point before restoring. Provide the following additional parameters required for rehydration:
 
    - **Rehydration priority**: The default is **Standard**.
-   - **Rehydration duration**: The maximum rehydration duration is 30 days, and the minimum rehydration duration is 10 days. The default value is **15 days**. The recovery point is stored in the backup data store for this duration.
+   - **Rehydration duration**: The maximum rehydration duration is 30 days, and the minimum rehydration duration is 10 days. The default value is **15 days**. The recovery point is stored in the backup datastore for this duration.
 
    > [!NOTE]
-   > Archive support for Azure Database for PostgreSQL is in limited public preview.
+   > Archive support for Azure Database for PostgreSQL is in limited preview.
 
 1. On the **Restore parameters** tab, select one of the following restore types:
 
@@ -45,10 +45,10 @@ You can restore a database to any Azure Database for PostgreSQL server of a diff
 
      :::image type="content" source="./media/restore-azure-database-postgresql/restore-as-database-inline.png" alt-text="Screenshot that shows the selected option to restore as a database." lightbox="./media/restore-azure-database-postgresql/restore-as-database-expanded.png":::
 
-   > [!IMPORTANT]
-   > The database user whose credentials were chosen via the key vault has all the privileges over the restored database. Any existing database user boundaries are overridden.
-   >
-   > If the backed-up database had any user-specific permissions or constraints (for example, one database user can access a few tables, and another database user can access a few other tables), such permissions aren't preserved after the restore. If you want to preserve those permissions, use **Restore as Files**, and use the `pg_restore` command with the relevant switch.
+     > [!IMPORTANT]
+     > The database user whose credentials were chosen via the key vault has all the privileges over the restored database. Any existing database user boundaries are overridden.
+     >
+     > If the backed-up database had any user-specific permissions or constraints (for example, one database user can access a few tables, and another database user can access a few other tables), such permissions aren't preserved after the restore. If you want to preserve those permissions, use **Restore as Files**, and use the `pg_restore` command with the relevant switch.
 
    - **Restore as Files**: You can choose from the storage accounts across all subscriptions but in the same region as that of the vault.
 
@@ -104,9 +104,9 @@ If **Cross Region Restore** is enabled, you can view the backup instances in a s
 
 ### Restore in a secondary region
 
-The experience of restoring in a secondary region is similar to that of restoring in a primary region.  
+The experience of restoring in a secondary region is similar to the experience of restoring in a primary region.  
 
-When you're configuring details on the **Restore Configuration** pane to configure your restore, you're prompted to provide only secondary region parameters. So, a vault should already exist in the secondary region, and the Azure Database for PostgreSQL server should be registered to the vault in the secondary region.
+When you're configuring details on the **Restore Configuration** pane to configure your restore, you're prompted to provide only secondary region parameters. A vault should already exist in the secondary region, and the Azure Database for PostgreSQL server should be registered to the vault in the secondary region.
 
 Follow these steps:
 

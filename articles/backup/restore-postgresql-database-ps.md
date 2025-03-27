@@ -69,7 +69,7 @@ There are various restore options for a PostgreSQL database. You can restore the
 
 #### Restore as a database
 
-Construct the Azure Resource Manager ID of the new PostgreSQL database to be created (with the target PostgreSQL server to which permissions were assigned, as detailed [earlier](#set-up-permissions)), and the required PostgreSQL database name. For example, a PostgreSQL database can be named `emprestored21` under a target PostgreSQL server named `targetossserver` in resource group `targetrg` with a different subscription:
+Construct the Azure Resource Manager ID of the new PostgreSQL database to be created (with the target PostgreSQL server to which permissions were assigned, as detailed [earlier](#set-up-permissions)). Include the required PostgreSQL database name. For example, a PostgreSQL database can be named `emprestored21` under a target PostgreSQL server named `targetossserver` in the resource group `targetrg` with a different subscription:
 
 ```azurepowershell-interactive
 $targetOssId = /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/targetrg/providers/providers/Microsoft.DBforPostgreSQL/servers/targetossserver/databases/emprestored21

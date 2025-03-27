@@ -23,7 +23,7 @@ The examples in this article refer to an existing backup vault named `TestBkpVau
 
 A backup vault uses a managed identity to access other Azure resources. To restore from a backup, the backup vault's managed identity requires a set of permissions on the Azure Database for PostgreSQL server to which the database should be restored.
 
-To assign the relevant permissions for a vault's system-assigned managed identity on the target PostgreSQL server, see the [set of permissions needed to back up PostgreSQL database](./backup-azure-database-postgresql-overview.md#permissions-needed-for-postgresql-database-restore).
+To assign the relevant permissions for a vault's system-assigned managed identity on the target PostgreSQL server, see the [set of permissions needed to back up a PostgreSQL database](./backup-azure-database-postgresql-overview.md#permissions-needed-for-postgresql-database-restore).
 
 To restore the recovery point as files to a storage account, the [backup vault's system-assigned managed identity needs access on the target storage account](./restore-azure-database-postgresql.md#restore-permissions-on-the-target-storage-account).
 
@@ -157,7 +157,7 @@ There are various restore options for a PostgreSQL database. You can restore the
 
 #### Restore as a database
 
-Construct the Azure Resource Manager ID of the new PostgreSQL database by using the [target PostgreSQL server to which you assigned permissions](#set-up-permissions). Also, construct the required PostgreSQL database name. For example, a PostgreSQL database can be named `emprestored21` under a target PostgreSQL server named `targetossserver` in resource group `targetrg` with a different subscription:
+Construct the Azure Resource Manager ID of the new PostgreSQL database by using the [target PostgreSQL server to which you assigned permissions](#set-up-permissions). Also, construct the required PostgreSQL database name. For example, a PostgreSQL database can be named `emprestored21` under a target PostgreSQL server named `targetossserver` in the resource group `targetrg` with a different subscription:
 
 ```azurecli
 $targetOssId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/targetrg/providers/providers/Microsoft.DBforPostgreSQL/servers/targetossserver/databases/emprestored21"

@@ -229,7 +229,7 @@ The default template has a life cycle for the initial datastore under the defaul
 
 Also, the rule should define how long to keep the data in the archive datastore. To create new life cycles, use the [`az dataprotection backup-policy retention-rule create-lifecycle`](/cli/azure/dataprotection/backup-policy/retention-rule#az-dataprotection-backup-policy-retention-rule-create-lifecycle) command. To associate those life cycles with new or existing rules, use the [`az dataprotection backup-policy retention-rule set`](/cli/azure/dataprotection/backup-policy/retention-rule#az-dataprotection-backup-policy-retention-rule-set) command.
 
-The following example creates a new retention rule named `Monthly`. In this rule, the first successful backup of every month is retained in the vault for six months, moved to the archive tier, and kept in the archive tier 24 months.
+The following example creates a new retention rule named `Monthly`. In this rule, the first successful backup of every month is retained in the vault for six months, moved to the archive tier, and kept in the archive tier for 24 months.
 
 ```azurecli
 az dataprotection backup-policy retention-rule create-lifecycle --retention-duration-count 6 --retention-duration-type Months --source-datastore VaultStore --target-datastore ArchiveStore --copy-option CopyOnExpiryOption > VaultToArchiveLifeCycle.JSON
@@ -293,7 +293,7 @@ keyURI="https://testkeyvaulteus.vault.azure.net/secrets/ossdbkey"
 
 #### Backup vault
 
-A backup vault has to connect to the PostgreSQL server and then access the database via the keys present in the key vault. So, it requires access to the PostgreSQL server and the key vault. Access is granted to the backup vault's managed identity.
+A backup vault has to connect to the PostgreSQL server and then access the database via the keys present in the key vault. So, the backup vault requires access to the PostgreSQL server and the key vault. Access is granted to the backup vault's managed identity.
 
 [Read about the permissions](./backup-azure-database-postgresql-overview.md#permissions-needed-for-postgresql-database-backup) that you should grant to the backup vault's managed identity on the PostgreSQL server and the key vault that stores the keys to the database.
 
@@ -435,7 +435,7 @@ az dataprotection backup-instance adhoc-backup --name "ossrg-empdb11" --rule-nam
 
 Track all jobs by using the [`az dataprotection job list`](/cli/azure/dataprotection/job#az-dataprotection-job-list) command. You can list all jobs and fetch a particular job detail.
 
-You can also use `Az.ResourceGraph` to track all jobs across all backup vaults. Use the [`az dataprotection job list-from-resourcegraph`](/cli/azure/dataprotection/job#az-dataprotection-job-list-from-resourcegraph) command to fetch the relevant jobs across backup vaults.
+You can also use `Az.ResourceGraph` to track all jobs across all backup vaults. Use the [`az dataprotection job list-from-resourcegraph`](/cli/azure/dataprotection/job#az-dataprotection-job-list-from-resourcegraph) command to fetch the relevant jobs across backup vaults:
 
 ```azurecli
 az dataprotection job list-from-resourcegraph --datasource-type AzureDatabaseForPostgreSQL --status Completed

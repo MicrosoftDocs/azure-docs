@@ -14,7 +14,7 @@ This article describes how to back up an Azure Database for PostgreSQL server. B
 
 ## <a name = "configure-backup-on-azure-postgresql-databases"></a>Configure a backup on PostgreSQL databases
 
-You can configure a backup on multiple databases across multiple Azure Database for PostgreSQL servers. To configure this kind of backup by using Azure Backup, follow these steps:
+You can configure a backup on multiple PostgreSQL databases across multiple Azure Database for PostgreSQL servers. To configure this kind of backup by using Azure Backup, follow these steps:
 
 1. Go to **Backup vault**, select a vault, and then select **Backup**.
 
@@ -55,7 +55,7 @@ You can configure a backup on multiple databases across multiple Azure Database 
 
       :::image type="content" source="./media/backup-azure-database-postgresql/enter-secret-uri-inline.png" alt-text="Screenshot that shows how to get a secret U R I." lightbox="./media/backup-azure-database-postgresql/enter-secret-uri-expanded.png":::
 
-      However, with this option, Azure Backup has no visibility into the key vault that you referenced. Access permissions on the key vault can't be granted inline. The backup admin, along with the PostgreSQL and/or key vault admin, needs to ensure that the backup vault's [access on the key vault is granted manually](backup-azure-database-postgresql-overview.md#access-permissions-on-the-key-vault) outside the [configure backup](#configure-a-backup-on-postgresql-databases) flow for the backup operation to succeed.
+      However, with this option, Azure Backup has no visibility into the key vault that you referenced. Access permissions on the key vault can't be granted inline. For the backup operation to succeed, the backup admin, along with the PostgreSQL and/or key vault admin, needs to ensure that the backup vault's [access on the key vault is granted manually](backup-azure-database-postgresql-overview.md#access-permissions-on-the-key-vault) outside the [configure backup](#configure-a-backup-on-postgresql-databases) flow.
 
    - **Select from key vault**: Use this option if you know the key vault and secret names. Then click **Select a key vault and secret** and enter the details.
 
@@ -87,7 +87,7 @@ You can configure a backup on multiple databases across multiple Azure Database 
 
      :::image type="content" source="./media/backup-azure-database-postgresql/role-assignment-not-done-inline.png" alt-text="Screenshot that shows the error about the role assignment not done." lightbox="./media/backup-azure-database-postgresql/role-assignment-not-done-expanded.png":::
 
-1. Select **Assign missing roles** on the action menu and assign roles. After the process starts, the [missing access permissions](backup-azure-database-postgresql-overview.md#azure-backup-authentication-with-the-postgresql-server) on the key vault and/or the Azure Database for PostgreSQL server are granted to the backup vault. In the **Scope** area, you can define the scope at which the access permissions should be granted. When the action is complete, re-validation starts.
+1. Select **Assign missing roles** on the action menu and assign roles. After the process starts, the [missing access permissions](backup-azure-database-postgresql-overview.md#azure-backup-authentication-with-the-postgresql-server) on the key vault and/or the Azure Database for PostgreSQL server are granted to the backup vault. In the **Scope** area, you can define the scope at which the access permissions should be granted. When the action is complete, revalidation starts.
 
    :::image type="content" source="./media/backup-azure-database-postgresql/assign-missing-roles-inline.png" alt-text="Screenshot that shows the button for assigning missing roles." lightbox="./media/backup-azure-database-postgresql/assign-missing-roles-expanded.png":::
 
@@ -127,26 +127,26 @@ You can create a backup policy during the flow for configuring a backup. Alterna
 
 1. Select **Add retention rule** to define retention settings.
 
-   You can add one or more retention rules. Each retention rule assumes inputs for specific backups, along with the data store and retention duration for those backups.
+   You can add one or more retention rules. Each retention rule assumes inputs for specific backups, along with the datastore and retention duration for those backups.
 
-1. To store your backups in one of the two data stores (or tiers), select **Vault-standard** or **Vault-archive (preview)**.
+1. To store your backups in one of the two datastores (or tiers), select **Vault-standard** or **Vault-archive (preview)**.
 
-1. To move the backup to the archive data store upon its expiry in the backup data store, select **On-expiry**.
+1. To move the backup to the archive datastore upon its expiry in the backup datastore, select **On-expiry**.
 
-   :::image type="content" source="./media/backup-azure-database-postgresql/choose-option-to-move-backup-to-archive-data-store-inline.png" alt-text="Screenshot that shows the selected option to move a backup to the archive data store upon its expiry." lightbox="./media/backup-azure-database-postgresql/choose-option-to-move-backup-to-archive-data-store-expanded.png":::
+   :::image type="content" source="./media/backup-azure-database-postgresql/choose-option-to-move-backup-to-archive-data-store-inline.png" alt-text="Screenshot that shows the selected option to move a backup to the archive datastore upon its expiry." lightbox="./media/backup-azure-database-postgresql/choose-option-to-move-backup-to-archive-data-store-expanded.png":::
 
    > [!NOTE]
    > The **Default** retention rule is applied in the absence of any other retention rule. It has a default value of three months.
    >
-   > In the backup data store, retention duration ranges from seven days to 10 years.
+   > In the backup datastore, retention duration ranges from seven days to 10 years.
    >
-   > In the archive data store, retention duration ranges from six months to 10 years.
+   > In the archive datastore, retention duration ranges from six months to 10 years.
 
 1. Select **Add**, and then finish the process of reviewing and creating the policy.
 
 Retention rules are evaluated in a predetermined order of priority. The priority is the highest for the yearly rule, followed by the monthly rule, and then the weekly rule.
 
-Default retention settings apply when no other rules qualify. For example, the same recovery point might be the first successful backup taken every week, along with the first successful backup taken every month. However, because the priority of the monthly rule is higher than that of the weekly rule, the retention that corresponds to the first successful backup taken every month applies.
+Default retention settings apply when no other rules qualify. For example, the same recovery point might be the first successful backup taken every week, along with the first successful backup taken every month. However, because the priority of the monthly rule is higher than the priority of the weekly rule, the retention that corresponds to the first successful backup taken every month applies.
 
 ## <a name = "create-secrets-in-the-key-vault"></a>Create a secret in the key vault
 
@@ -154,7 +154,7 @@ The secret is the Azure Database for PostgreSQL server connection string in *ADO
 
 :::image type="content" source="./media/backup-azure-database-postgresql/pg-server-connection-string-inline.png" alt-text="Screenshot that shows the Azure Database for PostgreSQL server connection string as a secret." lightbox="./media/backup-azure-database-postgresql/pg-server-connection-string-expanded.png":::
 
-Copy the connection string from the Azure Database for PostgreSQL server, and use a text editor to update the user ID and password.
+Copy the connection string from the Azure Database for PostgreSQL server. Use a text editor to update the user ID and password.
 
 :::image type="content" source="./media/backup-azure-database-postgresql/create-secret-inline.png" alt-text="Screenshot that shows the pane for creating a secret and a Notepad file that contains a connection string." lightbox="./media/backup-azure-database-postgresql/create-secret-expanded.png":::
 
@@ -196,7 +196,7 @@ To trigger a backup that's not in the schedule specified in the policy:
 
 ## Track a backup job
 
-The Azure Backup service creates a job for scheduled backups or if you trigger an on-demand backup operation for tracking. To view the backup job status:
+The Azure Backup service creates a job for scheduled backups or if you trigger an on-demand backup operation for tracking. To view the backup job's status:
 
 1. Go to the **Backup instances** pane. It shows the **Jobs** dashboard with the operations and statuses for the past seven days.
 

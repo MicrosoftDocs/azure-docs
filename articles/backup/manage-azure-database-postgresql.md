@@ -53,7 +53,7 @@ There are three ways to stop backing up an Azure Database for PostgreSQL server:
 
    :::image type="content" source="./media/manage-azure-database-postgresql/data-retention-options-inline.png" alt-text="Screenshot that shows the options for data retention." lightbox="./media/manage-azure-database-postgresql/data-retention-options-expanded.png":::
 
-   You can also select the reason for stopping the backup in the **Reason** drop-down list.
+   You can also select the reason for stopping the backup in the **Reason** dropdown list.
 
 1. Select **Stop Backup**.
 
