@@ -435,4 +435,4 @@ At the time of export creation, you can name the *StorageContainer*, *StorageDir
 
 ## Next steps
 
-- Learn more about exports at [Tutorial: Create and manage exported data](tutorial-export-acm-data.md).
+- For a comprehensive reference of all available datasets that you export, including the schema for current and historical versions, see [Cost Management dataset schema index](/azure/cost-management-billing/dataset-schema/schema-index).
