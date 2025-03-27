@@ -14,7 +14,6 @@ ms.author: duau
 This article explains the behavior of long-running sessions and the TCP idle timeout for Azure Firewall. Understanding these concepts is crucial for maintaining network security, optimizing firewall resources, and ensuring uninterrupted connectivity for critical applications.
 
 ## Long-running TCP sessions
----
 
 Long-running sessions refer to TCP connections that stay active for extended durations. These long-running sessions are often utilized in applications like SSH, RDP, VPN tunnels, and database connections. To prevent unexpected disconnections, it's essential to configure these sessions appropriately. Understanding the factors that influence their stability is key to ensuring uninterrupted connectivity.
 
@@ -31,7 +30,6 @@ The following scenarios in Azure Firewall can result in the termination of long-
 - **Idle timeout**: Connections that remain inactive for a duration exceeding the TCP idle timeout gets closed by the Azure Firewall.
 
 ## Idle timeout settings
----
 
 The TCP idle timeout specifies the duration a connection can stay inactive before the Azure Firewall terminates the connection. This setting helps optimize the Azure Firewall by closing inactive connections and maintaining overall network performance.
 
