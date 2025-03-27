@@ -46,11 +46,14 @@ If you disabled the network connection in your dev box and are unable to connect
 ## Teams calls don't work well in my dev box.
 If Teams calls don't work well in your dev box, open the About page in Teams and check that the **AVD Media Optimized** feature is installed. If this feature isn't installed, or if your dev box is running Windows Enterprise N or KN SKUs, contact your dev box administrator.  
 
-## I can't connect to my dev box from my client computer.
+## Teams call from my dev box can not access camera or microphone.
+If Teams call from dev box can't access a camera or microphone, please go to your local computer, open Settings, navigate to **Privacy & security > Camera** or **Privacy & security > Microphone**, make sure it's toggled to **On** for all **Microsoft Teams VDI** apps. 
+
+## I can't perform CPU profiling on an AMD-based dev box.
 If CPU profiling doesn't work on an AMD-based dev box, it's a known Windows issue. To fix it, go to **Turn Windows features on or off,** uninstall **Hyper-V** and **Virtual Machine Platform,** and reboot.
 
-## Do an AMD-based dev box support nested virtualization?
-AMD-based dev boxes don't support Hyper-V VMs with nested virtualization. After setting `Set-VMProcessor -VMName <name> -ExposeVirtualizationExtensions $true`, VMs inside dev box won't boot. To avoid this issue, use Intel based dev box. 
+## Nested virtualization may not be enabled on a Hyper-V VM in AMD based dev box.
+In an AMD-based dev box, enable nested virtualization on a Hyper-V VM by setting `Set-VMProcessor -VMName <name> -ExposeVirtualizationExtensions $true` might prevent the Hyper-V VM from booting. To avoid this issue, use Intel based dev box. 
 
 ## When I try to sign in to dev box by using Windows Hello for Business based authentication, I get error code 0x8007013d.
 When you sign in to dev box via Windows Hello for Business based authentication method and it fails with error code 0x8007013d, it could be due to Windows Hello certificate not properly installed. To fix it, first make sure you remember your password. Run `certutil -DeleteHelloContainer` command on your client computer (not your dev box), sign out and log back in. 

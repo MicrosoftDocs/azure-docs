@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Azure Spring Apps in virtual network
+title: Troubleshooting Azure Spring Apps in Virtual Network
 description: Troubleshooting guide for Azure Spring Apps virtual network.
 author: KarlErickson
 ms.service: azure-spring-apps

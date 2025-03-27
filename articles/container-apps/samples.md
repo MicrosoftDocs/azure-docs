@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 05/31/2024
+ms.date: 01/21/2025
 ms.author: cshoe
 ---
 
@@ -26,3 +26,4 @@ Refer to the following samples to learn how to use Azure Container Apps in diffe
 | [Launch your first Java microservice app on Azure Container Apps](https://github.com/Azure-Samples/azure-container-apps-java-samples/tree/main/spring-petclinic-microservices) |A microservices-based version of PetClinic with Spring, built with Spring Framework, showcasing configuration management, service discovery, and health/metrics monitoring on Azure Container Apps.|
 | [Launch Your first Java Spring Batch app on Azure Container Apps](https://github.com/Azure-Samples/azure-container-apps-java-samples/tree/main/spring-batch-football) |A Java Spring Batch application showcasing an ephemeral statistics loading job, adapted from the Spring Batch Football Job sample, and deployable to Azure Container Apps. |
 | [Launch Your first Java AI application on Azure Container Apps](https://github.com/Azure-Samples/spring-petclinic-ai) |A Java AI application built with the Spring-AI Framework, demonstrating how to integrate with Azure OpenAI capabilities to enhance PetClinic application with an intelligent Chatbot, and deploy it to Azure Container Apps. |
+| [mTLS Server Application on Azure Container Apps](https://github.com/Azure-Samples/azure-container-apps-java-samples/tree/main/azure-container-apps-mtls-certificate-filter) | A Java sample using different Java APIs to demonstrate how to extract X.509 certificates from incoming requests, including Servlet Jakarta API, Servlet Javax API, and Reactive API. Additionally, to provide a complete user experience of verifying the certificates in Azure Container Apps other than Spring Security, the samples also demonstrate loading a custom trust store to validate the certificates. |

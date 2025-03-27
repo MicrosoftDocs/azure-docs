@@ -175,7 +175,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 {
     log.Info($"C# Queue trigger function processed: {myQueueItem}");
 
-    // In this example, the queue item is a new user to be processed in the form of a JSON string with 
+    // In this example, the queue item is a new user to be processed in the form of a JSON string with
     // a "name" value.
     //
     // The JSON format for a native Apple Push Notification Service (APNS) notification is:
@@ -183,7 +183,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
     log.LogInformation($"Sending APNS notification of a new user");    
     dynamic user = JsonConvert.DeserializeObject(myQueueItem);    
-    string apnsNotificationPayload = "{\"aps\": {\"alert\": \"A new user wants to be added (" + 
+    string apnsNotificationPayload = "{\"aps\": {\"alert\": \"A new user wants to be added (" +
                                         user.name + ")\" }}";
     log.LogInformation($"{apnsNotificationPayload}");
     await notification.AddAsync(new AppleNotification(apnsNotificationPayload));        
@@ -206,7 +206,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 {
     log.Info($"C# Queue trigger function processed: {myQueueItem}");
 
-    // In this example, the queue item is a new user to be processed in the form of a JSON string with 
+    // In this example, the queue item is a new user to be processed in the form of a JSON string with
     // a "name" value.
     //
     // The XML format for a native WNS toast notification is ...
@@ -223,8 +223,8 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
     dynamic user = JsonConvert.DeserializeObject(myQueueItem);    
     string wnsNotificationPayload = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
                                     "<toast><visual><binding template=\"ToastText01\">" +
-                                        "<text id=\"1\">" + 
-                                            "A new user wants to be added (" + user.name + ")" + 
+                                        "<text id=\"1\">" +
+                                            "A new user wants to be added (" + user.name + ")" +
                                         "</text>" +
                                     "</binding></visual></toast>";
 
@@ -251,7 +251,7 @@ The following table lists the binding configuration properties that you set in t
 |**tagExpression** |**TagExpression** | Tag expressions allow you to specify that notifications be delivered to a set of devices that are registered to receive notifications matching the tag expression. For more information, see [Routing and tag expressions](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
 |**hubName** | **HubName** | The name of the notification hub resource in the Azure portal. |
 |**connection** | **ConnectionStringSetting** | The name of an app setting that contains a Notification Hubs connection string. Set the connection string to the *DefaultFullSharedAccessSignature* value for your notification hub. For more information, see [Connection string setup](#connection-string-setup). |
-|**platform** | **Platform** | The platform property indicates the client platform your notification targets. By default, if the platform property is omitted from the output binding, template notifications can be used to target any platform configured on the Azure Notification Hub. For more information about using templates to send cross-platform notifications with an Azure Notification Hub, see [Notification Hubs templates](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). When **platform** is set, it must be one of the following values: <ul><li><code>apns</code>: Apple Push Notification Service. For more information on configuring the notification hub for APNS and receiving the notification in a client app, see [Send push notifications to iOS with Azure Notification Hubs](../notification-hubs/xamarin-notification-hubs-ios-push-notification-apns-get-started.md).</li><li><code>adm</code>: [Amazon Device Messaging](https://developer.amazon.com/device-messaging). For more information on configuring the notification hub for Azure Deployment Manager (ADM) and receiving the notification in a Kindle app, see [Send push notifications to Android devices using Firebase SDK](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md).</li><li><code>wns</code>: [Windows Push Notification Services](/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) targeting Windows platforms. WNS also supports Windows Phone 8.1 and later. For more information, see [Send notifications to Universal Windows Platform apps using Azure Notification Hubs](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).</li><li><code>mpns</code>: [Microsoft Push Notification Service](/previous-versions/windows/apps/ff402558(v=vs.105)). This platform supports Windows Phone 8 and earlier Windows Phone platforms. For more information, see [Send notifications to Universal Windows Platform apps using Azure Notification Hubs](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).</li></ul> |
+|**platform** | **Platform** | The platform property indicates the client platform your notification targets. By default, if the platform property is omitted from the output binding, template notifications can be used to target any platform configured on the Azure Notification Hub. For more information about using templates to send cross-platform notifications with an Azure Notification Hub, see [Notification Hubs templates](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). When **platform** is set, it must be one of the following values: <ul><li><code>apns</code>: Apple Push Notification Service. For more information on configuring the notification hub for APNS and receiving the notification in a client app, see [Send push notifications to .NET MAUI apps using Azure Notification Hubs via a backend service](/dotnet/maui/data-cloud/push-notifications).</li><li><code>adm</code>: [Amazon Device Messaging](https://developer.amazon.com/device-messaging). For more information on configuring the notification hub for Azure Deployment Manager (ADM) and receiving the notification in a Kindle app, see [Send push notifications to Android devices using Firebase SDK](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md).</li><li><code>wns</code>: [Windows Push Notification Services](/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) targeting Windows platforms. WNS also supports Windows Phone 8.1 and later. For more information, see [Send notifications to Universal Windows Platform apps using Azure Notification Hubs](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).</li><li><code>mpns</code>: [Microsoft Push Notification Service](/previous-versions/windows/apps/ff402558(v=vs.105)). This platform supports Windows Phone 8 and earlier Windows Phone platforms. For more information, see [Send notifications to Universal Windows Platform apps using Azure Notification Hubs](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).</li></ul> |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -278,7 +278,12 @@ Here's an example of a Notification Hubs binding in a *function.json* file:
 
 ### Connection string setup
 
-To use a notification hub output binding, you must configure the connection string for the hub. You can select an existing notification hub or create a new one from the **Integrate** tab in the Azure portal. You can also configure the connection string manually.
+To use a notification hub output binding, you must configure the connection string for the hub.
+
+> [!IMPORTANT]
+> The Notification Hubs binding doesn't support Microsoft Entra authentication and managed identities. You can use Azure Key Vault to centrally manage your notification hub connection string and help with key rotation. To learn more, see [Manage Connections](./manage-connections.md).
+
+You can select an existing notification hub or create a new one from the **Integrate** tab in the Azure portal. You can also configure the connection string manually.
 
 To configure the connection string to an existing notification hub:
 

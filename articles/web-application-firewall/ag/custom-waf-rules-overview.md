@@ -1,12 +1,11 @@
 ---
 title: Azure Web Application Firewall (WAF) v2 custom rules on Application Gateway  
 description: This article provides an overview of Web Application Firewall (WAF) v2 custom rules on Azure Application Gateway.
-services: web-application-firewall
-ms.topic: concept-article
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
+ms.topic: concept-article
 ms.date: 01/30/2024
-ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -27,7 +26,7 @@ If you want to use **or** between two different conditions,then the two conditio
 Regular expressions are also supported in custom rules, just like in the CRS rulesets. For examples, see Examples 3 and 5 in [Create and use custom web application firewall rules](create-custom-waf-rules.md).
 
 > [!NOTE]
-> The maximum number of WAF custom rules is 100. For more information about Application Gateway limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
+> The maximum number of WAF custom rules is 100. For more information about Application Gateway limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-application-gateway-limits).
 
 > [!CAUTION]
 > Any redirect rules applied at the application gateway level will bypass WAF custom rules. See [Application Gateway redirect overview](../../application-gateway/redirect-overview.md) for more information about redirect rules.
@@ -162,6 +161,9 @@ A list of strings with names of transformations to do before the match is attemp
 ### Match values [required]
 
 List of values to match against, which can be thought of as being *OR*'ed. For example, it could be IP addresses or other strings. The value format depends on the previous operator.
+
+> [!NOTE]
+> If your WAF is running Core Rule Set (CRS) 3.1, or any other earlier CRS version, the match value only allows letters, numbers and punctuation marks. Quotation marks `"`, `'` and spaces are not supported.
 
 Supported HTTP request method values include:
 - GET

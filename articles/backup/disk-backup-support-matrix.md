@@ -35,7 +35,7 @@ Azure Disk Backup is available in all public cloud and Sovereign cloud regions.
 
 - You can either set a maximum retention limit of 1 year or 450 disk snapshots, whichever reaches first. For example, if you have opted for a backup frequency of 12 hours, then you can retain each recovery point for maximum 225 days as the snapshot limit will be breached beyond that. 
 
-- Azure [subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machine-disk-limits) apply to the total number of disk snapshots per region per subscription.
+- Azure [subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-virtual-machine-disk-limits) apply to the total number of disk snapshots per region per subscription.
 
 - Point-in-time snapshots of multiple disks attached to a virtual machine isn't supported.
 

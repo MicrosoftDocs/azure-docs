@@ -2,10 +2,10 @@
 title: Introduction to Azure Web Application Firewall 
 description: This article provides an overview of Azure Web Application Firewall (WAF)
 services: web-application-firewall
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.date: 01/14/2025
-ms.author: victorh
 ms.topic: overview
 ---
 

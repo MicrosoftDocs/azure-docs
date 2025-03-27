@@ -154,6 +154,8 @@
       href: iot-solution.md
     - name: Investigate Defender for IoT incidents with Microsoft Sentinel
       href: iot-advanced-threat-monitoring.md
+  - name: Set up automatic sensor disconnection notifications
+    href: automate-sensor-disconnection-alerts.md
   - name: Monitor with Zero Trust principles
     href: monitor-zero-trust.md
 - name: How-to guides

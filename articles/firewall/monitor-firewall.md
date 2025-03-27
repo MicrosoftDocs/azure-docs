@@ -4,8 +4,8 @@ description: You can monitor Azure Firewall using firewall logs. You can also us
 ms.date: 08/08/2024
 ms.custom: horz-monitor
 ms.topic: concept-article
-author: vhorne
-ms.author: victorh
+author: duongau
+ms.author: duau
 ms.service: azure-firewall
 ---
 # Monitor Azure Firewall
@@ -86,7 +86,7 @@ In **Resource specific** mode, individual tables in the selected workspace are c
 New resource specific tables are now available in Diagnostic setting that allows you to utilize the following categories:
 
 - [Network rule log](/azure/azure-monitor/reference/tables/azfwnetworkrule) - Contains all Network Rule log data. Each match between data plane and network rule creates a log entry with the data plane packet and the matched rule's attributes.
-- [NAT rule log](/azure/azure-monitor/reference/tables/azfwnatrule) - Contains all DNAT (Destination Network Address Translation) events log data. Each match between data plane and DNAT rule creates a log entry with the data plane packet and the matched rule's attributes.
+- [NAT rule log](/azure/azure-monitor/reference/tables/azfwnatrule) - Contains all DNAT (Destination Network Address Translation) events log data. Each match between data plane and DNAT rule creates a log entry with the data plane packet and the matched rule's attributes. Asa note, the AZFWNATRule table logs only when a DNAT rule match occurs. If there is no match, no log is generated. 
 - [Application rule log](/azure/azure-monitor/reference/tables/azfwapplicationrule) - Contains all Application rule log data. Each match between data plane and Application rule creates a log entry with the data plane packet and the matched rule's attributes.
 - [Threat Intelligence log](/azure/azure-monitor/reference/tables/azfwthreatintel) - Contains all Threat Intelligence events.
 - [IDPS log](/azure/azure-monitor/reference/tables/azfwidpssignature) - Contains all data plane packets that were matched with one or more IDPS signatures.

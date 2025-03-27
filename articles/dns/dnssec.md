@@ -1,24 +1,20 @@
 ---
-title: Overview of DNSSEC - Azure Public DNS (Preview)
+title: Overview of DNSSEC - Azure Public DNS
 description: Learn about DNSSEC zone signing for Azure Public DNS.
 author: greg-lindsay
 manager: KumuD
 ms.service: azure-dns
 ms.topic: article
-ms.date: 10/22/2024
+ms.date: 01/27/2025
 ms.author: greglin
 ---
 
-# DNSSEC overview (Preview)
+# DNSSEC overview
 
 This article provides an overview of Domain Name System Security Extensions (DNSSEC) and includes an introduction to [DNSSEC terminology](#dnssec-terminology). Benefits of DNSSEC zone signing are described and examples are provided for viewing DNSSEC related resource records. When you are ready to sign your Azure public DNS zone, see the following how-to guides:
 
-- [How to sign your Azure Public DNS zone with DNSSEC (Preview)](dnssec-how-to.md).
-- [How to unsign your Azure Public DNS zone (Preview)](dnssec-unsign.md)
-
-> [!NOTE]
-> DNSSEC zone signing is currently in PREVIEW.<br> 
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+- [How to sign your Azure Public DNS zone with DNSSEC](dnssec-how-to.md).
+- [How to unsign your Azure Public DNS zone](dnssec-unsign.md)
  
 ## What is DNSSEC?
 

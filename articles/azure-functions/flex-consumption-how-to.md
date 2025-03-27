@@ -1,7 +1,7 @@
 ---
 title: Create and manage function apps in a Flex Consumption plan
 description: "Learn how to create function apps hosted in the Flex Consumption plan in Azure Functions and how to modify specific settings for an existing function app."
-ms.date: 08/21/2024
+ms.date: 12/29/2024
 ms.topic: how-to
 ms.custom: build-2024, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts, ignite-2024
 zone_pivot_groups: programming-languages-set-functions
@@ -331,6 +331,7 @@ A customized deployment source should meet this criteria:
 
 When configuring deployment storage authentication, keep these considerations in mind:
 
++ As a security best practice, you should use managed identities when connecting to Azure Storage from your apps. For more information, see [Connections](./functions-reference.md#connections). 
 + When you use a connection string to connect to the deployment storage account, the application setting that contains the connection string must already exist.
 + When you use a user-assigned managed identity, the provided identity gets linked to the function app. The `Storage Blob Data Contributor` role scoped to the deployment storage account also gets assigned to the identity.
 + When you use a system-assigned managed identity, an identity gets created when a valid system-assigned identity doesn't already exist in your app. When a system-assigned identity does exists, the `Storage Blob Data Contributor` role scoped to the deployment storage account also gets assigned to the identity.

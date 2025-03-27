@@ -44,8 +44,6 @@ Each Confluent Cloud offer purchased in the Marketplace maps to a unique Conflue
 
 When you sign in to the Azure portal, your credentials are also used to sign in to the Confluent Cloud SaaS portal. The experience uses [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md) and [Microsoft Entra SSO](../../active-directory/manage-apps/what-is-single-sign-on.md) to provide a secure and convenient way for you to sign in.
 
-For more information, see [Single sign-on](manage.md#single-sign-on).
-
 ## Billing
 
 There are two billing options available: pay-as-you-go monthly plan and commitment plan.

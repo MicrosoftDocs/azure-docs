@@ -113,7 +113,7 @@ sections:
         answer: All the VM configurations required to perform the restore operations are stored in the VM backup. That includes the encryption copies of the VM encrypted keys, which are accessible to you on restore. The encryption copies can only be decrypted using the key vault. Temporary disks and memory state aren't captured in the snapshot.
       
       - question: Can we back up tags from Azure VM? If so, how many tags?
-        answer: Azure Backup can back up and restore tags, except NICs and IPs. Azure Backup honors the subscription limitations of Azure Resource Group and restores up to 50 tags.<br><br>For detailed information, see [Subscription limits](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
+        answer: Azure Backup can back up and restore tags, except NICs and IPs. Azure Backup honors the subscription limitations of Azure Resource Group and restores up to 50 tags.<br><br>For detailed information, see [Subscription limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-subscription-limits).
 
       - question: Can I take on-demand (ad-hoc) backup without scheduling backup for an Azure VM?
         answer: |
@@ -431,6 +431,10 @@ sections:
           Storage Spaces Direct is not supported since it has data spread across two different virtual machines.
 
           Storage spaces in a single VM not supported for application consistent VM backup. For application consistent VM backup, VSS freezes the I/O and ensures that disk snapshots are consistent. Storage Spaces can still perform writes in the background, breaking the application consistent guarantee. This can result in a small probability that the backup taken is not application consistent. Today, backup and recovery of VM with storage spaces is not blocked in the product.
+
+      - question: What is directory "/var/log/azure/Microsoft.Azure.RecoveryServices.VMSnapshotLinux"?
+        answer: |
+          This is the directory used by Backup Extension VMSnapshotLinux and it gets created when backups are enabled on VM using Recovery Services Vault. Logs are written in this location during backups, restores or extension operations such as schedule updates, generally they should use up only a few GB and the size of the logs is not proportional with the size of the backup. 
 
       - question: If I remove one of the disks from VM and increase the size of existing disk, what happens to the backups and if next backup creates Full Backup for all disk?
         answer: |

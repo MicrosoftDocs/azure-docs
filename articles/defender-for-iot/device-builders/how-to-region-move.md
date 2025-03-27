@@ -20,7 +20,7 @@ You can move a Microsoft Defender for IoT "iotsecuritysolutions" resource to a d
 
 - Make sure that your Azure subscription allows you to create "iotsecuritysolutions" resources in the target region.
 
-- Make sure that your subscription has enough resources to support the addition of resources for this process. For more information, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
+- Make sure that your subscription has enough resources to support the addition of resources for this process. For more information, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-networking-limits)
 
 ## Alert preparation
 

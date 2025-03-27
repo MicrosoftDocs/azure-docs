@@ -120,7 +120,13 @@ ms.topic: faq
 **Does Azure Files support using Access-Based Enumeration (ABE) to control the visibility of the files and folders in SMB Azure file shares?**
 
   Using ABE with Azure Files isn't currently supported, but you can [use DFS-N with SMB Azure file shares](files-manage-namespaces.md#access-based-enumeration-abe).
+
+* <a id="printer-or-scanner"></a>
+**Can I save to an Azure file share using a printer or scanner?**
+
+  Azure Files only supports Windows, Linux, and macOS. Accessing an Azure file share directly from a printer or scanner isn't supported. However, if you're already using Azure File Sync, you can print or scan to your Windows file server and then sync the file to an Azure file share.
    
+
 ### Identity-based authentication
 
 * <a id="ad-support-devices"></a>

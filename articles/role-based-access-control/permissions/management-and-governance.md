@@ -4,9 +4,9 @@ description: Lists the permissions for the Azure resource providers in the Manag
 ms.service: role-based-access-control
 ms.topic: reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 12/12/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -100,12 +100,18 @@ Azure service: [Azure Policy](/azure/governance/policy/overview), [Azure RBAC](/
 > | Microsoft.Authorization/policyDefinitions/read | Get information about a policy definition. |
 > | Microsoft.Authorization/policyDefinitions/write | Create a custom policy definition. |
 > | Microsoft.Authorization/policyDefinitions/delete | Delete a policy definition. |
+> | Microsoft.Authorization/policyDefinitions/versions/read | Get information about a policy definition version. |
+> | Microsoft.Authorization/policyDefinitions/versions/write | Create a custom policy definition version. |
+> | Microsoft.Authorization/policyDefinitions/versions/delete | Delete a policy definition version. |
 > | Microsoft.Authorization/policyExemptions/read | Get information about a policy exemption. |
 > | Microsoft.Authorization/policyExemptions/write | Create a policy exemption at the specified scope. |
 > | Microsoft.Authorization/policyExemptions/delete | Delete a policy exemption at the specified scope. |
 > | Microsoft.Authorization/policySetDefinitions/read | Get information about a policy set definition. |
 > | Microsoft.Authorization/policySetDefinitions/write | Create a custom policy set definition. |
 > | Microsoft.Authorization/policySetDefinitions/delete | Delete a policy set definition. |
+> | Microsoft.Authorization/policySetDefinitions/versions/read | Get information about a policy set definition version. |
+> | Microsoft.Authorization/policySetDefinitions/versions/write | Create a custom policy set definition version. |
+> | Microsoft.Authorization/policySetDefinitions/versions/delete | Delete a policy set definition version. |
 > | Microsoft.Authorization/providerOperations/read | Get operations for all resource providers which can be used in role definitions. |
 > | Microsoft.Authorization/roleAssignments/read | Get information about a role assignment. |
 > | Microsoft.Authorization/roleAssignments/write | Create a role assignment at the specified scope. |
@@ -558,7 +564,8 @@ Azure service: [Azure carbon optimization](/azure/carbon-optimization/overview)
 > | Microsoft.Carbon/queryCarbonEmissionDataAvailableDateRange/action | API for query carbon emission data available date range |
 > | Microsoft.Carbon/register/action | Register the subscription for Microsoft.Carbon |
 > | Microsoft.Carbon/unregister/action | Unregister the subscription for Microsoft.Carbon |
-> | Microsoft.Carbon/operations/read | read operations |
+> | Microsoft.Carbon/carbonEmissionReports/read | API for Carbon Emissions Reports |
+> | Microsoft.Carbon/Operations/read | read Operations |
 
 ## Microsoft.Consumption
 
@@ -1322,6 +1329,29 @@ Azure service: [SAP on Azure](/azure/sap/)
 > | Microsoft.Workloads/insights/write | Creates a Workloads Insights instance for the specified subscription, resource group, and instance name. |
 > | Microsoft.Workloads/insights/delete | Deletes a Workloads Insights instance for the specified subscription, resource group and instance name. |
 > | Microsoft.Workloads/insights/write | Patches the Workload Insights instance for the specified subscription, resource group, and instance name. |
+> | Microsoft.Workloads/instanceGroupMonitors/read | Gets a Instance Group Monitor. |
+> | Microsoft.Workloads/instanceGroupMonitors/write | Creates a Instance Group Monitor. |
+> | Microsoft.Workloads/instanceGroupMonitors/delete | Deletes a Instance Group Monitor. |
+> | Microsoft.Workloads/instanceGroupMonitors/write | Updates a Instance Group Monitor. |
+> | Microsoft.Workloads/instanceGroupMonitors/read | Gets all Instance Group Monitors in a resource group. |
+> | Microsoft.Workloads/instanceGroupMonitors/read | Gets all Instance Group Monitors in a subscription. |
+> | Microsoft.Workloads/instanceHealthDefinitions/read | Gets a Instance Health Definition. |
+> | Microsoft.Workloads/instanceHealthDefinitions/write | Creates a Instance Health Definition. |
+> | Microsoft.Workloads/instanceHealthDefinitions/delete | Deletes a Instance Health Definition. |
+> | Microsoft.Workloads/instanceHealthDefinitions/write | Updates a Instance Health Definition. |
+> | Microsoft.Workloads/instanceHealthDefinitions/read | Gets all Instance Health Definitions in a resource group. |
+> | Microsoft.Workloads/instanceHealthDefinitions/read | Gets all Instance Health Definitions in a subscription. |
+> | Microsoft.Workloads/instanceHealthDefinitions/signalDefinitions/read | Gets a Signal Definition. |
+> | Microsoft.Workloads/instanceHealthDefinitions/signalDefinitions/write | Creates a Instance Health Definition. |
+> | Microsoft.Workloads/instanceHealthDefinitions/signalDefinitions/delete | Deletes a Signal Definition. |
+> | Microsoft.Workloads/instanceHealthDefinitions/signalDefinitions/write | Updates a Signal Definition. |
+> | Microsoft.Workloads/instanceHealthDefinitions/signalDefinitions/read | Gets all Signal Definitions under a Health Definition. |
+> | Microsoft.Workloads/instanceMonitors/read | Gets a Instance Monitor. |
+> | Microsoft.Workloads/instanceMonitors/write | Creates a Instance Monitor. |
+> | Microsoft.Workloads/instanceMonitors/delete | Deletes a Instance Monitor. |
+> | Microsoft.Workloads/instanceMonitors/write | Updates a Instance Monitor. |
+> | Microsoft.Workloads/instanceMonitors/read | Gets all Instance Monitors in a resource group. |
+> | Microsoft.Workloads/instanceMonitors/read | Gets all Instance Monitors in a subscription. |
 > | Microsoft.Workloads/Locations/OperationStatuses/read | read OperationStatuses |
 > | Microsoft.Workloads/Locations/OperationStatuses/write | write OperationStatuses |
 > | Microsoft.Workloads/locations/sapVirtualInstanceMetadata/getSizingRecommendations/action | Get SAP sizing recommendations. |
