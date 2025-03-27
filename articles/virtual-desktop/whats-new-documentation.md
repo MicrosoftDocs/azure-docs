@@ -4,12 +4,44 @@ description: Learn about new and updated articles to the Azure Virtual Desktop d
 ms.topic: release-notes
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 12/04/2024
+ms.date: 03/03/2025
 ---
 
 # What's new in documentation for Azure Virtual Desktop
 
 We update documentation for Azure Virtual Desktop regularly. In this article, we highlight articles for new features and where there are significant updates to existing articles. To learn what's new in the service, see [What's new for Azure Virtual Desktop](whats-new.md).
+
+## February 2025
+
+Here are the highlights of documentation changes in February 2025:
+
+- Add a new article in the FSLogix documentation to [Store FSLogix profile containers on Azure Files using Microsoft Entra ID in a cloud only scenario](/fslogix/how-to-configure-profile-container-entra-id), which is applicable to Azure Virtual Desktop.
+
+- Updated using [Azure Private Link with Azure Virtual Desktop](private-link-overview.md) to include support with RDP Shortpath for managed networks in preview.
+
+### Expanded cloud support for Microsoft Intune management of devices connecting to Azure Virtual Desktop
+
+The current capabilities of managing devices connecting to Azure Virtual Desktop using Microsoft Intune have been expanded to include Intune for US Government GCC, [Intune for US Government GCC High and DoD](/mem/intune/fundamentals/intune-govt-service-description), and [Intune operated by 21Vianet](/mem/intune/fundamentals/china) (China).
+
+For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](/azure/virtual-desktop/client-device-redirection-intune).
+
+## January 2025
+
+Here are the highlights of documentation changes in January 2025:
+
+- Published a new article for the preview of the Quickstart deployment experience for Azure Virtual Desktop. For more information, see [Quickstart: deploy a sample Azure Virtual Desktop environment](quickstart.md).
+
+- Updated [Screen capture protection](screen-capture-protection.md) to include how to use screen capture protection on iOS/iPadOS and Android devices using Microsoft Intune.
+
+- Added FSLogix profile container storage guidance to Azure Virtual Desktop on Azure Local. For more information, see [Azure Virtual Desktop on Azure Local](azure-local-overview.md#fslogix-profile-containers-storage).
+
+## December 2024
+
+Here are the highlights of documentation changes in December 2024:
+
+- Archived the Azure Virtual Desktop (Classic) documentation. Here's the new location: [Azure Virtual Desktop classic documentation](/previous-versions/azure/virtual-desktop-classic/). Redirection is in place for the previous URLs.
+
+- Updated [Multimedia redirection for video playback and calls in a remote session](multimedia-redirection-video-playback-calls.md) to provide registry key information to be able to [hide the advanced settings button](multimedia-redirection-video-playback-calls.md?pivots=azure-virtual-desktop#hide-advanced-settings-button) and [enable call redirection for specific domains](multimedia-redirection-video-playback-calls.md?pivots=azure-virtual-desktop#enable-call-redirection-for-specific-domains).
 
 ## November 2024
 

@@ -11,9 +11,6 @@ In this quickstart, you use the [Maven Plugin for Azure App Service Web Apps](ht
 
 The quickstart deploys either a Spring Boot app, embedded Tomcat, or Quarkus app using the [azure-webapp-maven-plugin](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App) plugin.
 
-> [!NOTE]
-> App Service can host Spring apps. For Spring apps that require all the Spring services, try [Azure Spring Apps](../../../spring-apps/quickstart.md) instead.
-
 ### [Spring Boot](#tab/springboot)
 
 :::image type="content" source="../../media/quickstart-java/springboot-hello-world-in-browser-azure-app-service.png" alt-text="Screenshot of Spring Boot Hello World web app running in Azure App Service in introduction.":::

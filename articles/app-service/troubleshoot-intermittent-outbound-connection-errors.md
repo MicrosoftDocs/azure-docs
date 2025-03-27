@@ -60,7 +60,7 @@ Here's a collection of links for implementing Connection pooling by different so
 
 #### Node
 
-By default, connections for NodeJS aren't kept alive. Below are the popular databases and packages for connection pooling which contain examples for how to implement them.
+By default, connections for Node.js aren't kept alive. Below are the popular databases and packages for connection pooling which contain examples for how to implement them.
 
 * [MySQL](https://github.com/mysqljs/mysql#pooling-connections)
 * [MongoDB](https://blog.mlab.com/2017/05/mongodb-connection-pooling-for-express-applications/)

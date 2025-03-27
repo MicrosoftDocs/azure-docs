@@ -18,6 +18,65 @@ items:
     href: ../basic-standard/cost-management.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
   - name: Compare Java application hosting options on Azure
     href: /azure/architecture/guide/technology-choices/service-for-java-comparison?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Migrate off deprecated Tanzu Components
+    expanded: false
+    items:
+    - name: Overview
+      href: ../migration/migrate-off-deprecated-tanzu-components.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Migrate Application Configuration Service
+      href: ../migration/migrate-enterprise-application-configuration-service.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Migrate Application Live View
+      href: ../migration/migrate-application-live-view.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Migrate to Azure Container Apps
+    expanded: false
+    items:
+    - name: Overview
+      href: ../migration/migrate-to-azure-container-apps-overview.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Provisioning
+      href: ../migration/migrate-to-azure-container-apps-provision.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Application
+      expanded: true
+      items:
+        - name: Overview
+          href: ../migration/migrate-to-azure-container-apps-application-overview.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+        - name: Custom domain
+          href: ../migration/migrate-to-azure-container-apps-custom-domain.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+        - name: Blue-green deployment
+          href: ../migration/migrate-to-azure-container-apps-blue-green.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Managed Components
+      expanded: true
+      items:
+        - name: Application Configuration Service for Tanzu
+          href: ../migration/migrate-to-azure-container-apps-components-application-configuration-service.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+        - name: Tanzu Service Registry
+          href: ../migration/migrate-to-azure-container-apps-components-eureka.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+        - name: Spring Cloud Gateway for Tanzu
+          href: ../migration/migrate-to-azure-container-apps-components-gateway.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+        - name: API Portal for Tanzu
+          href: ../migration/migrate-to-azure-container-apps-components-api-portal.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+        - name: Application Live View
+          href: ../migration/migrate-to-azure-container-apps-components-live-view.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+        - name: Spring Cloud Config Server
+          href: ../migration/migrate-to-azure-container-apps-components-config-server.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Networking
+      href: ../migration/migrate-to-azure-container-apps-network.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Monitoring
+      href: ../migration/migrate-to-azure-container-apps-monitoring.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    - name: Tools and automation
+      href: ../migration/migrate-to-azure-container-apps-automation.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: Migrate to Azure Kubernetes Service
+    href: ../migration/migrate-to-aks-overview.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+  - name: App containerization
+    expanded: false
+    items:
+      - name: Overview
+        href: ../migration/migrate-to-azure-container-apps-build-overview.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+      - name: Build an image from artifacts
+        href: ../migration/migrate-to-azure-container-apps-build-artifacts.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+      - name: Build an image using Paketo
+        href: ../migration/migrate-to-azure-container-apps-build-buildpacks.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+      - name: Integrate with APM
+        href: ../migration/migrate-to-azure-container-apps-build-application-performance-monitoring.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
 - name: Quickstarts
   expanded: true
   items:
@@ -118,7 +177,7 @@ items:
       href: ../basic-standard/quickstart-deploy-infrastructure-vnet-bicep.md?tabs=azure-spring-apps-enterprise&toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
     - name: Provision using an ARM template
       href: ../basic-standard/quickstart-deploy-infrastructure-vnet.md?tabs=azure-spring-apps-enterprise&toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
-    - name: Provision using Azure CLI
+    - name: Provision using the Azure CLI
       href: ../basic-standard/quickstart-deploy-infrastructure-vnet-azure-cli.md?tabs=azure-spring-apps-enterprise&toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
     - name: Provision using Terraform
       href: ../basic-standard/quickstart-deploy-infrastructure-vnet-terraform.md?tabs=azure-spring-apps-enterprise&toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json

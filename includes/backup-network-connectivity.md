@@ -5,7 +5,7 @@ services: backup
 author: v-amallick
 ms.service: azure-backup
 ms.topic: include
-ms.date: 11/15/2022
+ms.date: 02/28/2025
 ms.author: v-amallick
 ms.custom: include file
 ---
@@ -56,7 +56,7 @@ You can similarly create NSG outbound security rules for Azure Storage and Micro
 
 ### Azure ExpressRoute support
 
-You can back up your data through Azure ExpressRoute by using public peering (available for old circuits). We don’t support Microsoft peering Backup over private peering.
+You can back up your data through Azure ExpressRoute by using public peering (available for old circuits). When private endpoint is enabled on the vault, use ExpressRoute private peering; if private endpoint is not enabled, use Microsoft peering and add Microsoft Entra ID’s in ExpressRoute setup and router filter.
 
 To use public peering, ensure that the following domains and addresses have HTTPS access on port 443 to:
 

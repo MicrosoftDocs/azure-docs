@@ -1,11 +1,10 @@
 ---
 title: Azure Web Application Firewall and Azure Policy
 description: Azure Web Application Firewall (WAF) combined with Azure Policy can help enforce organizational standards and assess compliance at-scale for WAF resources
-author: vhorne
-ms.author: victorh
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
-services: web-application-firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/25/2023
 ---
 
@@ -57,11 +56,7 @@ There are multiple built-in Azure Policy definitions to manage WAF resources. A 
 
 2.	On the Azure Policy service, under **Authoring**, select **Assignments**.
 
-:::image type="content" source="../media/waf-azure-policy/policy-home.png" alt-text="Screenshot of Assignments tab within Azure Policy.":::
-
 3.	On the Assignments page, select the **Assign policy** icon at the top.
-
-   :::image type="content" source="../media/waf-azure-policy/assign-policy.png" alt-text="Screenshot of Basics tab on the Assign Policy page.":::
 
 4.	On the Assign Policy page basics tab, update the following fields:
     1.	**Scope**: Select what Azure subscriptions and resource groups the policies apply to.

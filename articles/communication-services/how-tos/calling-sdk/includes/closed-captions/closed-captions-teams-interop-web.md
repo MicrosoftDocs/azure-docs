@@ -17,8 +17,8 @@ ms.author: kpunjabi
 - [Access tokens](../../../../quickstarts/identity/access-tokens.md) for External identity users.
 - For Translated captions, you need to have a [Teams premium](/MicrosoftTeams/teams-add-on-licensing/licensing-enhance-teams#meetings) license.  
 
->[!NOTE]
->Please note that you will need to have a voice calling app using Azure Communication Services calling SDKs to access the closed captions feature that is described in this guide.
+> [!NOTE]
+> Please note that you will need to have a voice calling app using Azure Communication Services calling SDKs to access the closed captions feature that is described in this guide.
 
 ## Models
 | Name | Description |
@@ -180,7 +180,7 @@ By default, if contoso provides no language or an unsupported language, the spok
 // bcp 47 formatted language code
 const language = 'en-us'; 
 
-// Altneratively, pass a value from the supported spoken languages array
+// Alternatively, pass a value from the supported spoken languages array
 const language = spokenLanguages[0]; 
 
 try {
@@ -206,7 +206,7 @@ const captionLanguages = teamsCaptions.supportedCaptionLanguages;
 // ISO 639-1 formatted language code
 const language = 'en'; 
 
-// Altneratively, pass a value from the supported caption languages array
+// Alternatively, pass a value from the supported caption languages array
 const language = captionLanguages[0];
 try {
     teamsCaptions.setCaptionLanguage(language);

@@ -60,8 +60,6 @@ In the Azure portal, you can view BGP peers, learned routes, and advertised rout
 1. In the [Azure portal](https://portal.azure.com), navigate to your virtual network gateway.
 1. Under **Monitoring**, select **BGP peers** to open the BGP peers page.
 
-   :::image type="content" source="./media/bgp-diagnostics/bgp-portal.jpg" alt-text="Screenshot of metrics in the Azure portal.":::
-
 #### Learned routes
 
 1. You can view up to 50 learned routes in the portal.

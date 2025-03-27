@@ -4,7 +4,7 @@ description: Learn how to develop and test Azure Functions by using Azure Functi
 ms.devlang: csharp
 ms.custom: devdivchpfy22
 ms.topic: conceptual
-ms.date: 01/30/2024
+ms.date: 03/17/2025
 zone_pivot_groups: function-worker-process
 ---
 
@@ -213,7 +213,7 @@ As with triggers, input and output bindings are added to your function as bindin
 
    The connection to Queue storage is obtained from the `QueueStorage` setting. For more information, see the reference article for the specific binding. 
 
-For a full list of the bindings supported by Functions, see [Supported bindings](functions-triggers-bindings.md?tabs=csharp#supported-bindings).
+For a full list of the bindings supported by Functions, see [Supported bindings](functions-triggers-bindings.md?tabs=csharp#supported-bindings). For a more complete example of this scenario, see [Connect functions to Azure Storage using Visual Studio](functions-add-output-binding-storage-queue-vs.md).
 
 ## Run functions locally
 
@@ -299,8 +299,6 @@ To attach a remote debugger to a function app running in a process separate from
 
 1. Again from the **Publish** tab, select the ellipses (**...**) in the **Hosting** section, and then choose **Attach debugger**.  
 
-    :::image type="content" source="media/functions-develop-vs/attach-to-process-in-process.png" alt-text="Screenshot of attaching the debugger from Visual Studio.":::
-
     Visual Studio connects to your function app and enables remote debugging, if not already enabled. 
     
     > [!NOTE]
@@ -327,8 +325,6 @@ To attach a remote debugger to a function app running in a process separate from
 To attach a remote debugger to a function app running in-process with the Functions host:
 
 + From the **Publish** tab, select the ellipses (**...**) in the **Hosting** section, and then choose **Attach debugger**.  
-
-    :::image type="content" source="media/functions-develop-vs/attach-to-process-in-process.png" alt-text="Screenshot of attaching the debugger from Visual Studio.":::
 
 Visual Studio connects to your function app and enables remote debugging, if not already enabled. It also locates and attaches the debugger to the host process for the app. At this point, you can debug your function app as normal. 
 ::: zone-end  

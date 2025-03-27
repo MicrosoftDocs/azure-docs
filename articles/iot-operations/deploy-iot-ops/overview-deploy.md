@@ -1,8 +1,8 @@
 ---
 title: Deployment overview
 description: Learn about the components that are included in an Azure IoT Operations deployment and the different deployment options to consider for your scenario.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.topic: conceptual
 ms.custom:
 ms.date: 11/06/2024
@@ -55,7 +55,7 @@ At any point, you can upgrade an Azure IoT Operations instance to use secure set
 
 A deployment with secure settings:
 
-* Enables secrets and user-assignment managed identity, both of which are important capabilities for developing a production-ready scenario. Secrets are used whenever Azure IoT Operations components connect to a resource outside of the cluster; for example, an OPC UA server or a dataflow endpoint.
+* Enables secrets and user-assignment managed identity, both of which are important capabilities for developing a production-ready scenario. Secrets are used whenever Azure IoT Operations components connect to a resource outside of the cluster; for example, an OPC UA server or a data flow endpoint.
 
 To deploy Azure IoT Operations with secure settings, follow these articles:
 

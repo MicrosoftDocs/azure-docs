@@ -13,7 +13,7 @@ ms.author: jsuri
 Azure Backup service already provides a [_prepost_ script framework](./backup-azure-linux-app-consistent.md) to achieve application consistency in Linux VMs using Azure Backup. This process involves invoking a pre-script (to quiesce the applications) before taking
 snapshot of disks and calling post-script (commands to un-freeze the applications) after the snapshot is completed to return the applications to the normal mode.
 
-Authoring, debugging and maintenance of e pre/post scripts could be challenging. To remove this complexity, Azure Backup provides simplified pre/post-script experience for marquee databases to get application consistent snapshot with least overhead.
+Authoring, debugging, and maintenance of the pre/post scripts could be challenging. To remove this complexity, Azure Backup provides simplified pre/post-script experience for marquee databases to get application consistent snapshot with least overhead.
 
 :::image type="content" source="./media/backup-azure-linux-database-consistent-enhanced-pre-post/linux-application-consistent-snapshot.png" alt-text="Diagram showing Linux application-consistent snapshot by Azure Backup.":::
 

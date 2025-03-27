@@ -4,9 +4,9 @@ description: Lists the permissions for the Azure resource providers in the Migra
 ms.service: role-based-access-control
 ms.topic: reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 12/12/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -305,6 +305,7 @@ Azure service: [Azure Migrate](/azure/migrate/migrate-services-overview)
 > | Microsoft.Migrate/assessmentProjects/privateEndpointConnectionProxies/validate/action | Validate a Private Endpoint Connection Proxy |
 > | Microsoft.Migrate/assessmentProjects/privateEndpointConnectionProxies/write | Create or Update a Private Endpoint Connection Proxy |
 > | Microsoft.Migrate/assessmentProjects/privateEndpointConnectionProxies/delete | Delete a Private Endpoint Connection Proxy |
+> | Microsoft.Migrate/assessmentProjects/privateendpointconnectionproxiesazureasyncoperation/read | Get Private Endpoint Connection Proxy |
 > | Microsoft.Migrate/assessmentProjects/privateEndpointConnections/read | Get Private Endpoint Connection |
 > | Microsoft.Migrate/assessmentProjects/privateEndpointConnections/write | Update a Private Endpoint Connection |
 > | Microsoft.Migrate/assessmentProjects/privateEndpointConnections/delete | Delete a Private Endpoint Connection |

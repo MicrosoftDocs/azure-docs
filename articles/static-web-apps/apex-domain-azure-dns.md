@@ -2,11 +2,11 @@
 title: Set up an apex domain with Azure DNS in Azure Static Web Apps
 description: Configure the root domain with Azure DNS in Azure Static Web Apps
 services: static-web-apps
-author: craigshoemaker
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic: how-to
 ms.date: 02/11/2022
-ms.author: cshoe
+ms.author: wujia
 ---
 
 # Set up an apex domain with Azure DNS in Azure Static Web Apps
@@ -16,6 +16,9 @@ Domain names without a subdomain are known as apex or root domains. For example,
 This guide demonstrates how to use `TXT` and `ALIAS` records to configure your apex domain in Azure DNS.
 
 The following procedure requires you to copy settings from an Azure DNS zone you create and your existing static web app. Consider opening the Azure portal in two different windows to make it easier to switch between the two services.
+
+> [!NOTE]
+> Apex domain changes can take up to 72 hours to propagate.
 
 ## Validate domain ownership
 

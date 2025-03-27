@@ -11,6 +11,9 @@ ms.date: 03/04/2024
 
 # Add and manage app attach and MSIX app attach applications in Azure Virtual Desktop
 
+> [!IMPORTANT]
+> MSIX App Attach will be deprecated on June 1, 2025. Make sure to move all apps to App Attach by this date.
+
 > [!TIP]
 > A new version of app attach for Azure Virtual Desktop is available. Select a button at the top of this article to choose between *app attach* and *MSIX app attach* to see the relevant documentation.
 

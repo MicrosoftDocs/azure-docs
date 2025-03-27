@@ -1,9 +1,10 @@
 ---
-title: Introduction to the Fitness Store sample app
+title: Introduction to the Fitness Store Sample App
 titleSuffix: Azure Spring Apps Enterprise plan
 description: Describes the sample app used in this series of quickstarts for deployment to the Azure Spring Apps Enterprise plan.
 author: KarlErickson
-ms.author: asirveda # external contributor: paly@vmware.com
+ms.author: karler
+ms.reviewer: asirveda # external contributor: paly@vmware.com
 ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 06/27/2024
@@ -38,7 +39,7 @@ This quickstart applies this architecture to a Fitness Store application. This a
 - One ASP.NET Core application:
   - **Order Service** places orders to buy products that are in the users' carts.
 
-- One NodeJS and static HTML application:
+- One Node.js and static HTML application:
   - **Frontend** is the shopping application that depends on the other services.
 
 ## Next steps

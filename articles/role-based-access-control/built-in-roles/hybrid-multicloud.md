@@ -5,9 +5,9 @@ ms.service: role-based-access-control
 ms.topic: reference
 ms.workload: identity
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 01/09/2025
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -129,7 +129,7 @@ Azure Resource Bridge Deployment Role
 
 ## Azure Stack HCI Administrator
 
-Grants full access to the cluster and its resources, including the ability to register Azure Local and assign others as Azure Stack HCI VM Contributor and/or Azure Stack HCI VM Reader.
+Grants full access to the cluster and its resources, including the ability to register Azure Local and assign others as Azure Stack HCI VM Contributor and/or Azure Stack HCI VM Reader
 
 [Learn more](/azure-stack/hci/manage/assign-vm-rbac-roles)
 
@@ -482,7 +482,7 @@ Grants permissions to perform all VM actions
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/MarketplaceGalleryImages/Read | Gets/Lists market place gallery images resource |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/MarketPlaceGalleryImages/deploy/action | Deploys market place gallery images resource |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Clusters/Read | Gets clusters |
-> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Clusters/ArcSettings/Read | Gets arc resource of HCI cluster |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Clusters/ArcSettings/Read | Gets Arc resource of Azure Local cluster |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/NetworkSecurityGroups/Read | Gets/Lists a network security group resource |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/NetworkSecurityGroups/SecurityRules/Read | Gets/Lists security rule resource |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Write | Create or update a classic metric alert |

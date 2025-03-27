@@ -2,7 +2,7 @@
 title: List Azure deny assignments - Azure RBAC
 description: Learn how to list Azure deny assignments in Azure role-based access control (Azure RBAC).
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.date: 03/12/2024

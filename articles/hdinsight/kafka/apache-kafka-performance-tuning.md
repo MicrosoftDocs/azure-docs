@@ -4,6 +4,9 @@ description: Provides an overview of techniques for optimizing Apache Kafka work
 ms.service: azure-hdinsight
 ms.custom: linux-related-content
 ms.topic: conceptual
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 09/06/2024
 ---
 

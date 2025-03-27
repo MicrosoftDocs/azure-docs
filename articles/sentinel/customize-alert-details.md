@@ -72,8 +72,8 @@ Follow the procedure detailed below to use the alert details feature. These step
 
         | Name | Description |
         | ---- | ----------- |
-        | **AlertName**                      | String |
-        | **Description**                    | String |
+        | **AlertName**                      | String. Supports plain text only. |
+        | **Description**                    | String. Supports plain text only, if Microsoft Sentinel is onboarded to Defender portal. |
         | **AlertSeverity**                  | One of the following values: <br>- **Informational**<br>- **Low**<br>- **Medium**<br>- **High** |
         | **Tactics**                        | One of the following values: <br>- **Reconnaissance**<br>- **ResourceDevelopment**<br>- **InitialAccess**<br>- **Execution**<br>- **Persistence**<br>- **PrivilegeEscalation**<br>- **DefenseEvasion**<br>- **CredentialAccess**<br>- **Discovery**<br>- **LateralMovement**<br>- **Collection**<br>- **Exfiltration**<br>- **CommandAndControl**<br>- **Impact**<br>- **PreAttack**<br>- **ImpairProcessControl**<br>- **InhibitResponseFunction** |
         | **Techniques** (Preview)           | A string that matches the following regular expression: `^T(?<Digits>\d{4})$`. <br>For example: **T1234** |
@@ -81,14 +81,19 @@ Follow the procedure detailed below to use the alert details feature. These step
         | **ConfidenceLevel** (Preview)      | One of the following values: <br>- **Low**<br>- **High**<br>- **Unknown** |
         | **ConfidenceScore** (Preview)      | Integer, between **0**-**1** (inclusive) |
         | **ExtendedLinks** (Preview)        | String |
-        | **ProductComponentName** (Preview) | String |
-        | **ProductName** (Preview)<br>\* See note following this table          | String |
-        | **ProviderName** (Preview)         | String |
+        | **ProductComponentName** (Preview)<br>\* See Caution notes following this table | String |
+        | **ProductName** (Preview)<br>\* See Caution notes following this table          | String |
+        | **ProviderName** (Preview)<br>\* See Caution notes following this table         | String |
         | **RemediationSteps** (Preview)     | String |
     
-       > [!NOTE]
+       > [!CAUTION]
        > 
-       > If you onboarded Microsoft Sentinel to the Microsoft Defender portal, **do not customize** the *ProductName* field for alerts from Microsoft sources. Doing so will result in these alerts being dropped from Microsoft Defender XDR and no incident being created.
+       > If you onboarded Microsoft Sentinel to the Microsoft Defender portal:
+       > - **Do not customize** the *ProductName* field for alerts from Microsoft sources. Doing so will result in these alerts being dropped from Microsoft Defender XDR and no incident being created.
+       >
+       > - The *ProductComponentName* and *ProviderName* fields are no longer available to be customized.
+       > 
+       > If any of these customizations already exist in any of your rules, remove the customizations to maintain compatibility and avoid unexpected results.
 
     If you change your mind, or if you made a mistake, you can remove an alert detail by clicking the trash can icon next to the **Alert property/Value** pair, or delete the free text from the **Alert Name/Description Format** fields.
 
