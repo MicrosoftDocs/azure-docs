@@ -92,5 +92,6 @@ The user identity is intended to act as a primary key for logs and metrics colle
 > [!div class="nextstepaction"]
 > [Trusted authentication service hero sample](../samples/trusted-auth-sample.md)
 
-For more information, see the following articles:
+## Related articles
+
 - [Learn about client and server architecture](../concepts/identity-model.md#client-server-architecture)

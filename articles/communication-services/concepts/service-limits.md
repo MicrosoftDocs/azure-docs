@@ -320,6 +320,6 @@ When you implement error handling, use the HTTP error code 429 to detect throttl
 
 You can find more information about Microsoft Graph [throttling](/graph/throttling) limits in the [Microsoft Graph](/graph/overview) documentation.
 
-## Related content
+## Related articles
 
 - [Help and support options](../support.md)

@@ -38,8 +38,8 @@ Azure Communication Services is committed to releasing these features as part of
 
 ## Related articles
 
-- [Office 365 Government plans](https://www.microsoft.com/en-us/microsoft-365/enterprise/government-plans-and-pricing)
+- [Office 365 Government plans](https://www.microsoft.com/microsoft-365/enterprise/government-plans-and-pricing)
 
 - [Office 365 GCC High and DoD](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)
 
-- [Eligibility requirements for Azure Government](https://azure.microsoft.com/en-us/explore/global-infrastructure/government/how-to-buy/)
+- [Eligibility requirements for Azure Government](https://azure.microsoft.com/explore/global-infrastructure/government/how-to-buy/)
