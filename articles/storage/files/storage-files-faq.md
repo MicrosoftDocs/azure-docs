@@ -129,7 +129,7 @@ ms.topic: faq
 * <a id="alternate-data-streams"></a>
 **Does Azure Files support alternate data streams?**
 
-  Azure Files does not support [alternate data streams](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-fscc/e2b19412-a925-4360-b009-86e3b8a020c8). Transferring data via SMB will throw a **file already exists** message if an alternate data stream is found. Alternate streams can be checked by using the PowerShell command
+  Azure Files doesn't support [alternate data streams](https://learn.microsoft.com/openspecs/windows_protocols/ms-fscc/e2b19412-a925-4360-b009-86e3b8a020c8). Transferring data via SMB will throw a **file already exists** message if an alternate data stream is found. You can check alternate streams by using the following PowerShell command:
 
 ```powershell
   get-item <file path+name> -Stream *
