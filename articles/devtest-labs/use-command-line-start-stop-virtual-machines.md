@@ -4,7 +4,7 @@ description: Use Azure PowerShell or Azure CLI command lines and scripts to star
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/20/2025
+ms.date: 03/27/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, UpdateFrequency2 
 ms.devlang: azurecli
 
@@ -98,6 +98,12 @@ To run the script locally, use the appropriate syntax depending on whether you h
    REM az account set --subscription <SubscriptionId>
    ```
 
+1. If you don't know the name of the Azure resource group that contains your lab, find it by providing your `<lab name>` in the following query.
+
+   ```azurecli
+   az resource list --resource-type "Microsoft.DevTestLab/labs" --name "<lab name>" --query "[0].resourceGroup"
+   ```
+
 1. Set variables by providing values for `<SubscriptionId>`, `<resourceGroup>`, `<lab name>`, `<VM name>`, and whether to `Start` or `Stop` the VM.
 
    **Bash**
@@ -119,13 +125,6 @@ To run the script locally, use the appropriate syntax depending on whether you h
    set VMNAME=<VM name>
    set ACTION=<Start or Stop>
    ```
-
-   >[!TIP]
-   >If you don't know the name of the Azure resource group that contains your lab, you can find it by providing your `<lab name>` in the following query.
-   >
-   >```azurecli
-   >az resource list --resource-type "Microsoft.DevTestLab/labs" --name "<lab name>" --query "[0].resourceGroup"
-   >```
 
 1. Run the following Azure CLI command to start or stop the VM, based on the value passed to `ACTION`.
 
