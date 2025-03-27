@@ -155,8 +155,5 @@ With the protected items view, you can choose to perform actions from:
 
 ## Next steps
 
-For more information about Azure Business Continuity center and how it works, check out [Configure protection from ABC Center](./tutorial-configure-protection-datasource.md).
-
-## Related content
-
-[Cloud-Adoption Framework for business continuity and disaster recovery of SAP migration](/azure/cloud-adoption-framework/scenarios/sap/eslz-business-continuity-and-disaster-recovery#backup-and-restore).
+- For more information about Azure Business Continuity center and how it works, check out [Configure protection from ABC Center](./tutorial-configure-protection-datasource.md).
+- [Cloud-Adoption Framework for business continuity and disaster recovery of SAP migration](/azure/cloud-adoption-framework/scenarios/sap/eslz-business-continuity-and-disaster-recovery#backup-and-restore).
