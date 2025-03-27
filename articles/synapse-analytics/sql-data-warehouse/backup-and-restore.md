@@ -4,7 +4,7 @@ description: Learn how backup and restore works in Azure Synapse Analytics dedic
 author: realAngryAnalytics
 ms.author: stevehow
 manager: joannapea
-ms.reviewer: joanpo, wiassaf
+ms.reviewer: joanpo
 ms.date: 03/21/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
