@@ -124,6 +124,7 @@ An Arc-enabled server is considered managed by Azure Update Manager for days on 
 An Arc-enabled server managed with Azure Update Manager is not charged in following scenarios:
  - If the machine is enabled for delivery of Extended Security Updates (ESUs) enabled by Azure Arc.
  - Microsoft Defender for Servers Plan 2 is enabled for the subscription hosting the Arc-enabled server. However, if customer is using Defender using Security connector, they will be charged.
+ - When a customer has active software assurance for their Windows server licenses, and has activated the software assurance benefits within Azure Arc.
 
 ### Will I be charged if I move from Automation Update Management to Update Manager? 
 
