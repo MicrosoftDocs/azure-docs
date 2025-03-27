@@ -25,8 +25,9 @@ In this how-to article, you'll learn how to create a storage task using Terrafor
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
+In this article, you learn how to:
+
 > [!div class="checklist"]
-> * Retrieve the current Azure client configuration.
 > * Generate a random name for the resource group.
 > * Create a new Azure resource group with the generated name.
 > * Generate a random string to be used as the storage task name.
