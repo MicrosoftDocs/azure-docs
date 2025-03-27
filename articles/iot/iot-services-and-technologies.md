@@ -49,7 +49,7 @@ In contrast, the devices and routing definitions in IoT Hub aren't exposed as in
 
 ## Azure IoT Operations
 
-Use Azure IoT Operations to build an edge-based IoT solution that follows the adaptive cloud approach.
+> Use Azure IoT Operations to build an edge-based IoT solution that follows the adaptive cloud approach.
 
 ### Azure Device Registry
 
