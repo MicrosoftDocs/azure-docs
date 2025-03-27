@@ -12,7 +12,7 @@ ms.author: jsuri
 
 This article describes how to back up an Azure Database for PostgreSQL server. Before you begin, review the [supported configurations, feature considerations, and known limitations](./backup-azure-database-postgresql-support-matrix.md), along with [frequently asked questions](/azure/backup/backup-azure-database-postgresql-server-faq).
 
-## Configure a backup on PostgreSQL databases
+## <a name = "configure-backup-on-azure-postgresql-databases"></a>Configure a backup on PostgreSQL databases
 
 You can configure a backup on multiple databases across multiple Azure Database for PostgreSQL servers. To configure this kind of backup by using Azure Backup, follow these steps:
 
@@ -113,7 +113,7 @@ You can configure a backup on multiple databases across multiple Azure Database 
 
    :::image type="content" source="./media/backup-azure-database-postgresql/submit-configure-backup-operation-inline.png" alt-text="Screenshot that shows the details for a configured backup." lightbox="./media/backup-azure-database-postgresql/submit-configure-backup-operation-expanded.png":::
 
-## Create a backup policy
+## <a name = "create-backup-policy"></a>Create a backup policy
 
 You can create a backup policy during the flow for configuring a backup. Alternatively, go to **Backup center** > **Backup policies** > **Add**.
 
@@ -148,7 +148,7 @@ Retention rules are evaluated in a predetermined order of priority. The priority
 
 Default retention settings apply when no other rules qualify. For example, the same recovery point might be the first successful backup taken every week, along with the first successful backup taken every month. However, because the priority of the monthly rule is higher than that of the weekly rule, the retention that corresponds to the first successful backup taken every month applies.
 
-## Create a secret in the key vault
+## <a name = "create-secrets-in-the-key-vault"></a>Create a secret in the key vault
 
 The secret is the Azure Database for PostgreSQL server connection string in *ADO.NET* format. It's updated with the credentials of the database user who's granted the backup privileges on the server.
 
@@ -158,7 +158,7 @@ Copy the connection string from the Azure Database for PostgreSQL server, and us
 
 :::image type="content" source="./media/backup-azure-database-postgresql/create-secret-inline.png" alt-text="Screenshot that shows the pane for creating a secret and a Notepad file that contains a connection string." lightbox="./media/backup-azure-database-postgresql/create-secret-expanded.png":::
 
-## Run the PowerShell script to grant privileges to database users
+## <a name = "run-powershell-script-to-grant-privileges-to-database-users"></a>Run the PowerShell script to grant privileges to database users
 
 The PowerShell script that's dynamically generated during the process of configuring a backup accepts the database user as the input, along with the PostgreSQL admin credentials, to grant the backup-related privileges to the database user on the database.
 
