@@ -16,25 +16,18 @@ ms.reviewer: mjbrown
 
 [!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
 
-
 This article describes how to either:
 
 - Relocate a region where data is replicated in Azure Cosmos DB.
 - Migrate account (Azure Resource Manager) metadata and data from one region to another.
 
-
 ## Prerequisites
 
 - An app registration must be created with delegated permission to the source and target resource group instance and “API permission” for “User.ReadBasic.All”.
-
 - The selected Cosmos DB API must remain same from source to target. This document uses SQL DB API.
-
 - Account names must be limited to 44 characters, all lowercase.
-
 - When you add or remove locations to an Azure Cosmos account, you can’t simultaneously modify other properties.
-
 - Identify all Cosmos DB dependent resources.
-
 
 ## Downtime
 
@@ -43,8 +36,6 @@ This article describes how to either:
 The virtual network service endpoints for Azure Cosmos DB restrict access to a specified virtual network. The endpoints can also restrict access to a list of IPv4 (internet protocol version 4) address ranges. Any user connecting to the Event Hubs from outside those sources is denied access. If Service endpoints were configured in the source region for the Event Hubs resource, the same would need to be done in the target one.
 
 For a successful recreation of the Azure Cosmos DB to the target region, the VNet and Subnet must be created beforehand. In case the move of these two resources is being carried out with the Azure Resource Mover tool, the service endpoints won’t be configured automatically. Hence, they need to be configured manually, which can be done through the [Azure portal](/azure/key-vault/general/quick-create-portal), the [Azure CLI](/azure/key-vault/general/quick-create-cli), or [Azure PowerShell](/azure/key-vault/general/quick-create-powershell).
-
-
 
 ## Redeploy without data
 
@@ -60,8 +51,8 @@ Azure Cosmos DB supports data replication natively, so moving data from one regi
 
 1. Perform a manual failover to the new region.
 
-    When the region that's being removed is currently the write region for the account, you'll need to start a failover to the new region added in the previous step. This is a zero-downtime operation. If you're moving a read region in a multiple-region account, you can skip this step. 
-    
+    When the region that's being removed is currently the write region for the account, you'll need to start a failover to the new region added in the previous step. This is a zero-downtime operation. If you're moving a read region in a multiple-region account, you can skip this step.
+
     To start a failover, see [Perform manual failover on an Azure Cosmos DB account](/azure/cosmos-db/how-to-manage-database-account#perform-manual-failover-on-an-azure-cosmos-db-account).
 
 1. Remove the original region.
@@ -69,7 +60,7 @@ Azure Cosmos DB supports data replication natively, so moving data from one regi
     To remove a region from an Azure Cosmos DB account, see [Add/remove regions from your Azure Cosmos DB account](/azure/cosmos-db/how-to-manage-database-account#add-remove-regions-from-your-database-account).
 
 > [!NOTE]
-> If you perform a failover operation or add/remove a new region while an [asynchronous throughput scaling operation](/azure/cosmos-db/scaling-provisioned-throughput-best-practices#background-on-scaling-rus) is in progress, the throughput scale-up operation will be paused. It will resume automatically when the failover or add/remove region operation is complete. 
+> If you perform a failover operation or add/remove a new region while an [asynchronous throughput scaling operation](/azure/cosmos-db/scaling-provisioned-throughput-best-practices#background-on-scaling-rus) is in progress, the throughput scale-up operation will be paused. It will resume automatically when the failover or add/remove region operation is complete.
 
 ## Redeploy Azure Cosmos DB account metadata
 
@@ -112,5 +103,5 @@ The following steps demonstrate how to migrate an Azure Cosmos DB account for th
 
 For more information and examples on how to manage the Azure Cosmos DB account as well as databases and containers, read the following articles:
 
-* [Manage an Azure Cosmos DB account](/azure/cosmos-db/how-to-manage-database-account)
-* [Change feed in Azure Cosmos DB](/azure/cosmos-db/change-feed)
+- [Manage an Azure Cosmos DB account](/azure/cosmos-db/how-to-manage-database-account)
+- [Change feed in Azure Cosmos DB](/azure/cosmos-db/change-feed)

@@ -11,8 +11,7 @@ ms.custom:
 
 # Relocate Azure App Services to another region
 
-
-This article describes how to move App Service resources to a different Azure region. 
+This article describes how to move App Service resources to a different Azure region.
 
 [!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
 
@@ -24,7 +23,7 @@ To make copying your app easier, you can [backup and restore individual App Serv
 
 - Make sure that the App Service app is in the Azure region from which you want to move.
 - Make sure that the target region supports App Service and any related service, whose resources you want to move.
-- Validate that sufficient permission exist to deploy App Service resources to the target subscription and region. 
+- Validate that sufficient permission exist to deploy App Service resources to the target subscription and region.
 - Validate if any Azure policy is assigned with a region restriction.
 - Consider any operating costs, as Compute resource prices can vary from region to region. To estimate your possible costs, see [Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
@@ -46,7 +45,7 @@ Certain resources, such as imported certificates or hybrid connections, contain 
 
 ## Plan
 
-This section is a planning checklist in the following areas: 
+This section is a planning checklist in the following areas:
 
 - State, Storage and downstream dependencies
 - Certificates
@@ -57,12 +56,12 @@ This section is a planning checklist in the following areas:
 
 ### State, storage, and downstream dependencies
 
- - **Determine whether your App Service App is stateful or stateless.** Although we recommend that App Service Apps are stateless and the files on the `%HOME%\site` drive should be only those that are required to run the deployed application with any temporary files, it's still possible to store runtime application state on the `%HOME%\site` virtual drive. If your application writes state on the app shared storage path, make sure to plan how you're going to manage that state during a resource move.
- 
-    >[!TIP]
-    >You can use Kudu to, along with portal access, to provide a file access API (Virtual File System (VFS)) that can read/write files under the `%HOME%\site` directory. For more information, see [Kudu Wiki](https://github.com/projectkudu/kudu/wiki/REST-API#vfs).
+- **Determine whether your App Service App is stateful or stateless.** Although we recommend that App Service Apps are stateless and the files on the `%HOME%\site` drive should be only those that are required to run the deployed application with any temporary files, it's still possible to store runtime application state on the `%HOME%\site` virtual drive. If your application writes state on the app shared storage path, make sure to plan how you're going to manage that state during a resource move.
 
-- **Check for internal caching and state** in application code. 
+  >[!TIP]
+  >You can use Kudu to, along with portal access, to provide a file access API (Virtual File System (VFS)) that can read/write files under the `%HOME%\site` directory. For more information, see [Kudu Wiki](https://github.com/projectkudu/kudu/wiki/REST-API#vfs).
+
+- **Check for internal caching and state** in application code.
 
 - **Disable session affinity setting.** Where possible, we recommend that you disable the session affinity setting.  Disabling session affinity improves load balancing for a horizontal scale-out. Any internal state may impact the planning for cutting over a workload - particularly if zero down time is a requirement. Where possible, it may be beneficial to refactor out any application state to make the application stateless in preparation for the move.
 
@@ -108,23 +107,21 @@ Some further points to consider:
 
 - In most cases, it's best to **ensure that the target region VNets have unique address space**. A unique address space facilitates VNet connectivity if it’s required, for example, to replicate data. Therefore, in these scenarios there's an implicit requirement to change:
 
-    - Private DNS
-    - Any hard coded or external configuration that references resources by IP address (without a hostname)
-    - Network ACLs including Network Security Groups and Firewall configuration (consider the impact to any on-premises NVAs here too)
-    - Any routing rules, User Defined Route Tables
-    
-    Also, make sure to check configuration including region specific IP Ranges / Service Tags if carrying forward existing DevOps deployment resources.
+  - Private DNS
+  - Any hard coded or external configuration that references resources by IP address (without a hostname)
+  - Network ACLs including Network Security Groups and Firewall configuration (consider the impact to any on-premises NVAs here too)
+  - Any routing rules, User Defined Route Tables
 
-- Fewer changes are required for customer-deployed private DNS that is configured to forward to Azure for Azure domains and Azure DNS Private Zones. However, as Private Endpoints are based on a resource FQDN and this is often also the resource name (which can be expected to be different in the target region), remember to **cross check configuration to ensure that FQDNs referenced in configuration are updated accordingly**. 
+  Also, make sure to check configuration including region specific IP Ranges / Service Tags if carrying forward existing DevOps deployment resources.
+  
+- Fewer changes are required for customer-deployed private DNS that is configured to forward to Azure for Azure domains and Azure DNS Private Zones. However, as Private Endpoints are based on a resource FQDN and this is often also the resource name (which can be expected to be different in the target region), remember to **cross check configuration to ensure that FQDNs referenced in configuration are updated accordingly**.
 
 - **Recreate Private Endpoints, if used, in the target region**. The same applies for Regional VNet integration.
 
-
- - DNS for App Service Environment is typically managed via the customers private custom DNS solution (there is a manual settings override available on a per app basic). App Service Environment provides a load balancer for ingress/egress,  while App Service itself filters on Host headers. Therefore, multiple custom names can be pointed towards the same App Service Environment ingress endpoint. App Service Environment doesn't require domain validation. 
+  - DNS for App Service Environment is typically managed via the customers private custom DNS solution (there is a manual settings override available on a per app basic). App Service Environment provides a load balancer for ingress/egress,  while App Service itself filters on Host headers. Therefore, multiple custom names can be pointed towards the same App Service Environment ingress endpoint. App Service Environment doesn't require domain validation.
 
     >[!NOTE]
     >Kudu endpoint for App Service Environment v3 is only available at ``{resourcename}.scm.{asename}.appserviceenvironment.net``. For more information on App Service Environment v3 DNS and Networking etc see [App Service Environment networking](/azure/app-service/environment/networking#dns).
-
 
     For App Service Environment,  the customer owns the routing and therefore the resources used for the cut-over. Wherever access is enabled to the App Service Environment externally - typically via a Layer 7 NVA or Reverse Proxy -  Traffic Manager, or Azure Front Door/Other L7 Global Load Balancing Service can be used.
 
@@ -136,7 +133,7 @@ Some further points to consider:
 
 - **Plan for relocating the Identity Provider (IDP) to the target region**. Although Microsoft Entra ID is a global service, some solutions rely on a local (or downstream on premises) IDP.
 
-- **Update any resources to the App Service that may rely on Kudu FTP credentials.** 
+- **Update any resources to the App Service that may rely on Kudu FTP credentials.**
 
 ### Service endpoints
 
@@ -146,16 +143,15 @@ For a successful recreation of the Azure App Service  to the target region, the 
 
 ## Relocate
 
-To relocate App Service resources, you can use either Azure portal or Infrastructure as Code (IaC). 
+To relocate App Service resources, you can use either Azure portal or Infrastructure as Code (IaC).
 
 ### Relocate using Azure portal
 
 The greatest advantage of using Azure portal to relocate is its simplicity. The app, plan, and contents, as well as many settings are cloned into the new App Service resource and plan.
 
-Keep in mind that for App Service Environment (Isolated) tiers, you need to redeploy the entire App Service Environment in another region first, and then you can start redeploying the individual plans in the new App Service Environment in the new region. 
+Keep in mind that for App Service Environment (Isolated) tiers, you need to redeploy the entire App Service Environment in another region first, and then you can start redeploying the individual plans in the new App Service Environment in the new region.
 
 **To relocate your App Service resources to a new region using Azure portal:**
-
 
 1. [Create a back up of the source app](../app-service/manage-backup.md).
 1. [Create an app in a new App Service plan, in the target region](../app-service/app-service-plan-manage.md#create-an-app-service-plan).
@@ -163,7 +159,6 @@ Keep in mind that for App Service Environment (Isolated) tiers, you need to rede
 1. If you use a custom domain, [bind it preemptively to the target app](../app-service/manage-custom-dns-migrate-domain.md#2-create-the-dns-records) with `asuid.` and [enable the domain in the target app](../app-service/manage-custom-dns-migrate-domain.md#3-enable-the-domain-for-your-app).
 1. Configure everything else in your target app to be the same as the source app and verify your configuration.
 1. When you're ready for the custom domain to point to the target app, [remap the domain name](../app-service/manage-custom-dns-migrate-domain.md#4-remap-the-active-dns-name).
-
 
 ### Relocate using IaC
 
@@ -173,12 +168,10 @@ SLA requirements should determine how much additional effort is required. For ex
 
 The inclusion of external, global traffic routing edge services, such as Traffic Manager, or Azure Front Door help to facilitate cut-over for external users and applications.
 
-
 >[!TIP]
 >It's possible to use Traffic Manager (ATM) when failing over App Services behind private endpoints. Although the private endpoints are not reachable by Traffic Manager Probes - if all endpoints are degraded, then ATM allows routing. For more information, see [Controlling Azure App Service traffic with Azure Traffic Manager](../app-service/web-sites-traffic-manager.md).
 
 ## Validate
-
 
 Once the relocation is completed, test and validate Azure App Service with the recommended guidelines:
 
@@ -186,14 +179,12 @@ Once the relocation is completed, test and validate Azure App Service with the r
 
 - Validate all Azure App Service components and integration.
 
-- Perform integration testing on the target region deployment, including all formal regression testing. Integration testing should align with the usual Rhythm of Business deployment and test processes applicable to the workload. 
+- Perform integration testing on the target region deployment, including all formal regression testing. Integration testing should align with the usual Rhythm of Business deployment and test processes applicable to the workload.
 
 - In some scenarios, particularly where the relocation includes updates, changes to the applications or Azure Resources, or a change in usage profile, use load testing to validate that the new workload is fit for purpose. Load testing is also an opportunity to validate operations and monitoring coverage. For example, use load testing to validate that the required infrastructure and application logs are being generated correctly. Load tests should be measured against established workload performance baselines.
 
-
 >[!TIP]
 >An App Service relocation is also an opportunity to re-assess Availability and Disaster Recovery planning. App Service and App Service Environment (App Service Environment v3) supports [availability zones](/azure/reliability/availability-zones-overview) and it's recommended that configure with an availability zone configuration.  Keep in mind the prerequisites for deployment, pricing, and limitations and factor these into the resource move planning. For more information on availability zones and App Service, see [Reliability in Azure App Service](/azure/reliability/reliability-app-service).
-
 
 ## Clean up
 
