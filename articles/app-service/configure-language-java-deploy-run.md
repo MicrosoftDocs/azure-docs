@@ -461,7 +461,7 @@ To improve performance of Tomcat applications, you can compile your JSP files be
 
 [!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
 
-## Choose a Java runtime version
+## <a name = "choosing-a-java-runtime-version"></a> Choose a Java runtime version
 
 App Service allows users to choose the major version of the JVM, such as Java 8 or Java 11, and the patch version, like 1.8.0_232 or 11.0.5. You can also choose to have the patch version update automatically as new minor versions become available. In most cases, production apps should use pinned patch JVM versions, which prevents unanticipated outages during a patch version autoupdate. All Java web apps use 64-bit JVMs, and it's not configurable.
 
