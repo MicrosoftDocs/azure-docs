@@ -7,7 +7,7 @@ ms.service: azure-storage-actions
 ms.custom: devx-track-terraform;build-2023-metadata-update
 ms.topic: quickstart
 ms.author: normesta
-ms.date: 03/25/2025
+ms.date: 03/26/2025
 #customer intent: As a Terraform user, I want to see how to create a storage task using Terraform.
 content_well_notification: 
   - AI-contribution
@@ -17,7 +17,7 @@ content_well_notification:
 
 A storage task can perform operations on blobs in an Azure Storage account. As you create a task, you can define the conditions that must be met by each object (container or blob), and the operations to perform on the object. You can also identify one or more Azure Storage account targets. See [What are Azure Storage Actions?](../overview.md).
 
-In this how-to article, you'll learn how to create a storage task using Terraform.
+In this how-to article, you learn how to create a storage task using Terraform.
 
 > [!IMPORTANT]
 > Azure Storage Actions is currently in PREVIEW and is available in these [regions](../overview.md#supported-regions).
@@ -61,14 +61,14 @@ The sample code for this article is located in the [Azure Terraform GitHub repo]
 1. Create a file named `outputs.tf` and insert the following code.
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-actions-create-storage-task/outputs.tf":::
 
+## Initialize Terraform
+
 > [!IMPORTANT]
 > If you are using the 4.x azurerm provider, you must [explicitly specify the Azure subscription ID](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#specifying-subscription-id-is-now-mandatory) to authenticate to Azure before running the Terraform commands.
 >
 > One way to specify the Azure subscription ID without putting it in the `providers` block is to specify the subscription ID in an environment variable named `ARM_SUBSCRIPTION_ID`.
 >
 > For more information, see the [Azure provider reference documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#argument-reference).
-
-## Initialize Terraform
 
 [!INCLUDE [terraform-init.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-init.md)]
 

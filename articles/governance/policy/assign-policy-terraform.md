@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: New policy assignment with Terraform'
-description: In this quickstart, you use Terraform and Hashicorp Configuration Language (HCL) syntax to create a policy assignment to identify non-compliant resources.
+description: In this quickstart, you use Terraform and Hashicorp Configuration Language (HCL) syntax to create a policy assignment to identify noncompliant resources.
 ms.date: 03/26/2025
 ms.topic: quickstart
 ms.custom: devx-track-terraform
@@ -10,10 +10,10 @@ content_well_notification:
   - AI-contribution
 ---
 
-# Quickstart: Create a policy assignment to identify non-compliant resources using Terraform
+# Quickstart: Create a policy assignment to identify noncompliant resources using Terraform
 
 The first step in understanding compliance in Azure is to identify the status of your resources. This quickstart steps you through the process of creating a policy assignment to identify virtual
-machines that aren't using managed disks. At the end of this process, you identify virtual machines that aren't using managed disks across subscription. They're _non-compliant_ with the policy assignment.
+machines that are not using managed disks.
 
 [!INCLUDE [azure-policy-version-default](../includes/policy/policy-version-default.md)]
 
@@ -49,13 +49,6 @@ The sample code for this article is located in the [Azure Terraform GitHub repo]
 
 1. Create a file named `outputs.tf` and insert the following code.
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-policy/outputs.tf":::
-
-> [!IMPORTANT]
-> If you are using the 4.x azurerm provider, you must [explicitly specify the Azure subscription ID](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#specifying-subscription-id-is-now-mandatory) to authenticate to Azure before running the Terraform commands.
->
-> One way to specify the Azure subscription ID without putting it in the `providers` block is to specify the subscription ID in an environment variable named `ARM_SUBSCRIPTION_ID`.
->
-> For more information, see the [Azure provider reference documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#argument-reference).
 
 ## Specify scope
 
@@ -94,7 +87,7 @@ A scope determines what resources or grouping of resources the policy assignment
     armclient post "/subscriptions/<subscription_id>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
     ```
     
-1. The results are comparable to what you see listed under **Non-compliant resources** in the Azure portal view.
+1. The results are comparable to what you see listed under **Noncompliant resources** in the Azure portal view.
 
 ## Clean up resources
 
