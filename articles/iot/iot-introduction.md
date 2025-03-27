@@ -23,7 +23,7 @@ The following sections give a high-level view of the components in typical cloud
 
 ## Cloud-based solution
 
-A **cloud-based solution** is an integrated set of IoT devices, components, and services, that addresses a business need and that connects devices directly to the cloud. An example of a cloud-based solution is a fleet of delivery trucks that send telemetry data to the cloud for analysis and visualization:
+A **cloud-based solution** is an integrated set of IoT devices, components, and services, that addresses a business need and that connects devices directly to the cloud. An example of a cloud-based solution is a fleet of delivery trucks that send sensor data to the cloud for analysis and visualization:
 
 <!-- Art Library Source# ConceptArt-0-000-025 -->
 
@@ -63,7 +63,7 @@ There's a wide variety of devices available from different manufacturers to buil
 
 Microsoft provides open-source [Device SDKs](../iot-hub/iot-hub-devguide-sdks.md) that you can use to build the apps that run on your devices.
 
-To learn more about the devices in your IoT solution, see [IoT device development](iot-overview-device-development.md).
+To learn more about the devices in your IoT solution, see [IoT asset and device development](iot-overview-device-development.md).
 
 ### IoT assets
 
@@ -80,13 +80,14 @@ An IoT asset is a broader concept than an IoT device and refers to any item of v
 
 In Azure IoT Operations, the term *asset* also refers to the virtual representation of a physical asset. In an Azure IoT Operations deployment, you use [Azure Device Registry](../iot-operations/discover-manage-assets/overview-manage-assets.md) to manage your assets across both Azure and your Kubernetes cluster as a part of the adaptive cloud approach. The Azure Device Registry service stores information about your assets, such as their metadata, and their connection information and enables you to use tools such as Azure Resource Manager to manage them.
 
+To learn more about device and asset comparisons, see [Device and asset comparisons](iot-services-and-technologies.md#device-and-asset-comparisons).
+
 ### Device connectivity
 
-Typically, IoT devices send telemetry from their attached sensors to cloud services in your solution. However, other types of communication are possible such as a cloud service sending commands to your devices. The following are examples of device-to-cloud and cloud-to-device communication:
+Typically, IoT devices send data from their attached sensors to cloud services in your solution. However, other types of communication are possible such as a cloud service sending commands to your devices. The following are examples of device-to-cloud and cloud-to-device communication:
 
 - A mobile refrigeration truck sends temperature every 5 minutes to an IoT Hub.
-
-- A cloud service sends a command to a device to change the frequency at which it sends telemetry to help diagnose a problem.
+- A cloud service sends a command to a device to change the frequency at which it sends sensor data to help diagnose a problem.
 
 The [IoT Device SDKs](../iot-hub/iot-hub-devguide-sdks.md) and IoT Hub support common [communication protocols](../iot-hub/iot-hub-devguide-protocols.md) such as HTTP, MQTT, and AMQP for device-to-cloud and cloud-to-device communication. In some scenarios, you might need a gateway to connect your IoT devices to your cloud services.
 
@@ -132,27 +133,20 @@ In a cloud-based solution, IoT-specific cloud services provide the infrastructur
 
 In a cloud-based IoT solution, the IoT cloud services typically:
 
-- Receive telemetry at scale from your devices, and determine how to process and store that data.
+- Receive sensor data at scale from your devices, and determine how to process and store that data.
 - Send commands from the cloud to specific devices.
 - Provision devices and control which devices can connect to your infrastructure.
 - Control the state of your devices and monitor their activities.
 - Manage the firmware installed on your devices.
 
-For example, in a remote monitoring solution for an oil pumping station, the services use telemetry from the pumps to identify anomalous behavior. When a cloud service identifies an anomaly, it can automatically send a command to the device to take a corrective action. This process implements an automated feedback loop between the device and the cloud that greatly increases the solution efficiency.
-
-To learn more, see:
-
-- [Device management and control](iot-overview-device-management.md)
-- [Message processing in an IoT solution](iot-overview-message-processing.md)
-- [Extend your IoT solution](iot-overview-solution-extensibility.md)
-- [Analyze and visualize your IoT data](iot-overview-analyze-visualize.md)
+For example, in a remote monitoring solution for an oil pumping station, the services use sensor data from the pumps to identify anomalous behavior. When a cloud service identifies an anomaly, it can automatically send a command to the device to take a corrective action. This process implements an automated feedback loop between the device and the cloud that greatly increases the solution efficiency.
 
 ### Edge runtime
 
 In an edge-based IoT solution, the on-premises services hosted in the edge runtime environment typically:
 
 - Manage the connectivity to your assets through the southbound connectors
-- Receive telemetry at scale from your assets, and determine where to route the telemetry for further processing.
+- Receive data at scale from your assets, and determine where to route the messages for further processing.
 - Forward commands from the cloud to specific assets.
 - Perform some local message processing. In Azure IoT Operations, this processing takes place in the northbound connectors
 
@@ -160,10 +154,10 @@ In an edge-based IoT solution, the on-premises services hosted in the edge runti
 
 Both cloud-based and edge-based solutions can use other cloud services to provide more functionality to your solution. For example, you can use:
 
-- Azure storage services to store telemetry data.
-- Azure Stream Analytics to process telemetry data in real time.
-- Microsoft Fabric to store and analyze telemetry data.
-- Microsoft Power BI to visualize telemetry data.
+- Azure storage services to store collected data.
+- Azure Stream Analytics to process sensor data in real time.
+- Microsoft Fabric to store and analyze sensor data.
+- Microsoft Power BI to visualize sensor data.
 
 ### IoT services comparisons
 
@@ -205,7 +199,8 @@ The following table summarizes current security options:
 Suggested next steps to explore Azure IoT further include:
 
 - [IoT asset and device development](iot-overview-device-development.md)
-- [IoT asset and device connectivity and infrastructure](iot-overview-device-connectivity.md)
+- [Message processing in an IoT solution](iot-overview-message-processing.md)
+- [Manage your IoT solution](iot-overview-solution-management.md)
 - [Choose an Azure IoT service](iot-services-and-technologies.md)
 
 To learn more about Azure IoT architectures, see:
