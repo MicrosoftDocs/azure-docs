@@ -38,7 +38,7 @@ You'll learn how to:
 > [!NOTE]
 > You can use the API Management Extension for Visual Studio Code to import and manage your APIs. Complete the [API Management Extension tutorial](visual-studio-code-tutorial.md) to get started.
 
-## <a name="add-new-api-from-azure-function-app"></a> Import an Azure function app as a new API
+## Import an Azure function app as a new API
 
 To create a new API from an Azure function app:
 
@@ -71,17 +71,17 @@ To create a new API from an Azure function app:
     >[!NOTE]
     > *Products* are associations of one or more APIs that are offered to developers via the Developer Portal. First, developers must subscribe to a product to get access to the API. When they subscribe, they get a subscription key for any API in the product. If you created the API Management instance, you're an administrator and are subscribed to every product by default.
     >
-    > Each API Management instance comes with two default sample products:
+    > In some pricing tiers, API Management instances comes with two default sample products:
     > - **Starter**
     > - **Unlimited**
 
 1. Select **Create**.
 
-## <a name="append-azure-function-app-to-api"></a> Append a function app to an existing API
+## Append a function app to an existing API
 
 To append a function app to an existing API:
 
-1. In your **Azure API Management** service instance, select **APIs** in the left pane.
+1. In your **Azure API Management** service instance, select **APIs** > **APIs** in the left pane.
 
 1. Choose an API that you want to import a function app to. Select the ellipsis (**...**), and then select **Import**:
 
@@ -95,7 +95,7 @@ To append a function app to an existing API:
 
     :::image type="content" source="./media/import-function-app-as-api/append-function-api-3.png" alt-text="Screenshot that shows the Browse button." lightbox="./media/import-function-app-as-api/append-function-api-3.png":::
 
-1. Select the **Function App** section to choose from a list of available function apps:
+1. Click the **Select** button under **Configure requred settings** to choose from the list of available function apps:
 
     :::image type="content" source="./media/import-function-app-as-api/add-03.png" alt-text="Screenshot that shows the Function App section." lightbox="./media/import-function-app-as-api/add-03.png":::
 
@@ -111,7 +111,7 @@ To append a function app to an existing API:
 
     :::image type="content" source="./media/import-function-app-as-api/append-function-api-4.png" alt-text="Screenshot that shows the Import button." lightbox="./media/import-function-app-as-api/append-function-api-4.png":::
 
-## <a name="authorization"></a> Authorization
+## Authorization
 
 When you import an Azure function app, these items are automactically generated:
 
@@ -125,7 +125,7 @@ For APIs created after April 4, 2019, the host key is passed in HTTP requests fr
 >
 > If you need to rotate the host key, be sure to also change the named value in API Management.
 
-### Access function app host key
+### Access a function app host key
 
 1. Navigate to your Azure function app instance:
 
@@ -145,7 +145,7 @@ Navigate to your API Management instance and select **Named values** in the left
 
 :::image type="content" source="./media/import-function-app-as-api/api-named-value.png" alt-text="Screenshot that shows the location of the function app key." lightbox="./media/import-function-app-as-api/api-named-value.png":::
 
-## <a name="test-in-azure-portal"></a> Test the new API in the Azure portal
+## Test the new API in the Azure portal
 
 You can call operations directly from the Azure portal. Using the Azure portal is a convenient way to view and test the operations of an API.  
 
@@ -153,7 +153,7 @@ You can call operations directly from the Azure portal. Using the Azure portal i
 
 1. Select the API that you created in the preceding section.
 
-1. On the **Test** tab,
+1. Select the **Test** tab.
 
 1. Select the operation that you want to test.
 
