@@ -107,6 +107,6 @@ Subscribe to the RSS feed and view the latest Azure Front Door feature updates o
 
 ## Related content
 
-* Learn about [Azure Front Door routing architecture](front-door-routing-architecture.md)
+- [Azure Front Door routing architecture](front-door-routing-architecture.md)
 - [Create an Azure Front Door profile](create-front-door-portal.md).
 * [Learn module: Introduction to Azure Front Door](/training/modules/intro-to-azure-front-door/).
