@@ -153,12 +153,16 @@ items:
     items: 
     - name: Overview of Migration method
       href: server-migrate-overview.md
-    - name: Agentbase migrations
-      href: tutorial-migrate-vmware.md
+    - name: Agent-based migrations
+      items:
+      - name: Agent-based migration using portal
+        href: vmware/tutorial-migrate-vmware-agent.md
     - name: Agentless migrations
-      href: tutorial-migrate-vmware.md
-    - name: Agent-based migration
-      href: tutorial-migrate-vmware-agent.md
+      items:
+      - name: Agentless migrations using portal
+        href: vmware/tutorial-migrate-vmware.md
+      - name: Agentless migrations using scripts
+        href: vmware/tutorial-migrate-vmware-powershell.md
     - name: Webapp migration
       href: tutorial-modernize-asp-net-aks.md
     - name: Limitations
