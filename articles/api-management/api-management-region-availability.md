@@ -39,7 +39,7 @@ Information in the following table is updated regularly. Capacity availability i
 | Korea Central | ✅ | ✅ | ✅ | | 
 | North Central US | ✅ | ✅ |  | ✅ |
 | North Europe | ✅ | ✅ |  | ✅ |
-| Norway East | ✅ | ✅ | ✅ | |
+| Norway East | ✅ | ✅ | ✅ | ✅ |
 | South Africa North | ✅ | ✅ | |  |
 | South Central US | ✅ | ✅ |  |  |
 | South India | ✅ | ✅ |  |  |

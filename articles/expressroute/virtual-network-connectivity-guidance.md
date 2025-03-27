@@ -1,35 +1,35 @@
 ---
-title: 'Connectivity between virtual networks over ExpressRoute'
-description: This article explains why virtual network peering is the recommended solution for VNet to VNet connectivity when using ExpressRoute.
+title: 'Connectivity between virtual networks over Azure ExpressRoute'
+description: This article explains why virtual network peering is the recommended solution for virtual network to virtual network connectivity when using ExpressRoute.
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 06/30/2023
+ms.date: 01/31/2025
 ms.author: duau
 ---
 
-# Connectivity between virtual networks over ExpressRoute
+# Connectivity between virtual networks over Azure ExpressRoute
 
 ## Overview
 
-ExpressRoute private peering supports connectivity between multiple virtual networks. To achieve this connectivity, an ExpressRoute virtual network gateway gets deployed into each virtual network. Then a connection is created between the gateway and the ExpressRoute circuit. When this connection gets established, connectivity to virtual machines (VMs) and private endpoints are enabled from on-premises. When multiple virtual networks are linked to an ExpressRoute circuit, VNet to VNet connectivity is enabled. Although this behavior happens by default when linking virtual networks to the same ExpressRoute circuit, Microsoft doesn't recommend this solution. To establish connectivity between virtual networks, VNet peering should be implemented instead for the best performance possible. For more information, see [About Virtual Network Peering](../virtual-network/virtual-network-peering-overview.md) and [Manage VNet peering](../virtual-network/virtual-network-manage-peering.md).
+Azure ExpressRoute private peering allows connectivity between multiple virtual networks by deploying an ExpressRoute virtual network gateway in each virtual network and creating a connection to the ExpressRoute circuit. This setup enables connectivity to virtual machines (VMs) and private endpoints from on-premises. When multiple virtual networks are linked to an ExpressRoute circuit, virtual network to virtual network connectivity is established by default. However, Microsoft recommends using virtual network peering for optimal performance. For more information, see [About Virtual Network Peering](../virtual-network/virtual-network-peering-overview.md) and [Manage virtual network peering](../virtual-network/virtual-network-manage-peering.md).
 
 ## Limitations
 
-Even though ExpressRoute supports virtual network to virtual network connectivity, there are two main limitations with this solution that make it not an ideal choice when compared to VNet peering.
+While ExpressRoute supports virtual network to virtual network connectivity, there are two main limitations compared to virtual network peering:
 
 ### ExpressRoute virtual network gateway in the data path
 
-Virtual networks that are connected to an ExpressRoute circuit are established by deploying a virtual network gateway. The gateway facilitates the management plane and data path connectivity to virtual machines (VMs) and private endpoints defined in a virtual network. These gateway resources have bandwidth, connections-per-second and packets-per-second limitations. For more information about these limitations, see [About ExpressRoute gateways](expressroute-about-virtual-network-gateways.md). When virtual network to virtual network connectivity goes through ExpressRoute, the virtual network gateway can be the source of bottleneck in terms of bandwidth and data path or control plane limitations. When you configure virtual network peering, the virtual network gateway isn't in the data path. Therefore, you don't experience those limitations seen with VNet to VNet connectivity going through ExpressRoute.
+Connecting virtual networks via ExpressRoute involves a virtual network gateway, which manages connectivity to VMs and private endpoints. These gateways have bandwidth and performance limitations. For more information, see [About ExpressRoute gateways](expressroute-about-virtual-network-gateways.md). Virtual network peering avoids these limitations as the gateway isn't in the data path.
 
 ### Higher latency
 
-ExpressRoute connectivity gets managed by a pair of Microsoft Enterprise Edge (MSEE) devices located at [ExpressRoute peering locations](expressroute-locations-providers.md#expressroute-locations). ExpressRoute peering locations are physically separate from Azure regions, when virtual network to virtual network connectivity is enabled using ExpressRoute. Traffic from the virtual network leaves the origin Azure region and passes through the MSEE devices at the peering location. Then that traffic goes through Microsoft's global network to reach the destination Azure region. With VNet peering, traffic flows from the origin Azure region directly to the destination Azure region using Microsoft's global network, without the extra hop of the MSEE devices. Since the extra hop is no longer in the data path, you see lower latency and an overall better experience with your applications and network traffic.
+ExpressRoute connectivity is managed through Microsoft Enterprise Edge (MSEE) devices at [ExpressRoute peering locations](expressroute-locations-providers.md#expressroute-locations), which are separate from Azure regions. This setup introduces extra latency. Virtual network peering, on the other hand, allows direct traffic flow between Azure regions, resulting in lower latency and better performance.
 
-## Enable VNet to VNet or VNet to Virtual WAN connectivity through ExpressRoute
+## Enable virtual network to virtual network or virtual network to Virtual WAN connectivity through ExpressRoute
 
-By default, VNet to VNet and VNet to Virtual WAN connectivity is disabled through an ExpressRoute circuit. To enable this connectivity, you must configure the ExpressRoute virtual network gateway to allow this traffic. For more information, see [Enable VNet to VNet or VNet to Virtual WAN connectivity through ExpressRoute](expressroute-howto-add-gateway-portal-resource-manager.md#enable-or-disable-vnet-to-vnet-or-vnet-to-virtual-wan-traffic-through-expressroute).
+By default, virtual network to virtual network and virtual network to Virtual WAN connectivity is disabled through an ExpressRoute circuit. To enable this connectivity, configure the ExpressRoute virtual network gateway accordingly. For more information, see [Enable virtual network to virtual network or virtual network to Virtual WAN connectivity through ExpressRoute](expressroute-howto-add-gateway-portal-resource-manager.md#enable-or-disable-vnet-to-vnet-or-vnet-to-virtual-wan-traffic-through-expressroute).
 
 ## Next steps
 

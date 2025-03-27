@@ -2,13 +2,14 @@
 title: China content delivery with Azure Content Delivery Network
 description: Learn about using Azure Content Delivery Network to deliver content to China users.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: concept-article
 ms.date: 03/20/2024
-ms.author: duau
 ms.custom: mvc
+ROBOTS: NOINDEX
 ---
 
 # China content delivery with Azure Content Delivery Network
@@ -28,8 +29,6 @@ Azure Content Delivery Network global and Azure Content Delivery Network China h
      - Portal: https://portal.azure.com
 
      - Performs content delivery outside of China
-
-     - Three pricing tiers: Microsoft standard, Edgio standard, and Edgio premium
 
      - [Documentation](./index.yml)
 

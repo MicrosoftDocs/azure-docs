@@ -34,7 +34,18 @@ You need at least [user](devtest-lab-add-devtest-user.md#devtest-labs-user) acce
    - **Use a saved secret**: Select this checkbox to use a secret from Azure Key Vault instead of a password to access the VM. If you select this option, under **Secret**, select the secret to use from the dropdown list. For more information, see [Store secrets in a key vault](devtest-lab-store-secrets-in-key-vault.md). 
    - **Password**: If you don't choose to use a secret, enter a VM password between 8 and 123 characters long.
    - **Save as default password**: Select this checkbox to save the password in the Key Vault associated with the lab.
-   - **Virtual machine size**: Keep the default value for the base, or select **Change Size** to select different sizes.
+   - **Virtual machine size**: Keep the default value for the base, or select **Change Size** to select different sizes. Here is how the default VM Size is selected:
+        - If the **Configuration and policies** -> **Allowed virtual machine sizes** list has **All sizes** selected, then:
+            - If the **Image Base** selected during VM creation has x64 architecture, then the default size selected is **D4s_v5**.
+            - If the **Image Base** selected during VM creation has ARM64 architecture, then the default size selected is **D4pls_v5**.
+         - If the **Configuration and policies** -> **Allowed virtual machine sizes** list only has limited **Selected sizes**, then:
+             - If the **Image Base** selected during VM creation has x64 architecture and D4s_v5 VM size is selected in the **Allowed virtual machine sizes** list, then the default size selected is **D4s_v5**.
+             - If the **Image Base** selected during VM creation has ARM64 architecture and D4pls_v5 VM size is selected in the **Allowed virtual machine sizes** list, then the default size selected is **D4pls_v5**.
+             - If the **Image Base** selected during VM creation has x64 architecture but D4s_v5 VM size is not selected in the **Allowed virtual machine sizes** list, or if the **Image Base** selected during VM creation has ARM64 architecture but D4pls_v5 VM size is not selected in the **Allowed virtual machine sizes** list, then:
+                 - if a 4 core non-premium CPU size is available, then the first available 4 core non-premium CPU size is selected by default
+                 - if no 4 core non-premium CPU size is available, then the first available 4 core CPU size is selected by default
+                 - if no 4 core CPU size is available, then the first available CPU size is selected by default
+   - **Allow hibernation**: Select this option to enable hibernation for the virtual machine. If you enable Hibernation, you also must select **Public IP** in the Advanced settings as Private and Shared IP are currently not supported if Hibernation is enabled.
    - **OS disk type**: Keep the default value for the base, or select a different option from the dropdown list.
    - **Artifacts**: This field shows the number of artifacts already configured for this VM base. Optionally, select **Add or Remove Artifacts** to select and configure artifacts to add to the VM.
 

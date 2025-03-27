@@ -321,10 +321,11 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Palecek Consulting Group](https://www.pcgit.net)|
 |[Pangea Group Inc.](http://www.pangea-group.com)|
 |[Paragon Software Solutions, Inc.](http://www.paragonhq.com/)|
-|[Patrocinium Systems, Inc.](https://www.patrocinium.com)|
+|[Patrocinium Systems, Inc.](https://www.linkedin.com/company/patrocinium-systems)|
 |[PCM](https://www.pcm.com/)|
 |[Peerless Tech Solutions](https://www.getpeerless.com)|
 |[People Services Inc. DBA CATCH Intelligence](https://catchintelligence.com)|
+|[Peraton](https://www.peraton.com/)|
 |[Perizer Corp.](https://perizer.com)|
 |[Perrygo Consulting Group, LLC](https://perrygo.com)|
 |Phacil (By Light) |
@@ -528,25 +529,24 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Carahsoft](https://www.carahsoft.com/microsoft)|
 |[CGI Federal Inc.](https://www.cgi.com/us/en-us/federal)|
 |[Charles IT](https://www.charlesit.com)|
-|[Cloud Navigator, Inc - formerly ISC](https://cloudnav.com)|
 |[CloudFit Software LLC](https://cloudfitsoftware.com/)|
 |[Compunet Inc.](https://vanasolutions.com/)|
 |[Conquest Cyber](https://conquestcyber.com/)|
-|[Coretek](https://www.coretek.com/)|
 |[CyberSheath](https://cybersheath.com)|
 |[Daymark Solutions, Inc.](https://www.daymarksi.com/)|
 |[Dox Electornics Inc.](https://www.doxnet.com)|
 |[ECF Data, LLC](https://www.ecfdata.com)|
 |[ECS Federal, LLC](https://ecstech.com/)|
 |[eTrepid Inc.](https://www.etrepid.com/)|
-|[F1 Soluitions Inc](https://www.f1networks.com)|
+|[Executech Utah Inc.](https://www.executech.com)|
+|[F1 Solutions Inc](https://www.f1networks.com)|
 |[FCN Inc. ](https://fcnit.com)|
 |[Four Points Technolgy, LLC](https://www.4points.com)|
 |[G2 Ops, Inc.](https://g2-ops.com)|
 |[General Dynamics Information Technology](https://www.gdit.com)|
 |[Golden Five LLC](https://www.goldenfiveconsulting.com/)|
 |[Hypori, Inc.](https://hypori.com/)|
-|Imager Software, Inc dba ISC|
+|[Imager Software, Inc dba ISC](https://goisc.com/)|
 |[Impact Networking, LLC](https://www.impactmybiz.com/)|
 |[IBM Corp.](https://www.ibm.com/industries/government)|
 |[Jackpine Technologies](https://www.jackpinetech.com)|
@@ -563,6 +563,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Novetta](https://www.novetta.com)|
 |[Orbis](https://orbisops.com)|
 |[PAX 8](https://www.pax8.com)|
+|[Peraton](https://www.peraton.com/)|
 |[Permuta Technologies, Inc.](http://www.permuta.com/)|
 |[Planet Technologies, Inc.](https://go-planet.com)|
 |[Progeny Systems](https://www.progeny.net/)|
@@ -580,7 +581,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[SysArc Inc.](https://www.sysarc.com)|
 |[TechTrend, Inc](https://techtrend.us)|
 |[Vana Solutions](https://www.vanasolutions.com)|
-|[VLCM](https://www.vlcmtech.com)|
 |[Vexcel](https://www.vexcel.com/)|
+|[VLCM](https://www.vlcm.com)|
 
 To learn more about the Cloud Solution Provider program, see [Frequently asked questions for Partner Center](/partner-center/faq-for-us-govt-cloud). If you would like to apply for the program, visit [Azure Government CSP application process](./documentation-government-csp-application.md). For any other questions, contact [Azure Government CSP](mailto:azgovcsp@microsoft.com).

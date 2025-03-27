@@ -4,7 +4,7 @@ description: Learn about reliability in Azure Logic Apps, including availability
 author: anaharris-ms 
 ms.author: anaharris
 ms.topic: reliability-article
-ms.custom: subject-reliability, references_regions
+ms.custom: subject-reliability
 services: logic-apps
 ms.service: azure-logic-apps
 ms.date: 01/06/2025
@@ -22,7 +22,7 @@ Logic app workflows help you more easily integrate and orchestrate data between 
 
 * [Connections](../connectors/introduction.md) that you create from logic app workflows to other apps, services, and systems. For more information, see [Connections to resources](/azure/logic-apps/business-continuity-disaster-recovery-guidance#connections-to-resources) later in this topic.
 
-* [On-premises data gateways](../logic-apps/connect-on-premises-data-sources.md), which are Azure resources that you create and use in your logic apps to access data in on-premises systems. Each gateway resource represents a separate [data gateway installation](../logic-apps/install-on-premises-data-gateway.md) on a local computer. You can configure an on-premises data gateway for high availability by using multiple computers. For more information, see [High availability support](../logic-apps/install-on-premises-data-gateway.md#high-availability-support).
+* [On-premises data gateways](../logic-apps/connect-on-premises-data-sources.md), which are Azure resources that you create and use in your logic apps to access data in on-premises systems. Each gateway resource represents a separate [data gateway installation](../logic-apps/install-on-premises-data-gateway-workflows.md) on a local computer. You can configure an on-premises data gateway for high availability by using multiple computers. For more information, see [High availability support](../logic-apps/install-on-premises-data-gateway-workflows.md#high-availability-support).
 
 * [Integration accounts](/azure/logic-apps/logic-apps-enterprise-integration-create-integration-account) where you define and store the artifacts that logic app workflows use for [business-to-business (B2B) enterprise integration](/azure/logic-apps/logic-apps-enterprise-integration-overview) scenarios. For example, you can [set up cross-region disaster recovery for integration accounts](/azure/logic-apps/logic-apps-enterprise-integration-b2b-business-continuity).
 
@@ -90,7 +90,7 @@ For Standard workflows with the App Service Environment v3 hosting option, you c
 
 ::: zone pivot="consumption"
 
-Consumption logic apps that are deployed in [any region that supports availability zones](./availability-zones-region-support.md) are automatically zone redundant. Japan West is the exception, which currently doesn't support zone-redundant logic apps because some dependency services don't yet support zone redundancy.
+Consumption logic apps that are deployed in [any region that supports availability zones](./regions-list.md) are automatically zone redundant. Japan West is the exception, which currently doesn't support zone-redundant logic apps because some dependency services don't yet support zone redundancy.
 
 ::: zone-end
 
@@ -171,7 +171,7 @@ Consumption logic app workflows automatically support zone redundancy, so no con
 
 ### Capacity planning and management
 
-[!INCLUDE [Over-provisioning description](includes/reliability-over-provisioning-calculation-include.md)]
+To prepare for availability zone failure, consider *over-provisioning* the capacity of your integration runtime. Over-provisioning allows the solution to tolerate some degree of capacity loss and still continue to function without degraded performance. To learn more about over-provisioning, see [Manage capacity with over-provisioning](./concept-redundancy-replication-backup.md#manage-capacity-with-over-provisioning).
 
 ::: zone-end
 

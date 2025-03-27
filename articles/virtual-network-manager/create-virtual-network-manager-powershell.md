@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: quickstart
-ms.date: 01/15/2024
+ms.date: 01/15/2025
 ms.custom: template-quickstart, mode-api, engagement-fy23, devx-track-azurepowershell
 ---
 

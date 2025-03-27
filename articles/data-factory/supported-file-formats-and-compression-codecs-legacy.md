@@ -7,7 +7,7 @@ ms.author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ---
 
 # Supported file formats and compression codecs in Azure Data Factory and Synapse Analytics (legacy)

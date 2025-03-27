@@ -12,7 +12,7 @@ ms.custom: docs_inherited
 This article tells you how to prepare a master virtual hard disk (VHD) image for upload to Azure, including how to create virtual machines (VMs) and install software on them. These instructions are for an Azure Virtual Desktop-specific configuration that can be used with your organization's existing processes.
 
 >[!IMPORTANT]
->We recommend you use an image from the Azure Compute Gallery or the Azure portal. However, if you do need to use a customized image, make sure you don't already have the Azure Virtual Desktop Agent installed on your VM. If you do, either follow the instructions in [Step 1: Uninstall all agent, boot loader, and stack component programs](troubleshoot-agent.md#step-1-uninstall-all-agent-boot-loader-and-stack-component-programs) to uninstall the Agent and all related components from your VM or create a new image from a VM with the Agent uninstalled. Using a customized image with the Azure Virtual Desktop Agent can cause problems with the image, such as blocking registration as the host pool registration token will have expired which will prevent user session connections.  
+>We recommend you use an image from the Azure Compute Gallery or the Azure portal. However, if you do need to use a customized image, make sure you don't already have the Azure Virtual Desktop Agent installed on your VM. If you do, either follow the instructions in [Step 1: Uninstall all agent, boot loader, and stack component programs](/troubleshoot/azure/virtual-desktop/troubleshoot-agent#step-1-uninstall-all-agent-boot-loader-and-stack-component-programs) to uninstall the Agent and all related components from your VM or create a new image from a VM with the Agent uninstalled. Using a customized image with the Azure Virtual Desktop Agent can cause problems with the image, such as blocking registration as the host pool registration token will have expired which will prevent user session connections.  
 
 ## Create a VM
 
@@ -206,4 +206,4 @@ Now that you have an image, you can create or update host pools. To learn more a
 - [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md)
 - [Configure the Azure Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md)
 
-If you encountered a connectivity problem after preparing or customizing your VHD image, check out the [troubleshooting guide](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) for help.
+If you encountered a connectivity problem after preparing or customizing your VHD image, check out the [troubleshooting guide](/troubleshoot/azure/virtual-desktop/troubleshoot-agent#your-issue-isnt-listed-here-or-wasnt-resolved) for help.

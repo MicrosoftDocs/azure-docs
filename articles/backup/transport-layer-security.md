@@ -3,8 +3,8 @@ title: Transport Layer Security in Azure Backup
 description: Learn how to enable Azure Backup to use the encryption protocol Transport Layer Security (TLS) to keep data secure when being transferred over a network.
 ms.topic: how-to
 ms.date: 09/11/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Transport Layer Security in Azure Backup

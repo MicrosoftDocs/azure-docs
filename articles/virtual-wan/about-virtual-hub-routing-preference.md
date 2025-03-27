@@ -41,7 +41,8 @@ You can select one of the three possible virtual hub routing preference configur
 
 * **AS Path**
 
-   1. Prefer routes with the shortest BGP AS-Path length irrespective of the source of the route advertisements. Note: In vWANs with multiple remote virtual hubs, if there's a tie between remote ExpressRoute routes and remote site-to-site VPN routes, remote site-to-site VPN routes will be preferred.
+   1. Prefer routes with the shortest BGP AS-Path length irrespective of the source of the route advertisements.
+      * Note: In vWANs with multiple remote virtual hubs, remote ExpressRoute routes will be selected last. This behavior is true regardless of AS-Path length.
 
    1. Prefer routes from local virtual hub connections over routes learned from remote virtual hub.
    1. If there are routes from both ExpressRoute and Site-to-site VPN connections:

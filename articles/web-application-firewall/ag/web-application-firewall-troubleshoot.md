@@ -1,12 +1,11 @@
 ---
 title: Troubleshoot - Azure Web Application Firewall
 description: This article provides troubleshooting information for Web Application Firewall (WAF) for Azure Application Gateway
-services: web-application-firewall
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
+ms.topic: concept-article
 ms.date: 03/05/2024
-ms.author: victorh
-ms.topic: conceptual
 ---
 
 # Troubleshoot Web Application Firewall (WAF) for Azure Application Gateway
@@ -163,8 +162,6 @@ Another way to get around a false positive is to disable the rule that matched o
 One benefit of disabling a rule is that if you know all traffic that contains a certain condition that is normally blocked is valid traffic, you can disable that rule for the entire WAF. However, if it’s only valid traffic in a specific use case, you open up a vulnerability by disabling that rule for the entire WAF since it's a global setting.
 
 If you want to use Azure PowerShell, see [Customize web application firewall rules through PowerShell](application-gateway-customize-waf-rules-powershell.md). If you want to use Azure CLI, see [Customize web application firewall rules through the Azure CLI](application-gateway-customize-waf-rules-cli.md).
-
-![WAF rules](../media/web-application-firewall-troubleshoot/waf-rules.png)
 
 ## Finding request attribute names
 

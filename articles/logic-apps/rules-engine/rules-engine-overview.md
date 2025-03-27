@@ -6,7 +6,7 @@ ms.suite: integration
 author: haroldcampos
 ms.author: hcampos
 ms.topic: conceptual
-ms.date: 06/10/2024
+ms.date: 01/27/2025
 
 #CustomerIntent: As an integration developer, I want to learn about integrating business logic and decision management capabilities with Standard workflows in Azure Logic Apps.
 ---

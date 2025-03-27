@@ -8,6 +8,8 @@ ms.date: 03/31/2021
 
 [![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/v2/samples/pnp)
 
+[!INCLUDE [iot-authentication-device-connection-string](iot-authentication-device-connection-string.md)]
+
 ## Prerequisites
 
 To complete the steps in this article, you need the following resources:

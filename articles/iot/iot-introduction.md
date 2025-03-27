@@ -24,6 +24,8 @@ The following two sections give a high-level view of the components in typical c
 
 A **cloud-based solution** is an integrated set of IoT devices, components, and services, that addresses a business need and that connects devices directly to the cloud. An example of a cloud-based solution is a fleet of delivery trucks that send telemetry data to the cloud for analysis and visualization:
 
+<!-- Art Library Source# ConceptArt-0-000-025 -->
+
 :::image type="content" source="media/iot-introduction/iot-cloud-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture for cloud-based solutions." border="false":::
 
 You can build cloud-based solutions with services such as [IoT Hub](../iot-hub/iot-concepts-and-iot-hub.md), [Device Provisioning Service](../iot-dps/about-iot-dps.md), and [Azure Digital Twins](../digital-twins/overview.md).
@@ -34,6 +36,8 @@ An **edge-based solution** is an integrated set of IoT assets, components, and s
 - Security concerns mean that you mustn't connect the assets directly to the public internet.
 
 An edge-based solution can still forward data from your assets to the cloud for further processing such as analysis and visualization:
+
+<!-- Art Library Source# ConceptArt-0-000-025 -->
 
 :::image type="content" source="media/iot-introduction/iot-edge-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture for edge-based solutions." border="false":::
 
@@ -96,7 +100,7 @@ IoT devices have different characteristics when compared to other clients such a
 
 The device SDKs help you address the challenges of connecting devices securely and reliably to your cloud services.
 
-To learn more device connectivity and gateways, see [Device infrastructure and connectivity](iot-overview-device-connectivity.md).
+To learn more about device connectivity and gateways, see [IoT asset and device connectivity and infrastructure](iot-overview-device-connectivity.md).
 
 ### Connectivity in an edge-based solution
 
@@ -209,7 +213,7 @@ The following table summarizes current security options:
 Suggested next steps to explore Azure IoT further include:
 
 - [IoT device development](iot-overview-device-development.md)
-- [Device infrastructure and connectivity](iot-overview-device-connectivity.md)
+- [IoT asset and device connectivity and infrastructure](iot-overview-device-connectivity.md)
 - [Azure IoT services and technologies](iot-services-and-technologies.md)
 
 To learn more about Azure IoT architecture, see:

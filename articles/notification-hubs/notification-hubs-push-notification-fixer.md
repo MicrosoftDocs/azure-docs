@@ -3,7 +3,7 @@ title: Diagnose dropped notifications in Azure Notification Hubs
 description: Learn how to diagnose common issues with dropped notifications in Azure Notification Hubs.
 services: notification-hubs
 author: sethmanheim
-manager: femila
+manager: lizross
 ms.service: azure-notification-hubs
 ms.devlang: csharp
 ms.topic: article
@@ -252,7 +252,7 @@ In the portal, you can get a quick overview of all the activity in your notifica
 
 #### Programmatic access
 
-For more information about programmatic access to [Azure Notification Hub Metrics](./monitor-notification-hubs-reference.md#metrics), see [Programmatic access](/azure/azure-monitor/essentials/rest-api-walkthrough.md).
+For more information about programmatic access to [Azure Notification Hub Metrics](./monitor-notification-hubs-reference.md#metrics), see [Programmatic access](/azure/azure-monitor/essentials/rest-api-walkthrough).
 
 > [!NOTE]
 > Several telemetry-related features, like exporting and importing registrations and telemetry access via APIs, are available only on the Standard service tier. If you attempt to use these features from the Free or Basic service tier, you'll get an exception message if you use the SDK. You'll get an HTTP 403 (Forbidden) error if you use the features directly from the REST APIs.

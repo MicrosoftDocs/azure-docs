@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 08/21/2020
+ms.date: 02/11/2025
 ms.author: greglin
 ---
 
@@ -43,7 +43,7 @@ A port is where a listener listens for the client request. You can configure por
 
 | SKU | Supported port range | Exception(s) |
 | ---------- | ---------- | ---------- |
-| V2 | 1 to 64999 | 22 |
+| V2 | 1 to 64999 | 22, 53 |
 | V1 | 1 to 65502 | 3389 |
 
 ### Protocols

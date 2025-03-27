@@ -1,16 +1,20 @@
 ---
 title: Understand reservations discount for Azure SQL Database
 description: Learn how a reservation discount is applied to running Azure SQL databases. The discount is applied to these databases on an hourly basis.
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 12/06/2024
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 ---
 
 # How a reservation discount is applied to Azure SQL Database
+
+> [!div class="op_single_selector"]
+> * [Azure SQL Database](understand-reservation-charges.md)
+> * [Azure SQL Managed Instance](understand-reservation-charges-sql-managed-instance.md)
 
 After you buy an Azure SQL Database reserved capacity, the reservation discount is automatically applied to SQL databases that match the attributes and quantity of the reservation. A reservation applies to the compute costs of your SQL Database, including the primary replica and any billable secondary replicas. You're charged for software, storage, and networking at the normal rates. You can cover the licensing costs for SQL Database with [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -43,9 +47,13 @@ For the rest of these examples, assume that the SQL Database reserved capacity y
 
 To understand and view the application of your Azure Reservations in billing usage reports, see [Understand Azure reservation usage](understand-reserved-instance-usage-ea.md).
 
+> [!NOTE]
+> For databases in the **General Purpose service tier of Azure SQL Database**, compute costs for standard compute and the zone-redundancy add-on are billed separately. Refer to [reservations for zone-redundant resources](/azure/azure-sql/database/reservations-discount-overview#reservations-for-zone-redundant-resources) for more details.
+
+
 ## Need help? Contact us
 
-If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Related content
 

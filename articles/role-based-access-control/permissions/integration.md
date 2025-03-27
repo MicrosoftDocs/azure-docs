@@ -4,9 +4,9 @@ description: Lists the permissions for the Azure resource providers in the Integ
 ms.service: role-based-access-control
 ms.topic: reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 12/12/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -51,6 +51,7 @@ Azure service: [Azure API Center](/azure/api-center/overview)
 > | Microsoft.ApiCenter/services/metadataSchemas/read | Checks if specified metadataSchema exists |
 > | Microsoft.ApiCenter/services/metadataSchemas/delete | Deletes specified metadataSchema. |
 > | Microsoft.ApiCenter/services/operationResults/read | Checks status of a long running operation |
+> | Microsoft.ApiCenter/services/workspace/importApiSource/action | Imports resources from one or more API sources. |
 > | Microsoft.ApiCenter/services/workspaces/linkApiSource/action | Links an API source. |
 > | Microsoft.ApiCenter/services/workspaces/write | Creates or updates specified workspace. |
 > | Microsoft.ApiCenter/services/workspaces/read | Returns paginated collection of workspaces. |
@@ -60,6 +61,7 @@ Azure service: [Azure API Center](/azure/api-center/overview)
 > | Microsoft.ApiCenter/services/workspaces/analyzerConfig/analysisExecutions/read | Get analysis executions of  a particular analyzer configuration |
 > | Microsoft.ApiCenter/services/workspaces/analyzerConfigs/write | Creates or updates specified analyzer configuration. |
 > | Microsoft.ApiCenter/services/workspaces/analyzerConfigs/read | Returns the details of the specified analyzer configuration. |
+> | Microsoft.ApiCenter/services/workspaces/analyzerConfigs/read | Get analyzer configurations |
 > | Microsoft.ApiCenter/services/workspaces/analyzerConfigs/delete | Deletes the specified analyzer configuration. |
 > | Microsoft.ApiCenter/services/workspaces/analyzerConfigs/importRuleset/action | Imports ruleset file. |
 > | Microsoft.ApiCenter/services/workspaces/analyzerConfigs/exportRuleset/action | Exports ruleset file. |
@@ -181,8 +183,8 @@ Azure service: [API Management](/azure/api-management/)
 > | Microsoft.ApiManagement/service/apis/releases/read | Lists all releases of an API.<br>An API release is created when making an API Revision current.<br>Releases are also used to rollback to previous revisions.<br>Results will be paged and can be constrained by the $top and $skip parameters.<br>or Returns the details of an API release. |
 > | Microsoft.ApiManagement/service/apis/releases/delete | Removes all releases of the API or Deletes the specified release in the API. |
 > | Microsoft.ApiManagement/service/apis/releases/write | Creates a new Release for the API. or Updates the details of the release of the API specified by its identifier. |
-> | Microsoft.ApiManagement/service/apis/resolvers/read | Get the graphQL resolvers at the API level. or Get the graphQL resolver at the API level. |
-> | Microsoft.ApiManagement/service/apis/resolvers/write | Creates or updates graphQL resolver for the API. or Updates the details of the graphQL resolver in the API specified by its identifier. |
+> | Microsoft.ApiManagement/service/apis/resolvers/read | Get the GraphQL resolvers at the API level. or Get the GraphQL resolver at the API level. |
+> | Microsoft.ApiManagement/service/apis/resolvers/write | Creates or updates GraphQL resolver for the API. or Updates the details of the GraphQL resolver in the API specified by its identifier. |
 > | Microsoft.ApiManagement/service/apis/resolvers/delete | Deletes the policy configuration at the Api. |
 > | Microsoft.ApiManagement/service/apis/resolvers/policies/read | Get the list of policy configurations at the GraphQL API resolver level. or Get the policy configuration at the GraphQL API resolver level. |
 > | Microsoft.ApiManagement/service/apis/resolvers/policies/write | Creates or updates policy configuration for the GraphQL API. |
@@ -429,8 +431,8 @@ Azure service: [API Management](/azure/api-management/)
 > | Microsoft.ApiManagement/service/tenants/apis/releases/read | Lists all releases of an API.<br>An API release is created when making an API Revision current.<br>Releases are also used to rollback to previous revisions.<br>Results will be paged and can be constrained by the $top and $skip parameters.<br>or Returns the details of an API release. |
 > | Microsoft.ApiManagement/service/tenants/apis/releases/delete | Removes all releases of the API or Deletes the specified release in the API. |
 > | Microsoft.ApiManagement/service/tenants/apis/releases/write | Creates a new Release for the API. or Updates the details of the release of the API specified by its identifier. |
-> | Microsoft.ApiManagement/service/tenants/apis/resolvers/read | Get the graphQL resolvers at the API level. or Get the graphQL resolver at the API level. |
-> | Microsoft.ApiManagement/service/tenants/apis/resolvers/write | Creates or updates graphQL resolver for the API. or Updates the details of the graphQL resolver in the API specified by its identifier. |
+> | Microsoft.ApiManagement/service/tenants/apis/resolvers/read | Get the GraphQL resolvers at the API level. or Get the GraphQL resolver at the API level. |
+> | Microsoft.ApiManagement/service/tenants/apis/resolvers/write | Creates or updates GraphQL resolver for the API. or Updates the details of the GraphQL resolver in the API specified by its identifier. |
 > | Microsoft.ApiManagement/service/tenants/apis/resolvers/delete | Deletes the policy configuration at the Api. |
 > | Microsoft.ApiManagement/service/tenants/apis/resolvers/policies/read | Get the list of policy configurations at the GraphQL API resolver level. or Get the policy configuration at the GraphQL API resolver level. |
 > | Microsoft.ApiManagement/service/tenants/apis/resolvers/policies/write | Creates or updates policy configuration for the GraphQL API. |
@@ -1292,67 +1294,6 @@ Azure service: [Logic Apps](/azure/logic-apps/)
 > | Microsoft.Logic/workflows/triggers/histories/resubmit/action | Resubmits the workflow trigger. |
 > | Microsoft.Logic/workflows/versions/read | Reads the workflow version. |
 > | Microsoft.Logic/workflows/versions/triggers/listCallbackUrl/action | Gets the callback URL for trigger. |
-
-## Microsoft.ModSimWorkbench
-
-Azure service: [Azure Modeling and Simulation Workbench](/azure/modeling-simulation-workbench/modeling-simulation-workbench-overview)
-
-> [!div class="mx-tableFixed"]
-> | Action | Description |
-> | --- | --- |
-> | Microsoft.ModSimWorkbench/register/action | Register the subscription for Microsoft.ModSimWorkbench |
-> | Microsoft.ModSimWorkbench/unregister/action | Unregister the subscription for Microsoft.ModSimWorkbench |
-> | Microsoft.ModSimWorkbench/Locations/operationStatuses/read | read operationStatuses |
-> | Microsoft.ModSimWorkbench/Locations/operationStatuses/write | write operationStatuses |
-> | Microsoft.ModSimWorkbench/Operations/read | read Operations |
-> | Microsoft.ModSimWorkbench/workbenches/read | read workbenches |
-> | Microsoft.ModSimWorkbench/workbenches/read | read workbenches |
-> | Microsoft.ModSimWorkbench/workbenches/read | read workbenches |
-> | Microsoft.ModSimWorkbench/workbenches/write | write workbenches |
-> | Microsoft.ModSimWorkbench/workbenches/delete | delete workbenches |
-> | Microsoft.ModSimWorkbench/workbenches/write | write workbenches |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/getUploadUri/action | getUploadUri chambers |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/start/action | start chambers |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/stop/action | stop chambers |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/restart/action | restart chambers |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/licenseUpdate/action | licenseUpdate chambers |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/licenseRestart/action | licenseRestart chambers |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/read | Gets information about the specified Chamber. |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/write | Creates or updates the specified Chamber. |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/delete | Deletes the specified Chamber. |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/write | Updates the specified Chamber. |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/read | Lists all Chambers. |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/connectors/start/action | start connectors |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/connectors/stop/action | stop connectors |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/connectors/restart/action | restart connectors |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/connectors/read | Gets information about the specified connector. |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/connectors/write | Creates or updates the specified connector. |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/connectors/delete | Deletes the specified connector. |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/connectors/write | Updates the specified connector. |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/connectors/read | Lists all connectors. |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/connectors/licenseAdd/action | Add license to an ModSim Workbench connector. |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/fileRequests/read | read fileRequests |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/fileRequests/manage/action | manage fileRequests |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/fileRequests/getDownloadUri/action | getDownloadUri fileRequests |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/fileRequests/read | Get ModSim Workbench chamber data pipeline file request resource collection. |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/files/read | read files |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/files/read | Lists all files. |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/storages/read | Gets information about the specified storage. |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/storages/write | Creates or updates the specified storage. |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/storages/delete | Deletes the specified storage. |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/storages/write | Updates the specified storage. |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/storages/read | Lists all storages. |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/workloads/start/action | start workloads |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/workloads/stop/action | stop workloads |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/workloads/restart/action | restart workloads |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/workloads/read | Gets information about the specified workload. |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/workloads/write | Creates or updates the specified workload. |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/workloads/delete | Deletes the specified workload. |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/workloads/write | Updates the specified workload. |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/workloads/read | Lists all workloads. |
-> | **DataAction** | **Description** |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/files/manage/action | manage files |
-> | Microsoft.ModSimWorkbench/workbenches/chambers/files/downloadRequest/action | downloadRequest files |
 
 ## Microsoft.NotificationHubs
 

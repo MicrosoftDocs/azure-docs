@@ -8,8 +8,8 @@ ms.custom:
   - mvc
   - ignite-2023
   - ignite-2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # What is Azure Business Continuity Center?
  

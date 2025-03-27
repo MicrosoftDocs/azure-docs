@@ -2,8 +2,8 @@
 title: Tutorial - Create and manage exported data from Cost Management
 titleSuffix: Microsoft Cost Management
 description: This article shows you how you can create and manage exported Cost Management data so that you can use it in external systems.
-author: bandersmsft
-ms.author: banders
+author: jojohpm
+ms.author: jojoh
 ms.date: 01/07/2025
 ms.topic: tutorial
 ms.service: cost-management-billing
@@ -56,7 +56,8 @@ For Azure Storage accounts:
   A **system-assigned managed identity** is created for a new export if the user has `Microsoft.Authorization/roleAssignments/write` permissions on the storage account. This setup ensures that the export will continue to work if you enable a firewall in the future. After the export is created or updated, the user no longer needs the **Owner** role for routine operations.
   
 - The storage account configuration must have the **Permitted scope for copy operations (preview)** option set to **From any storage account**.
-    :::image type="content" source="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" alt-text="Screenshot showing From any storage account option set." lightbox="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" :::
+    :::image type="content" source="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" alt-text="Screenshot showing From any storage account option set." lightbox="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" :::
+
 
 If you have a new subscription, you can't immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
 

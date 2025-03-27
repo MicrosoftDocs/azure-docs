@@ -306,19 +306,11 @@ Test private peering connectivity by counting packets arriving at and leaving th
 
 1. In the Azure portal, select **Diagnose and solve problems** from your ExpressRoute circuit.
 
-    :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/diagnose-problems.png" alt-text="Diagnose and solve problems button.":::
-
 2. Select **Connectivity & Performance issues**.
-
-    :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/connectivity-issues.png" alt-text="Connectivity issues option.":::
 
 3. In the **Tell us more about the problem you are experiencing** dropdown, select **Issues with Private peering**.
 
-    :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/tell-us-more.png" alt-text="Tell us more dropdown.":::
-
 4. Expand the **Test private-peering connectivity** section.
-
-    :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/test-private-peering.png" alt-text="Test private peering option.":::
 
 5. Run the [PsPing](/sysinternals/downloads/psping) test from your on-premises IP to your Azure IP, and keep it running during the test.
 
@@ -358,11 +350,7 @@ To troubleshoot connectivity issues and check for recent maintenance:
 
 1. In the Azure portal, select **Diagnose and solve problems** from your ExpressRoute circuit.
 
-    :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/diagnose-problems.png" alt-text="Diagnose and solve problems button.":::
-
 2. Select **Performance Issues**.
-
-    :::image type="content" source="./media/expressroute-troubleshooting-expressroute-overview/performance-issues.png" alt-text="Performance issues option.":::
 
 3. Wait for diagnostics to run and interpret the results.
 

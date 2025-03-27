@@ -2,12 +2,13 @@
 title: Control Azure Content Delivery Network caching behavior with caching rules
 description: You can use content delivery network caching rules to set or modify default cache expiration behavior both globally and with conditions, such as a URL path and file extensions.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumud
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
-ms.author: duau
+ROBOTS: NOINDEX
 ---
 
 # Control Azure Content Delivery Network caching behavior with caching rules
@@ -15,9 +16,6 @@ ms.author: duau
 [!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 This article describes how you can use content delivery network caching rules to set or modify default cache expiration behavior. These caching rules can either be global or with custom conditions, such as a URL path and file extension.
-
-> [!NOTE]
-> Caching rules are available only for **Azure CDN Standard from Edgio** profiles. For **Azure CDN from Microsoft** profiles, you must use the [Standard rules engine](cdn-standard-rules-engine-reference.md) For **Azure CDN Premium from Edgio** profiles, you must use the [Edgio Premium rules engine](./cdn-verizon-premium-rules-engine.md) in the **Manage** portal for similar functionality.
 
 Azure Content Delivery Network offers two ways to control how your files get cached:
 
@@ -38,8 +36,6 @@ For information about default caching behavior and caching directive headers, se
 1. Open the Azure portal, select a content delivery network profile, then select an endpoint.
 
 2. In the left pane under Settings, select **Caching rules**.
-
-    :::image type="content" source="./media/cdn-caching-rules/cdn-caching-rules-btn.png" alt-text="Screenshot of content delivery networking caching rules.":::
 
    The **Caching rules** page appears.
 
@@ -109,8 +105,6 @@ When you set these rules, a request for *&lt;endpoint hostname&gt;*.azureedge.ne
 > Files that are cached before a rule change maintain their origin cache duration setting. To reset their cache durations, you must [purge the file](cdn-purge-endpoint.md).
 >
 > Azure Content Delivery Network configuration changes can take some time to propagate through the network:
-> - For **Azure CDN Standard from Edgio** profiles, propagation usually completes in 10 minutes.
-
 >
 
 ## See also

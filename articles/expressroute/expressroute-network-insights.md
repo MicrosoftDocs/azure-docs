@@ -19,8 +19,6 @@ This article explains how Network Insights can help you view  your ExpressRoute 
 
 1. Navigate to the *Azure Monitor* page, then select *Networks*.
 
-    :::image type="content" source="./media/expressroute-network-insights/monitor-page.png" alt-text="Screenshot of the Monitor landing page.":::
-
 1. Select the *ExpressRoute Circuits* card. 
 
 1. Then, select the topology button for the circuit you would like to view.

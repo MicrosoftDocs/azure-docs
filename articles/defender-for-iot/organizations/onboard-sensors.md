@@ -54,7 +54,7 @@ This procedure describes how to onboard an OT network sensor with Defender for I
 
         If you don't yet have a subscription to select, select **Onboard subscription** to [add an OT plan to your Azure subscription](getting-started.md).
 
-    1. (Optional) Toggle on the **Cloud connected** option to view detected data and manage your sensor from the Azure portal, and to connect your data to other Microsoft services, such as Microsoft Sentinel.<!-- Due to UI changes this may need to change to: In the **Sensor type** field, select from the dropdown options.  -->
+    1. (Optional) Toggle on the **Cloud connected** option to view detected data and manage your sensor from the Azure portal, and to connect your data to other Microsoft services, such as Microsoft Sentinel.
 
         For more information, see [Cloud-connected vs. local OT sensors](architecture.md#cloud-connected-vs-local-ot-sensors).
 
@@ -68,14 +68,6 @@ This procedure describes how to onboard an OT network sensor with Defender for I
         |**Display name**     |    Enter a meaningful name for your site to be shown across Defender for IoT.   |
         |**Tags**     |   Enter tag key and values to help you identify and locate your site and sensor in the Azure portal.      |
         |**Zone**     | Select the zone you want to use for your OT sensor, or select **Create zone** to create a new one.        |
-
-        OR due to UI change:<!-- check this with Belle and make changes and delete unneeded sections of the table. -->
-
-        |Field name |Description  |
-        |---------|---------|
-        |**Site name**     |  Select the site you want to attach your sensors to, or select **Create site** to create a new site.  <br><br>**If you're creating a new site**: <br>1. In the **New site** field, enter your site's name and select the checkmark button. <br>2.  From the **Site size** menu, select your site's size. The sizes listed in this menu are the sizes that you're licensed for, based on the licenses [you'd purchased](how-to-manage-subscriptions.md) in the Microsoft 365 admin center.  <br><br>If you're working with a legacy OT plan, the **Site size** field isn't included.   |
-        |**Site size**     |  Choose the size of the site from the options in the dropdown list.  |
-        |**Display name**     |    Enter a meaningful name for your site to be shown across Defender for IoT.   |
 
     For example:
 

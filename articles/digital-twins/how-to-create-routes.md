@@ -3,15 +3,11 @@ title: Create routes and filters
 titleSuffix: Azure Digital Twins
 description: Learn how to set up event routes and event filters to Azure Digital Twins endpoints
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 1/3/2024
 ms.topic: how-to
 ms.service: azure-digital-twins
 ms.custom: devx-track-azurecli
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Create event routes and filters in Azure Digital Twins
@@ -36,6 +32,8 @@ Routing [event notifications](concepts-event-notifications.md) from Azure Digita
 Next, follow the instructions below if you intend to use the Azure CLI while following this guide.
 
 [!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
+
+[!INCLUDE [digital-twins-cli-issue](includes/digital-twins-cli-issue.md)]
 
 ## Create an event route
 
@@ -79,6 +77,8 @@ For the route to be enabled, you must also **Add an event route filter** of at l
 When finished, select the **Save** button to create your event route.
 
 # [CLI](#tab/cli2)
+
+[!INCLUDE [digital-twins-cli-issue](includes/digital-twins-cli-issue.md)]
 
 Routes can be managed using the [az dt route](/cli/azure/dt/route) commands for the Azure Digital Twins CLI. 
 

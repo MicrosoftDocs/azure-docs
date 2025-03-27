@@ -45,7 +45,7 @@ Use this procedure to move an internal load balancer to another region using the
 
 - Verify that your Azure subscription allows you to create external load balancers in the target region. Contact support to enable the required quota.
 
-- Make sure your subscription has enough resources to support the addition of the load balancers. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
+- Make sure your subscription has enough resources to support the addition of the load balancers. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-networking-limits).
 
 #### Prepare and move
 The following procedures show how to prepare the external load balancer for the move by using a Resource Manager template and move the external load balancer configuration to the target region by using the Azure portal. You must first export the public IP configuration of external load balancer.
@@ -466,7 +466,7 @@ In this tutorial, you moved an Azure external load balancer from one region to a
 
 - Verify that your Azure subscription allows you to create external load balancers in the target region that's used. Contact support to enable the required quota.
 
-- Make sure that your subscription has enough resources to support the addition of load balancers for this process. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
+- Make sure that your subscription has enough resources to support the addition of load balancers for this process. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-networking-limits)
 
 
 ### Prepare and move
@@ -983,7 +983,7 @@ In this tutorial, you moved an Azure network security group from one region to a
 
 - Verify that your Azure subscription allows you to create internal load balancers in the target region that's used. Contact support to enable the required quota.
 
-- Make sure that your subscription has enough resources to support the addition of load balancers for this process. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
+- Make sure that your subscription has enough resources to support the addition of load balancers for this process. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-networking-limits)
 
 
 ### Prepare and move
@@ -1402,7 +1402,7 @@ In this tutorial, you moved an Azure internal load balancer from one region to a
 
 - Verify that your Azure subscription allows you to create internal load balancers in the target region that's used. Contact support to enable the required quota.
 
-- Make sure that your subscription has enough resources to support the addition of load balancers for this process. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
+- Make sure that your subscription has enough resources to support the addition of load balancers for this process. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-networking-limits)
 
 
 ### Prepare and move

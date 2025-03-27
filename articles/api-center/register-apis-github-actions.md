@@ -53,7 +53,7 @@ In this section, you set up the GitHub Actions workflow for this scenario:
 In the following steps, create a Microsoft Entra ID service principal, which will be used to add credentials to the workflow to authenticate with Azure.
 
 > [!NOTE]
-> Configuring a service principal is shown for demonstration purposes. The recommended way to authenticate with Azure for GitHub Actions is with OpenID Connect, an authentication method that uses short-lived tokens. Setting up OpenID Connect with GitHub Actions is more complex but offers hardened security. [Learn more](../app-service/deploy-github-actions.md?tabs=openid%2Caspnetcore#1-generate-deployment-credentials)
+> Configuring a service principal is shown for demonstration purposes. The recommended way to authenticate with Azure for GitHub Actions is with OpenID Connect, an authentication method that uses short-lived tokens. Setting up OpenID Connect with GitHub Actions is more complex but offers hardened security. [Learn more](../app-service/deploy-github-actions.md?tabs=openid%2Caspnetcore#generate-deployment-credentials)
 
 Create a service principal using the [az ad sp create-for-rbac](/cli/azure/ad#az-ad-sp-create-for-rbac) command. The following example first uses the [az apic show](/cli/azure/apic#az-apic-show) command to retrieve the resource ID of the API center. The service principal is then created with the Azure API Center Service Contributor role for the API center.
 

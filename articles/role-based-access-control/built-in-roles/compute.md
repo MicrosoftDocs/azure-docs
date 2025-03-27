@@ -5,9 +5,9 @@ ms.service: role-based-access-control
 ms.topic: reference
 ms.workload: identity
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 01/10/2025
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -1856,7 +1856,7 @@ Manage access to Virtual Machines by adding or removing role assignments for the
 
 ## Virtual Machine Local User Login
 
-View Virtual Machines in the portal and login as a local user configured on the arc server
+View Virtual Machines in the portal and login as a local user configured on the Arc server.
 
 [Learn more](/azure/azure-arc/servers/ssh-arc-troubleshoot)
 

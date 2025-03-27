@@ -45,7 +45,6 @@ To generate the SAS URL for your storage container:
 1. At the bottom of the page, click the **Generate SAS token and URL** button.
 1. Click to copy the **Blob SAS URL** link that is generated to your clipboard.
 
-   :::image type="content" source="./media/packet-capture-site-to-site-portal/generate-url.png" alt-text="Shared access tokens page with both Read and Write selected." lightbox="./media/packet-capture-site-to-site-portal/generate-url-expand.png":::
 
 ## <a name="start"></a> Start a packet capture
 
@@ -54,8 +53,6 @@ In this section, you start the packet capture on the virtual hub.
 1. Navigate to the virtual hub.
 1. Click **VPN (Site to site)**.
 1. On the **VPN (Site to site)** page, click the **Packet Capture** button at the top of the page.
-
-   :::image type="content" source="./media/packet-capture-site-to-site-portal/packet-capture.png" alt-text="Graphic showing the Start Capture page." lightbox="./media/packet-capture-site-to-site-portal/packet-capture-expand.png":::
 1. On the **Packet Capture** page, click **Start**.
 1. On the **Start Packet Capture page**, modify settings, if needed. See the [Filters](#filters) section for options.
 1. Click the **Start** button to start the packet capture. We recommend letting the packet capture run for at least 600 seconds. Due to sync issues among multiple components on the path, shorter packet captures might not provide complete data.
@@ -87,11 +84,9 @@ To simplify your packet captures, you can specify filters on your packet capture
 This section helps you stop or abort a packet capture.
 
 1. On the virtual hub page, click the **Packet Capture** button to open the **Packet Capture** page, then click **Stop**. This opens the **Stop Packet Capture** page. At this point, the packet capture isn't yet stopped.
-   :::image type="content" source="./media/packet-capture-site-to-site-portal/packet-stop.png" alt-text="Graphic showing the Stop button." lightbox="./media/packet-capture-site-to-site-portal/packet-stop-expand.png":::
 
 1. On the **Stop Packet Capture** page, paste the *SaS URL* for the storage container that you created earlier into the **Output Sas Url** field. This is the location where the packet capture files will be stored.
 
-   :::image type="content" source="./media/packet-capture-site-to-site-portal/output.png" alt-text="Graphic showing where to paste the Output Sas Url." lightbox="./media/packet-capture-site-to-site-portal/output-expand.png":::
 1. Next, click **Stop**. The packet capture will stop and the PCAP file is created and saved to the storage account. This can take a few minutes to complete.
 
 ### To abort a packet capture

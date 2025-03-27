@@ -3,9 +3,9 @@ title: Troubleshoot Azure VM file recovery
 description: Troubleshoot issues when recovering files and folders from an Azure VM backup.
 ms.topic: troubleshooting
 ms.custom: linux-related-content
-ms.date: 07/12/2020
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 12/19/2024
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Troubleshoot issues in file recovery of an Azure VM backup

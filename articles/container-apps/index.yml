@@ -25,6 +25,8 @@ landingContent:
             url: dotnet-overview.md
           - text: Learn to develop with Java
             url: java-overview.md
+          - text: Learn to develop with JavaScript
+            url: javascript-overview.md
   - title: Get started
     linkLists:
       - linkListType: quickstart
