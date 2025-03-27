@@ -47,16 +47,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration.AddAzureAppConfiguration(options =>
     {
-        options.Connect(builder.Configuration.GetValue<string>("Endpoints:AppConfiguration"))
-                // Load configuration values with no label
-                .Select(KeyFilter.Any, LabelFilter.Null)
-                // Override with any configuration values specific to current hosting env
-                .Select(KeyFilter.Any, builder.Environment.EnvironmentName);
+        string endpoint = Environment.GetEnvironmentVariable("Endpoint");
+        options.Connect(new Uri(endpoint), new DefaultAzureCredential())
+               // Load configuration values with no label
+               .Select(KeyFilter.Any, LabelFilter.Null)
+               // Override with any configuration values specific to current hosting env
+               .Select(KeyFilter.Any, builder.Environment.EnvironmentName);
     });
 ```
-
-> [!IMPORTANT]
-> The preceding code snippet uses the Secret Manager tool to load App Configuration endpoint. For information storing the endpoint using the Secret Manager, see [Quickstart for Azure App Configuration with ASP.NET Core](quickstart-aspnet-core-app.md).
 
 The `Select` method is called twice. The first time, it loads configuration values with no label. Then, it loads configuration values with the label corresponding to the current environment. These environment-specific values override any corresponding values with no label. You don't need to define environment-specific values for every key. If a key doesn't have a value with a label corresponding to the current environment, it uses the value with no label.
 

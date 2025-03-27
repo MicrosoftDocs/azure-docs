@@ -96,6 +96,7 @@ Edit the call to the `AddAzureAppConfiguration` method, which is often found in 
 ```csharp
 configurationBuilder.AddAzureAppConfiguration(options =>
 {
+    string endpoint = Environment.GetEnvironmentVariable("Endpoint"); 
     options.Connect(new Uri(endpoint), new DefaultAzureCredential());
     // Select an existing snapshot by name. This will add all of the key-values from the snapshot to this application's configuration.
     options.SelectSnapshot("SnapshotName");
