@@ -3,7 +3,7 @@ title: Enable Diagnostic Logging for Apps in Azure App Service
 description: Learn how to enable diagnostic logging and add instrumentation to your application, along with how to access the information logged by Azure.
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: how-to
-ms.date: 03/19/2025
+ms.date: 03/27/2025
 ms.author: msangapu
 author: msangapu-msft
 ms.custom: devx-track-csharp, ai-video-demo, linux-related-content
@@ -16,10 +16,6 @@ ai-usage: ai-assisted
 Azure provides built-in diagnostics to assist with debugging an [Azure App Service app](overview.md). In this article, you learn how to enable diagnostic logging and add instrumentation to your application. You also learn how to access the information that Azure logs.
 
 [!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
-The following video complements the steps in this article by illustrating how to enable diagnostic logging for apps.
-
-> [!VIDEO 62f2edbe-1063-4ec3-a76f-faa0bd783f2f]
 
 This article uses the [Azure portal](https://portal.azure.com) and the Azure CLI to work with diagnostic logs. For information on working with diagnostic logs by using Visual Studio, see [Troubleshoot an app in Azure App Service using Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
