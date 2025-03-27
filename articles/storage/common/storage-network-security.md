@@ -109,7 +109,7 @@ This preview doesn't support the following services, operations, and protocols o
 - Network file system (NFS) protocol with [Azure Blob Storage](../blobs/network-file-system-protocol-support.md) and [Azure Files](../files/files-nfs-protocol.md).
 - Server message block (SMB) protocol with Azure Files can only be achieved through IP allowlisting at this time.
 - [Azure Blob Inventory](../blobs/blob-inventory.md)
-- [Unmanaged disks](https://learn.microsoft.com/azure/virtual-machines/unmanaged-disks-deprecation) do not honour network security perimeter rules. 
+- [Unmanaged disks](/azure-compute-docs/azure/virtual-machines/unmanaged-disks-deprecation) do not honour network security perimeter rules. 
 
 - Vaulted backups for Azure Blob Storage
 
