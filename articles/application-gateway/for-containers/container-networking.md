@@ -70,7 +70,7 @@ Kubenet isn't supported by Application Gateway for Containers. If using Kubenet,
 
 Q: Can I upgrade an existing cluster with Application Gateway for Containers from CNI to CNI Overlay?
 
-A: Yes, upgrade of the AKS cluster from CNI to CNI Overlay and Application Gateway for Containers automatically detects the change. It's recommended to schedule the upgrade during a maintenance window because it can take a few minutes post-cluster upgrade to detect and configure support for CNI Overlay.
+A: Yes, upgrade of the AKS cluster from CNI to CNI Overlay and Application Gateway for Containers automatically detects the change. It's recommended to schedule the upgrade during a maintenance window as traffic disruption can occur. The controller may take a few minutes post-cluster upgrade to detect and configure support for CNI Overlay.
 
 > [!WARNING]
 > Ensure the Application Gateway for Containers subnet is a /24 before upgrading. Upgrading from CNI to CNI Overlay with a larger subnet (/23 or larger) will lead to an outage and require the Application Gateway for Containers subnet to be recreated with a /24 subnet size.
