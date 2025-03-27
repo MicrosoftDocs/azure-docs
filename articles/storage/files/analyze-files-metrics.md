@@ -17,11 +17,18 @@ Understanding how to monitor file share performance is critical to ensuring that
 See [Monitor Azure Files](storage-files-monitoring.md) for details on the monitoring data you can collect for Azure Files and how to use it.
 
 ## Applies to
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
+|-|-|-|-|:-:|:-:|
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)|
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Supported metrics
 
@@ -284,7 +291,7 @@ In comparison, the following chart shows a situation where both the client and t
 
 :::image type="content" source="media/analyze-files-metrics/latency-same-region.png" alt-text="Screenshot showing latency metrics when the client and Azure file share are located in the same region." lightbox="media/analyze-files-metrics/latency-same-region.png" border="false":::
 
-Another latency indicator to look that for might suggest a problem is an increased frequency or abnormal spikes in **Success Server Latency**.  This is commonly due to throttling due to exceeding the Azure Files [scale limits](storage-files-scale-targets.md) for standard file shares, or an under-provisioned [Azure Files Premium Share](understanding-billing.md#provisioned-v1-model).
+Another latency indicator to look that for might suggest a problem is an increased frequency or abnormal spikes in **Success Server Latency**.  This is commonly due to throttling due to exceeding the provisioned limit for a provisioned file share (or an overall scale limit a pay-as-you-go file share). See [Understanding Azure Files billing](./understanding-billing.md) and the [Scalability and performance targets for Azure Files](storage-files-scale-targets.md).
 
 For more information, see [Troubleshoot high latency, low throughput, or low IOPS](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=%2Fazure%2Fstorage%2Ffiles%2Ftoc.json&tabs=windows#high-latency-low-throughput-or-low-iops).
 
@@ -302,11 +309,9 @@ To determine the average I/O per second (IOPS) for your workload, first determin
 
 To determine the average throughput for your workload, take the total amount of transmitted data by combining the **Ingress** and **Egress** metrics (total throughput) and divide that by 60 seconds. For example, 1 GiB total throughput over 1 minute / 60 seconds = 17 MiB average throughput.
 
-### Monitor utilization by maximum IOPS and bandwidth (premium only)
+### Monitor utilization by maximum IOPS and bandwidth (provisioned only)
 
-Because Azure Premium file shares are billed on a provisioned model in which each GiB of storage capacity that you provision entitles you to more IOPS and throughput, it's often useful to determine maximum IOPS and bandwidth. Whereas throughput measures the actual amount of data successfully transmitted, bandwidth refers to the maximum data transfer rate.
-
-With Azure Premium file shares, you can use **Transactions by Max IOPS** and **Bandwidth by Max MiB/s** metrics to display what your workload is achieving at peak times. Using these metrics to analyze your workload will help you understand true capability at scale, as well as establish a baseline to understand the impact of more throughput and IOPS so you can optimally provision your Azure Premium file share.
+Provisioned file shares provide **Transactions by Max IOPS** and **Bandwidth by Max MiB/s** metrics to display what your workload is achieving at peak times. Using these metrics to analyze your workload will help you understand true capability at scale, as well as establish a baseline to understand the impact of more throughput and IOPS so you can optimally provision your Azure file share.
 
 The following chart shows a workload that generated 2.63 million transactions over 1 hour. When 2.63 million transactions is divided by 3,600 seconds, we get an average of 730 IOPS.
 
@@ -325,8 +330,7 @@ Compared against the **Bandwidth by Max MiB/s**, we achieved 123 MiB/s at peak.
 :::image type="content" source="media/analyze-files-metrics/bandwidth-by-max-mibs.png" alt-text="Screenshot showing bandwidth by max MIBS." lightbox="media/analyze-files-metrics/bandwidth-by-max-mibs.png" border="false":::
 
 ### Monitor utilization by metadata IOPS
-
-On Premium SSD and Standard HDD file shares, our current metadata capabilities scale up to 12K metadata IOPS. This means that running a metadata-heavy workload with a high volume of open, close, or delete operations increases the likelihood of metadata IOPS throttling. This limitation is independent of the file share's overall IOPS capacity on Standard or IOPS provisioning on Premium.
+On Azure file shares scale up to 12K metadata IOPS. This means that running a metadata-heavy workload with a high volume of open, close, or delete operations increases the likelihood of metadata IOPS throttling. This limitation is independent of the file share's overall provisioned IOPS.
 
 Because no two metadata-heavy workloads follow the same usage pattern, it can be challenging for customers to proactively monitor their workload and set accurate alerts.
 
@@ -344,7 +348,7 @@ The following chart illustrates a workload that experienced a sudden increase in
 
 If your workload encounters **Success with Metadata Warnings** or **Success with Metadata Throttling** response types, consider implementing one or more of the following recommendations:
 
-- For Premium SMB file shares, enable [Metadata Caching](smb-performance.md#metadata-caching-for-premium-smb-file-shares).
+- For SSD SMB file shares, enable [Metadata Caching](smb-performance.md#metadata-caching-for-premium-smb-file-shares).
 - Distribute (shard) your workload across multiple file shares.
 - Reduce the volume of metadata IOPS.
 
