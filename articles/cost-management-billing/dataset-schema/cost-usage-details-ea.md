@@ -2,7 +2,7 @@
 title: Enterprise Agreement cost and usage details file schema
 description: Learn about the data fields available in the Enterprise Agreement cost and usage details file.
 author: bandersmsft
-ms.reviewer: jojo
+ms.reviewer: jojoh
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
