@@ -96,6 +96,7 @@ To use traffic analytics, you need the following components:
 > |                  | [Network contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#network-contributor) <sup>1</sup> and [Monitoring contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#monitoring-contributor) |
 > 
 > <sup>1</sup> Network contributor doesn't cover `Microsoft.OperationalInsights/workspaces/*` actions.
+> Data collection rule and Data collection endpoint resources are created and managed by traffic analytics. If you perform any operation on these resources, traffic analytics may not function as expected.
 > 
 >  If none of the preceding built-in roles are assigned to your account, assign a [custom role](../role-based-access-control/custom-roles.md?toc=/azure/network-watcher/toc.json) that supports the actions listed in [Flow logs](required-rbac-permissions.md#flow-logs) and [Traffic analytics](required-rbac-permissions.md#traffic-analytics) permissions.
 
