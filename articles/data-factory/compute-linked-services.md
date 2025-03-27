@@ -5,7 +5,7 @@ description: Learn about compute environments that can be used with Azure Data F
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.date: 10/03/2024
+ms.date: 03/27/2025
 ms.subservice: orchestration
 ms.custom: synapse
 ---
