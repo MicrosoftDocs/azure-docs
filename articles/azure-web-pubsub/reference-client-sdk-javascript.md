@@ -23,6 +23,8 @@ As shown in the diagram, your clients establish WebSocket connections with your 
 
 :::image type="content" source="./media/reference-client-sdk-javascript/flow-overview.png" alt-text="Screenshot showing clients establishing WebSocket connection with a Web PubSub resource":::
 
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
+
 ## Getting started
 
 ### Prerequisites
@@ -116,6 +118,8 @@ In production, clients usually fetch `Client Access URL` from an application ser
 
 #### 1. Application server 
 The code snippet is an example of an application server exposes a `/negotiate` endpoint and returns `Client Access URL`.
+
+[!INCLUDE [Connection string security comment](includes/web-pubsub-connection-string-security-comment.md)]
 
 ```js
 // This code snippet uses the popular Express framework

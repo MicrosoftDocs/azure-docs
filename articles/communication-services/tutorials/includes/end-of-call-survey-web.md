@@ -161,13 +161,13 @@ Screenshare. However, each API value can be customized from a minimum of
 ## Custom questions
 In addition to using the End of Call Survey API, you can create your own survey questions and incorporate them with the End of Call Survey results. Below you find steps to incorporate your own customer questions into a survey and query the results of the End of Call Survey API and your own survey questions.
 -  [Create App Insight resource](/azure/azure-monitor/app/create-workspace-resource#create-a-workspace-based-resource).
--  Embed Azure AppInsights into your application [Click here to know more about App Insight initialization using plain JavaScript](/azure/azure-monitor/app/javascript-sdk). Alternatively, you can use NPM to get the App Insights dependences. [Click here to know more about App Insight initialization using NPM](/azure/azure-monitor/app/javascript-sdk-configuration).
+-  Embed Azure AppInsights into your application [Click here to know more about App Insight initialization using plain JavaScript](/azure/azure-monitor/app/javascript-sdk). Alternatively, you can use NPM to get the App Insights dependencies. [Click here to know more about App Insight initialization using NPM](/azure/azure-monitor/app/javascript-sdk-configuration).
 -  Build a UI in your application that serves custom questions to the user and gather their input, lets assume that your application gathered responses as a string in the `improvementSuggestion` variable
 
 -  Submit survey results to ACS and send user response using App Insights:
     ``` javascript
     currentCall.feature(SDK.Features.CallSurvey).submitSurvey(survey).then(res => {
-    // `improvementSuggesstion` contains custom, user response
+    // `improvementSuggestion` contains custom, user response
         if (improvementSuggestion !== '') {
             appInsights.trackEvent({
                     name: "CallSurvey", properties: {

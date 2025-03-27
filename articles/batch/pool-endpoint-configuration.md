@@ -2,7 +2,7 @@
 title: Configure node endpoints in Azure Batch pool
 description: How to configure node endpoints such as access to SSH or RDP ports on compute nodes in an Azure Batch pool.
 ms.topic: how-to
-ms.date: 11/08/2024
+ms.date: 12/16/2024
 ---
 
 # Configure remote access to compute nodes in an Azure Batch pool
@@ -12,10 +12,11 @@ externally to a compute node in a Batch pool. For example, a user can connect by
 compute node in a Windows pool. Similarly, by default, a user can connect by Secure Shell (SSH) on port 22 to a compute
 node in a Linux pool.
 
-> [!TIP]
-> As of API version `2024-07-01`, Batch no longer automatically maps common remote access ports for SSH and RDP.
-> If you wish to allow remote access to your Batch compute nodes with pools created with API version `2024-07-01` or later,
-> then you must manually configure the pool endpoint configuration to enable such access.
+> [!NOTE]
+> As of API version `2024-07-01` (and all pools created after **30 November 2025** regardless of API version), Batch no
+> longer automatically maps common remote access ports for SSH and RDP. If you wish to allow remote access to your Batch
+> compute nodes with pools created with API version `2024-07-01` or later (and after 30 November 2025), then you must
+> manually configure the pool endpoint configuration to enable such access.
 
 In your environment, you might need to enable, restrict, or disable external access settings or any other ports you wish
 on the Batch pool. You can modify these settings by using the Batch APIs to set the
@@ -116,7 +117,7 @@ namespace AzureBatch
     {
         pool.NetworkConfiguration = new NetworkConfiguration
         {
-            EndpointConfiguration = new PoolEndpointConfiguratio(new InboundNatPool[]
+            EndpointConfiguration = new PoolEndpointConfiguration(new InboundNatPool[]
             {
               new InboundNatPool("RDP", InboundEndpointProtocol.Tcp, 3389, 60000, 60099, new NetworkSecurityGroupRule[]
                 {
@@ -167,4 +168,4 @@ class AzureBatch(object):
 ## Next steps
 
 - Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
-- For more information about NSG rules in Azure, see [Filter network traffic with network security groups](../virtual-network/network-security-groups-overview.md).
+- Learn more about NSG rules in Azure with [Filtering network traffic with network security groups](../virtual-network/network-security-groups-overview.md).

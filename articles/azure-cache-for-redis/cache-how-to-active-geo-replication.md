@@ -3,7 +3,7 @@ title: Configure active geo-replication for Enterprise Azure Cache for Redis ins
 description: Learn how to replicate your Azure Cache for Redis Enterprise instances across Azure regions.
 ms.custom: devx-track-azurecli, ignite-2024
 ms.topic: conceptual
-ms.date: 11/11/2024
+ms.date: 01/15/2025
 ---
 
 # Configure active geo-replication for Enterprise Azure Cache for Redis instances
@@ -34,7 +34,7 @@ There are a few restrictions when using active geo replication:
 - You can't add an existing (that is, running) cache to a geo-replication group. You can only add a cache to a geo-replication group when you create the cache.
 - All caches within a geo-replication group must have the same configuration. For example, all caches must have the same SKU, capacity, eviction policy, clustering policy, modules, and TLS setting.
 - You can't use the `FLUSHALL` and `FLUSHDB` Redis commands when using active geo-replication. Prohibiting the commands prevents unintended deletion of data. Use the [flush operation](#flush-operation) from the portal instead.
-- The E1 SKU doesn't support active geo-replication.
+- Active geo-replication is not supported on E1 and any Flash SKUs.
 
 ## Create or join an active geo-replication group
 
@@ -62,7 +62,7 @@ To remove a cache instance from an active geo-replication group, you just delete
 
 In case one of the caches in your replication group is unavailable due to region outage, you can forcefully remove the unavailable cache from the replication group. After you apply **Force-unlink** to a cache, you can't sync any data that is written to that cache back to the replication group after force-unlinking.
 
-You should remove the unavailable cache because the remaining caches in the replication group start storing the metadata that hasn’t been shared to the unavailable cache. When this happens, the available caches in your replication group might run out of memory.
+You should remove the unavailable cache because the remaining caches in the replication group start storing the metadata that wasn't shared to the unavailable cache. When this happens, the available caches in your replication group might run out of memory.
 
 1. Go to Azure portal and select one of the caches in the replication group that is still available.
 
@@ -154,7 +154,7 @@ Let's say you want to scale up each instance in this geo-replication group to an
 
 At this point, the `Redis01` and `Redis02` instances can only scale up to an Enterprise E20 instance. All other scaling operations are blocked.
 >[!NOTE]
-> The `Redis00` instance is not blocked from scaling further at this point. But it will be blocked once either `Redis01` or `Redis02` is scaled to be an Enterprise E20.
+> The `Redis00` instance isn't blocked from scaling further at this point. But it's blocked once either `Redis01` or `Redis02` is scaled to be an Enterprise E20.
 >
 
 Once each instance is scaled to the same tier and size, all scaling locks are removed:
@@ -168,6 +168,41 @@ Once each instance is scaled to the same tier and size, all scaling locks are re
 Due to the potential for inadvertent data loss, you can't use the `FLUSHALL` and `FLUSHDB` Redis commands with any cache instance residing in a geo-replication group. Instead, use the **Flush Cache(s)** button located at the top of the **Active geo-replication** working pane.
 
 :::image type="content" source="media/cache-how-to-active-geo-replication/cache-active-flush.png" alt-text="Screenshot showing Active geo-replication selected in the Resource menu and the Flush cache feature has a red box around it.":::
+
+## Geo-replication Metric
+
+The _Geo Replication Healthy_ metric in the Enterprise tier of Azure Cache for Redis helps monitor the health of geo-replicated clusters. You use this metric to monitor the sync status among geo-replicas.  
+
+To monitor the _Geo Replication Healthy_ metric in the Azure portal:
+
+1. Open the Azure portal and select your Azure Cache for Redis instance.
+
+1. On the Resource menu, select **Metrics** under the **Monitoring** section.
+
+1. Select **Add Metric** and select the **Geo Replication Healthy** metric.
+
+1. If needed, apply filters for specific geo-replicas.
+
+1. You can configure an alert to notify you if the **Geo replication Healthy** metric emits an unhealthy value (0) continuously for over 60 minutes.
+
+    1. Select **New Alert Rule**.
+
+    1. Define the condition to trigger if the metric value is 0 for at least 60 minutes, the recommended time.
+
+    1. Add action groups for notifications, for example: email, SMS, and others.
+
+    1. Save the alert.
+
+    1. For more information on how to set up alerts for you Redis Enterprise cache, see the alert section in [Monitor Redis Caches](/azure/azure-cache-for-redis/monitor-cache?tabs=enterprise-enterprise-flash).
+
+> [!IMPORTANT]
+> This metric might temporarily show as unhealthy due to routine operations like maintenance events or scaling, initiated either by Azure or the customer. To avoid false alarms, we recommend setting up an observation window of 60 minutes, where the metric continues to stay unhealthy as the appropriate time for generating an alert as it might indicate a problem that requires intervention.
+
+## Common Client-side issues that can cause sync issues among geo-replicas
+
+- Use of custom Hash tags – Using custom hashtags in Redis can lead to uneven distribution of data across shards, which might cause performance issues and synchronization problems in geo-replicas therefore avoid using custom hashtags unless the database needs to perform multiple key operations.
+
+- Large Key Size - Large keys can create synchronization issues among geo-replicas. To maintain smooth performance and reliable replication, we recommend keeping key sizes under 500MB when using geo-replication. If individual key size gets close to 2GB the cache faces geo-replication health issues.  
 
 ### Flush caches using Azure CLI or PowerShell
 

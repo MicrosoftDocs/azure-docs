@@ -2,14 +2,15 @@
 title: Get started with Cost Management for partners
 titleSuffix: Microsoft Cost Management
 description: This article explains how partners use Cost Management features and how they enable access for their customers.
-author: bandersmsft
-ms.author: banders
-ms.date: 11/14/2024
-ms.topic: conceptual
+author: shrutis06
+ms.author: shrshett
+ms.date: 01/13/2025
+ms.topic: concept-article
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: aparnag
+ms.reviewer: shrshett
 ms.custom: secdec18
+#customer intent: As a partner, I want to understand how Cost Management features are used so that I can enable access for my customers.
 ---
 
 # Get started with Cost Management for partners
@@ -104,7 +105,7 @@ Partners can use the scope to reconcile to invoices. And, they use the scope to 
 
 ### Customer scope
 
-Partners use the scope to manage costs associated to customers that are onboarded to the Microsoft Customer Agreement. The scope allows partners to view pretax costs for a specific customer in a billing currency. You can also filter the pretax costs for a specific subscription, resource group, or resource.
+Partners use the scope to manage costs associated to customers that are onboarded to the Microsoft Customer Agreement. The scope allows partners to view pretax costs for a specific customer in the partner's billing currency. You can also filter the pretax costs for a specific subscription, resource group, or resource.
 
 The customer scope doesn't include customers who are on the current CSP offer. The scope only includes customers who have a Microsoft Customer Agreement.
 
@@ -278,7 +279,7 @@ In the Azure portal, sign in to the partner tenant or customer tenant and select
 
 :::image type="content" border="true" source="./media/get-started-partners/export01.png" alt-text="Screenshot showing select Export and View all exports.":::
 
-Next, select  **Add** and type the name and select an export type. Select the **Storage** tab and enter required information.
+Next, select  **Add, and type the name and select an export type. Select the **Storage** tab and enter required information.
 
 :::image type="content" border="true" source="./media/get-started-partners/export02.png" alt-text="Screenshot showing add new export and select Storage tab.":::
 

@@ -17,7 +17,6 @@ ms.service: azure-automation
 Azure Automation uses a number of PowerShell modules to enable cmdlets in runbooks and DSC resources in DSC configurations. Supported modules include:
 
 * [Azure PowerShell Az.Automation](/powershell/azure/new-azureps-module-az).
-* [Azure PowerShell AzureRM.Automation](/powershell/module/azurerm.automation/).
 * Other PowerShell modules.
 * Internal `Orchestrator.AssetManagement.Cmdlets` module.
 * Python 2 modules.
@@ -137,7 +136,7 @@ Be sure to test all runbooks and DSC configurations carefully, in a separate Aut
 
 To ensure that you don't run any existing runbooks or DSC configurations that use AzureRM modules, you must stop and unschedule all affected runbooks and configurations. First, make sure that you review each runbook or DSC configuration and its schedules separately, to ensure that you can reschedule the item in the future if necessary.
 
-When you're ready to remove your schedules, you can either use the Azure portal or the [Remove-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/remove-azurermautomationschedule) cmdlet. See [Remove a schedule](schedules.md#remove-a-schedule).
+When you're ready to remove your schedules, you can either use the Azure portal or the [Remove-AzAutomationSchedule](/powershell/module/az.automation/remove-azautomationschedule) cmdlet. See [Remove a schedule](schedules.md#remove-a-schedule).
 
 ### Remove AzureRM modules
 

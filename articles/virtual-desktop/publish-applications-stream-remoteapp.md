@@ -4,11 +4,14 @@ description: How to publish applications with RemoteApp in Azure Virtual Desktop
 author: dknappettmsft
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.date: 03/05/2024
+ms.date: 12/11/2024
 ms.author: daknappe
 ---
 
 # Publish applications with RemoteApp in Azure Virtual Desktop
+
+> [!IMPORTANT]
+> MSIX App Attach will be deprecated on June 1, 2025. Make sure to move all apps to App Attach by this date.
 
 There are two ways to make applications available to users in Azure Virtual Desktop: as part of a full desktop or as individual applications with RemoteApp. You publish applications by adding them to an application group, which is associated with a host pool and workspace, and assigned to users. For more information about application groups, see [Terminology](terminology.md#application-groups).
 
@@ -19,6 +22,9 @@ You publish applications in the following scenarios:
 - For *desktop* application groups, you can only publish a full desktop and all applications in MSIX packages using *MSIX app attach* to appear in the user's start menu in a desktop session. If you use *app attach*, applications aren't added to a desktop application group.
 
 This article shows you how to publish applications that are installed locally with RemoteApp using the Azure portal and Azure PowerShell. You can't publish applications using Azure CLI.
+
+> [!IMPORTANT]
+> Users who have access to both a desktop application group and RemoteApp application group assigned to the same host pool only have access to the type of applications from the application group determined by the preferred application group type for the host pool. For more information, see [Preferred application group type behavior for pooled host pools](preferred-application-group-type.md).
 
 ## Prerequisites
 
@@ -334,6 +340,8 @@ Your session hosts need to use a virtual machine (VM) size that supports [nested
 1. Once you installed Windows Sandbox on your session hosts, it's available in a desktop session. If you also want to publish it as a RemoteApp, follow the steps to [Add applications to a RemoteApp application group](#add-applications-to-a-remoteapp-application-group) and use the file path `C:\Windows\System32\WindowsSandbox.exe`.
 
 ## Next steps
+
+- Connect to your RemoteApp. For more information, select [Get started with Windows App to connect to devices and apps](/windows-app/get-started-connect-devices-desktops-apps?pivots=azure-virtual-desktop).
 
 - Learn how to [Add and manage app attach applications](app-attach-setup.md).
 

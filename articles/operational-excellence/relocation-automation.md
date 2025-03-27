@@ -61,7 +61,7 @@ In the diagram below, the red flow lines illustrate redeployment of the target i
 
 1. Deploy the template using [ARM](/azure/automation/quickstart-create-automation-account-template), [Portal](/azure/automation/automation-create-standalone-account?tabs=azureportal)  or [PowerShell](/powershell/module/az.automation/import-azautomationrunbook?view=azps-11.2.0&preserve-view=true).
 
-1. Use PowerShell to export all associated runbooks from the source Azure Automation instance and import them to the target instance. Reconfigure the properties as per target. For more information, see [Export-AzAuotomationRunbook](/powershell/module/az.automation/export-azautomationrunbook?view=azps-11.2.0&viewFallbackFrom=azps-9.4.0&preserve-view=true).
+1. Use PowerShell to export all associated runbooks from the source Azure Automation instance and import them to the target instance. Reconfigure the properties as per target. For more information, see [Export-AzAutomationRunbook](/powershell/module/az.automation/export-azautomationrunbook?view=azps-11.2.0&viewFallbackFrom=azps-9.4.0&preserve-view=true).
 
 1. Associate the relocated Azure Automation instance to the target Log Analytics workspace.
 

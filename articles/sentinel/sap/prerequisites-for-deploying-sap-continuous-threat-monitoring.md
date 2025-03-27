@@ -4,22 +4,43 @@ description: This article lists the prerequisites required for deployment of the
 author: batamig
 ms.author: bagol
 ms.topic: reference
-ms.date: 09/15/2024
+ms.date: 11/05/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+zone_pivot_groups: sentinel-sap-connection
+
 #Customer intent: As a security administrator, I want to understand the prerequisites for deploying a Microsoft Sentinel solution for SAP applications so that I can ensure a smooth and compliant deployment process.
 
 ---
 
-# Deployment prerequisites for the Microsoft Sentinel solution for SAP applications
+# Deployment prerequisites for the Microsoft Sentinel solutions for SAP applications
 
-This article lists the prerequisites required for deployment of the Microsoft Sentinel solution for SAP applications. Reviewing and ensuring that you have or understand all the prerequisites is the first step in deploying the Microsoft Sentinel solution for SAP applications.
+This article lists the prerequisites required for deployment of the Microsoft Sentinel solution for SAP applications, which differ depending on whether you're deploying a data connector agent or using the agentless data connector with the SAP Cloud Connector. Select the option at the top of this page that matches your deployment.
+
+Reviewing and ensuring that you have or understand all the prerequisites is the first step in deploying the Microsoft Sentinel solution for SAP applications. Select a connection type to list the prerequisites for your environment.
+
+:::zone pivot="connection-agent"
 
 :::image type="content" source="media/deployment-steps/prerequisites.png" alt-text="Diagram of the steps included in deploying the Microsoft Sentinel solution for SAP applications, with the prerequisites step highlighted." border="false":::
 
 Content in this article is relevant for your **security**, **infrastructure**, and **SAP BASIS** teams.
+
+:::zone-end
+
+:::zone pivot="connection-agentless"
+
+:::image type="content" source="media/deployment-steps/prerequisites-agentless.png" alt-text="Diagram of the steps included in deploying the Microsoft Sentinel solution for SAP applications, with the prerequisites step highlighted." border="false":::
+
+Content in this article is relevant for your **security** and **SAP BASIS** teams.
+
+> [!IMPORTANT]
+> Microsoft Sentinel's agentless data connector for SAP is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+:::zone-end
+
+:::zone pivot="connection-agent"
 
 ## Azure prerequisites
 
@@ -27,14 +48,14 @@ Typically, Azure prerequisites are managed by your **security** teams.
 
 | Prerequisite | Description |Required/optional |
 | ---- | ----------- |----------- |
-| **Access to Microsoft Sentinel** | Make a note of your *workspace ID and *primary key* for your Log Analytics workspace enabled for Microsoft Sentinel.<br>You can find these details in Microsoft Sentinel: from the navigation menu, select **Settings** > **Workspace settings** > **Agents management**. Copy the *Workspace ID* and *Primary key* and paste them aside for use during the deployment process. |Required |
-| **Permissions to create Azure resources** | At a minimum, you must have the necessary permissions to deploy solutions from the Microsoft Sentinel content hub. For more information, see [Prerequisites for deploying Microsoft Sentinel solutions](../sentinel-solutions-deploy.md#prerequisites). |Required |
+| **Access to Microsoft Sentinel** | Make a note of your *workspace ID* and *primary key* for your Log Analytics workspace enabled for Microsoft Sentinel.<br>You can find these details in Microsoft Sentinel: from the navigation menu, select **Settings** > **Workspace settings** > **Agents management**. Copy the *Workspace ID* and *Primary key* and paste them aside for use during the deployment process. |Required |
+| **Permissions to create Azure resources** | You must have the necessary permissions to deploy solutions from the Microsoft Sentinel content hub. <br><br>You must also have an **Owner** role on the Microsoft Sentinel resource group, which is required for:<br>- Creating the data collection rule and data collection endpoint.<br>- Assigning the **Monitoring Metrics Publisher** role on the data collection rule. <br><br>For more information, see [Prerequisites for deploying Microsoft Sentinel solutions](../sentinel-solutions-deploy.md#prerequisites) and [Microsoft Entra built-in roles](/entra/identity/role-based-access-control/permissions-reference#application-administrator). |Required |
 | **Permissions to create an Azure key vault or access an existing one** | Use Azure Key Vault to store secrets required to connect to your SAP system. For more information, see [Assign key vault access permissions](deploy-data-connector-agent-container.md#assign-key-vault-access-permissions). |Required if you plan to store the SAP system credentials in Azure Key Vault. <br><br>Optional if you plan to store them in a configuration file. For more information, see [Create a virtual machine and configure access to your credentials](deploy-data-connector-agent-container.md#create-a-virtual-machine-and-configure-access-to-your-credentials).|
 | **Permissions to assign a privileged role to the SAP data connector agent** | Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** role. To grant this role, you need **Owner** permissions on the resource group where your Microsoft Sentinel workspace resides. <br><br>For more information, see [Connect your SAP system by deploying your data connector agent container](deploy-data-connector-agent-container.md). | Required. <br> If you don't have **Owner** permissions on the resource group, the relevant step can also be performed by another user who does have the relevant permissions, separately after the agent is fully deployed.|
 
-## System prerequisites
+## System prerequisites for the data connector agent container
 
-Typically, system prerequisites are managed by your **infrastructure** teams. The following system prerequisites are required for deploying the SAP data connector agent container:
+Typically, system prerequisites are managed by your **infrastructure** teams.
 
 | Prerequisite | Description |
 | ---- | ----------- |
@@ -46,7 +67,7 @@ Typically, system prerequisites are managed by your **infrastructure** teams. Th
 | **Software utilities** | The [SAP data connector deployment script](reference-kickstart.md) installs the following required software on the container host VM (depending on the Linux distribution used, the list might vary slightly): <br>- [Unzip](http://infozip.sourceforge.net/UnZip.html)<br>- [NetCat](https://sectools.org/tool/netcat/)<br>- [Docker](https://www.docker.com/)<br>- [jq](https://stedolan.github.io/jq/)<br>- [curl](https://curl.se/) |
 | **Managed identity or service principal** | The latest version of the SAP data connector agent requires a [managed identity](/entra/identity/managed-identities-azure-resources/) or [service principal](/entra/identity-platform/app-objects-and-service-principals?tabs=browser) to authenticate to Microsoft Sentinel. <br><br>Legacy agents are supported for updates to the latest version, and then must use a managed identity or service principal to continue updating to subsequent versions. |
 
-## SAP prerequisites
+## SAP prerequisites for the data connector agent container
 
 We recommend that your **SAP BASIS** team verify and ensure SAP system prerequisites. We strongly recommend that any management of your SAP system is carried out by an experienced SAP system administrator.
 
@@ -58,6 +79,33 @@ We recommend that your **SAP BASIS** team verify and ensure SAP system prerequis
 | **SAP NetWeaver instance access** | The SAP data connector agent uses one of the following mechanisms to authenticate to the SAP system: <br>- SAP ABAP user/password<br>- A user with an X.509 certificate. This option requires extra configuration steps. For more information, see [Configure your system to use SNC for secure connections](preparing-sap.md#configure-your-system-to-use-snc-for-secure-connections).|
 | **SAP role requirements** | To allow the SAP data connector to connect to your SAP system, you must create an SAP system role. We recommend creating the required system role by deploying the SAP *NPLK900271* change request (CR). For more information, see [Configure the Microsoft Sentinel role](preparing-sap.md#configure-the-microsoft-sentinel-role).|
 | **Recommended CRs for extra support** | Deploy recommended CRs on your SAP system to retrieve extra details, such as client IP address and extra logs. For more information, see [Configure support for extra data retrieval (recommended)](preparing-sap.md#configure-support-for-extra-data-retrieval-recommended). |
+
+:::zone-end
+
+:::zone pivot="connection-agentless"
+
+## Azure prerequisites
+
+Typically, Azure prerequisites are managed by your **security** teams.
+
+| Prerequisite | Description |Required/optional |
+| ---- | ----------- |----------- |
+| **Permissions to create Azure resources** | You must have: <br><br>- The necessary permissions to deploy solutions from the Microsoft Sentinel content hub. For more information, see [Prerequisites for deploying Microsoft Sentinel solutions](../sentinel-solutions-deploy.md#prerequisites) and [Microsoft Entra built-in roles](/entra/identity/role-based-access-control/permissions-reference#application-administrator). <br>Owner on the Microsoft Sentinel resource group, required for:<br><br>- Creation of data collection rule and data collection endpoint.<br><br>- Monitoring Metrics Publisher role assignment on data collection rule. |Required |
+| **Read permissions to shared keys for the workspace** | For more information, see [Install Log Analytics agent on Windows computers](/azure/azure-monitor/platform/agent-windows##workspace-id-and-key). | Required |
+| **Permissions in Microsoft Entra**|You must have permissions in Microsoft Entra ID required to create app registrations. This permission can be obtained through membership of built-in Microsoft Entra ID role:<br><br>- Application Developer.|Required |
+
+## SAP prerequisites for the agentless data connector
+
+We recommend that your **SAP BASIS** team verify and ensure SAP system prerequisites. We strongly recommend that any management of your SAP system is carried out by an experienced SAP system administrator.
+
+| Prerequisite | Description |
+| ---- | ----------- |
+| **Supported SAP versions** | The **Agentless** solution supports SAP NetWeaver systems with [SAP_BASIS versions 750](https://userapps.support.sap.com/sap(bD1kZSZjPTAwMQ==)/support/pam/pam.html?smpsrv=https%3a%2f%2fwebsmp201.sap-ag.de#ts=60&s=netweaver%207.5&o=most_viewed%7Cdesc&st=l&rpp=20&page=1&pvnr=73554900100900000414&pt=g%7Cd) and above. <br><br>Change Docs logs running on Sybase aren't supported. If you're using Sybase, we recommend that you customize your system to turn off ingestion for Change Docs logs. For more information, see [Customize data connector behavior (optional)](deploy-data-connector-agent-container.md#customize-data-connector-behavior-optional).|
+| **SAP environment** | Your SAP environment must have: <br><br> The **RSAU_API_GET_LOG_DATA** function module, remote enabled on your SAP System. For more information, see the [SAP documentation](https://me.sap.com/notes/3054326/E). <br>An SAP BTP Subaccount with following services enabled:  <br>    - SAP Integration Suite <br>- SAP Process Integration Runtime <br>- Cloud Foundry Runtime<br>    For more information, see the [SAP documentation](https://help.sap.com/docs/sap-hana-spatial-services/onboarding/creating-subaccount-on-sap-business-technology-platform-sap-btp ). [Trial accounts](https://developers.sap.com/tutorials/hcp-create-trial-account.html) are supported.<br><br>The [SAP Cloud Connector](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/installation?locale=en-US) deployed <br><br>SAP NetWeaver version 7.5 or higher|
+| **SAP roles and permissions** | You must have the following roles in your SAP systems: <br><br>**In SAP NetWeaver 7.5+**: SAP Netweaver Administrator <br><br>**In SAP BTP, all of the following roles**:<br>- Subaccount administrator <br>- Integration Provisioner <br>- PI_Administrator <br>- PI_Integration_Developer <br>- PI_Business_Expert| 
+
+:::zone-end
+
 
 ## Plan your ingestion
 

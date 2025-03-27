@@ -54,8 +54,11 @@ You can configure automatic scaling of messaging units by using conditions. This
 
 You can't set a schedule to autoscale on a specific days or date range for a default condition. This scale condition is executed when none of the other scale conditions with schedules match. 
 
+> [!IMPORTANT]
+> Both memory and CPU are crucial resources when setting up Autoscale. It is recommended to establish scale-up and scale-down rules for both.
+
 > [!NOTE]
-> To improve the receive throughput, Service Bus keeps some messages in its cache. Service Bus trims the cache only when memory usage exceeds a certain high threshold like 80%. So if an entity is sending messages but not receiving them, those messages are cached and it reflects in increased memory usage. Normally this means there is nothing to concern about, as Service Bus trims the cache if needed, which eventually causes the memory usage to go down. As such, it is recommended to only scale up once memory usage reaches 90%. Additionally, it is recommended not to scale down as long as memory usage does not go below 90%.
+> To improve the receive throughput, Service Bus keeps some messages in its cache. Service Bus trims the cache only when memory usage exceeds a certain high threshold like 80%. So if an entity is sending messages but not receiving them, those messages are cached and it reflects in increased memory usage. Normally this means there is nothing to concern about, as Service Bus trims the cache if needed, which eventually causes the memory usage to go down. However, as memory usage can increase quickly, it is recommended to scale up at 60% memory usage to prevent interruptions of your message processing.
 
 ### Scale based on a metric
 The following procedure shows you how to add a condition to automatically increase messaging units (scale out) when the CPU usage is greater than 75% and decrease messaging units (scale in) when the CPU usage is less than 25%. Increments are done from 1 to 2, 2 to 4, 4 to 8, and 8 to 16. Similarly, decrements are done from 16 to 8, 8 to 4, 4 to 2, and 2 to 1. 
@@ -141,7 +144,9 @@ The previous section shows you how to add a default condition for the autoscale 
     To learn more about how autoscale settings work, especially how it picks a profile or condition and evaluates multiple rules, see [Understand Autoscale settings](/azure/azure-monitor/autoscale/autoscale-understanding-settings).          
 
     > [!NOTE]
-    > - The metrics you review to make decisions on autoscaling may be 5-10 minutes old. When you are dealing with spiky workloads, we recommend that you have shorter durations for scaling up and longer durations for scaling down (> 10 minutes) to ensure that there are enough messaging units to process spiky workloads. 
+    > - The metrics you review to make decisions on autoscaling may be 5-10 minutes old. When you are dealing with spiky workloads, we recommend that you have shorter durations for scaling up and longer durations for scaling down. As Service Bus Premium is charged per hour, scaling down quickly will not reduce the costs for that hour. Instead, it is recoomended to give enough time to ensure the reduced workload is stable before scaling down to ensure that there are enough messaging units to process spiky workloads.
+    >
+    > When scaling down, set the threshold to less than half of the scale-up threshold. For instance, if the scale-up threshold is 80%, set the scale-down threshold to 30-35% (something below 40%) to prevent continuous scaling up and down.This will prevent autoscale to switch between scaling up and down continously.
     > 
     > - If you see failures due to lack of capacity (no messaging units available), raise a support ticket with us. Capacity fulfillment is subject to the constraints of the environment and is carried out to our best effort.
 

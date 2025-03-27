@@ -172,7 +172,7 @@ For Identity Protection to be able to perform the best risk detection possible, 
 
 Learn more about Microsoft Threat Protection and the importance of integrating different domains, in the following short video.
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4Bzww]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=a729be92-46e7-4c9b-89c4-cc2de0bc851f]
 
 ### Set up monitoring and alerting
 

@@ -29,15 +29,17 @@ If you want to skip straight to the code, see the [Python quickstart](https://gi
   - For Windows 11, use the [Windows Store](https://apps.microsoft.com/search/publisher?name=Python+Software+Foundation&hl=en-us&gl=US).
 
 ::: zone pivot="azure-managed-redis"
-## Create an Azure Managed Redis (preview) instance
-[!INCLUDE [managed-redis-create](includes/managed-redis-create.md)]
 
+## Create an Azure Managed Redis (preview) instance
+
+[!INCLUDE [managed-redis-create](includes/managed-redis-create.md)]
 
 ::: zone-end
 
 ::: zone pivot="azure-cache-redis"
 
 ## Create an Azure Cache for Redis instance
+
 [!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
 ::: zone-end
@@ -125,11 +127,11 @@ Create a Python script to that uses either Microsoft Entra ID or access keys to 
 
 ### Create a Python script using reauthentication
 
-Microsoft Entra ID access tokens have limited lifespans, [averaging 75 minutes](/entra/identity-platform/configurable-token-lifetimes#token-lifetime-policies-for-access-saml-and-id-tokens). In order to maintain a connection to your cache, you need to refresh the token. This example demonstrates how to do this using Python. 
+Microsoft Entra ID access tokens have limited lifespans, [averaging 75 minutes](/entra/identity-platform/configurable-token-lifetimes#token-lifetime-policies-for-access-saml-and-id-tokens). In order to maintain a connection to your cache, you need to refresh the token. This example demonstrates how to do this using Python.
 
 1. Create a new text file, add the following script. Then, save the file as `PythonApplication2.py`.
 
-1. Replace `<Your Host Name>` with the value from your Azure Managed Redis (preview) instance. Your host name is of the form `<DNS name>.<region>.redis.azure.net`. 
+1. Replace `<Your Host Name>` with the value from your Azure Managed Redis (preview) instance. Your host name is of the form `<DNS name>.<region>.redis.azure.net`.
 
 1. Replace `<Your Username>` with the values from your Microsoft Entra ID user.
 
@@ -332,11 +334,11 @@ Create a Python script to that uses either Microsoft Entra ID or access keys to 
 
 ### Create a Python script using reauthentication
 
-Microsoft Entra ID access tokens have limited lifespans, [averaging 75 minutes](/entra/identity-platform/configurable-token-lifetimes#token-lifetime-policies-for-access-saml-and-id-tokens). In order to maintain a connection to your cache, you need to refresh the token. This example demonstrates how to do this using Python. 
+Microsoft Entra ID access tokens have limited lifespans, [averaging 75 minutes](/entra/identity-platform/configurable-token-lifetimes#token-lifetime-policies-for-access-saml-and-id-tokens). In order to maintain a connection to your cache, you need to refresh the token. This example demonstrates how to do this using Python.
 
 1. Create a new text file, add the following script. Then, save the file as `PythonApplication2.py`.
 
-1. Replace `<Your Host Name>` with the value from your Azure Cache for Redis instance. Your host name is of the form `<DNS name>.redis.cache.windows.net`. 
+1. Replace `<Your Host Name>` with the value from your Azure Cache for Redis instance. Your host name is of the form `<DNS name>.redis.cache.windows.net`.
 
 1. Replace `<Your Username>` with the values from your Microsoft Entra ID user.
 
@@ -412,6 +414,8 @@ Microsoft Entra ID access tokens have limited lifespans, [averaging 75 minutes](
    Unlike the first example, If your token expires, this example automatically refreshes it.
 
 ## [Access Key Authentication](#tab/accesskey)
+
+[!INCLUDE [redis-access-key-alert](includes/redis-access-key-alert.md)]
 
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 

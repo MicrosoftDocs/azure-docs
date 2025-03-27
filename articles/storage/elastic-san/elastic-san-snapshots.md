@@ -1,26 +1,32 @@
 ---
-title: Backup Azure Elastic SAN volumes (preview)
-description: Learn about snapshots (preview) for Azure Elastic SAN, including how to create and use them.
+title: Backup Azure Elastic SAN volumes 
+description: Learn about snapshots for Azure Elastic SAN, including how to create and use them.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: conceptual
-ms.date: 12/03/2024
+ms.date: 12/12/2024
 ms.author: rogarana
 ---
 
-# Snapshot Azure Elastic SAN volumes (preview)
+# Snapshot Azure Elastic SAN volumes
 
-Azure Elastic SAN volume snapshots (preview) are incremental point-in-time backups of your volumes. The first snapshot you take occupies no space, and every subsequent snapshot consists only of the changes to the Elastic SAN volume since the last snapshot. This is different from a managed disk snapshot, wherein the first snapshot you take will be a full copy of the managed disk and each subsequent snapshot will consist of only the changes to the disk since the last snapshot. Snapshots of your volumes don't have any separate billing, but they reside in your elastic SAN and consume the SAN's capacity. Snapshots can't be used to change the state of an existing volume, you can only use them to either deploy a new volume or export the data to a managed disk snapshot.
+Azure Elastic SAN volume snapshots are incremental point-in-time backups of your volumes. The first snapshot you take occupies no space, and every subsequent snapshot consists only of the changes to the Elastic SAN volume since the last snapshot. This is different from a managed disk snapshot, wherein the first snapshot you take will be a full copy of the managed disk and each subsequent snapshot will consist of only the changes to the disk since the last snapshot. Snapshots of your volumes don't have any separate billing, but they reside in your elastic SAN and consume the SAN's capacity. Snapshots can't be used to change the state of an existing volume, you can only use them to either deploy a new volume or export the data to a managed disk snapshot.
 
 You can take up to 200 snapshots per volume at a rate of seven snapshots every five minutes. Snapshots persist until either the volume itself is deleted or the snapshots are deleted. Snapshots don't persist after the volume is deleted. If you need your data to persist after deleting a volume, [export your volume's snapshot to a managed disk snapshot](#export-volume-snapshot).
 
 
 ## Limitations
 
-- If a volume is larger than 4 TiB, export of a volume snapshot to a disk snapshot is not supported.
+- If a volume is larger than 4 TiB, you can't export that volume's snapshots to disk snapshots.
 
 ## General guidance
+
+You should use Elastic SAN volume snapshots when you want to restore volumes quickly, like when you have dev/test workloads. Volumes created from volume snapshots are available instantly for use, while the rehydration happens in the background. Volume snapshots shouldn't be considered when hardening your backups.
+
+You should use managed disk snapshots when you either want to create a managed disk from your Elastic SAN volume, or if you want to keep a long term backup of your Elastic SAN volumes. Managed disk snapshots are useful when you require durable checkpoints or version control for your Elastic SAN volumes, and you don't need to restore a volume backup instantly. Managed disk snapshots aren't ideal for scenarios where you require quick restoration, it takes time to create Elastic SAN volumes from managed disk snapshots.
+
+### Take a stable snapshot
 
 You can take a snapshot anytime, but if you’re taking snapshots while the VM is running, keep these things in mind:
 

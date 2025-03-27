@@ -1,9 +1,6 @@
 ---
 title: Build a Business case with Azure Migrate | Microsoft Docs
 description: Describes how to build a Business case with Azure Migrate
-author: rashi-ms
-ms.author: rajosh
-ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 10/14/2024
@@ -60,7 +57,7 @@ There are three types of migration strategies that you can choose while building
 
 To build a business case, follow these steps:
 
-1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
+1. In **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
     :::image type="content" source="./media/how-to-build-a-business-case/assess-inline.png" alt-text="Screenshot of the discover, assess and migrate servers button." lightbox="./media/how-to-build-a-business-case/assess-expanded.png":::
 

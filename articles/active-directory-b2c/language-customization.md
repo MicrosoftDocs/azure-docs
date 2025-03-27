@@ -466,7 +466,7 @@ Microsoft provides the `ui_locales` OIDC parameter to social logins. But some so
 
 ### Browser behavior
 
-Chrome and Firefox both request for their set language. If it's a supported language, it's displayed before the default. Microsoft Edge currently doesn't request a language and goes straight to the default language.
+Microsoft Edge, Chrome and Firefox request for their set language. If it's a supported language, it's displayed before the default.
 
 ## Supported languages
 

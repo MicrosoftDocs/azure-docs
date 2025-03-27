@@ -12,6 +12,8 @@ ms.date: 05/17/2023
 
 A new class of applications is reimagining what modern work could be. While [Microsoft Word](https://www.microsoft.com/microsoft-365/word) brings editors together, [Figma](https://www.figma.com) gathers up designers on the same creative endeavor. This class of applications builds on a user experience that makes us feel connected with our remote collaborators. From a technical point of view, user's activities need to be synchronized across users' screens at a low latency.
 
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
+
 ## Overview
 In this how-to guide, we take a cloud-native approach and use Azure services to build a real-time collaborative whiteboard and we deploy the project as a Web App to Azure App Service. The whiteboard app is accessible in the browser and allows anyone can draw on the same canvas.
 
@@ -81,6 +83,9 @@ In order to follow the step-by-step guide, you need
     ```
 
 1. Show and store the value of `primaryConnectionString` somewhere for later use.
+
+    [!INCLUDE [Connection string security comment](includes/web-pubsub-connection-string-security-comment.md)]
+
     ```azurecli-interactive
     az webpubsub key show \
       --name "whiteboard-app" \

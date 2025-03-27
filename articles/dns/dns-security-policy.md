@@ -1,11 +1,11 @@
 ---
 title: Overview of DNS security policy (Preview)
-description: Learn about DNS security policy.
+description: Learn how to configure DNS security policy to filter and log DNS queries in your Azure Virtual Network. Display, save, and review DNS queries and responses from the VNET. Block malicious domains and optimize DNS query traffic.
 author: greg-lindsay
 manager: KumuD
 ms.service: azure-dns
 ms.topic: article
-ms.date: 11/19/2024
+ms.date: 02/24/2025
 ms.author: greglin
 ---
 
@@ -13,7 +13,7 @@ ms.author: greglin
 
 This article provides an overview of DNS security policy. Also see the following how-to guide:
 
-- [How to filter and view DNS traffic (Preview)](dns-traffic-log-how-to.md).
+- [Secure and view DNS traffic (Preview)](dns-traffic-log-how-to.md).
 
 > [!NOTE]
 > DNS security policy is currently in PREVIEW.<br> 
@@ -56,6 +56,7 @@ To display DNS traffic rules in the Azure portal, select a DNS security policy a
 - Rules are processed in order of **Priority** in the range 100-65000. Lower numbers are higher priority.
     * If a domain name is blocked in a lower priority rule, and the same domain is allowed in a higher priority rule, the domain name is allowed.
     * Rules follow the DNS hierarchy. If contoso.com is allowed in a higher priority rule, then sub.contoso.com is allowed, even if sub.contoso.com is blocked in a lower priority rule.
+    * You can configure a policy on all domains by creating a rule that applies to the "." domain. Be careful when blocking domains so that you don't block necessary Azure services.
 - You can dynamically add and delete rules from the list. Be sure to **Save** after editing rules in the portal.
 - Multiple **DNS Domain Lists** are allowed per rule. You must have at least one DNS domain list. 
 - Each rule is associated with one of three **Traffic Actions**: **Allow**, **Block**, or **Alert**.
@@ -79,7 +80,12 @@ The following example shows a DNS security policy linked to two VNets (**myeastv
 
 DNS domain lists are lists of DNS domains that you associate to traffic rules. 
 
-Select **DNS Domain Lists** under **Settings** for a DNS security policy to view the current domain lists associated with the policy. The following example shows the DNS domain lists that are associated with the DNS security policy **myeast-secpol**:
+Select **DNS Domain Lists** under **Settings** for a DNS security policy to view the current domain lists associated with the policy. 
+
+> [!NOTE]
+> CNAME chains are examined ("chased") to determine if the traffic rules that are associated with a domain should apply. For example, a rule that applies to **malicious.contoso.com** also applies to **adatum.com** if **adatum.com** maps to **malicious.contoso.com** or if **malicious.contoso.com** appears anywhere in a CNAME chain for **adatum.com**.
+
+The following example shows the DNS domain lists that are associated with the DNS security policy **myeast-secpol**:
 
 [  ![Screenshot of the list of DNS domain lists.](./media/dns-security-policy/domain-list.png) ](./media/dns-security-policy/domain-list.png#lightbox)
 
@@ -99,7 +105,7 @@ When viewing a DNS domain list in the Azure portal, you can also select **Settin
 ## Requirements and restrictions
 
 Preview access
-- This DNS security policy preview is offered without a requirement to enroll in a pre-release feature preview. However, to access the Azure portal user interface for this policy prior to the next portal update, you must use the [Azure portal preview-enabled link](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_DnsSecurityPolicy=staging&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_DnsSecurityPolicyHidden#browse/Microsoft.Network%2FdnsResolverDomainLists).
+- This DNS security policy preview is offered without a requirement to enroll in a pre-release feature preview.
 
 Virtual network restrictions:
 - DNS security policies can only be applied to VNets in the same region as the DNS security policy.
@@ -121,4 +127,4 @@ Domain restrictions:
 
 ## Related content
 
-- [How to filter and view DNS traffic (Preview)](dns-traffic-log-how-to.md).
+- [Secure and view DNS traffic (Preview)](dns-traffic-log-how-to.md).

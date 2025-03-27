@@ -3,12 +3,12 @@ metadata:
   title: Azure Firewall FAQ
   description: FAQ for Azure Firewall. A managed, cloud-based network security service that protects your Azure Virtual Network resources.
   services: firewall
-  author: vhorne
+  author: duongau
   ms.service: azure-firewall
   ms.custom: devx-track-azurepowershell
   ms.topic: faq
-  ms.date: 02/29/2024
-  ms.author: victorh
+  ms.date: 03/17/2025
+  ms.author: duau
 title: Azure Firewall FAQ
 summary: |
 
@@ -156,7 +156,9 @@ sections:
            - The firewall's region [supports availability zones](../reliability/availability-zones-region-support.md).
            - All attached public IP addresses are deployed with availability zones. In the properties page of each public IP address, ensure the **availability zones** field exists and is configured with the same zones you configured for the firewall.
 
-           Reconfiguring availability zones can only be done when you restart the firewall. After you allocate the firewall, and right before starting the firewall with `Set-AzFirewall`, use the following Azure PowerShell to modify the firewall's **Zones** property:
+           Reconfiguring availability zones can only be done when you restart the firewall. First you need to deallocate the firewall (by using '$azfw.Deallocate()'), then change the zone configuration and then allocate the firewall (by using  '$azfw.Allocate()').  
+           
+           After you allocate the firewall, and right before starting the firewall with `Set-AzFirewall`, use the following Azure PowerShell to modify the firewall's **Zones** property:
 
            ```azurepowershell
            $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"

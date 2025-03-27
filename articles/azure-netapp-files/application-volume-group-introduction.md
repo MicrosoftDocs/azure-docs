@@ -1,11 +1,11 @@
 ---
-title: Understand Azure NetApp Files application volume group for SAP HANA | Microsoft Docs
+title: Understand Azure NetApp Files application volume group for SAP HANA 
 description: Describes the use cases and key features of Azure NetApp Files application volume group for SAP HANA.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 09/11/2024
+ms.date: 03/13/2025
 ms.author: anfdocs
 ---
 # Understand Azure NetApp Files application volume group for SAP HANA 
@@ -46,7 +46,7 @@ Application volume group for SAP HANA helps you simplify the deployment process 
 * Creation of separate storage endpoints (with different IP addresses) for data and log volumes.
     * This deployment method provides better performance and throughput for the SAP HANA database.
 
-### <a name="extension-1-features"></a> Extension 1 features (preview)
+### <a name="extension-1-features"></a> Extension 1 features
 
 Application volume group for SAP HANA extension one offers support for:
 
@@ -57,6 +57,11 @@ Application volume group for SAP HANA extension one offers support for:
 * [Standard network features](azure-netapp-files-network-topologies.md) 
 
     Application volume group for SAP HANA now supports selecting Standard network features for all volumes in the volume group. Standard network features support enhanced security including [network security groups (NSGs)](../virtual-network/network-security-group-how-it-works.md)
+
+* [Customer-managed keys](configure-customer-managed-keys.md)
+
+    Application volumes group for SAP HANA now supports the use of customer-managed keys for increased security and compliance. With customer-managed keys, you can fully manage the relationship between a key's life cycle, key usage permissions, and auditing operations on keys.
+
 
 ## Next steps
 

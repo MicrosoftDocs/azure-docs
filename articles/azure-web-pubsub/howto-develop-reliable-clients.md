@@ -1,6 +1,6 @@
 ---
-title: Create reliable Websocket clients
-description: How to create reliable Websocket clients
+title: Create reliable WebSocket clients
+description: How to create reliable WebSocket clients
 author: chenyl
 ms.author: chenyl
 ms.service: azure-web-pubsub
@@ -8,9 +8,9 @@ ms.topic: reference
 ms.date: 01/12/2023
 ---
 
-# Create reliable Websocket with subprotocol
+# Create reliable WebSocket with subprotocol
 
-When Websocket client connections drop due to intermittent network issues, messages can be lost. In a pub/sub system, publishers are decoupled from subscribers, so publishers may not detect a subscribers' dropped connection or message loss. It's crucial for clients to overcome intermittent network issues and maintain reliable message delivery. To achieve that, you can create a reliable Websocket client with the help of reliable Azure Web PubSub subprotocols.
+When WebSocket client connections drop due to intermittent network issues, messages can be lost. In a pub/sub system, publishers are decoupled from subscribers, so publishers may not detect a subscribers' dropped connection or message loss. It's crucial for clients to overcome intermittent network issues and maintain reliable message delivery. To achieve that, you can create a reliable WebSocket client with the help of reliable Azure Web PubSub subprotocols.
 
 ## Reliable Protocol
 
@@ -26,9 +26,9 @@ The following tutorial walks you through the important part of implementing the 
 
 ### Initialization
 
-To use reliable subprotocols, you must set the subprotocol when constructing Websocket connections. In JavaScript, you can use the following code:
+To use reliable subprotocols, you must set the subprotocol when constructing WebSocket connections. In JavaScript, you can use the following code:
 
-- Use Json reliable subprotocol:
+- Use JSON reliable subprotocol:
 
   ```js
   var pubsub = new WebSocket(
@@ -50,7 +50,7 @@ To use reliable subprotocols, you must set the subprotocol when constructing Web
 
 Connection recovery is the basis of achieving reliability and must be implemented when using the `json.reliable.webpubsub.azure.v1` and `protobuf.reliable.webpubsub.azure.v1` protocols.
 
-Websocket connections rely on TCP. When the connection doesn't drop, messages are lossless and delivered in order. To prevent message loss over dropped connections, the Web PubSub service retains the connection status information, including group and message information. This information is used to restore the client on connection recovery
+WebSocket connections rely on TCP. When the connection doesn't drop, messages are lossless and delivered in order. To prevent message loss over dropped connections, the Web PubSub service retains the connection status information, including group and message information. This information is used to restore the client on connection recovery
 
 When the client reconnects to the service using reliable subprotocols, the client will receive a `Connected` message containing the `connectionId` and `reconnectionToken`. The `connectionId` identifies the session of the connection in the service.
 
@@ -71,7 +71,7 @@ wss://<service-endpoint>/client/hubs/<hub>?awps_connection_id=<connection_id>&aw
 
 Connection recovery may fail if the network issue hasn't been recovered yet. The client should keep retrying to reconnect until:
 
-1. The Websocket connection is closed with status code 1008. The status code means the connectionId has been removed from the service.
+1. The WebSocket connection is closed with status code 1008. The status code means the connectionId has been removed from the service.
 2. A recovery failure continues to occur for more than 1 minute.
 
 ### Publisher

@@ -4,8 +4,8 @@ description: This article contains important reference material you need when yo
 ms.date: 10/26/2024
 ms.custom: horz-monitor
 ms.topic: reference
-author: vhorne
-ms.author: victorh
+author: duongau
+ms.author: duau
 ms.service: azure-firewall
 ---
 # Azure Firewall monitoring data reference
@@ -76,7 +76,7 @@ The latency probe currently uses Microsoft's Ping Mesh technology, which is base
 - Recommended latency threshold: A recommended guideline is that latency should not exceed 3x the baseline. If this threshold is crossed, further investigation is recommended.
 - Check the rule limit: Ensure that the network rules are within the 20K rule limit. Exceeding this limit can affect performance. 
 - New application onboarding: Check for any newly onboarded applications that could be adding significant load or causing latency issues.
-- Support request: If you observe continuous latency degredation that does not align with expected behavior, consider filing a support ticket for further assistance. 
+- Support request: If you observe continuous latency degradation that does not align with expected behavior, consider filing a support ticket for further assistance. 
 
   :::image type="content" source="media/metrics/latency-probe.png" alt-text="Screenshot showing the Azure Firewall Latency Probe metric.":::
 

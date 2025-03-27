@@ -21,7 +21,7 @@ Microsoft Purview makes commercially reasonable efforts to support zone-redundan
 
 ### Prerequisites
 
-- Microsoft Purview governance experience currently provides partial availablility-zone support in [a limited number of regions](#supported-regions). This partial availability-zone support covers experiences (and/or certain functionalities within an experience).
+- Microsoft Purview governance experience currently provides partial availability-zone support in [a limited number of regions](#supported-regions). This partial availability-zone support covers experiences (and/or certain functionalities within an experience).
 - Zone availability might or might not be available for Microsoft Purview governance experiences or features/functionalities that are in preview.
 
 ### Supported regions

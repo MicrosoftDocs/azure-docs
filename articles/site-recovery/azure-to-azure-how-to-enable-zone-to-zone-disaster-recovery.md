@@ -2,10 +2,9 @@
 title: Enable zone-to-zone disaster recovery for Azure virtual machines
 description: This article describes when and how to use zone-to-zone disaster recovery for Azure virtual machines.
 author: ankitaduttaMSFT
-manager: aravindang
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 10/28/2024
+ms.date: 02/12/2025
 ms.author: ankitadutta
 ms.custom: references_regions
 ---
@@ -36,6 +35,7 @@ Support for zone-to-zone disaster recovery is currently limited to the following
 | West US 2 | Switzerland North | | | |
 | West US 3 | UK South | | | |
 || West Europe ||||
+||Spain Central ||||
 
 When you use zone-to-zone disaster recovery, Site Recovery doesn't move or store data out of the region in which it's deployed. You can select a Recovery Services vault from a different region if you want one. The Recovery Services vault contains metadata but no actual customer data.
 
@@ -44,7 +44,7 @@ Learn more about [Azure regions with availability zones](../reliability/availabi
 > [!NOTE]
 > Zone-to-zone disaster recovery isn't supported for VMs that have managed disks via zone-redundant storage (ZRS).
 >
->Regions that don't support Azure availability zones also don't support Azure Site Recovery zone-to-zone replication. For Azure Site Recovery zone-to-zone replication to work, the region must support availability zones.
+> Regions that don't support Azure availability zones also don't support Azure Site Recovery zone-to-zone replication. For Azure Site Recovery zone-to-zone replication to work, the region must support availability zones.
 
 ## Using availability zones for disaster recovery
 
@@ -65,7 +65,9 @@ As mentioned before, zone-to-zone disaster recovery uses redundant networking co
 
 - **Virtual network**: You can use the same virtual network as the source network for actual failovers. For test failovers, use a virtual network that's different from the source virtual network.
 - **Subnet**: Failover into the same subnet is supported.
-- **Private IP address**: If you're using static IP addresses, you cannot retain the same IP address in zone to zone failover.
+- **Private IP address**: If you're using static IPs, you can use the same static IPs for the failed over VM once failover completes. [Ensure the source VM’s private IP is static](../virtual-network/ip-services/virtual-networks-static-private-ip.md#change-private-ip-address-to-static) before enabling Site Recovery. You must have a free IP (different from the source IP) in the same subnet. When failover is triggered, Site Recovery assigns the free IP to the source VM, freeing the source IP so that it can be associated with target VM. 
+    > [!NOTE]
+    > You can use the same source IP for the target VM only if you choose to shut down the source VM during failover. Shutting down the VM helps to dissociate the original IP from source VM so that it can be associated with target VM.
 - **Accelerated networking**: Similar to Azure-to-Azure disaster recovery, you can enable accelerated networking if the VM type supports it.
 - **Public IP address**: You can attach a previously created standard public IP address in the same region to the target VM. Basic public IP addresses don't support scenarios related to availability zones.
 - **Load balancer**: A standard load balancer is a regional resource, so the target VM can be attached to the back-end pool of the same load balancer. A new load balancer isn't required.
@@ -119,7 +121,7 @@ Pricing for zone-to-zone disaster recovery is identical to the pricing for Azure
 The egress charges in zone-to-zone disaster recovery are lower than the egress charges in region-to-region disaster recovery. For information about data transfer charges between availability zones, see the [bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 **What is the SLA for RTO and RPO?**
-The service-level agreement (SLA) for recovery time objective (RTO) is the same as the SLA for Site Recovery overall. We promise an RTO of up to two hours. There's no defined SLA for RPO.
+The service-level agreement (SLA) for recovery time objective (RTO) is the same as the SLA for Site Recovery overall. We promise an RTO of up to one hour. There's no defined SLA for RPO. 
 
 **Is capacity guaranteed in the secondary zone?**
 The Site Recovery team and the Azure capacity management team plan for sufficient infrastructure capacity. When you start a failover, the teams also help ensure that VM instances protected by Site Recovery deploy to the target zone. For more FAQs on capacity, check the [common questions about Azure-to-Azure disaster recovery](./azure-to-azure-common-questions.md#capacity).

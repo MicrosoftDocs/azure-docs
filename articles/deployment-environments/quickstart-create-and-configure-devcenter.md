@@ -176,7 +176,7 @@ To configure a project, add a [project environment type](how-to-configure-projec
 
 
 > [!NOTE]
-> At least one identity (system-assigned or user-assigned) must be enabled for deployment identity. The identity is used to perform the environment deployment on behalf of the developer. Additionally, the identity attached to the dev center should be [assigned the Contributor and the User Access Admistrator roles](how-to-configure-managed-identity.md) for access to the deployment subscription for each environment type.
+> At least one identity (system-assigned or user-assigned) must be enabled for deployment identity. The identity is used to perform the environment deployment on behalf of the developer. Additionally, the identity attached to the dev center should be [assigned the Contributor and the User Access Administrator roles](how-to-configure-managed-identity.md) for access to the deployment subscription for each environment type.
 
 ## Give access to the development team
 

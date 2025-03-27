@@ -36,7 +36,7 @@ An Azure Spring Apps assessment provides the following sizing criteria:
 
 Run an assessment using the following steps:
 
-1. On the **Overview** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
+1. In **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
     :::image type="content" source="./media/how-to-create-azure-spring-apps-assessment/discover-assess-migrate.png" alt-text="Screenshot of Overview page for Azure Migrate." lightbox="./media/how-to-create-azure-spring-apps-assessment/discover-assess-migrate.png":::
 

@@ -1044,7 +1044,7 @@ For Consumption workflows where you want to disable SAS authentication, follow t
 
 1. In the [Azure portal](https://portal.azure.com), go to your Consumption workflow in the designer, and confirm that the **Request** trigger's URL no longer includes the SAS.
 
-1. To enable Oauth 2.0 with Microsoft Entra ID, at the logic app resource level, [add an authorization policy for OAuth with Microsoft Entra ID](#enable-azure-ad-inbound).
+1. To enable OAuth 2.0 with Microsoft Entra ID, at the logic app resource level, [add an authorization policy for OAuth with Microsoft Entra ID](#enable-azure-ad-inbound).
 
    For more information, see [Enable OAuth 2.0 with Microsoft Entra ID](#enable-oauth).
 
@@ -1591,7 +1591,7 @@ For more information about securing services by using client certificate authent
 
 * [Improve security for APIs by using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates-for-clients.md)
 * [Improve security for back-end services by using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates.md)
-* [Improve security for your RESTfuL service by using client certificates](../active-directory-b2c/secure-rest-api.md)
+* [Improve security for your RESTful service by using client certificates](../active-directory-b2c/secure-rest-api.md)
 * [Certificate credentials for application authentication](/entra/identity-platform/certificate-credentials)
 * [Use a TLS/SSL certificate in your code in Azure App Service](../app-service/configure-ssl-certificate-in-code.md)
 

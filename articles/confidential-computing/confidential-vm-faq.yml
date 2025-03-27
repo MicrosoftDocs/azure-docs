@@ -133,6 +133,16 @@ sections:
           No. After you've created a confidential VM, you can't deactivate or reactivate full-disk encryption. Create a new confidential VM instead.
 
       - question: |
+          Is it possible to switch between Platform-managed keys and Customer-managed keys after a VM has been created?
+        answer: |
+          No, the choice of key management (Platform-managed or Customer-managed) is only available during VM creation and cannot be changed afterward.          
+
+      - question: |
+          Can I use a Customer-managed key if I don't enable full-disk encryption for the OS disk?
+        answer: |
+          No, if a Confidential VM is created without full-disk encryption of the OS disk, a Customer-managed key cannot be used. In this case, the VMGS disk, which is always encrypted, will be encrypted using a Platform-managed key (PMK). 
+      
+      - question: |
           Can I control more aspects of the Trusted Computing Base to enforce operator independent key management, attestation, and disk encryption?
         answer: |
           Developers seeking further "separation of duties" for TCB services from the cloud service provider should use security type "NonPersistedTPM". 

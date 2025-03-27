@@ -1,0 +1,29 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/partner-solutions/palo-alto/palo-alto-application-gateway.md",
+            "redirect_url": "/azure/partner-solutions/palo-alto/application-gateway",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/palo-alto/palo-alto-create.md",
+            "redirect_url": "/azure/partner-solutions/palo-alto/create",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/palo-alto/palo-alto-manage.md",
+            "redirect_url": "/azure/partner-solutions/palo-alto/manage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/palo-alto/palo-alto-overview.md",
+            "redirect_url": "/azure/partner-solutions/palo-alto/overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/palo-alto/palo-alto-troubleshoot.md",
+            "redirect_url": "/azure/partner-solutions/palo-alto/troubleshoot",
+            "redirect_document_id": true
+        }
+    ]
+}

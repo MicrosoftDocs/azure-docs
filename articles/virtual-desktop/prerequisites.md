@@ -145,7 +145,7 @@ You need to enter the following identity parameters when deploying session hosts
 - Organizational Unit (OU), which is an optional parameter that lets you place session hosts in the desired OU at deployment time.
 
 > [!IMPORTANT]
-> The account you use for joining a domain can't have multi-factor authentication (MFA) enabled.
+> The account you use for joining a domain can't have multifactor authentication (MFA) enabled.
 
 ## Operating systems and licenses
 
@@ -247,10 +247,12 @@ You can deploy host pools, workspaces, and application groups in the following A
        - East US
        - East US 2
        - Japan East
+       - Japan West
        - North Central US
     :::column-end:::
     :::column:::
        - North Europe
+       - South Africa North
        - South Central US
        - UK South
        - UK West
@@ -266,17 +268,17 @@ Azure Virtual Desktop is also available in sovereign clouds, such as [Azure for 
 
 To learn more about the architecture and resilience of the Azure Virtual Desktop service, see [Azure Virtual Desktop service architecture and resilience](service-architecture-resilience.md).
 
-## Remote Desktop clients
+## Connecting to a remote session
 
-Your users need a [Remote Desktop client](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) to connect to desktops and applications. The following clients support Azure Virtual Desktop:
+Your users need to use [Windows App](/windows-app/) or the [Remote Desktop client](users/remote-desktop-clients-overview.md) to connect to desktops and applications. You can connect from:
 
-- [Windows Desktop client](./users/connect-windows.md)
-- [Azure Virtual Desktop Store app for Windows](./users/connect-windows-azure-virtual-desktop-app.md)
-- [Web client](./users/connect-web.md)
-- [macOS client](./users/connect-macos.md)
-- [iOS and iPadOS client](./users/connect-ios-ipados.md)
-- [Android and Chrome OS client](./users/connect-android-chrome-os.md)
-- [Remote Desktop app for Windows](./users/connect-microsoft-store.md)
+- Windows
+- macOS
+- iOS/iPadOS
+- Android/Chrome OS
+- Web browser
+
+For more information, see [Get started with Windows App to connect to devices and apps](/windows-app/get-started-connect-devices-desktops-apps?pivots=azure-virtual-desktop).
 
 > [!IMPORTANT]
 > Azure Virtual Desktop doesn't support connections from the RemoteApp and Desktop Connections (RADC) client or the Remote Desktop Connection (MSTSC) client.
@@ -285,6 +287,6 @@ To learn which URLs clients use to connect and that you must allow through firew
 
 ## Next steps
 
-- For a simple way to get started with Azure Virtual Desktop by creating a sample infrastructure, see [Tutorial: Deploy a sample Azure Virtual Desktop infrastructure with a Windows 11 desktop](tutorial-create-connect-personal-desktop.md).
+- When you're ready to try Azure Virtual Desktop, use [quickstart to deploy a sample Azure Virtual Desktop environment](quickstart.md) with Windows 11 Enterprise multi-session.
 
 - For a more in-depth and adaptable approach to deploying Azure Virtual Desktop, see [Deploy Azure Virtual Desktop](create-host-pool.md).

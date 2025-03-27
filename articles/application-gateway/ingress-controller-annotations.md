@@ -4,7 +4,7 @@ description: This article provides documentation on the annotations that are spe
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 9/17/2024
 ms.author: greglin
 ---
@@ -14,7 +14,7 @@ ms.author: greglin
 You can annotate the Kubernetes ingress resource with arbitrary key/value pairs. Application Gateway Ingress Controller (AGIC) relies on annotations to program Azure Application Gateway features that aren't configurable via the ingress YAML. Ingress annotations are applied to all HTTP settings, backend pools, and listeners derived from an ingress resource.
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers](for-containers/overview.md).
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Quickstart: Deploy Application Gateway for Containers ALB Controller](for-containers/quickstart-deploy-application-gateway-for-containers-alb-controller.md).
 
 ## List of supported annotations
 
@@ -745,3 +745,8 @@ spec:
 ```
 
 The preceding example sets a priority of 10 for the request routing rule.
+
+## Next steps
+
+- [Application Gateway for Containers](for-containers/overview.md)
+- [Migrate to Application Gateway for Containers](for-containers/migrate-from-agic-to-agc.md)

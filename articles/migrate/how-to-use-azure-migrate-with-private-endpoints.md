@@ -33,10 +33,10 @@ You must have Contributor + User Access Administrator or Owner permissions on th
 
 **Deployment** | **Details** | **Tools**
 --- | --- | ---
-**Discovery and assessment** | Perform an agentless, at-scale discovery and assessment of your servers running on any platform. Examples include hypervisor platforms such as [VMware vSphere](./tutorial-discover-vmware.md) or [Microsoft Hyper-V](./tutorial-discover-hyper-v.md), public clouds such as [AWS](./tutorial-discover-aws.md) or [GCP](./tutorial-discover-gcp.md), or even [bare metal servers](./tutorial-discover-physical.md). | Azure Migrate: Discovery and assessment <br/>
+**Discovery and assessment** | Perform an agentless, at-scale discovery and assessment of your servers running on any platform. Examples include hypervisor platforms such as [VMware vSphere](tutorial-discover-vmware.md) or [Microsoft Hyper-V](./tutorial-discover-hyper-v.md), public clouds such as [AWS](./tutorial-discover-aws.md) or [GCP](./tutorial-discover-gcp.md), or even [bare metal servers](./tutorial-discover-physical.md). | Azure Migrate: Discovery and assessment <br/>
 **Software inventory** | Discover apps, roles, and features running on VMware VMs. | Azure Migrate: Discovery and assessment
 **Dependency visualization** | Use the dependency analysis capability to identify and understand dependencies across servers. <br/> [Agentless dependency visualization](./how-to-create-group-machine-dependencies-agentless.md) is supported natively with Azure Migrate private link support. <br/>[Agent-based dependency visualization](./how-to-create-group-machine-dependencies.md) requires internet connectivity. Learn how to use [private endpoints for agent-based dependency visualization](/azure/azure-monitor/logs/private-link-security). | Azure Migrate: Discovery and assessment |
-**Migration** | Perform [agentless VMware migrations](./tutorial-migrate-vmware.md), [agentless Hyper-V migrations](./tutorial-migrate-hyper-v.md), or use the agent-based approach to migrate your [VMware VMs](./tutorial-migrate-vmware-agent.md), [Hyper-V VMs](./tutorial-migrate-physical-virtual-machines.md), [physical servers](./tutorial-migrate-physical-virtual-machines.md), [VMs running on AWS](./tutorial-migrate-aws-virtual-machines.md), [VMs running on GCP](./tutorial-migrate-gcp-virtual-machines.md), or VMs running on a different virtualization provider. | Migration and modernization
+**Migration** | Perform [agentless VMware migrations](tutorial-migrate-vmware.md), [agentless Hyper-V migrations](./tutorial-migrate-hyper-v.md), or use the agent-based approach to migrate your [VMware VMs](tutorial-migrate-vmware-agent.md), [Hyper-V VMs](./tutorial-migrate-physical-virtual-machines.md), [physical servers](./tutorial-migrate-physical-virtual-machines.md), [VMs running on AWS](./tutorial-migrate-aws-virtual-machines.md), [VMs running on GCP](./tutorial-migrate-gcp-virtual-machines.md), or VMs running on a different virtualization provider. | Migration and modernization
 
 #### Other integrated tools
 
@@ -57,5 +57,6 @@ To enable public network access for the Azure Migrate project, sign in to the Az
 ## Next steps
 
 - [Discover and assess servers for migration using Private Link](discover-and-assess-using-private-endpoints.md)
-- [Migrate servers to Azure using Private Link](migrate-servers-to-azure-using-private-link.md)  
+- [Migrate servers to Azure using Private Link](migrate-hyper-v-servers-to-azure-using-private-link.md)
+- [Migrate servers to Azure using Private Link for agent-based replications](migrate-servers-to-azure-using-private-link-agent-based.md).
 - [Troubleshoot common issues with private endpoint connectivity](troubleshoot-network-connectivity.md)

@@ -5,7 +5,7 @@ keywords: security copilot, copilot for security, threat intelligence, IDPS, int
 author: abhinavsriram
 ms.author: asriram
 ms.date: 11/19/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-firewall
 ms.localizationpriority: high
 ms.custom:
@@ -96,8 +96,6 @@ Get **log information** about the traffic intercepted by the IDPS feature instea
 - What are the top 20 IDPS hits from the last seven days for Firewall _\<Firewall name\>_ in resource group _\<resource group name\>_?
 - Show me in tabular form the top 50 attacks that targeted Firewall _\<Firewall name\>_ in subscription _\<subscription name\>_ in the past month.
 
-    :::image type="content" source="media/firewall-copilot/copilot-capability-1-embedded.png" alt-text="Screenshot showing the Retrieve the top IDPS signature hits for an Azure Firewall capability." lightbox="media/firewall-copilot/copilot-capability-1-embedded.png":::
-
 ### Enrich the threat profile of an IDPS signature beyond log information
 
 Get **additional details** to enrich the threat information/profile of an IDPS signature instead of compiling it yourself manually.
@@ -107,8 +105,6 @@ Get **additional details** to enrich the threat information/profile of an IDPS s
 - Explain why IDPS flagged the top hit as high severity and the fifth hit as low severity.
 - What can you tell me about this attack? What are the other attacks this attacker is known for?
 - I see that the third signature ID is associated with CVE _\<CVE number\>_, tell me more about this CVE.
-
-    :::image type="content" source="media/firewall-copilot/copilot-capability-2-embedded.png" alt-text="Screenshot showing the Enrich the threat profile of an IDPS signature beyond log information capability." lightbox="media/firewall-copilot/copilot-capability-2-embedded.png":::
 
 > [!NOTE]
 > The Microsoft Threat Intelligence plugin is another source that Security Copilot may use to provide threat intelligence for IDPS signatures.
@@ -122,8 +118,6 @@ Perform a **fleet-wide search** (over any scope) for a threat across all your Fi
 - Was signature ID _\<ID number\>_ only stopped by this one Firewall? What about others across this entire tenant?
 - Was the top hit seen by any other Firewall in the subscription _\<subscription name\>_?
 - Over the past week did any Firewall in resource group _\<resource group name\>_ see signature ID _\<ID number\>_?
-
-    :::image type="content" source="media/firewall-copilot/copilot-capability-3-embedded.png" alt-text="Screenshot showing the Look for a given IDPS signature across your tenant, subscription, or resource group capability." lightbox="media/firewall-copilot/copilot-capability-3-embedded.png":::
 
 ### Generate recommendations to secure your environment using Azure Firewall's IDPS feature
 

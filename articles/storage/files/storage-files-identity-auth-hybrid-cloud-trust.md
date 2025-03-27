@@ -4,7 +4,7 @@ description: Learn how to enable Microsoft Entra Kerberos authentication for hyb
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/18/2024
+ms.date: 01/24/2025
 ms.author: kendownie
 recommendations: false
 ---
@@ -39,8 +39,8 @@ The following are examples of scenarios in which you might want to configure a c
 
 To complete the steps outlined in this article, you'll need:
 
-- An on-premises Active Directory administrator username and password
-- Microsoft Entra Global Administrator account username and password
+- An on-premises Active Directory administrator username and password. This account must either be a member of the Domain Admins group for the domain or a member of the Enterprise Admins group for the domain's forest. 
+- A Microsoft Entra Global Administrator account username and password.
 
 ## Prerequisites
 
@@ -223,14 +223,14 @@ Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
 1. Set the common parameters. Customize the script below prior to running it.
 
     - Set the `$domain` parameter to your on-premises Active Directory domain name.
-    - When prompted by `Get-Credential`, enter an on-premises Active Directory administrator username and password.
+    - When prompted by `Get-Credential`, enter an on-premises Active Directory administrator username and password. This account must either be a member of the Domain Admins group for the domain or a member of the Enterprise Admins group for the domain's forest.
     - Set the `$cloudUserName` parameter to the username of a Global Administrator privileged account for Microsoft Entra cloud access.
 
     > [!NOTE]  
     > If you wish to use your current Windows login account for your on-premises Active Directory access, you can skip the step where credentials are assigned to the `$domainCred` parameter. If you take this approach, don't include the `-DomainCredential` parameter in the PowerShell commands following this step.
 
     ```powershell
-    $domain = "your on-premesis domain name, for example contoso.com"
+    $domain = "your on-premises domain name, for example contoso.com"
     
     $domainCred = Get-Credential
     

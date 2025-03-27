@@ -3,7 +3,7 @@ title: Monitor Azure NAT Gateway
 description: Start here to learn how to monitor Azure NAT Gateway by using the available Azure Monitor metrics and alerts.
 ms.date: 12/02/2024
 ms.custom: horz-monitor
-ms.topic: conceptual
+ms.topic: concept-article
 author: asudbring
 ms.author: allensu
 ms.service: azure-nat-gateway

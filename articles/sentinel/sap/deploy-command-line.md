@@ -18,7 +18,11 @@ This article provides command line options for deploying an SAP data connector a
 
 However, if you're using a configuration file to store your credentials instead of Azure Key Vault, or if you're an advanced user who wants to deploy the data connector manually, such as in a Kubernetes cluster, use the procedures in this article instead.
 
-While you can run multiple data connector agents on a single machine, we recommend that you start with one only, monitor the performance, and then increase the number of connectors slowly. We also recommend that your **security** team perform this procedure with help from the **SAP BASIS** team.
+While you can run multiple data connector agents on a single machine, we recommend that you start with one only, monitor the performance, and then increase the number of connectors slowly. We also recommend that your **security** team perform this procedure with help from the **SAP BASIS** team. 
+
+> [!NOTE]
+> This article is relevant only for the data connector agent, and isn't relevant for the [SAP agentless data connector](deployment-overview.md#data-connector) (Preview).
+>
 
 ## Prerequisites
 
@@ -26,7 +30,7 @@ While you can run multiple data connector agents on a single machine, we recomme
 
 - If you're using SNC for secure connections, make sure that your SAP system is configured properly, and then [prepare the kickstart script for secure communication with SNC](#prepare-the-kickstart-script-for-secure-communication-with-snc) before deploying the data connector agent.
 
-    For more information, see the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/e73bba71770e4c0ca5fb2a3c17e8e229/e656f466e99a11d1a5b00000e835363f.html).
+For more information, see the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/e73bba71770e4c0ca5fb2a3c17e8e229/e656f466e99a11d1a5b00000e835363f.html) and [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
 
 ## Deploy the data connector agent using a managed identity or registered application
 

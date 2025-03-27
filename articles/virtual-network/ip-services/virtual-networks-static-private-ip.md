@@ -27,18 +27,20 @@ Use the following steps to create a virtual network along with a resource group 
 1. Select **Create** > **Azure virtual machine**.
 1. On the **Basics** tab of the **Create a virtual machine** screen, enter or select the following values:
 
-   - **Subscription**: Keep the default or select a different subscription.
-   - **Resource group**: Select **Create new**, and then name the group *myResourceGroup*.
-   - **Virtual machine name**: Enter *myVM*.
-   - **Region**: Select **(US) East US**.
-   - **Availability options**: Select **No infrastructure redundancy required**.
-   - **Image**: Select **Windows Server 2019 Datacenter - x64 Gen2**.
-   - **Size**: Accept the default, or drop down and select a size.
-   - **Username**, **Password**, and **Confirm password**: Enter an admin username and password for the VM.
-   - **Public inbound ports**: Select **Allow selected ports**.
-   - **Select inbound ports**: Select **RDP (3389)**.
-
-    :::image type="content" source="./media/virtual-networks-static-private-ip-arm-pportal/create-vm.png" alt-text="Screenshot that shows the Basic tab of the Create a virtual machine window." lightbox="./media/virtual-networks-static-private-ip-arm-pportal/create-vm.png":::
+    | Setting                | Value                                             |
+    |------------------------|---------------------------------------------------|
+    | **Subscription**       | Keep the default or select a different subscription |
+    | **Resource group**     | Select **Create new**, and then name the group *myResourceGroup* |
+    | **Virtual machine name** | Enter *myVM*                                     |
+    | **Region**             | Select **(US) East US**                           |
+    | **Availability options** | Select **No infrastructure redundancy required** |
+    | **Image**              | Select **Windows Server 2019 Datacenter - x64 Gen2** |
+    | **Size**               | Accept the default, or drop down and select a size |
+    | **Username**           | Enter an admin username for the VM                |
+    | **Password**           | Enter a password for the VM                       |
+    | **Confirm password**   | Confirm the password for the VM                   |
+    | **Public inbound ports** | Select **Allow selected ports**                  |
+    | **Select inbound ports** | Select **RDP (3389)**                            |
 
     > [!WARNING]
     > In this example, you open port 3389 to enable remote access to the Windows Server VM from the internet. However, opening port 3389 to the internet is not recommended to manage production workloads. For information about secure access to Azure VMs, see [What is Azure Bastion?](../../bastion/bastion-overview.md).
@@ -126,26 +128,19 @@ In the following steps, you change the private IP address **static** for the VM 
 
 2. In **Virtual machines**, select **myVM** from the list.
 
-3. On the **myVM** page, under **Settings**, select **Networking**.
+3. On the **myVM** page, select **Network settings** under **Networking**.
 
-4. In **Networking**, select the name of the network interface next to **Network interface**. In this example, the name of the network interface is **myvm472**.
-
-    :::image type="content" source="./media/virtual-networks-static-private-ip-arm-pportal/select-nic.png" alt-text="Screenshot of select network interface.":::
+4. On the **Network settings** page, select the name of the network interface next to **Network interface**.
 
 5. On the **Network interface** page, under **Settings**, select **IP configurations**.
 
 6. In **IP configurations**, select **ipconfig1** in the list.
 
-    :::image type="content" source="./media/virtual-networks-static-private-ip-arm-pportal/select-ip-configuration.png" alt-text="Screenshot of select ip configuration.":::
-
 7. Under **Assignment**, select **Static**. Change the private **IP address** if you want a different one, and then select **Save**.
 
-    > [!WARNING]
-    > If you change the private IP address, the VM associated with the network interface will be restarted to utilize the new IP address.
-
-    :::image type="content" source="./media/virtual-networks-static-private-ip-arm-pportal/select-static-assignment.png" alt-text="Screenshot of select static assignment.":::
-
 > [!WARNING]
+> If you change the private IP address, the VM associated with the network interface will be restarted to utilize the new IP address.
+>
 > From within the operating system of a VM, avoid associating a static *private* IP address on an Azure VM. Only assign a static private IP when it's necessary, such as when [assigning many IP addresses to VMs](virtual-network-multiple-ip-addresses-portal.md).
 >
 >If you manually set the private IP address within the operating system, make sure it matches the private IP address assigned to the Azure [network interface](virtual-network-network-interface-addresses.md#change-ip-address-settings). Otherwise, you can lose connectivity to the VM. For more information, see [private IP address settings](virtual-network-network-interface-addresses.md#private).

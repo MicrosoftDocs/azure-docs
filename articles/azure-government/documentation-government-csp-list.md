@@ -27,7 +27,6 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[AC4S Consulting, Inc.](https://ac4s.com)|
 |[Accelera Solutions Inc](http://www.accelerasolutions.com/)|
 |[Accenture Federal Services LLC](https://www.accenture.com/us-en/industries/afs-index)|
-|[Access Interactive Inc.](https://www.access-interactive.com/)|
 |[AccountabilIT](https://accountabilit.com)|
 |[ACP Technologies](https://acp.us.com)|
 |[ActioNet](https://www.actionet.com/)|
@@ -84,6 +83,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[CACI Inc - Federal](https://www.caci.com/)|
 |[Caloudi Corporation](https://www.caloudi.com/)|
 |[Cambria Solutions, Inc.](https://www.cambriasolutions.com/)|
+|[CapGemini](https://www.capgemini.com)|
 |[CAPSYS Technologies, LLC](https://www.capsystech.com/)|
 |[Casserly Consulting](https://www.casserlyconsulting.com)|
 |[Carahsoft Technology Corporation](https://www.carahsoft.com/)|
@@ -115,7 +115,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[CompuNet Inc.](https://compunet.biz/)|
 |[Computer Solutions Inc.](http://cs-inc.co/)|
 |[Communication Square LLC](https://www.communicationsquare.com)|
-|[ConvergeOne](https://www.convergeone.com)|
+|[ConvergeOne](https://www.onec1.com/)|
 |[Copper River Technologies, LLC](http://www.copperrivertech.com/)|
 |[Coretek Services](https://www.coretekservices.com/)|
 |[Cornerstone Technologies](https://www.cornerstonetechnologies.com/)|
@@ -321,10 +321,11 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Palecek Consulting Group](https://www.pcgit.net)|
 |[Pangea Group Inc.](http://www.pangea-group.com)|
 |[Paragon Software Solutions, Inc.](http://www.paragonhq.com/)|
-|[Patrocinium Systems, Inc.](https://www.patrocinium.com)|
+|[Patrocinium Systems, Inc.](https://www.linkedin.com/company/patrocinium-systems)|
 |[PCM](https://www.pcm.com/)|
 |[Peerless Tech Solutions](https://www.getpeerless.com)|
 |[People Services Inc. DBA CATCH Intelligence](https://catchintelligence.com)|
+|[Peraton](https://www.peraton.com/)|
 |[Perizer Corp.](https://perizer.com)|
 |[Perrygo Consulting Group, LLC](https://perrygo.com)|
 |Phacil (By Light) |
@@ -362,7 +363,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Redhorse Corporation](https://www.redhorsecorp.com)|
 |[Regan Technologies Corporation](http://www.regantech.com/)|
 |Remote Support Solutions Corp DBA RemoteWorks|
-|[Revenue Solutions, Inc](https://www.revenuesolutionsinc.com)|
+|[Revenue Solutions, Inc](https://www.rsidelivers.com/)|
 |[Ridge IT](https://www.ridgeit.com/)|
 |[RMON Networks Inc.](https://rmonnetworks.com/)|
 |[rmsource, Inc.](https://www.rmsource.com)|
@@ -452,10 +453,8 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Unisys Corp / Blue Bell](https://www.unisys.com)|
 |[United Data Technologies, Inc.](https://udtonline.com)|
 |[VALCOM COMPUTER CENTER](https://www.vlcmtech.com/)|
-|[Vana Solutions LLC](https://vanasolutions.com)|
 |[Vazata - Horizon Data Center Solutions LLC](https://www.vazata.com/)|
 |[VC3 INC](https://www.vc3.com/)|
-|[VerisVisalign](http://www.verisvisalign.com)|
 |[Vertosoft](https://vertosoft.com)|
 |[Vespa Group LLC](https://www.vespa-group.com)|
 |[Vidizmo LLC](https://www.vidizmo.com)|
@@ -520,56 +519,58 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Accenture LLP](https://www.accenture.coM)|
 |[Agile IT, Inc](https://www.agileit.com)|
 |[American Technology Services LLC](https://networkats.com)|
-|Applied Information Sciences|
-|[Applied Insight LLC](https://www.applied-insight.com)|
+|[Applied Information Sciences](https://www.ais.com)|
 |[Applied Research Solutions](https://www.appliedres.com)|
 |[Arctic Information Technology, Inc.](https://arcticit.com)|
-|[Booz Allen Hamilton](https://www.boozallen.com/)|
+|[Ardalyst](https://ardalyst.com)|
+|[Ariento](https://ariento.com)|
 |[C3 Integrated Solutions, Inc.](https://www.c3isit.com)|
 |[CACI](https://www.caci.com)|
 |[Carahsoft](https://www.carahsoft.com/microsoft)|
-|[Catapult Systems, LLC](https://www.catapultsystems.com)|
 |[CGI Federal Inc.](https://www.cgi.com/us/en-us/federal)|
-|[Cloud Navigator, Inc - formerly ISC](https://cloudnav.com)|
+|[Charles IT](https://www.charlesit.com)|
 |[CloudFit Software LLC](https://cloudfitsoftware.com/)|
+|[Compunet Inc.](https://vanasolutions.com/)|
 |[Conquest Cyber](https://conquestcyber.com/)|
-|[Coretek](https://www.coretek.com/)|
 |[CyberSheath](https://cybersheath.com)|
 |[Daymark Solutions, Inc.](https://www.daymarksi.com/)|
-|[DLT](https://www.dlt.com/)|
 |[Dox Electornics Inc.](https://www.doxnet.com)|
 |[ECF Data, LLC](https://www.ecfdata.com)|
 |[ECS Federal, LLC](https://ecstech.com/)|
-|[Enlighten IT Consulting](https://www.eitccorp.com/)|
 |[eTrepid Inc.](https://www.etrepid.com/)|
-|[F1 Soluitions Inc](https://www.f1networks.com)|
+|[Executech Utah Inc.](https://www.executech.com)|
+|[F1 Solutions Inc](https://www.f1networks.com)|
+|[FCN Inc. ](https://fcnit.com)|
 |[Four Points Technolgy, LLC](https://www.4points.com)|
 |[G2 Ops, Inc.](https://g2-ops.com)|
 |[General Dynamics Information Technology](https://www.gdit.com)|
 |[Golden Five LLC](https://www.goldenfiveconsulting.com/)|
 |[Hypori, Inc.](https://hypori.com/)|
-|Imager Software, Inc dba ISC|
+|[Imager Software, Inc dba ISC](https://goisc.com/)|
 |[Impact Networking, LLC](https://www.impactmybiz.com/)|
 |[IBM Corp.](https://www.ibm.com/industries/government)|
 |[Jackpine Technologies](https://www.jackpinetech.com)|
 |[Jasper Solutions](https://www.jaspersolutions.com/)|
-|[Johnson Technology Systems Inc](https://www.jtsusa.com/)|
 |[KAMIND IT, Inc.](https://www.kamind.com/)|
 |[KTL Solutions, Inc.](https://www.ktlsolutions.com)|
 |[Leidos](https://www.leidos.com/)|
 |[LiftOff, LLC](https://www.liftoffonline.com)|
+|[MAG Aerospace](https://www.magaero.com)|
 |[ManTech](https://www.mantech.com/)|
 |[NeoSystems LLC](https://www.neosystemscorp.com/solutions-services/microsoft-licenses/microsoft-365-licenses/)|
 |[Nimbus Logic, LLC](https://www.nimbus-logic.com/)|
 |[Northrop Grumman](https://www.northropgrumman.com/)|
 |[Novetta](https://www.novetta.com)|
+|[Orbis](https://orbisops.com)|
 |[PAX 8](https://www.pax8.com)|
+|[Peraton](https://www.peraton.com/)|
 |[Permuta Technologies, Inc.](http://www.permuta.com/)|
 |[Planet Technologies, Inc.](https://go-planet.com)|
 |[Progeny Systems](https://www.progeny.net/)|
 |[Project Hosts](https://www.projecthosts.com)|
 |[Quiet Professionals, LLC](https://quietprofessionalsllc.com)|
 |[R3, LLC](https://www.r3-it.com/)|
+|[Rackspace Technology](https://www.rackspace.com)|
 |[Red River](https://www.redriver.com)|
 |[RSM US, LLP](https://rsmus.com)|
 |[SAIC](https://www.saic.com)|
@@ -579,8 +580,8 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Summit 7 Systems, Inc.](https://www.summit7.us/)|
 |[SysArc Inc.](https://www.sysarc.com)|
 |[TechTrend, Inc](https://techtrend.us)|
-|[VLCM](https://www.vlcmtech.com)|
-|[VC3](https://www.vc3.com)|
+|[Vana Solutions](https://www.vanasolutions.com)|
 |[Vexcel](https://www.vexcel.com/)|
+|[VLCM](https://www.vlcm.com)|
 
 To learn more about the Cloud Solution Provider program, see [Frequently asked questions for Partner Center](/partner-center/faq-for-us-govt-cloud). If you would like to apply for the program, visit [Azure Government CSP application process](./documentation-government-csp-application.md). For any other questions, contact [Azure Government CSP](mailto:azgovcsp@microsoft.com).

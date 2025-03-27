@@ -1,13 +1,13 @@
 ---
 title: View Azure reservation utilization
 description: Learn how to get reservation utilization and details.
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/06/2024
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 ---
 
 # View reservation utilization after purchase
@@ -22,7 +22,7 @@ To view reservation utilization, you must have Azure RBAC access to the reservat
 1. Go to [Reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 1. The list shows all the reservations where you have the Owner or Reader role. You can also view all reservations in your Microsoft Entra tenant (directory) if you have Reservation administrator or reader role. Each reservation shows the last known utilization percentage.
 1. Select the utilization percentage to see the utilization history and details. The following video shows an example.
-   > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4sYwk] 
+   > [!VIDEO https://learn-video.azurefd.net/vod/player?id=86c2724a-8d23-48cf-9a11-321503ca499a] 
 
 ## View utilization as billing administrator
 

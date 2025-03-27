@@ -70,24 +70,18 @@ The specification for the WFS standard makes use of OGC filters. The WFS client 
 - `PropertyIsNull`
 - `PropertyIsNil`
 - `PropertyIsBetween`
+
 <!--------------------------------------------------
 The [WFS filter example] sample demonstrates the use of different filters with the WFS client. For the source code for this sample, see [WFS filter example source code].
 
 :::image type="content" source="./media/spatial-io-connect-wfs-service/wfs-filter-example.png"alt-text="A screenshot that shows The WFS filter sample that demonstrates the use of different filters with the WFS client.":::
--------------------------------------------------->
-<!--------------------------------------------------
-> [!VIDEO //codepen.io/azuremaps/embed/NWqvYrV/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true]
 -------------------------------------------------->
 
 ## WFS service explorer
 
 The [WFS service explorer] sample is a simple tool for exploring WFS services on Azure Maps. For the source code for this sample, see [WFS service explorer source code].
 
-:::image type="content" source="./media/spatial-io-connect-wfs-service/wfs-service-explorer.png"alt-text="A screenshot that shows a simple tool for exploring WFS services on Azure Maps.":::
-
-<!--------------------------------------------------
-> [!VIDEO //codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true]
--------------------------------------------------->
+:::image type="content" source="./media/spatial-io-connect-wfs-service/wfs-service-explorer.png" lightbox="./media/spatial-io-connect-wfs-service/wfs-service-explorer.png" alt-text="A screenshot that shows a simple tool for exploring WFS services on Azure Maps.":::
 
 To access WFS services hosted on non-CORS enabled endpoints, a CORS enabled proxy service can be passed into the `proxyService` option of the WFS client as shown in the following example.
 

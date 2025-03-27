@@ -5,7 +5,7 @@ description: Learn about virtual network peering in Azure, including how it enab
 services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/22/2024
 ms.author: allensu
 # Customer intent: As a cloud architect, I need to know how to use virtual network peering for connecting virtual networks. This knowledge will allow me to design connectivity correctly and understand future scalability options and limitations.
@@ -32,6 +32,10 @@ The benefits of using virtual network peering, whether local or global, include:
 * No downtime to resources in either virtual network when you create the peering or after the peering is created.
 
 Network traffic between peered virtual networks is private. Traffic between the virtual networks is kept on the Microsoft backbone network. No public internet, gateways, or encryption are required in the communication between the virtual networks.
+
+We recently introduced an added flexibility on top of virtual network peering - '**Subnet peering**'.
+ 
+It's an added flexibility built on top of virtual network peering, where users get an option to choose specific subnets that need to be peered across virtual networks. Users can specify/enter the list of subnets across the virtual networks that they want to peer. In contrast, in regular virtual network peering, entire address space/subnets across the virtual networks get peered. For more information, see [How to configure Subnet Peering](how-to-configure-subnet-peering.md).
 
 ## Connectivity
 
@@ -117,7 +121,7 @@ A nominal fee is charged for ingress and egress traffic that uses a virtual netw
 Gateway transit is a peering property that enables a virtual network to use a virtual private network or an ExpressRoute gateway in a peered virtual network. Gateway transit works for both cross-premises and network-to-network connectivity. Traffic to the gateway (ingress or egress) in the peered virtual network incurs virtual network peering charges on the spoke virtual network (or virtual network without a VPN gateway). For more information, see [Azure VPN Gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) for VPN gateway charges and ExpressRoute gateway charges.
 
 >[!NOTE]
-> A previous version of this document stated that virtual network peering charges would not apply on the spoke virtual network (or non-gateway virtual network) with gateway transit. It now reflects accurate pricing per the pricing page.
+> A previous version of this document stated that virtual network peering charges wouldn't apply on the spoke virtual network (or nongateway virtual network) with gateway transit. It now reflects accurate pricing per the pricing page.
 
 ## Related content
 

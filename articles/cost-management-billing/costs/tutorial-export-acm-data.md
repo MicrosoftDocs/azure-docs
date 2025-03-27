@@ -2,9 +2,9 @@
 title: Tutorial - Create and manage exported data from Cost Management
 titleSuffix: Microsoft Cost Management
 description: This article shows you how you can create and manage exported Cost Management data so that you can use it in external systems.
-author: bandersmsft
-ms.author: banders
-ms.date: 08/14/2024
+author: jojohpm
+ms.author: jojoh
+ms.date: 01/07/2025
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -41,13 +41,23 @@ For Azure Storage accounts:
 - Write permissions are required to change the configured storage account, independent of permissions on the export.
 - Your Azure storage account must be configured for blob or file storage.
 - Don't configure exports to a storage container when configured as a destination in an [object replication rule](../../storage/blobs/object-replication-overview.md#object-replication-policies-and-rules).
-- To export to storage accounts with configured firewalls, you need other privileges on the storage account. The other privileges are only required during export creation or modification. They are:
-  - Owner role on the storage account.
-  Or
-  - Any custom role with `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/permissions/read` permissions.
-  Additionally, ensure that you enable [Allow trusted Azure service access](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) to the storage account when you configure the firewall. If you want to use the [Exports REST API](/rest/api/cost-management/exports) to generate exports to a storage account located behind a firewall, use the API version 2023-08-01 or later version. All newer API versions continue to support exports behind the firewall.
+- To export to storage accounts with firewall rules, you need additional privileges on the storage account. These privileges are only required during export creation or modification:
+
+  - **Owner** role on the storage account ***or***
+  
+  - A **custom role** that includes:
+  
+    - `Microsoft.Authorization/roleAssignments/write`
+    
+    - `Microsoft.Authorization/permissions/read`
+    
+  When you configure the firewall, ensure that [Allow trusted Azure service access](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) access is enabled on the storage account. If you want to use the [Exports REST API](/rest/api/cost-management/exports) to write to a storage account behind a firewall, use API version **2023-08-01** or later. All newer API versions continue to support exports behind firewalls.
+  
+  A **system-assigned managed identity** is created for a new export if the user has `Microsoft.Authorization/roleAssignments/write` permissions on the storage account. This setup ensures that the export will continue to work if you enable a firewall in the future. After the export is created or updated, the user no longer needs the **Owner** role for routine operations.
+  
 - The storage account configuration must have the **Permitted scope for copy operations (preview)** option set to **From any storage account**.
     :::image type="content" source="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" alt-text="Screenshot showing From any storage account option set." lightbox="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" :::
+
 
 If you have a new subscription, you can't immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
 

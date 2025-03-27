@@ -44,28 +44,28 @@
           items:
             - name: Windows
               displayName: what's new, apps, remote desktop, rdp
-              href: whats-new-client-windows.md
+              href: /previous-versions/remote-desktop-client/whats-new-windows
             - name: macOS
               displayName: what's new, apps, clients, remote desktop, rdp
-              href: whats-new-client-macos.md
+              href: /previous-versions/remote-desktop-client/whats-new-macos
             - name: iOS/iPadOS
               displayName: what's new, apps, clients, remote desktop, rdp
-              href: whats-new-client-ios-ipados.md
+              href: /previous-versions/remote-desktop-client/whats-new-ios-ipados
             - name: Android/Chrome OS
               displayName: what's new, apps, clients, remote desktop, rdp
-              href: whats-new-client-android-chrome-os.md
+              href: /previous-versions/remote-desktop-client/whats-new-android-chrome-os
         - name: WebRTC Redirector Service
           displayName: what's new, teams
           href: whats-new-webrtc.md
         - name: Windows App
           displayName: what's new, apps, remote desktop, rdp
           href: /windows-app/whats-new?context=/azure/virtual-desktop/context/context
-- name: Tutorials
+- name: Quickstart
   expanded: true
   items:
     - name: Deploy a sample Windows 11 desktop
-      displayName: tutorial
-      href: tutorial-try-deploy-windows-11-desktop.md
+      displayName: deploy, create, get started, tutorial
+      href: quickstart.md
 - name: Plan
   items:
     - name: Internal and external commercial purposes
@@ -115,9 +115,6 @@
     - name: Deploy Azure Virtual Desktop
       displayName: deploy, create, get started, quickstart, host pool, application group, workspace, assign users, azure stack hci, azure local, azure extended zones
       href: deploy-azure-virtual-desktop.md
-    - name: Quickstart
-      displayName: deploy, create, get started, quickstart
-      href: quickstart.md
     - name: Identity and access management
       items:
         - name: Azure RBAC
@@ -136,17 +133,20 @@
             - name: Active Directory Federation Services
               items:
                 - name: Configure single sign-on using AD FS
-                  displayName: identity, sso
+                  displayName: identity, sso, adfs
                   href: configure-adfs-sso.md
-                - name: Use a KDC proxy
-                  displayName: identity, key distribution center
-                  href: key-distribution-center-proxy.md
         - name: Enforce Microsoft Entra multifactor authentication
           displayName: identity, multi-factor authentication, multifactor, multi factor, mfa, two-factor authentication, two factor, 2fa
           href: set-up-mfa.md
+        - name: Configure session lock behavior
+          displayName: identity, sso, lock screen
+          href: configure-session-lock-behavior.md
         - name: Delegated access
           displayName: identity
           href: delegated-access-virtual-desktop.md
+        - name: Use a KDC proxy
+          displayName: identity, key distribution center
+          href: key-distribution-center-proxy.md
     - name: Network connectivity
       items:
         - name: FQDNs and endpoints
@@ -349,7 +349,7 @@
           href: delete-host-pool.md
     - name: Session hosts
       items:
-        - name: Manage session hosts
+        - name: Management
           items:
             - name: Management overview
               displayName: virtual machines, vms, intune, gpo, group policy, configuration manager, configmgr, sccm
@@ -458,49 +458,32 @@
       href: tag-virtual-desktop-resources.md
 - name: Connect
   items:
+    - name: Connect to Azure Virtual Desktop
+      displayName: apps, clients, windows app, remote desktop client, rdp
+      href: connect-azure-virtual-desktop.md
     - name: Windows App
       items:
-        - name: What is Windows App?
+        - name: Windows App overview
+          displayName: apps, clients, remote desktop client, rdp
           href: /windows-app/overview
-        - name: Connect to Azure Virtual Desktop
-          displayName: apps, clients, remote desktop, rdp, connect, windows app
+        - name: Compare Windows App across platforms
+          displayName: apps, clients, remote desktop client, rdp, connect
           href: /windows-app/get-started-connect-devices-desktops-apps?pivots=azure-virtual-desktop
         - name: Windows App documentation
           href: /windows-app/
-    - name: Remote Desktop app
+    - name: Remote Desktop client
       items:
-        - name: Remote Desktop app overview
+        - name: Remote Desktop client overview
+          displayName: apps, remote desktop, rdp, windows app
+          href: /previous-versions/remote-desktop-client/overview
+        - name: Compare the Remote Desktop client across platforms
           displayName: apps, remote desktop, rdp
-          href: ./users/remote-desktop-clients-overview.md?context=/azure/virtual-desktop/context/context
-        - name: Connect to Azure Virtual Desktop
-          displayName: apps, clients, remote desktop, rdp, connect
-          href: ./users/connect-remote-desktop-client.md?context=/azure/virtual-desktop/context/context
-        - name: Use Remote Desktop app features
-          items:
-            - name: Windows
-              displayName: apps, clients, remote desktop, rdp, connect, features
-              href: ./users/client-features-windows.md?context=/azure/virtual-desktop/context/context
-            - name: Web browser
-              displayName: apps, clients, remote desktop, rdp, connect, features
-              href: ./users/client-features-web.md?context=/azure/virtual-desktop/context/context
-            - name: macOS
-              displayName: apps, clients, remote desktop, rdp, connect, features
-              href: ./users/client-features-macos.md?context=/azure/virtual-desktop/context/context
-            - name: iOS/iPadOS
-              displayName: apps, clients, remote desktop, rdp, connect, features
-              href: ./users/client-features-ios-ipados.md?context=/azure/virtual-desktop/context/context
-            - name: Android/Chrome OS
-              displayName: apps, clients, remote desktop, rdp, connect, features
-              href: ./users/client-features-android-chrome-os.md?context=/azure/virtual-desktop/context/context
-        - name: Compare the Remote Desktop app across platforms
-          displayName: apps, remote desktop, rdp
-          href: compare-remote-desktop-clients.md
-        - name: Install the Remote Desktop app for Windows on a per-user basis
+          href: /previous-versions/remote-desktop-client/compare-remote-desktop-clients?pivots=azure-virtual-desktop
+        - name: Install the Remote Desktop client for Windows on a per-user basis
           displayName: apps, clients, remote desktop, rdp, connect, intune, configuration manager, configmgr, sccm, mem, mdm, per user
-          href: install-windows-client-per-user.md
-        - name: Uniform Resource Identifier schemes
-          displayName: uri schemes
-          href: uri-scheme.md
+          href: /previous-versions/remote-desktop-client/install-windows-client-per-user
+        - name: Remote Desktop client documentation
+          href: /previous-versions/remote-desktop-client/
     - name: Peripheral and resource redirection
       items:
         - name: Peripheral and resource redirection overview
@@ -550,11 +533,14 @@
     - name: Supported RDP properties
       displayName: apps, clients, windows app, remote desktop, rdp
       href: rdp-properties.md
+    - name: Uniform Resource Identifier schemes
+      displayName: uri schemes
+      href: uri-scheme.md
     - name: Print using Universal Print
       href: /universal-print/fundamentals/universal-print-avd?context=/azure/virtual-desktop/context/context
     - name: Thin client partners
       displayName: apps, clients, remote desktop, rdp, connect
-      href: ./users/connect-thin-clients.md?context=/azure/virtual-desktop/context/context
+      href: thin-clients.md
 - name: Monitor
   items:
     - name: Azure Virtual Desktop Insights
@@ -596,95 +582,66 @@
 - name: Troubleshoot
   items:
     - name: Troubleshooting overview, feedback, and support
-      href: troubleshoot-set-up-overview.md
+      href: /troubleshoot/azure/virtual-desktop/troubleshoot-set-up-overview?context=/azure/virtual-desktop/context/context
     - name: Host pools and session hosts
       items:
       - name: Host pool creation
         displayName: troubleshooting
-        href: troubleshoot-set-up-issues.md
-      - name: Quickstart
-        displayName: troubleshooting
-        href: troubleshoot-quickstart.md
+        href: /troubleshoot/azure/virtual-desktop/troubleshoot-set-up-issues?context=/azure/virtual-desktop/context/context
       - name: Session host update
         displayName: troubleshooting, vms
-        href: troubleshoot-session-host-update.md
+        href: /troubleshoot/azure/virtual-desktop/troubleshoot-session-host-configuration-update?context=/azure/virtual-desktop/context/context
       - name: Session host virtual machine configuration
         displayName: troubleshooting, vms
-        href: troubleshoot-vm-configuration.md
+        href: /troubleshoot/azure/virtual-desktop/troubleshoot-vm-configuration?context=/azure/virtual-desktop/context/context
       - name: Session host statuses and health checks
         displayName: troubleshooting
         href: troubleshoot-statuses-checks.md
     - name: Management issues
       displayName: troubleshooting
-      href: troubleshoot-management-issues.md
+      href: /troubleshoot/azure/virtual-desktop/troubleshoot-management-issues?context=/azure/virtual-desktop/context/context
     - name: Azure Virtual Desktop PowerShell
       displayName: troubleshooting, command line
-      href: troubleshoot-powershell.md
+      href: /troubleshoot/azure/virtual-desktop/troubleshoot-powershell?context=/azure/virtual-desktop/context/context
     - name: Azure Virtual Desktop Agent
       displayName: troubleshooting
-      href: troubleshoot-agent.md
-    - name: Remote Desktop service connections
+      href: /troubleshoot/azure/virtual-desktop/troubleshoot-agent?context=/azure/virtual-desktop/context/context
+    - name: Service connections
       displayName: troubleshooting, rdp
-      href: troubleshoot-service-connection.md
-    - name: Remote Desktop app
-      items:
-        - name: Windows Desktop client basic troubleshooting
-          displayName: troubleshooting, apps, clients, remote desktop, rdp
-          href: troubleshoot-client-windows-basic-shared.md
-        - name: Windows Desktop client
-          displayName: troubleshooting, apps, clients, remote desktop, rdp
-          href: troubleshoot-client-windows.md
-        - name: Azure Virtual Desktop Store app
-          displayName: troubleshooting, apps, clients, remote desktop, rdp
-          href: troubleshoot-client-windows-azure-virtual-desktop-app.md
-        - name: Web client
-          displayName: troubleshooting, apps, clients, remote desktop, rdp
-          href: troubleshoot-client-web.md
-        - name: macOS client
-          displayName: troubleshooting, apps, clients, remote desktop, rdp
-          href: troubleshoot-client-macos.md
-        - name: iOS/iPadOS client
-          displayName: troubleshooting, apps, clients, remote desktop, rdp
-          href: troubleshoot-client-ios-ipados.md
-        - name: Android/Chrome OS client
-          displayName: troubleshooting, apps, clients, remote desktop, rdp
-          href: troubleshoot-client-android-chrome-os.md
-        - name: Remote Desktop app for Windows
-          displayName: troubleshooting, apps, clients, remote desktop, rdp
-          href: troubleshoot-client-microsoft-store.md
+      href: /troubleshoot/azure/virtual-desktop/troubleshoot-service-connection?context=/azure/virtual-desktop/context/context
     - name: Diagnosing graphics performance issues
       displayName: troubleshooting
       href: remotefx-graphics-performance-counters.md
     - name: Connections to Microsoft Entra joined VMs
       displayName: troubleshooting, identity
-      href: troubleshoot-azure-ad-connections.md
-    - name: Device redirections
+      href: /troubleshoot/azure/virtual-desktop/troubleshoot-azure-ad-connections?context=/azure/virtual-desktop/context/context
+    - name: Device redirection
       displayName: troubleshooting, rdp apps, clients
-      href: troubleshoot-device-redirections.md
+      href: /troubleshoot/azure/virtual-desktop/troubleshoot-device-redirections?context=/azure/virtual-desktop/context/context
     - name: Azure Virtual Desktop Insights
       displayName: troubleshooting, avd insights, avdi
-      href: troubleshoot-insights.md
+      href: /troubleshoot/azure/virtual-desktop/troubleshoot-insights?context=/azure/virtual-desktop/context/context
     - name: Azure Files authorization
       displayName: troubleshooting
-      href: troubleshoot-authorization.md
+      href: /troubleshoot/azure/virtual-desktop/troubleshoot-authorization?context=/azure/virtual-desktop/context/context
     - name: Connection quality issues
       displayName: troubleshooting, network, monitoring
-      href: troubleshoot-connection-quality.md
+      href: /troubleshoot/azure/virtual-desktop/troubleshoot-connection-quality?context=/azure/virtual-desktop/context/context
     - name: RDP Shortpath
       displayName: troubleshooting, network, udp
-      href: troubleshoot-rdp-shortpath.md
+      href: /troubleshoot/azure/virtual-desktop/troubleshoot-rdp-shortpath?context=/azure/virtual-desktop/context/context
     - name: Multimedia redirection
       displayName: troubleshooting, mmr
-      href: troubleshoot-multimedia-redirection.md
+      href: /troubleshoot/azure/virtual-desktop/troubleshoot-multimedia-redirection?context=/azure/virtual-desktop/context/context
     - name: Microsoft Teams
       displayName: troubleshooting
       href: troubleshoot-teams.md
     - name: Custom image templates
       displayName: troubleshooting, virtual machines, vms, images, vhd, vhdx
-      href: troubleshoot-custom-image-templates.md
+      href: /troubleshoot/azure/virtual-desktop/troubleshoot-custom-image-templates?context=/azure/virtual-desktop/context/context
     - name: App attach
       displayName: troubleshooting, apps, remoteapp
-      href: troubleshoot-app-attach.md
+      href: /troubleshoot/azure/virtual-desktop/troubleshoot-app-attach?context=/azure/virtual-desktop/context/context
 - name: Reference
   items:
     - name: Azure CLI

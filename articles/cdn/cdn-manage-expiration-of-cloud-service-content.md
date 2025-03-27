@@ -1,16 +1,16 @@
 ---
+ROBOTS: NOINDEX
 title: Manage expiration of web content in Azure Content Delivery Network
 description: Learn how to manage expiration of Azure Web Apps/Cloud Services, ASP.NET, or IIS content in Azure Content Delivery Network.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
-ms.assetid: bef53fcc-bb13-4002-9324-9edee9da8288
 ms.service: azure-cdn
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: how-to
 ms.date: 03/20/2024
-ms.author: duau
 ---
 
 # Manage expiration of web content in Azure Content Delivery Network
@@ -38,8 +38,6 @@ You can also control cache settings from the Azure portal by setting [content de
 
 The preferred method for setting a web server's `Cache-Control` header is to use caching rules in the Azure portal. For more information about content delivery network caching rules, see [Control Azure Content Delivery Network caching behavior with caching rules](cdn-caching-rules.md).
 
-> [!NOTE]
-> Caching rules are available only for **Azure CDN Standard from Edgio** profiles. For **Azure CDN Premium from Edgio** profiles, you must use the [Azure Content Delivery Network rules engine](./cdn-verizon-premium-rules-engine.md) in the **Manage** portal for similar functionality.
 
 **To navigate to the CDN caching rules page**:
 
@@ -47,11 +45,7 @@ The preferred method for setting a web server's `Cache-Control` header is to use
 
 1. In the left pane under Settings, select **Caching rules**.
 
-   ![Screenshot of the content delivery network caching rules button.](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-rules-btn.png)
-
    The **Caching rules** page appears.
-
-   ![Screenshot of the content delivery network caching page.](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-page.png)
 
 **To set a web server's Cache-Control headers by using global caching rules:**
 

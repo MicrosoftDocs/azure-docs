@@ -43,8 +43,6 @@ The connector for ONVIF is part of Azure IoT Operations. The connector deploys t
 
 - _Assets_, in Azure IoT Operations are logical entities that you create to represent real assets such as cameras. An Azure IoT Operations ONVIF camera asset identifies the ONVIF network service the camera exposes, such as PTZ.
 
-- The Azure IoT Operations experience web UI provides a unified experience for you to manage assets such as cameras. You can use the operations experience to configure the assets and asset endpoints that the media connector uses to access media sources.
-
 - The MQTT broker that you can use to publish messages from the connectors to other local or cloud-based components in your solution.
 
 - The Azure Device Registry that stores information about local assets in the cloud.

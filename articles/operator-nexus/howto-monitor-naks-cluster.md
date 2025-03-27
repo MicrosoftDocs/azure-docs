@@ -17,7 +17,7 @@ Each Nexus Kubernetes cluster consists of multiple layers:
 - Kubernetes layer
 - Application pods
 
-<!--- IMG ![Nexus Kuberentes Cluster](Docs/media/sample-naks-stack.png) IMG --->
+<!--- IMG ![Nexus Kubernetes Cluster](Docs/media/sample-naks-stack.png) IMG --->
 :::image type="content" source="media/sample-naks-stack.png" alt-text="Screenshot of Sample Nexus Kubernetes cluster.":::
 
 Figure: Sample Nexus Kubernetes cluster
@@ -165,18 +165,18 @@ Container Insights provides end-users functionality to fine-tune the collection 
 
 > [!NOTE]
 > Container Insights does not collect logs from the `kube-system` namespace by default. To collect logs from the `kube-system` namespace, you must configure the agent to collect logs from the `kube-system` namespace.
-> This can be done by removing the `kube-system` namespace from the `excludedNamespaces` field in the ConfigMap following the [`configMap` configuraiton](/azure/azure-monitor/containers/container-insights-data-collection-configure?tabs=portal#configure-data-collection-using-configmap) approach.
+> This can be done by removing the `kube-system` namespace from the `excludedNamespaces` field in the ConfigMap following the [`configMap` configuration](/azure/azure-monitor/containers/container-insights-data-collection-configure?tabs=portal#configure-data-collection-using-configmap) approach.
 > ```
 > [log_collection_settings]
 >   [log_collection_settings.stdout]
->     # In the absense of this configmap, default value for enabled is true
+>     # In the absence of this configmap, default value for enabled is true
 >     enabled = true
 >     # exclude_namespaces setting holds good only if enabled is set to true
 >     # kube-system,gatekeeper-system log collection are disabled by default in the absence of 'log_collection_settings.stdout' setting. If you want to enable kube-system,gatekeeper-system, remove them from the following setting.
 >     # If you want to continue to disable kube-system,gatekeeper-system log collection keep the namespaces in the following setting and add any other namespace you want to disable log collection to the array.
->     # In the absense of this configmap, default value for exclude_namespaces = ["kube-system","gatekeeper-system"]
+>     # In the absence of this configmap, default value for exclude_namespaces = ["kube-system","gatekeeper-system"]
 >     exclude_namespaces = ["gatekeeper-system"]
->     # If you want to collect logs from only selective pods inside system namespaces add them to the following setting. Provide namepace:controllerName of the system pod. NOTE: this setting is only for pods in system namespaces
+>     # If you want to collect logs from only selective pods inside system namespaces add them to the following setting. Provide namespace:controllerName of the system pod. NOTE: this setting is only for pods in system namespaces
 >     # Valid values for system namespaces are: kube-system, azure-arc, gatekeeper-system, kube-public, kube-node-lease, calico-system. The system namespace used should not be present in exclude_namespaces
 >     # collect_system_pod_logs = ["kube-system:coredns"]
 >
@@ -186,9 +186,9 @@ Container Insights provides end-users functionality to fine-tune the collection 
 >     # exclude_namespaces setting holds good only if enabled is set to true
 >     # kube-system,gatekeeper-system log collection are disabled by default in the absence of 'log_collection_settings.stderr' setting. If you want to enable kube-system,gatekeeper-system, remove them from the following setting.
 >     # If you want to continue to disable kube-system,gatekeeper-system log collection keep the namespaces in the following setting and add any other namespace you want to disable log collection to the array.
->     # In the absense of this configmap, default value for exclude_namespaces = ["kube-system","gatekeeper-system"]
+>     # In the absence of this configmap, default value for exclude_namespaces = ["kube-system","gatekeeper-system"]
 >     exclude_namespaces = ["gatekeeper-system"]
->     # If you want to collect logs from only selective pods inside system namespaces add them to the following setting. Provide namepace:controllerName of the system pod. NOTE: this setting is only for pods in system namespaces
+>     # If you want to collect logs from only selective pods inside system namespaces add them to the following setting. Provide namespace:controllerName of the system pod. NOTE: this setting is only for pods in system namespaces
 >     # Valid values for system namespaces are: kube-system, azure-arc, gatekeeper-system, kube-public, kube-node-lease, calico-system. The system namespace used should not be present in exclude_namespaces
 >     # collect_system_pod_logs = ["kube-system:coredns"]
 >```

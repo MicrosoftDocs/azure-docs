@@ -6,13 +6,17 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
-ms.date: 11/20/2024
+ms.date: 02/24/2025
 ms.custom: mvc, engagement-fy25
 ---
 
 # What's new in Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
+
+## Update (February 2025)
+
+Public Preview: Azure Migrate now supports discovery and assessment of MySQL databases. You can use this capability to discover MySQL instances and their attributes within your environment, assess their readiness for migration to Azure Database for MySQL, and obtain recommendations on the suitable compute and storage options, along with the associated costs. [Learn more](assessments-overview-migrate-to-azure-db-mysql.md).
 
 ## Update (November 2024)
 
@@ -24,7 +28,7 @@ ms.custom: mvc, engagement-fy25
 
 ## Update (October 2024)
 
-The RVTools XLSX (preview) file import now reads storage data, when available, from vPartition and vMemory (for storage required for unreserved memory) sheets. [Learn more](vmware/tutorial-import-vmware-using-rvtools-xlsx.md#prerequisites).
+The RVTools XLSX (preview) file import now reads storage data, when available, from vPartition and vMemory (for storage required for unreserved memory) sheets. [Learn more](tutorial-import-vmware-using-rvtools-xlsx.md#prerequisites).
 
 
 ## Update (April 2024)
@@ -154,6 +158,7 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 
 
 ## Update (December 2021)
+
 - Support to discover, assess, and migrate VMs from multiple vCenter Servers using a single Azure Migrate appliance. [Learn more](tutorial-discover-vmware.md#start-continuous-discovery).
 - Simplified [Azure VMware Solution assessment](./concepts-azure-vmware-solution-assessment-calculation.md) experience to understand sizing assumptions, resource utilization, and limiting factor for migrating on-premises VMware VMs to Azure VMware Solution. Other enhancements added:
     - Support for two new target assessment regions: Central US and Canada East

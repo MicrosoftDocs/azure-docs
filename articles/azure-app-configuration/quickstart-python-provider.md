@@ -70,7 +70,7 @@ In this section, you will create a console application and load data from your A
 
     endpoint = os.environ.get("AZURE_APPCONFIG_ENDPOINT")
 
-    # Connect to Azure App Configuration using a connection string.
+    # Connect to Azure App Configuration using Microsoft Entra ID.
     config = load(endpoint=endpoint, credential=credential)
     credential = DefaultAzureCredential()
 
@@ -79,7 +79,7 @@ In this section, you will create a console application and load data from your A
     # Find the key "my_json" and print the value for "key" from the dictionary.
     print(config["my_json"]["key"])
 
-    # Connect to Azure App Configuration using a connection string and trimmed key prefixes.
+    # Connect to Azure App Configuration using Entra ID and trimmed key prefixes.
     trimmed = {"test."}
     config = load(endpoint=endpoint, credential=credential, trim_prefixes=trimmed)
     # From the keys with trimmed prefixes, find a key with "message" and print its value.
@@ -150,7 +150,7 @@ In this section, you will create a console application and load data from your A
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export AZURE_APPCONFIG_ENDPOINT='endpoint-of-your-app-configuration-store'
+    export AZURE_APPCONFIG_ENDPOINT='<endpoint-of-your-app-configuration-store>'
     ```
 
     ### [Connection string](#tab/connection-string)
@@ -159,7 +159,7 @@ In this section, you will create a console application and load data from your A
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx AZURE_APPCONFIG_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
+    setx AZURE_APPCONFIG_CONNECTION_STRING "<connection-string-of-your-app-configuration-store>"
     ```
 
    If you use PowerShell, run the following command:
@@ -171,7 +171,7 @@ In this section, you will create a console application and load data from your A
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export AZURE_APPCONFIG_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
+    export AZURE_APPCONFIG_CONNECTION_STRING='<connection-string-of-your-app-configuration-store>'
     ```
     ---
 

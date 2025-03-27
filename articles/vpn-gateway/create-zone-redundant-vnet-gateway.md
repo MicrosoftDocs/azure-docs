@@ -5,7 +5,7 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 03/15/2024
+ms.date: 12/12/2024
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
@@ -36,10 +36,7 @@ For an ExpressRoute gateway, follow the [ExpressRoute documentation](../expressr
 
 * **SKU**: Select an "AZ" SKU from the dropdown. For example, **ErGw2AZ**. If you don't select an AZ SKU, you can't configure an availability zone setting.
 
-  :::image type="content" source="./media/create-zone-redundant-vnet-gateway/expressroute.png" alt-text="Screenshot shows the SKU selection to select an availability zone SKU." lightbox="./media/create-zone-redundant-vnet-gateway/expressroute.png":::
 * **Availability zone**: Select the Availability zone from the dropdown.
-
-  :::image type="content" source="./media/create-zone-redundant-vnet-gateway/expressroute-zone.png" alt-text="Screenshot shows the availability zone selection to select an availability zone." lightbox="./media/create-zone-redundant-vnet-gateway/expressroute-zone.png":::
 
 ## PowerShell workflow
 

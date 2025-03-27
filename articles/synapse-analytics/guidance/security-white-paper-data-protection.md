@@ -1,9 +1,8 @@
 ---
 title: "Azure Synapse Analytics security white paper: Data protection"
 description: Protect data to comply with federal, local, and company guidelines with Azure Synapse Analytics.
-author: whhender
-ms.author: whhender
-ms.reviewer: whhender
+author: juluczni
+ms.author: juluczni
 ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 12/09/2024
@@ -57,7 +56,7 @@ Azure Synapse, dedicated SQL pool (formerly SQL DW), and serverless SQL pool use
 Azure Synapse leverages TLS to ensure data is encrypted in motion. Dedicated SQL pools support TLS 1.0, TLS 1.1, and TLS 1.2 versions for encryption wherein Microsoft-provided drivers use TLS 1.2 by default. Serverless SQL pool and Apache Spark pool use TLS 1.2 for all outbound connections.
 
 > [!IMPORTANT]
-> Azure will retire older TLS versions (TLS 1.0 and 1.1) starting in November 2024. Sign-in attempts from connections using a TLS version lower than 1.2 fail. Use TLS 1.2 or higher. Starting after March 31, 2025, you will no longer be able to set the minimal TLS version for Azure Synapse Analytics client connections below TLS 1.2. For more information, see [Announcement: Azure support for TLS 1.0 and TLS 1.1 will end](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/).
+> Azure will begin to retire older TLS versions (TLS 1.0 and 1.1) starting in November 2024. Use TLS 1.2 or higher. After March 31, 2025, you will no longer be able to set the minimal TLS version for Azure Synapse Analytics client connections below TLS 1.2.  After this date, sign-in attempts from connections using a TLS version lower than 1.2 will fail. For more information, see [Announcement: Azure support for TLS 1.0 and TLS 1.1 will end](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/).
 
 ## Next steps
 

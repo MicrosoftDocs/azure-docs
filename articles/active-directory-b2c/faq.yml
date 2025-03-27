@@ -8,7 +8,7 @@ metadata:
   ms.service: azure-active-directory
   
   ms.topic: faq
-  ms.date: 10/31/2023
+  ms.date: 10/01/2024
   ms.author: godonnell
   ms.subservice: b2c
   ms.custom: b2c-support, has-azure-ad-ps-ref,azure-ad-ref-level-one-done
@@ -32,7 +32,7 @@ sections:
       - question: |
           Why can't I access the Azure AD B2C extension in the Azure portal?
         answer: |
-          There are two common reasons for why the Microsoft Entra extension isn't working for you. Azure AD B2C requires your user role in the directory to be a global administrator. Contact your administrator if you think you should have access. If you have global administrator privileges, make sure that you are in an Azure AD B2C directory and not a Microsoft Entra directory. You can see instructions for [creating an Azure AD B2C tenant](tutorial-create-tenant.md).
+          There are two common reasons for why the Microsoft Entra extension isn't working for you. Azure AD B2C requires your user role in the directory to be a Global administrator. Contact your administrator if you think you should have access. If you have Global administrator privileges, make sure that you are in an Azure AD B2C directory and not a Microsoft Entra directory. You can see instructions for [creating an Azure AD B2C tenant](tutorial-create-tenant.md).
           
       - question: |
           Can I use Azure AD B2C features in my existing, employee-based Microsoft Entra tenant?
@@ -92,7 +92,7 @@ sections:
       - question: |
           Why am I unable to create an Azure AD B2C tenant?
         answer: |
-          You might not have permission to create an Azure AD B2C tenant. Only users with **Global administrator** or **Tenant Creator** roles can create the tenant. You need to contact your **Global administrator**. 
+          You might not have permission to create an Azure AD B2C tenant. Only users with at least **Tenant Creator** roles can create the tenant. 
 
       - question: |
           How do I customize verification emails (the content and the "From:" field) sent by Azure AD B2C?
@@ -163,6 +163,18 @@ sections:
           * **Audit reports** include both admin activity and application activity.
           * **Usage reports** include the number of users, number of logins, and volume of MFA.
 
+      - question: |
+          Why does my Azure AD B2C bill show phone charges named "Microsoft Entra External ID?"
+        answer: |
+          Following the new [billing model](https://azure.microsoft.com/pricing/details/active-directory-b2c/) for Azure AD External Identities SMS Phone Authentication, you may notice a new name on your bill. Previously, Phone MFA was billed as "Azure Active Directory B2C - Basic 1 Multi-Factor Authentication." Now you’ll see the following names based on your [country or region pricing tier](https://aka.ms/B2CSMSCountries):
+          
+          * Microsoft Entra External ID - Phone Authentication Low Cost 1 Transaction
+          * Microsoft Entra External ID - Phone Authentication Mid Low Cost 1 Transaction
+          * Microsoft Entra External ID - Phone Authentication Mid High Cost 1 Transaction
+          * Microsoft Entra External ID - Phone Authentication High Cost 1 Transaction
+          
+          Although the new bill mentions Microsoft Entra External ID, **you’re still billed for Azure AD B2C based on your core MAU count**.
+          
       - question: |
           Can end users use a time-based one-time password (TOTP) with an authenticator app to authenticate to my Azure AD B2C app?
         answer: |
@@ -271,7 +283,7 @@ sections:
       - question: |
           I am using rolling refresh tokens for my application and I am getting an invalid_grant error on redeeming newly acquired refresh tokens well within their set validity period. Why does this happen? 
         answer: |
-          While determining validity for rolling refresh tokens, B2C will consider the initial login time of the user in the application also to calculate the token validity skew. If the user haven't logged out of the application for a very long time, this skew value will exceed the validity period of the token and hence for security reasons the tokens will be considered as invalid. Hence the error. Inform the user to perform a proper logout and login back into the application and this should reset the skew. This scenario is not applicable if refresh token rolling is set as infinite rolling.
+          While determining validity for rolling refresh tokens, B2C will consider the initial login time of the user in the application also to calculate the token validity skew. If the user hasn't logged out of the application for a very long time, this skew value will exceed the validity period of the token and hence for security reasons the tokens will be considered as invalid. Hence the error. Inform the user to perform a proper logout and login back into the application and this should reset the skew. This scenario is not applicable if refresh token rolling is set as infinite rolling.
              
           
       - question: |

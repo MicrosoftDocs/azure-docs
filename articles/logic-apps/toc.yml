@@ -35,7 +35,7 @@ items:
     - name: Portal - Templates gallery
       href: create-single-tenant-workflows-templates.md
     - name: Visual Studio Code
-      href: create-single-tenant-workflows-visual-studio-code.md
+      href: create-standard-workflows-visual-studio-code.md
 - name: Tutorials
   items:
   - name: Create Consumption schedule-based workflow
@@ -70,12 +70,18 @@ items:
     href: logic-apps-serverless-overview.md
   - name: Business rules engine integration
     href: rules-engine/rules-engine-overview.md
+  - name: AI playbook and solution development
+    href: ai-resources.md
   - name: B2B integration & EDI processing
     href: logic-apps-enterprise-integration-overview.md
   - name: Mainframe modernization
     href: mainframe-modernization-overview.md
-  - name: Business continuity and disaster recovery
-    href: business-continuity-disaster-recovery-guidance.md
+  - name: Reliability
+    items:
+    - name: Reliability in Azure Logic Apps
+      href: ../reliability/reliability-logic-apps.md?toc=/azure/logic-apps/toc.json
+    - name: Multi-region deployments for disaster recovery
+      href: multi-region-disaster-recovery.md
   - name: Security
     items:
     - name: Security controls by Azure Policy
@@ -105,6 +111,8 @@ items:
       href: workflow-assistant-standard.md
     - name: Create Standard workflows - Visual Studio Code
       href: create-single-tenant-workflows-visual-studio-code.md
+    - name: Export Standard from portal to Visual Studio Code
+      href: export-standard-logic-app-to-visual-studio-code.md
     - name: Create and run .NET code
       href: create-run-custom-code-functions.md
     - name: Add and run C# scripts
@@ -173,7 +181,9 @@ items:
       href: azure-arc-enabled-logic-apps-create-deploy-workflows.md
   - name: Migrate
     items:
-    - name: Migrate from BizTalk to Azure Logic Apps
+    - name: Migration from Power Automate
+      href: power-automate-migration.md
+    - name: Migration from BizTalk Server
       items:
       - name: Why migrate from BizTalk Server?
         href: biztalk-server-migration-overview.md
@@ -244,7 +254,7 @@ items:
   - name: Access on-premises data sources
     items:
     - name: Install on-premises data gateway
-      href: install-on-premises-data-gateway.md
+      href: install-on-premises-data-gateway-workflows.md
     - name: Connect to on-premises data sources
       href: connect-on-premises-data-sources.md
   - name: Develop for B2B scenarios
@@ -437,6 +447,8 @@ items:
     items:
     - name: Manage logic apps - Azure portal
       href: manage-logic-apps-with-azure-portal.md
+    - name: Manage logic apps - Visual Studio Code
+      href: manage-logic-apps-visual-studio-code.md
     - name: Manage logic apps - Visual Studio
       href: manage-logic-apps-with-visual-studio.md
     - name: Manage integration accounts
@@ -455,7 +467,7 @@ items:
       href: test-logic-apps-mock-data-static-results.md
   - name: Deploy
     items:
-    - name: About automated deployment (multitenant)
+    - name: About automated deployment - Multitenant
       href: logic-apps-azure-resource-manager-templates-overview.md
     - name: Create logic app templates
       href: logic-apps-create-azure-resource-manager-templates.md
@@ -469,27 +481,35 @@ items:
         href: view-workflow-status-run-history.md
       - name: View health and performance metrics
         href: view-workflow-metrics.md
-      - name: Enable Health Check for Standard workflows
-        href: monitor-health-standard-workflows.md
-      - name: Enable and view enhanced telemetry for Standard workflows
-        href: enable-enhanced-telemetry-standard-workflows.md
       - name: Monitor and collect diagnostic data for workflows
         href: monitor-workflows-collect-diagnostic-data.md
       - name: Monitor workflows in Microsoft Defender for Cloud
         href: healthy-unhealthy-resource.md
-      - name: Monitor B2B messages with Azure Monitor logs
-        href: monitor-b2b-messages-log-analytics.md
-      - name: Tracking schemas for monitoring messages
-        href: tracking-schemas-as2-x12-custom.md
-      - name: Create monitoring and tracking queries
-        href: create-monitoring-tracking-queries.md
-  - name: Business continuity and disaster recovery
+      - name: Consumption workflows
+        items:
+        - name: Monitor and track B2B messages
+          href: monitor-track-b2b-messages-consumption.md
+        - name: Create monitoring and tracking queries
+          href: create-monitoring-tracking-queries.md
+        - name: Tracking schemas for B2B messages
+          href: tracking-schemas-consumption.md
+      - name: Standard workflows
+        items:
+        - name: Enable Health Check
+          href: monitor-health-standard-workflows.md
+        - name: Enable and view enhanced telemetry
+          href: enable-enhanced-telemetry-standard-workflows.md
+        - name: Monitor and track B2B transactions
+          href: monitor-track-b2b-transactions-standard.md
+        - name: Tracking schemas for B2B transactions
+          href: tracking-schemas-standard.md
+  - name: Reliability
     items:
-    - name: Set up zone redundant logic apps
+    - name: Enable zone redundancy
       href: set-up-zone-redundancy-availability-zones.md
-    - name: Replicate Azure resources for business continuity and disaster recovery
+    - name: Create replication tasks for Azure resources
       href: create-replication-tasks-azure-resources.md
-    - name: Build a B2B business continuity and disaster recovery plan
+    - name: Set up cross-region disaster recovery for integration accounts
       href: logic-apps-enterprise-integration-b2b-business-continuity.md
   - name: Examples, scenarios, and walkthroughs
     href: logic-apps-examples-and-scenarios.md

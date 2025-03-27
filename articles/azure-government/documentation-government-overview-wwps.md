@@ -6,7 +6,7 @@ ms.author: eliotgra
 ms.service: azure-government
 ms.topic: article
 recommendations: false
-ms.date: 07/29/2022
+ms.date: 01/21/2025
 ---
 
 # Azure for secure worldwide public sector cloud adoption
@@ -124,10 +124,10 @@ Most customers will connect to Azure over the Internet, and the precise routing 
 
 #### *Your datacenter connection to Azure region*
 
-[Virtual Network](../virtual-network/virtual-networks-overview.md) (VNet) provides a means for Azure virtual machines (VMs) to act as part of your internal (on-premises) network. You have options to securely connect to a VNet from your on-premises infrastructure – choose an [IPSec protected VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) (for example, point-to-site VPN or site-to-site VPN) or a private connection by using Azure [ExpressRoute](../expressroute/expressroute-introduction.md) with several [data encryption options](../expressroute/expressroute-about-encryption.md).
+[Virtual Network](../virtual-network/virtual-networks-overview.md) (VNet) provides a means for Azure virtual machines (VMs) to act as part of your internal (on-premises) network. You have options to securely connect to a VNet from your on-premises infrastructure – choose an [IPsec protected VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) (for example, point-to-site VPN or site-to-site VPN) or a private connection by using Azure [ExpressRoute](../expressroute/expressroute-introduction.md) with several [data encryption options](../expressroute/expressroute-about-encryption.md).
 
-- **IPSec protected VPN** uses an encrypted tunnel established across the public Internet, which means that you need to rely on the local Internet service providers for any network-related assurances.
-- **ExpressRoute** allows you to create private connections between Microsoft datacenters and your on-premises infrastructure or colocation facility. ExpressRoute connections don't go over the public Internet and offer lower latency and higher reliability than IPSec protected VPN connections. [ExpressRoute locations](../expressroute/expressroute-locations-providers.md) are the entry points to Microsoft’s global network backbone and they may or may not match the location of Azure regions. For example, you can connect to Microsoft in Amsterdam through ExpressRoute and have access to all Azure cloud services hosted in Northern and Western Europe. However, it’s also possible to have access to the same Azure regions from ExpressRoute connections located elsewhere in the world. Once the network traffic enters the Microsoft backbone, it's guaranteed to traverse that private networking infrastructure instead of the public Internet.
+- **IPsec protected VPN** uses an encrypted tunnel established across the public Internet, which means that you need to rely on the local Internet service providers for any network-related assurances.
+- **ExpressRoute** allows you to create private connections between Microsoft datacenters and your on-premises infrastructure or colocation facility. ExpressRoute connections don't go over the public Internet and offer lower latency and higher reliability than IPsec protected VPN connections. [ExpressRoute locations](../expressroute/expressroute-locations-providers.md) are the entry points to Microsoft’s global network backbone and they may or may not match the location of Azure regions. For example, you can connect to Microsoft in Amsterdam through ExpressRoute and have access to all Azure cloud services hosted in Northern and Western Europe. However, it’s also possible to have access to the same Azure regions from ExpressRoute connections located elsewhere in the world. Once the network traffic enters the Microsoft backbone, it's guaranteed to traverse that private networking infrastructure instead of the public Internet.
 
 #### *Traffic across Microsoft global network backbone*
 
@@ -309,7 +309,7 @@ Microsoft has implemented extensive protections for the Azure cloud platform and
 
 ## Private and hybrid cloud with Azure Stack
 
-[Azure Stack](https://azure.microsoft.com/overview/azure-stack/) portfolio is an extension of Azure that enables you to build and run hybrid applications across on-premises, edge locations, and cloud. As shown in Figure 4, Azure Stack includes Azure Stack Hyperconverged Infrastructure (HCI), Azure Stack Hub (formerly Azure Stack), and Azure Stack Edge (formerly Azure Data Box Edge). The last two components (Azure Stack Hub and Azure Stack Edge) are discussed in this section. For more information, see [Differences between global Azure, Azure Stack Hub, and Azure Stack HCI](/azure-stack/operator/compare-azure-azure-stack).
+[Azure Stack](https://azure.microsoft.com/overview/azure-stack/) portfolio is an extension of Azure that enables you to build and run hybrid applications across on-premises, edge locations, and cloud. As shown in Figure 4, Azure Stack includes Azure Stack Hub (formerly Azure Stack) and Azure Stack Edge (formerly Azure Data Box Edge). For more information, see [Differences between global Azure and Azure Stack Hub](/azure-stack/operator/compare-azure-azure-stack).
 
 :::image type="content" source="./media/wwps-azure-stack-portfolio.jpg" alt-text="Azure Stack portfolio" border="false":::
 **Figure 4.**  Azure Stack portfolio

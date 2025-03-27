@@ -2,12 +2,12 @@
 title: Get started with module identities and module identity twins (.NET)
 titleSuffix: Azure IoT Hub
 description: Learn how to create module identities and update module identity twins using the Azure IoT Hub SDK for .NET.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: include
-ms.date: 11/19/2024
+ms.date: 1/3/2025
 ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
 
@@ -54,6 +54,9 @@ private static ModuleClient _moduleClient = null;
 
 _moduleClient = ModuleClient.CreateFromConnectionString(ModuleConnectionString, null);
 ```
+
+> [!NOTE]
+> C#/.NET does not support connection of a device app to an IoT Hub module identity twin using a certificate.
 
 ### Retrieve a module identity twin and examine properties
 

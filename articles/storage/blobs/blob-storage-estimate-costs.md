@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 11/19/2024
+ms.date: 01/06/2025
 ms.author: normesta
 ms.custom: subject-cost-optimization
 ---
@@ -78,13 +78,13 @@ The number of operations required to download a blob depends on which endpoint y
 
 Using the [Sample prices](#sample-prices) that appear in this article, the following table estimates the cost to download **1,000** blobs that are **5 GiB** each in size from the cool tier by using the Blob Storage endpoint. 
 
-| Price factor                                         | Value      |
-|------------------------------------------------------|------------|
-| Price of a single read operation (price / 10,000)    | $0.000001  |
-| **Cost of read operations (1000 * operation price)** | **$0.001** |
-| Price of data retrieval (per GiB)                    | $0.01      |
-| **Cost of data retrieval (5 * price of data retrieval)**     | **$0.05**  |
-| **Total cost (read + retrieval)**                    | **$0.051** |
+| Price factor                                                    | Value      |
+|-----------------------------------------------------------------|------------|
+| Price of a single read operation (price / 10,000)               | $0.000001  |
+| **Cost of read operations (1000 * operation price)**            | **$0.001** |
+| Price of data retrieval (per GiB)                               | $0.01      |
+| **Cost of data retrieval 1000 * (5 * price of data retrieval)** | **$50.00** |
+| **Total cost (read + retrieval)**                               | **$50.01** |
 
 Utilities such as AzCopy also use list operations and operations to obtain blob properties. As a proportion of the overall bill, these charges are relatively small. For examples, see [Estimate the cost to download](azcopy-cost-estimation.md#the-cost-to-download). 
 

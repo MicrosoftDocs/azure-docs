@@ -16,6 +16,7 @@ ms.collection: usx-security
 
 # Integrate SAP across multiple workspaces
 
+
 When you set up your Log Analytics workspace enabled for Microsoft Sentinel, you have [multiple architecture options](/azure/azure-monitor/logs/workspace-design?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) and factors to consider. Taking into account geography, regulation, access control, and other factors, you might choose to have multiple workspaces in your organization.
 
 When working with SAP, your SAP and SOC teams might need to work in separate workspaces to maintain security boundaries. You might not want the SAP team to have visibility into all other security logs across your organization. However, the SAP BASIS team plays a critical role in successfully implementing and maintaining the Microsoft Sentinel solution for SAP applications. Their technical knowledge is essential for effectively monitoring SAP systems, configuring security settings, and ensuring that proper incident response procedures are in place. For this reason, the SAP BASIS team must have access to the Log Analytics workspace enabled for Microsoft Sentinel, allowing them to collaborate with the SOC team while focusing specifically on SAP-related security monitoring.
@@ -29,6 +30,7 @@ This article discusses how to work with the Microsoft Sentinel solution for SAP 
 
 > [!IMPORTANT]
 > Working with multiple workspaces is currently in preview. This feature is provided without a service-level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 ## SAP and SOC data maintained in separate workspaces
 

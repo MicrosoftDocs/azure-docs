@@ -5,15 +5,12 @@ author: ankitaduttaMSFT
 ms.author: ankitadutta
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 09/03/2024
+ms.date: 03/13/2025
 ms.custom: references_regions, subject-rbac-steps, engagement-fy23
 ---
 # Replicate machines with private endpoints
 
-Azure Site Recovery allows you to use
-[Azure Private Link](../private-link/private-endpoint-overview.md) private endpoints for replicating
-your machines from inside an isolated virtual network. Private endpoint access to
-a recovery vault is supported in all Azure Commercial & Government regions.
+Azure Site Recovery allows you to use [Azure Private Link](../private-link/private-endpoint-overview.md) private endpoints for replicating your machines from inside an isolated virtual network. Private endpoint access to a recovery vault is supported in all Azure Commercial & Government regions.
 
 This article provides instructions for you to perform the following steps:
 
@@ -27,7 +24,7 @@ This article provides instructions for you to perform the following steps:
   access for storage as needed. Creation of a private endpoint for accessing storage isn't mandatory
   for Azure Site Recovery.
   
-Below is a reference architecture on how the replication workflow changes with private endpoints.
+Following is a reference architecture on how the replication workflow changes with private endpoints.
 
 :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/architecture.png" alt-text="Reference architecture for Site Recovery with private endpoints.":::
 
@@ -44,7 +41,7 @@ Below is a reference architecture on how the replication workflow changes with p
   outbound access from the secured network. You can also use network security group tag "Azure
   Active Directory" and Azure Firewall tags for allowing access to Microsoft Entra ID, as
   applicable.
-- **At least seven IP addresses are required** in the subnets of both your source machines and your
+- **At least nine IP addresses are required** in the subnets of both your source machines and your
   recovery machines. When you create a private endpoint for the vault, Site Recovery creates five
   private links for access to its microservices. Further, when you enable the replication, it adds
   two additional private links for the source and target region pairing.
@@ -189,11 +186,10 @@ following requirements apply:
 
 > [!NOTE]
 > If private endpoints are not enabled on storage account, protection would still be successful. However, replication traffic would transit to Azure Site Recovery public endpoints. To ensure replication traffic flows via private links, storage account must be enabled with private endpoints.
-
-> [!NOTE]
-> Private endpoint for storage can only be created on a **General Purpose v2** storage accounts. For
-> pricing information, see
-> [Standard page blob prices](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
+>
+> Private endpoint for storage can only be created on a **General Purpose v2** storage accounts. For pricing information, see [Standard page blob prices](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
+>
+> For Cache Storage Account, assigning a Private Endpoint (PE) to the cache storage account and adding a static IP functions correctly if the source machine maintains a network line of sight. This doesn't apply to Site Recovery. 
 
 Follow the
 [guidance for creation of private storage](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint)

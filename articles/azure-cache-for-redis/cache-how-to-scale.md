@@ -451,7 +451,7 @@ Clustering is only available for Premium, Enterprise, and Enterprise Flash cache
 
 ### I'm getting MOVE exceptions when using StackExchange.Redis and clustering, what should I do?
 
-If you're using StackExchange.Redis and receive `MOVE` exceptions when using clustering, ensure that you're using [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) or later. For instructions on configuring your .NET applications to use StackExchange.Redis, see [Configure the cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-client).
+If you're using StackExchange.Redis and receive `MOVE` exceptions when using clustering, ensure that you're using [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) or later.
 
 ### What is the difference between OSS Clustering and Enterprise Clustering on Enterprise tier caches?
 

@@ -4,6 +4,9 @@ description: Learn how to use Apache Sqoop to import and export between Apache H
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, linux-related-content
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 09/06/2024
 ---
 
@@ -38,7 +41,7 @@ Learn how to use Apache Sqoop to import and export between an Apache Hadoop clus
 
 
     export SERVER_CONNECT="jdbc:sqlserver://$SQL_SERVER.database.windows.net:1433;user=sqluser;password=$PASSWORD"
-    export SERVER_DB_CONNECT="jdbc:sqlserver://$SQL_SERVER.database.windows.net:1433;user=sqluser;password=$PASSWORD;database=$DABATASE"
+    export SERVER_DB_CONNECT="jdbc:sqlserver://$SQL_SERVER.database.windows.net:1433;user=sqluser;password=$PASSWORD;database=$DATABASE"
     ```
 
 ## Sqoop export

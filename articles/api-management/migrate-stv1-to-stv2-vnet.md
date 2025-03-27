@@ -6,7 +6,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom:
 ms.topic: how-to
-ms.date: 11/04/2024
+ms.date: 03/10/2025
 ms.author: danlep
 ---
 
@@ -27,7 +27,7 @@ For a VNet-inject instance, you have the following migration options:
 
 Under certain, less frequent conditions, migration in the same subnet may not be possible or behaves differently. For more information, see [Special conditions and scenarios](#special-conditions-and-scenarios).
 
-If you need to migrate a *non-VNnet-injected* API Management hosted on the `stv1` platform, see [Migrate a non-VNet-injected API Management instance to the stv2 platform](migrate-stv1-to-stv2-no-vnet.md).
+If you need to migrate a *non-VNet-injected* API Management hosted on the `stv1` platform, see [Migrate a non-VNet-injected API Management instance to the stv2 platform](migrate-stv1-to-stv2-no-vnet.md).
 
 [!INCLUDE [api-management-migration-alert](../../includes/api-management-migration-alert.md)]
 
@@ -240,6 +240,9 @@ Under certain conditions, [Option 1: Migrate and keep same subnet](#option-1-mig
 * **Subnet delegation** - If the subnet where API Management is deployed is currently delegated to other Azure services, you must migrate using Option 2. 
 
 * **Azure Key Vault blocked** - If access to Azure Key Vault is currently blocked, you must migrate using Option 2, including setting up NSG rules in the new subnet for access to Azure Key Vault.
+
+[!INCLUDE [api-management-automatic-migration](../../includes/api-management-automatic-migration.md)]
+
 
 [!INCLUDE [api-management-migration-support](../../includes/api-management-migration-support.md)]
 

@@ -3,7 +3,7 @@ title: Run Azure Automation runbooks on a Hybrid Runbook Worker
 description: This article describes how to run runbooks on machines in your local datacenter or other cloud provider with the Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/09/2024
+ms.date: 01/01/2025
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, linux-related-content
 ms.service: azure-automation
@@ -13,7 +13,8 @@ ms.service: azure-automation
 
 
 > [!Important]
-> Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) has retired on **31 August 2024** and is no longer supported. Follow the guidelines on how to [migrate from an existing Agent-based User Hybrid Runbook Workers to Extension-based Hybrid Workers](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
+> - Starting 1st April 2025, all jobs running on agent-based Hybrid Worker will be stopped. 
+> - Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) has retired on **31 August 2024** and is no longer supported. Follow the guidelines on how to [migrate from an existing Agent-based User Hybrid Runbook Workers to Extension-based Hybrid Workers](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
 
 > [!NOTE]
 > Azure Automation Run As Account has retired on September 30, 2023 and is replaced with Managed Identities. Follow the guidelines on [how to start migrating your runbooks to use managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](migrate-run-as-accounts-managed-identity.md#sample-scripts).

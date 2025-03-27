@@ -7,7 +7,7 @@ author: haroldcampos
 ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/10/2024
+ms.date: 01/27/2025
 
 #CustomerIntent: As a developer, I want to learn how to test rulesets with the Microsoft Rules Composer.
 ---

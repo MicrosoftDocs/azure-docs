@@ -1,12 +1,9 @@
 ---
 title: Azure VMware Solution assessment calculations in Azure Migrate | Microsoft Docs
 description: Provides an overview of Azure VMware Solution assessment calculations in the Azure Migrate service.
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 08/07/2024
+ms.date: 12/06/2024
 ms.custom: engagement-fy25
 ---
 
@@ -27,11 +24,11 @@ Assessments you create with Azure Migrate are a point-in-time snapshot of data. 
 --- | --- 
 **Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. You can assess your on-premises servers in [VMware vSphere](how-to-set-up-appliance-vmware.md) and [Hyper-V](how-to-set-up-appliance-hyper-v.md) environment, and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs using this assessment type.
 **Azure SQL** | Assessments to migrate your on-premises SQL servers from your VMware environment to Azure SQL Database or Azure SQL Managed Instance.
-**Azure App Service** | Assessments to migrate your on-premises ASP.NET web apps, running on IIS web servers, or Java web applications, running on Tomcat servers from your VMware vSphere environment to Azure App Service.
+**Azure App Service** | Assessments to migrate your on-premises ASP.NET web apps running on IIS web servers, or Java web applications running on Tomcat servers from your VMware vSphere environment to Azure App Service.
 **Azure VMware Solution (AVS)** | Assessments to migrate your on-premises vSphere servers to [Azure VMware Solution](../azure-vmware/introduction.md). You can assess your on-premises [VMware vSphere VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
 
 > [!NOTE]
-> If the number of Azure VM or Azure VMware Solution assessments are incorrect on the Discovery and assessment tool, click on the total number of assessments to navigate to all the assessments and recalculate the Azure VM or Azure VMware Solution assessments. The Discovery and assessment tool will then show the correct count for that assessment type. 
+> If the number of Azure VM or Azure VMware Solution assessments are incorrect on the Discovery and assessment tool, select the total number of assessments to navigate to all the assessments and recalculate the Azure VM or Azure VMware Solution assessments. The Discovery and assessment tool will then show the correct count for that assessment type. 
 
 Azure VMware Solution assessment provides two sizing criteria options:
 
@@ -117,8 +114,8 @@ Here's what's included in an Azure VMware Solution assessment:
 --- | --- 
 **Target location** | Specifies the Azure VMware Solution private cloud location to which you want to migrate.
 **Storage type** | Specifies the storage engine to be used in Azure VMware Solution. vSAN is part of all AVS SKUs' storage. Azure NetApp Files (Standard, Premium, and Ultra tiers) is used by default in the assessment if external storage can optimize the number of AVS nodes required.
-**Reserved Instances (RIs)** | This property helps you specify Reserved Instances in Azure VMware Solution if purchased and the term of the Reserved Instance. Your cost estimates take the option chosen into account.[Learn more](../azure-vmware/reserved-instance.md) <br/><br/> If you select reserved instances, you can't specify "Discount (%)".
-**Node type** | Specifies the [Azure VMware Solution Node type](../azure-vmware/architecture-private-clouds.md) used to be used in Azure. The default node type is AV36. More node types might be available in future. Azure Migrate will recommend a required number of nodes for the VMs to be migrated to Azure VMware Solution.
+**Reserved Instances (RIs)** | This property helps you specify Reserved Instances in Azure VMware Solution if purchased and the term of the Reserved Instance. Your cost estimates take the option chosen into account. [Learn more](../azure-vmware/reserved-instance.md) <br/><br/> If you select reserved instances, you can't specify "Discount (%)".
+**Node type** | Specifies the [Azure VMware Solution Node type](../azure-vmware/architecture-private-clouds.md) used to be used in Azure. By default, all node types available in the selected region are used for the assessment. Currently, AV64 node type can only be used along with AV36, AV36P, or AV52 and can't be used as a single node type in an SDDC. The node type available for use depends on the capacity availability of the SKU in the region.
 **FTT Setting, RAID Level** | Specifies the valid combination of Failures to Tolerate and Raid combinations. The selected FTT option combined with RAID level and the on-premises vSphere VM disk requirement will determine the total vSAN storage required in Azure VMware Solution. Total available storage after calculations also includes (a) space reserved for management objects such as vCenter Server and (b) 25% storage slack required for vSAN operations.
 **Sizing criterion** | Sets the criteria to be used to determine memory, cpu, and storage requirements for Azure VMware Solution nodes. You can opt for *performance-based* sizing or *as on-premises* without considering the performance history. To lift and shift, choose as on-premises. To obtain usage based sizing, choose performance based.
 **Performance history** | Sets the duration to consider in evaluating the performance data of servers. This property is applicable only when the sizing criteria are *performance-based*.
@@ -198,9 +195,9 @@ After the effective utilization value is determined, the storage, network, and c
 
 ### As on-premises sizing
 
-If you use *as on-premises sizing*, Azure VMware Solution assessment doesn't consider the performance history of the VMs and disks. Instead, it allocates Azure VMware Solution nodes based on the size allocated on-premises. The default storage type is vSAN in Azure VMware Solution.
+If you use *as on-premises sizing*, Azure VMware Solution assessment doesn't consider the performance history of the VMs and disks. Instead, it allocates Azure VMware Solution nodes based on the size allocated on-premises. vSAN is part of all AVS SKUs' storage. Azure NetApp Files (Standard, Premium, and Ultra tiers) is used by default in the assessment if external storage can optimize the number of AVS nodes required.
 
-[Learn more](./tutorial-assess-vmware-azure-vmware-solution.md#review-an-assessment) about how to review an Azure VMware Solution assessment.
+[Learn more](tutorial-assess-vmware-azure-vmware-solution.md#review-an-assessment) about how to review an Azure VMware Solution assessment.
 
 ### CPU utilization on Azure VMware Solution nodes
 
@@ -225,7 +222,7 @@ Storage utilization is calculated based on the following sequence:
 5. Apply required 25% slack for vSAN
 6. Result available storage for VMs out of total storage including management overhead.
 
-The available storage on a 3 node cluster will be based on the default storage policy, which is Raid-1 and uses thick provisioning. When calculating for erasure coding or Raid-5 for example, a minimum of 4 nodes is required. Note that in Azure VMware Solution, the storage policy for customer workload can be changed by the administrator or Run Command(Currently in Preview). [Learn more] (./azure-vmware/configure-storage-policy.md)
+The available storage on a 3 node cluster will be based on the default storage policy, which is Raid-1 and uses thick provisioning. When calculating for erasure coding or Raid-5 for example, a minimum of 4 nodes is required. Note that in Azure VMware Solution, the storage policy for customer workload can be changed by the administrator or Run Command(Currently in Preview). [Learn more](/azure/azure-vmware/configure-storage-policy).
 
 ### Limiting factor
 

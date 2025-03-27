@@ -3,11 +3,11 @@ title: Tutorial - Improved exports experience - Preview
 description: This tutorial helps you create automatic exports for your actual and amortized costs in the Cost and Usage Specification standard (FOCUS) format.
 author: jojohpm
 ms.author: jojoh
-ms.date: 11/23/2024
+ms.date: 02/20/2025
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: banders
+ms.reviewer: jojoh
 ---
 
 # Tutorial: Improved exports experience - Preview
@@ -39,10 +39,20 @@ For Azure Storage accounts:
 - Write permissions are required to change the configured storage account, independent of permissions on the export.
 - Your Azure storage account must be configured for blob or file storage.
 - Don't configure exports to a storage container that is configured as a destination in an [object replication rule](../../storage/blobs/object-replication-overview.md#object-replication-policies-and-rules).
-- To export to storage accounts with configured firewalls, you need other privileges on the storage account. The other privileges are only required during export creation or modification. They are:
-  - **Owner** role or any custom role with `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/permissions/read` permissions.
+- To export to storage accounts with firewall rules, you need additional privileges on the storage account. These privileges are only required during export creation or modification:
+
+- __Owner__ role on the storage account ___or___
+
+  - A __custom role__ that includes:
   
-  - Additionally, ensure that you enable [Allow trusted Azure service access](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) to the storage account when you configure the firewall.
+    - `Microsoft.Authorization/roleAssignments/write`
+    
+    - `Microsoft.Authorization/permissions/read`
+    
+  When you configure the firewall, ensure that [Allow trusted Azure service access](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) is enabled on the storage account. If you want to use the [Exports REST API](/rest/api/cost-management/exports) to write to a storage account behind a firewall, use API version __2023-08-01__ or later. All newer API versions continue to support exports behind firewalls.
+  
+  A __system-assigned managed identity__ is created for a new export if the user has `Microsoft.Authorization/roleAssignments/write` permissions on the storage account. This setup ensures that the export will continue to work if you enable a firewall in the future. After the export is created or updated, the user no longer needs the __Owner__ role for routine operations.
+  
 - The storage account configuration must have the **Permitted scope for copy operations (preview)** option set to **From any storage account**.  
     :::image type="content" source="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" alt-text="Screenshot showing From any storage account option set." lightbox="./media/tutorial-export-acm-data/permitted-scope-copy-operations.png" :::
 
@@ -104,7 +114,7 @@ Note: A template simplifies export creation by preselecting a set of commonly us
 6. Specify the storage container and directory path for the export file.
 7. Choose the **Format** as CSV or Parquet.
 8. Choose the **Compression type** as **None**, **Gzip** for CSV file format, or **Snappy** for the parquet file format. 
-9. **File partitioning** is enabled by default. It splits large files into smaller ones.
+9. **File partitioning** is enabled by default. It splits large files into smaller ones and can't be disabled.
 10. **Overwrite data** is enabled by default. For daily exports, it replaces the previous day's file with an updated file.
 11. Select **Next** to move to the **Review + create** tab.  
     :::image type="content" source="./media/tutorial-improved-exports/new-export-example.png" border="true" alt-text="Screenshot showing the New export dialog." lightbox="./media/tutorial-improved-exports/new-export-example.png" :::
@@ -169,7 +179,7 @@ Agreement types, scopes, and required roles are explained at [Understand and wor
 | --- | --- | --- |
 | Cost and usage (actual) | • EA<br> • MCA that you bought through the Azure website <br> • MCA enterprise<br> • MCA that you buy through a Microsoft partner <br> • Azure internal | • EA - Enrollment, department, account, subscription, and resource group <br> • MCA - Billing account, billing profile, Invoice section, subscription, and resource group <br> • Microsoft Partner Agreement (MPA) - Customer, subscription, and resource group |
 | Cost and usage (amortized) | • EA <br> • MCA that you bought through the Azure website <br> • MCA enterprise <br> • MCA that you buy through a Microsoft partner  <br> • Azure internal | • EA - Enrollment, department, account, subscription, and resource group <br> • MCA - Billing account, billing profile, Invoice section, subscription, and resource group <br> • MPA - Customer, subscription, and resource group |
-| Cost and usage (FOCUS) | • EA <br> • MCA that you bought through the Azure website <br> • MCA enterprise <br> • MCA that you buy through a Microsoft partner| • EA - Enrollment, department, account, subscription, and resource group <br> • MCA - Billing account, billing profile, invoice section, subscription, and resource group <br> • MPA - Customer, subscription, resource group. **NOTE**: The management group scope isn't supported for Cost and usage details (FOCUS) exports. |
+| Cost and usage (FOCUS) | • EA <br> • MCA that you bought through the Azure website <br> • MCA enterprise <br> • MCA that you buy through a Microsoft partner| • EA - Enrollment, department, account, subscription, and resource group. **NOTE:** The management group scope isn't supported for Cost and usage details (FOCUS) exports.  <br> • MCA - Billing account, billing profile, invoice section, subscription, and resource group <br> • MPA - Customer, subscription, resource group.  |
 | All available prices | • EA <br>  • MCA that you bought through the Azure website <br> • MCA enterprise <br> • MCA that you buy through a Microsoft partner  | • EA - Billing account <br> • All other supported agreements - Billing profile |
 | Reservation recommendations | • EA <br> • MCA that you bought through the Azure website <br> • MCA enterprise <br> • MCA that you buy through a Microsoft partner | • EA - Billing account <br> • All other supported agreements - Billing profile |
 | Reservation transactions | • EA <br> • MCA that you bought through the Azure website <br> • MCA enterprise <br> • MCA that you buy through a Microsoft partner | • EA - Billing account <br> • All other supported agreements - Billing profile |

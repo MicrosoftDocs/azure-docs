@@ -54,21 +54,39 @@ await connection.OpenAsync();
     <dependency>
         <groupId>mysql</groupId>
         <artifactId>mysql-connector-java</artifactId>
-        <version>8.0.30</version>
+        <version>8.0.33</version>
     </dependency>
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-identity-extensions</artifactId>
-        <version>1.1.5</version>
+        <version>1.2.0</version>
     </dependency>
     ```
 1. Get the connection string from the environment variable, and add the plugin name to connect to the database:
 
     ```java
-    String url = System.getenv("AZURE_MYSQL_CONNECTIONSTRING");  
+    String url = System.getenv("AZURE_MYSQL_CONNECTIONSTRING");
     String pluginName = "com.azure.identity.extensions.jdbc.mysql.AzureMysqlAuthenticationPlugin";
-    Connection connection = DriverManager.getConnection(url + "&defaultAuthenticationPlugin=" +
-        pluginName + "&authenticationPlugins=" + pluginName);
+
+    Properties properties = new Properties();
+    properties.put("defaultAuthenticationPlugin", pluginName);
+    properties.put("authenticationPlugins", pluginName);
+
+    // Uncomment the following lines corresponding to the authentication type you want to use.
+
+    // for user-assigned managed identity
+    // String clientId = System.getenv('AZURE_MYSQL_CLIENTID')
+    // properties.put("azure.clientId", clientId);
+
+    // For service principal
+    // String tenantId = System.getenv('AZURE_MYSQL_TENANTID')
+    // String clientId = System.getenv('AZURE_MYSQL_CLIENTID')
+    // String clientSecret = System.getenv('AZURE_MYSQL_CLIENTSECRET')
+    // properties.put("azure.clientId", clientId);
+    // properties.put("azure.clientSecret", clientSecret);
+    // properties.put("azure.tenantId", tenantId);
+
+    Connection connection = DriverManager.getConnection(url, properties);
     ```
 
 For more information, see [Use Java and JDBC with Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/connect-java?tabs=passwordless).

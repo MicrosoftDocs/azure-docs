@@ -4,12 +4,26 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 11/22/2024
+ms.date: 3/4/2025
 ---
 
 # What's new in Azure VMware Solution
 
 Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](architecture-private-clouds.md#host-maintenance-and-lifecycle-management).
+
+## March 2025
+
+To address the vulnerabilities (CVE-2025-22224, CVE-2025-22225, CVE-2025-22226) reported in Broadcom security advisory [VMSA-2025-0004](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/25390), ESXi hosts are being patched in all Azure VMware Solution private clouds to [ESXi 8.0 U2d, Patch Release 24585300](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u2d-release-notes.html). All new Azure VMware Solution private clouds are deployed with the same version. [Learn more](https://techcommunity.microsoft.com/blog/azuremigrationblog/azure-vmware-solution-broadcom-vmsa-2025-0004-remediation/4388074) 
+
+vSAN in-transit encryption is now available in Azure VMware Solution through a Run Command. This new feature enhances data security by encrypting data as it moves between hosts in your vSAN cluster in the Azure VMware Solution. [Learn more](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/vsan-administration/using-encryption-in-a-vsan-cluster-1/vsan-data-in-transit-encryption.html)
+
+## February 2025
+
+Azure Elastic SAN for AV64 SKU is now generally available. [Learn more](/azure/azure-vmware/configure-azure-elastic-san)
+
+## December 2024
+
+Resource Health for Azure VMware Solution is now available in Public Preview. Resource Health, an Azure native feature, now monitors the health of Azure VMware Solution private cloud resources, provides recommended actions for current issues, and allows reporting on past and present resource health. [Learn more](ecosystem-app-monitoring-solutions.md#azure-resource-health-for-azure-vmware-solution-private-cloud-public-preview) 
 
 ## November 2024
 
@@ -17,7 +31,7 @@ Azure VMware Solution is now ready to update all existing Azure Commercial custo
 
 All new Azure VMware Solution private clouds are being deployed with VMware vSphere 8.0 version in [Microsoft Azure Government](https://azure.microsoft.com/explore/global-infrastructure/government/#why-azure). [Learn more](architecture-private-clouds.md#vmware-software-versions)
 
-Trusted Launch is now available in all Azure VMware Solution regions. This enables Virtual Trusted Platform Module (vTPM) on virtual machines, ensuring compliance with the latest security standards and unlocking the potential to run modern operating systems like Microsoft Windows 11. [Learn more](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-A43B6914-E5F9-4CB1-9277-448AC9C467FB.html)
+Trusted Launch is now available in all Azure VMware Solution regions. This enables Virtual Trusted Platform Module (vTPM) on virtual machines, ensuring compliance with the latest security standards and unlocking the potential to run modern operating systems like Microsoft Windows 11. [Learn more](configure-virtual-trusted-platform-module.md#configure-virtual-trusted-platform-module-vtpm-on-virtual-machines-with-azure-vmware-solution)
 
 ## October 2024
 
@@ -142,7 +156,7 @@ All new Azure VMware Solution private clouds are being deployed with VMware NSX-
 
 **VMware HCX Enterprise Edition - Default**
 
-VMware HCX Enterprise is now available and supported on Azure VMware Solution at no extra cost. VMware HCX Enterprise brings valuable [services](https://docs.vmware.com/en/VMware-HCX/4.9/hcx-user-guide/GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED.html), like Replicated Assisted vMotion (RAV) and Mobility Optimized Networking (MON). VMware HCX Enterprise is now automatically installed for all new VMware HCX add-on requests, and existing VMware HCX Advanced customers can upgrade to VMware HCX Enterprise using the Azure portal. Learn more on how to [Install and activate VMware HCX in Azure VMware Solution](install-vmware-hcx.md).
+VMware HCX Enterprise is now available and supported on Azure VMware Solution at no extra cost. VMware HCX Enterprise brings valuable [services](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/vmware-hcx-services.html), like Replicated Assisted vMotion (RAV) and Mobility Optimized Networking (MON). VMware HCX Enterprise is now automatically installed for all new VMware HCX add-on requests, and existing VMware HCX Advanced customers can upgrade to VMware HCX Enterprise using the Azure portal. Learn more on how to [Install and activate VMware HCX in Azure VMware Solution](install-vmware-hcx.md).
 
 **Azure Log Analytics - Monitor Azure VMware Solution**
 

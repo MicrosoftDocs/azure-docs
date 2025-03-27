@@ -5,7 +5,7 @@ author: garrodonnell
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: tutorial
-ms.date: 11/10/2023
+ms.date: 01/10/2025
 ms.author: godonnell
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
@@ -210,9 +210,11 @@ Next, specify that the application should be treated as a public client:
 1. In the left menu, under **Manage**, select **Authentication**.
 1. Under **Advanced settings**, in the **Allow public client flows** section, set **Enable the following mobile and desktop flows** to **Yes**. 
 1. Select **Save**.
-1. Ensure that **"allowPublicClient": true** is set in the application manifest:
+1. Ensure that **"isFallbackPublicClient": true** is set in the application manifest:
     1. In the left menu, under **Manage**, select **Manifest** to open application manifest.
-    1. Find **allowPublicClient** key and ensure its value is set to **true**.
+    1. Switch from the **Microsoft Graph App Manifest (New)** tab to the **AAD Graph App Manifest (Deprecating Soon)** tab.
+    1. Find **isFallbackPublicClient** key and ensure its value is set to **true**.
+
 
 Now, grant permissions to the API scope you exposed earlier in the *IdentityExperienceFramework* registration:
 
@@ -221,7 +223,7 @@ Now, grant permissions to the API scope you exposed earlier in the *IdentityExpe
 1. Select the **APIs my organization uses** tab, then select the **IdentityExperienceFramework** application.
 1. Under **Permission**, select the **user_impersonation** scope that you defined earlier.
 1. Select **Add permissions**. As directed, wait a few minutes before proceeding to the next step.
-1. Select **Grant admin consent for *<your tenant name)>***.
+1. Select **Grant admin consent for *&lt;your tenant name>***.
 1. Select **Yes**.
 1. Select **Refresh**, and then verify that "Granted for ..." appears under **Status** for the scope.
 

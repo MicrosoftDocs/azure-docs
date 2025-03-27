@@ -23,6 +23,8 @@ In this tutorial, you learn how to:
 > - Configure Azure Authentication
 > - Configure Web PubSub Event Handler to route events and messages to the application
 
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
+
 ## Prerequisites
 
 # [JavaScript Model v4](#tab/javascript-v4)
@@ -789,7 +791,9 @@ Use the following commands to create these items.
 
 1. Configure the `WebPubSubConnectionString` for the function app:
 
-   First, find your Web PubSub resource from **Azure Portal** and copy out the connection string under **Keys**. Then, navigate to Function App settings in **Azure Portal** -> **Settings** -> **Configuration**. And add a new item under **Application settings**, with name equals `WebPubSubConnectionString` and value is your Web PubSub resource connection string.
+   [!INCLUDE [Connection string security comment](includes/web-pubsub-connection-string-security-comment.md)]
+
+   First, find your Web PubSub resource from **Azure Portal** and copy out the connection string under **Keys**. Then, navigate to Function App settings in **Azure Portal** -> **Settings** -> **Environment variables**. And add a new item under **App settings**, with name equals `WebPubSubConnectionString` and value is your Web PubSub resource connection string.
 
 ## Configure the Web PubSub service `Event Handler`
 

@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: how-to
-ms.date: 12/28/2022
+ms.date: 12/28/2024
 ms.author: godonnell
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
@@ -37,7 +37,7 @@ This article explains how you can add custom OpenID Connect identity providers i
 
 ::: zone pivot="b2c-user-flow"
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with an account that has at least [External Identity Provider Administrator](/entra/identity/role-based-access-control/permissions-reference#external-identity-provider-administrator) privileges.
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 1. Select **Identity providers**, and then select **New OpenID Connect provider**.

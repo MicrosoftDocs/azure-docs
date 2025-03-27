@@ -6,7 +6,7 @@ ms.service: azure-virtual-network
 author: asudbring
 ms.author: allensu
 ms.topic: overview
-ms.date: 11/04/2024
+ms.date: 12/11/2024
 ms.custom: references_regions
 # Customer intent: As a network administrator, I want to learn about encryption in Azure Virtual Network so that I can secure my network traffic.
 
@@ -51,13 +51,15 @@ Azure Virtual Network encryption has the following limitations:
 
 - In scenarios where a PaaS is involved, the virtual machine where the PaaS is hosted dictates if virtual network encryption is supported. The virtual machine must meet the listed requirements. 
 
-- For Internal load balancer, all virtual machines behind the load balancer must be a supported virtual machine SKU.
+- For Internal load balancer, all virtual machines behind the load balancer must be on a supported virtual machine SKU.
 
 - **AllowUnencrypted** is the only supported enforcement at general availability. **DropUnencrypted** enforcement will be supported in the future.
 
-- Virtual networks with encryption enabled don't support [Azure DNS Private Resolver](/azure/dns/dns-private-resolver-overview).
+- Virtual networks with encryption enabled don't support [Azure DNS Private Resolver](/azure/dns/dns-private-resolver-overview), [Application Gateway](/azure/application-gateway/overview), and [Azure Firewall](/azure/firewall/overview).
 
 - Virtual networks configured with the Azure Private Link service don't support Virtual Network encryption, so Virtual Network encryption shouldn't be enabled on these virtual networks. 
+
+- The backend pool of an internal load balancer must not include any network interface secondary IPv4 configurations to prevent connection failures to the load balancer.
 
 - Virtual Network encryption shouldn't be enabled in virtual networks that have Azure confidential computing VM SKUs. If you want to use Azure confidential computing VMs in virtual networks where Virtual Network encryption is enabled, then:
 

@@ -1,8 +1,6 @@
 ---
 title: Create an Azure SQL assessment
 description: Learn how to assess SQL instances for migration to Azure SQL Managed Instance and Azure SQL Database
-author: rashi-ms
-ms.author: rajosh
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 08/13/2024
@@ -30,8 +28,10 @@ You can create an Azure SQL assessment with sizing criteria as **Performance-bas
 [Learn more](concepts-azure-sql-assessment-calculation.md) about Azure SQL assessments.
 
 ## Run an assessment
+
 Run an assessment as follows:
-1. On the **Overview** page > **Servers, databases and web apps**, select **Assess and migrate servers**.
+
+1. In **Servers, databases and web apps**, select **Assess and migrate servers**.
     
     :::image type="content" source="./media/tutorial-assess-sql/assess-migrate-inline.png" alt-text="Screenshot of Overview page for Azure Migrate." lightbox="./media/tutorial-assess-sql/assess-migrate-expanded.png":::
 
@@ -172,8 +172,8 @@ You can review readiness reports for different migration strategies:
     - **Unknown**: Azure Migrate can't assess readiness, because the discovery is in progress or there are issues during discovery that need to be fixed from the notifications blade. If the issue persists, contact [Microsoft support](https://support.microsoft.com).
 
 1. Select the instance name and drill-down to see the number of user databases, instance details including instance properties, compute (scoped to instance) and source database storage details.
-1. Click the number of user databases to review the list of databases and their details.
-1. Click review details in the **Migration issues** column to review the migration issues and warnings for a particular target deployment type.
+1. Select the number of user databases to review the list of databases and their details.
+1. Select review details in the **Migration issues** column to review the migration issues and warnings for a particular target deployment type.
 
 ### Review cost estimates
 The assessment summary shows the estimated monthly compute and storage costs for Azure SQL configurations corresponding to the recommended SQL Server on Azure VM and/or Azure SQL Managed Instances and/or Azure SQL Database deployment type.

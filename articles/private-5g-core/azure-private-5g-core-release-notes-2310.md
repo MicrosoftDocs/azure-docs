@@ -1,8 +1,8 @@
 ---
 title: Azure Private 5G Core 2310 release notes
 description: Discover what's new in the Azure Private 5G Core 2310 release
-author: paulcarter
-ms.author: paulcarter
+author: anzaman
+ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: release-notes
 ms.date: 11/30/2023

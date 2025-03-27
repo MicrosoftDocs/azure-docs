@@ -8,7 +8,7 @@ ms.service: azure-synapse-analytics
 ms.subservice: pipeline
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 12/16/2020
+ms.date: 12/11/2024
 ---
 
 # What are data flows in Azure Synapse Analytics?
@@ -19,7 +19,7 @@ Data flows provide an entirely visual experience with no coding required. Your d
 
 ## Get started
 
-Data flows are created from the Develop pane in Synapse studio. To create a data flow, select the plus sign next to **Develop**, and then select **Data Flow**. 
+Data flows are created from the **Develop** pane in Synapse studio. To create a data flow, select the plus sign next to **Develop**, and then select **Data Flow**. 
 
 ![New data flow](media/data-flow/new-data-flow.png)
 
@@ -61,7 +61,7 @@ The **Inspect** tab provides a view into the metadata of the data stream that yo
 
 ![Inspect tab](media/data-flow/inspect.png)
 
-As you change the shape of your data through transformations, you'll see the metadata changes flow in the **Inspect** pane. If there isn't a defined schema in your source transformation, then metadata won't be visible in the **Inspect** pane. Lack of metadata is common in schema drift scenarios.
+As you change the shape of your data through transformations, you see the metadata changes flow in the **Inspect** pane. If there isn't a defined schema in your source transformation, then metadata isn't visible in the **Inspect** pane. Lack of metadata is common in schema drift scenarios.
 
 #### Data preview
 

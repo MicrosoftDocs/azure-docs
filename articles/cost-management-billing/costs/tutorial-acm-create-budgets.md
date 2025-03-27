@@ -3,11 +3,11 @@ title: Tutorial - Create and manage budgets
 description: This tutorial helps you plan and account for the costs of Azure services that you consume.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/09/2024
+ms.date: 01/07/2025
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: jojo
+ms.reviewer: jojoh
 ms.custom: devx-track-arm-template, devx-track-azurepowershell
 ---
 
@@ -94,7 +94,7 @@ After you create budgets, they show a simple view of your current spending again
 
 Select **Add**.
 
-:::image type="content" source="./media/tutorial-acm-create-budgets/budgets-cost-management.png" alt-text="Screenthost showing a list of budgets already created." lightbox="./media/tutorial-acm-create-budgets/budgets-cost-management.png" :::
+:::image type="content" source="./media/tutorial-acm-create-budgets/budgets-cost-management.png" alt-text="Screenshot showing a list of budgets already created." lightbox="./media/tutorial-acm-create-budgets/budgets-cost-management.png" :::
 
 In the **Create budget** window, make sure that the scope shown is correct. Choose any filters that you want to add. Filters allow you to create budgets on specific costs, such as resource groups in a subscription or a service like virtual machines. For more information about the common filter properties that you can use in budgets and cost analysis, see [Group and filter properties](group-filter.md#group-and-filter-properties).
 

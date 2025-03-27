@@ -41,7 +41,7 @@ This article describes how to set up agentless dependency analysis using Azure M
 2. As you configure the appliance, you need to specify the following in the appliance configuration manager:
     - The details of the source environment (vCenter Server(s)/Hyper-V host(s) or cluster(s)/physical servers) which you want to discover.
     - Server credentials, which can be domain/ Windows (non-domain)/ Linux (non-domain) credentials. [Learn more](add-server-credentials.md) about how to provide credentials and how the appliance handles them.
-    - Verify the permissions required to perform agentless dependency analysis. For Windows servers, you need to provide domain or non-domain (local) account with administrative permissions. For Linux servers, provide a sudo user account with permissions to execute ls and netstat commands or create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files. If you're providing a sudo user account, ensure that you enabled NOPASSWD for the account to run the required commands without prompting for a password every time sudo command is invoked.
+    - Verify the permissions required to perform agentless dependency analysis. For Windows servers, you need to provide domain or non-domain (local) account with administrative permissions. For Linux servers, provide a sudo user account with permissions to execute ls and netstat (or `ss` depending on OS version) commands or create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls (or /bin/ss depending on OS version) files. If you're providing a sudo user account, ensure that you enabled NOPASSWD for the account to run the required commands without prompting for a password every time sudo command is invoked.
 
 ### Add credentials and initiate discovery
 
@@ -134,7 +134,7 @@ Select the servers on which you want to stop dependency discovery.
 1. Select the **Dependency analysis** drop-down.
 1. Select **Remove servers**.
 1. In the **Remove servers** page, select the server, which you want to stop for dependency analysis.
-1. After selecting the servers, click **Remove servers**.
+1. After selecting the servers, select **Remove servers**.
 
 If you want to stop dependency simultaneously on multiple servers, you can use [PowerShell](#start-or-stop-dependency-analysis-using-powershell) to do so.
 

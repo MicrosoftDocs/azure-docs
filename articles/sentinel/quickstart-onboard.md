@@ -40,7 +40,9 @@ To onboard to Microsoft Sentinel by using the API, see the latest supported vers
 
 - Before deploying Microsoft Sentinel to a production environment, review the [predeployment activities and prerequisites for deploying Microsoft Sentinel](prerequisites.md).
 
-## Enable Microsoft Sentinel <a name="enable"></a>
+<a name="enable"></a>
+
+## Enable Microsoft Sentinel
 
 To get started, add Microsoft Sentinel to an existing workspace or create a new one.
 

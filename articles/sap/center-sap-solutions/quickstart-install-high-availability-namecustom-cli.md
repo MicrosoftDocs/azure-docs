@@ -29,7 +29,7 @@ After you [deploy infrastructure](deploy-s4hana.md) and install SAP software wit
 ## Prerequisites
 - An Azure subscription.
 - An Azure account with **Azure Center for SAP solutions administrator** and **Managed Identity Operator** role access to the subscriptions and resource groups in which you'll create the Virtual Instance for SAP solutions (VIS) resource.
-- A **User-assigned managed identity** which has **Azure Center for SAP solutions service role** access on the Subscription or atleast all resource groups (Compute, Network,Storage). 
+- A **User-assigned managed identity** which has **Azure Center for SAP solutions service role** access on the Subscription or at least all resource groups (Compute, Network,Storage). 
 - A storage account where you would store the SAP Media
 - **Reader and Data Access** role to the **User-assigned managed identity** on the storage account where you would store the SAP Media.
 - A [network set up for your infrastructure deployment](prepare-network.md).

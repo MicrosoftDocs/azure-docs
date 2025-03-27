@@ -582,7 +582,7 @@ Assign appropriate parameters in `CreateVM.parameters.json` for your Azure Stack
 
     Use ASEVNET for Vnet name, ASEVNETsubNet for Subnet name, and ASERG for Vnet resource group name.
     
-1. Now you’ll need a static IP address to assign to the VM that is in the subnet network defined above. Replace **PrivateIPAddress** with this address in the parameter file. To have the VM get an IP address from your local DCHP server, leave the `privateIPAddress` value blank.  
+1. Now you’ll need a static IP address to assign to the VM that is in the subnet network defined above. Replace **PrivateIPAddress** with this address in the parameter file. To have the VM get an IP address from your local DHCP server, leave the `privateIPAddress` value blank.  
     
     ```json
     "privateIPAddress": {
@@ -730,7 +730,7 @@ Assign appropriate parameters in `CreateVM.parameters.json` for your Azure Stack
 
     Use ASEVNET for Vnet name, ASEVNETsubNet for Subnet name, and ASERG for Vnet resource group name.
     
-1. Now you’ll need a static IP address to assign to the VM that is in the subnet network defined above. Replace **PrivateIPAddress** with this address in the parameter file. To have the VM get an IP address from your local DCHP server, leave the `privateIPAddress` value blank.  
+1. Now you’ll need a static IP address to assign to the VM that is in the subnet network defined above. Replace **PrivateIPAddress** with this address in the parameter file. To have the VM get an IP address from your local DHCP server, leave the `privateIPAddress` value blank.  
     
     ```json
     "privateIPAddress": {
@@ -963,4 +963,4 @@ Follow these steps to connect to a Linux VM.
 
 ## Next steps
 
-[Azure Resource Manager cmdlets](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)
+[Azure Resource Manager cmdlets](/azure/automation/shared-resources/modules)

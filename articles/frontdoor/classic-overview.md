@@ -1,12 +1,12 @@
 ---
 title: Azure Front Door (classic) overview
 description: This article provides an overview of the Azure Front Door (classic) service.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: overview
 ms.date: 11/15/2024
-ms.author: duau
+
 # Customer intent: As an IT admin, I want to learn about Front Door and what I can use it for.
 ---
 
@@ -50,7 +50,7 @@ For pricing details, see [Front Door Pricing](https://azure.microsoft.com/pricin
 
 ## What's new?
 
-Subscribe to the RSS feed and view the latest Azure Front Door feature updates on the [Azure Updates](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Front%20Door) page.
+Subscribe to the RSS feed and view the latest Azure Front Door feature updates on the [Azure Updates](https://azure.microsoft.com/updates?filters=%5B%22Azure+Front+Door%22%5D) page.
 
 ## Next steps
 

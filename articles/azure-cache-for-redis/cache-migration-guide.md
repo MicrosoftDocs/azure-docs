@@ -7,6 +7,8 @@ description: Learn how to migrate your existing cache to Azure Cache for Redis
 ms.topic: conceptual
 ms.custom:
   - ignite-2024
+  - migration
+  - aws-to-azure
 ms.date: 11/17/2021
 ---
 # Migrate to Azure Cache for Redis
@@ -65,12 +67,12 @@ General steps to implement this option are:
 2. Save a snapshot of the existing Redis cache. You can [configure Redis to save snapshots](https://redis.io/topics/persistence) periodically, or run the process manually using the [SAVE](https://redis.io/commands/save) or [BGSAVE](https://redis.io/commands/bgsave) commands. The RDB file is named “dump.rdb” by default and will be located at the path specified in the *redis.conf* configuration file.
 
     > [!NOTE]
-    > If you’re migrating data within Azure Cache for Redis, see [these instructions on how to export an RDB file](cache-how-to-import-export-data.md) or use the [PowerShell Export cmdlet](/powershell/module/azurerm.rediscache/export-azurermrediscache) instead.
+    > If you’re migrating data within Azure Cache for Redis, see [these instructions on how to export an RDB file](cache-how-to-import-export-data.md) or use the [PowerShell Export cmdlet](/powershell/module/az.rediscache/export-azrediscache) instead.
     >
 
 3. Copy the RDB file to an Azure storage account in the region where your new cache is located. You can use AzCopy for this task.
 
-4. Import the RDB file into the new cache using these [import instructions](cache-how-to-import-export-data.md) or the [PowerShell Import cmdlet](/powershell/module/azurerm.rediscache/import-azurermrediscache).
+4. Import the RDB file into the new cache using these [import instructions](cache-how-to-import-export-data.md) or the [PowerShell Import cmdlet](/powershell/module/az.rediscache/import-azrediscache).
 
 5. Update your application to use the new cache instance.
 

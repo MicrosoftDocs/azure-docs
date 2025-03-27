@@ -488,7 +488,7 @@ s-password="<SAP Support user password>"
 
 az devops login
 
-az pipelines variable-group create --name SDAF-General --variables ANSIBLE_HOST_KEY_CHECKING=false Deployment_Configuration_Path=WORKSPACES Branch=main S-Username=$s-user S-Password=$s-password tf_varsion=1.3.0 --output yaml
+az pipelines variable-group create --name SDAF-General --variables ANSIBLE_HOST_KEY_CHECKING=false Deployment_Configuration_Path=WORKSPACES Branch=main S-Username=$s-user S-Password=$s-password tf_version=1.3.0 --output yaml
 
 ```
 

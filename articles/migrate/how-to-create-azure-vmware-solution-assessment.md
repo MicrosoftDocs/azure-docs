@@ -1,9 +1,6 @@
 ---
 title: Create an AVS assessment with Azure Migrate | Microsoft Docs
 description: Describes how to create an AVS assessment with Azure Migrate
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 11/07/2024
@@ -22,7 +19,7 @@ This article describes how to create an Azure VMware Solution assessment for on-
 - [Create](./create-manage-projects.md) an Azure Migrate project.
 - [Add](how-to-assess.md) the Azure Migrate: Discovery and assessment tool if you've already created a project.
 - Set up an Azure Migrate appliance for [VMware vSphere](how-to-set-up-appliance-vmware.md), which discovers the on-premises servers, and sends metadata and performance data to Azure Migrate: Discovery and assessment. [Learn more](migrate-appliance.md).
-- [Import](./tutorial-discover-import.md) the server metadata in comma-separated values (CSV) format or [import your RVTools XLSX file](./tutorial-import-vmware-using-rvtools-xlsx.md).
+- [Import](./tutorial-discover-import.md) the server metadata in comma-separated values (CSV) format or [import your RVTools XLSX file](tutorial-import-vmware-using-rvtools-xlsx.md).
 
 
 ## Azure VMware Solution (AVS) Assessment overview
@@ -47,10 +44,9 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 **Performance-based** | For RVTools and CSV file-based assessments and performance-based assessments, the assessment considers the **In Use MiB** and **Storage In Use** respectively for storage configuration of each VM. For appliance-based assessments and performance-based assessments, the assessment considers the collected CPU & memory performance data of on-premises servers. | **Recommended Node size**: Based on CPU and memory utilization data along with node type, storage type, and FTT setting that you select for the assessment.
 **As on-premises** | Assessments based on on-premises sizing. | **Recommended Node size**: Based on the on-premises server size along with the node type, storage type, and FTT setting that you select for the assessment.
 
-
 ## Run an Azure VMware Solution (AVS) assessment
 
-1.  On the **Overview** page > **Servers, databases and web apps**, select **Assess and migrate servers**.
+1. In **Servers, databases and web apps**, select **Assess and migrate servers**.
 
 1. In **Azure Migrate: Discovery and assessment**, select **Assess**.
 

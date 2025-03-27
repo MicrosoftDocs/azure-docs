@@ -1,12 +1,12 @@
 ---
-title: 'About Azure Point-to-Site VPN connections'
+title: About Azure Point-to-Site VPN connections
 titleSuffix: Azure VPN Gateway
 description: Learn about Point-to-Site VPN.
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
-ms.topic: conceptual
-ms.date: 09/18/2024
+ms.topic: concept-article
+ms.date: 02/27/2025
 ms.author: cherylmc
 ---
 # About Point-to-Site VPN
@@ -43,7 +43,7 @@ When you configure your P2S gateway for certificate authentication, you upload t
 
 To authenticate, each client that connects must have an installed client certificate that's generated from the trusted root certificate. This is in addition to VPN client software. The validation of the client certificate is performed by the VPN gateway and happens during establishment of the P2S VPN connection.
 
-#### <a name='certificate-workflow'></a>Certificate authentication workflow
+#### <a name="certificate-workflow"></a>Certificate authentication workflow
 
 At a high level, you need to perform the following steps to configure Certificate authentication:
 
@@ -53,13 +53,13 @@ At a high level, you need to perform the following steps to configure Certificat
 1. Configure the VPN client on the client computer using the settings found in the VPN profile configuration package.
 1. Connect.
 
-### <a name='entra-id'></a>Microsoft Entra ID authentication
+### <a name="entra-id"></a>Microsoft Entra ID authentication
 
 You can configure your P2S gateway to allow VPN users to authenticate using Microsoft Entra ID credentials. With Microsoft Entra ID authentication, you can use Microsoft Entra Conditional Access and multifactor authentication (MFA) features for VPN. Microsoft Entra ID authentication is supported only for the OpenVPN protocol. To authenticate and connect, clients must use the Azure VPN Client.
 
 [!INCLUDE [entra app id descriptions](../../includes/vpn-gateway-entra-app-id-descriptions.md)]
 
-#### <a name='entra-workflow'></a>Microsoft Entra ID authentication workflow
+#### <a name="entra-workflow"></a>Microsoft Entra ID authentication workflow
 
 At a high level, you need to perform the following steps to configure Microsoft Entra ID authentication:
 
@@ -69,7 +69,7 @@ At a high level, you need to perform the following steps to configure Microsoft 
 1. Download, install, and configure the Azure VPN Client on the client computer.
 1. Connect.
 
-### <a name='active-directory'></a>RADIUS - Active Directory (AD) Domain Server authentication
+### <a name="active-directory"></a>RADIUS - Active Directory (AD) Domain Server authentication
 
 AD Domain authentication allows users to connect to Azure using their organization domain credentials. It requires a RADIUS server that integrates with the AD server. Organizations can also use their existing RADIUS deployment.
 

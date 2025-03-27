@@ -1,6 +1,6 @@
 ---
 title: "ClaimsSchema: Azure Active Directory B2C"
-description: Specify the ClaimsSchema element of a custom policy in Azure Active Directory B2C.
+description: Specify the ClaimsSchema element of a custom policy in Azure AD B2C. Define and manage claim types for user attributes and input controls.
 
 author: kengaderdus
 manager: CelesteDG
@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 01/11/2024
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 ms.custom: "b2c-support"
@@ -110,7 +110,7 @@ In the following example, when the Identity Experience Framework interacts with 
 </ClaimType>
 ```
 
-As a result, the JWT token issued by Azure AD B2C, emits the `family_name` instead of ClaimType name **surname**.
+As a result, the JWT issued by Azure AD B2C, emits the `family_name` instead of ClaimType name **surname**.
 
 ```json
 {
@@ -325,7 +325,7 @@ The **DateTimeDropdown** user input type is used to provide a set of drop-downs 
 
 The **RadioSingleSelect** user input type is used to provide a collection of radio buttons that allows the user to select one option.
 
-![Using claim type with radiodsingleselect](./media/claimsschema/radiosingleselect.png)
+![Using claim type with radiosingleselect](./media/claimsschema/radiosingleselect.png)
 
 ```xml
 <ClaimType Id="color">

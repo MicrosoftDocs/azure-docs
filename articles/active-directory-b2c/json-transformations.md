@@ -36,7 +36,7 @@ Create a JSON single element array from a claim value. Check out the [Live demo]
 The following example creates a JSON single array. 
 
 ```xml
-<ClaimsTransformation Id="createlJsonPayload" TransformationMethod="CreateJsonArray">
+<ClaimsTransformation Id="CreateJsonPayload" TransformationMethod="CreateJsonArray">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="inputClaim" />
   </InputClaims>
@@ -315,7 +315,7 @@ In the following example, the claims transformation extracted the `emailAddress`
 The GetClaimFromJson claims transformation gets a single element from a JSON data. In the preceding example, the emailAddress. To get the displayName, create another claims transformation. For example:
 
 ```xml
-<ClaimsTransformation Id="GetDispalyNameClaimFromJson" TransformationMethod="GetClaimFromJson">
+<ClaimsTransformation Id="GetDisplayNameClaimFromJson" TransformationMethod="GetClaimFromJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="customUserData" TransformationClaimType="inputJson" />
   </InputClaims>
@@ -337,7 +337,7 @@ The GetClaimFromJson claims transformation gets a single element from a JSON dat
 
 ## GetClaimsFromJsonArray
 
-Get a list of specified elements from Json data. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/json#getclaimsfromjsonarray) of this claims transformation.
+Get a list of specified elements from JSON data. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/json#getclaimsfromjsonarray) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -593,7 +593,7 @@ In the following example, the claims transformation extracts the first element (
 
 - Output claims:
   - **key**: givenName
-  - **value**: Emilty
+  - **value**: Emily
 
 
 ## GetSingleValueFromJsonArray
@@ -637,7 +637,7 @@ Convert XML data to JSON format. Check out the [Live demo](https://github.com/az
 ```xml
 <ClaimsTransformation Id="ConvertXmlToJson" TransformationMethod="XmlStringToJsonString">
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="intpuXML" TransformationClaimType="xml" />
+    <InputClaim ClaimTypeReferenceId="inputXML" TransformationClaimType="xml" />
   </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="outputJson" TransformationClaimType="json" />

@@ -12,6 +12,8 @@ ms.date: 04/02/2024
 
 The first request between a client and a server is the negotiation request. When you use self-hosted SignalR, you use the request to establish a connection between the client and the server. And when you use Azure SignalR Service, clients connect to the service instead of the application server. This article shares concepts about negotiation protocols and ways to customize a negotiation endpoint.
 
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
+
 ## What is negotiation?
 
 The response to the `POST [endpoint-base]/negotiate` request contains one of three types of responses:
@@ -155,7 +157,9 @@ private class CustomRouter : EndpointRouterDecorator
 }
 ```
 
-Also register the router to dependency injection:
+Also register the router to dependency injection.
+
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
 ```cs
 // Sample of configuring multiple endpoints and dependency injection

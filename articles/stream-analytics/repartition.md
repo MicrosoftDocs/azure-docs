@@ -56,7 +56,7 @@ FROM RepartitionedInput
 GROUP BY DeviceId, TumblingWindow(minute, 1)  
 ```
 
-The following example query joins two streams of repartitioned data. When you join two streams of repartitioned data, the streams must have the same partition key and count. The outcome is a stream that has the same partition scheme.
+The following example query joins two streams of repartitioned data. When you join two streams of repartitioned data, the streams must have the same partition key and the same number of partitions. The outcome is a stream that has the same partition scheme.
 
 ```sql
 WITH step1 AS 
@@ -75,7 +75,7 @@ FROM step1 PARTITION BY DeviceID
 UNION step2 PARTITION BY DeviceID
 ```
 
-The output scheme should match the stream scheme key and count so that each substream can be flushed independently. The stream could also be merged and repartitioned again by a different scheme before flushing, but you should avoid that method because it adds to the general latency of the processing and increases resource utilization.
+The output scheme should match the stream partition key and the partition count so that each substream can be flushed independently. The stream could also be merged and repartitioned again by a different scheme before flushing, but you should avoid that method because it adds to the general latency of the processing and increases resource utilization.
 
 ## Streaming Units for repartitions
 

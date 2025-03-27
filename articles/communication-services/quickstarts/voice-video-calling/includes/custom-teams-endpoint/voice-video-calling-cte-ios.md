@@ -337,7 +337,7 @@ self.teamsCallAgent?.join(with: teamsMeetingLinkLocator, options: joinTeamsCallO
 }
 ```
 
-`TeamsCallObserver` and `RemotePariticipantObserver` are used to manage mid-call events and remote participants. We set the observers in the `setTeamsCallAndObserver` function.
+`TeamsCallObserver` and `RemoteParticipantObserver` are used to manage mid-call events and remote participants. We set the observers in the `setTeamsCallAndObserver` function.
 
 ```Swift
 func setTeamsCallAndObserver(call:TeamsCall, error:Error?) {
@@ -373,7 +373,7 @@ final class TeamsIncomingCallHandler: NSObject, TeamsCallAgentDelegate, TeamsInc
 
     private override init() {}
     
-    func teamsCallAgent(_ teamsCallAgent: TeamsCallAgent, didRecieveIncomingCall incomingCall: TeamsIncomingCall) {
+    func teamsCallAgent(_ teamsCallAgent: TeamsCallAgent, didReceiveIncomingCall incomingCall: TeamsIncomingCall) {
         self.teamsIncomingCall = incomingCall
         self.teamsIncomingCall.delegate = self
         contentView?.showIncomingCallBanner(self.teamsIncomingCall!)

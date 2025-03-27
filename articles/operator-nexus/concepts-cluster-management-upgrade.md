@@ -21,7 +21,7 @@ For Compute management, Microsoft delivers new software to the extensions and ag
 
 ## Impact to customer workloads
 
-The intent of these releases is no disruption to running workloads and on-premises resources retain availability throughout the upgrade. Therefore, the customer should see no impact. 
+The intent of these releases is no disruption to running workloads, instantiating new workloads, and on-premises resources retain availability throughout the upgrade. Therefore, the customer should see no impact. 
 
 ## Duration of on-premises updates
 

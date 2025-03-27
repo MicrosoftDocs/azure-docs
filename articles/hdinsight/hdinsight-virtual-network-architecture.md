@@ -1,9 +1,9 @@
 ---
 title: Azure HDInsight virtual network architecture
-description: Learn the resources available when you create a HDInsight cluster in an Azure Virtual Network.
+description: Learn the resources available when you create an HDInsight cluster in an Azure Virtual Network.
 ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 01/09/2024
+ms.date: 01/02/2025
 ---
 
 # Azure HDInsight virtual network architecture

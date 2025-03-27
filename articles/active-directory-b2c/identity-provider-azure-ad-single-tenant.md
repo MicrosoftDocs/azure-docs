@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: how-to
-ms.date: 01/27/2024
+ms.date: 01/27/2025
 ms.author: godonnell
 ms.subservice: b2c
 ms.custom: fasttrack-edit, 

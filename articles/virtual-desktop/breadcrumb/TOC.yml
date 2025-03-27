@@ -6,6 +6,9 @@
     tocHref: /azure/virtual-desktop/
     topicHref: /azure/virtual-desktop/index
   - name: Virtual Desktop
+    tocHref: /troubleshoot/azure/virtual-desktop/
+    topicHref: /azure/virtual-desktop/index
+  - name: Virtual Desktop
     tocHref: /fslogix/
     topicHref: /azure/virtual-desktop/index
   - name: Virtual Desktop

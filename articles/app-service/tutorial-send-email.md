@@ -43,7 +43,7 @@ Deploy an app with the language framework of your choice to App Service. To foll
 
 ### [Python](#tab/python)
 
-[Tutorial: Run a Python (Django) web app with PostgreSQL in Azure App Service](tutorial-python-postgresql-app.md)
+[Tutorial: Run a Python (Django) web app with PostgreSQL in Azure App Service](tutorial-python-postgresql-app-django.md)
 
 ---
 
@@ -292,7 +292,7 @@ async with aiohttp.post('http://httpbin.org/post', data=json.dump(payload)) as r
     print(await resp.status())
 ``` -->
 
-If you're testing this code on the sample app for [Tutorial: Run a Python (Django) web app with PostgreSQL in Azure App Service](tutorial-python-postgresql-app.md), you could use it to send an email confirmation in the [Route::post function](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), just before the return statement.
+If you're testing this code on the sample app for [Tutorial: Run a Python (Django) web app with PostgreSQL in Azure App Service](tutorial-python-postgresql-app-django.md), you could use it to send an email confirmation in the [Route::post function](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), just before the return statement.
 
 ---
 

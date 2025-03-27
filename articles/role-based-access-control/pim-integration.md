@@ -4,7 +4,7 @@ description: Learn about the integration of Azure role-based access control (Azu
 author: rolyon
 ms.service: role-based-access-control
 ms.topic: conceptual
-ms.date: 11/11/2024
+ms.date: 12/12/2024
 ms.author: rolyon
 ---
 
@@ -16,7 +16,7 @@ This article describes the integration of Azure role-based access control (Azure
 
 ## PIM functionality
 
-If you have PIM, you can create eligible and time-bound role assignments using the **Access control (IAM)** page in the Azure portal. You can create eligible role assignments for users, but you can't create eligible role assignments for applications, service principals, or managed identities because they can't perform the activation steps. You can create eligible role assignments at management group, subscription, and resource group scope, but not at resource scope.
+If you have PIM, you can create eligible and time-bound role assignments using the **Access control (IAM)** page in the Azure portal. You can create eligible role assignments for users, but you can't create eligible role assignments for applications, service principals, or managed identities because they can't perform the activation steps. On the Access control (IAM) page, you can create eligible role assignments at management group, subscription, and resource group scope, but not at resource scope.
 
 Here's an example of the **Assignment type** tab when you add a role assignment using the **Access control (IAM)** page. This capability is being deployed in stages, so it might not be available yet in your tenant or your interface might look different.
 

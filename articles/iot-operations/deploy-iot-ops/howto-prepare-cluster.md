@@ -1,8 +1,8 @@
 ---
 title: Prepare your Kubernetes cluster
 description: Prepare an Azure Arc-enabled Kubernetes cluster before you deploy Azure IoT Operations. This article includes guidance for both Ubuntu and Windows machines.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
 ms.date: 10/23/2024
@@ -24,7 +24,7 @@ Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployment
 
 To prepare an Azure Arc-enabled Kubernetes cluster, you need:
 
-* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure subscription with either the Owner role or a combination of Contributor and User Access Administrator roles. You can check your access level by navigating to your subscription, selecting Access control (IAM) on the left-hand side of the Azure portal, and then selecting View my access. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
 * An Azure resource group. Only one Azure IoT Operations instance is supported per resource group. To create a new resource group, use the [az group create](/cli/azure/group#az-group-create) command. For the list of currently supported Azure regions, see [Supported regions](../overview-iot-operations.md#supported-regions).
 
@@ -32,7 +32,7 @@ To prepare an Azure Arc-enabled Kubernetes cluster, you need:
    az group create --location <REGION> --resource-group <RESOURCE_GROUP> --subscription <SUBSCRIPTION_ID>
    ```
 
-* Azure CLI version 2.64.0 or newer installed on your cluster machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+* Azure CLI version 2.53.0 or newer installed on your cluster machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 * The latest version of the **connectedk8s** extension for Azure CLI:
 
@@ -128,7 +128,7 @@ To prepare a K3s Kubernetes cluster on Ubuntu:
 
 Connect your cluster to Azure Arc so that it can be managed remotely.
 
-1. On the machine where you deployed the Kubernetes cluster, sign in with Azure CLI:
+1. On the machine where you deployed the Kubernetes cluster, sign into Azure CLI with your Microsoft Entra user account that has the required role(s) for the Azure subscription:
 
    ```azurecli
    az login
@@ -192,13 +192,16 @@ Connect your cluster to Azure Arc so that it can be managed remotely.
 
 1. Save the file and exit the nano editor.
 
-1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses in your tenant and save it as an environment variable. Run the following command exactly as written, without changing the GUID value.
+1. Prepare for enabling the Azure Arc service, custom location, on your Arc cluster by getting the custom location object ID and saving it as the environment variable, OBJECT_ID. You must be logged into Azure CLI with a Microsoft Entra user account to successfully run the command, not a service principal. Run the following command **exactly as written**, without changing the GUID value. 
 
    ```azurecli
    export OBJECT_ID=$(az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv)
    ```
 
-1. Use the [az connectedk8s enable-features](/cli/azure/connectedk8s#az-connectedk8s-enable-features) command to enable custom location support on your cluster. This command uses the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses. Run this command on the machine where you deployed the Kubernetes cluster:
+   > [!NOTE]
+   >If you receive the error: "Unable to fetch oid of 'custom-locations' app. Proceeding without enabling the feature. Insufficient privileges to complete the operation," then your service principal might lack the necessary permissions to retrieve the object ID of the custom location. Log into Azure CLI with a Microsoft Entra user account that meets the prerequisites. For more information, see [Create and manage custom locations](https://aka.ms/enable-cl-sp).
+
+1. Use the [az connectedk8s enable-features](/cli/azure/connectedk8s#az-connectedk8s-enable-features) command to enable the custom location feature on your Arc cluster. This command uses the OBJECT_ID environment variable saved from the previous step to set the value for the custom-locations-oid parameter. Run this command on the machine where you deployed the Kubernetes cluster: 
 
    ```azurecli
    az connectedk8s enable-features -n <CLUSTER_NAME> -g <RESOURCE_GROUP> --custom-locations-oid $OBJECT_ID --features cluster-connect custom-locations
@@ -212,9 +215,11 @@ Connect your cluster to Azure Arc so that it can be managed remotely.
 
 ### Configure multi-node clusters for Azure Container Storage
 
-On multi-node clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview) when you deploy Azure IoT Operations. 
+On multi-node Ubuntu clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview) when you deploy Azure IoT Operations.
 
 If you want to enable fault tolerance during deployment, configure your clusters by following the steps in [Prepare Linux for Edge Volumes using a multi-node Ubuntu cluster](/azure/azure-arc/container-storage/multi-node-cluster-edge-volumes?pivots=ubuntu).
+
+If you're running your cluster on a Kubernetes distribution other than k3s, review the guidance to [Prepare Linux with other platforms](/azure/azure-arc/container-storage/multi-node-cluster-edge-volumes?pivots=other).
 
 ### [AKS Edge Essentials](#tab/aks-edge-essentials)
 
@@ -226,7 +231,10 @@ For instructions on running the script, see [Configure an AKS Edge Essentials cl
 
 ### [AKS on Azure Local](#tab/azure-local)
 
-For instructions on creating and Arc-enabling an AKS cluster on Azure Local, see [Create Kubernetes clusters using Azure CLI](/azure/aks/hybrid/aks-create-clusters-cli). By default, a Kubernetes cluster is created with a node pool that can run Linux containers. If you add more node pools after creation, make sure the OS is set to Linux. Azure IoT Operations doesn't support deployment to Windows nodes.
+* For instructions to create and Arc-enable an AKS cluster on Azure Local, see [Create Kubernetes clusters using Azure CLI](/azure/aks/hybrid/aks-create-clusters-cli).
+* For instructions to deploy an AKS cluster on Azure Local with workload identity (preview) enabled for enhanced security, see [Deploy and configure workload identity on an AKS cluster](/azure/aks/aksarc/workload-identity). The workload identity feature can be enabled only during cluster creation. Running Azure IoT Operations with secure settings requires workload identity.
+
+By default, a Kubernetes cluster is created with a node pool that can run Linux containers. If you add more node pools after creation, make sure the OS is set to Linux. Azure IoT Operations doesn't support deployment to Windows nodes.
 
 Then, once you have an Azure Arc-enabled Kubernetes cluster, you can [deploy Azure IoT Operations](howto-deploy-iot-operations.md).
 

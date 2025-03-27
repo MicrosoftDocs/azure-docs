@@ -2,9 +2,9 @@
 title: Application Gateway for Containers components
 description: This article provides information about how Application Gateway for Containers accepts incoming requests and routes them to a backend target.
 services: application-gateway
-author: greglin
+author: greg-lindsay
 ms.service: azure-appgw-for-containers
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/15/2024
 ms.author: greglin
 ---

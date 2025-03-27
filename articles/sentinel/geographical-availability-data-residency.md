@@ -33,11 +33,11 @@ Data used by the service, including customer data, might be stored and processed
 |Data type  |Location  |
 |---------|---------|
 |**Raw data**     |  Stored in the same region as the Azure Log Analytics workspace associated with Microsoft Sentinel. For more information, see [Supported regions](#supported-regions).  <br><br>Raw data is processed in one of the following locations: <br>- For Log Analytics workspaces located in Europe, customer data is processed in Europe. <br>- For Log Analytics workspaces located in Israel, customer data is processed in Israel. <br>- For Log Analytics workspaces located in any of the China 21Vianet regions, customer data is processed in China 21Vianet. <br>- For workspaces located in any other location, customer data is processed in a US region.     |
-|**Processed data and configuration data**     |   - For workspaces onboarded to Microsoft's unified security operation's platform, processed data and configuration data might be stored and processed in Microsoft Defender XDR regions. For more information, see [Data security and retention in Microsoft Defender XDR](/defender-xdr/data-privacy).   <br><br>- For workspaces not onboarded to Microsoft's unified security operations platform, processed data and configuration data is stored and processed using the same methodology as raw data.    |
+|**Processed data and configuration data**     |   - When Microsoft Sentinel is onboarded to the Defender portal, processed data and configuration data might be stored and processed in Microsoft Defender XDR regions. For more information, see [Data security and retention in Microsoft Defender XDR](/defender-xdr/data-privacy).   <br><br>- When Microsoft Sentinel isn't onboarded to the Defender portal, processed data and configuration data is stored and processed using the same methodology as raw data.    |
  
 ### Supported regions
 
-Regions supported for Microsoft Sentinel raw data, and for processed and configuration data in workspaces not onboarded to Microsoft's unified security operations platform, include:
+Regions supported for Microsoft Sentinel raw data, and for processed and configuration data in workspaces not onboarded to the Defender portal, include:
 
 |Continent | Country/Region | Azure Region |
 |---------|---------|---------|
@@ -50,7 +50,7 @@ Regions supported for Microsoft Sentinel raw data, and for processed and configu
 | | **Israel** | • Israel Central |
 | | **Japan** | • Japan East<br>• Japan West|
 | | **Korea**| • Korea Central<br>• Korea South| 
-| | **Quatar** | • Qatar Central|
+| | **Qatar** | • Qatar Central|
 | | **UAE**| • UAE Central<br>• UAE North        |
 |**Europe**| | • North Europe<br>• West Europe|
 | |**France**| • France Central<br>• France South|
@@ -78,8 +78,12 @@ Customer data is kept and is available while the license is under a grace period
 
 Microsoft Sentinel may share data, including customer data, among the following Microsoft products:
 
-- Microsoft Defender XDR / Microsoft's unified security operations platform
+- Microsoft Defender XDR
 - Azure Log Analytics
+
 ## Related content
 
-For more information, see details about [Azure regions](/azure/azure-monitor/logs/workspace-design#azure-regions?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) when designing your workspace architecture.
+For more information, see:
+
+- Details about [Azure regions](/azure/azure-monitor/logs/workspace-design#azure-regions?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json), useful when designing your workspace architecture.
+- [Business continuity and disaster recovery for Microsoft Sentinel](business-continuity-disaster-recovery.md)

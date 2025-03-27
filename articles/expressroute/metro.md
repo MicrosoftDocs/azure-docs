@@ -4,7 +4,7 @@ description: This article provides an overview of ExpressRoute Metro and how it 
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/24/2024
 ms.author: duau
 ms.custom: references_regions, ai-usage
@@ -64,8 +64,6 @@ You can create an ExpressRoute Metro circuit in the Azure portal in any of the t
     :::image type="content" source="./media/metro/create-metro-direct.png" alt-text="Screenshot of creating Metro ExpressRoute Direct ports.":::
 
 1. One you provisioned the Metro ExpressRoute Direct ports, you can download the LOA (Letter of Authorization), obtain the Meet-Me-Room details, and extend your physical cross-connects.
-
-    :::image type="content" source="./media/metro/generate-letter-of-authorization.png" alt-text="Screenshot of generating letter of authorization.":::
 
 ## Migrate from an existing Expressroute circuit to a Metro circuit
 

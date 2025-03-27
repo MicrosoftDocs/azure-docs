@@ -165,7 +165,7 @@ A null value in a database is used when the value in a column is unknown or miss
 When an element is null, either:
 
 - Omit the key-value pair from the JSON.
-- Return a value that corresponds to the Azure AD B2C claim data type. For example, for a `string` data type, return empty string `""`. For an `integer` data type, return a zero value `0`. For a `dateTime`  data type, return a minimum value `1970-00-00T00:00:00.0000000Z`.
+- Return a value that corresponds to the Azure AD B2C claim data type. For example, for a `string` data type, return empty string `""`. For an `integer` data type, return a zero value `0`. For a `dateTime`  data type, return a minimum value `0001-01-01T00:00:00.0000000Z`.
 
 The following example demonstrates how to handle a null value. The email is omitted from the JSON:
 
@@ -244,7 +244,7 @@ If you reference a REST API technical profile directly from a user journey, the 
 
 ## Development of your REST API 
 
-Your REST API can be developed on any platform and written in any programing language, as long as it's secure and can send and receive claims in JSON format.
+Your REST API can be developed on any platform and written in any programming language, as long as it's secure and can send and receive claims in JSON format.
 
 The request to your REST API service comes from Azure AD B2C servers. The REST API service must be published to a publicly accessible HTTPS endpoint. The REST API call arrives from an Azure data center IP address.
 

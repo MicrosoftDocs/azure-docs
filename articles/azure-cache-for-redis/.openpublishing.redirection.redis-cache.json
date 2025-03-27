@@ -122,12 +122,12 @@
         },
         {
             "source_path_from_root": "/articles/redis-cache/cache-how-to-monitor.md",
-            "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-monitor",
+            "redirect_url": "/azure/azure-cache-for-redis/monitor-cache",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/redis-cache/cache-how-to-premium-clustering.md",
-            "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-premium-clustering",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-scale",
             "redirect_document_id": false
         },
         {
@@ -152,12 +152,12 @@
         },
         {
             "source_path_from_root": "/articles/redis-cache/cache-how-to-troubleshoot.md",
-            "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-troubleshoot",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-troubleshoot-server",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/redis-cache/cache-howto-manage-redis-cache-powershell.md",
-            "redirect_url": "/azure/azure-cache-for-redis/cache-howto-manage-redis-cache-powershell",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-manage-redis-cache-powershell",
             "redirect_document_id": false
         },
         {
@@ -172,7 +172,7 @@
         },
         {
             "source_path_from_root": "/articles/redis-cache/cache-migrate-to-redis.md",
-            "redirect_url": "/azure/azure-cache-for-redis/cache-migrate-to-redis",
+            "redirect_url": "/azure/azure-cache-for-redis/cache-overview",
             "redirect_document_id": false
         },
         {
@@ -254,10 +254,15 @@
           "source_path_from_root": "/articles/redis-cache/scripts/delete-cache.md",
           "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
           "redirect_document_id": false
-      },
+       },
         {
             "source_path_from_root": "/articles/redis-cache/scripts/show-cache.md",
             "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-cache-for-redis/managed-redis/managed-redis-configure-role-based-access-control.md",
+            "redirect_url": "/azure/azure-cache-for-redis/managed-redis/managed-redis-entra-for-authentication",
             "redirect_document_id": false
         }
     ]

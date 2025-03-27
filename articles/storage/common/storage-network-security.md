@@ -86,18 +86,18 @@ To secure your storage account and build a secure network boundary for your appl
 
 After you apply network rules, they're enforced for all requests. SAS tokens that grant access to a specific IP address serve to limit the access of the token holder, but they don't grant new access beyond configured network rules.
 
-### Network Security Perimeter (preview)
+### Network security perimeter (preview)
 
-[Network Security Perimeter](../../private-link/network-security-perimeter-concepts.md) (preview) allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Blob Storage and SQL Database) that are deployed outside their virtual networks. The feature restricts public network access to PaaS resources outside the perimeter. However, you can exempt access by using explicit access rules for public inbound and outbound traffic. By design, access to a storage account from within a Network Security Perimeter takes the highest precedence over other network access restrictions.
+[Network security perimeter](../../private-link/network-security-perimeter-concepts.md) (preview) allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Blob Storage and SQL Database) that are deployed outside their virtual networks. The feature restricts public network access to PaaS resources outside the perimeter. However, you can exempt access by using explicit access rules for public inbound and outbound traffic. By design, access to a storage account from within a network security perimeter takes the highest precedence over other network access restrictions.
 
-Currently, network security perimeter is in public preview for Azure Blobs, Azure Files (REST), Azure Tables, and Azure Queues. See [Transition to a network security perimeter](../../private-link/network-security-perimeter-transition.md). 
+Currently, network security perimeter is in public preview for Azure Blob Storage, Azure Files (REST), Azure Tables, and Azure Queues. See [Transition to a network security perimeter](../../private-link/network-security-perimeter-transition.md). 
 
 The list of services that have been onboarded to network security perimeter can be found [here](../../private-link/network-security-perimeter-concepts.md#onboarded-private-link-resources). 
 
-For services that are not on this list as they have not yet been onboarded to Network Security Perimeter, if you would like to allow access you can use a subscription-based rule on the Network Security Perimeter. All resources within that subscription will then be given access to that Network Security Perimeter. For more information on adding subscription-based access rule, refer [here](/rest/api/networkmanager/nsp-access-rules/create-or-update).
+For services that are not on this list, as they have not yet been onboarded to network security perimeter, if you would like to allow access you can use a subscription-based rule on the network security perimeter. All resources within that subscription will then be given access to that network security perimeter. For more information on adding subscription-based access rule, refer [here](/rest/api/networkmanager/nsp-access-rules/create-or-update).
 
 > [!IMPORTANT]
-> Private endpoint traffic is considered highly secure and therefore isn't subject to Network Security Perimeter rules. All other traffic, including trusted services, will be subject to Network Security Perimeter rules if the storage account is associated with a perimeter.
+> Private endpoint traffic is considered highly secure and therefore isn't subject to network security perimeter rules. All other traffic, including trusted services, will be subject to network security perimeter rules if the storage account is associated with a perimeter.
 
 #### Limitations
 
@@ -110,14 +110,16 @@ This preview doesn't support the following services, operations, and protocols o
 - Server message block (SMB) protocol with Azure Files can only be achieved through IP allowlisting at this time.
 - [Azure Blob Inventory](../blobs/blob-inventory.md)
 
-We recommend you don't enable Network Security Perimeter if you need to use any of these services, operations, or protocols. This is to prevent any potential data loss or data exfiltration risk.
+- Vaulted backups for Azure Blob Storage
+
+We recommend you don't enable network security perimeter if you need to use any of these services, operations, or protocols. This is to prevent any potential data loss or data exfiltration risk.
 
 > [!WARNING]
-> For storage accounts that are associated with a Network Security Perimeter, in order for customer managed keys (CMK) scenarios to work, ensure that the Azure Key Vault is accessible from within the perimeter to which the storage account has been associated.
+> For storage accounts that are associated with a network security perimeter, in order for customer managed keys (CMK) scenarios to work, ensure that the Azure Key Vault is accessible from within the perimeter to which the storage account has been associated.
 
-#### Associate a Network Security Perimeter with a storage account
+#### Associate a network security perimeter with a storage account
 
-To associate a Network Security Perimeter with a storage account, follow these [common instructions](../../private-link/network-security-perimeter-concepts.md) for all PaaS resources.
+To associate a network security perimeter with a storage account, follow these [common instructions](../../private-link/network-security-perimeter-concepts.md) for all PaaS resources.
 
 ## Restrictions and considerations
 
@@ -608,6 +610,7 @@ Resources of some services can access your storage account for selected operatio
 |:------------------------ |:-------------------------- |:---------------------------------- |
 | Azure Backup             | `Microsoft.RecoveryServices` | Run backups and restores of unmanaged disks in infrastructure as a service (IaaS) virtual machines (not required for managed disks). [Learn more](../../backup/backup-overview.md). |
 | Azure Data Box           | `Microsoft.DataBox`          | Import data to Azure. [Learn more](../../databox/data-box-overview.md). |
+| Azure Data Explorer           | `Microsoft.Kusto`          | Read data for ingestion and external tables, and write data to external tables. [Learn more](/azure/data-explorer/data-explorer-overview). |
 | Azure DevTest Labs       | `Microsoft.DevTestLab`       | Create custom images and install artifacts. [Learn more](../../devtest-labs/devtest-lab-overview.md). |
 | Azure Event Grid         | `Microsoft.EventGrid`        | Enable [Azure Blob Storage event publishing](../../event-grid/concepts.md#event-sources) and allow [publishing to storage queues](../../event-grid/event-handlers.md). |
 | Azure Event Hubs         | `Microsoft.EventHub`         | Archive data by using Event Hubs Capture. [Learn More](../../event-hubs/event-hubs-capture-overview.md). |
@@ -633,10 +636,10 @@ The following table lists services that can access your storage account data if 
 | Azure Cache for Redis | `Microsoft.Cache/Redis` | Enables access to storage accounts. [Learn more](../../azure-cache-for-redis/cache-managed-identity.md).| 
 | Azure AI Search          | `Microsoft.Search/searchServices`       | Enables access to storage accounts for indexing, processing, and querying. |
 | Azure AI services        | `Microsoft.CognitiveService/accounts`   | Enables access to storage accounts. [Learn more](../..//cognitive-services/cognitive-services-virtual-networks.md).|
-| Azure Container Registry        | `Microsoft.ContainerRegistry/registries`| Through the ACR Tasks suite of features, enables access to storage accounts when you're building container images. |
 | Microsoft Cost Management | `Microsoft.CostManagementExports` | Enables export to storage accounts behind a firewall. [Learn more](../../cost-management-billing/costs/tutorial-export-acm-data.md).|
 | Azure Databricks                | `Microsoft.Databricks/accessConnectors` | Enables access to storage accounts. |
 | Azure Data Factory              | `Microsoft.DataFactory/factories`       | Enables access to storage accounts through the Data Factory runtime. |
+| Azure Data Explorer           | `Microsoft.Kusto/Clusters`          | Read data for ingestion and external tables, and write data to external tables. [Learn more](/azure/data-explorer/data-explorer-overview). |
 | Azure Backup Vault              | `Microsoft.DataProtection/BackupVaults` | Enables access to storage accounts. |
 | Azure Data Share                | `Microsoft.DataShare/accounts`          | Enables access to storage accounts. |
 | Azure Database for PostgreSQL   | `Microsoft.DBForPostgreSQL`             | Enables access to storage accounts. |
@@ -658,7 +661,6 @@ The following table lists services that can access your storage account data if 
 | Azure Machine Learning          | `Microsoft.MachineLearningServices/workspaces` | Enables authorized Azure Machine Learning workspaces to write experiment output, models, and logs to Blob Storage and read the data. [Learn more](/azure/machine-learning/how-to-network-security-overview#secure-the-workspace-and-associated-resources). |
 | Azure Media Services            | `Microsoft.Media/mediaservices`         | Enables access to storage accounts. |
 | Azure Migrate                   | `Microsoft.Migrate/migrateprojects`     | Enables access to storage accounts. |
-| Azure Spatial Anchors           | `Microsoft.MixedReality/remoteRenderingAccounts` | Enables access to storage accounts. |
 | Azure ExpressRoute              | `Microsoft.Network/expressRoutePorts`   | Enables access to storage accounts. |
 | Microsoft Power Platform        | `Microsoft.PowerPlatform/enterprisePolicies` | Enables access to storage accounts. |
 | Microsoft Project Arcadia       | `Microsoft.ProjectArcadia/workspaces`   | Enables access to storage accounts. |

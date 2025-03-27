@@ -197,7 +197,7 @@ To create an alert for high server latency (average), follow these steps.
    - Select the **Dimension values** drop-down and select the file share(s) that you want to alert on.
 
     > [!NOTE]
-    > If the file share is a standard file share, the **File Share** dimension won't list the file share(s) because per-share metrics aren't available for standard file shares. Availability alerts for standard file shares will be at the storage acount level.
+    > If the file share is a standard file share, the **File Share** dimension won't list the file share(s) because per-share metrics aren't available for standard file shares. Availability alerts for standard file shares will be at the storage account level.
 
 7. In the **When to evaluate** section, select the following:
    - **Check every** = **5 minutes**

@@ -8,8 +8,8 @@ metadata:
   description: Device Update for IoT Hub is a service that enables you to deploy over-the-air updates (OTA) to your IoT devices.
   ms.service: azure-iot-hub
   ms.topic: landing-page
-  author: vimeht
-  ms.author: vimeht
+  author: andrewbrownmsft
+  ms.author: andbrown
   
   ms.date: 04/25/2022
   ms.subservice: device-update

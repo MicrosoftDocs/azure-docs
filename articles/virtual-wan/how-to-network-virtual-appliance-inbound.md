@@ -4,11 +4,12 @@ description: Learn how to use Destination NAT with a Network Virtual Appliance i
 author: wellee
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 10/25/2024
+ms.date: 12/11/2024
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub and leverage destination NAT.
 ---
 # How to configure Destination NAT (DNAT) for Network Virtual Appliance in an Azure Virtual WAN hub
+
 The following article describes how to configure Destination NAT for Next-Generation Firewall enabled Network Virtual Appliances deployed with the Virtual WAN hub.
 
 > [!Important]
@@ -50,16 +51,17 @@ The following list corresponds to the diagram above and describes the packet flo
 1. NVA inspects the traffic and translates the packet based on rule configuration. In this case, the NVA is configured to NAT and forward inbound traffic to 10.60.0.4:443. The source of the packet is also translated to the private IP (IP of trusted/internal interface) of the chosen Firewall instance to ensure flow symmetry. The NVA forwards the packet and Virtual WAN routes the packet to the final destination.
 
 #### Outbound traffic flow
+
 :::image type="content" source="./media/virtual-wan-network-virtual-appliance-inbound/example-outbound-flow.png"alt-text="Screenshot showing outbound traffic flow." lightbox="./media/virtual-wan-network-virtual-appliance-inbound/example-outbound-flow.png":::
 
-The list below corresponds to the diagram above and describes the packet flow for the outbound response:
+The following list corresponds to the diagram above and describes the packet flow for the outbound response:
 
 1. The server responds and sends the reply packets to the NVA Firewall instance over the Firewall private IP.
 1. The NAT translation is reversed and the response is sent out the untrusted interface. Azure then directly sends the packet back to the user.
 
-## Known Issues, Limitations and Considerations
+## Known Issues, Limitations, and Considerations
 
-The following section describes known issues, limitations and considerations associatd with the Internet Inbound feature.
+The following section describes known issues, limitations, and considerations associated with the Internet Inbound feature.
 
 ### Known Issues
 
@@ -67,10 +69,10 @@ The following table describes known issues related to the internet inbound/DNAT 
 
 |Issue | Description| Mitigation|
 |--|--|--|
-| DNAT traffic is not forwarded to the NVA after associating an additional IP address.| After associating additional IP address(es) to an NVA that already has active inbound security rules, DNAT traffic is not forwarded properly to the NVA due to a code defect. | Use partner orchestration/management software to modify (create or delete existing) configured inbound-security rules to restore connectivity. |
-|Inbound security rule configuration scalability| Inbound security rule configuration may fail when a large number (approximately 100)  rules are configured.| No mitigation, reach out to Azure Support for fix timelines.|
+| DNAT traffic isn't forwarded to the NVA after associating an additional IP address.| After associating additional IP address(es) to an NVA that already has active inbound security rules, DNAT traffic isn't forwarded properly to the NVA due to a code defect. | Use partner orchestration/management software to modify (create or delete existing) configured inbound-security rules to restore connectivity. |
+
 ### Limitations
- 
+
 * Destination NAT is supported only for the following NVAs: **checkpoint**, **fortinet-sdwan-and-ngfw** and **fortinet-ngfw**.
 * Public IPs that are used for Destination NAT must meet the following requirements:
   * Destination NAT Public IPs  must be from the same region as the NVA resource. For example, if the NVA is deployed in the East US region, the public IP must also be from the East US region.
@@ -83,42 +85,32 @@ The following table describes known issues related to the internet inbound/DNAT 
 
 ### Considerations
 
-* Inbound Traffic is automatically load-balanced across all healthy instances of the Network Virtual Appliance.
+* Inbound traffic is automatically load-balanced across all healthy instances of the Network Virtual Appliance. Virtual WAN uses five-tuple hashing algorithm to distribute flows for backend NVA instances. For certain use cases such as File Transfer Protocol (FTP) where a single application session might have   multiple five-tuple flows (e.g. FTP control and data plane packets on different ports), Virtual WAN does not guarantee that all flows in that session are distributed to the same NVA instance.
 * In most cases, NVAs must perform source-NAT to the Firewall private IP in addition to  destination-NAT to ensure flow symmetry. Certain NVA types might not require source-NAT. Contact your NVA provider for best practices around source-NAT.
 * Timeout for idle flows is automatically set to 4 minutes.
 * You can assign individual IP address resources generated from an IP address prefix to the NVA as internet inbound IPs. Assign each IP address from the prefix individually.
-
-
-
-
 
 ## Managing DNAT/Internet Inbound configurations
 
 The following section describes how to manage NVA configurations related to internet inbound and DNAT.
 
-1. Navigate to your Virtual WAN Hub. Select **Network Virtual Appliances** under Third Party Providers. Click on **Manage Configurations** next to the NVA.
-:::image type="content" source="./media/virtual-wan-network-virtual-appliance-inbound/manage-configurations.png"alt-text="Screenshot showing how to manage configurations for NVA."lightbox="./media/virtual-wan-network-virtual-appliance-inbound/manage-configurations.png":::
+1. Navigate to your Virtual WAN Hub. Select **Network Virtual Appliances** under Third Party Providers. Click **Manage Configurations** next to the NVA.
 
-1. Select **Internet Inbound** under settings.
-:::image type="content" source="./media/virtual-wan-network-virtual-appliance-inbound/select-internet-inbound.png"alt-text="Screenshot showing how to select IP to add to NVA."lightbox="./media/virtual-wan-network-virtual-appliance-inbound/select-internet-inbound.png":::
+1. Under **Settings**, select **Internet Inbound** to open the **Internet Inbound** page.
 
 ### Associating an IP address to an NVA for Internet Inbound
 
 1. If the NVA is eligible for internet inbound and there are no current internet inbound IP addresses associated to the NVA, select **Enable Internet Inbound (Destination NAT) by associating a public IP to this Network Virtual Appliance**. If IPs are already associated to this NVA, select **Add**.
-:::image type="content" source="./media/virtual-wan-network-virtual-appliance-inbound/add-inbound-ip.png"alt-text="Screenshot showing how to add IP to NVA."lightbox="./media/virtual-wan-network-virtual-appliance-inbound/add-inbound-ip.png":::
 
 1. Select the resource group and the IP address resource that you want to use for internet inbound from the dropdown.
-:::image type="content" source="./media/virtual-wan-network-virtual-appliance-inbound/select-ip.png"alt-text="Screenshot showing how to select an IP."lightbox="./media/virtual-wan-network-virtual-appliance-inbound/select-ip.png":::
+
 1. Click **save**.
-:::image type="content" source="./media/virtual-wan-network-virtual-appliance-inbound/save-ip.png"alt-text="Screenshot showing how to save IP."lightbox="./media/virtual-wan-network-virtual-appliance-inbound/save-ip.png":::
 
 ### View active inbound security rules using an Internet Inbound Public IP
 
 1. Find the Public IP you want to view and click **View rules**.
-:::image type="content" source="./media/virtual-wan-network-virtual-appliance-inbound/view-rules.png"alt-text="Screenshot showing how to view rules associated to NVA."lightbox="./media/virtual-wan-network-virtual-appliance-inbound/view-rules.png":::
 1. View the rules associated to the public IP.
-:::image type="content" source="./media/virtual-wan-network-virtual-appliance-inbound/rules.png"alt-text="Screenshot showing displayed rules associated to NVA."lightbox="./media/virtual-wan-network-virtual-appliance-inbound/rules.png":::
- 
+
 ### Remove Internet Inbound public IP from existing NVA
 
 > [!NOTE]
@@ -138,6 +130,7 @@ The following section contains NVA provider-specific instructions on configuring
 |fortinet-ngfw| [Fortinet NGFW documentation](https://aka.ms/fortinetngfwdnat) |
 
 ## Troubleshooting
+
 The following section describes some common troubleshooting scenarios.
 
 ### Public IP Association/Disassociation
@@ -155,7 +148,7 @@ For more information on Azure Load Balancer health probes, see [health probe doc
 
 The health probes Virtual WAN requires are:
 
-* **Internet Inbound or DNAT health probe**: Used to forward Internet inbound traffic to NVA untrusted/external interfaces. This health probe checks the health of the **untrusted/external** interface of the NVA only. 
+* **Internet Inbound or DNAT health probe**: Used to forward Internet inbound traffic to NVA untrusted/external interfaces. This health probe checks the health of the **untrusted/external** interface of the NVA only.
 
   |NVA Provider| Port|
   |--|--|
@@ -184,13 +177,12 @@ Ensure the NVA is configured to respond to the 3 health probes correctly. Common
 ### DNAT rule creation
 
 * **DNAT rule creation fails**: Ensure the provisioning state of the NVA is Succeeded and that all NVA instances are healthy. Reference NVA provider documentation for details on how to troubleshoot or contact the vendor for further support. 
- 
+
   Additionally, ensure that the NVA is responding to **NVA health probes** on all interfaces. See the [health probes](#healthprobeconfigs) section for more information.
 
 ### Datapath
 
 * **NVA doesn't see packets after user initiates connection to Public IP**: Ensure that the NVA is responding to **DNAT health probes** on the **external/untrusted** interface only. See the [health probes](#healthprobeconfigs) section for more information.
-
 
 * **Destination server doesn't see packets after NVA translation**: consider the following troubleshooting mechanisms if packets aren't being forwarded to the final destination server.
   * **Azure Routing issue**: Use Azure Virtual WAN portal to check the effective routes of the defaultRouteTable or the effective routes of your Network Virtual Appliance. You should see the subnet of the destination application in the effective routes.
@@ -204,3 +196,7 @@ Ensure the NVA is configured to respond to the 3 health probes correctly. Common
     * **Application hosted on-premises**: Make sure there are no route filters on the on-premises side that filter out routes corresponding to the hub address space. Because the NVA source-NAT's traffic to a Firewall Private IP, the on-premises must accept the hub address space.
     * **Application inter-hub**: Inter-hub  routing for DNAT use cases aren't supported. Make sure the resource you're trying to access is connected to the same hub as the NVA that has the DNAT rule configured.
     * **Packet capture on NVA interface**: Perform packet captures on the NVA trusted interface. You should see the application server send return traffic directly to the NVA instance. Make sure you compare packet captures before and after Firewall rules are applied to ensure packets to ensure proper Firewall rule configuration.
+
+## Next steps
+
+For more information about Virtual WAN, see the [Virtual WAN FAQ](virtual-wan-faq.md)

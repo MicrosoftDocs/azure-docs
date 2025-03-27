@@ -60,7 +60,6 @@ Before you can enable single sign-on, you must meet the following prerequisites:
 - To configure your Microsoft Entra tenant, you must be assigned one of the following [Microsoft Entra built-in roles](/entra/identity/role-based-access-control/manage-roles-portal) or equivalent:
 
    - [Application Administrator](/entra/identity/role-based-access-control/permissions-reference#application-administrator)
-
    - [Cloud Application Administrator](/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)
 
 - Your session hosts must be running one of the following operating systems with the relevant cumulative update installed:
@@ -77,17 +76,20 @@ Before you can enable single sign-on, you must meet the following prerequisites:
 
 - [Install the Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation) version 2.9.0 or later on your local device or in [Azure Cloud Shell](../cloud-shell/overview.md).
 
-- A supported Remote Desktop client to connect to a remote session. The following clients are supported:
+- Use a supported version of Windows App or the Remote Desktop client to connect to a remote session. The following platforms and versions are supported:
 
-   - [Windows Desktop client](users/connect-windows.md) on local PCs running Windows 10 or later. There's no requirement for the local PC to be joined to Microsoft Entra ID or an Active Directory domain.
+   - Windows App:
+      - Windows: All versions of Windows App. There's no requirement for the local PC to be joined to Microsoft Entra ID or an Active Directory domain.
+      - macOS: version 10.9.10 or later.
+      - iOS/iPadOS: version 10.5.2 or later.
+      - Web browser.
 
-   - [Web client](users/connect-web.md).
-
-   - [macOS client](users/connect-macos.md), version 10.8.2 or later.
-
-   - [iOS client](users/connect-ios-ipados.md), version 10.5.1 or later.
-
-   - [Android client](users/connect-android-chrome-os.md), version 10.0.16 or later.
+   - Remote Desktop client:
+      - [Windows Desktop client](users/connect-windows.md) on local PCs running Windows 10 or later. There's no requirement for the local PC to be joined to Microsoft Entra ID or an Active Directory domain.
+      - [Web client](users/connect-web.md).
+      - [macOS client](users/connect-macos.md), version 10.8.2 or later.
+      - [iOS client](users/connect-ios-ipados.md), version 10.5.1 or later.
+      - [Android client](users/connect-android-chrome-os.md), version 10.0.16 or later.
 
 ## Enable Microsoft Entra authentication for RDP
 
@@ -140,7 +142,7 @@ To configure the service principal, use the [Microsoft Graph PowerShell SDK](/po
    Get-MgServicePrincipalRemoteDesktopSecurityConfiguration -ServicePrincipalId $WCLspId
    ```
 
-   The output should be:
+   The output to both commands should be:
 
    ```output
    Id IsRemoteDesktopProtocolEnabled
@@ -231,4 +233,4 @@ To enable single sign-on on your host pool, you must configure the following RDP
 
 - For more information about Microsoft Entra Kerberos, see [Deep dive: How Microsoft Entra Kerberos works](https://techcommunity.microsoft.com/t5/itops-talk-blog/deep-dive-how-azure-ad-kerberos-works/ba-p/3070889).
 
-- If you encounter any issues, go to [Troubleshoot connections to Microsoft Entra joined VMs](troubleshoot-azure-ad-connections.md).
+- If you encounter any issues, go to [Troubleshoot connections to Microsoft Entra joined VMs](/troubleshoot/azure/virtual-desktop/troubleshoot-azure-ad-connections).

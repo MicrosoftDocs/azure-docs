@@ -3,7 +3,7 @@ title: What is Azure Virtual Desktop? - Azure
 description: Azure Virtual Desktop is a desktop and app virtualization service that runs on Azure. Deliver a full Windows experience with Windows 11 or Windows 10. Offer full desktops or use RemoteApp to deliver individual apps to users.
 author: dknappettmsft
 ms.topic: overview
-ms.date: 01/04/2024
+ms.date: 01/17/2025
 ms.author: daknappe
 ---
 
@@ -53,7 +53,7 @@ With Azure Virtual Desktop, you can set up a scalable and flexible environment:
 
 You can deploy and manage virtual desktops and applications:
 
-- Use the Azure portal, Azure CLI, PowerShell and REST API to create and configure host pools, application groups, workspaces, assign users, and publish resources.
+- Use the Azure portal, Azure CLI, Azure PowerShell, and REST API to create and configure host pools, application groups, workspaces, assign users, and publish resources.
 
 - Publish a full desktop or individual applications from a single host pool, create individual application groups for different sets of users, or even assign users to multiple application groups to reduce the number of images.
 
@@ -76,4 +76,4 @@ Here are some other articles to learn about Azure Virtual Desktop:
 - Learn about [terminology used for Azure Virtual Desktop](terminology.md).
 - You can see a typical architectural setup of Azure Virtual Desktop for the enterprise in our [architecture documentation](/azure/architecture/example-scenario/wvd/windows-virtual-desktop?context=/azure/virtual-desktop/context/context).
 - Understand the [prerequisites](prerequisites.md) before you deploy Azure Virtual Desktop.
-- When you're ready to try Azure Virtual Desktop, follow our tutorial to [Create and connect to a Windows 11 desktop with Azure Virtual Desktop](tutorial-create-connect-personal-desktop.md), where you can deploy a sample infrastructure.
+- When you're ready to try Azure Virtual Desktop, use [quickstart to deploy a sample Azure Virtual Desktop environment](quickstart.md) with Windows 11 Enterprise multi-session.

@@ -14,7 +14,7 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-With Azure Monitor, you can visualize, query, route, archive, and take actions on the metrics or logs coming from your Azure API Management service.
+With Azure Monitor, you can visualize, query, route, archive, and take actions on the metrics or logs coming from your Azure API Management service. For an overview of Azure Monitor for API Management, see [Monitor API Management](monitor-api-management.md).
 
 [!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 
 ## View metrics of your APIs
 
-API Management emits [metrics](/azure/azure-monitor/essentials/data-platform-metrics) every minute, giving you near real-time visibility into the state and health of your APIs. The following are the most frequently used metrics. For a list of all available metrics, see [supported metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-apimanagement-service-metrics).
+API Management emits [metrics](/azure/azure-monitor/essentials/data-platform-metrics) every minute, giving you near real-time visibility into the state and health of your APIs. The following are the most frequently used metrics. For a list of all available metrics, see [Metrics](monitor-api-management-reference.md#metrics).
 
 * **Capacity** - helps you make decisions about upgrading/downgrading your API Management services. The metric is emitted per minute and reflects the estimated gateway capacity at the time of reporting. The metric ranges from 0-100 calculated based on gateway resources such as CPU and memory utilization and other factors.
 

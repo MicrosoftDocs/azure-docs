@@ -23,6 +23,7 @@ This set of articles explains how to work with [Azure Database for MySQL](/azure
 |---------|---------|
 | Read data from a database | [Input binding](./functions-bindings-azure-mysql-input.md) |
 | Save data to a database |[Output binding](./functions-bindings-azure-mysql-output.md) |
+| Trigger a function when a change is detected on a MySQL Table | [Trigger binding](./functions-bindings-azure-mysql-trigger.md) |
 
 ::: zone pivot="programming-language-csharp"
 
@@ -57,11 +58,9 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.MySql --version 1.0.3-prev
 
 ::: zone pivot="programming-language-javascript, programming-language-powershell"
 
-
 ## Install bundle
 
-The MySQL bindings extension is part of the v4 [extension bundle](https://learn.microsoft.com/azure/azure-functions/functions-bindings-register#extension-bundles), which is specified in your host.json project file.
-
+The MySQL bindings extension is part of the v4 [extension bundle](./functions-bindings-register.md#extension-bundles), which is specified in your host.json project file.
 
 ### Preview Bundle v4.x
 
@@ -89,7 +88,7 @@ You can use the preview extension bundle by adding or replacing the following co
 
 ## Install bundle
 
-The MySQL bindings extension is part of the v4 [extension bundle](https://learn.microsoft.com/azure/azure-functions/functions-bindings-register#extension-bundles), which is specified in your host.json project file.
+The MySQL bindings extension is part of the v4 [extension bundle](./functions-bindings-register.md#extension-bundles), which is specified in your host.json project file.
 
 
 ### Preview Bundle v4.x
@@ -116,7 +115,7 @@ You can use the preview extension bundle by adding or replacing the following co
 
 ## Install bundle
 
-The MySQL bindings extension is part of the v4 [extension bundle](https://learn.microsoft.com/azure/azure-functions/functions-bindings-register#extension-bundles), which is specified in your host.json project file.
+The MySQL bindings extension is part of the v4 [extension bundle](./functions-bindings-register.md#extension-bundles), which is specified in your host.json project file.
 
 ### Preview Bundle v4.x
 
@@ -173,4 +172,4 @@ In addition to the samples for C#, Java, JavaScript, PowerShell, and Python avai
 
 - [Read data from a database (Input binding)](./functions-bindings-azure-mysql-input.md)
 - [Save data to a database (Output binding)](./functions-bindings-azure-mysql-output.md)
-
+- [Trigger a function when a change is detected on a table (Trigger binding)](./functions-bindings-azure-mysql-trigger.md)

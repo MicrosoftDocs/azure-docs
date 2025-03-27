@@ -6,7 +6,7 @@ ms.subservice: sql-dw
 ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
-ms.reviewer: wiassaf
+
 ms.date: 12/09/2024
 ---
 
@@ -42,7 +42,7 @@ The Oracle system offers these authentication methods for database users:
 - **Global authentication and authorization**: with global authentication and authorization, you can centralize management of user-related information, including authorizations, in an LDAP-based directory service. Users are identified in the database as global users, which means they're authenticated by TLS/SSL and user management occurs outside the database. The centralized directory service performs user management. This approach provides strong authentication using TLS/SSL, Kerberos, or Windows-native authentication, and enables centralized management of users and privileges across the enterprise. Administration is easier because it's not necessary to create a schema for every user in every database in the enterprise. Single sign-on is also supported, so that users only need to sign in once to access multiple databases and services.
 
    > [!IMPORTANT]
-   > Azure will retire older TLS versions (TLS 1.0 and 1.1) starting in November 2024. Sign-in attempts from connections using a TLS version lower than 1.2 fail. Use TLS 1.2 or higher. Starting after March 31, 2025, you will no longer be able to set the minimal TLS version for Azure Synapse Analytics client connections below TLS 1.2. For more information, see [Announcement: Azure support for TLS 1.0 and TLS 1.1 will end](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/).
+   > Azure will begin to retire older TLS versions (TLS 1.0 and 1.1) starting in November 2024. Use TLS 1.2 or higher. After March 31, 2025, you will no longer be able to set the minimal TLS version for Azure Synapse Analytics client connections below TLS 1.2.  After this date, sign-in attempts from connections using a TLS version lower than 1.2 will fail. For more information, see [Announcement: Azure support for TLS 1.0 and TLS 1.1 will end](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/).
 
 - **Proxy authentication and authorization**: you can designate a middle-tier server to proxy clients in a secure fashion. Oracle provides various options for proxy authentication, such as:
   

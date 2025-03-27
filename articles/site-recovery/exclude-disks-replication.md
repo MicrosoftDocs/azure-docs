@@ -2,7 +2,7 @@
 title: Exclude disks from replication with Azure Site Recovery
 description: How to exclude disks from replication to Azure with Azure Site Recovery.
 ms.topic: how-to
-ms.date: 09/18/2024
+ms.date: 12/20/2024
 ms.service: azure-site-recovery
 ms.author: ankitadutta
 author: ankitaduttaMSFT
@@ -31,9 +31,9 @@ Yes | Yes | Yes | Yes (only in classic architecture)
 --- | --- | ---
 **Disk types** | You can exclude basic disks from replication.<br/><br/> You can't exclude operating system disks or dynamic disks. Temp disks are excluded by default. | You can exclude basic disks from replication.<br/><br/> You can't exclude operating system disks or dynamic disks. | You can exclude basic disks from replication.<br/><br/> You can't exclude operating system disks. We recommend that you don't exclude dynamic disks. Site Recovery can't identify which VHS is basic or dynamic in the guest VM. If all dependent dynamic volume disks aren't excluded, the protected dynamic disk becomes a failed disk on a failover VM, and the data on that disk isn't accessible.
 **Replicating disk** | You can't exclude a disk that's replicating.<br/><br/> Disable and reenable replication for the VM. |  You can't exclude a disk that's replicating. |  You can't exclude a disk that's replicating.
-**Mobility service (VMware)** | Not relevant | You can exclude disks only on VMs that have the Mobility service installed.<br/><br/> This means that you have to manually install the Mobility service on the VMs for which you want to exclude disks.You can't use the push installation mechanism because it installs the Mobility service only after replication is enabled. | Not relevant.
+**Mobility service (VMware)** | Not relevant | You can exclude disks only on VMs that have the Mobility service installed.<br/><br/> This means that you have to manually install the Mobility service on the VMs for which you want to exclude disks. You can't use the push installation mechanism because it installs the Mobility service only after replication is enabled. | Not relevant.
 **Add/Remove** | You can add managed disks on replication-enabled Azure VMs with managed disks. You cannot remove disks on replication-enabled Azure VMs. | You can't add or remove disks after replication is enabled. Disable and then reenable replication to add a disk. | You can't add or remove disks after replication is enabled. Disable and then reenable replication.
-**Failover** | If an app needs a disk that you excluded, after failover you need to create the disk manually so that the replicated app can run.<br/><br/> Alternatively, you can create the disk during VM failover, by integrating Azure automation into a recovery plan. | If you exclude a disk that an app needs, create it manually in Azure after failover. | If you exclude a disk that an app needs, create it manually in Azure after failover.
+**Failover** | If an app needs a disk that you excluded, after failover you need to create the disk manually so that the replicated app can run.<br/><br/> Alternatively, you can create the disk during VM failover, by integrating Azure Automation into a recovery plan. | If you exclude a disk that an app needs, create it manually in Azure after failover. | If you exclude a disk that an app needs, create it manually in Azure after failover.
 **On-premises failback-disks created manually** | Not relevant | **Windows VMs**: Disks created manually in Azure aren't failed back. For example, if you fail over three disks and create two disks directly on an Azure VM, only the three disks that were failed over are then failed back.<br/><br/> **Linux VMs**: Disks created manually in Azure are failed back. For example, if you fail over three disks and create two disks on an Azure VM, all five will be failed back. You can't exclude disks that were created manually from failback. | Disks created manually in Azure aren't failed back. For example, if you fail over three disks and create two disks directly on an Azure VM, only three disks that were failed over will be failed back.
 **On-premises failback-Excluded disks** | Not relevant | If you fail back to the original machine, the failback VM disk configuration doesn't include the excluded disks. Disks that were excluded from VMware to Azure replication aren't available on the failback VM. | When failback is to the original Hyper-V location, the failback VM disk configuration remains the same as that of original source VM disk. Disks that were excluded from Hyper-V site to Azure replication are available on the failback VM.
 
@@ -265,4 +265,4 @@ Our paging file settings on the Azure VM are as follows:
 - Learn more about guidelines for the temporary storage disk:
     - [Learn about](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) using SSDs in Azure VMs to store SQL Server TempDB and Buffer Pool Extensions
     - [Review ](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist) performance best practices for SQL Server in Azure VMs.
-- After your deployment is set up and running, [learn more](failover-failback-overview.md) about different types of failover.
+- After your deployment is set up and running, [learn more](failover-failback-overview-modernized.md) about different types of failover.

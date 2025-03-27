@@ -197,28 +197,36 @@ By default, sessions are prevented from making outbound network requests. You ca
 
 In addition, follow the guidance in the [authentication and authorization](#authentication) section to ensure that only authorized users can access sessions and in the [protecting session identifiers](#protecting-session-identifiers) section to ensure that session identifiers are secure.
 
-## Preview limitations
+## Region availability
 
-The following limitations apply to dynamic sessions:
+Dynamic sessions are available in the following regions:
 
-* It's only available in the following regions:
+| Region | Code interpreter | Custom container |
+|--------|------------------|------------------|
+| Australia East | ✔ | ✔ |
+| Central US EUAP | ✔ | ✔ |
+| East US 2 EUAP | ✔ | ✔ |
+| East US | ✔ | ✔ |
+| East Asia | ✔ | ✔ |
+| Germany West Central | ✔ | ✔ |
+| Italy North | ✔ | ✔ |
+| North Central US | ✔ | - |
+| Poland Central | ✔ | ✔ |
+| Switzerland North | ✔ | ✔ |
+| West Central US | ✔ | ✔ |
+| West US 2 | ✔ | ✔ |
 
-    | Region | Code interpreter | Custom container |
-    |--------|------------------|------------------|
-    | Australia East | ✔ | ✔ |
-    | Central US EUAP | ✔ | ✔ |
-    | East US 2 EUAP | ✔ | ✔ |
-    | East US | ✔ | ✔ |
-    | East Asia | ✔ | ✔ |
-    | Germany West Central | ✔ | ✔ |
-    | Italy North | ✔ | ✔ |
-    | North Central US | ✔ | - |
-    | Poland Central | ✔ | ✔ |
-    | Switzerland North | ✔ | ✔ |
-    | West Central US | ✔ | ✔ |
-    | West US 2 | ✔ | ✔ |
+## Related content
 
-## Next steps
+* **Session types**: Learn about the different types of dynamic sessions:
+  * [Code interpreter sessions](./sessions-code-interpreter.md)
+  * [Custom container sessions](./sessions-custom-container.md)
 
-> [!div class="nextstepaction"]
-> [Code interpreter sessions](./sessions-code-interpreter.md)
+* **Tutorials**: Work directly with the REST API or via a LLM agent:
+  * Use a LLM agent:
+    * [AutoGen](./sessions-tutorial-autogen.md)
+    * [LangChain](./sessions-tutorial-langchain.md)
+    * [LlamaIndex](./sessions-tutorial-llamaindex.md)
+    * [Semantic Kernel](./sessions-tutorial-semantic-kernel.md)
+  * Use the REST API
+    * [JavaScript Code interpreter](./sessions-tutorial-nodejs.md)

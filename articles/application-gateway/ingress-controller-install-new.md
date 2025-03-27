@@ -4,7 +4,6 @@ description: This article provides information on how to deploy the Application 
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.custom:
 ms.topic: how-to
 ms.date: 10/15/2024
 ms.author: greglin
@@ -289,7 +288,7 @@ If you use [Cloud Shell](https://shell.azure.com/), you don't need to install He
 1. Install the AGIC package:
 
     ```bash
-    helm install agic-controller oci://mcr.microsoft.com/azure-application-gateway/charts/ingress-azure --version 1.7.5 -f helm-config.yaml
+    helm install agic-controller oci://mcr.microsoft.com/azure-application-gateway/charts/ingress-azure --version 1.8.0 -f helm-config.yaml
     ```
 
 ## Install a sample app

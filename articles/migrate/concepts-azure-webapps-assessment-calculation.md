@@ -1,8 +1,6 @@
 ---
 title: Azure App Service assessments in Azure Migrate Discovery and assessment tool
 description: Learn about Azure App Service assessments in Azure Migrate Discovery and assessment tool
-author: rashi-ms
-ms.author: rajosh
 ms.topic: conceptual
 ms.service: azure-migrate
 ms.date: 09/26/2024
@@ -14,6 +12,7 @@ ms.custom: engagement-fy23, devx-track-extended-java
 This article provides an overview of assessments for migrating on-premises ASP.NET/Java web apps to Azure App Service using the [Azure Migrate: Discovery and assessment tool](./migrate-services-overview.md).
 
 ## What's an assessment?
+
 An assessment with the Discovery and assessment tool is a point in time snapshot of data and measures the readiness and provides cost details to host on-premises servers, databases, and web apps to Azure.
 
 ## Types of assessments
@@ -35,7 +34,7 @@ An Azure App Service assessment provides one sizing criteria:
 
 ## How do I assess my on-premises ASP.NET/Java web apps?
 
-You can assess your on-premises web apps by using the configuration data collected by a lightweight Azure Migrate appliance. The appliance discovers on-premises web apps and sends the configuration data to Azure Migrate. [Learn More](how-to-set-up-appliance-vmware.md)
+You can assess your on-premises web apps by using the configuration data collected by a lightweight Azure Migrate appliance. The appliance discovers on-premises web apps and sends the configuration data to Azure Migrate. [Learn More](how-to-set-up-appliance-vmware.md).
 
 ## How do I assess with the appliance?
 
@@ -79,8 +78,8 @@ Azure App Service readiness for web apps is based on feature compatibility check
 1. If the discovery is still in progress or there are any discovery issues for a web app, the readiness is marked as **Unknown** as the assessment couldn't compute the readiness for that web app.
 
 ### Security readiness
-If the web app is marked as **Ready** or **Ready with conditions** for Azure App Service, it is marked as **Ready** for Microsoft Defender for App Service.
 
+If the web app is marked as **Ready** or **Ready with conditions** for Azure App Service, it is marked as **Ready** for Microsoft Defender for App Service.
 
 ## Calculate sizing
 
@@ -118,9 +117,10 @@ P1v3  | 16
 > Your App Service plan can be scaled up and down at any time. [Learn more](../app-service/overview-hosting-plans.md#what-if-my-app-needs-more-capabilities-or-features).
 
 ### Security cost
+
 For web apps that have been recommended to App Service plans, the security cost is calculated per App Service plan that has been recommended.
 
-
 ## Next steps
+
 - [Review](best-practices-assessment.md) best practices for creating assessments.
 - Learn how to run an [Azure App Service assessment](how-to-create-azure-app-service-assessment.md).

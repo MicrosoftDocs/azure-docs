@@ -1,18 +1,18 @@
 ---
 title: Software plan discount - Azure
 description: Learn how software plan discounts are applied to software on virtual machines.
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 12/06/2024
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 ---
 
 # Azure software plan discount
 
-Azure software plans for SUSE and RedHat are reservations that apply to deployed VMs. The software plan discount is applied to the software usage of deployed VMs that match the reservation.
+Azure software plans for SUSE and RedHat are reservations that apply to deployed VMs. The software plan discount is applied to the software usage of deployed virtual machines (VM)s that match the reservation.
 
 When you shut down a VM, the discount is automatically applied to another matching VM, if available. A software plan covers the cost of running the software on a VM. Other charges such as compute, storage, and networking are charged separately.
 
@@ -24,7 +24,7 @@ A reservation discount is "*use-it-or-lose-it*." So, if you don't have matching 
 
 When you shut down a resource, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are *lost*.
 
-Stopped resources are billed and continue to use reservation hours. Deallocate or delete resources or scale-in other resources to use your available reservation hours with other workloads. 
+Stopped resources are billed and continue to use reservation hours. To use your available reservation hours with other workloads, deallocate or delete resources or scale-in other resources.
 
 ## Review RedHat VM usage before you buy
 
@@ -44,19 +44,55 @@ For example, if your usage is for product **SUSE for SAP Linux Enterprise Server
 
 Like Reserved VM Instances, SUSE plan purchases offer instance size flexibility. That means that your discount applies even when you deploy a VM with a different vCPU count. The discount applies to different VM sizes within the software plan.
 
-The discount amount depends on the ratio listed in the following tables. The ratio compares the relative footprint for each meter in that group. The ratio depends on the VM vCPUs. Use the ratio value to calculate how many VM instances get the SUSE Linux plan discount.
+The discount amount depends on the ratio listed in the following tables. The ratio compares the relative footprint for each meter in that group. The ratio depends on the VM vCPUs. Use the ratio value to calculate how many VM instances get the SUSE Linux plan discount. The article at [Virtual machine size flexibility with Reserved VM Instances](/azure/virtual-machines/reserved-vm-instance-size-flexibility) explains how instance size flexibility ratios work for different license types. 
 
-For example, if you buy a plan for SUSE Linux Enterprise Server for HPC Priority for a VM with 3 or 4 vCPUs, the ratio for that reservation is 2. The discount covers the SUSE software cost for:
+There are two decisions you should make when buying SUSE License reservations:
 
-- 2 deployed VMs with 1 or 2 vCPUs,
-- 1 deployed VM with 3 or 4 vCPUs,
-- or 0.77 or about 77% of a VM with 5 or more vCPUs.
+- Determine your license type
+- Determine the type or amount of vCPUs variant of the license
 
-The ratio for 5 or more vCPUs is 2.6. So a reservation for SUSE with a VM with 5 or more vCPUs covers only a portion of the software cost, which is about 77%.
+For the license type, you must match the license of your VM against the ones available:
 
-The ratios are based on prices. The 2.6 ratio means that 1 vCPU VM is covered when your purchase quantity of 1 has 5 or more vCPUs.
+- SUSE Enterprise Linux Server for SQL with HA
+- SUSE Linux Enterprise Server Priority
+- SUSE Linux Enterprise Server Standard
+- SUSE Linux Enterprise Server for HPC Priority
+- SUSE Linux Enterprise Server for HPC Standard
+- SUSE Linux Enterprise Server for SAP Standard
 
-The following tables show the software plans you can buy a reservation for, their associated usage meters, and the ratios for each.
+For the type or amount of vCPUs license, it’s slightly more complicated. Each license type has three variations: 1-2 vCPUs, 3-4 vCPUs, and 5+ vCPU. To choose the variant that fits your needs, you to understand the formula behind the ratios. 
+
+### Ratio calculation
+
+The ratio in the context of SUSE reservation charges determines how the discount applies to different VM sizes. This ratio is based on the number of vCPUs (virtual CPUs) in the VM SKU. Here’s a simplified breakdown:
+
+1. Identify the VM size. Each VM size has a specific number of vCPUs.
+1. Determine the “Coverage Value” for your VMs by using the ratios defined in the [Instance size flexibility ratios](https://aka.ms/isf) file based on the following formula:
+
+`Ratio Of The Bought License / Sum of the Ratio Of The "Target" Licenses = Coverage value`
+
+### Practical example
+
+Let’s look at a practical example. Assume you buy the *SLES_HPC_Priority_3-4_vCPU_VM* reservation. It has a ratio of two, per the instance size flexibility ratio file.
+
+- If you have two VMs with two vCPUs each, you:
+    1. Capture the ratio of the target license for machines with 1-2 vCPU which is one, per the instance size flexibility ratio file. Because you have two VMs, the sum for the ratios is two.
+	2. Input the value in the formula. It is: 
+        `2 / 2 = 1`
+	3. If you buy the SLES_HPC_Priority_3-4_vCPU_VM license, it fully covers two VMs with 1-2 vCPUs each.
+- If you have one VM with six vCPUs, then:
+	1. Capture the ratio of the target license for VMs with 5+ vCPUs, which is 2.6 according to the instance size flexibility ratio file.
+	2. Input the value in the formula, it is:
+	    `2 / 2.6 = 0.77`
+	4. If you buy the SLES_HPC_Priority_3-4_vCPU_VM license, it covers 77% of a VM with 6 vCPUs. Because there’s a difference in coverage, the result is that 77% of the VM is covered by the reservation and the remainder of 23% gets charged at the normal rate.
+
+### Environment-wide calculation
+
+To simplify:
+
+1. Calculate the total ratio. Then, sum the ratios of all VMs that you want to cover.
+2. Compare with your plan. Ensure that the total ratio doesn’t exceed the ratio of your purchased plan.
+
 
 ### SUSE Linux Enterprise Server for HPC 
 
@@ -76,6 +112,9 @@ The following tables show the software plans you can buy a reservation for, thei
 |SUSE for SAP Linux Enterprise Server 1-2 vCPUs|797618eb-cecb-59e7-a10e-1ee1e4e62d32|1|D2s_v3|
 |SUSE for SAP Linux Enterprise Server 3-4 vCPUs |1c0fb48a-e518-53c2-ab56-6feddadbb9a3|2|D4s_v3|
 |SUSE for SAP Linux Enterprise Server 5+ vCPUs |3ce5649c-142b-5a59-9b2a-6889da9b56f5|2.41176|D8s_v3|
+|SUSE for SAP Linux Enterprise for SAP Applications + 24x7 Support 1-2 vCPUs|497fe0b6-fa3c-4e3d-a66b-836097244142|1|D2s_v3|
+|SUSE for SAP Linux Enterprise for SAP Applications + 24x7 Support 3-4 vCPUs |847887de-68ce-4adc-8a33-7a3f4133312f|2|D4s_v3|
+|SUSE for SAP Linux Enterprise for SAP Applications + 24x7 Support 5+ vCPUs |18ae79cd-dfce-48c9-897b-ebd3053c6058|2.41176|D8s_v3|
 
 ### SUSE Linux Enterprise Server
 
@@ -97,5 +136,5 @@ To learn more about reservations, see the following articles:
 - [Prepay for SUSE software plans with Azure Reservations](/azure/virtual-machines/linux/prepay-suse-software-charges)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](/azure/virtual-machines/prepay-reserved-vm-instances)
 - [Manage Azure Reservations](manage-reserved-vm-instance.md)
-- [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
+- [Understand reservation usage for your pay-as-you-go subscription](understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)

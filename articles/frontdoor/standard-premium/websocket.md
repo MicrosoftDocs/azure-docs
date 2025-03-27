@@ -1,13 +1,12 @@
 ---
 title: Azure Front Door WebSocket (preview)
 description: This article describes how WebSocket work on Azure Front Door for real-time bidirectional communication between a server and client over a long running TCP connection.
-services: front-door
 author: jessie-jyy
-ms.author: duau
+ms.author: halkazwini
 manager: KumudD
-ms.date: 11/11/2024
-ms.topic: conceptual
 ms.service: azure-frontdoor
+ms.topic: concept-article
+ms.date: 11/11/2024
 ---
 
 # Azure Front Door WebSocket (preview)

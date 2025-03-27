@@ -59,7 +59,7 @@ Your attack surface is constantly changing, which is why Defender EASM continuou
 
 The "Changes by date" section provides more granular context on how your attack surface has changed on a daily basis. This section categorizes removals as "removed by user" or "removed by system."  User removals include all manual removals, including individual, bulk or cascading asset state changes, as well as removals triggered by user-configured asset policies. System removals occur automatically. The system removes assets that are no longer relevant to your attack surface because recent scans no longer observed their connection to your inventory. Assets are eligible for pruning if they haven't been observed in a scan for 30-60 days, depending on the asset type. Assets that are manually added to inventory are not eligible for removal. From the "Changes by date" section, you can click on any listed value to see a full list of the assets that were added or removed. 
 
-![Screenshot of Inventory changes dashboard with addition and removal counts.](media/inventory-changes-2.png)
+![Screenshot of Inventory changes dashboard with addition and removal counts.](media/inventory-changes-date.png)
 
 
 ## Attack surface summary

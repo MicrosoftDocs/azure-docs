@@ -77,7 +77,7 @@ Information about **entity pages** can now be found at [Entity pages in Microsof
 
 ## Querying behavior analytics data
 
-Using [KQL](/azure/data-explorer/kusto/query/), we can query the **BehaviorAnalytics** table.
+Using [KQL](/kusto/query/?view=microsoft-sentinel&preserve-view=true), we can query the **BehaviorAnalytics** table.
 
 For example – if we want to find all the cases of a user that failed to sign in to an Azure resource, where it was the user's first attempt to connect from a given country/region, and connections from that country/region are uncommon even for the user's peers, we can use the following query:
 

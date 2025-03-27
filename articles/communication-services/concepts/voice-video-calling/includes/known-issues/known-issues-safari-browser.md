@@ -67,7 +67,7 @@ ___
 ### Web calling participants hearing PSTN call audio when answered on macOS with iPhone integration
 **Browser version:** All.<br>
 **Azure Communication Service calling SDK version:** All.<br>
-**Description:** When a MacOS user, who is in an active ACS call using a browser, accepts an incoming PSTN call on their MacBook that is linked to their iPhone (using the same iCloud account), audio from the PSTN call is shared among web call participants. This results in participants of the call hearing the PSTN call audio.<br>
+**Description:** When a macOS user, who is in an active ACS call using a browser, accepts an incoming PSTN call on their MacBook that is linked to their iPhone (using the same iCloud account), audio from the PSTN call is shared among web call participants. This results in participants of the call hearing the PSTN call audio.<br>
 **Known issue reference:** This is a known issue on [macOS](https://bugs.webkit.org/show_bug.cgi?id=256593).<br>
 **Recommended workaround:** Currently, no direct workaround is available. Users are advised to use separate devices for PSTN and web calls to prevent that audio shared with other call participants in a separate call.<br>
 

@@ -5,8 +5,8 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
-ms.topic: conceptual
-ms.date: 10/03/2024
+ms.topic: concept-article
+ms.date: 03/14/2025
 ms.author: cherylmc
 ---
 # Azure VPN Client versions
@@ -24,7 +24,6 @@ This article helps you view each of the versions of the Azure VPN Client. As new
 ## Azure VPN Client - macOS
 
 [!INCLUDE [macOS client versions](../../includes/vpn-gateway-azure-vpn-client-macos-table.md)]
-
 
 ## Next steps
 

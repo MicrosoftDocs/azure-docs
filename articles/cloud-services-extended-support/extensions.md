@@ -7,6 +7,7 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+# Customer intent: "As a cloud service administrator, I want to configure extensions for post-deployment tasks, so that I can automate monitoring, security, and remote access for applications in extended support environments."
 ---
 
 # Extensions for Cloud Services (extended support)

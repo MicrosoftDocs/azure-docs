@@ -1,18 +1,18 @@
 ---
-title: Back up Azure Database for PostgreSQL - Flexible servers using in Azure Backup
+title: Back up Azure Database for PostgreSQL - Flexible Servers using REST API
 description: Learn how to back up Azure Database for PostgreSQL - Flexible servers using REST API.
 ms.topic: conceptual
 ms.custom:
   - ignite-2024
-ms.date: 05/13/2024
+ms.date: 02/28/2025
 ms.assetid: 759ee63f-148b-464c-bfc4-c9e640b7da6b
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
-# Back up Azure Database for PostgreSQL - Flexible servers using REST API (preview)
+# Back up Azure Database for PostgreSQL - Flexible Servers using REST API
 
-This article describes how to manage backups for Azure PostgreSQL flexible servers via REST API.
+This article describes how to back up Azure Database for PostgreSQL - Flexible Severs using REST API.
 
 For information on the Azure PostgreSQL - Flexible server backup supported scenarios, limitations, and authentication mechanisms, see the [overview document](backup-azure-database-postgresql-flex-overview.md).
 
@@ -51,7 +51,7 @@ After you set the relevant permissions to the vault and PostgreSQL flexible serv
 {
   "backupInstance": {
     "dataSourceInfo": {
-          "resourceID": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+          "resourceID": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
           "resourceUri": "",
           "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
           "resourceName": "pgflextestserver",
@@ -60,7 +60,7 @@ After you set the relevant permissions to the vault and PostgreSQL flexible serv
           "objectType": "Datasource"
       },
       "dataSourceSetInfo": {
-          "resourceID": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+          "resourceID": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
           "resourceUri": "",
           "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
           "resourceName": "pgflextestserver",
@@ -103,7 +103,7 @@ The request body that we prepared earlier will be used to provide details of the
 {
   "backupInstance": {
     "dataSourceInfo": {
-          "resourceID": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+          "resourceID": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
           "resourceUri": "",
           "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
           "resourceName": "pgflextestserver",
@@ -112,7 +112,7 @@ The request body that we prepared earlier will be used to provide details of the
           "objectType": "Datasource"
       },
       "dataSourceSetInfo": {
-          "resourceID": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+          "resourceID": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
           "resourceUri": "",
           "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
           "resourceName": "pgflextestserver",
@@ -257,7 +257,7 @@ GET https://management.azure.com/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4
           "innerError": {
             "code": "UserErrorMissingRequiredPermissions",
             "additionalInfo": {
-              "DetailedNonLocalisedMessage": "Validate for Protection failed. Exception Message: The client 'a8b24f84-f43c-45b3-aa54-e3f6d54d31a6' with object id 'a8b24f84-f43c-45b3-aa54-e3f6d54d31a6' does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/read' over scope '/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourceGroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver/providers/Microsoft.Authorization' or the scope is invalid. If access was recently granted, please refresh your credentials."
+              "DetailedNonLocalisedMessage": "Validate for Protection failed. Exception Message: The client '00001111-aaaa-2222-bbbb-3333cccc4444' with object id 'aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb' does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/read' over scope '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver/providers/Microsoft.Authorization' or the scope is invalid. If access was recently granted, please refresh your credentials."
             }
           },
           "isRetryable": false,
@@ -328,7 +328,7 @@ We'll use the [same request body that we used to validate the backup request](ba
   "type": "Microsoft.DataProtection/backupvaults/backupInstances",
   "properties": {
     "dataSourceInfo": {
-          "resourceID": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+          "resourceID": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
           "resourceUri": "",
           "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
           "resourceName": "pgflextestserver",
@@ -337,7 +337,7 @@ We'll use the [same request body that we used to validate the backup request](ba
           "objectType": "Datasource"
       },
       "dataSourceSetInfo": {
-          "resourceID": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+          "resourceID": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
           "resourceUri": "",
           "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
           "resourceName": "pgflextestserver",
@@ -394,7 +394,7 @@ X-Powered-By: ASP.NET
       "properties": {
            "friendlyName": "pgflextestserver-857d23b1-c679-4c94-ade6-c4d34635e149",
            "dataSourceInfo": {
-           "resourceID": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+           "resourceID": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
            "resourceUri": "",
            "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
            "resourceName": "pgflextestserver",
@@ -403,7 +403,7 @@ X-Powered-By: ASP.NET
            "objectType": "Datasource"
        },
        "dataSourceSetInfo": {
-           "resourceID": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
+           "resourceID": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/pgflextest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgflextestserver",
            "resourceUri": "",
            "datasourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
            "resourceName": "pgflextestserver",
@@ -513,9 +513,9 @@ GET "https://management.azure.com/subscriptions/00001111-aaaa-2222-bbbb-3333cccc
 
 ## Next steps
 
-[Restore data from an Azure PostGreSQL - Flexible server backup](backup-azure-database-postgresql-flex-use-rest-api-restore.md)
+[Restore Azure Database for PostgreSQL - Flexible Server using REST API](backup-azure-database-postgresql-flex-use-rest-api-restore.md).
 
 For more information on the Azure Backup REST APIs, see the following articles:
 
 - [Get started with Azure Data Protection Provider REST API](/rest/api/azure).
-- [Get started with Azure REST API](/rest/api/azure)
+- [Get started with Azure REST API](/rest/api/azure).

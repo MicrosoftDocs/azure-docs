@@ -6,7 +6,7 @@ author: ruixinxu
 ms.service: azure-synapse-analytics
 ms.subservice: pipeline 
 ms.topic: conceptual 
-ms.date: 05/19/2021
+ms.date: 12/11/2024
 ms.author: ruxu 
 ---
 

@@ -79,7 +79,7 @@ Before you can use multimedia redirection, you need:
    - Windows App on Windows, version 2.0.297.0 or later.
    - Remote Desktop app on Windows, version 1.2.5709 or later.
 
-- Your local Windows device must meet the [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
+- Your local Windows device must meet the same [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 
 > [!NOTE]
 > Multimedia redirection isn't supported on Azure Virtual Desktop for Azure US Government, or Windows 365 for Microsoft 365 Government (GCC), GCC-High environments, and Microsoft 365 DoD.
@@ -180,7 +180,7 @@ To enable the multimedia redirection browser extension using Microsoft Intune, e
    {
      "joeclbldhdmoijbaagobkhlpfjglcihd": {
        "installation_mode": "force_installed",
-       "update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx",
+       "update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx"
      }
    }
    ```
@@ -229,7 +229,7 @@ To enable the multimedia redirection browser extension using Microsoft Intune, e
    {
      "lfmemoeeciijgkjkgbgikoonlkabmlno": {
        "installation_mode": "force_installed",
-       "update_url": "https://clients2.google.com/service/update2/crx",
+       "update_url": "https://clients2.google.com/service/update2/crx"
      }
    }
    ```
@@ -280,7 +280,7 @@ To enable the multimedia redirection browser extension using Group Policy:
    {
      "joeclbldhdmoijbaagobkhlpfjglcihd": {
        "installation_mode": "force_installed",
-       "update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx",
+       "update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx"
      }
    }
    ```
@@ -329,7 +329,7 @@ To enable the multimedia redirection browser extension using Group Policy:
    {
      "lfmemoeeciijgkjkgbgikoonlkabmlno": {
        "installation_mode": "force_installed",
-       "update_url": "https://clients2.google.com/service/update2/crx",
+       "update_url": "https://clients2.google.com/service/update2/crx"
      }
    }
    ```
@@ -371,7 +371,7 @@ To enable the multimedia redirection browser extension using the Microsoft Edge 
 
 ## Common policy configuration parameters
 
-The following sections show some examples of policy configuration parameters for the browser you can use to manage the multimedia redirection browser extension that are common for both video playback and call redirection. You can use these examples as part of the steps in [Enable and manage the browser extension centrally](#enable-and-manage-the-browser-extension-centrally). Combine these examples with the parameters you require for your users.
+The following sections show some examples of policy configuration parameters for the browser extension that are common for both video playback and call redirection. You can use these examples as part of the steps in [Enable and manage the browser extension centrally](#enable-and-manage-the-browser-extension-centrally). Combine these examples with the parameters you require for your users.
 
 > [!NOTE]
 > The following examples are for Microsoft Edge. For Google Chrome:
@@ -395,7 +395,7 @@ The following example installs the extension and shows the extension icon on the
 }
 ```
 
-### Show or hide advanced settings button
+### Hide advanced settings button
 
 You can show or hide the advanced settings button to users in the extension. By default, the advanced settings button is shown and users have access to toggle each setting on or off. If you hide the advanced settings button, users can still collect logs.
 
@@ -403,16 +403,29 @@ Here's what the extension looks like when the advanced settings button is hidden
 
 :::image type="content" source="./media/multimedia-redirection/browser-extension-loaded-advanced-settings-hidden.png" alt-text="A screenshot of the browser extension advanced settings hidden.":::
 
-This example installs the extension and hides the advanced settings button. Alternatively, to show the advanced settings button, set `HideAdvancedSettings` to `false`.
+To hide the advanced settings button, you need to set the following registry value on the computers providing a remote session, depending on the browser you're using:
 
-```json
-{
-  "joeclbldhdmoijbaagobkhlpfjglcihd": {
-    "installation_mode": "force_installed",
-    "update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx",
-    "HideAdvancedSettings": true
-  }
-}
+- For Microsoft Edge:
+
+   - **Key**: `HKLM\SOFTWARE\Policies\Microsoft\Edge\3rdparty\extensions\joeclbldhdmoijbaagobkhlpfjglcihd\policy`
+   - **Name**: `HideAdvancedSettings`
+   - **Type**: `REG_DWORD`
+   - **Data**: `1`
+
+- For Google Chrome:
+
+   - **Key**: `HKLM\SOFTWARE\Policies\Google\Chrome\3rdparty\extensions\lfmemoeeciijgkjkgbgikoonlkabmlno\policy`
+   - **Name**: `HideAdvancedSettings`
+   - **Type**: `REG_DWORD`
+   - **Data**: `1`
+
+If you set **Data** to `0`, the advanced settings button is shown.
+
+You can configure the registry using an enterprise deployment tool such as Intune, Configuration Manager, or Group Policy. Alternatively, to set this registry value using PowerShell, open PowerShell as an administrator and run the following commands. This example uses the registry key for Microsoft Edge:
+
+```powershell
+New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge\3rdparty\extensions\joeclbldhdmoijbaagobkhlpfjglcihd\policy" -Force
+New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge\3rdparty\extensions\joeclbldhdmoijbaagobkhlpfjglcihd\policy" -Name HideAdvancedSettings -PropertyType DWORD -Value 1 -Force
 ```
 
 ## Browser extension status
@@ -454,12 +467,11 @@ The following websites are known to work with video playback redirection, and wh
       - `LinkedIn Learning`
       - `Microsoft Learn`
       - `Microsoft Stream`
-      - `Microsoft Teams live events`
       - `Pluralsight`
       - `Skillshare`
+      - `The Guardian`
    :::column-end:::
    :::column span="":::
-      - `The Guardian`
       - `Twitch`
       - `Udemy`\*
       - `UMU`
@@ -488,17 +500,9 @@ After you enable multimedia redirection, you can test it by visiting a web page 
 
    :::image type="content" source="./media/multimedia-redirection/browser-extension-icon-video-playback.png" alt-text="Testing video playback redirection, the multimedia redirection extension is currently redirecting video playback.":::
 
-#### Microsoft Teams live events
-
-Microsoft Teams live events aren't media-optimized when using the native Teams app in a remote session. However, if you use Teams live events with a browser that supports Teams live events and multimedia redirection, multimedia redirection is a workaround that provides smoother Teams live events playback in a remote session. Multimedia redirection supports Enterprise Content Delivery Network (ECDN) for Teams live events.
-
-To use multimedia redirection with Teams live events, you must use the web version of Teams. Multimedia redirection isn't supported with the native Teams app. When you launch the live event in your browser, make sure you select **Watch on the web instead**. The Teams live event should automatically start playing in your browser with multimedia redirection enabled.
-
-:::image type="content" source="./media/multimedia-redirection/microsoft-teams-live-events.png" alt-text="A screenshot of the 'Watch the live event in Microsoft Teams' web page. The 'watch on the web instead' option and the multimedia extension icon are highlighted in red.":::
-
 ### Advanced settings for video playback redirection
 
-The following advanced settings are available for video playback redirection. You can also hide the advanced settings button from users; for more information, see [Show or hide advanced settings button](#show-or-hide-advanced-settings-button).
+The following advanced settings are available for video playback redirection. You can also hide the advanced settings button from users; for more information, see [Hide advanced settings button](#hide-advanced-settings-button).
 
 - **Enable video playback for all sites (beta)**: By default, video playback redirection is limited to the sites listed in [Websites for video playback redirection](#websites-for-video-playback-redirection). You can enable video playback redirection for all sites to test the feature with other web pages. This setting is experimental and might not work as expected.
 
@@ -550,6 +554,11 @@ The following websites are known to work with call redirection, and which work b
 - [`Content Guru Storm App`](https://www.contentguru.com/en-us/news/content-guru-announces-its-storm-ccaas-solution-is-now-compatible-with-microsoft-azure-virtual-desktop/)
 - [`Twilio Flex`](https://www.twilio.com/en-us/blog/public-beta-flex-microsoft-azure-virtual-desktop#join-the-flex-for-azure-virtual-desktop-public-beta)
 - [`8x8`](https://www.8x8.com/)
+- [Dialpad](https://www.dialpad.com/)
+- [Five9](https://www.five9.com/)
+
+> [!TIP]
+> If you represent an ISV and you want your website to be added to this list, see [Submit your website for review or request assistance](multimedia-redirection-developer-integration.md#submit-your-website-for-review-or-request-assistance).
 
 ### Test call redirection
 
@@ -567,7 +576,7 @@ After you enable multimedia redirection, you can test it by visiting a web page 
 
 ### Enable call redirection for specific domains
 
-If you configure multimedia redirection using Microsoft Intune or Group Policy, you can enable one or more domains for call redirection. This parameter enables you to specify extra sites in addition to the [Websites for call redirection](#websites-for-call-redirection). The supported format is the fully qualified domain name (FQDN) with up to one subdirectory. The following formats are supported:
+If you configure multimedia redirection using Microsoft Intune or Group Policy, you can enable one or more domains for call redirection. This parameter enables you to specify extra sites in addition to the [Websites for call redirection](#websites-for-call-redirection). The supported format is to specify the URL as the fully qualified domain name (FQDN) with up to one subdirectory. The following formats are supported:
 
 - `contoso.com`
 - `conferencing.contoso.com`
@@ -579,23 +588,29 @@ The following formats aren't supported:
 - `contoso.com/conferencing/groups`
 - `contoso.com/`
 
-> [!NOTE]
-> The following example is for Microsoft Edge. For Google Chrome:
->
-> - Change `joeclbldhdmoijbaagobkhlpfjglcihd` to `lfmemoeeciijgkjkgbgikoonlkabmlno`.
-> - Change the `update_url` to `https://clients2.google.com/service/update2/crx`.
+For multiple sites, separate each site with a semicolon `;`, for example, `contoso.com;conferencing.contoso.com;contoso.com/conferencing`.
 
-This example installs the extension and adds calling sites `contoso.com`, `conferencing.contoso.com`, and `contoso.com/conferencing`, which are separated by a semicolon `;`:
+To add extra sites for call redirection, you need to set the following registry value on the computers providing a remote session, depending on the browser you're using. Replace `<URLs>` with the sites you want to enable.
 
-```json
-{
-  "joeclbldhdmoijbaagobkhlpfjglcihd": {
-    "installation_mode": "force_installed",
-    "AllowedCallRedirectionSites": "contoso.com;conferencing.contoso.com;contoso.com/conferencing",
-    "update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx",
-    "toolbar_state": "default_shown"
-  }
-}
+- For Microsoft Edge:
+
+   - **Key**: `HKLM\SOFTWARE\Policies\Microsoft\Edge\3rdparty\extensions\joeclbldhdmoijbaagobkhlpfjglcihd\policy`
+   - **Name**: `AllowedCallRedirectionSites`
+   - **Type**: `REG_SZ`
+   - **Data**: `<URLs>`
+
+- For Google Chrome:
+
+   - **Key**: `HKLM\SOFTWARE\Policies\Google\Chrome\3rdparty\extensions\lfmemoeeciijgkjkgbgikoonlkabmlno\policy`
+   - **Name**: `AllowedCallRedirectionSites`
+   - **Type**: `REG_SZ`
+   - **Data**: `<URLs>`
+
+You can configure the registry using an enterprise deployment tool such as Intune, Configuration Manager, or Group Policy. Alternatively, to set this registry value using PowerShell, open PowerShell as an administrator and run the following commands. This example uses the registry key for Microsoft Edge. Replace `<URLs>` with the sites you want to enable.
+
+```powershell
+New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge\3rdparty\extensions\joeclbldhdmoijbaagobkhlpfjglcihd\policy" -Force
+New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Edge\3rdparty\extensions\joeclbldhdmoijbaagobkhlpfjglcihd\policy" -Name AllowedCallRedirectionSites -PropertyType String -Value "<URLs>" -Force
 ```
 
 ### Enable call redirection for all sites for testing
@@ -621,4 +636,4 @@ To enable call redirection for all sites:
 
 ## Next step
 
-To troubleshoot issues or view known issues, see [our troubleshooting article](troubleshoot-multimedia-redirection.md).
+To troubleshoot issues or view known issues, see [our troubleshooting article](/troubleshoot/azure/virtual-desktop/troubleshoot-multimedia-redirection).

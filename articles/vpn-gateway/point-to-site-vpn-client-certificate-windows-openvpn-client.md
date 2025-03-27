@@ -5,13 +5,13 @@ description: Learn how to configure VPN clients for P2S configurations that use 
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 10/08/2024
+ms.date: 01/29/2025
 ms.author: cherylmc
 ---
 
 # Configure OpenVPN 2.x client for P2S certificate authentication connections - Windows
 
-If your point-to-site (P2S) VPN gateway is configured to use OpenVPN and certificate authentication, you can connect to your virtual network using the OpenVPN Client. This article walks you through the steps to configure the **OpenVPN client 2.4 and higher** and connect to your virtual network.
+If your point-to-site (P2S) VPN gateway is configured to use OpenVPN and certificate authentication, you can connect to your virtual network using the OpenVPN Client. This article walks you through the steps to configure the **OpenVPN client 2.4 and higher** and connect to your virtual network. For OpenVPN Connect 3.x clients, see [Configure OpenVPN 3.x client for P2S User VPN certificate authentication connections - Windows](point-to-site-vpn-client-certificate-windows-openvpn-client-version-3.md).
 
 ## Before you begin
 
@@ -20,7 +20,7 @@ Before beginning client configuration steps, verify that you're on the correct V
 [!INCLUDE [All client articles](../../includes/vpn-gateway-vpn-client-install-articles.md)]
 
 > [!NOTE]
-> The OpenVPN client is independently managed and not under Microsoft's control. This means Microsoft does not oversee its code, builds, roadmap, or legal aspects. Should customers encounter any bugs or issues with the OpenVPN client, they should directly contact OpenVPN Inc. support. The guidelines in this article are provided 'as is' and have not been validated by OpenVPN Inc. They are intended to assist customers who are already familiar with the client and wish to use it to connect to the Azure VPN Gateway in a Point-to-Site VPN setup.
+> The OpenVPN client is independently managed and not under Microsoft's control. This means Microsoft doesn't oversee its code, builds, roadmap, or legal aspects. Should customers encounter any bugs or issues with the OpenVPN client, they should directly contact OpenVPN Inc. support. The guidelines in this article are provided 'as is' and haven't been validated by OpenVPN Inc. They are intended to assist customers who are already familiar with the client and wish to use it to connect to the Azure VPN Gateway in a Point-to-Site VPN setup.
 
 ### Prerequisites
 
@@ -41,7 +41,7 @@ To connect to Azure using the OpenVPN client using certificate authentication, e
 
 The workflow for this article is:
 
-1. Generate and install client certificates if you haven't already done so.
+1. Generate and install client certificates if you haven't done so already.
 1. View the VPN client profile configuration files contained in the VPN client profile configuration package that you generated.
 1. Configure the OpenVPN client.
 1. Connect to Azure.
@@ -60,9 +60,10 @@ In many cases, you can install the client certificate directly on the client com
 Each computer needs a client certificate in order to authenticate. If the client certificate isn't already installed on the local computer, you can install it using the following steps:
 
 1. Locate the client certificate. For more information about client certificates, see [Install client certificates](point-to-site-how-to-vpn-client-install-azure-cert.md).
-1. Install the client certificate. Typically, you can do this by double-clicking the certificate file and providing a password (if required).
+1. Install the client certificate. Typically, you can install a certificate by double-clicking the certificate file and providing a password (if required).
+1. You'll also use the client certificate later in this exercise to configure the OpenVPN Connect client profile settings.
 
-## View configuration files
+## View client profile configuration files
 
 The VPN client profile configuration package contains specific folders. The files within the folders contain the settings needed to configure the VPN client profile on the client computer. The files and the settings they contain are specific to the VPN gateway and the type of authentication and tunnel your VPN gateway is configured to use.
 

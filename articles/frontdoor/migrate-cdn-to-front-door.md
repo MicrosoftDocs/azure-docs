@@ -2,21 +2,25 @@
 title: Migrate Azure CDN from Edgio to Azure Front Door
 titleSuffix: Azure Content Delivery Network
 description: Learn how to migrate your workloads from Azure CDN from Edgio to Azure Front Door using Azure Traffic Manager.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 10/30/2024
-ms.author: duau
+ms.date: 12/18/2024
 ---
 
 # Migrate Azure CDN from Edgio to Azure Front Door
 
-Azure CDN from Edgio will be retired on November 4, 2025. You must migrate your workload to Azure Front Door before this date to avoid service disruption. This article provides guidance on how to migrate your workloads from Azure CDN from Edgio to Azure Front Door using Azure Traffic Manager. The migration process in this article can also be used to migrate workloads from a legacy CDN to Azure Front Door.
+Azure CDN from Edgio will be retired on January 15, 2025. You must migrate your workload to Azure Front Door before this date to avoid service disruption. This article provides guidance on how to migrate your workloads from Azure CDN from Edgio to Azure Front Door using Azure Traffic Manager. The migration process in this article can also be used to migrate workloads from a legacy CDN to Azure Front Door.
 
 Azure Traffic Manager initially routes all traffic to the Azure CDN from Edgio. After you set up Azure Front Door, you can update the Traffic Manager profile to incrementally route traffic to the Azure Front Door. This approach allows you to validate if Azure Front Door is compatible with your workloads before fully migrating.
 
 We recommend that your plan this migration well in advance and test the functionality over the course of a few days to ensure a smooth transition. 
+
+> [!IMPORTANT]
+> - If you plan to migrate to Azure Front Door, set the Feature Flag **DoNotForceMigrateEdgioCDNProfiles** before January 7, 2025 using [Set up preview feature](../azure-resource-manager/management/preview-features.md). This will prevent Microsoft from auto-migrating your profiles to Azure Front Door. Auto-migration is on a *best effort* basis and may cause issues with billing, features, availability, and performance. Note you will have until January 14, 2025 to complete your migration to another CDN, but again Microsoft cannot guarantee your services will be available on the Edgio platform before this date.
+> - This guide only works if you are already using custom domains on Azure CDN from Edgio. If you don't use custom domains, you won't be able to use traffic manager to gradually shift traffic to  Front Door. You will have to update the clients to directly point to the new Front Door endpoint. Another temporary option will be to migrate to Front Door while [retaining your `<endpointname>.azureedge.net` domain.](../cdn/migrate-cdn-to-front-door-retain-edge-domain.md)
+
 
 ## Prerequisites
 
@@ -24,6 +28,9 @@ We recommend that your plan this migration well in advance and test the function
 - You need access to a VM connected to the internet that can run Wget on Linux or Invoke-WebRequest on Windows using PowerShell.
 - You need access to a monitoring tool such as CatchPoint or ThousandEyes to verify the availability of your URLs before and after the migration. These tools are the most ideal because they can monitor the availability of your URLs from different locations around the world. `webpagetest.org` is another option, but it only provides a limited view of your URLs from a few locations.
 
+> [!NOTE]
+> If you have multiple endpoints in your Azure CDN from Edgio profile, you will have to repeat the  migration steps for each endpoint. You will have to create corresponding endpoints in Azure Front Door for facilitating migration.
+    
 ## Migrate your workloads
 
 The followings steps assume you're using an Azure Blob Storage account as your origin. If you're using a different origin, adjust the steps accordingly.
@@ -44,9 +51,9 @@ The followings steps assume you're using an Azure Blob Storage account as your o
 
 1. Determine which tier of Azure Front Door is suitable for your workloads. For more information, see [Azure Front Door comparison](../frontdoor/front-door-cdn-comparison.md).
 
-1. Review the origin settings in your Azure CDN from Edgio profile.
+1. Review the origin settings of your Azure CDN from Edgio endpoint.
 
-1. Determine a test URL with your Azure CDN from Edgio profile and perform a `wget` or `Invoke-WebRequest` to obtain the HTTP header information. 
+1. Determine a test URL with your Azure CDN from Edgio endpoint and perform a `wget` or `Invoke-WebRequest` to obtain the HTTP header information. 
 
 1. Enter the URL into the monitoring tool to understand the geographic availability of your URL.
 
@@ -75,12 +82,12 @@ The followings steps assume you're using an Azure Blob Storage account as your o
 
 1. Leave the rest of the settings as default and select **Add**.
 
-1. If caching was enabled in your Azure CDN from Edgio profile, select **Enable caching** and set the caching rules.
+1. If caching was enabled in your Azure CDN from Edgio endpoint, select **Enable caching** and set the caching rules.
 
     > [!NOTE]
     > Azure CDN from Edgio *Standard-cache* is equivalent to Azure Front Door *Ignore query string* caching.
 
-1. Select **Enable compression** if you have compression enabled in your Azure CDN from Edgio profile. Ensure the origin path matches the path in your Azure CDN from Edgio profile. If this isn't set correctly, the origin won't be able to serve the content and will return a 4xx error.
+1. Select **Enable compression** if you have compression enabled in your Azure CDN from Edgio endpoint. Ensure the origin path matches the path in your Azure CDN from Edgio endpoint. If this isn't set correctly, the origin won't be able to serve the content and will return a 4xx error.
 
 1. Select **Add** to create the route.
 
@@ -88,7 +95,7 @@ The followings steps assume you're using an Azure Blob Storage account as your o
 
 1. Select **Review + create** and then select **Create**.
 
-1. Set up the custom domain for the Azure Front Door profile. For more information, see [Custom domains](front-door-custom-domain.md). You may have multiple custom domains in your Azure CDN from Edgio profile. Ensure you add all custom domains to the Azure Front Door profile and associate them with the correct routes.
+1. Set up the custom domain for the Azure Front Door profile. For more information, see [Custom domains](standard-premium/how-to-add-custom-domain.md). You may have multiple custom domains in your Azure CDN from Edgio profile. Ensure you add all custom domains to the Azure Front Door profile and associate them with the correct routes.
 
 ### Set up Traffic Manager
 
@@ -108,7 +115,7 @@ The steps in this section need to be repeated for each endpoint in your Azure CD
 
 1. Enter a name for the endpoint and leave the **Enable Endpoint** checked.
 
-1. Enter the **Fully-qualified domain name (FQDN)** of the Azure CDN from Edgio profile. For example, `yourdomain.azureedge.net`.
+1. Enter the **Fully-qualified domain name (FQDN)** of the Azure CDN from Edgio endpoint. For example, `yourdomain.azureedge.net`.
 
 1. Set the **Weight** to 100.
 
@@ -116,11 +123,11 @@ The steps in this section need to be repeated for each endpoint in your Azure CD
 
     :::image type="content" source="./media/migrate-cdn-to-front-door/cdn-endpoint.png" alt-text="Screenshot of adding the Azure CDN from Edgio as an endpoint in Azure Traffic Manager.":::
 
-1. Add another endpoint for the Azure Front Door profile and select **External endpoint**.
+1. Add another endpoint for the Azure Front Door endpoint and select **External endpoint**.
 
 1. Enter a name for the endpoint and uncheck the **Enable Endpoint** setting.
 
-1. Enter the **Fully-qualified domain name (FQDN)** of the Azure Front Door profile. For example, `your-new-endpoint-name.azurefd.net`.
+1. Enter the **Fully-qualified domain name (FQDN)** of the Azure Front Door endpoint. For example, `your-new-endpoint-name.azurefd.net`.
 
 1. Set the **Weight** to 1.
 
@@ -128,11 +135,11 @@ The steps in this section need to be repeated for each endpoint in your Azure CD
 
 ### Internal testing of Traffic Manager profile
 
-1. Perform a DNS dig to test the Traffic Manager profile: `dig your-profile.trafficmanager.net`. The dig command should always return the CNAME of the Azure CDN from Edgio profile: `yourdomain.azureedge.net`.
+1. Perform a DNS dig to test the Traffic Manager profile: `dig your-profile.trafficmanager.net`. The dig command should always return the CNAME of the Azure CDN from Edgio endpoint: `yourdomain.azureedge.net`.
 
-1. Test the Azure Front Door profile by manually adding a DNS entry in your local hosts file pointing to the Azure Front Door profile:
+1. Test the Azure Front Door endpoint by manually adding a DNS entry in your local hosts file pointing to the Azure Front Door endpoint:
 
-    1. Get the IP address of the Azure Front Door profile by performing a DNS dig.
+    1. Get the IP address of the Azure Front Door endpoint by performing a DNS dig.
     
     1. Add a new line to your hosts file with the IP address followed by a space and then `your-new-endpoint-name.azurefd.net`. For example, `203.0.113.254 your-new-endpoint-name.azurefd.net`.
     
@@ -140,15 +147,15 @@ The steps in this section need to be repeated for each endpoint in your Azure CD
         
         1. For Linux, the hosts file is located at `/etc/hosts`.
     
-    1. Test the functionality of the Azure Front Door profile locally and ensure everything is working as expected.
+    1. Test the functionality of the Azure Front Door endpoint locally and ensure everything is working as expected.
     
     1. Remove the entry from the hosts file when testing is complete.
 
 ### Configure Traffic Manager with CNAME
 
-We only recommend this step after you have fully tested the Azure Front Door profile and are confident that it is working as expected.
+We only recommend this step after you have fully tested the Azure Front Door endpoint and are confident that it is working as expected.
 
-1. Sign into your DNS provider and locate the CNAME record for the Azure CDN from Edgio profile.
+1. Sign into your DNS provider and locate the CNAME record for the Azure CDN from Edgio endpoint.
 
 1. Locate the custom domain you want to migrate to Azure Front Door and set the time-to-live (TTL) to 600 secs (10 minutes).
 
@@ -160,22 +167,22 @@ We only recommend this step after you have fully tested the Azure Front Door pro
 
 1. Use a tool like dig or nslookup to verify that the DNS change propagated and pointed to the correct Traffic Manager profile.
 
-1. Verify that the Azure CDN from Edgio profile is working properly by checking the monitoring tool you set up earlier.
+1. Verify that the Azure CDN from Edgio endpoint is working properly by checking the monitoring tool you set up earlier.
 
 ### Gradual traffic shift
 
-The initial traffic distribution starts by routing a small percentage of traffic to the Azure Front Door profile. Monitor the performance of the Azure Front Door profile and gradually increase the traffic percentage until all traffic is routed to the Azure Front Door profile.
+The initial traffic distribution starts by routing a small percentage of traffic to the Azure Front Door endpoint. Monitor the performance of the Azure Front Door endpoint and gradually increase the traffic percentage until all traffic is routed to the Azure Front Door endpoint.
 
-1. Start by routing 10% of the traffic to the Azure Front Door profile and the rest to the Azure CDN from Edgio profile.
+1. Start by routing 10% of the traffic to the Azure Front Door endpoint and the rest to the Azure CDN from Edgio endpoint.
 
-1. Monitor the performance of the Azure Front Door profile and the Azure CDN from Edgio profile using the monitoring tool you set up earlier. Review your internal applications and systems logs to ensure that the Azure Front Door profile is working as expected. Look at metrics and logs to observe for 4xx/5xx errors, cache/byte hit ratios, and origin health.
+1. Monitor the performance of the Azure Front Door endpoint and the Azure CDN from Edgio endpoint using the monitoring tool you set up earlier. Review your internal applications and systems logs to ensure that the Azure Front Door endpoint is working as expected. Look at metrics and logs to observe for 4xx/5xx errors, cache/byte hit ratios, and origin health.
 
     > [!NOTE]
-    > If you don't have access to a third-party tool, you can use [Webpagetest](https://webpagetest.org) to verify the availability of your endpoint from a remote location. However, this tool only provides a limited view of your URLs from a few locations around the world, so you may not see any changes until you have fully shifted traffic to the Azure Front Door profile.
+    > If you don't have access to a third-party tool, you can use [Webpagetest](https://webpagetest.org) to verify the availability of your endpoint from a remote location. However, this tool only provides a limited view of your URLs from a few locations around the world, so you may not see any changes until you have fully shifted traffic to the Azure Front Door endpoint.
 
-1. Gradually increase the traffic percentage to the Azure Front Door profile by 10% increments until all traffic is routed to the Azure Front Door profile. Ensure that you're testing and monitoring the performance of the Azure Front Door profile at each increment.
+1. Gradually increase the traffic percentage to the Azure Front Door endpoint by 10% increments until all traffic is routed to the Azure Front Door endpoint. Ensure that you're testing and monitoring the performance of the Azure Front Door endpoint at each increment.
 
-1. Once you're confident that the Azure Front Door profile is working as expected, update the Traffic Manager profile to route all traffic to the Azure Front Door profile.
+1. Once you're confident that the Azure Front Door endpoint is working as expected, update the Traffic Manager profile to route all traffic to the Azure Front Door endpoint.
 
     1. Ensure the Azure Front Door endpoint is enabled, Weight is set to 100, and the health check is set to **Always serve traffic**.
 
@@ -186,7 +193,7 @@ The initial traffic distribution starts by routing a small percentage of traffic
 
 ### Remove Azure Traffic Manager
 
-1. Sign in to your DNS provider. Change the CNAME record from the Traffic Manager profile to the Azure Front Door profile: `<endpointname>-<hash>.xxx.azurefd.net`.
+1. Sign in to your DNS provider. Change the CNAME record from the Traffic Manager profile to the Azure Front Door endpoint: `<endpointname>-<hash>.xxx.azurefd.net`.
 
 1. Over the next few hours, begin testing using dig, and monitor using the monitoring tool to ensure the DNS is fully propagated correctly around the world.
 

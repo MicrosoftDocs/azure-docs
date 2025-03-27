@@ -67,7 +67,7 @@ In this example, you create a new virtual network. You can create a virtual netw
 13. Select **Add**.
 14. Select **Next:Configuration**.
 15. Under **Routing rules**, select **Add a routing rule**.
-16. For **Rule name**, type *Rrule-01*.
+16. For **Rule name**, type *Rule-01*.
 17. For **Listener name**, type *Listener-01*.
 18. For **Frontend IP**, select **Private**.
 19. Accept the remaining defaults and select the **Backend targets** tab.

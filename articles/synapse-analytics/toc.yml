@@ -527,6 +527,10 @@ items:
       items:
       - name: Into the data warehouse
         items:
+        - name: Load external data using Entra ID
+          href: ./sql/tutorial-load-data-using-entra-id.md  
+        - name: Load external data using a Managed Identity
+          href: ./sql/tutorial-external-tables-using-managed-identity.md
         - name: Azure Data Lake Storage
           href: ./sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md?context=/azure/synapse-analytics/context/context
         - name: Data Factory
@@ -576,7 +580,7 @@ items:
       - name: Query folders and multiple files
         href: sql/query-folders-multiple-csv-files.md
         displayName: csv
-      - name: Query partitioned files using file metadata
+      - name: Use file metadata in queries
         href: sql/query-specific-files.md
       - name: Create and use views
         href: sql/create-use-views.md
@@ -740,8 +744,6 @@ items:
           href: ./spark/apache-spark-32-runtime.md
         - name: Azure Synapse Apache Spark 3.1 runtime (deprecated)
           href: ./spark/apache-spark-3-runtime.md
-        - name: Azure Synapse Apache Spark 2.4 runtime (deprecated)
-          href: ./spark/apache-spark-24-runtime.md
         - name: Lifecycle and Supportability
           href: ./spark/runtime-for-apache-spark-lifecycle-and-supportability.md
     - name: Machine learning
@@ -1521,14 +1523,6 @@ items:
       - name: With Apache Spark MLlib
         displayName: train model
         href: ./spark/apache-spark-machine-learning-mllib-notebook.md
-      - name: With automated machine learning (deprecated)
-        items:
-        - name: Code-free (deprecated)
-          displayName: train model, automated machine learning, automated ml, automl
-          href: ./machine-learning/tutorial-automl.md
-        - name: In Python (deprecated)
-          displayName: train model, automated machine learning, automated ml, automl
-          href: ./spark/apache-spark-azure-machine-learning-tutorial.md
       - name: With Horovod and Petastorm (deprecated)
         items:
         - name: Train a model with Horovod and PyTorch (deprecated)

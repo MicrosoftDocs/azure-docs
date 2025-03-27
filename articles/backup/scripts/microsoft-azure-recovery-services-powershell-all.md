@@ -3,9 +3,9 @@ title: Script Sample - Configuring Backup for on-premises Windows server
 description: Learn how to use a script to configure Backup for on-premises Windows server.
 ms.topic: sample
 ms.custom: devx-track-azurepowershell
-ms.date: 06/23/2021
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 12/03/2024
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # PowerShell Script to configure Backup for on-premises Windows server
@@ -51,7 +51,7 @@ Set-OBMachineSetting -NoThrottle
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force
 Set-OBMachineSetting -EncryptionPassPhrase $PassPhrase -SecurityPin "<generatedPIN>" #NOTE: You must generate a security pin by selecting Generate, under Settings > Properties > Security PIN in the Recovery Services vault section of the Azure portal. 
 # See: https://learn.microsoft.com/rest/api/backup/securitypins/get 
-# See: https://learn.microsoft.com/powershell/module/azurerm.keyvault/Add-AzureKeyVaultKey?view=azurermps-6.13.0 
+# See: https://learn.microsoft.com/powershell/module/az.keyvault/get-azkeyvaultkey 
 
 # Back up files and folders
 $NewPolicy = New-OBPolicy

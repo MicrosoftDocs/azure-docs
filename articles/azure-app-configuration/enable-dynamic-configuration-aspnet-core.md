@@ -6,7 +6,7 @@ author: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/20/2024
+ms.date: 12/10/2024
 ms.author: zhenlwa
 ms.custom: devx-track-csharp
 ---
@@ -35,17 +35,19 @@ A *sentinel key* is a key that you update after you complete the change of all o
 
 ## Reload data from App Configuration
 
-1. Open *Program.cs*, and update the `AddAzureAppConfiguration` method you added previously during the quickstart.
+1. Open *Program.cs*, and update the `AddAzureAppConfiguration` method you added during the quickstart. You can connect to App Configuration using either Microsoft Entra ID (recommended) or a connection string. The following code snippet demonstrates using Microsoft Entra ID.
 
+    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. While completing the quickstart listed in the prerequisites, you already [assigned your credential the **App Configuration Data Reader role**](./concept-enable-rbac.md#authentication-with-token-credentials).
+    
     ```csharp
     // Load configuration from Azure App Configuration
     builder.Configuration.AddAzureAppConfiguration(options =>
     {
-        options.Connect(connectionString)
-               // Load all keys that start with `TestApp:` and have no label
-               .Select("TestApp:*", LabelFilter.Null)
-               // Configure to reload configuration if the registered sentinel key is modified
-               .ConfigureRefresh(refreshOptions =>
+        options.Connect(new Uri(endpoint), new DefaultAzureCredential())
+                // Load all keys that start with `TestApp:` and have no label
+                .Select("TestApp:*", LabelFilter.Null)
+                // Configure to reload configuration if the registered sentinel key is modified
+                .ConfigureRefresh(refreshOptions =>
                     refreshOptions.Register("TestApp:Settings:Sentinel", refreshAll: true));
     });
     ```

@@ -7,7 +7,7 @@ ms.author: patricka
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 10/22/2024
+ms.date: 12/12/2024
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ms.service: azure-iot-operations
@@ -76,97 +76,53 @@ These steps deploy Layered Network Management to the AKS cluster. The cluster is
       allowList:
         enableArcDomains: true
         domains:
-        - destinationUrl: "*.arc.azure.net"
-          destinationType: external
-        - destinationUrl: "*.data.mcr.microsoft.com"
+        - destinationUrl: "management.azure.com"
           destinationType: external
         - destinationUrl: "*.dp.kubernetesconfiguration.azure.com"
           destinationType: external
-        - destinationUrl: "*.guestnotificationservice.azure.com"
-          destinationType: external
-        - destinationUrl: "*.his.arc.azure.com"
+        - destinationUrl: "login.microsoftonline.com"
           destinationType: external
         - destinationUrl: "*.login.microsoft.com"
           destinationType: external
-        - destinationUrl: "*.login.microsoftonline.com"
+        - destinationUrl: "login.windows.net"
           destinationType: external
-        - destinationUrl: "*.obo.arc.azure.com"
+        - destinationUrl: "mcr.microsoft.com"
+          destinationType: external
+        - destinationUrl: "*.data.mcr.microsoft.com"
+          destinationType: external
+        - destinationUrl: "gbl.his.arc.azure.com"
+          destinationType: external
+        - destinationUrl: "*.his.arc.azure.com"
+          destinationType: external
+        - destinationUrl: "k8connecthelm.azureedge.net"
+          destinationType: external
+        - destinationUrl: "guestnotificationservice.azure.com"
+          destinationType: external
+        - destinationUrl: "*.guestnotificationservice.azure.com"
+          destinationType: external
+        - destinationUrl: "sts.windows.net"
+          destinationType: external
+        - destinationUrl: "k8sconnectcsp.azureedge.net"
           destinationType: external
         - destinationUrl: "*.servicebus.windows.net"
           destinationType: external
         - destinationUrl: "graph.microsoft.com"
           destinationType: external
-        - destinationUrl: "login.windows.net"
+        - destinationUrl: "*.arc.azure.net"
           destinationType: external
-        - destinationUrl: "management.azure.com"
+        - destinationUrl: "*.obo.arc.azure.com"
           destinationType: external
-        - destinationUrl: "mcr.microsoft.com"
-          destinationType: external
-        - destinationUrl: "sts.windows.net"
-          destinationType: external
-        - destinationUrl: "*.ods.opinsights.azure.com"
+        - destinationUrl: "linuxgeneva-microsoft.azurecr.io"
           destinationType: external
         - destinationUrl: "graph.windows.net"
           destinationType: external
-        - destinationUrl: "msit-onelake.pbidedicated.windows.net"
-          destinationType: external
         - destinationUrl: "*.azurecr.io"
-          destinationType: external
-        - destinationUrl: "*.azureedge.net"
           destinationType: external
         - destinationUrl: "*.blob.core.windows.net"
           destinationType: external
-        - destinationUrl: "*.prod.hot.ingestion.msftcloudes.com"
-          destinationType: external
-        - destinationUrl: "*.prod.microsoftmetrics.com"
-          destinationType: external
-        - destinationUrl: "adhs.events.data.microsoft.com"
-          destinationType: external
-        - destinationUrl: "dc.services.visualstudio.com"
-          destinationType: external
-        - destinationUrl: "go.microsoft.com"
-          destinationType: external
-        - destinationUrl: "packages.microsoft.com"
-          destinationType: external
-        - destinationUrl: "www.powershellgallery.com"
-          destinationType: external
-        - destinationUrl: "*.gw.arc.azure.com"
-          destinationType: external
-        - destinationUrl: "*.gcs.prod.monitoring.core.windows.net"
-          destinationType: external
-        - destinationUrl: "*.prod.warm.ingest.monitor.core.windows.net"
-          destinationType: external
-        - destinationUrl: "*.prod.hot.ingest.monitor.core.windows.net"
-          destinationType: external
-        - destinationUrl: "azure.archive.ubuntu.com"
-          destinationType: external
-        - destinationUrl: "crl.microsoft.com"
-          destinationType: external
-        - destinationUrl: "*.table.core.windows.net"
+        - destinationUrl: "*.vault.azure.net"
           destinationType: external
         - destinationUrl: "*.blob.storage.azure.net"
-          destinationType: external
-        - destinationUrl: "*.docker.com"
-          destinationType: external
-        - destinationUrl: "*.docker.io"
-          destinationType: external
-        - destinationUrl: "*.googleapis.com"
-          destinationType: external
-        - destinationUrl: "github.com"
-          destinationType: external
-        - destinationUrl: "collect.traefik.io"
-          destinationType: external
-        - destinationUrl: "contracts.canonical.com"
-          destinationType: external
-        - destinationUrl: "database.clamav.net"
-          destinationType: external
-        - destinationUrl: "esm.ubuntu.com"
-          destinationType: external
-        - destinationUrl: "livepatch.canonical.com"
-          destinationType: external
-        - destinationUrl: "motd.ubuntu.com"
-          destinationType: external
-        - destinationUrl: "update.traefik.io"
           destinationType: external
         sourceIpRange:
         - addressPrefix: "0.0.0.0"
@@ -233,7 +189,7 @@ In level 3, you create a K3S Kubernetes cluster on a Linux virtual machine. To s
     ```
 1. Configure network isolation for level 3. Use the following steps to configure the level 3 cluster to only send traffic to Layered Network Management in level 4.
     - Browse to the **network security group** of the VM's network interface.
-    - Add an additional outbound security rule to **deny all outbound traffic** from the level 3 virtual machine.
+    - Add an extra outbound security rule to **deny all outbound traffic** from the level 3 virtual machine.
     - Add another outbound rule with the highest priority to **allow outbound to the IP of level 4 AKS cluster on ports 443 and 8084**.
 
     :::image type="content" source="./media/howto-deploy-aks-layered-network/outbound-rules.png" alt-text="Screenshot of network security group outbound rules." lightbox="./media/howto-deploy-aks-layered-network/outbound-rules.png":::
@@ -252,7 +208,7 @@ With the following steps, you Arc-enable the level 3 cluster using the Layered N
 
    On your jumpbox, set up kubectl access to the level 3 k3s cluster by copying the `config.level3` file into the `~/.kube` directory and rename it to `config`. The server entry in the config file should be set to the IP address or domain name of the level 3 VM.
 
-1. Refer to [Configure CoreDNS](howto-configure-layered-network.md#configure-coredns) to use extension mechanisms provided by CoreDNS (the default DNS server for K3S clusters) to add the allowlisted URLs to be resolved by CoreDNS.
+1. Refer to [Configure CoreDNS](howto-configure-layered-network.md#configure-coredns) to use extension mechanisms provided by CoreDNS (the default DNS server for K3S clusters) to add the allowlisted URLs.
 
 1. Run the following commands on your jumpbox to connect the cluster to Arc. This step requires Azure CLI. Install the [Az CLI](/cli/azure/install-azure-cli-linux) if needed.
 

@@ -3,11 +3,11 @@ title: 'Quickstart: Deploy Application Gateway for Containers ALB Controller'
 titlesuffix: Azure Application Load Balancer
 description: In this quickstart, you learn how to provision the Application Gateway for Containers ALB Controller in an AKS cluster.
 services: application-gateway
-author: greglin
+author: greg-lindsay
 ms.service: azure-appgw-for-containers
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
-ms.date: 11/7/2024
+ms.date: 2/15/2025
 ms.author: greglin
 ---
 
@@ -146,7 +146,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
     helm install alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
          --namespace $HELM_NAMESPACE \
-         --version 1.3.7 \
+         --version 1.4.14 \
          --set albController.namespace=$CONTROLLER_NAMESPACE \
          --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
     ```
@@ -164,7 +164,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
     helm upgrade alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
         --namespace $HELM_NAMESPACE \
-        --version 1.3.7 \
+        --version 1.4.14 \
         --set albController.namespace=$CONTROLLER_NAMESPACE \
         --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
     ```

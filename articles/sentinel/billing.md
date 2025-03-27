@@ -21,7 +21,7 @@ appliesto:
 
 As you plan your Microsoft Sentinel deployment, you typically want to understand its pricing and billing models to optimize your costs. Microsoft Sentinel's security analytics data is stored in an Azure Monitor Log Analytics workspace. Billing is based on the volume of data *analyzed* in Microsoft Sentinel and *stored* in the Log Analytics workspace. The cost of both is combined in a simplified pricing tier. Learn more about the [simplified pricing tiers](#simplified-pricing-tiers) or learn more about [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/) in general.
 
-Before you add any resources for Microsoft Sentinel, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to help estimate your costs.
+Estimate your costs before you add any resources to your Microsoft Sentinel workspace by finding Microsoft Sentinel in the **Security** section of the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 Costs for Microsoft Sentinel are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan costs and understand the billing for Microsoft Sentinel, you're billed for all Azure services and resources your Azure subscription uses, including Partner services.
 
@@ -60,7 +60,7 @@ Microsoft Sentinel runs on Azure infrastructure that accrues costs when you depl
 
 ### How you're charged for Microsoft Sentinel
 
-Pricing is based on the types of logs ingested into a workspace. Analytics logs typically make up most of your high value security logs. Basic logs tend to be verbose with low security value. It's important to note that billing is done per workspace on a daily basis for all log types and tiers.
+Pricing is based on the types of logs ingested into a workspace. Analytics logs typically make up most of your high value security logs and support all data types offering full analytics, alerts and no query limits. Basic logs tend to be verbose with low security value. It's important to note that billing is done per workspace on a daily basis for all log types and tiers.
 
 #### Analytics logs
 
