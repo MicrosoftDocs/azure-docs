@@ -63,8 +63,8 @@
   expanded: true
   items:
   - name: Performance and Benchmarking Overview
-    href: ./performanceandbenchmarking/overview.md
+    href: ./performance-benchmarking/overview.md
   - name: HPC Performance and Benchmarking Applications
-    href: ./performanceandbenchmarking/hpc-perf-bench-apps.md
+    href: ./performance-benchmarking/high-performance-computing-performance-benchmarking-applications.md
   - name: Performance Optimization for HPC and AI VMs
-    href: ./performanceandbenchmarking/optimizing-performance.md
+    href: ./performance-benchmarking/optimize-performance.md
