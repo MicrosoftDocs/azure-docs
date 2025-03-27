@@ -53,7 +53,7 @@ To create a new API from an Azure function app:
 
     :::image type="content" source="./media/import-function-app-as-api/add-02.png" alt-text="Screenshot that highlights the Browse button." lightbox="./media/import-function-app-as-api/add-02.png":::
 
-1. Click the **Select** button under **Configure requred settings** to choose from the list of available function apps:
+1. Click the **Select** button under **Configure required settings** to choose from the list of available function apps:
 
     :::image type="content" source="./media/import-function-app-as-api/add-03.png" alt-text="Screenshot that shows the Select button." lightbox="./media/import-function-app-as-api/add-03.png":::
 
@@ -71,7 +71,7 @@ To create a new API from an Azure function app:
     >[!NOTE]
     > *Products* are associations of one or more APIs that are offered to developers via the Developer Portal. First, developers must subscribe to a product to get access to the API. When they subscribe, they get a subscription key for any API in the product. If you created the API Management instance, you're an administrator and are subscribed to every product by default.
     >
-    > In some pricing tiers, API Management instances comes with two default sample products:
+    > In some pricing tiers, API Management instances come with two default sample products:
     > - **Starter**
     > - **Unlimited**
 
@@ -95,7 +95,7 @@ To append a function app to an existing API:
 
     :::image type="content" source="./media/import-function-app-as-api/append-function-api-3.png" alt-text="Screenshot that shows the Browse button." lightbox="./media/import-function-app-as-api/append-function-api-3.png":::
 
-1. Click the **Select** button under **Configure requred settings** to choose from the list of available function apps:
+1. Click the **Select** button under **Configure required settings** to choose from the list of available function apps:
 
     :::image type="content" source="./media/import-function-app-as-api/add-03.png" alt-text="Screenshot that shows the Function App section." lightbox="./media/import-function-app-as-api/add-03.png":::
 
@@ -113,7 +113,7 @@ To append a function app to an existing API:
 
 ## Authorization
 
-When you import an Azure function app, these items are automactically generated:
+When you import an Azure function app, these items are automatically generated:
 
 * A host key in the function app. The key is named `apim-<your API Management service instance name>`.
 * A named value in the API Management instance that has the name `<your Azure function app instance name>-key`. This value contains the host key.
