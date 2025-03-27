@@ -66,3 +66,5 @@
     href: ./performanceandbenchmarking/overview.md
   - name: HPC Performance and Benchmarking Applications
     href: ./performanceandbenchmarking/hpc-perf-bench-apps.md
+  - name: Performance Optimization for HPC and AI VMs
+    href: ./performanceandbenchmarking/optimizing-performance.md
