@@ -1,8 +1,8 @@
 ---
 title: "Tutorial: Load External Data Using a Managed Identity"
 description: This tutorial shows how to connect to external data for queries or ingestion using a managed identity.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: periclesrocha
+ms.author: procha
 ms.reviewer: periclesrocha
 ms.date: 01/04/2025
 ms.service: azure-synapse-analytics
