@@ -434,4 +434,4 @@ In Android Studio, hit the Run button to build and run the project. In the conso
 
 ## Sample code
 
-Find the finalized code for this quickstart on GitHub at [Add chat to your app](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add-chat).
+Find the finalized code for this article in the GitHub sample [Add Chat to your application](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add-chat).

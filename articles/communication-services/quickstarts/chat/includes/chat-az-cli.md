@@ -216,8 +216,7 @@ az communication chat message receipt send --thread "<chatThreadId>" --message-i
 - Replace `<chatThreadId>` with your chat thread ID.
 - Replace `<messageId>` to specify the ID of the latest message read by current user.
 - Replace `<endpoint>` with your Azure Communication Services endpoint.
-- Replace `<token>` with your access token obtained earlier with running `identity token issue` command. 
-
+- Replace `<token>` with your access token obtained earlier with running `identity token issue` command.
 
 ### Add a user as a participant to the chat thread
 
@@ -248,8 +247,7 @@ az communication chat participant list --thread "<chatThreadId>" --skip "<skip>"
 - Replace `<chatThreadId>` with your chat thread ID.
 - Use `<skip>` optionally to skip participants up to a specified position in the response.
 - Replace `<endpoint>` with your Azure Communication Services endpoint.
-- Replace `<token>` with your access token obtained earlier with running `identity token issue` command. 
-
+- Replace `<token>` with your access token obtained earlier with running `identity token issue` command.
 
 ### Remove a participant from a chat thread
 
