@@ -15,22 +15,6 @@ This article lists the current known issues for Azure IoT Operations.
 
 This section lists current known issues that might occur when you deploy, update, or uninstall Azure IoT Operations.
 
-### Unable to retrieve some image pull secrets
-
----
-
-Issue ID: 8959
-
----
-
-Log signature: `"Unable to retrieve some image pull secrets (regcred)"`
-
----
-
-During and after deploying Azure IoT Operations, you might see warnings about `Unable to retrieve some image pull secrets (regcred)` in the logs and Kubernetes events. These warnings are expected and don't affect the deployment and use of Azure IoT Operations.
-
-No workaround needed.
-
 ### Error creating custom resources
 
 ---
@@ -67,7 +51,7 @@ Currently, there's no workaround for the issue. If you need a cluster that suppo
 
 ---
 
-Issue ID: 0000
+Issue ID: 9928
 
 ---
 
