@@ -12,17 +12,17 @@ ms.author: cshoe
 # Connect to services in Azure Container Apps (preview)
 
 > [!IMPORTANT]
-> The public preview add-ons feature will be retired on September 30th, 2025. To prepare for this change, transition to Azure-managed services, such as Azure Cache for Redis or Azure Database for PostgreSQL for production-level service. For development and testing purposes, review the supported OSS quickstarts. 
+> The public preview add-ons feature will be retired on September 30, 2025. To prepare for this change, transition to Azure-managed services, such as Azure Cache for Redis or Azure Database for PostgreSQL for a production-level service. For development and testing purposes, review the supported open-source software (OSS) quickstarts. 
 
 As you develop applications in Azure Container Apps, you often need to connect to different services. Rather than creating services ahead of time and manually connecting them to your container app, you can quickly create instances of development-grade services that are designed for nonproduction environments known as add-ons. 
 
-Add-ons allow you to use OSS services without the burden of manual downloads, creation, and configuration. Since add-ons will be retired on September 30th, 2025, we recommend you use our new OSS quickstarts if you want to continue using these OSS services for nonproduction envrionments.
+Add-ons allow you to use OSS services without the burden of manual downloads, creation, and configuration. Since add-ons will be retired on September 30, 2025, we recommend you use our new OSS quickstarts if you want to continue using these OSS services for nonproduction envrionments.
 
 If you're ready for your app to use a production level service, you can connect your application to an Azure managed service.
 
 ## Migration Guide
 
-As add-ons are being retired, you'll need to plan how to transition your applications away from this preview feature. Whether you're looking for a production level service or simply want to continue exploring open-source technologies in a dev/test capacity, the following steps will help you migrate smoothly.
+As add-ons are being retired, you'll need to plan how to transition your applications away from this preview feature. Whether you're looking for a production level service or simply want to continue exploring open source technologies in a dev/test capacity, the following steps will help you migrate smoothly.
 
 Please note, you're responsible for data continuity between your add-on and your new Container App.
 
@@ -50,7 +50,7 @@ If you're ready for a production level service, follow these steps to transition
 
 1. Create a new container app.
 
-    Create a new app using the [Azure Portal](quickstart-portal.md) or [CLI](get-started.md?tabs=bash).
+    Create a new app using the [Azure portal](quickstart-portal.md) or [CLI](get-started.md?tabs=bash).
 
 1. Configure connection settings.
 
@@ -68,9 +68,9 @@ If you're ready for a production level service, follow these steps to transition
       --resource-group <RESOURCE-GROUP>
     ```
 
-### Option 2: Use open source images
+### Option 2: Use open source quickstart images
 
-If you only need these services for development or testing environments and do not require production-level guarantees, follow these steps to switch to use the open-source quickstart images:
+If you only need these services for development or testing environments and don't require production-level guarantees, follow these steps to switch to use the open-source quickstart images. 
 
 1. Identify add-ons in use. Run the following command to locate all existing add-ons in your environment.
 
@@ -82,13 +82,13 @@ If you only need these services for development or testing environments and do n
       --resource-group <RESOURCE_GROUP>
     ```
 
-1. Review available quickstarts for Redis, PostgreSQL, MariaDB, Qdrant, and Kafka.
+1. Review the supported quickstart images: Redis, PostgreSQL, MariaDB, Qdrant, and Kafka. 
 
 1. Plan data continuity.
 
     Create a backup or snapshot of your data in the current add-on if applicable.
 
-1. Create a new [Container App](quickstart-portal.md).
+1. Create a new [Container App](quickstart-portal.md) using a quickstart image.
 
 1. Remove the add-on.
 
@@ -105,7 +105,7 @@ If you only need these services for development or testing environments and do n
 ## Add-ons
 
 > [!IMPORTANT]
-> The public preview add-ons feature will be retired on September 30th, 2025. To prepare for this change, transition to Azure-managed services, such as Azure Cache for Redis or Azure Database for PostgreSQL for production-level service. For development and testing purposes, review the supported open-source quickstarts. 
+> The public preview add-ons feature will be retired on September 30, 2025. To prepare for this change, transition to Azure-managed services, such as Azure Cache for Redis or Azure Database for PostgreSQL for a production-level service. For development and testing purposes, review the supported open-source quickstarts. 
 
 Services available as an add-on include:
 
@@ -212,7 +212,7 @@ For more information on the service commands and arguments, see the
 - Add-ons are in public preview.
 - Any container app created before May 23, 2023 isn't eligible to use add-ons.
 - Add-ons come with minimal guarantees. For instance, they're automatically restarted if they crash, however there's no formal quality of service or high-availability guarantees associated with them. For production workloads, use Azure-managed services.
-- If you use your own VNET, you must use a workload profiles environment. The Add-ons feature is not supported in consumption only environments that use custom VNETs.
+- If you use your own virtual network (VNET), you must use a workload profiles environment. The Add-ons feature isn't supported in consumption only environments that use custom VNETs.
 
 ## Next steps
 
