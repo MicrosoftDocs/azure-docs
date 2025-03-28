@@ -28,21 +28,18 @@ Azure API Management policies are a sequence of statements that address cross-cu
     * [GitHub Copilot for Azure extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot) - to create and explain policies
     * [REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - to debug policies
 
-<!-- Assume we need a step to install GH Copilot ext? -->
-
 * An API Management instance. If you need to create one, see this [quickstart](vscode-create-service-instance.md).
-
-<!-- Still can't use extension to create instance in v2 tiers? -->
 
 * Import an API to your API Management instance. For example steps, see [Tutorial: Use the API Management Extension for Visual Studio Code to import and manage APIs](visual-studio-code-tutorial.md).
 
 ## Restrictions and limitations
 
-* Policy debugging is currently supported in the API Management Developer tier
+* Policy debugging is currently supported only in the API Management Developer tier.
 
-* Policy debugging uses the built-in (service-level) all-access subscription (display name "Built-in all-access subscription") and enables tracing for the duration of the debugging session. 
+* Policy debugging uses the built-in (service-level) all-access subscription (display name "Built-in all-access subscription"). You must be a service owner to use this subscription.
  
-## Create policies using GitHub Copilot
+## Create a policy using GitHub Copilot
+
 The Azure API Management extension integrates with GitHub Copilot for Azure to help you create a draft of a policy. With AI assistance, create and edit policies in a user-friendly way. 
 
 To create a policy:
@@ -52,6 +49,8 @@ To create a policy:
 1. Select the policy scope that you want to work with.
     * To create a policy that applies to all APIs in the instance, select **Global Policy**.
     * To create a policy that applies to a specific API, under **APIs**, select the API, and then select **Policy**.
+    * To create a policy that applies to a specific API operation, select the operation, and then select **Policy**.
+
 1. In the policy editor window that appears, right-click and select **Copilot** > **Draft APIM Policies**. The Copilot Chat window appears.
 1. In the Copilot Chat window, enter a prompt in natural language to create a policy. Examples:
     
@@ -60,7 +59,7 @@ To create a policy:
     ```
 
     ```copilot-prompt
-    @azure Create a policy that sets the backend URL to https://mybackend.contoso.com and adds a header to the request
+    @azure Create a policy that sets the backend URL to https://mybackend.contoso.com and adds a custom header to the request
     ```
 1. Copilot generates a policy draft in the chat window. You can refine the prompt if you want Copilot to change the output. 
 
@@ -82,6 +81,8 @@ To receive an explanation:
 1. Select the policy scope that you want to work with.
     * To explain a policy that applies to all APIs in the instance, select **Global Policy**.
     * To explain a policy that applies to a specific API, under **APIs**, select the API, and then select **Policy**.
+    * To explain a policy that applies to a specific API operation, select the operation, and then select **Policy**.
+
 1. In the policy editor window that appears, right-click and select **Copilot** > **Explain APIM Policies**. 
 1. An overview and explanation of policies in the policy XML document are generated in the Copilot Chat window.
 
@@ -98,12 +99,12 @@ The Azure API Management extension for Visual Studio Code provides a debugging e
 4. Select the API and operation to debug.
 5. Right click on the operation and select **Start Policy Debugging**.
 
-At this point, the extension starts to establish a debugging session with the API Management gateway. Check the progress in the **Debug Console** windows.
+At this point, the extension starts to establish a debugging session with the API Management gateway. Check the progress in the **Debug Console** window.
 
 :::image type="content" source="media/api-management-debug-policies/initiate-debugging-session.png" alt-text="Screenshot if initiating a policy debugging session in Visual Studio Code.":::
 
 > [!NOTE]
-> Starting a debugging session also enables request tracing during the session, to help you diagnose and solve issues.
+> Starting a debugging session also enables request tracing for the duration of the session, to help you diagnose and solve issues.
 
 ### Send a test request
 
@@ -117,7 +118,8 @@ Modify the HTTP request in the editor according to your test scenario. Then clic
 :::image type="content" source="media/api-management-debug-policies/rest-client.png" alt-text="Screenshot of sending a test request in Visual Studio Code.":::
 
 ### Debug policies
-After the test HTTP request is sent, the extension opens the debugging window, which shows the effective policies of this operation and stop at the first effective policy. 
+
+After the test HTTP request is sent, the extension opens the debugging window, which shows the effective policies of this operation and stops at the first effective policy. 
 
 :::image type="content" source="media/api-management-debug-policies/main-window.png" alt-text="Screenshot of the debugging window in Visual Studio Code.":::
 
@@ -129,12 +131,12 @@ To follow the policy pipeline, you can single-step through individual policies o
 
 If there is an error during policy execution, you will see the details of the error at the policy where it happened. 
 
+Exit the debugging session by clicking the **Stop** button when you are finished.
+
 :::image type="content" source="media/api-management-debug-policies/exception.png" alt-text="Screenshot of a policy exception in Visual Studio Code.":::
 
-To review the request trace, select the value of the `Ocp-Apim-Trace-Location` header that is provided in the HTTP response.
-
 > [!TIP]
-> Exit the debugging session by clicking the **Stop** button when you are finished.
+> To review the request trace, select the value of the `Ocp-Apim-Trace-Location` header that is provided in the HTTP response. 
 
 ## Related content
 
