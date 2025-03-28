@@ -2,10 +2,9 @@
 title: Relocate Azure Event Grid system topics to another region
 description: This article shows you how to move Azure Event Grid system topics to another region.  
 ms.date: 05/14/2024
-ms.service: azure-event-grid
 ms.topic: how-to
-ms.custom:
-  - subject-relocation
+ms.custom: subject-relocation
+
 #Customer intent: As an Azure service administrator, I want to be able to move an Azure event source and its associated system topic from one region to another region to have it closer to customers, to meet internal policy and governance requirements, or in response to capacity planning requirements. 
 ---
 

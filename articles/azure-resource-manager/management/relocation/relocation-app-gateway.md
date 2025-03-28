@@ -2,10 +2,8 @@
 title: Relocate an Azure Application Gateway and Web Application Firewall to another region
 description: This article shows you how to relocate an Azure Application Gateway and Web Application Firewall from the current region to another region. 
 ms.date: 04/03/2024
-ms.service: azure-application-gateway
-ms.topic: concept-article
-ms.custom:
-  - subject-relocation
+ms.topic: how-to
+ms.custom: subject-relocation
 # Customer intent: As an Azure Application Gateway Standard and Web Application Firewall v2 administrator, I want to move my vault to another region.
 ---
 

@@ -2,11 +2,11 @@
 title: Relocate your Azure Functions app to another Azure region
 description: Learn how to relocate an existing Azure Functions app so that it now runs in another Azure region.
 ms.topic: how-to
-ms.service: azure-functions
 ms.date: 09/13/2024
 ms.custom: subject-relocation
 #Customer intent: As an Azure service administrator, I want to move my Azure Functions resources to another Azure region.
 ---
+
 
 # Relocate your function app to another Azure region
 

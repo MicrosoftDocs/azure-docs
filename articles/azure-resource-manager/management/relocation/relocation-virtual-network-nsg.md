@@ -2,8 +2,7 @@
 title: Relocate Azure NSG to another region
 description: Learn how to use ARM templates to relocate Azure network security group (NSG) to another region
 ms.date: 03/01/2024
-ms.service: azure-storage
-ms.topic: concept-article
+ms.topic: how-to
 ms.custom: subject-relocation, devx-track-azurepowershell
 ---
 

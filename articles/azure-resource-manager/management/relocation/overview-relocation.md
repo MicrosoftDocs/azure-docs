@@ -4,9 +4,7 @@ description: Relocation guidance overview for Microsoft Azure products and servi
 ms.service: azure
 ms.topic: concept-article
 ms.date: 01/16/2024
-ms.custom:
-  - subject-relocation
-ms.subservice: azure-reliability
+ms.custom: subject-relocation
 ---
 
 # Azure services relocation guidance overview (Preview)

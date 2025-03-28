@@ -2,10 +2,8 @@
 title: Relocate Azure App Services to another region
 description: Learn how to relocate Azure App Services to another region
 ms.date: 07/11/2024
-ms.service: azure-app-service
-ms.topic: concept-article
-ms.custom:
-  - subject-relocation
+ms.topic: how-to
+ms.custom: subject-relocation
 #Customer intent: As an Azure service administrator, I want to move my App Service resources to another Azure region.
 ---
 

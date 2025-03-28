@@ -2,8 +2,7 @@
 title: Relocate Azure Storage Account to another region
 description: Learn how to relocate Azure Storage Account to another region
 ms.date: 01/25/2024
-ms.service: azure-storage
-ms.topic: concept-article
+ms.topic: how-to
 ms.custom: subject-relocation, devx-track-azurepowershell
 ---
 

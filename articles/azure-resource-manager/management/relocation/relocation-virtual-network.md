@@ -2,15 +2,14 @@
 title: Relocate Azure Virtual Network to another region
 description: Learn how to relocate Azure Virtual Network to another region
 ms.date: 03/13/2024
-ms.service: azure-virtual-network
-ms.topic: concept-article
+ms.topic: how-to
 ms.custom: subject-relocation, devx-track-azurepowershell
 ---
 
 
 # Relocate Azure Virtual Network to another region
 
-This article shows you how to relocate a virtual network to a new region by redeploying the virtual network. Redeployment supports both independent relocation of multiple workloads and private IP address range change in the target region.  It's recommended that you use a Resource Manager template to relocate your virtual network. 
+This article shows you how to relocate a virtual network to a new region by redeploying the virtual network. Redeployment supports both independent relocation of multiple workloads and private IP address range change in the target region.  It's recommended that you use a Resource Manager template to relocate your virtual network.
 
 However, can also choose to move your virtual network with Azure Resource Mover. However, if you choose to move your virtual network with Azure Resource Mover, make sure that you understand the following considerations:
 
@@ -429,7 +428,7 @@ To plan for your relocation of an Azure Virtual Network, you must understand whe
 # [Portal](#tab/azure-portal)
 
 1. To choose the subscription where the target virtual network will be deployed, select **Basics** > **Subscription**.
-1. To choose the resource group where the target virtual network will be deployed, select **Basics** > **Resource group**. 
+1. To choose the resource group where the target virtual network will be deployed, select **Basics** > **Resource group**.
 
     If you need to create a new resource group for the target virtual network, select **Create new**. Make sure that the name isn't the same as the source resource group name in the existing virtual network.
 
@@ -443,7 +442,7 @@ To plan for your relocation of an Azure Virtual Network, you must understand whe
 
     - (Optional) Reconfigure the Network security Group (NSG), Application Security Group (ASG) and User Defined Route (UDR) to the target virtual Network subnet which was previously associated to source virtual Network subnet and now moved to target region.
     - (Optional) Reconfigure the NAT-Gateway to the target virtual Network subnet which was previously associated to source virtual Network subnet and now moved to target region.
-    - (Optional) Diagnostic settings: Reconfigure the diagnostic setting for the target virtual network to send the logs to log analytic workspace/storage account/event hub which was relocated as mentioned in prepare. 
+    - (Optional) Diagnostic settings: Reconfigure the diagnostic setting for the target virtual network to send the logs to log analytic workspace/storage account/event hub which was relocated as mentioned in prepare.
 
 # [PowerShell](#tab/azure-powershell)
 

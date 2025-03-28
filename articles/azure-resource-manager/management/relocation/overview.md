@@ -4,8 +4,7 @@ description: Azure Operational Excellence documentation for guidance for specifi
 ms.topic: concept-article
 ms.date: 03/01/2024
 ms.service: azure
-ms.custom:
-  - subject-relocation
+ms.custom: subject-relocation
 ---
 
 # Azure Operational Excellence documentation (Preview)

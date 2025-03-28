@@ -2,10 +2,8 @@
 title: Relocate an Azure Kubernetes Service cluster to another region
 description: Learn how to relocate an Azure Kubernetes Service cluster to another region
 ms.date: 09/03/2024
-ms.service: azure-automation
 ms.topic: how-to
-ms.custom:
-  - subject-relocation
+ms.custom: subject-relocation
 ---
 
 # Relocate an Azure Kubernetes Service (AKS) cluster to another region
