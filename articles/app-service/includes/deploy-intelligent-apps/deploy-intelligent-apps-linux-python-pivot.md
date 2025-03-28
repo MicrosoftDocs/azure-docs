@@ -17,7 +17,7 @@ You can create intelligent apps by using Azure App Service with popular AI frame
 
 ### Set up Flask web app
 
-For this Flask web application, we're building off the [quickstart](../../quickstart-python.md?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#sample-application) app and updating the `app.py` file to send and receive requests to an Azure OpenAI *or* OpenAI service using LangChain.
+For this Flask web application, we're building off the [quickstart](../../quickstart-python.md?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#sample-application) app and updating the `app.py` file to send and receive requests to an Azure OpenAI *or* OpenAI service by using LangChain.
 
 Copy and replace the `index.html` file with the following code:
 
@@ -98,7 +98,7 @@ For OpenAI, see this [documentation](https://platform.openai.com/docs/api-refere
 
 #### Secure your API keys in your key vault
 
-Because we're deploying to App Service, we can secure the API key in **Azure Key Vault** for protection. Follow the [quickstart](/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your key vault and add the key as a secret named `openaikey`.
+Because we're deploying to App Service, we can secure the API key in Azure Key Vault for protection. Follow the [quickstart](/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your key vault and add the key as a secret named `openaikey`.
 
 Next, we can use key vault references as app settings in our App Service resource to reference in our application. Follow the instructions in the [documentation](../../app-service-key-vault-references.md?source=recommendations&tabs=azure-cli) to grant your app access to your key vault and to set up key vault references.
 

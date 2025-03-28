@@ -1,5 +1,5 @@
 ---
-title: Azure NAT Gateway integration
+title: Azure NAT Gateway Integration
 description: Learn how Azure NAT Gateway integrates with Azure App Service.
 services: app-service
 author: madsd
@@ -40,7 +40,7 @@ To configure NAT gateway integration with App Service, first complete the follow
 
 ## Set up Azure NAT Gateway through the Azure portal
 
-1. In the Azure portal, go to **App Service** > **Networking**. In the **Outbound Traffic** section, select **Virtual network integration**. Ensure that your app is integrated with a subnet and that **Route All** is enabled.`
+1. In the Azure portal, go to **App Service** > **Networking**. In the **Outbound Traffic** section, select **Virtual network integration**. Ensure that your app is integrated with a subnet and that **Route All** is enabled.
 
    :::image type="content" source="./media/overview-nat-gateway-integration/nat-gateway-route-all-enabled.png" alt-text="Screenshot of the Route All option enabled for virtual network integration.":::
 
@@ -64,7 +64,7 @@ To configure NAT gateway integration with App Service, first complete the follow
 
    :::image type="content" source="./media/overview-nat-gateway-integration/nat-gateway-public-ip.png" alt-text="Screenshot of the Outbound IP pane for a NAT gateway in the Azure portal.":::
 
-If you prefer to use the Azure CLI to configure your environment, use the following commands. As a prerequisite, create an app with virtual network integration is configured.
+If you prefer to use the Azure CLI to configure your environment, use the following commands. As a prerequisite, create an app with virtual network integration configured.
 
 1. Ensure that **Route All** is configured for your virtual network integration:
 

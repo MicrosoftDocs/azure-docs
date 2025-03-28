@@ -42,13 +42,13 @@ When you later migrate your custom DNS name from the old site to the App Service
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
-Add a `TXT record` for domain verification. The host name for the `TXT record` depends on the type of DNS record type that you want to map. See the following table (`@` typically represents the root domain):
+Add a `TXT record` for domain verification. The host name for the `TXT record` depends on the type of DNS record that you want to map. See the following table (`@` typically represents the root domain):
 
 | DNS record example | TXT Host | TXT Value |
 | - | - | - |
-| `\@` (root) | `_asuid_` | Domain verification ID shown in the **Custom domains** management page. |
-| `www` (sub) | `_asuid.www_` | Domain verification ID shown in the **Custom domains** management page. |
-| `\*` (wildcard) | `_asuid_` | Domain verification ID shown in the **Custom domains** management page. |
+| `\@` (root) | `_asuid_` | Domain verification ID shown in the **Custom domains** management pane |
+| `www` (sub) | `_asuid.www_` | Domain verification ID shown in the **Custom domains** management pane |
+| `\*` (wildcard) | `_asuid_` | Domain verification ID shown in the **Custom domains** management pane |
 
 > [!NOTE]
 > Wildcard `*` records don't validate subdomains with an existing `CNAME record`. You might need to explicitly create a `TXT record` for each subdomain.
@@ -75,7 +75,7 @@ Add a `TXT record` for domain verification. The host name for the `TXT record` d
 
     :::image type="content" source="./media/app-service-web-tutorial-custom-domain/configure-custom-domain-validate.png" alt-text="A screenshot that shows how to validate your DNS record settings in the Add a custom domain dialog." border="true":::
 
-1. If the **Domain validation** section shows green check marks, then you configured the domain verification ID correctly. Select **Add**. If it shows any red X marks, fix the errors in your domain provider's website.
+1. If the **Domain validation** section shows green check marks, then you configured the domain verification ID correctly. Select **Add**. If it shows any red X marks, fix the errors on your domain provider's website.
 
     :::image type="content" source="./media/app-service-web-tutorial-custom-domain/configure-custom-domain-preempt-add.png" alt-text="A screenshot that shows the Add button activated after validation." border="true":::
 
@@ -92,9 +92,9 @@ Add a `TXT record` for domain verification. The host name for the `TXT record` d
 
 ## 4. Remap the active DNS name
 
-In the last step, you remap your active DNS record to point to App Service. Until this step is complete, it still points to your old site.
+Remap your active DNS record to point to App Service. Until this step is complete, it still points to your old site.
 
-1. `A record` only: Get the App Service app's external IP address. In the **Custom domains** page, copy the app's IP address.
+1. `A record` only: Get the App Service app's external IP address. On the **Custom domains** pane, copy the app's IP address.
 
     :::image type="content" source="./media/app-service-web-tutorial-custom-domain/mapping-information-migrate.png" alt-text="A screenshot that shows how to copy the App Service app's external IP address." border="true":::
 
@@ -104,9 +104,9 @@ In the last step, you remap your active DNS record to point to App Service. Unti
     
     | FQDN example | Record type | Host | Value |
     | - | - | - | - |
-    | contoso.com (root) | `A` | `@` | IP address from [Copy the app's IP address](#info) |
-    | www\.contoso.com (sub) | `CNAME` | `www` | `_&lt;app-name>.azurewebsites.net_` |
-    | \*.contoso.com (wildcard) | `CNAME` | `_\*_` | `_&lt;app-name>.azurewebsites.net_` |
+    | `contoso.com` (root) | `A` | `@` | IP address from [Copy the app's IP address](#info) |
+    | `www\.contoso.com` (sub) | `CNAME` | `www` | `_&lt;app-name>.azurewebsites.net_` |
+    | `\*.contoso.com` (wildcard) | `CNAME` | `_\*_` | `_&lt;app-name>.azurewebsites.net_` |
     
 1. Save your settings.
 
@@ -123,13 +123,13 @@ You can add an App Service managed certificate to a migrated live domain, but on
 
 ### How do I migrate a domain from another app?
 
-You can migrate an active custom domain in Azure between subscriptions or within the same subscription. However, to achieve a migration without downtime, the source app, and the target app must be assigned the same custom domain at a certain time. Therefore, you need to make sure that the two apps aren't deployed to the same deployment unit (internally known as a webspace). A domain name can be assigned to only one app in each deployment unit.
+You can migrate an active custom domain in Azure between subscriptions or within the same subscription. However, to achieve a migration without downtime, the source app and the target app must be assigned the same custom domain at a certain time. Therefore, you need to make sure that the two apps aren't deployed to the same deployment unit (internally known as a webspace). A domain name can be assigned to only one app in each deployment unit.
 
-You can find the deployment unit for your app by looking at the domain name of the FTP/S URL `<deployment-unit>.ftp.azurewebsites.windows.net`. Check and make sure the deployment unit is different between the source app and the target app. The deployment unit of an app is determined by the [App Service plan](overview-hosting-plans.md) it's in. Azure randomly selects it when you create the plan and it can't be changed. When you create two apps [in the same resource group *and* the same region](app-service-plan-manage.md#create-an-app-service-plan), Azure puts them in the same deployment unit. However, there's no way to make sure that the opposite is true. In other words, the only way to create a plan in a different deployment unit is to keep creating a plan in a new resource group or region until you get a different deployment unit.
+You can find the deployment unit for your app by looking at the domain name of the FTP/S URL `<deployment-unit>.ftp.azurewebsites.windows.net`. Make sure the deployment unit is different between the source app and the target app. The deployment unit of an app is determined by the [App Service plan](overview-hosting-plans.md) it's in. Azure randomly selects it when you create the plan and it can't be changed. When you create two apps [in the same resource group *and* the same region](app-service-plan-manage.md#create-an-app-service-plan), Azure puts them in the same deployment unit. However, there's no way to make sure that the opposite is true. In other words, the only way to create a plan in a different deployment unit is to keep creating a plan in a new resource group or region until you get a different deployment unit.
 
 ## Related content
 
-Learn how to bind a custom TLS/SSL certificate to App Service.
+Learn how to bind a custom TLS/SSL certificate to App Service:
 
-[Purchase an App Service domain](manage-custom-dns-buy-domain.md).
-[Secure a custom DNS name with a TLS binding in Azure App Service](configure-ssl-bindings.md)
+* [Purchase an App Service domain](manage-custom-dns-buy-domain.md).
+* [Secure a custom DNS name with a TLS binding in Azure App Service](configure-ssl-bindings.md)

@@ -29,7 +29,7 @@ When you add a TLS binding, you receive the following error message:
 
 #### Cause
 
-This problem might happen if you have multiple IP-based TLS/SSL bindings for the same IP address across multiple apps. For example, app A has an IP-based TLS/SSL binding with an old certificate. App B has an IP-based TLS/SSL binding with a new certificate for the same IP address. When you update the app TLS binding with the new certificate, the update fails because the same IP address is used for another app, and you receive this error message.
+This problem might happen if you have multiple IP-based TLS/SSL bindings for the same IP address across multiple apps. For example, app A has an IP-based TLS/SSL binding with an old certificate. App B has an IP-based TLS/SSL binding with a new certificate for the same IP address. When you update the app TLS binding with the new certificate, the update fails because the same IP address is used for another app, and you receive the error message.
 
 #### Solution
 
@@ -116,7 +116,7 @@ To modify the access policies for the key vault, follow these steps:
 1. Sign in to the Azure portal. Select the key vault used by your App Service certificate. Go to Access policies.</li>
 2. If you don't see the two Service Principals listed, you need to add them. If they're available, verify that the permissions include the recommended secret and certificate permissions.</li>
 3. Add a Service Principal by selecting **Create**. Then select the needed permissions for Secret and Certificate permissions.</li>
-4. For the Principal, enter the values that you previously obtained from the search box. Then, select the principal.</li>
+4. For the Service Principal, enter the values that you previously obtained from the search box. Then, select the Service Principal.</li>
   
 #### Cause 2: The app service hasn't synced with the new certificate
 
@@ -134,11 +134,11 @@ To force a sync for the certificate, follow these steps:
 
 #### Symptom
 
-When browsing the App Service, it is presenting the wrong certificate.
+When browsing the App Service, it's presenting the wrong certificate.
 
 #### Cause
 
-This problem can manifest when both IP SSL and SNI-based bindings are configured for App Service. When non-SNI clients hit the IP SSL endpoint, the IP SSL certificate gets cached. Even if SNI-enabled clients hit the site, they're presented with the IP SSL certificate, which causes an invalid certificate to be presented.
+This problem can manifest when both IP SSL and Server Name Indication (SNI) bindings are configured for App Service. When non-SNI clients hit the IP SSL endpoint, the IP SSL certificate gets cached. Even if SNI-enabled clients hit the site, they're presented with the IP SSL certificate, which causes an invalid certificate to be presented.
 
 #### Solution
 
@@ -150,9 +150,7 @@ Ensure that you don't use SNI bindings along with IP SSL bindings and always bro
 
 #### Symptom
 
-When you browse to the site by using the custom domain name, you receive the following error message:
-
-"Error 404 - Web app not found."
+When you browse to the site by using the custom domain name, you receive the error message "Error 404 - Web app not found."
 
 #### Cause and solution
 
@@ -249,7 +247,7 @@ Manually verify your domain by adding a `TXT record`:
 
 1. Wait a few minutes for DNS propagation to run, and then select the **Refresh** button to trigger the verification.
 
-As an alternative, you can use the HTML webpage method to manually verify your domain. This method allows the certificate authority to confirm the domain ownership of the domain for which the certificate is issued.
+As an alternative, you can use the HTML webpage method to manually verify your domain. This method allows the certificate authority (CA) to confirm the domain ownership of the domain for which the certificate is issued.
 
 1. Create an HTML file named `{domain verification token}.html`. The file content should contain the value of domain verification token.
 
@@ -260,7 +258,7 @@ As an alternative, you can use the HTML webpage method to manually verify your d
 For example, if you're buying a standard certificate for azure.com with the domain verification token `1234abcd`, a web request made to `https://azure.com/1234abcd.html` should return `1234abcd`.
 
 > [!IMPORTANT]
-> A certificate purchase has 15 days only to complete the domain verification operation. After 15 days, the certificate authority denies the certificate, and you're not charged for the certificate. In this situation, delete this certificate and try again.
+> A certificate purchase has 15 days only to complete the domain verification operation. After 15 days, the CA denies the certificate, and you're not charged for the certificate. In this situation, delete this certificate and try again.
 >
 
 ### You can't purchase a domain
@@ -349,7 +347,7 @@ When you purchase a domain through the Azure portal, you can choose to add priva
 
 **If I decide I no longer want my domain, can I get my money back?**
 
-When you purchase a domain, you're not charged for five days. During this time, you can decide whether to keep the domain. If you choose to not keep the domain within this duration, you're not charged. Domains that end with `.uk` are the exception. If you purchase a `.uk` domain, you're immediately charged, and you can't get a refund.
+When you purchase a domain, you're not charged for five days (with one exception). During this time, you can decide whether to keep the domain. If you choose to not keep the domain within this duration, you're not charged. Domains that end with `.uk` are the exception. If you purchase a `.uk` domain, you're immediately charged, and you can't get a refund.
 
 **Can I use the domain in another Azure App Service app in my subscription?**
 
@@ -375,8 +373,8 @@ When you select "Download as a certificate" for the App Service certificate unde
 
 **What file format can I use to upload a certificate to my App Service?**
 
-The certificate file format must be a .pfx file with a password applied to the file. The certificate must also meet the certificate requirements mentioned [here](../app-service/configure-ssl-certificate.md#private-certificate-requirements). If you obtained your certificate from a third party certificate authority (CA) and the file format is a .pem/.key format, you can use a tool like openSSL to convert the files to a .pfx file format. The private key must be included during the conversion because the .pfx file format requires it. Also, if your certificate authority gives you multiple certificates in the certificate chain, you have to merge the certificates following the same order. For more information, please see [here](../app-service/configure-ssl-certificate.md#merge-intermediate-certificates).
+The certificate file format must be a .pfx file with a password applied to the file. The certificate must also meet the certificate requirements mentioned [here](../app-service/configure-ssl-certificate.md#private-certificate-requirements). If you obtained your certificate from a third party CA and the file format is a .pem/.key format, you can use a tool like openSSL to convert the files to a .pfx file format. The private key must be included during the conversion because the .pfx file format requires it. Also, if your CA gives you multiple certificates in the certificate chain, you have to merge the certificates following the same order. For more information, please see [here](../app-service/configure-ssl-certificate.md#merge-intermediate-certificates).
 
 **How do I generate a certificate-signing request for an App Service certificate?**
 
-For an App Service certificate, you would purchase through the Azure portal or by using a Powershell/CLI command. A certificate-signing request isn't needed. However, Azure Key Vault supports storing digital certificates issued by any certificate authority (CA). It supports creating a certificate-signing request with a private/public key pair. The certificate-signing request can be signed by any CA (an internal enterprise CA or an external public CA). For more information, please see [Create a certificate-signing request](/azure/key-vault/certificates/create-certificate-signing-request).
+For an App Service certificate, you purchase through the Azure portal or by using a Powershell/CLI command. A certificate-signing request isn't needed. However, Azure Key Vault supports storing digital certificates issued by any CA. It supports creating a certificate-signing request with a private/public key pair. The certificate-signing request can be signed by any CA (an internal enterprise CA or an external public CA). For more information, please see [Create a certificate-signing request](/azure/key-vault/certificates/create-certificate-signing-request).

@@ -19,7 +19,7 @@ If you deleted your app in Azure App Service, you can restore it from the portal
 1. Go to App Services in the Azure portal.
 1. Select **Manage Deleted Apps**.
 1. Select **Subscription**.
-1. From the dropdown, select the deleted app. Apps deleted in the last 30 days appear in the dropdown list.
+1. From the dropdown, select the deleted app. Apps that were deleted in the last 30 days appear in the dropdown list.
 1. Select the destination app from the dropdown that correlates to where you want to restore your app.
 1. If you would like to restore the deleted app to a slot of the destination app, select the slot checkbox and select available slots from the dropdown.
 1. By default, only app content is restored. If you want app configuration to also be restored, select **Restore App configuration**.
@@ -44,7 +44,7 @@ Some customers might experience failure to retrieve the list of deleted apps. To
 
 To access the collection of deleted apps, you can use `Get-AzDeletedWebApp`.
 
-For details on a specific deleted app you can use:
+To get details on a specific deleted app, you can use:
 
 ```powershell
 Get-AzDeletedWebApp -Name <your_deleted_app> -Location <your_deleted_app_location> 
@@ -85,7 +85,7 @@ Restore to a different app name:
 Restore-AzDeletedWebApp -ResourceGroupName <original_rg> -Name <original_app> -TargetResourceGroupName <target_rg> -TargetName <target_app> -TargetAppServicePlanName <target_asp>
 ```
 
-Restore a slot to target app:
+Restore a slot to the target app:
 
 ```powershell
 Restore-AzDeletedWebApp -TargetResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp> -Slot <original_slot>
@@ -115,7 +115,7 @@ The inputs for command are:
 - **`TargetName`**: Target app to which you're restoring the deleted app.
 - **`TargetAppServicePlanName`**: App Service plan linked to the app.
 - **Name**: Name for the app. We recommend that it's globally unique.
-- **`ResourceGroupName`**: Original resource group for the deleted app. You can get it from `Get-AzDeletedWebApp -Name <your_deleted_app> -Location <your_deleted_app_location>` 
+- **`ResourceGroupName`**: Original resource group for the deleted app. You can get it from `Get-AzDeletedWebApp -Name <your_deleted_app> -Location <your_deleted_app_location>`.
 - **Slot**: Slot for the deleted app.
 - **`RestoreContentOnly`**: By default `Restore-AzDeletedWebApp` restores both your app configuration as well any content. If you want to only restore content, you can use the `-RestoreContentOnly` flag with this cmdlet.
 
@@ -126,13 +126,13 @@ The inputs for command are:
 
 If a function app was hosted on a **Dedicated app service plan**, it can be restored, as long as it used the default App Service storage.
 
-Fetch the `DeletedSiteId` of the app version you want to restore, by using `Get-AzDeletedWebApp` cmdlet:
+1. Fetch the `DeletedSiteId` of the app version you want to restore, by using the `Get-AzDeletedWebApp` cmdlet:
 
 ```powershell
 Get-AzDeletedWebApp -ResourceGroupName <RGofDeletedApp> -Name <NameofApp> 
 ```
 
-Create a new function app in a Dedicated plan. Refer to the instructions for [how to create an app in the portal](../azure-functions/functions-create-function-app-portal.md#create-a-function-app). Restore to the newly created function app by using this cmdlet:
+2. Create a new function app in a Dedicated plan. Refer to the instructions for [how to create an app in the portal](../azure-functions/functions-create-function-app-portal.md#create-a-function-app). Restore to the newly created function app by using this cmdlet:
 
 ```powershell
 Restore-AzDeletedWebApp -ResourceGroupName <RGofnewapp> -Name <newApp> -deletedId "/subscriptions/xxxx/providers/Microsoft.Web/locations/xxxx/deletedSites/xxxx"
@@ -145,6 +145,6 @@ Currently there's no support to use the `Restore-AzDeletedWebApp` cmdlet to unde
 
     | App Setting      | Suggested value  |
     | ------------ | ---------------- |
-    | `AzureWebJobsStorage` | Connection string for the storage account used by the deleted app. |
-    | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` | Connection string for the storage account used by the deleted app. |
-    | `WEBSITE_CONTENTSHARE` | File share on storage account used by the deleted app. |
+    | `AzureWebJobsStorage` | Connection string for the storage account used by the deleted app |
+    | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` | Connection string for the storage account used by the deleted app |
+    | `WEBSITE_CONTENTSHARE` | File share on storage account used by the deleted app |

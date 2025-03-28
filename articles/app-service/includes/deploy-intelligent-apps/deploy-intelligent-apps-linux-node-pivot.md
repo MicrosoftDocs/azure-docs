@@ -63,7 +63,7 @@ For OpenAI, see this documentation to retrieve the API keys. For our application
 
 - `apiKey`
 
-Because we're deploying to App Service, we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your key vault and add the secrets that you saved from earlier.
+Because we're deploying to App Service, we can secure these secrets in Azure Key Vault for protection. Follow the [Quickstart](/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your key vault and add the secrets that you saved from earlier.
 
 Next, we can use key vault references as app settings in our App Service resource to reference in our application. Follow the instructions in the [documentation](../../app-service-key-vault-references.md?source=recommendations&tabs=azure-cli) to grant your app access to your key vault and to set up key vault references.
 
@@ -149,7 +149,7 @@ import OpenAI from 'openai';
 
 ### Secure your app by using managed identity
 
-Although optional, we highly recommend that you secure your application using [managed identity](../../overview-managed-identity.md) to authenticate your app to your Azure OpenAI resource. This process enables your application to access the Azure OpenAI resource without needing to manage API keys. Skip this step if you're not using Azure OpenAI.
+Although optional, we highly recommend that you secure your application by using [managed identity](../../overview-managed-identity.md) to authenticate your app to your Azure OpenAI resource. This process enables your application to access the Azure OpenAI resource without needing to manage API keys. Skip this step if you're not using Azure OpenAI.
 
 To secure your application, complete the following tasks:
 

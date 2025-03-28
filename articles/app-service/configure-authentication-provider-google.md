@@ -1,5 +1,5 @@
 ---
-title: Configure Google authentication
+title: Configure Google Authentication
 description: Learn how to configure Google authentication as an identity provider for your App Service or Azure Functions app.
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.topic: how-to

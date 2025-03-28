@@ -22,13 +22,13 @@ This article shows you the most common deployment and runtime configuration for 
 
 # [Linux](#tab/linux)
 
-To show the current Java version, run the following command in the [Cloud Shell](https://shell.azure.com):
+To show the current Java version, run the following command in [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
 ```
 
-To show all supported Java versions, run the following command in the [Cloud Shell](https://shell.azure.com):
+To show all supported Java versions, run the following command in [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp list-runtimes --os linux | grep "JAVA\|TOMCAT\|JBOSSEAP"
@@ -75,13 +75,13 @@ $JBOSS_HOME/bin/jboss-cli.sh --connect --commands=:product-info
 
 # [Windows](#tab/windows)
 
-To show the current Java version, run the following command in the [Cloud Shell](https://shell.azure.com):
+To show the current Java version, run the following command in [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config show --name <app-name> --resource-group <resource-group-name> --query "[javaVersion, javaContainer, javaContainerVersion]"
 ```
 
-To show all supported Java versions, run the following command in the [Cloud Shell](https://shell.azure.com):
+To show all supported Java versions, run the following command in [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp list-runtimes --os windows | grep java
@@ -103,7 +103,7 @@ By using the [Maven Plugin for Azure Web Apps](https://github.com/microsoft/azur
 mvn com.microsoft.azure:azure-webapp-maven-plugin:2.13.0:config
 ```
 
-This command adds an `azure-webapp-maven-plugin` plugin and the related configuration by prompting you to select an existing Azure Web App or create a new one. During configuration, it attempts to detect whether your application should be deployed to Java SE, Tomcat, or (Linux only) JBoss Enterprise Application Platform (EAP). Then you can deploy your Java app to Azure by using the following command:
+This command adds an `azure-webapp-maven-plugin` plugin and the related configuration by prompting you to select an existing Azure Web App or to create a new one. During configuration, it attempts to detect whether your application should be deployed to Java SE, Tomcat, or (Linux only) JBoss Enterprise Application Platform (EAP). Then you can deploy your Java app to Azure by using the following command:
 
 ```shell
 mvn package azure-webapp:deploy
@@ -153,7 +153,7 @@ Here's a sample configuration in `pom.xml`:
     ```
 
 1. Configure your web app details. The corresponding Azure resources are created if they don't exist.
-Here's a sample configuration, for details, refer to this [document](https://github.com/microsoft/azure-gradle-plugins/wiki/Webapp-Configuration).
+Here's a sample configuration. For details, refer to this [document](https://github.com/microsoft/azure-gradle-plugins/wiki/Webapp-Configuration).
 
     ```groovy
     azurewebapp {
@@ -187,39 +187,39 @@ Here's a sample configuration, for details, refer to this [document](https://git
 Azure provides seamless Java App Service development experience in popular Java Integrated Development Environments (IDEs), including:
 
 - **VS Code**: [Java Web Apps with Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp#_deploy-web-apps-to-the-cloud).
-- **IntelliJ IDEA**:[Create a Hello World web app for Azure App Service by using IntelliJ](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app).
-- **Eclipse**:[Create a Hello World web app for Azure App Service by using Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app).
+- **IntelliJ IDEA**: [Create a Hello World web app for Azure App Service by using IntelliJ](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app).
+- **Eclipse**: [Create a Hello World web app for Azure App Service by using Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app).
 
 ### Kudu API
 
 ::: zone pivot="java-javase"
 
-To deploy .jar files to Java SE, use the `/api/publish` endpoint of the Kudu site. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
+To deploy JAR files to Java SE, use the `/api/publish` endpoint of the Kudu site. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
 
 > [!NOTE]
-> Your .jar application must be named `app.jar` for App Service to identify and run your application. The [Maven plugin](#maven) automatically names the application for you during deployment. If you don't wish to rename your JAR to `app.jar`, you can upload a shell script with the command to run your .jar app. Paste the absolute path to this script in the [Startup File](./faq-app-service-linux.yml) text box in the **Configuration** section of the portal. The startup script doesn't run from the directory it's in. Therefore, always use absolute paths to reference files in your startup script (for example: `java -jar /home/myapp/myapp.jar`).
+> Your JAR application must be named `app.jar` for App Service to identify and run your application. The [Maven plugin](#maven) automatically names the application for you during deployment. If you don't wish to rename your JAR to `app.jar`, you can upload a shell script with the command to run your JAR app. Paste the absolute path to this script in the [Startup File](./faq-app-service-linux.yml) text box in the **Configuration** section of the portal. The startup script doesn't run from the directory it's in. Therefore, always use absolute paths to reference files in your startup script (for example: `java -jar /home/myapp/myapp.jar`).
 
 ::: zone-end
 
 ::: zone pivot="java-tomcat"
 
-To deploy .war files to Tomcat, use the `/api/wardeploy/` endpoint to `POST` your archive file. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
+To deploy WAR files to Tomcat, use the `/api/wardeploy/` endpoint to `POST` your archive file. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
 
 ::: zone-end
 
 ::: zone pivot="java-jboss"
 
-To deploy .war files to JBoss, use the `/api/wardeploy/` endpoint to `POST` your archive file. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
+To deploy WAR files to JBoss, use the `/api/wardeploy/` endpoint to `POST` your archive file. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
 
-To deploy .ear files, [use FTP](deploy-ftp.md). Your .ear application is deployed to the context root defined in your application's configuration. For example, if the context root of your app is `<context-root>myapp</context-root>`, then you can browse the site at the `/myapp` path: `http://my-app-name.azurewebsites.net/myapp`. If you want your web app to be served in the root path, ensure that your app sets the context root to the root path: `<context-root>/</context-root>`. For more information, see [Setting the context root of a web application](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html).
+To deploy EAR files, [use FTP](deploy-ftp.md). Your EAR application is deployed to the context root defined in your application's configuration. For example, if the context root of your app is `<context-root>myapp</context-root>`, then you can browse the site at the `/myapp` path: `http://my-app-name.azurewebsites.net/myapp`. If you want your web app to be served in the root path, ensure that your app sets the context root to the root path: `<context-root>/</context-root>`. For more information, see [Setting the context root of a web application](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html).
 
 ::: zone-end
 
-Don't deploy your .war or .jar by using FTP. The FTP tool is designed to upload startup scripts, dependencies, or other runtime files. It's not the optimal choice for deploying web apps.
+Don't deploy your WAR or JAR by using FTP. The FTP tool is designed to upload startup scripts, dependencies, or other runtime files. It's not the optimal choice for deploying web apps.
 
-## Rewrite or redirect URL
+## Rewrite or redirect a URL
 
-To rewrite or redirect URL, use one of the available URL rewriters, such as [UrlRewriteFilter](http://tuckey.org/urlrewrite/).
+To rewrite or redirect a URL, use one of the available URL rewriters, such as [UrlRewriteFilter](http://tuckey.org/urlrewrite/).
 
 ::: zone pivot="java-tomcat"
 
@@ -261,13 +261,13 @@ The built-in Java images are based on the [Alpine Linux](https://alpine-linux.re
 
 ### Java profiler
 
-All Java runtimes on Azure App Service come with the Java Development Kit (JDK) Flight Recorder for profiling Java workloads. You can use it to record Java Virtual Machine (JVM), system, and application events, and troubleshoot problems in your applications.
+All Java runtimes on Azure App Service come with the Java Development Kit (JDK) Flight Recorder for profiling Java workloads. You can use it to record Java Virtual Machine (JVM), system, and application events, and to troubleshoot problems in your applications.
 
 To learn more about the Java profiler, visit the [Azure Application Insights documentation](/azure/azure-monitor/app/java-standalone-profiler).
 
 ### Java Flight Recorder
 
-All Java runtimes on App Service come with the Java Flight Recorder. You can use it to record JVM, system, and application events and troubleshoot problems in your Java applications.
+All Java runtimes on App Service come with the Java Flight Recorder. You can use it to record JVM, system, and application events and to troubleshoot problems in your Java applications.
 
 # [Linux](#tab/linux)
 
@@ -280,7 +280,7 @@ Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
 116 /home/site/wwwroot/app.jar
 ```
 
-Execute the following command to start a 30-second recording of the JVM. It profiles the JVM and creates a Java Flight Recorder (JFR) file named *jfr_example.jfr* in the home directory. Replace `116` with the PID of your Java app.
+Execute the following command to start a 30-second recording of the JVM. It profiles the JVM and creates a Java Flight Recorder (JFR) file named `jfr_example.jfr` in the home directory. Replace `116` with the PID of your Java app.
 
 ```shell
 jcmd 116 JFR.start name=MyRecording settings=profile duration=30s filename="/home/jfr_example.jfr"
@@ -316,7 +316,7 @@ jcmd <pid> JFR.start name=TimedRecording settings=profile duration=30s filename=
 
 ---
 
-#### Analyze .jfr files
+#### Analyze JFR files
 
 Use [FTPS](deploy-ftp.md) to download your JFR file to your local machine. To analyze the JFR file, download and install [Java Mission Control (JMC)](https://www.oracle.com/java/technologies/javase/products-jmc8-downloads.html). For instructions on how to use Java Mission Control, see the [JMC documentation](https://docs.oracle.com/en/java/java-components/jdk-mission-control/) and the [installation instructions](https://www.oracle.com/java/technologies/javase/jmc8-install.html).
 
@@ -417,7 +417,7 @@ Developers running a single application with one deployment slot in their App Se
 - I2v2 instances: `-Xms14848m -Xmx14848m`
 - I3v2 instances: `-Xms30720m -Xmx30720m`
 
-When tuning application heap settings, review your App Service plan details. Consider multiple applications and deployment slot needs to find the optimal allocation of memory.
+When tuning application heap settings, review your App Service plan details. Consider the needs of multiple applications and deployment slots to find the optimal allocation of memory.
 
 ### Turn on web sockets
 
@@ -463,7 +463,7 @@ To improve performance of Tomcat applications, you can compile your JSP files be
 
 ## <a name = "choosing-a-java-runtime-version"></a> Choose a Java runtime version
 
-App Service allows users to choose the major version of the JVM, such as Java 8 or Java 11, and the patch version, like 1.8.0_232 or 11.0.5. You can also choose to have the patch version update automatically as new minor versions become available. In most cases, production apps should use pinned patch JVM versions, which prevents unanticipated outages during a patch version autoupdate. All Java web apps use 64-bit JVMs, and it's not configurable.
+App Service allows users to choose the major version of the JVM, such as Java 8 or Java 11, and the patch version, like 1.8.0_232 or 11.0.5. You can also choose to have the patch version update automatically as new minor versions become available. In most cases, production apps should use pinned patch JVM versions, which prevent unanticipated outages during a patch version autoupdate. All Java web apps use 64-bit JVMs, and it's not configurable.
 
 ::: zone pivot="java-tomcat"
 
@@ -522,7 +522,7 @@ When configuring autoscale rules for horizontal scaling, it's important to remov
 - **Cool down**: "5 minutes" or greater
 - **Instance count**: 1
 
-You don't need to incrementally add instances (scaling out), you can add multiple instances to the cluster at a time.
+You don't need to incrementally add instances (scaling out). You can add multiple instances to the cluster at a time.
 
 ## App Service plans
 
@@ -553,8 +553,8 @@ See the following sections for details and opportunities to customize (such as t
     - If you provide the `–Xms` or `–Xmx` flags for memory in the app setting `JAVA_OPTS`, these values override the ones provided by the platform.
     - If you configure the app setting `WEBSITES_CONTAINER_STOP_TIME_LIMIT`, the value is passed to the runtime property `org.wildfly.sigterm.suspend.timeout`, which controls the maximum shutdown wait time (in seconds) when JBoss is being stopped.
 - If the app is integrated with a virtual network, the App Service runtime passes a list of ports to be used for inter-server communication in the environment variable `WEBSITE_PRIVATE_PORTS` and launches JBoss by using the `clustering` configuration. Otherwise, the `standalone` configuration is used.
-    - For the `clustering` configuration, the server configuration file *standalone-azure-full-ha.xml* is used.
-    - For the `standalone` configuration, the server configuration file *standalone-full.xml* is used.
+    - For the `clustering` configuration, the server configuration file `standalone-azure-full-ha.xml` is used.
+    - For the `standalone` configuration, the server configuration file `standalone-full.xml` is used.
 
 ### 2. Server launch phase
 
@@ -578,7 +578,8 @@ See the following sections for details and opportunities to customize (such as t
 - If the `clustering` configuration is enabled, the console logger to be configured is checked. 
 - If there are JAR files deployed to the `/home/site/libs` directory, a new global module is created with all of these JAR files.
 - At the end of the phase, App Service runs the custom startup script, if one exists. The search logic for the custom startup script is defined as follows:
-    - If you configured a startup command (in the Azure portal, with the Azure CLI, etc.), run it; otherwise,
+
+* If you configured a startup command (in the Azure portal, with the Azure CLI, etc.), run it. Otherwise:
     - If the path `/home/site/scripts/startup.sh` exists, use it. If not:
     - If the path `/home/startup.sh` exists, use it.
 
@@ -592,7 +593,7 @@ The startup script deploys apps to JBoss by looking in the following locations, 
 - If `/home/site/wwwroot/app.war` exists, deploy it.
 - If any other EAR and WAR files exist in `/home/site/wwwroot`, deploy them.
 - If `/home/site/wwwroot/webapps` exists, deploy the files and directories in it. WAR files are deployed as applications themselves, and directories are deployed as "exploded" (uncompressed) web apps. 
-- If any standalone JSP pages exist in */home/site/wwwroot*, copy them to the web server root and deploy them as one web app.
+- If any standalone JSP pages exist in `/home/site/wwwroot`, copy them to the web server root and deploy them as one web app.
 - If no deployable files are found, deploy the default welcome page (parking page) in the root context.
 
 ### 5. Server reload phase 
@@ -636,7 +637,7 @@ The latest versions of Tomcat have server.xml (8.5.58 and 9.0.38 onward). Older 
 * `maxConnections` is set to `WEBSITE_CATALINA_MAXCONNECTIONS`, which defaults to `10000`
  
 > [!NOTE]
-> The `connectionTimeout`, `maxThreads`, and `maxConnections` settings can be tuned with app settings
+> The `connectionTimeout`, `maxThreads`, and `maxConnections` settings can be tuned with app settings.
 
 Following are example CLI commands that you might use to alter the values of `connectionTimeout`, `maxThreads`, or `maxConnections`:
 
@@ -668,8 +669,8 @@ az webapp config appsettings set --resource-group myResourceGroup --name myApp -
 ```xml
 <Valve prefix="site_access_log.${catalina.instance.name}" pattern="%h %l %u %t &quot;%r&quot; %s %b %D %{x-arr-log-id}i" directory="${site.logdir}/http/RawLogs" maxDays="${site.logRetentionDays}" className="org.apache.catalina.valves.AccessLogValve" suffix=".txt"/>
  ```
-* `directory` is set to `AZURE_LOGGING_DIR`, which defaults to `home\logFiles`
-* `maxDays` is to `WEBSITE_HTTPLOGGING_RETENTION_DAYS`, which defaults to `7`. This value aligns with the application logging platform default.
+* `directory` is set to `AZURE_LOGGING_DIR`, which defaults to `home\logFiles`.
+* `maxDays` is set to `WEBSITE_HTTPLOGGING_RETENTION_DAYS`, which defaults to `7`. This value aligns with the application-logging platform default.
  
 On Linux, it has all of the same customization, plus:
  

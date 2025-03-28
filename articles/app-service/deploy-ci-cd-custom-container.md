@@ -13,11 +13,11 @@ zone_pivot_groups: app-service-containers-windows-linux
 
 # Continuous deployment with custom containers in Azure App Service
 
-Learn how to configure continuous deployment for a custom container image from managed [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) repositories or [Docker Hub](https://hub.docker.com).
+Learn how to configure continuous integration and continuous delivery (CI/CD) for a custom container image from managed [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) repositories or [Docker Hub](https://hub.docker.com).
 
-## 1. Go to Deployment Center
+## 1. Go to the Deployment Center
 
-In the [Azure portal](https://portal.azure.com), go to the management page for your App Service app.
+In the [Azure portal](https://portal.azure.com), go to the management pane for your App Service app.
 
 From the left menu, select **Deployment Center** > **Settings**.
 
@@ -33,7 +33,7 @@ Choose the deployment source based on the following criteria:
 
 If you choose GitHub Actions, select **Authorize** and follow the authorization prompts. If you previously authorized with GitHub, you can deploy from a different user's repository by selecting **Change Account**.
 
-After you authorize your Azure account with GitHub, **select** the **Organization**, **Repository**, and **Branch** to deploy from.
+After you authorize your Azure account with GitHub, select the **Organization**, **Repository**, and **Branch** to deploy from.
 ::: zone-end  
 
 ::: zone pivot="container-windows"
@@ -54,7 +54,7 @@ In **Registry source**, select where your container registry is. If it's not Azu
 
 ::: zone pivot="container-linux"
 > [!NOTE]
-> If your multi-container (Docker Compose) app uses more than one private image, make sure the private images are in the same private registry and accessible with the same user credentials. If your multi-container app uses only public images, select **Docker Hub**, even if some images aren't in Docker Hub.
+> If your multi-container (Docker Compose) app uses more than one private image, make sure the private images are in the same private registry and are accessible with the same user credentials. If your multi-container app uses only public images, select **Docker Hub**, even if some images aren't in Docker Hub.
 ::: zone-end  
 
 Follow the next steps by selecting the tab that matches your choice.
@@ -67,7 +67,7 @@ To deploy from a registry in a different subscription, select **Private Registry
 
 To use managed identities to lock down Azure Container Registry access, see: 
 
-* [How to use system-assigned managed identities with App Service and Azure Container Registry](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_system-assigned_managed_identities.md)
+* [How to use system-assigned managed identities with App Service and Azure Container Registry](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_system-assigned_managed_identities.md).
 * [How to use user-assigned managed identities with App Service and Azure Container Registry](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_user-assigned_managed_identities.md).
 
 ::: zone pivot="container-windows"
@@ -75,7 +75,7 @@ Select the **Image** and **Tag** to deploy. You can choose to type the startup c
 ::: zone-end
 ::: zone pivot="container-linux"
 Follow the next step depending on the **Container Type**:
-* For **Docker Compose**, select the registry for your private images. Select **Choose file** to upload your [Docker Compose file](https://docs.docker.com/compose/compose-file/), or just **paste** the content of your Docker Compose file into **Config**.
+* For **Docker Compose**, select the registry for your private images. Select **Choose file** to upload your [Docker Compose file](https://docs.docker.com/compose/compose-file/), or just **paste** the contents of your Docker Compose file into **Config**.
 * For **Single Container**, select the **Image** and **Tag** to deploy. You can choose to type the startup command in **Startup File**.
 ::: zone-end
 
@@ -97,7 +97,7 @@ Supply the image and tag name in **Full Image Name and Tag**, separated by a `:`
 ::: zone-end
 ::: zone pivot="container-linux"
 Follow the next step depending on the **Container Type**:
-* For **Docker Compose**, select the registry for your private images. Select **Choose file** to upload your [Docker Compose file](https://docs.docker.com/compose/compose-file/), or **paste** the content of your Docker Compose file into **Config**.
+* For **Docker Compose**, select the registry for your private images. Select **Choose file** to upload your [Docker Compose file](https://docs.docker.com/compose/compose-file/), or **paste** the contents of your Docker Compose file into **Config**.
 * For **Single Container**, supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). You can choose to type the startup command in **Startup File**.
 ::: zone-end
 
@@ -105,16 +105,16 @@ App Service appends the string in **Startup File** to [the end of the `docker ru
 
 # [Private Registry](#tab/private)
 
-In **Server URL**, type the URL of the server, beginning with **https://**.
+In **Server URL**, type the URL of the server, beginning with `https://`.
 
-In the **Login** and **Password** fields, type your sign in credentials for your private registry.
+In the **Login** and **Password** fields, type your sign-in credentials for your private registry.
 
 ::: zone pivot="container-windows"
 Supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). You can choose to type the startup command in **Startup File**.
 ::: zone-end
 ::: zone pivot="container-linux"
 Follow the next step depending on the **Container Type**:
-* For **Docker Compose**, select the registry for your private images. Select **Choose file** to upload your [Docker Compose file](https://docs.docker.com/compose/compose-file/), or paste the content of your Docker Compose file into **Config**.
+* For **Docker Compose**, select the registry for your private images. Select **Choose file** to upload your [Docker Compose file](https://docs.docker.com/compose/compose-file/), or paste the contents of your Docker Compose file into **Config**.
 * For **Single Container**, supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). You can choose to type the startup command in **Startup File**.
 ::: zone-end
 
@@ -138,10 +138,9 @@ App Service supports CI/CD integration with Azure Container Registry and Docker 
 
 When you enable this option, App Service adds a webhook to your repository in Azure Container Registry or Docker Hub. Your repository posts to this webhook whenever your selected image is updated with `docker push`. The webhook causes your App Service app to restart and run `docker pull` to get the updated image.
 
-> [!NOTE]
->
-> To ensure the proper functioning of the webhook, we recommend that you enable the **Basic Auth Publishing Credentials** option within your web app. If you don't, you might receive a "401 unauthorized" error for the webhook.
->To verify whether **Basic Auth Publishing Credentials** is enabled, go to your web app's **Configuration > General Settings**. Look for the **Platform Setting** section, and then select the **Basic Auth Publishing Credentials** option.
+To ensure the proper functioning of the webhook, we recommend that you enable the **Basic Auth Publishing Credentials** option within your web app. If you don't, you might receive a "401 unauthorized" error for the webhook.
+
+To verify whether **Basic Auth Publishing Credentials** is enabled, go to your web app's **Configuration > General Settings**. Look for the **Platform Setting** section, and then select the **Basic Auth Publishing Credentials** option.
 
 For other private registries, you can post to the webhook manually or as a step in a CI/CD pipeline. In **Webhook URL**, select the **Copy** button to get the webhook URL.
 
@@ -191,7 +190,7 @@ az ad sp create-for-rbac --name "myAppDeployAuth" --role contributor \
 > [!IMPORTANT]
 > For security, grant the minimum required access to the service principal. The scope in the previous example is limited to the specific App Service app and not the entire resource group.
 
-In [GitHub](https://github.com/), go to your repository, and then select **Settings > Secrets > Add a new secret**. **Paste** the entire JSON output from the Azure CLI command into the secret's value field. Give the secret a name like `AZURE_CREDENTIALS`.
+In [GitHub](https://github.com/), go to your repository, and then select **Settings > Secrets > Add a new secret**. Paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret a name like `AZURE_CREDENTIALS`.
 
 In the workflow file generated by the **Deployment Center**, revise the `azure/webapps-deploy` step with code similar to the following example:
 
