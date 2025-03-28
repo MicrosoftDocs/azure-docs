@@ -1,22 +1,22 @@
 ---
-title: App Service Plans
+title: Azure App Service Plans
 description: Learn how App Service plans work in Azure App Service, how they're billed, and how to scale them for your needs.
 keywords: app service, azure app service, scale, scalable, scalability, app service plan, app service cost
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: overview
-ms.date: 02/28/2025
+ms.date: 03/28/2025
 ms.author: msangapu
 author: msangapu-msft
 ms.custom: UpdateFrequency3
-
+#customer intent: As an app developer, I want to understand which service plan is right for apps in my organization in Azure App Service.
 ---
 # What are Azure App Service plans?
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 An *Azure App Service plan* defines a set of compute resources for a web app to run. An app service always runs in an App Service plan. [Azure Functions](../azure-functions/dedicated-plan.md) also has the option of running in an App Service plan.
 
-When you create an App Service plan in a certain region (for example, West Europe), a set of compute resources is created for that plan in that region. Whatever apps you put into the App Service plan run on those compute resources, as defined in the plan.
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
+When you create an App Service plan in a certain region, you create a set of compute resources for that plan in that region. Whatever apps you put into the App Service plan run on those compute resources, as defined in the plan.
 
 Each App Service plan defines:
 
@@ -28,10 +28,10 @@ Each App Service plan defines:
 
 ## Pricing tiers
 
-The pricing tier of an App Service plan determines what App Service features you get and how much you pay for the plan. The pricing tiers available to your App Service plan depend on the operating system that you select at creation time. These are the categories of pricing tiers:
+The pricing tier of an App Service plan determines what App Service features you get and how much you pay for the plan. The pricing tiers available to your App Service plan depend on the operating system that you select when you create it. This table shows the categories of pricing tiers:
 
 | Category | Tiers | Description |
-|-|-|-|
+|:-|:-|:-|
 | Shared compute | Free, Shared | Free and Shared, the two base tiers, run an app on the same Azure VM as other App Service apps, including apps of other customers. These tiers allocate CPU quotas to each app that runs on the shared resources. The resources can't scale out. These tiers are intended for only development and testing purposes. |
 | Dedicated compute | Basic, Standard, Premium, PremiumV2, PremiumV3 | The Basic, Standard, Premium, PremiumV2, and PremiumV3 tiers run apps on dedicated Azure VMs. Only apps in the same App Service plan share the same compute resources. The higher the tier, the more VM instances that are available to you for scale-out. |
 | Isolated | IsolatedV2 | The IsolatedV2 tier runs dedicated Azure VMs on dedicated Azure virtual networks. This tier provides network isolation on top of compute isolation to your apps. It provides the maximum scale-out capabilities. |
@@ -44,14 +44,14 @@ You can find more comparisons of plans in [App Service limits](../azure-resource
 
 ### PremiumV3 pricing tier
 
-The PremiumV3 pricing tier guarantees machines with faster processors (minimum 195 [ACU](/azure/virtual-machines/acu) per virtual CPU), SSD storage, memory-optimized options, and quadruple memory-to-core ratio compared to the Standard tier.
+The PremiumV3 pricing tier provides machines with faster processors (minimum 195 [Azure Compute Units](/azure/virtual-machines/acu) per virtual CPU), SSD storage, memory-optimized options, and quadruple memory-to-core ratio compared to the Standard tier.
 
-PremiumV3 also supports higher scale via increased instance count, while still providing all the advanced capabilities in the Standard tier. PremiumV3 includes all features available in the PremiumV2 tier.
+PremiumV3 also supports higher scale by using increased instance count, while it still provides the advanced capabilities in the Standard tier. PremiumV3 includes all features available in the PremiumV2 tier.
 
 Multiple VM sizes are available for this tier, including 4-to-1 and 8-to-1 memory-to-core ratios:
 
 | App Service plan | Cores (vCPU) | Memory (GiB) |
-|-|-|-|
+|:-|:-|:-|
 | P0v3 | 1 | 4 |
 | P1v3 | 2 | 8 |
 | P1mv3 | 2 | 16 |
@@ -72,7 +72,7 @@ In the Free and Shared tiers, an app receives CPU minutes on a shared VM instanc
 
 In other tiers, an app runs and scales as follows:
 
-- When you create an app in App Service, it's part of an App Service plan. When the app runs, it runs on all the VM instances configured in the App Service plan.
+- If you create an app in App Service, it's part of an App Service plan. When the app runs, it runs on all the VM instances configured in the App Service plan.
 - If multiple apps are in the same App Service plan, they all share the same VM instances.
 - If you have multiple deployment slots for an app, all deployment slots also run on the same VM instances.
 - If you enable diagnostic logs, perform backups, or run [WebJobs](webjobs-create.md), they also use CPU cycles and memory on these VM instances.
@@ -93,7 +93,7 @@ Except for the Free tier, an App Service plan carries a charge on the compute re
 - **Dedicated compute tiers (Basic, Standard, Premium, PremiumV2, PremiumV3)**: The App Service plan defines the number of VM instances that the apps are scaled to, so *each VM instance* in the App Service plan is charged. These VM instances are charged the same, regardless of how many apps are running on them. To avoid unexpected charges, see [Delete an App Service plan](app-service-plan-manage.md#delete-an-app-service-plan).
 - **IsolatedV2 tier**: The App Service Environment defines the number of isolated workers that run your apps, and *each worker* is charged.
 
-You aren't charged for using the App Service features that are available to you (for example, configuring custom domains, TLS/SSL certificates, deployment slots, or backups). The exceptions are:
+You aren't charged for using the App Service features that are available to you. These features include configuring custom domains, TLS/SSL certificates, deployment slots, and backups. The exceptions are:
 
 - **App Service domains**: You pay when you purchase one in Azure and when you renew it each year.
 - **App Service certificates**: You pay when you purchase one in Azure and when you renew it each year.
@@ -118,9 +118,9 @@ If your app is in the same App Service plan with other apps, you might want to i
 
 ## Decision to use a new plan or an existing plan for an app
 
-Because you pay for the computing resources that your App Service plan allocates (as described in the [earlier section about cost](#cost)), you can potentially save money by putting multiple apps into one App Service plan. You can continue to add apps to an existing plan as long as the plan has enough resources to handle the load.
+You pay for the computing resources that your App Service plan allocates as described in the [earlier section about cost](#cost). You can potentially save money by putting multiple apps into one App Service plan. You can continue to add apps to an existing plan as long as the plan has enough resources to handle the load.
 
-However, keep in mind that apps in the same App Service plan all share the same compute resources. To determine whether the new app has the necessary resources, you need to understand the capacity of the existing App Service plan, along with the expected load for the new app. Overloading an App Service plan can potentially cause downtime for your new and existing apps. You can find more comparisons between plans at [App Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits).
+However, keep in mind that apps in the same App Service plan all share the same compute resources. To determine whether the new app has the necessary resources, you need to understand the capacity of the existing App Service plan, along with the expected load for the new app. Overloading an App Service plan can cause downtime for your new and existing apps. You can find more comparisons between plans at [App Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits).
 
 Isolate your app in a new App Service plan when:
 
