@@ -45,6 +45,9 @@ After your pipeline is created and saved, you'll need to edit the pipeline to ru
 
 First, you need to add the docker task so you can build the image. Add the following code and replace the Dockerfile: app/Dockerfile with the path to your Dockerfile.
 
+> [!NOTE]
+> If you need to pass in any arguments to build or push the docker image, then you will need to seperate the `buildAndPush` step into two (`build` and `push`). For the complete documentation, see [Docker@2 - Docker v2 task](/azure/devops/pipelines/tasks/reference/docker-v2).
+
 ```yaml
 trigger:
  - main
@@ -103,14 +106,12 @@ Next, navigate to the **Show assistant** tab in the upper right hand corner and 
 Once you have those filled out, click the **Add** button to add the task below:
 
 ```yaml
-- task: AzureRmWebAppDeployment@4
+- task: AzureWebAppContainer@1
   inputs:
-    ConnectionType: 'AzureRM'
     azureSubscription: 'my-subscription-name'
     appType: 'webAppHyperVContainer'
-    WebAppName: 'my-app-name'
-    DockerNamespace: 'myregsitry.azurecr.io'
-    DockerRepository: 'dotnetframework:12'
+    appName: 'my-app-name'
+    containers: myregsitry.azurecr.io/dotnetframework:12
 ```
 
 After you've added the task the pipeline is ready to run. Click the **Validate and save** button and run the pipeline. The pipeline goes through the steps to build and push the Windows container image to Azure Container Registry and deploy the image to App Service.
@@ -156,12 +157,10 @@ trigger:
     pool:
       vmImage: $(vmImageName)
     steps:
-    - task: AzureRmWebAppDeployment@4
-		  inputs:
-		    ConnectionType: 'AzureRM'
-		    azureSubscription: 'my-subscription-name'
-		    appType: 'webAppHyperVContainer'
-		    WebAppName: 'my-app-name'
-		    DockerNamespace: 'myregsitry.azurecr.io'
-		    DockerRepository: 'dotnetframework:12'
+    - task: AzureWebAppContainer@1
+      inputs:
+        azureSubscription: 'my-subscription-name'
+        appType: 'webAppHyperVContainer'
+        appName: 'my-app-name'
+        containers: myregsitry.azurecr.io/dotnetframework:12
 ```
