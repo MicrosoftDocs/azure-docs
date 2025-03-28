@@ -14,9 +14,9 @@ This quickstart shows you how to create a Pure Storage Cloud (preview) resource 
 ## Prerequisites
 
 [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
-- You must [subscribe to Pure Storage Cloud](overview.md#subscribe-to-pure-storage-cloud).
+- You must [subscribe to Pure Storage Cloud (preview)](overview.md#subscribe-to-pure-storage-cloud-preview)
 
-## Create a Pure Storage Cloud resource
+## Create a resource
 
 [!INCLUDE [create-resource](../includes/create-resource.md)]
 
