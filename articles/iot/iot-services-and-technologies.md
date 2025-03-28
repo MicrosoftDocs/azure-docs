@@ -127,7 +127,7 @@ To learn more, see [What is Azure IoT Central?](../iot-central/core/overview-iot
 
 Azure Event Grid is a highly scalable, fully managed Pub Sub message distribution service that offers flexible message consumption patterns using the MQTT and HTTP protocols. With Azure Event Grid, you can build data pipelines with device data, integrate applications, and build event-driven serverless architectures. Event Grid enables clients to publish and subscribe to messages over the MQTT v3.1.1 and v5.0 protocols to support IoT solutions. Through HTTP, Event Grid enables you to build event-driven solutions where a publisher service announces its system state changes (events) to subscriber applications.
 
-Azure IoT Operations allows you to connect to [Event Grid and other cloud-based MQTT brokers](connect-to-cloud/howto-configure-mqtt-endpoint.md). For example, you can set up a [bi-directional MQTT bridge between an Azure IoT Operations MQTT broker and Azure Event Grid](../iot-operations/connect-to-cloud/tutorial-mqtt-bridge.md).
+Azure IoT Operations allows you to connect to Event Grid and other cloud-based MQTT brokers. For example, you can set up a [bi-directional MQTT bridge between an Azure IoT Operations MQTT broker and Azure Event Grid](../iot-operations/connect-to-cloud/tutorial-mqtt-bridge.md).
 
 IoT Hub and IoT Central can integrate with Azure Event Grid to enable your business to react quickly to critical events. For example you can [react to IoT Hub events by using Event Grid to trigger actions](../iot-hub/iot-hub-event-grid.md).
 
