@@ -165,7 +165,7 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
     Logical size of the volume (used bytes).  
     This size includes logical space used by active file systems and snapshots.  
 - *Volume Snapshot Size*   
-- 
+ 
    The size of all snapshots in a volume.  
 - *Volume Inodes Quota*
     
@@ -181,6 +181,7 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 - *Volume Inodes Percentage* 
 
     The percentage of the volume's available [inodes (or `maxfiles`)](maxfiles-concept.md) consumed.
+
     If the volume inode limit has been increased by a support request, the percentage is calculated based on Volume Inodes Quota metric. If the volume inode limit is the default value based on the volume size, the percentage is calculated based on the Volume Inodes Total metric.
 
 - *Throughput limit reached*
