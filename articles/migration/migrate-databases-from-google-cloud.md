@@ -34,6 +34,6 @@ Use the following migration guides as examples to help structure your migration 
 The following list includes platform-agnostic articles that have general guidance about how to migrate databases and security components to GCP.
 
 - [Migrate your security information and event management in Google Cloud to Microsoft Sentinel](/azure/sentinel/migration)
-- [Google Cloud Platform IAM (using Azure Functions) connector for Microsoft Sentinel](/azure/sentinel/data-connectors/google-cloud-platform-iam)
+- [Google Cloud Platform IAM by using Azure Functions connector for Microsoft Sentinel](/azure/sentinel/data-connectors/google-cloud-platform-iam)
 
 Use the table of contents to explore other articles that relate to your workload's architecture.
