@@ -4,7 +4,7 @@
  services: iot-hub
  author: SoniaLopezBravo
  ms.service: azure-iot-hub
- ms.topic: conceptual-article
+ ms.topic: how-to
  ms.date: 03/24/2025
  ms.author: sonialopez
 ---
