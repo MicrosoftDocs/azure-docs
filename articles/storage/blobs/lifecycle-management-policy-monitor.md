@@ -74,13 +74,22 @@ You can use metrics explorer and query resource logs in Azure Monitor to determi
 
 ### Metrics
 
-List which metrics to look for. They are the relevant REST operation names which appear in metrics explorer.
-Show how to filter and find them.
-Point to any existing material about metrics and how to use metrics explorer.
+To determine exactly when operations failed, use metrics explorer. You can see all transactions that were applied against the account in the timeframe between the `scheduleTime` and `eventTime` value that appear in the `LifecyclePolicyCompleted` properties. Use the following metric filters to narrow transactions to those executed by the policy:
+
+| Filter | Operator | Value |
+|---|---|---|
+| Transaction type | = | `system` |
+| API name | = | Name of failed operation. Values could be `DeleteBlob` or `SetBlobTier` |
+| Response type | != | `Success` |
+
+The following image shows an example: 
+
+  > [!div class="mx-imgBorder"]
+  > ![Screenshot showing metrics being applied to determine delete operations that failed.](media/lifecycle-management-policy-monitor/lifecycle-management-policy-metrics.png)
 
 ### Logs
 
-Explain how to use any information in event properties and metrics to query logs for operations that failed.
+Explain how to query logs on that specific time and operation type to diagnose exactly what went wrong.
 Explain how to determine the reason for any given failure.
 Point to any existing material about how to query logs.
 
