@@ -13,7 +13,7 @@ ms.custom: migration
 
 The articles listed on this page outline scenarios for how to migrate storage services from Amazon Web Services (AWS) to Azure storage services. 
 
-Storage services are foundational components of most enterprise workloads. Migration moves these services while ensuring that they retain the same capabilities. Examples of storage services include file storage, blob storage, data lakes, virtual machine images, and file shares that store critical data for various purposes. Whether it's to support custom applications, AI/ML training processes, business intelligence operations, or commercial off-the-shelf solutions, your storage infrastructure requires careful migration planning.
+Storage services are foundational components of most enterprise workloads. The migration process moves these services while ensuring that they retain the same capabilities. Examples of storage services include file storage, blob storage, data lakes, virtual machine images, and file shares that store critical data for various purposes. Whether it's to support custom applications, AI/ML training processes, business intelligence operations, or commercial off-the-shelf solutions, your storage infrastructure requires careful migration planning.
 
 ## Component comparison
 
