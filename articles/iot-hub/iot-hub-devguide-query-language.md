@@ -279,7 +279,7 @@ In routes conditions, the following string functions are supported:
 
 ### C# example
 
-The query functionality is exposed by the [C# service SDK](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks) in the **RegistryManager** class.
+The query functionality is exposed by the [Azure IoT Hub service SDK for .NET](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks) in the **RegistryManager** class.
 
 Here's an example of a simple query:
 
@@ -299,7 +299,7 @@ The query object is instantiated with the parameters mentioned in the [Query res
 
 ### Node.js example
 
-The query functionality is exposed by the [Azure IoT service SDK for Node.js](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks) in the **Registry** object.
+The query functionality is exposed by the [Azure IoT Hub service SDK for Node.js](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks) in the **Registry** object.
 
 Here's an example of a simple query:
 
