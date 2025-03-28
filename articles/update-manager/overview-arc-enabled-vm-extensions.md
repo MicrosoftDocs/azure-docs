@@ -24,7 +24,7 @@ The Azure Arc-enabled VM extensions receive improvements on an ongoing basis. To
 ### March 2025
 
 #### Extension name: Microsoft.SoftwareUpdateManagement.WindowsOsUpdateExtension**
-#### Extension Version: 1.0.28.0**
+#### Extension Version: 1.0.28.0
 
 **Fixed**
 
