@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-appgw-for-containers
 ms.topic: release-notes
-ms.date: 3/24/2025
+ms.date: 3/31/2025
 ms.author: greglin
 ---
 
@@ -26,7 +26,7 @@ Instructions for new or existing deployments of ALB Controller are found in the 
 
 | ALB Controller Version | Gateway API Version | Kubernetes Version | Release Notes |
 | ---------------------- | ------------------- | ------------------ | ------------- |
-| 1.5.1 | v1.1.1 | v1.26, v1.27, v1.28, v1.29, v1.30 | Support for Azure CNI Overlay |
+| 1.5.2 | v1.1.1 | v1.26, v1.27, v1.28, v1.29, v1.30 | Support for Azure CNI Overlay |
 
 ## Release history
 
