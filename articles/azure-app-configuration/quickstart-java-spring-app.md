@@ -79,8 +79,8 @@ To install the Spring Cloud Azure Config starter module, add the following depen
     }
     ```
 
-> [!NOTE]
-> In addition, you can use the [Spring Cloud Azure authentication](/azure/developer/java/spring-framework/authentication) to provide authentication information. When authenticating with the Azure Spring configuration it enables using the same authentication for all Azure Spring libraries.
+    > [!NOTE]
+    > In addition, you can use the [Spring Cloud Azure authentication](/azure/developer/java/spring-framework/authentication) to provide authentication information. When authenticating with the Azure Spring configuration it enables using the same authentication for all Azure Spring libraries.
 
 1. Then create a configuration Bootstrap Configuration, by creating `spring.factories` file under `resources/META-INF` directory and add the following lines and updating `com.example.MyApplication` with your application name and package:
 
