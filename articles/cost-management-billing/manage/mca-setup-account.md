@@ -384,12 +384,30 @@ Enterprise administrators and department administrators are listed as invoice se
 
 ### Changes after migration
 
+- MCA remit-to information differs - The MCA remit-to information differs from the EA remit-to information. Your accounts payable need to create two records: one for EA invoices and another for MCA invoices. For more information about MCA payment details, see [Bank details used to send wire transfer payments](../understand/pay-bill.md#wire-bank-details)
+- Custom or shared views under Cost Management - Custom views and shared views aren't migrated to the MCA. You need to recreate them in the new scope.
+- Budgets - You need to recreate them.
+- Azure usage file enhancement - The MCA Azure usage file has more columns and slight changes in naming conventions compared to the EA file. For more information, see:
+    - [Changes from Azure EA usage and charges](../understand/mca-understand-your-usage.md#changes-from-azure-ea-usage-and-charges)
+    - [List of fields and descriptions](../automate/understand-usage-details-fields.md#list-of-fields-and-descriptions)
+- Power BI integration - The billing parameters for MCA differ from EA. When using the Azure Cost Management connector in Power BI, you need to choose `Billing Profile ID` instead of the enrollment number in the `Scope` list. Then enter the 14-character Billing profile ID. For more information, see:
+    - [Connect to Cost Management data in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management).
+    - [Tutorial: Shape and combine data in Power BI Desktop](/power-bi/connect-data/desktop-shape-and-combine-data)
+- Changes to subscription vending using Terraform - For more information, see:
+- [Azure/lz-vending/azurerm | Terraform Registry](https://registry.terraform.io/modules/Azure/lz-vending/azurerm/latest?tab=inputs)
+- [Subscription vending](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending)
+- [Azure Landing Zones Subscription Vending with Terraform, Terraform Cloud, and GitHub](/samples/azure-samples/alz-terraform-sub-vending-demo-with-terraform-cloud-and-github/alz-terraform-sub-vending/)
+- Cost Management using third-party providers like Cloud health and Cloud easier - Organizations transitioning to MCA need to update their provider that they're transitioning to MCA. Most of them have a documented process to pull the MCA cost data.
 - Historical data – It isn’t available to account owners or users with the Subscription owner Azure role-based access control (RBAC) role after migration. Access for existing users, groups, or service principals that was assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) isn't affected during the transition.
+    - Cost data transition - Cost data before the transition remains in the EA scope. It doesn't move to the MCA scope. You can access the data by switching scopes.
 - Reservations - When there's a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of the next monthly payment for an individual reservation. The cancellation is intentional and only affects monthly reservation purchases. You can repurchase them after migration.
 - Savings Plans - If they were purchased in a non-USD currency, they get canceled during migration. You can repurchase them after migration.
-- APIs – If used, you need to migrate to using replacement APIs. For more information, see [Migrate from Enterprise Agreement to Microsoft Customer Agreement APIs](../costs/migrate-cost-management-api.md).
+- API changes - API endpoints differ between EA and MCA. Existing EA API calls don't work with MCA. You need to use Microsoft Cost Management APIs instead if using consumption APIs. For more information, see:
+    - [Migrate EA to Microsoft Customer Agreement APIs](../costs/migrate-cost-management-api.md)
+    - [Azure Billing REST API](/rest/api/billing/)
+- EA API keys - Azure Enterprise Reporting APIs are retired aren't available on MCA. Instead, you use Microsoft Cost Management APIs. For more information, see [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview](../automate/migrate-ea-reporting-arm-apis-overview.md).
 - Automatic purchases - If used under your old EA enrollment, you need to set them up under your new Microsoft Customer Agreement.
-- Management groups – Subscriptions in management groups under a Microsoft Customer Agreement aren’t supported in Cost Management yet. Cost Management + Billing is managed with APIs and Azure portal functionality.  
+- Management groups – Subscriptions in management groups under a Microsoft Customer Agreement aren’t supported in Cost Management yet. Cost Management + Billing is managed with APIs and Azure portal functionality. For more information, see [Azure RBAC scopes](../costs/understand-work-scopes.md#azure-rbac-scopes).
 
 Here are some points to consider after migration.
 

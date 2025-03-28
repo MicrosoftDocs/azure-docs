@@ -5,7 +5,7 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
 ms.topic: conceptual
-ms.date: 03/21/2025
+ms.date: 03/28/2025
 ms.author: banders
 ms.reviewer: clionabolger
 ---
@@ -26,7 +26,7 @@ This guide follows each path and provides information for each step of the proce
 
 >[!IMPORTANT]
 > - Migrating from an existing EA to an MCA is a billing change. It isn't an Azure resource or access permission change.
-> - MCA may not be available for all customers. Work with your Microsoft account manager to see if you're eligible or review the [Microsoft Customer Agreement FAQ](microsoft-customer-agreement-faq.yml).
+> - MCA might not be available for all customers. Work with your Microsoft account manager to see if you're eligible or review the [Microsoft Customer Agreement FAQ](microsoft-customer-agreement-faq.yml).
 
 ## Important terms
 
@@ -67,7 +67,7 @@ Management, deployment, and optimization tools in a **single portal**
 This section describes the steps you must take to enable and sign an MCA, which allows you to experience its benefits.
 
 >[!NOTE]
-> The following steps apply only to **new MCA customers** that have never signed an MCA or EA but who might have bought Azure or per device or user products through another method, such as a licensing vehicle or contracting type. If you're a **customer migrating to MCA from an existing Microsoft EA**, see [Migrate from an EA to transition to an MCA](#migrate-from-an-ea-to-an-mca).
+> The following steps apply only to **new MCA customers** that never signed an MCA or EA but who could have bought Azure or per device or user products through another method, such as a licensing vehicle or contracting type. If you're a **customer migrating to MCA from an existing Microsoft EA**, see [Migrate from an EA to transition to an MCA](#migrate-from-an-ea-to-an-mca).
 
 Start your journey to MCA by using the steps in the following diagram. More details and supporting links are in the sections that follow the diagram.
 
@@ -210,12 +210,30 @@ This section of the onboarding guide describes the steps you follow to migrate f
 
 ### Changes after migration
 
+- MCA remit-to information differs - The MCA remit-to information differs from the EA remit-to information. Your accounts payable need to create two records: one for EA invoices and another for MCA invoices. For more information about MCA payment details, see [Bank details used to send wire transfer payments](../understand/pay-bill.md#wire-bank-details)
+- Custom or shared views under Cost Management - Custom views and shared views aren't migrated to the MCA. You need to recreate them in the new scope.
+- Budgets - You need to recreate them.
+- Azure usage file enhancement - The MCA Azure usage file has more columns and slight changes in naming conventions compared to the EA file. For more information, see:
+    - [Changes from Azure EA usage and charges](../understand/mca-understand-your-usage.md#changes-from-azure-ea-usage-and-charges)
+    - [List of fields and descriptions](../automate/understand-usage-details-fields.md#list-of-fields-and-descriptions)
+- Power BI integration - The billing parameters for MCA differ from EA. When using the Azure Cost Management connector in Power BI, you need to choose `Billing Profile ID` instead of the enrollment number in the `Scope` list. Then enter the 14-character Billing profile ID. For more information, see:
+    - [Connect to Cost Management data in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management).
+    - [Tutorial: Shape and combine data in Power BI Desktop](/power-bi/connect-data/desktop-shape-and-combine-data)
+- Changes to subscription vending using Terraform - For more information, see:
+- [Azure/lz-vending/azurerm | Terraform Registry](https://registry.terraform.io/modules/Azure/lz-vending/azurerm/latest?tab=inputs)
+- [Subscription vending](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending)
+- [Azure Landing Zones Subscription Vending with Terraform, Terraform Cloud, and GitHub](/samples/azure-samples/alz-terraform-sub-vending-demo-with-terraform-cloud-and-github/alz-terraform-sub-vending/)
+- Cost Management using third-party providers like Cloud health and Cloud easier - Organizations transitioning to MCA need to update their provider that they're transitioning to MCA. Most of them have a documented process to pull the MCA cost data.
 - Historical data – It isn’t available to account owners or users with the Subscription owner Azure role-based access control (RBAC) role after migration. Access for existing users, groups, or service principals that was assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) isn't affected during the transition.
+    - Cost data transition - Cost data before the transition remains in the EA scope. It doesn't move to the MCA scope. You can access the data by switching scopes.
 - Reservations - When there's a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of the next monthly payment for an individual reservation. The cancellation is intentional and only affects monthly reservation purchases. You can repurchase them after migration.
 - Savings Plans - If they were purchased in a non-USD currency, they get canceled during migration. You can repurchase them after migration.
-- APIs – If used, you need to migrate to using replacement APIs. For more information, see [Migrate from Enterprise Agreement to Microsoft Customer Agreement APIs](../costs/migrate-cost-management-api.md).
+- API changes - API endpoints differ between EA and MCA. Existing EA API calls don't work with MCA. You need to use Microsoft Cost Management APIs instead if using consumption APIs. For more information, see:
+    - [Migrate EA to Microsoft Customer Agreement APIs](../costs/migrate-cost-management-api.md)
+    - [Azure Billing REST API](/rest/api/billing/)
+- EA API keys - Azure Enterprise Reporting APIs are retired aren't available on MCA. Instead, you use Microsoft Cost Management APIs. For more information, see [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview](../automate/migrate-ea-reporting-arm-apis-overview.md).
 - Automatic purchases - If used under your old EA enrollment, you need to set them up under your new Microsoft Customer Agreement.
-- Management groups – Subscriptions in management groups under a Microsoft Customer Agreement aren’t supported in Cost Management yet. Cost Management + Billing is managed with APIs and Azure portal functionality.  
+- Management groups – Subscriptions in management groups under a Microsoft Customer Agreement aren’t supported in Cost Management yet. Cost Management + Billing is managed with APIs and Azure portal functionality. For more information, see [Azure RBAC scopes](../costs/understand-work-scopes.md#azure-rbac-scopes).
 
 Here are some points to consider after migration.
 
@@ -239,6 +257,8 @@ For more information, see the following articles:
 - [Cost Management + Billing documentation](../index.yml)
 - [Azure Product Transfer Hub](../manage/subscription-transfer.md)
 - [Migrate from EA to MCA APIs](../costs/migrate-cost-management-api.md)
+
+
 
 ### Important migration changes
 
@@ -330,7 +350,7 @@ If you're looking for Microsoft 365 admin center video resources, see [Microsoft
 In the billing account for an MCA, an invoice is generated every month for each billing profile. The invoice includes all charges from the previous month organized by invoice sections that you can define. You can view your invoices in the Azure portal and compare the charges to the usage detail files. Learn how the [charges on your invoice](https://www.youtube.com/watch?v=e2LGZZ7GubA&feature) work and take a step-by-step [invoice tutorial](../understand/review-customer-agreement-bill.md).
 
 >[!IMPORTANT]
-> Bank remittance details for your new MCA will differ from those for your old EA. Use the remittance information at the bottom of your MCA invoice. For more information, see [Bank details used to send wire transfers](../understand/pay-bill.md#bank-details-used-to-send-wire-transfer-payments).
+> Bank remittance details for your new MCA differ from the old EA. Use the remittance information at the bottom of your MCA invoice. For more information, see [Bank details used to send wire transfers](../understand/pay-bill.md#bank-details-used-to-send-wire-transfer-payments).
 
 For more information, see the [How to find and read your Microsoft Customer Agreement invoices in the Azure portal](https://www.youtube.com/watch?v=xkUkIunP4l8&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=5) video.
 
@@ -389,8 +409,8 @@ Transition the billing ownership from your old agreement to your new one.
 - If you're moving from the Microsoft Online Subscription Agreement (buying Azure online), watch the [Transition the billing for your Azure subscriptions from MOSA to MCA](https://www.youtube.com/watch?v=gfiUI2YLsgc&ab_channel=AzureCostManagement) video. For more information, see the [step-by-step transition guide](../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json).
 
 > [!IMPORTANT]
-> - To sign the MCA, you need billing account owner access. If you don't have access, you can either contact an existing billing account owner or, if you are a global admin in the tenant, you can elevate your access and give yourself billing account ownership. For more information, see [Elevate access to manage billing accounts](../manage/elevate-access-global-admin.md).
-> - If you're currently a PAYG user and you have overdue invoices for the subscriptions that you're migrating, you must pay the invoice or create a support ticket through the Azure portal.
+> - To sign the MCA, you need billing account owner access. If you don't have access, you can either contact an existing billing account owner or, if you're a global admin in the tenant, you can elevate your access and give yourself billing account ownership. For more information, see [Elevate access to manage billing accounts](../manage/elevate-access-global-admin.md).
+> - If you're currently a pay-as-you-go user and you have overdue invoices for the subscriptions that you're migrating, you must pay the invoice or create a support ticket through the Azure portal.
 
 For more information, see [Cost Management + Billing frequently asked questions](../cost-management-billing-faq.yml).
 
@@ -407,7 +427,7 @@ The MCA provides more features for automation, reporting, and billing optimizati
 The Azure Enterprise Reporting APIs enable Enterprise Azure customers to programmatically pull consumption and billing data into preferred data analysis tools.
 
 >[!IMPORTANT]
-> If you're using billing APIs to access usage under the EA, you will need to make updates to use the MCA APIs. Use the [Migrating EA to MCA APIs](../costs/migrate-cost-management-api.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json) guide to ensure that the APIs (budgeting, Power BI, and so one) are mapped after migration.
+> If you're using billing APIs to access usage under the EA, you need to make updates to use the MCA APIs. Use the [Migrating EA to MCA APIs](../costs/migrate-cost-management-api.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json) guide to ensure that the APIs (budgeting, Power BI, and so one) are mapped after migration.
 
 ### Review Power BI setup
 
