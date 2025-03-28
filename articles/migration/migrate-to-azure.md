@@ -16,9 +16,7 @@ The Azure migration guide collection helps workload teams plan and implement the
 >
 > Some migration scenarios are out of scope for this collection. It doesn't cover on-premises to Azure migrations, full datacenter migrations, or region relocations. It also doesn't address workloads that concurrently run on multiple clouds.
 
-Migration to Azure typically involves replatforming the workload, which includes transitioning both the infrastructure and management layer from the source cloud provider to Azure. During the migration process, you need to find the best match for your source components on Azure. Not all components map one-to-one. To accomplish your business objectives, you might need to redesign the architecture or revisit code to maintain functionality.
-
-This collection provides insight into such cloud-to-cloud transitions. It compares workload components and services, and includes example migration scenarios.
+Migration to Azure typically involves replatforming the workload, which includes transitioning both the infrastructure and management layer from the source cloud provider to Azure. During the migration process, you need to find the best match for your source components on Azure. Not all components have direct equivalents. To accomplish your business objectives, you might need to redesign the architecture or revisit code to maintain functionality. This collection provides valuable insights into such cloud-to-cloud transitions because it compares workload components and services, and includes example migration scenarios.
 
 ## Prerequisites for workload migrations
 
@@ -56,7 +54,7 @@ This collection also includes guidance that applies to all platforms. All sectio
 
 In addition to content, you can explore specialized tools to assist with migration tasks or measure the success of your migration against business goals.
 
-|Tool|Benefit|
+|Tool|Purpose|
 |---|---|
 |[Azure Migrate and Modernize](/azure/migrate/migrate-services-overview)| Analyze and assess migration assets, primarily infrastructure, applications, and data components. |
 |Azure Well-Architected Review assessment of the source platform, if available|Review and measure the business goals of your architecture on the source platform. This assessment helps you establish a baseline for your expectations on Azure.|
