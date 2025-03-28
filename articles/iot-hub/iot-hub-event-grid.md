@@ -182,11 +182,7 @@ For more information about monitoring device status with Event Grid, see [Monito
 
 ### Device connection state interval
 
-IoT Hub attempts to report each device connection state change event, but some might be missed. At minimum, IoT Hub reports connection state change events that occur 60 seconds apart from each other. This behavior might lead to outcomes such as multiple device connect events reported with no device disconnect events between them.
-
-<!--
-![Diagram that shows state change events on a device, and how those events are reported by IoT Hub.](https://user-images.githubusercontent.com/94493443/178398214-7423f7ca-8dfe-4202-8e9a-46cc70974b5e.png)
--->
+IoT Hub attempts to report each device connection state change event, but some might be missed. At minimum, IoT Hub reports connection state change events that occur **60 seconds** apart from each other. This behavior might lead to outcomes such as multiple device connect events reported with no device disconnect events between them.
 
 ## Tips for consuming events
 
