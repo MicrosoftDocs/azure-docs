@@ -48,7 +48,7 @@ Application Gateway for Containers supports Azure Network Policies, Calico, and 
 
 ### Limitations
 
-* ALB Controller: You must be running version 1.5.0 or greater to take advantage of CNI Overlay.
+* ALB Controller: You must be running version 1.5.2 or greater to take advantage of CNI Overlay.
 * Subnet Size: The Application Gateway for Containers subnet must be a /24 prefix; only one deployment is supported per subnet. A larger or smaller prefix isn't supported.
 * Regional VNet Peering: Application Gateway for Containers deployed in a virtual network in region A and the AKS cluster nodes in a virtual network in region A isn't supported.
 * Global VNet Peering: Application Gateway for Containers deployed in a virtual network in region A and the AKS cluster nodes in a virtual network in region B isn't supported.
