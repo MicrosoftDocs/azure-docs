@@ -165,7 +165,7 @@ You must first create an internal root certificate authority (CA) and a self-sig
 1. In the Git Bash window, run the following command to generate a certificate signing request (CSR) in the `rootca` directory and a private key in the `rootca/private` directory. For more information about the OpenSSL `req` command, see the [openssl-req](https://www.openssl.org/docs/man3.1/man1/openssl-req.html) manual page in OpenSSL documentation.
 
     > [!NOTE]
-    > we recommend that you don't copy or share the private key even though this root CA is for testing purposes and isn't exposed as part of a public key infrastructure (PKI).
+    > We recommend that you don't copy or share the private key even though this root CA is for testing purposes and isn't exposed as part of a public key infrastructure (PKI).
 
     # [Windows](#tab/windows)
 
