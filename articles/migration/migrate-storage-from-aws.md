@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.custom: migration
 ---
 
-# Migrate storage from Amazon Web Services (AWS)
+# Migrate storage from Amazon Web Services (AWS) to Azure
 
 The articles listed on this page outline scenarios for how to migrate storage services from Amazon Web Services (AWS) to Azure storage services. 
 
