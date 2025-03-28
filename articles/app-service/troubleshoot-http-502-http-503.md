@@ -6,7 +6,7 @@ keywords: 502 bad gateway, 503 service unavailable, error 503, error 502
 
 ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
 ms.topic: troubleshooting-general
-ms.date: 04/31/2025
+ms.date: 03/31/2025
 ms.author: msangapu
 author: msangapu-msft
 #customer intent: As an app developer, I need to troubleshoot common errors if they occur using tools provided by Azure App Service.
