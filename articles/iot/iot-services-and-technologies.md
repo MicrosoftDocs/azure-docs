@@ -67,7 +67,7 @@ To learn more, see [What is asset management in Azure IoT Operations](../iot-ope
 
 ### Azure IoT Operations SDKs (preview)
 
-> The Azure IoT Operations SDKs enable you to build custom **edge-based IoT solutions** that use Azure IoT Operations.
+> The Azure IoT Operations SDKs enable you to build a custom **edge-based IoT solution** that use Azure IoT Operations.
 
 The Azure IoT Operations SDKs are a suite of tools and libraries across multiple languages designed to aid the development of applications for Azure IoT Operations. The SDKs can be used to build highly available applications at the edge, that interact with Azure IoT Operations to perform operations such as asset discovery, protocol translation and data transformation.
 
@@ -135,7 +135,7 @@ To learn more, see [What is Azure Event Grid?](../event-grid/overview.md)
 
 ## Azure IoT device and service SDKs
 
-> The Azure IoT device and service SDKs enables you to build custom **cloud-based IoT solutions** that use IoT Hub and IoT Central.
+> The Azure IoT device and service SDKs enables you to build a custom **cloud-based IoT solution** that use IoT Hub and IoT Central.
 
 - The Azure IoT device SDKs help you address the challenges of connecting devices securely and reliably to your IoT Hub or IoT Central. 
 - The Azure IoT service SDKs contain code to facilitate building applications that interact directly with IoT Hub to manage devices and security.
@@ -148,7 +148,7 @@ To learn more, see [Azure IoT device and service SDKs](iot-sdks.md).
 
 ## Azure IoT Plug and Play
 
-> Azure IoT Plug and Play is a programming model that enables you to build **cloud-based IoT solutions** that use IoT Hub and IoT Central.
+> Azure IoT Plug and Play is a programming model that enables you to build a **cloud-based IoT solution** that use IoT Hub and IoT Central.
 
 IoT Plug and Play enables solution builders to integrate IoT devices with their solutions without any manual configuration. At the core of IoT Plug and Play, is a device _model_ that a device uses to advertise its capabilities to an IoT Plug and Play-enabled application. To make IoT Plug and Play work with Azure Digital Twins, you define models and interfaces using the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md).
 
