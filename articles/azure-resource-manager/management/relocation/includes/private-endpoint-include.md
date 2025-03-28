@@ -1,5 +1,4 @@
 ---
-ms.service: azure-container-registry
 ms.topic: include
 ms.date: 07/29/2024
 ---

@@ -76,7 +76,7 @@ Modify the template by changing the Event Hubs namespace name and region.
 1. Select **Load file**, and then follow the instructions to load the **template.json** file that you downloaded in the last section.
 1. In the **template.json** file, name the Event Hubs namespace by setting the default value of the namespace name. This example sets the default value of the Event Hubs namespace name to `namespace-name`.
 
-   ```json
+    ```json
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
@@ -85,86 +85,86 @@ Modify the template by changing the Event Hubs namespace name and region.
         "type": "String"
       },
     },
-   ```
+    ```
 
 1. Edit the **location** property in the **template.json** file to the target region. This example sets the target region to `centralus`.
 
-  ```json
-  "resources": [
-    {
-      "type": "Microsoft.KeyVault/vaults",
-      "apiVersion": "2023-07-01",
-      "name": "[parameters('vaults_name')]",
-      "location": "centralus",
-    },
-    {
-      "type": "Microsoft.EventHub/namespaces",
-      "apiVersion": "2023-01-01-preview",
-      "name": "[parameters('namespaces_name')]",
-      "location": "centralus",
-    },
-    {
-      "type": "Microsoft.EventHub/namespaces/authorizationrules",
-      "apiVersion": "2023-01-01-preview",
-      "name": "[concat(parameters('namespaces_name'), '/RootManageSharedAccessKey')]",
-      "location": "centralus",
-      "dependsOn": [
-        "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_name'))]"
-      ],
-      "properties": {
-        "rights": [
-          "Listen",
-          "Manage",
-          "Send"
-        ]
-      }
-    },
-    {
-      "type": "Microsoft.EventHub/namespaces/networkrulesets",
-      "apiVersion": "2023-01-01-preview",
-      "name": "[concat(parameters('namespaces_name'), '/default')]",
-      "location": "centralus",
-      "dependsOn": [
-        "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_name'))]"
-      ],
-      "properties": {
-        "publicNetworkAccess": "Enabled",
-        "defaultAction": "Deny",
-        "virtualNetworkRules": [
-          {
-            "subnet": {
-              "id": "[concat(parameters('virtualNetworks_vnet_akv_externalid'), '/subnets/default')]"
-            },
-            "ignoreMissingVnetServiceEndpoint": false
-          }
+    ```json
+    "resources": [
+      {
+        "type": "Microsoft.KeyVault/vaults",
+        "apiVersion": "2023-07-01",
+        "name": "[parameters('vaults_name')]",
+        "location": "centralus",
+      },
+      {
+        "type": "Microsoft.EventHub/namespaces",
+        "apiVersion": "2023-01-01-preview",
+        "name": "[parameters('namespaces_name')]",
+        "location": "centralus",
+      },
+      {
+        "type": "Microsoft.EventHub/namespaces/authorizationrules",
+        "apiVersion": "2023-01-01-preview",
+        "name": "[concat(parameters('namespaces_name'), '/RootManageSharedAccessKey')]",
+        "location": "centralus",
+        "dependsOn": [
+          "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_name'))]"
         ],
-        "ipRules": [],
-        "trustedServiceAccessEnabled": false
-      }
-    },
-    {
-      "type": "Microsoft.EventHub/namespaces/privateEndpointConnections",
-      "apiVersion": "2023-01-01-preview",
-      "name": "[concat(parameters('namespaces_peterheesbus_name'), '/81263915-15d5-4f14-8d65-25866d745a66')]",
-      "location": "centralus",
-      "dependsOn": [
-        "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_peterheesbus_name'))]"
-      ],
-      "properties": {
-        "provisioningState": "Succeeded",
-        "privateEndpoint": {
-          "id": "[parameters('privateEndpoints_pvs_eventhub_externalid')]"
-        },
-        "privateLinkServiceConnectionState": {
-          "status": "Approved",
-          "description": "Auto-Approved"
+        "properties": {
+          "rights": [
+            "Listen",
+            "Manage",
+            "Send"
+          ]
+        }
+      },
+      {
+        "type": "Microsoft.EventHub/namespaces/networkrulesets",
+        "apiVersion": "2023-01-01-preview",
+        "name": "[concat(parameters('namespaces_name'), '/default')]",
+        "location": "centralus",
+        "dependsOn": [
+          "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_name'))]"
+        ],
+        "properties": {
+          "publicNetworkAccess": "Enabled",
+          "defaultAction": "Deny",
+          "virtualNetworkRules": [
+            {
+              "subnet": {
+                "id": "[concat(parameters('virtualNetworks_vnet_akv_externalid'), '/subnets/default')]"
+              },
+              "ignoreMissingVnetServiceEndpoint": false
+            }
+          ],
+          "ipRules": [],
+          "trustedServiceAccessEnabled": false
+        }
+      },
+      {
+        "type": "Microsoft.EventHub/namespaces/privateEndpointConnections",
+        "apiVersion": "2023-01-01-preview",
+        "name": "[concat(parameters('namespaces_peterheesbus_name'), '/81263915-15d5-4f14-8d65-25866d745a66')]",
+        "location": "centralus",
+        "dependsOn": [
+          "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_peterheesbus_name'))]"
+        ],
+        "properties": {
+          "provisioningState": "Succeeded",
+          "privateEndpoint": {
+            "id": "[parameters('privateEndpoints_pvs_eventhub_externalid')]"
+          },
+          "privateLinkServiceConnectionState": {
+            "status": "Approved",
+            "description": "Auto-Approved"
+          }
         }
       }
-    }
-  ]
-  ```
+    ]
+    ```
 
-  To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/). The code for a region is the region name with no spaces, **Central US** = **centralus**.
+    To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/). The code for a region is the region name with no spaces, **Central US** = **centralus**.
 
 1. Remove resources of type private endpoint in the template.
 

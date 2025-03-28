@@ -75,28 +75,28 @@ Inspect the registry properties in the template JSON file you downloaded, and ma
 - Change the registry name's `defaultValue` to the desired name of the target registry
 - Update the `location` to the desired Azure region for the target registry
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "registries_myregistry_name": {
-      "defaultValue": "myregistry",
-      "type": "String"
-    }
-  },
-  "variables": {},
-  "resources": [
+    ```json
     {
-      "type": "Microsoft.ContainerRegistry/registries",
-      "apiVersion": "2020-11-01-preview",
-      "name": "[parameters('myregistry_name')]",
-      "location": "centralus",
-      ...
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "registries_myregistry_name": {
+          "defaultValue": "myregistry",
+          "type": "String"
+        }
+      },
+      "variables": {},
+      "resources": [
+        {
+          "type": "Microsoft.ContainerRegistry/registries",
+          "apiVersion": "2020-11-01-preview",
+          "name": "[parameters('myregistry_name')]",
+          "location": "centralus",
+          ...
+        }
+      ]
     }
-  ]
-}
-```
+    ```
 
 - Validate all the associated resources detail in the downloaded template such as Registry scopeMaps, replications configuration, Diagnostic settings like log analytics.
 
@@ -155,9 +155,9 @@ done
 1. Associate the dependent resources to the target Azure Container Registry such as log analytics workspace in Diagnostic settings.
 1. Configure Azure Container Registry integration with both type of AKS clusters, provisioned or yet to be provisioned by running the following command:
 
-```azurecli
-Set-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup -AcrNameToAttach <acr-name>
-```
+    ```azurecli
+    Set-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup -AcrNameToAttach <acr-name>
+    ```
 
 1. Make the necessary changes to the Kubernetes manifest file to integrate same with relocated Azure Container Registry (ACR).
 1. Update development and deployment systems to use the target registry instead of the source registry.

@@ -31,7 +31,7 @@ This article shows you how to relocate an Azure Firewall that protects an Azure 
 - If you're using the TLS Inspection feature of Azure Firewall Premium tier, the following dependencies also need to be deployed in the target region:
 
   - [Azure Key Vault](./relocation-key-vault.md)
-  - [Azure Managed Identity](./relocation-managed-identity.md)
+  - [Azure Managed Identity](/entra/identity/managed-identities-azure-resources/how-to-managed-identity-regional-move)
 
 ## Downtime
 
@@ -97,8 +97,9 @@ If you're running classic firewall rules without Firewall policy, migrate to Fir
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. If you're using Premium SKU with TLS Inspection enabled,
+
     1. [Relocate the key vault](./relocation-key-vault.md) that's used for TLS inspection into the new target region.  Then, follow [the procedures](../../../application-gateway/key-vault-certs.md) to move certificates or generate new certificates for TLS inspection into the new key vault in the target region.
-    1. [Relocate managed identity](./relocation-managed-identity.md) into the new target region. Reassign the corresponding roles for the key vault in the target region and subscription.
+    1. [Relocate managed identity](/entra/identity/managed-identities-azure-resources/how-to-managed-identity-regional-move) into the new target region. Reassign the corresponding roles for the key vault in the target region and subscription.
 
 1. In the Azure portal, select **Create a resource**.
 
@@ -150,7 +151,7 @@ To find the location code for your target region, see [Data residency in Azure](
 
 1. If you're using Premium SKU with TLS Inspection enabled,
     1. [Relocate the key vault](./relocation-key-vault.md) used for TLS inspection into the new target region and follow the procedures to move certificates or generate new certificates for TLS inspection in the new key vault in the target region.
-    1. [Relocate managed identity](./relocation-managed-identity.md) into the new target region and reassign the corresponding roles for the key vault in the target region and subscription.
+    1. [Relocate managed identity](/entra/identity/managed-identities-azure-resources/how-to-managed-identity-regional-move) into the new target region and reassign the corresponding roles for the key vault in the target region and subscription.
 
 1. In the `template.json` file, replace:
     - `firewallName` with the default value of your Azure Firewall name.

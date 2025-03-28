@@ -1,7 +1,6 @@
 ---
  title: include file
  description: include file
- ms.service: azure
  ms.topic: include
  ms.date: 06/25/2024
  ms.custom: include file
