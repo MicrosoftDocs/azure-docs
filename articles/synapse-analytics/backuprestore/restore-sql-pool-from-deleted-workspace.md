@@ -1,8 +1,8 @@
 ---
 title: Restore a dedicated SQL pool from a dropped workspace
 description: How-to guide for restoring a dedicated SQL pool from a dropped workspace.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: joannapea
+ms.author: joanpo
 ms.reviewer: stevehow, ajagadish
 ms.date: 07/29/2024
 ms.service: azure-synapse-analytics
