@@ -1,5 +1,5 @@
 ---
-title: Migrate Compute from Amazon Web Services (AWS) to Azure
+title: Migrate Compute from Amazon Web Services to Azure
 description: Learn how to migrate AWS compute services to Azure, including maintaining feature parity and exploring scenarios like VMs, web apps, and serverless functions.
 author: robbyatmicrosoft
 ms.author: robbymillsap
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.custom: migration
 ---
 
-# Migrate compute from Amazon Web Services (AWS) to Azure
+# Migrate compute from Amazon Web Services to Azure
 
 This article describes scenarios that you can use to migrate Amazon Web Services (AWS) compute services to Azure. These cloud services provide the processing power, memory, and storage necessary to run computational tasks. The migration process involves transitioning these services from AWS to Azure, with a focus on maintaining feature parity.
 
