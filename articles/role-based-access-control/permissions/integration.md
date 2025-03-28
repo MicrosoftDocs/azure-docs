@@ -739,11 +739,6 @@ Azure service: [Durable Functions](/azure/azure-functions/durable/durable-functi
 > | Microsoft.DurableTask/schedulers/taskhubs/delete | Delete Durable Task Scheduler Task Hub |
 > | Microsoft.DurableTask/schedulers/taskhubs/read | Read Durable Task Scheduler Task Hub |
 > | **DataAction** | **Description** |
-> | Microsoft.DurableTask/orchestrations/read | Gets or list orchestrations metadata, including payloads |
-> | Microsoft.DurableTask/orchestrations/manage/action | Manages orchestrations |
-> | Microsoft.DurableTask/orchestrations/execute/action | Get orchestration and activity work-items and post results |
-> | Microsoft.DurableTask/orchestrations/raiseevents/action | Can invoke RaiseEvent |
-> | Microsoft.DurableTask/orchestrations/metadata/read | Gets or lists orchestration metadata, but not payloads |
 > | Microsoft.DurableTask/schedulers/taskhubs/orchestrations/read | Gets or list orchestrations metadata, including payloads |
 > | Microsoft.DurableTask/schedulers/taskhubs/orchestrations/manage/action | Manages orchestrations |
 > | Microsoft.DurableTask/schedulers/taskhubs/orchestrations/execute/action | Get orchestration and activity work-items and post results |
