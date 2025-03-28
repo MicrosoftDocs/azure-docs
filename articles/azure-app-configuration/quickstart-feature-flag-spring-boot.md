@@ -85,25 +85,29 @@ To create a new Spring Boot project:
 ## Connect to an App Configuration store
 
 1. Navigate to the `resources` directory of your app and open the `bootstrap.properties` or `bootstrap.yaml` file. If the file doesn't exist, create it.
+
+    You can connect to your App Configuration store using Microsoft Entra ID (recommended), or a connection string.
     
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
-    If you're using a properties file, use the following code:
-    ```properties
-    spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
-    spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
-    ```
-    
-    If you're using a yaml file, use the following code:
-    ```yaml
-    spring:
-        cloud:
-        azure:
-            appconfiguration:
-            stores:
-                -
-                feature-flags:
-                    enabled: true
-                endpoint: ${APP_CONFIGURATION_ENDPOINT}
+    1.  Update your configuration files.
+
+        If you're using a properties file, use the following code:
+        ```properties
+        spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
+        spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
+        ```
+        
+        If you're using a yaml file, use the following code:
+        ```yaml
+        spring:
+            cloud:
+            azure:
+                appconfiguration:
+                stores:
+                    -
+                    feature-flags:
+                        enabled: true
+                    endpoint: ${APP_CONFIGURATION_ENDPOINT}
     ```
 
     You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
@@ -144,10 +148,10 @@ To create a new Spring Boot project:
 
     1. Add configuration Bootstrap Configuration, by creating `spring.factories` file under `resources/META-INF` directory and add the following lines and updating `com.example.MyConfiguration` with your application package:
 
-    ```factories
-    org.springframework.cloud.bootstrap.BootstrapConfiguration=\
-    com.example.MyConfiguration
-    ```
+        ```factories
+        org.springframework.cloud.bootstrap.BootstrapConfiguration=\
+        com.example.MyConfiguration
+        ```
 
     ### [Connection string](#tab/connection-string)
     If you are using a properties file, use the following code:
@@ -312,7 +316,7 @@ To create a new Spring Boot project:
     ```
 
     ### [Connection string](#tab/connection-string)
-    Set the environment variable named **APP_CONFIGURATION_CONNECTION_STRING** to the read-only connection string of your App Configuration store found under *Access keys* of your store in the Azure portal.
+    Set the environment variable named **APP_CONFIGURATION_CONNECTION_STRING** to the read-only connection string of your App Configuration store found under *Access settings* of your store in the Azure portal.
 
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 

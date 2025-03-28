@@ -60,7 +60,42 @@ To install the Spring Cloud Azure Config starter module, add the following depen
 </dependencyManagement>
 ```
 
-### Code the application
+1. By default, the library connects to the App Configuration store by Managed Identity. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application. Then create a new file named *AppConfigCredential.java* and add the following lines:
+
+    ```java
+    import org.springframework.stereotype.Component;
+    
+    import com.azure.data.appconfiguration.ConfigurationClientBuilder;
+    import com.azure.identity.DefaultAzureCredentialBuilder;
+    import com.azure.spring.cloud.appconfiguration.config.ConfigurationClientCustomizer;
+    
+    @Component
+    public class AppConfigCredential implements ConfigurationClientCustomizer {
+    
+        @Override
+        public void customize(ConfigurationClientBuilder builder, String endpoint) {
+            builder.credential(new DefaultAzureCredentialBuilder().build());
+        }
+    }
+    ```
+
+> [!NOTE]
+> In addition, you can use the [Spring Cloud Azure authentication](/azure/developer/java/spring-framework/authentication) to provide authentication information. When authenticating with the Azure Spring configuration it enables using the same authentication for all Azure Spring libraries.
+
+1. Then create a configuration Bootstrap Configuration, by creating `spring.factories` file under `resources/META-INF` directory and add the following lines and updating `com.example.MyApplication` with your application name and package:
+
+    ```factories
+    org.springframework.cloud.bootstrap.BootstrapConfiguration=\
+    com.example.MyApplication
+    ```
+
+1. Create a new file named *bootstrap.properties* under the resources directory of your app, and add the following line to the file.
+
+   ```properties
+   spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
+   ```
+
+### Read from the App Configuration store
 
 To use the Spring Cloud Azure Config starter to have your application communicate with the App Configuration store that you create, configure the application by using the following steps.
 
@@ -105,36 +140,6 @@ To use the Spring Cloud Azure Config starter to have your application communicat
    }
    ```
 
-1. By default, the library connects to the App Configuration store by Managed Identity. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application. Then create a new file named *AppConfigCredential.java* and add the following lines:
-
-    ```java
-    import org.springframework.stereotype.Component;
-    
-    import com.azure.data.appconfiguration.ConfigurationClientBuilder;
-    import com.azure.identity.DefaultAzureCredentialBuilder;
-    import com.azure.spring.cloud.appconfiguration.config.ConfigurationClientCustomizer;
-    
-    @Component
-    public class AppConfigCredential implements ConfigurationClientCustomizer {
-    
-        @Override
-        public void customize(ConfigurationClientBuilder builder, String endpoint) {
-            builder.credential(new DefaultAzureCredentialBuilder().build());
-        }
-    }
-    ```
-
-> [!NOTE]
-> In addition, you can use the [Spring Cloud Azure authentication](/azure/developer/java/spring-framework/authentication) to provide authentication information. When authenticating with the Azure Spring configuration it enables using the same authentication for all Azure Spring libraries.
-
-1. Then create a configuration Bootstrap Configuration, by creating `spring.factories` file under `resources/META-INF` directory and add the following lines and updating `com.example.MyApplication` with your application name and package:
-
-    ```factories
-    org.springframework.cloud.bootstrap.BootstrapConfiguration=\
-    com.example.MyApplication
-    ```
-
-
 1. Open the auto-generated unit test and update to disable Azure App Configuration, or it tries to load from the service when running unit tests.
 
    ```java
@@ -149,12 +154,6 @@ To use the Spring Cloud Azure Config starter to have your application communicat
        }
 
    }
-   ```
-
-1. Create a new file named *bootstrap.properties* under the resources directory of your app, and add the following line to the file.
-
-   ```properties
-   spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
    ```
 
 ### Build and run the app locally
