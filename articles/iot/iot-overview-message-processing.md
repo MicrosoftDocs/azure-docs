@@ -179,4 +179,4 @@ To learn more, see:
 
 - [Extend your IoT solution](iot-overview-solution-extensibility.md)
 - [Analyze and visualize your IoT data](iot-overview-analyze-visualize.md)
-- [What Azure technologies and services can you use to create IoT solutions?](iot-services-and-technologies.md)
+- [Choose an Azure IoT service](iot-services-and-technologies.md)

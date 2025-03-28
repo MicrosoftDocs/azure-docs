@@ -209,3 +209,9 @@ The following table lists some of the available IoT device development tools:
 | [Azure IoT Hub (VS Code extension)](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) | This VS Code extension lets you manage your IoT Hub resources and devices from within VS Code. |
 | [Azure IoT explorer](howto-use-iot-explorer.md) | This cross-platform tool lets you manage your IoT Hub resources and devices from a desktop application. |
 | [Azure IoT extension for Azure CLI](/cli/azure/service-page/azure%20iot) | This CLI extension includes commands such as `az iot device simulate`, `az iot device c2d-message`, and `az iot hub monitor-events` that help you test interactions with devices. |
+
+## Related content
+
+- [IoT asset and device connectivity and infrastructure](iot-overview-device-connectivity.md)
+- [IoT asset and device management and control](iot-overview-device-management.md)
+- [Choose an Azure IoT service](iot-services-and-technologies.md)

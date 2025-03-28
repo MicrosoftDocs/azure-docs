@@ -168,3 +168,9 @@ Use Azure DevOps tools to automate the management of your IoT solution. For exam
 
 - [Continuous integration and continuous deployment to Azure IoT Edge devices](../iot-edge/how-to-continuous-integration-continuous-deployment.md)
 - [Integration of IoT Central with Azure Pipelines for CI/CD](../iot-central/core/howto-integrate-with-devops.md)
+
+## Related content
+
+- [Security best practices for IoT solutions](iot-overview-security.md)
+- [IoT solution scalability, high availability, and disaster recovery](iot-overview-scalability-high-availability.md)
+- [Choose an Azure IoT service](iot-services-and-technologies.md)

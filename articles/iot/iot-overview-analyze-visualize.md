@@ -92,3 +92,9 @@ Azure Stream Analytics is a fully managed stream processing engine that is desig
 ### Azure Maps
 
 [Azure Maps](../azure-maps/about-azure-maps.md) is a collection of geospatial services and SDKs that use fresh mapping data to provide geographic context to web and mobile applications. For an IoT example, see [Integrate with Azure Maps (Azure Digital Twins)](../digital-twins/how-to-integrate-maps.md).
+
+## Related content
+
+- [Message processing in an IoT solution](iot-overview-message-processing.md)
+- [Extend your IoT solution](iot-overview-solution-extensibility.md)
+- [Choose an Azure IoT service](iot-services-and-technologies.md)

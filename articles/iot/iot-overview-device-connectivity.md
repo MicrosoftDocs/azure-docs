@@ -226,9 +226,8 @@ A device bridge enables devices that are connected to a non-Microsoft cloud to c
 The open source IoT Central Device Bridge acts as a translator that forwards device data to an IoT Central application. To learn more, see [Azure IoT Central Device Bridge](https://github.com/Azure/iotc-device-bridge). There are non-Microsoft bridge solutions, such as [Tartabit IoT Bridge](/shows/internet-of-things-show/onboarding-constrained-devices-into-azure-using-tartabits-iot-bridge), for connecting devices to an IoT hub.
 
 
-## Next steps
+## Related content
 
-Now that you've seen an overview of device connectivity in Azure IoT solutions, some suggested next steps include:
-
+- [IoT asset and device development](iot-overview-device-development.md)
 - [IoT asset and device management and control](iot-overview-device-management.md)
-- [Process and route messages](iot-overview-message-processing.md)
+- [Choose an Azure IoT service](iot-services-and-technologies.md)

@@ -234,4 +234,4 @@ To learn more, see:
 
 - [IoT asset and device development](iot-overview-device-development.md)
 - [IoT asset and device connectivity and infrastructure](iot-overview-device-connectivity.md)
-- [What Azure technologies and services can you use to create IoT solutions?](iot-services-and-technologies.md)
+- [Choose an Azure IoT service](iot-services-and-technologies.md)
