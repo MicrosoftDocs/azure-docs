@@ -80,8 +80,6 @@ An IoT asset is a broader concept than an IoT device and refers to any item of v
 
 In Azure IoT Operations, the term *asset* also refers to the virtual representation of a physical asset. In an Azure IoT Operations deployment, you use [Azure Device Registry](../iot-operations/discover-manage-assets/overview-manage-assets.md) to manage your assets across both Azure and your Kubernetes cluster as a part of the adaptive cloud approach. The Azure Device Registry service stores information about your assets, such as their metadata, and their connection information and enables you to use tools such as Azure Resource Manager to manage them.
 
-To learn more about device and asset comparisons, see [Device and asset comparisons](iot-services-and-technologies.md#device-and-asset-comparisons).
-
 ### Device connectivity
 
 Typically, IoT devices send data from their attached sensors to cloud services in your solution. However, other types of communication are possible such as a cloud service sending commands to your devices. The following are examples of device-to-cloud and cloud-to-device communication:
