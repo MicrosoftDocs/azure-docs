@@ -165,7 +165,7 @@ GROUP BY <group_by_element>
 
 ### Query results pagination
 
-A query object is instantiated with a max page size of **less than** or **equal to** 100 records. To obtain multiple pages, call the [nextAsTwin](how-to-device-twins?pivots=programming-language-node#create-a-device-twin-query) on Node.js SDK or [GetNextAsTwinAsync](how-to-device-twins?pivots=programming-language-csharp#create-a-device-twin-query) on .NET SDK method multiple times.
+A query object is instantiated with a max page size of **less than** or **equal to** 100 records. To obtain multiple pages, call the [nextAsTwin](how-to-device-twins.md?pivots=programming-language-node#create-a-device-twin-query) on Node.js SDK or [GetNextAsTwinAsync](how-to-device-twins.md?pivots=programming-language-csharp#create-a-device-twin-query) on .NET SDK method multiple times.
 A query object can expose multiple Next values, depending on the deserialization option required by the query. For example, a query object can return device twin or job objects, or plain JSON when using projections.
 
 ## Expressions and conditions
