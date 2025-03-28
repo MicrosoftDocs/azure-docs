@@ -38,11 +38,11 @@ Azure API Management policies are a sequence of statements that address cross-cu
 
 ## Restrictions and limitations
 
-* Policy debugging uses the built-in (service-level) all-access subscription (display name "Built-in all-access subscription") . 
+* Policy debugging is currently supported in the API Management Developer tier
 
-[!INCLUDE [api-management-tracing-alert](../../includes/api-manaement-tracing-alert.md)]
-
-## Create polices using GitHub Copilot
+* Policy debugging uses the built-in (service-level) all-access subscription (display name "Built-in all-access subscription") and enables tracing for the duration of the debugging session. 
+ 
+## Create policies using GitHub Copilot
 The Azure API Management extension integrates with GitHub Copilot for Azure to help you create a draft of a policy. With AI assistance, create and edit policies in a user-friendly way. 
 
 To create a policy:
@@ -91,9 +91,6 @@ To receive an explanation:
 
 The Azure API Management extension for Visual Studio Code provides a debugging experience that allows you to step through the policy pipeline or set a breakpoint when you send a request to the gateway.
 
-> [!IMPORTANT]
-> Policy debugging in the Visual Studio Code extension is only supported in the API Management Developer tier.
-
 ### Initiate a debugging session
 
 1. Open the API Management extension in Visual Studio Code.
@@ -112,7 +109,7 @@ At this point, the extension starts to establish a debugging session with the AP
 
 When the debugging session is established, the REST Client extension opens a new editor that allows you to create and send a test HTTP request to the gateway.
 
-You will notice the **Ocp-Apim-Debug** header has already been added to the request. This header is required and the value must be set to the service-level, all-access subscription key to trigger the debugging functionality in the API Management gateway.
+The **Ocp-Apim-Debug** header is added automatically to the request. This header is required and the value must be set to the service-level, all-access subscription key to trigger the debugging functionality in the API Management gateway.
 
 Modify the HTTP request in the editor according to your test scenario. Then click **Send Request** to send the test request to the API Management gateway.
 
@@ -134,9 +131,10 @@ If there is an error during policy execution, you will see the details of the er
 
 :::image type="content" source="media/api-management-debug-policies/exception.png" alt-text="Screenshot of a policy exception in Visual Studio Code.":::
 
+To review the request trace, select the value of the `Ocp-Apim-Trace-Location` header that is provided in the HTTP response.
+
 > [!TIP]
 > Exit the debugging session by clicking the **Stop** button when you are finished.
-
 
 ## Related content
 
