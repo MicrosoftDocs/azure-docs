@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: troubleshooting
-ms.date: 07/05/2023
+ms.date: 03/28/2025
 ms.author: greglin
 ---
 
@@ -145,7 +145,14 @@ If your backend server is IIS, see [Default Limits for Web Sites](/iis/configura
 
 nginx
 
-If the backend server is nginx or nginx ingress controller, and if it has upstream servers, ensure the value of `nginx:proxy_read_timeout` matches or does not exceed with the timeout set in the backend setting. 
+If the backend server is nginx or nginx ingress controller, and if it has upstream servers, ensure the value of `nginx:proxy_read_timeout` matches or does not exceed with the timeout set in the backend setting.
+
+## Scenarios
+
+### Issue: The [Access log](monitor-application-gateway-reference.md#access-log-category) displays an "ERRORINFO_INVALID_HEADER" error for a request, despite the Response code (serverStatus) being 200.
+**Cause**: The client sends a header containing CR LF characters.
+**Solution**: Replace the CR LF characters with SP (whitespace) and resend the request to Application Gateway.
+
 
 ## Next steps
 
