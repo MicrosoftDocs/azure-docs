@@ -158,6 +158,9 @@ Both cloud-based and edge-based solutions can use other cloud services to provid
 
 - Azure storage services to store collected data.
 - Azure Stream Analytics to process sensor data in real time.
+- Azure Functions to respond to device events.
+- Azure Logic Apps to automate business processes.
+- Azure Machine Learning to add machine learning and AI models to your solution.
 - Microsoft Fabric to store and analyze sensor data.
 - Microsoft Power BI to visualize sensor data.
 
@@ -175,6 +178,15 @@ The following table summarizes current service and edge application options:
 | Services                  | [IoT Hub](../iot-hub/index.yml), [IoT DPS](../iot-dps/index.yml), [IoT Hub Device Update](../iot-hub-device-update/index.yml), [Azure Digital Twins](../digital-twins/index.yml) | [Azure IoT Operations](../iot-operations/overview-iot-operations.md), with [Azure Device Registry](../iot-operations/discover-manage-assets/overview-manage-assets.md). <br><br> You can also use [IoT Edge](../iot-edge/index.yml).  |
 | Edge applications options | None                                                  | With [Azure IoT Operations](../iot-operations/overview-iot-operations.md), you can use [DAPR](../iot-operations/create-edge-apps/howto-deploy-dapr.md) (distributed application runtime apps). <br><br> With [IoT Edge](../iot-edge/index.yml), you can use IoT Edge modules.           |
 
+### Deployment comparisons
+
+The following table summarizes current deployment options:
+
+| Current offerings (GA) | Cloud-based solution | Edge-based solution |
+|------------------------|----------------------|---------------------|
+| Topology               | Devices connect directly to cloud messaging services such as [IoT Hub](../iot-hub/index.yml). Managed in the cloud using Azure Resource Manager (ARM) or [IoT Hub service SDKs](iot-sdks.md#iot-hub-service-sdks).  | [Azure IoT Operations](../iot-operations/overview-iot-operations.md) provides a way to connect assets to an on-premises Kubernetes cluster. Assets connect to the Azure IoT Operations MQTT broker, either directly over standard networking protocols, or through intermediate devices. Managed in the cloud using Azure Arc-enabled services. <br><br> You can also use [IoT Edge](../iot-edge/index.yml).  IoT Edge is a device-focused runtime that enables you to deploy, run, and monitor containerized Linux workloads at the edge, bringing analytics closer to your devices for faster insights and offline decision-making. IoT Edge is a feature of [IoT Hub](../iot-hub/index.yml). |
+| Infrastructure         | Cloud services like [IoT Hub](../iot-hub/index.yml), and standard computing devices that contain a CPU/MPU, or constrained and embedded devices that contain an MCU. | [Azure IoT Operations](../iot-operations/overview-iot-operations.md), which runs on a Kubernetes cluster, and assets or devices that connect to the cluster. <br><br> You can also use [IoT Edge](../iot-edge/index.yml), which runs on a gateway device like a Raspberry Pi or an industrial PC, and devices that connect to the gateway device.<br><br> Devices that connect to Azure IoT Operations or IoT Edge, can include standard computing devices that contain a CPU/MPU, or constrained and embedded devices that contain an MCU. |
+
 ## Solution-wide concerns
 
 Any IoT solution must address the following solution-wide concerns:
@@ -190,15 +202,6 @@ The [adaptive cloud](/azure/adaptive-cloud/) approach unifies siloed teams, dist
 Solutions based on IoT Hub, IoT Central, and IoT Edge offer limited support for an adaptive cloud approach. Although IoT Hub, IoT Central, and IoT Edge instances are themselves Azure resources, they don't natively expose capabilities, such as device management and data transformation, as resources you can manage as standard Azure resources.
 
 In contrast, solutions based on Azure IoT Operations provide a unified management experience for all the components in your solution. Azure IoT Operations uses Azure Arc-enabled services to manage and monitor your edge-based solution as if it were a cloud-based solution. For example, assets and data transformations running on the edge are exposed as cloud resources in Azure. This approach enables you to use standard Azure technologies to manage and monitor your entire edge-based solution.
-
-### Deployment comparisons
-
-The following table summarizes current deployment options:
-
-| Current offerings (GA) | Cloud-based solution | Edge-based solution |
-|------------------------|----------------------|---------------------|
-| Topology               | Devices connect directly to cloud messaging services such as [IoT Hub](../iot-hub/index.yml). Managed in the cloud using Azure Resource Manager (ARM) or [IoT Hub service SDKs](iot-sdks.md#iot-hub-service-sdks).  | [Azure IoT Operations](../iot-operations/overview-iot-operations.md) provides a way to connect assets to an on-premises Kubernetes cluster. Assets connect to the Azure IoT Operations MQTT broker, either directly over standard networking protocols, or through intermediate devices. Managed in the cloud using Azure Arc-enabled services. <br><br> You can also use [IoT Edge](../iot-edge/index.yml).  IoT Edge is a device-focused runtime that enables you to deploy, run, and monitor containerized Linux workloads at the edge, bringing analytics closer to your devices for faster insights and offline decision-making. IoT Edge is a feature of [IoT Hub](../iot-hub/index.yml). |
-| Infrastructure         | Cloud services like [IoT Hub](../iot-hub/index.yml), and standard computing devices that contain a CPU/MPU, or constrained and embedded devices that contain an MCU. | [Azure IoT Operations](../iot-operations/overview-iot-operations.md), which runs on a Kubernetes cluster, and assets or devices that connect to the cluster. <br><br> You can also use [IoT Edge](../iot-edge/index.yml), which runs on a gateway device like a Raspberry Pi or an industrial PC, and devices that connect to the gateway device.<br><br> Devices that connect to Azure IoT Operations or IoT Edge, can include standard computing devices that contain a CPU/MPU, or constrained and embedded devices that contain an MCU. |
 
 ### Security comparisons
 
