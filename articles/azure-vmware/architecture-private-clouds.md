@@ -13,7 +13,7 @@ Azure VMware Solution provides VMware-based private clouds in Azure. The private
 
 A private cloud includes clusters with:
 
-- Dedicated bare-metal server hosts provisioned with VMware ESXi hypervisor.
+- Dedicated bare-metal server hosts provisioned with VMware ESXi Hypervisor.
 - VMware vCenter Server for managing ESXi and vSAN.
 - VMware NSX software-defined networking for vSphere workload VMs.
 - VMware vSAN datastore for vSphere workload VMs.
@@ -22,7 +22,7 @@ A private cloud includes clusters with:
 
 Private clouds are installed and managed within an Azure subscription. The number of private clouds within a subscription is scalable. Initially, there's a limit of one private cloud per subscription. There's a logical relationship between Azure subscriptions, Azure VMware Solution private clouds, vSAN clusters, and hosts.
 
-The following diagram describes the architectural components of the Azure VMware Solution.
+The following diagram describes the architectural components of Azure VMware Solution.
 
 :::image type="content" source="media/concepts/hosts-clusters-private-clouds-final.png" alt-text="Diagram that shows a single Azure subscription that contains two private clouds for development and production environments." border="false"  lightbox="media/concepts/hosts-clusters-private-clouds-final.png":::
 
@@ -35,31 +35,33 @@ Each Azure VMware Solution architectural component has the following function:
 - **Azure VMware Solution Resource Cluster**: Provides compute, networking, and storage resources for customer workloads by scaling out the Azure VMware Solution private cloud by using VMware software, including vSAN software-defined storage and Azure bare-metal ESXi hosts. Azure NetApp Files, Azure Elastic SAN, and Pure Cloud Block Store are also supported.
 - **VMware HCX**: Delivers mobility, migration, and network extension services.
 - **VMware Site Recovery**: Automates disaster recovery and storage replication services with VMware vSphere Replication. Non-Microsoft disaster recovery solutions Zerto Disaster Recovery and JetStream Software Disaster Recovery are also supported.
-- **Dedicated Microsoft Enterprise Edge (D-MSEE)**: Router that connects Azure cloud and the Azure VMware Solution private cloud instance.
+- **Dedicated Microsoft Enterprise Edge**: Router that connects Azure Cloud Services and the Azure VMware Solution private cloud instance.
 - **Azure Virtual Network**: Connects Azure services and resources together.
 - **Azure Route Server**: Exchanges dynamic route information with Azure networks.
 - **Azure Virtual Network Gateway**: Connects Azure services and resources to other private networks by using IPSec VPN, Azure ExpressRoute, and virtual network to virtual network.
 - **Azure ExpressRoute**: Provides high-speed private connections between Azure datacenters and on-premises or colocation infrastructure.
-- **Azure Virtual WAN (vWAN)**: Combines networking, security, and routing functions into a single unified Wide Area Network (WAN).
+- **Azure Virtual WAN**: Combines networking, security, and routing functions into a single unified wide area network (WAN).
 
 ## Hosts
 
 [!INCLUDE [disk-capabilities-of-the-host](includes/disk-capabilities-of-the-host.md)]
 
-## Azure region availability zone to SKU mapping table
+## Azure region availability zone to version mapping table
 
-When you plan your Azure VMware Solution design, use the following table to understand what SKUs are available in each physical availability zone of an [Azure region](https://azure.microsoft.com/explore/global-infrastructure/geographies/#geographies).
+When you plan your Azure VMware Solution design, use the following table to understand what versions are available in each physical availability zone of an [Azure region](https://azure.microsoft.com/explore/global-infrastructure/geographies/#geographies).
 
 >[!IMPORTANT]
-> This mapping is important for placing your private clouds in close proximity to your Azure native workloads, including integrated services such as Azure NetApp Files and Pure Cloud Block Store (CBS).
+> This mapping is important for placing your private clouds in close proximity to your Azure native workloads, including integrated services such as Azure NetApp Files and Pure Cloud Block Store.
 
-The Multi-AZ capability for Azure VMware Solution Stretched Clusters is also tagged in the following table. The customer quota for Azure VMware Solution is assigned by Azure region. You can't specify the availability zone during private cloud provisioning. An auto-selection algorithm is used to balance deployments across the Azure region. If you have a particular availability zone to which you want to deploy, open a [Service Request](https://rc.portal.azure.com/#create/Microsoft.Support) with Microsoft. Request a "special placement policy" for your subscription, Azure region, availability zone, and SKU type. This policy remains in place until you request it to be removed or changed.
+The capability for Azure VMware Solution stretched clusters to deploy resources in multiple availability zones (Multi-AZ) is also tagged in the following table. The customer quota for Azure VMware Solution is assigned by Azure region. You can't specify the availability zone during private cloud provisioning. An autoselection algorithm is used to balance deployments across the Azure region.
 
-SKUs marked in **boldface** are of limited availability because of customer consumption, and quota might not be available upon request. Use the AV64 SKU when AV36, AV36P, or AV52 SKUs are limited.
+If you have a particular availability zone to which you want to deploy, open a [Service Request](https://rc.portal.azure.com/#create/Microsoft.Support) with Microsoft. Request a "special placement policy" for your subscription, Azure region, availability zone, and version type. This policy remains in place until you request it to be removed or changed.
 
-AV64 SKUs are available per availability zone. The following table lists the Azure regions that support this SKU. For RAID-6 FTT2 and RAID-1 FTT3 storage policies, six and seven fault domains are needed, respectively. The fault domain count for each Azure region is listed in the column labeled "AV64 fault domains supported."
+Versions marked in bold type are of limited availability because of customer consumption and might not be available upon request. Use the AV64 version when AV36, AV36P, or AV52 versions are limited.
 
-| Azure region | Availability zone | SKU   | Multi-AZ SDDC | AV64 fault domains supported |
+AV64 versions are available per availability zone. The following table lists the Azure regions that support this version. For RAID-6 FTT2 and RAID-1 FTT3 storage policies, six and seven fault domains are needed, respectively. The fault domain count for each Azure region is listed in the column labeled **AV64 fault domains supported**.
+
+| Azure region | Availability zone | Version   | Multi-AZ SDDC | AV64 fault domains supported |
 | :---         | :---:             | :---: | :---:         | :---:           |
 | Australia East | AZ01 | AV36P, AV64 | Yes | 7 |
 | Australia East | AZ02 | AV36, AV64| Yes | 7 |
@@ -121,7 +123,7 @@ AV64 SKUs are available per availability zone. The following table lists the Azu
 
 ## VMware software versions
 
-Microsoft is a member of the VMware Metal-as-a-Service (MaaS) program and uses the [VMware Cloud Provider Stack (VCPS)](https://docs.vmware.com/en/VMware-Cloud-Provider-Stack/1.1/com.vmware.vcps.gsg.doc/GUID-5D686FB2-9886-44D3-845B-FDEF650C7575.html) for Azure VMware Solution upgrade planning.
+Microsoft is a member of the VMware metal as a service (MaaS) program and uses the [VMware Cloud Provider Stack](https://docs.vmware.com/en/VMware-Cloud-Provider-Stack/1.1/com.vmware.vcps.gsg.doc/GUID-5D686FB2-9886-44D3-845B-FDEF650C7575.html) for Azure VMware Solution upgrade planning.
 
 [!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
 
@@ -135,10 +137,9 @@ Azure VMware Solution continuously monitors the health of both the VMware compon
 
 Host remediation involves replacing the faulty node with a new healthy node in the cluster. Then, when possible, the faulty host is placed in VMware vSphere maintenance mode. VMware vSphere vMotion moves the VMs off the faulty host to other available servers in the cluster, potentially allowing zero downtime for live migration of workloads. If the faulty host can't be placed in maintenance mode, the host is removed from the cluster. Before the faulty host is removed, the customer workloads are migrated to a newly added host.
 
-> [!TIP]
-> **Customer communication**: An email is sent to the customer's email address before the replacement is initiated and again after the replacement is successful.
->
-> To receive emails related to host replacement, you must be added to any of the following Azure role-based access control roles in the subscription: ServiceAdmin, CoAdmin, Owner, or Contributor.
+An email is sent to the customer's email address before the replacement is initiated and again after the replacement is successful.
+
+To receive emails related to host replacement, you must be added to any of the following Azure role-based access control roles in the subscription: ServiceAdmin, CoAdmin, Owner, or Contributor.
 
 Azure VMware Solution monitors the following conditions on the host:
 
@@ -154,22 +155,22 @@ Azure VMware Solution monitors the following conditions on the host:
 - Hardware power status
 - Storage status
 - Connection failure
-  
+
 ## Alert codes and remediation table
 
 |  Error code         |        Error details              |  Recommended action     |
 |--------------------|---------------------------------|---------------------|
-|  `EPC_CDROM_EMULATEMODE` |  This error is encountered when CD-ROM on the virtual machine (VM) uses emulate mode, whose ISO image is not accessible  | Follow [this KB article](https://knowledge.broadcom.com/external/article?legacyId=79306) for the removal of any CDROM mounted on customer's workload VMs in emulate mode or detach ISO. It is recommended to use "Passthrough mode" for mounting any CD-ROM. |
-| `EPC_DRSOVERRIDERULE` | This error is encountered when there is a VM with DRS Override set to “Disabled” mode. | VM should not block vMotion while putting host into maintenance. Set Partially Automated DRS rules for the VM. Refer to [this document](/azure/azure-vmware/create-placement-policy#enable-restrict-vm-movement-for-specific-vms) to know more about VM placement policies. |
-|  `EPC_SCSIDEVICE_SHARINGMODE`  | This error is encountered when a VM is configured to use a device that prevents a maintenance operation: A device that is a SCSI controller which is engaged in bus-sharing   | Follow [this KB article](https://knowledge.broadcom.com/external/article?legacyId=79910) for the removal of any SCSI controller engaged in bus-sharing attached to VMs   |
-|  `EPC_DATASTORE_INACCESSIBLE`  |  This error is encountered when any external Datastore attached to AVS Private Cloud becomes inaccessible  | Follow [this article](/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#performance-best-practices) for the removal of any stale Datastore attached to cluster  |
-|  `EPC_NWADAPTER_STALE` | This error is encountered when connected Network interface on the VM uses network adapter which becomes inaccessible | Follow [this KB article](https://knowledge.broadcom.com/external/article/318738/troubleshooting-the-migration-compatibil.html) for the removal of any stale N/W adapters attached to VMs   |
-| `EPC_SERIAL_PORT` | This error is encountered when a VM’s serial port is connected to a device that cannot be accessed on the destination host. | If you are using an image file (ISO, FLP, and so on), ensure that it is accessible from all ESXi servers on the cluster. Store the files on a data store that is shared between all ESXi servers that will participate in vMotion of the VM. Refer to [this KB article](https://knowledge.broadcom.com/external/article/324829/vmotion-fails-with-the-compatibility-err.html) from Broadcom for more information. |
-| `EPC_HARDWARE_DEVICE` | This error is encountered when a VM’s parallel Port/USB Device is connected to a device cannot be accessed on the destination host. | If you are using an image file (ISO, FLP, and so on), ensure that it is accessible from all ESXi servers of the cluster. Store the files on a data store that is shared between all ESXi servers that will participate in the vMotion of the VM. Refer to [this KB article](https://knowledge.broadcom.com/external/article/324829/vmotion-fails-with-the-compatibility-err.html) from Broadcom for more information. |
-| `EPC_INVALIDVM / EPC_ORPHANVM` | This error is encountered when there is an orphaned or Invalid VM in the inventory | Ensure all your VMs are accessible to the vCenter. Refer to [this KB article](https://knowledge.broadcom.com/external/article/312831/virtual-machines-appear-as-invalid-or-or.html) for more information |
+|  `EPC_CDROM_EMULATEMODE` |  This error is encountered when CD-ROM on the virtual machine (VM) uses emulate mode, whose ISO image isn't accessible.  | For the removal of any CD-ROM mounted on a customer's workload VMs in emulate mode or detach ISO, see [this KB article](https://knowledge.broadcom.com/external/article?legacyId=79306). Use Passthrough mode for mounting any CD-ROM. |
+| `EPC_DRSOVERRIDERULE` | This error is encountered when there's a VM with DRS Override set to Disabled mode. | The VM shouldn't block vMotion while putting the host into maintenance. Set Partially Automated DRS rules for the VM. To know more about VM placement policies, refer to [this document](/azure/azure-vmware/create-placement-policy#enable-restrict-vm-movement-for-specific-vms). |
+|  `EPC_SCSIDEVICE_SHARINGMODE`  | This error is encountered when a VM is configured to use a device that prevents a maintenance operation: "Device is a SCSI controller engaged in bus-sharing."   | For the removal of any SCSI controller engaged in bus-sharing attached to VMs, see [this KB article](https://knowledge.broadcom.com/external/article?legacyId=79910).   |
+|  `EPC_DATASTORE_INACCESSIBLE`  |  This error is encountered when any external data store attached to AVS Private Cloud becomes inaccessible.  | For the removal of any stale data store attached to a cluster, see [this article](/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#performance-best-practices).  |
+|  `EPC_NWADAPTER_STALE` | This error is encountered when connected network interface on the VM uses a network adapter, which becomes inaccessible. | For the removal of any stale network adapters attached to VMs, see [this KB article](https://knowledge.broadcom.com/external/article/318738/troubleshooting-the-migration-compatibil.html).   |
+| `EPC_SERIAL_PORT` | This error is encountered when a VM's serial port is connected to a device that can't be accessed on the destination host. | If you use an image file (like ISO or FLP), ensure that it's accessible from all ESXi servers on the cluster. Store the files on a data store that's shared between all ESXi servers that participate in vMotion of the VM. For more information, see [this KB article](https://knowledge.broadcom.com/external/article/324829/vmotion-fails-with-the-compatibility-err.html) from Broadcom. |
+| `EPC_HARDWARE_DEVICE` | This error is encountered when a VM's parallel port/USB device is connected to a device that can't be accessed on the destination host. | If you use an image file (like ISO or FLP), ensure that it's accessible from all ESXi servers of the cluster. Store the files on a data store that's shared between all ESXi servers that participate in the vMotion of the VM. For more information, see [this KB article](https://knowledge.broadcom.com/external/article/324829/vmotion-fails-with-the-compatibility-err.html) from Broadcom. |
+| `EPC_INVALIDVM / EPC_ORPHANVM` | This error is encountered when an orphaned or invalid VM is in the inventory. | Ensure that all your VMs are accessible to the vCenter. For more information, see [this KB article](https://knowledge.broadcom.com/external/article/312831/virtual-machines-appear-as-invalid-or-or.html). |
 
 > [!NOTE]
-> Azure VMware Solution tenant admins must not edit or delete the previously defined VMware vCenter Server alarms because they're managed by the Azure VMware Solution control plane on vCenter Server. These alarms are used by Azure VMware Solution monitoring to trigger the Azure VMware Solution host remediation process.
+> Azure VMware Solution tenant admins must not edit or delete the previously defined VMware vCenter Server alarms. The Azure VMware Solution control plane on vCenter Server manages them. These alarms are used by Azure VMware Solution monitoring to trigger the Azure VMware Solution host remediation process.
 
 ## Backup and restore
 
@@ -182,7 +183,7 @@ Azure VMware Solution continuously monitors the health of both the physical unde
 
 ## Related content
 
-Now that you've covered Azure VMware Solution private cloud concepts, you might want to learn about:
+Now that you learned about Azure VMware Solution private cloud concepts, you might want to read:
 
 - [Azure VMware Solution networking and interconnectivity concepts](architecture-networking.md)
 - [Azure VMware Solution storage concepts](architecture-storage.md)
