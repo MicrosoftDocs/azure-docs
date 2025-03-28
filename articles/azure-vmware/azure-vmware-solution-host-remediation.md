@@ -1,9 +1,9 @@
 ---
 title: Azure VMware Solution - Host maintenance best practices
-description: Understand the best practices and recommendations to maintain Azure VMware Solution Software-Defined Data Center 
+description: Understand the best practices and recommendations to maintain Azure VMware Solution Software-Defined Data Center
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 25/03/2025
+ms.date: 03/25/2025
 ---
 
 # Azure VMware Solution SDDC maintenance best practices
