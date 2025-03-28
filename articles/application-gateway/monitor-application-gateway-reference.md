@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Application Gateway
 description: This article contains important reference material you need when you monitor Azure Application Gateway.
-ms.date: 10/15/2024
+ms.date: 03/28/2025
 ms.custom: horz-monitor
 ms.topic: reference
 author: greg-lindsay
@@ -330,12 +330,14 @@ If the application gateway can't complete the request, it stores one of the foll
 | ERRORINFO_HTTP_NO_HOST_HEADER | Client sent a request without Host header. |
 | ERRORINFO_HTTP_TO_HTTPS_PORT | The client sent a plain HTTP request to an HTTPS port. |
 | ERRORINFO_HTTPS_NO_CERT | Indicates client isn't sending a valid and properly configured TLS certificate during Mutual TLS authentication. |
+| ERRORINFO_INVALID_HEADER | Application Gateway detected a partial invalid header and forwarded the remaining header to the backend, which responded with 200 OK. Ensure the client's request header does not contain CR, LF, NULL, or similar characters. Replace such characters with SP (whitespace). |
 
 | 5XX Errors | Description |
 |:-----------|:------------|
 | ERRORINFO_UPSTREAM_NO_LIVE | The application gateway is unable to find any active or reachable backend servers to handle incoming requests. |
 | ERRORINFO_UPSTREAM_CLOSED_CONNECTION | The backend server closed the connection unexpectedly or before the request was fully processed. This condition could happen due to backend server reaching its limits, crashing etc. |
 | ERRORINFO_UPSTREAM_TIMED_OUT | The established TCP connection with the server was closed as the connection took longer than the configured timeout value. |
+| ERRORINFO_INVALID_HEADER | Application Gateway detected a partial invalid header and forwarded the remaining header to the backend, which responded with 200 OK. Ensure the client's request header does not contain CR, LF, NULL, or similar characters. Replace such characters with SP (whitespace). |
 
 ### Firewall log category
 
