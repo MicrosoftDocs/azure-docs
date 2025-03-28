@@ -11,13 +11,11 @@ ms.collection: ce-skilling-ai-copilot
 
 # Create, understand, and debug Azure API Management policies in Visual Studio Code
 
-<!-- Confirm SKU availability for this feature. -->
-
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 This article explains how to use the [Azure API Management Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement) to create, understand, and debug Azure API Management policies with AI assistance from [GitHub Copilot for Azure](/azure/developer/github-copilot-azure/introduction). 
 
-Azure API Management policies are a sequence of statements that address cross-cutting concerns like authentication, authorization, throttling, caching, and transformation, applied to API requests or responses.
+Azure API Management [policies](api-management-howto-policies.md) are a sequence of statements that address cross-cutting concerns like authentication, authorization, throttling, caching, and transformation, applied to API requests or responses.
 
 ## Prerequisites
 
@@ -26,7 +24,7 @@ Azure API Management policies are a sequence of statements that address cross-cu
 * The following extensions are needed for the specified scenarios:
 
     * [GitHub Copilot for Azure extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot) - to create and explain policies
-    * [REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - to debug policies
+    * [REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - for policy debugging
 
 * An API Management instance. If you need to create one, see this [quickstart](vscode-create-service-instance.md).
 
@@ -38,7 +36,7 @@ Azure API Management policies are a sequence of statements that address cross-cu
 
 * Policy debugging uses the built-in (service-level) all-access subscription (display name "Built-in all-access subscription"). You must be a service owner to use this subscription.
  
-## Create a policy using GitHub Copilot
+## Create a policy using GitHub Copilot for Azure
 
 The Azure API Management extension integrates with GitHub Copilot for Azure to help you create a draft of a policy. With AI assistance, create and edit policies in a user-friendly way. 
 
@@ -70,7 +68,7 @@ To create a policy:
 > [!TIP]
 > Check in the **Problems** window for explanation of any issues in the policy XML.
 
-## Explain a policy using GitHub Copilot
+## Explain a policy using GitHub Copilot for Azure
 
 Copilot can help explain an existing policy in your API Management instance. 
 
