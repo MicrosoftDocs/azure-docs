@@ -29,9 +29,9 @@ A client can be notified when a lifecycle management run is complete by subscrib
     "data": {
         "scheduleTime": "2022/05/24 22:57:29.3260160",
         "deleteSummary": {
-            "totalObjectsCount": 16,
-            "successCount": 14,
-            "errorList": ""
+            "totalObjectsCount": 5,
+            "successCount": 3,
+            "errorList": ["testFile4.txt", "testFile5.txt"]
         },
         "tierToCoolSummary": {
             "totalObjectsCount": 0,
@@ -66,15 +66,13 @@ The following table describes the schema of the `LifecyclePolicyCompleted` event
 
 To learn more about the different ways to subscribe to an event, see [Event handlers in Azure Event Grid](../../event-grid/event-handlers.md?toc=/azure/storage/blobs/toc.json#microsoftstoragelifecyclepolicycompleted-event).
 
-Something here about parsing the errorList. How do you do this? What do you do with this?
-
 ## Investigating errors by using metric and logs
 
-You can use metrics explorer and query resource logs in Azure Monitor to determine why some objects were not processed successfully.
+The event response from the previous section shows that the lifecycle management policy attempted to delete five objects, but succeeded with only three of them. The `testFile4.txt` and `testFile5.txt` files were not successfully deleted as part of that run. To diagnose why some objects weren't processed successfully, you can use metrics explorer and query resource logs in Azure Monitor.
 
 ### Metrics
 
-To determine exactly when operations failed, use metrics explorer. You can see all transactions that were applied against the account in the timeframe between the `scheduleTime` and `eventTime` value that appear in the `LifecyclePolicyCompleted` properties. Use the following metric filters to narrow transactions to those executed by the policy:
+To determine exactly _when_ operations failed, use metrics explorer. You can see all transactions that were applied against the account in the timeframe between the `scheduleTime` and `eventTime` value that appear in the `LifecyclePolicyCompleted` properties. Use the following metric filters to narrow transactions to those executed by the policy:
 
 | Filter | Operator | Value |
 |---|---|---|
