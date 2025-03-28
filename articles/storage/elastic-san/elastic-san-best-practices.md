@@ -70,7 +70,7 @@ devices {
 
 #### Windows
 
-Update the below registry settings for iSCSI initiator on Windows.
+Update the registry settings for iSCSI initiator on Windows.
 
 1.	Open Registry Editor:
 1. Select Start, type regedit in the search box and press enter.
