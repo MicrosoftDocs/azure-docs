@@ -146,7 +146,7 @@ To work around this issue, restart each broker pod one by one (including the dia
 
 ---
 
-Issue ID: 0000
+Issue ID: 4257
 
 ---
 
@@ -377,7 +377,7 @@ done
 
 ---
 
-Issue ID: 0000
+Issue ID: 8616
 
 ---
 
