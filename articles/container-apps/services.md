@@ -68,8 +68,9 @@ If you're ready for a production level service, follow these steps to transition
       --resource-group <RESOURCE-GROUP>
     ```
 
-### Option 2: Continue with new OSS quickstarts
-If you only need these services for development or testing environments and do not require production-level guarantees, follow these steps to switch to our new open-source quickstarts:
+### Option 2: Use open source images
+
+If you only need these services for development or testing environments and do not require production-level guarantees, follow these steps to switch to use the open-source quickstart images:
 
 1. Identify add-ons in use. Run the following command to locate all existing add-ons in your environment.
 
@@ -101,7 +102,7 @@ If you only need these services for development or testing environments and do n
       --resource-group <RESOURCE-GROUP>
     ```
 
-## Add-ons (retiring on September 30th, 2025)
+## Add-ons
 
 > [!IMPORTANT]
 > The public preview add-ons feature will be retired on September 30th, 2025. To prepare for this change, transition to Azure-managed services, such as Azure Cache for Redis or Azure Database for PostgreSQL for production-level service. For development and testing purposes, review the supported open-source quickstarts. 
