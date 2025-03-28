@@ -2451,6 +2451,7 @@ Enables permissions for the operator to manage a singleton instance of the OpenS
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/read | Returns blob service properties or statistics |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/read | Returns list of containers |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/write | Returns the result of put blob container |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/delete | Returns the result of deleting a container |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/generateUserDelegationKey/action | Returns a user delegation key for the blob service |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/write | Creates a storage account with the specified parameters or update the properties or tags or adds custom domain for the specified storage account. |
@@ -2482,6 +2483,7 @@ Enables permissions for the operator to manage a singleton instance of the OpenS
         "Microsoft.Storage/storageAccounts/blobServices/read",
         "Microsoft.Storage/storageAccounts/blobServices/containers/read",
         "Microsoft.Storage/storageAccounts/blobServices/containers/write",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
         "Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action",
         "Microsoft.Storage/storageAccounts/read",
         "Microsoft.Storage/storageAccounts/write",
@@ -2541,8 +2543,6 @@ Manage the lifecycle of specific-purpose custom resource definitions (CRD), cont
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/publicIPAddresses/read | Gets a public IP address definition. |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/publicIPAddresses/write | Creates a public IP address or updates an existing public IP address.  |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/routeTables/read | Gets a route table definition |
-> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/delete | Deletes a virtual network |
-> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/read | Get the virtual network definition |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/join/action | Joins a virtual network. Not Alertable. |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/read | Gets a virtual network subnet definition |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/applicationSecurityGroups/joinNetworkSecurityRule/action | Joins a Security Rule to Application Security Groups. Not alertable. |
@@ -2596,8 +2596,6 @@ Manage the lifecycle of specific-purpose custom resource definitions (CRD), cont
         "Microsoft.Network/publicIPAddresses/read",
         "Microsoft.Network/publicIPAddresses/write",
         "Microsoft.Network/routeTables/read",
-        "Microsoft.Network/virtualNetworks/delete",
-        "Microsoft.Network/virtualNetworks/read",
         "Microsoft.Network/virtualNetworks/subnets/join/action",
         "Microsoft.Network/virtualNetworks/subnets/read",
         "Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action",
