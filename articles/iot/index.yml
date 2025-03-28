@@ -20,6 +20,10 @@ highlightedContent:
       itemType: overview
       url: ../iot/iot-introduction.md
     # Card
+    - title: Azure IoT Operations
+      itemType: overview
+      url: ../iot-operations/get-started/overview-iot-operations.md
+    # Card
     - title: Get started with device development on Azure IoT
       itemType: get-started
       url: ../iot/concepts-iot-device-development.md
@@ -32,10 +36,6 @@ highlightedContent:
       itemType: learn
       url: /training/browse/?products=azure&term=iot
     # Card
-    - title: Azure IoT reference architecture
-      itemType: architecture
-      url: /azure/architecture/reference-architectures/iot/
-    # Card
     - title: Azure IoT architectures
       itemType: architecture
       url: /azure/architecture/browse/?azure_categories=iot
@@ -43,10 +43,6 @@ highlightedContent:
     - title: Digital twin definition language (DTDL) models
       itemType: concept
       url: ../digital-twins/concepts-models.md
-    # Card
-    - title: Azure IoT Operations
-      itemType: overview
-      url: ../iot-operations/get-started/overview-iot-operations.md
 
 # conceptualContent section
 conceptualContent:
@@ -54,11 +50,11 @@ conceptualContent:
   summary: Azure IoT offers you cloud and edge IoT platforms as well as fully managed IoT solutions
   items:
     # Card
-    - title: Device development
+    - title: Asset and device development
       links:
         - url: ./iot-overview-device-development.md
           itemType: overview
-          text: Introduction to IoT device development
+          text: Introduction to IoT asset and device development
         - url: ./concepts-iot-device-development.md
           itemType: concept
           text: Tools, SDKs, and hardware
@@ -69,7 +65,7 @@ conceptualContent:
           itemType: reference
           text: Device SDKs reference
     # Card
-    - title: Device connectivity
+    - title: Asset and device connectivity
       links:
         - url: ./iot-overview-device-connectivity.md
           itemType: overview
@@ -81,11 +77,11 @@ conceptualContent:
           itemType: concept
           text: Use an IoT Edge device as a gateway
     # Card
-    - title: Device management and control
+    - title: Asset and device management and control
       links:
         - url: ./iot-overview-device-management.md
           itemType: overview
-          text: Introduction to device control and management
+          text: Introduction to asset and device control and management
         - url: ../iot-dps/about-iot-dps.md
           itemType: overview
           text: Device provisioning at scale
