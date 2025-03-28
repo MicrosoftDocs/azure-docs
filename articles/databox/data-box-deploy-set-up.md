@@ -8,23 +8,24 @@ ms.service: azure-databox
 ms.topic: tutorial
 ms.date: 02/16/2023
 ms.author: shaas
+zone_pivot_groups: data-box-sku
 
 # Customer intent: As an IT admin, I need to be able to set up Data Box to upload on-premises data from my server onto Azure.
 ---
 
-::: zone target="docs"
+<!--::: zone target="docs"-->
 
 # Tutorial: Cable and connect to your Azure Data Box
 
-::: zone-end
+<!--::: zone-end-->
 
-::: zone target="chromeless"
+<!--::: zone target="chromeless"
 
 ## Cable and connect to your device
 
-::: zone-end
+::: zone-end-->
 
-::: zone target="docs"
+<!--::: zone target="docs"-->
 
 This tutorial describes how to cable, connect, and turn on your Azure Data Box.
 
@@ -37,24 +38,63 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 Before you begin, make sure that:
-
+:::zone pivot="dbx-ng"
 1. You have placed the order for Azure Data Box.
     - For an import order, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
     - For an export order, see [Tutorial: Order Azure Data Box](data-box-deploy-export-ordered.md)
-1. You have received your Data Box and the order status in the portal is **Delivered**. 
+2. You have received your Data Box and the order status in the portal is **Delivered**. 
     - There is a shipping label in the clear pouch affixed to the device under the current label. Keep this label safe as you will use it for return shipment.
     - Some regions in Europe may receive the device packaged in a box. Ensure that you unpack the device and save the box for return shipment.
-1. You have reviewed the [Data Box safety guidelines](data-box-safety.md).
-1. You have received one grounded power cord to use with your 100-TB storage device.
-1. You have a host computer that is used to copy data (import order) to or copy data from (export order) your Data Box. Your host computer must
+3. You have reviewed the [Data Box safety guidelines](data-box-safety.md).
+4. You have received one grounded power cord to use with your 120 TB or 525 TB storage device. 
+5. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
+    - Run a [Supported operating system](data-box-system-requirements.md).
+    - Be connected to high-speed network. We recommend that you have at least one 100-GbE connection. If a 100-GbE connection isn't available, you can use a 10-GbE or 1-GbE data link, though copy speeds are impacted.
+6. You must have access to a flat surface where you can place the Data Box. If you want to place the device on a standard rack shelf, you need a 7U slot in your datacenter rack. You can place the device flat or upright in the rack.
+7. You have the following cables to connect your Data Box to the host computer. These cables are recommended, however, the next generation devices will work with 10G cables too.
+    - 2 x 10G-BaseT RJ-45 cables (CAT-5e or CAT6)
+    - 2 x 100-GbE QSFP28 passive direct attached cable (use with DATA 1, DATA 2 network interfaces)
+    [!INCLUDE [data-box-cable-adapter](../../includes/data-box-cable-adapter.md)]
+
+## Cable your device
+
+Perform the following steps to cable your device.
+
+1. Inspect the device for any evidence of tampering, or any other obvious damage. If the device is tampered or severely damaged, do not proceed. Contact Microsoft Support immediately to help you assess whether the device is in good working order and if they need to ship you a replacement.
+2. Transport the device to the location where you wish to power it on. Place the device on a flat surface. The device can also be placed on a standard rack shelf.
+3. Connect the power and network cables. The backplane of a connected device for a common configuration is shown below. Depending on your environment, you could choose from other [cabling options](data-box-cable-options.md).
+    
+    ![Screenshot illustrating the Data Box device's backplane cabled, including a diagram of data flow to the device.](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)
+
+    1. Connect the power cable to the labeled power input location. The other end of the power cable should be connected to a power distribution unit.
+    2. Use the RJ-45 CAT 6 cable to connect the MGMT port on one end and a laptop on the other end.            
+    3. Use the RJ-45 CAT 6A cable to connect to DATA 3 port on one end. DATA 3 is configured as 100 GbE if you connect via RJ-45 CAT 6A cable and as 10/1 GbE if you connect via RJ-45 CAT 6 cable.
+    4. Depending on the network interfaces you want to connect for data transfer, use up to two 100-GbE QSFP28 cables to connect the DATA 1 and DATA 2 ports respectively. 
+    5. The other ends of the cables from the data ports are connected to the host computer via a 100-GbE switch.
+
+4. Locate the power button on the front operating panel of the device. Turn on the device.
+
+    ![Screenshot showing the location of the Data Box power button, illustrating that the door will remain open while the device is operating.](media/data-box-deploy-set-up/data-box-powered-door-open.png)
+:::zone-end
+
+:::zone pivot="dbx"
+1. You have placed the order for Azure Data Box.
+    - For an import order, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
+    - For an export order, see [Tutorial: Order Azure Data Box](data-box-deploy-export-ordered.md)
+2. You have received your Data Box and the order status in the portal is **Delivered**. 
+    - There is a shipping label in the clear pouch affixed to the device under the current label. Keep this label safe as you will use it for return shipment.
+    - Some regions in Europe may receive the device packaged in a box. Ensure that you unpack the device and save the box for return shipment.
+3. You have reviewed the [Data Box safety guidelines](data-box-safety.md).
+4. You have received one grounded power cord to use with your 100-TB storage device.
+5. You have a host computer that is used to copy data (import order) to or copy data from (export order) your Data Box. Your host computer must
     - Run a [Supported operating system](data-box-system-requirements.md).
     - Be connected to high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, a 1-GbE data link can be used but the copy speeds are impacted. 
-1. You must have access to a flat surface where you can place the Data Box. If you want to place the device on a standard rack shelf, you need a 7U slot in your datacenter rack. You can place the device flat or upright in the rack.
-1. You have procured the following cables to connect your Data Box to the host computer.
+6. You must have access to a flat surface where you can place the Data Box. If you want to place the device on a standard rack shelf, you need a 7U slot in your datacenter rack. You can place the device flat or upright in the rack.
+7. You have procured the following cables to connect your Data Box to the host computer.
     - One or more 10-GbE SFP+ Twinax copper or SFP+ fiber optic cables (use with DATA 1, DATA 2 network interfaces). Data Box has the Mellanox ConnectX®-3 Pro EN Dual-Port 10GBASE-T Adapters w/ PCI Express 3.0 network interface, so cables that are compatible with this interface should work. For example, a CISCO SFP-H10GB-CU3M 10GBASE-CU TWINAX SFP +3M cable was used for in-house testing. For more information, see the [list of supported cables and switches from Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
     - One RJ-45 CAT 6 network cable (use with MGMT network interface)
     - One RJ-45 CAT 6A OR one RJ-45 CAT 6 network cable (use with DATA 3 network interface configured as 10 Gbps or 1 Gbps respectively)
-
+      
 ## Cable your device
 
 Perform the following steps to cable your device.
@@ -74,10 +114,13 @@ Perform the following steps to cable your device.
 4. Locate the power button on the front operating panel of the device. Turn on the device.
 
     ![Data Box power button](media/data-box-deploy-set-up/data-box-powered-door-open.png)
+::: zone-end 
 
-::: zone-end
 
-::: zone target="chromeless"
+
+<!--::: zone-end-->
+
+<!--::: zone target="chromeless"
 
 After you have received the device, you need to cable and connect to your device. 
 
@@ -102,9 +145,9 @@ After you have received the device, you need to cable and connect to your device
     3. Use the SFP+ Twinax copper cable to connect at least one 10 Gbps (preferred over 1 Gbps) network interface, DATA 1 or DATA 2 for data. 
     4. Turn on the device. The power button is on the front panel of the device.
 
-::: zone-end
+::: zone-end-->
 
-::: zone target="docs"
+<!--::: zone target="docs"-->
 
 
 ## Connect to your device
@@ -128,9 +171,9 @@ Once the data network interfaces are configured, you can also use the IP address
 
 After the device setup is complete, you can connect to the device shares and copy the data. 
 
-::: zone-end
+<!--::: zone-end-->
 
-::: zone target="chromeless"
+<!--::: zone target="chromeless"
 
 ## Connect your device
 
@@ -139,10 +182,10 @@ After the device setup is complete, you can connect to the device shares and cop
 1. Sign in using the password from the Azure portal. You see an error indicating a problem with the website’s security certificate. Follow the browser-specific instructions to proceed to the web page.
 1. By default, the network settings for the 10 Gbps data interface (or 1 Gbps) are configured as DHCP. If needed, you can configure this interface as static and provide an IP address. 
 
-::: zone-end
+::: zone-end-->
 
 
-::: zone target="docs"
+<!--::: zone target="docs"-->
 
 ## Next steps
 
@@ -162,5 +205,5 @@ Or
 > [!div class="nextstepaction"]
 > [Copy your data from Azure Data Box for export order](./data-box-deploy-export-copy-data.md)
 
-::: zone-end
+<!--::: zone-end-->
 

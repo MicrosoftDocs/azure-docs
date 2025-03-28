@@ -86,6 +86,6 @@ API Management event data includes the `resourceUri`, which identifies the API M
 
 [Azure Event Grid event schema for API Management](../event-grid/event-schema-api-management.md)
 
-## Next steps
+## Related content
 
 * Learn more about [subscribing to events](../event-grid/subscribe-through-portal.md).

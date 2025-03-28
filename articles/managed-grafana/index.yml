@@ -87,10 +87,12 @@ landingContent:
         links:
           - text: Encryption
             url: encryption.md
-  - title: Configure monitoring
+  - title: Monitor and alert
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Monitor using metrics
+            url: how-to-monitor-managed-grafana-metrics.md
           - text: Monitor using diagnostic settings
             url: how-to-monitor-managed-grafana-workspace.md
           - text: Configure SMTP settings
