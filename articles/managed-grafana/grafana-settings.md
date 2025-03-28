@@ -33,13 +33,13 @@ This article provides step-by-step instructions on how to configure Grafana sett
 
 ### External Enabled
 
-Decription: The **External Enabled** setting controls the public sharing of snapshots. With this setting enabled, users can publish snapshots of dashboards to an external URL by opening a dashboard, selecting **Share** > **Snapshot** > **Publish to snapshots.raintanks.io**.
+Description: The **External Enabled** setting controls the public sharing of snapshots. With this setting enabled, users can publish snapshots of dashboards to an external URL by opening a dashboard, selecting **Share** > **Snapshot** > **Publish to snapshots.raintanks.io**.
 
 Default: enabled. Toggle off to restrict public sharing of snapshots.
 
 ### Viewers Can Edit
 
-Decription: The **Viewers Can Edit** setting enables users with the Grafana Viewer role to edit dashboards without saving changes permanently. This feature is designed to enable Grafana Viewers to run tests and interact with dashboards without making permanent changes. With this setting enabled, Grafana Viewers can:
+Description: The **Viewers Can Edit** setting enables users with the Grafana Viewer role to edit dashboards without saving changes permanently. This feature is designed to enable Grafana Viewers to run tests and interact with dashboards without making permanent changes. With this setting enabled, Grafana Viewers can:
 
 - Edit dashboards temporarily, without saving.
 - Access the **Explore** menu to perform interactive queries and analyze data.
@@ -48,7 +48,7 @@ Default: disabled. Toggle on to enable this setting.
 
 ### Editors Can Admin (Preview)
 
-Decription: The **Editors Can Admin (Preview)** setting enables users with the Grafana Editor role to administrate dashboards, folders and teams they create.
+Description: The **Editors Can Admin (Preview)** setting enables users with the Grafana Editor role to administrate dashboards, folders and teams they create.
 
 Default: disabled. Toggle on the switch to enable this setting.
 
