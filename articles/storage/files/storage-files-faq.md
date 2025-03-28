@@ -4,7 +4,7 @@ description: Get answers to frequently asked questions (FAQ) about Azure Files a
 author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
-ms.date: 06/24/2024
+ms.date: 03/28/2025
 ms.author: kendownie
 ms.topic: faq
 ---
@@ -129,19 +129,19 @@ ms.topic: faq
 * <a id="alternate-data-streams"></a>
 **Does Azure Files support alternate data streams?**
 
-  Azure Files doesn't support [alternate data streams](https://learn.microsoft.com/openspecs/windows_protocols/ms-fscc/e2b19412-a925-4360-b009-86e3b8a020c8). Transferring data via SMB will throw a **file already exists** message if an alternate data stream is found. You can check alternate streams by using the following PowerShell command:
+Azure Files doesn't support [alternate data streams](/openspecs/windows_protocols/ms-fscc/e2b19412-a925-4360-b009-86e3b8a020c8). Transferring data via SMB will throw a **file already exists** message if an alternate data stream is found. You can check alternate streams by using the following PowerShell command:
 
 ```powershell
-  get-item <file path+name> -Stream *
+get-item <file path+name> -Stream *
 ```
 
 If more than one stream is shown, you can remove them using the following PowerShell command:
 
 ```powershell
-  Remove-Item <file path+name> -Stream *`
+remove-Item <file path+name> -Stream *
 ```
 
-Please note that alternate data streams are preserved on-premises when Azure File Sync is used.
+Alternate data streams are preserved on-premises when Azure File Sync is used.
 
 ### Identity-based authentication
 
