@@ -16,7 +16,7 @@ This overview introduces the key concepts around managing and controlling assets
 
 ### [Edge-based solution](#tab/edge)
 
-The following diagram shows a high-level view of the components in a typical edge-based IoT solution. This article focuses on the asset management and control components of an edge-based IoT solution:
+The following diagram shows a high-level view of the components in a typical [edge-based IoT solution](iot-introduction.md#edge-based-solution). This article focuses on the asset management and control components of an edge-based IoT solution:
 
 <!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-device-management/iot-edge-management-architecture.svg" alt-text="Diagram that shows the high-level IoT edge-based solution architecture highlighting asset management areas." border="false" lightbox="media/iot-overview-device-management/iot-edge-management-architecture.svg":::
@@ -55,7 +55,7 @@ For more information, see [What is asset management in Azure IoT Operations](../
 
 ### [Cloud-based solution](#tab/cloud)
 
-The following diagram shows a high-level view of the components in a typical cloud-based IoT solution. This article focuses on the device management and control components of a cloud-based IoT solution:
+The following diagram shows a high-level view of the components in a typical [cloud-based IoT solution](iot-introduction.md#cloud-based-solution). This article focuses on the device management and control components of a cloud-based IoT solution:
 
 <!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-device-management/iot-cloud-management-architecture.svg" alt-text="Diagram that shows the high-level IoT cloud-based solution architecture highlighting device management areas." border="false" lightbox="media/iot-overview-device-management/iot-cloud-management-architecture.svg":::

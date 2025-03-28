@@ -17,7 +17,7 @@ This overview introduces the key concepts around developing assets and devices t
 
 # [Edge-based solution](#tab/edge)
 
-The following diagram shows a high-level view of the components in a typical edge-based IoT solution. This article focuses on the assets and connectors shown in the diagram:
+The following diagram shows a high-level view of the components in a typical [edge-based IoT solution](iot-introduction.md#edge-based-solution). This article focuses on the assets and connectors shown in the diagram:
 
 <!-- Art Library Source# ConceptArt-0-000-025 -->
 
@@ -33,7 +33,7 @@ You can create your own, custom connectors to connect to assets that use protoco
 
 # [Cloud-based solution](#tab/cloud)
 
-The following diagram shows a high-level view of the components in a typical cloud-based IoT solution. This article focuses on the devices and gateway shown in the diagram:
+The following diagram shows a high-level view of the components in a typical [cloud-based IoT solution](iot-introduction.md#cloud-based-solution). This article focuses on the devices and gateway shown in the diagram:
 
 <!-- Art Library Source# ConceptArt-0-000-025 -->
 

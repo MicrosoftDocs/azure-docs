@@ -16,7 +16,7 @@ This overview introduces the key concepts around securing a typical Azure IoT so
 
 # [Edge-based solution](#tab/edge)
 
-The following diagram shows a high-level view of the components in a typical edge-based IoT solution. This article focuses on the security of an edge-based IoT solution:
+The following diagram shows a high-level view of the components in a typical [edge-based IoT solution](iot-introduction.md#edge-based-solution). This article focuses on the security of an edge-based IoT solution:
 
 <!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-security/iot-edge-security-architecture.svg" alt-text="Diagram that shows the high-level IoT edge-based solution architecture highlighting security." border="false":::
@@ -94,7 +94,7 @@ Both Defender for IoT and Defender for Containers can automatically monitor some
 
 # [Cloud-based solution](#tab/cloud)
 
-The following diagram shows a high-level view of the components in a typical cloud-based IoT solution. This article focuses on the security of a cloud-based IoT solution:
+The following diagram shows a high-level view of the components in a typical [cloud-based IoT solution](iot-introduction.md#cloud-based-solution). This article focuses on the security of a cloud-based IoT solution:
 
 <!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-security/iot-cloud-security-architecture.svg" alt-text="Diagram that shows the high-level IoT cloud-based solution architecture highlighting security." border="false":::

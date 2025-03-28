@@ -17,13 +17,13 @@ This overview introduces the key concepts around the options to manage an Azure 
 
 # [Edge-based solution](#tab/edge)
 
-The following diagram shows a high-level view of the components in a typical edge-based IoT solution. This article focuses on the areas relevant to managing an edge-based IoT solution:
+The following diagram shows a high-level view of the components in a typical [edge-based IoT solution](iot-introduction.md#edge-based-solution). This article focuses on the areas relevant to managing an edge-based IoT solution:
 
 :::image type="content" source="media/iot-overview-solution-management/iot-edge-solution-management-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting solution management areas." border="false":::
 
 # [Cloud-based solution](#tab/cloud)
 
-The following diagram shows a high-level view of the components in a typical cloud-based IoT solution. This article focuses on the areas relevant to managing a cloud-based IoT solution:
+The following diagram shows a high-level view of the components in a typical [cloud-based IoT solution](iot-introduction.md#cloud-based-solution). This article focuses on the areas relevant to managing a cloud-based IoT solution:
 
 :::image type="content" source="media/iot-overview-solution-management/iot-cloud-solution-management-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting solution management areas." border="false":::
 
