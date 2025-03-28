@@ -1,0 +1,125 @@
+<<<<<<< HEAD
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "enclaveName": {
+            "type": "String"
+        },
+        "apiVersion": {
+            "defaultValue": "2024-01-01-preview",
+            "type": "string"
+        },
+        "endpointName": {
+            "defaultValue": "ad-ep",
+            "type": "String"
+        },
+        "enclaveAddressSpace": {
+            "type": "string"
+        },
+        "location": {
+            "defaultValue": "[resourceGroup().location]",
+            "type": "string"
+        }
+    },
+    "variables": {
+        "addsServerAddresses": "[cidrSubnet(parameters('enclaveAddressSpace'), 29, 0)]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Mission/virtualEnclaves/enclaveEndpoints",
+            "apiVersion": "[parameters('apiVersion')]",
+            "name": "[format('{0}/{1}', parameters('enclaveName'), parameters('endpointName'))]",
+            "location": "[parameters('location')]",
+            "tags": {
+                "department": "MyDepartment",
+                "company": "MyCompany"
+            },
+            "properties": {
+                "ruleCollection": [
+                    {
+                        "name": "ADDS-TCP",
+                        "destination": "[variables('addsServerAddresses')]",
+                        "port": "53,88,135,138,139,389,445,464,636,686,3268-3269,5722,9389,49152-65535",
+                        "protocols": [ "TCP" ]
+                    },
+                    {
+                        "name": "ADDS-UDP",
+                        "destination": "[variables('addsServerAddresses')]",
+                        "port": "53,389",
+                        "protocols": [ "UDP" ]
+                    }
+                ]
+            }
+        }
+    ],
+    "outputs": {
+        "endpointId": {
+            "type": "string",
+            "value": "[resourceId('Microsoft.Mission/virtualenclaves/enclaveEndpoints', parameters('enclaveName'), parameters('endpointName'))]"
+        }
+    }
+}
+=======
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "enclaveName": {
+            "type": "String"
+        },
+        "apiVersion": {
+            "defaultValue": "2024-01-01-preview",
+            "type": "string"
+        },
+        "endpointName": {
+            "defaultValue": "ad-ep",
+            "type": "String"
+        },
+        "enclaveAddressSpace": {
+            "type": "string"
+        },
+        "location": {
+            "defaultValue": "[resourceGroup().location]",
+            "type": "string"
+        }
+    },
+    "variables": {
+        "addsServerAddresses": "[cidrSubnet(parameters('enclaveAddressSpace'), 29, 0)]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Mission/virtualEnclaves/enclaveEndpoints",
+            "apiVersion": "[parameters('apiVersion')]",
+            "name": "[format('{0}/{1}', parameters('enclaveName'), parameters('endpointName'))]",
+            "location": "[parameters('location')]",
+            "tags": {
+                "department": "MyDepartment",
+                "company": "MyCompany"
+            },
+            "properties": {
+                "ruleCollection": [
+                    {
+                        "name": "ADDS-TCP",
+                        "destination": "[variables('addsServerAddresses')]",
+                        "port": "53,88,135,138,139,389,445,464,636,686,3268-3269,5722,9389,49152-65535",
+                        "protocols": [ "TCP" ]
+                    },
+                    {
+                        "name": "ADDS-UDP",
+                        "destination": "[variables('addsServerAddresses')]",
+                        "port": "53,389",
+                        "protocols": [ "UDP" ]
+                    }
+                ]
+            }
+        }
+    ],
+    "outputs": {
+        "endpointId": {
+            "type": "string",
+            "value": "[resourceId('Microsoft.Mission/virtualenclaves/enclaveEndpoints', parameters('enclaveName'), parameters('endpointName'))]"
+        }
+    }
+}
+>>>>>>> ef719d68becef2a7ef84bda4a3e27ca1ef8df825

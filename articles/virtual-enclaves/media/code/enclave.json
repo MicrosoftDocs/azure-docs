@@ -1,0 +1,131 @@
+<<<<<<< HEAD
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "communityResourceId": {
+            "type": "String"
+        },
+        "enclaveName": {
+            "type": "String"
+        },
+        "apiVersion": {
+            "defaultValue": "2024-01-01-preview",
+            "type": "String"
+        },
+        "networkSize": {
+            "defaultValue": "custom",
+            "type": "String"
+        },
+        "communityAddressSpace": {
+            "type": "String"
+        },
+        "enclaveThirdOctet": {
+            "type": "String"
+        },
+        "location": {
+            "defaultValue": "[resourceGroup().location]",
+            "type": "string"
+        }
+    },
+    "variables": {
+        "communityBaseCidr": "[split(parameters('communityAddressSpace'), '/')[0]]",
+        "communityAddressArray": "[split(variables('communityBaseCidr'), '.')]",
+        "enclaveAddressSpace": "[concat(variables('communityAddressArray')[0], '.', variables('communityAddressArray')[1], '.', parameters('enclaveThirdOctet'), '.', variables('communityAddressArray')[3], '/24')]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Mission/virtualenclaves",
+            "apiVersion": "[parameters('apiVersion')]",
+            "name": "[parameters('enclaveName')]",
+            "location": "[parameters('location')]",
+            "tags": {
+                "department": "MyDepartment",
+                "company": "MyCompany"
+            },
+            "properties": {
+                "communityResourceId": "[parameters('communityResourceId')]",
+                "enclaveVirtualNetwork": {
+                    "networkSize": "[parameters('networkSize')]",
+                    "customCidrRange": "[variables('enclaveAddressSpace')]"
+                }
+            }
+        }
+    ],
+    "outputs": {
+        "enclaveAddressSpace": {
+            "type": "String",
+            "value": "[variables('enclaveAddressSpace')]"
+        },
+        "enclaveResourceId": {
+            "type": "String",
+            "value": "[resourceId('Microsoft.Mission/virtualenclaves', parameters('enclaveName'))]"
+        }
+    }
+}
+=======
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "communityResourceId": {
+            "type": "String"
+        },
+        "enclaveName": {
+            "type": "String"
+        },
+        "apiVersion": {
+            "defaultValue": "2024-01-01-preview",
+            "type": "String"
+        },
+        "networkSize": {
+            "defaultValue": "custom",
+            "type": "String"
+        },
+        "communityAddressSpace": {
+            "type": "String"
+        },
+        "enclaveThirdOctet": {
+            "type": "String"
+        },
+        "location": {
+            "defaultValue": "[resourceGroup().location]",
+            "type": "string"
+        }
+    },
+    "variables": {
+        "communityBaseCidr": "[split(parameters('communityAddressSpace'), '/')[0]]",
+        "communityAddressArray": "[split(variables('communityBaseCidr'), '.')]",
+        "enclaveAddressSpace": "[concat(variables('communityAddressArray')[0], '.', variables('communityAddressArray')[1], '.', parameters('enclaveThirdOctet'), '.', variables('communityAddressArray')[3], '/24')]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Mission/virtualenclaves",
+            "apiVersion": "[parameters('apiVersion')]",
+            "name": "[parameters('enclaveName')]",
+            "location": "[parameters('location')]",
+            "tags": {
+                "department": "MyDepartment",
+                "company": "MyCompany"
+            },
+            "properties": {
+                "communityResourceId": "[parameters('communityResourceId')]",
+                "enclaveVirtualNetwork": {
+                    "networkSize": "[parameters('networkSize')]",
+                    "customCidrRange": "[variables('enclaveAddressSpace')]"
+                }
+            }
+        }
+    ],
+    "outputs": {
+        "enclaveAddressSpace": {
+            "type": "String",
+            "value": "[variables('enclaveAddressSpace')]"
+        },
+        "enclaveResourceId": {
+            "type": "String",
+            "value": "[resourceId('Microsoft.Mission/virtualenclaves', parameters('enclaveName'))]"
+        }
+    }
+}
+>>>>>>> ef719d68becef2a7ef84bda4a3e27ca1ef8df825
