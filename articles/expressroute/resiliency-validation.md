@@ -12,9 +12,7 @@ ms.custom: ai-usage
 
 # Azure ExpressRoute Gateway Resiliency Validation (preview)
 
-Ensuring uninterrupted connectivity to Azure workloads through ExpressRoute is essential for maintaining business continuity. We're committed to providing you with new capabilities to help maintain a resilient network. The *gateway resiliency validation* feature assesses how resilient your network is by testing a failure scenario and validating the failover mechanisms. By proactively testing your network resiliency, you can ensure that your workloads remain available and can recover quickly from disruptions. 
-
-Another key aspect of this feature is the ability to identify misconfigurations and provide insights about your ExpressRoute connections from the ExpressRoute gateway perspective. This proactive approach allows you to validate the network behavior before major changes are implemented while also ensuring that your network is prepared for unexpected events.
+Resiliency validation is a capability designed to assess the resiliency of network connectivity for ExpressRoute-enabled workloads. This feature allows you to perform site failovers for your virtual network gateway, helping to evaluate network resiliency during site outages and validate setup during migrations by testing the effectiveness of failover mechanisms. By proactively testing your network, you can ensure continuous connectivity to Azure workloads and ensure the robustness of your connections.
 
 > [!IMPORTANT]
 > **Azure ExpressRoute Resiliency Validation** is currently in PREVIEW.
@@ -45,7 +43,7 @@ Another key aspect of this feature is the ability to identify misconfigurations 
 ## Prerequisites
 
 - To participate in the preview, contact the [**Azure ExpressRoute**](mailto:exr-resiliency@microsoft.com) team.
-- Ensure that you have an ExpressRoute circuit in at least two distinct peering locations and an ExpressRoute gateway connected to those circuits.
+- Ensure that you have an ExpressRoute circuit in at least two distinct peering locations and an ExpressRoute virtual network gateway connected to those circuits.
 
 ## Using the gateway resiliency validation
 
@@ -55,8 +53,9 @@ The gateway resiliency validation can be accessed from any ExpressRoute gateway 
 
 The dashboard provides a detailed overview of all ExpressRoute circuits connected to the ExpressRoute virtual network gateway, categorized by peering location. It displays the most recent test status, the timestamp of the last test conducted, the results of the latest test, and an action button to initiate a new test.
 
-> [!WARNING]
-> During the test, the ExpressRoute circuit disconnects from the ExpressRoute gateway, causing a temporary loss of connectivity for nonredundant routes. Ensure your routing policies are configured to support traffic failover.
+> [!IMPORTANT]
+> - During the test, the ExpressRoute virtual network gateway disconnect from the target ExpressRoute circuit, causing a temporary loss of connectivity for nonredundant routes. Ensure your routing policies are configured to support traffic failover.
+> - The targeted ExpressRoute circuit maintains connectivity to other ExpressRoute virtual network gateways, and the gateway doing the test maintains connectivity to other ExpressRoute circuits.
 
 ### Starting the test
 
@@ -90,17 +89,34 @@ The dashboard provides a detailed overview of all ExpressRoute circuits connecte
 
 1. Navigate to the **Test Status** tab to validate connectivity to your Azure workloads through each redundant connection. Review the traffic flow graph for the ExpressRoute gateway, which displays the average bits per second traffic flow. The tab also provides ingress and egress traffic information for connected and disconnected peering locations.
 
-    :::image type="content" source="media/resiliency-validation/test-status.png" alt-text="Screenshot of the traffic flow graph for an ExpressRoute gateway and the traffic data on the connections to the gateway.":::
+    :::image type="content" source="media/resiliency-validation/test-status.png" alt-text="Screenshot showing the traffic flow graph for an ExpressRoute gateway and traffic data for connections to the gateway.":::
+
+    > [!NOTE]
+    > Traffic metrics are updated every minute and displayed in the **Test Status** tab. Allow up to 5 minutes for the metrics to appear after initiating the test.
 
 1. Validate connectivity from your on-premises network to your Azure workloads through the redundant connection by sending data packets. Tools like [iPerf](https://iperf.fr/) can be used for this purpose.
 
-1. Select the **Stop Simulation** button to end the test. Confirm if the test was completed successfully when prompted.
+1. Select the **Stop Simulation** button to end the test. Confirm if the test was completed successfully when prompted and select the failover peering location.
 
 1. Once confirmed, connectivity for all connections to the ExpressRoute gateway gets restored.
 
-1. You can view the test result by selecting **View** under the *Test History* column on the dashboard for the selected peering location.
+1. You can view the test report by selecting **View** under the *Test History* column on the dashboard for the selected peering location.
 
 ## Frequently asked questions
+
+1. Why can't I see the Resiliency Insights feature in my ExpressRoute virtual network gateway?
+
+    - The Resiliency Insights feature is currently in preview. To gain access, contact the [Azure ExpressRoute team](mailto:exR-Resiliency@microsoft.com) for onboarding.
+    - This feature is only available for ExpressRoute virtual network gateways configured in a Max Resiliency model. It isn't supported for Virtual WAN ExpressRoute gateways.
+    - You must have Contributor-level authorization to access this feature.
+
+1. Why is the Route List not updated to the latest?
+
+    The Route List tab has a polling interval of 1 hour. This means the pane won't refresh for 1 hour from the last updated time.
+
+1. Does the feature support Microsoft Peering or VPN connectivity?
+
+    No, the Resiliency Insights feature supports only ExpressRoute Private Peering connectivity. It doesn't support Microsoft Peering or VPN connectivity.
 
 1. Can control the gateway validation tests other than the Azure portal?
 
@@ -108,33 +124,27 @@ The dashboard provides a detailed overview of all ExpressRoute circuits connecte
 
 1. What happens if I don't terminate a test?
 
-    The tests continue to run indefinitely.
+    The test continues to run indefinitely.
 
-1. What metrics or alerts are available to monitor during the test?
+1. What metrics or alerts can I monitor during the resiliency validation test?
 
-    The purpose of configuring redundant connections is to ensure network resilience during outages. If a single circuit is utilized at more than 50% of its bandwidth, packet drops might occur. During validation tests, the **Test Status** tab helps monitor traffic through the connections. You should expect [alerts](monitor-expressroute.md#alerts) if they're configured, providing an opportunity to validate their effectiveness.
-
-    For more information, see [Circuit utilization](monitor-expressroute-reference.md#category-circuit-traffic) or [Connection traffic](monitor-expressroute-reference.md#category-traffic) for metrics you can set up alerts on.
+    To ensure network resilience during outages, redundant connections should be configured. During a failover, if the backup circuit exceeds 100% of its bandwidth, packet drops might occur. Use [Circuit QoS](monitor-expressroute-reference.md#category-circuit-qos) metrics to monitor packet drops caused by rate limiting. Additionally, the **Test Status** tab in the Resiliency Validation feature provides traffic monitoring for the connections. Ensure alerts are configured to validate their effectiveness during the test.
 
 1. Can I control traffic on demand using the gateway resiliency validation tool?
 
-    Yes, the gateway resiliency validation tool allows you to control traffic on demand. This is useful for testing different traffic scenarios and ensuring your network can handle various failovers. It can also be used to validate connectivity after successful site migrations before disconnecting the redundant circuit.
+    Yes, if the routes are advertised redundantly through circuits in different peering locations, the gateway resiliency validation tool allows you to control traffic on demand by failing traffic over to connections in an alternative site.
 
-1. Are there specific Role-Based Access Controls (RBAC) policies for this feature?
+1. Does this feature support FastPath and Private Link?
 
-    Yes, there are specific RBAC policies to ensure that only authorized users with contributor access to the gateway can initiate downtime.
+    For FastPath, while the data path bypasses the gateway, the gateway still handles control plane activities such as route management. During a disconnect between the ExpressRoute circuit and the gateway, routes are withdrawn from the affected circuit. However, if redundant circuits are properly configured, connectivity for failover connections to FastPath and Private Link is maintained during the failover.
 
-1. Does this feature work with FastPath and Private Link?
+1. Is packet loss expected during a failover simulation?
 
-    For FastPath, although the data path bypasses the gateway, the gateway still manages control plane activities like route management. During a disconnect between the ExpressRoute circuit and the ExpressRoute gateway, routes are withdrawn from the gateway. However, connectivity for the failover connection to FastPath and Private Link is maintained during the failover.
+    A brief connectivity disruption occurs during the failover simulation as BGP (Border Gateway Protocol) reconverges. Performance tests using iPerf on TCP (up to 500 Mbps) show no packet loss during the simulation. However, in an actual outage scenario, some packet loss can occur until traffic successfully fails over.
 
-1. Is packet loss expected during this activity?
+1. How long does a failover take?
 
-    During the failover simulation, a brief connectivity disruption occurs as BGP (Border Gateway Protocol) reestablishes. Performance tests using iPerf on TCP (Transmission Control Protocol) up to 500 Mbps show no packet loss. However, in a real outage scenario, some packet loss occurs until the traffic successfully fails over.
-
-1. How long does it take to fail over?
-
-    Once the simulation starts, it can take up to 15 seconds for the traffic to fail over.
+    Once the simulation begins, traffic failover typically completes within 15 seconds.
 
 ## Next steps
 

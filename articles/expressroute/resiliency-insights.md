@@ -12,9 +12,7 @@ ms.custom: ai-usage
 
 # Resiliency Insights for ExpressRoute virtual network gateway (preview)
 
-ExpressRoute enables private connections between your on-premises networks and Azure workloads. These connections are established through a virtual network gateway, which acts as the entry point to Microsoft's network. The virtual network gateway plays a critical role in the ExpressRoute architecture by providing routing and forwarding capabilities that ensure secure and reliable connectivity between your on-premises network and Azure. 
-
-In this article, we explore the Resiliency Insights feature of the ExpressRoute virtual network gateway and explain how the resiliency index score can help you evaluate the reliability of your ExpressRoute connectivity.
+Resiliency Insights is an assessment capability designed to measure your network's reliability for ExpressRoute workloads. At the core of this capability is the resiliency index, a percentage score calculated based on factors such as route resilience, zone-redundant gateway usage, advisory recommendations, and resiliency validation tests. This index evaluates the control plane resiliency of the ExpressRoute connectivity between your ExpressRoute virtual network gateway and on-premises network. By analysing and improving this index, you can enhance the robustness and reliability of your connectivity to Azure workloads through ExpressRoute.
 
 > [!NOTE]
 > To participate in the preview, contact the [**Azure ExpressRoute team**](mailto:exr-resiliency@microsoft.com).
@@ -91,6 +89,25 @@ The following multipliers are applied to the route resiliency score based on the
 > If resiliency validation is completed for only one of the two peering locations, the multiplier applied to the route resiliency score is reduced by **half**.
 
 The resiliency index score provides a comprehensive assessment of the reliability of your ExpressRoute connection. By understanding the key factors that influence this score, you can identify opportunities to enhance the resiliency of your connection. Implementing the recommendations and best practices outlined in this article help you strengthen your ExpressRoute setup, ensuring consistent and reliable connectivity between your on-premises network and Azure resources.
+
+## Frequently asked questions
+
+1. Why can't I see the Resiliency Insights feature in my ExpressRoute virtual network gateway?
+
+    - The Resiliency Insights feature is currently in preview. To gain access, contact the [Azure ExpressRoute team](mailto:exR-Resiliency@microsoft.com) for onboarding.
+    - This feature is only available for ExpressRoute virtual network gateways configured in a Max Resiliency model. It isn't supported for Virtual WAN ExpressRoute gateways.
+    - You must have Contributor-level authorization to access this feature.
+
+1. Why doesn't the pane refresh immediately after I select **Refresh**?
+
+    The pane refreshes automatically every hour. If the last update occurred less than an hour ago, the pane won't refresh until the next polling interval is reached.
+
+1. Does the feature support Microsoft Peering or VPN connectivity?
+
+    No, the Resiliency Insights feature supports only ExpressRoute Private Peering connectivity. It doesn't support Microsoft Peering or VPN connectivity.
+
+
+
 
 ## Next steps
 
