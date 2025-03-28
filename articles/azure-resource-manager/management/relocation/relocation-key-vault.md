@@ -19,7 +19,7 @@ Instead of relocation, you need to:
 - Create a new key vault with the relocation of the associated Azure services. 
 - Regenerate any required [keys](/azure/key-vault/keys/about-keys), [secrets](/azure/key-vault/secrets/about-secrets), or [certificates](/azure/key-vault/certificates/about-certificates). In some cases, you may need to transfer the secrets or certificates from your existing key vault to the relocated key vault.
 
-![Diagram showing Azure Key vault relocation pattern](./media/relocation/keyvault/akv-pattern-design.png)
+:::image type="content" source="./media/relocation/keyvault/akv-pattern-design.png" alt-text="Diagram showing Azure Key vault relocation pattern.":::
 
 ## Prerequisites
 

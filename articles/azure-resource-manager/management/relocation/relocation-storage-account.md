@@ -90,7 +90,7 @@ To deploy the template by using Azure portal:
 1. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
 1. Select **Template deployment**.
 
-    ![Azure Resource Manager templates library](../../../storage/common/media/storage-account-move/azure-resource-manager-template-library.png)
+    :::image type="content" source="../../../storage/common/media/storage-account-move/azure-resource-manager-template-library.png" alt-text="Azure Resource Manager templates library.":::
 
 1. Select **Create**.
 1. Select **Build your own template in the editor**.

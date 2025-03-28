@@ -58,7 +58,8 @@ To get started, export a Resource Manager template. This template contains setti
 3. On the **Event Hubs Namespace** page, select **Export template** under **Automation** in the left menu.
 4. Choose **Download** in the **Export template** page.
 
-    ![Screenshot showing where to download Resource Manager template](../../../event-hubs/media/move-across-regions/download-template.png)
+    :::image type="content" source="../../../event-hubs/media/move-across-regions/download-template.png" alt-text="Screenshot showing where to download Resource Manager template.":::
+
 5. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
 
    This zip file contains the .json files that include the template and scripts to deploy the template.
@@ -396,13 +397,13 @@ Modify the template by changing the Event Hubs namespace name and region.
   
         1. Enter the new **namespace name**.
 
-            ![Deploy Resource Manager template](../../../event-hubs//media/move-across-regions/deploy-template.png)
+            :::image type="content" source="../../../event-hubs/media/move-across-regions/deploy-template.png" alt-text="Deploy Resource Manager template.":::
 
         2. If your source namespace was in an **Event Hubs cluster**, enter names of **resource group** and **Event Hubs cluster** as part of **external ID**.
 
-          ```
-          /subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<CLUSTER'S RESOURCE GROUP>/providers/Microsoft.EventHub/clusters/<CLUSTER NAME>
-          ```
+            ```
+            /subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<CLUSTER'S RESOURCE GROUP>/providers/Microsoft.EventHub/clusters/<CLUSTER NAME>
+            ```
 
         3. If Event Hubs in your namespace uses a Storage account for capturing events, specify the resource group name and the storage account for `StorageAccounts_<original storage account name>_external` field.
 
@@ -426,7 +427,8 @@ To delete an Event Hubs namespace (source or target) by using the Azure portal:
 1. In the search window at the top of Azure portal, type **Event Hubs**, and select **Event Hubs** from search results. You see the Event Hubs namespaces in a list.
 2. Select the target namespace to delete, and select **Delete** from the toolbar.
 
-    ![Screenshot showing Delete namespace - button](../../../event-hubs//media/move-across-regions/delete-namespace-button.png)
+    :::image type="content" source="../../../event-hubs//media/move-across-regions/delete-namespace-button.png" alt-text="Screenshot showing Delete namespace - button.":::
+
 3. On the **Delete Namespace** page, confirm the deletion by typing the **namespace name**, and then select **Delete**.
 
 ## Next steps
