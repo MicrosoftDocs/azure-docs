@@ -38,7 +38,7 @@ HTTP 307 responses are presented when a redirection rule is specified with the *
 
 400-499 response codes indicate an issue that is initiated from the client. These issues can range from the client initiating requests to an unmatched hostname, request timeout, unauthenticated request, malicious request, and more.
 
-Application Gateway collects metrics that capture the distribution of 4xx/5xx status codes has a logging mechanism that captures information such as the URI client IP address with the response code. Metrics and logging enable further troubleshooting.  Clients can also receive 4xx response from other proxies between the client device and Application Gateway. For example, CDN and other authentication providers. See the following articles for more information.
+Application Gateway collects metrics that capture the distribution of 4xx/5xx status codes has a logging mechanism that captures information such as the URI client IP address with the response code. Metrics and logging enable further troubleshooting.  Clients can also receive 4xx response from other proxies between the client device and Application Gateway. For example, CDN (Content Delivery Network) and other authentication providers. See the following articles for more information.
 
 [Metrics supported by Application Gateway V2 SKU](application-gateway-metrics.md#metrics-supported-by-application-gateway-v2-sku)
 [Diagnostic logs](application-gateway-diagnostics.md#diagnostic-logging)
@@ -66,13 +66,13 @@ Some common reasons for the request to be non-compliant to RFC are:
 | Invalid value in Content-Length | Content-Length: **abc**,Content-Length: **-10**|
 
 For cases when mutual authentication is configured, several scenarios can lead to an HTTP 400 response being returned the client, such as:
-- Client certificate isn't presented, but mutual authentication is enabled.
-- DN validation is enabled and the DN of the client certificate doesn't match the DN of the specified certificate chain.
+- Mutual authentication is enabled but the Client certificate wasn't presented. 
+- DN (Distinguished Name) validation is enabled and the DN of the client certificate doesn't match the DN of the specified certificate chain.
 - Client certificate chain doesn't match certificate chain configured in the defined SSL Policy.
 - Client certificate is expired.
-- OCSP Client Revocation check is enabled and the certificate is revoked.
-- OCSP Client Revocation check is enabled, but unable to be contacted.
-- OCSP Client Revocation check is enabled, but OCSP responder isn't provided in the certificate.
+- OCSP (Online Certificate Status Protocol) Client Revocation check is enabled and the certificate is revoked.
+- OCSP (Online Certificate Status Protocol) Client Revocation check is enabled, but unable to be contacted.
+- OCSP (Online Certificate Status Protocol) Client Revocation check is enabled, but OCSP responder isn't provided in the certificate.
 
 For more information about troubleshooting mutual authentication, see [Error code troubleshooting](mutual-authentication-troubleshooting.md#solution-2).
 
@@ -89,7 +89,7 @@ An HTTP 401 unauthorized response can be returned to AppGW probe request if the 
 
 #### 403 – Forbidden
 
-HTTP 403 Forbidden is presented when customers are utilizing WAF skus and have WAF configured in Prevention mode.  If enabled WAF rulesets or custom deny WAF rules match the characteristics of an inbound request, the client is presented a 403 forbidden response.
+HTTP 403 Forbidden is presented when customers are utilizing WAF (Web Application Firewall) skus and have WAF configured in Prevention mode.  If enabled WAF rulesets or custom deny WAF rules match the characteristics of an inbound request, the client is presented a 403 forbidden response.
 
 Other reasons for clients receiving 403 responses include:
 - You're using App Service as backend and it's configured to allow access only from Application Gateway. This can return a 403 error by App Services. This typically happens due to redirects/href links that point directly to App Services instead of pointing at the Application Gateway's IP address. 
@@ -126,7 +126,7 @@ Azure Application Gateway shouldn't exhibit 500 response codes. Open a support r
 #### 502 – Bad Gateway
 
 HTTP 502 errors can have several root causes, for example:
-- NSG, UDR, or custom DNS is blocking access to backend pool members.
+- NSG (Network security group), UDR (user-defined route), or custom DNS is blocking access to backend pool members.
 - Backend VMs or instances of [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) aren't responding to the default health probe.
 - Invalid or improper configuration of custom health probes.
 - Azure Application Gateway's [backend pool isn't configured or empty](application-gateway-troubleshooting-502.md#empty-backendaddresspool).
@@ -139,11 +139,11 @@ For information about scenarios where 502 errors occur, and how to troubleshoot 
 
 Azure application Gateway V2 SKU sent HTTP 504 errors if the backend response time exceeds the time-out value that is configured in the Backend Setting.
 
-IIS
+IIS (Internet Information Services web server)
 
 If your backend server is IIS, see [Default Limits for Web Sites](/iis/configuration/system.applicationhost/sites/sitedefaults/limits#configuration) to set the timeout value. Refer to the `connectionTimeout` attribute for details. Ensure the connection timeout in IIS matches or does not exceed the timeout set in the backend setting.
 
-nginx
+Nginx
 
 If the backend server is nginx or nginx ingress controller, and if it has upstream servers, ensure the value of `nginx:proxy_read_timeout` matches or does not exceed with the timeout set in the backend setting.
 
