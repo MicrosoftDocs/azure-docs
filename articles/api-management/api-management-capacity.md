@@ -143,7 +143,7 @@ Use capacity metrics for making decisions whether to scale an API Management ins
 > If you are able to estimate your traffic beforehand, test your API Management instance on workloads you expect. You can increase the request load on your tenant gradually and monitor the value of the capacity metric that corresponds to your peak load. Follow the steps from the previous section to use Azure portal to understand how much capacity is used at any given time.
 
 > [!IMPORTANT]
-> When defining autoscaling rules, make sure to avoid autoscaling flapping that will cause a scale in/scale out loop. To learn more, we recommend reading [Azure Monitor Autoscale's guidance around flapping](./../azure-monitor/autoscale/autoscale-flapping.md).
+> When defining autoscaling rules, make sure to avoid autoscaling flapping that will cause a scale in/scale out loop. To learn more, we recommend reading [Azure Monitor Autoscale's guidance around flapping](/azure/azure-monitor/autoscale/autoscale-flapping).
 
 ## Related content
 
