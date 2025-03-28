@@ -1,3 +1,5 @@
+### YamlMime:Landing
+
 title: Virtual Enclaves Documentation
 summary: Learn how to use Azure Virtual Enclaves. Get started with quickstarts, tutorials, and best practices for deploying, securing, and managing enclave environments in Azure.
 
@@ -11,7 +13,10 @@ metadata:
   ms.date: 02/04/2025
 
 landingContent:
-  - title: Azure Virtual Enclaves (AVE) Overview
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+    - title: Azure Virtual Enclaves (AVE) Overview
     linkLists:
       - linkListType: overview
         links:
