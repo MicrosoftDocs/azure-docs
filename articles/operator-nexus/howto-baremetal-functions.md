@@ -9,45 +9,38 @@ ms.date: 07/19/2024
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
-# Manage the lifecycle of bare metal machines
+# BareMetal Machine (BMM) Lifecycle Management Commands
 
-This article describes how to perform lifecycle management operations on bare metal machines (BMM). These steps should be used for troubleshooting purposes to recover from failures or when taking maintenance actions. The commands to manage the lifecycle of the BMM include:
+This article describes how to perform lifecycle management operations on bare metal machines (BMM).
+These steps should be used for troubleshooting purposes to recover from failures or when taking maintenance actions.
 
-> [!CAUTION]
-> Do not perform any action against management servers without first consulting with Microsoft support personnel. Doing so could affect the integrity of the Operator Nexus Cluster.
+First, read the advice in the article [Best Practices for BareMetal Machine Operations](./howto-baremetal-best-practices.md) before proceeding with operations.
+
+The bolded actions listed are considered disruptive (Power off, Restart, Reimage, Replace).
+The Cordon action without the `evacuate` parameter isn't considered disruptive while Cordon with the `evacuate` parameter is considered disruptive.
 
 - **Power off a BMM**
 - Start a BMM
 - **Restart a BMM**
-- Make a BMM unschedulable (cordon without evacuate)
-- **Make a BMM unschedulable (cordon with evacuate)**
+- Make a BMM unschedulable (cordon without evacuate, doesn't drain the node)
+- **Make a BMM unschedulable (cordon with evacuate, drains the node)**
 - Make a BMM schedulable (uncordon)
 - **Reimage a BMM**
 - **Replace a BMM**
 
-> [!IMPORTANT]
-> Disruptive command requests against a Kubernetes Control Plane (KCP) node are rejected if there is another disruptive action command already running against another KCP node or if the full KCP is not available. This check is done to maintain the integrity of the Nexus instance and ensure multiple KCP nodes don't become non-operational at once due to simultaneous disruptive actions. If multiple nodes become non-operational, it will break the healthy quorum threshold of the Kubernetes Control Plane.
->
-> The bolded actions in the above list are considered disruptive (Power off, Restart, Reimage, Replace). Cordon without evacuate is not considered disruptive. Cordon with evacuate is considered disruptive.
->
-> As noted in the cautionary statement, running actions against management servers, especially KCP nodes, should only be done in consultation with Microsoft support personnel.
+[!INCLUDE [caution-affect-cluster-integrity](./includes/baremetal-machines/caution-affect-cluster-integrity.md)]
 
-## Prerequisites
+[!INCLUDE [important-donot-disrupt-kcpnodes](./includes/baremetal-machines/important-donot-disrupt-kcpnodes.md)]
 
-1. Install the latest version of the
-   [appropriate CLI extensions](./howto-install-cli-extensions.md).
-1. Get the name of the resource group for the BMM - Cluster managed resource group name (cluster_MRG) .
-1. Get the name of the bare metal machine that requires a lifecycle management operation.
-1. Ensure that the target bare metal machine `poweredState` set to `On` and `readyState` set to `True`.
-   1. This prerequisite isn't applicable for the `start` command.
+[!INCLUDE [prerequisites-azcli-bmm-actions](./includes/baremetal-machines/prerequisites-azcli-bmm-actions.md)]
 
-## Power off a BMM
+## Power Off a BMM
 
 This command will `power-off` the specified `bareMetalMachineName`.
 
 ```azurecli
 az networkcloud baremetalmachine power-off \
-  --name <BareMetalMachineName>  \
+  --name <BareMetalMachineName> \
   --resource-group <resourceGroup> \
   --subscription <subscriptionID>
 ```
@@ -74,30 +67,20 @@ az networkcloud baremetalmachine restart \
   --subscription <subscriptionID>
 ```
 
-## Make a BMM unschedulable (cordon)
-
-**To identify if any workloads are currently running on a BMM, run the following command:**
-
-**For Virtual Machines:**
-```azurecli
-az networkcloud baremetalmachine show -n <nodeName> /
---resource-group <resourceGroup> /
---subscription <subscriptionID> | jq '.virtualMachinesAssociatedIds'
-```
-
-**For Nexus Kubernetes cluster nodes: (requires logging into the Nexus Kubernetes cluster)**
-
-```
-kubectl get nodes <resourceName> -ojson |jq '.metadata.labels."topology.kubernetes.io/baremetalmachine"'
-```
+## Make a BMM Unschedulable (cordon)
 
 You can make a BMM unschedulable by executing the [`cordon`](#make-a-bmm-unschedulable-cordon) command.
-On the execution of the `cordon` command,
-Operator Nexus workloads aren't scheduled on the BMM when cordon is set; any attempt to create a workload on a `cordoned`
-BMM results in the workload being set to `pending` state. Existing workloads continue to run.
-The cordon command supports an `evacuate` parameter with the default `False` value.
-It is a best practice to set this to `True`.  On executing the `cordon` command, with the value `True` for the `evacuate`
-parameter, the workloads that are running on the BMM are `stopped` and the BMM is set to `pending` state.
+On the execution of the `cordon` command, Operator Nexus workloads aren't scheduled on the BMM when `cordon` is set.
+Any attempt to create a workload on a `cordoned` BMM results in the workload being set to `pending` state.
+Existing workloads continue to run on the BMM unless the workloads are drained.
+
+### Drain Workloads from the BMM
+
+The cordon command supports the `evacuate` parameter which its default value `False` means that the `cordon` command prevents scheduling new workloads.
+To drain workloads with the `cordon` command, the `evacuate` parameter must be set to `True`. The workloads running on the BMM are `stopped` and the BMM is set to `pending` state.
+
+It's a best practice to set the `evacuate` value to `True` when attempting to do any maintenance operations on the BMM server.
+For more best practices to follow, read through [Best Practices for BareMetal Machine Operations](./howto-baremetal-best-practices.md).
 
 ```azurecli
 az networkcloud baremetalmachine cordon \
@@ -107,12 +90,26 @@ az networkcloud baremetalmachine cordon \
   --subscription <subscriptionID>
 ```
 
-The `evacuate "True"` removes workloads from that node while `evacuate "False"` only prevents the scheduling of new workloads.
+### To identify if any workloads are currently running on a BMM, run the following command:
 
-## Make a BMM "schedulable" (uncordon)
+For Virtual Machines:
 
-You can make a BMM "schedulable" (usable) by executing the [`uncordon`](#make-a-bmm-schedulable-uncordon) command. All workloads in a `pending`
-state on the BMM are `restarted` when the BMM is `uncordoned`.
+```azurecli
+az networkcloud baremetalmachine show -n <nodeName> /
+  --resource-group <resourceGroup> /
+  --subscription <subscriptionID> | jq '.virtualMachinesAssociatedIds'
+```
+
+For Nexus Kubernetes cluster nodes: (Requires logging into the Nexus Kubernetes cluster)
+
+```shell
+kubectl get nodes <resourceName> -ojson |jq '.metadata.labels."topology.kubernetes.io/baremetalmachine"'
+```
+
+## Make a BMM Schedulable (uncordon)
+
+You can make a BMM "schedulable" (the server can host workloads) by executing the [`uncordon`](#make-a-bmm-schedulable-uncordon) command.
+All workloads in a `pending` state on the BMM are `restarted` when the BMM is `uncordoned`.
 
 ```azurecli
 az networkcloud baremetalmachine uncordon \
@@ -123,30 +120,32 @@ az networkcloud baremetalmachine uncordon \
 
 ## Reimage a BMM
 
-You can restore the runtime version on a BMM by executing `reimage` command. This process **redeploys** the runtime image on the target BMM and executes the steps to rejoin the cluster with the same identifiers. This action doesn't impact the tenant workload files on this BMM. In the event of a write or edit action being performed on the node via BMM access, this 'reimage' action is required to restore Microsoft support and the changes will be lost, restoring the node to it's expected state.
-As a best practice, make sure the BMM's workloads are drained using the [`cordon`](#make-a-bmm-unschedulable-cordon)
-command, with `evacuate "True"`, before executing the `reimage` command.
+You can restore the runtime version on a BMM by executing `reimage` command. The `reimage` action doesn't affect the tenant workload files on the BMM.
+This process **redeploys** the runtime image on the target BMM and executes the steps to rejoin the cluster with the same identifiers.
 
-> [!WARNING]
-> Running more than one `baremetalmachine replace` or `reimage` command at the same time, or running a `replace`
-> at the same time as a `reimage` will leave servers in a nonworking state. Make sure one `replace`/`reimage`
-> has fully completed before starting another one.
+As a best practice, ensure the BMM's workloads are drained using the [`cordon`](#make-a-bmm-unschedulable-cordon) command, with `evacuate` set to `True`, before executing the `reimage` command.
+For more best practices to follow, read through [Best Practices for BareMetal Machine Operations](./howto-baremetal-best-practices.md).
+
+> [!IMPORTANT]
+> Avoid write or edit actions performed on the node via BMM access.
+> The `reimage` action is required to restore Microsoft support and any changes done to the BMM are lost while restoring the node to it's expected state.
+
+[!INCLUDE [warning-donot-run-multiple-actions](./includes/baremetal-machines/warning-donot-run-multiple-actions.md)]
 
 ```azurecli
 az networkcloud baremetalmachine reimage \
-  --name <BareMetalMachineName>  \
+  --name <BareMetalMachineName> \
   --resource-group <resourceGroup> \
   --subscription <subscriptionID>
 ```
 
 ## Replace a BMM
 
-Use the `replace` command when a server encounters hardware issues requiring a complete or partial hardware replacement. After replacement of components such as motherboard or Network Interface Card (NIC) replacement, the MAC address of BMM will change, however the iDRAC IP address and hostname will remain the same.
+Use the `replace` command when a server encounters hardware issues requiring a complete or partial hardware replacement.
+After the replacing components such as motherboard or Network Interface Card (NIC), the MAC address of BMM will change; however, the iDRAC IP address and hostname will remain the same.
+A `replace` **must** be executed after each hardware maintenance operation, read through [Best Practices for BareMetal Machine Operations](./howto-baremetal-best-practices.md) for more details.
 
-> [!WARNING]
-> Running more than one `baremetalmachine replace` or `reimage` command at the same time, or running a `replace`
-> at the same time as a `reimage` will leave servers in a nonworking state. Make sure one `replace`/`reimage`
-> has fully completed before starting another one.
+[!INCLUDE [warning-donot-run-multiple-actions](./includes/baremetal-machines/warning-donot-run-multiple-actions.md)]
 
 ```azurecli
 az networkcloud baremetalmachine replace \

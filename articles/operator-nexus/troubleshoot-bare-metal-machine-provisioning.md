@@ -11,18 +11,12 @@ ms.author: bpinto
 
 # Troubleshoot BMM provisioning in an Azure Operator Nexus cluster
 
-As part of a cluster deploy action, bare metal machines (BMMs) are provisioned with roles that are required to participate in the cluster. This document supports troubleshooting for common provisioning issues by using the Azure CLI, the Azure portal, and the server baseboard management controller (BMC). For the Azure Operator Nexus platform, the underlying server hardware uses integrated Dell remote access controller (iDRAC) as the BMC. Provisioning uses the Preboot eXecution Environment (PXE) interface to load the operating system (OS) on the BMM.
+As part of a cluster deploy action, bare metal machines (BMMs) are provisioned with roles that are required to participate in the cluster.
+This document supports troubleshooting for common provisioning issues by using the Azure CLI, the Azure portal, and the server baseboard management controller (BMC).
+For the Azure Operator Nexus platform, the underlying server hardware uses integrated Dell remote access controller (iDRAC) as the BMC.
+Provisioning uses the Preboot eXecution Environment (PXE) interface to load the operating system (OS) on the BMM.
 
-## Prerequisites
-
-1. Install the latest version of the [appropriate CLI extensions](howto-install-cli-extensions.md).
-1. Collect the following information:
-   - Subscription ID (`SUBSCRIPTION`)
-   - Cluster name (`CLUSTER`)
-   - Resource group (`CLUSTER_RG`)
-   - Managed resource group (`CLUSTER_MRG`)
-1. Request subscription access to run the Azure Operator Nexus network fabric (NF) and network cloud CLI extension commands.
-1. Sign in to the Azure CLI and select the subscription where the cluster is deployed.
+[!INCLUDE [prerequisites-azcli-bmm-actions](./includes/baremetal-machines/prerequisites-azcli-bmm-actions.md)]
 
 ## BMM roles
 
@@ -68,8 +62,15 @@ During any phase, the BMM detailed status is set to `Failed`. The phase is block
 To get a more detailed status of the BMM:
 
 ```azurecli
-az networkcloud baremetalmachine list -g $CLUSTER_MRG --query "sort_by([].{name:name,readyState:readyState,provisioningState:provisioningState,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage,powerState:powerState,machineRoles:machineRoles| join(', ', @),createdAt:systemData.createdAt}, &name)" --output table
+az networkcloud baremetalmachine list \
+  -g $CLUSTER_MRG \
+  --query "sort_by([].{name:name,readyState:readyState,provisioningState:provisioningState,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage,powerState:powerState,machineRoles:machineRoles| join(', ', @),createdAt:systemData.createdAt}, &name)" \
+  --output table
+```
 
+The command output should look similar to:
+
+```shell
 Name            ReadyState    ProvisioningState    DetailedStatus    DetailedStatusMessage                      PowerState    MachineRoles                                      CreatedAt
 ------------    ----------    -----------------    --------------    -----------------------------------------  ----------    ------------------------------------------------  -----------
 BMM_NAME        RSTATE        PROV_STATE           STATUS            STATUS_MSG                                 POWER_STATE   BMM_ROLE                                          CREATE_DATE
@@ -90,7 +91,7 @@ The following table lists where the output is defined.
 
 For example:
 
-```azurecli
+```shell
 x01dev01c01w01  True          Succeeded            Provisioned       The OS is provisioned to the machine       On            platform.afo-nc.microsoft.com/compute-plane=true  2024-05-03T15:12:48.0934793Z
 x01dev01c01w01  False         Failed               Preparing         Preparing for provisioning of the machine  Off           platform.afo-nc.microsoft.com/compute-plane=true  2024-05-03T15:12:48.0934793Z
 ```
@@ -106,7 +107,11 @@ az networkcloud baremetalmachine show -g $CLUSTER_MRG -n $BMM_NAME
 For BMM details specific to troubleshooting:
 
 ```azurecli
-az networkcloud baremetalmachine show -g $CLUSTER_MRG -n $BMM_NAME --query "{name:name,BootMAC:bootMacAddress,BMCMAC:bmcMacAddress,Connect:bmcConnectionString,SN:serialNumber,rackId:rackId,RackSlot:rackSlot}" -o table
+az networkcloud baremetalmachine show \
+  -g $CLUSTER_MRG \
+  -n $BMM_NAME \
+  --query "{name:name,BootMAC:bootMacAddress,BMCMAC:bmcMacAddress,Connect:bmcConnectionString,SN:serialNumber,rackId:rackId,RackSlot:rackSlot}" \
+  -o table
 ```
 
 ## Troubleshooting failed provisioning states
@@ -146,7 +151,11 @@ The IPv4 address of the BMC (`BMC_IP`) is in the `Connect` value returned from t
 To get the MAC address information from the BMM:
 
 ```azurecli
-az networkcloud baremetalmachine show -g $CLUSTER_MRG -n $BMM_NAME --query "{name:name,BootMAC:bootMacAddress,BMCMAC:bmcMacAddress,SN:serialNumber,rackId:rackId,RackSlot:rackSlot}" -o table
+az networkcloud baremetalmachine show \
+  -g $CLUSTER_MRG \
+  -n $BMM_NAME \
+  --query "{name:name,BootMAC:bootMacAddress,BMCMAC:bmcMacAddress,SN:serialNumber,rackId:rackId,RackSlot:rackSlot}" \
+  -o table
 ```
 
 Verify the MAC address data against the BMC through the web UI:
@@ -156,7 +165,7 @@ Verify the MAC address data against the BMC through the web UI:
 
 Verify that the MAC address is using `racadm` from a jumpbox that has access to the BMC network:
 
-```bash
+```shell
 racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD getsysinfo | grep "MAC Address "        #BMC MAC
 racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD getsysinfo | grep "NIC.Embedded.1-1-1"  #Boot MAC
 ```
@@ -171,13 +180,19 @@ Attempt to run the `ping` command against the BMC IPv4 address:
 1. Test `ping` to the BMC:
 
    To test from a jumpbox that has access to the BMC network:
-   ```bash 
+
+   ```shell
    ping $BMC_IP -c 3
    ```
-   
+
    To test from a BMM control-plane host by using the Azure CLI:
+
    ```azurecli
-   az networkcloud baremetalmachine run-read-command -g $CLUSTER_MRG -n $BMM_NAME --limit-time-seconds 60 --commands "[{command:'ping',arguments:['$BMC_IP',-c,3]}]"
+   az networkcloud baremetalmachine run-read-command \
+     -g $CLUSTER_MRG \
+     -n $BMM_NAME \
+     --limit-time-seconds 60 \
+     --commands "[{command:'ping',arguments:['$BMC_IP',-c,3]}]"
    ```
 
 ### Reset the port on a fabric device
@@ -216,7 +231,7 @@ To perform a remote flea drain against the BMM through the BMC UI:
 
 Perform a remote flea drain by using `racadm` from a jumpbox that has access to the BMC network:
 
-```bash
+```shell
 racadm set bios.miscsettings.powercyclerequest FullPowerCycle
 racadm jobqueue create BIOS.Setup.1-1
 racadm serveraction powercycle
@@ -224,7 +239,8 @@ racadm serveraction powercycle
 
 ### BMM physical power drain (flea drain)
 
-For a physical flea drain, the local site hands physically disconnect the power cables from both power adapters for five minutes and then restore power. This process ensures that the server, capacitors, and all components have complete power removal and that all cached data is cleared.
+For a physical flea drain, the local site hands physically disconnect the power cables from both power adapters for five minutes and then restore power.
+This process ensures that the server, capacitors, and all components have complete power removal and that all cached data is cleared.
 
 ### Reset NVRAM
 
@@ -242,7 +258,7 @@ To reset the NVRAM, use the following sequence in the BMC UI:
 
 If the activity log indicates invalid credentials on the BMC, run the following command from a jumpbox that has access to the BMC network:
 
-```bash
+```shell
 racadm -r $BMC_IP -u $BMC_USER -p $CURRENT_PASSWORD  set iDRAC.Users.2.Password $BMC_PWD
 ```
 

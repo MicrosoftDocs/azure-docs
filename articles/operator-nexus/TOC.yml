@@ -233,6 +233,8 @@
     - name: Cluster
       expanded: false
       items:
+        - name: Best Practices for BareMetal Machine Operations
+          href: howto-baremetal-best-practices.md
         - name: BareMetal Actions
           expanded: false
           items:
