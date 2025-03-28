@@ -23,7 +23,7 @@ Migration to Azure typically involves _replatforming the workload_, which includ
 Workloads should be migrated only after the organization is committed to Azure and have established their approach for adopting Azure. Before migrating workloads, we recommend that you understand the fundamental concepts on Azure and have an active Azure enrollment. Explore these Cloud Adoption Framework (CAF) resources to achieve these goals:
 
 - Learn about terms used in Azure and how the concepts relate to one another.
- 
+
   [**Azure fundamental concepts**](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts)
 
 - Complete the learning objectives in the training module to develop your organization's migration plan and identify the types of workloads that need to be migrated.
