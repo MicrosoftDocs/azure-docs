@@ -49,7 +49,7 @@ You can [subscribe to Pure Storage Cloud](https://azuremarketplace.microsoft.com
 1. Choose `PureStorage.Block` from the options.
 
     > [!NOTE]
-    > You can also choose Pure Storage as a resource provider with Azure CLI
+    > You can also choose Pure Storage as a resource provider with Azure CLI <br />
     > ```az provider register --namespace 'PureStorage.Block'```
 
 1. Select the **Register** button.
