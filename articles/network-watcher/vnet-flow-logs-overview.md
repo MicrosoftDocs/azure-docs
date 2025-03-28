@@ -267,6 +267,6 @@ The following tables list the supported regions where you can enable virtual net
 
 ## Related content
 
-- To learn how to create, change, enable, disable, or delete virtual network flow logs, see the [Azure portal](vnet-flow-logs-portal.md), [PowerShell](vnet-flow-logs-powershell.md), or [Azure CLI](vnet-flow-logs-cli.md) guides.
+- To learn how to create, change, enable, disable, or delete virtual network flow logs, see the [Manage virtual network flow logs](vnet-flow-logs-manage.md).
+- To learn how to use Azure built-in policies to audit or deploy virtual network flow logs, see [Manage virtual network flow logs using Azure Policy](traffic-analytics-policy-portal.md).
 - To learn about traffic analytics, see [Traffic analytics overview](traffic-analytics.md) and [Schema and data aggregation in Azure Network Watcher traffic analytics](traffic-analytics-schema.md).
-- To learn how to use Azure built-in policies to audit or enable traffic analytics, see [Manage traffic analytics using Azure Policy](traffic-analytics-policy-portal.md).
