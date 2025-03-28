@@ -721,6 +721,35 @@ Azure service: [Azure Communication Services](/azure/communication-services/over
 > | Microsoft.Communication/Operations/read | Reads operations |
 > | Microsoft.Communication/RegisteredSubscriptions/read | Reads registered subscriptions |
 
+## Microsoft.DurableTask
+
+Azure service: [Durable Functions](/azure/azure-functions/durable/durable-functions-overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.DurableTask/register/action | Register Microsoft.DurableTask resource provider for the subscription |
+> | Microsoft.DurableTask/unregister/action | Unregister Microsoft.DurableTask resource provider for the subscription |
+> | Microsoft.DurableTask/locations/operationStatuses/read | OperationStatuses read |
+> | Microsoft.DurableTask/locations/operationStatuses/write | OperationStatuses write |
+> | Microsoft.DurableTask/schedulers/write | Create or Update Durable Task Scheduler |
+> | Microsoft.DurableTask/schedulers/delete | Delete Durable Task Scheduler |
+> | Microsoft.DurableTask/schedulers/read | Read Durable Task Scheduler Namespace |
+> | Microsoft.DurableTask/schedulers/taskhubs/write | Create or Update Durable Task Scheduler Task Hub |
+> | Microsoft.DurableTask/schedulers/taskhubs/delete | Delete Durable Task Scheduler Task Hub |
+> | Microsoft.DurableTask/schedulers/taskhubs/read | Read Durable Task Scheduler Task Hub |
+> | **DataAction** | **Description** |
+> | Microsoft.DurableTask/orchestrations/read | Gets or list orchestrations metadata, including payloads |
+> | Microsoft.DurableTask/orchestrations/manage/action | Manages orchestrations |
+> | Microsoft.DurableTask/orchestrations/execute/action | Get orchestration and activity work-items and post results |
+> | Microsoft.DurableTask/orchestrations/raiseevents/action | Can invoke RaiseEvent |
+> | Microsoft.DurableTask/orchestrations/metadata/read | Gets or lists orchestration metadata, but not payloads |
+> | Microsoft.DurableTask/schedulers/taskhubs/orchestrations/read | Gets or list orchestrations metadata, including payloads |
+> | Microsoft.DurableTask/schedulers/taskhubs/orchestrations/manage/action | Manages orchestrations |
+> | Microsoft.DurableTask/schedulers/taskhubs/orchestrations/execute/action | Get orchestration and activity work-items and post results |
+> | Microsoft.DurableTask/schedulers/taskhubs/orchestrations/raiseevents/action | Can invoke RaiseEvent |
+> | Microsoft.DurableTask/schedulers/taskhubs/orchestrations/metadata/read | Gets or lists orchestration metadata, but not payloads |
+
 ## Microsoft.EventGrid
 
 Get reliable event delivery at massive scale.
