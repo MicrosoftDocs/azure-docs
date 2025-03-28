@@ -19,13 +19,12 @@ ms.author: oldoll
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
 [std-extension]:vm-extension-for-sap-standard.md (Standard Version of Azure VM extension for SAP solutions)
 [configure]:vm-extension-for-sap-new.md#configure (Configure the New Azure VM extension for SAP solutions with PowerShell)
-[deployment-guide-4.1]:vm-extension-for-sap-new.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 (Deploying Azure PowerShell cmdlets)
 [azure-cli-2]:/cli/azure/install-azure-cli
 [health-check]:vm-extension-for-sap-new.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Health checks)
 [1031096]:https://launchpad.support.sap.com/#/notes/1031096
 [readiness-check]:vm-extension-for-sap-new.md#readiness-check (Readiness check)
 [troubleshooting]:vm-extension-for-sap-troubleshooting.md
-[powershell_cmdlets]:vm-extension-for-sap-new.md#powershell_cmdlets
+[powershell_cmdlets]:vm-extension-for-sap-new.md#tab/powershell1
 
 ## Prerequisites
 
@@ -368,7 +367,7 @@ If some of the infrastructure data is not delivered correctly as indicated by th
 
 ### [Azure PowerShell](#tab/powershell5)
 
-1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet, as described in [Deploying Azure PowerShell cmdlets][deployment-guide-4.1].
+1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet, as described in [Deploying Azure PowerShell cmdlets][powershell_cmdlets].
 1. Run the following PowerShell cmdlet. For a list of available environments, run the cmdlet `Get-AzEnvironment`. To use global Azure, select the **AzureCloud** environment. For Microsoft Azure operated by 21Vianet, select **AzureChinaCloud**.
 
    ```powershell
