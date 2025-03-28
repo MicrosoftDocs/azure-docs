@@ -5,7 +5,7 @@
  author: SoniaLopezBravo
  ms.service: azure-iot-hub
  ms.topic: include
- ms.date: 03/05/2020
+ ms.date: 03/28/2025
  ms.author: sonialopez
  ms.custom: include file
 ---
