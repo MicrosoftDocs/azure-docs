@@ -217,7 +217,7 @@ View your threat intelligence from the management interface or using queries:
 >[!IMPORTANT]
 > On March 31, 2025, we publicly previewed two new tables to support STIX indicator and object schemas: `ThreatIntelIndicator` and `ThreatIntelObjects`. Microsoft Sentinel will ingest all threat intelligence into these new tables, while continuing to ingest the same data into the legacy `ThreatIntelligenceIndicator` table until July 31, 2025. 
 >
-> **Be sure to update your custom queries, analytics and detection rules, workbooks, and automation to use the new tables before July 31, 2025.** After this date, the legacy `ThreatIntelligenceIndicator` table will no longer be available in Microsoft Sentinel. All out-of-the box threat intelligence solutions in Content hub have been updated to work with the new tables. For more information about the new table schemas, see [ThreatIntelIndicator](/azure/azure-monitor/reference/tables/threatintelligenceindicator) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects).
+> **Be sure to update your custom queries, analytics and detection rules, workbooks, and automation to use the new tables by July 31, 2025.** After this date, the legacy `ThreatIntelligenceIndicator` table will no longer be available in Microsoft Sentinel. All out-of-the box threat intelligence solutions in Content hub have been updated to work with the new tables. For more information about the new table schemas, see [ThreatIntelIndicator](/azure/azure-monitor/reference/tables/threatintelligenceindicator) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects).
 
 
 ### Threat intelligence lifecycle
