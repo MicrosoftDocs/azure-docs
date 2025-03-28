@@ -45,9 +45,8 @@ Follow these steps to connect an app to Neon Serverless Postgres (Preview):
 
 1. Select **Next: Authentication** and select or enter the following information:
    1. Select **Database credentials** and enter your database username and password.
-   1. Select **Store Secret in Key Vault** and select a Key Vault connection if you already have one, or select **Create new** to create a Key Vault connection. For step-by-step instructions to create a new connection to Key Vault, refer to [Connect Azure services and store secrets in Azure Key Vault](../../service-connector/tutorial-portal-key-vault#create-a-key-vault-connection-in-app-service).
-   
-   Optionally also select **Advanced** and edit the provided environment variables.
+   1. Select **Store Secret in Key Vault** and select a Key Vault connection if you already have one, or select **Create new** to create a Key Vault connection. For step-by-step instructions to create a new connection to Key Vault, refer to [Connect Azure services and store secrets in Azure Key Vault](../../service-connector/tutorial-portal-key-vault.md#create-a-key-vault-connection-in-app-service).
+   1. Optionally also select **Advanced** and edit the provided environment variables.
 
    :::image type="content" source="./media/service-connection/create-authentication-tab.png" alt-text="Screenshot from the Azure portal showing the Create connection - Authentication tab.":::
 
