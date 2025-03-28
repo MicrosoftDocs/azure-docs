@@ -2,10 +2,11 @@
 title: Threat intelligence
 titleSuffix: Microsoft Sentinel
 description: Understand threat intelligence and how it integrates with features in Microsoft Sentinel to analyze data, detect threats, and enrich alerts.
-author: austinmccollum
+author: guywi-ms
 ms.topic: concept-article
 ms.date: 02/27/2025
-ms.author: austinmc
+ms.author: guywild
+ms.reviewer: alsheheb
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal

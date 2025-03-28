@@ -2,10 +2,11 @@
 title: Work with threat intelligence
 titleSuffix: Microsoft Sentinel
 description: This article explains how to view, create, manage, and visualize threat intelligence in Microsoft Sentinel.
-author: austinmccollum
+author: guywi-ms
 ms.topic: how-to
 ms.date: 02/21/2025
-ms.author: austinmc
+ms.author: guywild
+ms.reviewer: alsheheb
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
