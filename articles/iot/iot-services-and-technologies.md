@@ -104,7 +104,7 @@ To learn more, see [What is Device Update for IoT Hub?](../iot-hub-device-update
 
 ### Azure IoT Edge
 
-IoT Edge is typically part of a **hybrid IoT solution** based on IoT Hub or IoT Central.
+> IoT Edge is typically part of a **hybrid IoT solution** based on IoT Hub or IoT Central.
 
 Azure IoT Edge is a device-focused runtime that enables you to deploy, run, and monitor containerized Linux workloads at the edge, bringing analytics closer to your devices for faster insights and offline decision-making. IoT Edge can also act as a gateway for devices with no internet connectivity and protocol translation. IoT Edge is a feature of Azure IoT Hub and also integrates with Azure IoT Central.
 
@@ -128,7 +128,7 @@ To learn more, see [What is Azure IoT Central?](../iot-central/core/overview-iot
 
 ## Azure Event Grid
 
-Currently, Azure Event Grid is typically part of a **hybrid IoT solution** that uses Azure IoT Operations, IoT Hub, or IoT Central.
+> Currently, Azure Event Grid is typically part of a **hybrid IoT solution** that uses Azure IoT Operations, IoT Hub, or IoT Central.
 
 Azure Event Grid is a highly scalable, fully managed Pub Sub message distribution service that offers flexible message consumption patterns using the MQTT and HTTP protocols. With Azure Event Grid, you can build data pipelines with device data, integrate applications, and build event-driven serverless architectures. Event Grid enables clients to publish and subscribe to messages over the MQTT v3.1.1 and v5.0 protocols to support IoT solutions. Through HTTP, Event Grid enables you to build event-driven solutions where a publisher service announces its system state changes (events) to subscriber applications.
 
