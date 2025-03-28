@@ -14,7 +14,7 @@ ms.service: azure-education
 
 You don't need a credit card to join the program. The free services include Azure App Service, Azure Functions, Azure Notification Hubs, and many others. You can upgrade to a pay-as-you-go subscription to deploy more resources.
 
-# Subscription Duration
+## Subscription Duration
 
 Your subscription lasts for one year. After that, you will need to [renew it](https://go.microsoft.com/fwlink/?linkid=2062408) to continue accessing the free services.
 
