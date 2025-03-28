@@ -1,10 +1,10 @@
 ---
-title: Deploy and Configure Tomcat, JBoss, or Java SE Apps
-description: Learn how to deploy Tomcat, JBoss, or Java SE apps to run on Azure App Service. Perform common tasks like setting Java versions and configuring logging.
+title: Deploy and Configure Tomcat, JBoss EAP, or Java SE Apps
+description: Learn how to deploy Tomcat, JBoss EAP, or Java SE apps to run on Azure App Service. Perform common tasks like setting Java versions and configuring logging.
 keywords: azure app service, web app, windows, oss, java, tomcat, jboss, spring boot, quarkus
 ms.devlang: java
 ms.topic: how-to
-ms.date: 01/28/2025
+ms.date: 03/27/2025
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, linux-related-content
 zone_pivot_groups: app-service-java-hosting
 adobe-target: true
@@ -12,7 +12,7 @@ author: cephalin
 ms.author: cephalin
 ---
 
-# Deploy and configure a Tomcat, JBoss, or Java SE app in Azure App Service
+# Deploy and configure a Java SE, Tomcat, or JBoss EAP app in Azure App Service
 
 This article shows you the most common deployment and runtime configuration for Java apps in App Service. If it's your first time using Azure App Service, you should first read through the [Java quickstart](quickstart-java.md). You can find the answers to general questions about using App Service that aren't specific to Java development in the [App Service FAQ](faq-configuration-and-management.yml).
 
@@ -66,7 +66,7 @@ find / -name "version.sh"
 
 ::: zone pivot="java-jboss"
 
-To view the JBoss server version in the SSH session:
+To view the JBoss Enterprise Application Platform (EAP) server version in the SSH session:
 ```bash
 $JBOSS_HOME/bin/jboss-cli.sh --connect --commands=:product-info
 ```
@@ -103,7 +103,7 @@ By using the [Maven Plugin for Azure Web Apps](https://github.com/microsoft/azur
 mvn com.microsoft.azure:azure-webapp-maven-plugin:2.13.0:config
 ```
 
-This command adds an `azure-webapp-maven-plugin` plugin and the related configuration by prompting you to select an existing Azure Web App or to create a new one. During configuration, it attempts to detect whether your application should be deployed to Java SE, Tomcat, or (Linux only) JBoss Enterprise Application Platform (EAP). Then you can deploy your Java app to Azure by using the following command:
+This command adds an `azure-webapp-maven-plugin` plugin and the related configuration by prompting you to select an existing Azure Web App or to create a new one. During configuration, it attempts to detect whether your application should be deployed to Java Standard Edition (SE), Tomcat, or (Linux only) JBoss Enterprise Application Platform (EAP). Then you can deploy your Java app to Azure by using the following command:
 
 ```shell
 mvn package azure-webapp:deploy
@@ -188,13 +188,13 @@ Azure provides seamless Java App Service development experience in popular Java 
 
 - **VS Code**: [Java Web Apps with Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp#_deploy-web-apps-to-the-cloud).
 - **IntelliJ IDEA**: [Create a Hello World web app for Azure App Service by using IntelliJ](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app).
-- **Eclipse**: [Create a Hello World web app for Azure App Service by using Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app).
+- **Eclipse IDE**: [Create a Hello World web app for Azure App Service by using Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app).
 
 ### Kudu API
 
 ::: zone pivot="java-javase"
 
-To deploy JAR files to Java SE, use the `/api/publish` endpoint of the Kudu site. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
+To deploy Java Archive (JAR) files to Java SE, use the `/api/publish` endpoint of the Kudu site. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
 
 > [!NOTE]
 > Your JAR application must be named `app.jar` for App Service to identify and run your application. The [Maven plugin](#maven) automatically names the application for you during deployment. If you don't wish to rename your JAR to `app.jar`, you can upload a shell script with the command to run your JAR app. Paste the absolute path to this script in the [Startup File](./faq-app-service-linux.yml) text box in the **Configuration** section of the portal. The startup script doesn't run from the directory it's in. Therefore, always use absolute paths to reference files in your startup script (for example: `java -jar /home/myapp/myapp.jar`).
@@ -209,7 +209,7 @@ To deploy WAR files to Tomcat, use the `/api/wardeploy/` endpoint to `POST` your
 
 ::: zone pivot="java-jboss"
 
-To deploy WAR files to JBoss, use the `/api/wardeploy/` endpoint to `POST` your archive file. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
+To deploy WAR files to JBoss EAP, use the `/api/wardeploy/` endpoint to `POST` your archive file. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
 
 To deploy EAR files, [use FTP](deploy-ftp.md). Your EAR application is deployed to the context root defined in your application's configuration. For example, if the context root of your app is `<context-root>myapp</context-root>`, then you can browse the site at the `/myapp` path: `http://my-app-name.azurewebsites.net/myapp`. If you want your web app to be served in the root path, ensure that your app sets the context root to the root path: `<context-root>/</context-root>`. For more information, see [Setting the context root of a web application](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html).
 
@@ -229,7 +229,7 @@ Tomcat also provides a [rewrite valve](https://tomcat.apache.org/tomcat-10.1-doc
 
 ::: zone pivot="java-jboss"
 
-JBoss also provides a [rewrite valve](https://docs.jboss.org/jbossweb/7.0.x/rewrite.html).
+JBoss EAP also provides a [rewrite valve](https://docs.jboss.org/jbossweb/7.0.x/rewrite.html).
 
 ::: zone-end
 
@@ -477,15 +477,15 @@ If you choose to pin the minor version, you need to periodically update the JVM 
 
 ## Run the JBoss CLI
 
-In your JBoss app's SSH session, you can run the JBoss CLI with the following command:
+In your JBoss EAP app's SSH session, you can run the JBoss CLI with the following command:
 
 ```
 $JBOSS_HOME/bin/jboss-cli.sh --connect
 ```
 
-Depending on where JBoss is in the server lifecycle, you might not be able to connect. Wait a few minutes and try again. This approach is useful for quick checks of your current server state (for example, to see if a data source is properly configured).
+Depending on where JBoss EAP is in the server lifecycle, you might not be able to connect. Wait a few minutes and try again. This approach is useful for quick checks of your current server state (for example, to see if a data source is properly configured).
 
-Also, changes you make to the server with JBoss CLI in the SSH session don't persist after the app restarts. Each time the app starts, the JBoss EAP server begins with a clean installation. During the [startup lifecycle](#jboss-server-lifecycle), App Service makes the necessary server configurations and deploys the app. To make any persistent changes in the JBoss server, use a [custom startup script or a startup command](#3-server-configuration-phase). For an end-to-end example, see [Configure data sources for a Tomcat, JBoss, or Java SE app in Azure App Service](configure-language-java-data-sources.md?pivots=java-jboss).
+Also, changes you make to the server with the JBoss CLI in the SSH session don't persist after the app restarts. Each time the app starts, the JBoss EAP server begins with a clean installation. During the [startup lifecycle](#jboss-server-lifecycle), App Service makes the necessary server configurations and deploys the app. To make any persistent changes in the JBoss EAP server, use a [custom startup script or a startup command](#3-server-configuration-phase). For an end-to-end example, see [Configure data sources for a Java SE, Tomcat, or JBoss EAP app in Azure App Service](configure-language-java-data-sources.md?pivots=java-jboss).
 
 Alternatively, you can manually configure App Service to run any file on startup. For example:
 
@@ -502,7 +502,7 @@ For more information about the CLI commands that you can run, see:
 
 App Service supports clustering for JBoss EAP versions 7.4.1 and greater. To enable clustering, your web app must be [integrated with a virtual network](overview-vnet-integration.md). When the web app is integrated with a virtual network, it restarts, and the JBoss EAP installation automatically starts up with a clustered configuration. When you [run multiple instances with autoscaling](/azure/azure-monitor/autoscale/autoscale-get-started), the JBoss EAP instances communicate with each other over the subnet specified in the virtual network integration. You can disable clustering by creating an app setting named `WEBSITE_DISABLE_CLUSTERING` with any value.
 
-:::image type="content" source="media/configure-language-java-deploy-run/jboss-clustering.png" alt-text="A diagram showing a virtual network-integrated JBoss App Service app, scaled out to three instances.":::
+:::image type="content" source="media/configure-language-java-deploy-run/jboss-clustering.png" alt-text="A diagram that shows a virtual network-integrated JBoss EAP App Service app, scaled out to three instances.":::
 
 > [!NOTE]
 > If you're enabling your virtual network integration with an ARM template, you need to manually set the property `vnetPrivatePorts` to a value of `2`. If you enable virtual network integration from the CLI or portal, this property is set for you automatically.  
@@ -510,7 +510,7 @@ App Service supports clustering for JBoss EAP versions 7.4.1 and greater. To ena
 When clustering is enabled, the JBoss EAP instances use the `FILE_PING` Groups discovery protocol to discover new instances and persist cluster information (For example: the cluster members, their identifiers, and their IP addresses). On App Service, these files are under `/home/clusterinfo/`. The first EAP instance to start obtains read/write permissions on the cluster membership file. Other instances read the file, find the primary node, and coordinate with that node to be included in the cluster and added to the file.
 
 > [!Note]
-> You can avoid JBoss clustering timeouts by [cleaning up obsolete discovery files during your app startup](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/JBOSS/avoid_timeouts_obsolete_nodes.md).
+> You can avoid JBoss EAP clustering timeouts by [cleaning up obsolete discovery files during your app startup](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/JBOSS/avoid_timeouts_obsolete_nodes.md).
 
 The Premium V3 and Isolated V2 App Service Plan types can optionally be distributed across Availability Zones to improve resiliency and reliability for your business-critical workloads. This architecture is also known as [zone redundancy](../reliability/migrate-app-service.md). The JBoss EAP clustering feature is compatible with the zone redundancy feature.
 
@@ -530,7 +530,7 @@ You don't need to incrementally add instances (scaling out). You can add multipl
 
 JBoss EAP is available in the following pricing tiers: F1, P0v3, P1mv3, P2mv3, P3mv3, P4mv3, and P5mv3.
 
-## JBoss server lifecycle
+## JBoss EAP server lifecycle
 
 A JBoss EAP app in App Service goes through five distinct phases before launching the server.
 
@@ -551,43 +551,39 @@ See the following sections for details and opportunities to customize (such as t
 - If any certificates are loaded in the Java keystore in this step, the properties `javax.net.ssl.keyStore`, `javax.net.ssl.keyStorePassword`, and `javax.net.ssl.keyStoreType` are added to the `JAVA_OPTS` environment variable.
 - Some initial JVM configuration is determined, like logging directories and Java memory heap parameters:
     - If you provide the `–Xms` or `–Xmx` flags for memory in the app setting `JAVA_OPTS`, these values override the ones provided by the platform.
-    - If you configure the app setting `WEBSITES_CONTAINER_STOP_TIME_LIMIT`, the value is passed to the runtime property `org.wildfly.sigterm.suspend.timeout`, which controls the maximum shutdown wait time (in seconds) when JBoss is being stopped.
-- If the app is integrated with a virtual network, the App Service runtime passes a list of ports to be used for inter-server communication in the environment variable `WEBSITE_PRIVATE_PORTS` and launches JBoss by using the `clustering` configuration. Otherwise, the `standalone` configuration is used.
+    - If you configure the app setting `WEBSITES_CONTAINER_STOP_TIME_LIMIT`, the value is passed to the runtime property `org.wildfly.sigterm.suspend.timeout`, which controls the maximum shutdown wait time (in seconds) when JBoss EAP is being stopped.
+- If the app is integrated with a virtual network, the App Service runtime passes a list of ports to be used for inter-server communication in the environment variable `WEBSITE_PRIVATE_PORTS` and launches JBoss EAP by using the `clustering` configuration. Otherwise, the `standalone` configuration is used.
     - For the `clustering` configuration, the server configuration file `standalone-azure-full-ha.xml` is used.
     - For the `standalone` configuration, the server configuration file `standalone-full.xml` is used.
 
 ### 2. Server launch phase
 
-- If JBoss is launched in the `clustering` configuration:
-    - Each JBoss instance receives an internal identifier between 0 and the number of instances that the app is scaled out to.
+- If JBoss EAP is launched in the `clustering` configuration:
+    - Each JBoss EAP instance receives an internal identifier between 0 and the number of instances that the app is scaled out to.
     - If some files are found in the transaction store path for this server instance (by using its internal identifier), it means this server instance is taking the place of an identical service instance. The other service instance previously crashed and left uncommitted transactions behind. The server is configured to resume the work on these transactions.
-- Regardless if JBoss starting in the `clustering` or `standalone` configuration, if the server version is 7.4 or above and the runtime uses Java 17, then the configuration is updated to enable the Elytron subsystem for security.
-- If you configure the app setting `WEBSITE_JBOSS_OPTS`, the value is passed to the JBoss launcher script. This setting can be used to provide paths to property files and more flags that influence the startup of JBoss.
+- Regardless of whether JBoss EAP starts in the `clustering` or `standalone` configuration, if the server version is 7.4 or above and the runtime uses Java 17, then the configuration is updated to enable the Elytron subsystem for security.
+- If you configure the app setting `WEBSITE_JBOSS_OPTS`, the value is passed to the JBoss launcher script. This setting can be used to provide paths to property files and more flags that influence the startup of JBoss EAP.
 
 ### 3. Server configuration phase
 
-- At the start of this phase, App Service first waits for both the JBoss server and the admin interface to be ready to receive requests before continuing. This process can take a few more seconds if Application Insights is enabled.
-- When both JBoss Server and the admin interface are ready, App Service takes the following actions:
-    - Adds the JBoss module `azure.appservice`, which provides utility classes for logging and integration with App Service.
+- At the start of this phase, App Service first waits for both the JBoss EAP server and the admin interface to be ready to receive requests before continuing. This process can take a few more seconds if Application Insights is enabled.
+- When both JBoss EAP Server and the admin interface are ready, App Service takes the following actions:
+    - Adds the JBoss EAP module `azure.appservice`, which provides utility classes for logging and integration with App Service.
     - Updates the console logger to use a colorless mode so that log files aren't full of color-escaping sequences.
     - Sets up the integration with Azure Monitor logs.
     - Updates the binding IP addresses of the Web Services Description Language (WSDL) and management interfaces.
-    - Adds the JBoss module `azure.appservice.easyauth` for integration with [App Service authentication](overview-authentication-authorization.md) and Microsoft Entra ID.
+    - Adds the JBoss EAP module `azure.appservice.easyauth` for integration with [App Service authentication](overview-authentication-authorization.md) and Microsoft Entra ID.
     - Updates the logging configuration of access logs and the name and rotation of the main server log file.
 - Unless the app setting `WEBSITE_SKIP_AUTOCONFIGURE_DATABASE` is defined, App Service autodetects Java Database Connectivity (JDBC) URLs in the App Service app settings. If valid JDBC URLs exist for PostgreSQL, MySQL, MariaDB, Oracle, SQL Server, or Azure SQL Database, it adds the corresponding drivers to the server, adds a data source for each of the JDBC URLs, and sets the Java Naming and Directory Interface (JNDI) name for each data source to `java:jboss/env/jdbc/<app-setting-name>_DS`, where `<app-setting-name>` is the name of the app setting.
 - If the `clustering` configuration is enabled, the console logger to be configured is checked. 
 - If there are JAR files deployed to the `/home/site/libs` directory, a new global module is created with all of these JAR files.
 - At the end of the phase, App Service runs the custom startup script, if one exists. The search logic for the custom startup script is defined as follows:
 
-* If you configured a startup command (in the Azure portal, with the Azure CLI, etc.), run it. Otherwise:
-    - If the path `/home/site/scripts/startup.sh` exists, use it. If not:
-    - If the path `/home/startup.sh` exists, use it.
-
-The custom startup command or script runs as the root user (no need for `sudo`), so they can install Linux packages or launch the JBoss CLI to perform more JBoss install/customization commands (creating data sources, installing resource adapters), etc. For information on Ubuntu package management commands, see the [Ubuntu Server documentation](https://documentation.ubuntu.com/server/how-to/software/package-management/). For JBoss CLI commands, see the [JBoss Management CLI Guide](https://docs.redhat.com/en/documentation/red_hat_jboss_enterprise_application_platform/7.4/html-single/management_cli_guide/index#how_to_cli).
+The custom startup command or script runs as the root user (no need for `sudo`), so they can install Linux packages or launch the JBoss CLI to perform more JBoss EAP install/customization commands (creating data sources, installing resource adapters), etc. For information on Ubuntu package management commands, see the [Ubuntu Server documentation](https://documentation.ubuntu.com/server/how-to/software/package-management/). For JBoss CLI commands, see the [JBoss Management CLI Guide](https://docs.redhat.com/en/documentation/red_hat_jboss_enterprise_application_platform/7.4/html-single/management_cli_guide/index#how_to_cli).
 
 ### 4. App deployment phase 
 
-The startup script deploys apps to JBoss by looking in the following locations, in order of precedence:
+The startup script deploys apps to JBoss EAP by looking in the following locations, in order of precedence:
 
 - If you configured the app setting `WEBSITE_JAVA_WAR_FILE_NAME`, deploy the file designated by it.
 - If `/home/site/wwwroot/app.war` exists, deploy it.
@@ -598,10 +594,10 @@ The startup script deploys apps to JBoss by looking in the following locations, 
 
 ### 5. Server reload phase 
 
-- After the deployment steps are complete, the JBoss server is reloaded to apply any changes that require a server reload.
+- After the deployment steps are complete, the JBoss EAP server is reloaded to apply any changes that require a server reload.
 - After the server reloads, the applications deployed to the JBoss EAP server should be ready to respond to requests.
 - The server runs until the App Service app is stopped or restarted. You can manually stop or restart the App Service app, or you trigger a restart when you deploy files or make configuration changes to the App Service app. 
-- If the JBoss server exits abnormally in the `clustering` configuration, a final function called `emit_alert_tx_store_not_empty` is executed. The function checks if the JBoss process left a nonempty transaction store file in disk; if so, an error is logged in the console: `Error: finishing server with non-empty store for node XXXX`. When a new server instance is started, it looks for these nonempty transaction store files to resume the work (see [2. Server launch phase](#2-server-launch-phase)). 
+- If the JBoss EAP server exits abnormally in the `clustering` configuration, a final function called `emit_alert_tx_store_not_empty` is executed. The function checks if the JBoss EAP process left a nonempty transaction store file in disk; if so, an error is logged in the console: `Error: finishing server with non-empty store for node XXXX`. When a new server instance is started, it looks for these nonempty transaction store files to resume the work (see [2. Server launch phase](#2-server-launch-phase)). 
 
 ::: zone-end
 
