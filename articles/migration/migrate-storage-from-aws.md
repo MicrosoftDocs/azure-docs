@@ -24,7 +24,7 @@ Start the migration process by comparing the AWS storage service that's used in 
 
 ## Migration guides
 
-Use the following migration guides as examples to help structure your migration process.
+Use the following migration guides as examples to help structure your migration strategy.
 
 | Scenario | Key services | Description |
 |--|--|--|
