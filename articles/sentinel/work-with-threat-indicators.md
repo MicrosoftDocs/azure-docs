@@ -164,8 +164,7 @@ This procedure describes how to view your threat intelligence with queries, rega
 Threat indicators are stored in the Microsoft Sentinel `ThreatIntelligenceIndicator` table. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features, such as **Analytics**, **Hunting**, and **Workbooks**.
 
 >[!IMPORTANT]
->Tables supporting the new STIX object schema aren't available publicly. In order to view the STIX objects in queries and unlock the hunting model that uses them, request to opt in with [this form](https://forms.office.com/r/903VU5x3hz?origin=lprLink). Ingest your threat intelligence into the new tables, `ThreatIntelIndicator` and `ThreatIntelObjects`, alongside or instead of the current table, `ThreatIntelligenceIndicator`, with this opt-in process.
->
+> Two new tables, which support the new STIX object schema, are now in public preview - `ThreatIntelIndicator` and `ThreatIntelObjects`. As of 31 March 2025, Microsoft Sentinel will ingests all threat intelligence into these new tables. In parallel, Microsoft Sentinel will continue to ingest the same data into the legacy `ThreatIntelligenceIndicator` table until 31 May 2025. **Be sure to update your queries to use the new tables before 31 March 2025.** After that date, the legacy `ThreatIntelligenceIndicator` table will be deprecated and removed from Microsoft Sentinel. For more information about the table schemas, see [ThreatIntelIndicator](/azure/azure-monitor/reference/tables/threatintelligenceindicator) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects).
 
 #### [Defender portal](#tab/defender-portal)
 
