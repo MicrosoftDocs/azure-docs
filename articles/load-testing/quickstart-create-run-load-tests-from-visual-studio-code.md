@@ -16,8 +16,6 @@ Learn how to use the Azure Load Testing extension for Visual Studio Code to easi
 
 This quickstart guides you through generating, refining, and running realistic load tests. By the end, you have a fully functional load test script generated from a **Postman collection**, **Insomnia collection**, or **.http file**, enhanced with Copilot-powered improvements, and ready to scale in **Azure Load Testing**.
 
-    :::image type="content" source="./media/quickstart-create-run-load-tests-from-visual-studio-code/create-locust-test.gif" alt-text="Image sequence that shows the creation of a Locust script using Azure Load Testing VS Code extension" lightbox="./media/quickstart-create-run-load-tests-from-visual-studio-code/create-locust-test.gif":::
-
 ## Prerequisites
 
 - Azure Load Testing extension for VS Code. [Download and install it here](https://aka.ms/malt-vscode/get).  
@@ -25,7 +23,7 @@ This quickstart guides you through generating, refining, and running realistic l
 - Python & Locust. Required to run and validate your **Locust** test scripts locally from VS Code. [Install Locust here](https://docs.locust.io/en/stable/installation.html).
 - An Azure account with an active subscription. Needed to run load tests at scale in **Azure Load Testing**. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-> [!NOTE]
+> [!TIP]
 > VS Code's GitHub Copilot Chat offers multiple AI models. You can switch models using the model picker in the chat input field. If you're unsure which one to use, we recommend GPT-4o.
 
 If you'd like to run the HTTP file, you can install the [httpYac - Rest Client extension](https://marketplace.visualstudio.com/items?itemName=anweber.vscode-httpyac). However, this step is optional and not required for this quickstart.
@@ -55,7 +53,8 @@ You can generate a Locust script from any existing Postman collection, Insomnia 
     - Import an .http file
     - Simple HTTP request - If you don't have a Postman collection or HTTP file, select **Simple HTTP request...** and enter a website URL.
 
-    **Tip:** Using a **Postman collection**, **Insomnia collection** or **.http file** is recommended, as it allows Copilot to extract multiple API operations, request data, and authentication details to create a more realistic load test.
+    > [!TIP]
+    > Using a **Postman collection**, **Insomnia collection** or **.http file** is recommended, as it allows Copilot to extract multiple API operations, request data, and authentication details to create a more realistic load test.
 
 1. Select the sample file which you saved earlier to your workspace: [**`petstore-sample.http`**](https://aka.ms/malt-vscode/http-sample). 
 
@@ -122,7 +121,7 @@ To quickly validate your test, run it locally using Locust from **Visual Studio 
 
     :::image type="content" source="./media/quickstart-create-run-load-tests-from-visual-studio-code/locust-web-ui.png" alt-text="Screenshot that shows the Locust web UI to view and analyze test results locally." lightbox="./media/quickstart-create-run-load-tests-from-visual-studio-code/locust-web-ui.png":::
 
-> [!NOTE]
+> [!TIP]
 > If Locust reports failures for the `Retrieve Pet` and `Update Pet` requests, it may be due to how the Pet Store API processes requests. Try asking Copilot to "**Add random delays between requests in run_scenario**". If you suspect an issue with the script itself, set `DEBUG_MODE=True` as an environment variable and rerun the test to get more detailed debug information.
 
 If you prefer running the test from a **VS Code Terminal**:  
@@ -169,10 +168,10 @@ To execute a large-scale test:
 
 1. When the test starts, a notification (toast message) appears in the bottom-right corner. Click the **Open in Azure Portal** button to monitor test execution in real time.  
 
-> [!NOTE]
-> To quickly access test results from previous runs, use the command: **Load Testing: View load test runs**.
+    :::image type="content" source="./media/quickstart-create-run-load-tests-from-visual-studio-code/run-load-test-azure.png" alt-text="Screenshot that shows the load test results in Azure Load Testing." lightbox="./media/quickstart-create-run-load-tests-from-visual-studio-code/run-load-test-azure.png":::
 
-    :::image type="content" source="./media/quickstart-create-run-load-tests-from-visual-studio-code/run-load-test-azure.gif" alt-text="Image sequence that shows the test results dashboard in Azure Load Testing." lightbox="./media/quickstart-create-run-load-tests-from-visual-studio-code/run-load-test-azure.gif":::
+> [!TIP]
+> To quickly access test results from previous runs, use the command: **Load Testing: View load test runs**.
 
 ## Next Steps
 
