@@ -56,7 +56,7 @@ To view an analysis summary in your API center:
 
     > [!TIP]
     > You can also view the API analysis report by selecting **Analysis** from the API definition's menu bar.
-
+<!-- 
 ## Customize ruleset
 
 You can use the Azure API Center extension for Visual Studio Code to customize the default ruleset for your API center or replace it as your organization's API style guide. For example, you can [extend the ruleset](https://docs.stoplight.io/docs/spectral/83527ef2dd8c0-extending-rulesets) or add [custom functions](https://docs.stoplight.io/docs/spectral/a781e290eb9f9-custom-functions).
@@ -66,6 +66,37 @@ To customize or replace the ruleset:
 1. In Visual Studio Code, select the Azure API Center icon from the Activity Bar.
 1. Open the `.api-center-rules` folder at the root of your working folder.
 1. In the folder for your API center resource, open the `ruleset.yaml` file.
+1. Modify or replace the content as needed. 
+1. Save your changes to `ruleset.yaml`.
+-->
+
+## Analysis profiles
+
+Azure API Center uses *analysis profiles* for linting and analyzing APIs. An analysis profile specifies a ruleset and optionally filter conditions for APIs that are analyzed. A default profile applies the `spectral:oas` ruleset to all OpenAPI and AsyncAPI definitions. 
+
+You can customize the ruleset and define filter conditions in the default profile, or you can create a new profile. For example, you might want to use one profile for APIs that are in development and a different one for APIs that are in production.
+
+> [!NOTE]
+> In the Standard plan of API Center, you can create up to 3 analysis profiles. Only a single default profile is supported in the Free plan.
+
+To create an analysis profile:
+
+1. In the Azure portal, navigate to your API center.
+1. In the left-hand menu, under **Governance**, select **API Analysis** > **Manage analysis profiles** > **+ Create analysis profile**.
+1. In the **Create new analysis profile** pane, enter a **Name** and **Description** for the profile.
+1. In **Ruleset**, the analyzer type (linting engine) for the ruleset appears. Currently only Spectral is supported.
+1. Under **Define filter conditions**, add one or more filter conditions for API definitions that the profile is applied to.
+1. Select **Create**.
+
+The profile is created and a ruleset scaffold is created. 
+
+### Customize the profile's ruleset
+
+Use the Visual Studio Code extension for Azure API Center to customize a profile's ruleset. After customizing the ruleset and testing it locally, you can deploy it back to your API center.
+
+1. In Visual Studio Code, select the Azure API Center icon from the Activity Bar.
+1. In the API Center pane, expand the API center resource you are working with, and expand **Profiles**.
+1. Expand the profile you want to modify, and select `ruleset.yaml`.
 1. Modify or replace the content as needed. 
 1. Save your changes to `ruleset.yaml`.
 
@@ -94,30 +125,12 @@ To deploy the custom ruleset to your API center:
 
 1. In Visual Studio Code, select the Azure API Center icon from the Activity Bar.
 1. In the API Center pane, expand the API center resource in which you customized the ruleset.
-1. Right-click **Rules** and select **Deploy Rules to API Center**.
+1. Expand **Profiles**.
+1. Right-click the profile in which you customized the ruleset, and select **Deploy Rules to API Center**.
 
-A message notifies you after the rules are successfully deployed to your API center. The linting engine uses the updated ruleset to analyze API definitions.
+A message notifies you after the rules are successfully deployed to your API center. The linting engine uses the updated ruleset to analyze API definitions in the profile.
 
 To see the results of linting with the updated ruleset, view the API analysis reports in the portal. 
-
-## Analysis profiles
-
-You can create multiple analysis profiles to use different rulesets with different APIs. For example, you might want to use one profile for APIs that are in development and a different one for APIs that are in production. The profiles 
-
-To create an analysis profile:
-
-1. In the Azure portal, navigate to your API center.
-1. In the left-hand menu, under **Governance**, select **API Analysis**.
-1. In the API analysis summary, select **Manage analysis profiles** > **+ Create analysis profile**.
-1. In the **Create new analysis profile** pane, enter a **Name** and **Description** for the profile.
-1. In **Ruleset**, select the analyzer type (linting engine) for the ruleset. Currently only Spectral is supported.
-1. Under **Define filter conditions**, add one or more filter conditions for the profile.
-1. Select **Create**.
-
-To modify the ruleset:
-
-1. In the Azure portal, navigate to your API center.
-
 
 ## Related content
 
