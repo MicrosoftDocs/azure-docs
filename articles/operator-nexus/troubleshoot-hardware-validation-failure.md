@@ -539,9 +539,7 @@ Dell server health checks fail for failed server power-up or failed iDRAC reset.
 ]
 ```
 
-To power on a server in the BMC web UI follow navigation path
-
-        `BMC` -> `Dashboard` -> `Power On System`
+To power on a server in the BMC web UI follow navigation path `BMC` -> `Dashboard` -> `Power On System`.
 
 To power on a server with `racadm`:
 

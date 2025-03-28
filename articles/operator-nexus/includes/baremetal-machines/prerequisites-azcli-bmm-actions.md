@@ -8,7 +8,7 @@ ms.service: azure-operator-nexus
 
 ## Prerequisites
 
-1. Install the latest version of the [appropriate CLI extensions](./howto-install-cli-extensions.md).
+1. Install the latest version of the [appropriate CLI extensions](../../howto-install-cli-extensions.md).
 1. Request access to run the Azure Operator Nexus network fabric (NF) and network cloud CLI extension commands.
 1. Sign in to the Azure CLI and select the subscription where the cluster is deployed.
 1. Collect the following information:

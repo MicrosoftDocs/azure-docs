@@ -27,14 +27,14 @@ The aim is to highlight common pitfalls and essential prerequisites.
 
 Troubleshooting technical problems requires a systematic approach.
 One effective method is to start with the least invasive solution and, if necessary, work your way up to more complex and drastic measures.
-Keep in mind that these troubleshooting methods might not always be effective for all scenarios and accounting for various other factors may require a different approach.
-For this reason, it is essential to understand the available options well when troubleshooting a BMM for failures to determine the most appropriate corrective action.
+Keep in mind that these troubleshooting methods might not always be effective for all scenarios and accounting for various other factors might require a different approach.
+For this reason, it's essential to understand the available options well when troubleshooting a BMM for failures to determine the most appropriate corrective action.
 
 ### General Advice while Troubleshooting
 
 - Familiarize yourself with the relevant documentation, including troubleshooting guides and how-to articles.
   Always refer to the latest documentation to stay informed about best practices and updates.
-- Before retrying operations, attempt to identify the root cause of the failure to avoid repeating the same mistake.
+- Attempt to identify the root cause of the failure to avoid repeating the same mistake.
   Perform retry attempts in incremental steps to isolate and address specific issues.
 - Wait for Az CLI commands to run to completion and validate the state of the BMM resource before executing other steps.
 - Keep an eye on system logs to detect any anomalies during the retry process.
@@ -64,14 +64,14 @@ The `reimage` action doesn't affect the tenant workload files on the BMM under n
 Before initiating any `reimage` operation, ensure the following preconditions are met:
 
 - Ensure the BMM is in `poweredState` set to `On` and `readyState` set to `True`.
-- Make sure the BMM's workloads are drained using the [`cordon`](#make-a-bmm-unschedulable-cordon) command with the paramater `evacuate` set to `True`.
+- Make sure the BMM's workloads are drained using the [`cordon`](./howto-baremetal-functions.md#make-a-bmm-unschedulable-cordon) command with the parameter `evacuate` set to `True`.
 - Perform high level checks covered in the article [Troubleshoot Bare Metal Machine Provisioning].
-- Evaluate any BMM warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems prior to a `replace` operation.
-  See the articles [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status] for more details.
+- Evaluate any BMM warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems before a `replace` operation.
+  For more information, read [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
 - Ensure to resolve any BMM hardware validation failures.
   Read article [Troubleshoot Hardware Validation Failure](./troubleshoot-hardware-validation-failure.md) to understand hardware validation results.
 - Validate that there are no running firmware upgrade jobs through the BMC before initiating a `replace` operation.
-  The BMM will have `provisioningStatus` in the `Preparing` state. Interrupting an ongoing firmware upgrade can leave the BMM in an inconsistent state.
+  The BMM has `provisioningStatus` in the `Preparing` state. Interrupting an ongoing firmware upgrade can leave the BMM in an inconsistent state.
 
 ## Best Practices for BMM Replace
 
@@ -80,34 +80,34 @@ The BMM `replace` action is explained in [BMM Lifecycle Management Commands] and
 [!INCLUDE [warning-donot-run-multiple-actions](./includes/baremetal-machines/warning-donot-run-multiple-actions.md)]
 
 Hardware failures are an expected occurrence over the natural lifecycle of a server.
-Component replacements may be necessary to restore functionality and ensure continued operation.
+Component replacements might be necessary to restore functionality and ensure continued operation.
 In cases where one or more hardware components fail on the server, it's necessary to perform a BMM `replace` operation.
 The `replace` operation should be executed after any hardware maintenance event. Multiple maintenance events should be done as multiple `replace` operations.
 
 > [!IMPORTANT]
-> With the `2024-07-01` GA API version, the RAID controller is reset during BMM replace, wiping all data from the server's virtual disks.
-> Baseboard Management Controller (BMC) virtual disk alerts triggered during BMM replace can be ignored unless there are more physical disk and/or RAID controllers alerts.
+> With the `2024-07-01` GA API version, the RAID controller is reset during BMM `replace`, wiping all data from the server's virtual disks.
+> Baseboard Management Controller (BMC) virtual disk alerts triggered during BMM `replace` can be ignored unless there are more physical disk and/or RAID controllers alerts.
 
 ### Resolve Hardware Validation Issues
 
-When a BMM is marked with failed hardware validation, it indicates that physical repairs are needed. It is crucial to identify and address these repairs before performing a BMM `replace`.
-A hardware validation process is invoked, as part of the `replace` operation, to ensure the physical host's integrity prior to deploying the OS image.
-If the BMM continues to have hardware validation failures, the BMM will not provision successfully, meaning it will fail to complete the necessary setup steps to become operational, and will not join the cluster.
-Ensure **all hardware validation issues** are cleared prior to the next `replace` action.
+When a BMM is marked with failed hardware validation, it indicates that physical repairs are needed. It's crucial to identify and address these repairs before performing a BMM `replace`.
+A hardware validation process is invoked, as part of the `replace` operation, to ensure the physical host's integrity before deploying the OS image.
+If the BMM continues to have hardware validation failures, then the BMM won't provision successfully meaning it fails to complete the necessary setup steps to become operational and won't join the cluster.
+Ensure **all hardware validation issues** are cleared before the next `replace` action.
 
-Read through the [Troubleshoot Hardware Validation Failure](./troubleshoot-hardware-validation-failure.md) article to understand hardware validation results.
+To understand hardware validation result, read through the article [Troubleshoot Hardware Validation Failure](./troubleshoot-hardware-validation-failure.md).
 
 ### Preconditions and Validations Before BMM Replace
 
 Before initiating any `replace` operation, ensure the following preconditions are met:
 
-- Ensure the BMM is in `poweredState` set to `On` and `readyState` set to `True`.
-- Make sure the BMM's workloads are drained using the [`cordon`](#make-a-bmm-unschedulable-cordon) command with the paramater `evacuate` set to `True`.
+- Ensure the BMM `poweredState` is set to `On` and the `readyState` is set to `True`.
+- Make sure the BMM's workloads are drained using the [`cordon`](./howto-baremetal-functions.md#make-a-bmm-unschedulable-cordon) command with the parameter `evacuate` set to `True`.
 - Perform high level checks covered in the article [Troubleshoot Bare Metal Machine Provisioning].
-- Evaluate any BMM warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems prior to a `replace` operation.
-  See the articles [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status] for more details.
+- Evaluate any BMM warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems before a `replace` operation.
+  For more information, see [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
 - Validate that there are no running firmware upgrade jobs through the BMC before initiating a `replace` operation.
-  The BMM will have `provisioningStatus` in the `Preparing` state. Interrupting an ongoing firmware upgrade can leave the BMM in an inconsistent state.
+  The BMM has `provisioningStatus` in the `Preparing` state. Interrupting an ongoing firmware upgrade can leave the BMM in an inconsistent state.
 
 ### BMM Replace isn't Required
 
@@ -135,7 +135,7 @@ A `replace` operation **is required** to bring the BMM back into service when yo
 - Mellanox Network Interface Card (NIC)
 - Broadcom embedded NIC
 
-After replacing components such as motherboard or Network Interface Card (NIC), the MAC address of BMM will change; however, the iDRAC IP address and hostname will remain the same.
+After components such as motherboard or Network Interface Card (NIC) are replaced, the MAC address of BMM will change; however, the iDRAC IP address and hostname will remain the same.
 Motherboard changes result in MAC address changes, requiring a BMM `replace`.
 
 ### After BMM Replace
