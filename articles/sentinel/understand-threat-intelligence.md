@@ -203,21 +203,26 @@ For more information, see [Work with threat intelligence in Microsoft Sentinel](
 
 ## View your threat intelligence
 
-View your threat intelligence from the management interface or using queries. From the management interface, use advanced search to sort and filter your threat intelligence objects without even writing a Log Analytics query.
+View your threat intelligence from the management interface or using queries: 
 
-:::image type="content" source="media/understand-threat-intelligence/advanced-search.png" alt-text="Screenshot that shows an advanced search interface with source and confidence conditions selected." lightbox="media/understand-threat-intelligence/advanced-search.png":::
+- From the management interface, use advanced search to sort and filter your threat intelligence objects without even writing a Log Analytics query.
 
-Use queries to view threat intelligence from **Logs** or **Advanced hunting**. Either way, the `ThreatIntelligenceIndicator` table under the **Microsoft Sentinel** schema is where all your Microsoft Sentinel threat indicators are stored. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features, such as analytics, hunting queries, and workbooks.
+    :::image type="content" source="media/understand-threat-intelligence/advanced-search.png" alt-text="Screenshot that shows an advanced search interface with source and confidence conditions selected." lightbox="media/understand-threat-intelligence/advanced-search.png":::
+
+- Use queries to view threat intelligence from **Logs** in the Azure portal or **Advanced hunting** in the Defender portal. 
+
+    Either way, the `ThreatIntelligenceIndicator` table under the **Microsoft Sentinel** schema is where all your Microsoft Sentinel threat indicators are stored. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features, such as analytics, hunting queries, and workbooks.
 
 >[!IMPORTANT]
->Tables supporting the new STIX object schema aren't available publicly. In order to view the STIX objects in queries and unlock the hunting model that uses them, request to opt in with [this form](https://forms.office.com/r/903VU5x3hz?origin=lprLink). Ingest your threat intelligence into the new tables, `ThreatIntelIndicator` and `ThreatIntelObjects`, alongside or instead of the current table, `ThreatIntelligenceIndicator`, with this opt-in process.
->
+> Two new tables, which support the new STIX object schema, are now in public preview - `ThreatIntelIndicator` and `ThreatIntelObjects`. As of 31 March 2025, Microsoft Sentinel will ingests all threat intelligence into these new tables. In parallel, Microsoft Sentinel will continue to ingest the same data into the legacy `ThreatIntelligenceIndicator` table until 31 May 2025. **Be sure to update your queries to use the new tables before 31 March 2025.** After that date, the legacy `ThreatIntelligenceIndicator` table will be deprecated and removed from Microsoft Sentinel. For more information about the table schemas, see [ThreatIntelIndicator](/azure/azure-monitor/reference/tables/threatintelligenceindicator) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects).
 
 For more information, see [Work with threat intelligence in Microsoft Sentinel](work-with-threat-indicators.md#find-and-view-threat-intelligence-with-queries).
 
-### Threat intelligence life cycle
+### Threat intelligence lifecycle
 
-Threat intelligence indicators are ingested into the `ThreatIntelligenceIndicator` table of your Log Analytics workspace as read-only. Whenever an indicator is updated, a new entry in the `ThreatIntelligenceIndicator` table is created. Only the most current indicator appears on the management interface. Microsoft Sentinel deduplicates indicators based on the `IndicatorId` and `SourceSystem` properties and chooses the indicator with the newest `TimeGenerated[UTC]`.
+Microsoft Sentinel ingests threat intelligence indicators into the threat intelligence tables in your Log Analytics workspace. For more information on Microsoft Sentinel's threat intelligence tables, see [View your threat intelligence](#view-your-threat-intelligence).
+
+Whenever an indicator is updated, a new entry in the `ThreatIntelligenceIndicator` table is created. Only the most current indicator appears on the management interface. Microsoft Sentinel deduplicates indicators based on the `IndicatorId` and `SourceSystem` properties and chooses the indicator with the newest `TimeGenerated[UTC]`.
 
 The `IndicatorId` property is generated using the STIX indicator ID. When indicators are imported or created from non-STIX sources, `IndicatorId` is generated using both the source and pattern of the indicator.
 
