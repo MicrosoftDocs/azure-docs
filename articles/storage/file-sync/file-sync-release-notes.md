@@ -77,9 +77,19 @@ The following release notes are for Azure File Sync version 20.0.0.0 (released F
 
 ### Improvements and issues that are fixed
 **General Availability: Managed Identities support for Azure File Sync service and servers**
-Azure File Sync now supports system-assigned managed identities for authentication, eliminating the need for shared keys and simplifying security management with Microsoft Entra ID. With this release, you can configure managed identities directly from the Azure portal, making deployment easier and more secure. Additionally, storage account key access and Azure services on the trusted services list are no longer required and can be disabled, providing greater control over access management. For more information, see: [How to use managed identities with Azure File Sync (preview)](file-sync-managed-identities.md).
+
+Azure File Sync now supports system-assigned managed identities for authentication, eliminating the need for shared keys and simplifying security management with Microsoft Entra ID. You can now configure managed identities directly from the Azure portal, making deployments easier and more secure.
+ 
+When managed identities are configured, the system-assigned managed identities will be used for the following scenarios:
+- Storage Sync Service authentication to Azure file share
+- Registered server authentication to Azure file share
+- Registered server authentication to Storage Sync Service
+
+For more information, see: [How to use managed identities with Azure File Sync](file-sync-managed-identities.md).
+
 > [!NOTE]
 >The portal experience for general availability will gradually roll out to all regions in the coming weeks.
+
 **Miscellaneous reliability and telemetry improvements for cloud tiering and sync**
 ### Evaluation Tool
 Before deploying Azure File Sync, you should evaluate whether it's compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported OS version. For installation and usage instructions, see [Evaluation Tool](file-sync-planning.md#evaluation-cmdlet) section in the planning guide.
