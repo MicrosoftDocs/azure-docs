@@ -17,7 +17,7 @@ ms.author: cephalin
 
 ASP.NET Core apps must be deployed to Azure App Service as compiled binaries. The Visual Studio publishing tool builds the solution and then deploys the compiled binaries directly. The App Service deployment engine deploys the code repository first and then compiles the binaries.
 
-This guide provides key concepts and instructions for ASP.NET Core developers. If this is your first time using Azure App Service, follow the [ASP.NET Core quickstart](quickstart-dotnetcore.md) and [ASP.NET Core with SQL Database tutorial](tutorial-dotnetcore-sqldb-app.md) first.
+This guide provides key concepts and instructions for ASP.NET Core developers. If this is your first time using Azure App Service, first follow the [ASP.NET Core quickstart](quickstart-dotnetcore.md) and [ASP.NET Core with SQL Database tutorial](tutorial-dotnetcore-sqldb-app.md).
 
 ::: zone pivot="platform-windows"  
 
@@ -74,7 +74,7 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 > [!NOTE]
 > Building .NET 9 (Standard Term Support) apps with App Service by using MSBuild or `SCM_DO_BUILD` isn't yet supported. Support for these build scenarios will come after the initial GA date and by December 4, 2024. Deployments that build outside of App Service through Visual Studio, Visual Studio Code, GitHub Actions, and Azure DevOps are fully supported.
 
-If you deploy your app by using Git, or ZIP packages [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the App Service build automation follows this sequence:
+If you deploy your app by using Git or ZIP packages [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the App Service build automation follows this sequence:
 
 1. Run custom script if specified by `PRE_BUILD_SCRIPT_PATH`.
 1. To restore NuGet dependencies, run `dotnet restore`.
@@ -132,17 +132,17 @@ If you configure an app setting with the same name in App Service and in `appset
 
 ::: zone pivot="platform-linux"
 
-> [!NOTE]
-> The [hierarchical configuration data](/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) in `appsettings.json` is accessed by using the `__` (double underscore) delimiter that's standard on Linux to .NET Core. To override a specific hierarchical configuration setting in App Service, set the app setting name with the same delimited format in the key. You can run the following example in [Cloud Shell](https://shell.azure.com):
+The [hierarchical configuration data](/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) in `appsettings.json` is accessed by using the `__` (double underscore) delimiter that's standard on Linux to .NET Core. To override a specific hierarchical configuration setting in App Service, set the app setting name with the same delimited format in the key. You can run the following example in [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings My__Hierarchical__Config__Data="some value"
 ```
+
 ::: zone-end
 
 ::: zone pivot="platform-windows"
-> [!NOTE]
-> The [hierarchical configuration data](/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) in `appsettings.json` is accessed by using the `:` delimiter that's standard to .NET Core. To override a specific hierarchical configuration setting in App Service, set the app setting name with the same delimited format in the key. You can run the following example in [Cloud Shell](https://shell.azure.com):
+
+The [hierarchical configuration data](/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) in `appsettings.json` is accessed by using the `:` delimiter that's standard to .NET Core. To override a specific hierarchical configuration setting in App Service, set the app setting name with the same delimited format in the key. You can run the following example in [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings My:Hierarchical:Config:Data="some value"
@@ -159,7 +159,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## Access diagnostic logs
 
-ASP.NET Core provides a [built-in logging provider for App Service](/aspnet/core/fundamentals/logging/#azure-app-service). In your project's **Program.cs**, add the provider to your application through the `ConfigureLogging` extension method, as shown in the following example:
+ASP.NET Core offers a [built-in logging provider for App Service](/aspnet/core/fundamentals/logging/#azure-app-service). In your project's **Program.cs**, add the provider to your application through the `ConfigureLogging` extension method, as shown in the following example:
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -182,7 +182,7 @@ For more information on troubleshooting ASP.NET Core apps in App Service, see [T
 
 ## Access a detailed exceptions page
 
-When your ASP.NET Core app generates an exception in the Visual Studio debugger, the browser displays a detailed exception page, but in App Service that page is replaced by a generic **HTTP 500** or **An error occurred while processing your request**. To display the detailed exception page in App Service, add the `ASPNETCORE_ENVIRONMENT` app setting to your app by running the following command in <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+When your ASP.NET Core app generates an exception in the Visual Studio debugger, the browser displays a detailed exception page, but in App Service that page is replaced by a generic "HTTP 500" or "An error occurred while processing your request." To display the detailed exception page in App Service, add the `ASPNETCORE_ENVIRONMENT` app setting to your app by running the following command in <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"
@@ -230,7 +230,7 @@ For more information, see [Configure ASP.NET Core to work with proxy servers and
 
 ## Rewrite or redirect URL
 
-To rewrite or redirect a URL, use the [URL rewriting middleware in ASP.NET Core](/aspnet/core/fundamentals/url-rewriting).
+To rewrite or redirect a URL, use the [URL-rewriting middleware in ASP.NET Core](/aspnet/core/fundamentals/url-rewriting).
 
 ## Open SSH session in browser
 
@@ -240,16 +240,14 @@ To rewrite or redirect a URL, use the [URL rewriting middleware in ASP.NET Core]
 
 ::: zone-end
 
-## Next steps
+## Related content
 
-[Tutorial: ASP.NET Core app with SQL Database](tutorial-dotnetcore-sqldb-app.md)
+* [Tutorial: ASP.NET Core app with SQL Database](tutorial-dotnetcore-sqldb-app.md)
 
 ::: zone pivot="platform-linux"
 
-[App Service Linux FAQ](faq-app-service-linux.yml)
+* [App Service Linux FAQ](faq-app-service-linux.yml)
 
 ::: zone-end
 
-Or, see more resources:
-
-[Environment variables and app settings reference](reference-app-settings.md)
+* [Environment variables and app settings reference](reference-app-settings.md)
