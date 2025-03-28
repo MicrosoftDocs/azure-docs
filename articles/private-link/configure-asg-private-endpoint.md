@@ -6,7 +6,7 @@ author: abell
 ms.author: abell
 ms.service: azure-private-link
 ms.topic: how-to 
-ms.date: 02/18/2024
+ms.date: 03/25/2025
 ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -48,7 +48,7 @@ You can associate an ASG with a private endpoint when it's created. The followin
 
 1. Select **+ Create** in **Private endpoints**.
 
-1. On the **Basics** tab of **Create a private endpoint**, enter or select the following information:
+1. On the **Basics** tab of **Create a private endpoint**, enter, or select the following information:
 
     | Value | Setting |
     | ----- | ------- |

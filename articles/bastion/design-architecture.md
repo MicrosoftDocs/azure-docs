@@ -3,7 +3,7 @@ title: 'About Azure Bastion design and architecture'
 description: Learn about the different architectures available with Azure Bastion.
 author: cherylmc
 ms.topic: concept-article
-ms.date: 03/12/2025
+ms.date: 03/14/2025
 ms.author: cherylmc
 ms.service: azure-bastion
 ---
@@ -35,11 +35,11 @@ For configuration steps, see:
 
 ## <a name="developer"></a>Deployment - Bastion Developer
 
-:::image type="content" source="./media/quickstart-developer-sku/bastion-shared-pool.png" alt-text="Diagram that shows the Azure Bastion Developer architecture." lightbox="./media/quickstart-developer-sku/bastion-shared-pool.png":::
+:::image type="content" source="./media/quickstart-developer/bastion-shared-pool.png" alt-text="Diagram that shows the Azure Bastion Developer architecture." lightbox="./media/quickstart-developer/bastion-shared-pool.png":::
 
-[!INCLUDE [Bastion Developer](../../includes/bastion-developer-sku-description.md)]
+[!INCLUDE [Bastion Developer](../../includes/bastion-developer-description.md)]
 
-For more information about Bastion Developer, see [Connect with Azure Bastion Developer](quickstart-developer-sku.md).
+For more information about Bastion Developer, see [Connect with Azure Bastion Developer](quickstart-developer.md).
 
 ## <a name="private-only"></a>Deployment - Private-only
 
@@ -59,5 +59,5 @@ For more information about private-only deployments, see [Deploy Bastion as priv
 
 * [Deploy Bastion automatically - Standard SKU only](quickstart-host-portal.md)
 * [Deploy Bastion using manually specified settings and SKU](tutorial-create-host-portal.md)
-* [Connect with Azure Bastion Developer](quickstart-developer-sku.md)
+* [Connect with Azure Bastion Developer](quickstart-developer.md)
 * [Deploy Bastion as private-only](private-only-deployment.md)

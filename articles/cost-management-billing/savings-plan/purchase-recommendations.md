@@ -2,8 +2,8 @@
 title: Azure savings plan recommendations
 titleSuffix: Microsoft Cost Management
 description: Learn about how Azure makes saving plan purchase recommendations.
-author: bandersmsft
-ms.author: banders
+author: nwokolo
+ms.author: onwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
