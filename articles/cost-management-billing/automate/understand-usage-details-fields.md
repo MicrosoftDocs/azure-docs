@@ -2,8 +2,8 @@
 title: Understand usage details fields
 titleSuffix: Microsoft Cost Management
 description: This article describes the fields in the usage data files.
-author: bandersmsft
-ms.author: banders
+author: jojopm
+ms.author: jojoh
 ms.date: 01/31/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
@@ -130,7 +130,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 
 ¹ Fields used to build a unique ID for a single cost record. Every record in your cost details file should be considered unique. 
 
-² For MCA customers, prices are shown in the pricing currency in the Actual Cost and Amortized Cost reports. In contrast, for EA customers, the billing and pricing currencies are the same.
+² For MCA customers, prices are shown in the pricing currency in the Actual Cost and Amortized Cost reports. In contrast, for EA customers, the billing and pricing currencies are the same with exception of `PricingModel` column with value `Spot` where the pricing currency is USD irrespective of the billing currency. For more details on Spot pricing, see [Azure Spot VM FAQ](https://azure.microsoft.com/products/virtual-machines/spot#FAQ-9).
 
 ³ For more information about pricing terms and definitions, see [Pricing behavior in cost details](automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).
 

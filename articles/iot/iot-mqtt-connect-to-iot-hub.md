@@ -6,7 +6,7 @@ author: dominicbetts
 ms.service: azure-iot
 services: iot
 ms.topic: conceptual
-ms.date: 03/11/2025
+ms.date: 03/19/2025
 ms.author: dobett
 ms.custom:
   - amqp
@@ -61,11 +61,11 @@ The following table contains links to code samples for each supported language a
 
 | Language | MQTT protocol parameter | MQTT over WebSockets protocol parameter |
 | --- | --- | --- |
-| [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/simple_sample_device.js) | `azure-iot-device-mqtt.Mqtt `| `azure-iot-device-mqtt.MqttWs` |
-| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/main/iothub/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) | `IotHubClientProtocol.MQTT` | `IotHubClientProtocol.MQTT_WS` |
-| [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | `MQTT_Protocol` | `MQTT_WebSocket_Protocol` |
-| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples) | `TransportType.Mqtt` | `TransportType.Mqtt` falls back to MQTT over WebSockets if MQTT fails. To specify MQTT over WebSockets only, use `TransportType.Mqtt_WebSocket_Only` |
-| [Python](https://github.com/Azure/azure-iot-sdk-python/tree/main/samples) | Uses MQTT by default | Add `websockets=True` in the call to create the client |
+| [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/simple_sample_device.js) | azure-iot-device-mqtt.Mqtt | azure-iot-device-mqtt.MqttWs |
+| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/main/iothub/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) | [IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol).MQTT | IotHubClientProtocol.MQTT_WS |
+| [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](https://github.com/Azure/azure-iot-sdk-c/blob/main/iothub_client/inc/iothubtransportmqtt.h) | [MQTT_WebSocket_Protocol](https://github.com/Azure/azure-iot-sdk-c/blob/main/iothub_client/inc/iothubtransportmqtt_websockets.h) |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype).Mqtt | TransportType.Mqtt falls back to MQTT over WebSockets if MQTT fails. To specify MQTT over WebSockets only, use TransportType.Mqtt_WebSocket_Only |
+| [Python](https://github.com/Azure/azure-iot-sdk-python/tree/main/samples) | Uses MQTT by default | To create the client, add `websockets=True` in the call |
 
 The following fragment shows how to specify the MQTT over WebSockets protocol when you use the Azure IoT Node.js SDK:
 
@@ -84,7 +84,7 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
 [!INCLUDE [iot-authentication-device-connection-string](../../includes/iot-authentication-device-connection-string.md)]
 
-### Default keep-alive timeout
+### Default keep-alive time-out
 
 In order to ensure a client connection to an IoT hub connection stays alive, both the service and the client regularly send a *keep-alive* ping to each other. If you use one of the device SDKs, the client sends a keep-alive message at the interval defined in the following table:
 
@@ -98,7 +98,7 @@ In order to ensure a client connection to an IoT hub connection stays alive, bot
 
 *The C# SDK defines the default value of the MQTT KeepAliveInSeconds property as 300 seconds. In reality, the SDK sends a ping request four times per keep-alive duration set. In other words, the SDK sends a keep-alive ping once every 75 seconds.
 
-Following the [MQTT v3.1.1 specification](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081), IoT Hub's keep-alive ping interval is 1.5 times the client keep-alive value. However, IoT Hub limits the maximum server-side timeout to 29.45 minutes (1,767 seconds).
+Following the [MQTT v3.1.1 specification](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081), IoT Hub's keep-alive ping interval is 1.5 times the client keep-alive value; however, IoT Hub limits the maximum server-side time-out to 29.45 minutes (1,767 seconds).
 
 For example, a device using the Java SDK sends the keep-alive ping, then loses network connectivity. 230 seconds later, the device misses the keep-alive ping because it's offline. However, IoT Hub doesn't close the connection immediately - it waits another `(230 * 1.5) - 230 = 115` seconds before disconnecting the device with the error [404104 DeviceConnectionClosedRemotely](../iot-hub/iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md).
 
@@ -181,7 +181,7 @@ The [IoT MQTT Sample repository](https://github.com/Azure-Samples/IoTMQTTSample)
 
 The C/C++ samples use the [Eclipse Mosquitto](https://mosquitto.org) library, the Python sample uses [Eclipse Paho](https://projects.eclipse.org/projects/iot.paho), and the CLI samples use `mosquitto_pub`.
 
-To learn more, see [Tutorial - Use MQTT to develop an IoT device client](./tutorial-use-mqtt.md).
+To learn more, see [Tutorial - Use MQTT to develop an IoT device client without using a device SDK](./tutorial-use-mqtt.md).
 
 ## TLS configuration
 
@@ -248,7 +248,7 @@ client.publish("devices/" + device_id + "/messages/events/", '{"id":123}', qos=1
 client.loop_forever()
 ```
 
-To authenticate using a device certificate, update the previous code snippet with the changes specified in the following code snippet. For more information about how to prepare for certificate-based authentication, see the [Get an X.509 CA certificate](../iot-hub/iot-hub-x509ca-overview.md#get-an-x509-ca-certificate) section of [Authenticate devices using X.509 CA certificates](../iot-hub/iot-hub-x509ca-overview.md).
+To authenticate using a device certificate, update the previous code snippet with the changes specified in the following code snippet. For more information about how to prepare for certificate-based authentication, see the [Get an X.509 CA certificate](../iot-hub/authenticate-authorize-x509.md#get-an-x509-ca-certificate) section of [Authenticate identities with X.509 certificates](../iot-hub/authenticate-authorize-x509.md).
 
 ```python
 # Create the client as before
@@ -281,7 +281,7 @@ This `{property_bag}` element uses the same encoding as query strings in the HTT
 If you're routing D2C messages to an Azure Storage account and you want to use JSON encoding, you must specify the Content Type and Content Encoding information, including `$.ct=application%2Fjson&$.ce=utf-8`, as part of the `{property_bag}` mentioned in the previous note.
 
 > [!NOTE]
-> The format of these attributes is protocol-specific. IoT Hub translates these attributes into their corresponding system properties. For more information, see [System properties](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties).
+> The format of these attributes is protocol-specific. IoT Hub translates these attributes into their corresponding system properties. For more information, see the [System properties](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) section of [IoT Hub message routing query syntax](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 
 The following list summarizes IoT Hub MQTT implementation-specific behaviors:
 
@@ -295,7 +295,7 @@ The following list summarizes IoT Hub MQTT implementation-specific behaviors:
 
     ```devices/{device-id}/messages/events/$.ct=application%2Fjson%3Bcharset%3Dutf-8```
 
-For more information, see [Send device-to-cloud and cloud-to-device messages with IoT Hub](../iot-hub/iot-hub-devguide-messaging.md).
+For more information, see [Send and receive messages with IoT Hub](../iot-hub/iot-hub-devguide-messaging.md).
 
 ## Receive cloud-to-device messages
 
@@ -325,7 +325,7 @@ When a device application subscribes to a topic with **QoS 2**, IoT Hub grants m
 
 First, a device subscribes to `$iothub/twin/res/#`, to receive the operation's responses. Then, it sends an empty message to topic `$iothub/twin/GET/?$rid={request id}`, with a populated value for **request ID**. The service then sends a response message containing the device twin data on topic `$iothub/twin/res/{status}/?$rid={request-id}`, using the same **request ID** as the request.
 
-The request ID can be any valid value for a message property value, and status is validated as an integer. For more information, see [Send device-to-cloud and cloud-to-device messages with IoT Hub](../iot-hub/iot-hub-devguide-messaging.md).
+The request ID can be any valid value for a message property value, and status is validated as an integer. For more information, see [Send and receive messages with IoT Hub](../iot-hub/iot-hub-devguide-messaging.md). 
 
 The response body contains the properties section of the device twin, as shown in the following response example:
 
@@ -348,7 +348,7 @@ The possible status codes are:
 |Status | Description |
 | ----- | ----------- |
 | 200 | Success |
-| 429 | Too many requests (throttled). For more information, see [IoT Hub throttling](../iot-hub/iot-hub-devguide-quotas-throttling.md) |
+| 429 | Too many requests (throttled). For more information, see [IoT Hub quotas and throttling](../iot-hub/iot-hub-devguide-quotas-throttling.md) |
 | 5** | Server errors |
 
 For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
@@ -380,7 +380,7 @@ The possible status codes are:
 | ----- | ----------- |
 | 204 | Success (no content is returned) |
 | 400 | Bad Request. Malformed JSON |
-| 429 | Too many requests (throttled), as per [IoT Hub throttling](../iot-hub/iot-hub-devguide-quotas-throttling.md) |
+| 429 | Too many requests (throttled), as per [IoT Hub quotas and throttling](../iot-hub/iot-hub-devguide-quotas-throttling.md) |
 | 5** | Server errors |
 
 The following Python code snippet demonstrates the twin reported properties update process over MQTT using the Paho MQTT client:
@@ -433,6 +433,6 @@ For more information, see [Understand and invoke direct methods from IoT Hub](..
 To learn more about using MQTT, see:
 
 * [MQTT documentation](https://mqtt.org/)
-* [Use MQTT to develop an IoT device client without using a device SDK](./tutorial-use-mqtt.md)
+* [Tutorial - Use MQTT to develop an IoT device client without using a device SDK](./tutorial-use-mqtt.md)
 * [MQTT application samples](https://github.com/Azure-Samples/MqttApplicationSamples)
 * [Azure IoT SDKs](iot-sdks.md)

@@ -1,9 +1,8 @@
 ---
 title: 'Tutorial: Get started integrate with pipelines' 
 description: In this tutorial, you learn how to integrate pipelines and activities using Synapse Studio.
-author: whhender
-ms.author: whhender
-ms.reviewer: whhender
+author: juluczni
+ms.author: juluczni
 ms.service: azure-synapse-analytics
 ms.subservice: pipeline
 ms.topic: tutorial
