@@ -4,7 +4,7 @@ description: Learn how to configure common settings for an Azure App Service app
 keywords: azure app service, web app, app settings, environment variables
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: how-to
-ms.date: 03/24/2025
+ms.date: 03/27/2025
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, AppServiceConnectivity
 ms.devlang: azurecli
 author: cephalin
@@ -34,10 +34,10 @@ For ASP.NET and ASP.NET Core developers, configuring app settings in App Service
 Other language stacks get the app settings as environment variables at runtime. For steps that are specific to each language stack, see:
 
 - [ASP.NET Core](configure-language-dotnetcore.md#access-environment-variables)
-- [Node.js](configure-language-nodejs.md#access-environment-variables)
-- [PHP](configure-language-php.md#access-environment-variables)
-- [Python](configure-language-python.md#access-app-settings-as-environment-variables)
 - [Java](configure-language-java-data-sources.md)
+- [Node.js](configure-language-nodejs.md#access-environment-variables)
+- [Python](configure-language-python.md#access-app-settings-as-environment-variables)
+- [PHP](configure-language-php.md#access-environment-variables)
 - [Custom containers](configure-custom-container.md#configure-environment-variables)
 
 App settings are always encrypted when they're stored (encrypted at rest).
@@ -230,10 +230,10 @@ At runtime, connection strings are available as environment variables, prefixed 
 For example, a MySQL connection string named *connectionstring1* can be accessed as the environment variable `MYSQLCONNSTR_connectionString1`. For steps that are specific to each language stack, see:
 
 - [ASP.NET Core](configure-language-dotnetcore.md#access-environment-variables)
-- [Node.js](configure-language-nodejs.md#access-environment-variables)
-- [PHP](configure-language-php.md#access-environment-variables)
-- [Python](configure-language-python.md#access-environment-variables)
 - [Java](configure-language-java-data-sources.md)
+- [Node.js](configure-language-nodejs.md#access-environment-variables)
+- [Python](configure-language-python.md#access-environment-variables)
+- [PHP](configure-language-php.md#access-environment-variables)
 - [Custom containers](configure-custom-container.md#configure-environment-variables)
 
 Connection strings are always encrypted when they're stored (encrypted at rest).
@@ -411,10 +411,10 @@ It's not possible to edit connection strings in bulk by using a JSON file with A
 To configure language stack settings, see these resources:
 
 - [ASP.NET Core](configure-language-dotnetcore.md)
-- [Node.js](configure-language-nodejs.md)
-- [PHP](configure-language-php.md)
-- [Python](configure-language-python.md)
 - [Java](configure-language-java-deploy-run.md)
+- [Node.js](configure-language-nodejs.md)
+- [Python](configure-language-python.md)
+- [PHP](configure-language-php.md)
 
 <a name="alwayson"></a>
 

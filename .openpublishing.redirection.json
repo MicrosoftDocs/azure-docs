@@ -3875,6 +3875,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/firewall/long-running-sessions.md",
+      "redirect_url": "/azure/firewall/tcp-session-behavior",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/firewall/diagnostic-logs.md",
       "redirect_url": "/azure/firewall/monitor-firewall",
       "redirect_document_id": false
@@ -5742,6 +5747,26 @@
     {
       "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-openvpn-clients.md",
       "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-cert-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-server-stretch-database/sql-server-stretch-database-encryption-tde.md",
+      "redirect_url": "/azure/azure-sql/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-server-stretch-database/sql-server-stretch-database-tde-tsql.md",
+      "redirect_url": "/azure/azure-sql/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-server-stretch-database/sql-server-stretch-database-index-all-articles.md",
+      "redirect_url": "/azure/azure-sql/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-server-stretch-database/index.yml",
+      "redirect_url": "/azure/azure-sql/",
       "redirect_document_id": false
     },
     {
