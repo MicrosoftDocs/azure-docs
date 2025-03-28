@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
 ms.topic: conceptual
-ms.date: 09/06/2024
+ms.date: 03/27/2025
 ---
 
 # Limits and configuration reference for Azure Logic Apps
