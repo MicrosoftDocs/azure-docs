@@ -55,6 +55,6 @@ Use **getRetrievalInstructions** API in `005: Dataset Service collection` to ret
 * [EDS documentation 1.0](https://gitlab.opengroup.org/osdu/subcommittees/ea/projects/extern-data/docs/-/blob/master/Design%20Documents/Training/EDS_Documentation-1.0.docx)
 * [OSDU EDS Documentation](https://osdu.pages.opengroup.org/platform/data-flow/ingestion/osdu-airflow-lib/)
 * [EDS M23 release notes](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M23-Release-Notes)
-* [EDS API collection](https://community.opengroup.org/osdu/platform/pre-shipping/-/blob/main/R3-M20/QA_Artifacts_M20/eds_testing_doc/EDS_Ingest_M20_Pre-Shipping_Setup_and_Testing.postman_collection.json?ref_type=heads)
+* [EDS API collection](https://community.opengroup.org/osdu/pre-shipping/-/blob/main/R3-M23/QA_Artifacts_M23/EDS/EDS_Ingest_M23_Pre-Shipping_Setup_and_Testing.postman_collection.json?ref_type=heads)
 * [EDS supplier enablement guide](https://gitlab.opengroup.org/osdu/r3-program-activities/docs/-/raw/master/R3%20Document%20Snapshot/23-osdu-eds-data-supplier-enablement-guide.pdf)
 * [EDS issues](https://community.opengroup.org/osdu/platform/data-flow/ingestion/external-data-sources/core-external-data-workflow/-/issues)
