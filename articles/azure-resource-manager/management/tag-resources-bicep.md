@@ -11,7 +11,7 @@ ms.date: 09/26/2024
 This article describes how to use Bicep to tag resources, resource groups, and subscriptions during deployment. For tag recommendations and limitations, see [Use tags to organize your Azure resources and management hierarchy](tag-resources.md).
 
 > [!NOTE]
-> The tags you apply through a Bicep file overwrite any existing tags.
+> The tags you apply through a Bicep file will replace any existing tags on the resource. If you want to retain existing tags, you need to explicitly include them in the template.
 
 ## Apply values
 
