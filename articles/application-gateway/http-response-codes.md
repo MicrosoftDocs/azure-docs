@@ -36,7 +36,7 @@ HTTP 307 responses are presented when a redirection rule is specified with the *
 
 ## 4XX response codes (client error)
 
-400-499 response codes indicate an issue that is initiated from the client. These issues can range from the client initiating requests to an unmatched hostname, request timeout, unauthenticated request, malicious request, and more.
+400-499 response codes indicate an issue that is initiated from the client. These issues can range from the client initiating requests to an unmatched hostname, request time-out, unauthenticated request, malicious request, and more.
 
 Application Gateway collects metrics that capture the distribution of 4xx/5xx status codes has a logging mechanism that captures information such as the URI client IP address with the response code. Metrics and logging enable further troubleshooting.  Clients can also receive 4xx response from other proxies between the client device and Application Gateway. For example, CDN (Content Delivery Network) and other authentication providers. See the following articles for more information.
 
@@ -102,7 +102,7 @@ An HTTP 404 response can be returned if a request is sent to an application gate
 - Without a hostname match defined in any [multi-site listeners](multiple-site-overview.md).
 - Not configured with a [basic listener](application-gateway-components.md#types-of-listeners).
 
-#### 408 – Request Timeout
+#### 408 – Request Time-out
 
 An HTTP 408 response can be observed when client requests to the frontend listener of application gateway don't respond back within 60 seconds.  This error can be observed due to traffic congestion between on-premises networks and Azure, when virtual appliance inspects the traffic, or the client itself becomes overwhelmed.
 
@@ -112,7 +112,7 @@ An HTTP 413 response can be observed when using [Azure Web Application Firewall 
 
 #### 499 – Client closed the connection
 
-An HTTP 499 response is presented if a client request that is sent to application gateways using v2 sku is closed before the server finished responding. This error can be observed in 2 scenarios. The first scenario is when a large response is returned to the client and the client might have closed or refreshed the application before the server finished sending a large response. The second scenario is when the timeout on the client side is low and doesn't wait long enough to receive the response from server. In this case it's better to increase the timeout on the client. In application gateways using v1 sku, an HTTP 0 response code may be raised for the client closing the connection before the server has finished responding as well.
+An HTTP 499 response is presented if a client request that is sent to application gateways using v2 sku is closed before the server finished responding. This error can be observed in 2 scenarios. The first scenario is when a large response is returned to the client and the client might have closed or refreshed the application before the server finished sending a large response. The second scenario is when the time-out on the client side is low and doesn't wait long enough to receive the response from server. In this case it's better to increase the time-out on the client. In application gateways using v1 sku, an HTTP 0 response code may be raised for the client closing the connection before the server has finished responding as well.
 
 
 ## 5XX response codes (server error)
@@ -135,17 +135,17 @@ HTTP 502 errors can have several root causes, for example:
 
 For information about scenarios where 502 errors occur, and how to troubleshoot them, see [Troubleshoot Bad Gateway errors](application-gateway-troubleshooting-502.md).
 
-#### 504 – Gateway timeout
+#### 504 – Gateway time-out
 
 Azure application Gateway V2 SKU sent HTTP 504 errors if the backend response time exceeds the time-out value that is configured in the Backend Setting.
 
 IIS (Internet Information Services web server)
 
-If your backend server is IIS, see [Default Limits for Web Sites](/iis/configuration/system.applicationhost/sites/sitedefaults/limits#configuration) to set the timeout value. Refer to the `connectionTimeout` attribute for details. Ensure the connection timeout in IIS matches or does not exceed the timeout set in the backend setting.
+If your backend server is IIS, see [Default Limits for Web Sites](/iis/configuration/system.applicationhost/sites/sitedefaults/limits#configuration) to set the time-out value. Refer to the `connectionTimeout` attribute for details. Ensure the connection time-out in IIS matches or does not exceed the timeout set in the backend setting.
 
 Nginx
 
-If the backend server is nginx or nginx ingress controller, and if it has upstream servers, ensure the value of `nginx:proxy_read_timeout` matches or does not exceed with the timeout set in the backend setting.
+If the backend server is Nginx or Nginx Ingress Controller, and if it has upstream servers, ensure the value of `nginx:proxy_read_timeout` matches or does not exceed with the time-out set in the backend setting.
 
 ## Troubleshooting Scenarios
 
