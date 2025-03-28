@@ -1,26 +1,77 @@
----  
-title: 
-description: 
+---
+title: Use project policies to control resource use in Dev Box
+description: Simplify resource management in Microsoft Dev Box with project policies. Set guardrails for projects and ensure secure, efficient workflows.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
 ms.topic: how-to
-ms.date: 12/11/2024
-
-#customer intent: As a developer, I want to connect Android devices to my dev box so that I can develop apps for Android.
-
+ms.date: 03/28/2025
+ms.custom:
+  - ai-gen-docs-bap
+  - ai-gen-description
+  - ai-seo-date:03/28/2025
+#customer intent: As a platform engineer, I want to set up project policies in Microsoft Dev Box to control resource use for my development teams. 
 ---
 
-# 
+# Control resource use with project policies in Microsoft Dev Box
 
-As development teams embrace cloud-based tools to accelerate their workflows, managing resources securely and efficiently across different projects has become a top priority for IT pros and developers alike. Microsoft Dev Box is designed to streamline project-based development, providing developers with tailored cloud development environments optimized for productivity and collaboration. Today, we're excited to announce a new feature, now available for preview for Microsoft Dev Box: project policies.
+Efficient resource management is critical for development teams working on diverse projects. Microsoft Dev Box uses **project policies**, a feature now available in preview, to help platform engineers enforce governance while maintaining flexibility. With project policies, you can define guardrails for resource usage on a per-project basis across your organization. This article explains how to set up and manage project policies in Dev Box to optimize resource control and governance.
 
-Project policies bring a powerful new way for platform engineers to set guardrails around resources enabled on a per-project basis, allowing teams to balance flexibility with governance as they work on diverse projects. Let's dive into understanding the basics of project policies, what problems they solve, how to create them, and how you can leverage them for enhanced resource management.
+When policies are enforced, Dev Box evaluates the health of existing resource pools against the new policy settings:
+
+- **Pool health check**: Dev Box evaluates each resource pool to check compliance with the enforced policies.
+- **Unhealthy pools**: If a pool doesn't meet the enforced requirements, it's marked as unhealthy, blocking the creation of new Dev Boxes in that pool.
+- **Existing Dev Boxes remain active**: Dev Boxes already created in an unhealthy pool continue to function normally, so your teams can keep working without disruption.
+
+This enforcement mechanism ensures projects access only the resources they're approved for, maintaining a secure-by-default environment with efficient operations across all projects in the Dev Center.
 
 ## Prerequisites
+- Microsoft Dev Box configured with a dev center and projects.
 
+## Enforce project policy for a dev center
 
+By enforcing project policies for a resource type, you control which resources are available to all projects in the dev center. When you enforce project policies for a resource type, all resources of that type are disallowed unless explicitly allowed in the default or project policy.
+
+To enforce project policies:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Navigate to your dev center.
+1. In the left pane, expand **Settings**, and then select **Project policy (preview)**.
+1. Under **Enforce project policy**, select the resources you want to restrict for all projects in the dev center.
+1. To confirm your selection and enforce it, select **Apply**.
+
+## Create a default policy
+You should first create a default policy, which applies to all projects in the dev center. This is a good way to set up a baseline for your projects, ensuring that all projects have a minimum level of governance and control over the resources they can access. In a default policy, you select resources to restrict, such as networks, images, and SKUs.
+
+When project policies are enforced, projects apply the default policy unless they have a custom project policy. This means that projects with a custom policy can access resources that aren't available to projects without a custom policy. In other words, projects with a custom policy can access resources that aren't available to all projects in the dev center.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Navigate to your dev center.
+1. In the left pane, expand **Settings**, and then select **Project policy (preview)**.
+1. Under **Project policies**, select **Create project policy**.
+1. On the **Create project policy** page, for **Targeted projects**, select **All current and future projects**.
+1. The name of the policy is **default**.
+1. In the **Select projects** pane, select the projects you want to apply the policy to, and then select **Select**.
+1. Under **Allow access to the following**, select the resources you want to restrict for the project.
+   For example, to restrict the project to only use 16 vCPU SKUs, select **SKUs**, and then select all 16 vCPU SKUs.l the 16 vCPU SKUs. 
+   To confirm your selection, select **Select**.
+1. You can select one or more resources. When you finish selecting the resources, select **Create**.
+When you finish selecting the resources, select **Create**.
+
+## Create a Project policy
+Custom project policies enable you to control resources for specific projects. These policies allow you to control and restrict resources available to projects, ensuring better governance and resource management. Each project can have only one custom policy, but the same policy can be applied to multiple projects. These policies allow you to control and restrict resources available to projects, ensuring better governance and resource management.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Navigate to your dev center.
+1. In the left pane, expand **Settings**, and then select **Project policy (preview)**.
+1. Under **Project policies**, select **Create project policy**.
+1. On the **Create project policy** page, for **Targeted projects**, select **Select projects**.
+1. In the **Select projects** pane, select the projects you want to apply the policy to, and then select **Select**.
+1. Under **Allow access to the following**, select the resources you want to restrict for the project.
+1. You can select one or more resources. When you finish selecting the resources, select **Create**.
+When you finish selecting the resources, select **Create**.
 
 ## Related content
 
-- [Microsoft Dev Box: Frequently asked questions](dev-box-faq.yml)
+- [Autostop your Dev Boxes on schedule](how-to-configure-stop-schedule.md)
+- [Control costs by setting dev box limits on a project](tutorial-dev-box-limits.md)
