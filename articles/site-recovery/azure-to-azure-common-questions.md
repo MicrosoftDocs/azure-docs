@@ -3,7 +3,7 @@ title: Common questions about Azure virtual machine disaster recovery with Azure
 description: This article answers common questions about Azure virtual machine disaster recovery when you use Azure Site Recovery.
 ms.author: ankitadutta
 author: ankitaduttaMSFT
-ms.date: 12/23/2024
+ms.date: 03/13/2025
 ms.topic: faq
 ms.service: azure-site-recovery
 
@@ -129,6 +129,12 @@ For example, if the apps have three tiers (application/database/web) in differen
 ### Can I move storage accounts across resource groups?
 
 No, this is unsupported. If you accidentally move storage accounts to a different resource group and delete the original resource group, then you can create a new resource group with the same name as the old resource group, and then move the storage account to this resource group.
+
+### How can I view a particular zone for target configuration while enabling zonal replication?
+
+The Azure portal displays *logical Zones*. In the datacenter, actual physical zones are mapped to these logical zones, and the mappings vary by subscription. For example, Subscription A's Zone 1 may map to Physical Zone 1, while Subscription B's Zone 1 may map to Physical Zone 2. Therefore, you see different mapped zones for different subscriptions in the same region. In Site Recovery, the source and target zones must have different physical zones. 
+
+In case the source and target zones are the same, you can't view zone for target configuration while enabling zonal replication.
 
 ## Replication policy
 

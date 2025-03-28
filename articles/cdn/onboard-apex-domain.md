@@ -1,4 +1,5 @@
 ---
+ROBOTS: NOINDEX
 title: Onboard a root or apex domain to an existing Azure CDN endpoint - Azure portal
 description: Learn how to onboard a root or apex domain to an existing Azure CDN endpoint using the Azure portal.
 services: cdn

@@ -9,6 +9,7 @@ ms.service: azure-cdn
 ms.topic: tutorial
 ms.date: 03/20/2024
 ms.custom: mvc
+ROBOTS: NOINDEX
 ---
 
 # Tutorial: Add Azure Content Delivery Network to an Azure App Service web app

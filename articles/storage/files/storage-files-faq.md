@@ -4,7 +4,7 @@ description: Get answers to frequently asked questions (FAQ) about Azure Files a
 author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
-ms.date: 06/24/2024
+ms.date: 03/28/2025
 ms.author: kendownie
 ms.topic: faq
 ---
@@ -125,7 +125,23 @@ ms.topic: faq
 **Can I save to an Azure file share using a printer or scanner?**
 
   Azure Files only supports Windows, Linux, and macOS. Accessing an Azure file share directly from a printer or scanner isn't supported. However, if you're already using Azure File Sync, you can print or scan to your Windows file server and then sync the file to an Azure file share.
-   
+
+* <a id="alternate-data-streams"></a>
+**Does Azure Files support alternate data streams?**
+
+Azure Files doesn't support [alternate data streams](/openspecs/windows_protocols/ms-fscc/e2b19412-a925-4360-b009-86e3b8a020c8). Transferring data via SMB will throw a **file already exists** message if an alternate data stream is found. You can check alternate streams by using the following PowerShell command:
+
+```powershell
+get-item <file path+name> -Stream *
+```
+
+If more than one stream is shown, you can remove them using the following PowerShell command:
+
+```powershell
+remove-Item <file path+name> -Stream *
+```
+
+Alternate data streams are preserved on-premises when Azure File Sync is used.
 
 ### Identity-based authentication
 
