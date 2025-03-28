@@ -113,9 +113,9 @@ To try the **Compose** action, follow these steps by using the workflow designer
 
       :::image type="content" source="media/logic-apps-perform-data-operations/configure-compose-action.png" alt-text="Screenshot shows Consumption workflow, Compose action, dynamic content list, and selected inputs to use." lightbox="media/logic-apps-perform-data-operations/configure-compose-action.png":::
 
-      The following example shows the finished sample **Compose** action: 
+      The following example shows definitions added for two variables, and the process to add the third variable: 
 
-      :::image type="content" source="media/logic-apps-perform-data-operations/finished-compose-action.png" alt-text="Screenshot shows Consumption workflow and finished example Compose action." lightbox="media/logic-apps-perform-data-operations/finished-compose-action.png":::
+      :::image type="content" source="media/logic-apps-perform-data-operations/configure-compose-action.png" alt-text="Screenshot shows Consumption workflow, Compose action, dynamic content list, and selected inputs to use." lightbox="media/logic-apps-perform-data-operations/configure-compose-action.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -159,7 +159,7 @@ To try the **Compose** action, follow these steps by using the workflow designer
 
       :::image type="content" source="media/logic-apps-perform-data-operations/compose-lightning-insert-cursor.png" alt-text="Screenshot shows Standard workflow, Compose action, insert cursor location, and lightning icon." lightbox="media/logic-apps-perform-data-operations/compose-lightning-insert-cursor.png":::
 
-      The following example shows definitions added for the `ageVar` and `lastNameVar` variables: 
+      The following example shows definitions added for two variables, and the process to add the third variable: 
 
       :::image type="content" source="media/logic-apps-perform-data-operations/configure-compose-action.png" alt-text="Screenshot shows Standard workflow, Compose action, dynamic content list, and selected inputs to use." lightbox="media/logic-apps-perform-data-operations/configure-compose-action.png":::
 
