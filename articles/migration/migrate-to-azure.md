@@ -16,15 +16,19 @@ This content collection is curated to help workload teams plan and implement the
 >
 > Some migration scenarios are out of scope for this collection. It doesn't cover on-premises to Azure migrations, full datacenter migrations, or region relocations. It also doesn't address workloads that concurrently run on multiple clouds.
 
-Migration to Azure typically involves replatforming the workload, which includes transitioning both the infrastructure and management layer from the source cloud provider to Azure. During the migration process, you need to find the best match for your source components on Azure. Not all components have direct equivalents. To accomplish your business objectives, you might need to redesign the architecture or revisit code to maintain functionality. This collection provides valuable insights into such cloud-to-cloud transitions because it compares workload components and services, and includes example migration scenarios.
+Migration to Azure typically involves _replatforming the workload_, which includes transitioning both the infrastructure and management layer from the source cloud provider to Azure. To prepare for the migration process, you need to find the best match for your source components on Azure. Keep in mind that not all components have direct equivalents. You'll need to redesign the architecture or revisit code to maintain functionality and accomplish your business objectives. This collection offers comparisons of the typical workload components and platform services, and includes example migration scenarios.
 
 ## Prerequisites for workload migrations
 
 Workloads should be migrated only after the organization is committed to Azure and have established their approach for adopting Azure. Before migrating workloads, we recommend that you understand the fundamental concepts on Azure and have an active Azure enrollment. Explore these Cloud Adoption Framework (CAF) resources to achieve these goals:
 
-- To learn about terms in Azure and how the concepts relate to one another, see [Azure fundamental concepts](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts).
+- Learn about terms used in Azure and how the concepts relate to one another.
+ 
+  [**Azure fundamental concepts**](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts)
 
-- To develop your organization's migration plan and identify the types of workloads that you should migrate, see the training module, [Use the Cloud Adoption Framework Migrate methodology to migrate your workload to the cloud](/training/modules/cloud-adoption-framework-migrate/).
+- Complete the learning objectives in the training module to develop your organization's migration plan and identify the types of workloads that need to be migrated.
+
+  [**Learn about the Cloud Adoption Framework Migrate methodology**](/training/modules/cloud-adoption-framework-migrate/)
 
 In the next phase, the workload team plans and implements the migration. They assess the current workload design, prepare a solution in Azure, make necessary code changes, and perform the migration. 
 
@@ -38,7 +42,7 @@ This collection applies to the following workload roles and functions at the tea
 
 ## Content layout
 
-The migration guide content is organized by platform, starting with your source platform. Each platform includes comparison articles. To get started, compare the capabilities of your workload and its services with their closest Azure counterparts. These articles also include example scenarios and service-level migration guides to illustrate the comparisons.
+The migration guide content is categorized by the source platform on which your workload currently runs. Each category includes comparison articles. To get started, compare the capabilities of your workload and its services with their closest Azure counterparts. These articles also include example scenarios and service-level migration guides to illustrate the comparisons.
 
 Start your learning journey based on your source platform:
 
@@ -48,7 +52,7 @@ Start your learning journey based on your source platform:
 > [!div class="nextstepaction"]
 > [Migrate a workload from GCP](./migrate-from-google-cloud.yml)
 
-This collection also includes guidance that applies to all platforms. All sections include such platform-agnostic guidance for convenience.
+This collection also includes articles that apply to all platforms. All sections include such platform-agnostic articles for convenience.
 
 ## Tools
 
