@@ -5,7 +5,7 @@ description: Learn to configure forced tunneling for P2S VPN in Virtual WAN.
 author: wtnlee
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 08/24/2023
+ms.date: 03/26/2025
 ms.author: wellee
 
 ---

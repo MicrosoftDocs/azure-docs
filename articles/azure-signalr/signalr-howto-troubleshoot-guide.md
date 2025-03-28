@@ -119,7 +119,7 @@ Check if your client request has multiple `hub` query strings. The `hub` is pres
 
 ### Root cause
 
-Currently the default value of JWT token's lifetime is one (1) hour.
+Currently the default value of JWT's lifetime is one (1) hour.
 
 For ASP.NET Core SignalR, when it's using WebSocket transport type, it's OK.
 
@@ -129,7 +129,7 @@ For ASP.NET SignalR, the client sends a `/ping` "keep alive" request to the serv
 
 ### Solution
 
-For security concerns, extend TTL isn't encouraged. We suggest adding reconnect logic from the client to restart the connection when such 401 occurs. When the client restarts the connection, it negotiates with app server to get the JWT token again and get a renewed token.
+For security concerns, extend TTL isn't encouraged. We suggest adding reconnect logic from the client to restart the connection when such 401 occurs. When the client restarts the connection, it negotiates with app server to get the JWT again and get a renewed token.
 
 Check [here](#restart_connection) for how to restart client connections.
 
@@ -447,7 +447,7 @@ Here are the [Sample codes](https://github.com/Azure/azure-signalr/tree/dev/samp
 
 * [ASP.NET Core C# Client](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample/ChatSample.CSharpClient/Program.cs#L64)
 
-* [ASP.NET Core JavaScript Client](https://github.com/Azure/azure-signalr/blob/dev/samples/ChatSample/ChatSample.Net70/wwwroot/js/chat.js)
+* [ASP.NET Core JavaScript Client](https://github.com/Azure/azure-signalr/blob/dev/samples/ChatSample/ChatSample.RazorPages/wwwroot/js/chat.js#L53)
 
 * [ASP.NET C# Client](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.CSharpClient/Program.cs#L78)
 

@@ -2,11 +2,11 @@
 title: Azure Static Web Apps hosting plans
 description: Compare and contrast the different Azure Static Web Apps hosting plans.
 services: static-web-apps
-author: craigshoemaker
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic:  overview
 ms.date: 01/28/2025
-ms.author: cshoe
+ms.author: wujia
 ---
 
 # Azure Static Web Apps hosting plans

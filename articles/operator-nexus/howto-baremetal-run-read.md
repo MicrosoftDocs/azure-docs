@@ -5,7 +5,7 @@ author: eak13
 ms.author: ekarandjeff
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 2/5/2025
+ms.date: 2/13/2025
 ms.custom: template-how-to
 ---
 
@@ -61,7 +61,7 @@ The run-read command lets you run a command on the BMM that doesn't change anyth
 than one word, or need an argument to work. These commands are made like this to separate them from the ones
 that can change things. For example, run-read-command can use `kubectl get` but not `kubectl apply`. When you
 use these commands, you have to put all the words in the "command" field. For example,
-`{"command":"kubectl get","arguments":["nodes"]}` is right; `{"command":"kubectl","arguments":["get","nodes"]}`
+`{command:'kubectl get',arguments:[nodes]}` is right; `{command:kubectl,arguments:[get,nodes]}`
 is wrong.
 
 Also note that some commands begin with `nc-toolbox nc-toolbox-runread` and must be entered as shown.
@@ -103,6 +103,8 @@ This list shows the commands you can use. Commands in `*italics*` can't have `ar
 - `uname`
 - _`ulimit -a`_
 - `uptime`
+- `timedatectl status`
+- `hostnamectl status`
 - `nc-toolbox nc-toolbox-runread ipmitool channel authcap`
 - `nc-toolbox nc-toolbox-runread ipmitool channel info`
 - `nc-toolbox nc-toolbox-runread ipmitool chassis status`
@@ -241,19 +243,26 @@ This list shows the commands you can use. Commands in `*italics*` can't have `ar
 - `nc-toolbox nc-toolbox-runread mstfwmanager` (requires `query` arg)
 - `nc-toolbox nc-toolbox-runread mlx_temp`
 
-The command syntax is:
+The command syntax for a single command with no arguments is as follows, using `hostname` as an example:
 
 ```azurecli
 az networkcloud baremetalmachine run-read-command --name "<machine-name>"
     --limit-time-seconds "<timeout>" \
-    --commands '[{"command":"<command1>"},{"command":"<command2>","arguments":["<arg1>","<arg2>"]}]' \
+    --commands "[{command:hostname}]" \
     --resource-group "<cluster_MRG>" \
     --subscription "<subscription>"
 ```
 
-Multiple commands can be provided in json format to `--commands` option.
+- The `--commands` parameter always takes a list of commands, even if there's only one command.
+- Multiple commands can be provided in json format using [Azure CLI Shorthand](https://aka.ms/cli-shorthand) notation.
+- Any whitespace must be enclosed in single quotes.
+- Any arguments for each command must also be provided as a list, as shown in the following examples.
 
-For a command with multiple arguments, provide as a list to `arguments` parameter. See [Azure CLI Shorthand](https://github.com/Azure/azure-cli/blob/dev/doc/shorthand_syntax.md) for instructions on constructing the `--commands` structure.
+```
+--commands "[{command:hostname},{command:'nc-toolbox nc-toolbox-runread racadm ifconfig'}]"
+--commands "[{command:hostname},{command:'nc-toolbox nc-toolbox-runread racadm getsysinfo',arguments:[-c]}]"
+--commands "[{command:ping,arguments:[198.51.102.1,-c,3]}]"
+```
 
 These commands can be long running so the recommendation is to set `--limit-time-seconds` to at least 600 seconds (10 minutes). Running multiple commands might take longer than 10 minutes.
 
@@ -279,7 +288,7 @@ az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>
 ```azurecli
 az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>" \
     --limit-time-seconds 60 \
-    --commands '[{"command":"hostname"},{"command":"ping","arguments":["198.51.102.1","-c","3"]}]' \
+    --commands "[{command:hostname},{command:ping,arguments:[198.51.102.1,-c,3]}]" \
     --resource-group "<cluster_MRG>" \
     --subscription "<subscription>"
 ```
@@ -289,12 +298,31 @@ az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>
 ```azurecli
 az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>" \
     --limit-time-seconds 60 \
-    --commands '[{"command":"nc-toolbox nc-toolbox-runread racadm getsysinfo","arguments":["-c"]}]' \
+    --commands "[{command:'nc-toolbox nc-toolbox-runread racadm getsysinfo',arguments:[-c]}]" \
     --resource-group "<cluster_MRG>" \
     --subscription "<subscription>"
 ```
 
-## How to view the output of an `az networkcloud baremetalmachine run-read-command` in the Cluster Manager Storage account
+## Check the command status and view the output in a user specified storage account
+
+Sample output is shown. It prints the top 4,000 characters of the result to the screen for convenience and provides a short-lived link to the storage blob containing the command execution result. You can use the link to download the zipped output file (tar.gz). To access the output, users need the appropriate access to the storage blob. For information on assigning roles to storage accounts, see [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).
+
+```output
+  ====Action Command Output====
+  + hostname
+  rack1compute01
+  + ping 198.51.102.1 -c 3
+  PING 198.51.102.1 (198.51.102.1) 56(84) bytes of data.
+
+  --- 198.51.102.1 ping statistics ---
+  3 packets transmitted, 0 received, 100% packet loss, time 2049ms
+
+  ================================
+  Script execution result can be found in storage account:
+  https://<storage_account_name>.blob.core.windows.net/bmm-run-command-output/a8e0a5fe-3279-46a8-b995-51f2f98a18dd-action-bmmrunreadcmd.tar.gz?se=2023-04-14T06%3A37%3A00Z&sig=XXX&sp=r&spr=https&sr=b&st=2023-04-14T02%3A37%3A00Z&sv=2019-12-12
+```
+
+## DEPRECATED: How to view the output of an `az networkcloud baremetalmachine run-read-command` in the Cluster Manager Storage account
 
 This guide walks you through accessing the output file that is created in the Cluster Manager Storage account when an `az networkcloud baremetalmachine run-read-command` is executed on a server. The name of the file is identified in the `az rest` status output.
 
@@ -311,22 +339,3 @@ This guide walks you through accessing the output file that is created in the Cl
 1. Select the output file from the run-read command. The file name can be identified from the `az rest --method get` command. Additionally, the **Last modified** timestamp aligns with when the command was executed.
 
 1. You can manage & download the output file from the **Overview** pop-out.
-
-## **PREVIEW**: Check the command status and view the output in a user specified storage account
-
-Sample output is shown. It prints the top 4,000 characters of the result to the screen for convenience and provides a short-lived link to the storage blob containing the command execution result. You can use the link to download the zipped output file (tar.gz).
-
-```output
-  ====Action Command Output====
-  + hostname
-  rack1compute01
-  + ping 198.51.102.1 -c 3
-  PING 198.51.102.1 (198.51.102.1) 56(84) bytes of data.
-
-  --- 198.51.102.1 ping statistics ---
-  3 packets transmitted, 0 received, 100% packet loss, time 2049ms
-
-  ================================
-  Script execution result can be found in storage account:
-  https://<storage_account_name>.blob.core.windows.net/bmm-run-command-output/a8e0a5fe-3279-46a8-b995-51f2f98a18dd-action-bmmrunreadcmd.tar.gz?se=2023-04-14T06%3A37%3A00Z&sig=XXX&sp=r&spr=https&sr=b&st=2023-04-14T02%3A37%3A00Z&sv=2019-12-12
-```

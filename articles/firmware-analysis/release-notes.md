@@ -4,7 +4,7 @@ author: karengu0
 ms.author: karenguo
 description: Learn about the latest updates for firmware analysis.
 ms.topic: conceptual
-ms.date: 11/04/2024
+ms.date: 02/07/2025
 ms.service: azure
 ---
 
@@ -82,7 +82,7 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 
 ## July 2023
 
-Microsoft Defender for IoT Firmware analysis is now available in public preview. Defender for IoT can analyze your device firmware for common weaknesses and vulnerabilities, and provide insight into your firmware security. This analysis is useful whether you build the firmware in-house or receive firmware from your supply chain. 
+Microsoft Defender for IoT firmware analysis is now available in public preview. Defender for IoT can analyze your device firmware for common weaknesses and vulnerabilities, and provide insight into your firmware security. This analysis is useful whether you build the firmware in-house or receive firmware from your supply chain. 
 
 For more information, see [Firmware analysis for device builders](overview-firmware-analysis.md).
 

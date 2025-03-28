@@ -6,9 +6,9 @@ author: azaricstefan
 ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 05/20/2020
+ms.date: 02/25/2025
 ms.author: stefanazaric
-ms.reviewer: whhender 
+ 
 ---
 
 # Query CSV files
@@ -18,7 +18,7 @@ In this article, you'll learn how to query a single CSV file using serverless SQ
 - With and without a header row
 - Comma and tab-delimited values
 - Windows and Unix style line endings
-- Non-quoted and quoted values, and escaping characters
+- Nonquoted and quoted values, and escaping characters
 
 All of the above variations will be covered below.
 
@@ -39,10 +39,10 @@ from openrowset(
     firstrow = 2 ) as rows
 ```
 
-Option `firstrow` is used to skip the first row in the CSV file that represents header in this case. Make sure that you can access this file. If your file is protected with SAS key or custom identity, your would need to setup [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-level-credential).
+Option `firstrow` is used to skip the first row in the CSV file that represents header in this case. Make sure that you can access this file. If your file is protected with SAS key or custom identity, you would need to set up [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-level-credential).
 
 > [!IMPORTANT]
-> If your CSV file contains UTF-8 characters, make sure that you are using a UTF-8 database collation (for example `Latin1_General_100_CI_AS_SC_UTF8`).
+> If your CSV file contains UTF-8 characters, make sure that you're using a UTF-8 database collation (for example `Latin1_General_100_CI_AS_SC_UTF8`).
 > A mismatch between text encoding in the file and the collation might cause unexpected conversion errors.
 > You can easily change default collation of the current database using the following T-SQL statement:
 >   `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
@@ -69,7 +69,7 @@ from openrowset(
     ) as rows
 ```
 
-If a data source is protected with SAS key or custom identity you can configure [data source with database scoped credential](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential).
+If a data source is protected with SAS key or custom identity, you can configure [data source with database scoped credential](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential).
 
 ### Explicitly specify schema
 
@@ -93,7 +93,7 @@ from openrowset(
 The numbers after a data type in the `WITH` clause represent column index in the CSV file.
 
 > [!IMPORTANT]
-> If your CSV file contains UTF-8 characters, make sure that you are explicitly specifying some UTF-8 collation (for example `Latin1_General_100_CI_AS_SC_UTF8`) for all columns in `WITH` clause or set some UTF-8 collation at database level.
+> If your CSV file contains UTF-8 characters, make sure that you're explicitly specifying some UTF-8 collation (for example `Latin1_General_100_CI_AS_SC_UTF8`) for all columns in `WITH` clause or set some UTF-8 collation at database level.
 > Mismatch between text encoding in the file and collation might cause unexpected conversion errors.
 > You can easily change default collation of the current database using the following T-SQL statement:
 >   `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
@@ -181,7 +181,7 @@ FROM OPENROWSET(
     ) AS [r]
 ```
 
-Option `HEADER_ROW = TRUE` will result in reading column names from the header row in file. It is great for exploration purposes when you are not familiar with file content. For best performance see [Use appropriate data types section in Best practices](best-practices-serverless-sql-pool.md#use-appropriate-data-types). Also, you can read more about [OPENROWSET syntax here](develop-openrowset.md#syntax).
+Option `HEADER_ROW = TRUE` will result in reading column names from the header row in file. It's great for exploration purposes when you aren't familiar with file content. For best performance, see [Use appropriate data types section in Best practices](best-practices-serverless-sql-pool.md#use-appropriate-data-types). Also, you can read more about [OPENROWSET syntax here](develop-openrowset.md#syntax).
 
 ## Custom quote character
 
@@ -246,7 +246,7 @@ WHERE
 ```
 
 > [!NOTE]
-> This query would fail if ESCAPECHAR is not specified since the comma in "Slov,enia" would be treated as field delimiter instead of part of the country/region name. "Slov,enia" would be treated as two columns. Therefore, the particular row would have one column more than the other rows, and one column more than you defined in the WITH clause.
+> This query would fail if ESCAPECHAR isn't specified since the comma in "Slov,enia" would be treated as field delimiter instead of part of the country/region name. "Slov,enia" would be treated as two columns. Therefore, the particular row would have one column more than the other rows, and one column more than you defined in the WITH clause.
 
 ### Escape quoting characters
 
@@ -337,7 +337,7 @@ WITH (
 
 ## Querying appendable files
 
-The CSV files that are used in the query should not be changed while the query is running. In the long-running query, SQL pool may retry reads, read parts of the files, or even read the file multiple times. Changes of the file content would cause wrong results. Therefore, SQL pool fails the query if detects that modification time of any file is changed during the query execution.
+The CSV files that are used in the query shouldn't be changed while the query is running. In the long-running query, SQL pool may retry reads, read parts of the files, or even read the file multiple times. Changes of the file content would cause wrong results. Therefore, SQL pool fails the query if it detects that modification time of any file is changed during the query execution.
 
 In some scenarios you might want to read the files that are constantly appended. To avoid the query failures due to constantly appended files, you can allow the `OPENROWSET` function to ignore potentially inconsistent reads using the `ROWSET_OPTIONS` setting.
 
@@ -351,9 +351,9 @@ from openrowset(
     ROWSET_OPTIONS = '{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}') as rows
 ```
 
-The `ALLOW_INCONSISTENT_READS` read option will disable the file modification time check during the query lifecycle and read whatever is available in the file. In the appendable files, the existing content is not updated, and only new rows are added. Therefore, the probability of wrong results is minimized compared to the updateable files. This option might enable you to read the frequently appended files without handling the errors. Im most of the scenarios, SQL pool will just ignore some rows that are appended to the files during the query execution.
+The `ALLOW_INCONSISTENT_READS` read option will disable the file modification time check during the query lifecycle and read whatever is available in the file. In the appendable files, the existing content isn't updated, and only new rows are added. Therefore, the probability of wrong results is minimized compared to the updateable files. This option might enable you to read the frequently appended files without handling the errors. Im most of the scenarios, SQL pool will just ignore some rows that are appended to the files during the query execution.
 
-## Next steps
+## Related content
 
 The next articles will show you how to:
 

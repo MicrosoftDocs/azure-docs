@@ -4,6 +4,9 @@ description: Learn about the PySpark, PySpark3, and Spark kernels for Jupyter No
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 06/15/2024
 ---
 

@@ -2,7 +2,7 @@
 title: Bicep functions overview
 description: Learn about the functions that can be used in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: reference
-ms.date: 01/10/2025
+ms.date: 02/12/2025
 ms.custom: devx-track-bicep
 ---
 
@@ -86,6 +86,12 @@ The following functions are available for loading the content from external file
 * [loadJsonContent](bicep-functions-files.md#loadjsoncontent)
 * [loadYamlContent](bicep-functions-files.md#loadyamlcontent)
 * [loadTextContent](bicep-functions-files.md#loadtextcontent)
+
+## Flow-control functions
+
+The following function is available for influencing execution flow. This function is in the `sys` namespace:
+
+* [fail](bicep-functions-flow-control.md#fail)
 
 ## Lambda functions
 

@@ -93,6 +93,8 @@ With only a reduced number of session hosts available, you should schedule an up
 
 Here are known issues and limitations:
 
+- The current session host configuration version isn't displayed in the session host blade in the portal. Until this issue is fixed, you can access the portal using [this portal URL](https://portal.azure.com/?feature.hostpoolVirtualMachinesBladeV3=false#home) to view the current configuration version.
+
 - Session host update is only available in the global Azure cloud. It isn't available in other clouds, such as Azure US Government or Azure operated by 21Vianet.
 
 - For session hosts that were created from an Azure Compute Gallery shared image that has a purchase plan, the plan isn't retained when the session hosts are updated. To check whether the image you use for your session hosts has a purchase plan, you can use [Azure PowerShell](/azure/virtual-machines/windows/cli-ps-findimage) or [Azure CLI](/azure/virtual-machines/linux/cli-ps-findimage).

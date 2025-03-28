@@ -6,7 +6,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/29/2024
 ms.author: danlep 
 ---
@@ -19,7 +19,8 @@ The API Management *developer portal* is an automatically generated, fully custo
 
 This article introduces features of the developer portal, the types of content the portal presents, and options to manage and extend the developer portal for your specific users and scenarios.
 
-[!INCLUDE [developer-portal-editor-refresh](../../includes/developer-portal-editor-refresh.md)] 
+> [!TIP]
+> Both Azure API Management and Azure API Center provide API portal experiences for developers. [Compare the portals](#api-management-and-api-center-portals)
 
 :::image type="content" source="media/developer-portal-overview/cover.png" alt-text="Screenshot of the API Management developer portal.":::
 
@@ -53,6 +54,8 @@ Content is divided into two subcategories: *portal content* and *API Management 
 * *API Management data* includes entities such as APIs, Operations, Products, and Subscriptions that are managed in your API Management instance.
 
 ## Customize and style the portal
+
+[!INCLUDE [developer-portal-editor-refresh](../../includes/developer-portal-editor-refresh.md)] 
 
 Out of the box, the developer portal is already populated with your published APIs and products and ready to be customized for your needs. As an API publisher, you use the developer portal's administrative interface to customize the appearance and functionality of the developer portal. 
 
@@ -252,6 +255,8 @@ To reset the developer portal:
 1. In the administrative interface, in the menu at the left of the visual editor, select **Settings**.
 1. On the **Advanced** tab, select **Yes, reset the website to default state**.
 1. Select **Save**.
+
+[!INCLUDE [api-center-portal-compare-apim-dev-portal](../api-center/includes/api-center-portal-compare-apim-dev-portal.md)]
 
 ## Related content
 

@@ -4,7 +4,7 @@ description: Learn about how to use service principals to automate workflows for
 author: karengu0
 ms.author: karenguo
 ms.topic: conceptual
-ms.date: 11/04/2024
+ms.date: 02/07/2025
 ms.service: azure
 ---
  
