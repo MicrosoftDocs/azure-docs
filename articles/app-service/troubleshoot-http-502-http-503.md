@@ -78,7 +78,7 @@ App Service comes with a console that you can use for debugging, exploring, and 
 
 In the Azure portal, go to your app. In the left menu, select **Development Tools** > **Advanced Tools**. Select **Go** to open Kudu in a new browser window.
 
-You can also access the dashboard by going to the link `https://<unique app name>.scm.azurewebsites.net/`. By default, your unique app name includes `<app-name>`-`<random-hash>`.`<region>`. To get this value, in your app **Overview**, copy **Default domain**.
+By default, your app domain includes these elements: `<app-name>`-`<random-hash>`.`<region>`. You can also access the dashboard by going to the link `https://<app-name>-<random-hash>.scm.<region>.azurewebsites.net/`.  To get the random hash and region values, in your app **Overview**, copy **Default domain**.
 
 Kudu provides:
 
