@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 05/15/2021
 ms.author: joanpo
-ms.reviewer: wiassaf
+
 ms.custom: devx-track-azurepowershell
 ---
 
