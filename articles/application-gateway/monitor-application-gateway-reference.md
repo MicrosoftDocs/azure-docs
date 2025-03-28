@@ -337,7 +337,7 @@ If the application gateway can't complete the request, it stores one of the foll
 | ERRORINFO_UPSTREAM_NO_LIVE | The application gateway is unable to find any active or reachable backend servers to handle incoming requests. |
 | ERRORINFO_UPSTREAM_CLOSED_CONNECTION | The backend server closed the connection unexpectedly or before the request was fully processed. This condition could happen due to backend server reaching its limits, crashing etc. |
 | ERRORINFO_UPSTREAM_TIMED_OUT | The established TCP connection with the server was closed as the connection took longer than the configured timeout value. |
-| ERRORINFO_INVALID_HEADER | Application Gateway detected a partial invalid header and forwarded the remaining header to the backend, which responded with 200 OK. Ensure the client's request header does not contain CR, LF, NULL, or similar characters. Replace such characters with SP (whitespace). |
+| ERRORINFO_INVALID_HEADER | Application Gateway detected a partial invalid header and forwarded the remaining header to the backend, which responded with 500. Ensure the client's request header does not contain CR, LF, NULL, or similar characters. Replace such characters with SP (whitespace). |
 
 ### Firewall log category
 
