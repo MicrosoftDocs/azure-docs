@@ -3,7 +3,8 @@ title: Connect apps to Neon Serverless Postgres (Preview)
 description: Learn how to connect apps to your Neon Serverless Postgres (Preview) service using Service Connector in Azure.
 # customerIntent: As a developer I want connect apps deployed to Azure services, to a Neon Serverless Postgres (Preview) resource.
 ms.topic: how-to
-ms.date: 02/24/2025
+ms.date: 03/28/2025
+ms.custom: service-connector
 ---
 
 # Connect apps to Neon Serverless Postgres (Preview)
@@ -24,7 +25,7 @@ This guide shows step by step instructions to connect an app deployed to Azure A
 
 Follow these steps to connect an app to Neon Serverless Postgres (Preview):
 
-1. Open the App Service, Container Apps, AKS, or Azure Spring Apps resource where your app is deployed. If using Azure Spring Apps, once you've opened your resource, navigate to the **Apps** menu and select your app.
+1. Open the App Service, Container Apps, AKS, or Azure Spring Apps resource where your app is deployed. If using Azure Spring Apps, once you've opened your resource, navigate to the **Apps** menu, and select your app.
 
 1. Open **Service Connector** from the left menu and select **Create**.
 
