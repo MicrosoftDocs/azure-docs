@@ -485,7 +485,7 @@ $JBOSS_HOME/bin/jboss-cli.sh --connect
 
 Depending on where JBoss EAP is in the server lifecycle, you might not be able to connect. Wait a few minutes and try again. This approach is useful for quick checks of your current server state (for example, to see if a data source is properly configured).
 
-Also, changes you make to the server with the JBoss CLI in the SSH session don't persist after the app restarts. Each time the app starts, the JBoss EAP server begins with a clean installation. During the [startup lifecycle](#jboss-server-lifecycle), App Service makes the necessary server configurations and deploys the app. To make any persistent changes in the JBoss EAP server, use a [custom startup script or a startup command](#3-server-configuration-phase). For an end-to-end example, see [Configure data sources for a Java SE, Tomcat, or JBoss EAP app in Azure App Service](configure-language-java-data-sources.md?pivots=java-jboss).
+Also, changes you make to the server with the JBoss CLI in the SSH session don't persist after the app restarts. Each time the app starts, the JBoss EAP server begins with a clean installation. During the [startup lifecycle](#jboss-eap-server-lifecycle), App Service makes the necessary server configurations and deploys the app. To make any persistent changes in the JBoss EAP server, use a [custom startup script or a startup command](#3-server-configuration-phase). For an end-to-end example, see [Configure data sources for a Java SE, Tomcat, or JBoss EAP app in Azure App Service](configure-language-java-data-sources.md?pivots=java-jboss).
 
 Alternatively, you can manually configure App Service to run any file on startup. For example:
 
