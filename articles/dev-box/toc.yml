@@ -110,7 +110,9 @@ items:
   - name: Configure Dev Box Hibernation
     href: how-to-configure-dev-box-hibernation.md
   - name: Hibernate your Dev Box
-    href: how-to-hibernate-your-dev-box.md  
+    href: how-to-hibernate-your-dev-box.md
+  - name: Control resources with project policies 
+    href: how-to-configure-project-policy.md  
   - name: Configure an auto-stop schedule
     href: how-to-configure-stop-schedule.md
   - name: Configure stop on disconnect
