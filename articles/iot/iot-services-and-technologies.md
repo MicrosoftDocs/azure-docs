@@ -125,9 +125,9 @@ To learn more, see [What is Azure IoT Central?](../iot-central/core/overview-iot
 
 > Currently, Azure Event Grid is typically part of a **hybrid IoT solution** that uses Azure IoT Operations, IoT Hub, or IoT Central.
 
-Azure Event Grid is a highly scalable, fully managed Pub Sub message distribution service that offers flexible message consumption patterns using the MQTT and HTTP protocols. With Azure Event Grid, you can build data pipelines with device data, integrate applications, and build event-driven serverless architectures. Event Grid enables clients to publish and subscribe to messages over the MQTT v3.1.1 and v5.0 protocols to support Internet of Things (IoT) solutions. Through HTTP, Event Grid enables you to build event-driven solutions where a publisher service announces its system state changes (events) to subscriber applications.
+Azure Event Grid is a highly scalable, fully managed Pub Sub message distribution service that offers flexible message consumption patterns using the MQTT and HTTP protocols. With Azure Event Grid, you can build data pipelines with device data, integrate applications, and build event-driven serverless architectures. Event Grid enables clients to publish and subscribe to messages over the MQTT v3.1.1 and v5.0 protocols to support IoT solutions. Through HTTP, Event Grid enables you to build event-driven solutions where a publisher service announces its system state changes (events) to subscriber applications.
 
-Azure IoT Operations allows you to connect to [Azure Event Grid and other cloud-based MQTT brokers](connect-to-cloud/howto-configure-mqtt-endpoint.md). For example, you can set up a [bi-directional MQTT bridge between an Azure IoT Operations MQTT broker and Azure Event Grid](../iot-operations/connect-to-cloud/tutorial-mqtt-bridge.md).
+Azure IoT Operations allows you to connect to [Event Grid and other cloud-based MQTT brokers](connect-to-cloud/howto-configure-mqtt-endpoint.md). For example, you can set up a [bi-directional MQTT bridge between an Azure IoT Operations MQTT broker and Azure Event Grid](../iot-operations/connect-to-cloud/tutorial-mqtt-bridge.md).
 
 IoT Hub and IoT Central can integrate with Azure Event Grid to enable your business to react quickly to critical events. For example you can [react to IoT Hub events by using Event Grid to trigger actions](../iot-hub/iot-hub-event-grid.md).
 
@@ -135,20 +135,20 @@ To learn more, see [What is Azure Event Grid?](../event-grid/overview.md)
 
 ## Azure IoT device and service SDKs
 
-> The Azure IoT device and service SDKs enables you to build a custom **cloud-based IoT solution** that use IoT Hub and IoT Central.
+> The Azure IoT device and service SDKs enables you to build a custom **cloud-based IoT solution** that use IoT Hub or IoT Central.
 
-- The Azure IoT device SDKs help you address the challenges of connecting devices securely and reliably to your IoT Hub or IoT Central. 
-- The Azure IoT service SDKs contain code to facilitate building applications that interact directly with IoT Hub to manage devices and security.
-- The IoT Hub management SDKs help you build backend applications that manage the IoT hubs in your Azure subscription.
-- The DPS device SDKs provide implementations of the Register API and others that devices call to provision through DPS in IoT Hub or IoT Central.
-- The DPS service SDKs help you build backend applications to manage enrollments and registration records in DPS instances.
-- The DPS management SDKs help you build backend applications that manage the DPS instances and their metadata in your Azure subscription.
+- The [Azure IoT device SDKs](iot-sdks.md#device-sdks) help you address the challenges of connecting devices securely and reliably to your IoT Hub or IoT Central. 
+- The [Azure IoT service SDKs](iot-sdks.md#iot-hub-service-sdks) contain code to facilitate building applications that interact directly with IoT Hub to manage devices and security.
+- The [IoT Hub management SDKs](iot-sdks.md#iot-hub-management-sdks) help you build backend applications that manage the IoT hubs in your Azure subscription.
+- The [DPS device SDKs](iot-sdks.md#dps-device-sdks) provide implementations of the Register API and others that devices call to provision through DPS in IoT Hub or IoT Central.
+- The [DPS service SDKs](iot-sdks.md#dps-service-sdks) help you build backend applications to manage enrollments and registration records in DPS instances.
+- The [DPS management SDKs](iot-sdks.md#dps-management-sdks) help you build backend applications that manage the DPS instances and their metadata in your Azure subscription.
 
 To learn more, see [Azure IoT device and service SDKs](iot-sdks.md).
 
 ## Azure IoT Plug and Play
 
-> Azure IoT Plug and Play is a programming model that enables you to build a **cloud-based IoT solution** that use IoT Hub and IoT Central.
+> Azure IoT Plug and Play is a programming model that enables you to build a **cloud-based IoT solution** that use IoT Hub or IoT Central.
 
 IoT Plug and Play enables solution builders to integrate IoT devices with their solutions without any manual configuration. At the core of IoT Plug and Play, is a device _model_ that a device uses to advertise its capabilities to an IoT Plug and Play-enabled application. To make IoT Plug and Play work with Azure Digital Twins, you define models and interfaces using the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md).
 
