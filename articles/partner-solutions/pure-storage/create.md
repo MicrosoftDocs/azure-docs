@@ -27,6 +27,8 @@ The *Basics* tab has three sections:
 - Instance Details
 - Billing Details
 - Company Details
+- 
+- :::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create an Azure Native Pure Storage Cloud Storage options inside of the Azure portal's working pane with the Basics tab displayed.":::
 
 There are required fields that you need to fill out.
 

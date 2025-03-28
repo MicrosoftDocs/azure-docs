@@ -15,6 +15,8 @@ This article describes how to manage the settings for Pure Storage for Azure.
 
 [!INCLUDE [manage](../includes/manage.md)]
 
+:::image type="content" source="media/manage/resource-overivew.png" alt-text="A screenshot of a Pure Storage resource in the Azure portal with the overview displayed in the working pane.":::
+
 The *Essentials* details include:
 
 - Resource group
@@ -37,6 +39,7 @@ Below the essentials, you can navigate to other details about your resource by s
 To create a storage pool
 
 1. Select **Settings > Storage Pool** from the service menu.
+
 1. Select **Create a new storage pool** from the working pane's command bar. 
 
     The *Create a Storage Pool* window appears.
@@ -60,4 +63,6 @@ To create a storage pool
 
 ### Connect a Storage Pool to an Azure VMware resource
 
-To connect a storage pool to an Azure VMware resource, select the **Connect Azure VMware Solution** button from the working pane's command bar. 
+[!INCLUDE [manage](../includes/manage.md)]
+
+To connect a storage pool to an Azure VMware resource, select the **Connect Azure VMware Solution** button from the working pane's command bar.
