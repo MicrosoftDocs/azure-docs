@@ -1,4 +1,5 @@
 ---
+ROBOTS: NOINDEX
 title: 'Tutorial: Add a custom domain to your endpoint'
 titleSuffix: Azure Content Delivery Network
 description: Use this tutorial to add a custom domain to an Azure Content Delivery Network endpoint so that your domain name is visible in your URL.

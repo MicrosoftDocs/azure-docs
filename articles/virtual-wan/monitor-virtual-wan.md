@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Virtual WAN
 description: Start here to learn how to monitor availability and performance for Azure Virtual WAN by using Azure Monitor.
-ms.date: 09/10/2024
+ms.date: 03/26/2025
 ms.custom: horz-monitor
 ms.topic: concept-article
 author: cherylmc

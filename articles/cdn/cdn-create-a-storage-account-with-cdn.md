@@ -8,6 +8,7 @@ ms.service: azure-cdn
 ms.topic: quickstart
 ms.date: 03/20/2024
 ms.custom: mvc, mode-other
+ROBOTS: NOINDEX
 ---
 
 # Quickstart: Integrate an Azure Storage account with Azure Content Delivery Network

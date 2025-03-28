@@ -3,7 +3,7 @@ title: Troubleshoot Synapse Studio
 description: Troubleshoot Synapse Studio
 author: JeneZhang
 ms.author: jingzh
-ms.reviewer: whhender, wiassaf
+
 ms.date: 02/27/2025
 ms.service: azure-synapse-analytics
 ms.subservice: troubleshooting
