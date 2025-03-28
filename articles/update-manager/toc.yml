@@ -9,6 +9,8 @@ items:
     href: workflow-update-manager.md
   - name: What's New 
     href: whats-new.md
+  - name: About Arc-enabled VM extensions
+    href: overview-arc-enabled-vm-extensions.md
   - name: FAQ
     href: update-manager-faq.md
 - name: Getting started
