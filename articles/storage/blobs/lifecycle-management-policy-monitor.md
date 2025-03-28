@@ -15,17 +15,58 @@ ms.topic: conceptual
 
 You can determine when a lifecycle management run completes by subscribing to an event. You can use event properties to identify issues and investigate errors by using metrics and logs. 
 
-### Receiving notifications when a run is complete
+## Receiving notifications when a run is complete
 
-You can be notified when a run completes by subscribing to an event. 
+A client can be notified when a lifecycle management run is complete by subscribing to the `LifecyclePolicyCompleted` event. This event is generated when the actions defined by a lifecycle management policy are performed. A summary section appears for each action that is included in the policy definition. The following json shows an example `LifecyclePolicyCompleted` event for a policy. Because the policy definition includes the `delete`, `tierToCool`, `tierToCold`, and `tierToArchive` actions, a summary section appears for each one. 
 
-- Describe the event. For field descriptions, see [Microsoft.Storage.LifecyclePolicyCompleted event](../../event-grid/event-schema-blob-storage.md?toc=/azure/storage/blobs/toc.json#microsoftstoragelifecyclepolicycompleted-event)
+```json
+{
+    "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/contosoresourcegroup/providers/Microsoft.Storage/storageAccounts/contosostorageaccount",
+    "subject": "BlobDataManagement/LifeCycleManagement/SummaryReport",
+    "eventType": "Microsoft.Storage.LifecyclePolicyCompleted",
+    "eventTime": "2022-05-26T00:00:40.1880331",    
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "data": {
+        "scheduleTime": "2022/05/24 22:57:29.3260160",
+        "deleteSummary": {
+            "totalObjectsCount": 16,
+            "successCount": 14,
+            "errorList": ""
+        },
+        "tierToCoolSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        },
+        "tierToColdSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        },
+        "tierToArchiveSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        }
+    },
+    "dataVersion": "1",
+    "metadataVersion": "1"
+}
+```
 
-- Describe the process for subscribing to the event. For guidance, see [Reacting to Blob storage events](../blobs/storage-blob-event-overview.md).
+The following table describes the schema of the `LifecyclePolicyCompleted` event.
 
-- If you receive the event, then the run completed. You can look at various properties to see objects targeted and object processed. 
+|Field|Type|Description|
+|---|---|---|
+|scheduleTime|string|The time that the lifecycle policy was scheduled|
+|deleteSummary|vector\<byte\>|The results summary of blobs scheduled for delete operation|
+|tierToCoolSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-cool operation|
+|tierToColdSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-cold operation|
+|tierToArchiveSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-archive operation|
 
-- Question: What happens if there are so many objects that the run never fully completes? Will this event be triggered even though many objects are left to target?
+To learn more about the different ways to subscribe to an event, see [Event handlers in Azure Event Grid](../../event-grid/event-handlers.md?toc=/azure/storage/blobs/toc.json#microsoftstoragelifecyclepolicycompleted-event).
+
+Something here about parsing the errorList. How do you do this? What do you do with this?
 
 ## Investigating errors by using metric and logs
 

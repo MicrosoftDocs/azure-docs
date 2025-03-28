@@ -152,9 +152,7 @@ To view default scale limits, see the following articles:
 
 Learn more about [Lifecycle Management Performance Characteristics](lifecycle-management-performance-characteristics.md).
 
-## Events
-
-The **LifecyclePolicyCompleted** event is generated when the actions defined by a lifecycle management policy are performed. A summary section appears for each action that is included in the policy definition. For an example of the **LifecyclePolicyCompleted** event, and for a description of each field, see [Microsoft.Storage.LifecyclePolicyCompleted event](../../event-grid/event-schema-blob-storage.md?toc=/azure/storage/blobs/toc.json#microsoftstoragelifecyclepolicycompleted-event). 
+You can monitor the outcome of a policy execution by subscribing to the **LifecyclePolicyCompleted** event and diagnose errors by using metrics and logs. See [Lifecycle management policy monitoring](lifecycle-management-policy-monitor.md).
 
 ## Pricing and billing
 
