@@ -44,7 +44,7 @@ Azure publicizes service interruptions and performance degradations in App Servi
 
 ### Monitor your app
 
-You can monitor your app to find out if it's having any problems. On the Azure portal page for your app, select **Monitoring** > **Metrics**. The Metric dropdown menu shows you the metrics that you can add.
+You can monitor your app to find out if it's having any problems. On the Azure portal page for your app, select **Monitoring** > **Metrics**. The **Metric** dropdown menu shows you the metrics that you can add.
 
 Some of the metrics that you might want to monitor for your app are:
 
