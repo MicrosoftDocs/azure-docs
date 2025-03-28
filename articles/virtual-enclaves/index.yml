@@ -12,11 +12,13 @@ metadata:
   ms.author: jadean
   ms.date: 02/04/2025
 
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-    - title: Azure Virtual Enclaves (AVE) Overview
+  - title: Azure Virtual Enclaves (AVE) Overview
     linkLists:
       - linkListType: overview
         links:
@@ -30,7 +32,7 @@ landingContent:
             url: Networking.md
           - text: Designing intra-enclave network isolation
             url: Designing-intra-enclave-network-isolation.md
-
+ # Card
   - title: Components of a Virtual Enclave Environment 
     linkLists:
       - linkListType: concepts
@@ -51,7 +53,7 @@ landingContent:
             url: what-is-a-workload.md
           - text: What is a service catalog?
             url: what-is-the-service-catalog.md
-
+ # Card
   - title: Deploy an Azure Virtual Enclaves Environment
     linkLists:
       - linkListType: quickstart
@@ -76,7 +78,7 @@ landingContent:
             url: Create-an-Enclave-Connection-in-the-Azure-Portal.md
           - text: Easy button deployments
             url: Easy-Button-Deployments.md
-
+ # Card
   - title: Governance, Security, and Compliance
     linkLists:
       - linkListType: how-to-guide
@@ -95,7 +97,7 @@ landingContent:
             url: Regulatory-compliance-guidelines.md
           - text: Security best practices
             url: Security-best-practices.md
-
+ # Card
   - title: Manage and Monitor Virtual Enclaves
     linkLists:
       - linkListType: how-to-guide
@@ -108,7 +110,7 @@ landingContent:
             url: IP-Allocation-Management.md
           - text: Naming rules and restrictions
             url: Naming-rules-and-restrictions-for-Azure-Virtual-Enclave-resources.md
-
+ # Card
   - title: Troubleshoot
     linkLists:
       - linkListType: how-to-guide
