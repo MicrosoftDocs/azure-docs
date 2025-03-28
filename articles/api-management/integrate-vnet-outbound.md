@@ -76,21 +76,14 @@ You must have at least the following role-based access control permissions on th
 
 ## Configure virtual network integration
 
-This section guides you through the process of configure external virtual network integration for an existing Azure API Management instance.
+This section guides you through the process to configure external virtual network integration for an existing Azure API Management instance.
 
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-1. In the left menu, under **Deployment + Infrastructure**, select **Network**.
-1. On the **Outbound traffic** card, select **virtual network integration**.
-
-    :::image type="content" source="media/integrate-vnet-outbound/integrate-vnet.png" lightbox="media/integrate-vnet-outbound/integrate-vnet.png" alt-text="Screenshot of virtual network integration in the portal.":::
-
-1. In the **Virtual network** blade, enable the **Virtual network** checkbox.
-1. Select the location of your API Management instance.
-1. In **Virtual network**, select the virtual network and the delegated subnet that you want to integrate. 
-1. Select **Apply**, and then select **Save**. The virtual network is integrated.
-
-    :::image type="content" source="media/integrate-vnet-outbound/vnet-settings.png" lightbox="media/integrate-vnet-outbound/vnet-settings.png" alt-text="Screenshot of virtual network settings in the portal.":::
+1. In the left menu, under **Deployment + Infrastructure**, select **Network** > **Edit**.
+1. On the **Network configuration** page, under **Outbound features**, select **Enable** virtual network integration.
+1. Select the virtual network and the delegated subnet that you want to integrate. 
+1. Select **Save**. The virtual network is integrated.
 
 ## (Optional) Test virtual network integration
 
