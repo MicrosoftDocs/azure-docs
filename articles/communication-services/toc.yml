@@ -926,7 +926,7 @@ items:
       href: concepts/analytics/enable-logging.md
     - name: Query call logs
       href: concepts/analytics/log-analytics.md
-    - name: Setting up Call Monitoring and Alerting
+    - name: Set up call monitoring and alerting
       href: concepts/analytics/setup-call-monitoring.md
     - name: Export SDK telemetry to Application Insights
       href: quickstarts/telemetry-application-insights.md
