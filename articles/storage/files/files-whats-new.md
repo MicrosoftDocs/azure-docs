@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 02/25/2025
+ms.date: 03/28/2025
 ms.author: kendownie
 ---
 
@@ -15,6 +15,14 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 ## What's new in 2025
 
 ### 2025 quarter 1 (January, February, March)
+
+#### Azure Files vaulted backup is now generally available
+
+Azure Backup now supports vaulted backup of file shares in standard storage accounts to protect against ransomware and data loss. You can define backup schedules and retention settings to store data in the Backup vault for up to 10 years. Vaulted backups provide an offsite copy of your data. In case of data loss on the source account, you can restore it to an alternate account. You can manage vaulted backups at scale via Azure Business Continuity Center and monitor them using Azure Backup's alerting and reporting features.
+
+We recommend switching from snapshot backups to vaulted backups for comprehensive protection against data loss.
+
+For more information, see [About Azure Files backup](/azure/backup/azure-file-share-backup-overview?tabs=vault-standard).
 
 #### REST API support for NFS Azure file shares is now in public preview
 
@@ -61,7 +69,7 @@ Soft delete protects your Azure file shares from accidental deletion. The featur
 
 #### Azure Files vaulted backup is now in public preview
 
-Azure Backup now enables you to perform a vaulted backup of Azure Files to protect data from ransomware attacks or source data loss due to a malicious actor or rogue admin. You can define the schedule and retention of backups by using a backup policy. Azure Backup creates and manages the recovery points as per the schedule and retention defined in the backup policy. For more information, see [Azure Files vaulted backup (preview)](../../backup/whats-new.md#azure-files-vaulted-backup-preview).
+Azure Backup now enables you to perform a vaulted backup of Azure Files to protect data from ransomware attacks or source data loss due to a malicious actor or rogue admin. You can define the schedule and retention of backups by using a backup policy. Azure Backup creates and manages the recovery points as per the schedule and retention defined in the backup policy.
 
 ### 2024 quarter 1 (January, February, March)
 
