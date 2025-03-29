@@ -1,6 +1,6 @@
 ---
 title: What is an Enclave connection?
-description: Azure Virtual Enclaves Documentation
+description: What is an Enclave connection?
 author: jadean-msft
 ms.author: jadean
 # ms.service: Azure Virtual Enclaves
@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 01/31/2025
 ---
 
-# Overview
+# What is an Enclave connection?
 
 Enclave Connections enable network traffic to flow between a Virtual Enclave and a trusted destination defined within the Community boundary. The destination of every Enclave Connection is either an Enclave or Community Endpoint. Enclave Connections allow resources within your Enclave to access services and data running within another Enclave (Enclave Endpoint), or to trusted private and/or public destinations defined at the Community level (Community Endpoint). 
 

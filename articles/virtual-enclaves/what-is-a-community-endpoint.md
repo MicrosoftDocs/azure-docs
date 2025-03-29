@@ -1,14 +1,14 @@
 ---
 title: What is a Community endpoint?
-description: Azure Virtual Enclaves Documentation
+description: What is a Community endpoint?
 author: jadean-msft
 ms.author: jadean
-ms.service: Azure Virtual Enclaves
+# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 01/31/2025
 ---
 
-# Overview
+# What is a Community endpoint?
 
 A Community endpoint is a collection of trusted destinations and/or Transit Hub connections to private networks outside of the Community boundary. 
 Enclave Connections associated with a Community Endpoint allow the Source Enclave to connect to the destination defined within the Community Endpoint. 

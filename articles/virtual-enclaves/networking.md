@@ -1,6 +1,6 @@
 ---
 title: Networking
-description: Azure Virtual Enclaves Documentation
+description: Networking
 author: jadean-msft
 ms.author: jadean
 # ms.service: Azure Virtual Enclaves

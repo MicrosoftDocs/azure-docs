@@ -1,6 +1,6 @@
 ---
 title: What is an Enclave endpoint?
-description: Azure Virtual Enclaves Documentation
+description: What is an Enclave endpoint?
 author: jadean-msft
 ms.author: jadean
 # ms.service: Azure Virtual Enclaves
@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 01/31/2025
 ---
 
-# Overview
+# What is an Enclave endpoint?
 
 Enclave Endpoints define how workloads can be accessed from outside of an Enclave boundary. When an Enclave Connection is created from Enclave-A to an Endpoint in Enclave-B, the Endpoint determines the destination, ports, and protocols for the connection. The Enclave Connection resource determines authorized source IP coming from Enclave-A that is authorized to connect to Enclave-B.
 

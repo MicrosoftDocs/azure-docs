@@ -1,14 +1,15 @@
 ---
 title: What is a Workload?
-description: Azure Virtual Enclaves Documentation
+description: What is a Workload?
 author: jadean-msft
 ms.author: jadean
-ms.service: Azure Virtual Enclaves
+# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 01/31/2025
 ---
 
-# Overview
+# What is a Workload?
+
 Workloads are logical groups of Azure resources that you define to create and audit connections in Azure Virtual Enclaves. Only Community and Enclave Owners can view the workloads and networks that have network access to their data. Workloads are not discoverable to external networks. Enclave Owners can deploy Azure resources or services into Workloads. Workloads are provisioned within an enclave. Maintenance of customer workloads belongs to the customer, following the standard [Shared responsibility model in the cloud](https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility). 
 
 Workloads also automatically inherit security posture and policies of their enclave. Workloads can also, by default, utilize Community services reachable from their Enclave.

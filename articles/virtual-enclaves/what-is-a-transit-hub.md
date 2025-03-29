@@ -1,6 +1,6 @@
 ---
 title: What is a Transit hub?
-description: Azure Virtual Enclaves Documentation
+description: What is a Transit hub?
 author: jadean-msft
 ms.author: jadean
 # ms.service: Azure Virtual Enclaves
@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 01/31/2025
 ---
 
-# Overview
+# What is a Transit hub?
 
 A Transit hub establishes a virtual hub within a Community vWAN that serves as a secure tunnel between the Community and an external private network. A Transit Hub can be associated with a Private Network rule within a Community Endpoint to enable Virtual Enclaves to connect to trusted private networks outside of the Community boundary.
 
