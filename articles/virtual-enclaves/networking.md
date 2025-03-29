@@ -9,5 +9,3 @@ ms.date: 01/31/2025
 ---
 
 # Networking
-
-{: .fs-6 .fw-300 }
