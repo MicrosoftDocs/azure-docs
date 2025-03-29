@@ -18,17 +18,17 @@ Resiliency is a shared responsibility between you and Microsoft and so this arti
 
 ## Production deployment recommendations
 
-For recommendations on how to deploy reliable production workloads in AKS, see the following articles:
+For recommendations about how to deploy reliable production workloads in AKS, see the following articles:
 
 - [Deployment and cluster reliability best practices for AKS](/azure/aks/best-practices-app-cluster-reliability)
-- [High availability and disaster recovery overview for AKS](/azure/aks/ha-dr-overview)
+- [High availability (HA) and disaster recovery (DR) overview for AKS](/azure/aks/ha-dr-overview)
 - [Zone resiliency considerations for AKS](/azure/aks/aks-zone-resiliency)
 
 ## Reliability architecture overview
 
 When you create an AKS cluster, the Azure platform automatically creates and configures:
 
-- A [control plane](/azure/aks/core-aks-concepts#control-plane) with the API server, etcd, the scheduler, and other pods that are required to manage your workload.
+- A [control plane](/azure/aks/core-aks-concepts#control-plane) that has the API server, etcd, the scheduler, and other pods that are required to manage your workload.
 
 - A [system node pool](/azure/aks/use-system-pools) to your subscription that hosts your add-ons and other pods that run in the *kube-system* namespace.
 
@@ -48,7 +48,7 @@ Resiliency is a shared responsibility between you and Microsoft. As a compute se
 
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
-When you use AKS, transient faults can occur due to various reasons, including application crashes, pod scaling and balancing operations, node patching, and temporary infrastructure failures such as hardware or networking problems.
+When you use AKS, transient faults can occur because of various reasons, including application crashes, pod scaling and balancing operations, node patching, and temporary infrastructure failures such as hardware or networking problems.
 
 It's impossible to eliminate all transient faults, so clients that access your AKS-hosted applications should be prepared to retry failed requests and follow other transient fault handling recommendations. You can minimize the likelihood of transient faults and avoid or mitigate the downtime they might cause by following Kubernetes and Azure best practices in your deployment.
 
@@ -56,10 +56,10 @@ It's impossible to eliminate all transient faults, so clients that access your A
 
 - Use `maxUnavailable` to define the maximum number of replicas that can become unavailable at a given time. For example, when you perform a rolling restart, AKS ensures that no more than the `maxUnavailable` number of pods are churned at a given time. For more information, see [maxUnavailable](/azure/aks/best-practices-app-cluster-reliability#maxunavailable).
 
-- Follow deployment best practices. Pod replicas can also fail due to application problems. For more information, see [Deployment-level best practices](/azure/aks/best-practices-app-cluster-reliability#deployment-level-best-practices) for AKS cluster reliability.
+- Follow deployment best practices. Pod replicas can also fail because of application problems. For more information, see [Deployment-level best practices](/azure/aks/best-practices-app-cluster-reliability#deployment-level-best-practices) for AKS cluster reliability.
 
 > [!NOTE]
-> If you want AKS to validate your deployments for adherence to best practices and provide blocking or warning notifications, you can use deployment safeguards (preview). Deployment safeguards are a managed offering that helps enforce product best practices before your code gets deployed to the cluster. For more information, see [Use deployment safeguards to enforce best practices in AKS (preview)](/azure/aks/deployment-safeguards).
+> If you want AKS to validate your deployments for adherence to best practices and provide blocking or warning notifications, you can use [deployment safeguards (preview)](/azure/aks/deployment-safeguards). Deployment safeguards are a managed offering that helps enforce product best practices before your code gets deployed to the cluster.
 
 ## Availability zone support
 
@@ -67,7 +67,7 @@ It's impossible to eliminate all transient faults, so clients that access your A
 
 When you deploy an AKS cluster into a region that supports availability zones, different components require different types of configuration.
 
-The AKS control plane is zone resilient by default. If a zone fails, the control plane doesn't require any configuration or management to achieve resiliency. However, control plane resiliency isn't sufficient for your cluster to remain operational when a zone fails. For the system node pool and any user node pools that you deploy, you must enable availability zone support to ensure that your workloads are resilient to availability zone failures.
+The AKS control plane is zone resilient by default. If a zone fails, the control plane doesn't require any configuration or management to achieve resiliency. However, control plane resiliency isn't sufficient for your cluster to remain operational when a zone fails. For the system node pool and any user node pools that you deploy, you must enable availability zone support to help ensure that your workloads are resilient to availability zone failures.
 
 ### Region support
 
@@ -83,11 +83,11 @@ To enhance the reliability and resiliency of AKS production workloads in a regio
 
 - Enable automatic scaling. 
 
-   Kubernetes node pools provide manual and automatic scaling options. By using manual scaling, you can add or delete nodes as needed, and pending pods wait until you scale up a node pool. AKS-managed scaling uses the [cluster autoscaler](/azure/aks/cluster-autoscaler) or [node autoprovisioning (NAP)](/azure/aks/node-autoprovision). AKS scales the node pool up or down based on the pod's requirements within your subscription's SKU quota and capacity. This method ensures that your pods are scheduled on available nodes in the availability zones.
+   Kubernetes node pools provide manual and automatic scaling options. By using manual scaling, you can add or delete nodes as needed, and pending pods wait until you scale up a node pool. AKS-managed scaling uses the [cluster autoscaler](/azure/aks/cluster-autoscaler) or [node autoprovisioning (NAP)](/azure/aks/node-autoprovision). AKS scales the node pool up or down based on the pod's requirements within your subscription's SKU quota and capacity. This method helps ensure that your pods are scheduled on available nodes in the availability zones.
 
 - Set pod topology constraints.
 
-   Use pod topology spread constraints to control how pods are spread across different nodes or zones. Constraints help you achieve high availability and resiliency and efficient resource utilization. If you prefer to spread pods strictly across zones, you can set constraints to force a pod into a pending state to maintain the balance of pods across zones. For more information, see [Pod topology spread constraints](/azure/aks/best-practices-app-cluster-reliability#pod-topology-spread-constraints).
+   Use pod topology spread constraints to control how pods are spread across different nodes or zones. Constraints help you achieve HA, resiliency, and efficient resource usage. If you prefer to spread pods strictly across zones, you can set constraints to force a pod into a pending state to maintain the balance of pods across zones. For more information, see [Pod topology spread constraints](/azure/aks/best-practices-app-cluster-reliability#pod-topology-spread-constraints).
 
 - Configure zone-resilient networking.
 
@@ -105,9 +105,9 @@ There's no extra charge to enable availability zone support in AKS. You pay for 
 
 - You can create a new AKS cluster that uses availability zones and [configure availability zone support](/azure/aks/availability-zones).
 
-- You can't enable availability zone support after you create a cluster. Instead, you need to create a new cluster with availability zone support enabled and delete the old one.
+- You can't enable availability zone support after you create a cluster. Instead, you need to create a new cluster with availability zone support enabled and delete the existing cluster.
 
-- You can't disable availability zone support after you create a cluster. Instead, you need to create a new cluster with availability zone support disabled and delete the old one.
+- You can't disable availability zone support after you create a cluster. Instead, you need to create a new cluster with availability zone support disabled and delete the existing cluster.
 
 ### Traffic routing between zones
 
@@ -115,13 +115,13 @@ When you deploy an AKS cluster that uses availability zones, it's important to e
 
 ### Data replication between zones 
 
-If you run a stateless workload, you should use managed Azure services, such [Azure databases](https://azure.microsoft.com/products/category/databases/), [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview), or [Azure Storage](https://azure.microsoft.com/products/category/storage/) to store the application data. By using these services, you can ensure that your traffic can be moved across nodes and zones without risking data loss or affecting the user experience. You can use Kubernetes [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), [Services](https://kubernetes.io/docs/concepts/services-networking/service/), and [Health Probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) to manage stateless pods and ensure even distribution across zones.
+If you run a stateless workload, you should use managed Azure services, such [Azure databases](https://azure.microsoft.com/products/category/databases/), [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview), or [Azure Storage](https://azure.microsoft.com/products/category/storage/) to store the application data. You can use these services to help ensure that your traffic can be moved across nodes and zones without risking data loss or affecting the user experience. You can use Kubernetes [deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), [services](https://kubernetes.io/docs/concepts/services-networking/service/), and [health probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) to manage stateless pods and ensure even distribution across zones.
 
-If you need to store state within your cluster by using Azure disks, use Azure zone-redundant storage to ensure that your data is replicated across multiple availability zones. For more information, see [Choose the right disk type based on application needs](/azure/aks/aks-zone-resiliency#make-your-storage-disk-decision).
+If you need to store state within your cluster by using Azure disks, use Azure zone-redundant storage to help ensure that your data is replicated across multiple availability zones. For more information, see [Choose the right disk type based on application needs](/azure/aks/aks-zone-resiliency#make-your-storage-disk-decision).
 
 ### Zone-down experience
 
-- **Detection and response:** When a zone outage occurs, the control plane automatically fails over. If your node pools use availability zones and follow [zone resiliency best practices](#considerations), you can expect AKS to bring up nodes and replicas in the zones that are up and running. AKS does this task automatically when you use managed solutions like cluster autoscaler or NAP. Without autoscaling, nodes and replicas remain in the *Pending* state and wait for manual intervention to scale up the node pool. 
+- **Detection and response:** When a zone outage occurs, the control plane automatically fails over. If your node pools use availability zones and follow [zone resiliency best practices](#considerations), you can expect AKS to bring up nodes and replicas in the zones that are operational. AKS does this task automatically when you use managed solutions like cluster autoscaler or NAP. Without autoscaling, nodes and replicas remain in the *Pending* state and wait for manual intervention to scale up the node pool. 
 
    AKS also attempts to rebalance the pods across the healthy zones. If you choose to manually scale your node pool in a zone-down scenario, your pods might remain in the *Pending* state when there are no nodes available in the healthy zones. Scaling out in the remaining zones is also subject to the availability of quota and capacity for the VM SKU that you use.
 
@@ -143,7 +143,7 @@ When the availability zone recovers, failback behavior depends on the component:
 
 - **Control plane:** AKS automatically restores control plane operations across all availability zones. No manual intervention is required.
 
-- **Node pools and nodes:** Immediately after failback, nodes remain in the previously healthy zones and aren't restored into the recovered zone. However, the next time you perform a node-scaling operation, such as when you scale out your node pool, the node pool can create nodes in the recovered zone.
+- **Node pools and nodes:** Immediately after failback, nodes remain in the previously healthy zones and aren't restored in the recovered zone. However, the next time you perform a node-scaling operation, such as when you scale out your node pool, the node pool can create nodes in the recovered zone.
 
 - **Pods:** Immediately after failback, pods continue to run on the nodes that they currently run on. When new pods are created or existing pods are re-created, they're eligible to use nodes in the recovered zone.
 
@@ -168,17 +168,17 @@ If you need to deploy your Kubernetes workload to multiple Azure regions, you ha
 
   - Manage a set of AKS clusters as a single unit, and those clusters can be distributed across multiple Azure regions.
 
-  - Automate certain aspects of cluster management, such as cluster and node image upgrades.
+  - Automate specific aspects of cluster management, such as cluster and node image upgrades.
 
   - Use traffic distribution capabilities to spread traffic across the clusters and automatically fail over if a region is unavailable.
 
-- Orchestrate failover with a manual active-active or active-passive deployment model if your workload requires more nuanced control over the different components of interregional failovers. For more information, see [High availability and disaster recovery overview for AKS](/azure/aks/ha-dr-overview).
+- Orchestrate failover by using a manual active-active or active-passive deployment model if your workload requires more nuanced control over the different components of interregional failovers. For more information, see [HA and DR overview for AKS](/azure/aks/ha-dr-overview).
 
 ## Backups
 
-By using Azure Backup, you can use a backup extension to back up AKS cluster resources and persistent volumes that attach to the cluster. The Backup vault communicates with the AKS cluster through the extension to perform backup and restore operations.
+Azure Backup has an extension that you can use to back up AKS cluster resources and persistent volumes that attach to the cluster. The Backup vault communicates with the AKS cluster through the extension to perform backup and restore operations.
 
-If your AKS cluster is in a [region with a pair](./regions-paired.md), you can configure backups to be stored in geo-redundant storage. You can restore geo-redundant backups into the paired region.
+If your AKS cluster is in a [paired region](./regions-paired.md), you can configure backups to be stored in geo-redundant storage. You can restore geo-redundant backups into the paired region.
 
 For more information, see the following articles:
 
@@ -193,8 +193,8 @@ Strive to use stateless clusters that minimize the need for backup. Store data i
 
 The service-level agreement (SLA) for Azure Logic Apps describes the expected availability of the service and the conditions that must be met to achieve that availability expectation. For more information, see [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
-AKS offers three pricing tiers for cluster management: **Free**, **Standard**, and **Premium**. For more information, see [Free, Standard, and Premium pricing tiers for AKS cluster management](/azure/aks/free-standard-pricing-tiers). The Free tier enables you to use AKS to test your workloads. The Standard and Premium tiers are designed for production workloads. When you deploy an AKS cluster that has availability zones enabled, the uptime percentage defined in the SLA increases. However, the SLA applies only if you deploy a cluster in the Standard or Premium pricing tier.
+AKS provides three [pricing tiers for cluster management](/azure/aks/free-standard-pricing-tiers): **Free**, **Standard**, and **Premium**. The Free tier enables you to use AKS to test your workloads. The Standard and Premium tiers are designed for production workloads. When you deploy an AKS cluster that has availability zones enabled, the uptime percentage defined in the SLA increases. However, the SLA applies only if you deploy a cluster in the Standard or Premium pricing tier.
 
 ## Related content
 
-[Reliability in Azure](./overview.md)
+- [Reliability in Azure](./overview.md)
