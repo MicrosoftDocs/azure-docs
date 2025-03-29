@@ -80,7 +80,7 @@ To create an alert that will notify you if a file share is being throttled, foll
    > [!NOTE]
    > If the response types aren't listed in the **Dimension values** drop-down, this means the resource hasn't been throttled. To add the dimension values, next to the **Dimension values** drop-down list, select **Add custom value**, enter the response type (for example, **SuccessWithThrottling**), select **OK**, and then repeat these steps to add all applicable response types for your file share.
 
-5. For **provisioned file shares**, select the **Dimension name** drop-down and select **File Share**. For **pay-as-you-go file shares**, skip to step 7.
+5. For **provisioned file shares**, select the **Dimension name** drop-down and select **File Share**. For **pay-as-you-go file shares**, skip to step 8.
 
    > [!NOTE]
    > If the file share is a pay-as-you-go file share, the **File Share** dimension won't list the file share(s) because per share metrics aren't available for pay-as-you-go file shares. Throttling alerts for pay-as-you-go file shares will be triggered if any file share within the storage account is throttled, and the alert won't identify which file share was throttled. Because per share metrics aren't available for pay-as-you-go file shares, we recommend using the provisioned v2 model instead of the pay-as-you-go model.
