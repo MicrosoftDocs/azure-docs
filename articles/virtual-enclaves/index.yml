@@ -6,11 +6,11 @@ summary: Learn how to use Azure Virtual Enclaves. Get started with quickstarts, 
 metadata:
   title: Azure Virtual Enclaves Documentation - Tutorials, Quickstarts, API References
   description: Learn how to use Azure Virtual Enclaves. Quickstarts, tutorials, samples, and best practices for deploying, securing, and managing enclaves.
-  ms.service: azure-virtual-enclaves
+  # ms.service: azure-virtual-enclaves
   ms.topic: landing-page
-  author: azure-virtual-enclaves
+  author: jadean-msft
   ms.author: jadean
-  ms.date: 02/04/2025
+  ms.date: 03/028/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -24,14 +24,14 @@ landingContent:
         links:
           - text: What is Azure Virtual Enclaves?
             url: what-is-azure-virtual-enclaves.md
-#           - text: Why use Azure Virtual Enclaves?
-#             url: why-azure-virtual-enclaves.md
-#       - linkListType: learn
-#         links:
-#           - text: Understanding Enclave Networking
-#             url: Networking.md
+      #     - text: Why use Azure Virtual Enclaves?
+      #       url: why-azure-virtual-enclaves.md
+      # - linkListType: learn
+      #   links:
+      #     - text: Understanding Enclave Networking
+      #       url: networking.md
 #           - text: Designing intra-enclave network isolation
-#             url: Designing-intra-enclave-network-isolation.md
+#             url: designing-intra-enclave-network-isolation.md
 #  # Card
 #   - title: Components of a Virtual Enclave Environment 
 #     linkLists:
