@@ -365,27 +365,28 @@ Set-PolicyChanges $lab $policyChanges
 
 ## Create a custom image from a VHD file
 
-This sample PowerShell script creates a custom image from a Windows VHD file in DevTest Labs. To use the script, replace the parameter values under the `# Values to change` comment with your own values. You can get the `subscriptionId`, `labRg`, and `labName` values from the lab's main page in the Azure portal.
+This sample PowerShell script creates a custom image in DevTest Labs from a Windows VHD file. The script requires a VHD file to be uploaded to the Azure Storage account for the lab.
 
+To use the script, replace the parameter values under the `# Values to change` comment with your own values. You can get the `subscriptionId`, `labRg`, and `labName` values from the lab's main page in the Azure portal. Get the `vhdUri` value from the Azure Storage container where you uploaded the VHD file.
 
 This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Gets resources. |
-| [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) | Gets the access keys for an Azure Storage account. |
-| [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) | Adds an Azure deployment to a resource group. |
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Gets resources such as the lab object and lab storage account. |
+| [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) | Gets the access keys for the lab storage account. |
+| [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) | Creates the custom image and resource group deployment based on a template. |
 
 ```powershell
 # Values to change
-$subscriptionId = '<Specify your subscription ID here>'
-$labRg = '<Specify your lab resource group name here>'
-$labName = '<Specify your lab name here>'
-$vhdUri = '<Specify the VHD URI here>'
-$customImageName = '<Specify the custom image name>'
-$customImageDescription = '<Specify the custom image description>'
+$subscriptionId = '<Azure subscription ID>'
+$labRg = '<Lab resource group name>'
+$labName = '<Lab name>'
+$vhdUri = '<VHD URI>'
+$customImageName = '<Name for the custom image>'
+$customImageDescription = '<Description for the custom image'
 
-# Select the desired Azure subscription. 
+# Select the Azure subscription. 
 Select-AzSubscription -SubscriptionId $subscriptionId
 
 # Get the lab object.
@@ -398,8 +399,8 @@ $labStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $labStorageA
 # Set up the parameters object.
 $parameters = @{existingLabName="$($lab.Name)"; existingVhdUri=$vhdUri; imageOsType='windows'; isVhdSysPrepped=$false; imageName=$customImageName; imageDescription=$customImageDescription}
 
-# Create the custom image. 
-New-AzResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name CreateCustomImage -TemplateUri 'https://raw.githubusercontent.com/Azure/azure-devtestlab/master/Samples/201-dtl-create-customimage-from-vhd/azuredeploy.json' -TemplateParameterObject $parameters
+# Create the custom image.
+New-AzResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name CreateCustomImage -TemplateUri 'https://raw.githubusercontent.com/Azure/azure-devtestlab/master/samples/DevTestLabs/QuickStartTemplates/201-dtl-create-customimage-from-vhd/azuredeploy.json' -TemplateParameterObject $parameters
 ```
 
 ## Related content
