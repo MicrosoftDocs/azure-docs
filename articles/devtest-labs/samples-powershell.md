@@ -1,29 +1,31 @@
 ---
 title: Azure PowerShell Samples
-description: Use these Azure PowerShell scripts for DevTest Labs activities like adding lab users, creating and assigning custom lab roles, and allowing specific lab VM sizes and Marketplace images.
+description: Use these Azure PowerShell scripts for DevTest Labs activities like adding lab users, creating custom lab roles, and allowing specific lab VM sizes and Marketplace images.
 ms.topic: sample
 ms.custom: devx-track-azurepowershell, UpdateFrequency2
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/27/2025
+ms.date: 03/28/2025
+
+#customer intent: As a lab administrator, I want to run Azure PowerShell scripts to add users, roles, VM sizes, and Marketplace images, so I can easily customize the lab to meet our needs.
 ---
 
-# Azure PowerShell samples for Azure Lab Services
+# Azure PowerShell samples for Azure DevTest Labs
 
 This article includes the following sample Azure PowerShell scripts for Azure DevTest Labs:
 
 - [Add an external user to a lab](#add-an-external-user-to-a-lab)
-- [Create a custom role in a lab](#create-a-custom-role-in-a-lab)
-- [Set allowed virtual machine (VM) sizes for a lab](#set-allowed-virtual-machine-sizes)
+- [Create and assign a custom role in a lab](#create-and-assign-a-custom-lab-user-role)
+- [Set allowed virtual machine (VM) sizes for a lab](#set-allowed-vm-sizes)
 - [Add Marketplace images to a lab](#add-a-marketplace-image-to-a-lab)
 - [Create a custom image from a virtual hard drive (VHD)](#create-a-custom-image-from-a-vhd-file)
 
 ## Prerequisites
 
-- Adding or assigning users or roles requires **Owner** role in a lab, or **Owner** or **User Access Administrator** role in the Azure subscription that contains the lab.
-- Setting allowed lab VM sizes, adding a Marketplace image, or creating a custom image require at least **Contributor** role in the lab or the Azure subscription.
-- Azure PowerShell. You can use [Azure Cloud Shell](/azure/cloud-shell/quickstart) or [install PowerShell locally](/powershell/azure/install-azure-powershell).
-  - In Cloud Shell, select the **PowerShell** experience.
+- To add or assign users or roles: **Owner** role in a lab, or **Owner** or **User Access Administrator** role in the Azure subscription that contains the lab.
+- To set allowed lab VM sizes, add a Marketplace image, or create a custom image: At least **Contributor** role in the lab or the Azure subscription.
+- All scripts require Azure PowerShell. You can use [Azure Cloud Shell](/azure/cloud-shell/quickstart) or [install PowerShell locally](/powershell/azure/install-azure-powershell).
+  - In Cloud Shell, select the **PowerShell** environment.
   - For a local PowerShell installation, run `Update-Module -Name Az` to get the latest version of Azure PowerShell, and run [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to Azure. If you have multiple Azure subscriptions, use `Set-AzContext -SubscriptionId "<SubscriptionId>"` to provide the subscription ID you want to use.
 
 ## Add an external user to a lab
@@ -52,14 +54,14 @@ Select-AzSubscription -SubscriptionId $subscriptionId
 # Get the user object.
 $adObject = Get-AzADUser -SearchString $userDisplayName
 
-# Assigns the role. 
+# Assign the role. 
 $labId = ('/subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labName)
 New-AzRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs User' -Scope $labId
 ```
 
 ## Create and assign a custom lab user role
 
-This sample PowerShell script creates a custom role that allows lab users to modify lab policies, and assigns the new role to an external user.  The user to assign must be in the organization's Microsoft Entra ID.
+This sample PowerShell script creates a custom role that allows lab users to modify lab policies, and assigns the new role to an external user. The user to assign must be in the organization's Microsoft Entra ID.
 
 To use the script, replace the parameter values under the `# Values to change` comment with your own values. You can get the `subscriptionId`, `rgName`, and `labName` values from the lab's main page in the Azure portal.
 
@@ -365,7 +367,7 @@ Set-PolicyChanges $lab $policyChanges
 
 ## Create a custom image from a VHD file
 
-This sample PowerShell script creates a custom image in DevTest Labs from a Windows VHD file. The script requires a VHD file to be uploaded to the Azure Storage account for the lab.
+This sample PowerShell script creates a custom image in DevTest Labs from a VHD file. The script requires a Windows VHD file to be uploaded to the Azure Storage account for the lab.
 
 To use the script, replace the parameter values under the `# Values to change` comment with your own values. You can get the `subscriptionId`, `labRg`, and `labName` values from the lab's main page in the Azure portal. Get the `vhdUri` value from the Azure Storage container where you uploaded the VHD file.
 
@@ -382,9 +384,9 @@ This script uses the following commands:
 $subscriptionId = '<Azure subscription ID>'
 $labRg = '<Lab resource group name>'
 $labName = '<Lab name>'
-$vhdUri = '<VHD URI>'
+$vhdUri = '<URI for the uploaded VHD>'
 $customImageName = '<Name for the custom image>'
-$customImageDescription = '<Description for the custom image'
+$customImageDescription = '<Description for the custom image>'
 
 # Select the Azure subscription. 
 Select-AzSubscription -SubscriptionId $subscriptionId

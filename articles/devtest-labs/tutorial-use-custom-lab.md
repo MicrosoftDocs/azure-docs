@@ -4,10 +4,10 @@ description: Learn how to claim, unclaim, delete, and connect to a DevTest Labs 
 ms.topic: tutorial
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/26/2025
+ms.date: 03/28/2025
 ms.custom: UpdateFrequency2
 
-#customer intent: As a lab user, I want to be able to claim ownership and connect to lab VMs so I can use available VMs to do my work.
+#customer intent: As a lab user, I want to be able to claim ownership and connect to lab VMs, so I can use preconfigured VMs to do my work.
 ---
 
 # Claim and connect to a DevTest labs VM
@@ -53,7 +53,7 @@ To connect to a VM, it must be running. An unclaimed claimable VM is stopped. Wh
 
    :::image type="content" source="./media/tutorial-use-custom-lab/my-virtual-machines.png" alt-text="Screenshot of VM under My virtual machines.":::
 
-1. If available, select **Connect via Bastion** from the context menu. In the **Connect via Bastion** pane, select whether to open the VM in a new window, enter the VM username and password, and then select **Connect**..
+1. If available, select **Connect via Bastion** from the context menu. In the **Connect via Bastion** pane, select whether to open the VM in a new window, enter the VM username and password, and then select **Connect**.
 1. If **Connect via Bastion** isn't available:
    - For a Windows VM, select **Connect via RDP**, and follow instructions at [Connect to a Windows VM in your lab](connect-windows-virtual-machine.md).
    - For a Linux VM, select **Connect via Azure CLI** or **Connect via Native SSH**, and follow instructions at [Connect to a Linux VM in your lab](connect-linux-virtual-machine.md).
@@ -81,7 +81,7 @@ After you're done using the VM, you can unclaim it so someone else can claim it,
 
 ## Delete a lab VM
 
-When you're done using a VM, you can delete it unless someone else has claimed it. To delete an individual lab VM, follow these steps:
+When you're done using a VM, you can delete it unless someone else claims it. To delete an individual lab VM, follow these steps:
 
 1. Select the ellipsis **...** next to the VM in the **My virtual machines** list or on the **Claimable virtual machines** page, and select **Delete** from the context menu.
 1. On the **Are you sure you want to delete it** page, select **Delete**.

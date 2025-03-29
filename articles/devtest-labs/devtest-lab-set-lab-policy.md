@@ -4,15 +4,16 @@ description: Learn how to define lab policies such as VM sizes, maximum VMs per 
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/27/2025
+ms.date: 03/28/2025
 ms.custom: UpdateFrequency2
+
+#customer intent: As a lab administrator, I want to be able to set policies like allowed numbers of VMs per user and shutdown schedules, so I can control lab costs and improve manageability.
 ---
 
 # Manage lab policies in Azure DevTest Labs
 
-This article describes how Azure DevTest Labs administrators can manage lab policies to control lab costs, minimize waste, and improve managability. Lab policies include:
+This article describes how Azure DevTest Labs administrators can manage lab policies to control lab costs, minimize waste, and improve manageability. Lab policies you can set include:
 
-- Internal support
 - Allowed virtual machine (VM) sizes
 - Maximum VMs per user
 - Maximum VMs per lab
@@ -22,7 +23,7 @@ This article describes how Azure DevTest Labs administrators can manage lab poli
 
 ## Prerequisites
 
-**Contributor** or **Owner** level permissions to the lab.
+**Contributor** or **Owner** level permissions in the lab.
 
 ## Set lab policies
 
@@ -34,6 +35,7 @@ On the **Configuration and policies** page, select the policy you want to config
 
 :::image type="content" source="./media/devtest-lab-set-lab-policy/policies-menu.png" alt-text="Screenshot that shows a lab's Configuration and Policies options.":::
 
+<a name="set-allowed-virtual-machine-sizes"></a>
 ### Allowed virtual machine sizes
 
 This policy specifies the VM sizes that users can create in the lab.
@@ -45,6 +47,7 @@ This policy specifies the VM sizes that users can create in the lab.
 
    :::image type="content" source="./media/devtest-lab-set-lab-policy/allowed-vm-sizes.png" alt-text="Screenshot showing Allowed VM sizes.":::
 
+<a name="set-virtual-machines-per-user"></a>
 ### Virtual machines per user
 
 This policy specifies the maximum number of VMs that an individual lab user can claim or create.
@@ -98,6 +101,7 @@ By default, autoshutdown applies to all lab VMs. If allowed by [autoshutdown pol
 
 For more information about autoshutdown and sending notifications, see [Configure autoshutdown for labs and VMs in DevTest Labs](devtest-lab-auto-shutdown.md).
 
+<a name="set-autostart"></a>
 ### Autostart
 
 Autostart policy helps you minimize waste by specifying a specific time of day and days of the week to start up lab VMs.
@@ -114,6 +118,7 @@ Autostart policy helps you minimize waste by specifying a specific time of day a
 
 For more information and details about autostart policy, see [Start up lab virtual machines automatically](devtest-lab-auto-startup-vm.yml).
 
+<a name="set-auto-shutdown-policy"></a>
 ### Autoshutdown policy
 
 If you set autoshutdown for lab VMs, you can also set a policy to let lab users override the lab autoshutdown settings for their own VMs. You can set autoshutdown policy to allow lab users full control, partial control, or no control over their own VMs' autoshutdown activity.

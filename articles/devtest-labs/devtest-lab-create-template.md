@@ -4,10 +4,11 @@ description: Use the Azure portal to create an Azure DevTest Labs virtual machin
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/26/2025
+ms.date: 03/28/2025
 ms.custom: UpdateFrequency2
 
-#customer intent: As a lab user, I want to add artifacts to my VMs so I can use them to run scripts or commands, install tools or applications, or take other actions on my VMs.
+#customer intent: As a lab user, I want to create lab VM custom images by using VHD files, so I can easily provide a variety of images to lab users for creating VMs.
+
 ---
 
 # Create a custom image for Azure DevTest Labs virtual machines from VHD files
@@ -48,9 +49,9 @@ To create a custom image for DevTest Labs from a VHD or VHDX file, follow these 
 
 After creation, the custom image is stored in the lab's storage account, and appears in the list of VM base images for the lab. Lab users can create new VMs based on the custom image.
 
-![Screenshot that shows the Custom images available in the list of base images.](media/devtest-lab-create-template/custom-image-available-as-base.png)
+:::image type="content" source="media/devtest-lab-create-template/custom-image-available-as-base.png" alt-text="Screenshot that shows the Custom images available in the list of base images.":::
 
-## Next steps
+## Related content
 
 - [Add a VM to your lab](devtest-lab-add-vm.md)
 - [Compare custom images and formulas in DevTest Labs](devtest-lab-comparing-vm-base-image-types.md)
