@@ -2,32 +2,32 @@
   href: index.yml
 - name: Overview
   expanded: true
-  # items:
-  #   - name: What is Azure Virtual Enclaves?
-  #     href: what-is-azure-virtual-enclaves.md
+  items:
+    - name: What is Azure Virtual Enclaves?
+      href: what-is-azure-virtual-enclaves.md
 #     - name: Why use Azure Virtual Enclaves?
 #       href: why-azure-virtual-enclaves.md
 #     - name: Quotas and region availability
-#       href: Quotas-and-region-availability-in-Azure-Virtual-Enclaves.md
+#       href: quotas-and-region-availability-in-azure-virtual-enclaves.md
 # - name: Quickstarts
 #   expanded: true
 #   items:
 #     - name: Onboard to AVE
-#       href: Onboard-to-AVE.md
+#       href: onboard-to-ave.md
 #     - name: Deploy an AVE Community with Enclaves
-#       href: Deploy-an-AVE-Community-with-Enclaves.md
+#       href: deploy-an-ave-community-with-enclaves.md
 #     - name: Create a Community Endpoint
-#       href: Create-a-Community-Endpoint-in-the-Azure-Portal.md
+#       href: create-a-community-endpoint-in-the-azure-portal.md
 #     - name: Create an Enclave
-#       href: Create-an-Enclave-in-the-Azure-Portal.md
+#       href: create-an-enclave-in-the-azure-portal.md
 #     - name: Create a Workload
-#       href: Create-a-Workload-in-the-Azure-Portal.md
+#       href: create-a-workload-in-the-azure-portal.md
 #     - name: Easy Button Deployments
-#       href: Easy-Button-Deployments.md
-# - name: Concepts
-#   items:
-#     - name: Understanding Enclave Networking
-#       href: networking.md
+#       href: easy-button-deployments.md
+- name: Concepts
+  items:
+    - name: Understanding Enclave Networking
+      href: networking.md
 #     - name: Designing intra-enclave network isolation
 #       href: designing-intra-enclave-network-isolation.md
 #     - name: Concepts and best practices

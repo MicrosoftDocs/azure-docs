@@ -20,10 +20,10 @@ landingContent:
   # Card
   - title: Azure Virtual Enclaves (AVE) Overview
     linkLists:
-      # - linkListType: overview
-      #   links:
-#           - text: What is Azure Virtual Enclaves?
-#             url: what-is-azure-virtual-enclaves.md
+      - linkListType: overview
+        links:
+          - text: What is Azure Virtual Enclaves?
+            url: what-is-azure-virtual-enclaves.md
       #     - text: Why use Azure Virtual Enclaves?
       #       url: why-azure-virtual-enclaves.md
       - linkListType: learn
@@ -84,40 +84,40 @@ landingContent:
 #       - linkListType: how-to-guide
 #         links:
 #           - text: Just-In-Time Access
-#             url: Just-In-Time-Access.md
+#             url: just-in-time-access.md
 #           - text: Dynamic Access Controls
-#             url: Dynamic-Access-Controls.md
+#             url: dynamic-access-controls.md
 #           - text: Managed Identity
-#             url: Managed-Identity.md
+#             url: managed-identity.md
 #           - text: Customer Managed Key Encryption
-#             url: Setup-Customer-Managed-Key-CMK-Encryption-within-an-Enclave.md
+#             url: setup-sustomer-sanaged-key-encryption-within-an-enclave.md
 #           - text: Policy compliance framework
-#             url: Policy-compliance-framework.md
+#             url: policy-compliance-framework.md
 #           - text: Regulatory compliance guidelines
-#             url: Regulatory-compliance-guidelines.md
+#             url: regulatory-compliance-guidelines.md
 #           - text: Security best practices
-#             url: Security-best-practices.md
+#             url: security-best-practices.md
 #  # Card
 #   - title: Manage and Monitor Virtual Enclaves
 #     linkLists:
 #       - linkListType: how-to-guide
 #         links:
 #           - text: Monitor your enclaves
-#             url: Monitor-your-enclaves.md
+#             url: monitor-your-enclaves.md
 #           - text: Maintenance mode
-#             url: Maintenance-mode.md
+#             url: maintenance-mode.md
 #           - text: IP Allocation Management
-#             url: IP-Allocation-Management.md
+#             url: ip-allocation-management.md
 #           - text: Naming rules and restrictions
-#             url: Naming-rules-and-restrictions-for-Azure-Virtual-Enclave-resources.md
+#             url: naming-rules-and-restrictions-for-azure-virtual-enclave-resources.md
 #  # Card
 #   - title: Troubleshoot
 #     linkLists:
 #       - linkListType: how-to-guide
 #         links:
 #           - text: Troubleshooting guide
-#             url: Troubleshooting.md
+#             url: troubleshooting.md
 #           - text: Policy compliance exemptions
-#             url: Policy-compliance-exemptions.md
+#             url: policy-compliance-exemptions.md
 #           - text: Transfer or move data into my enclave
-#             url: Transfer-or-move-data-into-my-enclave.md
+#             url: transfer-or-move-data-into-my-enclave.md
