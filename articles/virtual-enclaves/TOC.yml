@@ -27,17 +27,17 @@
 # - name: Concepts
 #   items:
 #     - name: Understanding Enclave Networking
-#       href: Networking.md
+#       href: networking.md
 #     - name: Designing intra-enclave network isolation
-#       href: Designing-intra-enclave-network-isolation.md
+#       href: designing-intra-enclave-network-isolation.md
 #     - name: Concepts and best practices
-#       href: Concepts-and-best-practices.md
+#       href: concepts-and-best-practices.md
 #     - name: Defense in Depth
-#       href: Defense-in-Depth.md
+#       href: defense-in-depth.md
 #     - name: Workload and Application Planning
-#       href: Workload-and-Application-Planning.md
+#       href: workload-and-application-planning.md
 #     - name: Built-in RBAC Roles
-#       href: Built-in-RBAC-Roles.md
+#       href: built-in-rbac-roles.md
 #     - name: What is a community?
 #       href: what-is-a-community.md
 #     - name: What is a transit hub?
@@ -57,76 +57,76 @@
 # - name: Governance, Security, and Compliance
 #   items:
 #     - name: Just-In-Time Access
-#       href: Just-In-Time-Access.md
+#       href: just-in-time-access.md
 #     - name: Dynamic Access Controls
-#       href: Dynamic-Access-Controls.md
+#       href: dynamic-access-controls.md
 #     - name: Attribute-Based Access Controls
-#       href: Attribute-Based-Access-Controls.md
+#       href: attribute-based-access-controls.md
 #     - name: Access Controls in Virtual Enclaves
-#       href: Access-Controls-in-Virtual-Enclaves.md
+#       href: access-controls-in-virtual-enclaves.md
 #     - name: Managed Identity
-#       href: Managed-Identity.md
+#       href: managed-identity.md
 #     - name: Policy compliance framework
-#       href: Policy-compliance-framework.md
+#       href: policy-compliance-framework.md
 #     - name: Regulatory compliance guidelines
-#       href: Regulatory-compliance-guidelines.md
+#       href: regulatory-compliance-guidelines.md
 #     - name: Security best practices
-#       href: Security-best-practices.md
+#       href: security-best-practices.md
 #     - name: Setup Community Governance
-#       href: Setup-Community-Governance.md
+#       href: setup-community-governance.md
 # - name: Manage and Monitor
 #   items:
 #     - name: Monitor your enclaves
-#       href: Monitor-your-enclaves.md
+#       href: monitor-your-enclaves.md
 #     - name: Maintenance mode
-#       href: Maintenance-mode.md
+#       href: maintenance-mode.md
 #     - name: IP Allocation Management
-#       href: IP-Allocation-Management.md
+#       href: ip-allocation-management.md
 #     - name: Naming rules and restrictions
-#       href: Naming-rules-and-restrictions-for-Azure-Virtual-Enclave-resources.md
+#       href: naming-rules-and-restrictions-for-azure-virtual-enclave-resources.md
 # - name: Troubleshoot
 #   items:
 #     - name: Troubleshooting guide
-#       href: Troubleshooting.md
+#       href: troubleshooting.md
 #     - name: Policy compliance exemptions
-#       href: Policy-compliance-exemptions.md
+#       href: policy-compliance-exemptions.md
 #     - name: Transfer or move data into my enclave
-#       href: Transfer-or-move-data-into-my-enclave.md
+#       href: transfer-or-move-data-into-my-enclave.md
 #     - name: Connectivity troubleshooting
-#       href: Connectivity-Troubleshooting.md
+#       href: connectivity-troubleshooting.md
 #     - name: Firewall and security troubleshooting
-#       href: Firewall-and-Security-Troubleshooting.md
+#       href: firewall-and-security-troubleshooting.md
 #     - name: Performance troubleshooting
-#       href: Performance-Troubleshooting.md
+#       href: performance-troubleshooting.md
 #     - name: Resource allocation issues
-#       href: Resource-Allocation-Issues.md
+#       href: resource-allocation-issues.md
 #     - name: Deployment errors
-#       href: Deployment-Errors.md
+#       href: deployment-errors.md
 #     - name: Compliance validation
-#       href: Compliance-Validation.md
+#       href: compliance-validation.md
 # - name: Service Catalog
 #   items:
 #     - name: Overview
-#       href: Service-Catalog.md
+#       href: service-catalog.md
 #     - name: Deploy a Storage Account from Service Catalog
-#       href: Deploy-a-Storage-Account-from-the-Service-Catalog-into-a-Workload.md
+#       href: deploy-a-storage-account-from-the-service-catalog-into-a-workload.md
 #     - name: Deploy an App Service Web App from Service Catalog
-#       href: Deploy-an-App-Service-Web-App-from-the-Service-Catalog-into-a-Workload.md
+#       href: deploy-an-app-service-web-app-from-the-service-catalog-into-a-workload.md
 #     - name: Deploy Azure SQL from Service Catalog
-#       href: Deploy-Azure-SQL-from-the-Service-Catalog-into-a-Workload.md
+#       href: deploy-azure-sql-from-the-service-catalog-into-a-workload.md
 #     - name: List of Service Catalog Templates
-#       href: List-of-Service-Catalog-Templates.md
+#       href: list-of-service-catalog-templates.md
 # - name: Resources
 #   items:
 #     - name: Support Policies
-#       href: Support-policies.md
+#       href: support-policies.md
 #     - name: Videos
-#       href: Videos.md
+#       href: videos.md
 #     - name: Air-Gapped Communities and Enclaves
-#       href: Air-Gapped-Communities-and-Enclaves.md
+#       href: air-gapped-communities-and-enclaves.md
 #     - name: Understanding Admin Workstations
-#       href: Understanding-Admin-Workstations.md
+#       href: understanding-admin-workstations.md
 #     - name: AVE Templates
-#       href: AVE-Templates.md
+#       href: ave-templates.md
 #     - name: Migrate Azure Resources into AVE
-#       href: Migrate-Azure-Resources-into-Azure-Virtual-Enclaves.md
+#       href: migrate-azure-resources-into-azure-virtual-enclaves.md
