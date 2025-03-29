@@ -10,7 +10,7 @@ ms.date: 01/31/2025
 
 # What is a Workload?
 
-Workloads are logical groups of Azure resources that you define to create and audit connections in Azure Virtual Enclaves. Only Community and Enclave Owners can view the workloads and networks that have network access to their data. Workloads are not discoverable to external networks. Enclave Owners can deploy Azure resources or services into Workloads. Workloads are provisioned within an enclave. Maintenance of customer workloads belongs to the customer, following the standard [Shared responsibility model in the cloud](https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility). 
+Workloads are logical groups of Azure resources that you define to create and audit connections in Azure Virtual Enclaves. Only Community and Enclave Owners can view the workloads and networks that have network access to their data. Workloads are not discoverable to external networks. Enclave Owners can deploy Azure resources or services into Workloads. Workloads are provisioned within an enclave. Maintenance of customer workloads belongs to the customer, following the standard [Shared responsibility model in the cloud](https://learn.microsoft.com/azure/security/fundamentals/shared-responsibility). 
 
 Workloads also automatically inherit security posture and policies of their enclave. Workloads can also, by default, utilize Community services reachable from their Enclave.
 
@@ -39,6 +39,6 @@ The managed resource group functions just like an Azure resource group with the 
 - [What is Azure Virtual Enclaves?](/docs/overview/what%20is%20azure%20virtual%20enclaves)
 - [What is a Community?](/docs/overview/what%20is%20a%20community)
 - [What is an Enclave?](/docs/overview/what%20is%20an%20enclave)
-- [Shared responsibility model in the cloud](https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility)
+- [Shared responsibility model in the cloud](https://learn.microsoft.com/azure/security/fundamentals/shared-responsibility)
 - [Concepts and best practices of Azure Virtual Enclaves](/docs/Concepts/Concepts-and-best-practices)
 - [Tutorial: Create a Workload](/docs/Tutorials/3.-Create-workloads-in-an-enclave/)
