@@ -14,16 +14,16 @@ metadata:
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
-landingContent:
-# Cards and links should be based on top customer tasks or top subjects
-# Start card title with a verb
-  # Card
-  - title: Azure Virtual Enclaves (AVE) Overview
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure Virtual Enclaves?
-            url: what-is-azure-virtual-enclaves.md
+# landingContent:
+# # Cards and links should be based on top customer tasks or top subjects
+# # Start card title with a verb
+#   # Card
+#   - title: Azure Virtual Enclaves (AVE) Overview
+#     linkLists:
+#       - linkListType: overview
+#         links:
+#           - text: What is Azure Virtual Enclaves?
+#             url: what-is-azure-virtual-enclaves.md
       #     - text: Why use Azure Virtual Enclaves?
       #       url: why-azure-virtual-enclaves.md
       # - linkListType: learn

@@ -2,9 +2,9 @@
   href: index.yml
 - name: Overview
   expanded: true
-  items:
-    - name: What is Azure Virtual Enclaves?
-      href: what-is-azure-virtual-enclaves.md
+  # items:
+  #   - name: What is Azure Virtual Enclaves?
+  #     href: what-is-azure-virtual-enclaves.md
 #     - name: Why use Azure Virtual Enclaves?
 #       href: why-azure-virtual-enclaves.md
 #     - name: Quotas and region availability
