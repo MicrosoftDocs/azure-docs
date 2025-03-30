@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 02/25/2025
+ms.date: 03/28/2025
 ms.author: kendownie
 ---
 
@@ -15,6 +15,14 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 ## What's new in 2025
 
 ### 2025 quarter 1 (January, February, March)
+
+#### Azure Files vaulted backup is now generally available
+
+Azure Backup now supports vaulted backup of file shares in standard storage accounts to protect against ransomware and data loss. You can define backup schedules and retention settings to store data in the Backup vault for up to 10 years. Vaulted backups provide an offsite copy of your data. In case of data loss on the source account, you can restore it to an alternate account. You can manage vaulted backups at scale via Azure Business Continuity Center and monitor them using Azure Backup's alerting and reporting features.
+
+We recommend switching from snapshot backups to vaulted backups for comprehensive protection against data loss.
+
+For more information, see [About Azure Files backup](/azure/backup/azure-file-share-backup-overview?tabs=vault-standard).
 
 #### REST API support for NFS Azure file shares is now in public preview
 
@@ -61,7 +69,7 @@ Soft delete protects your Azure file shares from accidental deletion. The featur
 
 #### Azure Files vaulted backup is now in public preview
 
-Azure Backup now enables you to perform a vaulted backup of Azure Files to protect data from ransomware attacks or source data loss due to a malicious actor or rogue admin. You can define the schedule and retention of backups by using a backup policy. Azure Backup creates and manages the recovery points as per the schedule and retention defined in the backup policy. For more information, see [Azure Files vaulted backup (preview)](../../backup/whats-new.md#azure-files-vaulted-backup-preview).
+Azure Backup now enables you to perform a vaulted backup of Azure Files to protect data from ransomware attacks or source data loss due to a malicious actor or rogue admin. You can define the schedule and retention of backups by using a backup policy. Azure Backup creates and manages the recovery points as per the schedule and retention defined in the backup policy.
 
 ### 2024 quarter 1 (January, February, March)
 
@@ -119,7 +127,7 @@ Azure Files geo-redundancy for large file shares preview significantly improves 
 
 #### New SLA of 99.99 percent uptime for Azure Files Premium Tier is generally available
 
-Azure Files now offers a 99.99 percent SLA per file share for all Azure Files Premium shares, regardless of protocol (SMB, NFS, and REST) or redundancy type. This means that you can benefit from this SLA immediately, without any configuration changes or extra costs. If the availability drops below the guaranteed 99.99 percent uptime, you’re eligible for service credits.
+Azure Files now offers a 99.99 percent SLA per file share for all Azure Files Premium shares, regardless of protocol (SMB, NFS, and REST) or redundancy type. This means that you can benefit from this SLA immediately, without any configuration changes or extra costs. If the availability drops below the guaranteed 99.99 percent uptime, you're eligible for service credits.
 
 #### Support for Azure Files REST API with OAuth authentication is in public preview
 
@@ -145,7 +153,7 @@ Azure File Sync is now a zone-redundant service, which means an outage in a zone
 
 ### 2022 quarter 4 (October, November, December)
 #### Azure Active Directory (Azure AD) Kerberos authentication for hybrid identities on Azure Files is generally available
-This [feature](storage-files-identity-auth-hybrid-identities-enable.md) builds on top of [FSLogix profile container support](../../virtual-desktop/create-profile-container-azure-ad.yml) released in December 2022 and expands it to support more use cases (SMB only). Hybrid identities, which are user identities created in Active Directory Domain Services (AD DS) and synced to Azure AD, can mount and access Azure file shares without the need for network connectivity to an Active Directory domain controller. While the initial support is limited to hybrid identities, it’s a significant milestone as we simplify identity-based authentication for Azure Files customers. [Read the blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/general-availability-azure-active-directory-kerberos-with-azure/ba-p/3612111).
+This [feature](storage-files-identity-auth-hybrid-identities-enable.md) builds on top of [FSLogix profile container support](../../virtual-desktop/create-profile-container-azure-ad.yml) released in December 2022 and expands it to support more use cases (SMB only). Hybrid identities, which are user identities created in Active Directory Domain Services (AD DS) and synced to Azure AD, can mount and access Azure file shares without the need for network connectivity to an Active Directory domain controller. While the initial support is limited to hybrid identities, it's a significant milestone as we simplify identity-based authentication for Azure Files customers. [Read the blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/general-availability-azure-active-directory-kerberos-with-azure/ba-p/3612111).
 
 ### 2022 quarter 2 (April, May, June)
 #### SUSE Linux support for SAP HANA System Replication (HSR) and Pacemaker
@@ -155,7 +163,7 @@ Azure customers can now [deploy a highly available SAP HANA system in a scale-ou
 #### Azure File Sync TCO improvements
 To offer sync and tiering, Azure File Sync performs two types of transactions on behalf of the customer:
 - Transactions from churn, including changed files (sync) and recalled files (tiering).
-- Transactions from cloud change enumeration, done to discover changes made directly on the Azure file share. Historically, this was a major component of an Azure File Sync customer’s Azure Files bill.
+- Transactions from cloud change enumeration, done to discover changes made directly on the Azure file share. Historically, this was a major component of an Azure File Sync customer's Azure Files bill.
 
 To improve TCO, we markedly decreased the number of transactions needed to fully scan an Azure file share. Prior to this change, most customers were best off in the hot tier. Now most customers are best off in the cool tier.
 

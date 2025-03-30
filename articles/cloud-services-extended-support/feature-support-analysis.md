@@ -18,7 +18,7 @@ This article provides a feature analysis of Cloud Services (extended support) an
 | Feature |  CSES | Virtual Machine Scale Sets (Flex) | Virtual Machine Scale Sets (Uniform) | 
 |---|---|---|---|
 |Virtual machine type|Basic Azure PaaS VM (Microsoft.compute/cloudServices)|Standard Azure IaaS VM (Microsoft.compute/virtualmachines)|Scale Set specific VMs (Microsoft.compute /virtualmachinescalesets/virtualmachines)| 
-|Maximum Instance Count (with FD guarantees)|1100|1000|3000 (1000 per Availability Zone)|
+|Maximum Instance Count (with FD guarantees)|1100 subject to capacity and load balancer support|1000|3000 (1000 per Availability Zone)|
 |SKUs supported|D, Dv2, Dv3, Dav4 series, Ev3, Eav4 series, G series, H series|D series, E series, F series, A series, B series, Intel, AMD; Specialty SKUs (G, H, L, M, N) aren't supported|All SKUs|
 |Full control over VM, NICs, Disks|Limited control over NICs and VM via CS-ES APIs. No support for Disks|Yes|Limited control with virtual machine scale sets VM API|
 |RBAC Permissions Required|Compute Virtual Machine Scale Sets Write, Compute VM Write, Network|Compute Virtual Machine Scale Sets Write, Compute VM Write, Network|Compute Virtual Machine Scale Sets Write|
