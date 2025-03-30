@@ -56,9 +56,9 @@ Each of these scopes further divides statuses into categories and subcategories.
 | <a name="AZSM1029"></a>**AZSM1029** |Source endpoint type not supported by this agent version | This source type is unsupported by the current Storage Mover agent. |
 | <a name="AZSM1030"></a>**AZSM1030** |Cannot verify storage account type | Verify that the storage account and container exist, and that the agent has been granted permissions to them. |
 | <a name="AZSM1031"></a>**AZSM1031** |Failed to resolve target host | Review the network configuration. |
-| <a name="AZSM1040"></a>**AZSM1040** |Miscellaneous error while accessing target  | It's likely that this error is temporary. Retry the migration job again. If the issue persists, please create a support ticket for further assistance. |
-| <a name="AZSM1041"></a>**AZSM1041** |Failed to send job progress  | It's likely that this error is temporary. Retry the migration job again. If the issue persists, please create a support ticket for further assistance. |
-| <a name="AZSM1042"></a>**AZSM1042** |Failed to create job  | It's likely that this error is temporary. Retry the migration job again. If the issue persists, please create a support ticket for further assistance. |
+| <a name="AZSM1040"></a>**AZSM1040** |Miscellaneous error while accessing target  | It's likely that this error is temporary. Retry the migration job again. If the issue persists, create a support ticket for further assistance. |
+| <a name="AZSM1041"></a>**AZSM1041** |Failed to send job progress  | It's likely that this error is temporary. Retry the migration job again. If the issue persists, create a support ticket for further assistance. |
+| <a name="AZSM1042"></a>**AZSM1042** |Failed to create job  | It's likely that this error is temporary. Retry the migration job again. If the issue persists, create a support ticket for further assistance. |
 | <a name="AZSM1043"></a>**AZSM1043** |Failed to resume job  | Retry or create a support ticket. |
 | <a name="AZSM1044"></a>**AZSM1044** |Failed to finalize the job.  | Retry or create a support ticket. |
 | <a name="AZSM1045"></a>**AZSM1045** |Job was aborted while it was still running.  | Retry or create a support ticket. |
@@ -69,11 +69,11 @@ Each of these scopes further divides statuses into categories and subcategories.
 | <a name="AZSM2027"></a>**AZSM2027** |Source file security descriptor has unsupported properties  | Review the file's or folder's permissions. |
 | <a name="AZSM2061"></a>**AZSM2061** |Unknown Error encountered when scanning the source. |  This is probably a transient error. Rerun the migration job. |
 | <a name="AZSM2062"></a>**AZSM2062** |Failed to read source file due to permission issues. | Verify that the agent has been granted permissions to the source location. |
-| <a name="AZSM2063"></a>**AZSM2063** |Encountered I/O error while reading source file.  | It's likely that this error is temporary. Retry the migration job again. If the issue persists, please create a support ticket for further assistance. |
+| <a name="AZSM2063"></a>**AZSM2063** |Encountered I/O error while reading source file.  | It's likely that this error is temporary. Retry the migration job again. If the issue persists, create a support ticket for further assistance. |
 | <a name="AZSM2069"></a>**AZSM2069** |Failed to read target file due to permission issues.  | Verify that the agent has been granted permissions to the target location. |
 | <a name="AZSM2070"></a>**AZSM2070** |Cannot write blob because it has an active lease | This error may be caused by another agent writing to the location. Ensure no other job is running against the target. Retry or create support ticket. |
-| <a name="AZSM2071"></a>**AZSM2071** |Source file has been modified during transfer | It's likely that this error is temporary. Retry the migration job again. If the issue persists, please create a support ticket for further assistance. |
-| <a name="AZSM2080"></a>**AZSM2080** |Copy failed due to an unknown error  | It's likely that this error is temporary. Retry the migration job again. If the issue persists, please create a support ticket for further assistance. |
+| <a name="AZSM2071"></a>**AZSM2071** |Source file has been modified during transfer | It's likely that this error is temporary. Retry the migration job again. If the issue persists, create a support ticket for further assistance. |
+| <a name="AZSM2080"></a>**AZSM2080** |Copy failed due to an unknown error  | It's likely that this error is temporary. Retry the migration job again. If the issue persists, create a support ticket for further assistance. |
 
 ## Troubleshooting Storage Mover RBAC issues
 
@@ -82,8 +82,7 @@ During a job run, automatic RBAC assignments happen. In case of failures in assi
 1.	Navigate to the appropriate resource - Key Vault, File Share or Blob Container. 
 2.	Navigate to Access Control (IAM).
 3.	Add a new role assignment - [Assign Azure roles using the Azure portal - Azure RBAC | Microsoft Learn](/azure/role-based-access-control/role-assignments-portal) article.
-4.	In the Add role assignment wizard
-- Search for the appropriate role for the resource type selected in step 1. In the below example the resource would be Key Vault
+4.	In the Add role assignment wizard - Search for the appropriate role for the resource type selected in step 1. In the below example the resource would be Key Vault
 
 :::image type="content" source="media/troubleshooting/RBAC.png" alt-text="Image showing the Key Vault resource successfully assigned roles." lightbox="media/troubleshooting/RBAC.png":::
 
@@ -93,10 +92,10 @@ During a job run, automatic RBAC assignments happen. In case of failures in assi
 | <a name="File Share"></a>**File Share** |Storage File Data Privileged Contributor| 
 | <a name="Blob Container"></a>**Blob Container** |Storage Blob Data Privileged Contributor | 
 
-- Assign access should be for “Managed Identity”
-- On the right pane, select Managed Identity type as Machine – Azure Arc
-- Select the machine arc from the list. It will be of the same name as the agent.
-- Complete the assignment.
+1. Assign access should be for “Managed Identity”.
+2. On the right pane, select Managed Identity type as Machine – Azure Arc.
+3. Select the machine arc from the list. It will be of the same name as the agent.
+4. Complete the assignment.
 
 
 
