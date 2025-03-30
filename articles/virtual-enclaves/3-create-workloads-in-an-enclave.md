@@ -1,19 +1,11 @@
 ---
-layout: default
-title: 3. Create Workloads in an Enclave on Azure Virtual Enclaves
-parent: Tutorials
-nav_order: 3
----
-
-# Create Workloads in an Enclave on Azure Virtual Enclaves
-{: .no_toc }
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
-
+title: Create Workloads in an Enclave on Azure Virtual Enclaves
+description: Create Workloads in an Enclave on Azure Virtual Enclaves
+author: aserfass-msft
+ms.author: aserfass
+# ms.service: Azure Virtual Enclaves
+ms.topic: overview
+ms.date: 01/31/2025
 ---
 
 # Tutorial: Create Workloads in an Enclave on Azure Virtual Enclaves

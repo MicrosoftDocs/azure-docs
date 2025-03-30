@@ -1,19 +1,11 @@
 ---
-layout: default
-title: 4. Create Azure resources from the service catalog in an AVE Workload
-parent: Tutorials
-nav_order: 3
----
-
-# Create Azure resources from the service catalog in an AVE Workload
-{: .no_toc }
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
-
+title: Create Azure resources from the service catalog in an AVE Workload
+description: Create Azure resources from the service catalog in an AVE Workload
+author: aserfass-msft
+ms.author: aserfass
+# ms.service: Azure Virtual Enclaves
+ms.topic: overview
+ms.date: 01/31/2025
 ---
 
 # Tutorial: Create Azure resources from the service catalog in an AVE Workload
@@ -24,16 +16,16 @@ In this tutorial, part four of eight, you create Azure resources using service c
 
 - ✅ Deploy a Service Catalog template for an Azure resource into an existing Workload from the Portal
 
-> [!NOTE] The sample deployment below is just for demonstration purposes and doesn't represent all the best practices for network, systems, or applications administration.
+NOTE: The sample deployment below is just for demonstration purposes and doesn't represent all the best practices for network, systems, or applications administration.
 
 ## Before you begin
 
-- This tutorial assumes a basic understanding of networking and Azure Virtual Enclaves concepts. For more information, see [Concepts and best practices of Azure Virtual Enclaves](/docs/concepts/Concepts-and-best-practices).
+- This tutorial assumes a basic understanding of networking and Azure Virtual Enclaves concepts. For more information, see [Best practices of Azure Virtual Enclaves](./best-practices.md).
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
-- A [deployed Community](/docs/overview/what%20is%20a%20community), [deployed Virtual Enclave](/docs/overview/what%20is%20an%20enclave), and [deployed Workload](/docs/overview/what%20is%20a%20workload) and permissions to create resources inside the workload.
-- Complete the [prerequisites](/docs/How%20To%20Guides/Service%20Catalog/Deploy%20an%20App%20Service%20Web%20App%20from%20the%20Service%20Catalog%20into%20a%20Workload.md#prerequisites) for a App Service Web App. Including subnet delegation for the
+- A [deployed Community](./what-is-a-community.md), [deployed Virtual Enclave](./what-is-an-enclave.md), and [deployed Workload](./what-is-a-workload.md) and permissions to create resources inside the workload.
+- Complete the [prerequisites](.deploy-an-app-service-web-app-from-the-service-catalog-into-a-workload.md#prerequisites) for a App Service Web App. Including subnet delegation for the
 
-![image.png](/assets/sc-appService-subnetDelegate.png)
+![image.png](./media/sc-appService-subnetDelegate.png)
 
 ## Enable enclave maintenance mode
 
@@ -45,11 +37,11 @@ In this tutorial, part four of eight, you create Azure resources using service c
    - **Justification:** Select `Networking`
    - Select `Save`
 
-![image.png](/assets/sc-appService-maintenanceMode-input.png)
+![image.png](./media/sc-appService-maintenanceMode-input.png)
 
 3. Select `Confirm` and allow a few minutes for the enclave to return to `Succeeded` state
 
-![image.png](/assets/sc-appService-maintenanceMode-confirm.png)
+![image.png](./media/sc-appService-maintenanceMode-confirm.png)
 
 ## Create Azure web app resources from the service catalog
 
@@ -62,26 +54,26 @@ In this tutorial, part four of eight, you create Azure resources using service c
    - **App Service Sku Tier:** Enter `PremiumV2`.
    - **Number of Worker Instances:** Enter `2`.
 
-![image.png](/assets/sc-appService-basics.png)
+![image.png](./media/sc-appService-basics.png)
 
 9. Select `Next` to confirm the networking information was prepopulated by the Service Catalog. Ensure the App Service subnet has a delegation to 'Microsoft.Web/serverfarms' and the private link subnet does not.
    - **Dedicated App Service Subnet Name:** Enter `WorkloadSubnet` which is the subnet delegated in the previous step.
    - **Private Link Subnet Name:** Enter `mySubnet`
 
-![image.png](/assets/sc-appService-networking.png)
+![image.png](./media/sc-appService-networking.png)
 
 10. Select `Review + Create` and then `Create`.
 
 It can take up to 30 minutes to finish all resource creation. Wait for the deployment to complete successfully before you take any actions within your deployed resources.
 
-![image.png](/assets/sc-appService-deployed.png)
+![image.png](./media/sc-appService-deployed.png)
 
 ## Validate the deployment
 
 1. Go to the specified Resource Group to confirm the intended resources were created.
 
 ## (Optional) Deploy Web App Quickstart
-Azure App Service has quickstarts for many languages such as the [python quickstart](https://learn.microsoft.com/en-us/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-cli%2Cazure-cli-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli) or [deploy from a zip file](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip?tabs=cli)
+Azure App Service has quickstarts for many languages such as the [python quickstart](https://learn.microsoft.com/en-us/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-cli%2Cazure-cli-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli) or [deploy from a zip file](../app-service/deploy-zip.md)
 
 ## Clean up resources
 
@@ -91,15 +83,15 @@ If you don't plan on keeping these resources, clean up unnecessary resources to 
 
 In this tutorial, you created Azure resources with service catalog using Azure portal.
 
-In the [next tutorial](/Virtual-Enclaves-Docs/Tutorials/5.-Create-Azure-resources-in-workloads), you'll learn how to create Azure resources in your enclave.
+In the [next tutorial](./5-create-azure-resources-in-workloads.md), you'll learn how to create Azure resources in your enclave.
 
 ## Recommendations
 
-- Review an architecture example for a [basic web application](https://learn.microsoft.com/en-us/azure/architecture/web-apps/app-service/architectures/basic-web-app?tabs=cli)
-- [Add tags](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources) to Service Catalog deployments to track important information for that resource such as:
-  - Owner: <main POC>
-  - Deployer: <yourName>
-  - Purpose: <publish abc app to users>
-  - Service Catalog Name: <RemoteApp>
-  - Service Catalog Version: <version you deployed>
-- Consider adding an [Azure Policy to enforce and inherit tags](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-policies)
+- Review an architecture example for a [basic web application](../architecture/web-apps/app-service/architectures/basic-web-app.md)
+- [Add tags](../azure-resource-manager/management/tag-resources.md) to Service Catalog deployments to track important information for that resource such as:
+  - Owner: `main POC`
+  - Deployer: `yourName`
+  - Purpose: `publish abc app to users`
+  - Service Catalog Name: `RemoteApp`
+  - Service Catalog Version: `version you deployed`
+- Consider adding an [Azure Policy to enforce and inherit tags](../azure-resource-manager/management/tag-policies.md)

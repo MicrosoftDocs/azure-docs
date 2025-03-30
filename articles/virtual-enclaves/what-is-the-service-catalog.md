@@ -24,10 +24,10 @@ The Service Catalog contains two template categories:
 1. Azure Services - custom templates to allow common Azure Services to be deployed with the secure AVE boundaries without being blocked by policy or hardened network settings.
 1. Customer Workload Templates - Collections of Azure resources to meet specific customer needs
 
-See the [Service Catalog List](./list-of-service-catalog-templates.md) to view the available templates in the Service Catalog. While we strive to include as much setup in the ARM templates there may exist pre-requisites, please carefully review the documentation for each Service Catalog template you wish to deploy.
+See the [Service Catalog List](./list-of-service-catalog-templates.md) to view the available templates in the Service Catalog. Review the documentation for each Service Catalog template you wish to deploy to determine if there are any prerequisite steps.
 
 ## Editing Service Catalog templates before deployment
-You can edit the Service Catalog template itself but please be aware that edits may change the formatting of the parameter input flow. 
+You can edit the Service Catalog template itself but edits may change the formatting of the parameter input flow. 
 
 ## Ready? Deploy from the Service Catalog!
 
@@ -36,5 +36,5 @@ You can edit the Service Catalog template itself but please be aware that edits 
 - [Service Catalog How-To Guides and tips for each template](./service-catalog.md)
 - [What is Azure Virtual Enclaves?](./what-is-azure-virtual-enclaves.md)
 - [What is a Community?](./what-is-a-community.md)
-- [Tutorial: Create resouces from the Service Catalog](/./4-use-service-catalog-to-create-azure-resources-in-workloads.md)
+- [Tutorial: Create resources from the Service Catalog](/./4-use-service-catalog-to-create-azure-resources-in-workloads.md)
 - [What is an Enclave?](./what-is-an-enclave.md)
