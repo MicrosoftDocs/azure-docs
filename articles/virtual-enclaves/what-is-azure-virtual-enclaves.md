@@ -22,13 +22,13 @@ AVE takes a multi-layered and hierarchical approach to virtual boundary protecti
 ## Isolated virtual networking and workloads
 With Azure Virtual Enclaves, you can easily create new isolated, zero-trust software-defined networks and deploy workloads in those networks to satisfy your business requirements on Azure.
 
-- [**Communities**](./what-is-a-community.md) - Isolated, zero-trust, platform-managed virtual WAN boundary protected through a combination of Azure Firewall, policy guardrails, and RBAC deny assignments that serves as a hub for one or more Virtual Enclaves.  Community resources cannot be modified directly and must be managed through Community Endpoints and Transit Hubs resources to allow connectivity to trusted destinations outside of the Community boundary. Logging and diagnostics are enabled for all Enclaves and Workloads within the Community by default. Each Enclave can either send logging data to the Community or keep it isolated to the Enclave. The primary components of a Community include:
-  - Azure vWAN
+- [**Communities**](./what-is-a-community.md) - Isolated, zero-trust, platform-managed virtual WAN boundary protected through a combination of Azure Firewall, policy guardrails, and Role Based Access Control (RBAC) deny assignments that serves as a hub for one or more Virtual Enclaves.  Community resources cannot be modified directly and must be managed through Community Endpoints and Transit Hubs resources to allow connectivity to trusted destinations outside of the Community boundary. Logging and diagnostics are enabled for all Enclaves and Workloads within the Community by default. Each Enclave can either send logging data to the Community or keep it isolated to the Enclave. The primary components of a Community include:
+  - Azure Virtual WAN
   - Azure Firewall + Firewall Policy
   - Azure Storage 
   - Log Analytics Workspace
 
-- [**Enclaves**](./what-is-an-enclave.md) - Isolated, zero-trust, platform-managed virtual networks connected to the Community hub protected through a combination of Network Security Groups, policy guardrails, and RBAC Deny Assignments that serves as the Virtual Network for one or more Workloads. Enclave vNets + NSGs cannot be directly modified and must be managed through Enclave Endpoints and Enclave Connection resources to establish network connectivity. The primary components of an Enclave include:
+- [**Enclaves**](./what-is-an-enclave.md) - Isolated, zero-trust, platform-managed virtual networks connected to the Community hub protected through a combination of Network Security Groups (NSG), policy guardrails, and RBAC Deny Assignments that serves as the Virtual Network for one or more Workloads. Enclave virtual networks and NSGs cannot be directly modified and must be managed through Enclave Endpoints and Enclave Connection resources to establish network connectivity. The primary components of an Enclave include:
   - Azure Virtual Network
   - Zero-trust Network Security Groups
   - Admin Workstations
@@ -40,7 +40,7 @@ With Azure Virtual Enclaves, you can easily create new isolated, zero-trust soft
     - Azure Storage Account
 
 - [**Workloads**](./what-is-a-workload.md) - platform-managed Resource Groups protected by Azure policy guardrails and RBAC deny assignments that serves as the resource container for an individual service or application hosted within an Enclave. The primary components of a Workload include:
-  - Platform-Managed RG protected by Azure Policy and Deny Assignments
+  - Managed resources protected by Azure Policy and Deny Assignments
   - Service Catalog - Collection of templates that can be used to deploy well-known services and applications.
 
 ![image.png](./media/images-hierarchy.png)
@@ -64,11 +64,11 @@ These guardrails include:
   - Protections toward specific services and applications
 - **Managed networking boundary** - Managed networking through endpoints and connections that ensure each connection is authorized and trusted from the Firewall to individual subnets.  
 - **Logging and Monitoring**: Each activity is logged an auditable and can be Centralized to a Community Workspace, isolated to an Enclave, or both.
-- **Virtual Network Isolation**: Next-level zero-trust networking that leverages and combines the power of Azure vWAN, Firewall, Policy, RBAC, Network Watcher, Monitor, Microsoft Sentinel, Defender, and others to ensure that you know where your data is and who is accessing it at all times.
+- **Virtual Network Isolation**: Next-level zero-trust networking that uses Azure vWAN, Firewall, Policy, RBAC, Network Watcher, Monitor, Microsoft Sentinel, Defender, and others to ensure that you know where your data is and who is accessing it at all times.
 - **Connection Management**: All connections, internal or external, are governed by strict, user-defined rules to prevent unwarranted access through.
 - **Policy Guardrails**: Ensure your environments remain secure through build-in policies at the Community, Enclave, and Workload levels to audit and/or enforce consistency and compliance across your environment.
 - **Mandatory Access Control**: Access is granted not merely by identity but by role, ensuring users only access what they need, and nothing more.
-- **Observability**: The Azure Virtual Enclaves service consolidates the full power of Azure's built-in logging, alerting, and auditing that seamlessly integrates with Azure Sentinel, Defender, and other network monitoring and security tools to ensure that your data remains secure.
+- **Observability**: Azure Virtual Enclaves uses Azure's built-in logging, alerting, and auditing that seamlessly integrates with Azure Sentinel, Defender, and other network monitoring and security tools to ensure that your data remains secure.
 - **Secure Transit Hubs**: Managed VPN Gateway, ExpressRoute, or vNet peering connections.
 - **Service Catalog**: Ensure workload deployments simple and repeatable through a collection of pre-built templates.
 
