@@ -36,7 +36,7 @@ An Azure Storage Mover agent uses string status codes for statuses that are conv
 Each of these scopes further divides statuses into categories and subcategories. Each subcategory typically reserves 20 status codes to accommodate future expansion.
 
 > [!TIP]
-> *AZSM0000* is the special scope-agnostic status code indicating successful operation. This should be used to signify successful operation at any scope/level.
+> *AZSM0000* is the special scope-agnostic status code indicating successful operation and should be used to signify successful operation at any scope/level.
 
 |Error Code                       |Error Message | Details/Troubleshooting steps/Mitigation |
 |---------------------------------|--------------|------------------------------------------|
