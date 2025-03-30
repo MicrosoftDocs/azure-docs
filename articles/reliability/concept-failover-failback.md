@@ -10,7 +10,7 @@ author: anaharris-ms
 ms.custom: subject-reliability
 ---
 
-# Failover and failback
+# What are failover and failback?
 
 This article provides a general overview of how both *failover* and *failback* operate in a cloud environment. However, to understand failover, you should first understand redundancy and replication. To learn about those concepts before continuing with this article, see [Redundancy, replication, and backup](./concept-redundancy-replication-backup.md).
 

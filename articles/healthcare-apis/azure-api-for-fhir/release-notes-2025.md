@@ -17,6 +17,17 @@ ms.author: kesheth
 
 Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+## March 2025
+
+**Improved Error Handling for $export**: Added retry logic for certain export queries that previously wouldn't be retried.
+
+**Billing for API for FHIR**: An issue was discovered that may have caused subscriptions to be underbilled in several regions, including North Europe, East US 2, Australia East, West Europe, Central India, Southeast Asia, and UK South. We corrected the billing error on March 1, 2025. If you were affected by this error, you won't be responsible for any missed charges prior to your March bill.
+
+**Preview capability for the bulk delete operation**: Added support for _include and _revinclude to conditional and bulk delete requests. Users can now use _include and _revinclude in the search criteria for conditional and bulk delete. Please note that this doesn't affect current behavior of singular deletes, which doesn't support extra parameters. Learn more [here](./bulk-delete-operation.md).
+
+**ValueSet size bug fix**: The maximum ValueSet size was reduced to 500 codes, preventing large valuesets from loading. This has been fixed, and the limit is now increased to 20,000 codes.
+
+
 ## February 2025
 
 **Date Search Logic Update**: When searching for a date, the logic now ensures that any date range containing the searched date is included in the results. Previously, it only matched a date if the entire range was inside the searched date.

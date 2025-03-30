@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 01/31/2025
 ms.author: jovanpop
-ms.reviewer: sidandrews, wiassaf
+ms.reviewer: sidandrews
 ms.custom: cosmos-db
 ---
 
@@ -18,9 +18,6 @@ A serverless SQL pool allows you to analyze data in your Azure Cosmos DB contain
 For querying Azure Cosmos DB, the full [SELECT](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) surface area is supported through the [OPENROWSET](develop-openrowset.md) function, which includes most [SQL functions and operators](overview-features.md). You can also store results of the query that reads data from Azure Cosmos DB along with data in Azure Blob Storage or Azure Data Lake Storage by using [create external table as select (CETAS)](develop-tables-cetas.md#cetas-in-serverless-sql-pool). You can't currently store serverless SQL pool query results to Azure Cosmos DB by using CETAS.
 
 This article explains how to write a query with a serverless SQL pool that queries data from Azure Cosmos DB containers that are enabled with Azure Synapse Link. You can then learn more about building serverless SQL pool views over Azure Cosmos DB containers and connecting them to Power BI models in [this tutorial](./tutorial-data-analyst.md). This tutorial uses a container with an [Azure Cosmos DB well-defined schema](/azure/cosmos-db/analytical-store-introduction#schema-representation). You can also check out the Learn module on how to [Query Azure Cosmos DB with SQL Serverless for Azure Synapse Analytics](/training/modules/query-azure-cosmos-db-with-sql-serverless-for-azure-synapse-analytics/).
-
->[!NOTE]
-> You can't use managed identity to access an Azure Cosmos DB container from serverless SQL pool.
 
 ## Prerequisites
 
@@ -37,10 +34,11 @@ This article explains how to write a query with a serverless SQL pool that queri
 ## Overview
 
 Serverless SQL pool enables you to query Azure Cosmos DB analytical storage using `OPENROWSET` function. 
+- `OPENROWSET` that uses workspace managed identity to access the analytical store.
 - `OPENROWSET` with inline key. This syntax can be used to query Azure Cosmos DB collections without the need to prepare credentials.
 - `OPENROWSET` that references a credential that contains the Azure Cosmos DB account key. This syntax can be used to create views on Azure Cosmos DB collections.
 
-### [OPENROWSET with key](#tab/openrowset-key)
+### [OPENROWSET with key or managed identity](#tab/openrowset-key)
 
 To support querying and analyzing data in an Azure Cosmos DB analytical store, a serverless SQL pool is used. The serverless SQL pool uses the `OPENROWSET` SQL syntax, so you must first convert your Azure Cosmos DB connection string to this format:
 
@@ -67,6 +65,11 @@ The SQL connection string has the following format:
 ```
 
 The region is optional. If omitted, the container's primary region is used.
+You can use workspace managed identity instead fo the CosmosDB account key:
+
+```sql
+'account=<databases account name>;database=<database_name>;authtype=ManagedIdentity'
+```
 
 > [!IMPORTANT]
 > There's another optional parameter in connection string called `endpoint`. The `endpoint` param is needed for accounts that don't match the standard `*.documents.azure.com` format. For example, if your Azure Cosmos DB account ends with `.documents.azure.us`, make sure that you add `endpoint=<account name>.documents.azure.us` in the connection string.

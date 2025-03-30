@@ -7,13 +7,10 @@ metadata:
   title: Azure Backup Documentation
   description: The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.
   ms.service: azure-backup
-  ms.custom:
-    - ignite-2023
-    - ignite-2024
   ms.topic: landing-page
   author: jyothisuri
   ms.author: jsuri
-  ms.date: 02/18/2025
+  ms.date: 03/20/2025
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -58,11 +55,17 @@ landingContent:
             url: tutorial-backup-windows-server-to-azure.md
           - text: Back up SAP HANA databases in an Azure VM
             url: tutorial-backup-sap-hana-db.md
+          - text: Configure SAP HANA database instance snapshot backup
+            url: tutorial-configure-sap-hana-database-instance-snapshot-backup.md 
+          - text: Configure item-level backup for an AKS cluster  
+            url: tutorial-configure-backup-aks.md
   # Card
   - title: Learn about the latest features in Azure Backup
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Azure Files vaulted backup support
+            url: azure-file-share-backup-overview.md?tabs=vault-standard
           - text: Azure Database for PostgreSQL - Flexible server backup support
             url: backup-azure-database-postgresql-flex-overview.md
           - text: Secure by default with Vault soft delete (preview)
@@ -193,3 +196,7 @@ landingContent:
             url: https://azure.microsoft.com/updates/?product=backup
           - text: Azure Backup Microsoft Q&A question page
             url: /answers/topics/azure-backup.html
+          - text: Azure Backup sample queries for reporting  
+            url: backup-reports-system-functions.md#sample-queries
+          - text: Azure Backup archived release notes  
+            url: backup-release-notes-archived.md

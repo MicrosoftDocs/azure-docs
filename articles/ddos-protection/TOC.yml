@@ -10,6 +10,8 @@
     href: ddos-protection-sku-comparison.md
   - name: Price comparison
     href: ddos-pricing-guide.md
+  - name: FAQ
+    href: ddos-faq.yml
 - name: Configure
   items:
   - name: DDoS Network Protection
@@ -51,8 +53,6 @@
     href: ../application-gateway/tutorial-protect-application-gateway-ddos.md?toc=/azure/ddos-protection/TOC.json
   - name: Deploy Load Balancer with DDoS Protection
     href: ../load-balancer/tutorial-protect-load-balancer-ddos.md?toc=/azure/ddos-protection/TOC.json
-  - name: DDoS Protection on Front Door
-    href: ../frontdoor/front-door-ddos.md?toc=/azure/ddos-protection/TOC.json
 - name: Resiliency
   items:
   - name: Components of a DDoS response strategy
@@ -65,18 +65,6 @@
     href: ddos-protection-reference-architectures.md
   - name: Types of attacks
     href: types-of-attacks.md
-- name: Security
-  items:
-  - name: Defend against API Management DDoS attacks
-    href: ../api-management/protect-with-ddos-protection.md?toc=/azure/ddos-protection/TOC.json
-  - name: Inline L7 DDoS protection with Gateway Load Balancer and partner NVAs
-    href: inline-protection-glb.md
-  - name: Manage permissions and restrictions
-    href: manage-permissions.md
-  - name: Onboard partners
-    href: ddos-protection-partner-onboarding.md
-  - name: Security baseline
-    href: /security/benchmark/azure/baselines/azure-ddos-protection-security-baseline?toc=%2fazure%2fddos-protection%2ftoc.json?toc=/azure/ddos-protection/TOC.json
 - name: Operational excellence
   items:
   - name: Configure Monitoring and Logging
@@ -97,6 +85,22 @@
     href: test-through-simulations.md
   - name: Engage DDoS Rapid Response (DRR)
     href: ddos-rapid-response.md
+- name: Security
+  items:
+  - name: DDoS Protection on Front Door
+    href: ../frontdoor/front-door-ddos.md?toc=/azure/ddos-protection/TOC.json
+  - name: Defend against API Management DDoS attacks
+    href: ../api-management/protect-with-ddos-protection.md?toc=/azure/ddos-protection/TOC.json
+  - name: Inline L7 DDoS protection with Gateway Load Balancer and partner NVAs
+    href: inline-protection-glb.md
+  - name: Manage permissions and restrictions
+    href: manage-permissions.md
+  - name: Onboard partners
+    href: ddos-protection-partner-onboarding.md
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/azure-ddos-protection-security-baseline?toc=%2fazure%2fddos-protection%2ftoc.json?toc=/azure/ddos-protection/TOC.json
+  - name: Azure Security blog
+    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Reference
   items:
   - name: Azure Policy built-ins
@@ -119,10 +123,10 @@
     href: ../azure-resource-manager/management/overview.md
   - name: Monitoring data reference
     href: monitor-ddos-protection-reference.md
+  - name: Azure Networking blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
 - name: Resources
   items:
-  - name: FAQ
-    href: ddos-faq.yml
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/ddos-protection/
   - name: Regional availability

@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 02/28/2025
+ms.date: 03/10/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -17,6 +17,8 @@ Azure Backup is constantly improving and releasing new features that enhance the
 You can learn more about the new releases by bookmarking this page or by [subscribing to updates here](https://azure.microsoft.com/updates/?query=backup).
 
 ## Updates summary
+- March 2025
+  - [Vaulted backup support for Azure Files is now generally available](#vaulted-backup-support-for-azure-files-is-now-generally-available)
 
 - February 2025
   - [Azure Backup for Azure Database for PostgreSQL – Flexible Server is now generally available](#azure-backup-for-azure-database-for-postgresql--flexible-server-is-now-generally-available)
@@ -63,7 +65,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - April 2023
   - [Microsoft Azure Backup Server v4 is now generally available](#microsoft-azure-backup-server-v4-is-now-generally-available)
 - March 2023
-  - [Multiple backups per day for Azure VMs is now generally available](#multiple-backups-per-day-for-azure-vms-is-now-generally-available)
+  - [Multiple-backups-per-day for Azure VMs is now generally available](#multiple-backups-per-day-for-azure-vms-is-now-generally-available)
   - [Immutable vault for Azure Backup is now generally available](#immutable-vault-for-azure-backup-is-now-generally-available)
   - [Support for selective disk backup with enhanced policy for Azure VM (preview)](whats-new.md#support-for-selective-disk-backup-with-enhanced-policy-for-azure-vm-is-now-generally-available)
   - [Azure Kubernetes Service backup (preview)](#azure-kubernetes-service-backup-preview)
@@ -81,16 +83,16 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - May 2022
   - [Archive tier support for Azure Virtual Machines is now generally available](#archive-tier-support-for-azure-virtual-machines-is-now-generally-available)
 - February 2022
-  - [Multiple backups per day for Azure Files is now generally available](#multiple-backups-per-day-for-azure-files-is-now-generally-available)
+  - [Multiple-backups-per-day for Azure Files is now generally available](#multiple-backups-per-day-for-azure-files-is-now-generally-available)
 - January 2022
   - [Back up Azure Database for PostgreSQL is now generally available](#back-up-azure-database-for-postgresql-is-now-generally-available)
 - October 2021
-  - [Archive Tier support for SQL Server/ SAP HANA in Azure VM from Azure portal](#archive-tier-support-for-sql-server-sap-hana-in-azure-vm-from-azure-portal)
+  - [Archive Tier for SQL Server/ SAP HANA in Azure VM from Azure portal](#archive-tier-for-sql-server-sap-hana-in-azure-vm-from-azure-portal)
   - [Multi-user authorization using Resource Guard for Recovery Services vault (in preview)](#multi-user-authorization-using-resource-guard-for-recovery-services-vault-in-preview)
   - [Multiple backups per day for Azure Files (in preview)](#multiple-backups-per-day-for-azure-files-in-preview)
   - [Azure Backup Metrics and Metrics Alerts (in preview)](#azure-backup-metrics-and-metrics-alerts-in-preview)
 - July 2021
-  - [Archive Tier support for SQL Server in Azure VM for Azure Backup is now generally available](#archive-tier-support-for-sql-server-in-azure-vm-for-azure-backup-is-now-generally-available)
+  - [Archive Tier for SQL Server in Azure VM for Azure Backup is now generally available](#archive-tier-for-sql-server-in-azure-vm-for-azure-backup-is-now-generally-available)
 - May 2021
   - [Backup for Azure Blobs is now generally available](#backup-for-azure-blobs-is-now-generally-available)
 - April 2021
@@ -98,10 +100,19 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - March 2021
   - [Azure Disk Backup is now generally available](#azure-disk-backup-is-now-generally-available)
   - [Backup center is now generally available](#backup-center-is-now-generally-available)
-  - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
+  - [Archive Tier for Azure Backup (in preview)](#archive-tier-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
+## Vaulted backup support for Azure Files is now generally available
+
+Azure Backup now supports vaulted backup File Shares in standard storage accounts to protect against ransomware and data loss. You can define backup schedules and retention settings to store data in the Backup vault for up to 10 years.
+
+Vaulted backups provide an offsite copy of your data. In case of data loss on the source account, you can restore it to an alternate account. You can manage vaulted backups at scale via Azure Business Continuity Center and monitor them using Azure Backup's alerting and reporting features.
+
+We recommend switching from snapshot backups to vaulted backups for comprehensive protection against data loss.
+
+For more information, see [Overview of Azure Files backup](azure-file-share-backup-overview.md?tabs=vault-standard).
 ## Azure Backup for Azure Database for PostgreSQL – Flexible Server is now generally available
 
 Azure Backup now provides improved backup and restore processes, reduced downtime, and increased efficiency for Azure Database for PostgreSQL - Flexible Server. This feature is generally available in the following regions: East Asia, Central India, Southeast Asia, UK South, and UK West. However, this feature is currently in preview for other regions. You can manage the protection of the database by using the [Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md) in the Azure portal.
@@ -139,7 +150,7 @@ For more information, see [About Immutable vault for Azure Backup](backup-azure-
 
 Azure Backup now supports Cross Subscription Backup (CSB) for Azure File Shares (preview), allowing you to back up data across different subscriptions within the same tenant or Microsoft Entra ID. This capability offers greater flexibility and control, essentially for enterprises managing multiple subscriptions with varying purposes and security policies.
 
-For more information, see [About Azure File share backup](azure-file-share-backup-overview.md#how-cross-subscription-backup-for-azure-file-share-preview-works).
+For more information, see [About Azure File share backup](azure-file-share-backup-overview.md#how-cross-subscription-backup-for-azure-files-works).
 
 ## Back up SAP ASE (Sybase) database (preview)
 
@@ -193,7 +204,7 @@ For more information, see [Assign network access settings during restore](backup
 
 ## Migration of Azure VM backups from standard to enhanced policy (preview)
 
-Azure Backup now supports migration to the enhanced policy for Azure VM backups using standard policy. The migration of VM backups to enhanced policy enables you to schedule multiple backups per day (up to every 4 hours), retain snapshots for longer duration, and use multi-disk crash consistency for VM backups. Snapshot-tier recovery points (created using enhanced policy) are zonally resilient. The migration of VM backups to enhanced policy also allows you to migrate your VMs to Trusted Launch and use Premium SSD v2 and Ultra-disks for the VMs without disrupting the existing backups.
+Azure Backup now supports migration to the enhanced policy for Azure VM backups using standard policy. The migration of VM backups to enhanced policy enables you to schedule multiple backups per day (up to every 4 hours), retain snapshots for longer duration, and use multi-disk crash consistency for Virtual Machine (VM) backups. Snapshot-tier recovery points (created using enhanced policy) are zonally resilient. The migration of VM backups to enhanced policy also allows you to migrate your VMs to Trusted Launch and use Premium SSD v2 and Ultra-disks for the VMs without disrupting the existing backups.
 
 For more information, see [Migrate Azure VM backups from standard  to enhanced policy (preview)](backup-azure-vm-migrate-enhanced-policy.md).
 
@@ -362,7 +373,7 @@ Azure Backup now provides Microsoft Azure Backup Server (MABS) v4, the latest ed
 - It contains stability improvements and bug fixes on *MABS v3 UR2*. 
 
 For more information, see [What's new in MABS](backup-mabs-whats-new-mabs.md).
-## Multiple backups per day for Azure VMs is now generally available
+## Multiple-backups-per-day for Azure VMs is now generally available
 
 Azure Backup now enables you to create a backup policy to take multiple backups a day. With this capability, you can also define the duration in which your backup jobs would trigger and align your backup schedule with the working hours when there are frequent updates to Azure Virtual Machines.
 
@@ -468,7 +479,7 @@ Azure Backup also supports Vault-archive tier for SQL Server in Azure VM and SAP
  
 For more information, see [Archive tier support in Azure Backup](archive-tier-support.md).
 
-## Multiple backups per day for Azure Files is now generally available
+## Multiple-backups-per-day for Azure Files is now generally available
 
 Low RPO (Recovery Point Objective) is a key requirement for Azure Files that contains the frequently updated, business-critical data. To ensure minimal data loss if a disaster or unwanted changes to file share content, you may prefer to take backups more frequently than once a day.
 
@@ -484,7 +495,7 @@ With this, you've granular control to manage the backup and restore operations a
 
 For more information, see [Azure Database for PostgreSQL backup](backup-azure-database-postgresql-overview.md).
 
-## Archive Tier support for SQL Server/ SAP HANA in Azure VM from Azure portal
+## Archive Tier for SQL Server/ SAP HANA in Azure VM from Azure portal
 
 Azure Backup now supports the movement of recovery points to the Vault-archive tier for SQL Server and SAP HANA in Azure Virtual Machines from the Azure portal. This allows you to move the archivable recovery points corresponding to a particular database to the Vault-archive tier at one go.
 
@@ -525,7 +536,7 @@ Currently, Azure Backup supports built-in metrics for the following workload typ
 
 For more information, see [Monitor the health of your backups using Azure Backup Metrics (preview)](metrics-overview.md).
 
-## Archive Tier support for SQL Server in Azure VM for Azure Backup is now generally available
+## Archive Tier for SQL Server in Azure VM for Azure Backup is now generally available
 
 Azure Backup allows you to move your long-term retention points for Azure Virtual Machines and SQL Server in Azure Virtual Machines to the low-cost Archive Tier. You can also restore from the recovery points in the Vault-archive tier.
 
@@ -557,7 +568,7 @@ Azure Backup now provides enhanced capabilities (in preview) to manage encryptio
   >This feature is currently in limited preview. To sign up, fill [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURDNTVVhGOUxXSVBZMEwxUU5FNDkyQkU4Ny4u), and write to us at [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
 - Allows you to use Azure Policies to audit and enforce encryption using customer-managed keys.
 >[!NOTE]
->- The above capabilities are supported through the Azure portal only, PowerShell is currently not supported.<br>If you are using PowerShell for managing encryption keys for Backup, we do not recommend to update the keys from the portal.<br>If you update the key from the portal, you can’t use PowerShell to update the encryption key further, till a PowerShell update to support the new model is available. However, you can continue updating the key from the Azure portal.
+>- The above capabilities are supported through the Azure portal only, PowerShell is currently not supported.<br>If you are using PowerShell for managing encryption keys for Backup, we do not recommend updating the keys from the portal.<br>If you update the key from the portal, you can’t use PowerShell to update the encryption key further, till a PowerShell update to support the new model is available. However, you can continue updating the key from the Azure portal.
 >- You can use the audit policy for auditing vaults with encryption using customer-managed keys that are enabled after 04/01/2021.  
 >- For vaults with the CMK encryption enabled before this date, the policy might fail to apply, or might show false negative results (that is, these vaults may be reported as non-compliant, despite having CMK encryption enabled). [Learn more](encryption-at-rest-with-cmk.md#use-azure-policy-to-audit-and-enforce-encryption-via-customer-managed-keys-in-preview).
 
@@ -575,7 +586,7 @@ Backup center simplifies data protection management at-scale by enabling you to 
 
 For more information, see [Overview of Backup Center](backup-center-overview.md).
 
-## Archive Tier support for Azure Backup (in preview)
+## Archive Tier for Azure Backup (in preview)
 
 Azure Backup now allows you to reduce the cost of long-term retention backups with the availability of Archive Tier for Azure virtual machines and SQL Server in Azure virtual machines.
 

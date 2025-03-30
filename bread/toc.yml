@@ -431,6 +431,9 @@ items:
     - name: Kubernetes
       tocHref: /azure/container-service/kubernetes/
       topicHref: /azure/container-service/kubernetes/
+  - name: CycleCloud
+    tocHref: /azure/cyclecloud/
+    topicHref: /azure/cyclecloud/index/
   - name: Storage
     tocHref: /azure/storage/
     topicHref: /azure/storage/

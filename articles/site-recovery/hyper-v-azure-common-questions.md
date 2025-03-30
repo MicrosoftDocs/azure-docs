@@ -42,7 +42,7 @@ For the Hyper-V host server what you need depends on the deployment scenario. Ch
 
 ### Can I protect VMs when Hyper-V is running on a client operating system?
 
-No, VMs must be located on a Hyper-V host server that's running on a supported Windows server machine. If you need to protect a client computer you could replicate it as a physical machine to [Azure](physical-server-enable-replication.md) or a [secondary datacenter](https://learn.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica). 
+No, VMs must be located on a Hyper-V host server that's running on a supported Windows server machine. If you need to protect a client computer you could replicate it as a physical machine to [Azure](physical-server-enable-replication.md) or a [secondary datacenter](/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica). 
 
 ### Do Hyper-V hosts need to be in VMM clouds?
 

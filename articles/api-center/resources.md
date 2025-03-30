@@ -19,8 +19,6 @@ This article links to open-source code resources for Azure API Center solutions.
 
 * [API analyzer](https://github.com/Azure/APICenter-Analyzer) - Enable linting and analysis of API definitions in your API center. 
 
-* [Azure API Center portal starter](https://github.com/Azure/APICenter-Portal-Starter) - Self-host an API portal to enable API consumers to discover APIs in your API center.
-
 * [Expose SAP APIs](https://github.com/Azure-Samples/azd-apic-sap/) - Govern SAP APIs in various API management solutions in a single place with your API center.
 
 ## Labs
@@ -33,6 +31,6 @@ This article links to open-source code resources for Azure API Center solutions.
 
 ## Related content
 
-* [Enable linting and analysis in your API center](enable-api-analysis-linting.md)
-* [Self-host the Azure API Center portal](enable-api-center-portal.md)
+* [Enable linting and analysis in your API center](enable-managed-api-analysis-linting.md)
+* [Enable the Azure API Center portal](set-up-api-center-portal.md)
 * [azd template library](https://azure.github.io/awesome-azd/)

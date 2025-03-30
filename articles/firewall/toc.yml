@@ -11,7 +11,11 @@ items:
     href: choose-firewall-sku.md
   - name: Preview features
     href: firewall-preview.md
-- name: Design & achitecture
+  - name: FAQ
+    href: firewall-faq.yml
+  - name: Known issues and limitations
+    href: firewall-known-issues.md
+- name: Design & architecture
   items:
   - name: Policy 
     items:
@@ -38,7 +42,7 @@ items:
   - name: Performance
     href: firewall-performance.md
   - name: TCP idle timeout behavior
-    href: long-running-sessions.md
+    href: tcp-session-behavior.md
   - name: Explicit Proxy
     href: explicit-proxy.md
   - name: Multi hub and spoke
@@ -72,14 +76,14 @@ items:
       href: premium-features.md
     - name: Portal
       href: premium-deploy.md
-    - name: Cerficates
+    - name: Certificates
       href: premium-certificates.md
     - name: Enterprise CA Certificates
       href: premium-deploy-certificates-enterprise-ca.md
   - name: To a hybrid Network
     items:
     - name: Portal
-      href: tutorial-firewall-deploy-portal-policy.md
+      href: tutorial-hybrid-portal-policy.md
     - name: PowerShell
       href: tutorial-hybrid-ps.md
   - name: Firewall with inbound DNAT rules
@@ -190,6 +194,9 @@ items:
       href: firewall-sentinel-overview.md
     - name: Detect malware with Microsoft Sentinel
       href: detect-malware-with-sentinel.md
+  - name: Network security blog
+    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
+- name: Deploy
 - name: Operational excellence
   items:
   - name: Monitoring
@@ -228,10 +235,8 @@ items:
     href: monitor-firewall-reference.md
 - name: Resources
   items:
-  - name: FAQ
-    href: firewall-faq.yml
-  - name: Known issues and limitations
-    href: firewall-known-issues.md
+  - name: Networking blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
   - name: Author templates
     href: ../azure-resource-manager/templates/syntax.md
   - name: Community templates
