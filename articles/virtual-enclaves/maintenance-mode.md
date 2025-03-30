@@ -8,7 +8,7 @@ ms.topic: Concepts
 ms.date: 01/31/2025
 ---
 
-# Overview
+# Maintenance Mode
 
 Maintenance mode is a feature that allows Enclave Owners to temporarily place their enclaves into a "maintenance mode" state. This mode permits privileged users to make certain changes to the underlying managed resources in an enclave that are normally protected by Deny Assignments. This helps maintain the enclave isolation and network boundary.
 
