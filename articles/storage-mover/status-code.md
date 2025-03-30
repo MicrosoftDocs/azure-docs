@@ -84,7 +84,7 @@ During a job run, automatic RBAC assignments happen. In case of failures in assi
 3.	Add a new role assignment - [Assign Azure roles using the Azure portal - Azure RBAC | Microsoft Learn](/azure/role-based-access-control/role-assignments-portal) article.
 4.	In the Add role assignment wizard - Search for the appropriate role for the resource type selected in step 1. In the below example the resource would be Key Vault
 
-:::image type="content" source="media/troubleshooting/RBAC.png" alt-text="Image showing the Key Vault resource successfully assigned roles." lightbox="media/troubleshooting/RBAC.png":::
+:::image type="content" source="media/troubleshooting/rbacguidance.png" alt-text="Image showing the Key Vault resource successfully assigned roles." lightbox="media/troubleshooting/rbacguidance.png":::
 
 |Resource Type                          |Roles required|
 |---------------------------------------|--------------|
