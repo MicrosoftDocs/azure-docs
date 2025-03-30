@@ -10,14 +10,14 @@ ms.date: 01/31/2025
 
 # What is a Community?
 
-Communities are isolated hub networks that can securely and logically group several Enclaves together for governance, management, and security purposes. A Community Owner can enable other Communities or on-premise networks to connect through Transit Hubs or Endpoints.
+Communities are isolated hub networks that can securely and logically group several Enclaves together for governance, management, and security purposes. A Community Owner can enable other Communities or on-premises networks to connect through Transit Hubs or Endpoints.
 
 ## Architecture of a community
 
 ![image.png](./media/image-3f313746-b212-40eb-9c5f-274964c96dbc.png)
 
 Communities come with the following primary platform-managed and platform-deployed resources:
-- Isolated [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md) hub networks. By default, these Communities are not connected to the rest of the Internet outside of [certain authorized Microsoft services](../azure-portal/azure-portal-safelist-urls.md).
+- Isolated [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md) hub networks. By default, these Communities aren't connected to the rest of the Internet outside of [certain authorized Microsoft services](../azure-portal/azure-portal-safelist-urls.md).
 - [Azure Firewall](../firewall/overview.md). By default, all Communities are deployed with a secure-by-default Azure Firewall in which all Community network traffic is routed through.
 - [Log Analytics Workspace](../azure-monitor/logs/log-analytics-overview.md). By default, all Community resources are integrated into Azure Log Analytics, ensuring all activities within a Community are effectively monitored, logged, and audited, laying the foundation for actionable insights. More specifically, all resources deployed in a Community send their [diagnostic platform logs](../azure-monitor/essentials/diagnostic-settings.md) to this Log Analytics Workspace.
 - [Azure Storage Account](../storage/common/storage-account-overview.md). By default and for convenience, all Communities are deployed with a Storage Account.  [Learn more about Azure Storage](../architecture/guide/technology-choices/storage-options.md).

@@ -22,7 +22,7 @@ Maintenance mode is a feature that allows Enclave Owners to temporarily place th
 ## Maintenance mode options
 
 - `Off` - A deny assignment created by Azure is in-place to protect underlying managed resources in an enclave.
-- `General` - A partial deny assignment created by Azure is in-place that allows privileged users to modify certain existing resources only in the underlying managed resources in an enclave. These operations include resources joining the enclave virtual network and creating Private DNS Zone records. By default, enclaves are deployed in `Off` mode, but it is recommended to create enclaves in `General` mode and provide appropriate Entra ID identities for deny assignment exclusion.
+- `General` - A partial deny assignment created by Azure is in-place that allows privileged users to modify certain existing resources only in the underlying managed resources in an enclave. These operations include resources joining the enclave virtual network and creating Private DNS Zone records. By default, enclaves are deployed in `Off` mode, but It's recommended to create enclaves in `General` mode and provide appropriate Entra ID identities for deny assignment exclusion.
 - `Advanced` - The deny assignment created by Azure will be temporarily removed to allow privileged users to make elevated changes on the underlying managed resources in an enclave.
 
 ## Justification options

@@ -8,38 +8,38 @@ ms.topic: overview
 ms.date: 01/31/2025
 ---
 
-# Quickstart: Create a Workload in the Azure Portal
+# Quickstart: Create a Workload in the Azure portal
 
 [Workloads](./what-is-a-workload.md) are logical groups of Azure resources that you define to create and audit connections in Azure Virtual Enclaves.
 
 ## Prerequisites
-- To access Azure Virtual Enclaves, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- To access Azure Virtual Enclaves, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - All access to Azure Virtual Enclaves takes place through a community or an enclave. For this how-to article, create a [community](./create-a-community-in-the-azure-portal.md) and [enclave](./create-an-enclave-in-the-azure-portal.md) using the Azure portal.
 
 ## Sign-in to Azure
-Sign-in to the Azure portal at https://portal.azure.com. For our MVP and Private Preview experience, you will have to navigate to the [RC Azure Portal](https://aka.ms/ave/privatepreview).
+Sign-in to the Azure portal at https://portal.azure.com.
 
 ## Create workload
 
-1. Enter _Azure Virtual Enclaves_ in the search.
+1. Enter `Azure Virtual Enclaves` in the search.
 
-2. Under **Services**, select **Azure Virtual Enclaves**.
+2. Under `Services`, select `Azure Virtual Enclaves`.
 
-3. In the **Azure Virtual Enclaves** page, select the **Enclaves** in the left menu.
+3. In the `Azure Virtual Enclaves` page, select the `Enclaves` in the left menu.
 
-4. On the **Enclaves** page, select your Enclave's name.
+4. On the `Enclaves` page, select your Enclave's name.
 
 ![image.png](./media/image-76edc3e8-cbde-48e8-b702-2b5c1c13ebf3.png)
 
-5. While in your Enclave's page, select **Workloads** in the left menu.
+5. While in your Enclave's page, select `Workloads` in the left menu.
 
 ![image.png](./media/image-773bd0e6-9b11-4460-90c4-49d7625b2a65.png)
 
-6. In the **Workloads** page, select Create. The **Create workload** page opens.
+6. In the `Workloads` page, select Create. The `Create workload` page opens.
 
 7. Enter the basic details for your Workload
    - Enclave: Select an existing Enclave. This value is automatically applied from the Enclave you were currently browsing.
-   - Workload name: Name of the Workload (ex: "**contoso4-identity**')
+   - Workload name: Name of the Workload (for example `contoso4-identity`)
 
 ![image.png](./media/image-64d5ec2e-cfb3-4ba5-891a-545ee9c71dd9.png)
 
@@ -47,11 +47,11 @@ Sign-in to the Azure portal at https://portal.azure.com. For our MVP and Private
 >
 > Organizations should choose a workload naming convention that makes sense for the organization. Learn more about [defining your naming convention](../cloud-adoption-framework/ready/azure-best-practices/resource-naming.md).
 
-8. Click **Next**.
+8. Click `Next`.
 
 9. Enter any [Tags](../azure-resource-manager/management/tag-resources.md) for your Workload.
 
-10. Click **Review + create**, ensure the details for your Workload are correct, and click **Create**.
+10. Click `Review + create`, ensure the details for your Workload are correct, and click `Create`.
 
 
 **References**

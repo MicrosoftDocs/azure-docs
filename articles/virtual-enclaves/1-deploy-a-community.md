@@ -12,9 +12,9 @@ ms.date: 01/31/2025
 
 **Azure Virtual Enclaves is an Azure service that accelerates and streamlines the deployment and management of secure, isolated, and compliant cloud environments for the most sensitive mission workloads.**
 
-Communities are isolated hub networks that can securely and logically group several Enclaves together for governance, management, and security purposes. A Community Owner can enable other Communities or on-premise networks to connect through Transit Hubs or Endpoints.
+Communities are isolated hub networks that can securely and logically group several Enclaves together for governance, management, and security purposes. A Community Owner can enable other Communities or on-premises networks to connect through Transit Hubs or Endpoints.
 
-In this tutorial, part one of eight, you prepare a monitored and secure network cloud environment in the Azure Portal using Azure Virtual Enclaves. One [enclave](./what-is-an-enclave.md) will contain web applications and will be made publicly accessible by routing traffic through a second DMZ Enclave with a Web Application Gateway, Web Application Firewall, and a Public IP address. This networking behavior will be made possible by creating an [Enclave Endpoint](./what-is-an-enclave-endpoint.md) for the Web App, and establishing an [Enclave Connection](./what-is-an-enclave-connection.md) between the Web App and DMZ enclaves.
+In this tutorial, part one of eight, you prepare a monitored and secure network cloud environment in the Azure portal using Azure Virtual Enclaves. One [enclave](./what-is-an-enclave.md) contains web applications and is publicly accessible by routing traffic through a second Enclave with a Web Application Gateway, Web Application Firewall, and a Public IP address. An [Enclave Endpoint](./what-is-an-enclave-endpoint.md) for the Web App and establishing an [Enclave Connection](./what-is-an-enclave-connection.md) between the Web App enclave and secodn enclaves enables the networking behavior described above.
 
 You learn how to:
 - ✅ Deploy a central community hub network
@@ -50,14 +50,14 @@ Community deployments will take around 30-45 minutes to complete. Once it comple
 
 ![image.png](./media/image-4724bf17-d6af-4765-909d-d7014a5af88a.png)
 
-5. After the Community has been created, you can view it in Azure Portal.
+5. After the Community has been created, you can view it in Azure portal.
 
 ![image.png](./media/image-854871e7-79ac-4a9c-8fd8-64167ffac608.png)
 
 ## Clean up resources
-If you need to delete your community created after completing this tutorial, this can be also done from the Azure Portal.
+If you need to delete your community created after completing this tutorial, this can be also done from the Azure portal.
 
 ![image.png](./media/image-4ba91829-c9aa-4701-bac4-63cf449861b7.png)
 
 ## Next steps
-In this tutorial, you created two sample Enclaves using Azure Portal. In the next tutorial, you'll learn how to create several workloads within your enclave.
+In this tutorial, you created two sample Enclaves using Azure portal. In the next tutorial, you'll learn how to create several workloads within your enclave.

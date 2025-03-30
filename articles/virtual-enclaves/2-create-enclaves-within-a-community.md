@@ -15,10 +15,10 @@ An enclave is a completely isolated Azure Virtual Network that is part of a comm
 In this tutorial, part two of eight, you deploy enclaves into a community. You learn how to:
 
 - ✅ Create several isolated enclave spoke networks
-- ✅ View enclaves in Azure Portal
+- ✅ View enclaves in Azure portal
 
 ## Before you begin
-In the previous [tutorial](./1-deploy-a-community.md), you used Azure Portal to create a simple community. If you haven't created the community yet, please return to [Tutorial 1 - Deploy a community](./1-deploy-a-community.md).
+In the previous [tutorial](./1-deploy-a-community.md), you used Azure portal to create a simple community. If you haven't created the community yet, please return to [Tutorial 1 - Deploy a community](./1-deploy-a-community.md).
 
 ## Create an enclave using Azure Virtual Enclaves
 Before creating an enclave instance, you need a resource group. An Azure resource group is a logical container into which you deploy and manage Azure resources. Learn more about each of the settings of an [enclave](./what-is-an-enclave.md) and [How-To Create an Enclave](./create-an-enclave-in-the-azure-portal.md).
@@ -55,7 +55,7 @@ Enclave deployments will take around 30-45 minutes to complete. Once it complete
 
 ![image.png](./media/image-5c9f6d0f-09ea-48d8-ad25-51ef57789556.png)
 
-6. After the Enclave resources have been created, you can view them in Azure Portal from the fabrikam community.
+6. After the Enclave resources have been created, you can view them in Azure portal from the fabrikam community.
 
 ![image.png](./media/fabrikam-enclaveBlade.png)
 
@@ -64,9 +64,9 @@ Enclave deployments will take around 30-45 minutes to complete. Once it complete
 ![image.png](./media/image-6a1ebfa6-a5bd-4895-832d-ec681f758a2a.png)
 
 ## Clean up resources
-If you need to delete your enclaves created after completing this tutorial, this can be also done from the Azure Portal.
+If you need to delete your enclaves created after completing this tutorial, this can be also done from the Azure portal.
 
 ![image.png](./media/image-711356e3-3274-4917-a96d-9fddae00de2b.png)
 
 ## Next steps
-In this tutorial, you created two sample Enclaves using Azure Portal. In the next tutorial, you'll learn how to create workloads within your enclave.
+In this tutorial, you created two sample Enclaves using Azure portal. In the next tutorial, you'll learn how to create workloads within your enclave.

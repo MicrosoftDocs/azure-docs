@@ -24,10 +24,10 @@ In this tutorial, part three of eight, you deploy workloads into an enclave. You
 
 - ✅ Create several workloads in an enclave
 - ✅ Provision Azure resources into workloads within enclaves
-- ✅ View workloads in Azure Portal
+- ✅ View workloads in Azure portal
 
 ## Before you begin
-In the previous [tutorial](/docs/Tutorials/2.-Create-enclaves-within-a-community), you used Azure Portal to create a simple enclave. If you haven't created the enclave yet, please return to [Tutorial 2 - Create enclaves within a community](/docs/Tutorials/2.-Create-enclaves-within-a-community).
+In the previous [tutorial](/docs/Tutorials/2.-Create-enclaves-within-a-community), you used Azure portal to create a simple enclave. If you haven't created the enclave yet, please return to [Tutorial 2 - Create enclaves within a community](/docs/Tutorials/2.-Create-enclaves-within-a-community).
 
 ## Create a workload using Azure Virtual Enclaves
 Before creating your resources, you need to create the AVE Workload resource. Workloads are logical groups of Azure resources, similar to an Azure Resource Group, that you define to create and audit connections in Azure Virtual Enclaves.
@@ -70,15 +70,15 @@ Before creating your resources, you need to create the AVE Workload resource. Wo
 
 ![image.png](/assets/image-5bc4c623-851f-499a-9c44-7d88402bf159.png)
 
-8. After the two Workload resources have been created, you can view them in Azure Portal.
+8. After the two Workload resources have been created, you can view them in Azure portal.
 
 ![image.png](/assets/image-416e90f2-4e0c-4930-9de9-6269f46fb973.png)
 
 ## Clean up resources
-If you need to delete your enclaves created after completing this tutorial, this can be also achieved from the Azure Portal. It is best to wait until after you complete the full tutorial but if you need to, select each Workload resource `wl-webapp-ui` and `wl-webapp-backend` then select `Delete`
+If you need to delete your enclaves created after completing this tutorial, this can be also achieved from the Azure portal. It's best to wait until after you complete the full tutorial but if you need to, select each Workload resource `wl-webapp-ui` and `wl-webapp-backend` then select `Delete`
 
 ![image.png](/assets/image-c4f19835-8053-4f41-9fa1-00689dd251f4.png)
 
 
 ## Next steps
-In this tutorial, you created sample workloads using Azure Portal. In the [next tutorial](/Virtual-Enclaves-Docs/Tutorials/4.-Use-service-catalog-to-create-Azure-resources-in-workloads), you'll learn how to use the service catalog to deploy Azure resources and apps into your enclave workloads.
+In this tutorial, you created sample workloads using Azure portal. In the [next tutorial](/Virtual-Enclaves-Docs/Tutorials/4.-Use-service-catalog-to-create-Azure-resources-in-workloads), you'll learn how to use the service catalog to deploy Azure resources and apps into your enclave workloads.

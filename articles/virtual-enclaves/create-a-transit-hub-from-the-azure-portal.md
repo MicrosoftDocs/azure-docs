@@ -1,26 +1,26 @@
 ---
-title: Create a Transit Hub from the Azure Portal
-description: Create a Transit Hub from the Azure Portal
+title: Create a Transit Hub from the Azure portal
+description: Create a Transit Hub from the Azure portal
 author: jadean-msft
 ms.author: jadean
 # ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 01/31/2025
 ---
-# Create a Transit Hub from the Azure Portal
+# Create a Transit Hub from the Azure portal
 
 ## Prerequisites
 
-- To access Azure Virtual Enclaves, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- To access Azure Virtual Enclaves, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 - All access to Azure Virtual Enclaves takes place through a Community or an enclave. For this how-to article, create a [community](./create-a-community-in-the-azure-portal.md) and [enclave](./create-an-enclave-in-the-azure-portal.md) using the Azure portal.
 
 ## Sign-in to Azure
-Sign-in to the Azure portal at https://portal.azure.com. For our MVP and Private Preview experience, you will have to navigate to the [RC Azure Portal](https://aka.ms/ave/privatepreview).
+Sign-in to the Azure portal at https://portal.azure.com.
 
 ## Create a Transit Hub
 
-1. Navigate to an existing Community within your Azure subscription, select the **Transit Hubs** tab, and select **Create**
+1. Navigate to an existing Community within your Azure subscription, select the `Transit Hubs` tab, and select `Create`
 
 ![image.png](./media/image-d4151745-cd57-4bec-929b-00ddb93e16be.png)
 
@@ -36,7 +36,7 @@ Refer to the guidance below for more information on the different types of Trans
 
 1. Click next, add any tags, and click review + create.
 
-1. Click **Review + Create** and click **Create**
+1. Click `Review + Create` and click `Create`
 
 ![image.png](./media/image-9ee9d2cd-617a-45ee-9470-5214b1fc5481.png)
 

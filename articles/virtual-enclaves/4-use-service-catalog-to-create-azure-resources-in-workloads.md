@@ -89,7 +89,7 @@ If you don't plan on keeping these resources, clean up unnecessary resources to 
 
 ## Next steps
 
-In this tutorial, you created Azure resources with service catalog using Azure Portal.
+In this tutorial, you created Azure resources with service catalog using Azure portal.
 
 In the [next tutorial](/Virtual-Enclaves-Docs/Tutorials/5.-Create-Azure-resources-in-workloads), you'll learn how to create Azure resources in your enclave.
 
