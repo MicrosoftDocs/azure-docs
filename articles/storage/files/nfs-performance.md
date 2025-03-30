@@ -84,7 +84,7 @@ While Azure Files supports setting `nconnect` up to the maximum setting of 16, w
 
 #### Size virtual machines carefully
 
-Depending on your workload requirements, it’s important to correctly size the client virtual machines (VMs) to avoid being restricted by their [expected network bandwidth](../../virtual-network/virtual-machine-network-throughput.md#expected-network-throughput). You don't need multiple network interface controllers (NICs) in order to achieve the expected network throughput. While it's common to use [general purpose VMs](/azure/virtual-machines/sizes-general) with Azure Files, various VM types are available depending on your workload needs and region availability. For more information, see [Azure VM Selector](https://azure.microsoft.com/pricing/vm-selector/).
+Depending on your workload requirements, it's important to correctly size the client virtual machines (VMs) to avoid being restricted by their [expected network bandwidth](../../virtual-network/virtual-machine-network-throughput.md#expected-network-throughput). You don't need multiple network interface controllers (NICs) in order to achieve the expected network throughput. While it's common to use [general purpose VMs](/azure/virtual-machines/sizes-general) with Azure Files, various VM types are available depending on your workload needs and region availability. For more information, see [Azure VM Selector](https://azure.microsoft.com/pricing/vm-selector/).
 
 #### Keep queue depth less than or equal to 64
 

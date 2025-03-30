@@ -73,8 +73,7 @@ To deploy this template properly, you must use **Deploy to Azure** button in the
 1. On the template page, enter the values. For the **Hub_Public Certificate Data for P2S** fields, you need to input the public key certificate data from the root certificate that you want to use (as mentioned in the prerequisites). For more information, see [Generate and export certificates](certificates-point-to-site.md).
 1. When you have finished entering values, select **Review + create**.
 1. On the **Review + create** page, after validation passes, select **Create**.
-1. It takes about 75 minutes for the deployment to complete. You can view the progress on the template **Overview** page. If you close the portal, deployment will continue.
-
+1. It takes about 75 minutes for the deployment to complete. You can view the progress on the template **Overview** page. If you close the portal, deployment continues.
    :::image type="content" source="./media/quickstart-any-to-any-template/template.png" alt-text="Example of deployment complete":::
 
 ## <a name="validate"></a>Validate the deployment
