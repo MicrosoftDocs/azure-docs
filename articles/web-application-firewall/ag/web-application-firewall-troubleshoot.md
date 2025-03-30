@@ -313,7 +313,7 @@ If the request contains cookies, the **Cookies** tab can be selected to view the
 
 - Disable maximum request body limit
 
-  By disabling max request body limit, large request bodies can be processed by the WAF without being rejected for being too large. This may be useful if you regularly have large requests.
+  By disabling max request body limit, WAF can process large request bodies without rejecting them for exceeding the size limit. This setting is useful if you regularly have large requests.
 
   When you disable this option, the request body will only be inspected up to the max request body inspection limit. If there's malicious content in the request beyond the max request body inspection limit the WAF won't detect it.
 
