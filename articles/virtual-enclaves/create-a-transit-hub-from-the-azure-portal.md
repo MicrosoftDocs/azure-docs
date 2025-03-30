@@ -11,9 +11,9 @@ ms.date: 01/31/2025
 
 ## Prerequisites
 
-- To access Azure Virtual Enclaves, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- To access Azure Virtual Enclaves, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-- All access to Azure Virtual Enclaves takes place through a Community or an enclave. For this how-to article, create a [community](./create-a-community-in-the-azure-portal) and [enclave](./create-an-enclave-in-the-azure-portal.md) using the Azure portal.
+- All access to Azure Virtual Enclaves takes place through a Community or an enclave. For this how-to article, create a [community](./create-a-community-in-the-azure-portal.md) and [enclave](./create-an-enclave-in-the-azure-portal.md) using the Azure portal.
 
 ## Sign-in to Azure
 Sign-in to the Azure portal at https://portal.azure.com. For our MVP and Private Preview experience, you will have to navigate to the [RC Azure Portal](https://aka.ms/ave/privatepreview).
@@ -28,12 +28,9 @@ Sign-in to the Azure portal at https://portal.azure.com. For our MVP and Private
 
 Refer to the guidance below for more information on the different types of Transit Hub connections:
 
-- **vNet Peering**:
-https://learn.microsoft.com/en-us/azure/virtual-network/tutorial-connect-virtual-networks-portal
-- **VPN Gateway**:
-https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-site-to-site-portal
-- **Express Route**:
-https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-expressroute-portal
+- [vNet Peering](../virtual-network/tutorial-connect-virtual-networks-portal.md)
+- [VPN Gateway](../virtual-wan/virtual-wan-site-to-site-portal.md)
+- [Express Route](../virtual-wan/virtual-wan-expressroute-portal.md)
 
 ![image.png](./media/image-14edd692-5097-4194-9c4b-a05c238c576b.png)
 

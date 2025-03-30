@@ -17,7 +17,7 @@ AVE takes a multi-layered and hierarchical approach to virtual boundary protecti
 
 ![Communities and Virtual Enclaves.svg](./media/communities-and-virtual-enclaves.svg)
 
-# Key Capabilities
+## Key Capabilities
 
 ## Isolated virtual networking and workloads
 With Azure Virtual Enclaves, you can easily create new isolated, zero-trust software-defined networks and deploy workloads in those networks to satisfy your business requirements on Azure.

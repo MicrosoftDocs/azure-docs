@@ -14,13 +14,13 @@ Communities are isolated hub networks that can securely and logically group seve
 
 ## Architecture of a community
 
-![image.png](/assets/image-3f313746-b212-40eb-9c5f-274964c96dbc.png)
+![image.png](./media/image-3f313746-b212-40eb-9c5f-274964c96dbc.png)
 
 Communities come with the following primary platform-managed and platform-deployed resources:
-- Isolated [Azure Virtual WAN](https://learn.microsoft.com/azure/virtual-wan/virtual-wan-about) hub networks. By default, these Communities are not connected to the rest of the Internet outside of [certain authorized Microsoft services](https://learn.microsoft.com/azure/azure-portal/azure-portal-safelist-urls?tabs=public-cloud).
-- [Azure Firewall](https://learn.microsoft.com/azure/firewall/overview). By default, all Communities are deployed with a secure-by-default Azure Firewall in which all Community network traffic is routed through.
-- [Log Analytics Workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-overview). By default, all Community resources are integrated into Azure Log Analytics, ensuring all activities within a Community are effectively monitored, logged, and audited, laying the foundation for actionable insights. More specifically, all resources deployed in a Community send their [diagnostic platform logs](https://learn.microsoft.com/azure/azure-monitor/essentials/diagnostic-settings) to this Log Analytics Workspace.
-- [Azure Storage Account](https://learn.microsoft.com/azure/storage/common/storage-account-overview). By default and for convenience, all Communities are deployed with a Storage Account.  [Learn more about Azure Storage](https://learn.microsoft.com/azure/architecture/guide/technology-choices/storage-options).
+- Isolated [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md) hub networks. By default, these Communities are not connected to the rest of the Internet outside of [certain authorized Microsoft services](../azure-portal/azure-portal-safelist-urls.md).
+- [Azure Firewall](../firewall/overview.md). By default, all Communities are deployed with a secure-by-default Azure Firewall in which all Community network traffic is routed through.
+- [Log Analytics Workspace](../azure-monitor/logs/log-analytics-overview.md). By default, all Community resources are integrated into Azure Log Analytics, ensuring all activities within a Community are effectively monitored, logged, and audited, laying the foundation for actionable insights. More specifically, all resources deployed in a Community send their [diagnostic platform logs](../azure-monitor/essentials/diagnostic-settings.md) to this Log Analytics Workspace.
+- [Azure Storage Account](../storage/common/storage-account-overview.md). By default and for convenience, all Communities are deployed with a Storage Account.  [Learn more about Azure Storage](../architecture/guide/technology-choices/storage-options.md).
 
 ### Community address space
 > Note:
@@ -33,10 +33,10 @@ When you create a community, the Azure Virtual Enclaves resource provider also c
 See template documentation [here](./ave-templates.md/#community-template)
 
 ## Managed Resources
-- [Azure Virtual WAN](https://learn.microsoft.com/azure/virtual-wan/virtual-wan-about)
-- [Azure Firewall](https://learn.microsoft.com/azure/firewall/overview)
-- [Log Analytics Workspace](https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-overview)
-- [Azure Storage Account](https://learn.microsoft.com/azure/storage/common/storage-account-overview)
+- [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md)
+- [Azure Firewall](../firewall/overview.md)
+- [Log Analytics Workspace](../azure-monitor/logs/log-analytics-overview.md)
+- [Azure Storage Account](../storage/common/storage-account-overview.md)
 
 ## Next Steps
 - [What is Azure Virtual Enclaves?](./what-is-azure-virtual-enclaves.md)
