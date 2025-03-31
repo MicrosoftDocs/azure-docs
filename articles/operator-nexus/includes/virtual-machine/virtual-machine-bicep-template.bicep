@@ -68,8 +68,8 @@ param sshPublicKeys array
 ])
 param osDisk string = 'Ephemeral'
 
-@description('The size of the virtual machine OS disk in GB')
-param osDiskSizeGB int = 64
+@description('The size of the virtual machine OS disk in GiB')
+param osDiskSizeGiB int = 64
 
 @description('The list of volume attachments to the virtual machine.')
 param volumeAttachments array
@@ -79,7 +79,7 @@ param storageProfile object = {
   osDisk: {
     createOption: (empty(osDisk) ? 'Ephemeral' : osDisk)
     deleteOption: 'Delete'
-    diskSizeGB: osDiskSizeGB
+    diskSizeGB: osDiskSizeGiB
   }
   volumeAttachments: (empty(volumeAttachments) ? null : volumeAttachments)
 }
