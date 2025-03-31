@@ -46,17 +46,14 @@ This article shows you how to generate a registration key by using the Azure por
 
 For a general idea of what's required, such as supported operating systems, virtual networks, and identity providers, review the [prerequisites for Azure Virtual Desktop](prerequisites.md). In addition:
 
-::: zone pivot="host-pool-session-host-configuration"
-- You need an existing host pool with a session host configuration.
-::: zone-end
-
 ::: zone pivot="host-pool-standard"
 - You need an existing host pool with standard management. Each host pool must only contain session hosts on Azure or on Azure Local. You can't mix session hosts on Azure and on Azure Local in the same host pool.
+- If you have existing session hosts in the host pool, make a note of the virtual machine size, the image, and name prefix that you used. All session hosts in a host pool should have the same configuration, including the same identity provider. For example, a host pool shouldn't contain some session hosts joined to Microsoft Entra ID and some session hosts joined to an Active Directory domain.
 ::: zone-end
 
-- If you have existing session hosts in the host pool, make a note of the virtual machine size, the image, and name prefix that you used. All session hosts in a host pool should have the same configuration, including the same identity provider. For example, a host pool shouldn't contain some session hosts joined to Microsoft Entra ID and some session hosts joined to an Active Directory domain.
-
 ::: zone pivot="host-pool-session-host-configuration"
+- You need an existing host pool with a session host configuration.
+
 - The Azure account you use must have the following built-in role-based access control (RBAC) roles or equivalent as a minimum on the resource group:
 
    | Action | RBAC role |
@@ -181,7 +178,10 @@ Here's how to generate a registration key by using the [desktopvirtualization](/
 ::: zone pivot="host-pool-session-host-configuration"
 ## Add session hosts
 
-You can use the Azure portal to specify the number of session hosts you want to add, then Azure Virtual Desktop automatically creates them based on the session host configuration. You can't use PowerShell to add session hosts to a host pool with a session host configuration.
+You can use the Azure portal to specify the number of session hosts you want to add, then Azure Virtual Desktop automatically creates them based on the session host configuration. At this time, you can't use PowerShell to add session hosts to a host pool with a session host configuration.
+
+> [!NOTE]
+>[Diagnostics for host pools using a session host configuration](https://learn.microsoft.com/en-us/azure/virtual-desktop/session-host-update-diagnostics) are recorded with Log Analytics in Azure Monitor and won't be available in your ARM deployments history. We recommended that you [enable Log Analytics](https://learn.microsoft.com/en-us/azure/virtual-desktop/diagnostics-log-analytics) for any host pool using a session host configuration.
 
 Here's how to add session hosts:
 
@@ -193,9 +193,25 @@ Here's how to add session hosts:
 
 1. On the host pool overview, select **Session hosts**, then select **+ Add**.
 
-1. For **Number of session hosts to be added**, enter the number of session hosts you want to create. If you want to review the session host configuration that is used, see **View session host configuration**. To edit the session host configuration, see [Schedule an update and edit session host configuration](session-host-update-configure.md#schedule-an-update-and-edit-a-session-host-configuration). 
+1. For **Number of session hosts to be added**, enter the number of session hosts you want to create. If you want to review the session host configuration that is used, see **View session host configuration**. To edit the session host configuration, see [Schedule an update and edit session host configuration](session-host-update-configure.md#schedule-an-update-and-edit-a-session-host-configuration).
+
+1. Confirm that the calculated total host pool size reflects your desired quantity of session hosts.
+
+1. Optionally change the failed session host cleanup policy or drain mode policy.
 
 1. Select **Add**. The number of session hosts you entered is created and added to the host pool.
+
+### Cancel in-progress session host creation
+
+You can cancel in-progress session host creation using the Azure portal. Session hosts that are in the process of being created can't be cancelled.
+
+Here's how to cancel session host creation:
+
+1. Return to the host pool overview where session host creation is in progress.
+
+1. On the host pool overview, select **Session hosts**, then select **Cancel**.
+
+1. Review the message providing cancellation details, then select **Confirm**.
 ::: zone-end
 
 ::: zone pivot="host-pool-standard"
