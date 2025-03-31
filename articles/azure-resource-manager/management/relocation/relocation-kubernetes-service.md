@@ -12,8 +12,8 @@ This article covers guidance for relocating an [Azure Kubernetes Service cluster
 
 [!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
 
->[!NOTE]
->Customers with fast release cycles often leverage CI/CD pipelines. In those cases, you might consider altering the build and release pipelines instead of re-deploying the AKS clusters in the target region.
+> [!NOTE]
+> Customers with fast release cycles often leverage CI/CD pipelines. In those cases, you might consider altering the build and release pipelines instead of re-deploying the AKS clusters in the target region.
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ Before you begin the relocation planning stage, first review the following prere
 
     - Queues, Message Buses, Cache engines
     - [Azure Key Vault](./relocation-key-vault.md)
-    - [Managed Identity](./relocation-managed-identity.md)
+    - [Managed Identity](/entra/identity/managed-identities-azure-resources/how-to-managed-identity-regional-move)
     - [Virtual Network configuration](./relocation-virtual-network.md). Define sufficient subnet sizes to allow container IP growth if using the Azure advanced networking model
     - Public IP address
     - Virtual Network Gateway (VNG). If site-to-site communication is required to an on-premises environment in the target region, a VNG must be created in the target virtual network.

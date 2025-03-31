@@ -3,7 +3,6 @@ title: Azure Operational Excellence documentation (Preview)
 description: Azure Operational Excellence documentation for guidance for specific workload operations and projects
 ms.topic: concept-article
 ms.date: 03/01/2024
-ms.service: azure
 ms.custom: subject-relocation
 ---
 
