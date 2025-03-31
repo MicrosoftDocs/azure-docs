@@ -42,7 +42,7 @@ To ensure outcomes, nfApp testing is supported using helm, either helm upgrade p
 ## Considerations for in-service upgrades
 Azure Operator Service Manager generally supports in service upgrades, an upgrade method which advances a deployment version without interrupting the running service. Some considerations are necessary to ensure the proper behavior of AOSM during ISSU operations. 
 * Where AOSM performs an upgrade against an ordered set of multiple nfApps, AOSM first upgrades or creates all new nfApps, then deletes all old nfApps. This approach ensures service isn't impacted until all new nfApps are ready but requires extra platform capacity for transient hosting of both old and new nfApps. 
-* Where AOSM upgrades an nfApp with multiple replica, AOSM honors the deployment profile settings for either the rolling or recreate options. Where rolling is used, expose the values `maxUnavailable` and `maxSurge` as CGS parameters, which can then be set via operator CGV at run-time.
+* Where AOSM upgrades an nfApp with multiple replicas, AOSM honors the deployment profile settings for either the rolling or recreate option. Where rolling is used, expose the values `maxUnavailable` and `maxSurge` as CGS parameters, which can then be set via operator CGV at run-time.
 
 Ultimately, the ability for a given service to be upgraded without interruption is a feature of the service itself. Consult further with the service publisher to understand the in-service upgrade capabilities and ensure they're aligned with the proper AOSM behavioral options.
 
@@ -149,9 +149,9 @@ The `skipUpgrade` feature is designed to optimize the time taken for CNF upgrade
 
 ### Precheck Criteria
 An upgrade can be skipped if all the following conditions are met:
-1. The `nfApplication` provisioning state is Succeeded.
-2. there's no change in the Helm chart name or version.
-3. there's no change in the Helm values.
+- The `nfApplication` provisioning state is Succeeded.
+- There's no change in the Helm chart name or version.
+- There's no change in the Helm values.
 
 ### Enabling or disabling the skipUpgrade feature
 The `skipUpgrade` feature is **disabled by default**. If this optional parameter isn't specified in `roleOverrideValues` under `upgradeOptions`, CNF upgrades proceed in the traditional manner, where the `nfApplications` are upgraded at the cluster level.
