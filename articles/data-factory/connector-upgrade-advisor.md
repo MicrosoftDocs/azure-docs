@@ -80,6 +80,6 @@ Before using the Connector upgrade advisor, it is recommended to **save** or **d
 
     Review all modified connectors, then **Save all** or **Publish all** the changes as needed.
 
-    :::image type="content" source="media/connector-upgrade-advisor/linked-services-page.png" alt-text="Screenshot of the linked services page." lightbox="media/connector-upgrade-advisor/linked-services-page.png":::
+    :::image type="content" source="media/connector-upgrade-advisor/save-publish.png" alt-text="Screenshot of the save or publish page." lightbox="media/connector-upgrade-advisor/save-publish.png":::
 
 This process ensures a smooth transition from outdated connectors to the latest supported versions.  
