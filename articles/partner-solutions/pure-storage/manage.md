@@ -1,5 +1,5 @@
 ---
-title: Manage settings for your Pure Storage resource via Azure portal
+title: Manage settings for your Pure Storage resource via Azure portal (preview)
 description: Manage settings, view resources, reconfigure metrics/logs, and more for your Pure Storage resource via Azure portal.
 
 ms.topic: how-to
@@ -7,7 +7,7 @@ ms.date: 03/24/2025
 
 ---
 
-# Manage Pure Storage resources
+# Manage Pure Storage resources (preview)
 
 This article describes how to manage the settings for Pure Storage for Azure.
 
@@ -15,7 +15,7 @@ This article describes how to manage the settings for Pure Storage for Azure.
 
 [!INCLUDE [manage](../includes/manage.md)]
 
-:::image type="content" source="media/manage/resource-overivew.png" alt-text="A screenshot of a Pure Storage resource in the Azure portal with the overview displayed in the working pane.":::
+:::image type="content" source="media/manage/resource-overivew.png" alt-text="A screenshot of a Pure Storage resource in the Azure portal with the overview displayed in the working pane." lightbox="media/manage/resource-overivew.png":::
 
 The *Essentials* details include:
 

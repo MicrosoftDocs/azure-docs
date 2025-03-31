@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create a Pure Storage Cloud (preview) resource"
+title: "Quickstart: Create a Pure Storage Cloud resource (preview)"
 description: Learn how to create a resource for Pure Storage Cloud (preview) using the Azure portal.
 author: ProfessorKendrick
 ms.author: kkendrick
@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.date: 10/29/2024
 
 ---
-# Quickstart: Create a Pure Storage Cloud (preview) resource
+# Quickstart: Create a Pure Storage Cloud resource (preview)
 
 This quickstart shows you how to create a Pure Storage Cloud (preview) resource using the Azure portal.
 
@@ -63,4 +63,4 @@ There are required fields that you need to fill out.
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Manage Pure Storage resources](manage.md)
+> [Manage Pure Storage resources (preview)](manage.md)
