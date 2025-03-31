@@ -6,14 +6,14 @@ author: greg-lindsay
 
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 01/25/2022
+ms.date: 03/31/2025
 ms.author: greglin 
 ms.devlang: azurecli
 ---
 
 # Renew Application Gateway certificates
 
-At some point, you'll need to renew your certificates if you configured your application gateway for TLS/SSL encryption.
+At some point, you'll need to renew your certificates if you configured your application gateway for TLS/SSL encryption. Renewing the SSL certificate with a valid, new certificate does not incur any downtime for the service.
 
 There are two locations where certificates may exist: certificates stored in Azure Key Vault, or certificates uploaded to an application gateway.
 
