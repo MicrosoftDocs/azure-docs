@@ -1,14 +1,13 @@
 ---
-title: Diagnostics
+title: Troubleshoot with Diagnostics
 description: Learn how you can troubleshoot problems with your app in Azure App Service by using the diagnostics tool in the Azure portal. 
 keywords: app service, azure app service, diagnostics, support, web app, troubleshooting, self-help
-
 ms.topic: conceptual
-ms.date: 06/29/2023
+ms.date: 04/01/2025
 ms.author: msangapu
 author: msangapu-msft
 ms.custom: UpdateFrequency3
-
+#customer intent: As an app developer, I want to understand the diagnostic tools that I can use with Azure App Service.
 ---
 # Diagnostics in Azure App Service
 
@@ -25,15 +24,9 @@ To access App Service diagnostics:
 1. In the [Azure portal](https://portal.azure.com), go to your App Service web app or your App Service Environment.
 1. On the left menu, select **Diagnose and solve problems**.
 
-For Azure Functions:
-
-1. Go to your function app.
-1. On the top menu, select **Platform features**.
-1. In the **Resource management** section, select **Diagnose and solve problems**.
-
 The App Service diagnostics page provides many tools to diagnose app problems. For more information, see [Diagnostic tools](#diagnostic-tools) later in this article.
 
-:::image type="content" source="./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png" alt-text="Screenshot that shows the App Service diagnostics page for a selected resource in the portal.":::
+:::image type="content" source="./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png" alt-text="Screenshot that shows the App Service diagnostics page for a selected resource in the portal." lightbox="./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png":::
 
 > [!NOTE]
 > If your app is down or performing slowly, you can [collect a profiling trace](https://azure.github.io/AppService/2018/06/06/App-Service-Diagnostics-Profiling-an-ASP.NET-Web-App-on-Azure-App-Service.html) to identify the root cause of the problem. Profiling is lightweight and is designed for production scenarios.
@@ -42,11 +35,11 @@ The App Service diagnostics page provides many tools to diagnose app problems. F
 
 The page for App Service diagnostics offers streamlined diagnostic access in multiple sections.
 
-### Ask Genie search box
+### Search box
 
-The Ask Genie search box is a quick way to find a diagnostic. You can find the same diagnostic through [troubleshooting categories](#troubleshooting-categories).
+The search box is a quick way to find a diagnostic. You can find the same diagnostic through [troubleshooting categories](#troubleshooting-categories).
 
-:::image type="content" source="./media/app-service-diagnostics/app-service-diagnostics-genie-alerts-search-1.png" alt-text="Screenshot that shows search results related to availability in the Ask Genie search box in the portal.":::
+:::image type="content" source="./media/app-service-diagnostics/app-service-diagnostics-genie-alerts-search-1.png" alt-text="Screenshot that shows search results related to availability in the search box in the portal.":::
 
 ### Risk alerts
 
@@ -66,10 +59,11 @@ Troubleshooting categories group diagnostics for ease of discovery. The followin
 - **Configuration and Management**
 - **SSL and Domains**
 - **Risk Assessments**
+- **Deployment**
+- **Networking**
 - **Navigator (Preview)**
 - **Diagnostic Tools**
-
-:::image type="content" source="./media/app-service-diagnostics/app-service-diagnostics-troubleshooting-categories-1.png" alt-text="Screenshot that shows troubleshooting categories for diagnostics in the portal.":::
+- **Load Test your App**
 
 The tiles or the **Troubleshoot** link shows the available diagnostics for the category. If you're interested in investigating availability and performance, the following diagnostics are available on the left menu:
 
@@ -79,16 +73,14 @@ The tiles or the **Troubleshoot** link shows the available diagnostics for the c
 - **High CPU Analysis**
 - **Memory Analysis**
 - **Web App Restarted**
-- **Application Change (Preview)**
-- **Application Crashes**
-- **HTTP 4xx Errors**
-- **SNAT Failed Connection Endpoints**
-- **SWAP Effects on Availability**
 - **TCP Connections**
+- **Application Changes**
+- **Application Crashes**
+- **Child Process Crashes**
+- **HTTP 4xx Errors**
+- **SNAT Port Exhaustion**
 - **Testing in Production**
 - **WebJob Details**
-
-:::image type="content" source="./media/app-service-diagnostics/app-service-diagnostics-availability-and-performance-1.png" alt-text="Screenshot that shows the Availability and Performance troubleshooting category in the portal.":::
 
 ## Diagnostic report
 
@@ -100,15 +92,13 @@ The diagnostic report can be a powerful tool for pinpointing the problem with yo
 
 ## Resiliency Score report
 
-To review tailored best-practice recommendations, check out the Resiliency Score report. This report is available as a downloadable PDF. To get it, select **Get Resiliency Score report** on the command bar of any troubleshooting category. The report shows a gauge that scores the app's resilience and indicates what you can do to improve the score.
+To review tailored best-practice recommendations, look at the Resiliency Score report. This report is available as a downloadable PDF. To get it, select **Get Resiliency Score report** on the command bar of any troubleshooting category. The report shows a gauge that scores the app's resilience and indicates what you can do to improve the score.
 
 :::image type="content" source="./media/app-service-diagnostics/app-service-diagnostics-resiliency-report-1.png" alt-text="Screenshot that shows the Resiliency Score report in the portal.":::
 
 ## Investigation of application code problems (only for Windows apps)
 
 Because many app problems are related to application code, App Service diagnostics integrates with [Application Insights](/azure/azure-monitor/app/app-insights-overview) to highlight exceptions and dependency issues to correlate with the selected downtime. You enable Application Insights separately.
-
-:::image type="content" source="./media/app-service-diagnostics/application-insights-7.png" alt-text="Screenshot that shows an Application Insights analysis in the portal.":::
 
 To view Application Insights exceptions and dependencies, select the **Web App Down** or **Web App Slow** tile shortcut.
 
@@ -126,15 +116,11 @@ App Service includes advanced diagnostic tools that help you investigate applica
 
 Proactive CPU monitoring helps you take action when your app or a child process for your app is consuming high CPU resources. You can set your own CPU threshold rules to temporarily mitigate unexpectedly high CPU until the real cause is found. For more information, see the blog post [Mitigate your CPU problems before they happen](https://azure.github.io/AppService/2019/10/07/Mitigate-your-CPU-problems-before-they-even-happen.html).
 
-:::image type="content" source="./media/app-service-diagnostics/proactive-cpu-monitoring-9.png" alt-text="Screenshot that shows proactive CPU monitoring in the portal.":::
-
 ### Auto-healing
 
 Auto-healing is a mitigation action that you can take when your app has unexpected behavior. You can set your own rules based on request count, slow request, memory limit, and HTTP status code to trigger mitigation actions. Use the tool to temporarily mitigate an unexpected behavior until you find the root cause.
 
 The tool is currently available for Windows web apps, Linux web apps, and Linux custom containers. Supported conditions and mitigation vary, depending on the type of the web app. For more information, see the blog posts [Announcing the New Auto Healing Experience in App Service Diagnostics](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html) and [Announcing Auto Heal for Linux](https://azure.github.io/AppService/2021/04/21/Announcing-Autoheal-for-Azure-App-Service-Linux.html).
-
-:::image type="content" source="./media/app-service-diagnostics/auto-healing-10.png" alt-text="Screenshot that shows the tabs for auto-healing in the portal.":::
 
 ### Proactive auto-healing (only for Windows apps)
 
@@ -145,10 +131,6 @@ Like proactive CPU monitoring, proactive auto-healing is a turnkey solution for 
 In a large team with continuous integration and where your app has many dependencies, it can be difficult to pinpoint the specific change that causes an unhealthy behavior. Navigator helps get visibility on your app's topology by automatically rendering a dependency map of your app and all the resources in the same subscription.
 
 Navigator lets you view a consolidated list of changes that your app and its dependencies made. You can then narrow down on a change that's causing unhealthy behavior. You access the feature through the **Navigator** tile on the page for App Service diagnostics. Before you can use the feature, you need to enable it. For more information, see the blog post [Get visibility into your app's dependencies with Navigator](https://azure.github.io/AppService/2019/08/06/Bring-visibility-to-your-app-and-its-dependencies-with-Navigator.html).
-
-:::image type="content" source="./media/app-service-diagnostics/navigator-default-page-11.png" alt-text="Screenshot that shows the Navigator default page in the portal.":::
-
-:::image type="content" source="./media/app-service-diagnostics/diff-view-12.png" alt-text="Screenshot that shows the diff view in the portal.":::
 
 ## Change analysis
 
