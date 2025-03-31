@@ -47,7 +47,7 @@ Use the [Microsoft Sentinel pricing calculator](https://azure.microsoft.com/pric
 
 For example, enter the GB of daily data you expect to ingest in Microsoft Sentinel, and the region for your workspace. The calculator provides the aggregate monthly cost across these components:
 
-- Microsoft Sentinel: Analytics logs and auxiliary logs
+- Microsoft Sentinel: Analytics logs and auxiliary/basic logs
 - Azure Monitor: Retention
 - Azure Monitor: Data Restore
 - Azure Monitor: Search Queries and Search Jobs
@@ -60,7 +60,7 @@ Microsoft Sentinel runs on Azure infrastructure that accrues costs when you depl
 
 ### How you're charged for Microsoft Sentinel
 
-Pricing is based on the types of logs ingested into a workspace. Analytics logs typically make up most of your high value security logs and support all data types offering full analytics, alerts and no query limits. Auxiliary logs tend to be verbose with low security value. It's important to note that billing is done per workspace on a daily basis for all log types and tiers.
+Pricing is based on the types of logs ingested into a workspace. Analytics logs typically make up most of your high value security logs and support all data types offering full analytics, alerts and no query limits. Auxiliary logs and Basic logs tend to be verbose with low security value. It's important to note that billing is done per workspace on a daily basis for all log types and tiers.
 
 #### Analytics logs
 
@@ -89,6 +89,8 @@ Auxiliary logs are a super-low-cost option for ingesting high-volume, low-value 
 This log type is best suited for use in playbook automation, ad-hoc querying, investigations, and search. For more information, see:
 - [Log retention plans in Microsoft Sentinel](log-plans.md)
 - [Log sources to use for Auxiliary Logs ingestion](basic-logs-use-cases.md)
+
+Basic logs are a similar option, but less cost-effective.
 
 To learn more about the difference between **interactive retention** and **long-term retention** (formerly known as archive), see [Manage data retention in a Log Analytics workspace](/azure/azure-monitor/logs/data-retention-archive).
 
@@ -160,8 +162,10 @@ If you're billed at classic pay-as-you-go rate, this table shows how Microsoft S
 |--|--|--|
 | Pay-as-you-go | `Sentinel` | **Classic Pay-as-you-go Analysis** |
 | Pay-as-you-go | `Log Analytics` | **Pay-as-you-go Data Ingestion** |
-| Auxiliary logs data analysis | `Sentinel` | **???** |
-| Auxiliary logs data ingestion | `Azure Monitor` | **???** |
+| Basic logs data analysis| `Sentinel` | **Classic Basic Logs Analysis** |
+| Basic logs data ingestion| `Azure Monitor` | **Basic Logs Data Ingestion** |
+| Auxiliary logs data analysis | `Sentinel` | **Classic Auxiliary Logs Analysis** |
+| Auxiliary logs data ingestion | `Azure Monitor` | **Basic Auxiliary Data Ingestion** |
 
 
 # [Free data meters](#tab/free-data-meters/simplified)

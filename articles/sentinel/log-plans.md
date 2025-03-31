@@ -62,6 +62,8 @@ Some examples of secondary data log sources are cloud storage access logs, NetFl
 
 Logs containing secondary security data should be stored using the [**Auxiliary logs**](#auxiliary-logs-plan) plan described later in this article.
 
+(The existing **Basic logs** plan also serves this purpose, but it costs more and is not recommended for new instances.)
+
 ## Log management plans
 
 Microsoft Sentinel provides two different log storage plans, or types, to accommodate these categories of ingested data.

@@ -53,7 +53,7 @@ When hunting or investigating threats in Microsoft Sentinel, you might need to a
 
 ## Select low-cost log types for high-volume, low-value data
 
-While standard analytics logs are most appropriate for continuous, real-time threat detection, the [auxiliary logs](log-plans.md) type is more suited for ad-hoc querying and search of [verbose, high-volume, low-value logs](basic-logs-use-cases.md) that aren't frequently needed or accessed on demand. Enable auxiliary log data ingestion at a significantly reduced cost for eligible data tables. For more information, see [Microsoft Sentinel Pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
+While standard analytics logs are most appropriate for continuous, real-time threat detection, two other log types&mdash;[basic logs and auxiliary logs](log-plans.md)&mdash;are more suited for ad-hoc querying and search of [verbose, high-volume, low-value logs](basic-logs-use-cases.md) that aren't frequently needed or accessed on demand. basic log data ingestion at a significantly reduced cost, or auxiliary log data ingestion at an even lower cost, for eligible data tables. For more information, see [Microsoft Sentinel Pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 
 - [Log retention plans in Microsoft Sentinel](log-plans.md)
 - [Log sources to use for Auxiliary Logs ingestion](basic-logs-use-cases.md)

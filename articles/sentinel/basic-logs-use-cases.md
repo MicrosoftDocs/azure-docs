@@ -1,10 +1,10 @@
 ---
 title: When to use Auxiliary Logs in Microsoft Sentinel
-description: Learn what log sources might be appropriate for Auxiliary Log ingestion.
+description: Learn what log sources might be appropriate for Auxiliary Log or Basic Log ingestion and what are the attributes to look for to decide about other sources.
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: conceptual
-ms.date: 07/21/2024
+ms.date: 03/31/2025
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -16,7 +16,7 @@ ms.collection: usx-security
 ---
 # Log sources to use for Auxiliary Logs ingestion
 
-This article highlights log sources to consider configuring as Auxiliary Logs when they're stored in Log Analytics tables. Before choosing a log type for which to configure a given table, do the research to see which is most appropriate. For more information about data categories and log data plans, see [Log retention plans in Microsoft Sentinel](log-plans.md).
+This article highlights log sources to consider configuring as Auxiliary Logs (or Basic Logs) when they're stored in Log Analytics tables. Before choosing a log type for which to configure a given table, do the research to see which is most appropriate. For more information about data categories and log data plans, see [Log retention plans in Microsoft Sentinel](log-plans.md).
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
