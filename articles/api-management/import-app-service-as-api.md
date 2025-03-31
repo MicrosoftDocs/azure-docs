@@ -34,7 +34,7 @@ Using API Management to expose a Web Apps-hosted API provides these benefits:
 * Decouple managing and securing the front end that's exposed to API consumers from managing and monitoring the backend web app.
 * Manage web APIs hosted as web apps in the same environment as your other APIs.
 * Apply [policies](api-management-policies.md) to change API behavior, such as call-rate limiting.
-* Direct API consumers to the customizable API Management [Developer Portal](api-management-howto-developer-portal.md) so they can discover and learn about your APIs, request access, and try APIs.
+* Direct API consumers to the customizable API Management [developer portal](api-management-howto-developer-portal.md) so they can discover and learn about your APIs, request access, and try APIs.
 
 For more information, see [About API Management](api-management-key-concepts.md).
 
@@ -75,12 +75,13 @@ The wildcard operation allows the same requests to the backend service as the op
     * [Tutorial: Create a web API with ASP.NET Core](/aspnet/core/tutorials/first-web-api).
     * [Publish an ASP.NET Core app to Azure with Visual Studio Code](/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode).
 
-## <a name="create-api"> </a>Import and publish a backend API
+## Import and publish a backend API
 
 > [!TIP]
 > In the following steps, you start the import by using API Management in the Azure portal. You can also link to API Management directly from your web app by selecting **API Management** in the app's **API** menu.  
 
-1. Navigate to your API Management service in the Azure portal and select **APIs** from the menu.
+1. Navigate to your API Management service in the [Azure portal](https://portal.azure.com).
+1. In the left menu, in the **APIs section**, select **APIs**, and then select **+ Add API**.
 1. Select the **App Service** tile:
 
     :::image type="content" source="media/import-app-service-as-api/app-service.png" alt-text="Screeenshot that shows the App Service tile.":::
@@ -90,12 +91,12 @@ The wildcard operation allows the same requests to the backend service as the op
 
     If an OpenAPI definition isn't found, API Management exposes the API by generating wildcard operations for common HTTP verbs. 
 1. Add an **API URL suffix**. The suffix is a name that identifies the API in the API Management instance. It has to be unique in the API Management instance.
-1. Publish the API by associating the API with a product. To associate the API with a product, you must first select **Full**. In this case, the **Unlimited** product is used. If you want the API to be published and be available to developers, you need to add it to a product. You can add it when you create the API or at a later time.
+1. If you want the API to be published and available to developers, switch to the Full view and associate the API with a Product. This example uses the Unlimited product. (You can add your API to a product when you create it or later via the Settings tab.)
 
     > [!NOTE]
-    > *Products* are associations of one or more APIs. You can include many APIs and offer them to developers via the Developer Portal. Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that's good for any API in the product. If you created the API Management instance, you're an administrator, so you're subscribed to every product by default.
+    > Products are associations of one or more APIs offered to developers via the developer portal. First, developers must subscribe to a product to get access to the API. After they subscribe, they get a subscription key for any API in the product. As creator of the API Management instance, you're an administrator and are subscribed to every product by default.
     >
-    > By default, each API Management instance comes with two sample products:
+    > In certain tiers, each API Management instance comes with two default sample products::
     > * **Starter**
     > * **Unlimited**
 
@@ -106,7 +107,7 @@ The wildcard operation allows the same requests to the backend service as the op
 
 ## Test the new API in the Azure portal
 
-You can call operations directly from the Azure portal. This method provides a convenient way to view and test the operations of an API. You can also test the API in the [Developer Portal](api-management-howto-developer-portal.md) or by using your own REST client tools.
+You can call operations directly from the Azure portal. This method provides a convenient way to view and test the operations of an API. You can also test the API in the [developer portal](api-management-howto-developer-portal.md) or by using your own REST client tools.
 
 1. Select the API you created in the previous step.
 1. On the **Test** tab, select an operation.
