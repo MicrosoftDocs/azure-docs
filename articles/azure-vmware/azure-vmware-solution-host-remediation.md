@@ -24,6 +24,21 @@ Host remediation involves replacing the faulty node with a new healthy node in t
 > 
 > To receive emails related to host replacement, you need to be added to any of the following Azure Role-Based Access Control (RBAC) roles in the subscription: 'ServiceAdmin', 'CoAdmin', 'Owner', 'Contributor'.
 
+Azure VMware Solution monitors the following conditions on the host:
+
+- Processor status
+- Memory status
+- Connection and power state
+- Hardware fan status
+- Network connectivity loss
+- Hardware system board status
+- Errors occurred on one or more disks of a vSAN host
+- Hardware voltage
+- Hardware temperature status
+- Hardware power status
+- Storage status
+- Connection failure
+
 ## Maintenance Operations Best Practices
 The following actions are always recommended for ensuring host maintenance operations are carried out successfully:
 - **vSAN storage utilization:** To maintain Service Level Agreement (SLA), ensure that your vSphere cluster's storage space utilization remains below 75%. If the utilization exceeds 75%, upgrades may take longer than expected or fail entirely. If your storage utilization exceeds 75%, consider adding a node to expand the cluster and prevent potential downtime during upgrades.
@@ -39,22 +54,6 @@ The following actions are always recommended for ensuring host maintenance opera
     - Consult with your solution vendor and update in advance if necessary to maintain compatibility post-upgrade.
 
 
-
-Azure VMware Solution monitors the following conditions on the host:
-
-- Processor status
-- Memory status
-- Connection and power state
-- Hardware fan status
-- Network connectivity loss
-- Hardware system board status
-- Errors occurred on one or more disks of a vSAN host
-- Hardware voltage
-- Hardware temperature status
-- Hardware power status
-- Storage status
-- Connection failure
-  
 ## Alert Codes and Remediation Table
 |  Error Code         |        Error Details              |  Recommended Action     |
 |--------------------|---------------------------------|---------------------|
@@ -74,11 +73,11 @@ Azure VMware Solution monitors the following conditions on the host:
 
 ## Next steps
 
-Now that you've covered Azure VMware Solution private cloud concepts, you might want to learn about:
+Now that you've covered Azure VMware Solution private cloud best practices, you might want to learn about:
 
 - [Azure VMware Solution networking and interconnectivity concepts](architecture-networking.md)
 - [Azure VMware Solution storage concepts](architecture-storage.md)
-- [How to enable Azure VMware Solution resource](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)
+- [How to configure Azure Alerts in Azure VMware Solution](articles\azure-vmware\configure-alerts-for-azure-vmware-solution.md)
 
 <!-- LINKS - internal -->
 [concepts-networking]: ./concepts-networking.md
