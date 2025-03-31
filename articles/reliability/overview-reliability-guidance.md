@@ -56,7 +56,7 @@ Each service guide generally contains information on how the service supports:
 |Azure Container Apps| [Reliability in Azure Container Apps](reliability-azure-container-apps.md)|
 |Azure Container Instances| [Reliability in Azure Container Instances](reliability-containers.md)|
 |Azure Functions|  [Reliability in Azure Functions ](reliability-functions.md)|
-|Azure Kubernetes Service (AKS)| [Create an Azure Kubernetes Service (AKS) cluster that uses availability zones](/azure/aks/availability-zones?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) </p> [High availability and disaster recovery overview for Azure Kubernetes Service (AKS)](/azure/aks/ha-dr-overview?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+|Azure Kubernetes Service (AKS)| [Reliability in Azure Kubernetes Service (AKS)](reliability-aks.md)|
 |Azure Service Fabric| [Deploy an Azure Service Fabric cluster across Availability Zones](/azure/service-fabric/service-fabric-cross-availability-zones?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) </p> [Disaster recovery in Azure Service Fabric](/azure/service-fabric/service-fabric-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure Spring Apps| [Reliability in Azure Spring Apps](reliability-spring-apps.md)|
 |Azure Virtual Machines| [Reliability in Azure Virtual Machines](reliability-virtual-machines.md)|
@@ -72,7 +72,7 @@ Each service guide generally contains information on how the service supports:
 |Azure Container Apps| [Reliability in Azure Container Apps](reliability-azure-container-apps.md)|
 |Azure Container Instances| [Reliability in Azure Container Instances](reliability-containers.md)|
 |Azure Container Registry|[Enable zone redundancy in Azure Container Registry for resiliency and high availability](/azure/container-registry/zone-redundancy?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) </p> [Geo-replication in Azure Container Registry](/azure/container-registry/container-registry-geo-replication) |
-|Azure Kubernetes Service (AKS)| [Create an Azure Kubernetes Service (AKS) cluster that uses availability zones](/azure/aks/availability-zones?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) </p> [High availability and disaster recovery overview for Azure Kubernetes Service (AKS)](/azure/aks/ha-dr-overview?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+|Azure Kubernetes Service (AKS)| [Reliability in Azure Kubernetes Service (AKS)](reliability-aks.md)|
 |Azure Service Fabric| [Deploy an Azure Service Fabric cluster across Availability Zones](/azure/service-fabric/service-fabric-cross-availability-zones?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) </p> [Disaster recovery in Azure Service Fabric](/azure/service-fabric/service-fabric-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 
 ## Databases
@@ -200,10 +200,11 @@ Azure Media Services| [High Availability with Media Services and Video on Demand
 |Azure Backup| [Reliability in Azure Backup](reliability-backup.md)|
 |Azure Blob Storage|[Choose the right redundancy option](/azure/storage/common/storage-disaster-recovery-guidance?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#choose-the-right-redundancy-option)</p>[Azure storage disaster recovery planning and failover](/azure/storage/common/storage-disaster-recovery-guidance?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Databox| [How can I recover my data if an entire region fails?](../databox/data-box-disk-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-can-i-recover-my-data-if-an-entire-region-fails-)|
+|Azure Disks| [Best practices for achieving high availability with Azure virtual machines and managed disks](/azure/virtual-machines/disks-high-availability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Elastic SAN| [Reliability in Azure Elastic SAN](reliability-elastic-san.md)|
+|Azure Files|[Choose the right redundancy option](/azure/storage/files/files-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#choose-the-right-redundancy-option)</p>[Disaster recovery and failover for Azure Files](/azure/storage/files/files-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure NetApp Files| [Manage disaster recovery using Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md?toc=/azure.reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Storage Actions|[Reliability in Azure Storage Actions](reliability-storage-actions.md)|
-|Azure Storage-Disk Storage| [Best practices for achieving high availability with Azure virtual machines and managed disks](/azure/virtual-machines/disks-high-availability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Storage Mover| [Reliability in Azure Storage Mover](reliability-azure-storage-mover.md)|
 
 ## Web

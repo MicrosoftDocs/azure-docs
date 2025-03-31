@@ -120,7 +120,11 @@ If using SNAT without outbound rules via a public load balancer, SNAT ports are 
 
 ## <a name="preallocatedports"></a> Default port allocation table
 
-When load balancing rules are selected to use default port allocation, or outbound rules are configured with "Use the default number of outbound ports", SNAT ports are allocated by default based on the backend pool size. Backends receive the number of ports defined by the table, per frontend IP, up to a maximum of 1024 ports.
+When default port allocation is enabled, SNAT ports will be allocated by default based on the backend pool size. Backends receive the number of ports defined by the table, per frontend IP, up to a maximum of 1024 ports. Default port allocation is NOT recommended for production workloads, as doing so allocates a minimal number of ports to each backend instance and increases the risk of SNAT port exhaustion. Instead, consider leveraging NAT Gateway or manually allocating ports on your load balancer outbound rules.
+
+There are multiple ways default port allocation can be enabled:
+- Configuring a load balancing rule with disableOutboundSnat set to false, or by selecting the default port allocation option on a load balancer rule in the Azure portal
+- Configuring an outbound rule but setting the allocatedOutboundPorts	property to 0, or by selecting "Enable default port allocation" in the Azure portal
 
 As an example, with 100 VMs in a backend pool and only one frontend IP, each VM receives 512 ports. If a second frontend IP is added, each VM receives an extra 512 ports. This means each VM is allocated a total of 1,024 ports. As a result, adding a third frontend IP will NOT increase the number of allocated SNAT ports beyond 1024 ports.
 

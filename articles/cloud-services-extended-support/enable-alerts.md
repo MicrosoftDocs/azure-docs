@@ -7,6 +7,7 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+# Customer intent: As a cloud administrator, I want to enable monitoring rules for Cloud Services, so that I can track metrics and proactively respond to issues in my deployments.
 ---
 
 # Enable monitoring for Cloud Services (extended support) using the Azure portal
