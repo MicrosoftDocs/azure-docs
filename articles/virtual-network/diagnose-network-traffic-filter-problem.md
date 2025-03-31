@@ -1,13 +1,10 @@
 ---
 title: Diagnose a virtual machine network traffic filter problem
 description: Learn how to diagnose a virtual machine network traffic filter problem by viewing the effective security rules for a virtual machine.
-services: virtual-network
 author: asudbring
-
-ms.assetid: a54feccf-0123-4e49-a743-eb8d0bdd1ebc
 ms.service: azure-virtual-network
 ms.topic: troubleshooting
-ms.date: 05/29/2018
+ms.date: 03/26/2025
 ms.author: allensu
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
@@ -28,19 +25,30 @@ The steps that follow assume you have an existing VM to view the effective secur
 ## Diagnose using Azure portal
 
 1. Log into the Azure [portal](https://portal.azure.com) with an Azure account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
-2. At the top of the Azure portal, enter the name of the VM in the search box. When the name of the VM appears in the search results, select it.
-3. Under **SETTINGS**, select **Networking**, as shown in the following picture:
 
-   ![Screenshot shows the Azure portal with Networking settings for my V M V M Nic.](./media/diagnose-network-traffic-filter-problem/view-security-rules.png)
+1. At the top of the Azure portal, enter the name of the VM in the search box. When the name of the VM appears in the search results, select it.
 
-   The rules you see listed in the previous picture are for a network interface named **myVMVMNic**. You see that there are **INBOUND PORT RULES** for the network interface from two different network security groups:
+1. Expand **Networking** in the left pane. Select **Network settings**. The following figures show the network security group settings for the VM's network interface.
+
+    :::image type="content" source="./media/diagnose-network-traffic-filter-problem/view-security-rules.png" alt-text="Screenshot of security rules for NSG nsg-subnet." lightbox="./media/diagnose-network-traffic-filter-problem/view-security-rules.png":::
+
+    :::image type="content" source="./media/diagnose-network-traffic-filter-problem/view-security-rules2.png" alt-text="Screenshot of security rules for NSG nsg-nic." lightbox="./media/diagnose-network-traffic-filter-problem/view-security-rules.png":::
+  
+
+   The rules you see listed in the previous figures are for a network interface named **vm-1445**. You see that there are **Inbound port rules** for the network interface from two different network security groups:
    
-   - **mySubnetNSG**: Associated to the subnet that the network interface is in.
-   - **myVMNSG**: Associated to the network interface in the VM named **myVMVMNic**.
+   - **nsg-subnet**: Associated to the subnet that the network interface is in.
+   - **nsg-nic**: Associated to the network interface in the VM named **vm-1445**.
 
    The rule named **DenyAllInBound** is what's preventing inbound communication to the VM over port 80, from the internet, as described in the [scenario](#scenario). The rule lists *0.0.0.0/0* for **SOURCE**, which includes the internet. No other rule with a higher priority (lower number) allows port 80 inbound. To allow port 80 inbound to the VM from the internet, see [Resolve a problem](#resolve-a-problem). To learn more about security rules and how Azure applies them, see [Network security groups](./network-security-groups-overview.md).
 
-   At the bottom of the picture, you also see **OUTBOUND PORT RULES**. Under that are the outbound port rules for the network interface. Though the picture only shows four inbound rules for each NSG, your NSGs may have many more than four rules. In the picture, you see **VirtualNetwork** under **SOURCE** and **DESTINATION** and **AzureLoadBalancer** under **SOURCE**. **VirtualNetwork** and **AzureLoadBalancer** are [service tags](./network-security-groups-overview.md#service-tags). Service tags represent a group of IP address prefixes to help minimize complexity for security rule creation.
+   At the bottom of the picture, you also see **Outbound port rules**. The outbound port rules for the network interface are listed. Though the picture only shows four inbound rules for each NSG, your NSGs may have many more than four rules. In the picture, you see **VirtualNetwork** under **Source** and **Destination** and **AzureLoadBalancer** under **SOURCE**. **VirtualNetwork** and **AzureLoadBalancer** are [service tags](./network-security-groups-overview.md#service-tags). Service tags represent a group of IP address prefixes to help minimize complexity for security rule creation.
+
+1. To view the effective security rules, select the interface in the network settings of the virtual machine.
+
+    
+
+
 
 4. Ensure that the VM is in the running state, and then select **Effective security rules**, as shown in the previous picture, to see the effective security rules, shown in the following picture:
 
