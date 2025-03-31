@@ -163,7 +163,7 @@ This process of scaling and prewarming continues until the maximum instance coun
 
 App Service automatic scaling periodically checks the `/admin/host/ping` endpoint along with other health check mechanisms that are inherent to the platform. Occasionally, due to existing platform configurations, these pings might return 404 errors. However, it's important to note that these 404 errors shouldn't affect your app's availability or scaling performance.
 
-If your web app returns a 5xx status, these endpoint pings might result in intermittent restarts, though this scenario is uncommon. We're currently implementing enhancements to address these intermittent restarts. Until then, ensure that your web app doesn't return a 5xx status at this endpoint. These ping endpoints can't be customized.
+If your web app returns a 5xx status, these endpoint pings might result in intermittent restarts, though this scenario is uncommon. Ensure that your web app doesn't return a 5xx status at this endpoint. These ping endpoints can't be customized.
 
 ### How do I track the number of scaled-out instances during the automatic scaling event?
 
