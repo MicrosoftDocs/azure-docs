@@ -1,5 +1,5 @@
 ---
-title: An overview of Arc-enabled VM extensions
+title: Release notes of Arc-enabled VM extensions
 description: Learn about Azure Arc-enabled VM extensions, including their latest releases, known issues, and bug fixes, to help you manage updates effectively.
 ms.service: azure-update-manager
 ms.date: 03/28/2025
@@ -8,7 +8,7 @@ author: SnehaSudhir
 ms.author: sudhirsneha
 ---
 
-# Overview of Azure Arc-enabled VM extensions
+# Release notes for Azure Arc-enabled VM extensions
 
 For Azure Arc-enabled machines, two extensions are installed. For more information, see [How Update Manager works](workflow-update-manager.md)
 
