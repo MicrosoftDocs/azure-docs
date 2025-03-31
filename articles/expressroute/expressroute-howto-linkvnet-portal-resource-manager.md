@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 10/01/2024
+ms.date: 03/31/2025
 ms.author: duau
 ---
 
@@ -185,6 +185,9 @@ The circuit user needs the resource ID and an authorization key from the circuit
 ## Configure ExpressRoute FastPath
 
 [FastPath](expressroute-about-virtual-network-gateways.md) improves data path performance such as packets per second and connections per second between your on-premises network and your virtual network. You can enable FastPath if your virtual network gateway is Ultra Performance or ErGw3AZ.
+
+> [!NOTE]
+> When you enable FastPath on new or existing connections, the FastPath routes are programmed after the connection between the ExpressRoute Gateway and the ExpressRoute Circuit is established. This will briefly route on-prem traffic via the ExpressRoute Gateway.
 
 ### Configure FastPath on a new connection
 
