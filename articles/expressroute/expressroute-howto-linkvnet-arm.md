@@ -234,7 +234,7 @@ The range of *RoutingWeight* is 0 to 32000. The default value is 0.
 You can enable [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) if your virtual network gateway is Ultra Performance or ErGw3AZ. FastPath improves data path performance such as packets per second and connections per second between your on-premises network and your virtual network. 
 
 > [!NOTE]
-> When you enable FastPath on new or existing connections, the FastPath routes are programmed after the connection between the ExpressRoute Gateway and the ExpressRoute Circuit is established. This will briefly route on-prem traffic via the ExpressRoute Gateway.
+> When you enable FastPath on new or existing connections, the Gateway bypass is enabled after the ExpressRoute Gateway and Circuit connection is established. This will briefly route the on-premises traffic through the gateway.
 
 **Configure FastPath on a new connection**
 
