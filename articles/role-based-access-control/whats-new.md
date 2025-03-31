@@ -18,6 +18,7 @@ This article provides information about new features and documentation improveme
 
 | Date | Area | Description |
 | --- | --- | --- |
+| March 2025 | Roles | Added Durable Task roles. See [Durable Task Data Contributor](built-in-roles/integration.md#durable-task-data-contributor), [Durable Task Data Reader](built-in-roles/integration.md#durable-task-data-reader), and [Durable Task Worker](built-in-roles/integration.md#durable-task-worker). |
 | March 2025 | Security | Updates about classic administrators access. See [Azure classic subscription administrators](classic-administrators.md). |
 | February 2025 | Limits | Updates to [Azure RBAC limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits). |
 | February 2025 | Roles | Added [Chaos Studio Target Contributor](built-in-roles/devops.md#chaos-studio-target-contributor) role. |

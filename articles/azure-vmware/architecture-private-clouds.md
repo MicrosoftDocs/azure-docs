@@ -15,7 +15,7 @@ A private cloud includes clusters with:
 
 - Dedicated bare-metal server hosts provisioned with VMware ESXi Hypervisor.
 - VMware vCenter Server for managing ESXi and vSAN.
-- VMware NSX software-defined networking for vSphere workload VMs.
+- VMware NSX software-defined networking for vSphere workload virtual machines (VMs).
 - VMware vSAN datastore for vSphere workload VMs.
 - VMware HCX for workload mobility.
 - Resources in the Azure underlay (required for connectivity and to operate the private cloud).
@@ -127,51 +127,6 @@ Microsoft is a member of the VMware metal as a service (MaaS) program and uses t
 
 [!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
 
-## Host maintenance and lifecycle management
-
-[!INCLUDE [vmware-software-update-frequency](includes/vmware-software-update-frequency.md)]
-
-## Host monitoring and remediation
-
-Azure VMware Solution continuously monitors the health of both the VMware components and underlay. When Azure VMware Solution detects a failure, it takes action to repair the failed components. When Azure VMware Solution detects a degradation or failure on an Azure VMware Solution node, it triggers the host remediation process.
-
-Host remediation involves replacing the faulty node with a new healthy node in the cluster. Then, when possible, the faulty host is placed in VMware vSphere maintenance mode. VMware vSphere vMotion moves the VMs off the faulty host to other available servers in the cluster, potentially allowing zero downtime for live migration of workloads. If the faulty host can't be placed in maintenance mode, the host is removed from the cluster. Before the faulty host is removed, the customer workloads are migrated to a newly added host.
-
-An email is sent to the customer's email address before the replacement is initiated and again after the replacement is successful.
-
-To receive emails related to host replacement, you must be added to any of the following Azure role-based access control roles in the subscription: ServiceAdmin, CoAdmin, Owner, or Contributor.
-
-Azure VMware Solution monitors the following conditions on the host:
-
-- Processor status
-- Memory status
-- Connection and power state
-- Hardware fan status
-- Network connectivity loss
-- Hardware system board status
-- Errors occurred on the disks of a vSAN host
-- Hardware voltage
-- Hardware temperature status
-- Hardware power status
-- Storage status
-- Connection failure
-
-## Alert codes and remediation table
-
-|  Error code         |        Error details              |  Recommended action     |
-|--------------------|---------------------------------|---------------------|
-|  `EPC_CDROM_EMULATEMODE` |  This error is encountered when CD-ROM on the virtual machine (VM) uses emulate mode, whose ISO image isn't accessible.  | For the removal of any CD-ROM mounted on a customer's workload VMs in emulate mode or detach ISO, see [this KB article](https://knowledge.broadcom.com/external/article?legacyId=79306). Use Passthrough mode for mounting any CD-ROM. |
-| `EPC_DRSOVERRIDERULE` | This error is encountered when there's a VM with DRS Override set to Disabled mode. | The VM shouldn't block vMotion while putting the host into maintenance. Set Partially Automated DRS rules for the VM. To know more about VM placement policies, refer to [this document](/azure/azure-vmware/create-placement-policy#enable-restrict-vm-movement-for-specific-vms). |
-|  `EPC_SCSIDEVICE_SHARINGMODE`  | This error is encountered when a VM is configured to use a device that prevents a maintenance operation: "Device is a SCSI controller engaged in bus-sharing."   | For the removal of any SCSI controller engaged in bus-sharing attached to VMs, see [this KB article](https://knowledge.broadcom.com/external/article?legacyId=79910).   |
-|  `EPC_DATASTORE_INACCESSIBLE`  |  This error is encountered when any external data store attached to AVS Private Cloud becomes inaccessible.  | For the removal of any stale data store attached to a cluster, see [this article](/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#performance-best-practices).  |
-|  `EPC_NWADAPTER_STALE` | This error is encountered when connected network interface on the VM uses a network adapter, which becomes inaccessible. | For the removal of any stale network adapters attached to VMs, see [this KB article](https://knowledge.broadcom.com/external/article/318738/troubleshooting-the-migration-compatibil.html).   |
-| `EPC_SERIAL_PORT` | This error is encountered when a VM's serial port is connected to a device that can't be accessed on the destination host. | If you use an image file (like ISO or FLP), ensure that it's accessible from all ESXi servers on the cluster. Store the files on a data store that's shared between all ESXi servers that participate in vMotion of the VM. For more information, see [this KB article](https://knowledge.broadcom.com/external/article/324829/vmotion-fails-with-the-compatibility-err.html) from Broadcom. |
-| `EPC_HARDWARE_DEVICE` | This error is encountered when a VM's parallel port/USB device is connected to a device that can't be accessed on the destination host. | If you use an image file (like ISO or FLP), ensure that it's accessible from all ESXi servers of the cluster. Store the files on a data store that's shared between all ESXi servers that participate in the vMotion of the VM. For more information, see [this KB article](https://knowledge.broadcom.com/external/article/324829/vmotion-fails-with-the-compatibility-err.html) from Broadcom. |
-| `EPC_INVALIDVM / EPC_ORPHANVM` | This error is encountered when an orphaned or invalid VM is in the inventory. | Ensure that all your VMs are accessible to the vCenter. For more information, see [this KB article](https://knowledge.broadcom.com/external/article/312831/virtual-machines-appear-as-invalid-or-or.html). |
-
-> [!NOTE]
-> Azure VMware Solution tenant admins must not edit or delete the previously defined VMware vCenter Server alarms. The Azure VMware Solution control plane on vCenter Server manages them. These alarms are used by Azure VMware Solution monitoring to trigger the Azure VMware Solution host remediation process.
-
 ## Backup and restore
 
 Azure VMware Solution private cloud vCenter Server and HCX Manager (if enabled) configurations are on a daily backup schedule. The NSX configuration has an hourly backup schedule. The backups are retained for a minimum of three days. Open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) in the Azure portal to request restoration.
@@ -186,6 +141,7 @@ Azure VMware Solution continuously monitors the health of both the physical unde
 Now that you learned about Azure VMware Solution private cloud concepts, you might want to read:
 
 - [Azure VMware Solution networking and interconnectivity concepts](architecture-networking.md)
+- [Azure VMware Solution private cloud maintenance best practices](azure-vmware-solution-host-remediation.md)
 - [Azure VMware Solution storage concepts](architecture-storage.md)
 - [Enable an Azure VMware Solution resource](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)
 

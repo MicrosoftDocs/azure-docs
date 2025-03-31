@@ -8,7 +8,7 @@ ms.topic: faq
 ms.service: azure-site-recovery
 
 ---
-# Common questions: Azure-to-Azure disaster recovery
+# Common questions about Azure-to-Azure disaster recovery
 
 This article answers common questions about disaster recovery of Azure virtual machines to another Azure region, using the [Azure Site Recovery](site-recovery-overview.md) service.
 
