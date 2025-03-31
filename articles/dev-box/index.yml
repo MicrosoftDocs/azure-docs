@@ -30,14 +30,14 @@ landingContent:
             url: concept-dev-box-concepts.md
           - text: Microsoft Dev Box Roadmap
             url: dev-box-roadmap.md
-
-  # Card
-  - title: Get started
-    linkLists:
       - linkListType: deploy
         links:
           - text: Microsoft Dev Box deployment guide
             url: concept-dev-box-deployment-guide.md
+
+  # Card
+  - title: Get started
+    linkLists:
       - linkListType: quickstart
         links:
           - text: Set up Dev Box with an ARM template
@@ -48,6 +48,12 @@ landingContent:
             url: quickstart-create-dev-box.md
           - text: Use Team Customizations
             url: quickstart-team-customizations.md
+      - linkListType: how-to-guide
+        links:
+          - text: Connect to your dev box
+            url: how-to-create-dev-boxes-developer-portal.md#connect-through-the-windows-app
+          - text: Use multiple monitors with your dev box 
+            url: how-to-create-dev-boxes-developer-portal.md#configure-multiple-monitors
 
   # Card
   - title: Dev box cost management
@@ -67,17 +73,8 @@ landingContent:
   - title: Connect to a dev box
     linkLists:
       - linkListType: how-to-guide
-        links:
-          - text: Connect to your dev box
-            url: how-to-create-dev-boxes-developer-portal.md#connect-through-the-windows-app
-          - text: Use multiple monitors with your dev box 
-            url: how-to-create-dev-boxes-developer-portal.md#configure-multiple-monitors
-      - linkListType: how-to-guide
-        links:
-          - text: Use the Troubleshoot and Repair tool
-            url: how-to-troubleshoot-repair-dev-box.md
-          - text: Troubleshoot dev box connectivity issues
-            url: how-to-troubleshoot-remote-desktop-connectivity.md                   
+
+               
 
   # Card
   - title: Provide secure access
@@ -102,18 +99,20 @@ landingContent:
             url: how-to-configure-customization-imaging.md
           - text: Create customization tasks
             url: how-to-create-customization-tasks-catalog.md
-          - text: Configure Azure Compute Gallery
-            url: how-to-configure-azure-compute-gallery.md
 
    # Card
   - title: Support & Reference
     linkLists:
         - linkListType: how-to-guide
           links:
-          - text: Get support for Microsoft Dev Box
-            url: how-to-get-help.md
+          - text: Use the Troubleshoot and Repair tool
+            url: how-to-troubleshoot-repair-dev-box.md
+          - text: Troubleshoot dev box connectivity issues
+            url: how-to-troubleshoot-remote-desktop-connectivity.md   
           - text: Resolve connectivity issues
             url: how-to-resolve-dev-box-connectivity-issues.md
+          - text: Get support for Microsoft Dev Box
+            url: how-to-get-help.md
         - linkListType: reference
           links:
           - text: Azure CLI
