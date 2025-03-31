@@ -152,7 +152,7 @@ The load was generated against a single 128 GiB file. With SMB Multichannel enab
 - For smaller I/O sizes, there was a slight impact of ~10% on performance with SMB Multichannel enabled. This could be mitigated by spreading the load over multiple files, or disabling the feature.
 - Performance is still bound by [single file limits](storage-files-scale-targets.md#file-scale-targets).
 
-## Metadata caching for SSD (premium) SMB file shares
+## Metadata caching for premium SMB file shares
 
 Metadata caching is an enhancement for SSD (premium) SMB Azure file shares aimed to improve the following:
 
@@ -195,7 +195,7 @@ Register-AzProviderFeature -FeatureName AzurePremiumFilesMetadataCacheFeature -P
 
 ### Regional availability
 
-|                  |                  |                  |
+| Supported Regions  |                  |                  |
 |------------------|------------------|------------------|
 | Asia East       | Australia Central | Australia East  |
 | Australia Southeast | Brazil South  | Canada Central |
