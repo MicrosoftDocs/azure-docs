@@ -34,10 +34,6 @@ az batch location list-skus --location <azure-region>
 > or [Azure CLI](/cli/azure/batch/location#az-batch-location-list-skus).
 > For more information, see the [Batch best practices guide](best-practices.md) regarding Batch pool VM SKU selection.
 
-Batch **doesn't** support any VM SKU sizes that have only remote storage. A local temporary disk is required for Batch.
-For example, Batch supports [ddv4 and ddsv4](/azure/virtual-machines/ddv4-ddsv4-series), but does not support
-[dv4 and dsv4](/azure/virtual-machines/dv4-dsv4-series).
-
 ### Using Generation 2 VM Images
 
 Some VM series, such as [FX](/azure/virtual-machines/fx-series) and [Mv2](/azure/virtual-machines/mv2-series), can only be used
@@ -92,6 +88,9 @@ az batch pool supported-images list
 > the [`ListSupportedImages` API](/rest/api/batchservice/account/listsupportedimages),
 > [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage), or [Azure CLI](/cli/azure/batch/pool/supported-images).
 > For more information, see the [Batch best practices guide](best-practices.md) regarding Batch pool VM image selection.
+
+> [!TIP]
+> Batch Nodes' `AZ_BATCH_NODE_ROOT_DIR` depends on if VMSize support local temporary disk or not. To check the detail, see [Root directory location](files-and-directories.md#root-directory-location).
 
 ## Next steps
 

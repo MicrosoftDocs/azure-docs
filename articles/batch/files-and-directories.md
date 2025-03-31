@@ -39,6 +39,10 @@ The root directory contains the following directory structure:
 > [!IMPORTANT]
 > When a node is removed from the pool, all of the files that are stored on the node are removed.
 
+## Root directory location
+
+Batch root directory location is different between different VMSizes. For VMSize which supports local temporary disk, `AZ_BATCH_NODE_ROOT_DIR` will be `D:\batch` in Windows and `/mnt/batch` or `/mnt/resource/batch` in Linux, for VMSize which doesn't support local temporary disk, `AZ_BATCH_NODE_ROOT_DIR` will be `C:\batch\data` in Windows and `/opt/batch/data` in Linux.
+
 ## Next steps
 
 - Learn about [error handling and detection](error-handling.md) in Azure Batch.
