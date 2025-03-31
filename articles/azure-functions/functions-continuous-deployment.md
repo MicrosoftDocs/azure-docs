@@ -126,7 +126,7 @@ You can't deploy from local git using GitHub Actions. Instead choose the [App Se
 
 1. Go to your function app in the [Azure portal](https://portal.azure.com) and select **Deployment Center**. 
 
-1. For **Source**, select **Azure Repos**. If **App Service build service** provider isn't the default, select **Change provider** choose **App Service build service** and select **OK**.
+1. For **Source**, select **Azure Repos**. If **App Service build service** provider isn't the default, select **Change provider**, select **App Service build service**, and then select **OK**.
 
 1. Select values for **Organization**, **Project**, **Repository**, and **Branch**. Only organizations that belong to your Azure account are displayed. 
 
@@ -136,7 +136,7 @@ You can't deploy from local git using GitHub Actions. Instead choose the [App Se
 
 1. Go to your function app in the [Azure portal](https://portal.azure.com) and select **Deployment Center**. 
 
-1. For **Source**, select **GitHub**. If **App Service build service** provider isn't the default, select **Change provider** choose **App Service build service** and select **OK**.
+1. For **Source**, select **GitHub**. If **App Service build service** provider isn't the default, select **Change provider**, select **App Service build service**, and then select **OK**.
 
 1. If you haven't already authorized GitHub access, select **Authorize**. Provide your GitHub credentials and select **Sign in**. If you need to authorize a different GitHub account, select **Change Account** and sign in with another account.
 
