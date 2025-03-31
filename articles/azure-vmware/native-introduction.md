@@ -9,7 +9,7 @@ ms.author: jacobjaygbay
 # customer intent: As a cloud administrator, I want to learn about Azure VMware Solution in a Virtual Network so that I can understand the benefits and features of this offering.
 ---
 
-# Azure VMware Solution in a virtual network (Public Preview)
+# Azure VMware Solution in a virtual network (Public preview)
 
 Azure VMware Solution in an Azure Virtual Network combines the first-party Azure VMware Solution with Azure hardware and operations to improve the customer experience, quality, and security. This offering provides updated architecture that uses Azure Native physical network and hardware infrastructure. This allows customers to get the best of both worlds. Customers get to use their existing VMware expertise, while using the benefits of the entire Azure cloud to more effectively and efficiently manage their workloads. This initial launch of this offering utilizes the existing AV64 SKU.
 
@@ -27,7 +27,7 @@ The following table summarizes the differences between the Azure VMware Solution
 
 ## Benefits
 
-With the Azure VMware Solution in a Virtual Network offering, you get the following benefits:
+With the Azure VMware Solution in a virtual network offering, you get the following benefits:
 
 ### Simplified deployment and cost efficiency
 
@@ -39,7 +39,7 @@ Azure VMware Solution private clouds are now deployed inside an Azure Virtual Ne
 
 ### Enhanced security and compliance
 
-Your Azure VMware Solution private cloud still runs on dedicated, isolated hardware, which means you get the continued benefits of privacy of a private cloud while staying within Azure. Customers can apply Azure-native security tools, like Network Security Groups (NSGs), to simplify security management.
+Your Azure VMware Solution private cloud still runs on a dedicated, isolated hardware, which means you get the continued benefits of privacy of a private cloud while staying within Azure. You can apply Azure-native security tools, like Network Security Groups (NSGs), to simplify security management.
 
 ### More features and capabilities unlocked
 
@@ -53,7 +53,7 @@ This offering is supported on the following SKU type:
 
 ## Regional availability
 
-Azure VMware Solution in an Azure virtual network offering is available in the following regions.
+Azure VMware Solution in an Azure virtual network offering is available in the following regions for public preview.
 
 | Region | Status |
 |--------|--------|

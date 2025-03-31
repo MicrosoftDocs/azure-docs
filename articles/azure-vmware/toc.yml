@@ -13,7 +13,7 @@ items:
       href: native-create-azure-vmware-virtual-network-private-cloud.md
   - name: Architecture
     items:
-    - name: Azure VMware Solution on Native design considerations
+    - name: Azure VMware Solution in a virtual network design consideration (Public preview) 
       href: architecture-native-design-considerations.md
   - name: Networking
     items:

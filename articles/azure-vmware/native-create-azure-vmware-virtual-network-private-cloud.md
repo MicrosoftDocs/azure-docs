@@ -1,30 +1,36 @@
 ---
-title: Create an Azure VMware Solution on Native private cloud (Public Preview)
+title: Create an Azure VMware Solution on a virtual network (Public preview)
 author: jjaygbay1
 ms.author: jacobjaygbay
-description: Learn how to create an Azure VMware Solution on Native private cloud.
+description: Learn how to create an Azure VMware Solution on an Azure virtual network to apply Azure's infrastructure and VMware expertise effectively.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 03/11/2025
 ms.custom: engagement-fy25
+#customer intent: As a cloud administrator, I want to create an Azure VMware Solution on a virtual network so that I can leverage Azure's infrastructure and VMware expertise.
 ---
 
-# Create an Azure VMware Solution on Native private cloud (Public Preview)
+# Create an Azure VMware Solution on a virtual network (Public preview)
 
-In this tutorial, you learn how to create an Azure VMware Solution on Native private cloud. This solution combines a first-party Azure VMware Solution with Azure hardware and operations to improve your experience, enhance quality, and security. This offering provides updated architecture that uses Azure Native physical network and hardware infrastructure. You get the best of both worlds by leveraging your existing VMware expertise, with the benefits of the entire Azure cloud to effectively and efficiently manage your workloads. This initial launch of this offering utilizes the existing AV64 SKU.
+In this tutorial, you learn how to create an Azure VMware Solution on Native private cloud. This solution combines a first-party Azure VMware Solution with Azure hardware and operations to improve your experience, enhance quality, and security. This offering provides updated architecture that uses Azure Native physical network and hardware infrastructure. You get the best of both worlds by applying your existing VMware expertise, with the benefits of the entire Azure cloud to effectively and efficiently manage your workloads. This initial launch of this offering utilizes the existing AV64 SKU.
 
-With this offering, you can directly create the Azure VMware Solution SDDC using the AV64 SKU. You're no longer required to deploy a minimum of three hosts of AV36, AV36P or AV52 to provision a cluster with AV64.
+With this offering, you can directly create the Azure VMware Solution SDDC using the AV64 SKU. You're no longer required to deploy a minimum of three hosts of AV36, AV36P, or AV52 to provision a cluster with AV64.
 
 ## Prerequisites
 
-Before you begin, these items are required to create an Azure VMware Solution on Native private cloud:
+Before you begin, these items are required to create an Azure VMware Solution on Azure virtual network private cloud:
 
 - Enable the Azure VMware Solution Fleet RP Service Principle as described in the enable Azure VMware Solution Fleet RP service principle.
 - Appropriate administrative rights and permission to create a private cloud. You must be at minimum Owner or User Access Administrator on the subscription.
 - Hosts provisioned and the Microsoft.Azure VMware Solution resource provider is registered.
 - Azure Virtual Network with a minimum network address space of a /22.
 - The newly created Azure Virtual Network and your Azure VMware Solution on Native SDDC must be in the same Resource Group.
-- Ensure you have sufficient AV64 quota allocated to your subscription in the desired region before your deployment. The following Preview Feature flag needs to be registered under the subscription where your private cloud resides.
+- Ensure you have sufficient AV64 quota allocated to your subscription in the desired region before your deployment. 
+- The following preview feature flag needs to be registered under the subscription where your private cloud resides.
+    - az feature register--namespace Microsoft. Network 
+      --name “EnablePrivateIpPrefixAllocation”--subscription "<Subscription ID>"
+    - az feature registrations create --namespace "Microsoft.AVS"--name "Early Access"--subscription "<Subscription ID>"
+    - az feature registration create--namespace "Microsoft.AVS"--name "FleetGreenfield"--subscription "<Subscription ID>"
 
 ```bash
 az feature register --namespace Microsoft.Network --name EnablePrivateIpPrefixAllocation
@@ -43,7 +49,7 @@ az feature register --namespace Microsoft.Network --name EnablePrivateIpPrefixAl
 
 1. On the **Azure VMware Solution** window, select **Create**.
 
-    Here is the information you need from your planning phase to deploy the private cloud.
+    The following is the information needed to deploy the private cloud from your planning phase.
     
     | Field                       | Value                                                                                                           |
     |-----------------------------|-----------------------------------------------------------------------------------------------------------------|
@@ -61,6 +67,6 @@ az feature register --namespace Microsoft.Network --name EnablePrivateIpPrefixAl
 1. Verify the information entered, and if correct, select **Create**.
 
     > [!NOTE] 
-    > This step takes an estimated 5+ hours. Adding a single host in an existing cluster takes an estimated +1.5 hours. If you are adding a new cluster with maximum nodes (16), it can take an estimated 4+ hours.
+    > This step takes an estimated 5+ hours. Adding a single host in an existing cluster takes an estimated +1.5 hours. If you're adding a new cluster with maximum nodes (16), it can take an estimated 4+ hours.
 
 1. Verify that the deployment was successful. Navigate to the resource group you created and select your private cloud. You see the status of **Succeeded** when the deployment is finished.
