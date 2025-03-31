@@ -54,6 +54,9 @@ App settings are always encrypted when they're stored (encrypted at rest).
 
    By default, values for app settings are hidden in the portal for security. To see a hidden value of an app setting, under **Value**, select **Show value**. To see the hidden values of all app settings, select **Show values**.
 
+   > [!NOTE]
+   > Read/Write user permimssions are required to view this section in the Azure Portal. RBAC built-in roles with sufficient permissions are Owner, Contributor, and Website Contributor. The Reader role alone would not be allowed to access this page. 
+
 1. To add a new app setting, select **Add**. To edit a setting, select the setting.
 1. In the dialog, you can [stick the setting to the current slot](deploy-staging-slots.md#which-settings-are-swapped).
 
