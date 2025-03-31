@@ -5,13 +5,15 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  how-to
-ms.date: 03/25/2025
+ms.date: 03/31/2025
 ms.author: cshoe
 ---
 
 # Azure Functions on Azure Container Apps overview
 
-Azure Functions allows you to run small pieces of code (functions) without worrying about application infrastructure. When you combine Azure Functions with Azure Container Apps, you get the best of both worlds: the simplicity and event-driven nature of Functions with the containerization and advanced deployment capabilities of Container Apps.
+Azure Functions provides integrated support for developing, deploying, and managing containerized function apps on Azure Container Apps. Use Azure Container Apps to host your function app containers when you need to run your event-driven functions in Azure in the same environment as other microservices, APIs, websites, workflows, or any container hosted programs.
+
+Container Apps hosting lets you run your functions in a fully supported and managed, container-based environment with built-in support for open-source monitoring, mTLS, Dapr, and Kubernetes Event-driven Autoscaling (KEDA).
 
 This article shows you how to create and deploy an Azure Functions app that runs within Azure Container Apps. You learn how to:
 
@@ -19,7 +21,25 @@ This article shows you how to create and deploy an Azure Functions app that runs
 - Deploy your application using either the Azure portal or Azure CLI
 - Verify your deployed function with an HTTP trigger
 
-By running Functions in Container Apps, you benefit from automatic scaling based on HTTP traffic, easy configuration, and a fully managed container environment—all without having to manage the underlying infrastructure yourself.
+By running Functions in Container Apps, you benefit from automatic scaling, easy configuration, and a fully managed container environment—all without having to manage the underlying infrastructure yourself.
+
+## Event-driven scaling
+
+All Functions triggers are available in your containerized Functions app. However, only the following triggers can dynamically scale (from zero instances) based on received events when running in a Container Apps environment:
+
+- Azure Event Grid
+- Azure Event Hubs
+- Azure Blob Storage (event-based)
+- Azure Queue Storage
+- Azure Service Bus
+- Durable Functions (MSSQL storage provider)
+- HTTP
+- Kafka
+- Timer
+
+Azure Functions on Container Apps is designed to configure the scale parameters and rules as per the event target. You don't need to worry about configuring the KEDA scaled objects. You can still set minimum and maximum replica count when creating or modifying your function app.
+
+You can write your function code in any language stack supported by Azure Functions. You can use the same Functions triggers and bindings with event-driven scaling.
 
 ## Scenarios
 

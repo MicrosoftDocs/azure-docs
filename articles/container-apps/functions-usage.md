@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  how-to
-ms.date: 03/25/2025
+ms.date: 03/31/2025
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -76,7 +76,9 @@ This article shows you how to create an [Azure Functions app in Azure Container 
     | Registry login server  | Enter **mcr.microsoft.com** |
     | Image and tag | Enter **azure-functions/dotnet8-quickstart-demo:1.0** |
 
-1. For *Development stack*, select **.NET**
+1. For *Development stack*, select **.NET**.
+
+    This value is required since the sample container image is implemented in .NET.
 
 1. Select **Next > Ingress** to switch to the Ingress section and enter the following values.
 
