@@ -56,7 +56,7 @@ landingContent:
             url: how-to-create-dev-boxes-developer-portal.md#configure-multiple-monitors
 
   # Card
-  - title: Dev box cost management
+  - title: Dev Box cost management
     linkLists:
       - linkListType: how-to-guide
         links:
