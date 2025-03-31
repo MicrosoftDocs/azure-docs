@@ -1,8 +1,8 @@
 ---
 title: "Tutorial: Load External Data Using Microsoft Entra ID"
 description: This tutorial shows how to connect to external data for queries or ingestion using Microsoft Entra ID passthrough.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: periclesrocha
+ms.author: procha
 ms.reviewer: periclesrocha
 ms.date: 12/27/2024
 ms.service: azure-synapse-analytics

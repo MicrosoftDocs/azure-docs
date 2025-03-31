@@ -1,13 +1,13 @@
 ---
 title: View your Azure usage summary details and download reports for EA enrollments
 description: This article explains how enterprise administrators of direct and indirect Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal.
-author: bandersmsft
-ms.author: banders
+author: RaniChegondi
+ms.author: racheg
 ms.date: 02/06/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: sapnakeshari
+ms.reviewer: racheg
 ---
 
 # View your usage summary details and download reports for EA enrollments
