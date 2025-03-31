@@ -135,7 +135,7 @@ Top insights are subject to change, and might include:
 
 - Actions *by* account.
 - Actions *on* account.
-- [UEBA insights](identify-threats-with-entity-behavior-analytics.md).
+- [User and Entity Behavior Analytics (UEBA) insights](identify-threats-with-entity-behavior-analytics.md).
 - Threat indicators related to user.
 - Watchlist insights (Preview).
 - Anomalously high number of a security event.

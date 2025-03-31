@@ -193,6 +193,12 @@
     href: front-door-ddos.md
   - name: End-to-end TLS encryption
     href: end-to-end-tls.md
+  - name: TLS policy
+    items:
+    - name: Overview
+      href: standard-premium/tls-policy.md
+    - name: Configure TLS policy
+      href: standard-premium/tls-policy-configure.md
   - name: Set up managed identity
     href: managed-identity.md
   - name: Sensitive data protection

@@ -18,7 +18,7 @@ The render coverage tables below list the countries/regions that support Azure M
 >
 > **Azure Maps Render v1 service retirement**
 >
-> The Azure Maps [Render v1] service is now deprecated and will be retired on 9/17/26. To avoid service disruptions, all calls to Render v1 API will need to be updated to use [Render v2024-04-01] API by 9/17/26.
+> The Azure Maps Render v1 service is now deprecated and will be retired on 9/17/26. To avoid service disruptions, all calls to Render v1 API will need to be updated to use the [latest version] by 9/17/26.
 
 ### Legend
 
@@ -214,5 +214,5 @@ The render coverage tables below list the countries/regions that support Azure M
 > [Azure Maps routing coverage](routing-coverage.md)
 
 [Zoom levels and tile grid]: zoom-levels-and-tile-grid.md
-[Render v1]: /rest/api/maps/render
-[Render v2024-04-01]: /rest/api/maps/render
+
+[latest version]: /rest/api/maps/render
