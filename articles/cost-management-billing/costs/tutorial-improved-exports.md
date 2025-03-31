@@ -48,7 +48,7 @@ For Azure Storage accounts:
 - Write permissions are required to change the configured storage account, independent of permissions on the export.
 - Your Azure storage account must be configured for blob or file storage.
 - Don't configure exports to a storage container that is configured as a destination in an [object replication rule](../../storage/blobs/object-replication-overview.md#object-replication-policies-and-rules).
-- To export to storage accounts with firewall rules, you need additional privileges on the storage account. These privileges are only required during export creation or modification:
+- To export to storage accounts with firewall rules, you need other privileges on the storage account. These privileges are only required during export creation or modification:
 
 - __Owner__ role on the storage account ___or___
 
@@ -171,7 +171,7 @@ You can perform the following actions on individual exports.
 
 ### Understand schedule frequency
 
-When you create a scheduled export, the export runs at the same frequency for each export that runs later.  For instance, if the export is scheduled to run once every UTC day, it creates a daily export of costs accumulated from the start of the month to the current date. Individual export runs can occur at different times throughout the day, so avoid relying on the exact time of the export runs. The run timing depends on the active load present in Azure during a given UTC day. Once an export run begins, your data should be available within 4 hours. Exports are scheduled using Coordinated Universal Time (UTC). The Exports API always uses and displays UTC.
+When you create a scheduled export, the export runs at the same frequency for each export that runs later. For instance, if the export is scheduled to run once every UTC day, it creates a daily export of costs accumulated from the start of the month to the current date. Individual export runs can occur at different times throughout the day, so avoid relying on the exact time of the export runs. The run timing depends on the active load present in Azure during a given UTC day. Once an export run begins, your data should be available within 4 hours. Exports are scheduled using Coordinated Universal Time (UTC). The Exports API always uses and displays UTC.
 
 When you create an export using the [Exports API](/rest/api/cost-management/exports/create-or-update?tabs=HTTP), specify the `recurrencePeriod` in UTC time. The API doesn’t convert your local time to UTC.
   - Example - A daily export is scheduled on Friday, August 19 with `recurrencePeriod` set to 2:00 PM. The API receives the input as 2:00 PM UTC, Friday, August 19.
@@ -197,11 +197,7 @@ Exports at the management group scope support only usage charges. Purchases, inc
 
 1. Create one management group and assign subscriptions to it, if you haven't already.
 1. In cost analysis, set the scope to your management group and select **Select this management group**.
-    :::image type="content" source="./media/tutorial-improved-exports/management-group-scope.png" alt-text="Screenshot showing the Select this management group option." lightbox="./media/tutorial-improved-exports/management-group-scope.png":::
-    UPDATE
 1. Create an export at the scope to get cost management data for the subscriptions in the management group.
-    :::image type="content" source="./media/tutorial-improved-exports/new-export-management-group-scope.png" alt-text="Screenshot showing the Create new export option with a management group scope.":::
-    UPDATE
 
 ## File partitioning for large datasets
 
@@ -209,7 +205,7 @@ The file partitioning is a feature that is activated by default to facilitate th
 
 ### Manifest file
 
-With every export run you get multiple partitions of the data along with a manifest.json file. The manifest contains a summary of the full dataset and information for each file partition in it. Each file partition has headers and contains only a subset of the full dataset. To handle the full dataset, you must ingest each partition of the export.
+With every export, run you get multiple partitions of the data along with a manifest.json file. The manifest contains a summary of the full dataset and information for each file partition in it. Each file partition has headers and contains only a subset of the full dataset. To handle the full dataset, you must ingest each partition of the export.
 
 Here's a _manifest.json example manifest file.
 
@@ -287,7 +283,7 @@ Select an export to view the run history.
 There are two runs per day for the first five days of each month after you create a daily export of cost and usage details dataset. One run executes and creates a file with the current month’s cost data. It's the run that's available for you to see in the run history. A second run also executes to create a file with all the costs from the prior month. The second run isn't currently visible in the run history. Azure executes the second run to ensure that your latest file for the past month contains all charges exactly as seen on your invoice. It runs because there are cases where latent usage and charges are included in the invoice up to 72 hours after the calendar month is closed. To learn more about Cost Management usage data updates, see [Cost and usage data updates and retention](understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). 
 
 >[!NOTE]
-> Daily export created between 1st to 5th of the current month would not generate data for the previous month as the export schedule starts from the date of creation. 
+> Daily export created between 1st to 5th of the current month wouldn't generate data for the previous month as the export schedule starts from the date of creation. 
 
 ## Understand export data types
 
