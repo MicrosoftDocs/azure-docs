@@ -5,7 +5,7 @@ author: duongau
 ms.service: azure-firewall
 services: firewall
 ms.topic: how-to
-ms.date: 11/27/2023
+ms.date: 03/31/2025
 ms.author: yuvalpery
 ---
 
@@ -22,7 +22,9 @@ For each Office 365 product and category, Azure Firewall automatically retrieves
 
 - Tag name: all names begin with **Office365** and are followed by:
    - Product: Exchange / Skype / SharePoint / Common
-   - Category: Optimize / Allow / Default
+   - [Category](/microsoft-365/enterprise/microsoft-365-network-connectivity-principles?view=o365-worldwide#optimizing-connectivity-to-microsoft-365-services):
+      - Optimize & Allow: Network endpoints with **Optimize** or **Allow** category carry higher traffic volume and are sensitive to network latency and performance. These endpoints have IP addresses listed with the domain.
+      - Default: Network endpoints in the **Default** category don't have associated IP addresses because they are dynamic in nature and IP addresses change over time.
    - Required / Not required (optional)
 - Tag type:
    - **FQDN tag** represents only the required FQDNs for the specific product and category that communicate over HTTP/HTTPS (ports 80/443) and can be used in Application Rules to secure traffic to these FQDNs and protocols.
