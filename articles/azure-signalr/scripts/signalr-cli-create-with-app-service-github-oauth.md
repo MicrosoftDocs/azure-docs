@@ -14,7 +14,7 @@ ms.custom: mvc, devx-track-azurecli
 
 This sample script creates a new Azure SignalR Service resource, which is used to push real-time content updates to clients. This script also adds a new Web App and App Service plan to host your ASP.NET Core Web App that uses the SignalR Service. The web app is configured with app settings to connect to the new SignalR service resource, and authenticate with [GitHub authentication](https://developer.github.com/v3/guides/basics-of-authentication/). The web app is also configured to use a local git repository deployment source.
 
-[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
+[!INCLUDE [Connection string security](../includes/signalr-connection-string-security.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
