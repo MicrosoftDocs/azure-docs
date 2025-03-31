@@ -78,7 +78,7 @@ The following release notes are for Azure File Sync version 20.0.0.0 (released F
 ### Improvements and issues that are fixed
 **General Availability: Managed Identities support for Azure File Sync service and servers**
 
-Azure File Sync now supports system-assigned managed identities for authentication, eliminating the need for [shared keys](/common/storage-account-keys-manage.md) and simplifying security management with Microsoft Entra ID. You can now configure managed identities directly from the Azure portal, making deployments easier and more secure.
+Azure File Sync now supports system-assigned managed identities for authentication, eliminating the need for [shared keys](../common/storage-account-keys-manage.md) and simplifying security management with Microsoft Entra ID. You can now configure managed identities directly from the Azure portal, making deployments easier and more secure.
  
 When managed identities are configured, the system-assigned managed identities will be used for the following scenarios:
 - Storage Sync Service authentication to Azure file share
