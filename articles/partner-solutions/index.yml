@@ -81,7 +81,7 @@ productDirectory:
       imageSrc: ./media/index/pure-storage.svg
       links:
         - url: pure-storage/overview.md
-          text: Secure, efficient, and reliable block storage as a native managed service (STaaS).
+          text: Secure, efficient, and reliable block storage as a native managed service.
     - title: Qumulo
       imageSrc: ./media/index/qumulo.svg
       links:
