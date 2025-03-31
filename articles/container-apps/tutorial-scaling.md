@@ -273,9 +273,9 @@ In the first shell, where you ran the `az containerapp logs show` command, the o
 1. In the *Scale and Replicas* page, select **Replicas**.
 1. Your container app now has more than one replica running.
 
-:::image type="content" source="media/scale-app/azure-container-apps-scale-replicas.png" alt-text="Screenshot of container app replicas.":::
+    :::image type="content" source="media/scale-app/azure-container-apps-scale-replicas.png" alt-text="Screenshot of container app replicas.":::
 
-You might need to select **Refresh** to see the new replicas.
+    You might need to select **Refresh** to see the new replicas.
 
 1. In the navigation bar at the left, expand **Monitoring** and select **Metrics**.
 1. In the *Metrics* page, set **Metric** to **Requests**.
