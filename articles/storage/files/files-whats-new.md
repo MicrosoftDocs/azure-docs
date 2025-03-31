@@ -82,7 +82,7 @@ HDD file shares that are Geo (GRS) or GeoZone (GZRS) redundant can now scale up 
 
 #### Metadata caching for SSD SMB file shares is in public preview
 
-Metadata caching is an enhancement for SMB Azure SSD file shares aimed to reduce metadata latency, increase available IOPS, and boost network throughput. [Learn more](smb-performance.md#metadata-caching-for-premium-smb-file-shares).
+Metadata caching is an enhancement for SMB Azure SSD file shares aimed to reduce metadata latency, increase available IOPS, and boost network throughput. [Learn more](smb-performance.md#metadata-caching-for-ssd-file-shares).
 
 #### Snapshot support for NFS file shares is generally available
 
