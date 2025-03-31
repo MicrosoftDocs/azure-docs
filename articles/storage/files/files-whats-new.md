@@ -18,7 +18,7 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 
 #### Azure Files vaulted backup is now generally available
 
-Azure Backup now supports vaulted backup of file shares in standard storage accounts to protect against ransomware and data loss. You can define backup schedules and retention settings to store data in the Backup vault for up to 10 years. Vaulted backups provide an offsite copy of your data. In case of data loss on the source account, you can restore it to an alternate account. You can manage vaulted backups at scale via Azure Business Continuity Center and monitor them using Azure Backup's alerting and reporting features.
+Azure Backup now supports vaulted backup of HDD file shares to protect against ransomware and data loss. You can define backup schedules and retention settings to store data in the Backup vault for up to 10 years. Vaulted backups provide an offsite copy of your data. In case of data loss on the source account, you can restore it to an alternate account. You can manage vaulted backups at scale via Azure Business Continuity Center and monitor them using Azure Backup's alerting and reporting features.
 
 We recommend switching from snapshot backups to vaulted backups for comprehensive protection against data loss.
 
@@ -28,9 +28,9 @@ For more information, see [About Azure Files backup](/azure/backup/azure-file-sh
 
 Data plane REST API access to NFS Azure file shares will enable further development of multiple value-added services for NFS shares, such as AzCopy and Azure Backup. This enhancement also allows third-party ISV partners to implement efficient migration, backup, and disaster recovery scenarios. Additionally, the REST API support includes OAuth, providing end-to-end security and enabling access without storage account keys.
 
-#### Support for customer initiated LRS-ZRS redundancy conversion for Premium Files storage accounts
+#### Support for customer initiated LRS-ZRS redundancy conversion for SSD file shares
 
-Azure Files now supports customer initiated LRS to ZRS (and vice versa) redundancy conversions for premium Files storage accounts with SMB and NFS (private endpoints enabled) shares. You can easily manage the migration of your storage accounts through the Azure Portal, PowerShell, or CLI. To learn more, see [Azure Files data redundancy](files-redundancy.md).
+Azure Files now supports customer initiated LRS to ZRS (and vice versa) redundancy conversions for SSD file shares. NFS file shares supported if using private endpoints. You can easily manage the migration of your storage accounts through the Azure Portal, PowerShell, or CLI. To learn more, see [Azure Files data redundancy](files-redundancy.md).
 
 ## What's new in 2024
 
