@@ -121,7 +121,7 @@ Task execution instance charge + (Objects targeted charge * Objects targeted in 
 In addition to the Azure Storage Actions charges for the task assignment execution, you might also be billed for the cost of operations performed on the storage account. For example, if a storage task adds an index tag to a blob, then you'll incur the cost of a [Set Blob Tags](/rest/api/storageservices/set-blob-tags) operation on the target storage account. 
 
 > [!NOTE]
-> Pricing for Azure Storage Actions will start rolling out across the different preview regions starting from April 1, 2025. Charges for Azure Storage Actions may appear on your subscription if a task assignment was executed after the effective date.  
+> Pricing for Azure Storage Actions will start rolling out across the different preview regions starting from April 1, 2025. Charges for Azure Storage Actions might appear on your subscription if a task assignment was executed after the effective date. During the roll out period, charges for objects targeted and operations executed might not appear on your bill until later in the cycle. Because of this delay, your bill might seem lower than expected during the first part of the month. 
 
 ## Next steps
 
