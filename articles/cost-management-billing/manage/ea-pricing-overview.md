@@ -1,13 +1,13 @@
 ---
 title: Azure EA pricing
 description: This article provides a pricing overview for Azure enterprise customers.
-author: bandersmsft
-ms.reviewer: sapnakeshari
+author: prashantsaini4
+ms.reviewer: prsaini
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
 ms.date: 01/22/2025
-ms.author: banders
+ms.author: prsaini
 ---
 
 # Azure EA pricing
