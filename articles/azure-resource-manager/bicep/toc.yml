@@ -338,6 +338,9 @@
     - name: File functions
       displayName: loadFileAsBase64,loadJsonContent,loadYamlContent,loadTextContent
       href: bicep-functions-files.md
+    - name: Flow-control functions
+      displayName: fail
+      href: bicep-functions-flow-control.md
     - name: Lambda functions
       displayName: filter,map,reduce,sort,toObject
       href: bicep-functions-lambda.md
@@ -387,7 +390,7 @@
     - name: Best practices
       href: best-practices.md
     - name: Visual Studio Code
-      displayName: vscode,vs code
+      displayName: vscode,vs code,deployment pane
       href: visual-studio-code.md
     - name: Private module registry
       href: private-module-registry.md
@@ -584,6 +587,10 @@
       href: deploy-powershell.md
     - name: Deploy - Cloud Shell
       href: deploy-cloud-shell.md
+  - name: Export 
+    items:
+    - name: Portal
+      href: export-bicep-portal.md
   - name: Configure settings
     items:
     - name: Bicep config file

@@ -134,10 +134,16 @@ items:
       href: migrate-from-google-maps-web-app.md
     - name: Migrate a web service
       href: migrate-from-google-maps-web-services.md
-  - name: Android SDK migration guide
-    href: android-sdk-migration-guide.md	  
-  - name: iOS SDK migration guide
-    href: ios-sdk-migration-guide.md      
+  - name: Migrate from previous versions
+    items:
+    - name: Android SDK migration guide
+      href: android-sdk-migration-guide.md	  
+    - name: iOS SDK migration guide
+      href: ios-sdk-migration-guide.md 
+    - name: Migrate Azure Maps Route 1.0 APIs
+      href: migrate-route-v1-api.md
+    - name: Migrate Azure Maps Traffic 1.0 APIs
+      href: migrate-traffic-v1-api.md
   - name: Manage Maps accounts
     items:
     - name: Create account with ARM template

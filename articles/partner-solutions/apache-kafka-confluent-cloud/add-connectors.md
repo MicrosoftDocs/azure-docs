@@ -24,7 +24,7 @@ This guide shows step by step instructions to connect an app deployed to Azure A
 
 Follow these steps to connect an app to Apache Kafka & Apache Flink on Confluent Cloud.
 
-1. Open your App Service, Container Apps, or Azure Spring Apps, or AKS resource. If using Azure Spring Apps, you must then open the **Apps** menu and select your app.
+1. Open your App Service, Container Apps, Azure Spring Apps, or AKS resource. If using Azure Spring Apps, you must then open the **Apps** menu and select your app.
 
 1. Open **Service Connector** from the left menu and select **Create**.
 
@@ -100,13 +100,6 @@ Select a connection's checkbox and explore the following options:
 * Select **Edit** to edit connection details.
 * Select **Delete** to remove a connection.
 
-## Next steps
+## Next step
 
-- For help with troubleshooting, see [Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md).
-- Get started with Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service on
-
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)
-
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview)
+For help with troubleshooting, see [Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md).

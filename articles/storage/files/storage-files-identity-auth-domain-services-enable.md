@@ -157,7 +157,7 @@ Log into the domain-joined client machine as a Microsoft Entra Domain Services u
 ```powershell
 # 1. Find the service account in your managed domain that represents the storage account.
 
-$storageAccountName= “<InsertStorageAccountNameHere>”
+$storageAccountName= "<InsertStorageAccountNameHere>"
 $searchFilter = "Name -like '*{0}*'" -f $storageAccountName
 $userObject = Get-ADUser -filter $searchFilter
 

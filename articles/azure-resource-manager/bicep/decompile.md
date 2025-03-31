@@ -2,8 +2,8 @@
 title: Decompile a JSON Azure Resource Manager template to Bicep
 description: Learn the commands for decompiling JSON Azure Resource Manager templates to Bicep files.
 ms.topic: how-to
-ms.date: 01/10/2025
 ms.custom: devx-track-bicep, devx-track-arm-template
+ms.date: 03/25/2025
 ---
 
 # Decompile a JSON Azure Resource Manager template to Bicep
@@ -32,9 +32,9 @@ This command creates a file named _main.bicep_ in the same directory as _main.js
 You can also decompile ARM template JSON to Bicep from Visual Studio Code by using the `Decompile into Bicep` command in Visual Studio Code. For more information, see [Decompile into Bicep](./visual-studio-code.md#decompile-into-bicep-command).
 
 > [!CAUTION]
-> Decompilation attempts to convert the file, but there is no guaranteed mapping from JSON ARM templates to Bicep. You might need to fix warnings and errors in the generated Bicep file. Or, decompilation can fail if an accurate conversion isn't possible. [Create an issue](https://github.com/Azure/bicep/issues) to report any issues or inaccurate conversions.
+> Decompilation attempts to convert the file, but there is no guaranteed mapping from JSON ARM templates to Bicep. You might need to fix warnings and errors in the generated Bicep file. Otherwise, decompilation can fail if an accurate conversion isn't possible. [Create an issue](https://github.com/Azure/bicep/issues) to report any issues or inaccurate conversions.
 
-The decompile and [build](bicep-cli.md#build) commands produce templates that are functionally equivalent. However, they might not be exactly the same during implementation. Converting a template from JSON to Bicep and then back to JSON might produce a template with different syntax than the original template. When deployed, the converted templates produce the same results.
+The decompile and [build](bicep-cli.md#build) commands produce templates that are functionally equivalent. However, they might not be exactly the same during implementation. Converting a template from JSON to Bicep and then back to JSON can produce a template with different syntax than the original template. When deployed, the converted templates produce the same results.
 
 ## Fix conversion issues
 
@@ -166,6 +166,9 @@ output storageAccountName string = uniqueStorageName
 ```
 
 ## Export template and convert
+
+> [!NOTE]
+> You can use the Azure portal to export Bicep files.  For more information, see [Use Azure portal to export a Bicep file](./export-bicep-portal.md).
 
 You can export the template for a resource group and then pass it directly to the `decompile` command. The following examples show how to decompile an exported template:
 

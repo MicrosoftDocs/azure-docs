@@ -1,8 +1,8 @@
 ---
 title: Reliability in Azure Image Builder
 description: Find out about reliability in Azure Image Builder
-author: ericd-mst-github
-ms.author: csudrisforresiliency
+author: anaharris-ms
+ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-virtual-machines
@@ -53,11 +53,11 @@ To get an image template resource using Resource Graph from the Azure portal:
 
 1. Go to the search bar in Azure portal and search for *resource graph explorer*.
 
-    ![Screenshot of Azure Resource Graph Explorer in the portal.](media/resource-graph-explorer-portal.png#lightbox)
+    ![Screenshot of Azure Resource Graph Explorer in the portal.](media/image-builder/resource-graph-explorer-portal.png#lightbox)
 
 1. Use the search bar on the far left to search resource by type and name to see how the details give you properties of the image template. The *See details* option on the bottom right shows the image template's properties attribute and tags separately. Template name, location, ID, and tenant ID can be used to get the correct image template resource.
 
-    ![Screenshot of using Azure Resource Graph Explorer search.](media/resource-graph-explorer-search.png#lightbox)
+    ![Screenshot of using Azure Resource Graph Explorer search.](media/image-builder/resource-graph-explorer-search.png#lightbox)
 
 
 ### Capacity and proactive disaster recovery resiliency

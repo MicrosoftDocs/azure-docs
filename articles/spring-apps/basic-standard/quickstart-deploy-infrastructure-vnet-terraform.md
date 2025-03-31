@@ -5,7 +5,8 @@ author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.custom: devx-track-java, mode-other, devx-track-terraform
-ms.author: ariel
+ms.author: karler
+ms.reviewer: ariel
 ms.date: 04/23/2024
 ---
 

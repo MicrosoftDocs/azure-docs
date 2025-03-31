@@ -147,7 +147,7 @@ If you don’t think you need retry or if you want to handle the retry logic you
 
 ### About _redisSerializerType_
 
-The serialization to store the values on Redis is done in a binary format by default, which is provided by the **BinaryFormatter** class. Use _redisSerializerType_ to specify the assembly qualified type name of a class that implements **Microsoft.Web.Redis.ISerializer** and has the custom logic to serialize and deserialize the values. For example, here's a Json serializer class using JSON.NET:
+The serialization to store the values on Redis is done in a binary format by default, which is provided by the **BinaryFormatter** class. Use _redisSerializerType_ to specify the assembly qualified type name of a class that implements **Microsoft.Web.Redis.ISerializer** and has the custom logic to serialize and deserialize the values. For example, here's a JSON serializer class using JSON.NET:
 
 ```cs
 namespace MyCompany.Redis

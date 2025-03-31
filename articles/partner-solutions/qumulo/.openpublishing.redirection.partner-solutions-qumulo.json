@@ -12,8 +12,13 @@
         },
         {
             "source_path_from_root": "/articles/partner-solutions/qumulo/qumulo-how-to-setup-features.md",
-            "redirect_url": "/azure/partner-solutions/qumulo/features",
-            "redirect_document_id": true
+            "redirect_url": "/azure/partner-solutions/qumulo/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/qumulo/features.md",
+            "redirect_url": "/azure/partner-solutions/qumulo/overview",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/partner-solutions/qumulo/qumulo-how-to-manage.md",

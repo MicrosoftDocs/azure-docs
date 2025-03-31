@@ -47,6 +47,8 @@ landingContent:
             url: ./tutorial-modernize-asp-net-aks.md
           - text: Create an Azure Spring Apps assessment
             url: ./how-to-create-azure-spring-apps-assessment.md
+          - text: Assess MySQL databases for migration to Azure Database for MySQL (preview)
+            url: ./create-mysql-assessment.md
 
 
   - title: Start deployment
