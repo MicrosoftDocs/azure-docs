@@ -5,7 +5,7 @@ description: Learn how to configure P2S access based on users and groups for Mic
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 08/12/2024
+ms.date: 03/31/2025
 ms.author: cherylmc
 
 ---
