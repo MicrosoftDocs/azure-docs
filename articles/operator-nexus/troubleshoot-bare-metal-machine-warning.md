@@ -26,15 +26,13 @@ The Detailed status message of the Bare Metal Machine (Operator Nexus) resource 
 
 ## Troubleshooting
 
+Evaluate the current status of all BMMs in the specified resource group.
+Any active _Warning_ conditions are visible in the Detailed Status Message, as seen in the following example.
+
 To check for any Bare Metal Machines (BMMs) which are reporting _Warning_ messages, run:
 
 ```azurecli
 az networkcloud baremetalmachine list -g <ResourceGroup_Name> -o table
-```
-
-This command shows the current status of all BMMs in the specified resource group. Any active _Warning_ conditions are visible in the Detailed Status Message, as seen in the following example.
-
-```shell
 Name            ResourceGroup                       DetailedStatus    DetailedStatusMessage
 --------------  ----------------------------------  ----------------  -------------------------------------------------------------------------------------------
 rack1control01  cluster-1-HostedResources-3EA53DF9  Provisioned       The OS is provisioned to the machine.

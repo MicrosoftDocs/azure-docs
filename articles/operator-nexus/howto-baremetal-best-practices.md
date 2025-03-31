@@ -37,14 +37,13 @@ For this reason, it's essential to understand the available options well when tr
 - Attempt to identify the root cause of the failure to avoid repeating the same mistake.
   Perform retry attempts in incremental steps to isolate and address specific issues.
 - Wait for Az CLI commands to run to completion and validate the state of the BMM resource before executing other steps.
-- Keep an eye on system logs to detect any anomalies during the retry process.
-- Verify that the firmware and software versions are up-to-date to prevent compatibility issues and ensure compatibility between hardware and software versions.
-- Always back up critical data to prevent data loss during the recovery or replacement process.
+- Verify that the firmware and software versions are up-to-date before a new greenfield deployment to prevent compatibility issues between hardware and software versions.
+  For more information about firmware compatibility, see [Operator Nexus Platform Prerequisites](./howto-platform-prerequisites.md).
 - Ensure stable network connectivity to avoid interruptions during the process.
   Validate that there are no active network stability issues with the network fabric.
   Ignoring network stability could make operations fail to complete successfully and leave a BMM in an unknown state.
 
-## Best Practices for BMM Reimage
+## Best Practices for a BMM Reimage
 
 The BMM `reimage` action is explained in [BMM Lifecycle Management Commands] and scenario procedures described in [Troubleshoot Azure Operator Nexus Server Problems].
 
@@ -53,33 +52,31 @@ The BMM `reimage` action is explained in [BMM Lifecycle Management Commands] and
 You can restore the operating system runtime version on a BMM by executing the `reimage` operation.
 A BMM `reimage` can be both time-saving and reliable for resolving issues or restoring the operating system software to a known-good state.
 This process **redeploys** the runtime image on the target BMM and executes the steps to rejoin the cluster with the same identifiers.
-The `reimage` action doesn't affect the tenant workload files on the BMM under normal circumstances.
+The `reimage` action is designed to interact with the operating system partition, leaving virtual machine's local storage unchanged.
 
 > [!IMPORTANT]
-> Avoid write or edit actions performed on the node via BMM access.
+> Avoid manual or automated changes to the BMM's file system (also known as "break glass").
 > The `reimage` action is required to restore Microsoft support and any changes done to the BMM are lost while restoring the node to its expected state.
 
-### Preconditions and Validations Before BMM Reimage
+### Preconditions and Validations Before a BMM Reimage
 
 Before initiating any `reimage` operation, ensure the following preconditions are met:
 
 - Ensure the BMM is in `poweredState` set to `On` and `readyState` set to `True`.
 - Make sure the BMM's workloads are drained using the [`cordon`](./howto-baremetal-functions.md#make-a-bmm-unschedulable-cordon) command with the parameter `evacuate` set to `True`.
 - Perform high level checks covered in the article [Troubleshoot Bare Metal Machine Provisioning].
-- Evaluate any BMM warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems before a `replace` operation.
+- Evaluate any BMM warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems before a `reimage` operation.
   For more information, read [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
-- Ensure to resolve any BMM hardware validation failures.
-  Read article [Troubleshoot Hardware Validation Failure](./troubleshoot-hardware-validation-failure.md) to understand hardware validation results.
-- Validate that there are no running firmware upgrade jobs through the BMC before initiating a `replace` operation.
+- Validate that there are no running firmware upgrade jobs through the BMC before initiating a `reimage` operation.
   The BMM has `provisioningStatus` in the `Preparing` state. Interrupting an ongoing firmware upgrade can leave the BMM in an inconsistent state.
 
-## Best Practices for BMM Replace
+## Best Practices for a BMM Replace
 
 The BMM `replace` action is explained in [BMM Lifecycle Management Commands] and scenario procedures described in [Troubleshoot Azure Operator Nexus Server Problems].
 
 [!INCLUDE [warning-donot-run-multiple-actions](./includes/baremetal-machines/warning-donot-run-multiple-actions.md)]
 
-Hardware failures are an expected occurrence over the natural lifecycle of a server.
+Hardware failures are a normal occurrence over the life of a server.
 Component replacements might be necessary to restore functionality and ensure continued operation.
 In cases where one or more hardware components fail on the server, it's necessary to perform a BMM `replace` operation.
 The `replace` operation should be executed after any hardware maintenance event. Multiple maintenance events should be done as multiple `replace` operations.
@@ -90,14 +87,15 @@ The `replace` operation should be executed after any hardware maintenance event.
 
 ### Resolve Hardware Validation Issues
 
-When a BMM is marked with failed hardware validation, it indicates that physical repairs are needed. It's crucial to identify and address these repairs before performing a BMM `replace`.
+When a BMM is marked with failed hardware validation, it might indicate that physical repairs are needed.
+It's crucial to identify and address these repairs before performing a BMM `replace`.
 A hardware validation process is invoked, as part of the `replace` operation, to ensure the physical host's integrity before deploying the OS image.
-If the BMM continues to have hardware validation failures, then the BMM won't provision successfully meaning it fails to complete the necessary setup steps to become operational and won't join the cluster.
+If the BMM continues to have hardware validation failures, then the BMM can't provision successfully meaning it fails to complete the necessary setup steps to become operational and join the cluster.
 Ensure **all hardware validation issues** are cleared before the next `replace` action.
 
 To understand hardware validation result, read through the article [Troubleshoot Hardware Validation Failure](./troubleshoot-hardware-validation-failure.md).
 
-### Preconditions and Validations Before BMM Replace
+### Preconditions and Validations Before a BMM Replace
 
 Before initiating any `replace` operation, ensure the following preconditions are met:
 

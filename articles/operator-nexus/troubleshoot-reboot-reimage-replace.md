@@ -9,7 +9,7 @@ author: eak13
 ms.author: ekarandjeff
 ---
 
-# Troubleshoot Azure Operator Nexus Server Problems
+# Troubleshoot Bare Metal Machine Server Problems
 
 This article describes how to troubleshoot server problems by using `restart`, `reimage`, and `replace` actions on Azure Operator Nexus BareMetal Machines (BMM).
 These operations are performed for maintenance on your servers and cause a disruption to the specific BMM.

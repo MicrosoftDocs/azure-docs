@@ -242,7 +242,7 @@
               href: howto-baremetal-bmm-ssh.md
             - name: BareMetal BMC Access Setup
               href: howto-baremetal-bmc-ssh.md
-            - name: BareMetal Functions
+            - name: BareMetal BMM Platform Commands
               href: howto-baremetal-functions.md
             - name: BareMetal Run-Read Execution
               href: howto-baremetal-run-read.md
@@ -352,7 +352,7 @@
     - name: Cluster or BMM
       expanded: false
       items:
-        - name: Troubleshoot Bare Metal Machine
+        - name: Troubleshoot Bare Metal Machine Server Problems
           href: troubleshoot-reboot-reimage-replace.md
         - name: Troubleshoot Bare Metal Machine Provisioning
           href: troubleshoot-bare-metal-machine-provisioning.md
