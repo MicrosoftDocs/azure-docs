@@ -35,13 +35,7 @@ Follow these steps to migrate using Robocopy, a command-line file copy utility i
 
 2. Mount both the source and target file shares to the VM. Be sure to mount them using the storage account key to make sure the VM has access to all the files. Don't use a domain identity.
 
-3. Run this command at the Windows command prompt. Optionally, you can include flags for logging features as a best practice (/NP, /NFL, /NDL, /UNILOG).
-   
-   ```console
-   robocopy <source> <target> /MIR /COPYALL /MT:16 /R:2 /W:1 /B /IT /DCOPY:DAT
-   ```
-   
-   Here is an example command with source mounted as `s:\` and target mounted as `t:\`:
+3. Run this command at the Windows command prompt. Optionally, you can include flags for logging features as a best practice (/NP, /NFL, /NDL, /UNILOG). Remember to replace `s:\` and `t:\` with the paths to the mounted source and target shares as appropriate.
    
    ```console
    robocopy s:\ t:\ /MIR /COPYALL /MT:16 /R:2 /W:1 /B /IT /DCOPY:DAT
@@ -49,7 +43,7 @@ Follow these steps to migrate using Robocopy, a command-line file copy utility i
    
    You can run the command while your source is still online, but IOPS and throughput used for the robocopy job counts against your file share limits.
 
-4. After the initial run completes, disconnect your application from the existing share and run the same robocopy command again to copy over all the changes that happened since the initial run. Any data that has not changed since the last copy job will be skipped.
+4. After the initial run completes, disconnect your application from the existing share and run the same robocopy command again to copy over all the changes that happened since the initial run. Any data unchanged since the last copy job is skipped.
 
 5. You can repeat step for as many times as you would like before cutting over to the new file share.
 
