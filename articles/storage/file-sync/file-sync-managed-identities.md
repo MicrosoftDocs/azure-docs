@@ -19,7 +19,7 @@ When you enable this configuration, the system-assigned managed identities will 
 
 To learn more about the benefits of using managed identities, see [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
-To configure your Azure File Sync deployment to utilize system-assigned managed identities, please follow the guidance in the subsequent sections.
+To configure your Azure File Sync deployment to utilize system-assigned managed identities follow the guidance in the subsequent sections.
 
 ## Prerequisites
 # [Portal](#tab/azure-portal) 
@@ -101,7 +101,7 @@ The following steps are performed and will take several minutes (or longer for l
 - Configures registered server(s) to use system-assigned managed identity.  
 
 > [!NOTE] 
-> Once the registered server(s) are configured to use a system-assigned managed identity, it can take up to fifteen minutes before the server uses the system-assigned managed identity to authenticate to the Storage Sync Service and file shares.
+> Once the registered server(s) are configured to use a system-assigned managed identity, it can take up to 15 minutes before the server uses the system-assigned managed identity to authenticate to the Storage Sync Service and file shares.
 
 
 # [PowerShell](#tab/azure-powershell) 
@@ -121,7 +121,7 @@ The **Set-AzStorageSyncServiceIdentity** cmdlet performs the following steps for
 Use the **Set-AzStorageSyncServiceIdentity** cmdlet anytime you need to configure additional registered servers to use managed identities.
 
 > [!NOTE]
-> Once the registered server(s) are configured to use a system-assigned managed identity, it can take up to fifteen minutes before the server uses the system-assigned managed identity to authenticate to the Storage Sync Service and file shares.
+> Once the registered server(s) are configured to use a system-assigned managed identity, it can take up to 15 minutes before the server uses the system-assigned managed identity to authenticate to the Storage Sync Service and file shares.
 
 ---
 ### How to check if the Storage Sync Service is using a system-assigned managed identity
@@ -162,7 +162,7 @@ Get-AzStorageSyncServer -ResourceGroupName <string> -StorageSyncServiceName <str
 Verify the **ApplicationId** property has a GUID which indicates the server is configured to use the managed identity. The value for the **ActiveAuthType** property will be updated to **ManagedIdentity** once the server is using the system-assigned managed identity.
 
 > [!NOTE]
-> Once the registered server(s) are configured to use a system-assigned managed identity, it can take up to fifteen minutes before the server uses the system-assigned managed identity to authenticate to the Storage Sync Service and Azure file shares.
+> Once the registered server(s) are configured to use a system-assigned managed identity, it can take up to 15 minutes before the server uses the system-assigned managed identity to authenticate to the Storage Sync Service and Azure file shares.
 
 ---
 ## More information
