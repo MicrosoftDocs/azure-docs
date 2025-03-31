@@ -153,7 +153,7 @@ additionalContent:
         # Card
         - title: Azure IoT Operations
           summary: Unlock insights for intelligent local actions and global visibility
-          url: iot-operations/index.yml
+          url: ../iot-operations/index.yml
 
     - title: Cloud-based IoT solution
       summary: In a cloud-based IoT solution, your IoT devices connect directly to the cloud where their messages are processed and analyzed
@@ -161,18 +161,15 @@ additionalContent:
           # Card
         - title: Azure IoT Hub
           summary: Connect, monitor, and manage billions of IoT assets
-          imageSrc: ./media/index/iot-hub.svg
-          url: iot-hub/index.yml
+          url: ../iot-hub/index.yml
         # Card
         - title: Azure IoT Central
           summary: Accelerate the creation of IoT solutions
-          imageSrc: ./media/index/iot-central.svg
-          url: iot-central/index.yml
+          url: ../iot-central/index.yml
         # Card
         - title: Azure Digital Twins
           summary: Build next-generation IoT spatial intelligence solutions
-          imageSrc: ./media/index/digital-twins.svg
-          url: digital-twins/index.yml
+          url: ../digital-twins/index.yml
 
     - title: Hybrid IoT solution
       summary: Hybrid IoT solutions combine both cloud and edge components.
@@ -180,10 +177,8 @@ additionalContent:
         # Card
         - title: Azure IoT Edge
           summary: Extend cloud intelligence and analytics to edge devices
-          imageSrc: ./media/index/iot-edge.svg
-          url: iot-edge/index.yml
+          url: ../iot-edge/index.yml
         # Card
         - title: Azure Event Grid
           summary: Get reliable event delivery at massive scale
-          imageSrc: ./media/index/event-grid-domains.svg
-          url: event-grid/index.yml
+          url: ../event-grid/index.yml
