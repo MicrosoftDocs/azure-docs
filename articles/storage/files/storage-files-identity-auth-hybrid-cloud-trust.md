@@ -50,7 +50,7 @@ Before implementing the incoming trust-based authentication flow, ensure that th
 | --- | --- |
 | Client must run Windows 10, Windows Server 2012, or a higher version of Windows. | |
 | Clients must be joined to Active Directory (AD). The domain must have a functional level of Windows Server 2012 or higher. | You can determine if the client is joined to AD by running the [dsregcmd command](/azure/active-directory/devices/troubleshoot-device-dsregcmd): `dsregcmd.exe /status` |
-| A Microsoft Entra tenant. | A Microsoft Entra Tenant is an identity security boundary that's under the control of your organization’s IT department. It's an instance of Microsoft Entra ID in which information about a single organization resides. |
+| A Microsoft Entra tenant. | A Microsoft Entra Tenant is an identity security boundary that's under the control of your organization's IT department. It's an instance of Microsoft Entra ID in which information about a single organization resides. |
 | An Azure subscription under the same Microsoft Entra tenant you plan to use for authentication. | |
 | An Azure storage account in the Azure subscription. | An Azure storage account is a resource that acts as a container for grouping all the data services from Azure Storage, including files. |
 | [Microsoft Entra Connect](/azure/active-directory/hybrid/whatis-azure-ad-connect) or [Microsoft Entra Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md) must be installed. | These solutions are used in [hybrid environments](../../active-directory/hybrid/whatis-hybrid-identity.md) where identities exist both in Microsoft Entra ID and on-premises AD DS. |

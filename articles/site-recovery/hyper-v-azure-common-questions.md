@@ -1,14 +1,14 @@
 ---
 title: Common questions for Hyper-V disaster recovery with Azure Site Recovery 
 description: This article summarizes common questions about setting up disaster recovery for on-premises Hyper-V VMs to Azure using the Azure Site Recovery site.
-ms.date: 12/27/2024
+ms.date: 03/27/2025
 ms.service: azure-site-recovery
 ms.topic: overview
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ms.custom: engagement-fy23
 ---
-# Common questions - Hyper-V to Azure disaster recovery
+# Common questions about Hyper-V to Azure disaster recovery
 
 This article provides answers to common questions we see when replicating on-premises Hyper-V VMs to Azure. 
 
