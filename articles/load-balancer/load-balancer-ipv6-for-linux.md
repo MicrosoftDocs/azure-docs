@@ -51,7 +51,7 @@ For RHEL and Oracle Linux versions 7.4 or higher, follow these steps:
 
 Recent SUSE Linux Enterprise Server (SLES) and openSUSE images in Azure have been preconfigured with DHCPv6. No other changes are required when you use these images. If you have a VM that's based on an older or custom SUSE image, use one of the following procedures to configure DHCPv6.
 
-## OpenSuSE 13 and SLES 11
+## openSUSE 13 and SLES 11
 
 1. Install the `dhcp-client` package, if needed:
 
@@ -70,7 +70,7 @@ Recent SUSE Linux Enterprise Server (SLES) and openSUSE images in Azure have bee
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
-## OpenSUSE Leap and SLES 12
+## openSUSE Leap and SLES 12
 
 For openSUSE Leap and SLES 12, follow these steps:
 
