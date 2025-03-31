@@ -196,7 +196,7 @@ When adding a new connection for your ExpressRoute gateway, select the checkbox 
 :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/enable-fastpath-portal.png" alt-text="Screenshot of FastPath checkbox in add a connection page.":::
 
 > [!NOTE]
-> Enabling FastPath for a new connection is only available through creating a connection from the gateway resource. New connections created from the ExpressRoute circuit or from the Connection resource page is not supported.
+> When you enable FastPath on new or existing connections, the Gateway bypass is enabled after the ExpressRoute Gateway and Circuit connection is established. This will briefly route the on-premises traffic through the gateway.
 
 ### Configure FastPath on an existing connection
 
