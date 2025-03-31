@@ -1405,7 +1405,7 @@ items:
     - name: Connector upgrade FAQ
       href: connector-deprecation-frequently-asked-questions.md
     - name: Connector upgrade advisor
-      href: connector-migration-advisor.md
+      href: connector-upgrade-advisor.md
   - name: Whitepapers
     href: whitepapers.md
   - name: FAQ
