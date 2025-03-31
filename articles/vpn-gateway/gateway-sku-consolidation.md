@@ -81,11 +81,11 @@ No, the VPN Gateway Basic SKU isn't retiring. You can create a VPN gateway using
 
 ### Can I create a VPN Gateway Basic SKU gateway with a Basic SKU public IP address after March 31, 2025?
 
-Yes, you can create a VPN gateway using a gateway Basic SKU and a Basic public IP address SKU until June  2025.
+Yes, you can create a VPN gateway using a gateway Basic SKU and a Basic public IP address SKU until June 2025.
 
 ### When will I be able to create a VPN Gateway Basic SKU with a Standard SKU public IP address?
 
-Using the Standard SKU public IP address parameter with a VPN Gateway Basic SKU is rolling out and is projected to be completed in April  2025.
+Using the Standard SKU public IP address parameter with a VPN Gateway Basic SKU is rolling out and is projected to be completed in April 2025.
 
 ### When will my Standard and HighPerformance gateway be migrated?
 
