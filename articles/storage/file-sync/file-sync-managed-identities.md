@@ -4,7 +4,7 @@ description: Learn how to configure Azure File Sync to use managed identities.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 10/31/2024
+ms.date: 03/31/2025
 ms.author: kendownie
 ---
 
