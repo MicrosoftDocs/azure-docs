@@ -78,7 +78,7 @@ Azure Backup now enables you to perform a vaulted backup of Azure Files to prote
 ### 2024 quarter 1 (January, February, March)
 
 #### Generally available: Azure Files large file share support for Geo and GeoZone redundancy 
-HDD file shares that are Geo (GRS) or GeoZone (GZRS) redundant can now scale up to 100 TiB capacity with significantly improved IOPS and throughput limits. For more information, see [blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/general-availability-azure-files-geo-redundancy-for-standard/ba-p/4097935) and [documentation](geo-redundant-storage-for-large-file-shares.md).
+HDD file shares that are Geo (GRS) or GeoZone (GZRS) redundant can now scale up to 100 TiB capacity with significantly improved IOPS and throughput limits. For more information, see [Geo and GeoZone redundancy](./files-redundancy.md#redundancy-in-a-secondary-region).
 
 #### Metadata caching for SSD SMB file shares is in public preview
 
@@ -125,7 +125,7 @@ Note: The number of active users supported per share is dependent on the applica
 The root directory handle limit has been increased in all regions and applies to all existing and new file shares. For more information about Azure Files scale targets, see: [Azure Files scalability and performance targets](storage-files-scale-targets.md).
 
 #### Preview: Azure Files large file share support for Geo and GeoZone redundancy
-Azure Files geo-redundancy for large file shares preview significantly improves capacity and performance for HDD file shares when using geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) options. The preview is only available for HDD file shares. For more information, see [Azure Files geo-redundancy for large file shares preview](geo-redundant-storage-for-large-file-shares.md).
+Azure Files geo-redundancy for large file shares preview significantly improves capacity and performance for HDD file shares when using geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) options. The preview is only available for HDD file shares. For more information, see [Geo and GeoZone redundancy](./files-redundancy.md#redundancy-in-a-secondary-region).
 
 #### New SLA of 99.99% uptime for SSD file shares
 
