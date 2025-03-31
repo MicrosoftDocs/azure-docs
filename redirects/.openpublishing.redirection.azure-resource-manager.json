@@ -2016,97 +2016,97 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/operational-excellence/index.yml",
-      "redirect_url": "/azure/azure-resource-manager/management/",
+      "source_path_from_root": "/articles/operational-excellence/index.yml",
+      "redirect_url": "/azure/azure-resource-manager/management/overview",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/operational-excellence/overview-relocation.md",
-      "redirect_url": "/azure/azure-resource-manager/management/",
+      "source_path_from_root": "/articles/operational-excellence/overview-relocation.md",
+      "redirect_url": "/azure/azure-resource-manager/management/move-resources-overview",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/operational-excellence/overview.md",
-      "redirect_url": "/azure/azure-resource-manager/management/",
+      "source_path_from_root": "/articles/operational-excellence/overview.md",
+      "redirect_url": "/azure/azure-resource-manager/management/move-resources-overview",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/operational-excellence/relocation-app-gateway.md",
+      "source_path_from_root": "/articles/operational-excellence/relocation-app-gateway.md",
       "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-app-gateway",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/operational-excellence/relocation-app-service.md",
+      "source_path_from_root": "/articles/operational-excellence/relocation-app-service.md",
       "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-app-service",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/operational-excellence/relocation-automation.md",
+      "source_path_from_root": "/articles/operational-excellence/relocation-automation.md",
       "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-automation",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/operational-excellence/relocation-backup.md",
+      "source_path_from_root": "/articles/operational-excellence/relocation-backup.md",
       "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-backup",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/operational-excellence/relocation-container-registry.md",
+      "source_path_from_root": "/articles/operational-excellence/relocation-container-registry.md",
       "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-container-registry",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/operational-excellence/relocation-cosmos-db.md",
+      "source_path_from_root": "/articles/operational-excellence/relocation-cosmos-db.md",
       "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-cosmos-db",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/operational-excellence/relocation-event-grid-custom-topics.md",
+      "source_path_from_root": "/articles/operational-excellence/relocation-event-grid-custom-topics.md",
       "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-event-grid-custom-topics",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/operational-excellence/relocation-event-grid-domains.md",
+      "source_path_from_root": "/articles/operational-excellence/relocation-event-grid-domains.md",
       "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-event-grid-domains",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/operational-excellence/relocation-event-grid-system-topics.md",
+      "source_path_from_root": "/articles/operational-excellence/relocation-event-grid-system-topics.md",
       "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-event-grid-system-topics",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/operational-excellence/relocation-event-hub-cluster.md",
+      "source_path_from_root": "/articles/operational-excellence/relocation-event-hub-cluster.md",
       "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-event-hub-cluster",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/operational-excellence/relocation-event-hub.md",
+      "source_path_from_root": "/articles/operational-excellence/relocation-event-hub.md",
       "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-event-hub",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/operational-excellence/relocation-firewall.md",
+      "source_path_from_root": "/articles/operational-excellence/relocation-firewall.md",
       "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-firewall",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/operational-excellence/relocation-function.md",
+      "source_path_from_root": "/articles/operational-excellence/relocation-function.md",
       "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-function",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/operational-excellence/relocation-key-vault.md",
+      "source_path_from_root": "/articles/operational-excellence/relocation-key-vault.md",
       "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-key-vault",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/operational-excellence/relocation-kubernetes-service.md",
+      "source_path_from_root": "/articles/operational-excellence/relocation-kubernetes-service.md",
       "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-kubernetes-service",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "articles/operational-excellence/relocation-log-analytics.md",
+      "source_path_from_root": "/articles/operational-excellence/relocation-log-analytics.md",
       "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-log-analytics",
       "redirect_document_id": false
     }

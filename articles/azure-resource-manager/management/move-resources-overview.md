@@ -85,16 +85,16 @@ The following tables provide links to each Azure service relocation document. Th
 | --- | --- | --- | ---|
 |[Azure Event Hubs](./relocation/relocation-event-hub.md)| ✅   | ❌| ❌ |
 |[Azure Event Hubs Cluster](./relocation/relocation-event-hub-cluster.md)| ✅ | ❌  | ❌ |
-|[Azure Stream Analytics -  Stream Analytics jobs](../../../stream-analytics/copy-job.md?toc=/azure/operational-excellence/toc.json)| ✅ | ✅|  ❌  |
-|[Azure Stream Analytics -  Stream Analytics cluster](../../../stream-analytics/move-cluster.md?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
+|[Azure Stream Analytics -  Stream Analytics jobs](../../stream-analytics/copy-job.md?toc=/azure/operational-excellence/toc.json)| ✅ | ✅|  ❌  |
+|[Azure Stream Analytics -  Stream Analytics cluster](../../stream-analytics/move-cluster.md?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
 |[Power BI](/power-bi/admin/service-admin-region-move?toc=/azure/operational-excellence/toc.json)| ✅ |❌ | ❌ |
 
 #### Compute
 
 | Product  | Relocation | Relocation with data migration | Resource Mover |
 | --- | --- | --- | ---|
-|[Azure App Service](../../../app-service/manage-move-across-regions.md?toc=/azure/operational-excellence/toc.json)|✅  |  ❌| ❌ |
-|[Azure Batch](../../../batch/account-move.md?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
+|[Azure App Service](../../app-service/manage-move-across-regions.md?toc=/azure/operational-excellence/toc.json)|✅  |  ❌| ❌ |
+|[Azure Batch](../../batch/account-move.md?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
 |[Azure Functions](./relocation/relocation-functions.md)|✅  |❌  | ❌ |
 |[Azure Static Web Apps](./relocation/relocation-static-web-apps.md) |  ✅ |❌ | ❌ |
 |[Azure Virtual Machines]( ../../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/operational-excellence/toc.json)| ❌ | ❌|  ✅  |
@@ -112,7 +112,7 @@ The following tables provide links to each Azure service relocation document. Th
 
 | Product  | Relocation | Relocation with data migration | Resource Mover |
 | --- | --- | --- | ---|
-|[Azure Cache for Redis](../../../azure-cache-for-redis/cache-moving-resources.md?toc=/azure/operational-excellence/toc.json)| ✅ |  ❌| ❌ |
+|[Azure Cache for Redis](../../azure-cache-for-redis/cache-moving-resources.md?toc=/azure/operational-excellence/toc.json)| ✅ |  ❌| ❌ |
 |[Azure Cosmos DB](./relocation/relocation-cosmos-db.md)|✅ | ✅|  ❌  |
 |[Azure Database for MariaDB Server](/azure/mariadb/howto-move-regions-portal?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
 |[Azure Database for MySQL Server](/azure/mysql/howto-move-regions-portal?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
@@ -122,22 +122,22 @@ The following tables provide links to each Azure service relocation document. Th
 
 | Product  | Relocation |Relocation with data migration |  Resource Mover |
 | --- | --- | --- | ---|
-|[Azure API Management](../../../api-management/api-management-howto-migrate.md?toc=/azure/operational-excellence/toc.json)| ✅ | ✅|  ❌  |
-|[Azure Logic apps](../../../logic-apps/move-logic-app-resources.md?toc=/azure/operational-excellence/toc.json)|  ✅| ❌ | ❌ |
+|[Azure API Management](../../api-management/api-management-howto-migrate.md?toc=/azure/operational-excellence/toc.json)| ✅ | ✅|  ❌  |
+|[Azure Logic apps](../../logic-apps/move-logic-app-resources.md?toc=/azure/operational-excellence/toc.json)|  ✅| ❌ | ❌ |
 
 #### Internet of Things
 
 | Product  | Relocation |Relocation with data migration |  Resource Mover |
 | --- | --- | --- | ---|
-|[Azure API Management](../../../api-management/api-management-howto-migrate.md?toc=/azure/operational-excellence/toc.json)| ✅ | ✅|  ❌  |
+|[Azure API Management](../../api-management/api-management-howto-migrate.md?toc=/azure/operational-excellence/toc.json)| ✅ | ✅|  ❌  |
 |[Azure Cosmos DB](./relocation/relocation-cosmos-db.md)|✅ | ✅|  ❌  |
 |[Azure Event Grid domains](./relocation/relocation-event-grid-domains.md)| ✅ | ❌| ❌ |
 |[Azure Event Grid custom topics](./relocation/relocation-event-grid-custom-topics.md)| ✅ | ❌| ❌ |
 |[Azure Event Grid system topics](./relocation/relocation-event-grid-system-topics.md)| ✅ | ❌| ❌ |
 |[Azure Functions](./relocation/relocation-functions.md)|✅  |❌  | ❌ |
 |[Azure IoT Hub](/azure/iot-hub/iot-hub-how-to-clone?toc=/azure/operational-excellence/toc.json)| ✅ | ✅|  ❌  |
-|[Azure Stream Analytics -  Stream Analytics jobs](../../../stream-analytics/copy-job.md?toc=/azure/operational-excellence/toc.json)| ✅ | ✅|  ❌  |
-|[Azure Stream Analytics -  Stream Analytics cluster](../../../stream-analytics/move-cluster.md?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
+|[Azure Stream Analytics -  Stream Analytics jobs](../../stream-analytics/copy-job.md?toc=/azure/operational-excellence/toc.json)| ✅ | ✅|  ❌  |
+|[Azure Stream Analytics -  Stream Analytics cluster](../../stream-analytics/move-cluster.md?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
 
 #### Management and governance
 
@@ -153,7 +153,7 @@ The following tables provide links to each Azure service relocation document. Th
 | Product  | Relocation |Relocation with data migration |  Resource Mover |
 | --- | --- | --- | ---|
 |[Azure Application Gateway and Web Application Firewall](./relocation/relocation-app-gateway.md)| ✅ | ❌| ❌ |
-|[Azure Load Balancer](../../../load-balancer/move-across-regions-external-load-balancer-portal.md)| ✅ | ✅| ❌ |
+|[Azure Load Balancer](../../load-balancer/move-across-regions-external-load-balancer-portal.md)| ✅ | ✅| ❌ |
 |[Azure Private Link Service](./relocation/relocation-private-link.md) | ✅| ❌ | ❌ |
 |[Azure Virtual Network](./relocation/relocation-virtual-network.md)|  ✅| ❌  | ✅ |
 |[Azure Virtual Network - Network Security Groups](./relocation/relocation-virtual-network-nsg.md)|✅  |❌   | ✅ |
