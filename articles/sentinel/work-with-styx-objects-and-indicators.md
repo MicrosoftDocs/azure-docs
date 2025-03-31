@@ -25,8 +25,6 @@ For more information about threat intelligence in Microsoft Sentinel, see [Threa
 >
 > **Be sure to update your custom queries, analytics and detection rules, workbooks, and automation to use the new tables by July 31, 2025.** After this date, the legacy `ThreatIntelligenceIndicator` table will no longer be available in Microsoft Sentinel. All out-of-the box threat intelligence solutions in Content hub have been updated to leverage the new tables. For more information about the new table schemas, see [ThreatIntelIndicator](/azure/azure-monitor/reference/tables/threatintelligenceindicator) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects).
 
-**Be sure to update your custom queries, analytics and detection rules, workbooks, and automation to use the new tables by July 31, 2025.** After this date, the legacy `ThreatIntelligenceIndicator` table will no longer be available in Microsoft Sentinel. All out-of-the box threat intelligence solutions in Content hub have been updated to leverage the new tables.
-
 ## Identify threat actors associated with specific threat indicators
 
 This query is an example of how to correlate threat indicators, such as IP addresses, with threat actors:
