@@ -77,7 +77,7 @@ Now that you've covered Azure VMware Solution private cloud maintenance best pra
 
 - [Azure VMware Solution networking and interconnectivity concepts](architecture-networking.md)
 - [Azure VMware Solution storage concepts](architecture-storage.md)
-- [How to configure Azure Alerts in Azure VMware Solution](articles\azure-vmware\configure-alerts-for-azure-vmware-solution.md)
+- [How to configure Azure Alerts in Azure VMware Solution](configure-alerts-for-azure-vmware-solution.md)
 
 <!-- LINKS - internal -->
 [concepts-networking]: ./concepts-networking.md
