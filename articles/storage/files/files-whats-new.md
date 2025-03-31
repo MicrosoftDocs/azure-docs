@@ -118,32 +118,31 @@ This feature enables share-level read and write access to SMB Azure file shares 
 
 #### Azure Files scalability improvement for Azure Virtual Desktop and other workloads that open root directory handles is generally available
 
-Azure Files has increased the root directory handle limit per share from 2,000 to 10,000 for standard and premium file shares. This improvement benefits applications that keep an open handle on the root directory. For example, Azure Virtual Desktop with FSLogix profile containers now supports 10,000 active users per share (5x improvement). 
+Azure Files has increased the root directory handle limit per share from 2,000 to 10,000 for Azure file shares. This improvement benefits applications that keep an open handle on the root directory. For example, Azure Virtual Desktop with FSLogix profile containers now supports 10,000 active users per share (5x improvement). 
 
 Note: The number of active users supported per share is dependent on the applications that are accessing the share. If your applications are not opening a handle on the root directory, Azure Files can support more than 10,000 active users per share.
  
 The root directory handle limit has been increased in all regions and applies to all existing and new file shares. For more information about Azure Files scale targets, see: [Azure Files scalability and performance targets](storage-files-scale-targets.md).
 
-#### Geo-redundant storage for large file shares is in public preview
+#### Preview: Azure Files large file share support for Geo and GeoZone redundancy
+Azure Files geo-redundancy for large file shares preview significantly improves capacity and performance for HDD file shares when using geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) options. The preview is only available for HDD file shares. For more information, see [Azure Files geo-redundancy for large file shares preview](geo-redundant-storage-for-large-file-shares.md).
 
-Azure Files geo-redundancy for large file shares preview significantly improves capacity and performance for standard SMB file shares when using geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) options. The preview is only available for standard SMB Azure file shares. For more information, see [Azure Files geo-redundancy for large file shares preview](geo-redundant-storage-for-large-file-shares.md).
+#### New SLA of 99.99% uptime for SSD file shares
 
-#### New SLA of 99.99 percent uptime for Azure Files Premium Tier is generally available
-
-Azure Files now offers a 99.99 percent SLA per file share for all Azure Files Premium shares, regardless of protocol (SMB, NFS, and REST) or redundancy type. This means that you can benefit from this SLA immediately, without any configuration changes or extra costs. If the availability drops below the guaranteed 99.99 percent uptime, you're eligible for service credits.
+Azure Files now offers a 99.99% SLA per file share for all SSD file shares, regardless of protocol (SMB or NFS) or redundancy type. This means that you can benefit from this SLA immediately, without any configuration changes or extra costs. If the availability drops below the guaranteed 99.99% uptime, you're eligible for service credits.
 
 #### Support for Azure Files REST API with OAuth authentication is in public preview
 
-This preview enables share-level read and write access to SMB Azure file shares for users, groups, and managed identities when accessing file share data through the REST API. Cloud native and modern applications that use REST APIs can utilize identity-based authentication and authorization to access file shares. For more information, [read the blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-introducing-azure-ad-support-for-azure-files-smb/ba-p/3826733).
+This preview enables share-level read and write access to SMB file shares for users, groups, and managed identities when accessing file share data through the REST API. Cloud native and modern applications that use REST APIs can utilize identity-based authentication and authorization to access file shares. For more information, [read the blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-introducing-azure-ad-support-for-azure-files-smb/ba-p/3826733).
 
 #### AD Kerberos authentication for Linux clients (SMB) is generally available
 
 Azure Files customers can now use identity-based Kerberos authentication for Linux clients over SMB using either on-premises Active Directory Domain Services (AD DS) or Azure Active Directory Domain Services (Azure AD DS). For more information, see [Enable Active Directory authentication over SMB for Linux clients accessing Azure Files](storage-files-identity-auth-linux-kerberos-enable.md).
 
 ### 2023 quarter 1 (January, February, March)
-#### Nconnect for NFS Azure file shares is generally available
+#### NFS nconnect for Azure file shares is generally available
 
-Nconnect is a client-side Linux mount option that increases performance at scale by allowing you to use more TCP connections between the Linux client and the Azure Premium Files service for NFSv4.1. With nconnect, you can increase performance at scale using fewer client machines to reduce total cost of ownership. For more information, see [Improve NFS Azure file share performance](nfs-performance.md).
+NFS nconnect is a client-side Linux mount option that increases performance at scale by allowing you to use more TCP connections between the Linux client and NFS file shares. With nconnect, you can increase performance at scale using fewer client machines to reduce total cost of ownership. For more information, see [Improve NFS Azure file share performance](nfs-performance.md).
 
 #### Improved Azure File Sync service availability
 
