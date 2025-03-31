@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/28/2025
+ms.date: 03/31/2025
 # Customer intent: As a developer using Azure Logic Apps, I want to perform various data operations on various data types for my workflow in Azure Logic Apps.
 ---
 
@@ -32,7 +32,7 @@ This how-to guide shows how you can work with data in your logic app workflow in
 
 ## Data operation actions
 
-The following sections summarize the data operations you can use and are organized based on the source data types that the operations work on, but each description appears alphabetically.
+The following sections summarize the data operations you can use. The operations are organized based on the source data types that the operations work on, but each description appears alphabetically.
 
 ### JSON actions
 
@@ -126,7 +126,7 @@ To try the **Compose** action, follow these steps by using the workflow designer
    This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by several **Variables** actions named **Initialize variable**. These actions are set up to create two string variables and an integer variable.
 
    | Operation | Properties and values |
-   | --- | --- |
+   |-----------|-----------------------|
    | **Initialize variable** | - **Name**: firstNameVar <br>- **Type**: String <br>- **Value**: Sophia |
    | **Initialize variable** | - **Name**: lastNameVar <br>- **Type**: String <br>- **Value**: Owens |
    | **Initialize variable** | - **Name**: ageVar <br>- **Type**: Integer <br>- **Value**: 35 |
@@ -148,14 +148,14 @@ To try the **Compose** action, follow these steps by using the workflow designer
       }
       ```
 
-   1. For each variable declaration in the object syntax, place the insertion cursor as described in the following table. Then select the dynamic content list (lightning icon), and choose the corresponding definition from the **Variables** list:
+   1. For each variable declaration in the object syntax, place the insertion cursor as described in the following table. Select the dynamic content list (lightning icon), and then select the corresponding definition from the **Variables** list:
 
       | JSON property | Cursor location | Variable | 
-      | --- | --- | --- |
+      |---------------|-----------------|----------|
       | `age` | Before comma | `ageVar` |
       | `fullName` | - Last name: Before comma <br> - First name: After comma | "`lastNameVar`, `firstNameVar`" |
 
-      The following example shows the finished sample **Compose** action: 
+      The following example shows how to prepare the **Compose** action: 
 
       :::image type="content" source="media/logic-apps-perform-data-operations/compose-lightning-insert-cursor.png" alt-text="Screenshot shows Standard workflow, Compose action, insert cursor location, and lightning icon." lightbox="media/logic-apps-perform-data-operations/compose-lightning-insert-cursor.png":::
 
@@ -319,10 +319,7 @@ In the **Create CSV table** action, keep the **Header** column empty. On each ro
 
 In the action's JSON definition, within the `columns` array, set the `header` property to an empty string. For each `value` property, dereference each array property that you want.
 
-1. From the designer, switch to code view.
-
-   * **Consumption**: On the designer toolbar, select **Code view**.
-   * **Standard**: On the workflow navigation menu, under **Tools**, select **Code**.
+1. On the designer toolbar, select **Code view**.
 
 1. In the code editor, find the action's `columns` array. For each column of array values that you want, add an empty `header` property and the following expression for the `value` property:
 
@@ -358,7 +355,7 @@ In the action's JSON definition, within the `columns` array, set the `header` pr
    ```
 
    > [!NOTE]
-   > If you copy the example into your code, be sure to include the `runAfter` action at the end of the `Create_CSV_table` definition.
+   > If you copy the example into your code, make sure you include the `runAfter` action at the end of the `Create_CSV_table` definition.
 
 1. Switch back to designer view to review the results.
 
@@ -508,10 +505,7 @@ In the **Create HTML table** action, keep the **Header** column empty. On each r
 
 In the action's JSON definition, within the `columns` array, set the `header` property to an empty string. For each `value` property, dereference each array property that you want.
 
-1. From the designer, switch to code view.
-
-   * **Consumption**: On the designer toolbar, select **Code view**.
-   * **Standard**: On the workflow navigation menu, under **Tools**, select **Code**.
+1. On the designer toolbar, select **Code view**.
 
 1. In the code editor, find the action's `columns` array. For each column of array values that you want, add an empty `header` property and the following expression for the `value` property:
 
@@ -547,7 +541,7 @@ In the action's JSON definition, within the `columns` array, set the `header` pr
    ```
 
    > [!NOTE]
-   > If you copy the example into your code, be sure to include the `runAfter` action at the end of the `Create_HTML_table` definition.
+   > If you copy the example into your code, make sure you include the `runAfter` action at the end of the `Create_HTML_table` definition.
 
 1. Switch back to designer view to review the results.
 
@@ -565,7 +559,7 @@ To confirm whether the **Create HTML table** action creates the expected results
 
 1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run** > **Run**.
 
-If you used the Office 365 Outlook action, the following example shows the result:
+If you use the Office 365 Outlook - Send an email action, the following example shows the result:
 
 :::image type="content" source="media/logic-apps-perform-data-operations/create-html-table-email-results.png" alt-text="Screenshot shows email with results from action named Create HTML table." lightbox="media/logic-apps-perform-data-operations/create-html-table-email-results.png":::
 
@@ -683,7 +677,7 @@ To confirm whether **Filter array** action creates the expected results, send yo
 
 1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run** > **Run**.
 
-If you used the Office 365 Outlook action, the following example shows the result:
+If you use the Office 365 Outlook - Send an email action, the following example shows the result:
 
 :::image type="content" source="media/logic-apps-perform-data-operations/filter-array-email-results.png" alt-text="Screenshot shows email with results from action named Filter array." lightbox="media/logic-apps-perform-data-operations/filter-array-email-results.png":::
 
@@ -769,7 +763,7 @@ To confirm whether the **Join** action creates the expected results, send yourse
 
 1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run** > **Run**. 
 
-If you used the Office 365 Outlook action, the following example shows the result:
+If you use the Office 365 Outlook - Send an email action, the following example shows the result:
 
 :::image type="content" source="media/logic-apps-perform-data-operations/join-email-results.png" alt-text="Screenshot shows email with results from the Join action." lightbox="media/logic-apps-perform-data-operations/join-email-results.png":::
 
@@ -952,7 +946,7 @@ To confirm whether the **Parse JSON** action creates the expected results, send 
 
 1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run** > **Run**. 
 
-If you used the Office 365 Outlook action, the following example shows the result:
+If you use the Office 365 Outlook - Send an email action, the following example shows the result:
 
 :::image type="content" source="media/logic-apps-perform-data-operations/parse-json-email-results.png" alt-text="Screenshot shows email with results from action named Parse JSON." lightbox="media/logic-apps-perform-data-operations/parse-json-email-results.png":::
 
@@ -960,13 +954,13 @@ If you used the Office 365 Outlook action, the following example shows the resul
 
 ## Select action
 
-By default, the **Select** action creates an array that contains JSON objects built from the values in an existing array. For example, you can create a JSON object for each value in an integer array by specifying the properties that each JSON object must have and mapping the values from the source array to those properties. Although you can change the component JSON objects, the output array always has the same number of items as the source array. To use the output array from the **Select** action, subsequent actions must either accept arrays as input, or you might have to transform the output array into another compatible format.
+By default, the **Select** action creates an array that contains JSON objects built from the values in an existing array. For example, you can create a JSON object for each value in an integer array. Specify the properties that each JSON object must have and map the values from the source array to the properties. Although you can change the component JSON objects, the output array always has the same number of items as the source array. To use the output array from the **Select** action, subsequent actions must either accept arrays as input, or you might have to transform the output array into another compatible format.
 
 To try the **Select** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Select** and **Initialize variable** action definitions from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Select](logic-apps-data-operations-code-samples.md#select-action-example). For more information about this action in your underlying workflow definition, see [Select action](logic-apps-workflow-actions-triggers.md#select-action).
 
 > [!TIP]
 >
-> For an example that creates create an array with strings or integers built from the values in a JSON object array, 
+> For an example that creates an array with strings or integers built from the values in a JSON object array, 
 > see the **Select** and **Initialize variable** action definitions in 
 > [Data operation code examples - Select](logic-apps-data-operations-code-samples.md#select-action-example).
 
@@ -1072,7 +1066,7 @@ To confirm whether the **Select** action creates the expected results, send your
 
 1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run** > **Run**. 
 
-If you used the Office 365 Outlook action, the following example shows the result:
+If you use the Office 365 Outlook - Send an email action, the following example shows the result:
 
 :::image type="content" source="media/logic-apps-perform-data-operations/select-email-results.png" alt-text="Screenshot shows email with results from the Select action." lightbox="media/logic-apps-perform-data-operations/select-email-results.png":::
 
