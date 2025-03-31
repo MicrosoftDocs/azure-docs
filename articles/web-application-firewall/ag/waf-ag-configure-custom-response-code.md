@@ -10,7 +10,7 @@ ms.custom:
 zone_pivot_groups: 
 ---
 
-# Configure a custom response for Azure Web Application Firewall
+# Configuring Custom Response code and body for Azure Application Gateway WAF
 
 This article explains how to configure a custom response page when Azure Application Gateway's Web Application Firewall (WAF) blocks a request.
 
