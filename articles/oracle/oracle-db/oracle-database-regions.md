@@ -24,7 +24,7 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | Azure region   | OCI region   | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure | Regional Availability |
 | -------------- | ----------------------- | ----------------------------- | -------------------------------- | ---------|
 | Australia East | Australia East (Sydney) | ✓         | ✓      |   Dual   |
-| Australia SouthEast | Australia Southeast (Melbourne) | ✓         |      |   Dual   |
+| Australia Southeast | Australia Southeast (Melbourne) | ✓         |      |   Dual   |
 | Japan East | Japan East (Tokyo) | ✓         |       |   Dual   |
 | Southeast Asia |Singapore (Singapore) | ✓         |       |   Dual   |
 
