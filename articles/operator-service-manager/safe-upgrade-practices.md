@@ -9,10 +9,10 @@ ms.service: azure-operator-service-manager
 ---
 
 # Get started with safe upgrade practices
-This article introduces Azure Operator Service Manager (AOSM) safe upgrade practices (SUP). This feature set enables an end user to safely execute complex upgrades of container network function (CNF) workloads hosted on Azure Operator Nexus, in compliance with partner In Service Software Upgrade (ISSU) requirements, where applicable. Look for future articles to expand on advanced SUP features and capabilities.
+This article introduces Azure Operator Service Manager (AOSM) safe upgrade practices (SUP). This feature set enables the safe execution of complex container network function (CNF) hosted on Azure Operator Nexus. These upgrades are structured in general compliance with partner In Service Software Upgrade (ISSU) requirements. Look for future articles to expand on advanced SUP features and capabilities.
 
 ## Introduction to safe upgrades
-A given network service supported by AOSM is composed of one to many CNFs which, over time, require software upgrades. For each upgrade, it is necessary to run one to many helm operations, updating dependent network function applications (nfApps), in a particular order, in a manner which least impacts the network service. AOSM SUP represents a set of features, which enables safe automation of these operations on Azure Operator Nexus.
+A given network service supported by AOSM is composed of one to many CNFs which, over time, require software upgrades. For each upgrade, it's necessary to run one to many helm operations, updating dependent network function applications (nfApps), in a particular order, in a manner which least impacts the network service. AOSM SUP represents a set of features, which enables safe automation of these operations on Azure Operator Nexus.
   
 * SNS Reput Support - Execute helm upgrade operation across all nfApps in network function design version (NFDV).
 * Nexus Platform - Support SNS reput operations on Nexus platform targets. 
@@ -20,7 +20,7 @@ A given network service supported by AOSM is composed of one to many CNFs which,
 * Synchronous Operations - Ability to run one serial nfApp operation at a time.
 * Control Upgrade Order - Define different nfApp sequence for install and upgrade.
 * Pause On Failure - Default behavior pauses after an nfApp operation failure.
-* Rollback On Failure - Optional behavior, rollsback all completed nfApps prior to operation failure.
+* Rollback On Failure - Optional behavior, rollback completed nfApps before failed nfApp.
 * Single Chart Test Validation - Running a helm test operation after a create or update.
 * Skip nfApp on No Change - Skip processing of nfApps where no changes result.
 * Image Preloading - Ability to preload images to edge repository.
@@ -32,7 +32,7 @@ For each nfApp, the reput update request supports increasing a helm chart versio
 
 * nfApps are processed following either updateDependsOn ordering, or in the sequential order they appear.
 * nfApps with parameter `applicationEnabled` set to disable are skipped.
-* nfApps with parameter `skipUpgrade` set to enabled are skipped if no changes detected.
+* nfApps with parameter `skipUpgrade` set to `enabled` are skipped if no changes detected.
 * nfApps which are common between old and new NFDV are upgraded.
 * nfApps which are only in the new NFDV are installed.
 * nfApps deployed, but not referenced by the new NFDV, are deleted.
@@ -41,10 +41,10 @@ To ensure outcomes, nfApp testing is supported using helm, either helm upgrade p
 
 ## Considerations for in-service upgrades
 Azure Operator Service Manager generally supports in service upgrades, an upgrade method which advances a deployment version without interrupting the running service. Some considerations are necessary to ensure the proper behavior of AOSM during ISSU operations. 
-* Where AOSM performs an upgrade against an ordered set of multiple nfApps, AOSM first upgrades or creates all new nfApps, then deletes all old nfApps. This approach ensures service is not impacted until all new nfApps are ready but requires extra platform capacity for transient hosting of both old and new nfApps. 
-* Where AOSM upgrades an nfApp with multiple replica, AOSM honors the deployment profile settings for rolling or recreate option. Where rolling is used, expose the values `maxUnavailable` and `maxSurge` as CGS parameters, which can then be set via operator CGV at run-time.
+* Where AOSM performs an upgrade against an ordered set of multiple nfApps, AOSM first upgrades or creates all new nfApps, then deletes all old nfApps. This approach ensures service isn't impacted until all new nfApps are ready but requires extra platform capacity for transient hosting of both old and new nfApps. 
+* Where AOSM upgrades an nfApp with multiple replica, AOSM honors the deployment profile settings for either the rolling or recreate options. Where rolling is used, expose the values `maxUnavailable` and `maxSurge` as CGS parameters, which can then be set via operator CGV at run-time.
 
-Ultimately, the ability for a given service to be upgraded without interruption is a feature of the service itself. Consult further with the service publisher to understand the in-service upgrade capabilities and ensure they are aligned with the proper AOSM behavioral options.
+Ultimately, the ability for a given service to be upgraded without interruption is a feature of the service itself. Consult further with the service publisher to understand the in-service upgrade capabilities and ensure they're aligned with the proper AOSM behavioral options.
 
 ## Safe upgrade prerequisites
 When planning for an upgrade using Azure Operator Service Manager, address the following requirements in advance of upgrade execution to optimize the time spent attempting the upgrade.
@@ -52,13 +52,13 @@ When planning for an upgrade using Azure Operator Service Manager, address the f
 - Onboard updated artifacts using publisher and/or designer workflows.
   - In most cases, use the existing publisher to host new version artifacts.
     - Using an existing publisher supports `helm upgrade` to update an SNS to a different version.
-    - Using a new publisher requies a `helm delete` on the current SNS and then a `helm install` for the new SNS version.
-  - Artifact store, network service design group (NSDG), and network function design group (NFDG) are immutabe and cannot change.
+    - Using a new publisher requires a `helm delete` on the current SNS and then a `helm install` for the new SNS version.
+  - Artifact store, network service design group (NSDG), and network function design group (NFDG) are immutable and cannot change.
     - Changing one of these resources requires deployment of a new SNS.
   - A new artifact manifest is needed to store the new charts and images.
     - See [onboarding documentation](how-to-manage-artifacts-nexus.md) for details on uploading new charts and images.
   - A new NFDV, and optionally network service design version (NSDV), is needed.
-    - NFDV changes can be complex, we cover only basic changes in this article.
+    - NFDV changes can be complex. We cover only basic changes in this article.
     - New NSDV is only required if a new configuration group schema (CGS) version is being introduced.
   - If necessary, new CGS.
     - Required if an upgrade introduces new exposed configuration parameters. 
@@ -77,13 +77,13 @@ When planning for an upgrade using Azure Operator Service Manager, address the f
 Follow the following process to trigger an upgrade with Azure Operator Service Manager.
 
 ### Create new NFDV resource
-For new NFDV versions, it must be in a valid SemVer format. The new version can be an upgrade, a greater value versus the deployed version, or an downgrade, a lower value versus the deployed version. The new version can differ by major, minor or patch values.
+For new NFDV versions, it must be in a valid SemVer format. The new version can be an upgrade, a greater value versus the deployed version, or a downgrade, a lower value versus the deployed version. The new version can differ by major, minor, or patch values.
 
 ### Update new NFDV parameters
-Helm chart versions can be updated, or Helm values can be updated or parameterized as necessary. New nfApps can also be added where they did not exist in deployed version.
+Helm chart versions can be updated, or Helm values can be updated or parameterized as necessary. New nfApps can also be added where they didn't exist in deployed version.
 
 ### Update NFDV for desired nfApp order
-UpdateDependsOn is an NFDV parameter used to specify ordering of nfApps during update operations. If `updateDependsOn` is not provided, serial ordering of CNF applications, as appearing in the NFDV is used.
+UpdateDependsOn is an NFDV parameter used to specify ordering of nfApps during update operations. If `updateDependsOn` isn't provided, serial ordering of CNF applications, as appearing in the NFDV is used.
 
 ### Update ARM template for desired upgrade behavior
 Make sure to set any desired CNF application `timeout`, the `atomic` parameter, and `rollbackOnTestFailure` parameter. It may be useful to change these parameters over time as more confidence is gained in the upgrade.
@@ -101,16 +101,16 @@ In cases where a reput update fails, the following process can be followed to re
 Resolve the root cause for nfApp failure by analyzing logs and other debugging information.
 
 ### Manually skip completed charts
-After fixing the failed nfApp, but before attempting an upgrade retry, consider changing the `applicationEnablement` parameter to accelerate retry behavior. This parameter can be set false, where an nfApp should be skipped. This parameter can be useful where an nfApp does not require an upgraded. 
+After fixing the failed nfApp, but before attempting an upgrade retry, consider changing the `applicationEnablement` parameter to accelerate retry behavior. This parameter can be set false, where an nfApp should be skipped. This parameter can be useful where an nfApp doesn't require an upgraded. 
 
 ### Issue SNS reput retry (repeat until success)
-By default, the reput retries nfApps in the declared update order, unless they are skipped using `applicationEnablement` flag.
+By default, the reput retries nfApps in the declared update order, unless they're skipped using `applicationEnablement` flag.
 
 ## Skip nfApps using applicationEnablement
-In the NFDV resource, under `deployParametersMappingRuleProfile` there is the property `applicationEnablement` of type enum, which takes values: Unknown, Enabled, or disabled. It can be used to exclude nfApp operations during network function (NF) deployment.
+In the NFDV resource, under `deployParametersMappingRuleProfile` there's the property `applicationEnablement` of type enum, which takes values: Unknown, Enabled, or disabled. It can be used to exclude nfApp operations during network function (NF) deployment.
 
 ### Publisher changes
-For the `applicationEnablement` property, the publisher has two options: either provide a default value or parameterize it. In the following example, we have provided a default value for `hellotest` which can later be used in an override.
+For the `applicationEnablement` property, the publisher has two options: either provide a default value or parameterize it. The following example sets `enabled` as the default value for `hellotest` which can later be changed via override.
 
 ```json
 { 
@@ -150,11 +150,11 @@ The `skipUpgrade` feature is designed to optimize the time taken for CNF upgrade
 ### Precheck Criteria
 An upgrade can be skipped if all the following conditions are met:
 1. The `nfApplication` provisioning state is Succeeded.
-2. There is no change in the Helm chart name or version.
-3. There is no change in the Helm values.
+2. there's no change in the Helm chart name or version.
+3. there's no change in the Helm values.
 
 ### Enabling or disabling the skipUpgrade feature
-The `skipUpgrade` feature is **disabled by default**. If this optional parameter is not specified in `roleOverrideValues` under `upgradeOptions`, CNF upgrades proceed in the traditional manner, where the `nfApplications` are upgraded at the cluster level.
+The `skipUpgrade` feature is **disabled by default**. If this optional parameter isn't specified in `roleOverrideValues` under `upgradeOptions`, CNF upgrades proceed in the traditional manner, where the `nfApplications` are upgraded at the cluster level.
 
 #### Enabling SkipUpgrade within Network Function Resource
 To enable the SkipUpgrade feature via `roleOverrideValues`, refer to the following example.
@@ -182,4 +182,4 @@ To enable the SkipUpgrade feature via `roleOverrideValues`, refer to the followi
 - **nfApplication: `hellotest`**
   - The `skipUpgrade` flag is enabled. If the upgrade request for `hellotest` meets the precheck criteria, the upgrade is skipped.
 - **nfApplication: `runnerTest`**
-  - The `skipUpgrade` flag is not specified. Therefore, `runnerTest` executes a traditional Helm upgrade at the cluster level, even if the precheck criteria are met.
+  - The `skipUpgrade` flag isn't specified. Therefore, `runnerTest` executes a traditional Helm upgrade at the cluster level, even if the precheck criteria are met.
