@@ -155,7 +155,7 @@ To learn more, see [Azure IoT device and service SDKs](iot-sdks.md).
 
 > Azure IoT Plug and Play is a programming model that enables you to build a **cloud-based IoT solution** that use IoT Hub or IoT Central.
 
-IoT Plug and Play enables solution builders to integrate IoT devices with their solutions without any manual configuration. At the core of IoT Plug and Play, is a device _model_ that a device uses to advertise its capabilities to an IoT Plug and Play-enabled service such as IoT Hub, IoT Central or Azure Digital Twins. You define IoT Plug and Play models and interfaces using the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md).
+IoT Plug and Play enables solution builders to integrate IoT devices with their solutions without any manual configuration. At the core of IoT Plug and Play, is a device _model_ that a device uses to advertise its capabilities to an IoT Plug and Play-enabled service such as IoT Central or Azure Digital Twins. You define IoT Plug and Play models and interfaces using the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md).
 
 To learn more, see [What is IoT Plug and Play?](overview-iot-plug-and-play.md).
 
