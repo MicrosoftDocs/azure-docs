@@ -12,6 +12,10 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 
 # Back up and restore your app in Azure App Service
 
+>[!IMPORTANT]
+> Starting **3/31/2028**, Azure App Service custom backups will **no longer support backing up linked databases**. See [Deprecation of linked database backups](#deprecation-of-linked-database-backups) for more information.
+>
+
 In [Azure App Service](overview.md), you can easily restore app backups. You can also make on-demand custom backups or configure scheduled custom backups. You can restore a backup by overwriting an existing app or by restoring to a new app or slot. This article shows you how to restore a backup and make custom backups.
 
 Back up and restore is supported in the Basic, Standard, Premium, and Isolated tiers. For the Basic tier, you can only back up and restore the production slot. For more information about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](manage-scale-up.md).
@@ -27,7 +31,7 @@ There are two types of backups in App Service. If your app is in a supported pri
 | Pricing tiers | Basic, Standard, Premium, Isolated. | Basic, Standard, Premium, Isolated. |
 | Configuration required | No. | Yes. |
 | Backup size | 30 GB. | 10 GB, 4 GB of which can be the linked database. |
-| Linked database | Not backed up. | The following linked databases can be backed up: [SQL Database](/azure/azure-sql/database/), [Azure Database for MySQL](/azure/mysql/), [Azure Database for PostgreSQL](/azure/postgresql/), and [MySQL in-app](https://azure.github.io/AppService/2016/08/18/Announcing-MySQL-in-app-for-Web-Apps-(Windows).html). Azure Database for MySQL - Flexible Server and Azure Database for PostgreSQL Flexible Server aren't supported in custom backups. |
+| Linked database | Not backed up. | **[Starting 3/31/2028, Azure App Service custom backups will no longer support backing up linked databases.](#deprecation-of-linked-database-backups)** <br><br>The following linked databases can be backed up: [SQL Database](/azure/azure-sql/database/), [Azure Database for MySQL](/azure/mysql/), [Azure Database for PostgreSQL](/azure/postgresql/), [MySQL in-app](https://azure.github.io/AppService/2016/08/18/Announcing-MySQL-in-app-for-Web-Apps-(Windows).html). Note that Azure DB for MySQL - **Flexible Server** and Azure DB for PostgreSQL - **Flexible Server** aren't supported in custom backups. |
 | [Storage account](../storage/index.yml) required | No. | Yes. |
 | Backup frequency | Hourly, not configurable. | Configurable. |
 | Retention | 30 days, not configurable. <br><br> Days 1-3: hourly backups retained.<br><br> Days 4-14: every third hourly backup retained.<br><br> Days 15-30: every sixth hourly backup retained. | 0-30 days or indefinite. |
@@ -166,6 +170,13 @@ To restore a database included in a custom backup:
 1. In **Advanced options**, select **Include database**.
 
 For troubleshooting information, see [Why is my linked database not backed up?](#why-is-my-linked-database-not-backed-up).
+
+## Deprecation of linked database backups
+Starting **3/31/2028**, Azure App Service custom backups will **no longer support backing up linked databases**. We recommend using the native backup and restore tools provided by each database service instead.
+To help users prepare for this change, the App Service team will **remove the option to include linked databases** in new custom backup configurations according to the following schedule:
+- **November 2025** – Removal for linked **MySQL** and **PostgreSQL** databases  
+- **April 2026** – Removal for linked **Azure SQL** and **SQL Server** databases
+Custom backups that already include linked databases will **continue to back up those databases** until **3/31/2028**, after which linked databases will no longer be included.
 
 ## Back up and restore over Azure Virtual Network
 
