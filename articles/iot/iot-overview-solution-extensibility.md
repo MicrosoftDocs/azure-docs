@@ -52,8 +52,9 @@ Azure IoT Operations includes an MQTT broker that routes messages from the conne
 
 The message broker is based on the [MQTT protocol](https://mqtt.org/) and supports APIs and SDKs such as:
 
+- [Azure IoT Operations SDKs (preview)](https://github.com/Azure/iot-operations-sdks)
 - [DAPR](../iot-operations/create-edge-apps/howto-develop-dapr-apps.md)
-- [MQTTnet](../iot-operations/create-edge-apps/howto-develop-mqttnet-apps.md).
+- [MQTTnet](../iot-operations/create-edge-apps/howto-develop-mqttnet-apps.md)
 
 The message broker includes a [state store](../iot-operations/create-edge-apps/overview-state-store.md) that lets you manage distributed application state across the edge cluster.
 

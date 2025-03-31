@@ -2,8 +2,8 @@
 title: Set up Amazon Web Services (AWS integration with Cost Management)
 titleSuffix: Microsoft Cost Management
 description: This article walks you through setting up and configuring AWS Cost and Usage report integration with Cost Management.
-author: bandersmsft
-ms.author: banders
+author: shasulin
+ms.author: shasulin
 ms.date: 01/07/2025
 ms.topic: how-to
 ms.service: cost-management-billing
