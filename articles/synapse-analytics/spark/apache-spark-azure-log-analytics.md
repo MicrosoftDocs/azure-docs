@@ -62,6 +62,7 @@ spark.synapse.diagnostic.emitter.LA.secret: <LOG_ANALYTICS_WORKSPACE_KEY>
 To configure Azure Key Vault to store the workspace key, follow these steps:
 
 1. Create and go to your key vault in the Azure portal.
+1. Grant the right permission to the users or workspace managed identites.
 1. On the settings page for the key vault, select **Secrets**.
 1. Select **Generate/Import**.
 1. On the **Create a secret** screen, choose the following values:

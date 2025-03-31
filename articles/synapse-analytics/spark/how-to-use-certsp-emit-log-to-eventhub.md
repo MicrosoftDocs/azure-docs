@@ -1,0 +1,121 @@
+---
+title: How to use cert+sp emit log to eventhub
+description: Learn to setting up Azure services, particularly focusing on integrating Azure Synapse with Event Hubs and Key Vault.
+author: jejiang
+ms.author: jejiang
+ms.reviewer: whhender
+ms.topic: tutorial
+ms.date: 03/24/2025
+---
+
+# How to use certificate and Service Principal emit log to eventhub
+
+This document provides a step-by-step guide for setting up Azure services, particularly focusing on integrating Azure Synapse with Event Hubs and Key Vault.
+
+## Prerequisites
+
+- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- [Synapse Analytics workspace](quickstart-create-workspace.md)
+- If you are new to Azure Event Hubs, read through [Event Hubs overview](/azure/event-hubs/event-hubs-about.md) and [Event Hubs features](/azure/event-hubs/event-hubs-features).
+- [Azure Key Vault](azure/key-vault/general/overview.md)
+- To complete this tutorial's steps, you need to have access to a resource group for which you're assigned the Owner role. Generate a certificate in the Key Vault in this resource group.
+
+
+## Step 1. Create an App Registration (Service Principal)
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) and go to [App registrations](https://ms.portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
+2. Create a new app registration (Service Principal) for your Synapse workspace.
+
+     :::image type="content" source="media\how-to-use-certsp-emit-log-to-eventhub\create-a-new-app-registration.png" alt-text="Screenshot showing create a new app registration.":::
+
+## Step 2. Generate a Certificate in Key Vault
+
+1. Navigate to Key Vault.
+2. Expand the **Odject**, and select the **Certificates**.
+3. Click on **Generate/Import**. 
+
+     :::image type="content" source="media\how-to-use-certsp-emit-log-to-eventhub\generate-a-new-certificate.png" alt-text="Screenshot showing generate a new certificate for app.":::
+
+## Step 3. Trust the Certificate in the Application 
+
+1. Go to the app created in Step 1 -> **Manage** -> **Manifest**. 
+2. Append the certificate details to the manifest file to establish trust. 
+
+```
+     "trustedCertificateSubjects": [ 
+          { 
+          "authorityId": "00000000-0000-0000-0000-000000000001", 
+          "subjectName": "Your-Subject-of-Certificate", 
+          "revokedCertificateIdentifiers": [] 
+          } 
+          ] 
+```
+     :::image type="content" source="media\trust-the-certificate.png" alt-text="Screenshot showing trust the certificate in the application.":::
+
+## Step 4. Assign Azure Event Hubs Data Sender Role 
+
+1. In Event Hub, navigate to Access control (IAM).
+2. Assign the app (Service Principal) with the Azure Event Hubs Data Sender role. 
+
+     :::image type="content" source="media\how-to-use-certsp-emit-log-to-eventhub\assign-azure-event-hubs-data-sender-role.png" alt-text="Screenshot showing assign azure event hubs data sender role.":::
+
+## Step 5. Create a Linked Service in Synapse
+
+1. In Synapse Analytics workspace, go to **Manage** -> **Linked service**.
+2. Create a new **Linked Service** in Synapse to connect to **Key Vault**. 
+
+     :::image type="content" source="media\how-to-use-certsp-emit-log-to-eventhub\create-a-linked-service-in-synapse.png" alt-text="Screenshot showing create a linked service in synapse.":::
+
+## Step 6. Assign Reader Role to Linked Service in Key Vault
+
+1. In **Key Vault**, assign the linked service a **Reader** role. 
+2. You can find the linked service's managed identity name and object ID under **Edit linked service**. 
+
+     :::image type="content" source="media\how-to-use-certsp-emit-log-to-eventhub\managed-identity-name-and-object-id.png" alt-text="Screenshot showing managed identity name and object id are in edit linked service.":::
+
+## Step 7. Configure Logging in Synapse Notebook
+
+1. Open your Synapse workspace and create or open a notebook.
+2. In the first code cell, add the configuration code to emit logs to Event Hub.
+
+     ```
+     %%configure -f
+     {
+     "conf": { 
+          "spark.yarn.user.classpath.first": "true", 
+          "spark.synapse.diagnostic.emitters": "EventHub", 
+          "spark.synapse.diagnostic.emitter.EventHub.type": "AzureEventHub", 
+          "spark.synapse.diagnostic.emitter.EventHub.categories": "DriverLog,ExecutorLog,EventLog,Metrics", 
+          "spark.synapse.diagnostic.emitter.EventHub.certificate.keyVault": "Your-keyvault-name", 
+          "spark.synapse.diagnostic.emitter.EventHub.certificate.keyVault.certificateName": "Your-certificate-name", 
+          "spark.synapse.diagnostic.emitter.EventHub.certificate.keyVault.linkedService": "Your-linkedservice-name", 
+          "spark.synapse.diagnostic.emitter.EventHub.hostName": "Your-eventhub-hostname", 
+          "spark.synapse.diagnostic.emitter.EventHub.tenantId": "Your-sp-tenantId", 
+          "spark.synapse.diagnostic.emitter.EventHub.clientId": "Your-sp-clientid", 
+          "spark.synapse.diagnostic.emitter.EventHub.entityPath": "Your-eventhub-entitypath" 
+          }, 
+          "jars": [ 
+               "Your-specific-jar-in-blob" 
+               ] 
+     } 
+     ```
+### Description
+
+- EventHub.hostName : Event Hubs Namespace - Overview - Host name
+- EventHub.tenantId: App registrations - your app name - Overview - Directory (tenant) ID 
+- EventHub.clientId: App registrations - your app name - Overview - Application(client) ID 
+- EventHub.entityPath: Event Hubs Instance - Settings - Shared access policies - Find "EntityPath" in Connection string 
+
+## Step 8. Run the Log-Sending Code
+
+After executing the configuration code in Step 7, run the log-sending code to start emitting logs to Event Hub. 
+
+     ```
+     %%spark
+     val logger = org.apache.log4j.LogManager.getLogger("com.contoso.LoggerExample") 
+     logger.info("Hello, info message")
+     logger.warn("Hello, warn message") 
+     logger.error("Hello, error message") 
+     ```
+
+
