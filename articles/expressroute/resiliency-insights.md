@@ -95,7 +95,7 @@ The resiliency index score provides a comprehensive assessment of the reliabilit
 1. Why can't I see the Resiliency Insights feature in my ExpressRoute virtual network gateway?
 
     - The Resiliency Insights feature is currently in preview. To gain access, contact the [Azure ExpressRoute team](mailto:exR-Resiliency@microsoft.com) for onboarding.
-    - This feature is only available for ExpressRoute virtual network gateways configured in a Max Resiliency model. It isn't supported for Virtual WAN ExpressRoute gateways.
+    - This feature isn't supported for Virtual WAN ExpressRoute gateways.
     - You must have Contributor-level authorization to access this feature.
 
 1. Why doesn't the pane refresh immediately after I select **Refresh**?
@@ -105,9 +105,6 @@ The resiliency index score provides a comprehensive assessment of the reliabilit
 1. Does the feature support Microsoft Peering or VPN connectivity?
 
     No, the Resiliency Insights feature supports only ExpressRoute Private Peering connectivity. It doesn't support Microsoft Peering or VPN connectivity.
-
-
-
 
 ## Next steps
 
