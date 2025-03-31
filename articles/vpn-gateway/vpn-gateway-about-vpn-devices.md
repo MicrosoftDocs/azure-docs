@@ -5,7 +5,7 @@ description: Learn about VPN devices and IPsec parameters for Site-to-Site cross
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 10/06/2023
+ms.date: 03/31/2025
 ms.author: cherylmc
 
 ---
@@ -14,12 +14,12 @@ ms.author: cherylmc
 A VPN device is required to configure a Site-to-Site (S2S) cross-premises VPN connection using a VPN gateway. Site-to-Site connections can be used to create a hybrid solution, or whenever you want secure connections between your on-premises networks and your virtual networks. This article provides a list of validated VPN devices and a list of IPsec/IKE parameters for VPN gateways.
 
 > [!IMPORTANT]
-> If you are experiencing connectivity issues between your on-premises VPN devices and VPN gateways, refer to [Known device compatibility issues](#known).
+> If you're experiencing connectivity issues between your on-premises VPN devices and VPN gateways, refer to [Known device compatibility issues](#known).
 >
 
 ### Items to note when viewing the tables:
 
-* There has been a terminology change for Azure VPN gateways. Only the names have changed. There's no functionality change.
+* There have been terminology changes for Azure VPN gateways. Only the names changed. There's no functionality change.
   * Static Routing = PolicyBased
   * Dynamic Routing = RouteBased
 * Specifications for HighPerformance VPN gateway and RouteBased VPN gateway are the same, unless otherwise noted. For example, the validated VPN devices that are compatible with RouteBased VPN gateways are also compatible with the HighPerformance VPN gateway.
@@ -202,7 +202,7 @@ The following table lists IPsec SA (IKE Quick Mode) Offers. Offers are listed th
 ## <a name="known"></a>Known device compatibility issues
 
 > [!IMPORTANT]
-> These are the known compatibility issues between third-party VPN devices and Azure VPN gateways. The Azure team is actively working with the vendors to address the issues listed here. Once the issues are resolved, this page will be updated with the most up-to-date information. Please check back periodically.
+> These are the known compatibility issues between third-party VPN devices and Azure VPN gateways. The Azure team is actively working with the vendors to address the issues listed here. Once the issues are resolved, this page will be updated with the most up-to-date information. Check back periodically.
 >
 >
 
