@@ -67,7 +67,7 @@ To attach an existing VM deployed in availability zones to a scale set with FD=1
 
 ### How to configure Azure NetApp Files in a specific availability zone and set up an Application Volume Group for SAP HANA?
 
-You can create new volumes in your preferred logical availability zone as described in [availability zones volume placement feature](../../azure-netapp-files/manage-availability-zone-volume-placement.md) guide. To configure Application Volume Group for SAP HANA, use the Extension 1 feature as explained in [Understand application volume groups for SAP HANA - Extension 1 features](../../azure-netapp-files/application-volume-group-introduction.md#extension-1-features1).
+You can create new volumes in your preferred logical availability zone as described in [availability zones volume placement feature](../../azure-netapp-files/manage-availability-zone-volume-placement.md) guide. To configure Application Volume Group for SAP HANA, use the Extension 1 feature as explained in [Understand application volume groups for SAP HANA - Extension 1 features](../../azure-netapp-files/application-volume-group-introduction.md#extension-1-features).
 
 > [!NOTE]
 > For VMs deployed in VMSS Flex with FD=1, we do not recommend using a proximity placement group. To configure Azure NetApp Files, set up the Application Volume Group with availability zone placement.
