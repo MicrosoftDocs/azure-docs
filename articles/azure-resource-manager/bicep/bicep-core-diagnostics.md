@@ -383,6 +383,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP404' />BCP404 | Error | The "{LanguageConstants.ExtendsKeyword}" declaration is missing a bicepparam file path reference. |
 | <a id='BCP405' />BCP405 | Error | More than one "{LanguageConstants.ExtendsKeyword}" declaration are present. |
 | <a id='BCP406' />BCP406 | Error | The "{LanguageConstants.ExtendsKeyword}" keyword isn't supported. |
+| <a id='BCP407' />BCP407 | Error | Built-in extension "microsoftGraph" is retired. Use dynamic types instead. See https://aka.ms/graphBicepDynamicTypes |
 
 ## Next steps
 
