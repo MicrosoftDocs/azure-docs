@@ -124,7 +124,7 @@ To failover to a recovery point that is consistent across all the virtual machin
     :::image type="content" source="media/tutorial-shared-disk/recovery-point-list.png" alt-text="Screenshot showing recovery point list.":::
 
     > [!NOTE]
-    > In the **Custom recovery point** field, the available options shows the number of nodes of the cluster that were protected in a healthy state when the recovery point was taken.
+    > In the **Custom recovery point** field, the available options show the number of nodes of the cluster that were protected in a healthy state when the recovery point was taken.
 1. Select **Failover**.
 
 On failing over to this recovery point, the virtual machines come up at that same recovery point and a cluster can be started. The shared disk is also attached to all the nodes.
@@ -160,7 +160,7 @@ Join these virtual machines back to the cluster (and shared disk) manually after
 
 ## Change recovery point
 
-After the failover, the Azure virtual machine created in the target region appear on the **Virtual machines** page. Ensure that the virtual machine is running and sized appropriately. 
+After the failover, the Azure virtual machine created in the target region appears on the **Virtual machines** page. Ensure that the virtual machine is running and sized appropriately. 
 
 If you want to use a different recovery point for the virtual machine, do the following:
 
