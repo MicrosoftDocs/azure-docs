@@ -7,7 +7,7 @@ ms.date: 03/25/2025
 ---
 
 # Azure VMware Solution Software-Defined Data Center (SDDC) maintenance best practices
-Azure VMware Solution undertakes periodic maintenance of the private cloud and this includes security patches, minor & major updates to VMware software stack. This page describes the host monitoring, remediation & recommended best practices that will help keep the private cloud ready for maintenance at all times.
+Azure VMware Solution undertakes periodic maintenance of the private cloud and this maintenance includes security patches, minor & major updates to VMware software stack. This page describes the host monitoring, remediation & recommended best practices that help keep the private cloud ready for maintenance always.
 
 ## Host maintenance and lifecycle management
 
@@ -25,8 +25,6 @@ Host remediation involves replacing the faulty node with a new healthy node in t
 > To receive emails related to host replacement, you need to be added to any of the following Azure Role-Based Access Control (RBAC) roles in the subscription: 'ServiceAdmin', 'CoAdmin', 'Owner', 'Contributor'.
 
 ## Maintenance Operations Best Practices
-Azure VMware Solution undertakes periodic maintenance of the private cloud and this includes security patches, minor & major updates to VMware software stack.
-
 The following actions are always recommended for ensuring host maintenance operations are carried out successfully:
 - **vSAN storage utilization:** To maintain Service Level Agreement (SLA), ensure that your vSphere cluster's storage space utilization remains below 75%. If the utilization exceeds 75%, upgrades may take longer than expected or fail entirely. If your storage utilization exceeds 75%, consider adding a node to expand the cluster and prevent potential downtime during upgrades.
 - **Distributed Resource Scheduler (DRS) rules:** DRS VM-VM anti-affinity rules must be configured in a way to have at least (N+1) hosts in the cluster, where N is the number of VMs part of DRS rule.
@@ -36,7 +34,7 @@ The following actions are always recommended for ensuring host maintenance opera
 - **Orphaned VMs:** In the case of an orphaned virtual machine, the Virtual Machine (VM) needs to be either re-registered if possible (if it hasn't been deleted) or removed from inventory. For more information, see [Broadcom KB article](https://knowledge.broadcom.com/external/article/312831/virtual-machines-appear-as-invalid-or-or.html).
 - **SCSI shared controller:** When using SCSI bus sharing use with bus type as "Physical" for VMs. VMs connected to Virtual SCSCI controllers will be powered-off. For more information, see [Broadcom KB article](https://knowledge.broadcom.com/external/article?legacyId=2147661).
 - **Third-party VMs & applications:** For third-party VMs & applications:
-    - Ensure that third-party solutions deployed on AVS are compliant and don't interfere with maintenance operations.   
+    - Ensure that third-party solutions deployed on Azure VMware Solution are compliant and don't interfere with maintenance operations.   
     - Ensure that the VM isn’t installed with a VM-Host "Must run" DRS rule. Additionally, verify that these applications are compatible with upcoming versions of the VMware stack.
     - Consult with your solution vendor and update in advance if necessary to maintain compatibility post-upgrade.
 
@@ -66,7 +64,7 @@ Azure VMware Solution monitors the following conditions on the host:
 |  EPC_DATASTORE_INACCESSIBLE  |  This error is encountered when any external Datastore attached to AVS Private Cloud becomes inaccessible  | Follow [this article](/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#performance-best-practices) for the removal of any stale Datastore attached to cluster  |
 |  EPC_NWADAPTER_STALE | This error is encountered when connected Network interface on the Virtual Machine uses network adapter which becomes inaccessible | Follow [this KB article](https://knowledge.broadcom.com/external/article/318738/troubleshooting-the-migration-compatibil.html) for the removal of any stale N/W adapters attached to Virtual Machines   |
 | EPC_SERIAL_PORT | This error is encountered when a Virtual Machine’s serial port is connected to a device that can't be accessed on the destination host. | If you're using an image file (ISO, FLP, and so on), ensure that it's accessible from all ESXi servers on the cluster. Store the files on a data store that is shared between all ESXi servers that participate in vMotion of the virtual machine. Refer to [this KB article](https://knowledge.broadcom.com/external/article/324829/vmotion-fails-with-the-compatibility-err.html) from Broadcom for more information. |
-| EPC_HARDWARE_DEVICE | This error is encountered when a Virtual Machine’s parallel Port/USB Device is connected to a device can't be accessed on the destination host. | If you're using an image file (ISO, FLP, and so on), ensure that it's accessible from all ESXi servers of the cluster. Store the files on a data store that is shared between all ESXi servers that will participate in the vMotion of the virtual machine. Refer to [this KB article](https://knowledge.broadcom.com/external/article/324829/vmotion-fails-with-the-compatibility-err.html) from Broadcom for more information. |
+| EPC_HARDWARE_DEVICE | This error is encountered when a Virtual Machine’s parallel Port/USB Device is connected to a device can't be accessed on the destination host. | If you're using an image file (ISO, FLP, and so on), ensure that it's accessible from all ESXi servers of the cluster. Store the files on a data store that is shared between all ESXi servers that participate in the vMotion of the virtual machine. Refer to [this KB article](https://knowledge.broadcom.com/external/article/324829/vmotion-fails-with-the-compatibility-err.html) from Broadcom for more information. |
 | EPC_INVALIDVM / EPC_ORPHANVM | This error is encountered when there's an orphaned or Invalid VM in the inventory | Ensure all your Virtual Machines are accessible to the vCenter. Refer to [this KB article](https://knowledge.broadcom.com/external/article/312831/virtual-machines-appear-as-invalid-or-or.html) for more information |
 
 
