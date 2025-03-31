@@ -74,13 +74,13 @@ Create a resource group to organize the services related to your container app d
 <!-- Deploy the container app -->
 [!INCLUDE [container-apps-create-portal-deploy.md](../../includes/container-apps-create-portal-deploy.md)]
 
-1. When you browse to the container app endpoint, you see the following message:
+3. When you browse to the container app endpoint, you see the following message:
 
     ```
     The public network access on this managed environment is disabled. To connect to this managed environment, please use the Private Endpoint from inside your virtual network. To learn more https://aka.ms/PrivateEndpointTroubleshooting.
     ```
 
-    Instead, you use an AFD endpoint to access your container app.
+    Instead, you use an Azure Front Door endpoint to access your container app.
 
 ## Create an Azure Front Door profile and endpoint
 
@@ -95,7 +95,7 @@ Create a resource group to organize the services related to your container app d
     |--|--|
     | Resource group | Select **my-container-apps**. |
     | Name | Enter **my-afd-profile**. |
-    | Tier | Select **Premium**. Private link is not supported for origins in an AFD profile on the Standard tier. |
+    | Tier | Select **Premium**. Private link isn't supported for origins for Azure Front Door on the Standard tier. |
     | Endpoint name | Enter **my-afd-endpoint**. |
     | Origin type | Select **Container Apps**. |
     | Origin host name | Enter the hostname of your container app. Your hostname looks like the following example: `my-container-app.orangeplant-77e5875b.centralus.azurecontainerapps.io`. |
@@ -127,11 +127,11 @@ Create a resource group to organize the services related to your container app d
 1. In the *Private endpoint connections* page, approve each private endpoint connection request with the description `AFD Private Link Request`.
 
     > [!NOTE]
-    > Azure Front Door might create multiple private endpoint connection requests. This is a known issue.
+    > Azure Front Door has a known issue where it might create multiple private endpoint connection requests.
 
 ## Access your container app from Azure Front Door
 
-Browse to the AFD endpoint hostname you recorded previously. You see the output for the quickstart container app image. It takes a few minutes for your AFD profile to be deployed globally, so if you do not see the expected output at first, wait a few minutes and then refresh.
+Browse to the Azure Front Door endpoint hostname you recorded previously. You see the output for the quickstart container app image. Global deployment could take a few minutes to deploy, so if you don't see the expected output, wait a few minutes and then refresh.
 
 ## Clean up resources
 
@@ -211,7 +211,7 @@ az group create \
         --location $LOCATION
     ```
 
-1. Retrieve the environment ID. You use this to configure the environment.
+1. Retrieve the environment ID. You use this ID to configure the environment.
 
     ```azurecli
     ENVIRONMENT_ID=$(az containerapp env show \
@@ -265,7 +265,7 @@ az group create \
 az provider register --namespace Microsoft.Cdn
 ```
 
-1. Create an AFD profile. Private link is not supported for origins in an AFD profile with SKU `Standard_AzureFrontDoor`.
+1. Create an AFD profile. Private link isn't supported for origins in an AFD profile with SKU `Standard_AzureFrontDoor`.
 
 ```azurecli
 az afd profile create \
@@ -342,7 +342,7 @@ az afd origin create \
     /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.App/managedEnvironments/my-environment/privateEndpointConnections/<PRIVATE_ENDPOINT_CONNECTION_ID>
     ```
 
-    Don't confuse this with the private endpoint ID, which looks like the following.
+    Don't confuse this ID with the private endpoint ID, which looks like the following.
 
     ```
     /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/eafd-Prod-centralus/providers/Microsoft.Network/privateEndpoints/<PRIVATE_ENDPOINT_ID>
@@ -350,7 +350,7 @@ az afd origin create \
 
 ## Approve the private endpoint connection
 
-Run the following command to approve the connection. Replace the \<PLACEHOLDER\> with the private endpoint connection resource ID you recorded in the previous section.
+To approve the connection, run the following command. Replace the \<PLACEHOLDER\> with the private endpoint connection resource ID you recorded in the previous section.
 
 ```azurecli
 az network private-endpoint-connection approve --id <PRIVATE_ENDPOINT_CONNECTION_RESOURCE_ID>
@@ -358,7 +358,7 @@ az network private-endpoint-connection approve --id <PRIVATE_ENDPOINT_CONNECTION
 
 ## Add a route
 
-Run the following command to map the endpoint you created earlier to the origin group. Private endpoints on Azure Container Apps only support inbound HTTP traffic. TCP traffic is not supported.
+Run the following command to map the endpoint you created earlier to the origin group. Private endpoints on Azure Container Apps only support inbound HTTP traffic. TCP traffic isn't supported.
 
 ```azurecli
 az afd route create \
@@ -394,14 +394,14 @@ az afd route create \
 
 1. Browse to the hostname. You see the output for the quickstart container app image.
 
-    It takes a few minutes for your AFD profile to be deployed globally, so if you do not see the expected output at first, wait a few minutes and then refresh.
+    If you don't see the expected output at first, wait a few minutes and then refresh.
 
 ## Clean up resources
 
-If you're not going to continue to use this application, you can remove the **my-container-apps** resource group. This deletes the Azure Container Apps instance and all associated services. It also deletes the resource group that the Container Apps service automatically created and which contains the custom network components.
+If you're not going to continue to use this application, you can remove the **my-container-apps** resource group. This action deletes the Azure Container Apps instance and all associated services. It also deletes the resource group that the Container Apps service automatically created and which contains the custom network components.
 
 > [!CAUTION]
-> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this guide exist in the specified resource group, they will also be deleted.
+> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this guide exist in the specified resource group, they'll also be deleted.
 
 ```azurecli
 az group delete --name $RESOURCE_GROUP

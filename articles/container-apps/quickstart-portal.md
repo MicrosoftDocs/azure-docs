@@ -63,7 +63,7 @@ In the *Basics* tab, do the following actions.
 <!-- Deploy the container app -->
 [!INCLUDE [container-apps-create-portal-deploy.md](../../includes/container-apps-create-portal-deploy.md)]
 
-1. The following message appears in your browser.
+4. The following message appears in your browser.
 
     :::image type="content" source="media/get-started/azure-container-apps-quickstart.png" alt-text="Your first Azure Container Apps deployment.":::
 
