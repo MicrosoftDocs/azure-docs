@@ -92,10 +92,10 @@ During a job run, automatic RBAC assignments happen. If there are failures in as
 | <a name="File Share"></a>**File Share** |Storage File Data Privileged Contributor| 
 | <a name="Blob Container"></a>**Blob Container** |Storage Blob Data Privileged Contributor | 
   
-i. Assign access should be for “Managed Identity”.
-ii. On the right pane, select Managed Identity type as Machine – Azure Arc.
-iii. Select the machine arc from the list. It is of the same name as the agent.
-iv. Complete the assignment.
+i. Assign access should be for “Managed Identity”.<br />
+ii. On the right pane, select Managed Identity type as Machine – Azure Arc.<br />
+iii. Select the machine arc from the list. It is of the same name as the agent.<br />
+iv. Complete the assignment.<br />
 
 
 
