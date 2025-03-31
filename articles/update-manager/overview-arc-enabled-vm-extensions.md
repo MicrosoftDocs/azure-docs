@@ -13,7 +13,7 @@ ms.author: sudhirsneha
 For Azure Arc-enabled machines, two extensions are installed. For more information, see [How Update Manager works](workflow-update-manager.md)
 
 
-The Azure Arc-enabled VM extensions receive improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with the informatioN about:
+The Azure Arc-enabled VM extensions receive improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with the information about:
 
 - The latest releases
 - Known issues
