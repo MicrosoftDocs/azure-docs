@@ -95,7 +95,7 @@ The following graph compares the total time it takes to finish different operati
 :::image type="content" source="media/nfs-large-directories/default-mount-versus-actimeo.png" alt-text="Graph comparing the time to finish different operations with default mount versus setting an actimeo value of 30 for a workload with 1 million files." border="false":::
 
 ### NFS nconnect
-NFS nconnect is a client-side mount option for NFS file shares that allows you to use multiple TCP connections between the client and your NFS file share. We recommend the optimal setting of `nconnect=4` to reduce latency and improve performance. The nconnect feature can be especially useful for workloads that use asynchronous or synchronous I/O from multiple threads. [Learn more](nfs-performance.md#nconnect).
+NFS nconnect is a client-side mount option for NFS file shares that allows you to use multiple TCP connections between the client and your NFS file share. We recommend the optimal setting of `nconnect=4` to reduce latency and improve performance. The nconnect feature can be especially useful for workloads that use asynchronous or synchronous I/O from multiple threads. [Learn more](nfs-performance.md#nfs-nconnect).
 
 ## Commands and operations
 
