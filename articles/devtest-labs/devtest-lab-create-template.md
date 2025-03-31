@@ -23,7 +23,7 @@ In this article, you learn how to create an Azure DevTest Labs virtual machine (
 
 ## Create the custom image
 
-To create a custom image for DevTest Labs from a VHD or VHDX file, follow these steps:
+To create a custom image for DevTest Labs from a VHD file, follow these steps:
 
 1. In the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040), go to the lab that has the uploaded VHD file.
 1. On the lab **Overview** page, select **Configuration and policies** in the left navigation.

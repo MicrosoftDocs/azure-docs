@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell Samples
-description: Use these Azure PowerShell scripts to do DevTest Labs activities like adding lab users, creating custom lab roles, and allowing specific lab VM sizes and Marketplace images.
+description: Use these Azure PowerShell scripts for DevTest Labs activities like adding users, creating custom roles, and setting lab policies.
 ms.topic: sample
 ms.custom: devx-track-azurepowershell, UpdateFrequency2
 ms.author: rosemalcolm
@@ -37,7 +37,7 @@ To use the script, replace the parameter values under the `# Values to change` c
 This script uses the following commands:
 
 - [Get-AzADUser](/powershell/module/az.resources/get-azaduser): Gets the user object from Microsoft Entra ID.
-- [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment): Assigns the specified role to the specified user at the specified scope.
+- [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment): Assigns the **DevTest Labs User** role to the specified user at the specified scope.
 
 ```powershell
 # Values to change
@@ -67,7 +67,7 @@ This script uses the following commands:
 
 - [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation): Lists all the available operations for the `Microsoft.DevTestLab` resource provider.
 - [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition): Lists all the allowed actions for the **DevTest Labs User** role.
-- [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition): Creates the new custom role.
+- [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition): Creates the new **Policy Contributor** custom role.
 - [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment): Assigns the custom role to the specified user at the specified scope.
 
 ```powershell
@@ -359,7 +359,7 @@ Set-PolicyChanges $lab $policyChanges
 
 ## Create a custom image from a VHD file
 
-This sample PowerShell script creates a custom image in DevTest Labs from a VHD file. This script requires a Windows VHD file uploaded to the lab's Azure Storage account, and uses a deployment template from the public [DevTest Labs template repository](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/201-dtl-create-customimage-from-vhd).
+This sample PowerShell script creates a DevTest Labs custom image from a VHD file by using a deployment template from the public [DevTest Labs template repository](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/201-dtl-create-customimage-from-vhd). This script requires a Windows VHD file uploaded to the lab's Azure Storage account.
 
 To use the script, replace the parameter values under the `# Values to change` comment with your own values. You can get the `subscriptionId`, `labRg`, and `labName` values from the lab's main page in the Azure portal. Get the `vhdUri` value from the Azure Storage container where you uploaded the VHD file.
 
@@ -367,7 +367,7 @@ This script uses the following commands:
 
 - [Get-AzResource](/powershell/module/az.resources/get-azresource): Gets the lab and lab storage account resources.
 - [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey): Gets the access keys for the lab storage account.
-- [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment): Deploys the custom image and resource group based on a template.
+- [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment): Deploys the custom image and resource group based on the template.
 
 ```powershell
 # Values to change

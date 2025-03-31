@@ -10,9 +10,9 @@ ms.custom: UpdateFrequency2
 #customer intent: As a lab user, I want to be able to claim ownership and connect to lab VMs, so I can use preconfigured VMs to do my work.
 ---
 
-# Access, claim, and connect to a DevTest labs VM
+# Access, claim, and connect to a DevTest Labs VM
 
-When you create a virtual machine (VM) in Azure DevTest labs, you automatically own the VM. You can connect to the VM and see it listed in **My VMs** on the Azure portal lab page.
+When you create a virtual machine (VM) in Azure DevTest Labs, you automatically own the VM. You can connect to the VM and see it listed in **My VMs** on the Azure portal lab page.
 
 As a lab user, you can also claim ownership of existing claimable lab VMs. Once you claim a VM, you see it listed in **My VMs** and can connect to and manage it as your own VM.
 
