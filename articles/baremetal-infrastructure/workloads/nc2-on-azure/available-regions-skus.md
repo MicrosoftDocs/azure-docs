@@ -5,7 +5,7 @@ ms.author: michwe
 description: Learn about the available regions and SKUs for Nutanix Cloud Clusters on Azure.
 ms.topic: reference
 ms.subservice: baremetal-nutanix
-ms.custom: engagement-fy25
+ms.custom: references_regions
 ms.date: 03/28/2025
 ms.service: azure-baremetal-infrastructure
 ---
