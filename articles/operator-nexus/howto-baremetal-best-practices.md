@@ -34,7 +34,7 @@ For this reason, it's essential to understand the available options well when tr
 
 - Familiarize yourself with the relevant documentation, including troubleshooting guides and how-to articles.
   Always refer to the latest documentation to stay informed about best practices and updates.
-- Attempt to identify the root cause of the failure to avoid repeating the same mistake.
+- Avoid repeated failed operations by first attempting to identify the root cause of the failure before retrying the operation.
   Perform retry attempts in incremental steps to isolate and address specific issues.
 - Wait for Az CLI commands to run to completion and validate the state of the BMM resource before executing other steps.
 - Verify that the firmware and software versions are up-to-date before a new greenfield deployment to prevent compatibility issues between hardware and software versions.
@@ -68,7 +68,8 @@ Before initiating any `reimage` operation, ensure the following preconditions ar
 - Evaluate any BMM warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems before a `reimage` operation.
   For more information, read [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
 - Validate that there are no running firmware upgrade jobs through the BMC before initiating a `reimage` operation.
-  The BMM has `provisioningStatus` in the `Preparing` state. Interrupting an ongoing firmware upgrade can leave the BMM in an inconsistent state.
+  Interrupting an ongoing firmware upgrade can leave the BMM in an inconsistent state.
+  Confirm the BMM resource's `detailedStatus` isn't in the `Preparing` state.
 
 ## Best Practices for a BMM Replace
 
@@ -78,8 +79,8 @@ The BMM `replace` action is explained in [BMM Lifecycle Management Commands] and
 
 Hardware failures are a normal occurrence over the life of a server.
 Component replacements might be necessary to restore functionality and ensure continued operation.
-In cases where one or more hardware components fail on the server, it's necessary to perform a BMM `replace` operation.
-The `replace` operation should be executed after any hardware maintenance event. Multiple maintenance events should be done as multiple `replace` operations.
+The `replace` operation must be executed after any hardware maintenance/repair event.
+When one or more hardware components fail on the server (multiple failures), make the necessary repairs for **all** components before executing a BMM `replace` operation.
 
 > [!IMPORTANT]
 > With the `2024-07-01` GA API version, the RAID controller is reset during BMM `replace`, wiping all data from the server's virtual disks.
@@ -89,8 +90,9 @@ The `replace` operation should be executed after any hardware maintenance event.
 
 When a BMM is marked with failed hardware validation, it might indicate that physical repairs are needed.
 It's crucial to identify and address these repairs before performing a BMM `replace`.
-A hardware validation process is invoked, as part of the `replace` operation, to ensure the physical host's integrity before deploying the OS image.
-If the BMM continues to have hardware validation failures, then the BMM can't provision successfully meaning it fails to complete the necessary setup steps to become operational and join the cluster.
+A hardware validation process is invoked as part of the `replace` operation to ensure the physical host's integrity before deploying the OS image.
+The BMM can't provision successfully when the BMM continues to have hardware validation failures.
+As a result, the BMM fails to complete the necessary setup steps to become operational and join the cluster.
 Ensure **all hardware validation issues** are cleared before the next `replace` action.
 
 To understand hardware validation result, read through the article [Troubleshoot Hardware Validation Failure](./troubleshoot-hardware-validation-failure.md).
@@ -105,7 +107,8 @@ Before initiating any `replace` operation, ensure the following preconditions ar
 - Evaluate any BMM warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems before a `replace` operation.
   For more information, see [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
 - Validate that there are no running firmware upgrade jobs through the BMC before initiating a `replace` operation.
-  The BMM has `provisioningStatus` in the `Preparing` state. Interrupting an ongoing firmware upgrade can leave the BMM in an inconsistent state.
+  Interrupting an ongoing firmware upgrade can leave the BMM in an inconsistent state.
+  Confirm the BMM resource's `detailedStatus` isn't in the `Preparing` state.
 
 ### BMM Replace isn't Required
 
