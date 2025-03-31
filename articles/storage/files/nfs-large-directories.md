@@ -14,12 +14,18 @@ ms.author: kendownie
 This article provides recommendations for working with directories that contain large numbers of files. It's usually a good practice to reduce the number of files in a single directory by spreading the files over multiple directories. However, there are situations in which large directories can't be avoided. Consider the following suggestions when working with large directories on Azure file shares that are mounted on Linux clients.
 
 ## Applies to
-
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![Yes, this article applies to standard SMB Azure file shares LRS/ZRS.](../media/icons/yes-icon.png) | ![NFS shares are only available in premium Azure file shares.](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![Yes, this article applies to standard SMB Azure file shares GRS/GZRS.](../media/icons/yes-icon.png) | ![NFS is only available in premium Azure file shares.](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes, this article applies to premium SMB Azure file shares.](../media/icons/yes-icon.png) | ![Yes, this article applies to premium NFS Azure file shares.](../media/icons/yes-icon.png) |
+| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
+|-|-|-|-|:-:|:-:|
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Increase the number of hash buckets
 
@@ -88,9 +94,8 @@ The following graph compares the total time it takes to finish different operati
 
 :::image type="content" source="media/nfs-large-directories/default-mount-versus-actimeo.png" alt-text="Graph comparing the time to finish different operations with default mount versus setting an actimeo value of 30 for a workload with 1 million files." border="false":::
 
-### nconnect
-
-`Nconnect` is a client-side mount option for NFS file shares that allows you to use multiple TCP connections between the client and the Azure Premium Files service for NFSv4.1. We recommend the optimal setting of `nconnect=4` to reduce latency and improve performance. `Nconnect` can be especially useful for workloads that use asynchronous or synchronous I/O from multiple threads. [Learn more](nfs-performance.md#nconnect).
+### NFS nconnect
+NFS nconnect is a client-side mount option for NFS file shares that allows you to use multiple TCP connections between the client and your NFS file share. We recommend the optimal setting of `nconnect=4` to reduce latency and improve performance. The nconnect feature can be especially useful for workloads that use asynchronous or synchronous I/O from multiple threads. [Learn more](nfs-performance.md#nconnect).
 
 ## Commands and operations
 
