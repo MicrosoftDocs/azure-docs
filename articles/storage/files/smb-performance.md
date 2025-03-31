@@ -36,7 +36,7 @@ The following tips might help you optimize performance:
 - Use multi-threaded applications and spread load across multiple files.
 - Performance benefits of SMB Multichannel increase with the number of files distributing load.
 - SSD (premium) share performance is bound by provisioned share size (IOPS/egress/ingress) and single file limits. For details, see [Understanding provisioning for premium file shares](understanding-billing.md#provisioned-v1-model).
-- Maximum performance of a single VM client is still bound to VM limits. For example, [Standard_D32s_v3](/azure/virtual-machines/dv3-dsv3-series) can support a maximum bandwidth of 16,000 MBps (or 2GBps), egress from the VM (writes to storage) is metered, ingress (reads from storage) is not. File share performance is subject to machine network limits, CPUs, internal storage available network bandwidth, IO sizes, parallelism, as well as other factors.
+- Maximum performance of a single VM client is still bound to VM limits. For example, [Standard_D32s_v3](/azure/virtual-machines/dv3-dsv3-series) can support a maximum bandwidth of 16,000 MBps (or 2GBps), egress from the VM (writes to storage) is metered. Ingress (reads from storage) is not. File share performance is subject to machine network limits, CPUs, internal storage available network bandwidth, IO sizes, parallelism, and other factors.
 - The initial test is usually a warm-up. Discard the results and repeat the test.
 - If performance is limited by a single client and workload is still below provisioned share limits, you can achieve higher performance by spreading load over multiple clients.
 
@@ -44,11 +44,11 @@ The following tips might help you optimize performance:
 
 **Throughput = IO size * IOPS**
 
-Higher I/O sizes drive higher throughput and will have higher latencies, resulting in a lower number of net IOPS. Smaller I/O sizes will drive higher IOPS, but will result in lower net throughput and latencies. To learn more, see [Understand Azure Files performance](understand-performance.md).
+Higher I/O sizes drive higher throughput and will have higher latencies, resulting in a lower number of net IOPS. Smaller I/O sizes drive higher IOPS, but will result in lower net throughput and latencies. To learn more, see [Understand Azure Files performance](understand-performance.md).
 
 ## SMB Multichannel
 
-SMB Multichannel enables an SMB client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on SSD (premium) file shares for Windows clients. On the service side, SMB Multichannel is now enabled by default for all newly created storage accounts in all Azure regions. There's no additional cost for enabling SMB Multichannel.
+SMB Multichannel enables an SMB client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on SSD (premium) file shares for Windows clients. On the service side, SMB Multichannel is now enabled by default for all newly created storage accounts in all Azure regions. There's no other cost for enabling SMB Multichannel.
 
 ### Benefits
 
@@ -111,7 +111,7 @@ There are two categories of read/write workload patterns: single-threaded and mu
 - **Multi-threaded/multiple files**:
     Depending on the workload pattern, you should see significant performance improvement in read and write I/Os over multiple channels. The performance gains vary from anywhere between 2x to 4x in terms of IOPS, throughput, and latency. For this category, SMB Multichannel should be enabled for the best performance.
 - **Multi-threaded/single file**:
-    For most use cases in this category, workloads will benefit from having SMB Multichannel enabled, especially if the workload has an average I/O size > ~16k. A few example scenarios that benefit from SMB Multichannel are backup or recovery of a single large file. An exception where you might want to disable SMB Multichannel is if your workload is heavy on small I/Os. In that case, you might observe a slight performance loss of ~10%. Depending on the use case, consider spreading load across multiple files, or disable the feature. See the [Configuration](#configuration) section for details.
+    For most use cases in this category, workloads benefit from having SMB Multichannel enabled, especially if the workload has an average I/O size > ~16k. A few example scenarios that benefit from SMB Multichannel are backup or recovery of a single large file. An exception where you might want to disable SMB Multichannel is if your workload is heavy on small I/Os. In that case, you might observe a slight performance loss of ~10%. Depending on the use case, consider spreading load across multiple files, or disable the feature. See the [Configuration](#configuration) section for details.
 - **Single-threaded/multiple files or single file**:
     For most single-threaded workloads, there are minimum performance benefits due to lack of parallelism. Usually there is a slight performance degradation of ~10% if SMB Multichannel is enabled. In this case, it's ideal to disable SMB Multichannel, with one exception. If the single-threaded workload can distribute load across multiple files and uses on an average larger I/O size (> ~16k), then there should be slight performance benefits from SMB Multichannel.
 
@@ -167,7 +167,7 @@ This feature improves the following metadata APIs and can be used from both Wind
 - Close
 - Delete
 
-Currently this feature is only available for SSD (premium) SMB file shares (file shares in the FileStorage storage account kind). There are no additional costs associated with using this feature.
+Currently this feature is only available for SSD (premium) SMB file shares (file shares in the FileStorage storage account kind). There are no extra costs associated with using this feature.
 
 ### Register for the feature
 
