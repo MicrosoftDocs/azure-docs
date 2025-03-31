@@ -1,7 +1,7 @@
 ---
 title: Lifecycle management policy monitoring
 titleSuffix: Azure Blob Storage
-description: Monitor Lifecycle management policy runs
+description: Learn how to monitor Azure Blob Storage lifecycle management policy execution by using events, metrics, and logs.
 author: normesta
 
 ms.author: normesta
@@ -13,11 +13,11 @@ ms.topic: conceptual
 
 # Monitor lifecycle management policy runs
 
-You can determine when a lifecycle management run completes by subscribing to an event. You can use event properties to identify issues and investigate errors by using metrics and logs. 
+You can monitor Azure Blob Storage lifecycle management policy run by using events, metrics, and logs. To determine when a lifecycle management run completes by subscribing to an event. You can use event properties to identify issues and then diagnose those issues by using metrics and logs. 
 
 ## Receiving notifications when a run is complete
 
-A client can be notified when a lifecycle management run is complete by subscribing to the `LifecyclePolicyCompleted` event. This event is generated when the actions defined by a lifecycle management policy are performed. A summary section appears for each action that is included in the policy definition. The following json shows an example `LifecyclePolicyCompleted` event for a policy. Because the policy definition includes the `delete`, `tierToCool`, `tierToCold`, and `tierToArchive` actions, a summary section appears for each one. 
+To be notified when a lifecycle management run is complete, subscribe to the `LifecyclePolicyCompleted` event. This event is generated when the actions defined by a lifecycle management policy are performed. A summary section appears for each action that is included in the policy definition. The following json shows an example `LifecyclePolicyCompleted` event for a policy. A summary section appears for the `delete`, `tierToCool`, `tierToCold`, and `tierToArchive` actions. The following JSON shows an example of an event notification.
 
 ```json
 {
@@ -54,21 +54,11 @@ A client can be notified when a lifecycle management run is complete by subscrib
 }
 ```
 
-The following table describes the schema of the `LifecyclePolicyCompleted` event.
-
-|Field|Type|Description|
-|---|---|---|
-|scheduleTime|string|The time that the lifecycle policy was scheduled|
-|deleteSummary|vector\<byte\>|The results summary of blobs scheduled for delete operation|
-|tierToCoolSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-cool operation|
-|tierToColdSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-cold operation|
-|tierToArchiveSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-archive operation|
-
 To learn more about the different ways to subscribe to an event, see [Event handlers in Azure Event Grid](../../event-grid/event-handlers.md?toc=/azure/storage/blobs/toc.json#microsoftstoragelifecyclepolicycompleted-event).
 
 ## Investigating errors by using metric and logs
 
-The event response from the previous section shows that the lifecycle management policy attempted to delete five objects, but succeeded with only three of them. The `testFile4.txt` and `testFile5.txt` files were not successfully deleted as part of that run. To diagnose why some objects weren't processed successfully, you can use metrics explorer and query resource logs in Azure Monitor.
+The event response example from the previous section shows that the lifecycle management policy attempted to delete five objects, but succeeded with only three of them. The `testFile4.txt` and `testFile5.txt` files were not successfully deleted as part of that run. To diagnose why some objects weren't processed successfully, you can use metrics explorer and query resource logs in Azure Monitor.
 
 ### Metrics
 
@@ -82,14 +72,14 @@ Use the following metric filters to narrow transactions to those executed by the
 | API name | equal | `DeleteBlob` |
 | Response type | not equal | `Success` |
 
-The following image shows an example. The line chart shows the time these operations failed. 
+The following image shows an example of the query and the query result. The line chart that appears in the query result shows the time when these operations failed. 
 
   > [!div class="mx-imgBorder"]
   > ![Screenshot showing metrics being applied to determine delete operations that failed.](media/lifecycle-management-policy-monitor/lifecycle-management-policy-metrics.png)
 
 ### Logs
 
-To find out why objects weren't successfully processed by the policy, you can look at resource logs. Narrow logs to the time frame of the failures. Then, look at entries where the **UserAgentHeader** field is set to **ObjectLifeCycleScanner** or **OLCMScanner**. If you configured a diagnostic setting to send logs to Azure Monitor Log Analytics workspace, then you can use a Kusto query. The following example query finds log entries for failed delete operations that were initiated by a lifecycle management policy.
+To find out why objects weren't successfully processed by the policy, you can look at resource logs. Narrow logs to the time frame of the failures. Then, look at entries where the **UserAgentHeader** field is set to **ObjectLifeCycleScanner** or **OLCMScanner**. If you configured a diagnostic setting to send logs to Azure Monitor Log Analytics workspace, then you can use a Kusto query to locate those log entries. The following example query finds log entries for failed delete operations that were initiated by a lifecycle management policy.
 
 ```kusto
 StorageBlobLogs
