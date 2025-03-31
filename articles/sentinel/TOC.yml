@@ -803,7 +803,7 @@
   - name: Use matching analytics to detect threats
     href: use-matching-analytics-to-detect-threats.md
   - name: Work with STIX objects and indicators
-    href: work-with-styx-objects-and-indicators
+    href: work-with-styx-objects-and-indicators.md
 - name: Detect threats and analyze data
   items:
   - name: Monitor and visualize data
