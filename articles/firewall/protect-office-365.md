@@ -22,7 +22,7 @@ For each Microsoft 365 product and category, Azure Firewall automatically retrie
 
 - Tag name: all names begin with **Microsoft365** and are followed by:
    - Product: Exchange / Skype / SharePoint / Common
-   - [Category](/microsoft-365/enterprise/microsoft-365-network-connectivity-principles?view=o365-worldwide#optimizing-connectivity-to-microsoft-365-services):
+   - [Category](/microsoft-365/enterprise/microsoft-365-network-connectivity-principles#optimizing-connectivity-to-microsoft-365-services):
       - Optimize & Allow: Network endpoints with **Optimize** or **Allow** category carry higher traffic volume and are sensitive to network latency and performance. These endpoints have IP addresses listed with the domain.
       - Default: Network endpoints in the **Default** category don't have associated IP addresses because they are dynamic in nature and IP addresses change over time.
    - Required / Not required (optional)
