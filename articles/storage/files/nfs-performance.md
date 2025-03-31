@@ -61,9 +61,9 @@ With nconnect, you can increase performance at scale using fewer client machines
 
 | **Metric (operation)** | **I/O size**  | **Performance improvement** |
 |-|-|-|
-| IOPS (write) | 64 KiB, 1024 KiB | 3x |
+| IOPS (write) | 64 KiB, 1,024 KiB | 3x |
 | IOPS (read) | All I/O sizes | 2-4x |
-| Throughput (write) | 64 KiB, 1024 KiB | 3x |
+| Throughput (write) | 64 KiB, 1,024 KiB | 3x |
 | Throughput (read) | All I/O sizes | 2-4x |
 
 ### Prerequisites
@@ -163,7 +163,7 @@ fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_b
 fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=64k --iodepth=64 --filesize=4G --rw=randread --group_reporting --ramp_time=300
 ```
 
-**1024 KiB I/O size - 100% random read - 64 queue depth**
+**1,024 KiB I/O size - 100% random read - 64 queue depth**
 
 ```bash
 fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=1024k --iodepth=64 --filesize=4G --rw=randread --group_reporting --ramp_time=300
