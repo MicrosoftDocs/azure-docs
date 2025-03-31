@@ -7,7 +7,8 @@ ms.date: 03/25/2025
 ---
 
 # Azure VMware Solution Software-Defined Data Center (SDDC) maintenance best practices
-Azure VMware Solution undertakes periodic maintenance of the private cloud and this maintenance includes security patches, minor & major updates to VMware software stack. This page describes the host monitoring, remediation & recommended best practices that help keep the private cloud ready for maintenance always.
+
+Azure VMware Solution undertakes periodic maintenance of the private cloud. This maintenance includes security patches, minor and major updates to VMware software stack. This page describes the host monitoring, remediation, and recommended best practices that help keep the private cloud ready for maintenance.
 
 ## Host maintenance and lifecycle management
 
