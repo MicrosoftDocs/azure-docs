@@ -1,5 +1,5 @@
 ---
-title: Work with STIX objects to enhance threat intelligence and threat hunting in Microsoft Sentinel (Preview)
+title: Work with STIX objects and indicators to enhance threat intelligence and threat hunting in Microsoft Sentinel (Preview)
 titleSuffix: Microsoft Sentinel
 description: This article provides examples of how to incorporate STIX objects into queries to enhance threat hunting.
 author: guywi-ms
@@ -14,10 +14,11 @@ ms.collection: usx-security
 #Customer intent: As a security analyst, I want to understand how to incorporate STIX objects into queries to enhance threat hunting.
 ---
 
-# Work with STIX objects to enhance threat intelligence and threat hunting in Microsoft Sentinel (Preview)
+# Work with STIX objects and indicators to enhance threat intelligence and threat hunting in Microsoft Sentinel (Preview)
 
-On March 31, 2025, we publicly previewed two new tables to support STIX indicator and object schemas: `ThreatIntelIndicator` and `ThreatIntelObjects`. For more information about these table schemas, see [ThreatIntelIndicator](/azure/azure-monitor/reference/tables/threatintelligenceindicator) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects).
- This article provides examples of how to incorporate STIX objects into queries to enhance threat hunting.
+On March 31, 2025, we publicly previewed two new tables to support STIX (Structured Threat Information eXpression) indicator and object schemas: `ThreatIntelIndicator` and `ThreatIntelObjects`. This article provides examples of how to incorporate STIX objects into queries to enhance threat hunting, and how to migrate to the new threat indicator schema.
+
+For more information about threat intelligence in Microsoft Sentinel, see [Threat intelligence in Microsoft Sentinel](understand-threat-intelligence.md).
 
 >[!IMPORTANT]
 > On March 31, 2025, we publicly previewed two new tables to support STIX indicator and object schemas: `ThreatIntelIndicator` and `ThreatIntelObjects`. Microsoft Sentinel will ingest all threat intelligence into these new tables, while continuing to ingest the same data into the legacy `ThreatIntelligenceIndicator` table until July 31, 2025. 
@@ -28,7 +29,7 @@ On March 31, 2025, we publicly previewed two new tables to support STIX indicato
 
 ## Identify threat actors associated with specific threat indicators
 
-This query correlates threat indicators with threat actors:
+This query is an example of how to correlate threat indicators, such as IP addresses, with threat actors:
 
 ```Kusto
  let IndicatorsWithThatIP = (ThreatIntelIndicators
@@ -108,68 +109,38 @@ SourceRelationships
 This example shows how to migrate existing queries from the legacy `ThreatIntelligenceIndicator` table to the new `ThreatIntelObjects` schema. The query uses the `extend` operator to recreate legacy columns based on the `ObservableKey` and `ObservableValue` columns in the new table. 
 
 ```Kusto
-// Start with the ThreatIntelIndicators table
 ThreatIntelIndicators
-// Extend the table with a new column NetworkIP if ObservableKey is 'ipv4-addr:value'
 | extend NetworkIP = iff(ObservableKey == 'ipv4-addr:value', ObservableValue, ''),
-// Extend with NetworkSourceIP if ObservableKey is 'network-traffic:src_ref.value'
         NetworkSourceIP = iff(ObservableKey == 'network-traffic:src_ref.value', ObservableValue, ''),
-// Extend with NetworkDestinationIP if ObservableKey is 'network-traffic:dst_ref.value'
         NetworkDestinationIP = iff(ObservableKey == 'network-traffic:dst_ref.value', ObservableValue, ''),
-// Extend with DomainName if ObservableKey is 'domain-name:value'
         DomainName = iff(ObservableKey == 'domain-name:value', ObservableValue, ''),
-// Extend with EmailAddress if ObservableKey is 'email-addr:value'
         EmailAddress = iff(ObservableKey == 'email-addr:value', ObservableValue, ''),
-// Extend with FileHashType based on the hash type in ObservableKey
         FileHashType = case(ObservableKey has 'MD5', 'MD5',
                                 ObservableKey has 'SHA-1', 'SHA-1',
                                 ObservableKey has 'SHA-256', 'SHA-256',
                                 ''),
-// Extend with FileHashValue if ObservableKey contains 'file:hashes'
         FileHashValue = iff(ObservableKey has 'file:hashes', ObservableValue, ''),
-// Extend with Url if ObservableKey is 'url:value'
         Url = iff(ObservableKey == 'url:value', ObservableValue, ''),
-// Extend with x509Certificate if ObservableKey contains 'x509-certificate:hashes.'
         x509Certificate = iff(ObservableKey has 'x509-certificate:hashes.', ObservableValue, ''),
-// Extend with x509Issuer if ObservableKey contains 'x509-certificate:issuer'
         x509Issuer = iff(ObservableKey has 'x509-certificate:issuer', ObservableValue, ''),
-// Extend with x509CertificateNumber if ObservableKey is 'x509-certificate:serial_number'
-        x509CertificateNumber = iff(ObservableKey == 'x509-certificate:serial_number', ObservableValue, ''),
-// Extend with Description from Data.description
+        x509CertificateNumber = iff(ObservableKey == 'x509-certificate:serial_number', ObservableValue, ''),        
         Description = tostring(Data.description),
-// Extend with CreatedByRef from Data.created_by_ref
         CreatedByRef = Data.created_by_ref,
-// Extend with Extensions from Data.extensions
         Extensions = Data.extensions,
-// Extend with ExternalReferences from Data.references
         ExternalReferences = Data.references,
-// Extend with GranularMarkings from Data.granular_markings
         GranularMarkings = Data.granular_markings,
-// Extend with IndicatorId from Data.id
         IndicatorId = tostring(Data.id),
-// Extend with ThreatType from the first element of Data.indicator_types
         ThreatType = tostring(Data.indicator_types[0]),
-// Extend with KillChainPhases from Data.kill_chain_phases
         KillChainPhases = Data.kill_chain_phases,
-// Extend with Labels from Data.labels
         Labels = Data.labels,
-// Extend with Lang from Data.lang
         Lang = Data.lang,
-// Extend with Name from Data.name
         Name = Data.name,
-// Extend with ObjectMarkingRefs from Data.object_marking_refs
         ObjectMarkingRefs = Data.object_marking_refs,
-// Extend with PatternType from Data.pattern_type
         PatternType = Data.pattern_type,
-// Extend with PatternVersion from Data.pattern_version
         PatternVersion = Data.pattern_version,
-// Extend with Revoked from Data.revoked
         Revoked = Data.revoked,
-// Extend with SpecVersion from Data.spec_version
         SpecVersion = Data.spec_version
-// Reorder the columns in the output
 | project-reorder TimeGenerated, WorkspaceId, AzureTenantId, ThreatType, ObservableKey, ObservableValue, Confidence, Name, Description, LastUpdateMethod, SourceSystem, Created, Modified, ValidFrom, ValidUntil, IsDeleted, Tags, AdditionalFields, CreatedByRef, Extensions, ExternalReferences, GranularMarkings, IndicatorId, KillChainPhases, Labels, Lang, ObjectMarkingRefs, Pattern, PatternType, PatternVersion, Revoked, SpecVersion, NetworkIP, NetworkDestinationIP, NetworkSourceIP, DomainName, EmailAddress, FileHashType, FileHashValue, Url, x509Certificate, x509Issuer, x509CertificateNumber, Data
-
 ```
 
 ## Related content
