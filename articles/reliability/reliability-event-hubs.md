@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-event-hubs
-ms.date: 06/12/2024
+ms.date: 03/31/2025
 ---
 
 <!--#Customer intent:  I want to understand reliability support in Azure Event Hubs so that I can respond to and/or avoid failures in order to minimize downtime and data loss. -->
@@ -15,14 +15,6 @@ ms.date: 06/12/2024
 # Reliability in Azure Event Hubs
 
 This article describes reliability support in [Azure Event Hubs](../event-hubs/event-hubs-about.md), and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). For a more detailed overview of reliability principles in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
-
-
-## Availability zone support
-
-[!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
-
-
-Event Hubs implements transparent failure detection and failover mechanisms so that, when failure occurs, the service continues to operate within the assured service-levels and without noticeable interruptions. If you create an Event Hubs namespace in a region that supports availability zones, [zone redundancy](./availability-zones-overview.md#zonal-and-zone-redundant-services) is automatically enabled. With zone-redundancy, fault tolerance is increased and the service has enough capacity reserves to cope with the outage of an entire facility. Both metadata and data (events) are replicated across data centers in each zone. 
 
 
 ### Prerequisites
