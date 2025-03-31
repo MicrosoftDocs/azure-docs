@@ -129,7 +129,7 @@ Load was generated against 10 files with various IO sizes. The scale up test res
 
 - On a single NIC, for reads, performance increase of 2x-3x was observed and for writes, gains of 3x-4x in terms of both IOPS and throughput.
 - SMB Multichannel allowed IOPS and throughput to reach VM limits even with a single NIC and the four channel limit.
-- Since egress (or reads to storage) is not metered, read throughput was able to exceed the VM published limit of approximately 1.86 GiB / sec. The test achieved >2.7 GiB/s. Ingress (or writes to storage) are still subject to VM limits.
+- Since egress (or reads to storage) is not metered, read throughput was able to exceed the VM published limit of approximately 1.86 GiB / sec. The test achieved >2.7 GiB / sec. Ingress (or writes to storage) are still subject to VM limits.
 - Spreading load over multiple files allowed for substantial improvements.
 
 An example command used in this testing is: 
