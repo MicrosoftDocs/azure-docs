@@ -3,10 +3,10 @@ title: Use Managed Identity for SQL Database authentication in Azure HDInsight
 description: Learn how to use managed identity for SQL Database authentication in Azure HDInsight. 
 ms.service: azure-hdinsight 
 ms.topic: how-to 
-author: hareshg
-ms.author: hgowrisankar
+author: abhishjain002
+ms.author: abhishjain
 ms.reviewer: nijelsf
-ms.date: 03/27/2025 
+ms.date: 03/31/2025 
 ---
 
 # Use Managed Identity for SQL Database authentication in Azure HDInsight 
@@ -32,10 +32,6 @@ The Managed Identity (MI) option is available for the following Databases:
 > [!IMPORTANT]
 > * It's recommended not to update the Managed Identity after cluster recreation as it can disrupt cluster operation.
 > * When you recreate an MSI with the same name, you must recreate the contained user and reassign roles, as the new MSI will have different object and client IDs even if the name remains unchanged.
-> * Following the migration to a standard load balancer, if you experience job slowness or network connectivity issues within your cluster, please examine the "Total SNAT Connection Count" and "Dropped Packets" metrics of your NAT Gateway. The hiigh values in these metrics may indicate that job slowness is due to SNAT port exhaustion. It is advisable to bind additional IP addresses or IP prefixes to your NAT Gateway. 
-For further information, please refer to [Troubleshoot Azure NAT Gateway connectivity - Azure NAT Gateway](/azure/nat-gateway/troubleshoot-nat-connectivity.md) and [Metrics and alerts for Azure NAT Gateway - Azure NAT Gateway](/azure/nat-gateway/nat-metrics#total-snat-connection-count.md).
-
-
 
 ## Steps to Use Managed Identity during cluster creation in Azure portal
 
@@ -59,7 +55,7 @@ Object ID of managed identity can be obtained from portal on the managed identit
    > For example: 
    > * MSI Name: contosoMSI 
    > * Object ID: `aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb`
-   > * user_name could be `contosoMSI-2ba6c`
+   > * user_name could be `contosoMSI_aaaaaaaa`
 
 
     ``` 
