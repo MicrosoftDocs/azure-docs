@@ -31,7 +31,7 @@ This article provides recommendations for working with directories that contain 
 
 The total amount of RAM present on the system doing the enumeration influences the internal working of filesystem protocols like NFS and SMB. Even if users aren't experiencing high memory usage, the amount of memory available influences the number of inode hash buckets the system has, which impacts/improves enumeration performance for large directories. You can modify the number of inode hash buckets the system has to reduce the hash collisions that can occur during large enumeration workloads.
 
-To do this, you'll need to modify your boot configuration settings by providing an additional kernel command that takes effect during boot to increase the number of inode hash buckets. Follow these steps.
+To increase the number of inode hash buckets, modify your boot configuration settings:
 
 1. Using a text editor, edit the `/etc/default/grub` file.
 
@@ -39,7 +39,7 @@ To do this, you'll need to modify your boot configuration settings by providing 
    sudo vim /etc/default/grub
    ```
 
-2. Add the following text to the `/etc/default/grub` file. This command will set apart 128MB as the inode hash table size, increasing system memory consumption by a maximum of 128MB.
+2. Add the following text to the `/etc/default/grub` file. This command sets 128MB as the inode hash table size, increasing system memory consumption by a maximum of 128MB.
 
    ```bash
    GRUB_CMDLINE_LINUX="ihash_entries=16777216"
@@ -63,7 +63,7 @@ To do this, you'll need to modify your boot configuration settings by providing 
    sudo reboot
    ```
 
-5. To verify that the changes have taken effect, once the system reboots, check the kernel cmdline commands:
+5. To verify that the changes are effective after reboot, check the kernel cmdline commands:
 
    ```bash
    cat /proc/cmdline
@@ -108,7 +108,7 @@ The way commands and operations are specified can also affect performance. Listi
 
 In some Linux distributions, the shell automatically sets default options for the `ls` command such as `ls --color=auto`. This changes how `ls` works over the wire and adds more operations to the `ls` execution. To avoid performance degradation, we recommended using unaliased ls. You can do this one of three ways:
 
-- Remove the alias by using the command `unalias ls`. This is only a temporary solution for the current session.
+- As a temporary workaround that only impacts the current session, you can remove the alias by using the command `unalias ls`. 
 
 - For a permanent change, you can edit the `ls` alias in the user's `bashrc/bash_aliases` file. In Ubuntu, edit `~/.bashrc` to remove the alias for `ls`.
 
@@ -118,7 +118,7 @@ In some Linux distributions, the shell automatically sets default options for th
 
 When using `ls` with other commands, you can improve performance by preventing `ls` from sorting its output in situations where you don't care about the order that `ls` returns the files. Sorting the output adds significant overhead.
 
-Instead of running `ls -l | wc -l` to get the total number of files, you can use the `-f` or `-U` options with `ls` to prevent the output from being sorted. The difference is that `-f` will also show hidden files, and `-U` won't.
+Instead of running `ls -l | wc -l` to get the total number of files, you can use the `-f` or `-U` options with `ls` to prevent the output from being sorted. The difference is that `-f` also shows hidden files, and `-U` doesn't.
 
 For example, if you're directly calling the `ls` binary in Ubuntu, you would run `/usr/bin/ls -1f | wc -l` or `/usr/bin/ls -1U | wc -l`.
 
@@ -134,11 +134,11 @@ When copying data from a file share or backing up from file shares to another lo
 
 When developing applications that use large directories, follow these recommendations.
 
-- **Skip file attributes.** If the application only needs the file name and not file attributes like file type or last modified time, you can use multiple calls to system calls such as `getdents64` with a good buffer size. This will get the entries in the specified directory without the file type, making the operation faster by avoiding extra operations that aren't needed.  
+- **Skip file attributes.** If the application only needs the file name and not file attributes like file type or last modified time, you can use multiple calls to system calls such as `getdents64` with a good buffer size to get the entries in the specified directory without the file type, making the operation faster by avoiding extra operations that aren't needed.  
 
-- **Interleave stat calls.** If the application needs attributes and the file name, we recommend interleaving the stat calls along with `getdents64` instead of getting all entries until end of file with `getdents64` and then doing a statx on all entries returned. Interleaving the stat calls instructs the client to request both the file and its attributes at once, reducing the number of calls to the server. When combined with a high `actimeo` value, this can significantly improve performance. For example, instead of `[ getdents64, getdents64, ... , getdents64, statx (entry1), ... , statx(n) ]`, place the statx calls after each `getdents64` like this: `[ getdents64, (statx, statx, ... , statx), getdents64, (statx, statx, ... , statx), ... ]`.
+- **Interleave stat calls.** If the application needs attributes and the file name, we recommend interleaving the stat calls along with `getdents64` instead of getting all entries until end of file with `getdents64` and then doing a statx on all entries returned. Interleaving the stat calls instructs the client to request both the file and its attributes at once, reducing the number of calls to the server. When combined with a high `actimeo` value, interleaving stat calls can significantly improve performance. For example, instead of `[ getdents64, getdents64, ... , getdents64, statx (entry1), ... , statx(n) ]`, place the statx calls after each `getdents64` like this: `[ getdents64, (statx, statx, ... , statx), getdents64, (statx, statx, ... , statx), ... ]`.
 
-- **Increase I/O depth.** If possible, we suggest configuring `nconnect` to a non-zero value (greater than 1) and distributing the operation among multiple threads, or using asynchronous I/O. This will enable operations that can be asynchronous to benefit from multiple concurrent connections to the file share.
+- **Increase I/O depth.** If possible, we suggest configuring `nconnect` to a non-zero value (greater than 1) and distributing the operation among multiple threads, or using asynchronous I/O. This enables operations that can be asynchronous to benefit from multiple concurrent connections to the file share.
 
 - **Force-use cache.** If the application is querying the file attributes on a file share that only one client has mounted, use the statx system call with the `AT_STATX_DONT_SYNC` flag. This flag ensures that the cached attributes are retrieved from the cache without synchronizing with the server, avoiding extra network round trips to get the latest data.
 
