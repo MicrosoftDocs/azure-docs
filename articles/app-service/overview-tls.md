@@ -20,9 +20,9 @@ Transport Layer Security (TLS) is a widely adopted security protocol that is des
 
 App Service supports TLS to help ensure:
 
-- **Encryption** of data in transit.
-- **Authentication** of web apps by using trusted certificates.
-- **Integrity** to prevent tampering of data during transmission.
+- Encryption of data in transit.
+- Authentication of web apps by using trusted certificates.
+- Integrity to prevent tampering of data during transmission.
 
 > [!TIP]
 >
@@ -38,9 +38,9 @@ App Service supports TLS to help ensure:
 
 Azure App Service supports the following TLS versions for incoming requests to your web app:
 
-- **TLS 1.3**: The latest and most secure version, now fully supported.
-- **TLS 1.2**: The default minimum TLS version for new web apps.
-- **TLS 1.1 and TLS 1.0**: Versions supported for backward compatibility, but not recommended.
+- TLS 1.3: The latest and most secure version, now fully supported.
+- TLS 1.2: The default minimum TLS version for new web apps.
+- TLS 1.1 and TLS 1.0: Versions supported for backward compatibility, but not recommended.
 
 You can configure the *minimum TLS version* for incoming requests to your web app and its Source Control Manager (SCM) site. By default, the minimum is set to **TLS 1.2**.
 
@@ -50,9 +50,9 @@ You can use Azure Policy to help audit your resources and minimum TLS version. G
 
 TLS 1.3 is fully supported on App Service and introduces several improvements over TLS 1.2:
 
-- **Stronger security**, with simplified cipher suites and forward secrecy.
-- **Faster handshakes** for reduced latency.
-- **Encrypted handshake** messages for enhanced privacy.
+- Stronger security, with simplified cipher suites and forward secrecy.
+- Faster handshakes for reduced latency.
+- Encrypted handshake messages for enhanced privacy.
 
 To require TLS 1.3 for all inbound requests, set **Minimum Inbound TLS Version** to **TLS 1.3** in the Azure portal, the Azure CLI, or your Azure Resource Manager template (ARM template).
 
@@ -133,20 +133,18 @@ To serve HTTPS traffic, App Service requires a TLS/SSL certificate that is bound
 
 - **App Service managed certificates** (Free)  
   - Provided at no cost.  
-  - Fully managed by Azure App Service, including **automatic renewal**.  
-  - Stored in **App Service Key Vault** (KV); **customers cannot access, export, or use these certificates outside of App Service**.  
-  - Supports basic domain validation but **does not support wildcard or custom root CAs**.
+  - Fully managed by Azure App Service, including automatic renewal.  
+  - Customers cannot access, export, or use these certificates outside of App Service.  
+  - Doesn't support wildcard or custom root CAs.
 
 - **App Service certificates (ASC)**  
-  - Paid certificates **resold from GoDaddy** via Azure.  
-  - **Customer owns and manages** the certificate.  
-  - Stored in the **customer’s Key Vault (KV)** and **can be exported and used outside of App Service**.  
-  - Technically considered **"bring your own certificate (BYOC)"** because the customer controls it after purchase, but App Service provides **seamless integration**.
+  - Paid certificates issued by GoDaddy.  
+  - Customer owns and manages the certificate.  
+  - Stored in the customer’s Key Vault (KV) and can be exported and used outside of App Service.  
 
 - **Bring your own certificate (BYOC)**  
-  - Upload and manage your own TLS/SSL certificates (**PFX format**) issued by **third-party Certificate Authorities (CAs)**.  
-  - Fully customer-managed, including **renewals and private key storage**.  
-  - Supports **wildcard certificates, custom root CAs, and externally issued certificates**.
+  - Upload and manage your own TLS/SSL certificates (**PFX format**).
+  - Fully customer-managed.
 
 Each of these options provides flexibility based on your security and management needs.
 
@@ -154,8 +152,8 @@ Each of these options provides flexibility based on your security and management
 
 After you upload or create a certificate, you bind it to a custom domain on your web app by using:
 
-- **SNI (Server Name Indication) SSL bindings** for multitenant hosting
-- **IP SSL bindings** for dedicated IP addresses
+- SNI (Server Name Indication) SSL bindings for multitenant hosting
+- IP SSL bindings for dedicated IP addresses
 
 > [!NOTE]
 > Azure-managed domains (such as `*.azurewebsites.net`) are automatically secured with default certificates, so no extra configuration is required.
