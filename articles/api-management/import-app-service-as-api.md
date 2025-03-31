@@ -91,12 +91,12 @@ The wildcard operation allows the same requests to the backend service as the op
 
     If an OpenAPI definition isn't found, API Management exposes the API by generating wildcard operations for common HTTP verbs. 
 1. Add an **API URL suffix**. The suffix is a name that identifies the API in the API Management instance. It has to be unique in the API Management instance.
-1. If you want the API to be published and available to developers, switch to the Full view and associate the API with a Product. This example uses the Unlimited product. (You can add your API to a product when you create it or later via the Settings tab.)
+1. If you want the API to be published and available to developers, switch to the **Full** view and associate the API with a **Product**. This example uses the **Unlimited** product. (You can add your API to a product when you create it or later via the **Settings** tab.)
 
     > [!NOTE]
     > Products are associations of one or more APIs offered to developers via the developer portal. First, developers must subscribe to a product to get access to the API. After they subscribe, they get a subscription key for any API in the product. As creator of the API Management instance, you're an administrator and are subscribed to every product by default.
     >
-    > In certain tiers, each API Management instance comes with two default sample products::
+    > In certain tiers, each API Management instance comes with two default sample products:
     > * **Starter**
     > * **Unlimited**
 
