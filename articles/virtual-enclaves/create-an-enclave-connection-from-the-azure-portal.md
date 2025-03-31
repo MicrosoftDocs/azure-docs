@@ -18,6 +18,6 @@ Enclave Connections enable network traffic to flow into, out of, and between AVE
 
 3. Enter the required information to make a connection from the new enclave to the community endpoint
 
-![image.png](./media/image-a0e843f6-42cc-444f-bc2b-1e5e6c77254a.png)
+![image1.png](./media/image-a0e843f6-42cc-444f-bc2b-1e5e6c77254a.png)
 
 4. Select "Review + Create" and then "Create"

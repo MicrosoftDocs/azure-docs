@@ -29,11 +29,11 @@ Sign-in to the Azure portal at https://portal.azure.com.
 
 4. On the `Enclaves` page, select your Enclave's name.
 
-![image.png](./media/image-76edc3e8-cbde-48e8-b702-2b5c1c13ebf3.png)
+![image1.png](./media/image-76edc3e8-cbde-48e8-b702-2b5c1c13ebf3.png)
 
 5. While in your Enclave's page, select `Workloads` in the left menu.
 
-![image.png](./media/image-773bd0e6-9b11-4460-90c4-49d7625b2a65.png)
+![image2.png](./media/image-773bd0e6-9b11-4460-90c4-49d7625b2a65.png)
 
 6. In the `Workloads` page, select Create. The `Create workload` page opens.
 
@@ -41,7 +41,7 @@ Sign-in to the Azure portal at https://portal.azure.com.
    - Enclave: Select an existing Enclave. This value is automatically applied from the Enclave you were currently browsing.
    - Workload name: Name of the Workload (for example `contoso4-identity`)
 
-![image.png](./media/image-64d5ec2e-cfb3-4ba5-891a-545ee9c71dd9.png)
+![image3.png](./media/image-64d5ec2e-cfb3-4ba5-891a-545ee9c71dd9.png)
 
 > Note:
 >

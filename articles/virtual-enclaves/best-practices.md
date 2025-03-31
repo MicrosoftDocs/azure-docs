@@ -83,7 +83,7 @@ The _Community managed resource group_ contains the infrastructure resources des
 
 The Community managed resource group is assigned a name by default following this convention `myCommunityName-HostedResources-<GUID>`. Every Community deployment will create this resource group and create the Community infrastructure inside. When you delete your community, the Azure Virtual Enclaves resource provider automatically deletes the Community managed resource group.
 
-![image.png](/assets/image-e937d4f9-a1e8-4b16-8abf-dec27d48311e.png)
+![image1.png](./media/image-e937d4f9-a1e8-4b16-8abf-dec27d48311e.png)
 
 The Community managed resource group has the following limitations:
 - You can't specify an existing resource group for the Community managed resource group.
@@ -106,7 +106,7 @@ The _Enclave managed resource group_ contains the infrastructure resources descr
 
 The Enclave managed resource group is assigned a name by default following this convention `myEnclaveName-HostedResources-<GUID>`. Every Enclave deployment will create this resource group and create the Enclave infrastructure inside. When you delete your enclave, the Azure Virtual Enclaves resource provider automatically deletes the Enclave managed resource group.
 
-![image.png](/assets/image-2584a7ad-0273-4395-83c0-574ff05a8d8f.png)
+![image2.png](./media/image-2584a7ad-0273-4395-83c0-574ff05a8d8f.png)
 
 The Enclave managed resource group has the following limitations:
 - You can't specify an existing resource group for the Enclave managed resource group.

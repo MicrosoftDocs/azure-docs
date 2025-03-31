@@ -14,7 +14,7 @@ A Transit hub establishes a virtual hub within a Community vWAN that serves as a
 
 ## Architecture of a transit hub
 
-![image](./media/image-transithub1.png)
+![image1.png](./media/image-transithub1.png)
 
 ## Transit hub types
 

@@ -37,7 +37,7 @@ Sign-in to the Azure portal at https://portal.azure.com.
    - Enclave endpoint name: Name of the enclave endpoint (ex: `enc-240309-andy`)
    - Endpoint rules: List of _Rule Names_, _Destination IP addresses/CIDR ranges_, _Destination port ranges_, and _Protocol_ tuples.
       - For example, if you were trying to create networking rules to allow other enclaves to talk to the `enc-240309-andy` enclave, specifically an HTTPS server hosted on an Azure Virtual Machine (VM) with a Private IP address of `10.0.0.5` in a [Workload](/docs/overview/what-is-a-workload) hosted in the `enc-240309-andy` enclave, you would supply the `Destination` (for example `10.0.0.5`) of the VM, `443` for the `Port` range, and `TCP` for the `Protocol`.
-![image.png](./media/image-a0b8d9e4-0146-40df-bf18-40d3edc6034d.png)
+![image1.png](./media/image-a0b8d9e4-0146-40df-bf18-40d3edc6034d.png)
 
 > Note:
 >

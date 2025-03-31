@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 01/31/2025
 ---
 
-# Tutorial: Create Azure resources from the service catalog in an AVE Workload
+# Tutorial 4: Create Azure resources from the service catalog in an AVE Workload
 
 The service catalog enables customers to deploy Azure services and streaming applications into AVE quickly while being compliant with Policy Guardrails and enclave isolation requirements.
 
@@ -25,7 +25,7 @@ NOTE: The sample deployment below is just for demonstration purposes and doesn't
 - A [deployed Community](./what-is-a-community.md), [deployed Virtual Enclave](./what-is-an-enclave.md), and [deployed Workload](./what-is-a-workload.md) and permissions to create resources inside the workload.
 - Complete the [prerequisites](.deploy-an-app-service-web-app-from-the-service-catalog-into-a-workload.md#prerequisites) for a App Service Web App. Including subnet delegation for the
 
-![image.png](./media/sc-appService-subnetDelegate.png)
+![image1.png](./media/sc-appService-subnetDelegate.png)
 
 ## Enable enclave maintenance mode
 
@@ -37,11 +37,11 @@ NOTE: The sample deployment below is just for demonstration purposes and doesn't
    - **Justification:** Select `Networking`
    - Select `Save`
 
-![image.png](./media/sc-appService-maintenanceMode-input.png)
+![image2.png](./media/sc-appService-maintenanceMode-input.png)
 
 3. Select `Confirm` and allow a few minutes for the enclave to return to `Succeeded` state
 
-![image.png](./media/sc-appService-maintenanceMode-confirm.png)
+![image3.png](./media/sc-appService-maintenanceMode-confirm.png)
 
 ## Create Azure web app resources from the service catalog
 
@@ -54,19 +54,19 @@ NOTE: The sample deployment below is just for demonstration purposes and doesn't
    - **App Service Sku Tier:** Enter `PremiumV2`.
    - **Number of Worker Instances:** Enter `2`.
 
-![image.png](./media/sc-appService-basics.png)
+![image4.png](./media/sc-appService-basics.png)
 
 9. Select `Next` to confirm the networking information was prepopulated by the Service Catalog. Ensure the App Service subnet has a delegation to 'Microsoft.Web/serverfarms' and the private link subnet does not.
    - **Dedicated App Service Subnet Name:** Enter `WorkloadSubnet` which is the subnet delegated in the previous step.
    - **Private Link Subnet Name:** Enter `mySubnet`
 
-![image.png](./media/sc-appService-networking.png)
+![image5.png](./media/sc-appService-networking.png)
 
 10. Select `Review + Create` and then `Create`.
 
 It can take up to 30 minutes to finish all resource creation. Wait for the deployment to complete successfully before you take any actions within your deployed resources.
 
-![image.png](./media/sc-appService-deployed.png)
+![image6.png](./media/sc-appService-deployed.png)
 
 ## Validate the deployment
 

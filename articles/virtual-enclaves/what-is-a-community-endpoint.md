@@ -15,7 +15,7 @@ Enclave Connections associated with a Community Endpoint allow the Source Enclav
 
 ## Architecture of a community endpoint
 
-![image.png](/assets/image-434778f7-3466-4811-a6be-c395336a6f81.png)
+![image1.png](./media/image-434778f7-3466-4811-a6be-c395336a6f81.png)
 
 ## Community Endpoint rule types:
 

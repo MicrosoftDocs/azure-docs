@@ -22,7 +22,7 @@ Sign-in to the Azure portal at https://portal.azure.com.
 
 1. Enter `Azure Virtual Enclaves` in the search.
 2. Under `Services`, select `Azure Virtual Enclaves`. You will be directed to the Azure Virtual Enclaves homepage.
-![image.png](./media/image-ded7723c-2e61-4465-87f1-afd0cdcd06e4.png)
+![image1.png](./media/image-ded7723c-2e61-4465-87f1-afd0cdcd06e4.png)
 
 2. Click the `Create a community` button. The community deployment will take around 25 minutes to complete.
 3. Enter the basic details for your community:
@@ -35,11 +35,11 @@ Sign-in to the Azure portal at https://portal.azure.com.
    > Note:
    > `192.168.0.0/16`, `192.0.0.0/8`, `192.128.0.0/9`, or any other range that includes `192.168.x.x` addresses are reserved for the platform to manage enclaves deployed within a Community. Users should not create Communities with any of these address spaces as that would create overlapping conflicts with the platform-managed enclave management IP ranges.
    
-   ![image.png](./media/image-d18e3676-e0f3-4205-ba37-b062e02ec81f.png)
+   ![image2.png](./media/image-d18e3676-e0f3-4205-ba37-b062e02ec81f.png)
 
 4. Click `Next`.
 5. (Optional) Customize your governance settings on a per-service basis.
-![image.png](./media/Community-creation-governance.png)
+![image3.png](./media/Community-creation-governance.png)
 
 
 > Note
@@ -56,8 +56,8 @@ Sign-in to the Azure portal at https://portal.azure.com.
 8. Enter any [Tags](../azure-resource-manager/management/tag-resources.md) for your community.
 9. Click `Next`.
 10. Click `Review + create`, ensure the details for your community are correct, and click `Create`.
-![image.png](./media/image-052c1f83-12c8-4fae-a584-04165169cc31.png)
-![image.png](./media/image-c158ab8f-5116-4687-9428-2b79625ef3c0.png)
+![image4.png](./media/image-052c1f83-12c8-4fae-a584-04165169cc31.png)
+![image5.png](./media/image-c158ab8f-5116-4687-9428-2b79625ef3c0.png)
 
 ## References
 - [What is a Community?](./what-is-a-community.md)

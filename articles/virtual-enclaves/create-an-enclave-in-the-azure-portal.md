@@ -28,7 +28,7 @@ Enclave deployments will take around 30-45 minutes to complete. Once it complete
 
 3. In the `Azure Virtual Enclaves` page, select the `Enclaves` in the left menu.
 
-![image.png](./media/image-ab58e732-2ccc-4826-aa52-b6d4b5322e29.png)
+![image1.png](./media/image-ab58e732-2ccc-4826-aa52-b6d4b5322e29.png)
 
 4. On the `Enclaves` page, select `Create`.
 
@@ -39,13 +39,13 @@ Enclave deployments will take around 30-45 minutes to complete. Once it complete
    - Region: Azure region the Virtual Enclave will be created in. Ensure that the region matches the Community's region selected below.
    - Select a Community: Select an existing `Community` 
 
-![image.png](./media/image-d72eba0f-2de1-4d23-91d9-144f87485f1a.png)
+![image2.png](./media/image-d72eba0f-2de1-4d23-91d9-144f87485f1a.png)
 
 6. Click `Next`.
 
 7. Select a network size for your Enclave. Learn more about [Azure best practices regarding Azure Virtual Networks](../virtual-network/concepts-and-best-practices.md), and how to use [Plan Azure Virtual Networks](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 
-![image.png](./media/image-c799393d-7001-4c29-b6cc-e635cedd377d.png)
+![image3.png](./media/image-c799393d-7001-4c29-b6cc-e635cedd377d.png)
 
 > Note:
 >

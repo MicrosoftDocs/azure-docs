@@ -12,7 +12,7 @@ ms.date: 01/31/2025
 
 Azure Virtual Enclaves provides defense-in-depth through multiple layers of boundary protections and guardrails to protect and safeguard customer data. 
 
-![Defense-in-depth graphic.png](/assets/image-35760a6a-cdb7-4f6a-8f56-e1bc084e7085.png)
+![Defense-in-depth graphic.png](./media/image-35760a6a-cdb7-4f6a-8f56-e1bc084e7085.png)
 
 1. [**Role-based access control (RBAC)**](https://aka.ms/azure-rbac) - Standard access management system for all Azure resources. Security principals are sourced in Microsoft Entra ID (for example Community Owner or Enclave Owner).  ​
 2. [**Azure Policy**](/docs/concepts/governance/Governance) - Policy engine to enforce organizational standards and to assess compliance at-scale. Azure Policy evaluates Azure Resource Manager (ARM) requests and resources against business rules known as policy definitions. Policies are assigned at the workload resource group and enclave managed resource group scopes. They are also used to control which Azure Services can be deployed and which enclave VNet a workload can be deployed.

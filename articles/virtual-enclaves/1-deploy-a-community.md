@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 01/31/2025
 ---
 
-# Tutorial: Deploy a Community on Azure Virtual Enclaves
+# Tutorial 1: Deploy a Community on Azure Virtual Enclaves
 
 **Azure Virtual Enclaves is an Azure service that accelerates and streamlines the deployment and management of secure, isolated, and compliant cloud environments for the most sensitive mission workloads.**
 
@@ -35,7 +35,7 @@ Community deployments will take around 30-45 minutes to complete. Once it comple
 
 1. In the **Azure Virtual Enclaves** page, select the **Communities** option in the left menu.
 
-![image.png](./media/image-1dd30188-2652-4711-bdea-c7c0e7036dc0.png)
+![image1.png](./media/image-1dd30188-2652-4711-bdea-c7c0e7036dc0.png)
 
 2. On the **Communities** page, select **Create**.
 
@@ -48,16 +48,16 @@ Community deployments will take around 30-45 minutes to complete. Once it comple
 
 4. Click **Review + create**, ensure the details for your Enclave are correct, and click **Create**.
 
-![image.png](./media/image-4724bf17-d6af-4765-909d-d7014a5af88a.png)
+![image2.png](./media/image-4724bf17-d6af-4765-909d-d7014a5af88a.png)
 
 5. After the Community has been created, you can view it in Azure portal.
 
-![image.png](./media/image-854871e7-79ac-4a9c-8fd8-64167ffac608.png)
+![image3.png](./media/image-854871e7-79ac-4a9c-8fd8-64167ffac608.png)
 
 ## Clean up resources
 If you need to delete your community created after completing this tutorial, this can be also done from the Azure portal.
 
-![image.png](./media/image-4ba91829-c9aa-4701-bac4-63cf449861b7.png)
+![image4.png](./media/image-4ba91829-c9aa-4701-bac4-63cf449861b7.png)
 
 ## Next steps
 In this tutorial, you created two sample Enclaves using Azure portal. In the next tutorial, you'll learn how to create several workloads within your enclave.

@@ -22,7 +22,7 @@ Sign-in to the Azure portal at https://portal.azure.com.
 
 1. Navigate to an existing Community within your Azure subscription, select the `Transit Hubs` tab, and select `Create`
 
-![image.png](./media/image-d4151745-cd57-4bec-929b-00ddb93e16be.png)
+![image1.png](./media/image-d4151745-cd57-4bec-929b-00ddb93e16be.png)
 
 1. Provide a name and type for the Transit Hub.  
 
@@ -32,13 +32,13 @@ Refer to the guidance below for more information on the different types of Trans
 - [VPN Gateway](../virtual-wan/virtual-wan-site-to-site-portal.md)
 - [Express Route](../virtual-wan/virtual-wan-expressroute-portal.md)
 
-![image.png](./media/image-14edd692-5097-4194-9c4b-a05c238c576b.png)
+![image2.png](./media/image-14edd692-5097-4194-9c4b-a05c238c576b.png)
 
 1. Click next, add any tags, and click review + create.
 
 1. Click `Review + Create` and click `Create`
 
-![image.png](./media/image-9ee9d2cd-617a-45ee-9470-5214b1fc5481.png)
+![image3.png](./media/image-9ee9d2cd-617a-45ee-9470-5214b1fc5481.png)
 
 `
 Note: Transit Hub connectivity may be a "break-glass" scenario due to configuration variability of transit connections. 

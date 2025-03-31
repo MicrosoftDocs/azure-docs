@@ -14,7 +14,7 @@ Communities are isolated hub networks that can securely and logically group seve
 
 ## Architecture of a community
 
-![image.png](./media/image-3f313746-b212-40eb-9c5f-274964c96dbc.png)
+![image1.png](./media/image-3f313746-b212-40eb-9c5f-274964c96dbc.png)
 
 Communities come with the following primary platform-managed and platform-deployed resources:
 - Isolated [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md) hub networks. By default, these Communities aren't connected to the rest of the Internet outside of [certain authorized Microsoft services](../azure-portal/azure-portal-safelist-urls.md).
