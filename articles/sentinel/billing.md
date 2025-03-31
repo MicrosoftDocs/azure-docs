@@ -151,7 +151,8 @@ If you're billed at the simplified pay-as-you-go rate, this table shows how Micr
 | Cost description | Service name | Meter |
 |--|--|--|
 | Pay-as-you-go | `Sentinel` | **Pay-as-you-go Analysis** |
-| Auxiliary logs data analysis | `Sentinel` | **???** |
+| Basic logs data analysis| `Sentinel` |**Basic Logs Analysis**|
+| Auxiliary logs data analysis | `Sentinel` | **Auxiliary Logs Analysis** |
 
 
 # [Pay-as-you-go](#tab/pay-as-you-go/classic)
