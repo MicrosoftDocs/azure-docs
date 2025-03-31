@@ -115,7 +115,7 @@ You can customize the GitHub Actions build provider in the following ways:
 * If the selected branch is protected, you can still preview the workflow file without saving the configuration, and then manually add it to your repository. This method doesn't give you log integration with the Azure portal.
 * Instead of using basic authentication or a user-assigned identity, you can also deploy by using a [service principal](deploy-github-actions.md?tabs=userlevel) in Microsoft Entra ID. This method can't be configured in the portal.
 
-# [Then App Service build service](#tab/appservice)
+# [App Service build service](#tab/appservice)
 
 > [!NOTE]
 > The App Service build service requires [SCM basic authentication to be enabled](configure-basic-auth-disable.md) for the webhook to work. For more information, see [Deploy without basic authentication](../app-service/configure-basic-auth-disable.md#deploy-without-basic-authentication).

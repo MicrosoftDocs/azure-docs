@@ -16,9 +16,6 @@ ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 
 [!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
-> [!IMPORTANT]
-> Private endpoints are available for Windows and Linux apps, containerized or not, hosted on the following App Service plans: Basic, Standard, PremiumV2, PremiumV3, IsolatedV2, Functions Premium (sometimes called the Elastic Premium plan).
-
 You can use a private endpoint for your Azure App Service apps. The private endpoint allows clients located in your private network to securely access an app over Azure Private Link. The private endpoint uses an IP address from your Azure virtual network address space. Network traffic between a client on your private network and the app goes over the virtual network and Private Link on the Microsoft backbone network. This configuration eliminates exposure from the public internet.
 
 When you use a private endpoint for your app, you can:
@@ -26,6 +23,9 @@ When you use a private endpoint for your app, you can:
 - Secure your app when you configure the private endpoint and disable public network access, which eliminates public exposure.
 - Securely connect to your app from on-premises networks that connect to the virtual network using a VPN or ExpressRoute private peering.
 - Avoid any data exfiltration from your virtual network.
+
+> [!IMPORTANT]
+> Private endpoints are available for Windows and Linux apps, containerized or not, hosted on the following App Service plans: Basic, Standard, PremiumV2, PremiumV3, IsolatedV2, Functions Premium (sometimes called the Elastic Premium plan).
 
 ## Conceptual overview
 
@@ -127,9 +127,9 @@ For up-to-date information about limitations, see [this documentation](../privat
 
 ## Related content
 
-- [How to connect privately to an app by using the Azure portal](../private-link/create-private-endpoint-portal.md).
-- [How to connect privately to an app by using the Azure CLI](../private-link/create-private-endpoint-cli.md).
-- [How to connect privately to an app by using PowerShell](../private-link/create-private-endpoint-powershell.md).
-- [How to connect privately to an app by using an Azure template](../private-link/create-private-endpoint-template.md).
-- See this [Quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-privateendpoint-vnet-injection) to learn how to connect a front end app to a secured back end app with virtual network integration and a private endpoint by using the ARM template.
-- See this [sample](./scripts/terraform-secure-backend-frontend.md) to learn how to connect a front end app to a secured back end app with virtual network integration and a private endpoint by using Terraform.
+- [Quickstart: Create a private endpoint by using the Azure portal](../private-link/create-private-endpoint-portal.md)
+- [Quickstart: Create a private endpoint by using the Azure CLI](../private-link/create-private-endpoint-cli.md)
+- [Quickstart: Create a private endpoint by using Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
+- [Quickstart: Create a private endpoint by using an ARM template](../private-link/create-private-endpoint-template.md)
+- [Quickstart template for connecting a front-end app to a secured back-end app with virtual network integration and a private endpoint](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-privateendpoint-vnet-injection)
+- [Create two web apps connected securely with a private endpoint and virtual network integration (Terraform)](./scripts/terraform-secure-backend-frontend.md)

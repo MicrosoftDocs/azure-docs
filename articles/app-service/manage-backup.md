@@ -129,7 +129,7 @@ There are two types of backups in App Service. If your app is in a supported pri
 
 1. Select **Configure**.
 
-    Once the storage account and container is configured, you can initiate an on-demand backup at any time. On-demand backups are retained indefinitely.
+    After the storage account and container are configured, you can initiate an on-demand backup at any time. On-demand backups are retained indefinitely.
 
 1. At the top of the **Backups** pane, select **Backup Now**.
 
@@ -150,8 +150,8 @@ There are two types of backups in App Service. If your app is in a supported pri
 
 >
 > For backup and restore of Flexible Servers, see the respective database documentation:
->- [Azure Database for MySQL - Flexible Server: Back up and restore](/azure/mysql/flexible-server/concepts-backup-restore).
->- [Azure Database for PostgreSQL - Flexible Server: Back up and restore](/azure/postgresql/flexible-server/concepts-backup-restore).
+>- [Azure Database for MySQL - Flexible Server: Back up and restore](/azure/mysql/flexible-server/concepts-backup-restore)
+>- [Azure Database for PostgreSQL - Flexible Server: Back up and restore](/azure/postgresql/flexible-server/concepts-backup-restore)
 >
 
 Custom backups can include linked databases (except when the backup is configured over Azure Virtual Network). To make sure your backup includes a linked database, take the following steps:
@@ -186,7 +186,7 @@ To enable backup/restore over a virtual network for deployment slots, complete t
 
 If you don't see the checkbox, or if the checkbox is disabled, verify that your resources fulfill the requirements.
 
-Once the configuration is saved, any manual backup, scheduled backup, or restore is made through the virtual network. If you make changes to the app, the virtual network, or the storage account that prevent the app from accessing the storage account through the virtual network, the backup or restore operations fail.
+After the configuration is saved, any manual backup, scheduled backup, or restore is made through the virtual network. If you make changes to the app, the virtual network, or the storage account that prevent the app from accessing the storage account through the virtual network, the backup or restore operations fail.
 
 <a name="partialbackups"></a>
 
@@ -264,8 +264,8 @@ You can automate backup management with scripts by using the [Azure CLI](/cli/az
 
 For samples, see:
 
-- [Azure CLI samples](samples-cli.md).
-- [Azure PowerShell samples](samples-powershell.md).
+- [Azure CLI samples](samples-cli.md)
+- [Azure PowerShell samples](samples-powershell.md)
 
 ## Frequently asked questions
 
@@ -334,8 +334,8 @@ When [backing up over Azure Virtual Network](#back-up-and-restore-over-azure-vir
 > Custom backups with linked databases for App Service support only Single Server tiers of Azure Database for MySQL and PostgreSQL. Since Single Server tiers are being retired, upgrading linked databases to Flexible Server might cause backups to fail. Use native database backup tools to prevent data loss. Standalone MySQL and PostgreSQL servers (for example, on VMs) are unaffected by the Single Server tier retirement. For retirement details, see [MySQL Single Server retirement](/azure/mysql/migrate/whats-happening-to-mysql-single-server) and [PostgreSQL Single Server retirement](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server).  
 >
 > For backup and restore of Flexible Servers, see the respective database documentation:
->- [Azure Database for MySQL - Flexible Server: Back up and restore](/azure/mysql/flexible-server/concepts-backup-restore).
->- [Azure Database for PostgreSQL - Flexible Server: Back up and restore](/azure/postgresql/flexible-server/concepts-backup-restore).
+>- [Azure Database for MySQL - Flexible Server: Back up and restore](/azure/mysql/flexible-server/concepts-backup-restore)
+>- [Azure Database for PostgreSQL - Flexible Server: Back up and restore](/azure/postgresql/flexible-server/concepts-backup-restore)
 >
 
 Linked databases are backed up only for custom backups, up to the allowable maximum size. If the maximum backup size (10 GB) or the maximum database size (4 GB) is exceeded, your backup fails. Here are a few common reasons why your linked database isn't backed up:
@@ -376,4 +376,4 @@ You can't stop automatic backups. The automatic backup is stored on the platform
 
 ## Related content
 
-[Azure Blob Storage documentation](../storage/blobs/index.yml)
+- [Azure Blob Storage documentation](../storage/blobs/index.yml)
