@@ -6,9 +6,9 @@ ms.service: azure-virtual-wan
 ms.topic: include
 ---
 
-When using Route-maps, do not use private ASNs for AS prepending. If you are using ExpressRoute, the gateway will strip private ASNs. 
+When using Route-maps, don't use private ASNs (Autonomous System Numbers) for AS prepending. If you're using ExpressRoute, the gateway strips private ASNs. 
 
-Do not use ASN's reserved by Azure for AS prepending:
+Don't use ASNs reserved by Azure for AS prepending:
 
 Public ASNs: 8074, 8075, 12076
 

@@ -16,7 +16,7 @@ This article helps you use the Route-maps feature to drop routes from branch sit
 
 ## Prerequisites
 
-Verify that you've met the following criteria before beginning your configuration:
+Verify that you have met the following criteria before beginning your configuration:
 
 * You have virtual WAN (VWAN) with a connection (S2S, P2S, or ExpressRoute) already configured.
 
@@ -26,27 +26,27 @@ Verify that you've met the following criteria before beginning your configuratio
 
 ## Design
 
-In this situation we have two hubs. Hub 1 has 2 VNets and a VPN branch office. One of the VNets has an NVA peered with the hub.  Hub 2 also has 2 VNets and a VPN branch office. 
+In this situation, we have two hubs. Hub 1 has 2 VNets and a VPN branch office. One of the VNets has an NVA (Network Virtual Appliance) peered with the hub. Hub 2 also has 2 VNets and a VPN branch office. 
 
- :::image type="content" source="./media/route-maps-how-to-summarize/environment.png" alt-text="Screenshot shows how to the Enviroment." lightbox="./media/route-maps-how-to-summarize/environment.png":::
+ :::image type="content" source="./media/route-maps-how-to-summarize/environment.png" alt-text="Screenshot shows how to the Environment." lightbox="./media/route-maps-how-to-summarize/environment.png":::
 
-Here is the addressing for this environment:  
+Here's the addressing for this environment:  
 
 | Resource |Address Space |
 | --- |---| 
 |Hub 1 |192.168.1.0/24 | 
 |Hub 2 |192.168.2.0/24  |
-|VNet 1 |10.1.0.0/24  |
-|VNet 2 |10.2.0.0/24 |
-|VNet 3 |10.3.0.0/24  |
-|VNet 4 |10.4.0.0/24  |
+|Virtual network 1 |10.1.0.0/24  |
+|Virtual network 2 |10.2.0.0/24 |
+|Virtual network 3 |10.3.0.0/24  |
+|Virtual network 4 |10.4.0.0/24  |
 |VPN Branch 1 |10.122.1.0/24, 10.122.2.0/24, 10.122.3.0/24, 10.100.0.0/16|
 |VPN Branch 2 |10.200.0.0/16 |
-|NVA 1 | 10.150.1.0/24, 10.150.2.0/24 , 10.150.3.0/24 , 10.150.4.0/24 |  
+|NVA 1 | 10.150.1.0/24, 10.150.2.0/24, 10.150.3.0/24, 10.150.4.0/24 |  
 
-## Scenario : Drop inbound routes from Branch sites
+## Scenario: Drop inbound routes from Branch sites
 
-In this scenario, the goal is to drop routes being advertised from VPN branch site 1.  In this example we will be taking the routes 10.122.1.0/24,10.122.2.0/24, 10.122.3.0/24 and dropping them.   
+In this scenario, the goal is to drop routes being advertised from VPN branch site 1. In this example we'll be taking the routes 10.122.1.0/24,10.122.2.0/24, 10.122.3.0/24 and dropping them.   
 
  :::image type="content" source="./media/route-maps-how-to-drop/drop.png" alt-text="Screenshot that shows the Scenario." lightbox="./media/route-maps-how-to-drop/drop.png":::
 
@@ -60,9 +60,9 @@ In this scenario, the goal is to drop routes being advertised from VPN branch si
 
    :::image type="content" source="./media/route-maps-how-to-drop/er_before.png" alt-text="Screenshot that shows routes before." lightbox="./media/route-maps-how-to-drop/er_before.png":::   
 
-2. Create a Route-Map to drop the routes. If this is your frist time creating a Route-Map, see [How to configure Route-maps](route-maps-how-to.md) for more information. 
+2. Create a Route-Map to drop the routes. If this is your first time creating a Route-Map, see [How to configure Route-maps](route-maps-how-to.md) for more information. 
 
-   The Route-Map will have a match rule for route 10.122.2.0/16. The action **Drop** will be selected. 
+   The Route-Map will have a match rule for route 10.122.2.0/16. The action **Drop** is selected. 
 
    :::image type="content" source="./media/route-maps-how-to-drop/rm.png" alt-text="Screenshot that shows the Route-map." lightbox="./media/route-maps-how-to-drop/rm.png":::
 
