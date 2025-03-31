@@ -25,7 +25,7 @@ When using WebSocket on Azure Front Door, consider the following:
 - Disable caching for WebSocket routes. For routes with caching enabled, Azure Front Door doesn't forward the WebSocket Upgrade header to the origin and treats it as an HTTP request, disregarding cache rules. This results in a failed WebSocket upgrade request.
 - The idle timeout is 5 minutes. If Azure Front Door doesn't detect any data transmission from the origin or the client within the past 5 minutes, the connection is considered idle and is closed.
 - Currently, WebSocket connections on Azure Front Door remain open for no longer than 4 hours. The WebSocket connection can be dropped due to underlying server upgrades or other maintenance activities. We highly recommend you implement retry logic in your application.
-- Currently, you can send up to 3K concurrent connections globally per AFD profile. More details in [Azure Front Door Standard and Premium service limits](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-standard-and-premium-service-limits).
+- Currently, each Azure Front Door profile supports up to 3,000 concurrent global connections. For more information, see [Azure Front Door Standard and Premium service limits](../../azure/azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-standard-and-premium-service-limits).
 
 ## How the WebSocket protocol works
 
