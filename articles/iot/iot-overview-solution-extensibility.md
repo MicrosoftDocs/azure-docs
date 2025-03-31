@@ -45,7 +45,7 @@ In Azure IoT, solution extensibility refers to the ways you can add to the built
 
 ### Message broker
 
-Azure IoT Operations includes an MQTT broker that routes messages from the connectors to dataflows that connect to cloud endpoints. You can deploy your own pods to the cluster to interact with the message broker to:
+Azure IoT Operations includes an MQTT broker that routes messages from the connectors to data flows that connect to cloud endpoints. You can deploy your own pods to the cluster to interact with the message broker to:
 
 - Use custom message processing logic on the MQTT messages.
 - Build custom application logic to run at the edge.
@@ -67,7 +67,7 @@ The northbound connectors in Azure IoT Operations let you route messages from yo
 The Azure IoT Operations REST API provides the following capabilities that are useful for extending your IoT solution:
 
 - Manage the message broker.
-- Manage your dataflows.
+- Manage your data flows.
 
 # [Cloud-based solution](#tab/cloud)
 
