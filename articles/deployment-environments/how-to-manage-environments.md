@@ -107,19 +107,7 @@ An attempt to delete a deployment environment might fail due to issues like the 
 
 If the deletion fails, you can forcibly delete the environment. Force delete deletes the environment, its deployment resource group, and all resources in the deployment resource group. Any resources created outside the resource group are orphaned; force delete doesn't delete them.
 
-To forcibly delete an environment through the developer portal, follow these steps:
-1. Sign in to the [developer portal](https://devportal.microsoft.com).
-1. On the environment you want to delete, select the options menu next to the environment name, then choose **Delete**.
-
-   :::image type="content" source="media/how-to-manage-environments/environment-force-delete.png" alt-text="Screenshot showing an environment tile with the options menu expanded and the Delete option selected." lightbox="media/how-to-manage-environments/environment-force-delete.png":::
-
-1. In the confirmation message, select **Force delete**.
-
-   :::image type="content" source="media/how-to-manage-environments/environment-confirm-force-delete.png" alt-text="Screenshot showing a confirm force deletion message with Force delete highlighted." lightbox="media/how-to-manage-environments/environment-confirm-force-delete.png":::
-
-
-
-To forcibly delete an environment fron the CLI, follow these steps:
+To forcibly delete an environment from the CLI, follow these steps:
 1. Open the CLI.
 1. Run the following command to forcibly delete the environment:
 
