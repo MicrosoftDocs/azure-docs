@@ -56,9 +56,10 @@ Use one of the following roles or role combinations to manage primary and second
 
 |Task  |Required roles or role combinations  |
 |---------|---------|
-|**Connect a primary workspace**     | One of the following: <br>- Global Administrator <br>- Security Administrator + subscription Owner <br>- Security Administrator + User access administrator + Sentinel contributor      |
-|**Select a different primary workspace**     | One of the following: <br>- Global Administrator <br>- Security Administrator      |
-|**Onboard or offboard secondary workspaces**     |  One of the following: <br>- Global Administrator <br>- Security Administrator <br>- Security Administrator + subscription Owner <br>- Security Administrator + User access administrator + Sentinel contributor <br>- Subscription Owner + Sentinel contributor <br>- User access administrator + Sentinel contributor        |
+|**Connect a primary workspace**     | One of the following: <br>- Global Administrator AND subscription Owner <br> Security Administrator AND subscription Owner <br>- Global Administrator AND User access administrator AND Sentinel contributor <br>- Security Administrator AND User access administrator AND Sentinel contributor|
+|**Select a different primary workspace**     | One of the following: <br>- Global Administrator <br>- Security Administrator |
+|**Onboard or offboard secondary workspaces**     |  One of the following:  <br>- Global Administrator AND subscription Owner <br> Security Administrator AND subscription Owner <br>- Global Administrator AND User access administrator AND Sentinel contributor <br>- Security Administrator AND User access administrator AND Sentinel contributor <br>- Subscription Owner <br>- User access administrator AND Sentinel contributor|
+
 
 > [!IMPORTANT]
 > Microsoft recommends that you use roles with the fewest permissions. This helps improve security for your organization. Global Administrator is a highly privileged role that should be limited to emergency scenarios when you can't use an existing role.
