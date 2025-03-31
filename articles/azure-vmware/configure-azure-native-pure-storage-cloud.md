@@ -17,8 +17,8 @@ ms.date:     03/31/2025
 
 **In this article**
 
-> [Azure Native Pure Storage Cloud for Azure VMware Solution]()
-> [Onboarding and support]()
+[Azure Native Pure Storage Cloud for Azure VMware Solution]()
+[Onboarding and support]()
 
 ## Azure Native Pure Storage Cloud for Azure VMware Solution
 
