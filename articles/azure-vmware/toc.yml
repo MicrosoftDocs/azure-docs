@@ -10,7 +10,7 @@ items:
   - name: Tutorial
     items:
     - name: Create an Azure VMware Solution in an Azure virtual network (Public preview) 
-      href: native-create-azure-vmware-private-cloud.md
+      href: native-create-azure-vmware-virtual-network-private-cloud.md
   - name: Architecture
     items:
     - name: Azure VMware Solution on Native design considerations

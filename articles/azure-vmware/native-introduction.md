@@ -1,7 +1,7 @@
 ---
 title: Azure VMware Solution in a Virtual Network (Public preview) 
 description: Learn about Azure VMware Solution in a Virtual Network.
-ms.topic: concept
+ms.topic: overview
 ms.service: azure-vmware
 ms.date: 3/28/2025
 ms.custom: engagement-fy25
@@ -9,8 +9,7 @@ ms.author: jacobjaygbay
 # customer intent: As a cloud administrator, I want to learn about Azure VMware Solution in a Virtual Network so that I can understand the benefits and features of this offering.
 ---
 
-
-# Azure VMware Solution in a Virtual Network (Public Preview)
+# Azure VMware Solution in a virtual network (Public Preview)
 
 Azure VMware Solution in an Azure Virtual Network combines the first-party Azure VMware Solution with Azure hardware and operations to improve the customer experience, quality, and security. This offering provides updated architecture that uses Azure Native physical network and hardware infrastructure. This allows customers to get the best of both worlds. Customers get to use their existing VMware expertise, while using the benefits of the entire Azure cloud to more effectively and efficiently manage their workloads. This initial launch of this offering utilizes the existing AV64 SKU.
 
