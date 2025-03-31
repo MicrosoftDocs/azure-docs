@@ -114,7 +114,7 @@ For more information, see [Create or update Azure custom roles by using the Azur
 
 ### [Azure CLI](#tab/cli)
 
-In the following command, replace *\<role-name>* and *\<subscription-guid>* and run in the cloud shell:
+In the following command, replace *\<role-name>* and *\<subscription-guid>* and run in Azure Cloud Shell:
 
 ```azurecli-interactive
 az role definition create --role-definition '{

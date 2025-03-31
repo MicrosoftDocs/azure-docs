@@ -96,13 +96,13 @@ curl -X POST \
 
 # [ARM template](#tab/arm)
 
-ARM templates only support [deployments from remotely hosted packages](#deploy-to-network-secured-apps).
+Azure Resource Manager templates (ARM templates) only support [deployments from remotely hosted packages](#deploy-to-network-secured-apps).
 
 -----
 
 ## Enable build automation for ZIP deploy
 
-By default, the deployment engine assumes that a ZIP package is ready to run as-is and doesn't run any build automation. To enable the same build automation used in a [Git deployment](deploy-local-git.md), set the `SCM_DO_BUILD_DURING_DEPLOYMENT` app setting. Run the following command in the [Cloud Shell](https://shell.azure.com):
+By default, the deployment engine assumes that a ZIP package is ready to run as-is and doesn't run any build automation. To enable the same build automation used in a [Git deployment](deploy-local-git.md), set the `SCM_DO_BUILD_DURING_DEPLOYMENT` app setting. Run the following command in [Azure Cloud Shell](https://shell.azure.com):
 
 ```azurecli
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true

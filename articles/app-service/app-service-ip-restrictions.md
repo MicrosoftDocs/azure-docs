@@ -212,7 +212,7 @@ You can add access restrictions rules for **Main site** programmatically by choo
 
 ### [Azure CLI](#tab/azurecli)
 
-You can run the following command in [Cloud Shell](https://shell.azure.com). For more information about the command, see [`az webapp config access-restriction`](/cli/azure/webapp/config/access-restriction).
+You can run the following command in [Azure Cloud Shell](https://shell.azure.com). For more information about the command, see [`az webapp config access-restriction`](/cli/azure/webapp/config/access-restriction).
 
 ```azurecli-interactive
 az webapp config access-restriction add --resource-group ResourceGroup --name AppName \
@@ -225,7 +225,7 @@ az webapp config access-restriction add --resource-group ResourceGroup --name Ap
 
 ### [PowerShell](#tab/powershell)
 
-You can run the following command in [Cloud Shell](https://shell.azure.com). For more information about the command, see [`Add-AzWebAppAccessRestrictionRule`](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule).
+You can run the following command in [Azure Cloud Shell](https://shell.azure.com). For more information about the command, see [`Add-AzWebAppAccessRestrictionRule`](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule).
 
 ```azurepowershell-interactive
 Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName"
@@ -238,7 +238,7 @@ Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName
 
 ### [Azure Resource Manager](#tab/arm)
 
-For ARM templates, modify the `ipSecurityRestrictions` block. A sample ARM template snippet is provided for you.
+For Azure Resource Manager templates (ARM templates), modify the `ipSecurityRestrictions` block. A sample ARM template snippet is provided for you.
 
 ```json
 {
