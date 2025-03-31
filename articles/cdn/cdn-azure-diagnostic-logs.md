@@ -10,6 +10,7 @@ ms.service: azure-cdn
 ms.topic: troubleshooting
 ms.date: 03/20/2024
 ms.custom: devx-track-azurepowershell
+ROBOTS: NOINDEX
 ---
 
 # Diagnostic logs - Azure Content Delivery Network

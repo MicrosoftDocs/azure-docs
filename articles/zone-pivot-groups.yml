@@ -166,7 +166,7 @@ groups:
   - id: create-option-vscode
     title: Visual Studio Code
 # Service-specific groups
-##### Begin azure-functions    
+##### Begin azure-functions
 - id: functions-nodejs-model
   title: Node.js Programming model
   prompt: Choose a programming model
@@ -223,6 +223,14 @@ groups:
     title: Consumption plan
   - id: azure-arc
     title: Azure Arc
+- id: dts-runtime
+  title: Application languages for Durable Task Scheduler
+  prompt: Choose an option
+  pivots:
+  - id: csharp
+    title: .NET (isolated)
+  - id: other
+    title: non-.NET
 ### end azure-functions
 #Owner: jiayma
 - id: bring-third-party-dependency-programming-functions
@@ -407,7 +415,7 @@ groups:
   prompt: Choose how your Java app is hosted
   pivots:
   - id: java-javase
-    title: Java SE (such as embedded Tomcat, Quarkus, Spring Boot)
+    title: Java SE (such as Spring Boot, Quarkus)
   - id: java-tomcat
     title: Tomcat
   - id: java-jboss
@@ -851,12 +859,12 @@ groups:
 # Owner: farazgis
 - id: azure-maps-coverage
   title: Azure Maps coverage
-  prompt: Choose the API version
+  prompt: Choose the service version
   pivots:
-  - id: route-v1
-    title: Route
-  - id: route-v2
-    title: Route v2
+  - id: service-previous
+    title: Previous
+  - id: service-latest
+    title: Latest
 # Owner: richbrun
 - id: azure-maps-android
   title: Programming languages
@@ -867,7 +875,7 @@ groups:
   - id: programming-language-kotlin
     title: Kotlin (Android)
 - id: iot-develop-set1
-# Owner: timlt
+# Owner: dobett
   title: Programming languages
   prompt: Choose a programming language
   pivots:
@@ -1347,7 +1355,7 @@ groups:
   - id: v1
     title: "1.0"
   - id: v23-10
-    title: "2023-10-01"  
+    title: "2023-10-01"
   - id: v23-11
     title: "2023-11-01"
 # Owner: v-yilinhu
@@ -1386,16 +1394,14 @@ groups:
   - id: programming-language-swift
     title: iOS
   - id: programming-language-kotlin
-    title: Android  
+    title: Android
 # Owner: jorgegarc
-- id: acs-maui-xamarin-react
+- id: acs-maui-react
   title: Cross-platform pivots
   prompt: Choose a platform
   pivots:
   - id: platform-maui
     title: .NET MAUI
-  - id: platform-xamarin
-    title: Xamarin
   - id: platform-react
     title: React Native
 # Owner: jodowns
@@ -1702,7 +1708,7 @@ groups:
     title: JavaScript
   - id: programming-language-csharp
     title: C#
-# Owner: kgremban
+# Owner: sonialopez
 - id: iot-hub-howto-c2d-1
   title: Programming languages
   prompt: Choose a programming language
@@ -1715,7 +1721,7 @@ groups:
     title: Python
   - id: programming-language-node
     title: Node
-# Owner: kgremban
+# Owner: sonialopez
 - id: iot-hub-howto-c2d-2
   title: Programming languages
   prompt: Choose a programming language
@@ -1782,7 +1788,7 @@ groups:
   - id: terraform
     title: Terraform
   - id: pulumi
-    title: Pulumi   
+    title: Pulumi
 # Owner: malev
 - id: grafana-cli-portal
   title: Experience
@@ -1874,6 +1880,15 @@ groups:
     title: Azure portal
   - id: platform-nocode
     title: Power Platform
+#owner: jiayma
+- id: dts-devexp
+  title: DTS development experience
+  prompt: Choose an option
+  pivots:
+  - id: az-cli
+    title: Azure CLI
+  - id: az-portal
+    title: Azure portal
 # Owner: Deepika0530
 - id: acs-ps-azclips-azclipython
   title: Programming languages

@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: Azure Digital Twins CLI command set
 titleSuffix: Azure Digital Twins
 description: Learn about the Azure Digital Twins CLI command set.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 03/31/2022
 ms.topic: conceptual
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Azure Digital Twins CLI command set
@@ -30,7 +24,7 @@ Some of the actions you can do using the command set include:
 
 The command set is called `az dt`, and is part of the [Azure IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension). You can view the full list of commands and their usage as part of the reference documentation for the `az iot` command set: [az dt command reference](/cli/azure/dt).
 
-[!INCLUDE [digital-twins-cli-issue](../../includes/digital-twins-cli-issue.md)]
+[!INCLUDE [digital-twins-cli-issue](includes/digital-twins-cli-issue.md)]
 
 ## Uses (deploy and validate)
 

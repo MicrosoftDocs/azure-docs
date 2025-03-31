@@ -8,6 +8,7 @@ manager: kumudd
 ms.service: azure-cdn
 ms.topic: concept-article
 ms.date: 03/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Azure Content Delivery Network DDoS Protection
