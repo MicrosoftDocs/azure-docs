@@ -207,7 +207,7 @@ Azure IoT Operations is an edge runtime environment that hosts the services to c
 
 Data flows provide data transformation and data contextualization capabilities before routing messages to various locations including cloud endpoints.
 
-Azure IoT Operations runs on Azure Arc-enabled edge Kubernetes clusters, enabling a fully automated machine learning operations in hybrid mode, including training and AI model deployment steps that transition seamlessly between cloud and edge. To learn more, see [Introduction to Kubernetes compute target in Azure Machine Learning](/azure/machine-learning/how-to-attach-kubernetes-anywhere).
+Azure IoT Operations runs on Azure Arc-enabled Kubernetes clusters, enabling a fully automated machine learning operations in hybrid mode, including training and AI model deployment steps that transition seamlessly between cloud and edge. To learn more, see [Introduction to Kubernetes compute target in Azure Machine Learning](/azure/machine-learning/how-to-attach-kubernetes-anywhere).
 
 ### [Cloud-based solution](#tab/cloud)
 
