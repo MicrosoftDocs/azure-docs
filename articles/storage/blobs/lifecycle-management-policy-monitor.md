@@ -78,9 +78,9 @@ Use the following metric filters to narrow transactions to those executed by the
 
 | Filter | Operator | Value |
 |---|---|---|
-| Transaction type | = | `system` |
-| API name | = | `DeleteBlob` |
-| Response type | == | `ClientOtherError` |
+| Transaction type | equal | `system` |
+| API name | equal | `DeleteBlob` |
+| Response type | not equal | `Success` |
 
 The following image shows an example. The line chart shows the time these operations failed. 
 
@@ -89,9 +89,18 @@ The following image shows an example. The line chart shows the time these operat
 
 ### Logs
 
-Explain how to query logs on that specific time and operation type to diagnose exactly what went wrong.
-Explain how to determine the reason for any given failure.
-Point to any existing material about how to query logs.
+To find out why objects weren't successfully processed by the policy, you can look at resource logs. Narrow logs to the time frame of the failures. Then, look at entries where the **UserAgentHeader** field is set to **ObjectLifeCycleScanner** or **OLCMScanner**. If you configured a diagnostic setting to send logs to Azure Monitor Log Analytics workspace, then you can use a Kusto query. The following example query finds log entries for failed delete operations that were initiated by a lifecycle management policy.
+
+```kusto
+StorageBlobLogs
+| where OperationName contains "DeleteBlob" and UserAgentHeader contains "ObjectLifeCycleScanner"
+| project TimeGenerated, StatusCode, StatusText
+```
+
+The **StatusCode** and **StatusText** indicates what has caused the failure. The following image shows the output of that query. Both log entries show a **StatusText** value of **LeaseIdMissing**. This means that both objects have an active lease that must be broken or released before the operation can succeed. 
+
+  > [!div class="mx-imgBorder"]
+  > ![Screenshot showing a kusto query and the results of the query which shows failed attempts to delete objects.](media/lifecycle-management-policy-monitor/lifecycle-management-policy-logs.png)
 
 ## See also
 
