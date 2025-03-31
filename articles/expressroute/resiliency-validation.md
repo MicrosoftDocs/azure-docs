@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: conceptual
-ms.date: 03/26/2025
+ms.date: 03/31/2025
 ms.author: duau
 ms.custom: ai-usage
 ---
@@ -22,7 +22,7 @@ Resiliency validation is a capability designed to assess the resiliency of netwo
 
 - **Simulate circuit failover** - Connections are disconnected temporarily from the gateway of interest to the selected ExpressRoute circuit to simulate a failover from one peering location to another.
 - **Route redundancy** - Insights into duplicate routes are provided for all prefixes received from the selected peering location.
-- **Traffic visualization** - Visualize traffic going through the ExpressRoute gateway and all connections to an ExpressRoute circuit during testing.
+- **Traffic visualization** - Visualize traffic on the ExpressRoute gateway and all connections associated to it during testing.
 - **Test history** - Detailed information of previously conducted tests.
 
 ### Common use cases
