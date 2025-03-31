@@ -172,8 +172,8 @@ To improve TCO, we markedly decreased the number of transactions needed to fully
 ## What's new in 2021
 
 ### 2021 quarter 4 (October, November, December)
-#### Increased IOPS for premium file shares
-Premium Azure file shares now have additional included baseline IOPS and a higher minimum burst IOPS. The baseline IOPS included with a provisioned share was increased from 400 to 3,000, meaning that a 100 GiB share (the minimum share size) is guaranteed 3,100 baseline IOPS. Additionally, the floor for burst IOPS was increased from 4,000 to 10,000, meaning that every premium file share will be able to burst up to at least 10,000 IOPS. 
+#### Increased IOPS for SSD file shares
+SSD file shares now have additional included baseline IOPS and a higher minimum burst IOPS. The baseline IOPS included with a provisioned share was increased from 400 to 3,000, meaning that a 100 GiB share (the minimum share size) is guaranteed 3,100 baseline IOPS. Additionally, the floor for burst IOPS was increased from 4,000 to 10,000, meaning that every SSD file share will be able to burst up to at least 10,000 IOPS. 
 
 Formula changes:
 
@@ -183,11 +183,11 @@ Formula changes:
 | Burst limit | `MIN(MAX(4000, 3 * ProvisionedGiB), 100000)` | `MIN(MAX(10000, 3 * ProvisionedGiB), 100000)` |
 
 For more information, see:
-- [The provisioned model for premium Azure file shares](understanding-billing.md#provisioned-v1-model)
+- [The provisioned v1 model for SSD file shares](understanding-billing.md#provisioned-v1-model)
 - [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
 
 #### NFSv4.1 protocol support is generally available
-Premium Azure file shares now support either the SMB or the NFSv4.1 protocols. NFSv4.1 is available in all regions where Azure Files supports the premium tier, for both locally redundant storage and zone-redundant storage. Azure file shares created with the NFSv4.1 protocol enabled are fully POSIX-compliant, distributed file shares that support a wide variety of Linux and container-based workloads. Some example workloads include: highly available SAP application layer, enterprise messaging, user home directories, custom line-of-business applications, database backups, database replication, and Azure Pipelines.
+SSD file shares now support either the SMB or the NFSv4.1 protocols. NFSv4.1 is available in all regions where Azure Files supports the SSD media tier, for both locally redundant storage and zone-redundant storage. Azure file shares created with the NFSv4.1 protocol enabled are fully POSIX-compliant, distributed file shares that support a wide variety of Linux and container-based workloads. Some example workloads include: highly available SAP application layer, enterprise messaging, user home directories, custom line-of-business applications, database backups, database replication, and Azure Pipelines.
 
 For more information, see:
 
@@ -195,8 +195,8 @@ For more information, see:
 - [High availability for SAP NetWeaver on Azure VMs with NFS on Azure Files](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs-azure-files)
 - [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
 
-#### Symmetric throughput for premium file shares
-Premium Azure file shares now support symmetric throughput provisioning, which enables the provisioned throughput for an Azure file share to be used for 100% ingress, 100% egress, or some mixture of ingress and egress. Symmetric throughput provides the flexibility to make full utilization of available throughput and aligns premium file shares with standard file shares.
+#### Symmetric throughput for SSD file shares
+SSD file shares now support symmetric throughput provisioning, which enables the provisioned throughput for an Azure file share to be used for 100% ingress, 100% egress, or some mixture of ingress and egress. Symmetric throughput provides the flexibility to make full utilization of available throughput.
 
 Formula changes:
 
@@ -205,12 +205,12 @@ Formula changes:
 | Throughput (MiB/sec) | <ul><li>Ingress: `40 + CEILING(0.04 * ProvisionedGiB)`</li><li>Egress: `60 + CEILING(0.06 * ProvisionedGiB)`</li></ul> | `100 + CEILING(0.04 * ProvisionedGiB) + CEILING(0.06 * ProvisionedGiB)` |
 
 For more information, see:
-- [The provisioned model for premium Azure file shares](understanding-billing.md#provisioned-v1-model)
+- [The provisioned v1 model for SSD file shares](understanding-billing.md#provisioned-v1-model)
 - [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
 
 ### 2021 quarter 3 (July, August, September)
 #### SMB Multichannel is generally available
-SMB Multichannel enables SMB clients to establish multiple parallel connections to an Azure file share. This allows SMB clients to take full advantage of all available network bandwidth and makes them resilient to network failures, reducing total cost of ownership and enabling 2-3x for reads and 3-4x for writes through a single client. SMB Multichannel is available for premium file shares (file shares deployed in the FileStorage storage account kind) and is disabled by default. 
+SMB Multichannel enables SMB clients to establish multiple parallel connections to an Azure file share. This allows SMB clients to take full advantage of all available network bandwidth and makes them resilient to network failures, reducing total cost of ownership and enabling 2-3x for reads and 3-4x for writes through a single client. SMB Multichannel is available for SSD file shares and is disabled by default. 
 
 For more information, see:
 
@@ -232,8 +232,8 @@ For more information, see:
 - [Overview of SMB features in the Windows Server documentation](/windows-server/storage/file-server/file-server-smb-overview)
 
 ### 2021 quarter 2 (April, May, June)
-#### Premium, hot, and cool storage reservations 
-Azure Files supports storage reservations (also referred to as *reserved instances*). Azure Files Reservations allow you to achieve a discount on storage by pre-committing to storage utilization. Azure Files supports Reservations on the premium, hot, and cool tiers. Reservations are sold in units of 10 TiB or 100 TiB, for terms of either one year or three years. 
+#### Azure Files reservations for provisioned v1 and pay-as-you-go file shares 
+Azure Files supports reservations (also referred to as *reserved instances*). Azure Files reservations allow you to achieve a discount on storage by pre-committing to storage utilization. Azure Files supports reservations on file shares using the provisioned v1 or pay-as-you-go billing models. Reservations are sold in units of 10 TiB or 100 TiB, for terms of either one year or three years. 
 
 For more information, see:
 
