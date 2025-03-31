@@ -16,7 +16,7 @@ After you deploy Azure VMware Solution on native private clouds, you may need to
 - Ensure that you have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to create a virtual network gateway for ExpressRoute. A virtual network gateway for ExpressRoute uses the GatewayType ExpressRoute, not VPN.
 - You must have an active ExpressRoute circuit.
 
-## Connect to on-premises environment
+## Connect to an on-premises environment
 
 The Azure VMware Solution on native connectivity to on-premises is done using a standard ExpressRoute connection or Site-to-Site VPN. This is similar to the way customers have been establishing connectivity between Azure Virtual Network (virtual network) and on-premises connectivity as described in the Azure virtual network documentation.
 

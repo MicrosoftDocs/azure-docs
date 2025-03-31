@@ -1,5 +1,5 @@
 ---
-title: Install and activate VMware HCX in Azure VMware Solution
+title: Install VMware HCX in Azure VMware Solution
 description: Install VMware HCX in your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
@@ -7,7 +7,7 @@ ms.custom: engagement-fy23
 ms.date: 12/27/2024
 ---
 
-# Install and activate VMware HCX in Azure VMware Solution
+# Install VMware HCX in Azure VMware Solution
 
 [VMware HCX](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9.html) is an application mobility platform designed for simplifying application migration, rebalancing workloads, and optimizing disaster recovery across data centers and clouds. 
 

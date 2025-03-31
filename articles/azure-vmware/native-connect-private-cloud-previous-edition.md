@@ -15,13 +15,14 @@ This article focuses on how the Azure VMware Solution on native private cloud ge
 
 
 ## Prerequisite
-- Have Azure VMware Solution on native and previous edition of private cloud deployed successfully.
+
+Have Azure VMware Solution on native and previous edition of private cloud deployed successfully.
 
 ## Connect Azure VMware Solution on Native Private Cloud to Previous Edition of Azure VMware Solution Private Cloud
 
 Azure VMware Solution on native SDDC (shown on the right of the diagram) can be connected to the previous edition of Azure VMware Solution SDDC (shown on the left in the diagram) using a standard ExpressRoute connection, just like how you have been connecting earlier Azure VMware Solution editions to the virtual network.
 
-See details on [Azure VMware Solution's previous edition ExpressRoute connectivity to ExpressRoute Gateway](/azure/azure-vmware/deploy-azure-vmware-solution?tabs=azure-portal#connect-to-azure-virtual-network-with-expressroute).
+For more information about how to connect virtual networks using ExtressRoute, see [Azure VMware Solution's previous edition ExpressRoute connectivity to ExpressRoute Gateway](/azure/azure-vmware/deploy-azure-vmware-solution?tabs=azure-portal#connect-to-azure-virtual-network-with-expressroute).
 
 ### The main steps are:
 1. Have Azure VMware Solution private clouds deployed – Azure VMware Solution on native and Azure VMware Solution previous edition.

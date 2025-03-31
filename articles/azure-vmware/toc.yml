@@ -5,13 +5,11 @@ items:
   href: introduction.md 
 - name: Azure VMware Solution on Native
   items:
-  - name: What's Azure VMware Solution on Native
+  - name: Azure VMware Solution in a Virtual Network (Public preview) 
     href: native-introduction.md
-  - name: What's new
-    href: native-azure-vmware-solution-updates.md
   - name: Tutorial
     items:
-    - name: Create an Azure VMware Solution on Native Private Cloud (Public Preview)
+    - name: Create an Azure VMware Solution in an Azure virtual network (Public preview) 
       href: native-create-azure-vmware-private-cloud.md
   - name: Architecture
     items:

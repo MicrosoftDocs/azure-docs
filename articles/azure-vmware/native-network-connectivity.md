@@ -17,7 +17,7 @@ and other virtual networks.
 - Azure VMware Solution on native private cloud deployed successfully within your Azure virtual network.
 - Multiple virtual networks to establish connectivity to private cloud Azure virtual network.
 
-## Connectivity to Azure VMware Solution Hosted (Local) virtual network
+## Azure VMware Solution Hosted (Local) virtual network
 
 Azure VMware Solution on native is directly hosted on Azure Virtual Network, unlike its predecessor. This means that the connectivity to the local virtual network from Azure VMware Solution SDDC is established during deployment, with no another configuration required. The Azure VMware Solution on native operates similarly to other Azure services from a network connectivity standpoint. Therefore any NSX workload segments created on Azure VMware Solution SDDC are systematically programmed, as virtual network address space, to the virtual network domain for routing purposes.
 
@@ -25,7 +25,7 @@ Azure VMware Solution on native is directly hosted on Azure Virtual Network, unl
 
 Azure VMware Solution creates the following read-only management subnets within the hosted virtual network to host required SDDC components. These Management Subnets are allocated from the management address block specified for SDDC creation. The following  are sample subnets derived from an SDDC with a 10.74.64.0/22 address block.
 
-## Connectivity to other virtual networks
+## Other virtual networks
 
 Azure VMware Solution's native connectivity to nonlocal virtual networks follows the same procedure as Azure virtual network users use to connect their workloads between virtual networks. Azure VMware Solution on native virtual network can be connected to other nonlocal virtual networks using Azure virtual network peering as described in the following [Azure documentation](/azure/virtual-network/virtual-network-peering-overview).
 
