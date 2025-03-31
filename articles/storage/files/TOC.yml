@@ -271,6 +271,8 @@
     href: files-monitoring-alerts.md
 - name: Application development
   items:
+  - name: Overview
+    href: storage-files-developer-overview.md
   - name: Configure connection strings
     href: ../common/storage-configure-connection-string.md?toc=/azure/storage/files/toc.json
   - name: .NET
