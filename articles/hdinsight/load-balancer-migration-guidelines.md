@@ -6,7 +6,7 @@ ms.topic: how-to
 author: abhishjain002
 ms.author: abhishjain
 ms.reviewer: sairamyeturi
-ms.date: 03/03/2025
+ms.date: 03/31/2025
 ---
 
 # Basic Load balancer deprecation: Guidelines for Azure HDInsight
@@ -132,7 +132,12 @@ NAT gateway provides outbound network connectivity for the cluster. NSG controls
 
          
        * **Method 2:** Create a new subnet and then create the cluster with the new subnet.
- 
+
+> [!IMPORTANT]
+> * If you experience job slowness or network issues after cluster recreation with a standard load balancer, check the "Total SNAT Connection Count" and "Dropped Packets" on your NAT Gateway. High values may indicate SNAT port exhaustion. To address this, consider implementing one of the following methods:
+>   * Bind additional IP addresses or IP prefixes to your NAT Gateway. For more information, see [Troubleshoot Azure NAT Gateway connectivity - Azure NAT Gateway](/azure/nat-gateway/troubleshoot-nat-connectivity) and [Metrics and alerts for Azure NAT Gateway - Azure NAT Gateway](/azure/nat-gateway/nat-metrics#total-snat-connection-count).
+>   * Enable private link to storage accout which could reduce SNAT port dependency. For more information, see [Use private endpoints for Azure Storage](/azure/storage/common/storage-private-endpoints).
+
 > [!NOTE]
 > If you are using an ESP cluster with MFA disabled, ensure to check the MFA status once cluster is recreated using a NAT gateway.
 
