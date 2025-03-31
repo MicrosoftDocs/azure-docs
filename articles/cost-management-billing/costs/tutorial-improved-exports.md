@@ -3,7 +3,7 @@ title: Tutorial - Create and manage Cost Management exports
 description: This tutorial helps you create automatic exports for your actual and amortized costs.
 author: jojohpm
 ms.author: jojoh
-ms.date: 02/20/2025
+ms.date: 03/30/2025
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -12,9 +12,7 @@ ms.reviewer: jojoh
 
 # Tutorial: Create and manage Cost Management exports
 
-If you read the Cost Analysis tutorial, then you're familiar with manually downloading your Cost Management data. However, you can create a recurring task that automatically exports your Cost Management data to Azure storage on a daily, weekly, or monthly basis. Exported data is in CSV format and it contains all the information that Cost Management collects. You can then use the exported data in Azure storage with external systems and combine it with your own custom data. And you can use your exported data in an external system like a dashboard or other financial system.
-
-This tutorial helps you create one-time and automatic exports. The exports feature is optimized to handle large datasets.
+If you read the Cost Analysis tutorial, then you're familiar with manually downloading your Cost Management data. However, you can create a recurring task that automatically exports your Cost Management data to Azure storage on a daily, or monthly basis. Exports is designed to streamline your FinOps practice by automating the export of other cost-impacting datasets. You can use the exported data with external systems and combine it with your own custom data.
 
 In this tutorial, you learn how to:
 
@@ -29,7 +27,7 @@ In this tutorial, you learn how to:
 
 ## Updated functionality
 
-The exports feature supports new datasets including price sheets, reservation recommendations, reservation details, and reservation transactions. Also, you can download cost and usage details using the open-source FinOps Open Cost and Usage Specification [FOCUS](https://focus.finops.org/) format. It combines actual and amortized costs and reduces data processing times and storage and compute costs.
+The exports feature supports multiple datasets including price sheets, reservation recommendations, reservation details, and reservation transactions. Also, you can download cost and usage details using the open-source FinOps Open Cost and Usage Specification [FOCUS](https://focus.finops.org/) format. It combines actual and amortized costs and reduces data processing times and storage and compute costs.
 FinOps datasets are often large and challenging to manage. Exports improve file manageability, reduce download latency, and help save on storage and network charges with the following functionality:
 
 - File partitioning, which breaks the file into manageable smaller chunks.
@@ -132,7 +130,7 @@ Review your export configuration and make any necessary changes. When done, sele
 
 Your new export appears in the list of exports. By default, new exports are enabled. If you want to disable or delete a scheduled export, select any item in the list, and then select either **Disable** or **Delete**.
 
-Initially, it can take 12-24 hours before the export runs. However, it can take longer before the data appear in exported files.
+The export process can take up to 24 hours to complete before the data is ready.
 
 ## Configure exports for storage accounts with a firewall
 
@@ -159,20 +157,12 @@ Add exports to the list of trusted services. For more information, see [Trusted 
 
 ## Manage exports
 
-You can view and manage your exports by navigating to the Exports page where a summary of details for each export appears, including:
+You can view the list of available exports by navigating to the Exports page and manage individual exports by selecting them.
 
-- Type of data
-- Schedule status
-- Data version
-- Last run time
-- Frequency
-- Storage account
-- Estimated next run date and time
-
-You can perform the following actions by selecting the ellipsis (**…**) on the right side of the page or by selecting the individual export.
+You can perform the following actions on individual exports.
 
 - Run now - Queues an unplanned export to run at the next available moment, regardless of the scheduled run time.
-- Export selected dates - Reruns an export for a historical date range instead of creating a new one-time export. You can extract up to 13 months of historical data in three-month chunks. This option isn't available for price sheets.
+- Export selected dates - Reruns an export for a historical date range instead of creating a new one-time export. You can extract up to 13 months of historical data in one-month chunks. This option isn't available for price sheets.
 - Disable - Temporarily suspends the export job.
 - Delete - Permanently removes the export.
 - Refresh - Updates the Run history.
@@ -181,16 +171,15 @@ You can perform the following actions by selecting the ellipsis (**…**) on the
 
 ### Understand schedule frequency
 
-Scheduled exports get affected by the time and day of week of when you initially create the export. When you create a scheduled export, the export runs at the same frequency for each export that runs later. For instance, the export is scheduled to run once every UTC day. It creates a daily export of costs accumulated from the start of the month to the current date. It occurs at a daily frequency. Similarly for a weekly export, the export runs every week on the same UTC day as it is scheduled. Individual export runs can occur at different times throughout the day. So, avoid taking a firm dependency on the exact time of the export runs. Run timing depends on the active load present in Azure during a given UTC day. When an export run begins, your data should be available within 4 hours.
+When you create a scheduled export, the export runs at the same frequency for each export that runs later.  For instance, if the export is scheduled to run once every UTC day, it creates a daily export of costs accumulated from the start of the month to the current date. Individual export runs can occur at different times throughout the day, so avoid relying on the exact time of the export runs. The run timing depends on the active load present in Azure during a given UTC day. Once an export run begins, your data should be available within 4 hours. Exports are scheduled using Coordinated Universal Time (UTC). The Exports API always uses and displays UTC.
 
-Exports are scheduled using Coordinated Universal Time (UTC). The Exports API always uses and displays UTC.
+When you create an export using the [Exports API](/rest/api/cost-management/exports/create-or-update?tabs=HTTP), specify the `recurrencePeriod` in UTC time. The API doesn’t convert your local time to UTC.
+  - Example - A daily export is scheduled on Friday, August 19 with `recurrencePeriod` set to 2:00 PM. The API receives the input as 2:00 PM UTC, Friday, August 19.
 
-- When you create an export using the [Exports API](/rest/api/cost-management/exports/create-or-update?tabs=HTTP), specify the `recurrencePeriod` in UTC time. The API doesn’t convert your local time to UTC.
-    - Example - A weekly export is scheduled on Friday, August 19 with `recurrencePeriod` set to 2:00 PM. The API receives the input as 2:00 PM UTC, Friday, August 19. The weekly export is scheduled to run every Friday.
-- When you create an export in the Azure portal, its start date time is automatically converted to the equivalent UTC time.
-    - Example - A weekly export is scheduled on Friday, August 19 with the local time of 2:00 AM IST (UTC+5:30) from the Azure portal. The API receives the input as 8:30 PM, Thursday, August 18. The weekly export is scheduled to run every Thursday.
+When you create an export in the Azure portal, its start date time is automatically converted to the equivalent UTC time.
+  - Example - A daily export is scheduled on Friday, August 19 with the local time of 2:00 AM IST (UTC+5:30) from the Azure portal. The API receives the input as 8:30 PM, Thursday, August 18.
 
-Each export creates a new file, so older exports aren't overwritten. All types of data support various schedule frequency options, as described in the following table.
+Various datasets support different schedule frequency options as described in the following table.
 
 | **Type of data** | **Frequency options** |
 | --- | --- |
@@ -214,52 +203,56 @@ Exports at the management group scope support only usage charges. Purchases, inc
     :::image type="content" source="./media/tutorial-improved-exports/new-export-management-group-scope.png" alt-text="Screenshot showing the Create new export option with a management group scope.":::
     UPDATE
 
-## Optional - Enable file partitioning for large datasets
+## File partitioning for large datasets
 
-If you have a Microsoft Customer Agreement, Microsoft Partner Agreement, or Enterprise Agreement, you can enable Exports to chunk your file into multiple smaller file partitions to help with data ingestion. When you initially configure your export, set the **File Partitioning** setting to **On**. The setting is **Off** by default.
+The file partitioning is a feature that is activated by default to facilitate the management of large files. This functionality divides larger files into smaller segments, which enhances the ease of file transfer, download, ingestion, and overall readability. It's advantageous for customers whose cost files increase in size over time. The specifics of the file partitions are described in a manifest.json file provided with each export run, enabling you to rejoin the original file.
 
-:::image type="content" source="./media/tutorial-improved-exports/file-partition.png" alt-text="Screenshot showing File Partitioning option." lightbox="./media/tutorial-improved-exports/file-partition.png" :::
+### Manifest file
 
-If you don't have a Microsoft Customer Agreement, Microsoft Partner Agreement, or Enterprise Agreement, then you don't see the **File Partitioning** option.
-
-Partitioning isn't currently supported for resource groups or management group scopes.
-
-### Update existing exports for file partitioning
-
-If you have existing exports and you want to set up file partitioning, create a new export. File partitioning is only available with the latest Exports version. There might be minor changes to some of the fields in the usage files that get created.
-
-If you enable file partitioning on an existing export, you might see minor changes to the fields in file output. Any changes are due to updates that were made to Exports after you initially set yours up.
-
-### Partitioning output
-
-When file partitioning is enabled, you get a file for each partition of data in the export along with a _manifest.json file. The manifest contains a summary of the full dataset and information for each file partition in it. Each file partition has headers and contains only a subset of the full dataset. To handle the full dataset, you must ingest each partition of the export.
+With every export run you get multiple partitions of the data along with a manifest.json file. The manifest contains a summary of the full dataset and information for each file partition in it. Each file partition has headers and contains only a subset of the full dataset. To handle the full dataset, you must ingest each partition of the export.
 
 Here's a _manifest.json example manifest file.
 
 ```json
 {
-  "manifestVersion": "2021-01-01",
-  "dataFormat": "csv",
+  "manifestVersion": "2024-04-01",
+  "byteCount": 8032,
   "blobCount": 1,
-  "byteCount": 160769,
-  "dataRowCount": 136,
+  "dataRowCount": 36,
+  "exportConfig": {
+    "exportName": "sample",
+    "resourceId": "/providers/Microsoft.Billing/billingAccounts/1234567/providers/Microsoft.CostManagement/exports/sample",
+    "dataVersion": "2023-05-01",
+    "apiVersion": "2023-07-01-preview",
+    "type": "ReservationRecommendations",
+    "timeFrame": "MonthToDate",
+    "granularity": null
+  },
+  "deliveryConfig": {
+    "partitionData": true,
+    "dataOverwriteBehavior": "OverwritePreviousReport",
+    "fileFormat": "Csv",
+    "compressionMode": "None",
+    "containerUri": "/subscriptions/ 00000000-0000-0000-0000-000000000000/resourceGroups/samplerg/providers/Microsoft.Storage/storageAccounts/samplestorage",
+    "rootFolderPath": "folder"
+  },
+  "runInfo": {
+    "executionType": "OnDemand",
+    "submittedTime": "2025-03-21T21:04:06.5234447Z",
+    "runId": "bbac73f1-9a05-4de6-84ab-c72b568a03b4",
+    "startDate": "2025-03-01T00:00:00",
+    "endDate": "2025-03-21T00:00:00Z"
+  },
   "blobs": [
     {
-      "blobName": "blobName.csv",
-      "byteCount": 160769,
-      "dataRowCount": 136,
-      "headerRowCount": 1,
-      "contentMD5": "md5Hash"
+      "blobName": " folder/sample/ 00000000-0000-0000-0000-000000000000/part0.csv",
+      "byteCount": 8032,
+      "dataRowCount": 36
     }
   ]
 }
+
 ```
-
-### Update export version
-
-When you create a scheduled export in the Azure portal or with the API, it always runs on the exports version used at creation time. Azure keeps your previously created exports on the same version, unless you update it. Doing so prevents changes in the charges and to CSV fields if the export version is changed. As the export functionality changes over time, field names are sometimes changed and new fields are added.
-
-If you want to use the latest data and fields available, we recommend that you create a new export in the Azure portal. To update an existing export to the latest version, update it in the Azure portal or with the latest Export API version. Updating an existing export might cause you to see minor differences in the fields and charges in files that are produced afterward.
 
 ## Verify that data is collected
 
@@ -275,9 +268,9 @@ The file opens with the program or application set to open CSV file extensions. 
 
 :::image type="content" border="true" source="./media/tutorial-improved-exports/example-export-data.png" alt-text="Screenshot showing exported CSV data in Excel.":::
 
-### Download an exported CSV data file
+### Download an exported data file
 
-To download the CSV file, browse to the file in Microsoft Azure Storage Explorer and download it.
+To download the exported CSV or Parquet file, browse to the file in Microsoft Azure Storage Explorer and download it.
 
 ## View export run history
 
@@ -289,9 +282,9 @@ Select an export to view the run history.
 
 :::image type="content" source="./media/tutorial-improved-exports/single-export-run-history.png" alt-text="Screenshot shows the run history of an export.":::
 
-### Export runs twice a day for the first five days of the month
+### Cost export runs twice a day for the first five days of the month
 
-There are two runs per day for the first five days of each month after you create a daily export. One run executes and creates a file with the current month’s cost data. It's the run that's available for you to see in the run history. A second run also executes to create a file with all the costs from the prior month. The second run isn't currently visible in the run history. Azure executes the second run to ensure that your latest file for the past month contains all charges exactly as seen on your invoice. It runs because there are cases where latent usage and charges are included in the invoice up to 72 hours after the calendar month is closed. To learn more about Cost Management usage data updates, see [Cost and usage data updates and retention](understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). 
+There are two runs per day for the first five days of each month after you create a daily export of cost and usage details dataset. One run executes and creates a file with the current month’s cost data. It's the run that's available for you to see in the run history. A second run also executes to create a file with all the costs from the prior month. The second run isn't currently visible in the run history. Azure executes the second run to ensure that your latest file for the past month contains all charges exactly as seen on your invoice. It runs because there are cases where latent usage and charges are included in the invoice up to 72 hours after the calendar month is closed. To learn more about Cost Management usage data updates, see [Cost and usage data updates and retention](understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). 
 
 >[!NOTE]
 > Daily export created between 1st to 5th of the current month would not generate data for the previous month as the export schedule starts from the date of creation. 
@@ -328,7 +321,7 @@ Agreement types, scopes, and required roles are explained at [Understand and wor
 
 The exports experience currently has the following limitations.
 
-- The new exports experience doesn't fully support the management group scope and it has feature limitations.
+- The new exports experience doesn't fully support the management group scope and has feature limitations. Only the cost and usage details (Usage) dataset is available in CSV format without any compression.
 - Azure MOSP billing scopes and subscriptions don’t support FOCUS datasets.
 - Shared access service (SAS) key-based cross tenant export is only supported for Microsoft partners at the billing account scope. It isn't supported for other partner scenarios like any other scope, EA indirect contract, or Azure Lighthouse.
 
@@ -432,6 +425,58 @@ Azure ensures that the cost file for a particular month is available within that
 - **With file overwrite:** You see only one *RunID* within the month folder, representing the latest run.
 
 At the time of export creation, you can name the *StorageContainer*, *StorageDirectory*, and *ExportName*.
+
+#### Why do I see garbled characters when I open exported cost files with Microsoft Excel?
+
+If you see garbled characters in Excel and you use an Asian-based language, such as Japanese or Chinese, you can resolve this issue with the following steps:
+
+For new versions of Excel:
+
+1.	Open Excel.
+2.	Select the **Data** tab at the top.
+3.	Select the **From Text/CSV option**.  
+IMAGE
+4.	Select the CSV file that you want to import.
+5.	In the next box, set **File origin** to **65001: Unicode (UTF-8)**.  
+IMAGE
+6.	Select **Load**.
+
+For older versions of MS Excel:
+
+1.	Open Excel.
+2.	Select the **Data** tab at the top.
+3.	Select the **From Text** option and then select the CSV file that you want to import.
+4.	Excel shows the Text Import Wizard.
+5.	In the wizard, select the **Delimited** option.
+6.	In the **File origin** field, select **65001 : Unicode (UTF-8)**.
+7.	Select **Next**.
+8.	Next, select the **Comma** option and then select **Finish**.
+9.	In the dialog window that appears, select **OK**.
+
+#### Why does the aggregated cost from the exported file differ from the cost displayed in Cost Analysis?
+
+You might notice discrepancies between the aggregated cost from an exported file and the cost displayed in Cost Analysis. These differences can occur if the tool you use to read and aggregate the total cost truncates decimal values. This issue is common in tools like Power BI and Microsoft Excel.
+
+**Using Power BI**
+
+Check if decimal places are being dropped when cost values are converted into integers. Losing decimal values can result in a loss of precision and misrepresentation of the aggregated cost.
+
+To manually transform a column to a decimal number in Power BI, follow these steps:
+
+1.	Go to the **Table** view.
+2.	Select **Transform data**.
+3.	Right-click the required column.
+4.	Change the type to **Decimal Number**.
+
+**Using Microsoft Excel**
+
+When you open a .csv or .txt file, Excel might display a warning message if it detects that an automatic data conversion is about to occur. Select the **Convert** option when prompted to ensure numbers are stored as numbers and not as text. It ensures the correct aggregated total. For more information, see [Control data conversions in Excel for Windows and Mac](https://techcommunity.microsoft.com/blog/microsoft365insiderblog/control-data-conversions-in-excel-for-windows-and-mac/4215336).
+
+IMAGE
+
+If the correct conversion isn't used, you get a green triangle with a Number Stored as Text error. This error might result in incorrect aggregation of charges, leading to discrepancies with cost analysis.
+
+IMAGE
 
 ## Next steps
 
