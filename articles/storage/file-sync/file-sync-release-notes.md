@@ -75,20 +75,22 @@ Perform one of the following options for your Windows Server 2012 R2 servers pri
 >Azure File Sync agent v17.3 is the last agent release currently planned for Windows Server 2012 R2. To continue to receive product improvements and bug fixes, upgrade your servers to Windows Server 2016 or later.
 
 ## Version 20.0.0.0
-The following release notes are for Azure File Sync version 20.0.0.0 (released Febuary 10, 2025). This release contains improvements for the Azure File Sync service and agent. 
+The following release notes are for Azure File Sync version 20.0.0.0 (released February 10, 2025). This release contains improvements for the Azure File Sync service and agent. 
 
 ### Improvements and issues that are fixed
-**Managed identities preview improvements**  
-Azure File Sync support for managed identities preview was announced in November 2024.  
-Since the preview was announced, we've made the following improvements: 
- - You can now use the portal to configure your Azure File Sync deployment to use managed identities.
-> [!NOTE]
-> The portal experience will be gradually enabled in all regions within the next few weeks.
- - The following settings on your storage account are no longer required and can be disabled:
-    - Allow storage account key access
-    - Allow Azure services on the trusted services list to access this storage account 
+**General Availability: Managed Identities support for Azure File Sync service and servers**
 
-For more information, see: [How to use managed identities with Azure File Sync (preview)](file-sync-managed-identities.md).
+Azure File Sync now supports system-assigned managed identities for authentication, eliminating the need for [shared keys](../common/storage-account-keys-manage.md) and simplifying security management with Microsoft Entra ID. You can now configure managed identities directly from the Azure portal, making deployments easier and more secure.
+ 
+When managed identities are configured, the system-assigned managed identities will be used for the following scenarios:
+- Storage Sync Service authentication to Azure file share
+- Registered server authentication to Azure file share
+- Registered server authentication to Storage Sync Service
+
+For more information, see: [How to use managed identities with Azure File Sync](file-sync-managed-identities.md).
+
+> [!NOTE]
+>The portal experience for general availability will gradually roll out to all regions in the coming weeks.
 
 **Miscellaneous reliability and telemetry improvements for cloud tiering and sync**
 ### Evaluation Tool

@@ -8,9 +8,7 @@ ms.date: 10/31/2024
 ms.author: kendownie
 ---
 
-# How to use managed identities with Azure File Sync (preview)
-
-Azure File Sync support for system-assigned managed identities is now in preview.
+# How to use managed identities with Azure File Sync
 
 Managed Identity support eliminates the need for shared keys as a method of authentication by utilizing a system-assigned managed identity provided by Microsoft Entra ID. 
 
@@ -21,34 +19,20 @@ When you enable this configuration, the system-assigned managed identities will 
 
 To learn more about the benefits of using managed identities, see [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
-To configure your Azure File Sync deployment to utilize system-assigned managed identities, please follow the guidance in the subsequent sections.
+To configure your Azure File Sync deployment to utilize system-assigned managed identities follow the guidance in the subsequent sections.
 
 ## Prerequisites
 # [Portal](#tab/azure-portal) 
-- You need to have a **Storage Sync Service** [deployed](file-sync-deployment-guide.md) with at least one **registered server**.  
+- **Azure File Sync agent version 20.0.0.0 or later** must be installed on the registered server. 
 
-- **Azure File Sync agent version 19.1.0.0 or later** must be installed on the registered server. 
-
-- On your **storage accounts** used by Azure File Sync: 
-
-  - You must be a **member of the Owner management role** or have “Microsoft.Authorization/roleassignments/write” permissions. 
-
-  - **Allow Azure services on the trusted services list to access this storage account** exception must be enabled for preview. [Learn more](file-sync-networking-endpoints.md#grant-access-to-trusted-azure-services-and-restrict-access-to-the-storage-account-public-endpoint-to-specific-virtual-networks) 
-
-  - **Allow storage account key access** must be enabled for preview. To check this setting, navigate to your storage account and select **Configuration** under the Settings section.
+- On your **storage accounts** used by Azure File Sync, you must be a **member of the Owner management role** or have “Microsoft.Authorization/roleassignments/write” permissions. 
 
 # [PowerShell](#tab/azure-powershell) 
-- You need to have a **Storage Sync Service** [deployed](file-sync-deployment-guide.md) with at least one **registered server**.  
+- **Azure File Sync agent version 20.0.0.0 or later** must be installed on the registered server. 
 
-- **Azure File Sync agent version 19.1.0.0 or later** must be installed on the registered server. 
+- On your **storage accounts** used by Azure File Sync, you must be a **member of the Owner management role** or have “Microsoft.Authorization/roleassignments/write” permissions. 
 
-- On your **storage accounts** used by Azure File Sync: 
-
-  - You must be a **member of the Owner management role** or have “Microsoft.Authorization/roleassignments/write” permissions. 
-
-  - **Allow Azure services on the trusted services list to access this storage account** exception must be enabled for preview. [Learn more](file-sync-networking-endpoints.md#grant-access-to-trusted-azure-services-and-restrict-access-to-the-storage-account-public-endpoint-to-specific-virtual-networks) 
-
-  - **Allow storage account key access** must be enabled for preview. To check this setting, navigate to your storage account and select **Configuration** under the Settings section. 
+ 
   
   -	**Az.StorageSync [PowerShell module](https://www.powershellgallery.com/packages/Az.StorageSync) version 2.2.0 or later** must be installed on the machine that will be used to configure Azure File Sync to use managed identities. To install the latest Az.StorageSync PowerShell module, run the following command from an elevated PowerShell window:
 
@@ -58,24 +42,23 @@ To configure your Azure File Sync deployment to utilize system-assigned managed 
 ---
 ## Regional availability
 
-Azure File Sync support for system-assigned managed identities (preview) is available in [all Azure Public and Gov regions](https://azure.microsoft.com/global-infrastructure/locations/) that support Azure File Sync.
+Azure File Sync support for system-assigned managed identities  is available in [all Azure Public and Gov regions](https://azure.microsoft.com/global-infrastructure/locations/) that support Azure File Sync.
 
 ## Enable a system-assigned managed identity on your registered servers
 Before you can configure Azure File Sync to use managed identities, your registered servers must have a system-assigned managed identity that will be used to authenticate to the Azure File Sync service and Azure file shares. 
 
-To enable a system-assigned managed identity on a registered server that has the Azure File Sync v19 agent installed, perform the following steps:
+To enable a system-assigned managed identity on a registered server that has the Azure File Sync v20 agent installed, perform the following steps:
 - If the server is hosted outside of Azure, it must be an **Azure Arc-enabled server** to have a system-assigned managed identity. For more information on Azure Arc-enabled servers and how to install the Azure Connected Machine agent, see: [Azure Arc-enabled servers Overview](/entra/identity/managed-identities-azure-resources/overview).  
 - If the server is an Azure virtual machine, **enable the system-assigned managed identity setting on the VM**. For more information, see: [Configure managed identities on Azure virtual machines](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities?pivots=qs-configure-portal-windows-vm#enable-system-assigned-managed-identity-on-an-existing-vm).
 
 > [!NOTE]
-> - At least one registered server must have a system-assigned managed identity before you can configure the Storage Sync Service to use a system-assigned identity.
 > - Once the Storage Sync Service is configured to use managed identities, registered servers that do not have a system-assigned managed identity will continue to use a shared key to authenticate to your Azure file shares.
  
 ### How to check if your registered servers have a system-assigned managed identity
 # [Portal](#tab/azure-portal) 
 To check if your registered servers have a system-assigned managed identity, perform the following steps using the portal:  
 
-1. Go to your **Storage Sync Service** in the Azure portal, expand **Settings** and select **Managed identity (preview)**. 
+1. Go to your **Storage Sync Service** in the Azure portal, expand **Settings** and select **Managed identity**. 
 
 2. In the Registered Servers section, click the **Ready to use Managed ID** tile. This tile displays a list of servers that have a system-assigned managed identity. If your server is not listed, perform the steps to [Enable a system-assigned managed identity on your registered servers]( #enable-a-system-assigned-managed-identity-on-your-registered-servers).  
 
@@ -99,7 +82,7 @@ If the value for the **ActiveAuthType** property is **Certificate** and the **La
 
 To configure the Storage Sync Service and registered servers to use system-assigned managed identities, perform the following steps in the portal: 
 
-1. Go to your **Storage Sync Service** in the Azure portal, expand **Settings** and select **Managed identity (preview)**. 
+1. Go to your **Storage Sync Service** in the Azure portal, expand **Settings** and select **Managed identity**. 
 
 2. Click **Turn on Managed identity** to begin setup. 
 
@@ -118,7 +101,7 @@ The following steps are performed and will take several minutes (or longer for l
 - Configures registered server(s) to use system-assigned managed identity.  
 
 > [!NOTE] 
-> Once the registered server(s) are configured to use a system-assigned managed identity, it can take up to one hour before the server uses the system-assigned managed identity to authenticate to the Storage Sync Service and file shares.
+> Once the registered server(s) are configured to use a system-assigned managed identity, it can take up to 15 minutes before the server uses the system-assigned managed identity to authenticate to the Storage Sync Service and file shares.
 
 
 # [PowerShell](#tab/azure-powershell) 
@@ -128,8 +111,6 @@ To configure the Storage Sync Service and registered servers to use system-assig
 Set-AzStorageSyncServiceIdentity -ResourceGroupName <string> -StorageSyncServiceName <string> -Verbose
 ```
 The **Set-AzStorageSyncServiceIdentity** cmdlet performs the following steps for you and will take several minutes (or longer for large topologies) to complete:
-- Validates at least one registered server has a system assigned managed identity. 
-  - The cmdlet will stop at this step if there are no registered servers with a system-assigned managed identity.
 -	Enables a system-assigned managed identity for Storage Sync Service resource.
 - Grants the Storage Sync Service system-assigned managed identity access to your Storage Accounts (Storage Account Contributor role).
 -	Grants the Storage Sync Service system-assigned managed identity access to your Azure file shares (Storage File Data Privileged Contributor role).
@@ -140,7 +121,7 @@ The **Set-AzStorageSyncServiceIdentity** cmdlet performs the following steps for
 Use the **Set-AzStorageSyncServiceIdentity** cmdlet anytime you need to configure additional registered servers to use managed identities.
 
 > [!NOTE]
-> Once the registered server(s) are configured to use a system-assigned managed identity, it can take up to one hour before the server uses the system-assigned managed identity to authenticate to the Storage Sync Service and file shares.
+> Once the registered server(s) are configured to use a system-assigned managed identity, it can take up to 15 minutes before the server uses the system-assigned managed identity to authenticate to the Storage Sync Service and file shares.
 
 ---
 ### How to check if the Storage Sync Service is using a system-assigned managed identity
@@ -149,7 +130,7 @@ Use the **Set-AzStorageSyncServiceIdentity** cmdlet anytime you need to configur
 
 To check if the Storage Sync Service is using a system-assigned managed identity, perform the following steps in the portal: 
 
-1. Go to your **Storage Sync Service** in the Azure portal, expand **Settings** and select **Managed identity (preview)**. 
+1. Go to your **Storage Sync Service** in the Azure portal, expand **Settings** and select **Managed identity**. 
 
 2. In the Registered Servers section, if you have at least one server listed in the **Using Managed ID** tile, your service is configured to use managed identities.  
 
@@ -168,7 +149,7 @@ Verify the value for the **UseIdentity** property is **True**. If the value is *
 
 To check if a registered server is configured to use a system-assigned managed identity, perform the following steps in the portal: 
 
-1. Go to your **Storage Sync Service** in the Azure portal, expand **Settings** and select **Managed identity (preview)**. 
+1. Go to your **Storage Sync Service** in the Azure portal, expand **Settings** and select **Managed identity**. 
 
 2. In the Registered Servers section, click the **Using Managed ID** tile and verify the server is listed. 
 
@@ -181,12 +162,12 @@ Get-AzStorageSyncServer -ResourceGroupName <string> -StorageSyncServiceName <str
 Verify the **ApplicationId** property has a GUID which indicates the server is configured to use the managed identity. The value for the **ActiveAuthType** property will be updated to **ManagedIdentity** once the server is using the system-assigned managed identity.
 
 > [!NOTE]
-> Once the registered server(s) are configured to use a system-assigned managed identity, it can take up to one hour before the server uses the system-assigned managed identity to authenticate to the Storage Sync Service and Azure file shares.
+> Once the registered server(s) are configured to use a system-assigned managed identity, it can take up to 15 minutes before the server uses the system-assigned managed identity to authenticate to the Storage Sync Service and Azure file shares.
 
 ---
 ## More information
 Once the Storage Sync Service and registered server(s) are configured to use a system-assigned managed identity:
   - New endpoints (cloud or server) that are created will use a system-assigned managed identity to authenticate to the Azure file share.
-  - Use the Set-AzStorageSyncServiceIdentity cmdlet anytime you need to configure additional registered servers to use managed identities.
+  - When you need to configure additional registered servers to use managed identities, go to the Managed identity blade in the portal and click Turn on Managed identity or use the Set-AzStorageSyncServiceIdentity PowerShell cmdlet.
 
 If you experience issues, see: [Troubleshoot Azure File Sync managed identity issues](/troubleshoot/azure/azure-storage/files/file-sync/file-sync-troubleshoot-managed-identities).
