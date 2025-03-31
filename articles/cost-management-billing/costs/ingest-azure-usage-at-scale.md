@@ -29,7 +29,7 @@ Before you create your first export, consider your scenario and the configuratio
   - AmortizedCost - Shows the total usage and costs for the period specified, with amortization applied to the reservation purchase costs that are applicable.
   - Usage - All exports created before July 20 2020 are of type Usage. Update all your scheduled exports as either ActualCost or AmortizedCost.
 - **Columns** – Defines the data fields you want included in your export file. They correspond with the fields available in the [Cost Details](/rest/api/cost-management/generate-cost-details-report) API.
-- **Partitioning** - Set the option to true if you have a large dataset and would like it to be broken up into multiple files. It makes data ingestion faster and easier. For more information about partitioning, see [File partitioning for large datasets](../costs/tutorial-improved-exports.md#optional---enable-file-partitioning-for-large-datasets).
+- **Partitioning** - Set the option to true if you have a large dataset and would like it to be broken up into multiple files. It makes data ingestion faster and easier. For more information about partitioning, see [File partitioning for large datasets](../costs/tutorial-improved-exports.md#file-partitioning-for-large-datasets).
 
 ## Create a daily month-to-date export for a subscription
 
