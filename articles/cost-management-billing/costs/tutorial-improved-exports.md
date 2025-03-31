@@ -426,58 +426,57 @@ Azure ensures that the cost file for a particular month is available within that
 
 At the time of export creation, you can name the *StorageContainer*, *StorageDirectory*, and *ExportName*.
 
-#### Why do I see garbled characters when I open exported cost files with Microsoft Excel?
+### Why do I see garbled characters when I open exported cost files with Microsoft Excel?
 
 If you see garbled characters in Excel and you use an Asian-based language, such as Japanese or Chinese, you can resolve this issue with the following steps:
 
 For new versions of Excel:
 
-1.	Open Excel.
-2.	Select the **Data** tab at the top.
-3.	Select the **From Text/CSV option**.  
-IMAGE
-4.	Select the CSV file that you want to import.
-5.	In the next box, set **File origin** to **65001: Unicode (UTF-8)**.  
-IMAGE
-6.	Select **Load**.
+1. Open Excel.
+1. Select the **Data** tab at the top.
+1. Select the **From Text/CSV** option.
+    :::image type="content" source="./media/tutorial-improved-exports/new-excel-from-text.png" alt-text="Screenshot showing the Excel From Text/CSV option." lightbox="./media/tutorial-improved-exports/new-excel-from-text.png" :::
+1. Select the CSV file that you want to import.
+1. In the next box, set **File origin** to **65001: Unicode (UTF-8)**.
+    :::image type="content" source="./media/tutorial-improved-exports/new-excel-file-origin.png" alt-text="Screenshot showing the Excel File origin option." lightbox="./media/tutorial-improved-exports/new-excel-file-origin.png" :::
+1. Select **Load**.
 
 For older versions of MS Excel:
 
 1.	Open Excel.
-2.	Select the **Data** tab at the top.
-3.	Select the **From Text** option and then select the CSV file that you want to import.
-4.	Excel shows the Text Import Wizard.
-5.	In the wizard, select the **Delimited** option.
-6.	In the **File origin** field, select **65001 : Unicode (UTF-8)**.
-7.	Select **Next**.
-8.	Next, select the **Comma** option and then select **Finish**.
-9.	In the dialog window that appears, select **OK**.
+1.	Select the **Data** tab at the top.
+1.	Select the **From Text** option and then select the CSV file that you want to import.
+1.	Excel shows the Text Import Wizard.
+1.	In the wizard, select the **Delimited** option.
+1.	In the **File origin** field, select **65001 : Unicode (UTF-8)**.
+1.	Select **Next**.
+1.	Next, select the **Comma** option and then select **Finish**.
+1.	In the dialog window that appears, select **OK**.
 
-#### Why does the aggregated cost from the exported file differ from the cost displayed in Cost Analysis?
+### Why does the aggregated cost from the exported file differ from the cost displayed in Cost Analysis?
 
 You might notice discrepancies between the aggregated cost from an exported file and the cost displayed in Cost Analysis. These differences can occur if the tool you use to read and aggregate the total cost truncates decimal values. This issue is common in tools like Power BI and Microsoft Excel.
 
-**Using Power BI**
+#### Using Power BI
 
 Check if decimal places are being dropped when cost values are converted into integers. Losing decimal values can result in a loss of precision and misrepresentation of the aggregated cost.
 
 To manually transform a column to a decimal number in Power BI, follow these steps:
 
-1.	Go to the **Table** view.
-2.	Select **Transform data**.
-3.	Right-click the required column.
-4.	Change the type to **Decimal Number**.
+1. Go to the **Table** view.
+1. Select **Transform data**.
+1. Right-click the required column.
+1. Change the type to **Decimal Number**.
 
-**Using Microsoft Excel**
+#### Using Microsoft Excel
 
-When you open a .csv or .txt file, Excel might display a warning message if it detects that an automatic data conversion is about to occur. Select the **Convert** option when prompted to ensure numbers are stored as numbers and not as text. It ensures the correct aggregated total. For more information, see [Control data conversions in Excel for Windows and Mac](https://techcommunity.microsoft.com/blog/microsoft365insiderblog/control-data-conversions-in-excel-for-windows-and-mac/4215336).
+When you open a .csv or .txt file, Excel might display a warning message if it detects that an automatic data conversion is about to occur. Select the **Convert** option when prompted to ensure numbers are stored as numbers and not as text. It ensures the correct aggregated total. For more information, see [Control data conversions in Excel for Windows and Mac](https://insider.microsoft365.com/blog/control-data-conversions-in-excel-for-windows-and-mac).
 
-IMAGE
+:::image type="content" source="./media/tutorial-improved-exports/excel-convert-dialog.png" border="true" alt-text="Screenshot showing the Convert dialog.":::
 
-If the correct conversion isn't used, you get a green triangle with a Number Stored as Text error. This error might result in incorrect aggregation of charges, leading to discrepancies with cost analysis.
+If the correct conversion isn't used, you get a green triangle with a `Number Stored as Text` error. This error might result in incorrect aggregation of charges, leading to discrepancies with cost analysis.
 
-IMAGE
-
+:::image type="content" source="./media/tutorial-improved-exports/number-stored-as-text-error.png" border="true" alt-text="Screenshot showing the Number stored as text error.":::
 ## Next steps
 
 - For a comprehensive reference of all available datasets that you export, including the schema for current and historical versions, see [Cost Management dataset schema index](/azure/cost-management-billing/dataset-schema/schema-index).
