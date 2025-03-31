@@ -57,14 +57,14 @@ NFS nconnect is a client-side mount option for NFS file shares that allows you t
 
 ### Benefits
 
-With nconnect, you can increase performance at scale using fewer client machines to reduce total cost of ownership (TCO). The nconnect feature increases performance by using multiple TCP channels on one or more NICs, using single or multiple clients. Without nconnect, you'd need roughly 20 client machines in order to achieve the bandwidth scale limits (10 GiB/s) offered by the largest SSD file share provisioning size.  With nconnect, you can achieve those limits using only 6-7 clients, reducing compute costs by nearly 70% while providing significant improvements in I/O operations per second (IOPS) and throughput at scale. See the following table.
+With nconnect, you can increase performance at scale using fewer client machines to reduce total cost of ownership (TCO). The nconnect feature increases performance by using multiple TCP channels on one or more NICs, using single or multiple clients. Without nconnect, you'd need roughly 20 client machines in order to achieve the bandwidth scale limits (10 GiB / sec) offered by the largest SSD file share provisioning size. With nconnect, you can achieve those limits using only 6-7 clients, reducing compute costs by nearly 70% while providing significant improvements in I/O operations per second (IOPS) and throughput at scale. See the following table.
 
 | **Metric (operation)** | **I/O size**  | **Performance improvement** |
-|------------------------|---------------|-----------------------------|
-| IOPS (write)           | 64K, 1024K    | 3x                          |
-| IOPS (read)            | All I/O sizes | 2-4x                        |
-| Throughput (write)     | 64K, 1024K    | 3x                          |
-| Throughput (read)      | All I/O sizes | 2-4x                        |
+|-|-|-|
+| IOPS (write) | 64 KiB, 1024 KiB | 3x |
+| IOPS (read) | All I/O sizes | 2-4x |
+| Throughput (write) | 64 KiB, 1024 KiB | 3x |
+| Throughput (read) | All I/O sizes | 2-4x |
 
 ### Prerequisites
 
@@ -96,7 +96,7 @@ Queue depth is the number of pending I/O requests that a storage resource can se
 
 ### Per mount configuration
 
-If a workload requires mounting multiple shares with one or more storage accounts with different nconnect settings from a single client, we can't guarantee that those settings will persist when mounting over the public endpoint. Per-mount configuration is only supported when a single Azure file share is used per storage account over the private endpoint as described in Scenario 1.
+If a workload requires mounting multiple shares with one or more storage accounts with different nconnect settings from a single client, we can't guarantee that those settings persist when mounting over the public endpoint. Per mount configuration is only supported when a single Azure file share is used per storage account over the private endpoint as described in Scenario 1.
 
 #### Scenario 1: per mount configuration over private endpoint with multiple storage accounts (supported)
 
@@ -114,7 +114,7 @@ If a workload requires mounting multiple shares with one or more storage account
   - `Mount StorageAccount2.file.core.windows.net:/StorageAccount2/FileShare1`
 
 > [!NOTE]
-> Even if the storage account resolves to a different IP address, we can't guarantee that address will persist because public endpoints aren't static addresses.
+> Even if the storage account resolves to a different IP address, we can't guarantee that address persist because public endpoints aren't static addresses.
 
 #### Scenario 3: per mount configuration over private endpoint with multiple shares on single storage account (not supported)
 
@@ -157,13 +157,13 @@ fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_b
 
 #### High throughput: 100% reads
 
-**64k I/O size - random read - 64 queue depth**
+**64 KiB I/O size - random read - 64 queue depth**
 
 ```bash
 fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=64k --iodepth=64 --filesize=4G --rw=randread --group_reporting --ramp_time=300
 ```
 
-**1024k I/O size - 100% random read - 64 queue depth**
+**1024 KiB I/O size - 100% random read - 64 queue depth**
 
 ```bash
 fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=1024k --iodepth=64 --filesize=4G --rw=randread --group_reporting --ramp_time=300
@@ -171,13 +171,13 @@ fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_b
 
 #### High IOPS: 100% writes
 
-**4k I/O size - 100% random write - 64 queue depth**
+**4 KiB I/O size - 100% random write - 64 queue depth**
 
 ```bash
 fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=4k --iodepth=64 --filesize=4G --rw=randwrite --group_reporting --ramp_time=300
 ```
 
-**8k I/O size - 100% random write - 64 queue depth**
+**8 KiB I/O size - 100% random write - 64 queue depth**
 
 ```bash
 fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=8k --iodepth=64 --filesize=4G --rw=randwrite --group_reporting --ramp_time=300
@@ -185,13 +185,13 @@ fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_b
 
 #### High throughput: 100% writes
 
-**64k I/O size  - 100% random write - 64 queue depth**
+**64 KiB I/O size  - 100% random write - 64 queue depth**
 
 ```bash
 fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=64k --iodepth=64 --filesize=4G --rw=randwrite --group_reporting --ramp_time=300
 ```
 
-**1024k I/O size  - 100% random write - 64 queue depth**
+**1024 KiB I/O size  - 100% random write - 64 queue depth**
 
 ```bash
 fio --ioengine=libaio --direct=1 --nrfiles=4 --numjobs=1 --runtime=1800 --time_based --bs=1024k --iodepth=64 --filesize=4G --rw=randwrite --group_reporting --ramp_time=300
