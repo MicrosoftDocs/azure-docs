@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-event-hubs
-ms.date: 06/12/2024
+ms.date: 06-12-2024
 ---
 
 <!--#Customer intent:  I want to understand reliability support in Azure Event Hubs so that I can respond to and/or avoid failures in order to minimize downtime and data loss. -->
