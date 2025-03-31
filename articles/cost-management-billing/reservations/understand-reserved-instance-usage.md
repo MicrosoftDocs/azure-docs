@@ -1,13 +1,13 @@
 ---
 title: Azure reservation usage for an individual subscription
 description: Learn how to read your usage to understand how the Azure reservation for your individual subscription with pay-as-you-go rates is applied.
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 12/06/2024
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 ---
 
 # Understand Azure reservation usage for your individual subscription with pay-as-you-go rates subscription
