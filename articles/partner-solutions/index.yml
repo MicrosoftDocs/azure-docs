@@ -77,6 +77,11 @@ productDirectory:
       links:
         - url: ./palo-alto/palo-alto-overview.md
           text: Get a next generation firewall solution integrated with Azure that you can use to protect your organization.
+    - title: Pure Storage
+      imageSrc: ./media/index/pure-storage.svg
+      links:
+        - url: pure-storage/overview.md
+          text: Secure, efficient, and reliable block storage as a native managed service (STaaS).
     - title: Qumulo
       imageSrc: ./media/index/qumulo.svg
       links:
