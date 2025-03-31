@@ -70,6 +70,8 @@
       href: planned-maintenance.md
     - name: Build and deliver apps with Container Apps (video)
       href: https://youtu.be/OxmVds31qL8
+    - name: Reduce cold-start times
+      href: cold-start.md
 - name: Develop & deploy
   items:
     - name: Deployment options
@@ -276,6 +278,8 @@
   items:
     - name: Serverless GPUs
       href: gpu-serverless-overview.md
+    - name: GPU types
+      href: gpu-types.md
     - name: Tutorials
       items:
       - name: Generate images with serverless GPUs
@@ -356,6 +360,8 @@
           href: waf-app-gateway.md
         - name: Enable User Defined Routes (UDR)
           href: user-defined-routes.md
+        - name: Use rule-based routing
+          href: rule-based-routing.md
         - name: Securing a custom VNET with an NSG
           href: firewall-integration.md
         - name: Use a private endpoint
@@ -392,10 +398,10 @@
       - name: Launch your first Java app
         items:
         - name: Dockerfile
-          href: /azure/developer/java/toolkit-for-intellij/java-get-started-dockerfile
+          href: java-get-started-dockerfile.md
           displayName: java
         - name: Github repository
-          href: /azure/developer/java/toolkit-for-intellij/java-get-started-github-repository
+          href: java-get-started-github-repository.md
           displayName: java
         - name: IntelliJ
           href: /azure/developer/java/toolkit-for-intellij/create-container-apps-intellij?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
