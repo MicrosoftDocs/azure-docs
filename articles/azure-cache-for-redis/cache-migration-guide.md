@@ -10,6 +10,9 @@ ms.custom:
   - migration
   - aws-to-azure
 ms.date: 11/17/2021
+appliesto:
+  - ✅ Azure Cache for Redis
+
 ---
 # Migrate to Azure Cache for Redis
 
@@ -46,7 +49,7 @@ General steps to implement this option are:
 
 1. Create a new Azure Cache for Redis instance.
 
-1. Optionally, try out the new [Azure Managed Redis (preview)](./managed-redis/managed-redis-overview.md).
+1. Optionally, try out the new [Azure Managed Redis (preview)](../redis/overview.md).
 
 2. Update your application to use the new instance.
 
