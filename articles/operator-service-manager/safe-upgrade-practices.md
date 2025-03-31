@@ -50,12 +50,15 @@ Ultimately, the ability for a given service to be upgraded without interruption 
 When planning for an upgrade using Azure Operator Service Manager, address the following requirements in advance of upgrade execution to optimize the time spent attempting the upgrade.
 
 - Onboard updated artifacts using publisher and/or designer workflows.
-  - Publisher, artifact store, network service design group (NSDG), and network function design group (NFDG) are immutabe and cannot change.
-    - Changing one of these resources would require deployment of a new NF via put.
+  - In most cases, use the existing publisher to host new version artifacts.
+    - Using an existing publisher supports `helm upgrade` to update an SNS to a different version.
+    - Using a new publisher requies a `helm delete` on the current SNS and then a `helm install` for the new SNS version.
+  - Artifact store, network service design group (NSDG), and network function design group (NFDG) are immutabe and cannot change.
+    - Changing one of these resources requires deployment of a new SNS.
   - A new artifact manifest is needed to store the new charts and images.
-    - For more information, see [onboarding documentation](how-to-manage-artifacts-nexus.md) for details on uploading new charts and images.
+    - See [onboarding documentation](how-to-manage-artifacts-nexus.md) for details on uploading new charts and images.
   - A new NFDV, and optionally network service design version (NSDV), is needed.
-    - We cover basic changes to the NFDV in the step by step section.
+    - NFDV changes can be complex, we cover only basic changes in this article.
     - New NSDV is only required if a new configuration group schema (CGS) version is being introduced.
   - If necessary, new CGS.
     - Required if an upgrade introduces new exposed configuration parameters. 
@@ -107,10 +110,7 @@ By default, the reput retries nfApps in the declared update order, unless they a
 In the NFDV resource, under `deployParametersMappingRuleProfile` there is the property `applicationEnablement` of type enum, which takes values: Unknown, Enabled, or disabled. It can be used to exclude nfApp operations during network function (NF) deployment.
 
 ### Publisher changes
-For the `applicationEnablement` property, the publisher has two options: either provide a default value or parameterize it. 
-
-#### Sample NFDV
-The NFDV is used by publisher to set default values for applicationEnablement.
+For the `applicationEnablement` property, the publisher has two options: either provide a default value or parameterize it. In the following example, we have provided a default value for `hellotest` which can later be used in an override.
 
 ```json
 { 
@@ -118,118 +118,20 @@ The NFDV is used by publisher to set default values for applicationEnablement.
       "properties": {
       "networkFunctionTemplate": {
         "networkFunctionApplications": [
-          {
-            "artifactProfile": {
-              "helmArtifactProfile": { 
-                "var":"var"
-              },
-              "artifactStore": {
-                "id": "<artifactStore id>"
-              }
-            },
             "deployParametersMappingRuleProfile": {
-              "helmMappingRuleProfile": {
-                "releaseNamespace": "{deployParameters.role1releasenamespace}",
-                "releaseName": "{deployParameters.role1releasename}"
-              },
               "applicationEnablement": "Enabled"
             },
-            "artifactType": "HelmPackage",
-            "dependsOnProfile": "null",
             "name": "hellotest"
-          },
-          {
-            "artifactProfile": {
-              "helmArtifactProfile": {
-                 "var":"var"
-              },
-              "artifactStore": {
-                "id": "<artifactStore id>"
-              }
-            },
-            "deployParametersMappingRuleProfile": {
-              "helmMappingRuleProfile": {
-                "releaseNamespace": "{deployParameters.role2releasenamespace}",
-                "releaseName": "{deployParameters.role2releasename}"
-              },
-              "applicationEnablement": "Enabled"
-            },
-            "artifactType": "HelmPackage",
-            "dependsOnProfile": "null",
-            "name": "hellotest1"
           }
         ],
         "nfviType": "AzureArcKubernetes"
       },
-      "description": "null",
-      "deployParameters": {"type":"object","properties":{"role1releasenamespace":{"type":"string"},"role1releasename":{"type":"string"},"role2releasenamespace":{"type":"string"},"role2releasename":{"type":"string"}},"required":["role1releasenamespace","role1releasename","role2releasenamespace","role2releasename"]},
-      "networkFunctionType": "ContainerizedNetworkFunction"
     }
-}
-```
-
-#### Sample configuration group schema (CGS) resource
-The CGS is used by the publisher to require a `roleOverrideValues` variable to be provided by Operator at run-time. `roleOverrideValues` can include nondefault settings for `applicationEnablement`.
-
-```json
-{
-  "type": "object",
-  "properties": {
-    "location": {
-      "type": "string"
-    },
-    "nfviType": {
-      "type": "string"
-    },
-    "nfdvId": {
-      "type": "string"
-    },
-    "helloworld-cnf-config": {
-      "type": "object",
-      "properties": {
-        "role1releasenamespace": {
-          "type": "string"
-        },
-        "role1releasename": {
-          "type": "string"
-        },
-        "role2releasenamespace": {
-          "type": "string"
-        },
-        "role2releasename": {
-          "type": "string"
-        },
-        "roleOverrideValues1": {
-          "type": "string"
-        },
-        "roleOverrideValues2": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "role1releasenamespace",
-        "role1releasename",
-        "role2releasenamespace",
-        "role2releasename",
-        "roleOverrideValues1",
-        "roleOverrideValues2"
-      ]
-    }
-  },
-  "required": [
-    "nfviType",
-    "nfdvId",
-    "location",
-    "helloworld-cnf-config"
-  ]
 }
 ```
 
 ### Operator changes
-Operators inherit default `applicationEnablement` values as defined by the NFDV. If `applicationEnablement` is parameterized in CGS, then it must be passed through the `deploymentValues` property at runtime. 
- 
-#### Sample configuration group value (CGV) resource
-The CGV is used by the operator to set the `roleOverrideValues` variable at run-time. `roleOverrideValues` include nondefault settings for `applicationEnablement`.
+Operators inherit default `applicationEnablement` values as defined by the NFDV. If `applicationEnablement` is parameterized, then it can be passed through the `deploymentValues` property at runtime using the CGV. `roleOverrideValues` specifies a nondefault setting for `applicationEnablement`.
 
 ```json
 {
@@ -237,76 +139,8 @@ The CGV is used by the operator to set the `roleOverrideValues` variable at run-
   "nfviType": "AzureArcKubernetes",
   "nfdvId": "<nfdv_id>",
   "helloworld-cnf-config": {
-    "role1releasenamespace": "hello-test-releasens",
-    "role1releasename": "hello-test-release",
-    "role2releasenamespace": "hello-test-2-releasens",
-    "role2releasename": "hello-test-2-release",
-    "roleOverrideValues1": "{\"name\":\"hellotest\",\"deployParametersMappingRuleProfile\":{\"applicationEnablement\":\"Enabled\",\"helmMappingRuleProfile\":{\"releaseName\":\"override-release\",\"releaseNamespace\":\"override-namespace\",\"helmPackageVersion\":\"1.0.0\",\"values\":\"\",\"options\":{\"installOptions\":{\"atomic\":\"true\",\"wait\":\"true\",\"timeout\":\"30\",\"injectArtifactStoreDetails\":\"true\"},\"upgradeOptions\":{\"atomic\":\"true\",\"wait\":\"true\",\"timeout\":\"30\",\"injectArtifactStoreDetails\":\"true\"}}}}}",
-    "roleOverrideValues2": "{\"name\":\"hellotest1\",\"deployParametersMappingRuleProfile\":{\"applicationEnablement\" : \"Enabled\"}}"
+    "roleOverrideValues1": "{\"name\":\"hellotest\",\"deployParametersMappingRuleProfile\":{\"applicationEnablement\":\"Disable\"}}",
   }
-}
-```
-
-#### Sample NF ARM template
-The NF ARM template is used by operator to submit the `roleOverrideValues` variable, set by CGV, to the resource provider (RP). The operator can change the `applicationEnablement` setting in CGV, as needed, and resubmit the same NF ARM template, to alter behavior between iterations.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "nameValue": {
-      "type": "string",
-      "defaultValue": "HelloWorld"
-    },
-    "locationValue": {
-      "type": "string",
-      "defaultValue": "eastus"
-    },
-    "nfviTypeValue": {
-      "type": "string",
-      "defaultValue": "AzureArcKubernetes"
-    },
-    "nfviIdValue": {
-      "type": "string"
-    },
-    "config": {
-      "type": "object",
-      "defaultValue": {}
-    },
-    "nfdvId": {
-      "type": "string"
-    }
-  },
-  "variables": {
-    "deploymentValuesValue": "[string(createObject('role1releasenamespace', parameters('config').role1releasenamespace, 'role1releasename',parameters('config').role1releasename, 'role2releasenamespace', parameters('config').role2releasenamespace, 'role2releasename',parameters('config').role2releasename))]",
-    "nfName": "[concat(parameters('nameValue'), '-CNF')]",
-    "roleOverrideValues1": "[string(parameters('config').roleOverrideValues1)]",
-    "roleOverrideValues2": "[string(parameters('config').roleOverrideValues2)]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.HybridNetwork/networkFunctions",
-      "apiVersion": "2023-09-01",
-      "name": "[variables('nfName')]",
-      "location": "[parameters('locationValue')]",
-      "properties": {
-        "networkFunctionDefinitionVersionResourceReference": {
-          "id": "[parameters('nfdvId')]",
-          "idType": "Open"
-        },
-        "nfviType": "[parameters('nfviTypeValue')]",
-        "nfviId": "[parameters('nfviIdValue')]",
-        "allowSoftwareUpdate": true,
-        "configurationType": "Open",
-        "deploymentValues": "[string(variables('deploymentValuesValue'))]",
-        "roleOverrideValues": [
-          "[variables('roleOverrideValues1')]",
-          "[variables('roleOverrideValues2')]"
-        ]
-      }
-    }
-  ]
 }
 ```
 
