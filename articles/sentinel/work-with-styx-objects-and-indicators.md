@@ -102,7 +102,7 @@ SourceRelationships
 | project ActorName, PlusStixTypes, ObservableValue, importantfield, Tags, feedSource
  ```
 
-## Migrate existing queries from the legacy ThreatIntelIndicator schema to the new ThreatIntelObjects schema
+## Migrate existing queries to the new ThreatIntelObjects schema
 
 This example shows how to migrate existing queries from the legacy `ThreatIntelligenceIndicator` table to the new `ThreatIntelObjects` schema. The query uses the `extend` operator to recreate legacy columns based on the `ObservableKey` and `ObservableValue` columns in the new table. 
 
