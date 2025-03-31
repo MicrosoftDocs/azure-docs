@@ -85,7 +85,7 @@ You can limit network access to a private link.
 To enable private link access:
 
 1. Select **Configuration** in the left navigation.
-1. 
+
 1. Under **Networking**, select **Private Link** and the name of the private link.
 
 ## Traffic filters
