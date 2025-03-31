@@ -74,7 +74,7 @@ az containerapp up `
 
 By setting `--ingress` to `external`, you make the container app available to public requests.
 
-The `up` command returns the fully qualified domain name (FQDN) for the container app. Copy this FQDN to a text file. You'll use it in the [Send requests](#send-requests) section. Your FQDN looks like the following example:
+The `up` command returns the fully qualified domain name (FQDN) for the container app. Copy this FQDN to a text file. You use it in the [Send requests](#send-requests) section. Your FQDN looks like the following example:
 
 ```text
 https://my-container-app.icydune-96848328.centralus.azurecontainerapps.io
@@ -275,7 +275,7 @@ In the first shell, where you ran the `az containerapp logs show` command, the o
 
 :::image type="content" source="media/scale-app/azure-container-apps-scale-replicas.png" alt-text="Screenshot of container app replicas.":::
 
-You may need to select **Refresh** to see the new replicas.
+You might need to select **Refresh** to see the new replicas.
 
 1. In the navigation bar at the left, expand **Monitoring** and select **Metrics**.
 1. In the *Metrics* page, set **Metric** to **Requests**.
@@ -308,7 +308,7 @@ After you send requests to your scale app, it might take a minute before the sca
 
 CPU scaling allows your app to scale in or out depending on how much the CPU is being used.
 
-For example, if you create a CPU scale rule with a utilization value of `50`, Azure Container Apps creates additional replicas of your container app when the average CPU utilization for all replicas reaches 50%.
+For example, if you create a CPU scale rule with a utilization value of `50`, Azure Container Apps creates more replicas of your container app when the average CPU utilization for all replicas reaches 50%.
 
 CPU scaling doesn't allow your container app to scale to zero. For more information about this trigger, see [KEDA CPU scale trigger](https://keda.sh/docs/scalers/cpu/).
 
@@ -317,7 +317,7 @@ Add a CPU scale rule to your container app by running the `az containerapp updat
 > [!NOTE]
 > When you use the Azure CLI to add a scale rule to a container app that already has a scale rule, the new scale rule replaces the old scale rule. To see how to add multiple scale rules, see [Multiple scale rules](#multiple-scale-rules).
 
-Before running the following command, replace the `<PLACEHOLDERS>` with your values. For this tutorial, replace `<UTILIZATION>` with `1`. This causes your container app to scale when the average CPU utilization for all replicas reaches 1%. This value is for the purpose of demonstration only. The number of replicas is limited to 10 by the `--max-replicas 10` you specified when running `az containerapp update`.
+Before running the following command, replace the `<PLACEHOLDERS>` with your values. For this tutorial, replace `<UTILIZATION>` with `1`. This causes your container app to scale when the average CPU utilization for all replicas reaches 1%. This value is for demonstration only. The number of replicas is limited to 10 by the `--max-replicas 10` you specified when running `az containerapp update`.
 
 # [Bash](#tab/bash)
 
@@ -351,7 +351,7 @@ az containerapp update `
 
 Memory scaling allows your app to scale in or out depending on how much memory is being used.
 
-For example, if you create a memory scale rule with a utilization value of `50`, Azure Container Apps creates additional replicas of your container app when the average memory utilization for all replicas reaches 50%.
+For example, if you create a memory scale rule with a utilization value of `50`, Azure Container Apps creates more replicas of your container app when the average memory utilization for all replicas reaches 50%.
 
 Memory scaling doesn't allow your container app to scale to zero. For more information about this trigger, see [KEDA memory scale trigger](https://keda.sh/docs/scalers/memory/).
 
@@ -360,7 +360,7 @@ Add a memory scale rule to your container app by running the `az containerapp up
 > [!NOTE]
 > When you use the Azure CLI to add a scale rule to a container app that already has a scale rule, the new scale rule replaces the old scale rule. To see how to add multiple scale rules, see [Multiple scale rules](#multiple-scale-rules).
 
-Before running the following command, replace the `<PLACEHOLDERS>` with your values. For this tutorial, replace `<UTILIZATION>` with `1`. This causes your container app to scale when the average memory utilization for all replicas reaches 1%. This value is for the purpose of demonstration only. The number of replicas is limited to 10 by the `--max-replicas 10` you specified when running `az containerapp update`.
+Before running the following command, replace the `<PLACEHOLDERS>` with your values. For this tutorial, replace `<UTILIZATION>` with `1`. This causes your container app to scale when the average memory utilization for all replicas reaches 1%. This value is for demonstration only. The number of replicas is limited to 10 by the `--max-replicas 10` you specified when running `az containerapp update`.
 
 # [Bash](#tab/bash)
 
@@ -416,7 +416,7 @@ To add multiple scale rules to your container app using the Azure CLI, you must 
 
     ---
 
-1. In the `properties` > `template` > `scale` > `rules` section of `app.yaml`, add the following. Replace the `<PLACEHOLDERS>` with your values.
+1. In the `properties` > `template` > `scale` > `rules` section of `app.yaml`, add the following properties. Replace the `<PLACEHOLDERS>` with your values.
 
     ```yaml
     ...
@@ -469,7 +469,7 @@ To add multiple scale rules to your container app using the Azure CLI, you must 
 If you're not going to continue to use this application, run the following command to delete the resource group along with all the resources created in this tutorial.
 
 >[!CAUTION]
-> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this tutorial exist in the specified resource group, they will also be deleted.
+> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this tutorial exist in the specified resource group, they'll also be deleted.
 
 ```azurecli
 az group delete --name my-container-apps
