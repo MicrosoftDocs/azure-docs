@@ -62,7 +62,7 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
 1. In the **Enable Change Tracking and Inventory for virtual machines** page, enter the following options:
    1. In **Basics**, you can define the scope. Select the three dots to configure a scope. In the **Scope** page, provide the **Subscription** and **Resource group**.
    1. In **Parameters**, select the option in the **Bring your own user assigned managed identity**.
-   1. Provide the **Data Collection Rule Resource id**. Learn more on [how to obtain the Data Collection Rule Resource ID after you create the Data collection rule](#create-data-collection-rule).
+   1. Provide the **Data Collection Rule Resource id**. Learn more on [how to obtain the Data Collection Rule Resource ID after you create the Data collection rule](enable-vms-monitoring-agent.md#create-data-collection-rule).
    1. Select **Review + create**.
 
 ## Next steps
