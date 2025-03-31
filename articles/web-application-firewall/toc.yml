@@ -100,6 +100,8 @@ items:
         href: geomatch-custom-rules-examples.md
     - name: Request size limits
       href: ./ag/application-gateway-waf-request-size-limits.md
+    - name: Configure custom response code and body
+      href: ./ag/waf-ag-configure-custom-response-code.md
     - name: WAF engine
       href: ./ag/waf-engine.md
   - name: Front Door
