@@ -8,6 +8,7 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud engineer, I want to use PowerShell scripts to modify Azure Cloud Service deployments, so that I can manage extensions, scale roles, and update configurations efficiently.
 ---
 
 # Update an Azure Cloud Service (extended support)

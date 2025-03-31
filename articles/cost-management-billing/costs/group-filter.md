@@ -2,13 +2,13 @@
 title: Group and filter options in Cost analysis and budgets
 titleSuffix: Microsoft Cost Management
 description: This article explains how to use group and filter options.
-author: bandersmsft
-ms.author: banders
+author: shasulin
+ms.author: shasulin
 ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: jojoh
+ms.reviewer: shasulin
 ---
 
 # Group and filter options in Cost analysis and budgets

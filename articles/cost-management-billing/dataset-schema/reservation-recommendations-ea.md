@@ -32,7 +32,7 @@ This article lists all of the data fields available in the Enterprise Agreement 
 | 12 |RecommendedQuantityNormalized|The normalized recommended quantity.|
 | 13 |ResourceType|Type of resource instance. Not all charges come from deployed resources. Charges that don't have a resource type are shown as null or empty, `Others` , or `Not applicable`.|
 | 14 |Scope|Shared or single recommendation.|
-| 15 |SubscriptionId| Unique identifier for the Azure subscription. |
+| 15 |SubscriptionId|Unique identifier for the Azure subscription. The field will be shown only for 'single' scoped requests and will be empty if the scope is 'shared', as recommendations will be returned at the billing account scope. |
 | 16 |SkuProperties|List of SKU properties.|
 | 17 |Term|Reservation recommendations in one or three-year terms.|
 | 18 |TotalCostWithReservedInstances|The total amount of cost with reserved instances.|
