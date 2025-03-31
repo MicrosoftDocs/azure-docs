@@ -20,8 +20,6 @@ In [Azure App Service](overview.md), you can easily restore app backups. You can
 
 Back up and restore is supported in the Basic, Standard, Premium, and Isolated tiers. For the Basic tier, you can only back up and restore the production slot. For more information about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](manage-scale-up.md).
 
-[!INCLUDE [backup-restore-vs-disaster-recovery](./includes/backup-restore-disaster-recovery.md)]
-
 ## Automatic vs. custom backups
 
 There are two types of backups in App Service. If your app is in a supported pricing tier, automatic backups are created regularly. Custom backups require initial configuration and can be made on-demand or on a schedule. The following table shows the differences between the two types.
