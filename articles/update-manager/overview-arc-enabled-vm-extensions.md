@@ -32,7 +32,7 @@ The Azure Arc-enabled VM extensions receive improvements on an ongoing basis. To
     - Current error message:  *An internal error occurred while processing the operation.*
     - New error message: *Windows update API threw an exception while assessing the machine for available updates. HResult: 0x80004005*
     > [!NOTE]
-    > The HResult could be different based on the issue
+    > The HResult could be different based, on the issue.
 
 - Fixed an issue where at times the extension status is stuck in  **Creating state**. Then the assessment or install updates job fails with the following error: *Extension failed during enable. Extension Enable command timed out.*
 
