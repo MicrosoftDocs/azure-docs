@@ -123,14 +123,14 @@ The way that you instrument your application to use OpenTelemetry depends on you
     ```csharp
     services.AddOpenTelemetry()
     .UseAzureMonitor()
-    .UseFunctionsWorkerDefaults();    
+    .UseFunctionsWorkerDefaults();
     ```
     ### [OTLP Exporter](#tab/otlp-export) 
 
     ```csharp
     services.AddOpenTelemetry()
     .UseOtlpExporter()
-    .UseFunctionsWorkerDefaults();    
+    .UseFunctionsWorkerDefaults();
     ```
     ---
 
