@@ -1,8 +1,8 @@
 ---
 title: Connector upgrade advisor in Azure Data Factory and Azure Synapse Analytics 
 description: This article describes Connector upgrade advisor in Azure Data Factory and Azure Synapse Analytics.
-author: jianleishen
-ms.author: jianleishen
+author: KrishnakumarRukmangathan
+ms.author: krirukm
 ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
