@@ -127,12 +127,6 @@ After you enable E2E TLS encryption, all intra-cluster communications for your w
 
 ## TLS/SSL certificates on App Service
 
-To serve HTTPS traffic, App Service requires a TLS/SSL certificate that is bound to your custom domain.
-
-### Types of certificates
-
-## TLS/SSL certificates on App Service
-
 To serve HTTPS traffic, App Service requires a TLS/SSL certificate that is bound to your custom domain. App Service offers multiple certificate options, ranging from fully managed free certificates to customer-managed certificates.
 
 ### Types of certificates
