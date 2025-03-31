@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: conceptual
-ms.date: 03/26/2025
+ms.date: 03/31/2025
 ms.author: duau
 ms.custom: ai-usage
 ---
 
 # Resiliency Insights for ExpressRoute virtual network gateway (preview)
 
-Resiliency Insights is an assessment capability designed to measure your network's reliability for ExpressRoute workloads. At the core of this capability is the resiliency index, a percentage score calculated based on factors such as route resilience, zone-redundant gateway usage, advisory recommendations, and resiliency validation tests. This index evaluates the control plane resiliency of the ExpressRoute connectivity between your ExpressRoute virtual network gateway and on-premises network. By analysing and improving this index, you can enhance the robustness and reliability of your connectivity to Azure workloads through ExpressRoute.
+Resiliency Insights is an assessment capability designed to measure your network's reliability for ExpressRoute workloads. At the core of this capability is the resiliency index, a percentage score calculated based on factors such as route resilience, zone-redundant gateway usage, advisory recommendations, and resiliency validation tests. This index evaluates the control plane resiliency of the ExpressRoute connectivity between your ExpressRoute virtual network gateway and on-premises network. By analyzing and improving this index, you can enhance the robustness and reliability of your connectivity to Azure workloads through ExpressRoute.
 
 > [!NOTE]
 > To participate in the preview, contact the [**Azure ExpressRoute team**](mailto:exr-resiliency@microsoft.com).
