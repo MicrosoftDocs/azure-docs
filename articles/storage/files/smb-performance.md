@@ -21,8 +21,8 @@ This article explains how you can improve performance for SSD (premium) SMB Azur
 | Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)|
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
@@ -35,8 +35,8 @@ The following tips might help you optimize performance:
 - Ensure that your storage account and your client are co-located in the same Azure region to reduce network latency.
 - Use multi-threaded applications and spread load across multiple files.
 - Performance benefits of SMB Multichannel increase with the number of files distributing load.
-- SSD (premium) share performance is bound by provisioned share size (IOPS/egress/ingress) and single file limits. For details, see [Understanding provisioning for premium file shares](understanding-billing.md#provisioned-v1-model).
-- Maximum performance of a single VM client is still bound to VM limits. For example, [Standard_D32s_v3](/azure/virtual-machines/dv3-dsv3-series) can support a maximum bandwidth of 16,000 MBps (or 2GBps), egress from the VM (writes to storage) is metered. Ingress (reads from storage) is not. File share performance is subject to machine network limits, CPUs, internal storage available network bandwidth, IO sizes, parallelism, and other factors.
+- SSD share performance is bound by provisioned share size, including IOPS and throughput and single file limits. For details, see [understanding the provisioning v1 model](understanding-billing.md#provisioned-v1-model).
+- Maximum performance of a single VM client is still bound to VM limits. For example, [Standard_D32s_v3](/azure/virtual-machines/dv3-dsv3-series) can support a maximum bandwidth of approximately 1.86 GiB / sec, egress from the VM (writes to storage) is metered. Ingress (reads from storage) is not. File share performance is subject to machine network limits, CPUs, internal storage available network bandwidth, IO sizes, parallelism, and other factors.
 - The initial test is usually a warm-up. Discard the results and repeat the test.
 - If performance is limited by a single client and workload is still below provisioned share limits, you can achieve higher performance by spreading load over multiple clients.
 
@@ -48,7 +48,7 @@ Higher I/O sizes drive higher throughput and will have higher latencies, resulti
 
 ## SMB Multichannel
 
-SMB Multichannel enables an SMB client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on SSD (premium) file shares for Windows clients. On the service side, SMB Multichannel is now enabled by default for all newly created storage accounts in all Azure regions. There's no other cost for enabling SMB Multichannel.
+SMB Multichannel enables an SMB client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on SSD file shares for Windows clients. On the service side, SMB Multichannel is now enabled by default for all newly created storage accounts in all Azure regions. There's no other cost for enabling SMB Multichannel.
 
 ### Benefits
 
@@ -63,7 +63,7 @@ SMB Multichannel enables clients to use multiple network connections that provid
 - **Automatic configuration**:
     When SMB Multichannel is enabled on clients and storage accounts, it allows for dynamic discovery of existing connections, and can create addition connection paths as necessary.
 - **Cost optimization**:
-    Workloads can achieve higher scale from a single VM, or a small set of VMs, while connecting to SSD (premium) shares. This could reduce the total cost of ownership by reducing the number of VMs necessary to run and manage a workload.
+    Workloads can achieve higher scale from a single VM, or a small set of VMs, while connecting to SSD file shares. This could reduce the total cost of ownership by reducing the number of VMs necessary to run and manage a workload.
 
 To learn more about SMB Multichannel, refer to the [Windows documentation](/azure-stack/hci/manage/manage-smb-multichannel).
 
@@ -73,7 +73,7 @@ This feature provides greater performance benefits to multi-threaded application
 
 SMB Multichannel for Azure file shares currently has the following restrictions:
 
-- Only available for SSD (premium) Azure file shares. Not available for HDD (standard) Azure file shares.
+- Only available for SSD file shares. Not available for HDD Azure file shares.
 - Only supported on clients that are using SMB 3.1.1. Ensure SMB client operating systems are patched to recommended levels.
 - Maximum number of channels is four, for details see [here](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json#cause-4-number-of-smb-channels-exceeds-four).
 
@@ -95,7 +95,7 @@ In most scenarios, particularly multi-threaded workloads, clients should see imp
 
 ### Verify SMB Multichannel is configured correctly
 
-1. Create a new SSD (premium) file share or use an existing SSD (premium) share.
+1. Create a new SSD file share or use an existing SSD file share.
 1. Ensure your client supports SMB Multichannel (one or more network adapters has receive-side scaling enabled). Refer to the [Windows documentation](/azure-stack/hci/manage/manage-smb-multichannel) for more details.
 1. Mount a file share to your client.
 1. Generate load with your application.
@@ -119,10 +119,6 @@ There are two categories of read/write workload patterns: single-threaded and mu
 
 For the charts in this article, the following configuration was used: A single Standard D32s v3 VM with a single RSS enabled NIC with four channels. Load was generated using diskspd.exe, multiple-threaded with IO depth of 10, and random I/Os with various I/O sizes.
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected network bandwidth (Mbps) |
-|---|---|---|---|---|---|---|---|---|
-| [Standard_D32s_v3](/azure/virtual-machines/dv3-dsv3-series) | 32 | 128 | 256 | 32 | 64000/512 (800)    | 51200/768  | 8|16000 |
-
 ### Multi-threaded/multiple files with SMB Multichannel
 
 Load was generated against 10 files with various IO sizes. The scale up test results showed significant improvements in both IOPS and throughput test results with SMB Multichannel enabled. The following diagrams depict the results:
@@ -133,7 +129,7 @@ Load was generated against 10 files with various IO sizes. The scale up test res
 
 - On a single NIC, for reads, performance increase of 2x-3x was observed and for writes, gains of 3x-4x in terms of both IOPS and throughput.
 - SMB Multichannel allowed IOPS and throughput to reach VM limits even with a single NIC and the four channel limit.
-- Since egress (or reads to storage) is not metered, read throughput was able to exceed the VM published limit of 16,000 Mbps (2 GiB/s). The test achieved >2.7 GiB/s. Ingress (or writes to storage) are still subject to VM limits.
+- Since egress (or reads to storage) is not metered, read throughput was able to exceed the VM published limit of approximately 1.86 GiB / sec. The test achieved >2.7 GiB/s. Ingress (or writes to storage) are still subject to VM limits.
 - Spreading load over multiple files allowed for substantial improvements.
 
 An example command used in this testing is: 
@@ -152,9 +148,9 @@ The load was generated against a single 128 GiB file. With SMB Multichannel enab
 - For smaller I/O sizes, there was a slight impact of ~10% on performance with SMB Multichannel enabled. This could be mitigated by spreading the load over multiple files, or disabling the feature.
 - Performance is still bound by [single file limits](storage-files-scale-targets.md#file-scale-targets).
 
-## Metadata caching for premium SMB file shares
+## Metadata caching for SSD file shares
 
-Metadata caching is an enhancement for SSD (premium) SMB Azure file shares aimed to improve the following:
+Metadata caching is an enhancement for SSD Azure file shares aimed to improve the following:
 
 - Reduce metadata latency
 - Raised metadata scale limits
@@ -167,7 +163,7 @@ This feature improves the following metadata APIs and can be used from both Wind
 - Close
 - Delete
 
-Currently this feature is only available for SSD (premium) SMB file shares (file shares in the FileStorage storage account kind). There are no extra costs associated with using this feature.
+Currently this feature is only available for SSD file shares. There are no extra costs associated with using this feature.
 
 ### Register for the feature
 
