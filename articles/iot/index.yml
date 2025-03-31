@@ -54,37 +54,37 @@ productDirectory:
     # Card
     - title: Azure IoT Operations
       summary: Use Azure IoT Operations to build an edge-based IoT solution that follows the adaptive cloud approach
-      imageSrc: ./media/index/iot-operations.svg
+      imageSrc: ../media/index/iot-operations.svg
       url: ../iot-operations/index.yml
     # Card
     - title: Azure IoT Hub
       summary: Use Azure IoT Hub to build a cloud-based IoT solution. IoT Hub does not follow the adaptive cloud approach
-      imageSrc: ./media/index/iot-hub.svg
+      imageSrc: ../media/index/iot-hub.svg
       url: ../iot-hub/index.yml
     # Card
     - title: Azure IoT Central
       summary: Use Azure IoT Central to build a cloud-based IoT solution. IoT Central does not follow the adaptive cloud approach
-      imageSrc: ./media/index/iot-central.svg
+      imageSrc: ../media/index/iot-central.svg
       url: ../iot-central/index.yml
     # Card
     - title: Azure Digital Twins
       summary: he Azure Digital Twins service is typically part of a cloud-based IoT solution based on IoT Hub
-      imageSrc: ./media/index/digital-twins.svg
+      imageSrc: ../media/index/digital-twins.svg
       url: ../digital-twins/index.yml
     # Card
     - title: Azure IoT Edge
       summary: IoT Edge is typically part of a hybrid IoT solution based on IoT Hub or IoT Central
-      imageSrc: ./media/index/iot-edge.svg
+      imageSrc: ../media/index/iot-edge.svg
       url: ../iot-edge/index.yml
     # Card
     - title: Event Grid
       summary: Currently, Azure Event Grid is typically part of a hybrid IoT solution that uses Azure IoT Operations, IoT Hub, or IoT Central
-      imageSrc: ./media/index/event-grid-domains.svg
+      imageSrc: ../media/index/event-grid-domains.svg
       url: ../event-grid/index.yml
     # Card
     - title: Microsoft Defender for IoT
       summary: Microsoft Defender for IoT is a unified security solution that helps you secure cloud-based, edge-based and hybrid IoT solutions
-      imageSrc: ./media/index/defender-iot.svg
+      imageSrc: ../media/index/defender-iot.svg
       url: ../defender-for-iot/index.yml
 
 # conceptualContent section
