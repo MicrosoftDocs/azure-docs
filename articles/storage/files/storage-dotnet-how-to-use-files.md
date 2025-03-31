@@ -94,16 +94,16 @@ If you don't already have a .NET app, create one using Visual Studio or the .NET
 
 If you plan to interact with Azure Files using the `System.IO` namespace, you don't need to install any additional packages. The `System.IO` namespace is included with the .NET SDK. If you plan to use the File Shares client library for .NET or the Azure Storage management library for .NET, install the package using NuGet.
 
-### [Visual Studio](#tab/visual-studio)
+### [Visual Studio 2022](#tab/visual-studio)
 
 1. In **Solution Explorer**, right-click your project and choose **Manage NuGet Packages**.
-1. In **NuGet Package Manager**, select **Browse**. Then search for and choose the appropriate package and select **Install**. For the File Shares client library, choose **Azure.Storage.Files.Shares**. For the Azure Storage management library, choose **Azure.ResourceManager.Storage**. For the Azure Identity library, which is needed for passwordless  choose **Azure.Identity**.
+1. In **NuGet Package Manager**, select **Browse**. Then search for and choose the appropriate package and select **Install**. For the File Shares client library, choose **Azure.Storage.Files.Shares**. For the Azure Storage management library, choose **Azure.ResourceManager.Storage**. For the Azure Identity library, which is needed for passwordless connections, choose **Azure.Identity**.
 
    This step installs the package and its dependencies.
 
 ### [.NET CLI](#tab/dotnet-cli)
 
-1. In a console window, run the following command to install the `Azure.Storage.Files.Shares` or the `Azure.ResourceManager.Storage` package. You can also install the `Azure.Identity` package to use the `DefaultAzureCredential` class for authentication.
+In a console window, run the following command to install the `Azure.Storage.Files.Shares` or the `Azure.ResourceManager.Storage` package. You can also install the `Azure.Identity` package to use the `DefaultAzureCredential` class for authentication.
 
    ```dotnetcli
    dotnet add package Azure.Storage.Files.Shares
