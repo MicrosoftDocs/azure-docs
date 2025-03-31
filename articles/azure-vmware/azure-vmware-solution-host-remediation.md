@@ -6,7 +6,8 @@ ms.service: azure-vmware
 ms.date: 03/25/2025
 ---
 
-# Azure VMware Solution Sofware-Defined Data Center (SDDC) maintenance best practices
+# Azure VMware Solution Software-Defined Data Center (SDDC) maintenance best practices
+Azure VMware Solution undertakes periodic maintenance of the private cloud and this includes security patches, minor & major updates to VMware software stack. This page describes the host monitoring, remediation & recommended best practices that will help keep the private cloud ready for maintenance at all times.
 
 ## Host maintenance and lifecycle management
 
@@ -27,17 +28,17 @@ Host remediation involves replacing the faulty node with a new healthy node in t
 Azure VMware Solution undertakes periodic maintenance of the private cloud and this includes security patches, minor & major updates to VMware software stack.
 
 The following actions are always recommended for ensuring host maintenance operations are carried out successfully:
-1.	**vSAN storage utilization:** To maintain Service Level Agreement (SLA), ensure that your vSphere cluster's storage space utilization remains below 75%. If the utilization exceeds 75%, upgrades may take longer than expected or fail entirely. If your storage utilization exceeds 75%, consider adding a node to expand the cluster and prevent potential downtime during upgrades.
-2.	**Distributed Resource Scheduler (DRS) rules:** DRS VM-VM anti-affinity rules must be configured in a way to have at least (N+1) hosts in the cluster, where N is the number of VMs part of DRS rule.
-3.	**Failures To Tolerate (FTT) violation:** To prevent data loss, change VMs configured with a vSAN storage policy for Failures to Tolerate (FTT) of 0 to a vSAN storage policy compliant with [Microsoft SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) (FTT=1 for up to five hosts in a cluster and FTT=2 for six or more hosts in a cluster) and ensure host maintenance operations can carried out seamlessly.
-4.	**Remove VM CD-ROM mounts:** VMs mounted with "Emulate mode" CD-ROMs block host maintenance. Ensure CD-ROMs are mounted in "Passthrough mode".
-5.	**Serial/parallel port or external device:** If you're using an image file (ISO, FLP, etc.), ensure that it's accessible from all ESXi hosts in the cluster. Store the files on a datastore that are shared between all ESXi Servers that participate in the vMotion of the virtual machine. For more information, see [Broadcom KB article](https://knowledge.broadcom.com/external/article/324829/vmotion-fails-with-the-compatibility-err.html).
-6.	**Orphaned VMs:** In the case of an orphaned virtual machine, the Virtual Machine (VM) needs to be either re-registered if possible (if it hasn't been deleted) or removed from inventory. For more information, see [Broadcom KB article](https://knowledge.broadcom.com/external/article/312831/virtual-machines-appear-as-invalid-or-or.html).
-7.	**SCSI shared controller:** When using SCSI bus sharing use with bus type as "Physical" for VMs. VMs connected to Virtual SCSCI controllers will be powered-off. For more information, see [Broadcom KB article](https://knowledge.broadcom.com/external/article?legacyId=2147661).
-8.	**Third-party VMs & applications:** For third-party VMs & applications:
-    1. Ensure that third-party solutions deployed on AVS are compliant and don't interfere with maintenance operations.   
-    2. Ensure that the VM isn’t installed with a VM-Host "Must run" DRS rule. Additionally, verify that these applications are compatible with upcoming versions of the VMware stack.
-    3. Consult with your solution vendor and update in advance if necessary to maintain compatibility post-upgrade.
+- **vSAN storage utilization:** To maintain Service Level Agreement (SLA), ensure that your vSphere cluster's storage space utilization remains below 75%. If the utilization exceeds 75%, upgrades may take longer than expected or fail entirely. If your storage utilization exceeds 75%, consider adding a node to expand the cluster and prevent potential downtime during upgrades.
+- **Distributed Resource Scheduler (DRS) rules:** DRS VM-VM anti-affinity rules must be configured in a way to have at least (N+1) hosts in the cluster, where N is the number of VMs part of DRS rule.
+- **Failures To Tolerate (FTT) violation:** To prevent data loss, change VMs configured with a vSAN storage policy for Failures to Tolerate (FTT) of 0 to a vSAN storage policy compliant with [Microsoft SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) (FTT=1 for up to five hosts in a cluster and FTT=2 for six or more hosts in a cluster) and ensure host maintenance operations can carried out seamlessly.
+- **Remove VM CD-ROM mounts:** VMs mounted with "Emulate mode" CD-ROMs block host maintenance. Ensure CD-ROMs are mounted in "Passthrough mode".
+- **Serial/parallel port or external device:** If you're using an image file (ISO, FLP, etc.), ensure that it's accessible from all ESXi hosts in the cluster. Store the files on a datastore that are shared between all ESXi Servers that participate in the vMotion of the virtual machine. For more information, see [Broadcom KB article](https://knowledge.broadcom.com/external/article/324829/vmotion-fails-with-the-compatibility-err.html).
+- **Orphaned VMs:** In the case of an orphaned virtual machine, the Virtual Machine (VM) needs to be either re-registered if possible (if it hasn't been deleted) or removed from inventory. For more information, see [Broadcom KB article](https://knowledge.broadcom.com/external/article/312831/virtual-machines-appear-as-invalid-or-or.html).
+- **SCSI shared controller:** When using SCSI bus sharing use with bus type as "Physical" for VMs. VMs connected to Virtual SCSCI controllers will be powered-off. For more information, see [Broadcom KB article](https://knowledge.broadcom.com/external/article?legacyId=2147661).
+- **Third-party VMs & applications:** For third-party VMs & applications:
+    - Ensure that third-party solutions deployed on AVS are compliant and don't interfere with maintenance operations.   
+    - Ensure that the VM isn’t installed with a VM-Host "Must run" DRS rule. Additionally, verify that these applications are compatible with upcoming versions of the VMware stack.
+    - Consult with your solution vendor and update in advance if necessary to maintain compatibility post-upgrade.
 
 
 
@@ -71,10 +72,6 @@ Azure VMware Solution monitors the following conditions on the host:
 
 > [!NOTE]
 > Azure VMware Solution tenant admins must not edit or delete the previously defined VMware vCenter Server alarms because they're managed by the Azure VMware Solution control plane on vCenter Server. These alarms are used by Azure VMware Solution monitoring to trigger the Azure VMware Solution host remediation process.
-
-
-
-
 
 
 ## Next steps

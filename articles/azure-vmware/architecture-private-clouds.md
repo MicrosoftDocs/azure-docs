@@ -139,6 +139,7 @@ Azure VMware Solution continuously monitors the health of both the physical unde
 Now that you've covered Azure VMware Solution private cloud concepts, you might want to learn about:
 
 - [Azure VMware Solution networking and interconnectivity concepts](architecture-networking.md)
+- [Azure VMware Solution private cloud maintenance best practices](azure-vmware-solution-host-remediation.md)
 - [Azure VMware Solution storage concepts](architecture-storage.md)
 - [How to enable Azure VMware Solution resource](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)
 
