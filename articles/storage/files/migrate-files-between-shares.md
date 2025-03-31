@@ -43,9 +43,9 @@ Follow these steps to migrate using Robocopy, a command-line file copy utility i
    
    You can run the command while your source is still online, but IOPS and throughput used for the robocopy job counts against your file share limits.
 
-4. After the initial run completes, disconnect your application from the existing share and run the same robocopy command again to copy over all the changes that happened since the initial run. Any data unchanged since the last copy job is skipped.
+4. After the initial run completes, run the same robocopy command again to copy over all the changes that happened since the initial run. Any data unchanged since the last copy job is skipped.
 
-5. You can repeat step for as many times as you would like before cutting over to the new file share.
+5. You can repeat step 4 as many times as you would like before cutting over to the new file share.
 
 ## See also
 
