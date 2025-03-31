@@ -30,9 +30,33 @@ When you onboard Microsoft Sentinel, you select a primary workspace. A primary w
 
 Where you have multiple Microsoft Sentinel workspaces within a Microsoft Entra ID tenant, consider using the primary workspace for your global security operations center.
 
+## Permissions to manage workspaces and view workspace data
+
+Use one of the following roles or role combinations to manage primary and secondary workspaces:
+
+|Task  |Required roles or role combinations  |
+|---------|---------|
+|**Connect a primary workspace**     | One of the following: <br>- Global Administrator AND subscription Owner <br> Security Administrator AND subscription Owner <br>- Global Administrator AND User access administrator AND Sentinel contributor <br>- Security Administrator AND User access administrator AND Sentinel contributor|
+|**Change the primary workspace**     | One of the following: <br>- Global Administrator <br>- Security Administrator |
+|**Onboard or offboard secondary workspaces**     |  One of the following:  <br>- Global Administrator AND subscription Owner <br> Security Administrator AND subscription Owner <br>- Global Administrator AND User access administrator AND Sentinel contributor <br>- Security Administrator AND User access administrator AND Sentinel contributor <br>- Subscription Owner <br>- User access administrator AND Sentinel contributor|
+
+> [!IMPORTANT]
+> Microsoft recommends that you use roles with the fewest permissions. This helps improve security for your organization. Global Administrator is a highly privileged role that should be limited to emergency scenarios when you can't use an existing role.
+
+After you connect Microsoft Sentinel to the Defender portal, your existing Azure role-based access control (RBAC) permissions allow you to view and work with the Microsoft Sentinel features and workspaces that you have access to.
+
+|Workspace |Access  |
+|---------|---------|
+|**Primary**    | If you have access to the primary workspace, you're able to read and manage data from the workspace and Defender XDR.      |
+|**Secondary**    |   If you have access to a secondary workspace, you're able to read and manage data from the workspace only. The secondary workspaces don't include Defender XDR data.       |
+
+**Exception:** If you've already onboarded one workspace to the Defender portal, any alerts created by using custom detections on `AlertInfo` and `AlertEvidence` tables before mid January 2025 are visible to all users.
+
+For more information, see [Roles and permissions in Microsoft Sentinel](roles.md).
+
 ## Primary workspace changes
 
-After you onboard Microsoft Sentinel to the Defender portal,  you can change the primary workspace. When you switch the primary workspace for Microsoft Sentinel, the Defender XDR connector is connected to the new primary and disconnected from the former one automatically.  
+After you onboard Microsoft Sentinel to the Defender portal, you can change the primary workspace. When you switch the primary workspace for Microsoft Sentinel, the Defender XDR connector is connected to the new primary and disconnected from the former one automatically.  
 
 Change the primary workspace in the Defender portal by going to **System** > **Settings** > **Microsoft Sentinel** > **Workspaces**.
 
@@ -50,30 +74,6 @@ If you have the appropriate permissions to view data from primary and secondary 
 |**Microsoft Sentinel** experiences|View data from one workspace for each page in the Microsoft Sentinel section of the Defender portal. Switch between workspaces by selecting **Select a workspace** from the top-right hand side of the browser for most pages. The **Workbooks** page only shows data associated with the primary workspace.|
 |**SOC optimization**|Data and recommendations are aggregated from multiple workspaces. |
 
-## Permissions to manage workspaces and view workspace data
-
-Use one of the following roles or role combinations to manage primary and secondary workspaces:
-
-|Task  |Required roles or role combinations  |
-|---------|---------|
-|**Connect a primary workspace**     | One of the following: <br>- Global Administrator AND subscription Owner <br> Security Administrator AND subscription Owner <br>- Global Administrator AND User access administrator AND Sentinel contributor <br>- Security Administrator AND User access administrator AND Sentinel contributor|
-|**Select a different primary workspace**     | One of the following: <br>- Global Administrator <br>- Security Administrator |
-|**Onboard or offboard secondary workspaces**     |  One of the following:  <br>- Global Administrator AND subscription Owner <br> Security Administrator AND subscription Owner <br>- Global Administrator AND User access administrator AND Sentinel contributor <br>- Security Administrator AND User access administrator AND Sentinel contributor <br>- Subscription Owner <br>- User access administrator AND Sentinel contributor|
-
-
-> [!IMPORTANT]
-> Microsoft recommends that you use roles with the fewest permissions. This helps improve security for your organization. Global Administrator is a highly privileged role that should be limited to emergency scenarios when you can't use an existing role.
-
-After you connect Microsoft Sentinel to the Defender portal, your existing Azure role-based access control (RBAC) permissions allow you to view and work with the Microsoft Sentinel features and workspaces that you have access to.
-
-|Workspace |Access  |
-|---------|---------|
-|**Primary**    | If you have access to the primary workspace, you're able to read and manage data from the workspace and Defender XDR.      |
-|**Secondary**    |   If you have access to a secondary workspace, you're able to read and manage data from the workspace only. The secondary workspaces don't include Defender XDR data.       |
-
-**Exception:** If you've already onboarded one workspace to the Defender portal, any alerts created by using custom detections on `AlertInfo` and `AlertEvidence` tables before mid January 2025 are visible to all users.
-
-For more information, see [Roles and permissions in Microsoft Sentinel](roles.md).
 
 ## Bi-directional sync for workspaces
 
