@@ -54,7 +54,7 @@ To be notified when a lifecycle management run is complete, subscribe to the `Li
 }
 ```
 
-To learn more about the different ways to subscribe to an event, see [Event handlers in Azure Event Grid](../../event-grid/event-handlers.md?toc=/azure/storage/blobs/toc.json#microsoftstoragelifecyclepolicycompleted-event).
+To learn more about the different ways to subscribe to an event, see [Event handlers in Azure Event Grid](../../event-grid/event-handlers.md#microsoftstoragelifecyclepolicycompleted-event).
 
 ## Investigating errors by using metric and logs
 

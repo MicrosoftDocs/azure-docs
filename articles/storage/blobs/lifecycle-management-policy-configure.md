@@ -159,4 +159,5 @@ Enable access tracking if you want to include an action based on the time that t
 - [Azure Blob Storage lifecycle management overview](lifecycle-management-overview.md)
 - [Lifecycle management policies that transition blobs between tiers](lifecycle-management-policy-access-tiers.md)
 - [Lifecycle management policies that delete blobs](lifecycle-management-policy-delete.md)
+- [Lifecycle management policy monitoring](lifecycle-management-policy-monitor.md)
 - [Access tiers for blob data](access-tiers-overview.md)

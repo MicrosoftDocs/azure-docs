@@ -178,5 +178,6 @@ For more information about pricing, see [Block Blob pricing](https://azure.micro
 - [Access tiers for blob data](access-tiers-overview.md)
 - [Lifecycle management policies that transition blobs between tiers](lifecycle-management-policy-access-tiers.md)
 - [Lifecycle management policies that deletes blobs](lifecycle-management-policy-delete.md)
+- [Lifecycle management policy monitoring](lifecycle-management-policy-monitor.md)
 - [Manage and find data on Azure Blob Storage with blob index](storage-manage-find-blobs.md)
 - [Best practices for using blob access tiers](access-tiers-best-practices.md)

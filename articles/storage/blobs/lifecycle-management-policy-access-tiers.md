@@ -13,7 +13,9 @@ ms.topic: conceptual
 
 # Lifecycle management policies that transition blobs between tiers
 
-You can use Lifecycle management policies to transition blobs to cost-efficient access tiers based on their use patterns. To learn more, see [Azure Blob Storage lifecycle management overview](lifecycle-management-overview.md). This article contains examples of policy definitions that transition blobs between tiers.
+You can use Lifecycle management policies to transition blobs to cost-efficient access tiers based on their use patterns. This article contains examples of policy definitions that transition blobs between tiers.
+
+For general information about Azure Storage lifecycle management policies, see [Azure Blob Storage lifecycle management overview](lifecycle-management-overview.md).
 
 ## Move aging data to a cooler tier
 
@@ -79,7 +81,7 @@ In the following example, blobs are moved to cool storage if they haven't been a
 }
 ```
 
-## Archiving data
+## Archiving data after ingest
 
 Some data stays idle in the cloud and is rarely, if ever, accessed. The following lifecycle policy is configured to archive data shortly after it's ingested. This example transitions block blobs in a container named `archivecontainer` into an archive tier. The transition is accomplished by acting on blobs 0 days after last modified time. 
 
@@ -155,4 +157,5 @@ For data that is modified and accessed regularly throughout its lifetime, you ca
 
 - [Azure Blob Storage lifecycle management overview](lifecycle-management-overview.md)
 - [Lifecycle management policies that delete blobs](lifecycle-management-policy-delete.md)
+- [Lifecycle management policy monitoring](lifecycle-management-policy-monitor.md)
 - [Access tiers for blob data](access-tiers-overview.md)

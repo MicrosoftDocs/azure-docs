@@ -13,7 +13,9 @@ ms.topic: conceptual
 
 # Lifecycle management policies that delete blobs
 
-You can use lifecycle management policies to transition blobs to delete blob at the end of their lifecycle.To learn more, see [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md). This article contains examples of policy definitions that delete blobs.
+You can use lifecycle management policies to transition blobs to delete blob at the end of their lifecycle. This article contains examples of policy definitions that delete blobs.
+
+For general information about Azure Storage lifecycle management policies, see [Azure Blob Storage lifecycle management overview](lifecycle-management-overview.md).
 
 ## Expire data based on age
 
@@ -121,4 +123,5 @@ For data that is modified and accessed regularly throughout its lifetime, you ca
 
 - [Azure Blob Storage lifecycle management overview](lifecycle-management-overview.md)
 - [Lifecycle management policies that transition blobs between tiers](lifecycle-management-policy-access-tiers.md)
+- [Lifecycle management policy monitoring](lifecycle-management-policy-monitor.md)
 - [Access tiers for blob data](access-tiers-overview.md)
