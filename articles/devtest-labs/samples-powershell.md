@@ -1,13 +1,13 @@
 ---
 title: Azure PowerShell Samples
-description: Use these Azure PowerShell scripts for DevTest Labs activities like adding lab users, creating custom lab roles, and allowing specific lab VM sizes and Marketplace images.
+description: Use these Azure PowerShell scripts to do DevTest Labs activities like adding lab users, creating custom lab roles, and allowing specific lab VM sizes and Marketplace images.
 ms.topic: sample
 ms.custom: devx-track-azurepowershell, UpdateFrequency2
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/28/2025
+ms.date: 03/31/2025
 
-#customer intent: As a lab administrator, I want to run Azure PowerShell scripts to add users, roles, VM sizes, and Marketplace images, so I can easily customize the lab to meet our needs.
+#customer intent: As a lab administrator, I want to run Azure PowerShell scripts to add and assign users and allow specific VM sizes and images, so I can easily configure lab settings.
 ---
 
 # Azure PowerShell samples for Azure DevTest Labs
@@ -30,16 +30,14 @@ This article includes the following sample Azure PowerShell scripts for Azure De
 
 ## Add an external user to a lab
 
-This sample PowerShell script adds an external user to a lab with DevTest Labs User role. The user to add must be in the organization's Microsoft Entra ID.
+This sample PowerShell script adds an external user to a lab with **DevTest Labs User** role. The user to add must be in the organization's Microsoft Entra ID.
 
 To use the script, replace the parameter values under the `# Values to change` comment with your own values. You can get the `subscriptionId`, `labResourceGroup`, and `labName` values from the lab's main page in the Azure portal.
 
 This script uses the following commands:
 
-| Command | Notes |
-|---|---|
-| [Get-AzADUser](/powershell/module/az.resources/get-azaduser) | Gets the user object from Microsoft Entra ID. |
-| [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) | Assigns the specified role to the specified user at the specified scope. |
+- [Get-AzADUser](/powershell/module/az.resources/get-azaduser): Gets the user object from Microsoft Entra ID.
+- [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment): Assigns the specified role to the specified user at the specified scope.
 
 ```powershell
 # Values to change
@@ -61,18 +59,16 @@ New-AzRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs Us
 
 ## Create and assign a custom lab user role
 
-This sample PowerShell script creates a custom role that allows lab users to modify lab policies, and assigns the new role to an external user. The user to assign must be in the organization's Microsoft Entra ID.
+This sample PowerShell script creates a custom role that allows lab users to modify lab policies, and assigns the custom role to an external user. The user to assign the role must be in the organization's Microsoft Entra ID.
 
 To use the script, replace the parameter values under the `# Values to change` comment with your own values. You can get the `subscriptionId`, `rgName`, and `labName` values from the lab's main page in the Azure portal.
 
 This script uses the following commands:
 
-| Command | Notes |
-|---|---|
-| [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) | Lists all the available operations for the `Microsoft.DevTestLab` resource provider. |
-| [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) | Lists all the allowed actions for the **DevTest Labs User** role. |
-| [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) | Creates the new custom role. |
-| [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) | Assigns the custom role to the specified user at the specified scope. |
+- [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation): Lists all the available operations for the `Microsoft.DevTestLab` resource provider.
+- [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition): Lists all the allowed actions for the **DevTest Labs User** role.
+- [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition): Creates the new custom role.
+- [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment): Assigns the custom role to the specified user at the specified scope.
 
 ```powershell
 # Values to change
@@ -109,17 +105,15 @@ New-AzRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName "Policy Contribu
 
 This sample PowerShell script sets the allowed sizes for creating lab VMs. Provide the information the script calls for when prompted.
 
-| Command | Notes |
-|---|---|
-| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Gets resources. |
-| [Set-AzResource](/powershell/module/az.resources/set-azresource) | Modifies a resource. |
-| [New-AzResource](/powershell/module/az.resources/new-azresource) | Create a resource. |
+- [Get-AzResource](/powershell/module/az.resources/get-azresource): Gets the lab and lab policies resources.
+- [Set-AzResource](/powershell/module/az.resources/set-azresource): Updates the lab VM size policy.
+- [New-AzResource](/powershell/module/az.resources/new-azresource): Creates a new lab VM size policy.
 
 ```powershell
 param (
 [Parameter(Mandatory=$true, HelpMessage="The name of the DevTest Lab to update")]
     [string] $DevTestLabName,
-[Parameter(Mandatory=$true, HelpMessage="The array of VM Sizes to be added")]
+[Parameter(Mandatory=$true, HelpMessage="The array of VM sizes to add")]
     [Array] $SizesToAdd
 )
 
@@ -157,7 +151,7 @@ if($existingPolicy.Properties.threshold -eq '[]')
         return
     }
 
-# Make a list of all the sizes. It needs all their current sizes as well as any from our list that arent already there
+# Make a list of all the current allowed sizes plus the `$SizesToAdd`.
     $finalVmSizes = $existingSizes.Replace('[', '').Replace(']', '').Split(',',[System.StringSplitOptions]::RemoveEmptyEntries)
 
 foreach($vmSize in $SizesToAdd)
@@ -226,11 +220,9 @@ This sample PowerShell script adds a Marketplace image to the available base ima
 
 The script uses the following commands:
 
-| Command | Notes |
-|---|---|
-| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Gets resources, such as a lab, lab policy, or gallery image. |
-| [Set-AzResource](/powershell/module/az.resources/set-azresource) | Modifies a resource, such as the existing lab Marketplace image policy. |
-| [New-AzResource](/powershell/module/az.resources/new-azresource) | Creates a resource, such as a new lab Marketplace image policy. |
+- [Get-AzResource](/powershell/module/az.resources/get-azresource): Gets lab, lab policy, and gallery image resources.
+- [Set-AzResource](/powershell/module/az.resources/set-azresource): Modifies the existing lab Marketplace image policy.
+- [New-AzResource](/powershell/module/az.resources/new-azresource): Creates a new lab Marketplace image policy.
 
 ```powershell
 param (
@@ -367,17 +359,15 @@ Set-PolicyChanges $lab $policyChanges
 
 ## Create a custom image from a VHD file
 
-This sample PowerShell script creates a custom image in DevTest Labs from a VHD file. The script requires a Windows VHD file to be uploaded to the Azure Storage account for the lab.
+This sample PowerShell script creates a custom image in DevTest Labs from a VHD file. This script requires a Windows VHD file uploaded to the lab's Azure Storage account, and uses a deployment template from the public [DevTest Labs template repository](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/201-dtl-create-customimage-from-vhd).
 
 To use the script, replace the parameter values under the `# Values to change` comment with your own values. You can get the `subscriptionId`, `labRg`, and `labName` values from the lab's main page in the Azure portal. Get the `vhdUri` value from the Azure Storage container where you uploaded the VHD file.
 
 This script uses the following commands:
 
-| Command | Notes |
-|---|---|
-| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Gets resources such as the lab object and lab storage account. |
-| [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) | Gets the access keys for the lab storage account. |
-| [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) | Creates the custom image and resource group deployment based on a template. |
+- [Get-AzResource](/powershell/module/az.resources/get-azresource): Gets the lab and lab storage account resources.
+- [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey): Gets the access keys for the lab storage account.
+- [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment): Deploys the custom image and resource group based on a template.
 
 ```powershell
 # Values to change

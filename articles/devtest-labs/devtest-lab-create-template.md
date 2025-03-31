@@ -4,14 +4,14 @@ description: Use the Azure portal to create an Azure DevTest Labs virtual machin
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/28/2025
+ms.date: 03/31/2025
 ms.custom: UpdateFrequency2
 
-#customer intent: As a lab user, I want to create lab VM custom images by using VHD files, so I can easily provide a variety of images to lab users for creating VMs.
+#customer intent: As a lab user, I want to create lab VM custom images by using VHD files, so I can provide a variety of images to lab users for creating VMs.
 
 ---
 
-# Create a custom image for Azure DevTest Labs virtual machines from VHD files
+# Create a custom image for an Azure DevTest Labs virtual machine from a VHD file
 
 [!INCLUDE [devtest-lab-create-custom-image-from-vhd-selector](../../includes/devtest-lab-create-custom-image-from-vhd-selector.md)]
 
@@ -41,13 +41,13 @@ To create a custom image for DevTest Labs from a VHD or VHDX file, follow these 
      - If you choose **Linux**, select the checkbox if you ran **deprovision** on the machine when you created the VHD file.
    - **VHD Generation**: Select whether you have a **V1** (VHD) or **V2** (VHDX) file.
    - **VHD**: Select the uploaded VHD file for the custom image from the dropdown menu.
-   - **Plan name,** **Plan offer**, and **Plan publisher**: If the VHD isn't a licensed image published by Microsoft, optionally enter the name of the Marketplace image or SKU used to create the VHD, product or offer name, and plan publisher. If the image is a licensed image, these fields are prepopulated with the plan information.
+   - **Plan name,** **Plan offer**, and **Plan publisher**: If the VHD isn't a licensed image published by Microsoft, optionally enter the name of the Marketplace image or SKU used to create the VHD, a product or offer name, and the plan publisher. If the image is a licensed image, these fields are prepopulated with the plan information.
 
 1. Select **OK**.
 
    :::image type="content" source="media/devtest-lab-create-template/create-custom-image.png" alt-text="Screenshot that shows the Custom image page.":::
 
-After creation, the custom image is stored in the lab's storage account, and appears in the list of VM base images for the lab. Lab users can create new VMs based on the custom image.
+After creation, the custom image is stored in the lab's storage account. The image appears on the lab **Custom images** page and on the list of VM base images for the lab. Lab users can create new VMs based on the custom image.
 
 :::image type="content" source="media/devtest-lab-create-template/custom-image-available-as-base.png" alt-text="Screenshot that shows the Custom images available in the list of base images.":::
 
