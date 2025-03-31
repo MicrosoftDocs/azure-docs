@@ -58,7 +58,7 @@ In this scenario, the goal is to drop routes being advertised from VPN branch si
    
    Verify the routes are showing up in the effective route table for hub 1.
 
-   :::image type="content" source="./media/route-maps-how-to-drop/er_before.png" alt-text="Screenshot that shows routes before." lightbox="./media/route-maps-how-to-drop/er_before.png":::   
+   :::image type="content" source="./media/route-maps-how-to-drop/er_before.png" alt-text="Screenshot that shows routes before effective routes." lightbox="./media/route-maps-how-to-drop/er_before.png":::   
 
 2. Create a Route-Map to drop the routes. If this is your first time creating a Route-Map, see [How to configure Route-maps](route-maps-how-to.md) for more information. 
 
@@ -76,7 +76,7 @@ In this scenario, the goal is to drop routes being advertised from VPN branch si
 
    Verify the routes are no longer in the effective route table.
 
-   :::image type="content" source="./media/route-maps-how-to-drop/er_after.png" alt-text="Screenshot that shows routes after applying Route-Map." lightbox="./media/route-maps-how-to-drop/ER_after.png":::
+   :::image type="content" source="./media/route-maps-how-to-drop/er_after.png" alt-text="Screenshot that shows routes after applying Route-Map effective routes." lightbox="./media/route-maps-how-to-drop/ER_after.png":::
 
 ## Next steps
 

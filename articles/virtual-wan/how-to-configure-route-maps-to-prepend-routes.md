@@ -59,7 +59,7 @@ In this scenario, the goal is to prepend route 10.5.0.192/26 from virtual networ
 
    Look at the Route-Map dashboard for the VPN branch 2 to verify the ASNs for route 10.5.0.192/26 that are being sent to the branch office. 
 
-   :::image type="content" source="./media/route-maps-how-to-prepend/db_before_two.png" alt-text="Screenshot that shows the routes before Route-Map." lightbox="./media/route-maps-how-to-prepend/db_before_two.png"::: 
+   :::image type="content" source="./media/route-maps-how-to-prepend/db_before_two.png" alt-text="Screenshot that shows the routes before Route-Map VPN." lightbox="./media/route-maps-how-to-prepend/db_before_two.png"::: 
 
 2. Create a Route-Map to tag the route. If this is your first time creating a Route-Map, see [How to configure Route-maps](route-maps-how-to.md) for more information. 
 
@@ -77,7 +77,7 @@ In this scenario, the goal is to prepend route 10.5.0.192/26 from virtual networ
 
    look at the Route-Map dashboard for VPN branch 2 connection to verify route 10.5.0.192/26 has the ASNs 65533 advertised to VPN branch 2.
 
-   :::image type="content" source="./media/route-maps-how-to-prepend/db_after_two.png" alt-text="Screenshot of routes after Route-map being applied." lightbox="./media/route-maps-how-to-prepend/db_after_two.png":::
+   :::image type="content" source="./media/route-maps-how-to-prepend/db_after_two.png" alt-text="Screenshot of routes after Route-map being applied VPN." lightbox="./media/route-maps-how-to-prepend/db_after_two.png":::
 
 ## Next steps
 

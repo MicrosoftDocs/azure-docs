@@ -47,35 +47,35 @@ Here's the addressing for this environment:
 
 In this scenario, the goal is to summarize some routes being advertised to the hub from the NVA in virtual network 1. In this example we'll be taking the routes 10.150.1.0/24, 10.150.2.0/24, 10.150.3.0/24, 10.150.4.0/24, and summarizing them to 10.150.0.0/16   
 
-   :::image type="content" source="./media/route-maps-how-to-nva/nva.png" alt-text="Screenshot that shows the Scenario." lightbox="route-maps-how-to-nva/nva.png":::
+   :::image type="content" source="./media/route-maps-how-to-nva/nva.png" alt-text="Screenshot that shows the Scenario." lightbox="./media/route-maps-how-to-nva/nva.png":::
 
 ## Workflow
 
 1.  Use the Route-Map dashboard in hub 1 to verify the correct routes are currently being advertised from virtual network 1 to the hub.
 
-   :::image type="content" source="./media/route-maps-how-to-nva/db_before_one.png" alt-text="Screenshot that shows the routes before Route-maps." lightbox="route-maps-how-to-nva/db_before_one.png":::
+   :::image type="content" source="./media/route-maps-how-to-nva/db_before_one.png" alt-text="Screenshot that shows the routes before Route-maps." lightbox="./media/route-maps-how-to-nva/db_before_one.png":::
 
    Use the Route-Map dashboard to verify the routes being sent to VPN branch 1.  
 
-   :::image type="content" source="./media/route-maps-how-to-nva/db_before_2.png" alt-text="Screenshot that shows the routes before Route-maps." lightbox="route-maps-how-to-nva/db_before_2.png":::  
+   :::image type="content" source="./media/route-maps-how-to-nva/db_before_two.png" alt-text="Screenshot that shows the routes before Route-maps on VPN." lightbox="./media/route-maps-how-to-nva/db_before_two.png":::  
 
 2. Create a Route-Map to tag the route. If this is your first time creating a Route-Map, see [How to configure Route-maps](route-maps-how-to.md) for more information. 
 
    The Route-Map will have a match rule for route 10.150.0.0/16. The action **modify** will be selected. Route Modification has an **Replace** for **RoutePrefix** 10.150.0.0/16.  
 
-   :::image type="content" source="./media/route-maps-how-to-nva/rm.png" alt-text="Screenshot that shows the Route-map." lightbox="route-maps-how-to-nva/rm.png":::
+   :::image type="content" source="./media/route-maps-how-to-nva/rm.png" alt-text="Screenshot that shows the Route-map." lightbox="./media/route-maps-how-to-nva/rm.png":::
 
 3. Apply the Route-Map on the virtual network 1 connection. The Route-Map will be applied in the inbound direction. 
 
-   :::image type="content" source="./media/route-maps-how-to-nva/apply.png" alt-text="Screenshot that shows the Route-map being applied." lightbox="route-maps-how-to-nva/apply.png":::
+   :::image type="content" source="./media/route-maps-how-to-nva/apply.png" alt-text="Screenshot that shows the Route-map being applied." lightbox="./media/route-maps-how-to-nva/apply.png":::
 
 4. Using the Route-Map dashboard in Hub 1, Verify that route 10.150.0.0/16 is being summarized.    
 
-   :::image type="content" source="./media/route-maps-how-to-nva/db_after_one.png" alt-text="Screenshot that shows the Route-map being applied." lightbox="route-maps-how-to-NVA/db_after_one.png":::
+   :::image type="content" source="./media/route-maps-how-to-nva/db_after_one.png" alt-text="Screenshot that shows the Route-map after being applied." lightbox="./media/route-maps-how-to-nva/db_after_one.png":::
 
    Using the Route-Map dashboard verify route 10.150.0.0/16 has been advertised to VPN branch 1
 
-   :::image type="content" source="./media/route-maps-how-to-nva/db_after_two.png" alt-text="Screenshot that shows the Route-map being applied." lightbox="route-maps-how-to-nva/db_after_two.png":::
+   :::image type="content" source="./media/route-maps-how-to-nva/db_after_two.png" alt-text="Screenshot that shows the Route-map after being applied VPN." lightbox="./media/route-maps-how-to-nva/db_after_two.png":::
 
 ## Next steps
 
