@@ -5,7 +5,7 @@ description: Learn how to develop applications and services that use Azure Files
 author: pauljewellmsft
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 03/13/2025
+ms.date: 03/31/2025
 ms.author: pauljewell
 ---
 
@@ -19,7 +19,7 @@ Azure Files offers several ways for developers to access data and manage resourc
 
 | Approach | How it works | When to use |
 | --- | --- | --- |
-| [Standard file I/O libraries](#standard-file-io-libraries) | Uses OS-level API calls through Azure file shares mounted using SMB or NFS. When you mount a file share using SMB/NFS, you can use file I/O libraries for a programming language or framework, such as `System.IO` for .NET, `os` and `io` for Python, `java.io` for Java, or `fs` for JavaScript (Node.js). | You have line-of-business apps with existing code that uses standard file I/O, and you don't want to rewrite code for the app to work with an Azure file share. |
+| [Standard file I/O libraries](#standard-file-io-libraries) | Uses OS-level API calls through Azure file shares mounted using the industry standard Server Message Block (SMB) and Network File System (NFS) protocols. When you mount a file share using SMB/NFS, you can use file I/O libraries for a programming language or framework, such as `System.IO` for .NET, `os` and `io` for Python, `java.io` for Java, or `fs` for JavaScript (Node.js). | You have line-of-business apps with existing code that uses standard file I/O, and you don't want to rewrite code for the app to work with an Azure file share. |
 | [FileREST API](#filerest-api)| Directly calls HTTPS endpoints to interact with data stored in Azure Files. Provides programmatic control over file share resources. The Azure SDK provides client libraries that build on the FileREST API, allowing you interact with FileREST API operations through familiar programming language paradigms. | You're building value-added cloud services and apps for customers and you want to use advanced features not available through native protocols. |
 | [Storage resource provider REST API](#storage-resource-provider-rest-api) | Uses Azure Resource Manager (ARM) to manage storage accounts and file shares. Calls REST API endpoints for various resource management operations. | Your app or service needs to perform resource management tasks, such as creating, deleting, or updating storage accounts or file shares. |
 
@@ -60,7 +60,7 @@ The Azure SDK provides two sets of libraries for working with Azure Files resour
   
 ### Libraries for data access
 
-Data plane libraries are designed to handle data access operations at the *directory* or *file* level. The following section shows the File Shares client library for .NET, Java, Python, JavaScript, and Go.
+Data plane libraries are designed to handle data access operations at the *directory* or *file* level. The following sections show the File Shares client library for .NET, Java, Python, JavaScript, and Go.
 
 ### [.NET](#tab/dotnet)
 
@@ -114,7 +114,7 @@ The following table shows the File Shares client library for data access:
 
 Control plane libraries build on top of the Azure Storage resource provider REST API, allowing you to manage Azure Storage resources. The Azure Storage resource provider is a service that is based on [Azure Resource Manager](/azure/azure-resource-manager/management/overview), and supports both declarative (templates) and imperative (direct API call) methods.
 
-Resource management libraries are designed to handle resource management operations at the *file service* or *file share* level. To learn more about the operations, see [File Services](/rest/api/storagerp/file-services) or [File Shares](/rest/api/storagerp/file-shares). The following section shows the Azure Storage management libraries for .NET, Java, Python, JavaScript, and Go.
+Resource management libraries are designed to handle resource management operations at the *file service* or *file share* level. To learn more about the operations, see [File Services](/rest/api/storagerp/file-services) or [File Shares](/rest/api/storagerp/file-shares). The following sections show the Azure Storage management libraries for .NET, Java, Python, JavaScript, and Go.
 
 ## [.NET](#tab/dotnet)
 

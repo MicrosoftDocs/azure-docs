@@ -5,7 +5,7 @@ description: Learn how to develop .NET applications and services that use Azure 
 author: pauljewellmsft
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 03/13/2025
+ms.date: 03/31/2025
 ms.author: pauljewell
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
@@ -261,11 +261,11 @@ static void LockFile(string filePath)
 }
 ```
 
-When using both SMB and the FileREST API, be aware that the FileREST API uses [leases](#example-lease-a-file-using-the-file-shares-client-library) to manage file locks, while SMB uses file system locks managed by the operating system. To learn more about managing file locking interactions between SMB and the FileREST API, see [Manage file locks](/rest/api/storageservices/managing-file-locks).
+When using both SMB and the FileREST API, keep in mind that the FileREST API uses [leases](#example-lease-a-file-using-the-file-shares-client-library) to manage file locks, while SMB uses file system locks managed by the operating system. To learn more about managing file locking interactions between SMB and the FileREST API, see [Manage file locks](/rest/api/storageservices/managing-file-locks).
 
 ### Example: Enumerate file ACLs using System.IO
 
-The following code example shows how to enumerate ACLs for a file:
+The following code example shows how to enumerate access control lists (ACLs) for a file:
 
 ```csharp
 using System.IO;
@@ -393,7 +393,7 @@ ShareClient shareClient = new ShareClient(connectionString, shareName);
 For information about how to obtain account keys and best practice guidelines for properly managing and safeguarding your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
 
 > [!IMPORTANT]
-> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
+> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service can become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
 
 ---
 
@@ -449,7 +449,7 @@ await destShareFileClient.StartCopyAsync(srcShareFileClient.Uri);
 
 A lease creates a lock on a file that's managed by Azure via a lease ID. The lease provides a mechanism to coordinate access to files across multiple clients in a distributed system. A lease on a file provides exclusive write and delete access. To learn more about lease states and actions, see [Lease File](/rest/api/storageservices/lease-file#remarks).
 
-The following code example shows how to create a lease client, acquire a infinite duration lease on a file, and release the lease:
+The following code example shows how to create a lease client, acquire an infinite duration lease on a file, and release the lease:
 
 ```csharp
 using Azure.Core;
@@ -485,7 +485,7 @@ await leaseClient.AcquireAsync(duration: ShareLeaseClient.InfiniteLeaseDuration)
 await leaseClient.ReleaseAsync();
 ```
 
-When using both SMB and the FileREST API, be aware that the FileREST API uses [leases](#example-lease-a-file-using-the-file-shares-client-library) to manage file locks, while SMB uses file system locks managed by the operating system. To learn more about managing file locking interactions between SMB and the FileREST API, see [Manage file locks](/rest/api/storageservices/managing-file-locks).
+When using both SMB and the FileREST API, keep in mind that the FileREST API uses [leases](#example-lease-a-file-using-the-file-shares-client-library) to manage file locks, while SMB uses file system locks managed by the operating system. To learn more about managing file locking interactions between SMB and the FileREST API, see [Manage file locks](/rest/api/storageservices/managing-file-locks).
 
 ### Example: Create and list share snapshots using the File Shares client library
 
