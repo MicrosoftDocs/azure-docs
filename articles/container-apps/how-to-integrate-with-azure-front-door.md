@@ -170,6 +170,8 @@ If you're not going to continue to use this application, you can delete the cont
 
 - This feature is only supported for workload profile environments.
 
+- This feature is only available in [supported regions](/azure/frontdoor/private-link#region-availability).
+
 For more information about prerequisites and setup, see [Quickstart: Deploy your first container app with containerapp up](get-started.md?tabs=bash).
 
 ## Set environment variables

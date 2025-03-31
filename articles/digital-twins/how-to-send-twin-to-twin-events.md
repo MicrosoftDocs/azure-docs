@@ -3,8 +3,8 @@ title: Set up twin-to-twin event handling
 titleSuffix: Azure Digital Twins
 description: Learn how to create a function in Azure for propagating events through the twin graph.
 author: baanders
-ms.author: baanders # Microsoft employees only
-ms.date: 06/21/2022
+ms.author: baanders
+ms.date: 03/10/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
 ms.custom: devx-track-azurecli
@@ -17,25 +17,25 @@ ms.devlang: azurecli
 
 # Set up twin-to-twin event handling
 
-This article shows how to send events from twin to twin, so that when one digital twin in the graph is updated, related twins in the graph that are affected by this information can also update. This event handling will help you create a fully connected Azure Digital Twins graph, where data that arrives into Azure Digital Twins from external sources like IoT Hub is propagated through the entire graph.
+This article shows how to send events from twin to twin, so that when one digital twin in the graph is updated, related twins in the graph affected by this information can also update. This event handling helps you create a fully connected Azure Digital Twins graph, where data that arrives into Azure Digital Twins from external sources like IoT Hub is propagated through the entire graph.
 
-To set up this twin-to-twin event handling, you'll create an [Azure function](../azure-functions/functions-overview.md) that watches for twin life-cycle events. The function recognizes which events should affect other twins in the graph, and uses the event data to update the affected twins accordingly.
+To set up this twin-to-twin event handling, you create an [Azure function](../azure-functions/functions-overview.md) that watches for twin life-cycle events. The function recognizes which events should affect other twins in the graph, and uses the event data to update the affected twins accordingly.
 
 ## Prerequisites
 
-To set up twin-to-twin handling, you'll need an Azure Digital Twins instance to work with. For instructions on how to create an instance, see [Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md). The instance should contain at least two twins that you want to send data between.
+To set up twin-to-twin handling, you need an Azure Digital Twins instance to work with. For instructions on how to create an instance, see [Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md). The instance should contain at least two twins that you want to send data between.
 
-Optionally, you may want to set up [automatic telemetry ingestion through IoT Hub](how-to-ingest-iot-hub-data.md) for your twins as well. This process isn't required to send data from twin to twin, but it's an important piece of a complete solution where the twin graph is driven by live device telemetry.
+Optionally, you might want to set up [automatic telemetry ingestion through IoT Hub](how-to-ingest-iot-hub-data.md) for your twins as well. This process isn't required to send data from twin to twin, but it's an important piece of a complete solution where live device telemetry drives the twin graph.
 
 ## Send twin events to an endpoint
 
-To set up twin-to-twin event handling, start by creating an *endpoint* in Azure Digital Twins and a *route* to that endpoint. Twins undergoing an update will use the route to send information about their update events to the endpoint (where Event Grid can pick them up later and pass them to an Azure function for processing).
+To set up twin-to-twin event handling, start by creating an *endpoint* in Azure Digital Twins and a *route* to that endpoint. Twins undergoing an update use the route to send information about their update events to the endpoint (where Event Grid can pick them up later and pass them to an Azure function for processing).
 
-[!INCLUDE [digital-twins-twin-to-twin-resources.md](../../includes/digital-twins-twin-to-twin-resources.md)]
+[!INCLUDE [digital-twins-twin-to-twin-resources.md](includes/digital-twins-twin-to-twin-resources.md)]
 
 ## Create Azure function to update twins
 
-Next, create an Azure function that will listen on the endpoint and receive twin events that are sent there via the route. The logic of the function should use the information in the events to determine what other twins need to be updated and then perform the updates.
+Next, create an Azure function that listens on the endpoint and receive twin events that are sent there via the route. The logic of the function should use the information in the events to determine what other twins need to be updated and then perform the updates.
 
 1. First, create a new Azure Functions project. 
 
@@ -53,7 +53,7 @@ Next, create an Azure function that will listen on the endpoint and receive twin
 
     For instructions on how to publish the function using **Visual Studio**, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure). For instructions on how to publish the function using **Visual Studio Code**, see [Create a C# function in Azure using Visual Studio Code](../azure-functions/create-first-function-vs-code-csharp.md?tabs=in-process#publish-the-project-to-azure). For instructions on how to publish the function using the **Azure CLI**, see [Create a C# function in Azure from the command line](../azure-functions/create-first-function-cli-csharp.md?tabs=azure-cli%2Cin-process#deploy-the-function-project-to-azure).
 
-Once the process of publishing the function completes, you can use this Azure CLI command to verify the publish was successful. There are placeholders for your resource group, the name of your function app, and the name of your specific function. The command will print information about your function.
+Once the process of publishing the function completes, you can use this Azure CLI command to verify the publish was successful. There are placeholders for your resource group, the name of your function app, and the name of your specific function. The command prints information about your function.
 
 ```azurecli-interactive
 az functionapp function show --resource-group <your-resource-group> --name <your-function-app> --function-name <your-function>
@@ -61,15 +61,15 @@ az functionapp function show --resource-group <your-resource-group> --name <your
 
 ### Configure the function app
 
-Before your function can access Azure Digital Twins, it needs some information about the instance and permission to access it. In this section, you'll assign an access role for the function and configure the application settings so that it can find and access the instance.
+Before your function can access Azure Digital Twins, it needs some information about the instance and permission to access it. In this section, you assign an access role for the function and configure the application settings so that it can find and access the instance.
 
-[!INCLUDE [digital-twins-configure-function-app-cli.md](../../includes/digital-twins-configure-function-app-cli.md)]
+[!INCLUDE [digital-twins-configure-function-app-cli.md](includes/digital-twins-configure-function-app-cli.md)]
 
 ## Connect the function to the endpoint
 
-Next, subscribe your Azure function to the Event Grid endpoint you created earlier. Doing so will ensure that data can flow from an updated twin through the Event Grid topic to the function, which can use the event information to update other twins as needed.
+Next, subscribe your Azure function to the Event Grid endpoint you created earlier. Doing so ensures that data can flow from an updated twin through the Event Grid topic to the function, which can use the event information to update other twins as needed.
 
-To subscribe your Azure function, you'll create an *Event Grid subscription* that sends data from the Event Grid topic that you created earlier to your Azure function.
+To subscribe your Azure function, you create an *Event Grid subscription* that sends data from the Event Grid topic that you created earlier to your Azure function.
 
 Use the following CLI command, filling in placeholders for your subscription ID, resource group, function app, and function name.
 

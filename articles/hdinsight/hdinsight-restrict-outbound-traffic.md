@@ -3,7 +3,7 @@ title: Configure outbound network traffic restriction - Azure HDInsight
 description: Learn how to configure outbound network traffic restriction for Azure HDInsight clusters.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 01/08/2025
+ms.date: 03/03/2025
 ---
 
 # Configure outbound network traffic for Azure HDInsight clusters using Firewall
@@ -110,7 +110,7 @@ Create the network rules to correctly configure your HDInsight cluster.
 
 Create a route table with the following entries:
 
-* All IP addresses from [Health and management services](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) with a next hop type of **Internet**. It should include 4 IPs of the generic regions as well as 2 IPs for your specific region. This rule is only needed if the ResourceProviderConnection is set to *Inbound*. If the ResourceProviderConnection is set to *Outbound* then these IPs aren't needed in the UDR. 
+* All IP addresses and service tags from [Health and management services](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) with a next hop type of **Internet**. It should include 4 IPs of the generic regions as well as service tags for your specific region. This rule is only needed if the ResourceProviderConnection is set to *Inbound*. If the ResourceProviderConnection is set to *Outbound* then these IPs aren't needed in the UDR. 
 
 * One Virtual Appliance route for IP address 0.0.0.0/0 with the next hop being your Azure Firewall private IP address.
 
@@ -124,12 +124,14 @@ For example, to configure the route table for a cluster created in the US region
 
 | Route name | Address prefix | Next hop type | Next hop address |
 |---|---|---|---|
-| 168.61.49.99 | 168.61.49.99/32 | Internet | NA |
-| 23.99.5.239 | 23.99.5.239/32 | Internet | NA |
-| 168.61.48.131 | 168.61.48.131/32 | Internet | NA |
-| 138.91.141.162 | 138.91.141.162/32 | Internet | NA |
-| 13.82.225.233 | 13.82.225.233/32 | Internet | NA |
-| 40.71.175.99 | 40.71.175.99/32 | Internet | NA |
+| 168.61.49.99 | 168.61.49.99/32 | Internet | N/A |
+| 23.99.5.239 | 23.99.5.239/32 | Internet | N/A |
+| 168.61.48.131 | 168.61.48.131/32 | Internet | N/A |
+| 138.91.141.162 | 138.91.141.162/32 | Internet | N/A |
+| 52.164.210.96| 52.164.210.96/32 | Internet | N/A |
+| 13.74.153.132 |3.74.153.132/32  | Internet | N/A |
+| HDInsight.EastUS |HDInsight.EastUS  | Internet | N/A |
+|HDInsight.WestUS | HDInsight.WestUS | Internet | N/A |
 | 0.0.0.0 | 0.0.0.0/0 | Virtual appliance | 10.0.2.4 |
 
 Complete the route table configuration:

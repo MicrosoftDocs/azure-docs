@@ -37,7 +37,7 @@ The key differences between Hadoop and native external tables:
 | CETAS (exporting/transformation) | Yes | CETAS with the native tables as a target works only in the serverless SQL pool. You can't use the dedicated SQL pools to export data using native tables. |
 
 > [!NOTE]
-> The native external tables are the recommended solution in the pools where they're generally available. If you need to access external data, always use the native tables in serverless pools. In dedicated pools, you should switch to the native tables for reading Parquet files once they are in GA. Use the Hadoop tables only if you need to access some types that aren't supported in native external tables (for example - ORC, RC), or if the native version isn't available.
+> The native external tables are the recommended solution in the pools where they're generally available. If you need to access external data, always use the native tables in serverless or dedicated pools. Use the Hadoop tables only if you need to access some types that aren't supported in native external tables (for example - ORC, RC), or if the native version isn't available.
 
 ## External tables in dedicated SQL pool and serverless SQL pool
 
@@ -87,7 +87,7 @@ The following example creates a Hadoop external data source in dedicated SQL poo
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL [ADLS_credential]
 WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
+SECRET = 'sv=2022-11-02&ss=b&srt=co&sp=rl&se=2042-11-26T17:40:55Z&st=2024-11-24T09:40:55Z&spr=https&sig=DKZDuSeZhuCWP9IytWLQwu9shcI5pTJ%2Fw5Crw6fD%2BC8%3D'
 GO
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 WITH
@@ -113,7 +113,7 @@ The following example creates an external data source in serverless or dedicated
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL [sqlondemand]
 WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
+SECRET = 'sv=2022-11-02&ss=b&srt=co&sp=rl&se=2042-11-26T17:40:55Z&st=2024-11-24T09:40:55Z&spr=https&sig=DKZDuSeZhuCWP9IytWLQwu9shcI5pTJ%2Fw5Crw6fD%2BC8%3D'
 GO
 CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
     LOCATION = 'https://sqlondemandstorage.blob.core.windows.net',

@@ -1,23 +1,25 @@
 ---
 title: Manage Apache Hadoop clusters in HDInsight with .NET SDK - Azure 
-description: Learn how to perform administrative tasks for the Apache Hadoop clusters in HDInsight using HDInsight .NET SDK.
-
+description: Learn how to perform administrative tasks for the Apache Hadoop clusters in Azure HDInsight by using the HDInsight .NET SDK.
 ms.service: azure-hdinsight
 ms.custom: hdinsightactive, devx-track-csharp, devx-track-dotnet
 ms.topic: conceptual
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 12/02/2024
 ---
-# Manage Apache Hadoop clusters in HDInsight by using .NET SDK
+# Manage Apache Hadoop clusters in HDInsight by using the .NET SDK
 
 [!INCLUDE [selector](includes/hdinsight-portal-management-selector.md)]
 
-Learn how to manage HDInsight clusters using [HDInsight.NET SDK](/dotnet/api/overview/azure/hdinsight).
+Learn how to manage Azure HDInsight clusters by using the [HDInsight.NET SDK](/dotnet/api/overview/azure/hdinsight).
 
-**Prerequisites**
+## Prerequisites
 
-Before you begin this article, you must have the following:
+Before you begin this article, you must have:
 
-* **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Connect to Azure HDInsight
 
@@ -46,7 +48,7 @@ namespace HDInsightManagement
     class Program
     {
         private static HDInsightManagementClient _hdiManagementClient;
-        // Replace with your AAD tenant ID if necessary
+        // Replace with your Azure Active Directory tenant ID if necessary.
         private const string TenantId = UserTokenProvider.CommonTenantId; 
         private const string SubscriptionId = "<Your Azure Subscription ID>";
         // This is the GUID for the PowerShell client. Used for interactive logins in this example.
@@ -98,8 +100,7 @@ namespace HDInsightManagement
 }
 ```
 
-You shall see a prompt when you run this program.  If you don't want to see the prompt, see [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
-
+You see a prompt when you run this program. If you don't want to see the prompt, see [Create noninteractive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 
 ## List clusters
 
@@ -117,7 +118,7 @@ foreach (var name in results.Clusters) {
 
 ## Delete clusters
 
-Use the following code snippet to delete a cluster synchronously or asynchronously: 
+Use the following code snippet to delete a cluster synchronously or asynchronously:
 
 ```csharp
 _hdiManagementClient.Clusters.Delete("<Resource Group Name>", "<Cluster Name>");
@@ -126,21 +127,17 @@ _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Nam
 
 ## Scale clusters
 
-The cluster scaling feature allows you to change the number of worker nodes used by a cluster that is running in Azure HDInsight without having to re-create the cluster.
+Use the cluster scaling feature to change the number of worker nodes used by a cluster that's running in HDInsight without having to re-create the cluster.
 
 > [!NOTE]  
-> Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.  See [List and show clusters](hdinsight-administer-use-portal-linux.md#showClusters).
+> Only clusters with HDInsight version 3.1.3 or higher are supported. If you're unsure of the version of your cluster, check the **Properties** page. For more information, see [List and show clusters](hdinsight-administer-use-portal-linux.md#showClusters).
 
-The impact of changing the number of data nodes for each type of cluster supported by HDInsight:
+The effect of changing the number of data nodes for each type of cluster supported by HDInsight:
 
-* Apache Hadoop
+* **Apache Hadoop**: You can seamlessly increase the number of worker nodes in a Hadoop cluster that's running without affecting any pending or running jobs. You can also submit new jobs while the operation is in progress. Failures in a scaling operation are gracefully handled so that the cluster is always left in a functional state.
   
-    You can seamlessly increase the number of worker nodes in a Hadoop cluster that is running without impacting any pending or running jobs. New jobs can also be submitted while the operation is in progress. Failures in a scaling operation are gracefully handled so that the cluster is always left in a functional state.
-  
-    When a Hadoop cluster is scaled down by reducing the number of data nodes, some of the services in the cluster are restarted. This causes all running and pending jobs to fail at the completion of the scaling operation. You can, however, resubmit the jobs once the operation is complete.
-* Apache HBase
-  
-    You can seamlessly add or remove nodes to your HBase cluster while it is running. Regional Servers are automatically balanced within a few minutes of completing the scaling operation. However, you can also manually balance the regional servers by logging into the headnode of cluster and running the following commands from a command prompt window:
+    When a Hadoop cluster is scaled down by reducing the number of data nodes, some of the services in the cluster are restarted. All running and pending jobs fail at the completion of the scaling operation. After the operation is finished, you can resubmit the jobs.
+* **Apache HBase**: You can seamlessly add or remove nodes to your HBase cluster while it's running. Regional servers are automatically balanced within a few minutes of completing the scaling operation. You can also manually balance the regional servers. Sign in to the head node of a cluster and run the following commands from a command prompt window:
   
 
     ```bash
@@ -151,11 +148,11 @@ The impact of changing the number of data nodes for each type of cluster support
 
 ## Update HTTP user credentials
 
-It is the same procedure as Grant/revoke HTTP access.  If the cluster has been granted the HTTP access, you must first revoke it.  And then grant the access with new HTTP user credentials.
+The update procedure is the same as the one you use to grant or revoke HTTP access. If the cluster was granted HTTP access, you must first revoke it. Then you can grant access with new HTTP user credentials.
 
 ## Find the default storage account
 
-The following code snippet demonstrates how to get the default storage account name and the default storage account key for a cluster.
+The following code snippet demonstrates how to get the default storage account name and key for a cluster.
 
 ```csharp
 var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");
@@ -167,31 +164,22 @@ foreach (var key in results.Configuration.Keys)
 
 ## Submit jobs
 
-**To submit MapReduce jobs**
+Learn how to submit jobs for the following products:
 
-See [Run MapReduce samples in HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
+- **MapReduce**: [Run MapReduce samples in HDInsight](hadoop/apache-hadoop-run-samples-linux.md)
+- **Apache Hive**: [Run Apache Hive queries by using the .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
+- **Apache Sqoop**: [Use Apache Sqoop with HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
+- **Apache Oozie**: [Use Apache Oozie with Hadoop to define and run a workflow in HDInsight](hdinsight-use-oozie-linux-mac.md)
 
-**To submit Apache Hive jobs** 
+## Upload data to Azure Blob Storage
 
-See [Run Apache Hive queries using .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
+To upload data, see [Upload data to HDInsight][hdinsight-upload-data].
 
-**To submit Apache Sqoop jobs**
-
-See [Use Apache Sqoop with HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
-
-**To submit Apache Oozie jobs**
-
-See [Use Apache Oozie with Hadoop to define and run a workflow in HDInsight](hdinsight-use-oozie-linux-mac.md).
-
-## Upload data to Azure Blob storage
-
-See [Upload data to HDInsight][hdinsight-upload-data].
-
-## See Also
+## Related content
 
 * [HDInsight .NET SDK reference documentation](/dotnet/api/overview/azure/hdinsight)
 * [Manage Apache Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-portal-linux.md)
-* [Administer HDInsight using a command-line interface][hdinsight-admin-cli]
+* [Administer HDInsight by using a command-line interface][hdinsight-admin-cli]
 * [Create HDInsight clusters][hdinsight-provision]
 * [Upload data to HDInsight][hdinsight-upload-data]
 * [Get started with Azure HDInsight][hdinsight-get-started]
