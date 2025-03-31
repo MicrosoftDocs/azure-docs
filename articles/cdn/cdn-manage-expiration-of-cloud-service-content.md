@@ -1,4 +1,5 @@
 ---
+ROBOTS: NOINDEX
 title: Manage expiration of web content in Azure Content Delivery Network
 description: Learn how to manage expiration of Azure Web Apps/Cloud Services, ASP.NET, or IIS content in Azure Content Delivery Network.
 services: cdn

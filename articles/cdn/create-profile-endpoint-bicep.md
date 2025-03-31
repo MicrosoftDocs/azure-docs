@@ -1,4 +1,5 @@
 ---
+ROBOTS: NOINDEX
 title: 'Quickstart: Create a profile and endpoint - Bicep'
 titleSuffix: Azure Content Delivery Network
 description: In this quickstart, learn how to create an Azure Content Delivery Network profile and endpoint by using a Bicep file
