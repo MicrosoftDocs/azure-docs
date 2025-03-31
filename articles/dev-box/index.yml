@@ -68,13 +68,6 @@ landingContent:
             url: how-to-configure-stop-schedule.md
           - text: Skip or delay a scheduled shutdown
             url: how-to-skip-delay-stop.md
-            
-  # Card
-  - title: Connect to a dev box
-    linkLists:
-      - linkListType: how-to-guide
-
-               
 
   # Card
   - title: Provide secure access
