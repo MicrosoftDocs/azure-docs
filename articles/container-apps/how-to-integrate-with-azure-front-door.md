@@ -261,9 +261,9 @@ az group create \
 
 1. Make sure the `Microsoft.Cdn` resource provider is registered for your subscription.
 
-```azurecli
-az provider register --namespace Microsoft.Cdn
-```
+    ```azurecli
+    az provider register --namespace Microsoft.Cdn
+    ```
 
 1. Create an AFD profile. Private link isn't supported for origins in an AFD profile with SKU `Standard_AzureFrontDoor`.
 
