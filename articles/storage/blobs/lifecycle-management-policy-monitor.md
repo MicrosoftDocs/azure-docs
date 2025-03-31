@@ -72,15 +72,17 @@ The event response from the previous section shows that the lifecycle management
 
 ### Metrics
 
-To determine exactly _when_ operations failed, use metrics explorer. You can see all transactions that were applied against the account in the timeframe between the `scheduleTime` and `eventTime` value that appear in the `LifecyclePolicyCompleted` properties. Use the following metric filters to narrow transactions to those executed by the policy:
+To determine exactly _when_ operations failed, use metrics explorer. You can see all transactions that were applied against the account in the timeframe between the `scheduleTime` and `eventTime` value that appear in the `LifecyclePolicyCompleted` properties. 
+
+Use the following metric filters to narrow transactions to those executed by the policy:
 
 | Filter | Operator | Value |
 |---|---|---|
 | Transaction type | = | `system` |
-| API name | = | Name of failed operation. Values could be `DeleteBlob` or `SetBlobTier` |
-| Response type | != | `Success` |
+| API name | = | `DeleteBlob` |
+| Response type | == | `ClientOtherError` |
 
-The following image shows an example: 
+The following image shows an example. The line chart shows the time these operations failed. 
 
   > [!div class="mx-imgBorder"]
   > ![Screenshot showing metrics being applied to determine delete operations that failed.](media/lifecycle-management-policy-monitor/lifecycle-management-policy-metrics.png)
