@@ -46,11 +46,10 @@ Use a generated VNet when you do not need these features.
 
 If you use an existing VNet, you need to provide a subnet that is dedicated exclusively to the Container App environment you deploy. This subnet isn't available to other services. For more information see [Virtual network configuration](custom-virtual-networks.md).
 
-### Generated VNets
+### When you don't have an existing VNet
 
 Generated VNets are:
 
-- Created in the Microsoft tenant, which makes them directly inaccessible to you
 - Publicly accessible over the internet
 - Only able to communicate with internet accessible endpoints
 
@@ -66,7 +65,7 @@ You can configure whether your container app allows public ingress or ingress on
 | Accessibility level | Description |
 |---|---|
 | External | Allows your container app to accept public requests. External environments are deployed with a virtual IP on an external, public facing IP address. |
-| Internal | Internal environments have no public endpoints and are deployed with a virtual IP (VIP) mapped to an internal IP address. The internal endpoint is an Azure internal load balancer (ILB) and IP addresses are issued from the custom VNet's list of private IP addresses. |
+| Internal | Internal environments have no public endpoints and are deployed with a virtual IP (VIP) mapped to an internal IP address. The internal endpoint is an Azure internal load balancer (ILB) and IP addresses are issued from the existing VNet's list of private IP addresses. |
 
 ### <a name="public-network-access"></a>Public network access (preview)
 
@@ -101,7 +100,7 @@ Azure networking policies are supported with the public network access flag.
 |Feature  |Learn how to  |
 |---------|---------|
 |[Using Azure Firewall](using-azure-firewall.md) | Use Azure Firewall to control outbound traffic from your container app. |
-|[Securing a custom VNet with an NSG](firewall-integration.md) | Secure your container app environment's VNet with a Network Security Group (NSG). |
+|[Securing a existing VNet with an NSG](firewall-integration.md) | Secure your container app environment's VNet with a Network Security Group (NSG). |
 
 ## Environment security
 
@@ -118,7 +117,7 @@ You can fully secure your ingress and egress networking traffic workload profile
 ### <a name="private-endpoint"></a>Private endpoint (preview)
 
 > [!NOTE]
-> This feature is supported for all public regions. Government and China regions are not supported.
+> This feature is supported for all public regions.
 
 Azure private endpoint enables clients located in your private network to securely connect to your Azure Container Apps environment through Azure Private Link. A private link connection eliminates exposure to the public internet. Private endpoints use a private IP address in your Azure virtual network address space. 
 
@@ -149,7 +148,7 @@ You can also [use private endpoints with a private connection to Azure Front Doo
 |[Use a virtual network](vnet-custom.md) | Use a virtual network. |
 |[Configure WAF Application Gateway](waf-app-gateway.md) | Configure a WAF application gateway. |
 |[Enable User Defined Routes (UDR)](user-defined-routes.md) | Enable user defined routes (UDR). |
-|[Secure a custom VNet with an NSG](firewall-integration.md) | Secure your container app environment's VNet with a Network Security Group (NSG). |
+|[Secure an existing VNet with an NSG](firewall-integration.md) | Secure your container app environment's VNet with a Network Security Group (NSG). |
 |[Use Mutual Transport Layer Security (mTLS)](mtls.md) | Build an mTLS application in Azure Container Apps. |
 |[Use a private endpoint](how-to-use-private-endpoint.md) (preview) | Use a private endpoint to securely access your Azure Container App without exposing it to the public Internet. |
 |[Integrate with Azure Front Door](how-to-integrate-with-azure-front-door.md) (preview) | Connect directly from Azure Front Door to your Azure Container Apps using a private link instead of the public internet. |

@@ -101,8 +101,10 @@ Visit the [how to article on ingress](ingress-how-to.md#use-additional-tcp-ports
 
 You can access your app in the following ways:
 
-- The default fully qualified domain name (FQDN): Each app in a Container Apps environment is automatically assigned an FQDN based on the environment's DNS (Domain Name System) suffix. To customize an environment's DNS suffix, see [Custom environment DNS Suffix](environment-custom-dns-suffix.md).
+- The default fully qualified domain name (FQDN): Each app in a Container Apps environment is automatically assigned an FQDN based on the environment's DNS (Domain Name System) suffix. This suffix is determined by the [`CONTAINER_APP_ENV_DNS_SUFFIX` environment variable](environment-variables#apps). To customize an environment's DNS suffix, see [Custom environment DNS Suffix](environment-custom-dns-suffix.md).
+
 - A custom domain name: You can configure a custom DNS domain for your Container Apps environment. For more information, see [Custom domain names and certificates](./custom-domains-certificates.md).
+
 - The app name: You can use the app name for communication between apps in the same environment.
 
 To get the FQDN for your app, see [Location](connect-apps.md#location).

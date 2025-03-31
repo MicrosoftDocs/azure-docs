@@ -15,7 +15,7 @@ Azure Container Apps run in the context of an environment, with its own virtual 
 
 ## HTTP edge proxy behavior
 
-Azure Container Apps uses the [Envoy proxy](https://www.envoyproxy.io/) as an edge HTTP proxy. Transport Layer Security (TLS) is terminated on the edge and requests are routed based on their traffic splitting rules and routes traffic to the correct application.
+Azure Container Apps uses an edge HTTP proxy that terminates Transport Layer Security (TLS) and routes requests to each application.
 
 HTTP applications scale based on the number of HTTP requests and connections. Envoy routes internal traffic inside clusters.
 
@@ -27,9 +27,11 @@ Upstream connections are defined by setting the `transport` property on the [ing
 
 Under the [ingress](azure-resource-manager-api-spec.md#propertiesconfiguration) section, you can configure the following settings:
 
-- **Accessibility level**: You can set your container app as externally or internally accessible in the environment. An environment variable `CONTAINER_APP_ENV_DNS_SUFFIX` is used to automatically resolve the fully qualified domain name (FQDN) suffix for your environment. When communicating between container apps within the same environment, you may also use the app name. For more information on how to access your apps, see [Ingress in Azure Container Apps](./ingress-overview.md#domain-names).
+- Ingress: You can enable or disable ingress for your container app.
 
-- **Traffic split rules**: You can define traffic splitting rules between different revisions of your application.  For more information, see [Traffic splitting](traffic-splitting.md).
+- Ingress traffic: You can accept traffic to your container app from anywhere, or you can limit it to traffic from within the same Container Apps environment.
+
+- Traffic split rules: You can define traffic splitting rules between different revisions of your application. For more information, see [Traffic splitting](traffic-splitting.md).
 
 For more information about different networking scenarios, see [Ingress in Azure Container Apps](ingress-overview.md).
 
