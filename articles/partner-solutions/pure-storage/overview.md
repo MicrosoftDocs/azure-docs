@@ -33,15 +33,15 @@ You can [subscribe to Pure Storage Cloud](https://azuremarketplace.microsoft.com
 
 1. Select the **Contact Me** button.
 
-    Pure Storage will email you once they have enabled your tenant.
+    Pure Storage emails you once they enable your tenant.
 
-    Once your tenant is enabled, you will [access the service via this link](https://portal.azure.com/?Azure_Marketplace_PureStorage_assettypeoptions=%7B%22purestorage_block_reservations%22%3A%7B%22options%22%3A%22%22%7D%7D&Azure_Marketplace_PureStorage=true&feature.canmodifystamps=true#home).
+    Once your tenant is enabled, you can [access the service via this link](https://portal.azure.com/?Azure_Marketplace_PureStorage_assettypeoptions=%7B%22purestorage_block_reservations%22%3A%7B%22options%22%3A%22%22%7D%7D&Azure_Marketplace_PureStorage=true&feature.canmodifystamps=true#home).
 
     > [!IMPORTANT]
-    > - You cannot access the service until your tenant is enabled.
+    > - You can't access the service until your tenant is enabled.
     > You must use this link until Pure Storage is generally available in order to access the service in Azure portal. 
 
-1. Go to **Subscriptions** and select the subscription where the AVS cluster and the service will be deployed.
+1. Go to **Subscriptions** and select the subscription where you wish to deploy the AVS cluster.
 
 1. Go to the **Settings** tab and select **Resource providers**.
 
@@ -53,7 +53,7 @@ You can [subscribe to Pure Storage Cloud](https://azuremarketplace.microsoft.com
 
 1. Select the **Register** button.
 
-    The status will update to *Registered* once the process is complete.
+    The status updates to *Registered* once the process is complete.
 
 ## Pure Storage Cloud links
 
