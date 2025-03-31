@@ -31,9 +31,9 @@ This article describes how to migrate files between SMB Azure file shares. One c
 
 ## Migrate using Robocopy
 
-Follow these steps to migrate using Robocopy, a command-line file copy utility that's built into Windows.
+Follow these steps to migrate using Robocopy, a command-line file copy utility included with Windows.
 
-1. Deploy a Windows virtual machine (VM) in Azure in the same region as your source file share. Keeping the data and networking in Azure will be fast and avoid outbound data transfer charges. For optimal performance, we recommend a multi-core VM type with at least 56 GiB of memory, for example **Standard_DS5_v2**.
+1. Deploy a Windows virtual machine (VM) in Azure in the same region as your source file share. Keeping the data and networking in Azure is faster and avoids outbound data transfer charges. For optimal performance, we recommend a multi-core VM type with at least 56 GiB of memory, for example **Standard_DS5_v2**.
 
 1. Mount both the source and target file shares to the VM. Be sure to mount them using the storage account key to make sure the VM has access to all the files. Don't use a domain identity.
 
@@ -43,13 +43,13 @@ Follow these steps to migrate using Robocopy, a command-line file copy utility t
    robocopy <source> <target> /MIR /COPYALL /MT:16 /R:2 /W:1 /B /IT /DCOPY:DAT
    ```
    
-   If your source share was mounted as s:\ and target was t:\ the command looks like this:
+   Here is an example command with source mounted as `s:\` and target mounted as `t:\`:
    
    ```console
    robocopy s:\ t:\ /MIR /COPYALL /MT:16 /R:2 /W:1 /B /IT /DCOPY:DAT
    ```
    
-   You can run the command while your source is still online, but be aware that any I/O will work against the throttle limits on your existing share.
+   You can run the command while your source is still online, but IOPS and throughput used for the robocopy job counts against your file share limits.
 
 1. After the initial run completes, disconnect your application from the existing share and run the same robocopy command again. This will copy over all the changes that happened since the initial run, skipping any file data that has already copied over.
 
