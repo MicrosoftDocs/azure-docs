@@ -28,7 +28,7 @@ Verify that you've met the following criteria before beginning your configuratio
 
 In this situation we have two hubs. Hub 1 has 2 VNets and a VPN branch office. One of the VNets has an NVA peered with the hub.  Hub 2 also has 2 VNets and a VPN branch office. 
 
- :::image type="content" source="./media/route-maps-how-to-summarize/Environment.png" alt-text="Screenshot shows how to the Enviroment." lightbox="./media/route-maps-how-to-summarize/Environment.png":::
+ :::image type="content" source="./media/route-maps-how-to-summarize/environment.png" alt-text="Screenshot shows how to the Enviroment." lightbox="./media/route-maps-how-to-summarize/environment.png":::
 
 Here is the addressing for this environment:  
 
@@ -48,35 +48,35 @@ Here is the addressing for this environment:
 
 In this scenario, the goal is to drop routes being advertised from VPN branch site 1.  In this example we will be taking the routes 10.122.1.0/24,10.122.2.0/24, 10.122.3.0/24 and dropping them.   
 
- :::image type="content" source="./media/route-maps-how-to-Drop/drop.png" alt-text="Screenshot that shows the Scenario." lightbox="./media/route-maps-how-to-Drop/drop.png":::
+ :::image type="content" source="./media/route-maps-how-to-drop/drop.png" alt-text="Screenshot that shows the Scenario." lightbox="./media/route-maps-how-to-drop/drop.png":::
 
 ## Workflow
 
 1.  Use the Route-Map dashboard in hub 1 to verify what routes are being advertised from the VPN branch. 
 
-   :::image type="content" source="./media/route-maps-how-to-Drop/DB_Before.png" alt-text="Screenshot that shows routes before." lightbox="./media/route-maps-how-to-Drop/DB_Before.png":::  
+   :::image type="content" source="./media/route-maps-how-to-drop/db_before.png" alt-text="Screenshot that shows routes before." lightbox="./media/route-maps-how-to-drop/db_before.png":::  
    
    Verify the routes are showing up in the effective route table for hub 1.
 
-   :::image type="content" source="./media/route-maps-how-to-Drop/ER_Before.png" alt-text="Screenshot that shows routes before." lightbox="./media/route-maps-how-to-Drop/ER_Before.png":::   
+   :::image type="content" source="./media/route-maps-how-to-drop/er_before.png" alt-text="Screenshot that shows routes before." lightbox="./media/route-maps-how-to-drop/er_before.png":::   
 
 2. Create a Route-Map to drop the routes. If this is your frist time creating a Route-Map, see [How to configure Route-maps](route-maps-how-to.md) for more information. 
 
    The Route-Map will have a match rule for route 10.122.2.0/16. The action **Drop** will be selected. 
 
-   :::image type="content" source="./media/route-maps-how-to-Drop/RM.png" alt-text="Screenshot that shows the Route-map." lightbox="./media/route-maps-how-to-Drop/RM.png":::
+   :::image type="content" source="./media/route-maps-how-to-drop/rm.png" alt-text="Screenshot that shows the Route-map." lightbox="./media/route-maps-how-to-drop/rm.png":::
 
 3. Apply the Route-Map on the VPN branch 1 site connection. The Route-Map will be applied in the inbound direction. 
 
-   :::image type="content" source="./media/route-maps-how-to-Drop/Apply.png" alt-text="Screenshot that shows applying the Route-Map." lightbox="./media/route-maps-how-to-Drop/Apply.png":::
+   :::image type="content" source="./media/route-maps-how-to-drop/apply.png" alt-text="Screenshot that shows applying the Route-Map." lightbox="./media/route-maps-how-to-drop/apply.png":::
 
 4. Using the Route-Map dashboard in Hub 1, Verify that routes 10.122.1.0/24,10.122.2.0/24, 10.122.3.0/24 are being dropped.   
 
-   :::image type="content" source="./media/route-maps-how-to-Drop/DB_After.png" alt-text="Screenshot that shows routes after applying Route-Map." lightbox="./media/route-maps-how-to-Drop/DB_After.png":::
+   :::image type="content" source="./media/route-maps-how-to-drop/db_after.png" alt-text="Screenshot that shows routes after applying Route-Map." lightbox="./media/route-maps-how-to-drop/db_after.png":::
 
    Verify the routes are no longer in the effective route table.
 
-   :::image type="content" source="./media/route-maps-how-to-Drop/ER_After.png" alt-text="Screenshot that shows routes after applying Route-Map." lightbox="./media/route-maps-how-to-Drop/ER_After.png":::
+   :::image type="content" source="./media/route-maps-how-to-drop/er_after.png" alt-text="Screenshot that shows routes after applying Route-Map." lightbox="./media/route-maps-how-to-drop/ER_after.png":::
 
 ## Next steps
 

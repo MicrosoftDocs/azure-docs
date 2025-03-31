@@ -27,7 +27,7 @@ Verify that you've met the following criteria before beginning your configuratio
 ## Design
 In this situation we have two hubs. Hub 1 has 2 VNets and a VPN branch office. One of the VNets has an NVA peered with the hub.  Hub 2 also has 2 VNets and a VPN branch office. 
 
-   :::image type="content" source="./media/route-maps-how-to-summarize/Environment.png" alt-text="Screenshot shows how to the Enviroment." lightbox="./media/route-maps-how-to-summarize/Environment.png":::
+   :::image type="content" source="./media/route-maps-how-to-summarize/environment.png" alt-text="Screenshot shows how to the Enviroment." lightbox="./media/route-maps-how-to-summarize/environment.png":::
 
 Here is the addressing for this environment:  
 
@@ -55,29 +55,29 @@ In this scenario, the goal is to prepend route 10.5.0.192/26 from VNet 3 on Hub 
 
 1.  Use the Route-Map dashboard in hub 2 to verify the ASNs on routes are being advertised from the VNet connection. 
 
-   :::image type="content" source="./media/route-maps-how-to-prepend/DB_Before_1.png" alt-text="Screenshot that shows the routes before Route-Map." lightbox="./media/route-maps-how-to-prepend/DB_Before_1.png":::
+   :::image type="content" source="./media/route-maps-how-to-prepend/db_before_one.png" alt-text="Screenshot that shows the routes before Route-Map." lightbox="./media/route-maps-how-to-prepend/db_before_one.png":::
 
    look at the Route-Map dashboard for the VPN brach 2 to verify the ASNs for route 10.5.0.192/26 that are being sent to the branch office. 
 
-   :::image type="content" source="./media/route-maps-how-to-prepend/DB_Before_2.png" alt-text="Screenshot that shows the routes before Route-Map." lightbox="./media/route-maps-how-to-prepend/DB_Before_2.png"::: 
+   :::image type="content" source="./media/route-maps-how-to-prepend/db_before_two.png" alt-text="Screenshot that shows the routes before Route-Map." lightbox="./media/route-maps-how-to-prepend/db_before_two.png"::: 
 
 2. Create a Route-Map to tag the route. If this is your frist time creating a Route-Map, see [How to configure Route-maps](route-maps-how-to.md) for more information. 
 
    The Route-Map will have a match rule for route 10.5.0.192/26. The action **modify** will be selected. Route Modification will have an **Prepend** for **AS Path** 65533.  
 
-   :::image type="content" source="./media/route-maps-how-to-prepend/RM.png" alt-text="Screenshot that shows the Route-Map." lightbox="./media/route-maps-how-to-prepend/RM.png":::
+   :::image type="content" source="./media/route-maps-how-to-prepend/rm.png" alt-text="Screenshot that shows the Route-Map." lightbox="./media/route-maps-how-to-prepend/rm.png":::
 
 3. Apply the Route-Map on the VNet 3 connection. The Route-Map will be applied in the inbound direction. 
 
-   :::image type="content" source="./media/route-maps-how-to-prepend/Apply.png" alt-text="Screenshot the Route-map being applied." lightbox="./media/route-maps-how-to-prepend/Apply.png":::
+   :::image type="content" source="./media/route-maps-how-to-prepend/apply.png" alt-text="Screenshot the Route-map being applied." lightbox="./media/route-maps-how-to-prepend/apply.png":::
 
 4. Using the Route-Map dashboard in Hub 2, Verify that route 10.5.0.192/26 has an ASN of 65533 added.    
 
-   :::image type="content" source="./media/route-maps-how-to-prepend/DB_After_1.png" alt-text="Screenshot of routes after Route-map being applied." lightbox="./media/route-maps-how-to-prepend/DB_After_1.png":::
+   :::image type="content" source="./media/route-maps-how-to-prepend/db_after_one.png" alt-text="Screenshot of routes after Route-map being applied." lightbox="./media/route-maps-how-to-prepend/db_after_one.png":::
 
    look at the Route-Map dashboard for VPN branch 2 connection to verify route 10.5.0.192/26 has the ASNs 65533 advertised to VPN branch 2.
 
-   :::image type="content" source="./media/route-maps-how-to-prepend/DB_After_2.png" alt-text="Screenshot of routes after Route-map being applied." lightbox="./media/route-maps-how-to-prepend/DB_After_2.png":::
+   :::image type="content" source="./media/route-maps-how-to-prepend/db_after_two.png" alt-text="Screenshot of routes after Route-map being applied." lightbox="./media/route-maps-how-to-prepend/db_after_two.png":::
 
 ## Next steps
 
