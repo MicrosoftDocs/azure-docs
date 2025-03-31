@@ -1,13 +1,12 @@
 ---
-title: What is Pure Storage Cloud (preview)?
-description: Learn about Pure Storage Cloud (preview).
+title: What is Azure Native Pure Storage Cloud (preview)?
+description: Discover Azure Native Pure Storage Cloud (preview), offering scalable and flexible enterprise-class cloud block storage with built-in capabilities via the Azure portal.
 author: ProfessorKendrick
 ms.author: kkendrick
 ms.topic: overview
 ms.date: 03/24/2025
-
 ---
-# What is Pure Storage Cloud (preview)?
+# What is Azure Native Pure Storage Cloud (preview)?
 
 [!INCLUDE [what-is](../includes/what-is.md)]
 
