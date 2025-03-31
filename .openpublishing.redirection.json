@@ -6733,6 +6733,11 @@
       "source_path": "articles/notification-hubs/xamarin-notification-hubs-push-notifications-android-gcm.md",
       "redirect_url": "/dotnet/maui/data-cloud/push-notifications",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "/articles/storage/files/geo-redundant-storage-for-large-file-shares.md",
+      "redirect_url": "/azure/storage/files/files-redundancy",
+      "redirect_document_id": false
     }
   ]
 }
