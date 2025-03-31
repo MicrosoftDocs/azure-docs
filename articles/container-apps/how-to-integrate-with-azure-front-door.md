@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2024
 ms.topic:  how-to
-ms.date: 02/24/2025
+ms.date: 03/31/2025
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -24,17 +24,21 @@ In this article, you learn how to connect directly from Azure Front Door to your
 
 - This feature is only supported for workload profile environments.
 
+- Make sure the `Microsoft.Cdn` resource provider is registered for your subscription.
+    1. Begin by signing in to the [Azure portal](https://portal.azure.com).
+    1. Browse to your subscription page and select **Settings** > **Resource providers**. 
+    1. Select **Microsoft.Cdn** from the provider list.
+    1. Select **Register**.
+
 ## Create a container app
 
 Create a resource group to organize the services related to your container app deployment.
-
-Begin by signing in to the [Azure portal](https://portal.azure.com).
 
 1. Search for **Container Apps** in the top search bar.
 1. Select **Container Apps** in the search results.
 1. Select the **Create** button.
 
-1. In the *Create Container App* page, in the *Basics* tab, enter the following values.
+1. In the *Create Container App* page, in the *Basics* tab, do the following actions.
 
     | Setting | Action |
     |---|---|
@@ -85,32 +89,20 @@ Begin by signing in to the [Azure portal](https://portal.azure.com).
 1. Select **Azure Front Door** and **Quick Create**.
 1. Select the **Continue to create a Front Door** button.
 
-1. In the *Create a Front Door profile* page, in the *Basics* tab, do the following.
+1. In the *Create a Front Door profile* page, in the *Basics* tab, do the following actions.
 
-1. Under the **Subscription** field, you might see the error `Microsoft.Cdn is not registered for the subscription.`. To resolve this:
-    1. Browse to your subscription page and select **Settings** > **Resource providers**. 
-    1. Select **Microsoft.Cdn** from the provider list.
-    1. Select **Register**.
-
-1. For *Resource group*, select **my-container-apps**.
-
-1. For *Name*, enter **my-afd-profile**.
-
-1. Set *Tier* to **Premium**. Private link is not supported for origins in an AFD profile on the Standard tier.
-
-1. Set *Endpoint name* to **my-afd-endpoint**.
-
-1. Set *Origin type* to **Container Apps**.
-
-1. Set *Origin host name* to the hostname of your container app. Your hostname looks like the following example: `my-container-app.orangeplant-77e5875b.centralus.azurecontainerapps.io`.
-
-1. Select **Enable private link service**.
-
-1. Set *Region* to **(US) Central US**.
-
-1. Set *Target sub resource* to **managedEnvironments**.
-
-1. In the *Request message* field, enter **AFD Private Link Request**.
+    | Setting | Actions |
+    |--|--|
+    | Resource group | Select **my-container-apps**. |
+    | Name | Enter **my-afd-profile**. |
+    | Tier | Select **Premium**. Private link is not supported for origins in an AFD profile on the Standard tier. |
+    | Endpoint name | Enter **my-afd-endpoint**. |
+    | Origin type | Select **Container Apps**. |
+    | Origin host name | Enter the hostname of your container app. Your hostname looks like the following example: `my-container-app.orangeplant-77e5875b.centralus.azurecontainerapps.io`. |
+    | Enable private link service | Enable this setting. |
+    | Region | Select **(US) Central US**. |
+    | Target sub resource | Select **managedEnvironments**. |
+    | Request message | Enter **AFD Private Link Request**. |
 
 1. Select **Review + create**.
 
@@ -134,7 +126,8 @@ Begin by signing in to the [Azure portal](https://portal.azure.com).
 
 1. In the *Private endpoint connections* page, approve each private endpoint connection request with the description `AFD Private Link Request`.
 
-    Azure Front Door might create multiple private endpoint connection requests. This is a known issue.
+    > [!NOTE]
+    > Azure Front Door might create multiple private endpoint connection requests. This is a known issue.
 
 ## Access your container app from Azure Front Door
 
