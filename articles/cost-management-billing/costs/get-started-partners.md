@@ -2,13 +2,13 @@
 title: Get started with Cost Management for partners
 titleSuffix: Microsoft Cost Management
 description: This article explains how partners use Cost Management features and how they enable access for their customers.
-author: bandersmsft
-ms.author: banders
+author: shrutis06
+ms.author: shrshett
 ms.date: 01/13/2025
 ms.topic: concept-article
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: aparnag
+ms.reviewer: shrshett
 ms.custom: secdec18
 #customer intent: As a partner, I want to understand how Cost Management features are used so that I can enable access for my customers.
 ---

@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 03/18/2024
+ms.date: 03/24/2024
 ms.author: anfdocs
 ---
 # Resource limits for Azure NetApp Files
@@ -27,6 +27,8 @@ The following table describes resource limits for Azure NetApp Files:
 |  Number of IPs in a virtual network (including immediately peered virtual networks [VNets]) accessing volumes in an Azure NetApp Files hosting VNet    |   <ul><li>**Basic**: 1000</li><li>**Standard**: [Same standard limits as VMs](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)</li></ul>  |    No    |
 |  Minimum size of a single capacity pool   |  1 TiB*     |    No  |
 |  Maximum size of a single capacity pool    |  2,048 TiB   |   No   |
+| Minimum throughput of a Flexible service level capacity pool | 128 MiB/second | No |
+| Maximum throughput of a Flexible service level capacity pool | [5 x 128 x Size of capacity pool in TiB](azure-netapp-files-set-up-capacity-pool.md#considerations) | No |
 |  Minimum size of a single regular volume    |    50 GiB    |    No    |
 |  Maximum size of a single regular volume     |    100 TiB    |    No    |
 |  Minimum size of a single [large volume](large-volumes-requirements-considerations.md) | 50 TiB |     No |
@@ -51,8 +53,6 @@ The following table describes resource limits for Azure NetApp Files:
 
 
 \* [!INCLUDE [Limitations for capacity pool minimum of 1 TiB](includes/2-tib-capacity-pool.md)]
-
-
 
 \** 2-PiB [large volume](large-volumes-requirements-considerations.md) large volumes are available on request depending on regional dedicated capacity availability. To request 2-PiB large volumes, contact your account team. 
 

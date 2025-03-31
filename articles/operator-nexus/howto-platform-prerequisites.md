@@ -599,7 +599,68 @@ An example design of three on-premises instances from the same NFC/CM pair, usin
 ### Default setup for other devices installed
 
 - All network fabric devices (except for the Terminal Server) are set to `ZTP` mode
-- Servers have default factory settings
+- Servers have default factory settings, inclusive of minimum BIOS settings.
+
+#### Minimum BIOS and firmware versions for Nexus Cluster runtime
+
+Ensure the following minimum BIOS and firmware versions are deployed based on your Nexus Cluster, based on the selected runtime version and BOM:
+
+#### Nexus Cluster runtime version 4.4.x
+
+##### BOM 1.7.3
+
+| Component                                                               | Version       |
+|-------------------------------------------------------------------------|---------------|
+| BIOS                                                                    | 1.15.2        |
+| Storage Array Controller (PERC H755)                                    | 52.26.0-5179  |
+| iDRAC                                                                   | 7.10.90.00    |
+| Non-Expander Storage Backplane Passive SEP Firmware (15G Non-Expander)  | 7.10          |
+| CPLD                                                                    | 1.1.1         |
+| Mellanox ConnectX-6 DX Adapter                                          | 22.41.1000    |
+| NVIDIA ConnectX-6 Lx 2x 25G SFP28                                       | 26.41.1000    |
+| Broadcom 5720 Quad Port 1GbE BASE-T Adapter                             | 22.91.5       |
+
+##### BOM 2.0.0
+
+| Component                                           | Version       |
+|-----------------------------------------------------|---------------|
+| BIOS                                                | 2.4.4         |
+| Storage Array Controller (PERC H755)                | 52.26.0-5179  |
+| iDRAC                                               | 7.10.90.00    |
+| SAS Expander Backplane Firmware (R760)              | 1.61          |
+| Non-Expander Storage Backplane Firmware (R660)      | 7.10          |
+| CPLD                                                | 1.2.6         |
+| Mellanox ConnectX-6 DX Adapter                      | 22.41.10.00   |
+| NVIDIA ConnectX-6 Lx 2x 25G SFP28                   | 26.41.10.00   |
+| Broadcom 5720 Quad Port 1GbE BASE-T Adapter         | 22.91.5       |
+
+#### Nexus Cluster runtime version 4.1.x
+
+##### BOM 1.7.3
+
+| Component                                                               | Version       |
+|-------------------------------------------------------------------------|---------------|
+| BIOS                                                                    | 1.13.2        |
+| Storage Array Controller (PERC H755)                                    | 52.26.0-5179  |
+| iDRAC                                                                   | 7.10.30.00    |
+| Non-Expander Storage Backplane Passive SEP Firmware (15G Non-Expander)  | 7.10          |
+| CPLD                                                                    | 1.0.9         |
+| Mellanox ConnectX-6 DX Adapter                                          | 22.35.10.12   |
+| Broadcom 5720 Quad Port 1GbE BASE-T Adapter                             | 22.61.8       |
+
+##### BOM 2.0.0
+
+| Component                                           | Version       |
+|-----------------------------------------------------|---------------|
+| BIOS                                                | 2.2.7         |
+| Storage Array Controller (PERC H755)                | 52.26.0-5179  |
+| iDRAC                                               | 7.10.30.00    |
+| SAS Expander Backplane Firmware (R760)              | 1.61          |
+| Non-Expander Storage Backplane Firmware (R660)      | 7.10          |
+| CPLD                                                | 1.2.1         |
+| Mellanox ConnectX-6 DX Adapter                      | 22.39.10.02   |
+| Broadcom 5720 Quad Port 1GbE BASE-T Adapter         | 22.91.5       |
+
 
 ## Firewall rules between Azure to Nexus Cluster.
 
