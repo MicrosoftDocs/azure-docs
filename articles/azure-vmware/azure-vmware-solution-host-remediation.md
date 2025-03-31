@@ -73,7 +73,7 @@ The following actions are always recommended for ensuring host maintenance opera
 
 ## Next steps
 
-Now that you've covered Azure VMware Solution private cloud best practices, you might want to learn about:
+Now that you've covered Azure VMware Solution private cloud maintenance best practices, you might want to learn about:
 
 - [Azure VMware Solution networking and interconnectivity concepts](architecture-networking.md)
 - [Azure VMware Solution storage concepts](architecture-storage.md)
