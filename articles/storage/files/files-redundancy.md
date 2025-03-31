@@ -22,6 +22,20 @@ Azure file shares are managed through a common Azure resource called a *storage 
 
 When you create a storage account, you choose a redundancy setting for the storage account that's shared for all storage services exposed by that account. Therefore, all file shares deployed in the same storage account have the same redundancy setting. You might want to isolate file shares in separate storage accounts if they have different redundancy requirements.
 
+## Applies to
+| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
+|-|-|-|-|:-:|:-:|
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## Redundancy in the primary region
 
 Data in an Azure storage account is always replicated three times in the primary region. Azure Files offers two options for how your data is replicated in the primary region:
@@ -46,7 +60,7 @@ LRS is a good choice for the following scenarios:
 - If your application stores data that can be easily reconstructed if data loss occurs.
 - If your application is restricted to replicating data only within a country or region due to data governance requirements. In some cases, the paired regions across which the data is geo-replicated might be in another country or region. For more information, see [Azure region pairs and nonpaired regions](/azure/reliability/regions-paired).
 
-LRS is supported in all Azure regions for standard file shares. For a list of regions that support LRS for premium file shares, see [LRS support for premium Azure file shares](redundancy-premium-file-shares.md#lrs-support-for-premium-azure-file-shares).
+LRS is supported in all Azure regions for HDD file shares. For a list of regions that support LRS for SSD file shares, see [LRS support for SSD file shares](redundancy-premium-file-shares.md#lrs-support-for-premium-azure-file-shares).
 
 ### Zone-redundant storage
 
@@ -71,14 +85,14 @@ ZRS provides excellent performance, low latency, and resiliency for your data if
 
 To understand which regions support ZRS for standard file shares, see the [Azure regions list](/azure/reliability/regions-list#azure-regions-list-1) and refer to the availability zone support column. ZRS is supported in standard general-purpose v2 storage accounts for all three standard tiers: transaction optimized, hot, and cool.
 
-ZRS is supported for premium file shares through the `FileStorage` storage account kind. For a list of regions that support ZRS for premium file share accounts, see [ZRS support for premium Azure file shares](redundancy-premium-file-shares.md#zrs-support-for-premium-azure-file-shares).
+ZRS is supported for SSD file shares through the `FileStorage` storage account kind. For a list of regions that support ZRS for SSD file share accounts, see [ZRS support for SSD file shares](redundancy-premium-file-shares.md#zrs-support-for-premium-azure-file-shares).
 
 ## Redundancy in a secondary region
 
 For applications requiring high durability for SMB file shares, you can choose geo-redundant storage to copy the data in your storage account to a secondary region that is hundreds of miles away from the primary region. If your storage account is copied to a secondary region, then your data is durable even in the case of a complete regional outage or a disaster in which the primary region isn't recoverable.
 
 > [!IMPORTANT]
-> Azure Files only supports geo-redundancy (GRS or GZRS) for standard SMB file shares. Premium file shares and NFS file shares must use LRS or ZRS.
+> Azure Files only supports geo-redundancy (GRS or GZRS) for HDD file shares. SSD file shares must use LRS or ZRS.
 
 When you create a storage account, you select the primary region for the account. The paired secondary region is determined based on the primary region, and can't be changed. For more information about regions supported by Azure, see the [Azure regions list](/azure/reliability/regions-list#azure-regions-list-1).
 
@@ -120,9 +134,9 @@ With GRS or GZRS, the file shares won't be accessible in the secondary region un
 > [!IMPORTANT]
 > Azure Files doesn't support read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). If a storage account is configured to use RA-GRS or RA-GZRS, the file shares will be configured and billed as GRS or GZRS.
 
-### Geo-redundancy for premium file shares
+### Geo-redundancy for SSD file shares
 
-As previously mentioned, geo-redundancy options (GRS and GZRS) aren't supported for premium file shares. However, you can achieve geo-redundancy in other ways.
+As previously mentioned, geo-redundancy options (GRS and GZRS) aren't supported for SSD file shares. However, you can achieve geo-redundancy in other ways.
 
 For Azure File Sync scenarios, you can sync between your Azure file share (your cloud endpoint), an on-premises Windows file server, and a mounted file share running on a virtual machine in another Azure region (your server endpoint for disaster recovery purposes). You must disable cloud tiering to ensure all data is present locally, and provision enough storage on the Azure VM to hold the entire dataset. To ensure changes will replicate quickly to the secondary region, files should only be accessed and modified on the server endpoint rather than in Azure.
 

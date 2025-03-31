@@ -2,7 +2,7 @@
 title: Tutorial - Monitor alerts and metrics in Azure Business Continuity Center
 description: In this tutorial, learn how to monitor alerts and configure notifications for your business continuity estate using Azure Business Continuity center.
 ms.topic: tutorial
-ms.date: 12/30/2024
+ms.date: 03/30/2025
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
@@ -76,6 +76,6 @@ To view metrics, follow these steps:
  
 ## Next steps
 
-- [Configure datasources](./tutorial-configure-protection-datasource.md)
-
+- [Configure datasources](./tutorial-configure-protection-datasource.md).
+- [Well-Architected Framework design recommendation for reliable monitoring and alerting strategy](/azure/well-architected/reliability/monitoring-alerting-strategy#azure-facilitation).
  
