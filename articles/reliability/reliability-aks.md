@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Kubernetes Service (AKS)
-description: Find out about how to deploy reliable workloads in Azure Kubernetes Service (AKS), including availability zones and multi-region deployments.
+description: Learn about how to deploy reliable workloads in Azure Kubernetes Service (AKS), including availability zones and multiple-region deployments.
 author: schaffererin
 ms.author: schaffererin
 ms.topic: reliability-article
@@ -12,9 +12,9 @@ ms.date: 03/18/2025
 
 # Reliability in Azure Kubernetes Service (AKS)
 
-This article describes reliability support in [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
+This article describes reliability support in [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multiple-region deployments](#multiple-region-support).
 
-Resiliency is a shared responsibility between you and Microsoft and so this article also covers ways for you to create a resilient solution that meets your needs.
+Resiliency is a shared responsibility between you and Microsoft. This article covers ways for you to create a resilient solution that meets your needs.
 
 ## Production deployment recommendations
 
@@ -154,11 +154,11 @@ You can test your resiliency to availability zone failures by using the followin
 - [Cordon and drain nodes in a single availability zone](/azure/aks/aks-zone-resiliency#method-1-cordon-and-drain-nodes-in-a-single-az)
 - [Simulate an availability zone failure by using Azure Chaos Studio](/azure/aks/aks-zone-resiliency#method-2-simulate-an-az-failure-using-azure-chaos-studio)
 
-## Multi-region support
+## Multiple-region support
 
 AKS clusters are single-region resources. If the region is unavailable, your AKS cluster is also unavailable.
 
-### Alternative multi-region approaches
+### Alternative multiple-region approaches
 
 If you need to deploy your Kubernetes workload to multiple Azure regions, you have two options to manage the orchestration of these clusters.
 
@@ -189,7 +189,7 @@ Strive to use stateless clusters that minimize the need for backup. Store data i
 
 ## Service-level agreement
 
-The service-level agreement (SLA) for Azure Logic Apps describes the expected availability of the service and the conditions that must be met to achieve that availability expectation. For more information, see [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+The service-level agreement (SLA) for AKS describes the expected availability of the service and the conditions that must be met to achieve that availability expectation. For more information, see [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 AKS provides three [pricing tiers for cluster management](/azure/aks/free-standard-pricing-tiers): **Free**, **Standard**, and **Premium**. The Free tier enables you to use AKS to test your workloads. The Standard and Premium tiers are designed for production workloads. When you deploy an AKS cluster that has availability zones enabled, the uptime percentage defined in the SLA increases. However, the SLA applies only if you deploy a cluster in the Standard or Premium pricing tier.
 
