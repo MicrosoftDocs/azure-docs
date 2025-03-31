@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 07/23/2024
+ms.date: 03/31/2025
 ms.author: danlep
 ---
 
@@ -87,6 +87,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 * This policy can be used only once per policy definition.
 * This policy is only applied when an API is accessed using a subscription key.
 * [!INCLUDE [api-management-self-hosted-gateway-rate-limit](../../includes/api-management-self-hosted-gateway-rate-limit.md)] [Learn more](how-to-self-hosted-gateway-on-kubernetes-in-production.md#request-throttling)
+* In a [multi-region](api-management-howto-deploy-multi-region.md) deployment, this policy counts calls separately at each regional gateway in the deployment. The policy doesn't aggregate all call data for the instance. 
 
 
 ## Example
