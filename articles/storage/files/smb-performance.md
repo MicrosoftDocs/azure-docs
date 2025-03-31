@@ -191,7 +191,8 @@ Register-AzProviderFeature -FeatureName AzurePremiumFilesMetadataCacheFeature -P
 ---
 
 > [!IMPORTANT]
-> Allow 1-2 days for accounts to be onboarded once registration is complete.
+> - Although listed under Preview Features, we honor GA SLAs and will soon make this the default for all accounts, removing the need for registration.
+> - Allow 1-2 days for accounts to be onboarded once registration is complete.
 
 ### Regional availability
 
