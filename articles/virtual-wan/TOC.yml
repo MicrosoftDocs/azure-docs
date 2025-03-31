@@ -304,16 +304,16 @@
       href: route-maps-about.md
     - name: Configure Route-maps
       href: route-maps-how-to.md
-      name: Configure Route-maps to summarize routes leaving your virtual WAN
-      href: route-maps-how-to-Summarize routes leaving your virtual WAN.md
-      name: Configure Route-maps to drop inbound routes from branch sites
-      href: How to configure Route-maps to drop inbound routes from Branch sites.md
-      name: Configure Route-maps to prepend routes
-      href: How to configure Route-maps to prepend routes.md
-      name: Configure Route-maps to tag routes
-      href: How to configure Route-maps to tag routes.md
-      name: Configure Route-maps to summarize routes from an NVA
-      href: How to configure Route-maps to summarize routes from an NVA in a spoke VNet.md
+    - name: Configure Route-maps to summarize routes leaving your virtual WAN
+      href: route-maps-how-to-summarize-routes-leaving-your-vwan.md
+    - name: Configure Route-maps to drop inbound routes from branch sites
+      href: how-to-configure-route-maps-to-drop-inbound-routes-from-branch-sites.md
+    - name: Configure Route-maps to prepend routes
+      href: how-to-configure-route-maps-to-prepend-routes.md
+    - name: Configure Route-maps to tag routes
+      href: how-to-configure-route-maps-to-tag-routes.md
+    - name: Configure Route-maps to summarize routes from an NVA
+      href: how-to-configure-route-maps-to-summarize-routes-from-an-device-a-spoke-vNet.md
   - name: View virtual hub effective routes
     href: effective-routes-virtual-hub.md
   - name: Configure routing intent and policies

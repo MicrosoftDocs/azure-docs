@@ -47,7 +47,7 @@ Here is the addressing for this environment:
 
 In this scenario, the goal is to prepend route 10.5.0.192/26 from VNet 3 on Hub 2 with ASN 65533.  
 > [!Important]
-> [!INCLUDE [Preview text](../../includes/virtual-wan-route-maps-ASN.md)]
+> [!INCLUDE [Preview text](../../includes/virtual-wan-route-maps-asn.md)]
 
    :::image type="content" source="./media/route-maps-how-to-prepend/Prepend.png" alt-text="Screenshot that shows the Scenario." lightbox="./media/route-maps-how-to-prepend/Prepend.png":::
 
