@@ -136,41 +136,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/iot-operations/manage-devices-assets/howto-autodetect-opcua-assets-using-akri.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-manage-assets",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-operations/manage-devices-assets/concept-akri-architecture.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-manage-assets",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-operations/manage-devices-assets/overview-akri.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-manage-assets",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/concept-akri-architecture.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-manage-assets",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/howto-autodetect-opcua-assets-using-akri.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-manage-assets",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/overview-akri.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-manage-assets",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/iot-operations/reference/observability-metrics-akri.md",
-            "redirect_url": "/azure/iot-operations/reference/observability-metrics-opcua-broker",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/iot-operations/configure-observability-monitoring/howto-add-cluster.md",
             "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-configure-observability",
             "redirect_document_id": false
