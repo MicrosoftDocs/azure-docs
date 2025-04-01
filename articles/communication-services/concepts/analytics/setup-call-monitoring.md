@@ -65,7 +65,7 @@ Before configuring monitoring, ensure that call logging and diagnostics are enab
 
 1. Choose how you want to be notified. When complete, click **Review + create**, and wait for your alert rule to be created.
 
-   :::image type="content" source="media\setup-call-monitoring\setup-notifications.png" alt-text="Sceen capture of how to set up notifications and review + create the notification.":::
+   :::image type="content" source="media\setup-call-monitoring\setup-notifications.png" alt-text="Screen capture of how to set up notifications and review + create the notification.":::
 
 2.  When complete, click **Next: Details**.
 3.  Provide more details as shown in the following screen.
