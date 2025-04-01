@@ -48,7 +48,7 @@ Before creating your resources, you need to create the AVE Workload resource. Wo
       - **Create new**: Click and enter the name `rg-webapp-ui` then select `Ok`
 > Note:
 >
-> Organizations should choose a workload naming convention that makes sense for the organization. Learn more about [defining your naming convention](../cloud-adoption-framework/ready/azure-best-practices/resource-naming).
+> Organizations should choose a workload naming convention that makes sense for the organization. Learn more about [defining your naming convention](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming.md).
 
 ![image3.png](./media/image-f1db1ca2-2034-4b85-862e-a0f0c2649bc5.png)
 

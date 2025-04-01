@@ -24,7 +24,7 @@ The steps below can be followed for scenarios where Enclave Owners require a dif
 
 1. Select the enclave that has the key vault you wish to upgrade or downgrade
 2. Select the managed resource group in the Essentials section
-![image.png](./media/image-0fad1088-8407-480b-85dc-bc8d34fe1a66.png)
+![image1.png](./media/image-0fad1088-8407-480b-85dc-bc8d34fe1a66.png)
 3. Select the enclave key vault from the managed resource group, and copy these details for later
    - `ResourceName`
    - `ResourceGroupName`
@@ -54,7 +54,7 @@ AVE recommends following the [Quickstart: Provision and activate a Managed HSM u
 
 1. AVE advises setting `PublicNetworkAccess` to `Disabled`, and within `networkAcls`: `bypass` to `None`, and `defaultAction` to `Deny`.
 2. After ManagedHSM resource creation completes successfully, AVE advises Enclave Owners to create a Private Endpoint for their ManagedHSM. An example of this is provided below:
-![image.png](./media/image-72ec8781-eda2-41cf-8a01-57d3eca69344.png)
+![image2.png](./media/image-72ec8781-eda2-41cf-8a01-57d3eca69344.png)
 3. Enclave Owners _may_ be required to create a [Policy exemption](./policy-compliance-exemptions.md) to create Managed HSMs in their Enclave workloads.
 
 

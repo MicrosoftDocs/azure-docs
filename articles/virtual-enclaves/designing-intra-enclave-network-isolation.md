@@ -25,7 +25,7 @@ Once these NICs have been identified, Enclave Owners can add their own [Network 
 
 In the below image, a Network interface within the `contoso4-identity` Workload in the `contoso4` Enclave requires a custom NSG to be associated.
 
-![image.png](./media/image-422f6db0-6d33-4b58-8d47-ad2d3020851e.png)
+![image1.png](./media/image-422f6db0-6d33-4b58-8d47-ad2d3020851e.png)
 
 Should further troubleshooting be required to investigate inter-enclave network traffic or routing issues, learn more about [Troubleshooting connectivity problems between Azure VMs](../virtual-network/virtual-network-troubleshoot-connectivity-problem-between-vms.md) or contact [Azure Support](https://azure.microsoft.com/support/).
 

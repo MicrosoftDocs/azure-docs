@@ -65,7 +65,7 @@ Required:
 ## Domain Join (Optional)
 1. Should you choose to Domain Join your RemoteApp, you will need to select which domain join option you want (Active Directory or Microsoft Entra ID) on the Basic tab
 2. Make sure to fill out the following fields if domain joining:
-![image.png](./media/image-2c000f23-06d5-4d65-af00-1de550e484e4.png)
+![image1.png](./media/image-2c000f23-06d5-4d65-af00-1de550e484e4.png)
 3. For the `Active Directory` Domain join options, see the following examples
    * The Domain name should be in the format of `contoso.com`
    * OU path should be in the format of `OU=Organizations,DC=contoso,DC=com`
@@ -78,7 +78,7 @@ Required:
 
 ## (Optional) Publish Remote App
 If you publish your application, all of the following fields on this tab must be filled out.
-![image.png](./media/image-483db51b-f65e-4b8b-9305-6cac55bb77bf.png)
+![image2.png](./media/image-483db51b-f65e-4b8b-9305-6cac55bb77bf.png)
 
 >Note
 >When testing domain join for the first time, it may be easiest to deploy a VM without domain joining, remotely sign in to the VM (e.g. via Bastion) and manually domain join to observe the errors and troubleshoot more quickly.

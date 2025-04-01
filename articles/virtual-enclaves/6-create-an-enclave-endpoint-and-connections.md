@@ -31,11 +31,11 @@ If you haven't created those resources yet, please return to those earlier tutor
 
 2. While in your Enclave's page, select `Enclave endpoints` in the left menu.
 
-![image.png](./media/enclave-webapp-endpointblade.png)
+![image1.png](./media/enclave-webapp-endpointblade.png)
 
 3. Select `Create`
 
-![image.png](./media/enclave-webapp-endpointblade-create.png)
+![image2.png](./media/enclave-webapp-endpointblade-create.png)
 
 4. Enter the details for your app/service and then select `Save`
    - Enclave: Select the existing Enclave "Enclave-WebApp".
@@ -46,25 +46,25 @@ If you haven't created those resources yet, please return to those earlier tutor
       - Port: 443
       - Protocol: ANY
 
-![image.png](./media/enclave-webapp-endpoint-rule.png)
+![image3.png](./media/enclave-webapp-endpoint-rule.png)
 
 5. Select `Yes`, select `Review + Create`, and click `Create`
 
-![image.png](./media/image-a0b8d9e4-0146-40df-bf18-40d3edc6034d.png)
+![image4.png](./media/image-a0b8d9e4-0146-40df-bf18-40d3edc6034d.png)
 
 6. Once the endpoint resource is created, you can view them in Azure Portal from the Enclave-WebApp `Enclave Endpoints`.
 
-![image.png](./media/enclave-webapp-endpoint-deployed.png)
+![image5.png](./media/enclave-webapp-endpoint-deployed.png)
 
 ## Create a Community Endpoint
 
 1. Navigate to the `fabrikam` community, select `Community Endpoints`
 
-![image.png](./media/fabrikam-endpoint-blade.png)
+![image6.png](./media/fabrikam-endpoint-blade.png)
 
 2. Select `Create`
 
-![image.png](./media/fabrikam-endpoint-create.png)
+![image7.png](./media/fabrikam-endpoint-create.png)
 
 3. Enter the details for your app/service
    - Community Endpoint name: Name of the community endpoint `fabrikam-endpoint-website`
@@ -75,27 +75,27 @@ If you haven't created those resources yet, please return to those earlier tutor
       - Protocol: HTTPS
       - Port: 443
 
-![image.png](./media/fabrikam-endpoint-rules.png)
+![image8.png](./media/fabrikam-endpoint-rules.png)
 
 4. Select `Save`
 
 5. Select `Yes`, select `Review + Create`, and click `Create`
 
-![image.png](./media/fabrikam-endpoint-reviewCreate.png)
+![image9.png](./media/fabrikam-endpoint-reviewCreate.png)
 
 6. Once the endpoint resource is created, you can view them in Azure Portal from the Enclave-WebApp en.
 
-![image.png](./media/fabrikam-endpoint-deployed.png)
+![image10.png](./media/fabrikam-endpoint-deployed.png)
 
 # Create an Enclave Connection associated to an Endpoint
 
 1. From the `fabrikam` community, select  `Enclave connections`
 
-![image.png](./media/fabrikam-connection-blade.png)
+![image11.png](./media/fabrikam-connection-blade.png)
 
 3. Select `Create`
 
-![image.png](./media/fabrikam-connection-create.png)
+![image12.png](./media/fabrikam-connection-create.png)
 
 4. Enter the details for your app/service
    - Enclave connection name: Name of the connection `fabrikam-external-connection`
@@ -106,13 +106,13 @@ If you haven't created those resources yet, please return to those earlier tutor
    - Destination Endpoint Type: Select `Community Endpoint`
    - Destination endpoint: Select `fabrikam-endpoint-website` from the drop down
 
-![image.png](./media/fabrikam-connection-input.png)
+![image13.png](./media/fabrikam-connection-input.png)
 
 5. Select `Review + Create` and then `Create`
 
 6. Once the endpoint resource is created, you can view them in Azure Portal from the `fabrikam` `Enclave connections`. However, it is in a disconnected state because we selected `Yes` to requiring approvals on connections for this endpoint.
 
-![image.png](./media/fabrikam-connection-deployed-disconnected.png)
+![image14.png](./media/fabrikam-connection-deployed-disconnected.png)
 
 7. Select `Approvals` to review active approval requests and change the connection to the `connected` state.
 

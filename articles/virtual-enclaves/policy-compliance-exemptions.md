@@ -25,7 +25,7 @@ Once these Initiative assignments have been identified, Enclave Owners can creat
 
 In the below image, a Policy initiative assignment within the `contoso4-aadconnect` workload in the `contoso4` Enclave requires an exemption.
 
-![image.png](./media/image-29fed569-7897-4459-9bd5-b12579018ddb.png)
+![image1.png](./media/image-29fed569-7897-4459-9bd5-b12579018ddb.png)
 Should further troubleshooting be required to investigate Azure Policy exemptions, please contact [Azure Support](https://azure.microsoft.com/support/).
 
 ## References

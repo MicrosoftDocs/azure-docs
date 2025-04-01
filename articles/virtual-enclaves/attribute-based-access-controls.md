@@ -36,7 +36,7 @@ A secondary limitation of ABAC is the ability to assign 500 total attributes (ar
 
 The following is a high level diagram of the user flows and decisions made in the ABAC system:
 
-![image.png](./media/image-752e70c9-779a-4193-8538-24d7ec689f40.png)
+![image1.png](./media/image-752e70c9-779a-4193-8538-24d7ec689f40.png)
 
 Operational Description:
 

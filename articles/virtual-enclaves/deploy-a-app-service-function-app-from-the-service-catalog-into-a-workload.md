@@ -68,7 +68,7 @@ It can take 10 minutes to finish all resource creation. Wait for the deployment 
 
 ## Validate the deployment
 1. You should see a list of deployed resources similar to the following:
-![image.png](/assets/image-48882257-ba0a-4dea-8f7c-1e3d78a60c91.png)
+![image1.png](/assets/image-48882257-ba0a-4dea-8f7c-1e3d78a60c91.png)
 2. Go to the specified Resource Group to confirm the intended resources were created. Including: Function App and new SA
 
 ### Open the Function App resource

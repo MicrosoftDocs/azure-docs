@@ -33,9 +33,9 @@ If this is the first time using the Admin Workstation, reset the password with t
 ### Accessing enclaves through Azure Bastion
 AVE natively uses existing Azure user interface controls to allow for access into Admin Workstations. [Learn more on how to Connect to a Windows VM using RDP - Azure Bastion](../bastion/bastion-connect-vm-rdp-windows.md).
 
-![image.png](./media/image-a3fd8d57-aef1-4a03-a0ad-88ab0f010956.png)
+![image1.png](./media/image-a3fd8d57-aef1-4a03-a0ad-88ab0f010956.png)
 
-![image.png](./media/image-d1f48850-363b-45f8-9eb6-4df428d52b38.png)
+![image2.png](./media/image-d1f48850-363b-45f8-9eb6-4df428d52b38.png)
 
 For certain Community and Enclave Owners, this default access model may not be granular enough. For example, some Enclave Owners may have regulatory requirements for their workloads that does not authorize Azure Bastion. 
 

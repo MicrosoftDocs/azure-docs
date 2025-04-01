@@ -1,6 +1,6 @@
 ---
-title: AGC Azure Virtual Enclaves
-description: AGC Azure Virtual Enclaves
+title: Air-Gapped Cloud Azure Virtual Enclaves
+description: Air-Gapped Cloud Azure Virtual Enclaves
 author: jadean-msft
 ms.author: jadean
 # ms.service: Azure Virtual Enclaves
@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 01/31/2025
 ---
 
-# AGC Azure Virtual Enclaves
+# Air-Gapped Cloud (AGC) Azure Virtual Enclaves
 
 Virtual Enclaves are supported in Azure Commercial USSEC, and USNAT. This guidance provides resources and context specific to users with USSEC/USNAT environments.
 
@@ -24,15 +24,15 @@ Use the same links that are available for Azure public but update the domain for
 # Onboarding 
 Follow the steps below to enable Azure Virtual Enclaves within a USSEC/USNAT Subscription.
 
-1. Transfer the codeblock below into [Pastebin](https://eng.ms/docs/cloud-ai-platform/azure-edge-platform-aep/aep-silver/sovereign-foundation-team/cloud-transfer-service/cts-onboarding/cts-portal/pastebinuserguide)**
+1. Transfer the code below into [Pastebin](https://eng.ms/docs/cloud-ai-platform/azure-edge-platform-aep/aep-silver/sovereign-foundation-team/cloud-transfer-service/cts-onboarding/cts-portal/pastebinuserguide)**
 
-1. Login to a VM with access to USSEC/USNAT, use the bookmarks in edge to navigate to Pastebin and copy the scriptblock.
+1. Log in to a VM with access to USSEC/USNAT, use the bookmarks in edge to navigate to Pastebin and copy the script.
 
-1. Open Powershell ISE/VS Code and paste the scriptblock into it.
+1. Open Powershell ISE/VS Code and paste the script into it.
 
 1. Replace the values for $tenantID and $subscriptionID with your environments information.
 
-1. Run the script and login the using an account with Subscription Owner and Global Admin permissions.
+1. Run the script and log in using an account with Subscription Owner and Global Admin permissions.
 
 ```
 <#

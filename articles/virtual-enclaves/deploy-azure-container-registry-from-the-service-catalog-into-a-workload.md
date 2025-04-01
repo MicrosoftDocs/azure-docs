@@ -49,7 +49,7 @@ There are guardrails in the enclaves to ensure an Azure Container registry is us
 1. Select "Add Service" button.
 1. Select the Azure Container Registry" service template from the [Catalog](/docs/How-To-Guides/Service-Catalog) of templates (the dropdown list).
 
-   ![image.png](./media/image-dc8ca6bf-02c1-44de-ba0a-23aedf76699b.png)
+   ![image1.png](./media/image-dc8ca6bf-02c1-44de-ba0a-23aedf76699b.png)
 
 1. Click through the tabs and enter all the required parameters.
    * Under the encryption tab you'll need to use the CMK Key and User Assigned Identity created in the pre-reqs.
@@ -58,13 +58,13 @@ There are guardrails in the enclaves to ensure an Azure Container registry is us
 
 It can take a few minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 
-![image.png](./media/image-1c9788bc-3c8b-47cc-954c-0ce611c48fda.png)
+![image2.png](./media/image-1c9788bc-3c8b-47cc-954c-0ce611c48fda.png)
 
 ## Validate the deployment
 
 1. Go to the Workload's Resource Group to confirm the intended resources were created. Including: Container registry, Private endpoint, Network interface, privateDnsZoneGroups (hidden by default)
 
-   ![image.png](./media/image-10c58c02-2f1d-4524-96af-458073bd4fa2.png)
+   ![image3.png](./media/image-10c58c02-2f1d-4524-96af-458073bd4fa2.png)
 
 1. If the Remote App was published: hostpool, app group, and workspace.
 

@@ -18,8 +18,8 @@ Thank you for your interest in the Azure Virtual Enclaves Public Preview Program
 1. You must be an Owner of an existing Azure subscription that is approved by the Virtual Enclaves product group.
 1. The following resource providers must be registered over the subscription:
 
-   ![image.png](./media/image-76aa8d56-260e-4c47-9fcc-fb8427f2efe0.png)
-   ![image.png](./media/image-3dac39eb-0884-4395-b30f-75cf7709ec69.png)
+   ![image1.png](./media/image-76aa8d56-260e-4c47-9fcc-fb8427f2efe0.png)
+   ![image2.png](./media/image-3dac39eb-0884-4395-b30f-75cf7709ec69.png)
 
 ## Register the Microsoft.Mission Resource Provider and grant permissions
 
@@ -28,7 +28,7 @@ Thank you for your interest in the Azure Virtual Enclaves Public Preview Program
 1. Login to your Azure tenant and open the subscription resource
 2. Open the "**Resource Providers**" blade (under "Settings")
 3. Search for and select "**Microsoft.Mission**" and click "**Register**".
-   ![image.png](./media/image-bc93cf2b-050e-4eff-b61e-8afbb05d4ac2.png)
+   ![image3.png](./media/image-bc93cf2b-050e-4eff-b61e-8afbb05d4ac2.png)
 4. Open the "**Preview Features**" blade (under "Settings")
 5. Filter by "**AVE**", select "**Azure Virtual Enclaves Preview**", and click "**Register**" towards the top of the page.
    ![image-2024-05-17_131235](./media/image-2024-05-17_131235.png)
