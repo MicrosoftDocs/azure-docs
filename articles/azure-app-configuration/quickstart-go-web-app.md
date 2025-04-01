@@ -425,7 +425,8 @@ func main() {
     [GIN-debug] Listening and serving HTTP on :8080
     ```
 
-3. Open a web browser and navigate to http://localhost:8080. The web page looks like this:
+3. Open a web browser and navigate to `http://localhost:8080`. The web page looks like this:
+
     :::image type="content" source="./media/quickstarts/gin-sample-app-home.jpg" alt-text="Screenshot of the browser.Launching quickstart app locally.":::
 
 ## Clean up resources
