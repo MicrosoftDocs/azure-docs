@@ -118,7 +118,7 @@ sections:
             If you ae using .NET Core, you would set it in `Program.cs`, just before the call to `WebApplication.CreateBuilder()`:
               
               ```csharp
-              private readonly int minThreads = 200
+              const int minThreads = 200
                             
               ThreadPool.SetMinThreads(minThreads, minThreads);
               
