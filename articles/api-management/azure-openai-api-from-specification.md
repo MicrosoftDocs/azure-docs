@@ -141,4 +141,11 @@ To ensure that your Azure OpenAI API is working as expected, test it in the API 
 
     :::image type="content" source="media/azure-openai-api-from-specification/api-response-usage.png" alt-text="Screenshot of token usage data in API response in the portal." :::
 
+## Caching policies for Azure OpenAI APIs
+
+In addition to the `azure-openai-token-limit` and `azure-openai-emit-token-metric` policies that you can configure when importing an Azure OpenAI Service API, API Management provides the following caching policies to help you optimize performance and reduce latency for Azure OpenAI APIs: 
+
+* `azure-openai-semantic-cache-store`
+* `azure-openai-semantic-cache-lookup` 
+
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
