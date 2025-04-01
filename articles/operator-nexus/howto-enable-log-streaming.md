@@ -1,6 +1,6 @@
 ---
 title: Enable \ Disable BMP log streaming Azure Operator Nexus
-description: instructions on enabling \ disabling BMP log streaming various Network Fabric resource.
+description: Instructions on enabling \ disabling BMP log streaming various Network Fabric resources.
 ms.service: azure-operator-nexus
 ms.custom: template-how-to, devx-track-azurecli
 ms.topic: how-to
@@ -11,11 +11,11 @@ ms.author: sushrao
 
 # BMP log streaming
 
-This guide provides you with instructions on enabling \ disabling BMP log streaming various Network Fabric resources. 
+This guide provides you with instructions on enabling \ disabling BMP log streaming various Network Fabric resources.. 
 
 ## Enabling BMP log streaming for the new deployment
 
-- **Create Network Fabric resource:** Begin by creating Network Fabric (NF) resource. This will serve as the foundation for your deployment.
+- **Create Network Fabric resource:** Begin by creating Network Fabric (NF) resource. This serves as the foundation for your deployment.
 
 - **Create Network Monitor resource:** Next, create a Network Monitor resource and associate the Scope ID with the NF Resource ID. This step ensures that the monitoring is correctly linked to the network fabric.
 
@@ -26,25 +26,26 @@ This guide provides you with instructions on enabling \ disabling BMP log stream
 
 - **Provision Network Fabric:** Provision the Network Fabric to apply the configurations and make the network operational.
 
-- **Generate BMP stations configuration** The Nexus NF will generate the BMP stations configuration on the Customer Edge (CE) devices only.
+- **Generate BMP stations configuration** The Nexus NF generates the BMP stations configuration on the Customer Edge (CE) devices only.
 
 ## Enabling BMP log streaming for the existing deployment
 
-This case involves enabling BMP log streaming on NF, which has already been deployed using the supported NF Version. Since this is based on an ARM API user-driven input, the supported NF Version will also support BMP Log Streaming through the NF Patch Update workflow.
+This case involves enabling BMP log streaming on NF, which is already deployed using the supported NF Version. Since this approach is based on an ARM API user-driven input, the supported NF Version also supports BMP Log Streaming through the NF Patch Update workflow.
 
 - **Create Network Fabric resource:** Start by creating the Network Fabric (NF) resource using the latest supported version. If the NF is outdated, upgrade it to the supported version.
 
 - **Create Network Monitor resource:**
-Create a Network Monitor resource and link the Scope ID to the NF Resource ID to ensure proper monitoring.
+
+To ensure proper monitoring, create a Network Monitor resource and link the Scope ID to the NF Resource ID.
 
 - **Perform Patch on NNI:** Update the Network-to-Network Interface (NNI) by applying a patch. Select `bmpConfiguration` under `OptionBLayerConfiguration` and set `configurationState` to "Enabled" for BMP logging of the NNI peer-group neighbor address.
 
 > [!Note]
 > Refer to the below detailed ARM API payload guide for more information
 
-- **Perform `Fabric Commit` operation:** Execute the "Fabric Commit" operation to apply configurations and activate the network.
+- **Perform `Fabric Commit` operation:** To apply configurations and activate the network, execute the "Fabric Commit" operation.
 
-- **Generate BMP Stations configuration:** The Nexus NF will configure BMP stations on the Customer Edge (CE) devices only.
+- **Generate BMP Stations configuration:** The Nexus NF configures BMP stations on the Customer Edge (CE) devices only.
 
 ## Network Monitor CRUD operations for BMP log streaming 
 
@@ -125,7 +126,7 @@ az networkfabric nni update \
 
 ### Example CLI output
 
-When BMP Log streaming is enabled, the CLI output will look like this:
+When BMP Log streaming is enabled, the CLI output looks like this:
 
 ```Output
 Router bgp <fabric-asn-value>
@@ -185,7 +186,7 @@ az networkfabric externalnetwork update --resource-group "example-rg" --l3domain
 
 ### Example CLI output
 
-When BMP Log streaming is enabled, the CLI output will appear as follows:
+When BMP Log streaming is enabled, the CLI output appears as follows:
 
 ```bash
 Router bgp <fabric-asn-value>
@@ -218,7 +219,7 @@ az networkfabric internalnetwork update --resource-group "example-rg" --l3-isola
 ```
 
 ### Example CLI Output
-When BMP Log streaming is enabled, the CLI output will appear as follows:
+When BMP Log streaming is enabled, the CLI output appears as follows:
 
 ```bash
 Router bgp <fabric-asn-value>
@@ -251,7 +252,7 @@ az networkfabric internalnetwork update --resource-group "example-rg" --l3-isola
 ```
 
 ### Example CLI Output with Restricted Neighbors
-When BMP Log streaming is enabled with restricted neighbors, the CLI output will look like this:
+When BMP Log streaming is enabled with restricted neighbors, the CLI output looks like this:
 
 ```bash
 Router bgp <fabric-asn-value>
