@@ -104,7 +104,7 @@ To work around this issue, follow these steps:
     If you receive a message stating `Nothing to upgrade or upgrade complete`, force the upgrade by appending:
 
     ```sh
-    az iot ops upgrade ....... --release-train stable --version 1.0.15 
+    az iot ops upgrade ....... --release-train stable 
     ```
 
 ## MQTT broker issues
@@ -377,7 +377,7 @@ done
 
 ---
 
-Issue ID: 8616
+Issue ID: 4224
 
 ---
 

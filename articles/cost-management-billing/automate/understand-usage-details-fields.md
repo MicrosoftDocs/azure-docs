@@ -13,7 +13,7 @@ ms.reviewer: jojoh
 
 # Understand cost details fields
 
-This document describes the cost details (formerly known as usage details) fields found in files from using [Azure portal download](../understand/download-azure-daily-usage.md), [Exports](../costs/tutorial-export-acm-data.md) from Cost Management, or the [Cost Details](/rest/api/cost-management/generate-cost-details-report) API. For more information about cost details best practices, see [Choose a cost details solution](usage-details-best-practices.md).
+This document describes the cost details (formerly known as usage details) fields found in files from using [Azure portal download](../understand/download-azure-daily-usage.md), [Exports](../costs/tutorial-improved-exports.md) from Cost Management, or the [Cost Details](/rest/api/cost-management/generate-cost-details-report) API. For more information about cost details best practices, see [Choose a cost details solution](usage-details-best-practices.md).
 
 ## Migration to new cost details formats
 
@@ -130,7 +130,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 
 ¹ Fields used to build a unique ID for a single cost record. Every record in your cost details file should be considered unique. 
 
-² For MCA customers, prices are shown in the pricing currency in the Actual Cost and Amortized Cost reports. In contrast, for EA customers, the billing and pricing currencies are the same.
+² For MCA customers, prices are shown in the pricing currency in the Actual Cost and Amortized Cost reports. In contrast, for EA customers, the billing and pricing currencies are the same with exception of `PricingModel` column with value `Spot` where the pricing currency is USD irrespective of the billing currency. For more details on Spot pricing, see [Azure Spot VM FAQ](https://azure.microsoft.com/products/virtual-machines/spot#FAQ-9).
 
 ³ For more information about pricing terms and definitions, see [Pricing behavior in cost details](automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).
 
@@ -259,6 +259,6 @@ UsageStart | Date
 
 - Get an overview of how to [ingest cost data](automation-ingest-usage-details-overview.md).
 - Learn more about [Choose a cost details solution](usage-details-best-practices.md).
-- [Create and manage exported data](../costs/tutorial-export-acm-data.md) in the Azure portal with Exports.
+- [Create and manage exported data](../costs/tutorial-improved-exports.md) in the Azure portal with Exports.
 - [Automate Export creation](../costs/ingest-azure-usage-at-scale.md) and ingestion at scale using the API.
 - Learn how to [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).
