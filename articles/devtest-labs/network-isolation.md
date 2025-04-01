@@ -85,7 +85,7 @@ If you enabled network isolation for a virtual network other than the default, c
 
 1. Once the service endpoint is successfully enabled, select **Add**.
 
-   :::image type="content" source="./media/network-isolation/key-vault-allow-access.png" alt-text="Screenshot that shows the resource group networking pane with Add highlighted.":::
+   :::image type="content" source="./media/network-isolation/add-network-pane.png" alt-text="Screenshot that shows the resource group networking pane with Add highlighted.":::
 
 1. On the **Networking** page, make sure **Allow Azure services on the trusted services list to access this storage account** is selected under **Exceptions** at the bottom of the page. DevTest Labs is a [trusted Microsoft service](/azure/storage/common/storage-network-security#trusted-microsoft-services), so selecting this option lets the lab operate normally in a network isolated mode.
 
@@ -113,7 +113,7 @@ You can automate these steps with PowerShell or Azure CLI to configure network i
 
 1. On the **Add networks** pane, select the virtual network and subnet you chose when you created the lab, and then select **Enable**.
  
-    :::image type="content" source="./media/network-isolation/enable.png" alt-text="Screenshot that shows enabling a virtual network and subnet in a key vault.":::
+    :::image type="content" source="./media/network-isolation/networking-key-vault.png" alt-text="Screenshot that shows enabling a virtual network and subnet in a key vault.":::
 
 1. Once the service endpoint is successfully enabled, select **Add**.
 
