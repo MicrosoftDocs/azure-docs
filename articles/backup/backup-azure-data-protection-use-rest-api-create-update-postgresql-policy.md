@@ -147,7 +147,7 @@ The policy says:
 ```
 
 > [!IMPORTANT]
-> The time formats support only `DateTime`. `Time` is not supported. The time of the day indicates the backup start time, not the finish time.
+> The time formats support only `DateTime`. `Time` is not supported. The time of the day indicates the backup start time, not the end time.
 
 Let's update the preceding JSON with two changes:
 
