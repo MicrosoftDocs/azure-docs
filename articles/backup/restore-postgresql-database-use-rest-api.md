@@ -1,6 +1,6 @@
 ---
 title: Restore PostgreSQL Databases by Using the Data Protection REST API
-description: Learn how to restore PostgreSQL databases in Azure Database for PostgreSQL by using the Azure Backup Data Protection REST API.
+description: Learn how to restore Azure Database for PostgreSQL by using the Azure Backup Data Protection REST API.
 ms.topic: how-to
 ms.date: 02/09/2025
 ms.service: azure-backup
