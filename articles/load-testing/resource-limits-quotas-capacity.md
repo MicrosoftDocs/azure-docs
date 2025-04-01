@@ -38,7 +38,7 @@ The following limits apply on a per-region, per-subscription basis.
 
 | Resource  | Default limit |  Maximum limit |
 |---------|---------|---------|
-| Concurrent test runs | 5-25 <sup>2</sup> |     1000    |
+| Concurrent test runs | 5-50 <sup>2</sup> |     1000    |
 | Test duration | 3 - 24 hours <sup>2</sup> | 24 |
 | Tests per resource | 10000 | |
 | Test runs per test | 5000 | |
