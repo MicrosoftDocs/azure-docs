@@ -126,7 +126,7 @@ sections:
  
           ### Recommendation
  
-          Given this information, we strongly recommend that customers set the minimum configuration value for IOCP and WORKER threads to something larger than the default value. We can't give one-size-fits-all guidance on what this value should be because the right value for one application will likely be too high or low for another application. This setting can also affect the performance of other parts of complicated applications, so each customer needs to fine-tune this setting to their specific needs. A good starting place is 200 or 300, then test and tweak as needed.
+          We recommend that customers set the minimum configuration value for IOCP and WORKER threads to something larger than the default value. We can't give one-size-fits-all guidance on this value  because the right value for one application is likely be too high or low for another application. This setting can also affect the performance of other parts of complicated applications.Each customer needs to fine-tune this setting to their specific needs. A good starting place is 200 or 300, then test and tweak as needed.
           
           How to configure this setting:
           
@@ -165,7 +165,7 @@ sections:
             Setting the number of minimum threads in this way isn't recommended because it's a System-wide setting. If you do set it this way, you must restart the application pool for the change to take 
           
           > [!NOTE]
-          > The value specified in this configuration element is a _per-core_ setting. For example, if you have a 4-core machine and want your `minIoThreads`` setting to be 200 at runtime, you would use `processModel minIoThreads="50"`.
+          > The value specified in this configuration element is a _per-core_ setting. For example, if you have a 4-core machine and want your `minIoThreads`` setting to be 200 at runtime, you would use `\<processModel minIoThreads="50"`\>.
           >
           
       - question: |
