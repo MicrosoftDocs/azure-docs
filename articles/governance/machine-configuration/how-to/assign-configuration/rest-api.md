@@ -16,7 +16,7 @@ In each of the following sections, the example includes a **type** property wher
 with `Microsoft.Compute/virtualMachines`. The guest configuration resource provider
 `Microsoft.GuestConfiguration` is an [extension resource][01] that must reference a parent type.
 
-To modify the example for other resource types such as [Arc-enabled servers](/azure/azure-arc/servers/overview), change the parent
+To modify the example for other resource types such as [Arc-enabled servers][02], change the parent
 type to the name of the resource provider. For Arc-enabled servers, the resource provider is
 `Microsoft.HybridCompute/machines`.
 
