@@ -33,6 +33,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 1. In the billing scopes page, select the billing account for which you want to track the credit balance. The billing account should be of type **Microsoft Customer Agreement**.
 
+    :::image type="content" border="true" source="./media/mca-check-azure-credits-balance/list-of-scopes.png" alt-text="Screenshot that shows billing scopes in Cost Management + Billing.":::
 
    
    > [!NOTE]
