@@ -43,7 +43,7 @@ The same thing happens when the packet is reassembled. The network device must s
 
 Fragmented packets in Azure are not processed by Accelerated Networking. When a VM receives a fragmented packet, it will be processed via the non-accelerated path. This means fragmented packets will not get the benefits of Accelerated Networking (lower latency, reduced jitter, and higher packets per second). For this reason, we recommend avoiding fragmentation if possible.
 
-By default, Azure will drop out of order fragments, that is, fragmented packets that don't arrive at the VM in the order that they were transmitted from the source endpoint. This may happen when packets are transmitted over the internet or other large WANs. Out of order fragment reordering can be enabled in some cases. If an application requires this, open a support case.
+By default, Azure will drop out of order fragments, that is, fragmented packets that don't arrive at the VM in the order that they were transmitted from the source endpoint. This may happen when packets are transmitted over the internet or other large WANs.
 
 #### Tune the MTU
 

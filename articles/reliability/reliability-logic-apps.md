@@ -90,7 +90,7 @@ For Standard workflows with the App Service Environment v3 hosting option, you c
 
 ::: zone pivot="consumption"
 
-Consumption logic apps that are deployed in [any region that supports availability zones](./availability-zones-region-support.md) are automatically zone redundant. Japan West is the exception, which currently doesn't support zone-redundant logic apps because some dependency services don't yet support zone redundancy.
+Consumption logic apps that are deployed in [any region that supports availability zones](./regions-list.md) are automatically zone redundant. Japan West is the exception, which currently doesn't support zone-redundant logic apps because some dependency services don't yet support zone redundancy.
 
 ::: zone-end
 
@@ -171,7 +171,7 @@ Consumption logic app workflows automatically support zone redundancy, so no con
 
 ### Capacity planning and management
 
-[!INCLUDE [Over-provisioning description](includes/reliability-over-provisioning-calculation-include.md)]
+To prepare for availability zone failure, consider *over-provisioning* the capacity of your integration runtime. Over-provisioning allows the solution to tolerate some degree of capacity loss and still continue to function without degraded performance. To learn more about over-provisioning, see [Manage capacity with over-provisioning](./concept-redundancy-replication-backup.md#manage-capacity-with-over-provisioning).
 
 ::: zone-end
 

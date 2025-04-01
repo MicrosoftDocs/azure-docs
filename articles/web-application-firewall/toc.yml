@@ -34,10 +34,10 @@ items:
         href: ./ag/tutorial-restrict-web-traffic-powershell.md
       - name: Azure CLI
         href: ./ag/tutorial-restrict-web-traffic-cli.md
+    - name: Create Web Application Firewall v2 - ARM template
+      href: ./ag/quick-create-template.md
     - name: Create Web Application Firewall v2 - Bicep
       href: ./ag/quick-create-bicep.md
-    - name: Deploy Web Application Firewall v2 - ARM template
-      href: ./ag/quick-create-template.md
   - name: Front Door
     items:
     - name: Create WAF policy - portal
@@ -152,6 +152,8 @@ items:
   items:
   - name: Security baseline
     href: /security/benchmark/azure/baselines/web-application-firewall-security-baseline?toc=/azure/web-application-firewall/toc.json
+  - name: Azure Network Security Blog
+    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
   - name: Sensitive Data Protection
     items:
       - name: Application Gateway
@@ -234,11 +236,19 @@ items:
     href: https://azure.microsoft.com/develop/python/
 - name: Resources
   items:
-  - name: Author templates
-    href: ../azure-resource-manager/templates/syntax.md
-  - name: Community templates
-    href: https://azure.microsoft.com/documentation/templates
+  - name: Microsoft Q&A
+    href: /answers/topics/azure-web-application-firewall.html
+  - name: Azure Networking Blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
+  - name: Azure support
+    href: https://azure.microsoft.com/support/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/web-application-firewall/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates?filters=%5B%22Web+Application+Firewall%22%5D
+  - name: SLA
+    href: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-waf

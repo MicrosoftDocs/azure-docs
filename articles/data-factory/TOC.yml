@@ -300,8 +300,8 @@ items:
     href: concepts-roles-permissions.md
   - name: Naming rules
     href: naming-rules.md
-  - name: Data redundancy
-    href: concepts-data-redundancy.md
+  - name: Reliability
+    href: /azure/reliability/reliability-data-factory?toc=/azure/data-factory/toc.json
 - name: How-to guides
   items:
   - name: Create a data factory in UI
@@ -1404,6 +1404,8 @@ items:
       href: connector-deprecation-plan.md
     - name: Connector upgrade FAQ
       href: connector-deprecation-frequently-asked-questions.md
+    - name: Connector upgrade advisor
+      href: connector-upgrade-advisor.md
   - name: Whitepapers
     href: whitepapers.md
   - name: FAQ

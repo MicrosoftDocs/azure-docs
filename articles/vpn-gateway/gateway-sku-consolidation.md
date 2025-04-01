@@ -6,22 +6,22 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 09/26/2024
+ms.date: 03/31/2025
 
 ms.author: cherylmc
 
 ---
 # VPN Gateway SKU consolidation and migration
 
-We're simplifying our VPN Gateway SKU portfolio. Due to the lack of redundancy, lower availability, and potential higher costs associated with additional failover solutions, we're transitioning all non availability zone (AZ) supported SKUs to AZ supported SKUs. This article helps you understand the upcoming changes for VPN Gateway virtual network gateway SKUs. This article expands on the [official announcement.](https://azure.microsoft.com/updates/v2/vpngw1-5-non-az-skus-will-be-retired-on-30-september-2026)
+We're simplifying our VPN Gateway SKU portfolio. Due to the lack of redundancy, lower availability, and potential higher costs associated with failover solutions, we're transitioning all non availability zone (AZ) supported SKUs to AZ supported SKUs. This article helps you understand the upcoming changes for VPN Gateway virtual network gateway SKUs. This article expands on the [official announcement.](https://azure.microsoft.com/updates/v2/vpngw1-5-non-az-skus-will-be-retired-on-30-september-2026)
 
-* **Effective January 1, 2025**: Creation of new VPN gateways using VpnGw1-5 SKUs (non-AZ) will no longer be possible.
-* **Migration period**: From April 2025 to September 2026, all existing VPN gateways using VpnGw1-5 SKUs (non-AZ SKUs) will be seamlessly migrated to VpnGw1-5 SKUs (AZ).
+* **Effective June 1, 2025**: Creation of new VPN gateways using VpnGw1-5 SKUs (non-AZ) will no longer be possible. This date has been updated from the originally announced January 1, 2025 date
+* **Migration period**: From June 2025 to September 2026, all existing VPN gateways using VpnGw1-5 SKUs (non-AZ SKUs) will be seamlessly migrated to VpnGw1-5 SKUs (AZ).
 
-To support this migration, we're reducing the prices on AZ SKUs. Refer to the [FAQ](#faq) section of this article for more information about SKUs and pricing.
+To support this migration, we're reducing the prices on AZ SKUs. For more information about SKUs and pricing, see the [FAQ](#faq) section of this article.
 
 > [!NOTE]
-> This article doesn't apply to the following legacy gateway SKUs: Standard or High Performance. For information legacy SKUS, including legacy SKU migration, see [Working with VPN Gateway legacy SKUs](vpn-gateway-about-skus-legacy.md).
+> This article doesn't apply to the following legacy gateway SKUs: Standard or High Performance. For information legacy SKUs, including legacy SKU migration, see [Working with VPN Gateway legacy SKUs](vpn-gateway-about-skus-legacy.md).
 
 ## Mapping old SKUs to new SKUs
 
@@ -60,12 +60,12 @@ Yes. The new pricing timeline is:
 
 ### Can I deploy VpnGw 1-5 AZ SKUs in all regions?
 
-Yes, you can deploy AZ SKUs in all regions. If a region doesn't currently support availability zones, you can still create VPN Gateway AZ SKUs, but the deployment will remain regional. When the region supports availability zones, we'll enable zone redundancy for the gateways
+Yes, effective June 2025 you'll be able to deploy AZ SKUs in all regions. If a region doesn't currently support availability zones, you can still create VPN Gateway AZ SKUs, but the deployment will remain regional. When the region supports availability zones, we'll enable zone redundancy for the gateways
 
 ### Can I migrate my Gen 1 gateway to Gen 2 gateway?
 
-* For gateways using Basic IP, you will need to migrate your gateway to use Standard IP when the migration tool becomes available. As part of the Basic IP to Standard IP migration, the gateways will be upgraded to Gen2 with no further action needed. 
-* For gateways already using Standard IP, we will migrate them to Gen2 separately before Sep 30, 2026. This will be done seamlessly during regular updates, with no downtime involved. 
+* For gateways using Basic IP, you'll need to migrate your gateway to use Standard IP when the migration tool becomes available. As part of the Basic IP to Standard IP migration, the gateways will be upgraded to Gen2 with no further action needed.
+* For gateways already using Standard IP, we'll migrate them to Gen2 separately before September 30, 2026. This will be done seamlessly during regular updates, with no downtime involved. 
 
 ### Will there be downtime during migrating my Non-AZ gateways?
 
@@ -75,9 +75,17 @@ No. This migration is seamless and there's no expected downtime during migration
 
 Yes. AZ SKUs get the benefits of Zone redundancy for VPN gateways in [Azure regions with availability zones](../reliability/availability-zones-region-support.md). If the region doesn't support zone redundancy, the gateway is regional until the region it's deployed to supports zone redundancy.
 
-### Is VPN Gateway Basic SKU retiring?
+### Is the VPN Gateway Basic SKU retiring?
 
 No, the VPN Gateway Basic SKU isn't retiring. You can create a VPN gateway using the Basic gateway SKU via [PowerShell](create-gateway-basic-sku-powershell.md) or CLI. Currently, the VPN Gateway Basic SKU supports only the Basic SKU public IP address resource (which is on a path to retirement). We're working on adding support for the Standard SKU public IP address resource to the VPN Gateway Basic SKU.
+
+### Can I create a VPN Gateway Basic SKU gateway with a Basic SKU public IP address after March 31, 2025?
+
+Yes, you can create a VPN gateway using a gateway Basic SKU and a Basic public IP address SKU until June 2025.
+
+### When will I be able to create a VPN Gateway Basic SKU with a Standard SKU public IP address?
+
+Using the Standard SKU public IP address parameter with a VPN Gateway Basic SKU is rolling out and is projected to be completed in April 2025.
 
 ### When will my Standard and HighPerformance gateway be migrated?
 

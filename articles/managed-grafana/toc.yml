@@ -92,6 +92,8 @@ items:
     items:
     - name: Use service accounts
       href: how-to-service-accounts.md
+    - name: Monitor using metrics
+      href: how-to-monitor-managed-grafana-metrics.md      
     - name: Monitor using diagnostic settings
       href: how-to-monitor-managed-grafana-workspace.md
   - name: Migrate to Azure Managed Grafana
