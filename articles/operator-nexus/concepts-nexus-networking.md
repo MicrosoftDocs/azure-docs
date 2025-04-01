@@ -400,8 +400,8 @@ If BFD is not enabled on the peer router, a session will not be established.
 ## Default BGP Configurations
 
 [Border Gateway Protocol][bgp](BGP) timers are negotiated between Operator Nexus Kubernetes clusters and the peer router. The lowest hold timer value between the two routers is selected which is the standard BGP behavior. The Nexus Kubernetes clusters uses the following values
-- **Old time**: 240s hold time
-- **Keep-alive interval**: 1/3 of hold time (80s)
+- **hold-time**: 240s hold time
+- **keep-alive interval**: 1/3 of hold time (80s)
 If a BFD session also exists, BGP will leverage BFD for detecting failed peers.
 
 [linux-ns]: https://en.wikipedia.org/wiki/Linux_namespaces
