@@ -1,5 +1,5 @@
 ---
-title: Enable \ Disable BMP log streaming Azure Operator Nexus
+title: How to enable \ disable BMP log streaming Azure Operator Nexus
 description: Instructions on enabling \ disabling BMP log streaming various Network Fabric resources.
 ms.service: azure-operator-nexus
 ms.custom: template-how-to, devx-track-azurecli

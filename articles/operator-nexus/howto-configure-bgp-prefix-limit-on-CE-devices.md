@@ -1,6 +1,6 @@
 ---
 title: How to configure BGP prefix limit on Customer Edge (CE) devices for Azure Operator Nexus
-description: Learn the process for upgrading Network Fabric for Azure Operator Nexus.
+description: Learn the process for configuring BGP prefix limit on Customer Edge (CE) devices for Azure Operator Nexus
 author: sushantjrao 
 ms.author: sushrao
 ms.date: 06/11/2023
