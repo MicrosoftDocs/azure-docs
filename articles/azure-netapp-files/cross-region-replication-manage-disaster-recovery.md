@@ -51,7 +51,7 @@ After disaster recovery, you can reactivate the source volume by performing a re
 > In case the source volume didn't survive the disaster and therefore no common snapshot exists, all data in the destination will be resynchronized to a newly created source volume.
 
 >[!NOTE]
->Reverse resync is not supported with [cross-zone-region replication](cross-zone-region-replication.md). To perform a reverse resync with cross-zone-region replication, you must break the secondary relationship then perform the reverse resync as described. 
+>To perform a reverse resync with [cross-zone-region replication](cross-zone-region-replication.md), you must break the secondary relationship then perform the reverse resync as described. 
 > 
 > To restore the cross-zone-region replication, delete the secondary DP volume then [reconfigure replication](cross-zone-region-replication-configure.md).
 
