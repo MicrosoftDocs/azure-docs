@@ -18,7 +18,7 @@ In this tutorial, you will learn how to:
 - ✅ Update an existing template to use a newer version of an AVM module
 - ✅ Deploy the updated template to create Azure resources from the Portal
 
-> [!IMPORTANT] Service Catalog templates can only be hosted by the AVE Service Catalog team currently so coordination with the AVE Service Catalog team is advised.
+> **IMPORTANT**: Service Catalog templates can only be hosted by the AVE Service Catalog team currently so coordination with the AVE Service Catalog team is advised.
 
 ## Before you begin
 
@@ -31,7 +31,7 @@ AVM modules are currently written for Bicep and Terraform. Specifically for bice
 
 Service Catalog deployment publishing in AVE leverages the [Custom Template Deployment experience using the Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). To leverage AVM on new or existing templates, refer to the steps below for more details.
 
-> [!NOTE] For most Service Catalog templates, you'll mostly use resource templates which are prefixed by `'br/public:avm/res'`. There are other types of modules that are supported. For more information, refer to the [AVM Bicep Modules documentation](https://azure.github.io/Azure-Verified-Modules/indexes/bicep/).
+> **NOTE**: For most Service Catalog templates, you'll mostly use resource templates which are prefixed by `'br/public:avm/res'`. There are other types of modules that are supported. For more information, refer to the [AVM Bicep Modules documentation](https://azure.github.io/Azure-Verified-Modules/indexes/bicep/).
 
 1. When creating a new module, use the [VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) to explore the modules published in the Bicep Public Registry:
 
@@ -69,15 +69,15 @@ Before running a Custom Template Deployment in the Portal, you will first need t
 az bicep build --file "<in-file>" --outfile "<out-file>"
 ```
 
-> [!TIP] If you made an update to an existing Service Catalog template and want to deploy resources through the Service Catalog, please coordinate with someone on the AVE Service Catalog team so that the artifacts are available.
+> **TIP**: If you made an update to an existing Service Catalog template and want to deploy resources through the Service Catalog, please coordinate with someone on the AVE Service Catalog team so that the artifacts are available.
 
 ## Additional notes on testing in a regulated environment
 
-> [!NOTE] Before testing in a regulated environment, make sure to run one of the steps outlined in [Deploying resources to Azure via template deployment](#deploying-resources-to-azure-via-template-deployment) as it will help avoid any dependencies on bicep, which might not be available in all environments.
+> **NOTE**: Before testing in a regulated environment, make sure to run one of the steps outlined in [Deploying resources to Azure via template deployment](#deploying-resources-to-azure-via-template-deployment) as it will help avoid any dependencies on bicep, which might not be available in all environments.
 
 If your bicep template references an AVM template by using `br/public:avm/res`, compiling will result in a ARM template with symbolic name resource deployments.
 
-> [!IMPORTANT] Please refer to the [Public Bicep Registry repository](https://github.com/Azure/bicep-registry-modules) to identify the API versions of resources deployed by the AVM modules and confirm that these versions are supported in your target environment.
+> **IMPORTANT**: Please refer to the [Public Bicep Registry repository](https://github.com/Azure/bicep-registry-modules) to identify the API versions of resources deployed by the AVM modules and confirm that these versions are supported in your target environment.
 
 ### Known issues
 
