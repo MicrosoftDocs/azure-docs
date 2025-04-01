@@ -21,7 +21,7 @@ Costs for Azure Storage Actions are only a portion of the monthly costs in your 
 
 ## Understand the full billing model for Azure Storage Actions
 
-Your charged the billing meters for Storage Actions as well as the cost of operations performed on storage accounts.  
+You're charged the billing meters for Storage Actions as well as the cost of operations performed on storage accounts.  
 
 ### Azure Storage Actions meters
 
