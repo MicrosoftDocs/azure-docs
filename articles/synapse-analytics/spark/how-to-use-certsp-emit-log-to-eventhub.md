@@ -16,7 +16,7 @@ This document provides a step-by-step guide for setting up Azure services, parti
 
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - [Synapse Analytics workspace](/azure/synapse-analytics/get-started-create-workspace)
-- If you are new to Azure Event Hubs, read through [Event Hubs overview](/event-hubs/event-hubs-about) and [Event Hubs features](/azure/event-hubs/event-hubs-features).
+- If you are new to Azure Event Hubs, read through [Event Hubs overview](/azure/event-hubs/event-hubs-about) and [Event Hubs features](/azure/event-hubs/event-hubs-features).
 - [Azure Key Vault](/azure/key-vault/general/overview)
 - To complete this tutorial's steps, you need to have access to a resource group for which you're assigned the Owner role. Generate a certificate in the Key Vault in this resource group.
 
