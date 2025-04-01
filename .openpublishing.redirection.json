@@ -6743,6 +6743,11 @@
       "source_path": "articles/storage/files/geo-redundant-storage-for-large-file-shares.md",
       "redirect_url": "/azure/storage/files/files-redundancy",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/extra-deploy-enterprise-iot.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/eiot-defender-for-endpoint",
+           "redirect_document_id": false
     }
   ]
 }
