@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/23/2025
+ms.date: 04/01/2025
 ai-usage: ai-assisted
 ---
 
@@ -93,6 +93,7 @@ These generic properties are supported for the Snowflake linked service:
 | Property         | Description                                                  | Required |
 | :--------------- | :----------------------------------------------------------- | :------- |
 | type             | The type property must be set to **SnowflakeV2**.              | Yes      |
+| version           | The version that you specify. Recommend upgrading to the latest version to take advantage of the newest enhancements.       | Yes      |
 | accountIdentifier | The name of the account along with its organization. For example, myorg-account123.   | Yes |
 | database | The default database used for the session after connecting. | Yes |
 | warehouse | The default virtual warehouse used for the session after connecting. |Yes|
@@ -683,6 +684,10 @@ By setting the pipeline Logging Level to None, we exclude the transmission of in
 
 For more information about the properties, see [Lookup activity](control-flow-lookup-activity.md).
 
+## Script activity properties
+
+For more information about the properties, see [Script activity](transform-data-using-script.md). Apply version 1.1 in the linked service if you want to use the script parameter.
+
 ## <a name="upgrade-the-snowflake-linked-service"></a> Upgrade the Snowflake connector
 
 To upgrade the Snowflake connector, you can do a side-by-side upgrade, or an in-place upgrade.
@@ -755,6 +760,9 @@ To perform an in-place upgrade, you need to edit the existing linked service pay
 
 1. Update dataset to use the new linked service. You can either create a new dataset based on the newly created linked service, or update an existing dataset's type property from **SnowflakeTable** to **SnowflakeV2Table**. 
 
+> [!IMPORTANT]
+> If you use the script parameter in V1, you need to apply version 1.1 in the V2 linked service to continue using it.
+
 ## <a name="differences-between-snowflake-and-snowflake-legacy"></a> Differences between Snowflake V2 and V1
 
 The Snowflake V2 connector offers new functionalities and is compatible with most features of Snowflake V1 connector. The table below shows the feature differences between V2 and V1.  
@@ -762,7 +770,6 @@ The Snowflake V2 connector offers new functionalities and is compatible with mos
 | Snowflake V2 | Snowflake V1 | 
 | :----------- | :------- |
 | Support Basic and Key pair authentication. | Support Basic authentication. | 
-| Script parameters are not supported in Script activity currently. As an alternative, utilize dynamic expressions for script parameters. For more information, see [Expressions and functions in Azure Data Factory and Azure Synapse Analytics](control-flow-expression-language-functions.md). | Support script parameters in Script activity. | 
 | Support BigDecimal in Lookup activity. The NUMBER type, as defined in Snowflake, will be displayed as a string in Lookup activity. If you want to covert it to numeric type, you can use the pipeline parameter with [int function](control-flow-expression-language-functions.md#int) or [float function](control-flow-expression-language-functions.md#float). For example, `int(activity('lookup').output.firstRow.VALUE)`, `float(activity('lookup').output.firstRow.VALUE)`| BigDecimal is not supported in Lookup activity.  | 
 | The `accountIdentifier`, `warehouse`, `database`, `schema` and `role` properties are used to establish a connection. | The `connectionstring` property is used to establish a connection. |
 | timestamp data type in Snowflake is read as DateTimeOffset data type in Lookup and Script activity. | timestamp data type in Snowflake is read as DateTime data type in Lookup and Script activity.<br> If you still need to use the Datetime value as a parameter in your pipeline after upgrading the connector, you can convert DateTimeOffset type to DateTime type by using [formatDateTime function](control-flow-expression-language-functions.md#formatdatetime) (recommended) or [concat function](control-flow-expression-language-functions.md#concat). For example: `formatDateTime(activity('lookup').output.firstRow.DATETIMETYPE)`, `concat(substring(activity('lookup').output.firstRow.DATETIMETYPE, 0, 19), 'Z')`|
