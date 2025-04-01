@@ -82,8 +82,9 @@ An assignment type defines how the Guest Configuration agent should process the 
 values are:
 
 - `Audit` -  Only assess compliance with an assignment. Don't make any changes.
-- `ApplyAndAutoCorrect` - Continuously audit and auto-correct for compliance.
-- `ApplyAndMonitor` - Apply the settings once, then monitor for compliance but don't correct settings.
+- `ApplyAndAutoCorrect` - Continuously audit and autocorrect for compliance.
+- `ApplyAndMonitor` - Apply the settings once, then monitor for compliance but don't correct
+  settings.
 - `ApplyOnce` - Apply the settings once.
 
 ### Configuration Parameter
