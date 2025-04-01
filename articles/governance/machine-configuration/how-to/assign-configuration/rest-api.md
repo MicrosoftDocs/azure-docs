@@ -164,9 +164,9 @@ parameter.
   "properties": {
     "name": "AuditSecureProtocol",
     "location": "<vmLocation",
-    "guestConfiguration": {            
+    "guestConfiguration": {
       "name": "AuditSecureProtocol",
-      "version": "1.*",      
+      "version": "1.*",
       "contentType": "Builtin",
       "assignmentType": null,
       "configurationParameter": [
@@ -174,7 +174,7 @@ parameter.
           "name": "[SecureWebServer]s1;MinimumTLSVersion",
           "value": "1.2"
         }
-      ],      
+      ],
       "configurationSetting": {
         "configurationMode": "MonitorOnly",
         "allowModuleOverwrite": false,
@@ -184,7 +184,7 @@ parameter.
         "configurationModeFrequencyMins": 15
       }
     }
-  },  
+  },
   "name": "AuditSecureProtocol",
   "location": "westus2"
 }
