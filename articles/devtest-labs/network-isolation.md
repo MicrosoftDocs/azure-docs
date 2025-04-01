@@ -6,6 +6,8 @@ ms.author: rosemalcolm
 author: RoseHJM
 ms.custom: UpdateFrequency2
 ms.date: 03/31/2025
+
+#customer intent: As a lab administrator, I want to configure a network-isolated lab so I can completely isolate all lab resources to an existing virtual network.
 ---
 
 # Configure network isolation for a lab in Azure DevTest Labs
@@ -123,11 +125,11 @@ You can automate these steps with PowerShell or Azure CLI to configure network i
 
 ## Use a network-isolated lab
 
-To use a lab in a network isolated mode, you must configure several other items.
+You must configure several other processes to be able to use them with a network-isolated lab.
 
 ### Enable access to the storage account from outside the lab
 
-You must explicitly enable any access to the network isolated lab's storage account from an allowed endpoint, such as a local or virtual machine (VM). Actions like uploading a virtual hard disk (VHD) to the storage account for creating custom images require this access. You can enable access by creating a lab VM and securely accessing the lab's storage account from that VM.
+You must explicitly enable any access to the network isolated lab's storage account from an allowed endpoint, such as a local or virtual machine (VM). Actions like [uploading a virtual hard disk (VHD) to the storage account for creating custom images](devtest-lab-create-template.md) require this access. You can enable access by creating a lab VM and securely accessing the lab's storage account from that VM.
 
 For more information, see [Connect to a storage account using an Azure Private Endpoint](/azure/private-link/tutorial-private-endpoint-storage-portal).
 
