@@ -17,6 +17,16 @@ A **new POST action** has been added to the **device resource**, enabling users 
 
 ## Reboot Modes
 
+Azure Operator Nexus Network Fabric version 8.1 introduces four reboot modes:  
+
+- Graceful Reboot without ZTP (Zero Touch Provisioning)  
+
+- Ungraceful Reboot without ZTP  
+
+- Graceful Reboot with ZTP  
+
+- Ungraceful Reboot with ZTP  
+
 ### Graceful reboot without ZTP (default mode)  
 
 A **graceful reboot** ensures a stable restart process by temporarily placing the device in maintenance mode.  
@@ -96,13 +106,61 @@ az networkfabric device reboot --network-device-name <DeviceName> --resource-gro
 
   - The **administrative state** remains in **UnderMaintenance**.  
 
+### Graceful Reboot with ZTP 
+
+This reboot mode places the device into maintenance mode and reboots it into ZTP mode, allowing for re-provisioning.  
+
+#### How it works
+
+- The device enters maintenance mode.  
+
+- Reboots into ZTP mode.  
+
+- User can bootstrap the device via the Terminal Server (TS) and perform a device refresh through a lock-boxed admin action to bring it out of maintenance mode.  
+
+#### Command to execute a graceful reboot
+
+```Azure CLI
+
+az networkfabric device reboot --network-device-name <DeviceName> --resource-group <ResourceGroupName> --reboot-type GracefulRebootWithZTP 
+
+```
+
+> [!Note]
+> User intervention is required for bootstrapping and refreshing the device to exit maintenance mode.  
+
+### Ungraceful Reboot with ZTP 
+
+This mode initiates an immediate reboot without draining traffic, placing the device directly into ZTP mode.  
+
+#### How it works
+
+- The device reboots immediately into ZTP mode without entering maintenance mode.  
+
+- User can bootstrap the device via the Terminal Server and perform a device refresh through a lock-boxed admin action.  
+
+#### Command to execute an ungraceful reboot  
+
+```Azure CLI
+
+az networkfabric device reboot --network-device-name <DeviceName> --resource-group <ResourceGroupName> --reboot-type UnGracefulRebootWithZTP 
+
+```
+
+>[!Note] 
+> After an ungraceful reboot into ZTP mode, the device must be manually placed into maintenance mode. This functionality will be automated in a future release. 
+
+>[!Note]
+> Rebooting into ZTP mode does not preserve the read-write (RW) configuration. The device will boot in ZTP mode, ready for bootstrapping via the Terminal Server.
+
 ## Summary of key differences  
 
-| **Feature**  | **Graceful Reboot Without ZTP** | **Ungraceful Reboot Without ZTP** |  
-|-------------|--------------------------------|----------------------------------|  
-| **Puts device in maintenance mode?** | ✅ Yes | ❌ No |  
-| **Puts Fabric in maintenance mode?** | ✅ Yes | ✅ Yes |  
-| **Uses last saved configuration?** | ✅ Yes | ✅ Yes |  
-| **Blocks configuration updates, upgrades, and replacement flows?** | ✅ Yes | ✅ Yes |  
-| **Persists runRW configuration?** | ✅ Yes | ✅ Yes |
+| Feature | Graceful Reboot Without ZTP | Ungraceful Reboot Without ZTP | Graceful Reboot With ZTP | Ungraceful Reboot With ZTP |
+|---------|----------------------------|------------------------------|--------------------------|----------------------------|
+| **Enters device maintenance mode?** | ✅ Yes | ❌ No | ✅ Yes | ❌ No |
+| **Enters fabric maintenance mode?** | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes |
+| **Uses last saved configuration?** | ✅ Yes | ✅ Yes | ❌ No | ❌ No |
+| **Blocks configuration updates, upgrades, and replacement flows?** | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes |
+| **Persists running configuration?** | ✅ Yes | ✅ Yes | ❌ No | ❌ No |
+
 

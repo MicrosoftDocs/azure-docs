@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Append custom suffix to interface descriptions in Azure Operator Nexus Network Fabric
 
-TThis guide explains how to append a user-defined suffix (`additionalDescription`) to interface descriptions in Azure Operator Nexus Network Fabric. The primary interface description is `read-only,` but the `additionalDescription` property provides enhanced flexibility for operational annotations. This approach allows users to customize interface descriptions for specific maintenance or operational requirements without altering the system-generated description.
+This guide explains how to append a user-defined suffix (`additionalDescription`) to interface descriptions in Azure Operator Nexus Network Fabric. The primary interface description is `read-only,` but the `additionalDescription` property provides enhanced flexibility for operational annotations. This approach allows users to customize interface descriptions for specific maintenance or operational requirements without altering the system-generated description.
 
 ## Prerequisites
 
@@ -131,9 +131,33 @@ Once committed, the interface description reverts to its original state:
 AR-CE2(Fab3-AR-CE2):Et1/1 to CR1-TOR1(Fab3-CP1-TOR1)-Port23
 ```
 
+## Network interface updates
+
+Updates to network interface of a network device
+
+### Standardized Interface Descriptions
+
+Interface descriptions follows a consistent format:
+
+Source Device to Destination Device (including hostname and interface name).
+
+### Example:
+AR-CE2 (Fab3-AR-CE2): Et1/1 to CR1-TOR1 (Fab3-CP1-TOR1) - Port23
+
+### connectedTo property
+
+The `connectedTo` property returns the ARM resource ID of the connected interface, where available.
+
+### Comparison of Old and New Values:
+
+| Example | Previous Value | New Value |
+|---------|---------------|-----------|
+| **Example 1** | CR1-TOR1-Port23 | `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ManagedNetworkFabric/networkDevices/fab3nf-CompRack1-TOR1/networkInterfaces/Ethernet23-1` |
+| **Example 2** | AR-CE2 (Fab3-AR-CE2): Et1/1 to CR1-TOR1 (Fab3-CP1-TOR1) - Port23 | `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ManagedNetworkFabric/networkDevices/fab3nf-CompRack1-TOR1/networkInterfaces/Ethernet23-1` |
+
 ## Supported interface types
 
-This feature is available for the following interface types:
+All the above features is available for the following interface types:
 
 - **Agg Rack CE**  
 - **Agg Rack Management**  
@@ -142,4 +166,4 @@ This feature is available for the following interface types:
 - **NPB Device**  
 
 > [!Note]  
-> **Existing deployments** will retain their **current descriptions** until Fabric instances are **migrated to Release 8.0**. After migration, users must update descriptions via the **API**.
+>For non-NF managed devices for e.g., PE \ Storage Device the `connectedTo` property will continue to reflect value as a `string` with no active link.
