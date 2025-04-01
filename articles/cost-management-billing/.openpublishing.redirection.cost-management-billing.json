@@ -1358,17 +1358,17 @@
         {
             "source_path_from_root": "/articles/cost-management-billing/costs/retire-aws-connector.md",
             "redirect_url": "/azure/cost-management-billing/costs/overview-cost-management",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cost-management-billing/costs/aws-integration-set-up-configure.md",
             "redirect_url": "/azure/cost-management-billing/costs/overview-cost-management",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cost-management-billing/costs/aws-integration-manage.md",
             "redirect_url": "/azure/cost-management-billing/costs/overview-cost-management",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cost-management/use-reports.md",
