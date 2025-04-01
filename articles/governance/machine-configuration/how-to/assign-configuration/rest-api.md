@@ -2,7 +2,7 @@
 title: How to create a machine configuration assignment using the Azure Rest API
 description: >-
   Learn how to deploy configurations to machines with the Azure Rest API.
-ms.date: 03/11/2025
+ms.date: 03/26/2025
 ms.topic:  how-to
 ms.custom: devx-track-arm-rest-api
 ---
