@@ -112,13 +112,7 @@ Azure Storage tasks are supported in the following public regions:
 
 Pricing is based on the execution of storage task assignments. Each time your storage task assignment executes, you are billed a task execution instance charge. You also incur a charge based on the count of objects scanned and evaluated against the conditions of the storage task. That charge is based on a single price per million objects scanned. The final meter applies to the count of operations performed on objects in the storage account. This charge is also based on a single price per million objects. Meters are applied to each executing instance. If a storage task assignment is scheduled to execute repeatedly, then you're billed for each separate instance. 
 
-At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Storage Actions costs. There's a separate line item for each meter. These charges appear in the subscription of the storage account where the task assignment is configured. To find the price of each meter, see [Azure Storage Actions Preview pricing](https://azure.microsoft.com/pricing/details/storage-actions/).
-
-You can use the following formula to estimate the cost of a **each** storage task assignment execution:
-
-Task execution instance charge + (Objects targeted charge * Objects targeted in millions) + (Operations invoked charge * Operations on objects in millions). 
-
-In addition to the Azure Storage Actions charges for the task assignment execution, you might also be billed for the cost of operations performed on the storage account. For example, if a storage task adds an index tag to a blob, then you'll incur the cost of a [Set Blob Tags](/rest/api/storageservices/set-blob-tags) operation on the target storage account. 
+At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Storage Actions costs. There's a separate line item for each meter. These charges appear in the subscription of the storage account where the task assignment is configured. To learn more about Azure Storage Actions billing meters along with example calculations for common scenarios, see [Plan to manage costs for Azure Storage Actions](storage-actions-plan-manage-costs.md)
 
 > [!NOTE]
 > Pricing for Azure Storage Actions will start rolling out across the different preview regions starting from April 1, 2025. Charges for Azure Storage Actions might appear on your subscription if a task assignment was executed after the effective date. During the roll out period, charges for objects targeted and operations executed might not appear on your bill until later in the cycle. Because of this delay, your bill might seem lower than expected during the first part of the month. 
