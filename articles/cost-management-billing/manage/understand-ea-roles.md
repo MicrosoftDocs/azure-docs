@@ -22,7 +22,7 @@ To help manage your organization's usage and spend, Azure customers with an Ente
 - Department Administrator (read only)
 - Account Owner²
 
-¹ The Bill-To contact of the EA contract is under this role.
+¹ The Bill-To contact on the direct EA contract gets this role.
 
 ² The Bill-To contact can't be added or changed in the Azure portal. It gets added to the EA enrollment based on the user who is set up as the Bill-To contact on agreement level. To change the Bill-To contact, a request needs to be made through a partner/software advisor to the Regional Operations Center (ROC).
 
