@@ -16,7 +16,7 @@ This article describes how you plan for and manage costs for Azure Storage Actio
 Costs for Azure Storage Actions are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure Storage Actions, you're billed for all Azure services and resources used in your Azure subscription, including the third-party services.
 
 > [!IMPORTANT]
-> Azure Storage Actions is currently in PREVIEW and is available in these [regions](#supported-regions).
+> Azure Storage Actions is currently in PREVIEW and is available in these [regions](overview.md#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Understand the full billing model for Azure Storage Actions
