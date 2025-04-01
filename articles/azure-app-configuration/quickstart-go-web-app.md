@@ -4,7 +4,7 @@ description: In this quickstart, create a Go web application with Azure App Conf
 services: azure-app-configuration
 author: linglingye
 ms.service: azure-app-configuration
-ms.devlang: go
+ms.devlang: golang
 ms.topic: quickstart
 ms.custom: quickstart, mode-other, devx-track-go
 ms.date: 03/31/2025
