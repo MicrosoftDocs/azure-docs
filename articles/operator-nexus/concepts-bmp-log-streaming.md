@@ -9,7 +9,7 @@ ms.date: 04/01/2025
 ms.custom: template-concept
 ---
 
-## Introduction to BMP
+# Introduction to BMP
 
 The **BGP Monitoring Protocol (BMP)** is a protocol designed to monitor BGP sessions. It provides a standardized method for collecting information about BGP sessions, which can be used for analysis, troubleshooting, and ensuring the stability and security of the network.
 
@@ -86,4 +86,4 @@ Nexus NF shall not support excluding the monitoring of peer-address of neighbor 
 Nexus shall support a maximum of four Network Monitors (BMP Stations).
 
 ## Next steps
-[How to enable \ disable BMP log streaming](./howto-enable-disable-log-streaming.md)
+[How to enable \ disable BMP log streaming](./howto-enable-log-streaming.md)

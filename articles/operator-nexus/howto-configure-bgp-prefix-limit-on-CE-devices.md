@@ -17,19 +17,20 @@ BGP (Border Gateway Protocol) prefix limiting is an essential overload protectio
 
 BGP prefix limits can be configured using two primary parameters:
 
-- **max-routes (hard limits)**: This parameter sets the maximum number of prefixes a BGP router will accept from a neighbor. If the limit is exceeded, the BGP session with that neighbor is terminated to prevent overloading the router.
+- **max-routes (hard limits)**: This parameter sets the maximum number of prefixes a BGP router accepts from a neighbor. If the limit is exceeded, the BGP session with that neighbor is terminated to prevent overloading the router.
   
-- **warn-threshold (soft limits)**: The warn-threshold parameter sets a warning threshold below the max-routes limit. When the number of prefixes received from a neighbor exceeds this threshold, a warning is generated, but the BGP session is not terminated. This allows network administrators to take corrective action before the hard limit is reached.
+- **warn-threshold (soft limits)**: The warn-threshold parameter sets a warning threshold below the max-routes limit. When the number of prefixes received from a neighbor exceeds this threshold, a warning is generated, but the BGP session isn't terminated. This policy allows network administrators to take corrective action before the hard limit is reached.
 
 ### Hard limits (max-routes)
 
-The `max-routes` parameter specifies the maximum number of prefixes that a BGP router can accept from a neighbor. If the number exceeds this limit, the BGP session with that neighbor is terminated. This is a "hard" limit to protect the router from excessive load and to maintain network stability.
+The `max-routes` parameter specifies the maximum number of prefixes that a BGP router can accept from a neighbor. If the number exceeds this limit, the BGP session with that neighbor is terminated. This threshold is a "hard" limit to protect the router from excessive load and to maintain network stability.
 
 ### Soft limits (warn-threshold)
 
-The `warn-threshold` parameter is a "soft" limit. When the number of prefixes exceeds this threshold, a warning is triggered, but the BGP session remains active. This serves as a precautionary measure, allowing administrators to intervene before reaching the hard limit.
+The `warn-threshold` parameter is a "soft" limit. When the number of prefixes exceeds this threshold, a warning is triggered, but the BGP session remains active. This safeguard serves as a precautionary measure, allowing administrators to intervene before reaching the hard limit.
 
-To configure **BGP Prefix Limit** on **Customer Edge (CE)** devices for **Azure Operator Nexus**, follow the steps below. This includes configuring the prefix limits for BGP sessions to manage network stability and prevent the Nexus fabric from being overwhelmed when a tenant advertises excessive BGP routes.
+To configure **BGP Prefix Limit** on **Customer Edge (CE)** devices for **Azure Operator Nexus**, follow the steps below. This configuration includes setting the prefix limits for BGP sessions to manage network stability and prevent the Nexus fabric from being overwhelmed when a tenant advertises excessive BGP routes.
+
 
 ### Prerequisites
 
@@ -45,9 +46,9 @@ To configure **BGP Prefix Limit** on **Customer Edge (CE)** devices for **Azure 
 
 You need to configure the BGP prefix limits using the parameters `maximumRoutes` and `threshold`.
 
-- **`maximumRoutes`**: This defines the maximum number of BGP prefixes the router will accept from a BGP peer.
+- **`maximumRoutes`**: This parameter defines the maximum number of BGP prefixes the router accepts from a BGP peer.
 
-- **`threshold`**: This defines the warning threshold as a percentage of the `maximumRoutes`. When the number of prefixes exceeds this threshold, a warning is generated.
+- **`threshold`**: This parameter defines the warning threshold as a percentage of the `maximumRoutes`. When the number of prefixes exceeds this threshold, a warning is generated.
 
 #### Step 2: Configure on the CE device
 
@@ -67,15 +68,15 @@ This configuration will automatically restart the session after a defined idle t
 
 - **Explanation**:
 
-  - **maximumRoutes**: 5000 routes is the limit for the BGP session.
+  - **maximumRoutes**: 5,000 routes are the limit for the BGP session.
 
-  - **threshold**: A warning is triggered when the prefix count reaches 80% (4000 routes).
+  - **threshold**: A warning is triggered when the prefix count reaches 80% (4,000 routes).
 
   - **idleTimeExpiry**: If the session is shut down, it will restart automatically after 100 seconds of idle time.
 
 ##### Example 2: BGP prefix limit without automatic restart
 
-This configuration will shut down the session when the maximum prefix limit is reached, but manual intervention is required to restart the session.
+This configuration shuts down the session when the maximum prefix limit is reached, but manual intervention is required to restart the session.
 
 ```json
 {
@@ -88,15 +89,15 @@ This configuration will shut down the session when the maximum prefix limit is r
 
 - **Explanation**:
 
-  - **maximumRoutes**: 5000 routes is the limit for the BGP session.
+  - **maximumRoutes**: 5,000 routes are the limit for the BGP session.
 
-  - **threshold**: A warning is triggered when the prefix count reaches 80% (4000 routes).
+  - **threshold**: A warning is triggered when the prefix count reaches 80% (4,000 routes).
 
   - No automatic restart; manual intervention is required to restart the session.
 
 ##### Example 3: Hard-Limit drop BGP sessions
 
-This configuration will drop additional routes if the prefix limit is exceeded without maintaining a cache of the dropped routes.
+This configuration drops extra routes if the prefix limit is exceeded without maintaining a cache of the dropped routes.
 
 ```json
 {
@@ -108,13 +109,13 @@ This configuration will drop additional routes if the prefix limit is exceeded w
 
 - **Explanation**:
 
-  - **maximumRoutes**: 5000 routes is the limit for the BGP session.
+  - **maximumRoutes**: 5,000 routes are the limit for the BGP session.
 
-  - Once the limit is reached, the CE device will drop any additional prefixes received from the BGP peer.
+  - Once the limit is reached, the CE device drops any extra prefixes received from the BGP peer.
 
 ##### Example 4: Hard-Limit warning only
 
-This configuration will generate a warning once the prefix count reaches a certain percentage of the maximum limit but will not shut down the session.
+This configuration generates a warning once the prefix count reaches a certain percentage of the maximum limit but does not shut down the session.
 
 ```json
 {
@@ -128,11 +129,11 @@ This configuration will generate a warning once the prefix count reaches a certa
 
 - **Explanation**:
 
-  - **maximumRoutes**: 8000 routes is the limit for the BGP session.
+  - **maximumRoutes**: 8,000 routes are the limit for the BGP session.
 
-  - **threshold**: A warning is generated when the prefix count reaches 75% (6000 routes).
+  - **threshold**: A warning is generated when the prefix count reaches 75% (6,000 routes).
 
-  - The session is not shut down. This configuration is used to only generate a warning without taking any session-terminating action.
+  - The session isn't shut down. This configuration is used to only generate a warning without taking any session-terminating action.
 
 #### Step 3: Apply Configuration Using Azure CLI
 
@@ -190,6 +191,6 @@ For external network configuration, only the **hard-limit warning-only** option 
 
 ### NNI Option A:
 
-For NNI Option A, only a single peer group is allowed. IPv4 over IPv6 and vice versa are not supported. Warning-only mode is available for handling prefix limits.
+For NNI Option A, only a single peer group is allowed. IPv4 over IPv6 and vice versa aren't supported. Warning-only mode is available for handling prefix limits.
 
 By following this guide, you can configure BGP prefix limits effectively to protect your network from overload and ensure that BGP sessions are properly managed for both internal and external networks.
