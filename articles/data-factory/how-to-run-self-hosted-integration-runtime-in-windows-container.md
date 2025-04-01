@@ -81,6 +81,7 @@ Currently we don't support the below features when running the Self-Hosted Integ
 - Daemon service 
 - Auto-update 
 
+There is a known issue when hosting an Azure Data Factory self-hosted integration runtime in Azure App Service, where a restart creates a new container instead of reusing the existing one. This causes configuration settings, such as concurrency adjustments, to be lost, changes to the host file for FQDN-to-IP mapping to reset, and the node name to change.
 
 ### Related content
 
