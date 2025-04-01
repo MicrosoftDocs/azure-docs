@@ -7,7 +7,7 @@ ms.date: 01/07/2025
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: jojo
+ms.reviewer: jojoh
 ms.custom: devx-track-arm-template, devx-track-azurepowershell
 ---
 
@@ -413,4 +413,4 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to create a recurring export for your cost management data.
 
 > [!div class="nextstepaction"]
-> [Create and manage exported data](tutorial-export-acm-data.md)
+> [Create and manage exported data](tutorial-improved-exports.md)

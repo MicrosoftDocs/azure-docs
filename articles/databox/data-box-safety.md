@@ -6,7 +6,7 @@ author: stevenmatthew
 
 ms.service: azure-databox
 ms.topic: conceptual
-ms.date: 03/11/2025
+ms.date: 03/25/2025
 ms.author: shaas
 zone_pivot_groups: data-box-sku
 ---
@@ -61,6 +61,10 @@ Hazard symbols identified in the manual are:
 * When using an equipment rack, the rack might tip over causing serious personal injury. Verify the equipment rack is anchored to the floor and/or bayed to its adjacent equipment racks before installing, extending, or removing equipment. Failure to do so could allow the rack system to tip over leading to death, injury, or damage. 
 * When installed into an equipment rack, don't extend more than one equipment (for example, storage or server) from the rack at one time to prevent the equipment rack from becoming dangerously unstable.
 
+:::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-next-gen-safety/icon-heavy-weight-hazard.png" border="false":::**WARNING:**
+* A fully configured enclosure can weigh up to 50 lbs (22.7 kg); don't try to lift it by yourself. Be aware that any attempts to lift this weight can cause severe injuries. 
+* Conform to local occupational health and safety requirements when moving and lifting this equipment. Use mechanical assistance or other suitable assistance when moving and lifting equipment.
+
 :::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-next-gen-safety/icon-overload-tip-hazard.jpg" border="false"::::::image type="icon" source="media/data-box-next-gen-safety/icon-safety-tip-hazard.png" border="false"::: **WARNING:**
 * This equipment isn't to be used as shelves or work spaces. Don't place objects on top of the equipment. Adding any type of load to a rack or wall mounted equipment can create a potential tip or crush hazard which could lead to injury, death, or product damage. 
 
@@ -114,10 +118,6 @@ Hazard symbols identified in the manual are:
 :::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-next-gen-safety/icon-safety-electric-shock.png" border="false"::::::image type="icon" source="media/data-box-next-gen-safety/icon-rotating-fan-blade.png" border="false":::**WARNING:**
 * To reduce the risk of electrical shock, injury from moving parts, damage, or loss of data, always make sure to disconnect the equipment from the AC electrical source when working inside the equipment. Powering down the system doesn’t ensure there’s no electrical activity inside the equipment.
 
-:::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false"::::::image type="icon" source="media/data-box-next-gen-safety/icon-heavy-weight-hazard.png" border="false":::**WARNING:**
-* A fully configured enclosure can weigh up to 50 lbs (22.7 kg); don't try to lift it by yourself. Be aware that any attempts to lift this weight can cause severe injuries. 
-* Conform to local occupational health and safety requirements when moving and lifting this equipment. Use mechanical assistance or other suitable assistance when moving and lifting equipment.
-
 ## Electrostatic precautions
 
 :::image type="icon" source="media/data-box-next-gen-safety/icon-notice-sml.png" border="false":::**NOTICE:**
@@ -161,7 +161,7 @@ Cet appareil numérique de la classe A est conforme à la norme NMB-003 du Canad
 
 Le présent appareil est conforme aux CNR d'Industrie Canada applicables aux appareils radio exempts de licence. L'exploitation est autorisée aux deux conditions suivantes: (1) l'appareil ne doit pas produire de brouillage, et (2) l'utilisateur de l'appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d'en compromettre le fonctionnement.
 
-CAN ICES-3(A)/NMB-3(A)
+CAN ICES(A)/NMB(A)
 
 Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA.
 
@@ -179,7 +179,9 @@ Disposal of Waste Batteries and Electrical & Electronic Equipment:
 
 :::image type="icon" source="media/data-box-next-gen-safety/icon-ewaste-disposal.jpg" border="false"::: This symbol on the product or its batteries or its packaging means that this product and any batteries it contains must not be disposed of with your household waste. Instead, it is your responsibility to hand it over to an applicable collection point for the recycling of batteries and electrical and electronic equipment. This separate collection and recycling will help to conserve natural resources and prevent potential negative consequences for human health and the environment due to the possible presence of hazardous substances in batteries and electrical and electronic equipment, which could be caused by inappropriate disposal. For more information about where to drop off your batteries and electrical and electronic waste, please contact your local city/municipality office, your household waste disposal service, or the shop where you purchased this product. Contact erecycle@microsoft.com for additional information on WEEE. 
 
-This product might contain Lithium-Ion and/or Lithium Metal battery(ies).
+:::image type="icon" source="media/data-box-safety/ce-logo.png" border="false":::
+
+This product might contain Lithium-Ion and/or Lithium Metal battery(ies). The batteries contained in this product comply with regulatory requirements of EU REGULATION (EU) 2023/1542 as applicable.
 
 Microsoft Ireland Sandyford Ind Est Dublin D18 KX32 IRL
 
@@ -199,6 +201,377 @@ Management Methods on Control of Pollution from Electronic Information Products
 
 Hazardous Substances Table:
 
+:::row:::
+    :::column:::
+     
+    :::column-end:::
+    :::column span="10":::
+    **有毒有害物質或元素**
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+    部件名称
+    :::column-end:::
+	:::column:::
+    铅(Pb)
+    :::column-end:::
+    :::column:::
+	镉
+    (Ca)
+    :::column-end:::
+    :::column:::
+    汞
+    (Hg)
+    :::column-end:::
+    :::column:::
+    六价铬
+    (Cr(VI))
+    :::column-end:::
+    :::column:::
+    多溴联苯
+    (PBB)
+    :::column-end:::
+    :::column:::
+    多溴二苯醚
+    (PBDE)
+    :::column-end:::
+    :::column:::
+    邻苯二甲酸二（2-乙基）己 酯
+    (DEHP)
+    :::column-end:::
+    :::column:::
+    邻苯二甲酸丁基苄酯
+    (BBP)
+    :::column-end:::
+    :::column:::
+    邻苯二甲酸二正丁酯
+    (DBP)
+    :::column-end:::
+    :::column:::
+    邻苯二甲酸二异丁酯
+    (DIBP)
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+    印刷电路板
+    (PCB)
+    :::column-end:::
+	:::column:::
+    X
+    :::column-end:::
+	:::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+    电缆及其组件
+    (Cables & Cable Assemblies)	
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+    金属部件
+    (Metal Parts)
+    :::column-end:::
+    :::column:::
+	X	
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+    塑料和聚合物部件
+    (Plastic and Polymeric parts)
+    :::column-end:::
+	:::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+    芯片电阻
+    (Chips)
+    :::column-end:::
+	:::column:::
+    X
+    :::column-end:::
+	:::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+    电源供应器
+    (Power Supply)
+    :::column-end:::
+	:::column:::
+    X
+    :::column-end:::
+	:::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+    风扇
+    (Fan)
+    :::column-end:::
+    :::column:::
+	X
+    :::column-end:::
+	:::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+    储存装置(硬盘、固态硬盘)
+    (Storage Devices HDD 、SSD)
+    :::column-end:::
+    :::column:::
+    X
+    :::column-end:::
+	:::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::    
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+    :::column:::
+    ○
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="11":::
+    ○ : 表示该有毒有害物质在该部件所有均质材料中的含量均在 SJ/T 11364-2024(现由 GB/T 26572第一号修改单取代)标准规定的限量要求以下。
+
+    Indicates that this hazardous substance contained in all homogeneous materials of such component is within the limits specified in SJ/T 11364-2024 (now replaced by GB/T 26572 amendment order No.1).
+
+    X :  表示该有毒有害物质至少在该部件的某一均质材料中的含量超出 SJ/T 11364-2024(现由 GB/T 26572第一号修改单取代)标准规定的限量要求。
+
+    Indicates that the content of such hazardous substance in at least a homogeneous material of such component exceeds the limits specified in SJ/T 11364-2024 (now replaced by GB/T 26572 amendment order No.1).
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="11":::
+    a.	对销售之日的所售产品,本表显示我公司供应链的电子信息产品可能包含这些物质。注意：在所售产品中可能会也可能不会含有所有所列的部件。
+
+    This table shows where these substances may be found in the supply chain of our electronic information products, as of the date of sale of the enclosed product. Note that some of the component types listed above may or may not be a part of the enclosed product.
+
+    b.	除非另外特别的标注,此标志为针对所涉及产品的环保使用期限标志. 某些可更换的零部件可能会有一个不同的环保使用期限(例如,电池单元模块).此环保使用期限只适用于产品在产品手册中所规定的条件下工作.
+
+    The Environment-Friendly Use Period (EFUP) for all enclosed products and their parts are per the symbol shown here, unless otherwise marked. Certain field-replaceable parts may have a different EFUP (for example, battery modules) number.  The Environment-Friendly Use Period is valid only when the product is operated under the conditions defined in the product manual.
+ 
+    :::image type="icon" source="media/data-box-next-gen-safety/icon-efup.png" border="false":::
+    :::column-end:::
+:::row-end:::
+
+
+
+
+
+
+<!--
 :::row:::
     :::column:::
     **部件名稱**
@@ -435,9 +808,9 @@ Hazardous Substances Table:
     
     The Environment-Friendly Use Period (EFUP) for all enclosed products and their parts are per the symbol shown here, unless otherwise marked. Certain field-replaceable parts may have a different EFUP (for example, battery modules) number.  The Environment-Friendly Use Period is valid only when the product is operated under the conditions defined in the product manual.
     :::column-end:::
-:::row-end:::
+:::row-end:::-->
 
-:::image type="icon" source="media/data-box-next-gen-safety/icon-efup.png" border="false":::
+
 
 **Japan**
 

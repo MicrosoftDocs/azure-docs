@@ -59,3 +59,12 @@
         href: lift-and-shift-step-5-overview.md
       - name: End-user entry point
         href: lift-and-shift-step-5-end-user-entry-point.md
+- name: HPC Performance and Benchmarking
+  expanded: true
+  items:
+  - name: Performance and Benchmarking Overview
+    href: ./performance-benchmarking/overview.md
+  - name: HPC Performance and Benchmarking Applications
+    href: ./performance-benchmarking/high-performance-computing-performance-benchmarking-applications.md
+  - name: Performance Optimization for HPC and AI VMs
+    href: ./performance-benchmarking/optimize-performance.md

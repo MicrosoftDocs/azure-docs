@@ -1,11 +1,12 @@
 ---
-title: TLS encryption with Azure Front Door
+title: TLS encryption
+titleSuffix: Azure Front Door
 description: Learn about end-to-end TLS encryption, supported TLS versions, and supported cipher suites with Azure Front Door.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 03/18/2025
+ms.date: 03/26/2025
 zone_pivot_groups: front-door-tiers
 ---
 
@@ -34,7 +35,7 @@ Azure Front Door supports two versions of the TLS protocol: TLS versions 1.2 a
 > [!IMPORTANT]
 > As of March 1, 2025, TLS 1.0 and 1.1 are not allowed on new Azure Front Door profiles. If you didn't disable TLS 1.0 and 1.1 on legacy settings before this date, they'll still work temporarily but will be updated to TLS 1.2 in the future.
 
-You can configure the minimum TLS version in Azure Front Door in the custom domain HTTPS settings using the Azure portal or the [Azure REST API](/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). For a minimum TLS version 1.2, the negotiation will attempt to establish TLS 1.3 and then TLS 1.2. When Azure Front Door initiates TLS traffic to the origin, it will attempt to negotiate the best TLS version that the origin can reliably and consistently accept. Supported TLS versions for origin connections are TLS 1.2 and TLS 1.3.
+You can configure the minimum TLS version in Azure Front Door in the custom domain HTTPS settings using the Azure portal or the [Azure REST API](/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). For a minimum TLS version 1.2, the negotiation will attempt to establish TLS 1.3 and then TLS 1.2. When Azure Front Door initiates TLS traffic to the origin, it will attempt to negotiate the best TLS version that the origin can reliably and consistently accept. Supported TLS versions for origin connections are TLS 1.2 and TLS 1.3.
 
 > [!NOTE]
 > - Clients with TLS 1.3 enabled are required to support one of the Microsoft SDL compliant EC Curves, including Secp384r1, Secp256r1, and Secp521, in order to successfully make requests with Azure Front Door using TLS 1.3.
@@ -109,7 +110,7 @@ For your own custom TLS/SSL certificate:
 
 ## Supported cipher suites
 
-For TLS 1.2/1.3 the following cipher suites are supported:
+For TLS 1.2/1.3, the following cipher suites are supported:
 
 - TLS_AES_256_GCM_SHA384 (TLS 1.3 only)
 - TLS_AES_128_GCM_SHA256 (TLS 1.3 only)
@@ -120,7 +121,10 @@ For TLS 1.2/1.3 the following cipher suites are supported:
 - TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 
 - TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 
-Azure Front Door doesn’t support disabling or configuring specific cipher suites for your profile.
+> [!NOTE]
+> Old TLS versions and weak ciphers are no longer supported.
+
+Use *TLS policy* to configure specific cipher suites. Azure Front Door Standard and Premium offer two mechanisms for controlling TLS policy: you can use either a predefined policy or a custom policy per your own needs. For more information, see [Configure TLS policy on a Front Door custom domain](standard-premium/tls-policy-configure.md).
 
 > [!NOTE]
 > For Windows 10 and later versions, we recommend enabling one or both of the ECDHE_GCM cipher suites for better security. Windows 8.1, 8, and 7 aren't compatible with these ECDHE_GCM cipher suites. The ECDHE_CBC and DHE cipher suites have been provided for compatibility with those operating systems. 
@@ -129,6 +133,7 @@ Azure Front Door doesn’t support disabling or configuring specific cipher suit
 
 ::: zone pivot="front-door-standard-premium"
 
+- [Azure Front Door TLS policy](standard-premium/tls-policy.md)
 - [Domains in Azure Front Door](domain.md)
 - [Configure a custom domain on Azure Front Door](standard-premium/how-to-add-custom-domain.md)
 
