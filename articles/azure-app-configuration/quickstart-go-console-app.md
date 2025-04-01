@@ -586,3 +586,4 @@ func main() {
 
 In this quickstart, you created a new App Configuration store and learned how to access key-values using the Azure App Configuration Go provider in a console application. 
 
+To learn more about Azure App Configuration Go Provider, see [reference doc](https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration).

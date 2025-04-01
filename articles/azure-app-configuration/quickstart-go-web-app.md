@@ -440,3 +440,5 @@ In this quickstart, you created a Go web application with Azure App Configuratio
 - Use strongly typed configuration with Unmarshal
 - Configure your web application based on centrally stored settings
 
+To learn more about Azure App Configuration Go Provider, see [reference doc](https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration).
+
