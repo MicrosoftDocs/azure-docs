@@ -49,7 +49,7 @@ The App Service diagnostics page performs a series of configuration checks and o
 
 To review recommendations and performed checks, select the **View more details** link. The information appears in a panel on the right side of the window.
 
-:::image type="content" source="./media/app-service-diagnostics/app-service-diagnostics-risk-alerts-details-1.png" alt-text="Screenshot that shows detailed information for availability risk alerts.":::
+:::image type="content" source="./media/app-service-diagnostics/app-service-diagnostics-risk-alerts-details-1.png" alt-text="Screenshot that shows detailed information for availability risk alerts." lightbox="./media/app-service-diagnostics/app-service-diagnostics-risk-alerts-details-1.png":::
 
 ### Troubleshooting categories
 
@@ -88,7 +88,7 @@ To investigate the problem further, you can select a topic and view more details
 
 The diagnostic report can be a powerful tool for pinpointing the problem with your app. The following example is the **Web App Down** report in **Availability and Performance**.
 
-:::image type="content" source="./media/app-service-diagnostics/full-diagnostic-report-5.png" alt-text="Screenshot that shows the Web App Down diagnostic report in the portal.":::
+:::image type="content" source="./media/app-service-diagnostics/full-diagnostic-report-5.png" alt-text="Screenshot that shows the Web App Down diagnostic report in the portal." lightbox="./media/app-service-diagnostics/full-diagnostic-report-5.png":::
 
 ## Resiliency Score report
 
@@ -106,7 +106,7 @@ To view Application Insights exceptions and dependencies, select the **Web App D
 
 If a problem is detected in a specific category within the last 24 hours, you can view the full diagnostic report. App Service diagnostics might prompt you to view more troubleshooting advice and next steps for a more guided experience.
 
-:::image type="content" source="./media/app-service-diagnostics/troubleshooting-and-next-steps-8.png" alt-text="Screenshot that shows troubleshooting options for HTTP server errors in the portal.":::
+:::image type="content" source="./media/app-service-diagnostics/troubleshooting-and-next-steps-8.png" alt-text="Screenshot that shows troubleshooting options for HTTP server errors in the portal." lightbox="./media/app-service-diagnostics/troubleshooting-and-next-steps-8.png":::
 
 ## Diagnostic tools
 
