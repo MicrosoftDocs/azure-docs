@@ -46,22 +46,22 @@ Each Azure VMware Solution architectural component has the following function:
 
 [!INCLUDE [disk-capabilities-of-the-host](includes/disk-capabilities-of-the-host.md)]
 
-## Azure region availability zone to version mapping table
+## Azure region availability zone to host type mapping table
 
-When you plan your Azure VMware Solution design, use the following table to understand what versions are available in each physical availability zone of an [Azure region](https://azure.microsoft.com/explore/global-infrastructure/geographies/#geographies).
+When you plan your Azure VMware Solution design, use the following table to understand what host types are available in each physical availability zone of an [Azure region](https://azure.microsoft.com/explore/global-infrastructure/geographies/#geographies).
 
 >[!IMPORTANT]
 > This mapping is important for placing your private clouds in close proximity to your Azure native workloads, including integrated services such as Azure NetApp Files and Pure Cloud Block Store.
 
 The capability for Azure VMware Solution stretched clusters to deploy resources in multiple availability zones (Multi-AZ) is also tagged in the following table. The customer quota for Azure VMware Solution is assigned by Azure region. You can't specify the availability zone during private cloud provisioning. An autoselection algorithm is used to balance deployments across the Azure region.
 
-If you have a particular availability zone to which you want to deploy, open a [Service Request](https://rc.portal.azure.com/#create/Microsoft.Support) with Microsoft. Request a "special placement policy" for your subscription, Azure region, availability zone, and version type. This policy remains in place until you request it to be removed or changed.
+If you have a particular availability zone to which you want to deploy, open a [Service Request](https://rc.portal.azure.com/#create/Microsoft.Support) with Microsoft. Request a "special placement policy" for your subscription, Azure region, availability zone, and host type. This policy remains in place until you request it to be removed or changed.
 
-Versions marked in bold type are of limited availability because of customer consumption and might not be available upon request. Use the AV64 version when AV36, AV36P, or AV52 versions are limited.
+Host types marked in bold type are of limited availability because of customer consumption and might not be available upon request. Use the AV64 host type when AV36, AV36P, or AV52 host types are limited.
 
-AV64 versions are available per availability zone. The following table lists the Azure regions that support this version. For RAID-6 FTT2 and RAID-1 FTT3 storage policies, six and seven fault domains are needed, respectively. The fault domain count for each Azure region is listed in the column labeled **AV64 fault domains supported**.
+AV64 host types are available per availability zone. The following table lists the Azure regions that support this host type. For RAID-6 FTT2 and RAID-1 FTT3 storage policies, six and seven fault domains are needed, respectively. The fault domain count for each Azure region is listed in the column labeled **AV64 fault domains supported**.
 
-| Azure region | Availability zone | Version   | Multi-AZ SDDC | AV64 fault domains supported |
+| Azure region | Availability zone | Host type   | Multi-AZ SDDC | AV64 fault domains supported |
 | :---         | :---:             | :---: | :---:         | :---:           |
 | Australia East | AZ01 | AV36P, AV64 | Yes | 7 |
 | Australia East | AZ02 | AV36, AV64| Yes | 7 |
