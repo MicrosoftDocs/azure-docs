@@ -3,11 +3,11 @@ title: Integration Runtime Performance
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how to optimize and improve performance of the Azure Integration Runtime in Azure Data Factory and Azure Synapse Analytics.
 author: kromerm
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: makromer
 ms.subservice: data-flows
 ms.custom: synapse
-ms.date: 01/05/2024
+ms.date: 03/31/2025
 ---
 
 # Optimizing performance of the Azure Integration Runtime
@@ -37,7 +37,7 @@ The default cluster size is four driver cores and four worker cores (small). As 
 Data flows are priced at vcore-hrs meaning that both cluster size and execution-time factor into this. As you scale up, your cluster cost per minute will increase, but your overall time will decrease.
 
 > [!TIP]
-> There is a ceiling on how much the size of a cluster affects the performance of a data flow. Depending on the size of your data, there is a point where increasing the size of a cluster will stop improving performance. For example, If you have more cores than partitions of data, adding additional cores won't help. 
+> There's a ceiling on how much the size of a cluster affects the performance of a data flow. Depending on the size of your data, there's a point where increasing the size of a cluster will stop improving performance. For example, If you have more cores than partitions of data, adding more cores won't help. 
 A best practice is to start small and scale up to meet your performance needs. 
 
 ## Custom shuffle partition
@@ -45,7 +45,6 @@ A best practice is to start small and scale up to meet your performance needs.
 Dataflow divides the data into partitions and transforms it using different processes. If the data size in a partition is more than the process can hold in memory, the process fails with OOM(out of memory) errors. If dataflow contains huge amounts of data having joins/aggregations, you may want to try changing shuffle partitions in incremental way. You can set it from 50 up to 2000, to avoid OOM errors. **Compute Custom properties** in dataflow runtime, is a way to control your compute requirements. Property name is **Shuffle partitions** and it's integer type. This customization should only be used in known scenarios, otherwise it can cause unnecessary dataflow failures.
 
 While increasing the shuffle partitions, make sure data is spread across well. A rough number is to have approximately 1.5 GB of data per partition. If data is skewed, increasing the "Shuffle partitions" won't be helpful. For example, if you have 500 GB of data, having a value between 400 to 500 should work. Default limit for shuffle partitions is 200 that works well for approximately 300 GB of data.
-
 
 1. From ADF portal under **Manage**, select a custom integration run time and you go to edit mode.
 2. Under dataflow run time tab, go to **Compute Custom Properties** section.
@@ -55,12 +54,12 @@ You can do same by editing JSON file of runtime by adding an array with property
 
 ## Time to live
 
-By default, every data flow activity spins up a new Spark cluster based upon the Azure IR configuration. Cold cluster start-up time takes a few minutes and data processing can't start until it is complete. If your pipelines contain multiple **sequential** data flows, you can enable a time to live (TTL) value. Specifying a time to live value keeps a cluster alive for a certain period of time after its execution completes. If a new job starts using the IR during the TTL time, it will reuse the existing cluster and start up time will be greatly reduced. After the second job completes, the cluster will again stay alive for the TTL time.
+By default, every data flow activity spins up a new Spark cluster based upon the Azure IR configuration. Cold cluster start-up time takes a few minutes and data processing can't start until it's complete. If your pipelines contain multiple **sequential** data flows, you can enable a time to live (TTL) value. Specifying a time to live value keeps a cluster alive for a certain period of time after its execution completes. If a new job starts using the IR during the TTL time, it will reuse the existing cluster and start up time will be greatly reduced. After the second job completes, the cluster will again stay alive for the TTL time.
 
-However, if most of your data flows execute in parallel, it is not recommended that you enable TTL for the IR that you use for those activities. Only one job can run on a single cluster at a time. If there is an available cluster, but two data flows start, only one will use the live cluster. The second job will spin up its own isolated cluster.
+However, if most of your data flows execute in parallel, it isn't recommended that you enable TTL for the IR that you use for those activities. Only one job can run on a single cluster at a time. If there's an available cluster, but two data flows start, only one will use the live cluster. The second job will spin up its own isolated cluster.
 
 > [!NOTE]
-> Time to live is not available when using the auto-resolve integration runtime (default).
+> Time to live isn't available when using the auto-resolve integration runtime (default).
 
 ## Related content
 

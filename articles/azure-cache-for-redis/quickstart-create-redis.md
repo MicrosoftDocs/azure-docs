@@ -7,6 +7,8 @@ description: In this quickstart, learn how to create an instance of Azure Cache 
 ms.custom: mvc, mode-other
 ms.topic: quickstart
 ms.date: 05/06/2022
+appliesto:
+  - ✅ Azure Cache for Redis
 
 ---
 # Quickstart: Create an open-source Redis cache
@@ -21,8 +23,8 @@ You'll need an Azure subscription before you begin. If you don't have one, creat
 
 [!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
-## Next steps
+## Related content
 
 In this quickstart, you learned how to create an instance of Azure Cache for Redis.
 
-> [Create an ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)
+- [Create an ASP.NET web app that uses an Azure Cache for Redis.](../redis/web-app-cache-howto.md)
