@@ -13,7 +13,7 @@ ms.reviewer: jojoh
 
 # Understand cost details fields
 
-This document describes the cost details (formerly known as usage details) fields found in files from using [Azure portal download](../understand/download-azure-daily-usage.md), [Exports](../costs/tutorial-export-acm-data.md) from Cost Management, or the [Cost Details](/rest/api/cost-management/generate-cost-details-report) API. For more information about cost details best practices, see [Choose a cost details solution](usage-details-best-practices.md).
+This document describes the cost details (formerly known as usage details) fields found in files from using [Azure portal download](../understand/download-azure-daily-usage.md), [Exports](../costs/tutorial-improved-exports.md) from Cost Management, or the [Cost Details](/rest/api/cost-management/generate-cost-details-report) API. For more information about cost details best practices, see [Choose a cost details solution](usage-details-best-practices.md).
 
 ## Migration to new cost details formats
 
@@ -259,6 +259,6 @@ UsageStart | Date
 
 - Get an overview of how to [ingest cost data](automation-ingest-usage-details-overview.md).
 - Learn more about [Choose a cost details solution](usage-details-best-practices.md).
-- [Create and manage exported data](../costs/tutorial-export-acm-data.md) in the Azure portal with Exports.
+- [Create and manage exported data](../costs/tutorial-improved-exports.md) in the Azure portal with Exports.
 - [Automate Export creation](../costs/ingest-azure-usage-at-scale.md) and ingestion at scale using the API.
 - Learn how to [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).
