@@ -2112,47 +2112,47 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-resource-manager/management/relocation/relocation-virtual-network-nsg.md",
+      "source_path_from_root": "/articles/operational-excellence/relocation-virtual-network-nsg.md",
       "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-virtual-network-nsg",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-resource-manager/management/relocation/relocation-netapp.md",
+      "source_path_from_root": "/articles/operational-excellence/relocation-netapp.md",
       "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-netapp",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-resource-manager/management/relocation/relocation-postgresql-flexible-server.md",
+      "source_path_from_root": "/articles/operational-excellence/relocation-postgresql-flexible-server.md",
       "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-postgresql-flexible-server",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-resource-manager/management/relocation/relocation-private-link.md",
+      "source_path_from_root": "/articles/operational-excellence/relocation-private-link.md",
       "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-private-link",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-resource-manager/management/relocation/relocation-site-recovery.md",
+      "source_path_from_root": "/articles/operational-excellence/relocation-site-recovery.md",
       "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-site-recovery",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-resource-manager/management/relocation/relocation-static-web-apps.md",
+      "source_path_from_root": "/articles/operational-excellence/relocation-static-web-apps.md",
       "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-static-web-apps",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-resource-manager/management/relocation/relocation-storage-account.md",
+      "source_path_from_root": "/articles/operational-excellence/relocation-storage-account.md",
       "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-storage-account",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-resource-manager/management/relocation/relocation-virtual-machine-scale-sets.md",
+      "source_path_from_root": "/articles/operational-excellence/relocation-virtual-machine-scale-sets.md",
       "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-virtual-machine-scale-sets",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-resource-manager/management/relocation/relocation-virtual-network.md",
+      "source_path_from_root": "/articles/operational-excellence/relocation-virtual-network.md",
       "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-virtual-network",
       "redirect_document_id": false
     }    

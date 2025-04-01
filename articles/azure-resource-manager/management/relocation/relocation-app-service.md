@@ -39,7 +39,7 @@ Identify all the App Service resources that you're currently using. For example:
 - [Managed identities](../../../app-service/overview-managed-identity.md)
 - [Backup settings](../../../app-service/manage-backup.md)
 
-Certain resources, such as imported certificates or hybrid connections, contain integration with other Azure services. For information on how to move those resources across regions, see the [documentation for the respective services](overview-relocation.md).
+Certain resources, such as imported certificates or hybrid connections, contain integration with other Azure services. For information on how to move those resources across regions, see the [documentation for the respective services](./move-resource-overview.md).
 
 ## Plan
 
