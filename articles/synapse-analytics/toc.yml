@@ -821,7 +821,7 @@ items:
       - name: Apache Spark Advisor
         href: ./monitoring/apache-spark-advisor.md
       - name: Use the certificate and service principal to send logs to EventHub
-        href: ./monitoring/how-to-use-certsp-emit-log-to-eventhub.md              
+        href: ./monitoring/how-to-use-certsp-emit-log-to-eventhub.md
     - name: Data sources
       items:
         - name: Azure Cosmos DB Spark 3

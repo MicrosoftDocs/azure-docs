@@ -15,9 +15,9 @@ This document provides a step-by-step guide for setting up Azure services, parti
 ## Prerequisites
 
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- [Synapse Analytics workspace](quickstart-create-workspace.md)
+- [Synapse Analytics workspace](./azure/quickstart-create-workspace.md)
 - If you are new to Azure Event Hubs, read through [Event Hubs overview](/azure/event-hubs/event-hubs-about.md) and [Event Hubs features](/azure/event-hubs/event-hubs-features).
-- [Azure Key Vault](azure/key-vault/general/overview.md)
+- [Azure Key Vault](./azure/key-vault/general/overview.md)
 - To complete this tutorial's steps, you need to have access to a resource group for which you're assigned the Owner role. Generate a certificate in the Key Vault in this resource group.
 
 
@@ -50,7 +50,7 @@ This document provides a step-by-step guide for setting up Azure services, parti
           } 
           ] 
 ```
-     :::image type="content" source="media\trust-the-certificate.png" alt-text="Screenshot showing trust the certificate in the application.":::
+:::image type="content" source="media\trust-the-certificate.png" alt-text="Screenshot showing trust the certificate in the application.":::
 
 ## Step 4. Assign Azure Event Hubs Data Sender Role 
 
@@ -110,12 +110,12 @@ This document provides a step-by-step guide for setting up Azure services, parti
 
 After executing the configuration code in Step 7, run the log-sending code to start emitting logs to Event Hub. 
 
-     ```
-     %%spark
-     val logger = org.apache.log4j.LogManager.getLogger("com.contoso.LoggerExample") 
-     logger.info("Hello, info message")
-     logger.warn("Hello, warn message") 
-     logger.error("Hello, error message") 
-     ```
+```
+%%spark
+val logger = org.apache.log4j.LogManager.getLogger("com.contoso.LoggerExample") 
+logger.info("Hello, info message")
+logger.warn("Hello, warn message") 
+logger.error("Hello, error message") 
+```
 
 
