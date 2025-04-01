@@ -49,6 +49,7 @@ highlightedContent:
       url: /azure/architecture/browse/?azure_categories=iot
 
 productDirectory:
+  title: IoT services
   items:
     # Card
     - title: Azure IoT Operations
@@ -85,6 +86,11 @@ productDirectory:
       summary: Microsoft Defender for IoT is a unified security solution that helps you secure cloud-based, edge-based and hybrid IoT solutions
       imageSrc: ../media/index/defender-iot.svg
       url: ../defender-for-iot/index.yml
+    # Card
+    - title: Windows IoT Enterprise
+      summary: Build intelligent edge solutions with world-class developer tools, long-term support, and enterprise-grade security
+      imageSrc: /media/logos/logo_Windows.svg
+      url: /windows/iot/iot-enterprise/Overview.md
 
 # conceptualContent section
 conceptualContent:
