@@ -60,4 +60,4 @@ Azure Commercial, Gov, Secret, and Top Secret
 | **Highly Opinionated Architecture** | X  | X        | X        |          |          |          |
 | **SCCA**                            |          |          |          |          |          |          |
 
-SCCA = [Secure Cloud Computing Architecture](https://learn.microsoft.com/en-us/azure/azure-government/compliance/secure-azure-computing-architecture)
+SCCA = [Secure Cloud Computing Architecture](../azure-government/compliance/secure-azure-computing-architecture.md)
