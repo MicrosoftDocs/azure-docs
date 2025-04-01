@@ -151,7 +151,7 @@ If the backend server is Nginx or Nginx Ingress Controller, and if it has upstre
 
 ### "ERRORINFO_INVALID_HEADER" error in Access logs
 
-**Issue**: The [Access log](monitor-application-gateway-reference.md#access-log-category) displays an "ERRORINFO_INVALID_HEADER" error for a request, despite the Response code (serverStatus) being 200. In other cases, the backend server will return 500. 
+**Issue**: The [Access log](monitor-application-gateway-reference.md#access-log-category) displays an "ERRORINFO_INVALID_HEADER" error for a request, despite the backend response code (serverStatus) being 200. In other cases, the backend server could return 500.
 
 **Cause**: The client sends a header containing CR LF characters.
 
