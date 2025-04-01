@@ -5,15 +5,14 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 02/14/2025
+ms.date: 04/01/2025
 ms.author: anfdocs
 ms.custom: references_regions
 ---
 
 # Manage file access logs in Azure NetApp Files (preview)
 
-File access logs provide file access logging for individual volumes, capturing file system operations on selected volumes. The logs capture [standard file operation](#recognized-events). File access logs provide insights beyond the 
-platform logging captured in the [Azure Activity Log](/azure/azure-monitor/essentials/activity-log).
+File access logs provide file access logging for individual volumes, capturing file system operations on selected volumes. The logs capture [standard file operation](#recognized-events). File access logs provide insights beyond the platform logging captured in the [Azure Activity Log](/azure/azure-monitor/essentials/activity-log).
 
 ## Considerations
 
@@ -39,7 +38,6 @@ platform logging captured in the [Azure Activity Log](/azure/azure-monitor/essen
     If the rate of file access event generation exceeds 64 MiB/minute, the [Activity log](monitor-azure-netapp-files.md) sends a message stating that the rate of file access log generation is exceeding the limit. If log generation exceeds the limit, logging events can be delayed or dropped. If you are approaching this limit, disable noncritical auditing ACLs to reduce the event generation rate. As a precaution, you can [create an alert](/azure/azure-monitor/alerts/alerts-create-activity-log-alert-rule) for this event.
  
 * During migration or robocopy operations, disable file access logs to reduce log generation. 
-* Volumes with file access logs enabled should be grouped separately from volumes without file access logs. Contact your account specialists for assistance. 
 * It's recommended you avoid enabling file access logs on files with more than 450 ACEs to avoid performance issues. 
 
 ## Recognized events
@@ -78,9 +76,19 @@ The events capture in file access logs depend on the protocol of your volume.
 The file access logs feature is currently in preview. If you're using this feature for the first time, you need to register the feature first. 
 
 1. Register the feature:
-    `Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFileAccessLogs`
-1. Check the status:
-    `Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFileAccessLogs`
+
+    ```azurepowershell-interactive
+      Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFileAccessLogs
+    ```
+
+1. Check the status of the registiation 
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFileAccessLogs`
+    ```
 
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.
 
@@ -150,7 +158,6 @@ For NFSv4.1, both discretionary and system ACEs are stored in the same ACL, not 
 1. In the **Diagnostic setting** page, provide a diagnostic setting name.
     Under **Logs > Categories**, select **ANFFileAccess** then set the retention period of the logs. 
 :::image type="content" source="./media/manage-file-access-logs/logs-diagnostic-settings-enable.png" alt-text="Screenshot of Azure Diagnostic settings menu with file access diagnostic setting.":::
-<!-- check these steps -->
 1. Select one of the destination options for the logs:
     * Archive to a storage account
     * Stream to an event hub
