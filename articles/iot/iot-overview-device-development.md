@@ -52,7 +52,7 @@ In Azure IoT, a device developer writes the code to run on the devices in the so
 
 ## Asset and device types
 
-An IoT solution can contain many types of [assets](iot-glossary.md#asset) and [devices](iot-glossary.md#device). You typically find devices in cloud-based solutions and assets in edge-based solutions. It's also possible to have a hybrid solution that contain both devices and assets.
+An IoT solution can contain many types of [assets](iot-glossary.md#asset) and [devices](iot-glossary.md#device). You typically find devices in cloud-based solutions and assets in edge-based solutions. It's also possible to have a hybrid solution that contains both devices and assets.
 
 # [Edge-based solution](#tab/edge)
 
@@ -82,7 +82,7 @@ These devices are typically built using microcontrollers (MCUs) or microprocesso
 
 - MCUs are less expensive and simpler to operate than MPUs.
 - An MCU contains many of the functions, such as memory, interfaces, and I/O on the chip itself. An MPU accesses this functionality from components in supporting chips.
-- An MCU often uses a real-time OS (RTOS) or runs bare-metal (no OS) and provides real-time responses and highly deterministic reactions to external events. MPUs generally run a general purpose OS, such as Windows, Linux, or macOS that provides a nondeterministic real-time response. There's typically no guarantee as to when a task will complete.
+- An MCU often uses a real-time OS (RTOS) or runs bare-metal (no OS) and provides real-time responses and highly deterministic reactions to external events. MPUs generally run a general purpose OS, such as Windows, Linux, or macOS that provides a nondeterministic real-time response. There's typically no guarantee as to when a task completes.
 
 Examples of specialized hardware and operating systems include:
 
@@ -150,11 +150,11 @@ Device and asset models define the data that devices and assets exchange with th
 
 # [Edge-based solution](#tab/edge)
 
-In an edge-based solution, an operator configures connectors to connect to assets. This configuration includes a mapping between the asset's data and a cloud schema. For example, the OPC UA connector lets the operator map OPC UA node Ids to tags and events in a JSON message exchanged with the MQTT broker. The following screenshot shows an example in the digital operations experience web UI that defines two such mappings for an asset:
+In an edge-based solution, an operator configures connectors to connect to assets. This configuration includes a mapping between the asset's data and a cloud schema. For example, the OPC UA connector lets the operator map OPC UA node IDs to tags and events in a JSON message exchanged with the MQTT broker. The following screenshot shows an example in the digital operations experience web UI that defines two such mappings for an asset:
 
 :::image type="content" source="media/iot-overview-device-development/add-tag.png" alt-text="Screenshot that shows an example asset definition.":::
 
-Elsewhere in the solution, an operator can refer directly to the **Temperature** and **Tag 10** tags without needing to know the details of the OPC UA node Ids.
+Elsewhere in the solution, an operator can refer directly to the **Temperature** and **Tag 10** tags without needing to know the details of the OPC UA node IDs.
 
 # [Cloud-based solution](#tab/cloud)
 
