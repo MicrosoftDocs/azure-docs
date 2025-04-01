@@ -16,9 +16,6 @@ When such an event occurs, you can [fail over to the destination volume](#fail-o
 
 After disaster recovery, you can perform a [resync](#resync-replication) operation to fail back to the source volume. You then [reestablish the source-to-destination replication](#reestablish-source-to-destination-replication) and remount the source volume for the client to access. 
 
->[!NOTE]
-> Reverse resync is not supported with cross-zone-region replication. 
-
 ## Fail over to destination volume
 
 Failover is a manual process. When you need to activate the destination volume (for example, when you want to fail over to the destination region), you need to break replication peering then mount the destination volume.
@@ -51,10 +48,15 @@ After disaster recovery, you can reactivate the source volume by performing a re
 > 
 > ***The reverse resync operation overwrites any newer data (than the most common snapshot) in the source volume with the updated destination volume data. The UI warns you about the potential for data loss. You will be prompted to confirm the resync action before the operation starts.***  
 > 
-> In case the source volume did not survive the disaster and therefore no common snapshot exists, all data in the destination will be resynchronized to a newly created source volume.
+> In case the source volume didn't survive the disaster and therefore no common snapshot exists, all data in the destination will be resynchronized to a newly created source volume.
+
+>[!NOTE]
+>Reverse resync is not supported with [cross-zone-region replication](cross-zone-region-replication.md). To perform a reverse resync with cross-zone-region replication, you must break the secondary relationship then perform the reverse resync as described. 
+> 
+> To restore the cross-zone-region replication, delete the secondary DP volume then [reconfigure replication](cross-zone-region-replication-configure.md).
 
 
-1. To reverse resync replication, select the *source* volume. Select **Replication** under Storage Service. Then select **Reverse Resync**.  
+1. To perform a reverse resync, select the *source* volume. Select **Replication** under Storage Service. Then select **Reverse Resync**.  
 
 2. Type **Yes** when prompted then select **OK**. 
  
