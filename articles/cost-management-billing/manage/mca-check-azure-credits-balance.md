@@ -44,7 +44,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 1. Select **Payment methods** from the left-hand side and then select **Azure credits**.
 
 
-   ![Azure Credits page AzPortal](media/mca-check-azure-credits-balance/azure-credits-page-azportal.png)
+    :::image type="content" border="true" source="./media/mca-check-azure-credits-balance/azure-credits-page-azportal.png" alt-text="Screenshot that shows Credits in the Azure portal for Cost Management + Billing.":::
    
    
    
@@ -70,7 +70,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
      The transactions section displays all transactions that affected your credits balance.
    
-   ![Credits transactions AzPortal](media/mca-check-azure-credits-balance/credits-transactions-azportal.png)
+     :::image type="content" border="true" source=".media/mca-check-azure-credits-balance/credits-transactions-azportal.png" alt-text="Screenshot that shows Credit transactions in the Azure portal for Cost Management + Billing.":::
    
    | Term | Definition |
    |---|---|
@@ -152,7 +152,7 @@ Make the following request, replacing `<billingProfileId>` with the `id` copied 
 ```json
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<billingAccountId>/billingProfiles/<billingProfileId>/providers/Microsoft.Consumption/lots?api-version=2023-03-01
 ```
-The API response returns original credit amounts and available balance across all credit lots for the billing profile. This includes active, expired, and credits with a future start date. Available balance can be computed by aggregating the values in closedBalance across all active credits.
+The API response returns original credit amounts and available balance across all credit lots for the billing profile. This includes active, expired, and credits with a future start date. Available balance can be computed by aggregating the values in `closedBalance` across all active credits.
 
 ```json
 {
@@ -205,7 +205,7 @@ The API response returns original credit amounts and available balance across al
 | `creditCurrency` |The currency of the credit. |
 | `billingCurrency`   |The currency used for billing.   |
 | `originalAmount`      |The original amount of the credit in USD. |
-| `originalAmountInBillingCurrency`      | TThe original amount of the credit in billing currency with exchange rate. |
+| `originalAmountInBillingCurrency`      | The original amount of the credit in billing currency with exchange rate. |
 | `expirationDate`  |The date when the credit expires.   |
 | `closedBalance` |The balance as of the last invoice in USD. |
 | `closedBalanceInBillingCurrency` |The balance as of the last invoice in billing currency with exchange rate. |
