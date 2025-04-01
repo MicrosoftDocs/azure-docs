@@ -69,7 +69,7 @@ The purpose of the Extension-based approach is to simplify the installation and 
 | Required package | Description | Minimum version |
 |--------------------- | --------------------- | ------------------- |
 | Glibc |GNU C Library | 2.5-12 |
-| Openssl | OpenSSL Libraries | 1.0 (TLS 1.1 and TLS 1.2 are supported) |
+| OpenSSL | OpenSSL Libraries | 1.0 (TLS 1.1 and TLS 1.2 are supported) |
 | Curl | cURL web client | 7.15.5 |
 | Python-ctypes | Foreign function library for Python | Python 2.x or Python 3.x are required |
 | PAM | Pluggable Authentication Modules |       |
