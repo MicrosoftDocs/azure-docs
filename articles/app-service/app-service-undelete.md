@@ -111,7 +111,7 @@ Restore-AzDeletedWebApp -ResourceGroupName <original_rg> -Name <original_app> -D
 
 The inputs for command are:
 
-- **Target Resource Group**: Target resource group to which you're restoring the app.
+- **Target Resource Group**: Target resource group where the app will be restored.
 - **TargetName**: Target app to which you're restoring the deleted app.
 - **TargetAppServicePlanName**: App Service plan linked to the app.
 - **Name**: Name for the app. We recommend that it's globally unique.

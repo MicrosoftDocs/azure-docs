@@ -300,7 +300,7 @@ To secure your application, complete the following steps:
     )
     ```
 
-After the credential code is added to the application, enable managed identity in your application and grant access to the resource.
+After the credential code is added to the application, enable a managed identity in your application and grant access to the resource.
 
 1. In your web app resource, go to the **Identity** pane and turn on **System assigned** and select **Save**.
 1. After system-assigned identity is turned on, it registers the web app with Microsoft Entra ID and the web app can be granted permissions to access protected resources.  

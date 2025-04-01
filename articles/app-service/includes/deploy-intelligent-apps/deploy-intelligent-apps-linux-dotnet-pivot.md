@@ -212,7 +212,7 @@ var kernel = Kernel.CreateBuilder()
 	.Build();
 ```
 
-After the credentials are added to the application, you'll need to enable managed identity in your application and grant access to the resource.
+After the credentials are added to the application, you'll need to enable a managed identity in your application and grant access to the resource.
 
 1. In your web app resource, go to the **Identity** pane and turn on **System assigned** and select **Save**.
 1. After **System assigned** identity is turned on, it registers the web app with Microsoft Entra ID. The web app can be granted permissions to access protected resources.  
@@ -354,6 +354,6 @@ You're now ready to deploy to App Service. If you run into any issues, make sure
 
 ### Authentication
 
-Although optional, we highly recommend that you also add authentication to your web app when using an Azure OpenAI or OpenAI service. Adding authentication can add a level of security with no other code. Learn how to enable authentication for your web app [here](../../scenario-secure-app-authentication-app-service.md).
+We highly recommend that you also add authentication to your web app when using an Azure OpenAI or OpenAI service. This optional step can add a level of security with no other code. Learn how to enable authentication for your web app [here](../../scenario-secure-app-authentication-app-service.md).
 
 After the app is deployed, browse to the web app and go to the OpenAI tab. Enter a query to the service and you should see a populated response from the server.

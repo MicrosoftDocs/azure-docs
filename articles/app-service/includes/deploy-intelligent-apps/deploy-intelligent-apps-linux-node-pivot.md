@@ -175,7 +175,7 @@ Create the Azure OpenAI client with the token provider.
   const client = new AzureOpenAI({ azureADTokenProvider, deployment, apiVersion });
 ```
 
-After the credentials are added to the application, enable managed identity in your application and grant access to the resource:
+After the credentials are added to the application, enable a managed identity in your application and grant access to the resource:
 
 1. In your web app resource, go to the **Identity** pane and turn on **System assigned**. Select **Save**.
 1. After system-assigned identity is turned on, it will register the web app with Microsoft Entra ID and the web app can be granted permissions to access protected resources.

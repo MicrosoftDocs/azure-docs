@@ -153,7 +153,7 @@ Here's a sample configuration in `pom.xml`:
     ```
 
 1. Configure your web app details. The corresponding Azure resources are created if they don't exist.
-Here's a sample configuration. For details, refer to this [document](https://github.com/microsoft/azure-gradle-plugins/wiki/Webapp-Configuration).
+Here's a sample configuration. For details, refer to [this document](https://github.com/microsoft/azure-gradle-plugins/wiki/Webapp-Configuration).
 
     ```groovy
     azurewebapp {
@@ -271,7 +271,7 @@ All Java runtimes on App Service come with the Java Flight Recorder. You can use
 
 # [Linux](#tab/linux)
 
-SSH into your App Service and run the `jcmd` command to see a list of all the Java processes running. In addition to `jcmd` itself, you should see your Java application running with a Process ID (PID) number.
+SSH into your App Service and run the `jcmd` command to see a list of all the Java processes running. In addition to `jcmd` itself, you should see your Java application running with a process ID (PID) number.
 
 ```shell
 078990bbcd11:/home# jcmd
@@ -306,7 +306,7 @@ jcmd <pid> JFR.dump name=continuous_recording filename="/home/recording1.jfr"
 
 #### Timed recording
 
-To take a timed recording, you need the Process ID (PID) of the Java application. To find the PID, open a browser to your web app's SCM site at `https://<your-site-name>.scm.azurewebsites.net/ProcessExplorer/`. This page shows the running processes in your web app. Find the process named "java" in the table and copy the corresponding PID.
+To take a timed recording, you need the process ID (PID) of the Java application. To find the PID, open a browser to your web app's SCM site at `https://<your-site-name>.scm.azurewebsites.net/ProcessExplorer/`. This page shows the running processes in your web app. Find the process named "java" in the table and copy the corresponding PID.
 
 Next, open the **Debug Console** in the top toolbar of the SCM site and run the following command. Replace `<pid>` with the PID you copied earlier. This command starts a 30-second profiler recording of your Java application and generates a file named `timed_recording_example.jfr` in the `C:\home` directory.
 
@@ -455,7 +455,7 @@ Alternatively, you can configure the app setting by using the App Service Maven 
 
 ### Precompile JSP files
 
-To improve performance of Tomcat applications, you can compile your JSP files before deploying to App Service. You can use the [Maven plugin](https://sling.apache.org/components/jspc-maven-plugin/plugin-info.html) provided by Apache Sling, or use this [Ant build file](https://tomcat.apache.org/tomcat-9.0-doc/jasper-howto.html#Web_Application_Compilation).
+To improve performance of Tomcat applications, you can compile your JSP files before deploying to App Service. You can use the [Maven plugin](https://sling.apache.org/components/jspc-maven-plugin/plugin-info.html) provided by Apache Sling, or use [this Ant build file](https://tomcat.apache.org/tomcat-9.0-doc/jasper-howto.html#Web_Application_Compilation).
 
 ::: zone-end
 
@@ -507,7 +507,7 @@ App Service supports clustering for JBoss EAP versions 7.4.1 and greater. To ena
 > [!NOTE]
 > If you're enabling your virtual network integration with an ARM template, you need to manually set the property `vnetPrivatePorts` to a value of `2`. If you enable virtual network integration from the CLI or portal, this property is set for you automatically.  
 
-When clustering is enabled, the JBoss EAP instances use the `FILE_PING` Groups discovery protocol to discover new instances and persist cluster information (For example: the cluster members, their identifiers, and their IP addresses). On App Service, these files are under `/home/clusterinfo/`. The first EAP instance to start obtains read/write permissions on the cluster membership file. Other instances read the file, find the primary node, and coordinate with that node to be included in the cluster and added to the file.
+When clustering is enabled, the JBoss EAP instances use the `FILE_PING` JGroups discovery protocol to discover new instances and persist cluster information (for example: the cluster members, their identifiers, and their IP addresses). On App Service, these files are under `/home/clusterinfo/`. The first EAP instance to start obtains read/write permissions on the cluster membership file. Other instances read the file, find the primary node, and coordinate with that node to be included in the cluster and added to the file.
 
 > [!Note]
 > You can avoid JBoss EAP clustering timeouts by [cleaning up obsolete discovery files during your app startup](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/JBOSS/avoid_timeouts_obsolete_nodes.md).
@@ -561,7 +561,7 @@ See the following sections for details and opportunities to customize (such as t
 - If JBoss EAP is launched in the `clustering` configuration:
     - Each JBoss EAP instance receives an internal identifier between 0 and the number of instances that the app is scaled out to.
     - If some files are found in the transaction store path for this server instance (by using its internal identifier), it means this server instance is taking the place of an identical service instance. The other service instance previously crashed and left uncommitted transactions behind. The server is configured to resume the work on these transactions.
-- Regardless of whether JBoss EAP starts in the `clustering` or `standalone` configuration, if the server version is 7.4 or above and the runtime uses Java 17, then the configuration is updated to enable the Elytron subsystem for security.
+- Regardless of whether JBoss EAP starts in the `clustering` or `standalone` configuration, if the server version is 7.4 or later and the runtime uses Java 17, then the configuration is updated to enable the Elytron subsystem for security.
 - If you configure the app setting `WEBSITE_JBOSS_OPTS`, the value is passed to the JBoss launcher script. This setting can be used to provide paths to property files and more flags that influence the startup of JBoss EAP.
 
 ### 3. Server configuration phase
@@ -579,7 +579,7 @@ See the following sections for details and opportunities to customize (such as t
 - If there are JAR files deployed to the `/home/site/libs` directory, a new global module is created with all of these JAR files.
 - At the end of the phase, App Service runs the custom startup script, if one exists. The search logic for the custom startup script is defined as follows:
 
-The custom startup command or script runs as the root user (no need for `sudo`), so they can install Linux packages or launch the JBoss CLI to perform more JBoss EAP install/customization commands (creating data sources, installing resource adapters), etc. For information on Ubuntu package management commands, see the [Ubuntu Server documentation](https://documentation.ubuntu.com/server/how-to/software/package-management/). For JBoss CLI commands, see the [JBoss Management CLI Guide](https://docs.redhat.com/en/documentation/red_hat_jboss_enterprise_application_platform/7.4/html-single/management_cli_guide/index#how_to_cli).
+The custom startup command or script runs as the root user (no need for `sudo`), so they can install Linux packages or launch the JBoss CLI to perform more JBoss EAP install/customization commands like creating data sources and installing resource adapters. For information on Ubuntu package management commands, see the [Ubuntu Server documentation](https://documentation.ubuntu.com/server/how-to/software/package-management/). For JBoss CLI commands, see the [JBoss Management CLI Guide](https://docs.redhat.com/en/documentation/red_hat_jboss_enterprise_application_platform/7.4/html-single/management_cli_guide/index#how_to_cli).
 
 ### 4. App deployment phase 
 
