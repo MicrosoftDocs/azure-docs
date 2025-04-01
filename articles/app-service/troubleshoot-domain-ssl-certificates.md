@@ -104,10 +104,10 @@ The App Service certificate was renewed, but the app that uses the App Service c
 The key vault used to store the App Service certificate is missing access policy permissions on the key vault for `Microsoft.Azure.Websites` and `Microsoft.Azure.CertificateRegistration`. The service principals and their required permissions for key vault access are:
 </br></br>
 
-  |Service Principal|Secret Permissions|Certificate Permissions|
+  |Service principal|Secret permissions|Certificate permissions|
   |------|------|-----|
   |Microsoft Azure App Service|Get|Get|
-  |Microsoft Azure CertificateRegistration|Get, List, Delete|Get, List|
+  |Microsoft.Azure.CertificateRegistration|Get, List, Delete|Get, List|
 
 #### Solution 1: Modify the access policies for the key vault
 

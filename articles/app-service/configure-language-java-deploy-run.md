@@ -66,7 +66,7 @@ find / -name "version.sh"
 
 ::: zone pivot="java-jboss"
 
-To view the JBoss Enterprise Application Platform (EAP) server version in the SSH session:
+To view the JBoss EAP server version in the SSH session:
 ```bash
 $JBOSS_HOME/bin/jboss-cli.sh --connect --commands=:product-info
 ```
@@ -103,7 +103,7 @@ By using the [Maven Plugin for Azure Web Apps](https://github.com/microsoft/azur
 mvn com.microsoft.azure:azure-webapp-maven-plugin:2.13.0:config
 ```
 
-This command adds an `azure-webapp-maven-plugin` plugin and the related configuration by prompting you to select an existing Azure Web App or to create a new one. During configuration, it attempts to detect whether your application should be deployed to Java Standard Edition (SE), Tomcat, or (Linux only) JBoss Enterprise Application Platform (EAP). Then you can deploy your Java app to Azure by using the following command:
+This command adds an `azure-webapp-maven-plugin` plugin and the related configuration by prompting you to select an existing Azure Web App or to create a new one. During configuration, it attempts to detect whether your application should be deployed to Java SE, Tomcat, or (Linux only) JBoss Enterprise Application Platform (EAP). Then you can deploy your Java app to Azure by using the following command:
 
 ```shell
 mvn package azure-webapp:deploy
@@ -324,7 +324,7 @@ Use [FTPS](deploy-ftp.md) to download your JFR file to your local machine. To an
 
 # [Linux](#tab/linux)
 
-To configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage, do the following. Enable [application logging](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) through the Azure portal or in the [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config). If you need longer retention, configure the application to write output to a Blob storage container.
+To configure App Service to write your application's standard console output and standard console error streams to the local file system or Azure Blob Storage, do the following. Enable [application logging](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) through the Azure portal or in the [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config). If you need longer retention, configure the application to write output to a Blob storage container.
 
 ::: zone pivot="java-javase,java-tomcat"
 
@@ -336,7 +336,7 @@ Azure Blob Storage logging for Linux-based apps can be configured only by using 
 
 # [Windows](#tab/windows)
 
-To configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage, do the following. Enable [application logging](troubleshoot-diagnostic-logs.md#enable-application-logging-windows) through the Azure portal or in the [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config). Twelve hours after you enable application logging, logging to the local App Service filesystem instance is disabled. If you need longer retention, configure the application to write output to a Blob storage container.
+To configure App Service to write your application's standard console output and standard console error streams to the local file system or Azure Blob Storage, do the following. Enable [application logging](troubleshoot-diagnostic-logs.md#enable-application-logging-windows) through the Azure portal or in the [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config). Twelve hours after you enable application logging, logging to the local App Service file system instance is disabled. If you need longer retention, configure the application to write output to a Blob storage container.
 
 ::: zone pivot="java-javase,java-tomcat"
 

@@ -19,7 +19,7 @@ You can create intelligent apps by using Azure App Service with popular AI frame
 
 For this Blazor web application, we're building off the Blazor [template](https://dotnet.microsoft.com/learn/aspnet/blazor-tutorial/intro) to create a new razor page that can send and receive requests to an Azure OpenAI or OpenAI service by using Semantic Kernel.
 
-1. Right click on the **Pages** folder found under the **Components** folder and add a new item named `OpenAI.razor`.
+1. Right-click on the **Pages** folder found under the **Components** folder and add a new item named `OpenAI.razor`.
 1. Add the following code to the `OpenAI.razor` file and select **Save**.
 
 ```csharp

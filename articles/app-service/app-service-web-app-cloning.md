@@ -66,7 +66,7 @@ With the App Service Environment's name, and the name of the resource group that
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -ASEName DestinationASE -ASEResourceGroupName DestinationASEResourceGroupName -SourceWebApp $srcapp
 ```
 
-The `Location` parameter is required for legacy reasons, but ignored when you create the app in an App Service Environment.
+The `Location` parameter is required for legacy reasons, but it's ignored when you create the app in an App Service Environment.
 
 ## Clone an existing app slot
 
@@ -116,18 +116,18 @@ $destapp = New-AzWebApp -ResourceGroupName <Resource group name> -Name dest-weba
 
 Here are the known restrictions of app cloning:
 
-* Autoscale settings aren't cloned
-* Backup schedule settings aren't cloned
-* Virtual network settings aren't cloned
-* Application Insights isn't automatically set up on the destination app
-* Easy Auth settings aren't cloned
-* Kudu extensions aren't cloned
-* TiP rules aren't cloned
-* Database content isn't cloned
-* Outbound IP addresses change if you clone to a different scale unit
-* Linux apps: not available
-* Managed identities aren't cloned
-* Function apps: not available
+* Autoscale settings aren't cloned.
+* Backup schedule settings aren't cloned.
+* Virtual network settings aren't cloned.
+* Application Insights isn't automatically set up on the destination app.
+* Easy Auth settings aren't cloned.
+* Kudu extensions aren't cloned.
+* TiP rules aren't cloned.
+* Database content isn't cloned.
+* Outbound IP addresses change if you clone to a different scale unit.
+* Linux apps: not available.
+* Managed identities aren't cloned.
+* Function apps: not available.
 
 ## Related content
 
