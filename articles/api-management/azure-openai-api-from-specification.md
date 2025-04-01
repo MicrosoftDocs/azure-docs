@@ -141,10 +141,4 @@ To ensure that your Azure OpenAI API is working as expected, test it in the API 
 
     :::image type="content" source="media/azure-openai-api-from-specification/api-response-usage.png" alt-text="Screenshot of token usage data in API response in the portal." :::
 
-## Related content
-
-* [Generative AI gateway capabilities in Azure API Management](genai-gateway-capabilities.md)
-* [Enable semantic caching](azure-openai-enable-semantic-caching.md) 
-* [API Management policy reference](api-management-policies.md)
-
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
