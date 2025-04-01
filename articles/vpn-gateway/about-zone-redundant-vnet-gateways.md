@@ -5,7 +5,7 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 12/04/2023
+ms.date: 03/31/2025
 ms.author: cherylmc 
 ---
 # About zone-redundant virtual network gateway in Azure availability zones
