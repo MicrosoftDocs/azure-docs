@@ -39,9 +39,86 @@ For this reason, it's essential to understand the available options well when tr
 - Wait for Az CLI commands to run to completion and validate the state of the BMM resource before executing other steps.
 - Verify that the firmware and software versions are up-to-date before a new greenfield deployment to prevent compatibility issues between hardware and software versions.
   For more information about firmware compatibility, see [Operator Nexus Platform Prerequisites](./howto-platform-prerequisites.md).
-- Ensure stable network connectivity to avoid interruptions during the process.
-  Validate that there are no active network stability issues with the network fabric.
-  Ignoring network stability could make operations fail to complete successfully and leave a BMM in an unknown state.
+- Check the iDRAC credentials are correct and that the BMM is powered on.
+
+#### Look at General Network Connectivity Health
+
+Ensure stable network connectivity to avoid interruptions during the process.
+Ignoring network stability could make operations fail to complete successfully and leave a BMM in an error or degraded state.
+
+A quick look at Cluster resource's `clusterConnectionStatus` serves as one indicator of network connectivity health.
+
+```azurecli
+az networkcloud cluster show \
+  -g $CLUSTER_MRG \
+  -n $BMM_NAME \
+  --subscription $SUBSCRIPTION \
+  --query "clusterConnectionStatus" \
+  -o table
+
+Result
+---------
+Connected
+```
+
+Take a deeper look at the NetworkFabric resources by checking the NetworkFabric resources statuses, alerts, and metrics.
+See related articles:
+  - [How to monitor interface In and Out packet rate for network fabric devices]
+  - [How to configure diagnostic settings and monitor configuration differences in Nexus Network Fabric].
+
+Evaluate for any BMM warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems.
+For more information, see [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
+
+#### Determine if Firmware Update Jobs are Running
+
+Validate that there are no running firmware upgrade jobs through the BMC before initiating a `replace` or `reimage` operation.
+Interrupting an ongoing firmware upgrade can leave the BMM in an inconsistent state.
+You can view in the iDRAC GUI the `jobqueue` or use a `racadm jobqueque view` to determine if there are firmware upgraded jobs running.
+
+```azurecli
+az networkcloud baremetalmachine run-read-command \
+  -g $CLUSTER_MRG \
+  -n $BMM_NAME \
+  --subscription $SUBSCRIPTION \
+  --limit-time-seconds 60 \
+  --commands "[{command:'nc-toolbox nc-toolbox-runread racadm jobqueue view'}]" \
+  --output-directory .
+```
+
+Here's an example output from the `racadm jobqueue view` command which shows `Firmware Update`.
+```
+[Job ID=JID_833540920066]
+Job Name=Firmware Update: iDRAC
+Status=Downloading
+Start Time= [Not Applicable]
+Expiration Time= [Not Applicable]
+Message= [RED001: Job in progress.]
+Percent Complete= [50%]
+```
+
+Here's an example output from the `racadm jobqueue view` command showing common happy-path statements.
+```
+-------------------------JOB QUEUE------------------------
+[Job ID=JID_429400224349]
+Job Name=Configure: Import Server Configuration Profile
+Status=Completed
+Scheduled Start Time=[Not Applicable]
+Expiration Time=[Not Applicable]
+Actual Start Time=[Tue, 25 Mar 2025 17:00:22]
+Actual Completion Time=[Tue, 25 Mar 2025 17:00:32]
+Message=[SYS053: Successfully imported and applied Server Configuration Profile.]
+Percent Complete=[100]
+----------------------------------------------------------
+[Job ID=JID_429400338344]
+Job Name=Export: Server Configuration Profile
+Status=Completed
+Scheduled Start Time=[Not Applicable]
+Expiration Time=[Not Applicable]
+Actual Start Time=[Tue, 25 Mar 2025 17:00:33]
+Actual Completion Time=[Tue, 25 Mar 2025 17:00:58]
+Message=[SYS043: Successfully exported Server Configuration Profile]
+Percent Complete=[100]
+```
 
 ## Best Practices for a BMM Reimage
 
@@ -62,14 +139,15 @@ The `reimage` action is designed to interact with the operating system partition
 
 Before initiating any `reimage` operation, ensure the following preconditions are met:
 
-- Ensure the BMM is in `poweredState` set to `On` and `readyState` set to `True`.
 - Make sure the BMM's workloads are drained using the [`cordon`](./howto-baremetal-functions.md#make-a-bmm-unschedulable-cordon) command with the parameter `evacuate` set to `True`.
 - Perform high level checks covered in the article [Troubleshoot Bare Metal Machine Provisioning].
 - Evaluate any BMM warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems before a `reimage` operation.
   For more information, read [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
+  Any hardware issues present on the BMM must be resolved, and the BMM needs a `replace` instead.
+  See the [Best Practices for a BMM Replace](#best-practices-for-a-bmm-replace).
 - Validate that there are no running firmware upgrade jobs through the BMC before initiating a `reimage` operation.
   Interrupting an ongoing firmware upgrade can leave the BMM in an inconsistent state.
-  Confirm the BMM resource's `detailedStatus` isn't in the `Preparing` state.
+  Follow steps in section [Determine if Firmware Update Jobs are Running](#determine-if-firmware-update-jobs-are-running).
 
 ## Best Practices for a BMM Replace
 
@@ -86,6 +164,18 @@ When one or more hardware components fail on the server (multiple failures), mak
 > With the `2024-07-01` GA API version, the RAID controller is reset during BMM `replace`, wiping all data from the server's virtual disks.
 > Baseboard Management Controller (BMC) virtual disk alerts triggered during BMM `replace` can be ignored unless there are more physical disk and/or RAID controllers alerts.
 
+### Preconditions and Validations Before a BMM Replace
+
+Before initiating any `replace` operation, ensure the following preconditions are met:
+
+- Make sure the BMM's workloads are drained using the [`cordon`](./howto-baremetal-functions.md#make-a-bmm-unschedulable-cordon) command with the parameter `evacuate` set to `True`.
+- Perform high level checks covered in the article [Troubleshoot Bare Metal Machine Provisioning].
+- Evaluate any BMM warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems before a `replace` operation.
+  For more information, see [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
+- Validate that there are no running firmware upgrade jobs through the BMC before initiating a `replace` operation.
+  Interrupting an ongoing firmware upgrade can leave the BMM in an inconsistent state.
+  Follow steps in section [Determine if Firmware Update Jobs are Running](#determine-if-firmware-update-jobs-are-running).
+
 ### Resolve Hardware Validation Issues
 
 When a BMM is marked with failed hardware validation, it might indicate that physical repairs are needed.
@@ -97,26 +187,17 @@ Ensure **all hardware validation issues** are cleared before the next `replace` 
 
 To understand hardware validation result, read through the article [Troubleshoot Hardware Validation Failure](./troubleshoot-hardware-validation-failure.md).
 
-### Preconditions and Validations Before a BMM Replace
-
-Before initiating any `replace` operation, ensure the following preconditions are met:
-
-- Ensure the BMM `poweredState` is set to `On` and the `readyState` is set to `True`.
-- Make sure the BMM's workloads are drained using the [`cordon`](./howto-baremetal-functions.md#make-a-bmm-unschedulable-cordon) command with the parameter `evacuate` set to `True`.
-- Perform high level checks covered in the article [Troubleshoot Bare Metal Machine Provisioning].
-- Evaluate any BMM warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems before a `replace` operation.
-  For more information, see [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
-- Validate that there are no running firmware upgrade jobs through the BMC before initiating a `replace` operation.
-  Interrupting an ongoing firmware upgrade can leave the BMM in an inconsistent state.
-  Confirm the BMM resource's `detailedStatus` isn't in the `Preparing` state.
-
 ### BMM Replace isn't Required
 
-A `replace` operation isn't required when you're performing a physical hot swappable power supply repair because the BMM host will continue to function normally after the repair.
+Some repairs don't require a BMM `replace` to be executed.
+For example, a `replace` operation isn't required when you're performing a physical hot swappable power supply repair because the BMM host will continue to function normally after the repair.
+However, if the BMM failed hardware validation, the BMM `replace` is required even if the hot swappable repairs are done.
+Examine the BMM status messages to determine if hardware validation failures or other degraded conditions are present.
+  - [Troubleshoot Degraded Status Errors on Bare Metal Machines]
+  - [Troubleshoot Bare Metal Machine Warning Status]
+  - [Troubleshoot Hardware Validation Failure](./troubleshoot-hardware-validation-failure.md).
 
-### BMM Replace is Optional but Recommended
-
-While not strictly necessary to bring the BMM back into service, we recommend doing a `replace` operation when you're performing the following physical repairs:
+Other repairs of this type might be:
 
 - CPU
 - Dual In-Line Memory Module (DIMM)
@@ -127,6 +208,10 @@ While not strictly necessary to bring the BMM back into service, we recommend do
 
 ### BMM Relace is Required
 
+After components such as motherboard or Network Interface Card (NIC) are replaced, the BMM MAC address changes.
+However, the iDRAC IP address and hostname remain the same.
+Motherboard changes result in MAC address changes, requiring a BMM `replace`.
+
 A `replace` operation **is required** to bring the BMM back into service when you're performing the following physical repairs:
 
 - Backplane
@@ -135,9 +220,6 @@ A `replace` operation **is required** to bring the BMM back into service when yo
 - PERC/RAID adapter
 - Mellanox Network Interface Card (NIC)
 - Broadcom embedded NIC
-
-After components such as motherboard or Network Interface Card (NIC) are replaced, the MAC address of BMM will change; however, the iDRAC IP address and hostname will remain the same.
-Motherboard changes result in MAC address changes, requiring a BMM `replace`.
 
 ### After BMM Replace
 
@@ -166,3 +248,5 @@ For more information about Support plans, see [Azure Support plans](https://azur
 [Troubleshoot Bare Metal Machine Warning Status]: ./troubleshoot-bare-metal-machine-warning.md
 [Troubleshoot Degraded Status Errors on Bare Metal Machines]: ./troubleshoot-bare-metal-machine-degraded.md
 [Troubleshoot Hardware Validation Failure]: ./troubleshoot-hardware-validation-failure.md
+[How to monitor interface In and Out packet rate for network fabric devices]: ./howto-monitor-interface-packet-rate.md
+[How to configure diagnostic settings and monitor configuration differences in Nexus Network Fabric]: ./howto-configure-diagnostic-settings-monitor-configuration-differences.md

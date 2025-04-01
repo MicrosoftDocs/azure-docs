@@ -77,7 +77,11 @@ Existing workloads continue to run on the BMM unless the workloads are drained.
 ### Drain Workloads from the BMM
 
 The cordon command supports the `evacuate` parameter which its default value `False` means that the `cordon` command prevents scheduling new workloads.
-To drain workloads with the `cordon` command, the `evacuate` parameter must be set to `True`. The workloads running on the BMM are `stopped` and the BMM is set to `pending` state.
+To drain workloads with the `cordon` command, the `evacuate` parameter must be set to `True`.
+The workloads running on the BMM are `stopped` and the BMM is set to `pending` state.
+
+> [!NOTE]
+> Nexus Management Workloads will continue to run on the BMM even when the server has been cordoned and evacuated.
 
 It's a best practice to set the `evacuate` value to `True` when attempting to do any maintenance operations on the BMM server.
 For more best practices to follow, read through [Best Practices for BareMetal Machine Operations](./howto-baremetal-best-practices.md).
