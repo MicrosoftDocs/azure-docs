@@ -121,10 +121,10 @@ curl --request PUT \
   --header 'content-type: application/json' \
   --data '{
   "properties": {
-    "guestConfiguration": {      
+    "guestConfiguration": {
       "kind": "Machine Configuration",
       "name": "AuditSecureProtocol",
-      "version": "1.*",      
+      "version": "1.*",
       "contentType": "Builtin",
       "assignmentType": "Audit",
       "configurationParameter": [
@@ -144,7 +144,7 @@ curl --request PUT \
       }
     },
     "complianceStatus": "Compliant",
-    "assignmentHash": null,            
+    "assignmentHash": null,
     "provisioningState": "Succeeded",
     "resourceType": null,
     "vmssVMList": null
