@@ -137,7 +137,7 @@ Updates to network interface of a network device
 
 ### Standardized Interface Descriptions
 
-Interface descriptions follows a consistent format:
+Interface descriptions follow a consistent format:
 
 Source Device to Destination Device (including hostname and interface name).
 
@@ -157,7 +157,7 @@ The `connectedTo` property returns the ARM resource ID of the connected interfac
 
 ## Supported interface types
 
-All the above features is available for the following interface types:
+All the above features are available for the following interface types:
 
 - **Agg Rack CE**  
 - **Agg Rack Management**  
