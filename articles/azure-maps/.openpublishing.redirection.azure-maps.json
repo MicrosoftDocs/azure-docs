@@ -181,6 +181,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "articles/azure-maps/quick-android-map.md",
+            "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "articles/azure-maps/migrate-from-google-maps-android-app.md",
+            "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/azure-maps/how-to-use-android-map-control-library.md",
             "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
             "redirect_document_id": true
@@ -264,6 +274,16 @@
             "source_path_from_root": "/articles/azure-maps/android-map-events.md",
             "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/tutorial-load-geojson-file-android.md",
+            "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/quick-ios-app.md",
+            "redirect_url": "/azure/azure-maps/ios-sdk-migration-guide",
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/azure-maps/how-to-use-ios-map-control-library.md",
