@@ -1,5 +1,5 @@
 ---
-title: Common questions about Shared disks in Azure Site Recovery (preview)
+title: Common questions about Shared disks in Azure Site Recovery 
 description: This article answers common questions about Azure to Azure Shared disks in Azure Site Recovery.
 ms.author: ankitadutta
 author: ankitaduttaMSFT
@@ -8,9 +8,9 @@ ms.date: 03/26/2025
 ms.service: azure-site-recovery
 
 ---
-# Common questions about Azure to Azure shared disks (preview)
+# Common questions about Azure to Azure shared disks
 
-This article answers common questions about using shared disks (Azure to Azure) with Azure Site Recovery, focusing on the current capabilities and limitations during the public preview phase.
+This article answers common questions about using shared disks (Azure to Azure) with Azure Site Recovery. 
 
 ## Frequently asked questions
 
