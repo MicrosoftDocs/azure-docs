@@ -73,7 +73,7 @@ For more information, see [Troubleshoot Degraded Status Errors on Bare Metal Mac
 
 Validate that there are no running firmware upgrade jobs through the BMC before initiating a `replace` or `reimage` operation.
 Interrupting an ongoing firmware upgrade can leave the BMM in an inconsistent state.
-You can view in the iDRAC GUI the `jobqueue` or use a `racadm jobqueque view` to determine if there are firmware upgraded jobs running.
+You can view in the iDRAC GUI the `jobqueue` or use a `racadm jobqueque view` to determine if there are firmware upgrade jobs running.
 
 ```azurecli
 az networkcloud baremetalmachine run-read-command \
@@ -143,10 +143,9 @@ Before initiating any `reimage` operation, ensure the following preconditions ar
 - Perform high level checks covered in the article [Troubleshoot Bare Metal Machine Provisioning].
 - Evaluate any BMM warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems before a `reimage` operation.
   For more information, read [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
-  Any hardware issues present on the BMM must be resolved, and the BMM needs a `replace` instead.
+- If the BMM reports a failed state with the reason of hardware validation (seen in the BMM `Detailed Status` and `Detailed Status Message` fields), then the BMM needs a `replace` instead.
   See the [Best Practices for a BMM Replace](#best-practices-for-a-bmm-replace).
-- Validate that there are no running firmware upgrade jobs through the BMC before initiating a `reimage` operation.
-  Interrupting an ongoing firmware upgrade can leave the BMM in an inconsistent state.
+- Validate that there are no running firmware upgrade jobs.
   Follow steps in section [Determine if Firmware Update Jobs are Running](#determine-if-firmware-update-jobs-are-running).
 
 ## Best Practices for a BMM Replace
@@ -172,8 +171,7 @@ Before initiating any `replace` operation, ensure the following preconditions ar
 - Perform high level checks covered in the article [Troubleshoot Bare Metal Machine Provisioning].
 - Evaluate any BMM warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems before a `replace` operation.
   For more information, see [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
-- Validate that there are no running firmware upgrade jobs through the BMC before initiating a `replace` operation.
-  Interrupting an ongoing firmware upgrade can leave the BMM in an inconsistent state.
+- Validate that there are no running firmware upgrade jobs.
   Follow steps in section [Determine if Firmware Update Jobs are Running](#determine-if-firmware-update-jobs-are-running).
 
 ### Resolve Hardware Validation Issues
