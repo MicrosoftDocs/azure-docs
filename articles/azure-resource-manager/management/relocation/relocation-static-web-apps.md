@@ -51,7 +51,7 @@ The relocation of an Azure Static Web site introduces downtime to your applicati
 
 ### Deployments with private endpoints
 
-If your Static Web Apps are deployed with private endpoints, make sure to:
+If your Static Web Apps is deployed with private endpoints, make sure to:
 
 - Update host name for connection endpoint.
 - Update host name on DNS private zone or custom DNS server (only applicable to Private Link).
@@ -63,11 +63,8 @@ For more information, see [Configure private endpoint in Azure Static Web Apps](
 For all other deployment types, make sure to:
 
 - If applicable, retrieve the new Function API keys from Azure Functions in the new region.
-
 - If the Azure Function has a dependency on a database, ensure that the `DATABASE_CONNECTION_STRING` is updated. This database may not be in scope of regional migration.
-
 - Update the custom domain to point to the new hostname of the static web app.
-
 - If using Key Vault, provision a new Key Vault in target region. Update the Function API Keys in Key Vault if applicable. Any other sensitive data not to be stored in code or config files should be stored in this Key Vault
 
 ### Export the template
@@ -91,7 +88,7 @@ To export the Resource Manager template that contains settings that describe you
 
 Use the following steps to relocate your static web app to another region.
 
-1. If you are relocating with Private Endpoint, follow the guidelines in [Relocate Azure Private Link Service to another region](./relocation-private-link.md).
+1. If you're relocating with Private Endpoint, follow the guidelines in [Relocate Azure Private Link Service to another region](./relocation-private-link.md).
 1. If you've provided an existing Azure Functions to your static web app, follow the relocation procedure for [Azure Functions](./relocation-functions.md).
 1. Redeploy you static web app using the [template that you exported and configured in the previous section](#export-the-template).
 
@@ -100,4 +97,4 @@ Use the following steps to relocate your static web app to another region.
 
 1. If you're using an Integrated API, create a new Integrated API that's supported by Azure Functions.
 1. Reconfigure your repository (GitHub or Azure DevOps) to deploy into the newly deployed static web app in the target region. Initiate the deployment of the application using GitHub actions or Azure Pipelines.
-1. With a *cold standby* deployment, make sure you inform clients about the new URL. If you're using a custom DNS domain, simply change the DNS entry to point to the target region. With a *warm standby* deployment, a load balancer, such as Front Door or Traffic manager handle migration of the static web app in the source region to the target region.
+1. With a *cold standby* deployment, make sure you inform clients about the new URL. If you're using a custom DNS domain, change the DNS entry to point to the target region. With a *warm standby* deployment, a load balancer, such as Front Door or Traffic manager handle migration of the static web app in the source region to the target region.

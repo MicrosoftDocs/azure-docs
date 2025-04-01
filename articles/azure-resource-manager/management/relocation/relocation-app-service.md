@@ -45,10 +45,10 @@ Certain resources, such as imported certificates or hybrid connections, contain 
 
 This section is a planning checklist in the following areas:
 
-- State, Storage and downstream dependencies
+- State, Storage, and downstream dependencies
 - Certificates
 - Configuration
-- VNet Connectivity / Custom Names / DNS
+- Virtual network Connectivity / Custom Names / DNS
 - Identities
 - Service Endpoints
 
@@ -67,7 +67,7 @@ This section is a planning checklist in the following areas:
 
 - **Analyze external caching (for example Redis).**  Application caches should be deployed as close as possible to the application. Analyze how caches are populated, expiry/eviction policies and any impact a cold cache may have on the first users to access the workload after cut-over.
 
-- **Analyze and plan for API (or application) dependencies** Cross-region communication is significantly less performant if the app in the target region reaches back to dependencies that are still in the source region. We recommend that you relocate all downstream dependencies as part of the workload relocation. However, \*on-premises* resources are the exception, in particular those resources that are geographically closer to the target region (as may be the case for repatriation scenarios).
+- **Analyze and plan for API (or application) dependencies** Cross-region communication is less performant if the app in the target region reaches back to dependencies that are still in the source region. We recommend that you relocate all downstream dependencies as part of the workload relocation. However, \*on-premises* resources are the exception, in particular those resources that are geographically closer to the target region (as may be the case for repatriation scenarios).
 
     Azure Container Registry can be a downstream (runtime) dependency for App Service that's configured to run against Custom Container Images. It makes more sense for the Container Registry to be in the same region as the App itself. Consider uploading the required images to a new ACR in the target get region. Otherwise,  consider using the [geo-replication feature](/azure/container-registry/container-registry-geo-replication) if you plan on keeping the images in the source region.
 
@@ -77,14 +77,14 @@ This section is a planning checklist in the following areas:
 
 Some further points to consider:
 
-- App Assigned Addresses, where an App Service app’s SSL connection is bound to a specific app designated IP, can be used for allow-listing calls from third party networks into App Service. For example, a network / IT admin may want to lock down outbound calls from an on-premises network or VNet to use a static, well-known address. As such, if the App Assigned Address feature is in use, upstream firewall rules - such as internal, external, or third parties -  for the callers into the app should be checked and informed of the new address. Firewall rules can be internal, external or third parties, such as partners or well-known customers.
+- App Assigned Addresses, where an App Service app’s SSL connection is bound to a specific app designated IP, can be used for allow-listing calls from third party networks into App Service. For example, a network / IT admin may want to lock down outbound calls from an on-premises network or virtual network to use a static, well-known address. As such, if the App Assigned Address feature is in use, upstream firewall rules - such as internal, external, or third parties -  for the callers into the app should be checked and informed of the new address. Firewall rules can be internal, external, or third parties, such as partners or well-known customers.
 
 - Consider any upstream Network Virtual Appliance (NVA) or Reverse Proxy. The NVA config may need to change if you're rewriting the host header or and/or SSL terminating.
 
 >[!NOTE]
->App Service Environment is the only App Service offering allows downstream calls to downstream application dependencies over SSL, where the SSL relies on self-signed/PKI with built with [non-standard Root CA certificates](/azure/app-service/environment/overview-certificates#private-client-certificate). The multitenant service doesn't provide access for customers to upload to the trusted certificate store.
+>App Service Environment is the only App Service offering allows downstream calls to downstream application dependencies over SSL, where the SSL relies on self-signed/PKI with built with [nonstandard Root CA certificates](/azure/app-service/environment/overview-certificates#private-client-certificate). The multitenant service doesn't provide access for customers to upload to the trusted certificate store.
 >
->App Service Environment today doesn't allow SSL certificate purchase, only Bring Your Own certificates. IP-SSL isn't possible (and doesn’t make sense), but SNI is. Internal App Service Environment would not be associated with a public domain and therefore the SSL certs used must be provided by the customer and are therefore transportable, for example certs for internal use generated using PKI. App Service Environment v3 in external mode shares the same features as the regular multitenant App Service.
+>App Service Environment today doesn't allow SSL certificate purchase, only Bring Your Own certificates. IP-SSL isn't possible (and doesn’t make sense), but SNI is. Internal App Service Environment wouldn't be associated with a public domain and therefore the SSL certs used must be provided by the customer and are therefore transportable, for example certs for internal use generated using PKI. App Service Environment v3 in external mode shares the same features as the regular multitenant App Service.
 
 [!INCLUDE [app-service-configuration](includes/app-service-configuration.md)]
 
@@ -95,15 +95,15 @@ Some further points to consider:
 - App Service Environment is a VNet-Injected single tenant service. App Service Environment networking differs from the multitenant App Service,  which requires one or both “Private Endpoints” or “Regional VNet integration”. Other options that may be in play include the legacy P2S VPN based VNet integration and Hybrid Connections (an Azure Relay service).
 
     >[!NOTE]
-    >ASEv3 Networking is simplified - the Azure Management traffic and the App Service Environments own downstream dependencies are not visible to the customer Virtual Network, greatly simplifying the configuration required where the customer is using a force-tunnel for all traffic, or sending a subset of outbound traffic, through a Network Virtual Appliance/Firewall.
+    >ASEv3 Networking is simplified - the Azure Management traffic and the App Service Environments own downstream dependencies aren't visible to the customer Virtual Network, greatly simplifying the configuration required where the customer is using a force-tunnel for all traffic, or sending a subset of outbound traffic, through a Network Virtual Appliance/Firewall.
     >
-    >Hybrid Connections (Azure Relay) are regional. If Hybrid Connections are used and although an Azure Relay Namespace can be moved to another region, it would be simpler to redeploy the Hybrid Connection (ensure the Hybrid connection is setup in the new region on deploy of the target resources) and re-link it to the Hybrid Connection Manager. The Hybrid Connection Manager location should be carefully considered.
+    >Hybrid Connections (Azure Relay) are regional. If Hybrid Connections are used and although an Azure Relay Namespace can be moved to another region, it would be simpler to redeploy the Hybrid Connection (ensure the Hybrid connection is setup in the new region on deploy of the target resources) and relink it to the Hybrid Connection Manager. The Hybrid Connection Manager location should be carefully considered.
 
 - **Follow the strategy for a warm standby region.** Ensure that core networking and connectivity, Hub network, domain controllers, DNS, VPN or Express Route, etc., are present and tested prior to the resource relocation.
 
 - **Validate any upstream or downstream network ACLs and configuration**. For example, consider an external downstream service that allowlists only your App traffic. A relocation to a new Application Plan for a multitenant App Service would then also be a change in outbound IP addresses.
 
-- In most cases, it's best to **ensure that the target region VNets have unique address space**. A unique address space facilitates VNet connectivity if it’s required, for example, to replicate data. Therefore, in these scenarios there's an implicit requirement to change:
+- In most cases, it's best to **ensure that the target region VNets have unique address space**. A unique address space facilitates virtual network connectivity if it’s required, for example, to replicate data. Therefore, in these scenarios there's an implicit requirement to change:
 
   - Private DNS
   - Any hard coded or external configuration that references resources by IP address (without a hostname)
@@ -114,16 +114,16 @@ Some further points to consider:
   
 - Fewer changes are required for customer-deployed private DNS that is configured to forward to Azure for Azure domains and Azure DNS Private Zones. However, as Private Endpoints are based on a resource FQDN and this is often also the resource name (which can be expected to be different in the target region), remember to **cross check configuration to ensure that FQDNs referenced in configuration are updated accordingly**.
 
-- **Recreate Private Endpoints, if used, in the target region**. The same applies for Regional VNet integration.
+- **Recreate Private Endpoints, if used, in the target region**. The same applies for Regional virtual network integration.
 
-  - DNS for App Service Environment is typically managed via the customers private custom DNS solution (there is a manual settings override available on a per app basic). App Service Environment provides a load balancer for ingress/egress,  while App Service itself filters on Host headers. Therefore, multiple custom names can be pointed towards the same App Service Environment ingress endpoint. App Service Environment doesn't require domain validation.
+  - DNS for App Service Environment is typically managed via the customers private custom DNS solution (there's a manual settings override available on a per app basic). App Service Environment provides a load balancer for ingress/egress,  while App Service itself filters on Host headers. Therefore, multiple custom names can be pointed towards the same App Service Environment ingress endpoint. App Service Environment doesn't require domain validation.
 
     >[!NOTE]
-    >Kudu endpoint for App Service Environment v3 is only available at ``{resourcename}.scm.{asename}.appserviceenvironment.net``. For more information on App Service Environment v3 DNS and Networking etc see [App Service Environment networking](/azure/app-service/environment/networking#dns).
+    >Kudu endpoint for App Service Environment v3 is only available at ``{resourcename}.scm.{asename}.appserviceenvironment.net``. For more information on App Service Environment v3 DNS and Networking etc., see [App Service Environment networking](/azure/app-service/environment/networking#dns).
 
     For App Service Environment,  the customer owns the routing and therefore the resources used for the cut-over. Wherever access is enabled to the App Service Environment externally - typically via a Layer 7 NVA or Reverse Proxy -  Traffic Manager, or Azure Front Door/Other L7 Global Load Balancing Service can be used.
 
-- For the public multitenant version of the service, a default name `{resourcename}.azurewebsites.net` is provisioned for the data plane endpoints, along with a default name for the Kudu (SCM) endpoint.  As the service provides a public endpoint by default, the binding must be verified to prove domain ownership. However, once the binding is in place, re-verification isn't required, nor is it required for public DNS records to point at the App Service endpoint.
+- For the public multitenant version of the service, a default name `{resourcename}.azurewebsites.net` is provisioned for the data plane endpoints, along with a default name for the Kudu (SCM) endpoint.  As the service provides a public endpoint by default, the binding must be verified to prove domain ownership. However, once the binding is in place, reverification isn't required, nor is it required for public DNS records to point at the App Service endpoint.
 
 - If you use a custom domain, [bind it preemptively to the target app](/azure/app-service/manage-custom-dns-migrate-domain#bind-the-domain-name-preemptively). Verify and [enable the domain in the target app](/azure/app-service/manage-custom-dns-migrate-domain#enable-the-domain-for-your-app).
 
@@ -137,7 +137,7 @@ Some further points to consider:
 
 The virtual network service endpoints for Azure App Service  restrict access to a specified virtual network. The endpoints can also restrict access to a list of IPv4 (internet protocol version 4) address ranges. Any user connecting to the Event Hubs from outside those sources is denied access. If Service endpoints were configured in the source region for the Event Hubs resource, the same would need to be done in the target one.
 
-For a successful recreation of the Azure App Service  to the target region, the VNet and Subnet must be created beforehand. In case the move of these two resources is being carried out with the Azure Resource Mover tool, the service endpoints won’t be configured automatically. Hence, they need to be configured manually, which can be done through the [Azure portal](/azure/key-vault/general/quick-create-portal), the [Azure CLI](/azure/key-vault/general/quick-create-cli), or [Azure PowerShell](/azure/key-vault/general/quick-create-powershell).
+For a successful recreation of the Azure App Service  to the target region, the virtual network and subnet must be created beforehand. In case the move of these two resources is being carried out with the Azure Resource Mover tool, the service endpoints won’t be configured automatically. Hence, they need to be configured manually, which can be done through the [Azure portal](/azure/key-vault/general/quick-create-portal), the [Azure CLI](/azure/key-vault/general/quick-create-cli), or [Azure PowerShell](/azure/key-vault/general/quick-create-powershell).
 
 ## Relocate
 
@@ -160,14 +160,14 @@ Keep in mind that for App Service Environment (Isolated) tiers, you need to rede
 
 ### Relocate using IaC
 
-Use IaC when an existing Continuous Integration and Continuous Delivery/Deployment(CI/CD) pipeline exists, or can be created. With an CI/CD pipeline in place, your App Service resource can be created in the target region by means of a deployment action or a Kudu zip deployment.
+Use IaC when an existing Continuous Integration and Continuous Delivery/Deployment(CI/CD) pipeline exists, or can be created. With an CI/CD pipeline in place, your App Service resource can be created in the target region with a deployment action or a Kudu zip deployment.
 
 SLA requirements should determine how much additional effort is required. For example: Is this a redeploy with limited downtime, or is it a near real time cut-over required with minimal to no downtime?
 
 The inclusion of external, global traffic routing edge services, such as Traffic Manager, or Azure Front Door help to facilitate cut-over for external users and applications.
 
 >[!TIP]
->It's possible to use Traffic Manager (ATM) when failing over App Services behind private endpoints. Although the private endpoints are not reachable by Traffic Manager Probes - if all endpoints are degraded, then ATM allows routing. For more information, see [Controlling Azure App Service traffic with Azure Traffic Manager](../../../app-service/web-sites-traffic-manager.md).
+>It's possible to use Traffic Manager (ATM) when failing over App Services behind private endpoints. Although the private endpoints aren't reachable by Traffic Manager Probes - if all endpoints are degraded, then ATM allows routing. For more information, see [Controlling Azure App Service traffic with Azure Traffic Manager](../../../app-service/web-sites-traffic-manager.md).
 
 ## Validate
 
@@ -182,11 +182,11 @@ Once the relocation is completed, test and validate Azure App Service with the r
 - In some scenarios, particularly where the relocation includes updates, changes to the applications or Azure Resources, or a change in usage profile, use load testing to validate that the new workload is fit for purpose. Load testing is also an opportunity to validate operations and monitoring coverage. For example, use load testing to validate that the required infrastructure and application logs are being generated correctly. Load tests should be measured against established workload performance baselines.
 
 >[!TIP]
->An App Service relocation is also an opportunity to re-assess Availability and Disaster Recovery planning. App Service and App Service Environment (App Service Environment v3) supports [availability zones](/azure/reliability/availability-zones-overview) and it's recommended that configure with an availability zone configuration.  Keep in mind the prerequisites for deployment, pricing, and limitations and factor these into the resource move planning. For more information on availability zones and App Service, see [Reliability in Azure App Service](/azure/reliability/reliability-app-service).
+>An App Service relocation is also an opportunity to reassess Availability and Disaster Recovery planning. App Service and App Service Environment (App Service Environment v3) supports [availability zones](/azure/reliability/availability-zones-overview) and it's recommended that configure with an availability zone configuration. Keep in mind the prerequisites for deployment, pricing, and limitations and factor these into the resource move planning. For more information on availability zones and App Service, see [Reliability in Azure App Service](/azure/reliability/reliability-app-service).
 
 ## Clean up
 
-Delete the source app and App Service plan. [An App Service plan in the non-free tier carries a charge, even if no app is running in it.](../../../app-service/app-service-plan-manage.md#delete-an-app-service-plan)
+Delete the source app and App Service plan. [An App Service plan in the nonfree tier carries a charge, even if no app is running in it.](../../../app-service/app-service-plan-manage.md#delete-an-app-service-plan)
 
 ## Next steps
 

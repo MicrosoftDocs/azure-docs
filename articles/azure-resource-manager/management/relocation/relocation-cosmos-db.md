@@ -48,7 +48,7 @@ Azure Cosmos DB supports data replication natively, so moving data from one regi
 
 1. Perform a manual failover to the new region.
 
-    When the region that's being removed is currently the write region for the account, you'll need to start a failover to the new region added in the previous step. This is a zero-downtime operation. If you're moving a read region in a multiple-region account, you can skip this step.
+    When the region that's being removed is currently the write region for the account, you need to start a failover to the new region added in the previous step. This is a zero-downtime operation. If you're moving a read region in a multiple-region account, you can skip this step.
 
     To start a failover, see [Perform manual failover on an Azure Cosmos DB account](/azure/cosmos-db/how-to-manage-database-account#perform-manual-failover-on-an-azure-cosmos-db-account).
 
@@ -57,14 +57,14 @@ Azure Cosmos DB supports data replication natively, so moving data from one regi
     To remove a region from an Azure Cosmos DB account, see [Add/remove regions from your Azure Cosmos DB account](/azure/cosmos-db/how-to-manage-database-account#add-remove-regions-from-your-database-account).
 
 > [!NOTE]
-> If you perform a failover operation or add/remove a new region while an [asynchronous throughput scaling operation](/azure/cosmos-db/scaling-provisioned-throughput-best-practices#background-on-scaling-rus) is in progress, the throughput scale-up operation will be paused. It will resume automatically when the failover or add/remove region operation is complete.
+> If you perform a failover operation or add/remove a new region while an [asynchronous throughput scaling operation](/azure/cosmos-db/scaling-provisioned-throughput-best-practices#background-on-scaling-rus) is in progress, the throughput scale-up operation will be paused. It resumes automatically when the failover or add/remove region operation is complete.
 
 ## Redeploy Azure Cosmos DB account metadata
 
-Azure Cosmos DB does not natively support migrating account metadata from one region to another. To migrate both the account metadata and customer data from one region to another, you must create a new account in the desired region and then copy the data manually.
+Azure Cosmos DB doesn't natively support migrating account metadata from one region to another. To migrate both the account metadata and customer data from one region to another, you must create a new account in the desired region and then copy the data manually.
 
 > [!IMPORTANT]
-> It is not necessary to migrate the account metadata if the data is stored or moved to a different region. The region in which the account metadata resides has no impact on the performance, security or any other operational aspects of your Azure Cosmos DB account.
+> It isn't necessary to migrate the account metadata if the data is stored or moved to a different region. The region in which the account metadata resides has no impact on the performance, security, or any other operational aspects of your Azure Cosmos DB account.
 
 A near-zero-downtime migration for the API for NoSQL requires the use of the [change feed](/azure/cosmos-db/change-feed) or a tool that uses it.
 
