@@ -9,7 +9,7 @@ ms.custom: subject-relocation
 
 # Relocate Azure Static Web Apps to another region
 
-This article describes how to relocate [Azure Static Web Apps](../../../static-web-apps/overview.md) resources to another Azure region. 
+This article describes how to relocate [Azure Static Web Apps](../../../static-web-apps/overview.md) resources to another Azure region.
 
 [!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
 

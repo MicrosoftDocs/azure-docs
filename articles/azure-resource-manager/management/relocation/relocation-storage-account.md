@@ -35,7 +35,7 @@ To prepare, you must export and then modify a Resource Manager template.
 
 A Resource Manager template contains settings that describe your storage account.
 
-# [Portal](#tab/azure-portal)
+#### [Portal](#tab/azure-portal)
 
 To export a template by using Azure portal:
 
@@ -47,7 +47,7 @@ To export a template by using Azure portal:
 
    This zip file contains the .json files that comprise the template and scripts to deploy the template.
 
-# [PowerShell](#tab/azure-powershell)
+#### [PowerShell](#tab/azure-powershell)
 
 To export a template by using PowerShell:
 
@@ -82,7 +82,7 @@ To export a template by using PowerShell:
 
 Modify the template by changing the storage account name and region.
 
-# [Portal](#tab/azure-portal)
+#### [Portal](#tab/azure-portal)
 
 To deploy the template by using Azure portal:
 
@@ -122,7 +122,7 @@ To deploy the template by using Azure portal:
 
     To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  The code for a region is the region name with no spaces, **Central US** = **centralus**.
 
-# [PowerShell](#tab/azure-powershell)
+#### [PowerShell](#tab/azure-powershell)
 
 To deploy the template by using PowerShell:
 
@@ -162,7 +162,7 @@ To deploy the template by using PowerShell:
 
 Deploy the template to create a new storage account in the target region.
 
-# [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 1. Save the **template.json** file.
 1. Enter or select the property values:
@@ -173,7 +173,7 @@ Deploy the template to create a new storage account in the target region.
 
 1. Select **I agree to the terms and conditions stated above**, and then select **Select Purchase**.
 
-# [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 1. Obtain the subscription ID where you want to deploy the target public IP with [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription):
 
@@ -230,7 +230,7 @@ After the deployment, if you want to start over, you can delete the target stora
 
 To commit the changes and complete the move of a storage account, delete the source storage account.
 
-# [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 To remove a storage account by using the Azure portal:
 
@@ -238,7 +238,7 @@ To remove a storage account by using the Azure portal:
 1. Locate the target storage account to delete, and right-click the **More** button (**...**) on the right side of the listing.
 1. Select **Delete**, and confirm.
 
-# [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 To remove the resource group and its associated resources, including the new storage account, use the [Remove-AzStorageAccount](/powershell/module/az.storage/remove-azstorageaccount) command:
 

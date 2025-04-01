@@ -15,7 +15,7 @@ This article shows you how to relocate [Azure Recovery Vault and Site Recovery](
 
 [!INCLUDE [Relocation reasons](includes/service-relocation-reason-include.md)]
 
-One of the related resources you might want to relocate when you relocate your Azure VMs is your Recovery Services vault configuration. 
+One of the related resources you might want to relocate when you relocate your Azure VMs is your Recovery Services vault configuration.
 
 There's no first-class way to move an existing Recovery Services vault configuration from one region to another. This is because you configured your target region based on your source VM region. When you decide to change the source region, the previously existing configurations of the target region can't be reused and must be reset. This article defines the step-by-step process to reconfigure the disaster recovery setup and move it to a different region.
 

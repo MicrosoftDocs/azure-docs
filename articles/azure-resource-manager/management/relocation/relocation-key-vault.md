@@ -12,11 +12,11 @@ ms.custom: subject-relocation, devx-track-azurepowershell
 
 [!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
 
-Azure Key Vault doesn't support key vault relocation to another region. 
+Azure Key Vault doesn't support key vault relocation to another region.
 
 Instead of relocation, you need to:
 
-- Create a new key vault with the relocation of the associated Azure services. 
+- Create a new key vault with the relocation of the associated Azure services.
 - Regenerate any required [keys](/azure/key-vault/keys/about-keys), [secrets](/azure/key-vault/secrets/about-secrets), or [certificates](/azure/key-vault/certificates/about-certificates). In some cases, you may need to transfer the secrets or certificates from your existing key vault to the relocated key vault.
 
 :::image type="content" source="./media/relocation/keyvault/akv-pattern-design.png" alt-text="Diagram showing Azure Key vault relocation pattern.":::
@@ -24,7 +24,7 @@ Instead of relocation, you need to:
 ## Prerequisites
 
 - Verify that your Azure subscription allows you to create key vaults in the target region.
-- Create a dependency map with all the Azure services used by the Key Vault. For the services that are in scope of the relocation, you must choose the appropriate relocation strategy. 
+- Create a dependency map with all the Azure services used by the Key Vault. For the services that are in scope of the relocation, you must choose the appropriate relocation strategy.
 - Depending on your Key Vault design, you may need to deploy and configure the [Virtual Network](./relocation-virtual-network.md) in the target region.
 - Document and plan to re-configure in the Key Vault in the target region:
   - Access Policies and Network configuration settings.
@@ -166,7 +166,7 @@ To deploy the template by using Azure portal:
    }
    ```
 
-1. In case you configured a service endpoint in your key vault, in the _networkAcl_ section, under _virtualNetworkRules_, add the rule for the target subnet. Ensure that the _ignoreMissingVnetServiceEndpoint_ flag is set to False, so that the IaC fails to deploy the Key Vault in case the service endpoint isn’t configured in the target region. 
+1. In case you configured a service endpoint in your key vault, in the _networkAcl_ section, under _virtualNetworkRules_, add the rule for the target subnet. Ensure that the _ignoreMissingVnetServiceEndpoint_ flag is set to False, so that the IaC fails to deploy the Key Vault in case the service endpoint isn’t configured in the target region.
 
     **parameter.json**
 
@@ -338,7 +338,7 @@ Deploy the template to create a new key vault in the target region.
 1. For [certificates](/azure/key-vault/certificates/about-certificates):
     1. Export the certificate into a PFX file.
     1. Import the PFX file into the target key vault. If you can't export the private key (`exportable` is not set) you must generate certificate a new certificate and import it into the target key vault.
-1. With the relocation of the associated Azure service the [keys](/azure/key-vault/keys/about-keys) are regenerated. 
+1. With the relocation of the associated Azure service the [keys](/azure/key-vault/keys/about-keys) are regenerated.
 1. Confirm that the keys have been generated for the associated service.
 
 ## Verify

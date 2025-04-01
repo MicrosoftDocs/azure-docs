@@ -43,7 +43,7 @@ To prepare for relocation, you need to first export and modify the template from
 
 ### Export template
 
-# [portal](#tab/azure-portal)
+#### [portal](#tab/azure-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All resources** and then select your Azure Firewall resource.
@@ -54,7 +54,7 @@ To prepare for relocation, you need to first export and modify the template from
 
    This zip file contains the .json files that include the template and scripts to deploy the template.
 
-# [PowerShell](#tab/azure-powershell)
+#### [PowerShell](#tab/azure-powershell)
 
 1. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions:
 
@@ -92,7 +92,7 @@ In this section, you learn how to modify the template that you generated in the 
 
 If you're running classic firewall rules without Firewall policy, migrate to Firewall policy before proceeding with the steps in this section. To learn how to migrate from classic firewall rules to Firewall policy, see [Migrate Azure Firewall configuration to Azure Firewall policy using PowerShell](/azure/firewall-manager/migrate-to-policy).
 
-# [Azure portal](#tab/azure-portal)
+#### [Azure portal](#tab/azure-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -145,7 +145,7 @@ To find the location code for your target region, see [Data residency in Azure](
 
 1. Save the `template.json` file.
 
-# [PowerShell](#tab/azure-powershell)
+#### [PowerShell](#tab/azure-powershell)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -191,7 +191,7 @@ To find the location code for your target region, see [Data residency in Azure](
 
 Deploy the template to create a new Azure Firewall in the target region.
 
-# [Azure portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
 1. Enter or select the property values:
 
@@ -202,7 +202,7 @@ Deploy the template to create a new Azure Firewall in the target region.
 1. The Azure Firewall is now deployed with the adopted configuration to reflect the needed changes in the target region.
 1. Verify configuration and functionality.
 
-# [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 1. Obtain the subscription ID where you want to deploy the target public IP by running the following command:
 

@@ -34,30 +34,30 @@ Before you begin the relocation planning stage, first review the following prere
 - Capture any IP addresses defined in the AKS API service allowlist.
 - Understand all dependent resources. Some of the resources could be:
 
-    - Queues, Message Buses, Cache engines
-    - [Azure Key Vault](./relocation-key-vault.md)
-    - [Managed Identity](/entra/identity/managed-identities-azure-resources/how-to-managed-identity-regional-move)
-    - [Virtual Network configuration](./relocation-virtual-network.md). Define sufficient subnet sizes to allow container IP growth if using the Azure advanced networking model
-    - Public IP address
-    - Virtual Network Gateway (VNG). If site-to-site communication is required to an on-premises environment in the target region, a VNG must be created in the target virtual network.
-    - Azure Private Endpoint. Azure PaaS resources utilizing private link endpoints must be reviewed, and new private link instances created in the target region such as ACR, Azure SQL DB, KeyVault, etc.
-    - [Azure Application Gateway](./relocation-app-gateway.md)
-    - Azure DNS
-    - [Azure Firewall](./relocation-firewall.md)
-    - [Azure Monitor (Container Insights)](./relocation-log-analytics.md)
-    - [Azure Container registry](relocation-container-registry.md) can replicate images between ACR instances. For optimal performance when pulling images, the registry should exist in the target region.
+  - Queues, Message Buses, Cache engines
+  - [Azure Key Vault](./relocation-key-vault.md)
+  - [Managed Identity](/entra/identity/managed-identities-azure-resources/how-to-managed-identity-regional-move)
+  - [Virtual Network configuration](./relocation-virtual-network.md). Define sufficient subnet sizes to allow container IP growth if using the Azure advanced networking model
+  - Public IP address
+  - Virtual Network Gateway (VNG). If site-to-site communication is required to an on-premises environment in the target region, a VNG must be created in the target virtual network.
+  - Azure Private Endpoint. Azure PaaS resources utilizing private link endpoints must be reviewed, and new private link instances created in the target region such as ACR, Azure SQL DB, KeyVault, etc.
+  - [Azure Application Gateway](./relocation-app-gateway.md)
+  - Azure DNS
+  - [Azure Firewall](./relocation-firewall.md)
+  - [Azure Monitor (Container Insights)](./relocation-log-analytics.md)
+  - [Azure Container registry](relocation-container-registry.md) can replicate images between ACR instances. For optimal performance when pulling images, the registry should exist in the target region.
 
-        >[!NOTE]
-        >If you use Azure Container Registry to authenticate to the container registry, the new AKS cluster’s managed identity can be the granted `AcrPull` RBAC role.
+      >[!NOTE]
+      >If you use Azure Container Registry to authenticate to the container registry, the new AKS cluster’s managed identity can be the granted `AcrPull` RBAC role.
 
-    - Azure Managed Disks
-    - Azure Files
+  - Azure Managed Disks
+  - Azure Files
 
 ## Prepare
 
 Before you begin the cluster relocation process, make sure to complete the following preparations:
 
-1. To accommodate the AKS cluster nodes and pods, if using Azure CNI networking, deploy the virtual network with many subnets of sufficient size. 
+1. To accommodate the AKS cluster nodes and pods, if using Azure CNI networking, deploy the virtual network with many subnets of sufficient size.
 1. If you're using Azure Key Vault, [Deploy the Key Vault](./relocation-key-vault.md).
 1. Ensure that the relevant TLS ingress certificates are available for deployment, ideally in a secure store such as Azure Key Vault.
 1. Deploy a container registry. Either sync the source registry images automatically or rebuild and push new images to the target registry using a CI/CD pipeline or script.

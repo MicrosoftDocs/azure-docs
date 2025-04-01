@@ -68,7 +68,7 @@ To get started, export a Resource Manager template. This template contains setti
 
 Modify the template by changing the Event Hubs namespace name and region.
 
-# [portal](#tab/azure-portal)
+### [portal](#tab/azure-portal)
 
 1. Select **Template deployment**.
 1. In the Azure portal, select **Create**.
@@ -224,7 +224,7 @@ Modify the template by changing the Event Hubs namespace name and region.
 
 1. Select **Save** to save the template.
 
-# [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 1. In the **template.json** file, name the Event Hubs namespace by setting the default value of the namespace name. This example sets the default value of the Event Hubs namespace name to `namespace-name`.
 

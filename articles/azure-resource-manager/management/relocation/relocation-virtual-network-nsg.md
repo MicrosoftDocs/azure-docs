@@ -29,7 +29,7 @@ The following steps show how to prepare the network security group for the confi
 
 ### Export and modify a template
 
-# [Portal](#tab/azure-portal)
+#### [Portal](#tab/azure-portal)
 
 To export and modify a template by using Azure portal:
 
@@ -144,7 +144,7 @@ To export and modify a template by using Azure portal:
 
 1. Select **Save** in the online editor.
 
-# [PowerShell](#tab/azure-powershell)
+#### [PowerShell](#tab/azure-powershell)
 
 To export and modify a template by using PowerShell:
 
@@ -285,7 +285,7 @@ To export and modify a template by using PowerShell:
 
 ## Redeploy
 
-# [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 1. Select **BASICS** > **Subscription** to choose the subscription where the target NSG will be deployed.
 1. Select **BASICS** > **Resource group** to choose the resource group where the target NSG will be deployed.  You can click **Create new** to create a new resource group for the target NSG.  Ensure the name isn't the same as the source resource group of the existing NSG.
@@ -294,7 +294,7 @@ To export and modify a template by using PowerShell:
 1. Check the box under **TERMS AND CONDITIONS**.
 1. Select the **Purchase** button to deploy the target network security group.
 
-# [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 1. Create a resource group in the target region for the target NSG to be deployed using [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup):
 
@@ -323,11 +323,11 @@ To export and modify a template by using PowerShell:
 
 ## Discard
 
-# [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 If you wish to discard the target NSG, delete the resource group that contains the target NSG.  To do so, select the resource group from your dashboard in the portal and select **Delete** at the top of the overview page.
 
-# [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 After the deployment, if you wish to start over or discard the NSG in the target, delete the resource group that was created in the target and the moved NSG will be deleted.  To remove the resource group, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup):
 
@@ -339,11 +339,11 @@ Remove-AzResourceGroup -Name <target-resource-group-name>
 
 ## Clean up
 
-# [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 To commit the changes and complete the move of the NSG, delete the source NSG or resource group. To do so, select the network security group or resource group from your dashboard in the portal and select **Delete** at the top of each page.
 
-# [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 To commit the changes and complete the move of the NSG, delete the source NSG or resource group, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) or [Remove-AzNetworkSecurityGroup](/powershell/module/az.network/remove-aznetworksecuritygroup):
 

@@ -38,10 +38,10 @@ Before you begin the relocation process, complete the following preparations:
 
 - Understand the following considerations in regards to replication:
 
-    - SMB, NFS, and dual-protocol volumes are supported. Replication of SMB volumes requires a Microsoft Entra ID connection in the source and target NetApp accounts.
-    - The replication destination volume is read-only until the entire move is complete.
-    - Azure NetApp Files replication doesn't currently support multiple subscriptions. All replications must be performed under a single subscription.
-    - There are resource limits for the maximum number of cross-region replication destination volumes. For more information, see [Resource limits for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-resource-limits.md).
+  - SMB, NFS, and dual-protocol volumes are supported. Replication of SMB volumes requires a Microsoft Entra ID connection in the source and target NetApp accounts.
+  - The replication destination volume is read-only until the entire move is complete.
+  - Azure NetApp Files replication doesn't currently support multiple subscriptions. All replications must be performed under a single subscription.
+  - There are resource limits for the maximum number of cross-region replication destination volumes. For more information, see [Resource limits for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-resource-limits.md).
 
 ## Redeploy
 

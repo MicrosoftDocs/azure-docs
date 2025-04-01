@@ -27,7 +27,7 @@ The high-level steps are:
 
 ## Prerequisites
 
-- Complete the [Quickstart: Route custom events to web endpoint](../../../event-grid/custom-event-quickstart-portal.md) in the source region. Do this step so that you can test steps in this article. 
+- Complete the [Quickstart: Route custom events to web endpoint](../../../event-grid/custom-event-quickstart-portal.md) in the source region. Do this step so that you can test steps in this article.
 - Ensure that the Event Grid service is available in the target region. See [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
 
 ## Prepare
