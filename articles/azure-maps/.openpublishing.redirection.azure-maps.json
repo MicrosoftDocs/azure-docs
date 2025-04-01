@@ -181,19 +181,19 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "articles/azure-maps/quick-android-map.md",
+            "source_path_from_root": "/articles/azure-maps/quick-android-map.md",
             "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "articles/azure-maps/migrate-from-google-maps-android-app.md",
+            "source_path_from_root": "/articles/azure-maps/migrate-from-google-maps-android-app.md",
             "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-maps/how-to-use-android-map-control-library.md",
             "redirect_url": "/azure/azure-maps/android-sdk-migration-guide",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-maps/set-android-map-styles.md",
@@ -288,7 +288,7 @@
         {
             "source_path_from_root": "/articles/azure-maps/how-to-use-ios-map-control-library.md",
             "redirect_url": "/azure/azure-maps/ios-sdk-migration-guide",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-maps/set-map-style-ios-sdk.md",
