@@ -28,16 +28,15 @@ While managed private endpoints are free, there may be charges associated with p
 
 Managed private endpoints work with Azure services that support private link. Using them, you can connect your Azure Managed Grafana workspace to the following Azure data stores over private connectivity:
 
-- Azure Cosmos DB for Mongo DB ([Only for Request Unit (RU) architecture](/azure/cosmos-db/mongodb/introduction#request-unit-ru-architecture))
+- Azure Cosmos DB for Mongo DB ([RU](/azure/cosmos-db/mongodb/introduction#request-unit-ru-architecture) and [vCore](/azure/cosmos-db/mongodb/introduction#vcore-architecture-recommended) architectures)
 - Azure Cosmos DB for PostgreSQL
 - Azure Data Explorer
 - Azure Monitor private link scope (for example, Log Analytics workspace)
 - Azure Monitor workspace, for Managed Service for Prometheus
-- Azure SQL managed workspace
+- Azure SQL managed Instance
 - Azure SQL server
-- Private link services
 - Azure Databricks
-- Azure Database for PostgreSQL flexible servers ([Only for servers that have public access networking](/azure/postgresql/flexible-server/concepts-networking-private-link))
+- Private link services
 
 ## Prerequisites
 

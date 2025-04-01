@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 11/09/2022
+ms.date: 04/1/2025
 ms.author: anfdocs 
 ---
 # Manage disaster recovery using Azure NetApp Files 
@@ -15,6 +15,9 @@ An ongoing replication (with [cross-zone](create-cross-zone-replication.md) or [
 When such an event occurs, you can [fail over to the destination volume](#fail-over-to-destination-volume), enabling the client to read and write to the destination volume. 
 
 After disaster recovery, you can perform a [resync](#resync-replication) operation to fail back to the source volume. You then [reestablish the source-to-destination replication](#reestablish-source-to-destination-replication) and remount the source volume for the client to access. 
+
+>[!NOTE]
+> Reverse resync is not supported with cross-zone-region replication. 
 
 ## Fail over to destination volume
 

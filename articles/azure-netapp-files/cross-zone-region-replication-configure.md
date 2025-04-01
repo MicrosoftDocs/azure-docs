@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 11/20/2024
+ms.date: 04/01/2025
 ms.author: anfdocs 
 ---
 # Manage cross-zone-region replication for Azure NetApp Files (preview)
@@ -16,6 +16,8 @@ Azure NetApp Files supports volume cross-zone and cross-region replication on th
 
 - Cross-zone-region replication supports creating two replication relationships for a source volume: cross-zone replication, cross-region replication, or a combination.  
 - Cross-zone-region replication volumes must abide by the same requirements and considerations as individual [cross-zone replication](cross-zone-replication-requirements-considerations.md) and [cross-region replication](cross-region-replication-requirements-considerations.md) volumes.  
+    >[!NOTE]
+    >Reverse resync is not supported with cross-zone-region replication.
 - Azure NetApp Files replication is supported within a subscription and between subscriptions under the same tenant. You must [register this feature](cross-zone-region-replication-configure.md#register-for-cross-subscription-replication) before using it for the first time. 
 
 ## Register for cross-zone-region replication 

@@ -2,9 +2,9 @@
 title: Overview of Cost Management
 titleSuffix: Microsoft Cost Management
 description: You use Cost Management features to monitor and control Azure spending and to optimize Azure resource use.
-author: bandersmsft
-ms.author: banders
-ms.reviewer: micfaln
+author: shasulin
+ms.author: shasulin
+ms.reviewer: shasulin
 ms.date: 01/07/2025
 ms.topic: overview
 ms.service: cost-management-billing
@@ -43,7 +43,7 @@ Everything up to this point makes up the billing process where charges are final
 - Azure Advisor cost recommendations are pulled in to enable cost savings insights for subscriptions and resource groups.
 - Cost alerts are sent out for [budgets](tutorial-acm-create-budgets.md), [anomalies](../understand/analyze-unexpected-charges.md#create-an-anomaly-alert), [scheduled alerts](save-share-views.md#subscribe-to-scheduled-alerts), and more based on the configured settings.
 
-Lastly, cost details are made available from [cost analysis](quick-acm-cost-analysis.md) in the Azure portal and published to your storage account via [scheduled exports](tutorial-export-acm-data.md).
+Lastly, cost details are made available from [cost analysis](quick-acm-cost-analysis.md) in the Azure portal and published to your storage account via [scheduled exports](tutorial-improved-exports.md).
 
 ## How Cost Management and Billing relate
 

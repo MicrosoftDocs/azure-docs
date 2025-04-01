@@ -2,12 +2,13 @@
 title: Control Azure Content Delivery Network caching behavior with caching rules
 description: You can use content delivery network caching rules to set or modify default cache expiration behavior both globally and with conditions, such as a URL path and file extensions.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumud
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
+ROBOTS: NOINDEX
 ---
 
 # Control Azure Content Delivery Network caching behavior with caching rules

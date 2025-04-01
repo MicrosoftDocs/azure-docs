@@ -33,6 +33,8 @@
   items:
   - name: Security baseline
     href: /security/benchmark/azure/baselines/microsoft-azure-peering-service-security-baseline?toc=/azure/peering-service/TOC.json
+  - name: Azure Network Security Blog
+    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: References
   items:
   - name: Azure PowerShell
@@ -41,9 +43,15 @@
     href: /cli/azure/peering
 - name: Resources
   items:
-  - name: Networking blog
-    href: https://azure.microsoft.com/blog/category/networking
-  - name: Microsoft Q&A question page for Networking
-    href: /answers/topics/azure-virtual-network.html
+  - name: Microsoft Q&A
+    href: /answers/tags/133/azure
+  - name: Azure Networking Blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
   - name: Networking feedback
     href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789
+  - name: Azure support
+    href: https://azure.microsoft.com/support
+  - name: Service updates
+    href: https://azure.microsoft.com/updates
+  - name: SLA
+    href: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services
