@@ -15,7 +15,7 @@ ms.custom: template-overview
 
 This overview introduces the key concepts around the options to analyze and visualize your IoT data. Each section includes links to content that provides further detail and guidance.
 
-In Azure IoT, analysis and visualization services are used to identify and display business insights derived from your IoT data. For example, you can use a machine learning model to analyze device telemetry and predict when maintenance should be carried out on an industrial asset. You can also use a visualization tool to display a map of the location of your devices.
+In Azure IoT, analysis and visualization services are used to identify and display business insights derived from your IoT data. For example, you can use a machine learning model to analyze device sensor data and predict when maintenance should be carried out on an industrial asset. You can also use a visualization tool to display a map of the location of your devices.
 
 # [Edge-based solution](#tab/edge)
 
@@ -54,6 +54,14 @@ The following articles show some examples of how to use Microsoft Fabric to anal
 
 - [Tutorial: Get insights from your processed data](../iot-operations/end-to-end-tutorials/tutorial-get-insights.md)
 - [Tutorial: Send data from an OPC UA server to Azure Data Lake Storage Gen 2](../iot-operations/connect-to-cloud/tutorial-opc-ua-to-data-lake.md)
+
+### Azure Machine Learning
+
+[Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) is a cloud-based service for building, training, and deploying machine learning models. It provides a variety of tools and services to help you create and manage machine learning workflows. You can use Azure Machine Learning to analyze IoT data and build predictive models. On Azure Arc-enabled Kubernetes clusters, such as Azure IoT Operations, you can train and deploy machine learning models at the edge with the [Kubernetes compute target in Azure Machine Learning](/azure/machine-learning/how-to-attach-kubernetes-anywhere).
+
+- [Deploy Azure Machine Learning extension on Arc-enabled Kubernetes cluster](/azure/machine-learning/how-to-deploy-kubernetes-extension)
+- [Enable machine learning inference on an Azure IoT Edge device](/azure/architecture/guide/iot/machine-learning-inference-iot-edge)
+
 
 ### Azure Data Explorer
 
