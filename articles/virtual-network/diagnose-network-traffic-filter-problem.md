@@ -125,7 +125,7 @@ az network nic list-effective-nsg \
 Output is returned in json format. To understand the output, see [interpret command output](#interpret-command-output).
 Output is only returned if an NSG is associated with the network interface, the subnet the network interface is in, or both. The VM must be in the running state. A VM might have multiple network interfaces with different NSGs applied. When troubleshooting, run the command for each network interface.
 
-If you're still having a connectivity problem, see [more diagnosis](#more-diagnosis) and [considerations](#considerations).
+If you're still having a connectivity problem, see [more diagnoses](#more-diagnoses) and [considerations](#considerations).
 
 If you only know the VM name, use the following commands to list all network interface IDs attached to the VM.
 
