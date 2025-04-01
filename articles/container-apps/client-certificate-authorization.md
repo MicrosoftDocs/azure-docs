@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 06/13/2024
+ms.date: 04/01/2025
 ms.author: cshoe
 ---
 
@@ -13,7 +13,7 @@ ms.author: cshoe
 
 Azure Container Apps supports client certificate authentication (also known as mutual TLS or mTLS) that allows access to your container app through two-way authentication. This article shows you how to configure client certificate authorization in Azure Container Apps.
 
-When client certificates are used, the TLS certificates are exchanged between the client and your container app to authenticate identity and encrypt traffic. Client certificates are often used in "zero trust" security models to authorize client access within an organization.
+When client certificates are used, the TLS certificates are exchanged between the client and your container app to authenticate identity and encrypt traffic. Client certificates are often used in "Zero Trust" security models to authorize client access within an organization.
 
 For example, you might want to require a client certificate for a container app that manages sensitive data.
 
@@ -34,15 +34,62 @@ Ingress passes the client certificate to the container app if `require` or `acce
 The following ARM template example configures ingress to require a client certificate for all requests to the container app.
 
 ```json
-{ 
+{
   "properties": {
     "configuration": {
       "ingress": {
-        "clientCertificateMode": "require"
+        "clientCertificateMode": "require | accept | ignore"
       }
     }
   }
 }
+```
+> [!NOTE]
+> You can set the `clientCertificateMode` directly on the ingress property. It isn't yet available as an explicit option in the CLI, but you can patch your app using the Azure CLI.
+
+Get the ARM ID of the Azure Container App:
+
+```azurecli
+APP_ID=$(az containerapp show \
+  --name <app-name> \
+  --resource-group <resource-group> \
+  --query id \
+  --output tsv)
+```
+
+Patch the clientCertificateMode Property on the App:
+
+```azurecli
+az rest \
+  --method patch \
+  --url "https://management.azure.com/$APP_ID?api-version=<api-version>" \
+  --body '{
+    "properties": {
+      "configuration": {
+        "ingress": {
+          "clientCertificateMode": "require"
+        }
+      }
+    }
+  }'
+```
+When `require` is set, the client must provide a certificate.
+When `accept` is set, the certificate is optional. If the client provides a certificate, it is passed to the app in the X-Forwarded-Client-Cert header, as a semicolon-separated list. For example:
+
+```html
+<button style="margin: 0px;">
+</button>
+
+<script>
+  const hash = '....';
+  const cert = `-----BEGIN CERTIFICATE-----
+  ....
+  -----END CERTIFICATE-----`;
+
+  const chain = `-----BEGIN CERTIFICATE-----
+  ...
+  -----END CERTIFICATE-----`;
+</script>
 ```
 
 ## Next Steps
