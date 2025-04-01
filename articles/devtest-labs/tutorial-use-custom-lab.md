@@ -42,15 +42,13 @@ To claim a lab VM, follow these steps. For more information about claiming VMs, 
 
    The VM is claimed and started. You can select the **Notifications** icon at the top of the portal to see progress.
 
-1. Return to the lab **Overview** page and confirm that you now see the VM listed under **My virtual machines**.
+1. When the process finishes, return to the lab **Overview** page and confirm that you now see the VM listed under **My virtual machines**.
 
    :::image type="content" source="./media/tutorial-use-custom-lab/my-virtual-machines-2.png" alt-text="Screenshot showing the claimed VM in the My virtual machines list.":::
 
 ## Connect to a lab VM
 
-To connect to a VM, it must be running. An unclaimed VM is stopped. When you claim the VM, it starts automatically.
-
-To connect to the VM, make sure the VM **Status** is still **Running**, or select **Start** at the top of the VM's page to start it.
+To connect to a VM, it must be running. An unclaimed VM is stopped. When you claim the VM, it starts automatically. To connect to the VM, make sure the VM **Status** is still **Running**, or select **Start** at the top of the VM's page to start it.
 
 1. On the lab **Overview** page, select the VM from the list under **My virtual machines**.
 1. On the VM's **Overview** page, select **Connect** from the top menu.

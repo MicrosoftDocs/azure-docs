@@ -29,11 +29,11 @@ This article describes how Azure DevTest Labs administrators can manage lab poli
 
 To set lab policies:
 
-1. On your lab page in the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040), select **Configuration and policies** from the left navigation.
+1. On your lab page in the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040), select **Configuration and policies** from the left navigation menu.
 
    :::image type="content" source="./media/devtest-lab-set-lab-policy/configuration-policies-menu.png" alt-text="Screenshot that shows the Configuration and policies menu for a lab.":::
 
-1. On the **Configuration and policies** page, select the policy you want to configure from the **Settings** and **Schedules** sections of the left navigation.
+1. On the **Configuration and policies** page, select the policy you want to configure from the **Settings** and **Schedules** sections of the left navigation menu.
 
    :::image type="content" source="./media/devtest-lab-set-lab-policy/policies-menu.png" alt-text="Screenshot that shows a lab's Configuration and Policies options.":::
 
@@ -42,7 +42,7 @@ To set lab policies:
 
 This policy limits the VM sizes that users can create in the lab. The default policy setting is **All sizes**.
 
-1. On the lab's **Configuration and policies** page, select **Allowed virtual machines sizes** from the left navigation.
+1. On the lab's **Configuration and policies** page, select **Allowed virtual machines sizes** from the left navigation menu.
 1. On the **Allowed virtual machines sizes** page, select **All sizes** or **Selected sizes**.
 1. If you select **Selected sizes**, select the VM sizes to allow users to create in the lab.
 1. Select **Save**.
@@ -54,7 +54,7 @@ This policy limits the VM sizes that users can create in the lab. The default po
 
 These two policies specify the maximum number of VMs and VMs using premium disks that an individual lab user can claim or create. The default setting for both policies is **Off**.
 
-1. On the lab's **Configuration and policies** page, select **Virtual machines per user** from the left navigation.
+1. On the lab's **Configuration and policies** page, select **Virtual machines per user** from the left navigation menu.
 1. On the **Virtual machines per user** page, under **Limit the number of virtual machines**, select **On** or **Off** to enable or disable the policy.
 1. If you select **On**, under **What is the limit**, enter the maximum number of VMs that a user can claim or create.
 1. Under **Limit the number of virtual machines using premium OS disks**, select **On** or **Off** to enable or disable the policy.
@@ -71,7 +71,7 @@ If a user tries to create or claim a VM after the user limit is met, an error me
 
 These two policies specify the maximum number of VMs and VMs using premium disks that all users can create in the current lab. The default setting for both policies is **Off**.
 
-1. On the lab's **Configuration and policies** page, select **Virtual machines per lab** from the left navigation.
+1. On the lab's **Configuration and policies** page, select **Virtual machines per lab** from the left navigation menu.
 1. On the **Virtual machines per lab** page, under **Limit the number of virtual machines**, select **On** or **Off** to enable or disable the policy.
 1. If you select **On**, under **What is the limit**, enter the maximum number of VMs that can be created in the lab.
 1. Under **Limit the number of virtual machines using premium OS disks**, select **On** or **Off** to enable or disable the policy.
@@ -87,7 +87,7 @@ If a user tries to create a VM after the lab limit is met, an error message indi
 
 Autoshutdown helps minimize lab waste by shutting down lab VMs at a specific time of day. The default policy setting is **Off**.
 
-1. On the lab's **Configuration and policies** page, select **Auto-shutdown** from the left navigation.
+1. On the lab's **Configuration and policies** page, select **Auto-shutdown** from the left navigation menu.
 1. On the **Auto-shutdown** page, select **On** or **Off** to enable or disable the policy.
 1. If you select **On**, for **Scheduled shutdown** and **Time zone**, specify the time and time zone to shut down all lab VMs.
 1. For **Send notification before auto-shutdown**, select **Yes** or **No** for the option to send a notification before the specified autoshutdown time.
@@ -99,7 +99,7 @@ Autoshutdown helps minimize lab waste by shutting down lab VMs at a specific tim
 By default, the autoshutdown schedule applies to all lab VMs. If allowed by [autoshutdown policy](#autoshutdown-policy), lab users can override lab autoshutdown settings for their own individual VMs. To set a shutdown schedule for an individual VM:
 
 1. Select the VM from **My virtual machines** on the lab **Overview** page.
-1. On the home page for the VM, select **Auto-shutdown** from the **Operations** section of the left navigation.
+1. On the home page for the VM, select **Auto-shutdown** from the **Operations** section of the left navigation menu, and configure the autoshutdown settings the same way as for a lab.
 
 For more information about autoshutdown and sending notifications, see [Configure autoshutdown for labs and VMs in DevTest Labs](devtest-lab-auto-shutdown.md).
 
@@ -109,9 +109,9 @@ For more information about autoshutdown and sending notifications, see [Configur
 Autostart policy helps you minimize waste by specifying a specific time of day and days of the week to start up lab VMs. The default policy setting is **No**.
 
 > [!IMPORTANT]
-> This policy isn't automatically applied to lab VMs. To apply this setting to individual VMs, open the VM's page and change its **Auto-start** setting.
+> This policy isn't automatically applied to lab VMs. To apply this setting to individual VMs, open the VM's page and select **Auto-start** from the left navigation menu. On the **Auto-start** page, select **Yes** for **Allow this virtual machine to be scheduled for automatic start**, and then select **Save**.
 
-1. On the lab's **Configuration and policies** page, select **Auto-start** from the left navigation.
+1. On the lab's **Configuration and policies** page, select **Auto-start** from the left navigation menu.
 1. Select **Yes** or **No** to enable or disable the policy.
 1. If you select **Yes**, specify the **Scheduled start**, **Time zone**, and **Days of the week** to start up the lab VMs.
 1. Select **Save**.

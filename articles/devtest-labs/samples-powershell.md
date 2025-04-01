@@ -22,8 +22,8 @@ This article includes the following sample Azure PowerShell scripts for Azure De
 
 ## Prerequisites
 
-- To add or assign users or roles: **Owner** role in a lab, or **Owner** or **User Access Administrator** role in the Azure subscription that contains the lab.
-- To set allowed lab VM sizes, add a Marketplace image, or create a custom image: At least **Contributor** role in the lab or the Azure subscription.
+- To add or assign users or roles, you need **Owner** role in a lab, or **Owner** or **User Access Administrator** role in the Azure subscription that contains the lab.
+- To set allowed lab VM sizes, add a Marketplace image, or create a custom image, you need at least **Contributor** role in the lab or the Azure subscription.
 - All scripts require Azure PowerShell. You can use [Azure Cloud Shell](/azure/cloud-shell/quickstart) or [install PowerShell locally](/powershell/azure/install-azure-powershell).
   - In Cloud Shell, select the **PowerShell** environment.
   - For a local PowerShell installation, run `Update-Module -Name Az` to get the latest version of Azure PowerShell, and run [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to Azure. If you have multiple Azure subscriptions, use `Set-AzContext -SubscriptionId "<SubscriptionId>"` to provide the subscription ID you want to use.
