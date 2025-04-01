@@ -1,5 +1,5 @@
 ---
-title: "Azure Operator Nexus: BareMetal Machine Platform Commands"
+title: "Azure Operator Nexus: BareMetal Machine platform commands"
 description: Learn how to manage bare metal machines (BMM).
 author: eak13
 ms.author: ekarandjeff
@@ -9,7 +9,7 @@ ms.date: 07/19/2024
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
-# BareMetal BMM Platform Commands
+# BareMetal Machine Platform Commands
 
 This article describes how to perform lifecycle management operations on bare metal machines (BMM).
 These steps should be used for troubleshooting purposes to recover from failures or when taking maintenance actions.

@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Operator Nexus Server Problems
+title: Troubleshoot Azure Operator Nexus server problems
 description: Troubleshoot cluster bare metal machines with Restart, Reimage, Replace for Azure Operator Nexus.
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting

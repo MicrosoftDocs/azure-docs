@@ -1,5 +1,5 @@
 ---
-title: Best Practices for BareMetal Machine Operations
+title: Best practices for BareMetal Machine operations
 description: Steps that should be taken before executing any BMM replace, or reimage actions. Highlight essential prerequisites and common pitfalls to avoid.
 ms.date: 03/25/2025
 ms.topic: how-to
@@ -26,7 +26,7 @@ The aim is to highlight common pitfalls and essential prerequisites.
 ## Identify the Best-fit Corrective Approach
 
 Troubleshooting technical problems requires a systematic approach.
-One effective method is to start with the least invasive solution and, if necessary, work your way up to more complex and drastic measures.
+One effective method is to start with the least invasive solution and, if necessary, work your way up to more complex and potentially disruptive measures.
 Keep in mind that these troubleshooting methods might not always be effective for all scenarios and accounting for various other factors might require a different approach.
 For this reason, it's essential to understand the available options well when troubleshooting a BMM for failures to determine the most appropriate corrective action.
 
