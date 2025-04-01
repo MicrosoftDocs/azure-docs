@@ -149,6 +149,14 @@ $hubVnet = New-AzVirtualNetwork @vnetParams
 Use [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) to create a subnet for Azure Firewall and Azure Bastion.
 
 ```azurepowershell
+# Create default subnet
+$subnetParams = @{
+    Name = 'default'
+    AddressPrefix = '10.0.0.0/24'
+    VirtualNetwork = $hubVnet
+}
+Add-AzVirtualNetworkSubnetConfig @subnetParams
+
 # Create subnet for Azure Firewall
 $subnetParams = @{
     Name = 'AzureFirewallSubnet'
@@ -582,7 +590,7 @@ A virtual network peering is used to connect the hub to the spoke and the spoke 
     | **Local virtual network summary** |   |
     | Peering link name | Enter **vnet-hub-to-vnet-spoke**. |
     | **Local virtual network peering settings** |   |
-    | Allow 'vnet-hub' to access 'vnet-spoke-2' | Leave the default of **Selected**. |
+    | Allow 'vnet-hub' to access 'vnet-spoke' | Leave the default of **Selected**. |
     | Allow 'vnet-hub' to receive forwarded traffic from 'vnet-spoke' | Select the checkbox. |
     | Allow gateway or route server in 'vnet-hub' to forward traffic to 'vnet-spoke' | Leave the default of **Unselected**. |
     | Enable 'vnet-hub' to use 'vnet-spoke's' remote gateway or route server | Leave the default of **Unselected**. |
@@ -917,8 +925,8 @@ Use [New-AzFirewallPolicyFilterRuleCollection](/powershell/module/az.network/new
 
 ```azurepowershell
 $newRuleCollectionConfigParams = @{
-    Name = 'rule-collection'
-    Priority = 1000
+    Name = 'spoke-to-internet'
+    Priority = 100
     Rule = $networkrule
     ActionType = 'Allow'
 }
