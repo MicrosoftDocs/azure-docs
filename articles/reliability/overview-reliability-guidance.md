@@ -13,7 +13,7 @@ ms.subservice: azure-reliability
 # Reliability guides by service
 
 
-This document provides links to reliability guidance for many Azure services. Each service guide contains information on how the service supports:
+This document provides links to reliability guidance for many Azure services. Typically, each reliability guide contains information on how the service supports:
 
 - *Reliability architecture overview* is a synopsis of how the service supports reliability, including information about which components are managed by Microsoft and which are managed by you, any built-in redundancy features, and how to provision and manage multiple resources, if applicable.
 - *Transient fault handling* details how the service handles normal day-to-day transient faults that can occur in the cloud and include information on how to handle these faults in your application. This includes information on retry policies, timeouts, and other best practices for handling transient faults.
@@ -23,6 +23,7 @@ This document provides links to reliability guidance for many Azure services. Ea
 Some guides also contain information on:
 
 - *Backup support* such as who controls backups, where they are stored, how they can be recovered, and whether they are accessible only within a region or across regions.
+- *Service level agreements* for availability, including how the expected uptime changes based on the configuration you use.
 
 ## Reliability guides by service
 
@@ -89,7 +90,7 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure Key Vault|| [Azure Key Vault availability and redundancy](/azure/key-vault/general/disaster-recovery-guidance?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure Kubernetes Service (AKS)| [Reliability in Azure Kubernetes Service (AKS)](reliability-aks.md)||
 |Azure Logic Apps|[Reliability in Azure Logic Apps](reliability-logic-apps.md) ||
-|Azure Machine Learning Service|| [Failover for business continuity and disaster recovery](/azure/machine-learning/how-to-high-availability-machine-learning?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+|Azure Machine Learning Service|| [Failover for business continuity and disaster recovery]  (/azure/machine-learning/how-to-high-availability-machine-learning?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Migrate* | [Does Azure Migrate offer Backup and Disaster Recovery?](../migrate/resources-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#does-azure-migrate-offer-backup-and-disaster-recovery)|
 |Azure Monitor-Log Analytics* |[Enhance data and service resilience in Azure Monitor Logs with availability zones](/azure/azure-monitor/logs/availability-zones) </p> [Log Analytics workspace replication](/azure/azure-monitor/logs/workspace-replication) | 
 |Azure NetApp Files|| [Manage disaster recovery using Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md?toc=/azure.reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
@@ -106,7 +107,7 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure Spring Apps| [Reliability in Azure Spring Apps](reliability-spring-apps.md)||
 |Azure SQL Database||[Azure SQL Database - High availability](/azure/azure-sql/database/high-availability-sla?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) </p> [Disaster recovery guidance - Azure SQL Database](/azure/azure-sql/database/disaster-recovery-guidance) |
 |Azure SQL Managed Instance|| [Failover groups overview & best practices - Azure SQL Managed Instance](/azure/azure-sql/managed-instance/failover-group-sql-mi?view=azuresql&preserve-view=true) |
-|Azure Storage Actions||[Reliability in Azure Storage Actions](reliability-storage-actions.md)||
+|Azure Storage Actions|| [Reliability in Azure Storage Actions](reliability-storage-actions.md)||
 |Azure Storage - Blob Storage||[Choose the right redundancy option](/azure/storage/common/storage-disaster-recovery-guidance?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#choose-the-right-redundancy-option)</p>[Azure storage disaster recovery planning and failover](/azure/storage/common/storage-disaster-recovery-guidance?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Storage Mover| [Reliability in Azure Storage Mover](reliability-azure-storage-mover.md)||
 |Azure Stream Analytics|| [Achieve geo-redundancy for Azure Stream Analytics jobs](../stream-analytics/geo-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
