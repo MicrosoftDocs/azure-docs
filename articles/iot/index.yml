@@ -68,17 +68,17 @@ productDirectory:
       url: ../iot-central/index.yml
     # Card
     - title: Azure Digital Twins
-      summary: The Azure Digital Twins service is typically part of a cloud-based IoT solution based on IoT Hub
+      summary: The Azure Digital Twins service is typically part of a cloud-based IoT solution that use IoT Hub
       imageSrc: ../media/index/digital-twins.svg
       url: ../digital-twins/index.yml
     # Card
     - title: Azure IoT Edge
-      summary: IoT Edge is typically part of a hybrid IoT solution based on IoT Hub or IoT Central
+      summary: IoT Edge is typically part of a hybrid IoT solution that use IoT Hub or IoT Central
       imageSrc: ../media/index/iot-edge.svg
       url: ../iot-edge/index.yml
     # Card
     - title: Azure Event Grid
-      summary: Currently, Azure Event Grid is typically part of a hybrid IoT solution that uses Azure IoT Operations, IoT Hub, or IoT Central
+      summary: Currently, Azure Event Grid is typically part of a hybrid IoT solution that use Azure IoT Operations, IoT Hub, or IoT Central
       imageSrc: ../media/index/event-grid-domains.svg
       url: ../event-grid/index.yml
     # Card

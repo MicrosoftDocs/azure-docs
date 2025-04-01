@@ -59,7 +59,7 @@ To learn more, see [What is Azure IoT Operations?](../iot-operations/overview-io
 
 ### Azure Device Registry
 
-> Currently, Azure Device Registry is typically part of an **edge-based IoT solution** that uses Azure IoT Operations and follows the adaptive cloud approach.
+> Currently, Azure Device Registry is typically part of an **edge-based IoT solution** that use Azure IoT Operations and follows the adaptive cloud approach.
 
 Azure Device Registry is a backend service that enables the management of assets and devices in your solution using Azure Resource Manager. Azure Device Registry:
 
@@ -88,7 +88,7 @@ To learn more, see [What is Azure IoT Hub?](../iot-hub/iot-concepts-and-iot-hub.
 
 ### Azure IoT Hub Device Provisioning Service (DPS)
 
-> DPS is typically part of a **cloud-based IoT solution** based on IoT Hub or IoT Central.
+> DPS is typically part of a **cloud-based IoT solution** that use IoT Hub or IoT Central.
 
 DPS is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning of IoT devices to an IoT hub without requiring human intervention. Many of the manual steps traditionally involved in provisioning are automated with DPS to reduce the time to deploy IoT devices and lower the risk of manual error. DPS can provision devices that use X.509 certificates and trusted platform modules. IoT Central applications use an internal DPS instance to manage device connections.
 
@@ -96,7 +96,7 @@ To learn more, see [What is Azure IoT Hub Device Provisioning Service?](../iot-d
 
 ### Azure Device Update for IoT Hub
 
-> Device Update for IoT Hub is typically part of a **cloud-based IoT solution** based on IoT Hub.
+> Device Update for IoT Hub is typically part of a **cloud-based IoT solution** that use IoT Hub.
 
 Azure Device Update for IoT Hub is a service that enables you to deploy over-the-air updates for your IoT devices, including Azure IoT Edge devices. Device Update offers optimized update deployment and streamlined operations through integration with Azure IoT Hub, making it easy to adopt on any existing IoT Hub-based solution.
 
@@ -104,7 +104,7 @@ To learn more, see [What is Device Update for IoT Hub?](../iot-hub-device-update
 
 ### Azure IoT Edge
 
-> IoT Edge is typically part of a **hybrid IoT solution** based on IoT Hub or IoT Central.
+> IoT Edge is typically part of a **hybrid IoT solution** that use IoT Hub or IoT Central.
 
 Azure IoT Edge is a device-focused runtime that enables you to deploy, run, and monitor containerized Linux workloads at the edge, bringing analytics closer to your devices for faster insights and offline decision-making. IoT Edge can also act as a gateway for devices with no internet connectivity and protocol translation. IoT Edge is a feature of Azure IoT Hub and also integrates with Azure IoT Central.
 
@@ -112,7 +112,7 @@ To learn more, see [What is Azure IoT Edge](../iot-edge/about-iot-edge.md).
 
 ## Azure Digital Twins
 
-> The Azure Digital Twins service is typically part of a **cloud-based IoT solution** based on IoT Hub.
+> The Azure Digital Twins service is typically part of a **cloud-based IoT solution** that use IoT Hub.
 
 Azure Digital Twins is a platform as a service (PaaS) offering that enables the creation of twin graphs based on digital models of entire environments, which could be buildings, factories, farms, energy networks, railways, stadiums, and more—even entire cities. Azure Digital Twins can be used to design a digital twin architecture that represents actual IoT devices in a wider cloud solution, and which connects to IoT Hub device twins to send and receive live data.
 
@@ -128,7 +128,7 @@ To learn more, see [What is Azure IoT Central?](../iot-central/core/overview-iot
 
 ## Azure Event Grid
 
-> Currently, Azure Event Grid is typically part of a **hybrid IoT solution** that uses Azure IoT Operations, IoT Hub, or IoT Central.
+> Currently, Azure Event Grid is typically part of a **hybrid IoT solution** that use Azure IoT Operations, IoT Hub, or IoT Central.
 
 Azure Event Grid is a highly scalable, fully managed Pub Sub message distribution service that offers flexible message consumption patterns using the MQTT and HTTP protocols. With Azure Event Grid, you can build data pipelines with device data, integrate applications, and build event-driven serverless architectures. Event Grid enables clients to publish and subscribe to messages over the MQTT v3.1.1 and v5.0 protocols to support IoT solutions. Through HTTP, Event Grid enables you to build event-driven solutions where a publisher service announces its system state changes (events) to subscriber applications.
 
