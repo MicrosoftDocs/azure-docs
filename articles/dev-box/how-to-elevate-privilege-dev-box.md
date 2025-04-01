@@ -89,7 +89,7 @@ In this section, you create a dev box and an Intune group that you use to test t
 
    1. Create a dev box by using the dev box pool that you created in the previous step.
 
-   1. Determine the dev box host-name. You use this host name to add the dev box and Intune group in the next step.
+   1. Determine the dev box's host name. You use this host name to add the dev box and Intune group in the next step.
 
 1. Create an Intune group, and add the dev box to the group:
 

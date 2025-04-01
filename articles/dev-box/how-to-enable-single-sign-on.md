@@ -14,7 +14,7 @@ ms.topic: how-to
 
 # Enable single sign-on for dev boxes
 
-In this article, you learn how to enable single sign-on (SSO) for dev boxes in Dev Box pools.
+In this article, you learn how to enable single sign-on (SSO) for dev boxes in Microsoft Dev Box pools.
 
 By using SSO, you can skip the credential prompt when you connect to a dev box and automatically sign in to Windows through Microsoft Entra authentication. Microsoft Entra authentication also provides passwordless authentication and support for third-party identity providers. To get started, review the steps to configure SSO.
 
@@ -54,7 +54,7 @@ To enable SSO for dev boxes in an existing pool, follow these steps:
 1. Select the project that contains the pool for which you want to enable SSO.
 1. On the left menu, under **Manage**, select **Dev box pools**.
 1. Select the pool for which you want to enable SSO.
-1. On the line for the pool, at the right end, select **...** and then select **Edit**.
+1. On the line for the pool, select the ellipsis (**...**) and then select **Edit**.
  
    :::image type="content" source="media/how-to-enable-single-sign-on/azure-portal-pool-edit.png" alt-text="Screenshot that shows the Azure portal with the list of pools in a project with the menu and Edit option highlighted." lightbox="media/how-to-enable-single-sign-on/azure-portal-pool-edit.png":::
 
@@ -74,7 +74,7 @@ To disable SSO for dev boxes in an existing pool, follow these steps:
 1. Select the project that contains the pool for which you want to disable SSO.
 1. On the left menu, under **Manage**, select **Dev box pools**.
 1. Select the pool for which you want to disable SSO.
-1. On the line for the pool, at the right end, select **...** and then select **Edit**.
+1. On the line for the pool, select the ellipsis (**...**) and then select **Edit**.
 
    :::image type="content" source="media/how-to-enable-single-sign-on/azure-portal-pool-edit.png" alt-text="Screenshot that shows the Azure portal with the list of pools in a project with the menu and Edit option highlighted." lightbox="media/how-to-enable-single-sign-on/azure-portal-pool-edit.png":::
 

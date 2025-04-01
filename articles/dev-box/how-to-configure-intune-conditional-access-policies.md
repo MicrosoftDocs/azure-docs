@@ -17,7 +17,7 @@ ms.topic: how-to
 
 Conditional Access is the protection of regulated content in a system by requiring certain criteria to be met before granting access to the content. Conditional Access policies at their simplest are if-then statements. If a user wants to access a resource, they must complete an action. Conditional Access policies are powerful tools to help keep your organization's devices secure and your environments compliant.
 
-This article provides examples of how organizations can use Conditional Access policies to manage access to dev boxes. For Dev Box, it's common to configure Conditional Access policies to restrict who can access the dev boxes, and from which locations they can access their dev boxes.
+This article provides examples of how organizations can use Conditional Access policies to manage access to dev boxes. For Microsoft Dev Box, it's common to configure Conditional Access policies to restrict who can access the dev boxes, and from which locations they can access their dev boxes.
 
 -   **Device-based Conditional Access**:
 
