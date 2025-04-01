@@ -22,7 +22,7 @@ In an Azure Communication Services Chat, we can enable file sharing between comm
 In this tutorial, we're configuring the Azure Communication Services UI Library Chat Composite to enable file sharing. The UI Library Chat Composite provides a set of rich components and UI controls that can be used to enable file sharing. We're using Azure Blob Storage to enable the storage of the files that are shared through the chat thread.
 
 > [!IMPORTANT]
-> Azure Communication Services doesn't provide a file storage service. You need to use your own file storage service for sharing files. For the pupose of this tutorial, we're using Azure Blob Storage.\*\*
+> Azure Communication Services doesn't provide a file storage service. You need to use your own file storage service for sharing files. For the purpose of this tutorial, we're using Azure Blob Storage.\*\*
 
 ## Download code
 
@@ -35,7 +35,7 @@ Access the full code for this tutorial on [GitHub](https://github.com/Azure-Samp
 - [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (10.14.1 recommended). Use the `node --version` command to check your version.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../quickstarts/create-communication-resource.md).
 
-This tutorial assumes that you already know how to set up and run a Chat Composite. You can follow the [Chat Composite tutorial](https://azure.github.io/communication-ui-library/?path=/docs/quickstarts-composites--page) to learn how to set up and run a Chat Composite.
+This tutorial assumes that you already know how to set up and run a Chat Composite. You can follow the [Chat Composite tutorial](https://azure.github.io/communication-ui-library/?path=/docs/composites-chatcomposite--docs) to learn how to set up and run a Chat Composite.
 
 ## Overview
 
@@ -257,7 +257,7 @@ const uploadFileToAzureBlob = async (uploadTask: AttachmentUploadTask) => {
     url: uri,
     data: formData,
     onUploadProgress: (p) => {
-      // Optionally, you can update the file upload progess.
+      // Optionally, you can update the file upload progress.
       uploadTask.notifyUploadProgressChanged(p.loaded / p.total);
     },
   });
@@ -378,7 +378,7 @@ You may also want to:
 
 - [Add chat to your app](../quickstarts/chat/get-started.md)
 - [Creating user access tokens](../quickstarts/identity/access-tokens.md)
-- [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
+- [Learn about client and server architecture](../concepts/identity-model.md#client-server-architecture)
 - [Learn about authentication](../concepts/authentication.md)
 - [Add file sharing with UI Library in Teams Interoperability Chat](./file-sharing-tutorial-interop-chat.md)
 - [Add file sharing with UI Library in Azure Communication Services Chat](./file-sharing-tutorial-acs-chat.md)

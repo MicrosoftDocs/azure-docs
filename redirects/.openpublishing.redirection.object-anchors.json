@@ -1,0 +1,99 @@
+{
+  "redirections": [
+        {
+            "source_path_from_root": "/articles/object-anchors/best-practices.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=mixed-reality",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/object-anchors/concepts/sdk-overview.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=mixed-reality",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/object-anchors/detect-difficult-object.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=mixed-reality",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/object-anchors/faq.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=mixed-reality",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/object-anchors/how-tos/move-azure-object-anchors-account.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=mixed-reality",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/object-anchors/index.yml",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=mixed-reality",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/object-anchors/model-conversion-error-codes.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=mixed-reality",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/object-anchors/overview.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=mixed-reality",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/object-anchors/quickstarts/get-started-hololens-directx.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=mixed-reality",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/object-anchors/quickstarts/get-started-model-ingestion.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=mixed-reality",
+            "redirect_document_id": false
+        },    
+        {
+            "source_path_from_root": "/articles/object-anchors/quickstarts/get-started-model-conversion.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=mixed-reality",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/object-anchors/quickstarts/get-started-unity-hololens-mrtk.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=mixed-reality",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/object-anchors/quickstarts/get-started-unity-hololens.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=mixed-reality",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/object-anchors/quickstarts/in-depth-mrtk-walkthrough.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=mixed-reality",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/object-anchors/quickstarts/new-unity-hololens-app.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=mixed-reality",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/object-anchors/quickstarts/unity-remoting.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=mixed-reality",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/object-anchors/quickstarts/upgrade-unity-quickstart-to-2020.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=mixed-reality",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/object-anchors/troubleshoot/object-detection.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=mixed-reality",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/object-anchors/visualize-converted-model.md",
+            "redirect_url": "https://learn.microsoft.com/azure/?product=mixed-reality",
+            "redirect_document_id": false
+        }
+    ]
+}

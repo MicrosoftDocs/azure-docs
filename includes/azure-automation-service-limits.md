@@ -14,9 +14,13 @@ ms.custom: "include file"
 
 | Resource | Limit |Notes|
 | --- | --- |---|
-| Maximum number of new jobs that can be submitted every 30 seconds per Azure Automation account  |100 |When this limit is reached, the subsequent requests to create a job fail. The client receives an error response.|
-| Maximum number of concurrent running jobs at the same instance of time per Automation account  |200 |When this limit is reached, the subsequent requests to create a job fail. The client receives an error response. </br> </br> Free trial and Azure for Student subscriptions can run up to 10 concurrent jobs at the same instance of time per Automation account. <sup>2</sup>|
-|Maximum number of Automation accounts in a subscription in a region.| No limit </br> </br> </br> </br> 2 </br> </br> </br> </br> </br> 1 | Enterprise and MSDN subscriptions can create Automation accounts in any of the [regions supported by the service](https://azure.microsoft.com/pricing/details/automation/) </br> </br> Pay-as-you-go, MPN, Azure Pass subscriptions can create 2 Automation accounts per subscription in any of the [regions supported](https://azure.microsoft.com/pricing/details/automation/) by the service. </br> </br> Free trial and Azure for Student subscriptions can create only one Automation account per region per subscription. Allowed list of regions: EastUS, EastUS2, WestUS, NorthEurope, SoutheastAsia, and JapanWest2|
+| Maximum number of active Automation accounts in a subscription in a region |10 | Enterprise and CSP subscriptions can create Automation accounts in any of the public [regions supported by the service](https://azure.microsoft.com/pricing/details/automation/). Create a [Support request](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerWorkflowId/01133068-af18-43c8-baa4-a54f5fa7c684/callerName/Microsoft_Azure_Support%2FHelpPane.ReactView/productId/06bfd9d3-516b-d5c6-5802-169c800dec89/issueType/quota) to request for Quota increase.  [Learn more](../articles/automation/automation-limits-quotas.md). |
+| | 2 |  Pay-as-you-go, Sponsored, MSDN, MPN, Azure Pass subscriptions can create Automation accounts in any of the public [regions supported](https://azure.microsoft.com/pricing/details/automation/) by the service. Create a [Support request](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerWorkflowId/01133068-af18-43c8-baa4-a54f5fa7c684/callerName/Microsoft_Azure_Support%2FHelpPane.ReactView/productId/06bfd9d3-516b-d5c6-5802-169c800dec89/issueType/quota) to request for Quota increase. [Learn more](../articles/automation/automation-limits-quotas.md).
+| | 1 |Free trial and Azure for Student subscriptions can create only one Automation account per region per subscription. Allowed list of regions: EastUS, EastUS2, WestUS, NorthEurope, SoutheastAsia, and JapanWest2 <sup>2</sup>|
+| Maximum number of concurrent running jobs at the same instance of time per Automation account  | 50 | When this limit is reached, the subsequent requests to create a job fail. The client receives an error response. </br> Enterprise and CSP subscription in public regions. Create a [Support request](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerWorkflowId/01133068-af18-43c8-baa4-a54f5fa7c684/callerName/Microsoft_Azure_Support%2FHelpPane.ReactView/productId/06bfd9d3-516b-d5c6-5802-169c800dec89/issueType/quota) to request for Quota increase. [Learn more](../articles/automation/automation-limits-quotas.md). |
+| | 10 | Pay-as-you-go, Sponsored, MSDN, MPN, Azure Pass subscriptions in public regions. Create a support request to request for a Quota increase. | 
+| | 5  | Free trial and Azure for Student Azure in open subscriptions in public regions <sup>2</sup>.|
+| Maximum number of new jobs that can be submitted every 30 seconds per Azure Automation account | 100 | When this limit is reached, the subsequent requests to create a job fail. The client receives an error response.|
 | Maximum storage size of job metadata for a 30-day rolling period | 10 GB (approximately 4 million jobs)|When this limit is reached, the subsequent requests to create a job fail. |
 | Maximum job stream limit|1 MiB|A single stream cannot be larger than 1 MiB.|
 | Maximum job stream limit on Azure Automation portal | 200KB | Portal limit to show the job logs.|
@@ -28,6 +32,7 @@ ms.custom: "include file"
 | Maximum amount of memory given to a sandbox<sup>1</sup> |400 MB |Applies to Azure sandboxes only.|
 | Maximum number of network sockets allowed per sandbox<sup>1</sup> |1,000 |Applies to Azure sandboxes only.|
 | Maximum runtime allowed per runbook<sup>1</sup> |3 hours |Applies to Azure sandboxes only.|
+| Maximum number of runbooks per Automation account | 800 |
 | Maximum number of system hybrid runbook workers per Automation Account|4,000||
 | Maximum number of user hybrid runbook workers per Automation Account|4,000||
 |Maximum number of concurrent jobs that can be run on a single Hybrid Runbook Worker|50 ||
@@ -40,7 +45,8 @@ ms.custom: "include file"
 |Maximum number of characters in the value field of a variable| 1048576||
 
 <sup>1</sup>A sandbox is a shared environment that can be used by multiple jobs. Jobs that use the same sandbox are bound by the resource limitations of the sandbox.</br>
-<sup>2</sup>To request a limit increase, create an [Azure Support request](https://portal.azure.com/). Free subscriptions including [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) and [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) aren't eligible for limit or quota increases. If you have a free subscription, you can [upgrade](../articles/cost-management-billing/manage/upgrade-azure-subscription.md) to Pay-As-You-Go subscription.
+<sup>2</sup>Free subscriptions including [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) and [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) aren't eligible for limit or quota changes. If you have a free subscription, you can [upgrade](../articles/cost-management-billing/manage/upgrade-azure-subscription.md) to pay-as-you-go subscription.
+<sup>3</sup>Limits for Government clouds: 200 concurrent running jobs at the same instance of time per Automation account, no limit on number of Automation accounts per subscription. 
 
 #### Change Tracking and Inventory
 
@@ -75,5 +81,5 @@ The following are the limits for schedule patching:
 | Total number of resource associations to a schedule | 3,000 | 3,000 |
 | Resource associations on each dynamic scope    | 1,000 | 1,000 |
 | Number of dynamic scopes per resource group or subscription per region     | 250  | 250  |
-| Number of dynamic scopes per schedule   | 200  | 30  |
-| Total number of subscriptions attached to all dynamic scopes per schedule   | 200  | 30  |
+| Number of dynamic scopes per schedule   | 200  | 100  |
+| Total number of subscriptions attached to all dynamic scopes per schedule   | 200  | 100  |

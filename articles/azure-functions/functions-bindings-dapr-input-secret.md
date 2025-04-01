@@ -48,7 +48,7 @@ More samples for the Dapr input secret binding are available in the [GitHub repo
 
 ::: zone pivot="programming-language-java"
 
-The following example creates a `"RetreveSecret"` function using the `DaprSecretInput` binding with the [`DaprServiceInvocationTrigger`](./functions-bindings-dapr-trigger-svc-invoke.md):
+The following example creates a `"RetrieveSecret"` function using the `DaprSecretInput` binding with the [`DaprServiceInvocationTrigger`](./functions-bindings-dapr-trigger-svc-invoke.md):
 
 
 ```java

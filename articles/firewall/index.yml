@@ -8,9 +8,9 @@ metadata:
   description: Learn how to deploy Azure Firewall, a cloud-based network security service.
   ms.service: azure-firewall
   ms.topic: landing-page
-  author: vhorne
-  ms.author: victorh
-  ms.date: 05/30/2024
+  author: duongau
+  ms.author: duau
+  ms.date: 03/17/2025
   ms.custom: e2e-hybrid
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -40,7 +40,7 @@ landingContent:
       - linkListType: whats-new
         links:
           - text: What's new
-            url: https://azure.microsoft.com/updates/?category=networking&query=Firewall
+            url: https://azure.microsoft.com/updates?filters=%5B%22Azure+Firewall%22%5D
 
 
   # Card
@@ -161,6 +161,13 @@ landingContent:
         links:
          - text: Azure network security
            url: ../networking/security/index.yml
+      - linkListType: concept
+        links:
+          - text: Azure DDoS Protection
+            url: ../ddos-protection/index.yml
+          - text: Azure Web Application Firewall
+            url: ../web-application-firewall/index.yml
+
 # Card
   - title: Reference
     linkLists:

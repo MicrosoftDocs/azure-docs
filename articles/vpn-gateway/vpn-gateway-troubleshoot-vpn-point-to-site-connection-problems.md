@@ -5,7 +5,7 @@ description: Learn to troubleshoot and solve common point-to-site connection pro
 author: chadmath
 ms.service: azure-vpn-gateway
 ms.topic: troubleshooting
-ms.date: 09/04/2024
+ms.date: 03/31/2025
 ms.author: genli
 ---
 # Troubleshooting: Azure point-to-site connection problems

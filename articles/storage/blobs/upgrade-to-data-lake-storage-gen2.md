@@ -4,7 +4,7 @@ description: Description goes here.
 author: normesta
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 01/25/2022
+ms.date: 11/26/2024
 ms.author: normesta
 
 ---
@@ -80,13 +80,7 @@ Renaming a blob is far more efficient because client applications can rename a b
 
 ## Impact on costs
 
-There is no cost to perform the upgrade. After you upgrade, the cost to store your data doesn't change, but the cost of a transaction does change. Use these pages to assess compare costs. 
-
-- [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
-
-- [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/).
-
-You can also use the **Storage Accounts** option in the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the impact of costs after an upgrade. 
+There is no cost to perform the upgrade. After you upgrade, the cost to store your data doesn't change, but the cost of a transaction can change depending on which [Storage account endpoint](../common/storage-account-overview.md#storage-account-endpoints) clients, applications, and workloads you use to read and write data. See [Requests to the blob service endpoint](../common/storage-plan-manage-costs.md#requests-to-the-blob-service-endpoint) and [Requests to the Data Lake Storage endpoint](../common/storage-plan-manage-costs.md#requests-to-the-data-lake-storage-endpoint).
 
 Aside from pricing changes, consider the cost savings associated with Data Lake Storage capabilities. Overall total of cost of ownership typically declines because of higher throughput and optimized operations. Higher throughput enables you to transfer more data in less time. A hierarchical namespace improves the efficiency of operations.  
 
@@ -136,8 +130,6 @@ The following buttons don't yet appear in the Ribbon of Azure Storage Explorer:
 |--|--|
 |Copy URL|Not yet implemented|
 |Manage snapshots|Not yet implemented|
-|Undelete|Depends on Blob storage features not yet supported with Data Lake Storage |
-
 
 The following buttons behave differently in your new account.
 

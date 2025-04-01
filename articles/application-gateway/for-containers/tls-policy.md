@@ -55,7 +55,7 @@ When no TLS Policy is specified within your Kubernetes configuration, **predefin
 
 # [Gateway API](#tab/tls-policy-gateway-api)
 
-TLS policy can be defined in a [FrontendTLSPolicy](api-specification-kubernetes.md#alb.networking.azure.io/v1.FrontendTLSPolicy) resource, which targets defined gateway listeners.  Specify a policyType of type `predefinned` and use choose either predefined policy name: `2023-06` or `2023-06-S`
+TLS policy can be defined in a [FrontendTLSPolicy](api-specification-kubernetes.md#alb.networking.azure.io/v1.FrontendTLSPolicy) resource, which targets defined gateway listeners.  Specify a policyType of type `predefined` and use choose either predefined policy name: `2023-06` or `2023-06-S`
 
 Example command to create a new FrontendTLSPolicy resource with the predefined TLS policy 2023-06-S.
 

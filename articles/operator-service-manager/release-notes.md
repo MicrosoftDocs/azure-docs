@@ -1,32 +1,34 @@
 ---
 title: Release notes for Azure Operator Service Manager
-description: Official documentation and tracking for major and minor releases.
+description: Official tracking or AOSM releases and available regions.
 author: msftadam
 ms.author: adamdor
-ms.date: 08/14/2024
+ms.date: 01/15/2025
 ms.topic: release-notes
 ms.service: azure-operator-service-manager
 ---
 
-# Release Notes
+# Release Notes for Azure Operator Service Manager
 
-This pages hosts release notes for Azure Operator Service Manager (AOSM).
+This article hosts release information for Azure Operator Service Manager (AOSM).
 
-## Overview
+## Regional Availability of Releases
 
-The following release notes are generally available (GA):
+Releases described herewithin are generally available across the following Azure regions:
+* eastus
+* southcentralus
+* westus3
+* uksouth
+* westeurope
 
-* Release Notes for Version 2.0.2763-119
-* Release Notes for Version 2.0.2777-132
-* Release Notes for Version 2.0.2783-134
-* Release Notes for Version 2.0.2788-135
-* Release Notes for Version 2.0.2804-137
-* Release Notes for Version 2.0.2810-144
-* Release Notes for Version 2.0.2847-158
-* Release Notes for Version 2.0.2860-160
+Use of AOSM in these regions is permitted, based on prevailing Azure terms of service. Although AOSM may have supported additional regions in the past, any region not-listed is no longer supported. If you have been using AOSM in a not-listed region, or if you have a business need to use AOSM in a not-listed region, please open a support ticket to submit request consideration.
+
+## Release Notes by Version
+
+Releases included in this article are generally available and supported across permitted regions. AOSM users are recommended to watch this page for frequent changes, as releases maybe added, updated or removed at any time. No additional notice of releases is provided, beyond this release notes article.
   
-### Release Attestation
-These releases are produced compliant with Microsoft’s Secure Development Lifecycle. This lifecycle includes processes for authorizing software changes, antimalware scanning, and scanning and mitigating security bugs and vulnerabilities.
+### Release Attestation for All Versions
+All releases are produced compliant with Microsoft’s Secure Development Lifecycle. This lifecycle includes processes for authorizing software changes, antimalware scanning, and scanning and mitigating security bugs and vulnerabilities.
 
 ## Release 2.0.2763-119
 
@@ -75,7 +77,7 @@ Through Microsoft’s Secure Future Initiative (SFI), this release delivers the 
 
 * NFO	- Signing of helm package used by network function extension.
 * NFO	- Signing of core image used by network function extension.
-* NFO	- Use of Cert-manager for service certificate management and rotation. This change can result in failed SNS deployments if not properly reconciled. For guidance on the impact of this change, see our [best practice recommendations](best-practices-onboard-deploy.md#considerations-if-your-nf-runs-cert-manager).
+* NFO	- Use of Cert-manager for service certificate management and rotation. This change can result in failed SNS deployments if not properly reconciled.
 * NFO	- Automated refresh of AOSM certificates during extension installation.
 * NFO	- A dedicated service account for the preupgrade job to safeguard against modifications to the existing network function extension service account.
 * RP - The service principles (SPs) used for deploying site & Network Function (NF) now require “Microsoft.ExtendedLocation/customLocations/read” permission. The SPs that deploy day N scenario now require "Microsoft.Kubernetes/connectedClusters/listClusterUserCredentials/action" permission. This change can result in failed SNS deployments if not properly reconciled
@@ -302,3 +304,86 @@ None
 #### Security Related Updates
 
 None
+
+## Release 2.0.2875-165
+
+Document Revision 1.0
+
+### Release Summary
+Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This November 15, 2024 Azure Operator Service Manager release includes updating the NFO version to 2.0.2875-165, the details of which are further outlined in the remainder of this document.
+
+### Release Details
+* Release Version: Version 2.0.2875-165
+* Release Date: November 15, 2024
+* Is NFO update required: YES, Update only
+* Dependency Versions: Go/1.22.4 - Helm/3.15.2
+
+#### Bugfix Related Updates
+The following bug fixes, or other defect resolutions, are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
+
+* NFO	- Fixes image pull issues by enumerating to find the valid secret to use when pulling the image from remote artifact store resource.
+* NFO - Fixes issue resulting from enabling cluster registry after first NFO extension installation.
+* NFO - Improved Cluster Registry error handling and logging.
+
+#### Security Related Updates
+* CVE	- A total of 2 CVEs are addressed in this release.
+
+## Release 2.0.2976-178
+
+Document Revision 1.0
+
+### Release Summary
+Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This February 25, 2025 Azure Operator Service Manager release includes updating the NFO version to 2.0.2976-178, the details of which are further outlined in the remainder of this document.
+
+### Release Details
+* Release Version: Version 2.0.2976-178
+* Release Date: February 25, 2025
+* Is NFO update required: YES, Update only
+* Dependency Versions: Go/1.22.4 - Helm/3.15.2
+
+#### Bugfix Related Updates
+The following bug fixes, defect resolutions, or usability improvements are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
+
+* RP - Increase component timeout during delete operations to 2 hours and 30 minutes. (2501290010002055)
+* NFO	- Fix for SNS delete Pre & Post hooks not able to download images (2501270010002100)
+* NFO - Remove redundant image downloads to improve install/upgrade time 
+* NFO - Artifact Controller Logging Improvement
+
+#### Security Related Updates
+* CVE	- A total of 2 CVEs are addressed in this release.
+
+## Release 2.0.2985-184
+
+Document Revision 1.0
+
+### Release Summary
+Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This March 6, 2025 Azure Operator Service Manager release includes updating the NFO version to 2.0.2985-184, the details of which are further outlined in the remainder of this document.
+
+### Release Details
+* Release Version: Version 2.0.2985-184
+* Release Date: March 6, 2025
+* Is NFO update required: YES, Update only
+* Dependency Versions: Go/1.22.4 - Helm/3.15.2
+
+> [!WARNING]
+> This release has been found to contain flaws and should not be used. Please use 2.0.2987-186 instead.
+
+## Release 2.0.2987-186
+
+Document Revision 1.0
+
+### Release Summary
+Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This March 10, 2025 Azure Operator Service Manager release includes updating the NFO version to 2.0.2987-186, the details of which are further outlined in the remainder of this document.
+
+### Release Details
+* Release Version: Version 2.0.2987-186
+* Release Date: March 10, 2025
+* Is NFO update required: YES, Update only
+* Dependency Versions: Go/1.22.4 - Helm/3.15.2
+
+#### Bugfix Related Updates
+The following bug fixes, defect resolutions, or usability improvements are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
+
+* NFO - Cluster Registry Image Corruption Auto-Recovery [2502220010001187]: Sometimes, images in the cluster registry become corrupted due to failures during the download process. This results in all subsequent retry attempts for that image failing. This solution detects corrupted images, removes broken Docker image links, and ensures that future retries can successfully download the image.
+* NFO - Avoid performing an unnecessary image copy when the image is already present in the cluster registry: This update eliminates redundant image downloads when the Artifact Controller pod crashes or becomes temporarily unavailable due to network issues. If the image is already present in the cluster registry, the system will now bypass unnecessary copies, improving efficiency and reducing resource consumption.
+* NFO - Increase oras download concurrency count [ICM602686818]: This update increases the concurrency setting in ORAS, enhancing parallel processing and improving download speed.

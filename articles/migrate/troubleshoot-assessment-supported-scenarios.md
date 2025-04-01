@@ -1,12 +1,9 @@
 ---
 title: Troubleshooting supported scenarios for Assessments
 description: Get help for resolving issues with assessments in supported scenarios using Azure Migrate.
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.service: azure-migrate
-ms.date: 02/16/2024
+ms.date: 08/20/2024
 ms.custom: engagement-fy24, linux-related-content
 ---
 

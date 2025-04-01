@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Implement Azure Policy with Azure DevOps"
 description: In this tutorial, you implement an Azure Policy with an Azure DevOps release pipeline.
-ms.date: 03/02/2023
+ms.date: 03/04/2025
 ms.topic: tutorial
 ms.author: jukullam
 ms.custom: devops-pipelines-deploy
@@ -65,4 +65,4 @@ If you're using a YAML pipeline definition, then use the [AzurePolicyCheckGate@0
 To learn more about the structures of policy definitions, look at this article:
 
 > [!div class="nextstepaction"]
-> [Azure Policy definition structure](../concepts/definition-structure.md)
+> [Azure Policy definition structure](../concepts/definition-structure-basics.md)

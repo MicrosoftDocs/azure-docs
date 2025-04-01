@@ -2,12 +2,11 @@
 title: Support for wildcard domains
 titleSuffix: Azure Front Door
 description: This article helps you understand how Azure Front Door supports mapping and managing wildcard domains in the list of custom domains.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/31/2024
-ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
 
@@ -50,7 +49,7 @@ For accepting HTTPS traffic on your wildcard domain, you must enable HTTPS on th
 
 ## Define a subdomain explicitly
 
-You can add as many single-level subdomains of the wildcard as you would like. For example, for the wildcard domain `*.contoso.com`, you can also add subdomains to your Azure Front Door profile for `image.contosto.com`, `cart.contoso.com`, and so forth. The configuration that you explicitly specify for the subdomain takes precedence over the configuration of the wildcard domain.
+You can add as many single-level subdomains of the wildcard as you would like. For example, for the wildcard domain `*.contoso.com`, you can also add subdomains to your Azure Front Door profile for `image.contoso.com`, `cart.contoso.com`, and so forth. The configuration that you explicitly specify for the subdomain takes precedence over the configuration of the wildcard domain.
 
 You might need to explicitly add subdomains in these situations:
 

@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 > * Create a secure-by-default architecture for Azure App Service and Azure Cosmos DB with MongoDB API.
 > * Secure connection secrets using a managed identity and Key Vault references.
 > * Deploy a Node.js sample app to App Service from a GitHub repository.
-> * Acces App Service app settings in the application code.
+> * Access App Service app settings in the application code.
 > * Make updates and redeploy the application code.
 > * Stream diagnostic logs from App Service.
 > * Manage the app in the Azure portal.
@@ -490,7 +490,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
         1. Select **Delete**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-clean-up-resources-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-clean-up-resources-3.png"::::
+        :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-clean-up-resources-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-clean-up-resources-3.png":::
     :::column-end:::
 :::row-end:::
 

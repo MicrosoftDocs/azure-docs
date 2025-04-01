@@ -37,9 +37,9 @@ In this section, you create **myVNet** virtual network with two subnets and an A
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box at the top of the portal, enter *virtual networks*. Select **Virtual networks** from the search results.
+1. In the search box at the top of the portal, enter ***virtual networks***. Select **Virtual networks** from the search results.
 
-    :::image type="content" source="./media/monitor-vm-communication/virtual-network-azure-portal.png" alt-text="Screenshot shows how to search for virtual networks in the Azure portal." lightbox="./media/monitor-vm-communication/virtual-network-azure-portal.png":::
+    :::image type="content" source="./media/virtual-networks-portal-search.png" alt-text="Screenshot that shows how to search for virtual networks in the Azure portal." lightbox="./media/virtual-networks-portal-search.png":::
 
 1. Select **+ Create**. In **Create virtual network**, enter or select the following values in the **Basics** tab:
 

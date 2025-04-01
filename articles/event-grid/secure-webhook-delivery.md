@@ -1,16 +1,17 @@
 ---
-title: Secure WebHook delivery with Microsoft Entra ID in Azure Event Grid
+title: Secure WebHook delivery with Microsoft Entra ID
 description: Describes how to deliver events to HTTPS endpoints protected by Microsoft Entra ID using Azure Event Grid
 ms.topic: how-to
 ms.custom: has-azure-ad-ps-ref, azure-ad-ref-level-one-done
-ms.date: 02/02/2024
+ms.date: 02/12/2025
+# Customer intent: As an architect or a developer, I want to learn how to delivering events to a webhook using Microsoft Entra ID. 
 ---
 
 # Deliver events to Microsoft Entra protected endpoints
-This article describes how to use Microsoft Entra ID to secure the connection between your **event subscription** and your **webhook endpoint**. It uses the Azure portal for demonstration, however the feature can also be enabled using CLI, PowerShell, or the SDKs.
+This article describes how to use Microsoft Entra ID to secure the connection between your **event subscription** and your **webhook endpoint**. It uses the Azure portal for demonstration. However the feature can also be enabled using CLI, PowerShell, or the SDKs.
 
 > [!IMPORTANT]
-> Additional access check has been introduced as part of create or update of event subscription on March 30, 2021 to address a security vulnerability. The subscriber client's service principal needs to be either an owner or have a role assigned on the destination application service principal. Reconfigure your Microsoft Entra Application following the new instructions below.For an overview of Microsoft Entra applications and service principals, see [Microsoft identity platform (v2.0) overview](/entra/identity-platform/v2-overview).
+> Extra access check was introduced as part of create or update of event subscription on March 30, 2021 to address a security vulnerability. The subscriber client's service principal needs to be either an owner or have a role assigned on the destination application service principal. Reconfigure your Microsoft Entra Application following the new instructions in this article. For an overview of Microsoft Entra applications and service principals, see [Microsoft identity platform (v2.0) overview](/entra/identity-platform/v2-overview).
 
 ## Scenarios
 This article explains how to implement the following two scenarios in detail: 
@@ -63,9 +64,9 @@ This section shows how to configure the event subscription by using a Microsoft 
     > [!NOTE]
     > You don't need to modify the value of **$eventGridAppId**. In this script, **AzureEventGridSecureWebhookSubscriber** is set for the **$eventGridRoleName**. Remember, you must be a member of the [Microsoft Entra Application Administrator role](/entra/identity/role-based-access-control/permissions-reference#all-roles) or be an owner of the service principal of webhook app in Microsoft Entra ID to execute this script.
 
-    If you see the following error message, you need to elevate to the service principal. An extra access check has been introduced as part of create or update of event subscription on March 30, 2021 to address a security vulnerability. The subscriber client's service principal needs to be either an owner or have a role assigned on the destination application service principal. 
+    If you see the following error message, you need to elevate to the service principal. An extra access check was introduced as part of create or update of event subscription on March 30, 2021 to address a security vulnerability. The subscriber client's service principal needs to be either an owner or have a role assigned on the destination application service principal. 
     
-    ```
+    ```powershell
     New-MgServicePrincipalAppRoleAssignment: Error occurred while executing NewServicePrincipalAppRoleAssignment
     Code: Authorization_RequestDenied
     Message: Insufficient privileges to complete the operation.
@@ -137,7 +138,7 @@ This section shows how to configure the event subscription by using a Microsoft 
 10. If everything was correctly configured, you can successfully create the webhook subscription in your Event Grid topic.
 
     > [!NOTE]
-    > At this point, Event Grid is now passing the Microsoft Entra bearer token to the webhook client in every message. You'll need to validate the authorization token in your webhook.
+    > At this point, Event Grid is now passing the Microsoft Entra bearer token to the webhook client in every message. You need to validate the authorization token in your webhook.
 
 <a name='deliver-events-to-a-webhook-in-a-different-azure-ad-tenant'></a>
 
@@ -182,9 +183,9 @@ Do the following steps in **Tenant B**:
             > [!NOTE]
             > You don't need to modify the value of **```$eventGridAppId```**. In this script, **AzureEventGridSecureWebhookSubscriber** is set for **```$eventGridRoleName```**. Remember, you must be a member of the [Microsoft Entra Application Administrator role](/entra/identity/role-based-access-control/permissions-reference#all-roles) or be an owner of the service principal of webhook app in Microsoft Entra ID to execute this script.
 
-    If you see the following error message, you need to elevate to the service principal. An extra access check has been introduced as part of create or update of event subscription on March 30, 2021 to address a security vulnerability. The subscriber client's service principal needs to be either an owner or have a role assigned on the destination application service principal. 
+    If you see the following error message, you need to elevate to the service principal. An extra access check was introduced as part of create or update of event subscription on March 30, 2021 to address a security vulnerability. The subscriber client's service principal needs to be either an owner or have a role assigned on the destination application service principal. 
     
-    ```
+    ```powershell
     New-MgServicePrincipalAppRoleAssignment: Error occurred while executing NewServicePrincipalAppRoleAssignment
     Code: Authorization_RequestDenied
     Message: Insufficient privileges to complete the operation.
@@ -192,7 +193,7 @@ Do the following steps in **Tenant B**:
 
 ### Tenant A
 
-Back in **Tenant A**, do the following steps: 
+Now, in **Tenant A**, do the following steps: 
 
 1. Open the [Azure Shell](https://portal.azure.com/#cloudshell/), and sign in as the Event Grid subscription writer Microsoft Entra Application by running the command.
 
@@ -206,15 +207,14 @@ Back in **Tenant A**, do the following steps:
     ```
 
     > [!NOTE]
-    > In this scenario we are using an Event Grid System Topic. See [here](/cli/azure/eventgrid), if you want to create a subscription for custom topics or Event Grid domains by using the Azure CLI.
+    > In this scenario, we're using an Event Grid System Topic. See [here](/cli/azure/eventgrid), if you want to create a subscription for custom topics or Event Grid domains by using the Azure CLI.
 3. If everything was correctly configured, you can successfully create the webhook subscription in your Event Grid topic.
 
     > [!NOTE]
-    > At this point, Event Grid is now passing the Microsoft Entra Bearer token to the webhook client in every message. You'll need to validate the Authorization token in your webhook.
+    > At this point, Event Grid is now passing the Microsoft Entra Bearer token to the webhook client in every message. You need to validate the Authorization token in your webhook.
 
-## Next steps
+## Related content
 
 * For conceptual information, see [WebHook event delivery](end-point-validation-cloud-events-schema.md).
-* For information about monitoring event deliveries, see [Monitor Event Grid message delivery](monitor-event-delivery.md).
 * For more information about the authentication key, see [Event Grid security and authentication](security-authentication.md).
 * For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).

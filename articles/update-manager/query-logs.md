@@ -41,9 +41,9 @@ The table `patchassessmentresources` includes resources related to machine patch
 | `ZONES` | Intentionally left blank for future use. |
 | `EXTENDEDLOCATION` | Intentionally left blank for future use. |
 
-### Description of the patchassessmentresources property
+### Description of the patchassessmentResults properties
 
-If the property for the resource type is `patchassessmentresources`, it includes the information in the following table.
+If the property for the resource type is `patchassessmentresults`, it includes the information in the following table.
 
 |Value |Description |
 |------|------------|

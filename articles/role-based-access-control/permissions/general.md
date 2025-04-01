@@ -4,9 +4,9 @@ description: Lists the permissions for the Azure resource providers in the Gener
 ms.service: role-based-access-control
 ms.topic: reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -162,6 +162,7 @@ Azure service: [Azure Quotas](/azure/quotas/quotas-overview)
 > | Microsoft.Quota/register/action | Register the subscription with Microsoft.Quota Resource Provider |
 > | Microsoft.Quota/groupQuotas/read | Get the GroupQuota |
 > | Microsoft.Quota/groupQuotas/write | Creates the GroupQuota resource |
+> | Microsoft.Quota/groupQuotas/delete | Deletes the GroupQuota resource |
 > | Microsoft.Quota/groupQuotas/groupQuotaLimits/read | Get the current GroupQuota of the specified resource |
 > | Microsoft.Quota/groupQuotas/groupQuotaLimits/write | Creates the GroupQuota request for the specified resource |
 > | Microsoft.Quota/groupQuotas/groupQuotaRequests/read | Get the GroupQuota request status for the specific request |
@@ -170,6 +171,7 @@ Azure service: [Azure Quotas](/azure/quotas/quotas-overview)
 > | Microsoft.Quota/groupQuotas/quotaAllocations/write | Creates the GroupQuota to subscription Quota limit request for the specified resource |
 > | Microsoft.Quota/groupQuotas/subscriptions/read | Get the GroupQuota subscriptions |
 > | Microsoft.Quota/groupQuotas/subscriptions/write | Add Subscriptions to GroupQuota resource |
+> | Microsoft.Quota/groupQuotas/subscriptions/delete | Deletes Subscriptions from GroupQuota resource |
 > | Microsoft.Quota/operations/read | Get the Operations supported by Microsoft.Quota |
 > | Microsoft.Quota/quotaRequests/read | Get any service limit request for the specified resource |
 > | Microsoft.Quota/quotas/read | Get the current Service limit or quota of the specified resource |

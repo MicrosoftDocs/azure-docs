@@ -77,10 +77,7 @@ The template defines multiple Azure resources:
     :::image type="content" source="media/create-virtual-network-manager-template/template-resources.png" alt-text="Screenshot of all deployed resources in Azure portal.":::
 
 1. Select the **avnm-EastUS** resource.
-1. In the **Network Groups** page,  select **Settings>NetworkGroups>ng-EastUS-static**.
-   
-   :::image type="content" source="media/create-virtual-network-manager-template/static-network-group.png" alt-text="Screenshot of deployed network groups in Azure portal.":::
-
+1. In the **Network Groups** page,  select **Settings** > **NetworkGroups** > **ng-EastUS-static**.
 1. On the **ng-EastUS-static** page, select **Settings>Group Members** and verify a set of virtual networks are deployed.
 
     :::image type="content" source="media/create-virtual-network-manager-template/mesh-group-members.png" alt-text="Screenshot of static members in network group for a static topology deployment.":::

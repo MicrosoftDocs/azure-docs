@@ -4,9 +4,9 @@ description: In this article, learn about which Azure services support Private L
 author: abell
 ms.author: abell
 ms.service: azure-private-link
-ms.topic: conceptual
-ms.date: 07/10/2024
-ms.custom: template-concept, references_regions
+ms.topic: concept-article
+ms.date: 03/25/2025
+ms.custom: template-concept, references_regions, ignite-2024
 ---
 
 # Azure Private Link availability
@@ -28,6 +28,9 @@ The following tables list the Private Link services and the regions where they'r
 |Azure Bot Service | All public regions | Supported only on Direct Line App Service extension | GA </br> [Learn how to create a private endpoint for Azure Bot Service](/azure/bot-service/dl-network-isolation-concept) |
 | Azure AI Search | All public regions | | GA </br> [Learn how to create a private endpoint for Azure AI Search](/azure/search/service-create-private-endpoint) |
 | Azure AI services | All public regions<br/>All Government regions      |   | GA   <br/> [Use private endpoints.](/azure/ai-services/cognitive-services-virtual-networks#use-private-endpoints)  |
+| Azure AI Video Indexer | All public regions  |   | GA   <br/> [Use private endpoints with Azure AI Video Indexer.](/azure/azure-video-indexer/private-endpoint-overview)  |
+
+
 
 ### Analytics
 
@@ -55,6 +58,7 @@ The following tables list the Private Link services and the regions where they'r
 |Supported services  |Available regions | Other considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
 |Azure Container Registry | All public regions<br/> All Government regions    | Supported with premium tier of container registry. [Select for tiers](/azure/container-registry/container-registry-skus)| GA   <br/> [Learn how to create a private endpoint for Azure Container Registry.](/azure/container-registry/container-registry-private-link)   |
+| Azure Container Apps | All public regions | Supported for workload profile environments for both Consumption and Dedicated plans. | Public Preview <br/> [Learn how to create a private endpoint for Azure Container Apps](/azure/container-apps/how-to-use-private-endpoint) |
 |Azure Kubernetes Service - Kubernetes API | All public regions <br/> All Government regions  |  | GA   <br/> [Learn how to create a private endpoint for Azure Kubernetes Service.](/azure/aks/private-clusters)   |
 
 ### Databases
@@ -100,7 +104,7 @@ The following tables list the Private Link services and the regions where they'r
 |Supported services  |Available regions | Other considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
 |  Azure Key Vault         | All public regions<br/> All Government regions      |  | GA   <br/> [Learn how to create a private endpoint for Azure Key Vault.](/azure/key-vault/general/private-link-service)   |
-|Azure App Configuration | All public regions      |  | GA  </br> [Learn how to create a private endpoint for Azure App Configuration](../azure-app-configuration/concept-private-endpoint.md) |
+|Azure App Configuration | All public regions<br/> All Government regions<br/>All China regions      |  | GA  </br> [Learn how to create a private endpoint for Azure App Configuration](../azure-app-configuration/concept-private-endpoint.md) |
 |Azure Application Gateway | All public regions      |  | GA  </br> [Azure Application Gateway Private Link](../application-gateway/private-link.md) |
 
 

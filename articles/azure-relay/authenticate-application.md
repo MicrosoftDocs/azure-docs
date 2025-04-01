@@ -2,7 +2,7 @@
 title: Authenticate from an application - Azure Relay 
 description: This article provides information about authenticating an application with Microsoft Entra ID to access Azure Relay resources. 
 ms.topic: article
-ms.date: 08/10/2023
+ms.date: 12/10/2024
 ---
 
 # Authenticate and authorize an application with Microsoft Entra ID to access Azure Relay entities 
@@ -111,7 +111,7 @@ Here's the code from the sample that shows how to use Microsoft Entra authentica
     - [Add or remove Azure role assignments using the REST API](../role-based-access-control/role-assignments-rest.md)
     - [Add or remove Azure role assignments using Azure Resource Manager Templates](../role-based-access-control/role-assignments-template.md)
 
-To learn more about Azure Relay, see the following topics.
+To learn more about Azure Relay, see the following articles.
 - [What is Relay?](relay-what-is-it.md)
 - [Get started with Azure Relay Hybrid connections WebSockets](relay-hybrid-connections-dotnet-get-started.md)
 - [Get stated with Azure Relay Hybrid connections HTTP requests](relay-hybrid-connections-http-requests-dotnet-get-started.md)

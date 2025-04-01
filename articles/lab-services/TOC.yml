@@ -4,6 +4,8 @@
   items:
   - name: Azure Lab Services retirement guide
     href: retirement-guide.md
+  - name: Find and delete lab resources
+    href: find-delete-lab-resources.md
   - name: What is Azure Lab Services?
     href: lab-services-overview.md
   expanded: true
@@ -82,7 +84,6 @@
     href: lab-services-within-canvas-overview.md
   - name: Use Lab Services within Teams
     href: lab-services-within-teams-overview.md
-  - name: Lab class types
 - name: How-tos
   items:
   - name: Administrator guide

@@ -8,7 +8,7 @@ ms.author: dbandaru
 ms.collection: 
   - ce-skilling-ai-copilot
 zone_pivot_groups: programming-languages-set-functions
-#customer intent: As an Azure developer, I want learn how to integrate Azure OpenAI capabilities in my function code to leverage AI benefits in my colud-based code executions. 
+#customer intent: As an Azure developer, I want learn how to integrate Azure OpenAI capabilities in my function code to leverage AI benefits in my cloud-based code executions. 
 ---
 
 # Tutorial: Add Azure OpenAI text completion hints to your functions in Visual Studio Code
@@ -19,7 +19,7 @@ During this tutorial, you learn how to accomplish these tasks:
 
 > [!div class="checklist"]
 > * Create resources in Azure OpenAI.
-> * Deploy a model in OpenAI the resource.
+> * Deploy a model in the OpenAI resource.
 > * Set access permissions to the model resource.
 > * Enable your function app to connect to OpenAI.
 > * Add OpenAI bindings to your HTTP triggered function.

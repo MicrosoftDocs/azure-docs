@@ -33,7 +33,7 @@ When applying for a short code, there are two charges to consider:
 
 #### Pre-paid fee
 
-|Country|Fee type   | Description |Fee|
+|Country/Region|Fee type   | Description |Fee|
 |---------|-----------|-------------|---|
 |Canada| Short Code Fee |Charged before short code delivery.|$1000/mo|
 |United Kingdom| Short Code Fee |Charged before short code delivery.|$1600/mo|
@@ -45,7 +45,7 @@ When applying for a short code, there are two charges to consider:
 
 #### Setup fee
 
-|Country|Fee type   | Description |Fee|
+|Country/Region|Fee type   | Description |Fee|
 |---------|-----------|-------------|---|
 |Canada|Setup Fee |Charged at the time the Short Code is delivered |$3000|
 |United States|Setup Fee |Charged at the time the Short Code is delivered |$650|
@@ -56,7 +56,7 @@ When applying for a short code, there are two charges to consider:
 ### Leasing Fee
 Fees for short code leasing are charged after provisioning is complete and then recur on a month-to-month basis:
 
-|Country|Number type | Monthly fee |
+|Country/Region|Number type | Monthly fee |
 |--------|----------|-----------|
 |Canada|Random Short Code |$1000/mo |
 |United Kingdom|Random Short Code |$1600/mo |
@@ -65,11 +65,11 @@ Fees for short code leasing are charged after provisioning is complete and then 
 *Extra $500/mo would be charged for Vanity short codes
 
 ### Usage Fee
-SMS offers pay-as-you-go pricing. The price is a per-message segment charge based on the destination of the message. Messages can be sent from a short code to phone numbers located within the specified countries. 
+SMS offers pay-as-you-go pricing. The price is a per-message segment charge based on the destination of the message. Messages can be sent from a short code to phone numbers located within the specified countries or regions. 
 
 The following prices are exclusive of the required communications taxes and fees:
 
-|Country| Send Message | Receive Message|
+|Country/Region| Send Message | Receive Message|
 |-----------|---------|--------------|
 |Canada | $0.0268 | $0.0061|
 |United Kingdom| $0.04 | $0.0075|
@@ -80,7 +80,7 @@ The following prices are exclusive of the required communications taxes and fees
 ### Carrier surcharge
 A standard carrier surcharge is applicable to messages exchanged via short-codes. A carrier surcharge is a per-message segment* charge and is subject to change. Carrier surcharge is calculated based on the destination of the message for sent messages and based on the sender of the message for received messages.  See our guide on [Carrier surcharges]
 
-|Country| Send Message | Receive Message|
+|Country/Region| Send Message | Receive Message|
 |-----------|---------|--------------|
 |Canada | $0.0050 | NA|
 |United States| $0.0025 | NA|

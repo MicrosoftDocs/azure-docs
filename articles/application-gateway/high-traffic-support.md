@@ -4,7 +4,7 @@ description: This article provides guidance to configure Azure Application Gatew
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/19/2023
 ms.author: greglin
 ---
@@ -44,7 +44,7 @@ Make sure to check your subnet size and available IP address count in your subne
 
 ### Set your minimum instance count based on your average Compute Unit usage
 
-For Application Gateway v2 SKU, autoscaling takes six to seven minutes to scale out and provision additional set of instances ready to take traffic. Until then, if there are short spikes in traffic, your existing gateway instances might get under stress and this may cause unexpected latency or loss of traffic. 
+For Application Gateway v2 SKU, autoscaling takes three to five minutes to scale out and provision additional set of instances ready to take traffic. Until then, if there are short spikes in traffic, your existing gateway instances might get under stress and this may cause unexpected latency or loss of traffic. 
 
 It's recommended that you set your minimum instance count to an optimal level. For example, if you require 50 instances to handle the traffic at peak load, then setting the minimum 25 to 30 is a good idea rather than at <10 so that even when there are short bursts of traffic, Application Gateway would be able to handle it and give enough time for autoscaling to respond and take effect.
 

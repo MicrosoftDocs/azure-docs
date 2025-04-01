@@ -8,9 +8,14 @@ ms.service: azure-databox
 ms.topic: how-to
 ms.date: 09/29/2023
 ms.author: shaas
+zone_pivot_groups: data-box-sku
 #Customer intent: As an IT admin, I need to be able to export data from Azure to another location, such as, another cloud provider or my location.
 ---
 # Tutorial: Create export order for Azure Data Box
+
+:::zone pivot="dbx"
+[!INCLUDE [data-box-retirement](includes/data-box-retirement.md)]
+:::zone-end
 
 Azure Data Box is a hybrid solution that allows you to move data out of Azure into your location. This tutorial describes how to create an export order for Azure Data Box. The main reason to create an export order is for disaster recovery, in case on-premises storage gets compromised and a back-up needs to be restored.
 
@@ -44,7 +49,13 @@ Before you begin, make sure that:
 
 * You should have a host computer connected to the datacenter network. You will copy the data from Azure Data Box to this computer. Your host computer must run a supported operating system as described in [Azure Data Box system requirements](data-box-system-requirements.md).
 
+:::zone pivot="dbx"
 * Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection is not available, a 1-GbE data link can be used but the copy speeds are impacted.
+:::zone-end
+
+:::zone pivot="dbx-ng"
+* Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 100-GbE connection. If a 100-GbE connection is not available, a 10-GbE or 1-GbE data link can be used but the copy speeds are impacted.
+:::zone-end
 
 ## Order Data Box for export
 
@@ -68,11 +79,11 @@ Perform the following steps in the Azure portal to order a device.
     |Subscription     | Select an EA, CSP, or Azure sponsorship subscription for Data Box service. <br> The subscription is linked to your billing account.       |
     |Resource group     |    Select an existing resource group. <br> A resource group is a logical container for the resources that can be managed or deployed together.         |
     |Source Azure region    |    Select the Azure region where your data currently is.         |
-    |Destination country     |     Select the country where you want to ship the device.        |
+    |Destination country     |     Select the country/region where you want to ship the device.        |
 
    ![Select your Data Box settings](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-box-settings.png)
 
-5. Select **Data Box**. The maximum usable capacity for a single order is 80 TB. You can create multiple orders for larger data sizes.
+5. Select **Data Box**. The maximum usable capacity for a single order is 120 TB/525 TB or 80 TB depending on the SKU. You can create multiple orders for larger data sizes.
 
    ![Select Data Box capacity](media/data-box-deploy-export-ordered/azure-data-box-export-order-capacity.png)
 
@@ -275,7 +286,7 @@ Follow these guidelines to create your XML file if you choose to select blobs an
 
 This sample XML file includes examples of each XML tag that is used to select blobs and files for export in a Data Box export order.
 
-- For a XML file requirements, go to the **XML file overview** tab.
+- For XML file requirements, go to the **XML file overview** tab.
 - For more examples of valid blob and file prefixes, go to the **Prefix examples** tab.
 
 ```xml
@@ -421,3 +432,7 @@ Advance to the next tutorial to learn how to set up your Data Box.
 
 > [!div class="nextstepaction"]
 > [Set up your Azure Data Box](./data-box-deploy-set-up.md)
+
+:::zone pivot="dbx-ng"
+
+:::zone-end

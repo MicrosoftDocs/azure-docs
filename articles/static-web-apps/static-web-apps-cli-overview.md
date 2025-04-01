@@ -2,14 +2,16 @@
 title: About the Azure Static Web Apps CLI
 description: Learn how to use the Azure Static Web Apps CLI
 services: static-web-apps
-author: craigshoemaker
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic:  conceptual
 ms.date: 02/06/2024
-ms.author: cshoe
+ms.author: wujia
 ---
 
 # Azure Static Web Apps CLI overview
+
+[!INCLUDE [Required version](includes/static-web-apps-cli-required-version.md)]
 
 Azure Static Web Apps websites are hosted in the cloud and often connect together a collection of cloud services. During development, and any time you need to run your app locally, you need tools to mimic how your app runs in the cloud.
 

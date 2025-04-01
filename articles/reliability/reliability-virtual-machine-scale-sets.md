@@ -3,7 +3,7 @@ title: Reliability in Azure Virtual Machine Scale Sets
 description: Learn about reliability in Azure Virtual Machine Scale Sets. 
 author: anaharris-ms
 ms.author: anaharris
-ms.topic: overview
+ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-virtual-machine-scale-sets
 ms.date: 10/31/2024
@@ -32,7 +32,7 @@ Virtual Machine Scale Sets supports both zonal and zone-redundant deployments wi
 
 ### Prerequisites
 
-1. To use availability zones, your scale set must be created in a [supported Azure region](./availability-zones-service-support.md).
+1. To use availability zones, your scale set must be created in a [supported Azure region](./regions-list.md).
 
 1. All VMs - even single instance VMs - should be deployed into a scale set using [flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration) mode to future-proof your application for scaling and availability. 
 

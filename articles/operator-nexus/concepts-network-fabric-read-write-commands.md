@@ -1,8 +1,8 @@
 ---
 title: Network Fabric read write commands
 description: Learn how to use the Nexus Fabric Read Write commands to modify device configurations without accessing the Network Fabric device.
-author: HollyCl
-ms.author: HollyCl
+author: sushantjrao
+ms.author: sushrao
 ms.service: azure-operator-nexus
 ms.custom: devx-track-azurecli
 ms.topic: concept-article 
@@ -61,7 +61,7 @@ show interfaces description
 ```
 
 ```Output
-|Interface  |Status  |Protocol  |Decsription  |
+|Interface  |Status  |Protocol  |Description  |
 |---------|---------|---------|---------|
 |Et1      | admin down        | down          | **"AR-Mgmt2:Et1 to Not-Connected"**          |
 |Et2      | admin down        | down          | **"AR-Mgmt2:Et2 to Not-Connected"**         |
@@ -150,10 +150,10 @@ The Status should indicate whether the API succeeded or failed.
   }, 
   "systemData": { 
     "createdAt": "2024-XX-XXT13:41:13.8558264Z", 
-    "createdBy": "cbe7d642-9e0a-475d-b2bf-2cb0a9825e13", 
+    "createdBy": "xxxxxxxx-xxxx-xxxx-xxxxxx", 
     "createdByType": "Application", 
     "lastModifiedAt": "2024-XX-XXT10:44:21.3736554Z", 
-    "lastModifiedBy": "cbe7d642-9e0a-475d-b2bf-2cb0a9825e13", 
+    "lastModifiedBy": "xxxxxxxx-xxxx-xxxx-xxxxxx", 
     "lastModifiedByType": "Application" 
   }, 
   "type": "microsoft.managednetworkfabric/networkdevices" 
@@ -167,7 +167,7 @@ show interfaces description
 ```
 
 ```Output
-|Interface  |Status  |Protocol  |Decsription  |
+|Interface  |Status  |Protocol  |Description  |
 |---------|---------|---------|---------|
 |Et1      | admin down        | down          | **RW-test1**         |
 |Et2      | admin down        | down          | "AR-Mgmt2:Et2 to Not-Connected"        |
@@ -258,10 +258,10 @@ Expected output:
   }, 
   "systemData": { 
     "createdAt": "2024-XX-XXT13:41:13.8558264Z", 
-    "createdBy": "cbe7d642-9e0a-475d-b2bf-2cb0a9825e13", 
+    "createdBy": "xxxxxxxx-xxxx-xxxx-xxxxxx", 
     "createdByType": "Application", 
     "lastModifiedAt": "2024-XX-XXT10:44:21.3736554Z", 
-    "lastModifiedBy": "cbe7d642-9e0a-475d-b2bf-2cb0a9825e13", 
+    "lastModifiedBy": "xxxxxxxx-xxxx-xxxx-xxxxxx", 
     "lastModifiedByType": "Application" 
   }, 
   "type": "microsoft.managednetworkfabric/networkdevices" 
@@ -273,7 +273,7 @@ show interfaces description
 ```
 
 ```Output
-|Interface  |Status  |Protocol  |Decsription  |
+|Interface  |Status  |Protocol  |Description  |
 |---------|---------|---------|---------|
 |Et1      | admin down        | down          | **RW-test1**         |
 |Et2      | admin down        | down          | **RW-test2**         |
@@ -360,10 +360,10 @@ Expected output:
   }, 
   "systemData": { 
     "createdAt": "2024-XX-XXT13:41:13.8558264Z", 
-    "createdBy": "cbe7d642-9e0a-475d-b2bf-2cb0a9825e13", 
+    "createdBy": "xxxxxxxx-xxxx-xxxx-xxxxxx", 
     "createdByType": "Application", 
     "lastModifiedAt": "2024-XX-XXT10:44:21.3736554Z", 
-    "lastModifiedBy": "cbe7d642-9e0a-475d-b2bf-2cb0a9825e13", 
+    "lastModifiedBy": "xxxxxxxx-xxxx-xxxx-xxxxxx", 
     "lastModifiedByType": "Application" 
   }, 
 
@@ -377,7 +377,7 @@ show interfaces description
 ```
 
 ```Output
-|Interface  |Status  |Protocol  |Decsription  |
+|Interface  |Status  |Protocol  |Description  |
 |---------|---------|---------|---------|
 |Et1      | admin down        | down          | "AR-Mgmt2:Et1 to Not-Connected"          |
 |Et2      | admin down        | down          | "AR-Mgmt2:Et2 to Not-Connected"        |
@@ -468,10 +468,10 @@ Expected output:
   }, 
   "systemData": { 
     "createdAt": "2024-XX-XXT13:41:13.8558264Z", 
-    "createdBy": "cbe7d642-9e0a-475d-b2bf-2cb0a9825e13", 
+    "createdBy": "xxxxxxxx-xxxx-xxxx-xxxxxx", 
     "createdByType": "Application", 
     "lastModifiedAt": "2024-XX-XXT10:44:21.3736554Z", 
-    "lastModifiedBy": "cbe7d642-9e0a-475d-b2bf-2cb0a9825e13", 
+    "lastModifiedBy": "xxxxxxxx-xxxx-xxxx-xxxxxx", 
     "lastModifiedByType": "Application" 
   }, 
   "type": "microsoft.managednetworkfabric/networkdevices" 
@@ -485,7 +485,7 @@ show interfaces description
 ```
 
 ```Output
-|Interface  |Status  |Protocol  |Decsription  |
+|Interface  |Status  |Protocol  |Description  |
 |---------|---------|---------|---------|
 |Et1      | admin down        | down          | **"AR-Mgmt2:Et1 to Not-Connected"**         |
 |Et2      | admin down        | down          | **"AR-Mgmt2:Et2 to Not-Connected"**         |
@@ -508,6 +508,53 @@ The RW command feature is open and there are no restrictions on it. However, pro
 
 - It's crucial to thoroughly review the Route Policy configuration before implementation, as any oversight could potentially compromise the existing Route Policy setup.
 - Changing the router BGP configuration and shutting it down brings down the stability of the device.
+
+## Retreive runRW configuration
+
+To obtain the last successfully applied runRW configuration, refer to the `rwDeviceConfig` property. This property stores the last successfully applied RW configuration for the device. To access it, perform a GET request on the device resource.
+
+```rest
+az networkfabric device show --resource-group "example-rg" --resource-name "example-device"
+```
+
+| Parameter          | Alias | Description |
+|--------------------|-------|-------------|
+| `--resource-group` | `-g`  | Name of resource group. You can configure the default group using `az configure --defaults group=<name>`. |
+| `--resource-name`  |       | Name of the Network Device. |
+
+Expected output
+
+```
+{
+  "id": "/subscriptions/xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkDevices/example-device-name",
+  "location": "uaenorth",
+  "name": "example-device-name",
+  "properties": {
+    "administrativeState": "Enabled",
+    "configurationState": "DeferredControl",
+    "hostName": "AR-CE1",
+    "networkDeviceRole": "CE",
+    "networkDeviceSku": "DefaultSku",
+    "networkRackId": "/subscriptions/xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkRacks/example-rack-name",
+    "provisioningState": "Succeeded",
+    "rwDeviceConfig": "interface Ethernet 1/1\n description RW-test1",
+    "serialNumber": "Arista;CCS-720DT-XXXX;11.07;WTW2248XXXX",
+    "version": "4.0.0"
+  },
+  "systemData": {
+    "createdAt": "2025-02-23T04:57:13.6113277Z",
+    "createdBy": "xxxxxxxx-xxxx-xxxx-xxxxxx",
+    "createdByType": "Application",
+    "lastModifiedAt": "2025-02-27T08:27:46.3818706Z",
+    "lastModifiedBy": "xxxxxxxx-xxxx-xxxx-xxxxxx",
+    "lastModifiedByType": "Application"
+  },
+  "type": "microsoft.managednetworkfabric/networkdevices"
+}
+```
+
+> [!Note]
+> RW configuration persists during a reboot without ZTP but does not persist upgrades, device RMA, or a reboot with ZTP. After these events, the rwDeviceConfig property is empty unless the user reapplies the RW configuration manually.
 
 ## Limitations 
 

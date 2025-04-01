@@ -7,7 +7,7 @@ ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.custom: engagement-fy25
-ms.date: 08/06/2024
+ms.date: 09/03/2024
 ---
 
 # Azure Migrate appliance: Common questions
@@ -45,7 +45,7 @@ The appliance can be deployed using a couple of methods:
 The appliance can connect to Azure using public or private networks or using Azure ExpressRoute.
 
 - Make sure the appliance can connect to these [Azure URLs](./migrate-appliance.md#url-access). 
-- You can use ExpressRoute with Microsoft peering. Public peering is deprecated, and isn't available for new ExpressRoute circuits.
+- You can use ExpressRoute with Microsoft peering.
 
 ## Does appliance analysis affect performance?
 
@@ -106,14 +106,15 @@ Yes. If the version of appliance configuration manager is  6.1.265.1 or above, y
 A project can have multiple appliances registered to it. However, one appliance can only be registered with one project.
 
 ## How do I find the Azure Migrate appliances registered to the project?
+
 1. From the Azure portal, navigate to [Azure Migrate homepage](https://portal.azure.com/?feature.customportal=false&feature.showassettypes=Microsoft_Azure_Migrate_AzureMigrationHub&feature.smsMigrationTool=true&feature.cloudamizeAssessmentTool=true&feature.sasAssessmentTool=true&feature.firstPartyDiscoveredMachines=true#blade/Microsoft_Azure_Migrate/AmhResourceMenuBlade/getStarted) and from the left menu, select **Servers, databases and web apps**.
 1. Select **Change** in the upper-right corner to choose your project.
 1. In the Azure Migrate project, select **Overview** from the Azure Migrate: Discovery & assessment.
 1. In **Overview**, select **Appliances** in left menu to see the appliances registered with the project and the connectivity status of the agents on the appliance.
 
 ## Can I change the Azure user account from the Azure Migrate appliance once registered with the project?
-If you registered the appliance to Migrate project using a particular user account, it cannot be changed. You can try re-registering the appliance with the new project using another user account via PowerShell script but it will break all the operations in the old project.
 
+If you registered the appliance to Migrate project using a particular user account, it cannot be changed. You can try re-registering the appliance with the new project using another user account via PowerShell script but it will break all the operations in the old project.
 
 ## Can the Azure Migrate appliance/Replication appliance connect to the same vCenter?
 
@@ -186,7 +187,7 @@ To fix this issue, follow these steps to ensure that your appliance can validate
 
 1. To ensure that your appliance is ready to validate Azure Migrate MSIs, follow these steps:
     1. Download a sample MSI from [Microsoft Download Center](https://download.microsoft.com/download/9/b/8/9b8abdb7-a784-4a25-9da7-31ce4d80a0c5/MicrosoftAzureAutoUpdate.msi) on the appliance.
-    1. Right-click on it and go to **Digital Signatures** tab. 
+    1. Right-click on it and go to **Digital Signatures** tab.
         
         :::image type="content" source="./media/common-questions-appliance/digital-sign-inline.png" alt-text="Screenshot of digital signature tab." lightbox="./media/common-questions-appliance/digital-sign-expanded.png":::
 

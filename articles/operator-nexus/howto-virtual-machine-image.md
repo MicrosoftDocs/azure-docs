@@ -19,7 +19,7 @@ Before you begin creating a virtual machine (VM) image, ensure you have the foll
 
    * Install the latest version of the [necessary Azure CLI extensions](./howto-install-cli-extensions.md).
 
-   * This article requires version 2.49.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+   * This article requires version 2.61.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
    * Azure Container Registry (ACR): Set up a working Azure Container Registry to store and manage your container images. ACR provides a secure and private registry for storing Docker images used in your VM image creation process. You can create an ACR by following the official documentation at [Azure Container Registry](/azure/container-registry/container-registry-intro) documentation.
 

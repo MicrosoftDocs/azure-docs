@@ -2,21 +2,22 @@
 title: Get started with Cost Management for partners
 titleSuffix: Microsoft Cost Management
 description: This article explains how partners use Cost Management features and how they enable access for their customers.
-author: bandersmsft
-ms.author: banders
-ms.date: 04/22/2024
-ms.topic: conceptual
+author: shrutis06
+ms.author: shrshett
+ms.date: 01/13/2025
+ms.topic: concept-article
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: aparnag
+ms.reviewer: shrshett
 ms.custom: secdec18
+#customer intent: As a partner, I want to understand how Cost Management features are used so that I can enable access for my customers.
 ---
 
 # Get started with Cost Management for partners
 
 Cost Management is natively available for direct partners that onboarded their customers to a Microsoft Customer Agreement and [purchased an Azure Plan](/partner-center/purchase-azure-plan). This article explains how partners use [Cost Management](../index.yml) features to view costs for subscriptions in the Azure Plan. It also describes how partners enable Cost Management access at retail rates for their customers.
 
-The global admin and admin agents with direct partners and indirect providers can access Cost Management in the partner tenant and manage costs at invoiced prices.
+The admin agents and [billing admins](/partner-center/account-settings/permissions-overview#billing-admin-role) with direct partners and indirect providers can access Cost Management in the partner tenant and manage costs at invoiced prices.
 
 Resellers and customers can access Cost Management in the customer tenant and view consumption costs for each individual subscription, where costs are computed and shown at retail rates. However, they must have Azure role-based access control (RBAC) access to the subscription in the customer tenant to view costs. The cost visibility policy must get enabled by the provider for the customer tenant.
 
@@ -49,7 +50,7 @@ To enable Cost Management in the Azure portal, you must confirm customer accepta
 
 Cost Management requires read access to your billing account or subscription.
 
-For more information about enabling and assigning access to Cost Management for a billing account, see [Assign users roles and permissions](/partner-center/permissions-overview). The **Global admin** and **Admin agent** roles can manage costs for a billing account.
+For more information about enabling and assigning access to Cost Management for a billing account, see [Assign users roles and permissions](/partner-center/permissions-overview). The **Admin agent** and [billing admin](/partner-center/account-settings/permissions-overview#billing-admin-role) roles can manage costs for a billing account.
 
 To access Cost Management at the subscription scope, any user with Azure RBAC access to a subscription can view costs at retail (pay-as-you-go) rates. However the [cost visibility policy for the customer tenant](#enable-the-policy-to-view-azure-usage-charges) must be enabled. To view a full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md).
 
@@ -104,7 +105,7 @@ Partners can use the scope to reconcile to invoices. And, they use the scope to 
 
 ### Customer scope
 
-Partners use the scope to manage costs associated to customers that are onboarded to the Microsoft Customer Agreement. The scope allows partners to view pretax costs for a specific customer in a billing currency. You can also filter the pretax costs for a specific subscription, resource group, or resource.
+Partners use the scope to manage costs associated to customers that are onboarded to the Microsoft Customer Agreement. The scope allows partners to view pretax costs for a specific customer in the partner's billing currency. You can also filter the pretax costs for a specific subscription, resource group, or resource.
 
 The customer scope doesn't include customers who are on the current CSP offer. The scope only includes customers who have a Microsoft Customer Agreement.
 
@@ -116,7 +117,7 @@ To view costs at the customer scope, in the partner tenant navigate to Cost anal
 
 ## Partner access to billing scopes in Cost Management
 
-Only the users with **Global admin** and **Admin agent** roles can manage and view costs for billing accounts, billing profiles, and customers directly in the partner's Azure tenant. For more information about partner center roles, see [Assign users roles and permissions](/partner-center/permissions-overview).
+Only the users with **Admin agent** and [billing admin](/partner-center/account-settings/permissions-overview#billing-admin-role) roles can manage and view costs for billing accounts, billing profiles, and customers directly in the partner's Azure tenant. For more information about partner center roles, see [Assign users roles and permissions](/partner-center/permissions-overview).
 
 ## Enable Cost Management for customer tenant subscriptions
 
@@ -124,7 +125,7 @@ Partners can enable access to Cost Management after customers are onboarded to a
 
 When the partner enables the policy for cost visibility, any user with Azure Resource Manager access to the subscription can manage and analyze costs at pay-as-you-go rates. Effectively, resellers and customers that have the appropriate Azure RBAC access to the Azure subscriptions can view cost.
 
-Regardless of the policy, global admins and admin agents of the provider can view subscription costs if they have access to the subscription and resource group.
+Regardless of the policy, admin agents and billing admins of the provider can view subscription costs if they have access to the subscription and resource group.
 
 ### Enable the policy to view Azure usage charges
 
@@ -145,7 +146,7 @@ When the policy is set to **No**, Cost Management isn't available for subscripti
 
 When the cost policy is set to **Yes**, subscription users associated to the customer tenant can see usage charges at pay-as-you go rates.
 
-When the cost visibility policy is enabled, all services that have subscription usage show costs at pay-as-you-go rates. Reservation usage appears with zero charges for actual and amortized costs. Purchases and entitlements aren't associated to a specific subscription. So, purchases aren't displayed at the subscription scope. The global admin/admin agent of a direct partner or an indirect provider can also use the [Update Customer API](/rest/api/billing/2019-10-01-preview/policies/updatecustomer) to set each customer's cost visibility policy at scale.
+When the cost visibility policy is enabled, all services that have subscription usage show costs at pay-as-you-go rates. Reservation usage appears with zero charges for actual and amortized costs. Purchases and entitlements aren't associated to a specific subscription. So, purchases aren't displayed at the subscription scope. The admin agent of a direct partner or an indirect provider can also use the [Update Customer API](/rest/api/billing/2019-10-01-preview/policies/updatecustomer) to set each customer's cost visibility policy at scale.
 
 ### View subscription costs in the customer tenant
 
@@ -278,7 +279,7 @@ In the Azure portal, sign in to the partner tenant or customer tenant and select
 
 :::image type="content" border="true" source="./media/get-started-partners/export01.png" alt-text="Screenshot showing select Export and View all exports.":::
 
-Next, select  **Add** and type the name and select an export type. Select the **Storage** tab and enter required information.
+Next, select  **Add, and type the name and select an export type. Select the **Storage** tab and enter required information.
 
 :::image type="content" border="true" source="./media/get-started-partners/export02.png" alt-text="Screenshot showing add new export and select Storage tab.":::
 

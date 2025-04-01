@@ -3,13 +3,14 @@ title: Migrate to Azure Cloud Services (extended support) using PowerShell
 description: How to migrate from Azure Cloud Services (classic) to Azure Cloud Services (extended support) using PowerShell
 ms.service: azure-cloud-services-extended-support
 ms.subservice: classic-to-arm-migration
-ms.reviwer: mimckitt
+ms.reviewer: mimckitt
 ms.topic: how-to
 ms.date: 07/24/2024
 author: hirenshah1
 ms.author: hirshah
 ms.custom: devx-track-azurepowershell
 
+# Customer intent: As an IT administrator managing legacy Azure Cloud Services, I want to migrate from classic to extended support using PowerShell, so that I can leverage the improved reliability and features of the Azure Resource Manager deployment model.
 ---
 
 # Migrate to Azure Cloud Services (extended support) using PowerShell
@@ -86,7 +87,7 @@ Get-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Co
 
 Make sure that RegistrationState is `Registered` for both before you proceed.
 
-Before switching to the classic deployment model, make sure that you have enough Azure Resource Manager vCPU quota in the Azure region of your current deployment or virtual network. You can use the following PowerShell command to check the current number of vCPUs you have in Azure Resource Manager. To learn more about vCPU quotas, see [Limits and the Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#managing-limits).
+Before switching to the classic deployment model, make sure that you have enough Azure Resource Manager vCPU quota in the Azure region of your current deployment or virtual network. You can use the following PowerShell command to check the current number of vCPUs you have in Azure Resource Manager. To learn more about vCPU quotas, see [Limits and the Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-api-management-limits).
 
 This example checks the availability in the **West US** region. Replace the example region name with your own.
 

@@ -4,9 +4,9 @@ description: Lists the permissions for the Azure resource providers in the Compu
 ms.service: role-based-access-control
 ms.topic: reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 10/28/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -146,6 +146,9 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/managedenvironments/dotnetcomponents/read | Read Managed Environment .NET Component |
 > | microsoft.app/managedenvironments/dotnetcomponents/write | Create or update Managed Environment .NET Component |
 > | microsoft.app/managedenvironments/dotnetcomponents/delete | Delete Managed Environment .NET Component |
+> | microsoft.app/managedenvironments/httprouteconfigs/read | Get All HTTP Route Configuraions for a Managed Environment. |
+> | microsoft.app/managedenvironments/httprouteconfigs/write | Create or Update HTTP Route Configuration for a Managed Environment. |
+> | microsoft.app/managedenvironments/httprouteconfigs/delete | Delete an HTTP Route Configuration for a Managed Environment. |
 > | microsoft.app/managedenvironments/javacomponents/read | Read Managed Environment Java Component |
 > | microsoft.app/managedenvironments/javacomponents/write | Create or update Managed Environment Java Component |
 > | microsoft.app/managedenvironments/javacomponents/delete | Delete Managed Environment Java Component |
@@ -180,6 +183,12 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | microsoft.app/containerApps/debug/action | Connect to debug console of a container app |
 > | microsoft.app/jobs/logstream/action | View log stream of a container app job |
 > | microsoft.app/jobs/exec/action | Connect to console of a container app job |
+> | Microsoft.App/sessionPools/executions/action | Execute code in a session pool code interpreter session |
+> | Microsoft.App/sessionPools/files/action | Upload file to a session pool code interpreter session |
+> | Microsoft.App/sessionPools/executions/read | Get the execution result of a previous asynchronous code execution |
+> | Microsoft.App/sessionPools/files/read | Get the metadata of a file in a session pool code interpreter session |
+> | Microsoft.App/sessionPools/files/delete | Delete the file |
+> | Microsoft.App/sessionPools/files/content/read | Get the content of a file in a session pool code interpreter session |
 > | microsoft.app/sessionpools/interpreters/execute/action | Execute Code |
 > | microsoft.app/sessionPools/sessions/write | Operate a session |
 
@@ -1140,6 +1149,24 @@ Azure service: [Azure Virtual Desktop](/azure/virtual-desktop/)
 > | **DataAction** | **Description** |
 > | Microsoft.DesktopVirtualization/appattachpackages/useapplications/action | Allow user permissioning on app attach packages in an application group |
 > | Microsoft.DesktopVirtualization/applicationgroups/useapplications/action | Use ApplicationGroup |
+
+## Microsoft.Quantum
+
+Azure service: [Azure Quantum](/azure/quantum/overview-azure-quantum)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.Quantum/register/action | Registers the subscription for the quantum resource provider and enables the creation of quantum workspaces. |
+> | Microsoft.Quantum/locations/offerings/read | Read providers supported |
+> | Microsoft.Quantum/Workspaces/read | Read Workspace |
+> | Microsoft.Quantum/Workspaces/write | Writes Workspace |
+> | Microsoft.Quantum/Workspaces/delete | Deletes Workspace |
+> | Microsoft.Quantum/Workspaces/regenerateKey/action | Regenerate workspace api key |
+> | Microsoft.Quantum/Workspaces/listKeys/action | List workspace api keys |
+> | **DataAction** | **Description** |
+> | Microsoft.Quantum/Workspaces/jobs/read | Read jobs and other data |
+> | Microsoft.Quantum/Workspaces/jobs/write | Write jobs and other data |
 
 ## Microsoft.ServiceFabric
 

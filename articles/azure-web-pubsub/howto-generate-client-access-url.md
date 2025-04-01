@@ -270,7 +270,7 @@ You could also use Microsoft Entra ID and generate the token by invoking [Genera
     We use [CURL](https://curl.se/) tool to show how to invoke the REST APIs. The tool is bundled into Windows 10/11, and you could install the tool following [Install CURL](https://curl.se/download.html).
 
     ```bash
-    # set neccessory values, replace the placeholders with your actual values
+    # set necessary values, replace the placeholders with your actual values
     export TenantId=<your_tenant_id>
     export ClientId=<your_client_id>
     export ClientSecret=<your_client_secret>

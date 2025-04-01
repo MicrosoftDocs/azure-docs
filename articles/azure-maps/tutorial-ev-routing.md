@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Route electric vehicles by using Azure Notebooks (Python) with Microsoft Azure Maps'
-description: Tutorial on how to route electric vehicles by using Microsoft Azure Maps routing APIs and Azure Notebooks
+title: 'Tutorial: Route electric vehicles using Jupyter Notebooks (Python) with Microsoft Azure Maps'
+description: Tutorial on how to route electric vehicles by using Microsoft Azure Maps routing APIs and Jupyter Notebooks in VS Code.
 author: farazgis
 ms.author: fsiddiqui
 ms.date: 10/11/2024
@@ -11,7 +11,7 @@ services: azure-maps
 ms.custom: mvc, devx-track-python
 ---
 
-# Tutorial: Route electric vehicles by using Azure Notebooks (Python)
+# Tutorial: Route electric vehicles using Jupyter Notebooks (Python)
 
 Azure Maps is a portfolio of geospatial service APIs integrated into Azure, enabling developers to create location-aware applications for various scenarios like IoT, mobility, and asset tracking.
 

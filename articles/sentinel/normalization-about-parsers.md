@@ -1,9 +1,9 @@
 ---
 title: Use Advanced Security Information Model (ASIM) parsers | Microsoft Docs
-description: This article explains how to use KQL functions as query-time parsers to implement the Advanced Security Information Model (ASIM)
+description: This article explains how to use Kusto Query Language (KQL) functions as query-time parsers to implement the Advanced Security Information Model (ASIM)
 author: oshezaf
-ms.topic: conceptual
-ms.date: 11/09/2021
+ms.topic: concept-article
+ms.date: 11/11/2024
 ms.author: ofshezaf
 
 
@@ -18,7 +18,6 @@ Use Advanced Security Information Model (ASIM) parsers instead of table names in
 > [!IMPORTANT]
 > ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
-
 
 ## Unifying parsers
 
@@ -60,11 +59,12 @@ The following table lists the available unifying parsers:
 
 ## Optimizing parsing using parameters
 
-Using parsers may impact your query performance, primarily from filtering the results after parsing. For this reason, many parsers have optional filtering parameters, which enable you to filter before parsing and enhance query performance. With query optimization and pre-filtering efforts, ASIM parsers often provide better performance when compared to not using normalization at all.
+Using parsers might affect your query performance, primarily from filtering the results after parsing. For this reason, many parsers have optional filtering parameters, which enable you to filter before parsing and enhance query performance. With query optimization and prefiltering efforts, ASIM parsers often provide better performance when compared to not using normalization at all.
 
 When invoking the parser, always use available filtering parameters by adding one or more named parameters to ensure optimal performance of the ASIM parsers.
 
 Each schema has a standard set of filtering parameters documented in the relevant schema documentation. Filtering parameters are entirely optional. The following schemas support filtering parameters:
+
 - [Audit Event](normalization-schema-audit.md)
 - [Authentication](normalization-schema-authentication.md)
 - [DNS](normalization-schema-dns.md#filtering-parser-parameters)
@@ -73,26 +73,18 @@ Each schema has a standard set of filtering parameters documented in the relevan
 
 Every schema that supports filtering parameters supports at least the `starttime` and `endtime` parameters and using them is often critical for optimizing performance.
 
-For an example of using filtering parsers see [Unifying parsers](#unifying-parsers) above. 
+For an example of using filtering parsers, see [Unifying parsers](#unifying-parsers). 
 
 ## The pack parameter
 
-To ensure efficiency, parsers maintain only normalized fields. Fields which are not normalized have less value when combined with other sources. Some parsers support the *pack* parameter. When the *pack* parameter is set to `true`, the parser will pack additional data into the *AdditionalFields* dynamic field.
+To ensure efficiency, parsers maintain only normalized fields. Fields that aren't normalized have less value when combined with other sources. Some parsers support the *pack* parameter. When the *pack* parameter is set to `true`, the parser will pack extra data into the *AdditionalFields* dynamic field.
 
-The [parsers list](normalization-parsers-list.md) article notes parsers which support the *pack* parameter. 
+The [parsers list](normalization-parsers-list.md) article notes parsers that support the *pack* parameter. 
 
-## Next steps
+## Related content
 
-Learn more about ASIM parsers:
+For more information, see:
 
 - [ASIM parsers overview](normalization-parsers-overview.md)
 - [Manage ASIM parsers](normalization-manage-parsers.md)
 - [Develop custom ASIM parsers](normalization-develop-parsers.md)
-- [The ASIM parsers list](normalization-parsers-list.md)
-
-Learn more about the ASIM in general: 
-
-- Watch the [Deep Dive Webinar on Microsoft Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
-- [Advanced Security Information Model (ASIM) overview](normalization.md)
-- [Advanced Security Information Model (ASIM) schemas](normalization-about-schemas.md)
-- [Advanced Security Information Model (ASIM) content](normalization-content.md)

@@ -14,7 +14,7 @@ Autoscale lets you scale your session host virtual machines (VMs) in a host pool
 To learn more about autoscale, see [Autoscale scaling plans and example scenarios](autoscale-scenarios.md), and for Insights in Azure Virtual Desktop, see [Enable Insights to monitor Azure Virtual Desktop](insights.md).
 
 > [!NOTE]
-> You can only monitor Autoscale operations with Insights with pooled host pools. For personal host pools, see [Set up diagnostics for Autoscale in Azure Virtual Desktop](autoscale-diagnostics.md).
+> You can only monitor Autoscale operations with Insights with pooled host pools. For personal host pools you can send diagnostic logs for Autoscale to a storage account or an Event Hub. For more information, see [Set up diagnostics for Autoscale in Azure Virtual Desktop](autoscale-diagnostics.md).
 
 ## Prerequisites
 

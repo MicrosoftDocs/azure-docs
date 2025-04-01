@@ -56,6 +56,9 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 To utilize the Azure BYOIP feature, you must perform and number of steps prior to the provisioning of your IPv6 address range. Refer to the [IPv4 instructions](create-custom-ip-address-prefix-portal.md#pre-provisioning-steps) for details. All these steps should be completed for the IPv6 global (parent) range.
 
+> [!NOTE]
+> When hexadecimal IPv6 characters (a-f) are used in an IPv6 Prefix (CIDR), the case of the Custom IP Prefix IPv6 Prefix (CIDR) used in the Custom IP Prefix object must match the case of the IPv6 prefix as generated for your Custom IP Prefix Signed message.
+
 ## Provisioning for IPv6
 
 The following steps display the modified steps for provisioning a sample global (parent) IPv6 range (2a05:f500:2::/48) and regional (child) IPv6 ranges. Some of the steps have been abbreviated or condensed from the [IPv4 instructions](create-custom-ip-address-prefix-portal.md) to focus on the differences between IPv4 and IPv6.

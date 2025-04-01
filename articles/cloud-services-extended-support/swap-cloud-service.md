@@ -7,7 +7,8 @@ ms.custom: devx-track-arm-template
 author: surbhijain
 ms.author: surbhijain
 ms.reviewer: gachandw
-ms.date: 07/24/2024
+ms.date: 11/21/2024
+# Customer intent: "As a cloud services administrator, I want to swap deployments in Azure Cloud Services (extended support) so that I can stage, test, and promote updates to production efficiently while minimizing downtime."
 ---
 
 # Swap or switch deployments in Azure Cloud Services (extended support)
@@ -50,8 +51,6 @@ To swap a deployment in the Azure portal:
    :::image type="content" source="media/swap-cloud-service-portal-swap.png" alt-text="Screenshot that shows the swap tab for the cloud service.":::
 
 1. In the swap confirmation pane, verify the deployment information, and then select **OK** to swap the deployments:
-
-   :::image type="content" source="media/swap-cloud-service-portal-confirm.png" alt-text="Screenshot that shows confirming the deployment swap information.":::
 
 Deployments swap quickly because the only thing that changes is the virtual IP address for the cloud service deployed.
 

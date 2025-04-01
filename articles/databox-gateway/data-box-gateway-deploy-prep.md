@@ -122,7 +122,7 @@ To create a Data Box Gateway resource, take the following steps in the Azure por
 
    Finally, select **Review + create** to review your order.
 
-    :::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-basics-sml.png" alt-text="Sreenshot of a Project and Instance detail entry for a Data Box Gateway order." lightbox="media/data-box-gateway-deploy-prep/data-box-gateway-basics.png":::
+    :::image type="content" source="media/data-box-gateway-deploy-prep/data-box-gateway-basics-sml.png" alt-text="Screenshot of a Project and Instance detail entry for a Data Box Gateway order." lightbox="media/data-box-gateway-deploy-prep/data-box-gateway-basics.png":::
 
 1. On the **Review + create** tab, review the **Pricing details**, **Terms of use**, and the details for your resource. Select **Create**.
 

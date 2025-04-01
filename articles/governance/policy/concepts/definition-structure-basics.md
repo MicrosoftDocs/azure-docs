@@ -1,7 +1,7 @@
 ---
 title: Details of Azure Policy definition structure basics
 description: Describes how Azure Policy definition basics are used to establish conventions for Azure resources in your organization.
-ms.date: 07/10/2024
+ms.date: 03/04/2025
 ms.topic: conceptual
 ---
 
@@ -113,6 +113,7 @@ The following Resource Provider modes are currently supported as a [preview](htt
 - `Microsoft.ManagedHSM.Data` for managing [Managed Hardware Security Module (HSM)](/azure/key-vault/managed-hsm/azure-policy) keys using Azure Policy.
 - `Microsoft.DataFactory.Data` for using Azure Policy to deny [Azure Data Factory](../../../data-factory/introduction.md) outbound traffic domain names not specified in an allowlist. This Resource Provider mode is enforcement only and doesn't report compliance in public preview.
 - `Microsoft.MachineLearningServices.v2.Data` for managing [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) model deployments. This Resource Provider mode reports compliance for newly created and updated components. During public preview, compliance records remain for 24 hours. Model deployments that exist before these policy definitions are assigned don't report compliance.
+- `Microsoft.LoadTestService.Data` for restricting [Azure Load Testing](../../../load-testing/how-to-use-azure-policy.md) instances to private endpoints.
 
 > [!NOTE]
 > Unless explicitly stated, Resource Provider modes only support built-in policy definitions, and exemptions are not supported at the component-level.

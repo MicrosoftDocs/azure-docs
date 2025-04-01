@@ -94,7 +94,7 @@ The following table shows the supported operations, parameters, and parameter va
 
 | Operation                    | Parameters           | Values                                         |
 |------------------------------|----------------------|------------------------------------------------|
-| SetBlobTier                | tier                 | Hot \| Cold \| Archive |
+| SetBlobTier                | tier                 | Hot \| Cool \| Archive |
 | SetBlobExpiry              | expiryTime, expiryOption                 |(expiryTime): Number of milliseconds<br>(expiryOption): Absolute \| NeverExpire \| RelativeToCreation \| RelativeToNow |
 | DeleteBlob                  | None                 | None                                           |
 | UndeleteBlob                | None                 | None                                           |

@@ -20,7 +20,7 @@ Use Unpivot in a mapping data flow as a way to turn an unnormalized dataset into
 
 :::image type="content" source="media/data-flow/unpivot1.png" alt-text="Screenshot shows Unpivot selected from the menu.":::
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4B1RR]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=8746f3b9-b71e-4cd3-8def-550d8d6a44e2]
 
 ## Ungroup By
 

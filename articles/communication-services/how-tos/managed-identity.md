@@ -155,7 +155,7 @@ For more information on using the golang Management SDK, see [Azure Communicatio
 > [!NOTE]
 > A resource can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned,UserAssigned`.
 >
->Removing all managed identity assignments from a resource can also be acheived by specifying the `type` property as `None`.
+>Removing all managed identity assignments from a resource can also be achieved by specifying the `type` property as `None`.
 
 
 ## Next steps

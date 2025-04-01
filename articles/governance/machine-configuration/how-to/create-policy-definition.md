@@ -116,14 +116,14 @@ Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 - **Category**: Sets the category metadata field in the policy definition.
 - **LocalContentPath**: The path to the local copy of the `.zip` Machine Configuration package
   file. This parameter is required if you're using a User Assigned Managed Identity to provide
-  access to an Azure Storge blob.
+  access to an Azure Storage blob.
 - **ManagedIdentityResourceId**: The `resourceId` of the User Assigned Managed Identity that has
   read access to the Azure Storage blob containing the `.zip` Machine Configuration package file.
   This parameter is required if you're using a User Assigned Managed Identity to provide access to
-  an Azure Storge blob.
+  an Azure Storage blob.
 - **ExcludeArcMachines**: Specifies that the Policy definition should exclude Arc machines. This
   parameter is required if you are using a User Assigned Managed Identity to provide access to an
-  Azure Storge blob.
+  Azure Storage blob.
 
 > [!IMPORTANT]
 > Unlike Azure VMs, Arc-connected machines currently do not support User Assigned Managed
@@ -188,8 +188,11 @@ $PolicyConfig3      = @{
 New-GuestConfigurationPolicy @PolicyConfig3 -ExcludeArcMachines
 ```
 
+For this scenario, you need to disable the **Allow Blob anonymous access** setting and assign the
+role **Storage Blob Data Reader** on the storage account to the identity.
+
 > [!NOTE]
-> You can retrieve the resorceId of a managed identity using the `Get-AzUserAssignedIdentity`
+> You can retrieve the resourceId of a managed identity using the `Get-AzUserAssignedIdentity`
 > PowerShell cmdlet.
 
 The cmdlet output returns an object containing the definition display name and path of the policy

@@ -1,5 +1,5 @@
 ---
-title: Set up a sign-up and sign-in flow for a local account by using Azure Active Directory B2C custom policy
+title: Set up a sign-up and sign-in flow for a local account
 titleSuffix: Azure AD B2C
 description: Learn how to configure a sign-up and sign-in flow for a local account, using email and password, by using Azure Active Directory B2C custom policy.  
 
@@ -10,7 +10,7 @@ ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 10/11/2024
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: b2c
@@ -311,7 +311,7 @@ When the custom policy runs:
 
 - **Orchestration Step 6** -  This step invokes the *UserInputMessageClaimGenerator* technical profile to assemble the user’s greeting message.
 
-- **Orchestration Step 7** - Finally, step 8 assembles and returns the JWT token at the end of the policy’s execution.
+- **Orchestration Step 7** - Finally, step 8 assembles and returns the JWT at the end of the policy’s execution.
 
 ## Step 4 - Upload policy
 
@@ -325,7 +325,7 @@ Follow the steps in [Test the custom policy](custom-policies-series-validate-use
 
 You can sign in by entering the **Email Address** and **Password** of an existing account. If you don't already have an account, you need to select the **Sign up now** link to create a new user account. 
 
-## Next steps
+## Related content
 
 - Learn how to [Set up a sign-up and sign-in flow with a social account by using Azure Active Directory B2C custom policy](custom-policies-series-sign-up-or-sign-in-federation.md).
 

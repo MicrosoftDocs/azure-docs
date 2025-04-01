@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 10/21/2024
+ms.date: 01/29/2025
 ---
 # SMB FAQs for Azure NetApp Files
 
@@ -14,6 +14,10 @@ This article answers frequently asked questions (FAQs) about the SMB protocol of
 ## Which SMB versions are supported by Azure NetApp Files?
 
 Azure NetApp Files supports SMB 2.1 and SMB 3.1 (which includes support for SMB 3.0). 
+
+## Can I use Windows Server 2025? 
+
+Windows Server 2025 currently doesn't work with the Azure NetApp Files SMB protocol. 
 
 ## Does Azure NetApp Files support access to ‘offline files’ on SMB volumes?
 
@@ -25,7 +29,7 @@ Yes, you must create an Active Directory connection before deploying an SMB volu
 
 ## How many Active Directory connections are supported?
 
-Azure NetApp Files now supports the ability to [create multiple Active Directory configurations in a subscription](create-active-directory-connections.md#multi-ad). 
+Azure NetApp Files now supports the ability to [create multiple Active Directory (AD) configurations in a subscription](create-active-directory-connections.md#multi-ad). 
 
 You can also map multiple NetApp accounts that are under the same subscription and same region to a common AD server created in one of the NetApp accounts. See [Map multiple NetApp accounts in the same subscription and region to an AD connection](create-active-directory-connections.md#shared_ad). 
 
@@ -93,7 +97,7 @@ If you're using:
 * regional volumes (without availability zones) or
 * volumes within the same availability zone, 
 
-the same share name can be used, however the share name must be unique within each delegated subnet or assigned to different delegated subnets. 
+The same share name can be used, however the share name must be unique within each delegated subnet or assigned to different delegated subnets. 
 
 For more information, see [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) or [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md). 
 
@@ -119,6 +123,12 @@ To learn more about file locking in Azure NetApp Files, see [file locking](under
 
 NTLMv2 and Kerberos network authentication methods are supported with SMB volumes in Azure NetApp Files. NTLMv1 and LanManager are disabled and are not supported.
 
+To disable NTLM, see:
+
+- [Active Directory Hardening Series - Part 1 – Disabling NTLMv1](https://techcommunity.microsoft.com/blog/coreinfrastructureandsecurityblog/active-directory-hardening-series---part-1-%E2%80%93-disabling-ntlmv1/3934787)
+- [Network security - Restrict NTLM Incoming NTLM traffic](/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-incoming-ntlm-traffic)
+- [Network security - Restrict NTLM in this domain](/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain)
+
 ## What is the password rotation policy for the Active Directory computer account for SMB volumes?
 
 The Azure NetApp Files service has a policy that automatically updates the password on the Active Directory computer account that is created for SMB volumes. This policy has the following properties:   
@@ -135,7 +145,11 @@ To see  when the password was last updated on the Azure NetApp Files SMB compute
 > Due to an interoperability issue with the [April 2022 Monthly Windows Update](
 https://support.microsoft.com/topic/april-12-2022-kb5012670-monthly-rollup-cae43d16-5b5d-43ea-9c52-9174177c6277), the policy that automatically updates the Active Directory computer account password for SMB volumes has been suspended until a fix is deployed.
 
-## Does Azure NetApp Files support Alternate Data Streams (ADS)?
+## How do Azure NetApp Files Continuous Availability Shares behave when there's an underlying storage hardware maintenance event?
+
+The SMB client detects a TCP reset. There's no disruption if the SMB client reconnects within 60 seconds.
+
+## Does Azure NetApp Files support Alternate Data Streams?
 
 Yes, Azure NetApp Files supports [Alternate Data Streams (ADS)](/openspecs/windows_protocols/ms-fscc/e2b19412-a925-4360-b009-86e3b8a020c8) by default on [SMB volumes](azure-netapp-files-create-volumes-smb.md) and [dual-protocol volumes configured with NTFS security style](create-volumes-dual-protocol.md#considerations) when accessed via SMB.
 

@@ -8,6 +8,7 @@ author: tanmaygore
 ms.author: tagore
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+# Customer intent: As an IT admin managing legacy deployments, I want to update deployment files, automation scripts, and resource configurations post-migration to Azure Resource Manager, so that I can ensure compatibility, manage endpoints, and leverage new features in Cloud Services (extended support).
 ---
  
 # Post-migration changes
@@ -27,7 +28,16 @@ Minor changes are made to customer’s .csdef and .cscfg file to make the deploy
     - Get the .csdef file using [PowerShell](/powershell/module/az.cloudservice/?preserve-view=true&view=azps-5.4.0#cloudservice) or [REST API](/rest/api/compute/cloudservices/rest-get-package). 
     - Get the .cscfg file using [PowerShell](/powershell/module/az.cloudservice/?preserve-view=true&view=azps-5.4.0#cloudservice) or [REST API](/rest/api/compute/cloudservices/rest-get-package). 
     
- 
+## Updating Azure Traffic Manager Configuration After Cloud Service Migration
+
+After migrating your Cloud Services (Classic) to Cloud Services (Extended Support), you may encounter issues with updating or deleting endpoint configurations in Azure Traffic Manager. This is due to resource ID synchronization problems, where the Traffic Manager endpoint still points to the old resource ID for Cloud Services (classic), but the Cloud Services (extended support) deployment has a new Resource ID. To resolve this issue, please follow these steps:
+1.	Migrate traffic Temporary endpoint: Migrate your Azure Traffic Manager traffic to a secondary endpoint.
+2.	Remove Classic Compute Endpoints in Azure Traffic Manager : Once the traffic is being directed to a temporary endpoint, delete the classic compute endpoint from the Traffic Manager profile.
+3.	Migrate to Cloud Services (extended support): Migrate the Cloud Service resource to Cloud Services (extended support).
+4.	Add New Endpoints in ATM: Create new endpoints in your Traffic Manager profile for the migrated Cloud Services (extended Support) resource. This endpoint has the new resource ID for the migrated Cloud Service.
+5.	Resume traffic to Primary Cloud Services (extended support) endpoint: the secondary endpoint can be deleted or adjusted to a lower weight. Traffic will be served to new (extended support) resource.
+This process ensures that your Traffic Manager is correctly aligned with the updated resource IDs and avoids configuration issues that can delay projects.
+
 
 ## Changes to customer’s Automation, CI/CD pipeline, custom scripts, custom dashboards, custom tooling, etc.  
 

@@ -1,7 +1,7 @@
 ---
-title: Quickstart - Integrate chat experiences in your app by using UI Library
+title: 'Quickstart: Integrate chat experiences in your app by using UI Library'
 titleSuffix: An Azure Communication Services quickstart
-description: Get started with Azure Communication Services UI Library composites to add Chat communication experiences to your applications.
+description: Get started with Azure Communication Services UI Library composites to add chat communication experiences to your applications.
 author: dhiraj
 ms.author: jorgegarc
 ms.date: 11/29/2022
@@ -15,7 +15,7 @@ ms.custom: mode-other
 
 Get started with Azure Communication Services UI Library to quickly integrate communication experiences into your applications. In this quickstart, learn how to integrate UI Library chat composites into an application and set up the experience for your app users.
 
-Communication Services UI Library renders a full chat experience right in your application. It takes care of connecting to Azure Communication Services chat services, and updates participant's presence automatically. As a developer, you need to worry about where in your app's user experience you want the chat experience to launch and only create the Azure Communication Services resources as required.
+Azure Communication Services UI Library renders a full chat experience right in your application. It takes care of connecting to Azure Communication Services chat services and updates a participant's presence automatically. As a developer, you need to decide about where in your app's user experience you want the chat experience to start and create only the Azure Communication Services resources as required.
 
 ::: zone pivot="platform-web"
 
@@ -37,7 +37,7 @@ Communication Services UI Library renders a full chat experience right in your a
 
 ## Clean up resources
 
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group.
+If you want to clean up and remove an Azure Communication Services subscription, you can delete the resource or resource group.
 
 Deleting the resource group also deletes any other resources associated with it.
 

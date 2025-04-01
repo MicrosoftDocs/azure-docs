@@ -57,7 +57,7 @@ Prepare your environment for the Azure CLI.
 Next, create a passwordless connection with Service Connector.
 
 > [!TIP]
-> The Azure portal can help you compose the commands below. In the Azure portal, go to your [Azure App Service](../service-connector/quickstart-portal-app-service-connection.md) resource, select **Service Connector** from the left menu and select **Create**. Fill out the form with all required parameters. Azure automaticaly generates the connection creation command, which you can copy to use in the CLI or execute in Azure Cloud Shell.
+> The Azure portal can help you compose the commands below. In the Azure portal, go to your [Azure App Service](../service-connector/quickstart-portal-app-service-connection.md) resource, select **Service Connector** from the left menu and select **Create**. Fill out the form with all required parameters. Azure automatically generates the connection creation command, which you can copy to use in the CLI or execute in Azure Cloud Shell.
 
 # [Azure SQL Database](#tab/sqldatabase-sc)
 
@@ -172,7 +172,7 @@ The following Azure CLI command uses a `--client-type` parameter.
 
 1. Grant permission to pre-created tables
 
-[!INCLUDE [Postgresql grant permission](../service-connector/includes/postgres-grant-permission.md)]
+[!INCLUDE [PostgreSQL grant permission](../service-connector/includes/postgres-grant-permission.md)]
 
 -----
 

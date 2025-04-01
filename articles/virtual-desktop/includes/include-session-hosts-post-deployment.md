@@ -13,7 +13,7 @@ To ensure that your session hosts have licenses applied correctly, you need to d
 
 - If your session hosts are running a Windows Server OS, you also need to issue them a Remote Desktop Services (RDS) client access license (CAL) from an RDS license server. For more information, see [License your RDS deployment with client access licenses](/windows-server/remote/remote-desktop-services/rds-client-access-license).
 
-- For session hosts on Azure Stack HCI, you must license and activate the virtual machines before you use them with Azure Virtual Desktop. For activating VMs that use Windows 10 Enterprise multi-session, Windows 11 Enterprise multi-session, and Windows Server 2022 Datacenter: Azure Edition, use [Azure verification for VMs](/azure-stack/hci/deploy/azure-verification). For all other OS images (such as Windows 10 Enterprise, Windows 11 Enterprise, and other editions of Windows Server), you should continue to use existing activation methods. For more information, see [Activate Windows Server VMs on Azure Stack HCI](/azure-stack/hci/manage/vm-activate).
+- For session hosts on Azure Local, you must license and activate the virtual machines before you use them with Azure Virtual Desktop. For activating VMs that use Windows 10 Enterprise multi-session, Windows 11 Enterprise multi-session, and Windows Server 2022 Datacenter: Azure Edition, use [Azure verification for VMs](/azure-stack/hci/deploy/azure-verification). For all other OS images (such as Windows 10 Enterprise, Windows 11 Enterprise, and other editions of Windows Server), you should continue to use existing activation methods. For more information, see [Activate Windows Server VMs on Azure Local](/azure-stack/hci/manage/vm-activate).
 
 <a name='azure-ad-joined-session-hosts'></a>
 

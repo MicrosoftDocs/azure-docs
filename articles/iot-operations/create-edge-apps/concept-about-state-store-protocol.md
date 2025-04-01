@@ -3,23 +3,22 @@ title: Learn about the MQTT broker state store protocol
 description: Learn how to implement an MQTT broker state store protocol client
 author: PatAltimore
 ms.author: patricka
+ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
 ms.topic: concept-article
-ms.date: 10/30/2024
+ms.date: 11/15/2024
 
 # CustomerIntent: As a developer, I want understand what the MQTT broker state store protocol is, so
-# that I can implement a client app to interact with the MQ state store.
-ms.service: azure-iot-operations
+# that I can implement a client app to interact with the state store.
 ---
 
-# MQTT broker state store protocol
+# State store protocol
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+The state store is a distributed storage system within the Azure IoT Operations cluster. The state store offers the same high availability guarantees as MQTT messages in MQTT broker. According to the MQTT5/RPC protocol guidelines, clients should use MQTT5 to interact with the state store. This article provides protocol guidance for developers who need to implement their own state store clients. 
 
-The MQ state store is a distributed storage system within the Azure IoT Operations cluster. The state store offers the same high availability guarantees as MQTT messages in MQTT broker. According to the MQTT5/RPC protocol guidelines, clients should use MQTT5 to interact with the MQ state store. This article provides protocol guidance for developers who need to implement their own MQTT broker state store clients. 
+## Overview
 
-## State store protocol overview
-The MQ state store supports the following commands:
+The state store supports the following commands:
 
 - `SET` \<keyName\> \<keyValue\> \<setOptions\>
 - `GET` \<keyName\>
@@ -73,7 +72,7 @@ sequenceDiagram
 
 The commands `SET`, `GET`, and `DEL` behave as expected.
 
-The values that the `SET` command sets, and the `GET` command retrieves, are arbitrary binary data. The size of the values is only limited by the maximum MQTT payload size, and resource limitations of MQ and the client.
+The values that the `SET` command sets, and the `GET` command retrieves, are arbitrary binary data. The size of the values is only limited by the maximum MQTT payload size, and resource limitations of MQTT broker and the client.
 
 ### `SET` options
 
@@ -122,7 +121,7 @@ The following example output shows state store RESP3 payloads:
 ```
 
 > [!NOTE]
-> Note that `SET` requires additional MQTT5 properties, as explained in the section [Versioning and hybrid logical clocks](#versioning-and-hybrid-logical-clocks).
+> `SET` requires additional MQTT5 properties, as explained in the section [Versioning and hybrid logical clocks](#versioning-and-hybrid-logical-clocks).
 
 ### Response format
 
@@ -306,7 +305,7 @@ Assume that `Client1` goes first with a request of `SET LockName Client1 NEX PX 
 
 ### Use the fencing tokens on SET requests
 
-When `Client1` successfully does a `SET` ("AquireLock") on `LockName`, the state store returns the version of `LockName` as a Hybrid Logical Clock (HLC) in the MQTT5 user property `__ts`.
+When `Client1` successfully does a `SET` ("AcquireLock") on `LockName`, the state store returns the version of `LockName` as a Hybrid Logical Clock (HLC) in the MQTT5 user property `__ts`.
 
 When a client performs a `SET` request, it can optionally include the MQTT5 user property `__ft` to represent a "fencing token". The `__ft` is represented as an HLC. The fencing token associated with a given key-value pair provides lock ownership checking. The fencing token can come from anywhere. For this scenario, it should come from the version of `LockName`.
 
@@ -417,13 +416,13 @@ Any other failure follows the state store's general error reporting pattern:
 
 When a `keyName` being monitored via `KEYNOTIFY` is modified or deleted, the state store sends a notification to the client. The topic is determined by convention - the client doesn't specify the topic during the `KEYNOTIFY` process.
 
-The topic is defined in the following example. The `clientId` is an upper-case hex encoded representation of the MQTT ClientId of the client that initiated the `KEYNOTIFY` request and `keyName` is a hex encoded representation of the key that changed.
+The topic is defined in the following example. The `clientId` is an upper-case hex encoded representation of the MQTT ClientId of the client that initiated the `KEYNOTIFY` request and `keyName` is a hex encoded representation of the key that changed. The state store follows the Base 16 encoding rules of [RFC 4648 - The Base16, Base32, and Base64 Data Encodings](https://datatracker.ietf.org/doc/html/rfc4648#section-8) for this encoding.
 
 ```console
 clients/statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/{clientId}/command/notify/{keyName}
 ```
 
-As an example, MQ publishes a `NOTIFY` message sent to `client-id1` with the modified key name `SOMEKEY` to the topic:
+As an example, MQTT broker publishes a `NOTIFY` message sent to `client-id1` with the modified key name `SOMEKEY` to the topic:
 
 ```console
 clients/statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/636C69656E742D696431/command/notify/534F4D454B4559`
@@ -466,7 +465,9 @@ $3<CR><LF>
 abc<CR><LF>
 ```
 
+The `KEYNOTIFY` notification message contains the timestamp of the value when notifying a client about a SET request (value updated) or when notifying a client about a DEL or VDEL request (value deleted). The timestamp is included as part of the message's MQTT v5 User Property __ts. For more information, see the section [Versions as Hybrid Logical Clocks](#versions-as-hybrid-logical-clocks).
+
 ## Related content
 
-- [MQTT broker overview](../manage-mqtt-broker/overview-iot-mq.md)
+- [MQTT broker overview](../manage-mqtt-broker/overview-broker.md)
 - [Develop with MQTT broker](edge-apps-overview.md)

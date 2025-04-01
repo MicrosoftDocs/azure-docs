@@ -47,14 +47,14 @@ $AppInfo
 
 ## Choose your target .NET version
 
-On version 4.x of the Functions runtime, your .NET function app targets .NET 6 when using the in-process model.
+On version 4.x of the Functions runtime, your .NET function app targets .NET 6 or .NET 8 when using the in-process model.
 
 [!INCLUDE [functions-dotnet-migrate-v4-versions](../../includes/functions-dotnet-migrate-v4-versions.md)]
 
 > [!TIP]
 > **We recommend upgrading to .NET 8 on the isolated worker model.** This provides a quick migration path to the fully released version with the longest support window from .NET.
 
-This guide doesn't present specific examples for .NET 9 (Preview) or .NET 6. If you need to target these versions, you can adapt the .NET 8 examples.
+This guide doesn't present specific examples for .NET 9. If you need to target that version, you can adapt the .NET 8 examples.
 
 ## Prepare for migration
 
@@ -79,12 +79,12 @@ First, convert the project file and update your dependencies. As you do, you wil
 
 ### Project file
 
-The following example is a `.csproj` project file that uses .NET 6 on version 4.x:
+The following example is a `.csproj` project file that uses .NET 8 on version 4.x:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <AzureFunctionsVersion>v4</AzureFunctionsVersion>
     <RootNamespace>My.Namespace</RootNamespace>
   </PropertyGroup>

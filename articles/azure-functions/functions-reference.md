@@ -349,7 +349,7 @@ The code for Azure Functions is open source, and you can find key components in 
 
 * [Azure WebJobs SDK Extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/)
 ::: zone pivot="programming-language-csharp"
-* [Azure Functons .NET worker (isolated process)](https://github.com/Azure/azure-functions-dotnet-worker)
+* [Azure Functions .NET worker (isolated process)](https://github.com/Azure/azure-functions-dotnet-worker)
 ::: zone-end
 ::: zone pivot="programming-language-java"
 * [Azure Functions Java worker](https://github.com/Azure/azure-functions-java-worker)

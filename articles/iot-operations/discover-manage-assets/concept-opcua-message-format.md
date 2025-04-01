@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-opcua-connector
 ms.topic: conceptual
-ms.date: 08/05/2024
+ms.date: 10/22/2024
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to understand the structure of the messages that the connector for OPC UA publishes so that I can process the messages.
 ms.service: azure-iot-operations

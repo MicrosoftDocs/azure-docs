@@ -4,7 +4,7 @@ description: Learn about recommendations for helping keep your Azure Virtual Des
 ms.topic: conceptual
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 06/03/2024
+ms.date: 12/11/2024
 ---
 
 # Security recommendations for Azure Virtual Desktop
@@ -132,7 +132,7 @@ Session hosts are virtual machines that run inside an Azure subscription and vir
 
 To protect your deployment from known malicious software, we recommend enabling endpoint protection on all session hosts. You can use either Windows Defender Antivirus or a third-party program. For more information, see [Deployment guide for Windows Defender Antivirus in a VDI environment](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus#configure-antivirus-file-and-folder-exclusions).
 
-For profile solutions like FSLogix or other solutions that mount virtual hard disk files, we recommend excluding those file extensions. For more information, see 
+For profile solutions like FSLogix or other solutions that mount virtual hard disk files, we recommend excluding those file extensions. For more information on FSLogix exclusions, see [Configure Antivirus file and folder exclusions](/fslogix/overview-prerequisites#configure-antivirus-file-and-folder-exclusions).
 
 ### Install an endpoint detection and response product
 
@@ -182,7 +182,7 @@ By restricting operating system capabilities, you can strengthen the security of
 
 - Grant users limited permissions when they access local and remote file systems. You can restrict permissions by making sure your local and remote file systems use access control lists with least privilege. This way, users can only access what they need and can't change or delete critical resources.
 
-- Prevent unwanted software from running on session hosts. You can enable App Locker for additional security on session hosts, ensuring that only the apps you allow can run on the host.
+- Prevent unwanted software from running on session hosts. RemoteApp isn't a security feature, and its use doesn't prevent the launch of applications beyond those applications published to an application group. To ensure that only the applications you allow can run on a session host, you can use [Application Control for Windows](/windows/security/application-security/application-control/app-control-for-business/appcontrol) features like App Control or AppLocker.
 
 ## Trusted launch
 

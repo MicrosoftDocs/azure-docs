@@ -6,18 +6,18 @@ ms.author: rogarana
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 11/17/2023
+ms.date: 03/26/2025
 ---
 
 # Understand how your reservation discount is applied to Azure disk storage
 
-After you purchase Azure disk reserved capacity, a reservation discount is automatically applied to disk resources that match the terms of your reservation. The reservation discount applies to disk SKUs only. Disk snapshots are charged at pay-as-you-go rates.
+After you purchase Azure disk reserved capacity, a reservation discount is automatically applied to disk resources that match the terms of your reservation. The reservation discount only applies to managed disks, disk snapshots are charged at pay-as-you-go rates.
 
 For more information about Azure disk reservation, see [Save costs with Azure disk reservation](/azure/virtual-machines/disks-reserved-capacity). For information about pricing for Azure disk reservation, see [Azure Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## How the reservation discount is applied
 
-The Azure disk reservation discount is a use-it-or-lose-it discount. It's applied to managed disk resources hourly. For a given hour, if you have no managed disk resources that meet the reservation terms, you lose a reservation quantity for that hour. Unused hours don't carry forward.
+The Azure disk reservation discount is a use-it-or-lose-it discount that applies to managed disk resources hourly. For a given hour, if you have no managed disk resources that meet the reservation terms, you lose a reservation quantity for that hour. Unused hours don't carry forward.
 
 When you delete a resource, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resource is found, the reserved hours are lost.
 
@@ -29,7 +29,7 @@ The following examples show how the Azure disk reservation discount applies depe
 
 Suppose you purchase and reserve 100 P30 disks in the US West 2 region for a one-year term. Each disk has approximately 1 TiB of storage. Assume the cost of this sample reservation is $140,100‬. You can choose to pay either the full amount up front or fixed monthly installments of $11,675‬ for the next 12 months.
 
-The following scenarios describe what happens if you underuse, overuse, or tier your reserved capacity. For these examples, assume you've signed up for a monthly reservation-payment plan.
+The following scenarios describe what happens if you underuse, overuse, or tier your reserved capacity. For these examples, assume you signed up for a monthly reservation-payment plan.
 
 ### Underusing your capacity
 

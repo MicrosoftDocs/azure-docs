@@ -4,7 +4,7 @@ description: A brief overview of which locations Azure Virtual Desktop's data an
 author: dknappettmsft
 ms.topic: conceptual
 ms.custom: references_regions, docs_inherited
-ms.date: 06/22/2022
+ms.date: 03/27/2025
 ms.author: daknappe
 ---
 # Data locations for Azure Virtual Desktop
@@ -39,15 +39,17 @@ To keep Azure Virtual Desktop reliable and scalable, traffic patterns and usage 
 
 ## Data locations
 
-Storing customer data and service-generated data is currently supported in the following geographies:
+Storing customer input data and service-generated data is currently supported in the following geographies:
 
-- United States (US)
-- Europe (EU)
-- United Kingdom (UK)
-- Canada (CA)
-- Japan (JP)
+- Asia Pacific
 - Australia (AU)
+- Canada (CA)
+- Europe (EU)
 - India (IN)
+- Japan (JP)
+- South Aftrica (ZA)
+- United Kingdom (UK)
+- United States (US)
 
 In addition, service-generated data is aggregated from all locations where the service infrastructure is, and sent to the US geography. The data sent to the US includes scrubbed data. Customer data isn't aggregated.
 

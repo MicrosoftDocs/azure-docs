@@ -243,7 +243,7 @@ Authorization: Bearer <token>
 
 A bearer token is an opaque string. It can be a JWT access token or any string that the REST API expects Azure AD B2C to send in the authorization header. Azure AD B2C supports the following types:
 
-- **Bearer token**. To be able to send the bearer token in the Restful technical profile, your policy needs to first acquire the bearer token and then use it in the RESTful technical profile.  
+- **Bearer token**. To be able to send the bearer token in the RESTful technical profile, your policy needs to first acquire the bearer token and then use it in the RESTful technical profile.  
 - **Static bearer token**. Use this approach when your REST API issues a long-term access token. To use a static bearer token, create a policy key and make a reference from the RESTful technical profile to your policy key. 
 
 ## Using OAuth2 Bearer  
@@ -587,5 +587,5 @@ The following XML snippet is an example of a RESTful technical profile configure
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
-- Learn more about the [Restful technical profile](restful-technical-profile.md) element in the custom policy reference.
+- Learn more about the [RESTful technical profile](restful-technical-profile.md) element in the custom policy reference.
 ::: zone-end

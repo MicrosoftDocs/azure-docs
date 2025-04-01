@@ -37,7 +37,7 @@ By connecting NSG flow logs with the Elastic Stack, we can create a Kibana dashb
 
 The following instructions are used to install Elasticsearch in Ubuntu Azure VMs. For instructions on how to install elastic search in Red Hat Enterprise Linux, see [Install Elasticsearch with RPM](https://www.elastic.co/guide/en/elasticsearch/reference/8.6/rpm.html).
 
-1. The Elastic Stack from version 5.0 and above requires Java 8. Run the command `java -version` to check your version. If you don't have Java installed, see the documentation on the [Azure-suppored JDKs](/azure/developer/java/fundamentals/java-support-on-azure).
+1. The Elastic Stack from version 5.0 and above requires Java 8. Run the command `java -version` to check your version. If you don't have Java installed, see the documentation on the [Azure-supported JDKs](/azure/developer/java/fundamentals/java-support-on-azure).
 2. Download the correct binary package for your system:
 
    ```bash
@@ -227,8 +227,6 @@ The sample dashboard provides several visualizations of the flow logs:
 
 3. Number of Flows and Earliest Log Time – metrics showing you the number of flows recorded and the date of the earliest log captured.
 
-   ![Screenshot shows a sample dashboard with the number of flows and the earliest log time.][4]
-
 4. Flows by NSG and Rule – a bar graph showing you the distribution of flows within each NSG, and the distribution of rules within each NSG. , you can see which NSG and rules generated the most traffic.
 
    ![Screenshot shows a sample dashboard with flows by N S G and rule.][5]
@@ -253,5 +251,4 @@ Learn how to visualize your NSG flow logs with Power BI by visiting [Visualize N
 [1]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure1.png
 [2]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure2.png
 [3]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure3.png
-[4]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure4.png
 [5]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure5.png

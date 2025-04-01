@@ -1,8 +1,8 @@
 ---
 title: Validate images
 description: Validate that Azure IoT Operations docker and helm images are legitimate.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.topic: how-to
 ms.date: 11/01/2024
 
@@ -10,8 +10,6 @@ ms.date: 11/01/2024
 ---
 
 # Validate image signing
-
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 Azure IoT Operations signs its docker and helm images to allow users to verify the integrity and origin of the images they use. Signing utilizes a public/private key pair to prove that Microsoft built a container image by creating a digital signature and adding it to the image. This article provides the steps to verify that an image was signed by Microsoft.
 

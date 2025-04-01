@@ -19,6 +19,8 @@
     href: understand/review-partner-agreement-bill.md
 - name: Concepts
   items:
+  - name: What is a cloud subscription
+    href: manage/cloud-subscription.md
   - name: Individual subscription usage terms
     href: understand/understand-usage.md
   - name: Individual subscription invoice terms
@@ -129,7 +131,7 @@
       - name: Grant access to create EA subscriptions
         href: manage/grant-access-to-create-subscription.md
       - name: Change administrator
-        displayName: azure subcription owner, add user to azure subscription, azure subscription permissions, azure change account admin
+        displayName: azure subscription owner, add user to azure subscription, azure subscription permissions, azure change account admin
         href: manage/add-change-subscription-administrator.md
       - name: Switch subscription offer
         href: manage/switch-azure-offer.md
@@ -171,6 +173,8 @@
         href: manage/programmatically-create-subscription-enterprise-agreement.md
       - name: Create MCA subscriptions programmatically
         href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
+      - name: Create MCA subscriptions programmatically across associated tenants
+        href: manage/programmatically-create-customer-agreement-associated-billing-tenants.md
       - name: Create MCA subscriptions programmatically across tenants
         href: manage/programmatically-create-subscription-microsoft-customer-agreement-across-tenants.md
       - name: Create MPA subscriptions programmatically
@@ -203,6 +207,8 @@
         href: understand/download-azure-invoice.md
       - name: View and download your Azure usage and charges
         href: understand/download-azure-daily-usage.md
+      - name: Shared billing meter regions
+        href: understand/billing-meter-location.md
       - name: Billing meter ID updates
         href: understand/billing-meter-id-updates.md
       - name: Download your invoice
@@ -223,6 +229,8 @@
         href: manage/check-free-service-usage.md
       - name: Upgrade free account
         href: manage/upgrade-azure-subscription.md
+      - name: Microsoft Entra ID Free
+        href: manage/microsoft-entra-id-free.md
   - name: Manage payment methods
     items:
     - name: Pay your Azure bill
@@ -233,6 +241,8 @@
       href: manage/resolve-past-due-balance.md
     - name: Add, update, or delete payment method
       href: manage/change-credit-card.md
+    - name: Supported payment methods
+      href: manage/supported-payment-methods.md
     - name: View payment history
       href: manage/view-payment-history.md
   - name: Troubleshoot billing

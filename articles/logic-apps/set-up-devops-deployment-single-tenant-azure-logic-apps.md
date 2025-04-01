@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ai-usage: ai-assisted
-ms.date: 10/24/2024
+ms.date: 03/27/2025
 # Customer intent: As a developer, I want to automate deployment for Standard logic apps hosted in single-tenant Azure Logic Apps by using DevOps tools and processes.
 ---
 
@@ -174,7 +174,7 @@ For each managed API connection that uses authentication, you have to update the
          },
          "connectionRuntimeUrl": "https://xxxxxxxxxxxxxx.01.common.logic-westus.azure-apihub.net/apim/sql/xxxxxxxxxxxxxxxxxxxxxxxxx/",
          "authentication": {
-            "type": "ManagedServiceIdentity",
+            "type": "ManagedServiceIdentity"
          }
       }
    }
@@ -323,11 +323,11 @@ If you use other deployment tools, you can deploy your Standard logic app by usi
 
 1. On a Windows or Mac operating system, open a command prompt, and enter the following command:
 
-   `pip --version`
+   `python -m pip --version`
 
    - If you get a **pip** version, then **pip** is installed. Make sure that you have the most recent version by using the following command:
 
-     `python -m pip install -upgrade pip`
+     `python -m pip install --upgrade pip`
 
    - If you get errors instead, then **pip** isn't installed or added to your **PATH** environment.
 

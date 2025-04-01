@@ -3,9 +3,9 @@ title: How to create and manage private endpoints (with v2 experience) for Azure
 description: This article explains how to configure and manage private endpoints for Azure Backup.
 ms.topic: how-to
 ms.service: azure-backup
-ms.date: 07/19/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 03/27/2025
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Create and use private endpoints (v2 experience) for Azure Backup
@@ -198,8 +198,10 @@ When using the MARS Agent to back up your on-premises resources, make sure your 
 But if you remove private endpoints for the vault after a MARS agent has been registered to it, you'll need to re-register the container with the vault. You don't need to stop protection for them.
 
 >[!NOTE]
-> - Private endpoints are supported with only DPM server 2022 and later.
-> - Private endpoints are not yet supported with MABS.
+>- Private endpoints are supported with only DPM server 2022 (10.22.123.0) and later.
+>- Private endpoints are supported with only MABS V4 (14.0.30.0) and later.
+
+To auto-update the MARS Agent allow access to the `*.login.microsoft.com` domain.
 
 #### Cross Subscription Restore to a Private Endpoint enabled vault
 

@@ -20,7 +20,7 @@ Several Azure Virtual Desktop features require you to assign Azure role-based ac
 > [!TIP]
 > You can find which role or roles you need to assign to which service principal in the article for each feature. For a list of all the available Azure RBAC roles created specifically for Azure Virtual Desktop, see [Built-in Azure RBAC roles for Azure Virtual Desktop](rbac.md). To learn more about Azure RBAC, see [Azure RBAC documentation](../role-based-access-control/index.yml) or for Microsoft Entra roles, see [Microsoft Entra roles documentation](/entra/identity/role-based-access-control/).
 
-Depending on when you registered the *Microsoft.DesktopVirtualization* resource provider, the service principal names begin with either *Azure Virtual Desktop* or *Windows Virtual Desktop*. If you used both Azure Virtual Desktop Classic and an Azure Virtual Desktop (Azure Resource Manager), you see apps with the same name. You can make sure you're assigning roles to the correct service principal by checking its application ID. The application ID for each service principal is in the following table:
+Depending on when you registered the *Microsoft.DesktopVirtualization* resource provider, the service principal names begin with either *Azure Virtual Desktop* or *Windows Virtual Desktop*. Also, if you previously used both Azure Virtual Desktop classic and Azure Virtual Desktop (Azure Resource Manager), you see apps with the same name. You can make sure you're assigning roles to the correct service principal by checking its application ID. The application ID for each service principal is in the following table:
 
 | Service principal | Application ID |
 |--|--|
@@ -36,7 +36,7 @@ Before you can assign a role to an Azure Virtual Desktop service principal, you 
 
 - To assign Azure RBAC roles, you must have the `Microsoft.Authorization/roleAssignments/write` permission to an Azure subscription in order to assign roles on that subscription. This permission is part of the [Owner](../role-based-access-control/built-in-roles.md) or [User Access Administrator](../role-based-access-control/built-in-roles.md) built in roles.
 
-- To assign Microsoft Entra roles, you must have the [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator) or [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator) role.
+- To assign Microsoft Entra roles, you must have the [Privileged Role Administrator](/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator) or equivalent.
 
 - If you want to use Azure PowerShell or Azure CLI locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module or [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
@@ -58,7 +58,7 @@ Here's how to assign an Azure RBAC role to an Azure Virtual Desktop service prin
 
 1. Under properties, make a note of the **name** and the **object ID**. The object ID correlates to the application ID, and is unique to your tenant.
 
-1. In the search box, enter *Subscriptions* and select the matching service entry.
+1. Go back to the search box, enter *Subscriptions* and select the matching service entry.
 
 1. Select the subscription you want to add the role assignment to.
 
@@ -116,7 +116,7 @@ Here's how to assign an Azure RBAC role to an Azure Virtual Desktop service prin
    SignInName         : 
    RoleDefinitionName : Desktop Virtualization Power On Off Contributor
    RoleDefinitionId   : 40c5ff49-9181-41f8-ae61-143b0e78555e
-   ObjectId           : 00000000-0000-0000-0000-000000000000
+   ObjectId           : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
    ObjectType         : ServicePrincipal
    CanDelegate        : False
    Description        : 

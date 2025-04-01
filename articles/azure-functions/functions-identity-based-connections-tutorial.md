@@ -30,7 +30,7 @@ After you complete this tutorial, you should complete the follow-on tutorial tha
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-- The [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
+- The [.NET SDK](https://dotnet.microsoft.com/download)
 
 - The [Azure Functions Core Tools](functions-run-local.md#v2) version 4.x.
 

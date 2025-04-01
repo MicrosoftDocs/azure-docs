@@ -237,9 +237,7 @@
       href: ../automate/automation-overview.md
   - name: Tutorials
     items:
-    - name: Export data
-      href: tutorial-export-acm-data.md
-    - name: Tutorial - Improved exports (Preview)
+    - name: Tutorial - Export data
       href: tutorial-improved-exports.md
     - name: Seed historical cost dataset with Exports API
       href: ../automate/tutorial-seed-historical-cost-dataset-exports-api.md
@@ -313,6 +311,8 @@
         href: ../automate/migrate-consumption-usage-details-api.md
       - name: Marketplaces API
         href: ../automate/migrate-consumption-marketplaces-api.md
+    - name: Transition from Consumption APIs to Cost Management APIs
+      href: ../automate/transition-consumption-apis-cost-management-apis.md
   - name: Reference
     items:
     - name: Exports API

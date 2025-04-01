@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: tutorial
-ms.date: 10/17/2023
+ms.date: 02/20/2025
 ms.custom: devdivchpfy22
 ---
 
@@ -14,6 +14,8 @@ ms.custom: devdivchpfy22
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-consumption](../../includes/api-management-availability-premium-dev-standard-basic-consumption.md)]
 
 In this tutorial, you learn how to use the API Management extension for Visual Studio Code for common operations in API Management. Use the familiar Visual Studio Code environment to import, update, test, and manage APIs.
+
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
 You learn how to:
 
@@ -35,16 +37,16 @@ For an introduction to more API Management features, see the API Management tuto
 
 ## Import an API
 
-The following example imports an OpenAPI Specification in JSON format into API Management. Microsoft provides the backend API used in this example, and hosts it on Azure at `https://conferenceapi.azurewebsites.net`.
+The following example imports an OpenAPI Specification in JSON format into API Management. For this example, you import the open source [Petstore API](https://petstore.swagger.io/).
 
 1. In Visual Studio Code, select the Azure icon from the Activity Bar.
 1. In the Explorer pane, expand the API Management instance you created.
 1. Right-click **APIs**, and select **Import from OpenAPI Link**.
 1. When prompted, enter the following values:
-    1. An **OpenAPI link** for content in JSON format. For this example: `https://conferenceapi.azurewebsites.net?format=json`.
+    1. An **OpenAPI link** for content in JSON format. For this example: `https://petstore.swagger.io/v2/swagger.json`.
     
-        This file specifies the backend service that implements the example API, in this case `https://conferenceapi.azurewebsites.net`. API Management forwards requests to this web service.
-    1. An **API name**, such as *demo-conference-api*, that is unique in the API Management instance. This name can contain only letters, number, and hyphens. The first and last characters must be alphanumeric. This name is used in the path to call the API.
+        This file specifies the backend service that implements the example API and the operations it supports.
+    1. An **API name**, such as *petstore*, that is unique in the API Management instance. This name can contain only letters, number, and hyphens. The first and last characters must be alphanumeric. This name is used in the path to call the API.
 
 After the API is imported successfully, it appears in the Explorer pane, and available API operations appear under the **Operations** node.
 
@@ -52,7 +54,7 @@ After the API is imported successfully, it appears in the Explorer pane, and ava
 
 ## Edit the API
 
-You can edit the API in Visual Studio Code. For example, edit the Resource Manager JSON description of the API in the editor window to remove the **http** protocol used to access the API.
+You can edit the API in Visual Studio Code. For example, edit the Resource Manager JSON description of the API in the editor window to remove the **http** protocol used to access the API, which is highlighted in the following snip:
 
 :::image type="content" source="media/visual-studio-code-tutorial/import-demo-api.png" alt-text="Screenshot of editing JSON description in Visual Studio Code.":::
 
@@ -62,28 +64,32 @@ To edit the OpenAPI format, right-click the API name in the Explorer pane and se
 
 API Management provides [policies](api-management-policies.md) that you can configure for your APIs. Policies are a collection of statements. These statements are run sequentially on the request or response of an API. Policies can be global, which apply to all APIs in your API Management instance, or specific to a product, an API, or an API operation.
 
-This section shows how to apply common outbound policies to your API that transform the API response. The policies in this example change response headers and hide original backend URLs that appear in the response body.
+This section shows how to apply common inbound and outbound policies to your API.
 
-1. In the Explorer pane, select **Policy** under the *demo-conference-api* that you imported. The policy file opens in the editor window. This file configures policies for all operations in the API.
+1. In the Explorer pane, select **Policy** under the *petstore* API that you imported. The policy file opens in the editor window. This file configures policies for all operations in the API.
 
-1. Update the file with the following content in the `<outbound>` element:
+1. Update the file with the following content:
     ```xml
-    [...]
-    <outbound>
-        <set-header name="Custom" exists-action="override">
-            <value>"My custom value"</value>
-        </set-header>
-        <set-header name="X-Powered-By" exists-action="delete" />
-        <redirect-content-urls />
-        <base />
-    </outbound>
-    [...]
+    <policies>
+        <inbound>
+            <rate-limit calls="3" renewal-period="15" />
+            <base />
+        </inbound>
+        <outbound>
+            <set-header name="Custom" exists-action="override">
+                <value>"My custom value"</value>
+              </set-header>
+            <base />
+        </outbound>
+        <on-error>
+            <base />
+        </on-error>
+    </policies>
     ```
 
-    * The first `set-header` policy adds a custom response header for demonstration purposes.
-    * The second `set-header` policy deletes the **X-Powered-By** header, if it exists. This header can reveal the application framework used in the API backend, and publishers often remove it.
-    * The `redirect-content-urls` policy rewrites (masks) links in the response body so that they point to the equivalent links via the API Management gateway.
-
+    * The `rate-limit` policy in the `inbound` section limits the number of calls to the API to 3 every 15 seconds.
+    * The `set-header` policy in the `outbound` section adds a custom response header for demonstration purposes.
+    
 1. Save the file. If you're prompted, select **Upload** to upload the file to the cloud.
 
 ## Test the API
@@ -104,9 +110,10 @@ You need a subscription key for your API Management instance to test the importe
 
 ### Test an API operation
 
-1. In the Explorer pane, expand the **Operations** node under the *demo-conference-api* that you imported.
-1. Select an operation such as *GetSpeakers*, and then right-click the operation and select **Test Operation**.
-1. In the editor window, next to **Ocp-Apim-Subscription-Key**, replace `{{SubscriptionKey}}` with the subscription key that you copied.
+1. In the Explorer pane, expand the **Operations** node under the *petstore* API that you imported.
+1. Select an operation such as *[GET] Find pet by ID*, and then right-click the operation and select **Test Operation**.
+1. In the editor window, substitute `5` for the `petId` parameter in the request URL.
+1. In the editor window, next to **Ocp-Apim-Subscription-Key**, paste the subscription key that you copied.
 1. Select **Send request**.
 
 :::image type="content" source="media/visual-studio-code-tutorial/test-api.png" alt-text="Screenshot of sending API request from Visual Studio Code.":::
@@ -115,11 +122,11 @@ When the request succeeds, the backend responds with **200 OK** and some data.
 
 :::image type="content" source="media/visual-studio-code-tutorial/test-api-policies.png" alt-text="Screenshot of the API test response in Visual Studio Code.":::
 
-Notice the following details in the response:
+Notice the following detail in the response:
 
-* The **Custom** header is added to the response.
-* The **X-Powered-By** header doesn't appear in the response.
-* URLs to the API backend are redirected to the API Management gateway, in this case `https://apim-hello-world.azure-api.net/demo-conference-api`.
+* The `Custom` header is added to the response.
+
+Now test the rate limiting policy. Select **Send request** several times in a row. After sending too many requests in the configured period, you get the `429 Too Many Requests` response.     
 
 ### Trace request processing
 

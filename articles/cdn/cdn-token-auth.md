@@ -1,14 +1,14 @@
 ---
+ROBOTS: NOINDEX
 title: Securing Azure Content Delivery Network assets with token authentication| Microsoft Docs
 description: Learn how to use token authentication to secure access to your Azure Content Delivery Network assets.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
-ms.assetid: 837018e3-03e6-4f9c-a23e-4b63d5707a64
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
 ---
 
 # Securing Azure Content Delivery Network assets with token authentication
@@ -75,8 +75,6 @@ The following flowchart describes how Azure Content Delivery Network validates a
    3. Select the minimum encryption version for each key from its **Minimum Encryption Version** list, then select **Update**:
       - **V2:** Indicates that the key can be used to generate version 2.0 and 3.0 tokens. Use this option only if you're transitioning from a legacy version 2.0 encryption key to a version 3.0 key.
       - **V3:** (Recommended) Indicates that the key can only be used to generate version 3.0 tokens.
-
-      ![Screenshot of the content delivery network token auth setup key.](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
 
    4. Use the encrypt tool to set up encryption parameters and generate a token. With the encrypt tool, you can allow or deny requests based on expiration time, country/region, referrer, protocol, and client IP (in any combination). Although there's no limit to the number and combination of parameters that can be combined to form a token, the total length of a token is limited to 512 characters.
 
@@ -172,8 +170,6 @@ The following flowchart describes how Azure Content Delivery Network validates a
    1. Select an existing rule or create a new rule to define the asset or path for which you want to apply token authentication.
    2. To enable token authentication on a rule, select **[Token Auth](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm)** from the **Features** list, then select **Enabled**. Select **Update** if you're updating a rule or **Add** if you're creating a rule.
 
-      ![Screenshot of the content delivery network rules engine token authentication enable example.](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
-
 4. In the rules engine, you can also enable more token authentication-related features. To enable any of the following features, select it from the **Features** list, then select **Enabled**.
 
    - **[Token Auth Denial Code](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Denial-Code.htm):** Determines the type of response that is returned to a user when a request is denied. Rules set here override the response code set in the **Custom Denial Handling** section on the token-based authentication page.
@@ -181,8 +177,6 @@ The following flowchart describes how Azure Content Delivery Network validates a
    - **[Token Auth Ignore URL Case](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Ignore-URL-Case.htm):** Determines whether the URL used to validate the token is case-sensitive.
 
    - **[Token Auth Parameter](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Parameter.htm):** Renames the token auth query string parameter that appears in the requested URL.
-
-     ![Screenshot of the content delivery network rules engine token authentication settings example.](./media/cdn-token-auth/cdn-rules-engine2.png)
 
 5. You can customize your token by accessing source code in [GitHub](https://github.com/VerizonDigital/ectoken).
    Available languages include:

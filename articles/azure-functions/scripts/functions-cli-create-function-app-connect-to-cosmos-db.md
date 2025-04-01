@@ -38,7 +38,7 @@ az group delete --name $resourceGroup
 | [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Creates a function app in the serverless [Consumption plan](../consumption-plan.md). |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Create an Azure Cosmos DB database. |
 | [az cosmosdb show](/cli/azure/cosmosdb#az-cosmosdb-show)| Gets the database account connection. |
-| [az cosmosdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys)| Gets the keys for the database. |
+| [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list)| Gets the keys for the database. |
 | [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) | Sets the connection string as an app setting in the function app. |
 
 ## Next steps

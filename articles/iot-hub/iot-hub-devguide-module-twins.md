@@ -1,29 +1,31 @@
 ---
 title: Understand Azure IoT Hub module twins
 description: This article describes how to use module twins to synchronize state and configuration data between IoT Hub and your devices
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 04/27/2022
+ms.date: 12/17/2024
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 ---
 
 # Understand and use module twins in IoT Hub
 
-This article assumes you've read [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md) first. In IoT Hub, under each device identity, you can create up to 50 module identities. Each module identity implicitly generates a module twin. Similar to device twins, module twins are JSON documents that store module state information including metadata, configurations, and conditions. Azure IoT Hub maintains a module twin for each module that you connect to IoT Hub. 
+In IoT Hub, under each device identity, you can create up to 50 module identities. Each module identity implicitly generates a module twin. Similar to device twins, module twins are JSON documents that store module state information including metadata, configurations, and conditions. Azure IoT Hub maintains a module twin for each module that you connect to IoT Hub. 
 
-On the device side, the IoT Hub device SDKs enable you to create modules where each one opens an independent connection to IoT Hub. This functionality enables you to use separate namespaces for different components on your device. For example, you have a vending machine that has three different sensors. Each sensor is controlled by different departments in your company. You can create a module for each sensor. This way, each department is only able to send jobs or direct methods to the sensor that they control, avoiding conflicts and user errors.
+This article assumes that you read [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md) first. 
 
- Module identity and module twin provide the same capabilities as device identity and device twin but at a finer granularity. This finer granularity enables capable devices, such as operating system-based devices or firmware devices managing multiple components, to isolate configuration and conditions for each of those components. Module identity and module twins provide a management separation of concerns when working with IoT devices that have modular software components. We aim at supporting all the device twin functionality at module twin level by module twin general availability. 
+On the device side, the IoT Hub device software development kits (SDKs) enable you to create modules where each one opens an independent connection to IoT Hub. This functionality enables you to use separate namespaces for different components on your device. For example, you have a vending machine that has three different sensors. Different departments in your company control each sensor. You can create a module for each sensor so that a department is only able to send jobs or direct methods to the sensor that they control, avoiding conflicts and user errors.
+
+Module identity and module twin provide the same capabilities as device identity and device twin but at a finer granularity. This finer granularity enables capable devices, such as operating system-based devices or firmware devices managing multiple components, to isolate configuration and conditions for each of those components. Module identity and module twins provide a management separation of concerns when working with IoT devices that have modular software components. We aim at supporting all the device twin functionality at module twin level by module twin general availability. 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 This article describes:
 
 * The structure of the module twin: *tags*, *desired* and *reported properties*.
-* The operations that the modules and back ends can perform on module twins.
+* The operations that [*device applications*](../iot/iot-glossary.md#device-app) and the [*solution back end*](../iot/iot-glossary.md#solution-back-end) can perform on module twins.
 
 Refer to [Device-to-cloud communication guidance](iot-hub-devguide-d2c-guidance.md) for guidance on using reported properties, device-to-cloud messages, or file upload.
 
@@ -41,11 +43,11 @@ The lifecycle of a module twin is linked to the corresponding [module identity](
 
 A module twin is a JSON document that includes:
 
-* **Tags**. A section of the JSON document that the solution back end can read from and write to. Tags are not visible to modules on the device. Tags are set for querying purpose.
+* **Tags**. A section of the JSON document that back-end apps can read from and write to. Tags aren't visible to modules on the device. Tags are set for querying purpose.
 
-* **Desired properties**. Used along with reported properties to synchronize module configuration or conditions. The solution back end can set desired properties, and the module app can read them. The module app can also receive notifications of changes in the desired properties.
+* **Desired properties**. Used along with reported properties to synchronize module configuration or conditions. Back-end apps can set desired properties, and the module app can read them. The module app can also receive notifications of changes in the desired properties.
 
-* **Reported properties**. Used along with desired properties to synchronize module configuration or conditions. The module app can set reported properties, and the solution back end can read and query them.
+* **Reported properties**. Used along with desired properties to synchronize module configuration or conditions. The module app can set reported properties, and back-end apps can read and query them.
 
 * **Module identity properties**. The root of the module twin JSON document contains the read-only properties from the corresponding module identity stored in the [identity registry](iot-hub-devguide-identity-registry.md).
 
@@ -97,20 +99,20 @@ The following example shows a module twin JSON document:
 }
 ```
 
-In the root object are the module identity properties, and container objects for `tags` and both `reported` and `desired` properties. The `properties` container contains some read-only elements (`$metadata` and `$version`) described in the [Module twin metadata](iot-hub-devguide-module-twins.md#module-twin-metadata) and [Optimistic concurrency](iot-hub-devguide-device-twins.md#optimistic-concurrency) sections.
+At the top level, a module twin object contains the module identity properties and container objects for `tags` and both `reported` and `desired` properties. The `properties` container contains some read-only elements (`$metadata` and `$version`) described in the [Module twin metadata](iot-hub-devguide-module-twins.md#module-twin-metadata) and [Optimistic concurrency](iot-hub-devguide-device-twins.md#optimistic-concurrency) sections.
 
 ### Reported property example
 
-In the previous example, the module twin contains a `batteryLevel` property that is reported by the module app. This property makes it possible to query and operate on modules based on the last reported battery level. Other examples include the module app reporting module capabilities or connectivity options.
+In the previous example, the module twin contains a `batteryLevel` reported property. This property makes it possible to query and operate on modules based on the last reported battery level. Other examples include the module app reporting module capabilities or connectivity options.
 
 > [!NOTE]
-> Reported properties simplify scenarios where the solution back end is interested in the last known value of a property. Use [device-to-cloud messages](iot-hub-devguide-messages-d2c.md) if the solution back end needs to process module telemetry in the form of sequences of timestamped events, such as time series.
+> Reported properties simplify scenarios where you're interested in the last known value of a property. Use [device-to-cloud messages](iot-hub-devguide-messages-d2c.md) if you want to process module telemetry in sequences of timestamped events, such as time series.
 
 ### Desired property example
 
-In the previous example, the `telemetryConfig` module twin desired and reported properties are used by the solution back end and the module app to synchronize the telemetry configuration for this module. For example:
+In the previous example, the `telemetryConfig` module twin desired and reported properties are used by the back-end apps and the module app to synchronize the telemetry configuration for this module. For example:
 
-1. The solution back end sets the desired property with the desired configuration value. Here is the portion of the document with the desired property set:
+1. A back-end app sets the desired property with the desired configuration value. Here's the portion of the document with the desired property set:
 
     ```json
     ...
@@ -123,7 +125,7 @@ In the previous example, the `telemetryConfig` module twin desired and reported 
     ...
     ```
 
-2. The module app is notified of the change immediately if the module is connected. If it's not connected, the module app follows the [module reconnection flow](#module-reconnection-flow) when it connects. The module app then reports the updated configuration (or an error condition using the `status` property). Here is the portion of the reported properties:
+2. The module app is notified of the change immediately if the module is connected. If it's not connected, the module app follows the [module reconnection flow](#module-reconnection-flow) when it connects. The module app then reports the updated configuration (or an error condition using the `status` property). Here's the portion of the reported properties:
 
     ```json
     "reported": {
@@ -135,7 +137,7 @@ In the previous example, the `telemetryConfig` module twin desired and reported 
     }
     ```
 
-3. The solution back end can track the results of the configuration operation across many modules, by [querying](iot-hub-devguide-query-language.md) module twins.
+3. A back-end app can track the results of the configuration operation across many modules, by [querying](iot-hub-devguide-query-language.md) module twins.
 
 > [!NOTE]
 > The preceding snippets are examples, optimized for readability, of one way to encode a module configuration and its status. IoT Hub does not impose a specific schema for the module twin desired and reported properties in the module twins.
@@ -145,11 +147,11 @@ In the previous example, the `telemetryConfig` module twin desired and reported 
 
 ## Back-end operations
 
-The solution back end operates on the module twin using the following atomic operations, exposed through HTTPS:
+Back-end apps operate on the module twin using the following atomic operations, exposed through HTTPS:
 
 * **Retrieve module twin by ID**. This operation returns the module twin document, including tags and desired and reported system properties.
 
-* **Partially update module twin**. This operation enables the solution back end to partially update the tags or desired properties in a module twin. The partial update is expressed as a JSON document that adds or updates any property. Properties set to `null` are removed. The following example creates a new desired property with value `{"newProperty": "newValue"}`, overwrites the existing value of `existingProperty` with `"otherNewValue"`, and removes `otherOldProperty`. No other changes are made to existing desired properties or tags:
+* **Partially update module twin**. This operation partially updates the tags or desired properties in a module twin. The partial update is expressed as a JSON document that adds or updates any property. Properties set to `null` are removed. The following example creates a new desired property with value `{"newProperty": "newValue"}`, overwrites the existing value of `existingProperty` with `"otherNewValue"`, and removes `otherOldProperty`. No other changes are made to existing desired properties or tags:
 
     ```json
     {
@@ -165,15 +167,15 @@ The solution back end operates on the module twin using the following atomic ope
     }
     ```
 
-* **Replace desired properties**. This operation enables the solution back end to completely overwrite all existing desired properties and substitute a new JSON document for `properties/desired`.
+* **Replace desired properties**. This operation completely overwrites all existing desired properties and substitutes a new JSON document for `properties/desired`.
 
-* **Replace tags**. This operation enables the solution back end to completely overwrite all existing tags and substitute a new JSON document for `tags`.
+* **Replace tags**. This operation completely overwrites all existing tags and substitutes a new JSON document for `tags`.
 
-* **Receive twin notifications**. This operation allows the solution back end to be notified when the twin is modified. To do so, your IoT solution needs to create a route and to set the Data Source equal to *twinChangeEvents*. By default, no such route exists, so no twin notifications are sent. If the rate of change is too high, or for other reasons such as internal failures, the IoT Hub might send only one notification that contains all changes. Therefore, if your application needs reliable auditing and logging of all intermediate states, you should use device-to-cloud messages. To learn more about the properties and body returned in the twin notification message, see [Non-telemetry event schemas](iot-hub-non-telemetry-event-schema.md).
+* **Receive twin notifications**. This operation notifies when the twin is modified. To receive module twin change notifications, your IoT solution needs to create a route and to set the Data Source equal to *twinChangeEvents*. By default, no such route exists, so no twin notifications are sent. If the rate of change is too high, or for other reasons such as internal failures, the IoT Hub might send only one notification that contains all changes. Therefore, if your application needs reliable auditing and logging of all intermediate states, you should use device-to-cloud messages. To learn more about the properties and body returned in the twin notification message, see [Non-telemetry event schemas](iot-hub-non-telemetry-event-schema.md).
 
 All the preceding operations support [Optimistic concurrency](iot-hub-devguide-device-twins.md#optimistic-concurrency) and require the **ServiceConnect** permission, as defined in the [Control Access to IoT Hub](iot-hub-devguide-security.md) article.
 
-In addition to these operations, the solution back end can query the module twins using the SQL-like [IoT Hub query language](iot-hub-devguide-query-language.md).
+In addition to these operations, back-end apps can query the module twins using the SQL-like [IoT Hub query language](iot-hub-devguide-query-language.md).
 
 ## Module operations
 
@@ -181,9 +183,9 @@ The module app operates on the module twin using the following atomic operations
 
 * **Retrieve module twin**. This operation returns the module twin document (including desired and reported system properties) for the currently connected module.
 
-* **Partially update reported properties**. This operation enables the partial update of the reported properties of the currently connected module. This operation uses the same JSON update format that the solution back end uses for a partial update of desired properties.
+* **Partially update reported properties**. This operation enables the partial update of the reported properties of the currently connected module.
 
-* **Observe desired properties**. The currently connected module can choose to be notified of updates to the desired properties when they happen. The module receives the same form of update (partial or full replacement) executed by the solution back end.
+* **Observe desired properties**. The currently connected module can choose to be notified of updates to the desired properties when they happen.
 
 All the preceding operations require the **DeviceConnect** permission, as defined in the [Control Access to IoT Hub](iot-hub-devguide-security.md) article.
 
@@ -235,11 +237,11 @@ Tags, desired properties, and reported properties are JSON objects with the foll
 
 ## Module twin size
 
-IoT Hub enforces an 8 KB size limit on the value of `tags`, and a 32 KB size limit each on the value of `properties/desired` and `properties/reported`. These totals are exclusive of read-only elements like `$version` and `$metadata/$lastUpdated`.
+IoT Hub enforces an 8-KB size limit on the value of `tags`, and a 32-KB size limit each on the value of `properties/desired` and `properties/reported`. These totals are exclusive of read-only elements like `$version` and `$metadata/$lastUpdated`.
 
 Twin size is computed as follows:
 
-* For each property in the JSON document, IoT Hub cumulatively computes and adds the length of the property's key and value.
+* IoT Hub cumulatively computes and adds the length of each property's key and value.
 
 * Property keys are considered as UTF8-encoded strings.
 
@@ -307,15 +309,15 @@ This information is kept at every level (not just the leaves of the JSON structu
 
 Tags, desired properties, and reported properties all support optimistic concurrency. If you need to guarantee order of twin property updates, consider implementing synchronization at the application level by waiting for reported properties callback before sending the next update. 
 
-Module twins have an ETag (`etag` property), as per [RFC7232](https://tools.ietf.org/html/rfc7232), that represents the twin's JSON representation. You can use the `etag` property in conditional update operations from the solution back end to ensure consistency. This is the only option for ensuring consistency in operations that involve the `tags` container.
+Module twins have an ETag (`etag` property), as per [RFC7232](https://tools.ietf.org/html/rfc7232), that represents the twin's JSON representation. You can use the `etag` property in conditional update operations from back-end apps to ensure consistency. This option ensures consistency in operations that involve the `tags` container.
 
-Module twin desired and reported properties also have a `$version` value that is guaranteed to be incremental. Similarly to an ETag, the version can be used by the updating party to enforce consistency of updates. For example, a module app for a reported property or the solution back end for a desired property.
+Module twin desired and reported properties also have a `$version` value that is guaranteed to be incremental. Similarly to an ETag, you can use the version value to enforce consistency of updates. For example, a module app for a reported property or a back-end app for a desired property.
 
 Versions are also useful when an observing agent (such as the module app observing the desired properties) must reconcile races between the result of a retrieve operation and an update notification. The section [Module reconnection flow](#module-reconnection-flow) provides more information.
 
 ## Module reconnection flow
 
-IoT Hub does not preserve desired properties update notifications for disconnected modules. It follows that a module that is connecting must retrieve the full desired properties document, in addition to subscribing for update notifications. Given the possibility of races between update notifications and full retrieval, the following flow must be ensured:
+IoT Hub doesn't preserve desired properties update notifications for disconnected modules. It follows that a module that is connecting must retrieve the full desired properties document, in addition to subscribing for update notifications. Given the possibility of races between update notifications and full retrieval, the following flow must be ensured:
 
 1. Module app connects to an IoT hub.
 2. Module app subscribes for desired properties update notifications.

@@ -3,7 +3,10 @@ title: Authentication issues in Azure HDInsight
 description: Authentication issues in Azure HDInsight
 ms.service: azure-hdinsight
 ms.topic: troubleshooting
-ms.date: 09/06/2024
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf 
+ms.date: 11/20/2024
 ---
 
 # Authentication issues in Azure HDInsight
@@ -30,7 +33,7 @@ Microsoft Entra error code 50126 means the `AllowCloudPasswordValidation` policy
 
 ### Resolution
 
-The Administrator of the Microsoft Entra tenant should enable Microsoft Entra ID to use password hashes for ADFS backed users.  Apply the `AllowCloudPasswordValidationPolicy` as shown in the article [Use Enterprise Security Package in HDInsight](../domain-joined/apache-domain-joined-architecture.md).
+Use [Hybrid Identity Administrator](/entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator)credentials to use password hashes for ADFS backed users.  Apply the `AllowCloudPasswordValidationPolicy` as shown in the article [Use Enterprise Security Package in HDInsight](../domain-joined/apache-domain-joined-architecture.md).
 
 ---
 
@@ -41,7 +44,7 @@ The Administrator of the Microsoft Entra tenant should enable Microsoft Entra ID
 Sign in fails with error code 50034. Error message is similar to:
 
 ```
-{"error":"invalid_grant","error_description":"AADSTS50034: The user account Microsoft.AzureAD.Telemetry.Diagnostics.PII doesn't exist in the 0c349e3f-1ac3-4610-8599-9db831cbaf62 directory. To sign into this application, the account must be added to the directory.\r\nTrace ID: 2222cccc-33dd-eeee-ff44-aaaaaa555555\r\nCorrelation ID: cccc2222-dd33-4444-55ee-666666ffffff\r\nTimestamp: 2019-04-29 15:52:16Z", "error_codes":[50034],"timestamp":"2019-04-29 15:52:16Z","trace_id":"2222cccc-33dd-eeee-ff44-aaaaaa555555", "correlation_id":"cccc2222-dd33-4444-55ee-666666ffffff"}
+{"error":"invalid_grant","error_description":"AADSTS50034: The user account Microsoft.AzureAD.Telemetry.Diagnostics.PII doesn't exist in the aaaabbbb-0000-cccc-1111-dddd2222eeee directory. To sign into this application, the account must be added to the directory.\r\nTrace ID: 2222cccc-33dd-eeee-ff44-aaaaaa555555\r\nCorrelation ID: cccc2222-dd33-4444-55ee-666666ffffff\r\nTimestamp: 2019-04-29 15:52:16Z", "error_codes":[50034],"timestamp":"2019-04-29 15:52:16Z","trace_id":"2222cccc-33dd-eeee-ff44-aaaaaa555555", "correlation_id":"cccc2222-dd33-4444-55ee-666666ffffff"}
 ```
 
 ### Cause

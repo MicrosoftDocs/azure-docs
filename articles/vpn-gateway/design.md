@@ -4,13 +4,13 @@ description: Learn about VPN Gateway topologies and designs you can use to conne
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 10/15/2024
+ms.date: 01/15/2025
 ms.author: cherylmc
 
 ---
 # VPN Gateway topology and design
 
-There are many different configuration options available for VPN Gateway connections. To help you select the connection topology that meets your requirements, use the diagrams and descriptions in the following sections. The diagrams show the main baseline topologies, but it's possible to build more complex configurations using the diagrams as guidelines.
+There are many different options available for virtual network connections. To help you select a VPN gateway connection topology that meets your requirements, use the diagrams and descriptions in the following sections. The diagrams show the main baseline topologies, but it's possible to build more complex configurations using the diagrams as guidelines.
 
 ## <a name="s2smulti"></a>Site-to-site VPN
 
@@ -28,7 +28,7 @@ If you want to create a design for highly available gateway connectivity, you ca
 * For information about highly available connections, see [Designing highly available connections](vpn-gateway-highlyavailable.md).
 * For information about active-active mode, see [About active-active mode gateways](about-active-active-gateways.md).
 
-### Deployment models and methods for S2S
+### Deployment methods for S2S
 
 [!INCLUDE [site-to-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
@@ -40,7 +40,7 @@ Unlike site-to-site connections, point-to-site connections don't require an on-p
 
 :::image type="content" source="./media/vpn-gateway-howto-point-to-site-rm-ps/point-to-site-diagram.png" alt-text="Diagram of point-to-site connections." lightbox="./media/vpn-gateway-howto-point-to-site-rm-ps/point-to-site-diagram.png":::
 
-### Deployment models and methods for P2S
+### Deployment methods for P2S
 
 [!INCLUDE [point to site table](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
@@ -56,11 +56,10 @@ The virtual networks you connect can be:
 
 * in the same or different regions
 * in the same or different subscriptions
-* in the same or different deployment models
 
 :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png" alt-text="Diagram of VNet-to-VNet connections." lightbox="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png":::
 
-### Deployment models and methods for VNet-to-VNet
+### Deployment methods for VNet-to-VNet
 
 [!INCLUDE [VNet-to-VNet table](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
@@ -74,7 +73,7 @@ You can configure a site-to-site VPN as a secure failover path for ExpressRoute,
 
 :::image type="content" source="./media/design/expressroute-vpngateway-coexisting-connections-diagram.png" alt-text="Diagram of ExpressRoute and VPN Gateway coexisting connections." lightbox="./media/design/expressroute-vpngateway-coexisting-connections-diagram.png":::
 
-### Deployment models and methods for S2S and ExpressRoute coexisting connections
+### Deployment methods for S2S and ExpressRoute coexisting connections
 
 [!INCLUDE [ExpressRoute coexist table](../../includes/vpn-gateway-table-coexist-include.md)]
 
@@ -90,6 +89,8 @@ For planning and designing highly available connections, including active-active
 
 * For VPN Gateway BGP considerations, see [About BGP](vpn-gateway-bgp-overview.md).
 
-* View the [Subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
+* For information about virtual network peering, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md).
+
+* View the [Subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-networking-limits).
 
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.

@@ -114,7 +114,7 @@ using Azure.Security.KeyVault.Secrets
 eventGridClient = new EventGridManagementClient(new Uri("https://management.azure.com/"),
     new TokenCredentials(token.AccessToken));
 
-eventGridClient.SubscriptionId = 'your_subscripiton_id';
+eventGridClient.SubscriptionId = 'your_subscription_id';
 ```
 
 ## Create Event Subscription

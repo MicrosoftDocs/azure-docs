@@ -149,7 +149,7 @@ Let's reuse the chat app created in tutorial [Create a chat room with SignalR Se
     }
     ```
 
-    Inside the code, `AddAuthentication` and `UseAuthentication` are used to add authentication support with the GitHub OAuth app, and `GetUserCompanyInfoAsync` helper method is sample code showing how to load the company info from GitHub OAuth and save into user identity. You might also notice that `UseHttpsRedirection()` is used since GitHub OAuth set `secure` cookie that only passes through to secured `https` scheme. Also don't forget to update the local `Properties/lauchSettings.json` to add https endpoint:
+    Inside the code, `AddAuthentication` and `UseAuthentication` are used to add authentication support with the GitHub OAuth app, and `GetUserCompanyInfoAsync` helper method is sample code showing how to load the company info from GitHub OAuth and save into user identity. You might also notice that `UseHttpsRedirection()` is used since GitHub OAuth set `secure` cookie that only passes through to secured `https` scheme. Also don't forget to update the local `Properties/launchSettings.json` to add https endpoint:
 
     ```json
     {

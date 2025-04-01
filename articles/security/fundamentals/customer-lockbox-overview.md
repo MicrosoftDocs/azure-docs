@@ -58,6 +58,7 @@ The following services are currently supported for Customer Lockbox for Microsof
 - ElasticSan
 - Kusto (Dashboards)
 - Microsoft Azure Attestation
+- Microsoft Entra Diagnostics Data
 - OpenAI
 - Spring Cloud
 - Unified Vision Service
@@ -138,7 +139,7 @@ For tenant-scoped Customer Lockbox requests, log entries are written to the [Ent
 - **Request approved**
 - **Request denied**
 
-You can fiiter for ```Service = Access Reviews``` and ```Activity = one of the above activities```. 
+You can filter for ```Service = Access Reviews``` and ```Activity = one of the above activities```. 
 
 As an example:
 

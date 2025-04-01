@@ -4,8 +4,8 @@ description: This article provides a protection matrix listing all workloads, da
 ms.date: 09/11/2024
 ms.topic: reference
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Azure Backup Server V3 RTM protection matrix
@@ -91,31 +91,15 @@ For on-premises or hosted environments that you can't upgrade or migrate to Azur
 
 ## Azure ExpressRoute support
 
-You can back up your data over Azure ExpressRoute with public peering (available for old circuits) and Microsoft peering. Backup over private peering is not supported.
+You can back up your data over Azure ExpressRoute with Microsoft peering. Backup over private peering is not supported.
 
-With public peering: Ensure access to the following domains/addresses:
-
-* URLs
-  * `www.msftncsi.com`
-  * `*.Microsoft.com`
-  * `*.WindowsAzure.com`
-  * `*.microsoftonline.com`
-  * `*.windows.net`
-  * `www.msftconnecttest.com`
-* IP addresses
-  * 20.190.128.0/18
-  * 40.126.0.0/18
-
-With Microsoft peering, select the following services/regions and relevant community values:
+Select the following services/regions and relevant community values:
 
 * Microsoft Entra ID (12076:5060)
 * Microsoft Azure Region (according to the location of your Recovery Services vault)
 * Azure Storage (according to the location of your Recovery Services vault)
 
 For more details, see the [ExpressRoute routing requirements](../expressroute/expressroute-routing.md).
-
->[!NOTE]
->Public Peering is deprecated for new circuits.
 
 ## Cluster support
 

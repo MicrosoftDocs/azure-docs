@@ -1,13 +1,15 @@
 ---
 title: Monitor Azure Cache for Redis data using diagnostic settings
-titleSuffix: Azure Cache for Redis
 description: Learn how to use diagnostic settings to monitor connected ip addresses to your Azure Cache for Redis.
 
 
 
-ms.topic: how-to 
+ms.topic: how-to
 ms.date: 12/18/2023
-ms.custom: template-how-to, devx-track-azurecli 
+appliesto:
+  - ✅ Azure Cache for Redis
+
+ms.custom: template-how-to, devx-track-azurecli, ignite-2024
 ms.devlang: azurecli
 ---
 
@@ -16,7 +18,7 @@ ms.devlang: azurecli
 Diagnostic settings in Azure are used to collect resource logs. An Azure resource emits resource logs and provides rich, frequent data about the operation of that resource. These logs are captured per request and are also referred to as "data plane logs". See [diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings) for a recommended overview of the functionality in Azure. The content of these logs varies by resource type. In Azure Cache for Redis, two options are available to log:
 
 - **Cache Metrics** (that is "AllMetrics") used to [log metrics from Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
-- **Connection Logs** logs connections to the cache for security and diagnostic purposes. 
+- **Connection Logs** logs connections to the cache for security and diagnostic purposes.
 
 ## Scope of availability
 
@@ -27,7 +29,7 @@ Diagnostic settings in Azure are used to collect resource logs. An Azure resourc
 
 ## Cache Metrics
 
-Azure Cache for Redis emits [many metrics](monitor-cache-reference.md#metrics) such as _Server Load_ and _Connections per Second_ that are useful to log. Selecting the **AllMetrics** option allows these and other cache metrics to be logged. You can configure how long the metrics are retained. See [here for an example of exporting cache metrics to a storage account](monitor-cache.md#view-cache-metrics). 
+Azure Cache for Redis emits [many metrics](/azure/redis/monitor-cache-reference.md#metrics) such as _Server Load_ and _Connections per Second_ that are useful to log. Selecting the **AllMetrics** option allows these and other cache metrics to be logged. You can configure how long the metrics are retained. See [here for an example of exporting cache metrics to a storage account](/azure/redis/monitor-cache.md#view-cache-metrics).
 
 ## Connection Logs
 
@@ -36,8 +38,10 @@ Azure Cache for Redis uses Azure diagnostic settings to log information on clien
 ## Differences Between Azure Cache for Redis Tiers
 
 Implementation of connection logs is slightly different between tiers:
+
 - **Basic, Standard, and Premium-tier caches** polls client connections by IP address, including the number of connections originating from each unique IP address. These logs aren't cumulative. They represent point-in-time snapshots taken at 10-second intervals. Authentication events (successful and failed) and disconnection events aren't logged in these tiers.  
-- **Enterprise and Enterprise Flash-tier caches** use the [audit connection events](https://docs.redis.com/latest/rs/security/audit-events/) functionality built-into Redis Enterprise. Audit connection events allow every connection, disconnection, and authentication event to be logged, including failed authentication events. 
+
+- **Enterprise and Enterprise Flash-tier caches** use the [audit connection events](https://docs.redis.com/latest/rs/security/audit-events/) functionality built-into Redis Enterprise. Audit connection events allow every connection, disconnection, and authentication event to be logged, including failed authentication events.
 
 The connection logs produced look similar among the tiers, but have some differences. The two formats are shown in more detail later in the article.  
 
@@ -50,17 +54,17 @@ The connection logs produced look similar among the tiers, but have some differe
 ### Basic, Standard, and Premium tiers
 - Because connection logs in these tiers consist of point-in-time snapshots taken every 10 seconds, connections that are established and removed in-between 10-second intervals aren't logged.
 - Authentication events aren't logged.
-- All diagnostic settings may take up to [90 minutes](/azure/azure-monitor/essentials/diagnostic-settings#time-before-telemetry-gets-to-destination) to start flowing to your selected destination. 
+- All diagnostic settings may take up to [90 minutes](/azure/azure-monitor/essentials/diagnostic-settings#time-before-telemetry-gets-to-destination) to start flowing to your selected destination.
 - Enabling connection logs can cause a small performance degradation to the cache instance.
-- Only the _Analytics Logs_ pricing plan is supported when streaming logs to Azure Log Analytics. For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/). 
+- Only the _Analytics Logs_ pricing plan is supported when streaming logs to Azure Log Analytics. For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### Enterprise and Enterprise Flash tiers
 - When you use **OSS Cluster Policy**, logs are emitted from each data node. When you use **Enterprise Cluster Policy**, only the node being used as a proxy emits logs. Both versions still cover all connections to the cache. This is just an architectural difference.  
-- Data loss (that is, missing a connection event) is rare, but possible. Data loss is typically caused by networking issues. 
+- Data loss (that is, missing a connection event) is rare, but possible. Data loss is typically caused by networking issues.
 - Disconnection logs aren't yet fully stable and events may be missed.  
 - Because connection logs on the Enterprise tiers are event-based, be careful of your retention policies. For instance, if retention is set to 10 days, and a connection event occurred 15 days ago, that connection might still exist, but the log for that connection isn't retained.
 - If using [active geo-replication](cache-how-to-active-geo-replication.md), logging must be configured for each cache instance in the geo-replication group individually.
-- All diagnostic settings may take up to [90 minutes](/azure/azure-monitor/essentials/diagnostic-settings#time-before-telemetry-gets-to-destination) to start flowing to your selected destination. 
+- All diagnostic settings may take up to [90 minutes](/azure/azure-monitor/essentials/diagnostic-settings#time-before-telemetry-gets-to-destination) to start flowing to your selected destination.
 - Enabling connection logs may cause a small performance degradation to the cache instance.
 
 > [!NOTE]
@@ -68,7 +72,7 @@ The connection logs produced look similar among the tiers, but have some differe
 >
 
 > [!IMPORTANT]
-> When selecting logs, you can chose either the specific _Category_ or _Category groups_, which are predefined groupings of logs across Azure services. When you use _Category groups_, [you can no longer configure the retention settings](/azure/azure-monitor/essentials/diagnostic-settings#resource-logs). If you need to determine retention duration for your connection logs, select the item in the _Categories_ section instead. 
+> When selecting logs, you can chose either the specific _Category_ or _Category groups_, which are predefined groupings of logs across Azure services. When you use _Category groups_, [you can no longer configure the retention settings](/azure/azure-monitor/essentials/diagnostic-settings#resource-logs). If you need to determine retention duration for your connection logs, select the item in the _Categories_ section instead.
 >
 
 ## Log Destinations
@@ -76,7 +80,7 @@ The connection logs produced look similar among the tiers, but have some differe
 You can turn on diagnostic settings for Azure Cache for Redis instances and send resource logs to the following destinations:
 
 - **Log Analytics workspace** - doesn't need to be in the same region as the resource being monitored.
-- **Storage account** - must be in the same region as the cache. [Premium storage accounts are not supported](/azure/azure-monitor/essentials/diagnostic-settings#destination-limitations) as a destination, however. 
+- **Storage account** - must be in the same region as the cache. [Premium storage accounts are not supported](/azure/azure-monitor/essentials/diagnostic-settings#destination-limitations) as a destination, however.
 - **Event hub** - diagnostic settings can't access event hub resources when virtual networks are enabled. Enable the **Allow trusted Microsoft services to bypass this firewall?** setting in event hubs to grant access to your event hub resources. The event hub must be in the same region as the cache.
 - **Partner Solution** - a list of potential partner logging solutions can be found [here](../partner-solutions/partners.md)
 
@@ -147,10 +151,10 @@ PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diag
 ```json
 {
     "properties": {
-      "storageAccountId": "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
-      "eventHubAuthorizationRuleId": "/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/eventhubs/myeventhub/authorizationrules/myrule",
+      "storageAccountId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
+      "eventHubAuthorizationRuleId": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/eventhubs/myeventhub/authorizationrules/myrule",
       "eventHubName": "myeventhub",
-      "workspaceId": "/subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/myworkspace",
+      "workspaceId": "/subscriptions/cccc2c2c-dd3d-ee4e-ff5f-aaaaaa6a6a6a/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/myworkspace",
       "logs": [
         {
           "category": "ConnectedClientList",
@@ -189,11 +193,11 @@ PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diag
 ```json
 { 
     "properties": {
-      "storageAccountId": "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/myteststorage",
-      "eventHubAuthorizationRuleID": "/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule", 
+      "storageAccountId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/myteststorage",
+      "eventHubAuthorizationRuleID": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule", 
       "eventHubName": "myeventhub",
-      "marketplacePartnerId": "/subscriptions/abcdeabc-1234-1234-ab12-123a1234567a/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/mydatadog",
-      "workspaceId": "/subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights integration/providers/Microsoft.OperationalInsights/workspaces/myworkspace",
+      "marketplacePartnerId": "/subscriptions/dddd3d3d-ee4e-ff5f-aa6a-bbbbbb7b7b7b/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/mydatadog",
+      "workspaceId": "/subscriptions/cccc2c2c-dd3d-ee4e-ff5f-aaaaaa6a6a6a/resourceGroups/insights integration/providers/Microsoft.OperationalInsights/workspaces/myworkspace",
       "logs": [
         {
           "category": "ConnectionEvents",
@@ -226,7 +230,7 @@ az monitor diagnostic-settings create
     --event-hub-rule /subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/microsoft.eventhub/namespaces/{eventHubNamespace}/authorizationrule/{ruleName}
     --storage-account /subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}
     --workspace /subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{logAnalyticsWorkspaceName}
-    --marketplace-partner-id/subscriptions/{subscriptionID}/resourceGroups{resourceGroupname}/proviers/Microsoft.Datadog/monitors/mydatadog
+    --marketplace-partner-id/subscriptions/{subscriptionID}/resourceGroups{resourceGroupname}/providers/Microsoft.Datadog/monitors/mydatadog
 ```
 
 ### [Azure CLI with Enterprise and Enterprise Flash tiers](#tab/enterprise-enterprise-flash)
@@ -242,7 +246,7 @@ az monitor diagnostic-settings create
     --event-hub-rule /subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/microsoft.eventhub/namespaces/{eventHubNamespace}/authorizationrule/{ruleName}
     --storage-account /subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}
     --workspace /subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{logAnalyticsWorkspaceName}
-    --marketplace-partner-id/subscriptions/{subscriptionID}/resourceGroups{resourceGroupname}/proviers/Microsoft.Datadog/monitors/mydatadog
+    --marketplace-partner-id/subscriptions/{subscriptionID}/resourceGroups{resourceGroupname}/providers/Microsoft.Datadog/monitors/mydatadog
 ```
 
 ---
@@ -290,7 +294,7 @@ If you send your logs to a storage account, the contents of the logs look like t
         ],
         "roleInstance": "1"
     },
-    "resourceId": "/SUBSCRIPTIONS/E6761CE7-A7BC-442E-BBAE-950A121933B5/RESOURCEGROUPS/AZURE-CACHE/PROVIDERS/MICROSOFT.CACHE/REDIS/MYCACHE", 
+    "resourceId": "/SUBSCRIPTIONS/eeee4efe-ff5f-aa6a-bb7b-cccccc8c8c8c/RESOURCEGROUPS/AZURE-CACHE/PROVIDERS/MICROSOFT.CACHE/REDIS/MYCACHE", 
     "Level": 4,
     "operationName": "Microsoft.Cache/ClientList"
 }
@@ -326,7 +330,7 @@ If you send your logs to a storage account, a log for a connection event looks l
 ```json
     {
         "time": "2023-01-24T10:00:02.3680050Z",
-        "resourceId": "/SUBSCRIPTIONS/4A1C78C6-5CB1-422C-A34E-0DF7FCB9BD0B/RESOURCEGROUPS/TEST/PROVIDERS/MICROSOFT.CACHE/REDISENTERPRISE/AUDITING-SHOEBOX/DATABASES/DEFAULT",
+        "resourceId": "/SUBSCRIPTIONS/ffff5f5f-aa6a-bb7b-cc8c-dddddd9d9d9d/RESOURCEGROUPS/TEST/PROVIDERS/MICROSOFT.CACHE/REDISENTERPRISE/AUDITING-SHOEBOX/DATABASES/DEFAULT",
         "category": "ConnectionEvents",
         "location": "westus",
         "operationName": "Microsoft.Cache/redisEnterprise/databases/ConnectionEvents/Read",
@@ -344,7 +348,7 @@ And the log for an auth event looks like this:
 ```json
  {
         "time": "2023-01-24T10:00:02.3680050Z",
-        "resourceId": "/SUBSCRIPTIONS/4A1C78C6-5CB1-422C-A34E-0DF7FCB9BD0B/RESOURCEGROUPS/TEST/PROVIDERS/MICROSOFT.CACHE/REDISENTERPRISE/AUDITING-SHOEBOX/DATABASES/DEFAULT",
+        "resourceId": "/SUBSCRIPTIONS/ffff5f5f-aa6a-bb7b-cc8c-dddddd9d9d9d/RESOURCEGROUPS/TEST/PROVIDERS/MICROSOFT.CACHE/REDISENTERPRISE/AUDITING-SHOEBOX/DATABASES/DEFAULT",
         "category": "ConnectionEvents",
         "location": "westus",
         "operationName": "Microsoft.Cache/redisEnterprise/databases/ConnectionEvents/Read",
@@ -362,7 +366,7 @@ And the log for a disconnection event looks like this:
 ```json
     {
         "time": "2023-01-24T10:00:03.3680050Z",
-        "resourceId": "/SUBSCRIPTIONS/4A1C78C6-5CB1-422C-A34E-0DF7FCB9BD0B/RESOURCEGROUPS/TEST/PROVIDERS/MICROSOFT.CACHE/REDISENTERPRISE/AUDITING-SHOEBOX/DATABASES/DEFAULT",
+        "resourceId": "/SUBSCRIPTIONS/ffff5f5f-aa6a-bb7b-cc8c-dddddd9d9d9d/RESOURCEGROUPS/TEST/PROVIDERS/MICROSOFT.CACHE/REDISENTERPRISE/AUDITING-SHOEBOX/DATABASES/DEFAULT",
         "category": "ConnectionEvents",
         "location": "westus",
         "operationName": "Microsoft.Cache/redisEnterprise/databases/ConnectionEvents/Read",

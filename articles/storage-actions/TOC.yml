@@ -10,6 +10,8 @@ items:
   items:
   - name: Create, assign, and run a storage task
     href: storage-tasks/storage-task-quickstart-portal.md
+  - name: Create a storage task - Terraform
+    href: storage-tasks/storage-task-quickstart-terraform.md
   expanded: true
 - name: Concepts
   items: 
@@ -45,8 +47,12 @@ items:
     href: /cli/azure/storage-actions
   - name: Monitoring data Reference
     href: storage-tasks/storage-tasks-monitor-data-reference.md
-  - name: Storage Tasks events
-    href: ../event-grid/event-schema-storage-actions.md?toc=/azure/storage-actions/toc.json
+  - name: Resource Manager template
+    items:
+    - name: Storage task
+      href: /azure/templates/microsoft.storageactions/allversions
+    - name: Storage task assignment
+      href: /azure/templates/microsoft.storage/storageaccounts/storagetaskassignments
   expanded: true
 - name: Resources
   items:

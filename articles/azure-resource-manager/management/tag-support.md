@@ -7,7 +7,7 @@ ms.date: 09/26/2024
 
 # Tag support for Azure resources
 
-This article describes whether a resource type supports [tags](tag-resources.md). The column labeled **Supports tags** indicates whether the resource type has a property for the tag. The column labeled **Tag in cost report** indicates whether that resource type passes the tag to the cost report. You can view costs by tags in the [Cost Management cost analysis](../../cost-management-billing/costs/group-filter.md) and the [Azure billing invoice and daily usage data](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
+This article describes whether a resource type supports [tags](tag-resources.md). The column labeled **Supports tags** indicates whether the resource type has a property for the tag. The column labeled **Tag in cost report** indicates whether that resource type passes the tag to the cost report. You can view costs by tags in the [Cost Management cost analysis](../../cost-management-billing/costs/group-filter.md) and the [Azure billing invoice and daily usage data](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). To ensure that all the usage/cost records are tagged irrespective of whether the resource supports or emits tags, use [tag inheritance in Cost Management.](../../cost-management-billing/costs/enable-tag-inheritance.md)
 
 To get the same data as a file of comma-separated values, download [tag-support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
 
@@ -2199,10 +2199,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | objectAnchorsAccounts | Yes | Yes |
-> | objectUnderstandingAccounts | Yes | Yes |
 > | remoteRenderingAccounts | Yes | Yes |
-> | spatialAnchorsAccounts | Yes | Yes |
 
 ## Microsoft.MobileNetwork
 
@@ -2318,11 +2315,11 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | networkSecurityGroups / securityRules | No | No |
 > | networkSecurityPerimeters | Yes | Yes |
 > | networkVirtualAppliances | Yes | Yes |
-> | networkWatchers | Yes | Yes |
-> | networkWatchers / connectionMonitors | Yes | No |
-> | networkWatchers / flowLogs | Yes | No |
-> | networkWatchers / lenses | Yes | No |
-> | networkWatchers / pingMeshes | Yes | No |
+> | networkWatchers | No | No |
+> | networkWatchers / connectionMonitors | No | No |
+> | networkWatchers / flowLogs | No | No |
+> | networkWatchers / lenses | No | No |
+> | networkWatchers / pingMeshes | No | No |
 > | p2sVpnGateways | Yes | Yes |
 > | privateDnsZones | Yes | Yes |
 > | privateDnsZones / A | No | No |
@@ -2491,21 +2488,6 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | workspaces / scopedPrivateLinkProxies | No | No |
 > | workspaces / storageInsightConfigs | No | No |
 > | workspaces / tables | No | No |
-
-## Microsoft.Orbital
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | contactProfiles | Yes | Yes |
-> | edgeSites | Yes | Yes |
-> | globalCommunicationsSites | No | No |
-> | groundStations | Yes | Yes |
-> | l2Connections | Yes | Yes |
-> | l3Connections | Yes | Yes |
-> | orbitalGateways | Yes | Yes |
-> | spacecrafts | Yes | Yes |
-> | spacecrafts / contacts | No | No |
 
 ## Microsoft.Peering
 

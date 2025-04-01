@@ -9,20 +9,18 @@ ms.author: daknappe
 ms.date: 10/18/2024
 ---
 
-# Deploy Azure Virtual Desktop
+# Deploy Azure Virtual Desktop 
 
 > [!IMPORTANT]
 > The following features are currently in preview:
 >
-> - Azure Virtual Desktop on Azure Stack HCI for Azure Government and for Azure operated by 21Vianet (Azure in China).
+> - Azure Virtual Desktop on Azure Local for Azure Government and for Azure operated by 21Vianet (Azure in China).
 >
-> - Azure Virtual Desktop on Azure Extended Zones.
->
-> - Managing session hosts using a session host configuration. This limited preview is provided as-is, with all faults and as available, and is excluded from the service-level agreements (SLAs) or any limited warranties Microsoft provides for Azure services in general availability. To register for the limited preview, complete this form: [https://forms.office.com/r/ZziQRGR1Lz](https://forms.office.com/r/ZziQRGR1Lz).
+> - Host pools with a session host configuration.
 >
 > For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article shows you how to deploy Azure Virtual Desktop on Azure, Azure Stack HCI, or Azure Extended Zones by using the Azure portal, the Azure CLI, or Azure PowerShell. To deploy Azure Virtual Desktop, you:
+This article shows you how to deploy Azure Virtual Desktop on Azure, Azure Local, or Azure Extended Zones by using the Azure portal, the Azure CLI, or Azure PowerShell. To deploy Azure Virtual Desktop, you:
 
 - Create a host pool.
 - Create a workspace.
@@ -37,7 +35,7 @@ When you create a host pool, you can choose one of two [management approaches](h
 
 - *Session host configuration* (preview) is available for pooled host pools with session hosts on Azure. Azure Virtual Desktop manages the lifecycle of session hosts in a pooled host pool for you by using a combination of native features to provide an integrated and dynamic experience.
 
-- *Standard* management is available for pooled and personal host pools with session hosts on Azure or Azure Stack HCI. You manage creating, updating, and scaling session hosts in a host pool. If you want to use existing tools and processes, such as automated pipelines, custom scripts, or external partner solutions, you need to use the standard host pool management type.
+- *Standard* management is available for pooled and personal host pools with session hosts on Azure or Azure Local. You manage creating, updating, and scaling session hosts in a host pool. If you want to use existing tools and processes, such as automated pipelines, custom scripts, or external partner solutions, you need to use the standard host pool management type.
 
 For more information on the terminology used in this article, see [Azure Virtual Desktop terminology](environment-setup.md). For more information about the Azure Virtual Desktop service, see [Azure Virtual Desktop service architecture and resilience](service-architecture-resilience.md).
 
@@ -53,7 +51,7 @@ Review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) for a gen
 ::: zone-end
 
 ::: zone pivot="host-pool-standard"
-For a general idea of what's required and supported, such as operating systems (OSs), virtual networks, and identity providers, review [Prerequisites for Azure Virtual Desktop](prerequisites.md). That article also includes a list of the [supported Azure regions](prerequisites.md#azure-regions) in which you can deploy host pools, workspaces, and application groups. This list of regions is where the *metadata* for the host pool can be stored. However, session hosts can be located in any Azure region and on-premises with [Azure Stack HCI](azure-stack-hci-overview.md). For more information about the types of data and locations, see [Data locations for Azure Virtual Desktop](data-locations.md).
+For a general idea of what's required and supported, such as operating systems (OSs), virtual networks, and identity providers, review [Prerequisites for Azure Virtual Desktop](prerequisites.md). That article also includes a list of the [supported Azure regions](prerequisites.md#azure-regions) in which you can deploy host pools, workspaces, and application groups. This list of regions is where the *metadata* for the host pool can be stored. However, session hosts can be located in any Azure region and on-premises with [Azure Local](azure-stack-hci-overview.md). For more information about the types of data and locations, see [Data locations for Azure Virtual Desktop](data-locations.md).
 ::: zone-end
 
 For more prerequisites, including role-based access control (RBAC) roles, select the relevant tab for your scenario.
@@ -133,7 +131,7 @@ In addition to the general prerequisites, you need:
    |--|--|
    | Host pool, workspace, and application group | [Desktop Virtualization Contributor](rbac.md#desktop-virtualization-contributor) |
    | Session hosts (Azure and Azure Extended Zones) | [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) |
-   | Session hosts (Azure Stack HCI) | [Azure Stack HCI VM Contributor](/azure-stack/hci/manage/assign-vm-rbac-roles) |
+   | Session hosts (Azure Local) | [Azure Stack HCI VM Contributor](/azure-stack/hci/manage/assign-vm-rbac-roles) |
 
    For ongoing management of host pools, workspaces, and application groups, you can use more granular roles for each resource type. For more information, see [Built-in Azure RBAC roles for Azure Virtual Desktop](rbac.md).
 
@@ -141,21 +139,21 @@ In addition to the general prerequisites, you need:
 
 - Don't disable [Windows Remote Management](/windows/win32/winrm/about-windows-remote-management) when you're creating session hosts by using the Azure portal, because [PowerShell DSC](/powershell/dsc/overview) requires it.
 
-- To add session hosts on Azure Stack HCI, you also need:
+- To add session hosts on Azure Local, you also need:
 
-  - An [Azure Stack HCI cluster registered with Azure](/azure-stack/hci/deploy/register-with-azure). Your Azure Stack HCI clusters need to be running a minimum of version 23H2. For more information, see [Azure Stack HCI, version 23H2 deployment overview](/azure-stack/hci/deploy/deployment-introduction). [Azure Arc VM management](/azure-stack/hci/manage/azure-arc-vm-management-overview) is installed automatically.
+  - An [Azure Local instance registered with Azure](/azure-stack/hci/deploy/register-with-azure). Your Azure Local instances need to be running a minimum of version 23H2. For more information, see [Azure Stack HCI, version 23H2 deployment overview](/azure-stack/hci/deploy/deployment-introduction). [Azure Arc VM management](/azure-stack/hci/manage/azure-arc-vm-management-overview) is installed automatically.
 
   - A stable connection to Azure from your on-premises network.
 
-  - At least one Windows OS image available on the cluster. For more information, see how to [create VM images by using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace), [use images in an Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account), and [use images in a local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
+  - At least one Windows OS image available on the instance. For more information, see how to [create VM images by using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace), [use images in an Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account), and [use images in a local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
 
-  - A logical network that you created on your Azure Stack HCI cluster. DHCP logical networks or static logical networks with automatic IP allocation are supported. For more information, see [Create logical networks for Azure Stack HCI](/azure-stack/hci/manage/create-logical-networks).
+  - A logical network that you created on your Azure Local instance. DHCP logical networks or static logical networks with automatic IP allocation are supported. For more information, see [Create logical networks for Azure Local](/azure-stack/hci/manage/create-logical-networks).
 
 - To deploy session hosts to [Azure Extended Zones](/azure/virtual-desktop/azure-extended-zones), you also need:
 
   - Your Azure subscription registered with the respective Azure Extended Zone. For more information, see [Request access to an Azure Extended Zone](../extended-zones/request-access.md).
 
-  - An existing [Azure load balancer](../load-balancer/load-balancer-outbound-connections.md) on the virtual network where you're deploying the session hosts.
+  - An [Azure load balancer](../load-balancer/load-balancer-outbound-connections.md) with an outbound rule on the virtual network to which you're deploying session hosts. You can use an existing load balancer or you create a new one when adding session hosts.
 
 # [Azure PowerShell](#tab/powershell-standard)
 
@@ -201,7 +199,7 @@ To create a host pool with a session host configuration, select the relevant tab
 
 Here's how to create a host pool with a session host configuration using the Azure portal, which also creates a default session host management policy and default session host configuration. You can change the default session host management policy and session host configuration after deployment.
 
-1. Make sure you've registered for the limited preview using the link at the beginning of this article, then sign in to the Azure portal using the specific link provided to you after registration.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. In the search bar, enter *Azure Virtual Desktop* and select the matching service entry.
 
@@ -227,7 +225,7 @@ Here's how to create a host pool with a session host configuration using the Azu
 
    | Parameter | Value/Description |
    |--|--|
-   | Number of session hosts | Enter the number of session hosts you want to create when creating the host pool. You can enter **0** to not create any session hosts at this point, but a session host configuration is still created with the values you specify for when you do create session hosts.<br /><br />You can deploy up to 500 session host VMs at this point if you wish (depending on your [subscription quota](/azure/quotas/view-quotas)), or you can add more later.<br /><br />For more information, see [Azure Virtual Desktop service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-virtual-desktop-service-limits) and [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager). |
+   | Number of session hosts | Enter the number of session hosts you want to create when creating the host pool. You can enter **0** to not create any session hosts at this point, but a session host configuration is still created with the values you specify for when you do create session hosts.<br /><br />You can deploy up to 500 session host VMs at this point if you wish (depending on your [subscription quota](/azure/quotas/view-quotas)), or you can add more later.<br /><br />For more information, see [Azure Virtual Desktop service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-virtual-desktop-service-limits) and [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-virtual-machines-limits---azure-resource-manager). |
    | **Session host configuration** |  |
    | Resource group | Automatically defaults to the resource group you chose your host pool to be in on the *Basics* tab, but you can also select an alternative from the drop-down list. |
    | Name prefix | Enter a name for your session hosts, for example **hp01-sh**.<br /><br />This value is used as the prefix for your session host VMs. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **hp01-sh-0**.<br /><br />It can be a maximum of 10 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
@@ -250,7 +248,7 @@ Here's how to create a host pool with a session host configuration using the Azu
    | Custom configuration script URL | If you want to run a PowerShell script during deployment you can enter the URL here. |
 
    > [!TIP]
-   > Once you complete this tab, you can continue to optionally register the default desktop application group with a new or pre-existing workspace from this host pool, and enable diagnostics settings by selecting **Next: Workspace**. Alternatively, if you want to create and configure these separately, select **Next: Review + create** and go to step 9.
+   > Once you complete this tab, you can continue to optionally register the default desktop application group with a new or preexisting workspace from this host pool, and enable diagnostics settings by selecting **Next: Workspace**. Alternatively, if you want to create and configure these separately, select **Next: Review + create** and go to step 9.
 
 1. *Optional*: On the **Workspace** tab, if you want to create a workspace and register the default desktop application group from this host pool, complete the following information:
 
@@ -300,7 +298,7 @@ Here's how to create a host pool with a session host configuration, and a sessio
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
-2. Make sure you've registered for the limited preview using the link at the beginning of this article. Use the `New-AzWvdHostPool` cmdlet with the following example to create a host pool with a session host configuration using the *breadth-first* [load-balancing algorithm](host-pool-load-balancing.md) and *Desktop* as the preferred [application group type](environment-setup.md#app-groups). More parameters are available; for more information, see the [New-AzWvdHostPool PowerShell reference](/powershell/module/az.desktopvirtualization/new-azwvdhostpool).
+2. Use the `New-AzWvdHostPool` cmdlet with the following example to create a host pool with a session host configuration using the *breadth-first* [load-balancing algorithm](host-pool-load-balancing.md) and *Desktop* as the preferred [application group type](environment-setup.md#app-groups). More parameters are available; for more information, see the [New-AzWvdHostPool PowerShell reference](/powershell/module/az.desktopvirtualization/new-azwvdhostpool).
 
    ```azurepowershell
    $parameters = @{
@@ -431,12 +429,12 @@ Here's how to create a host pool by using the Azure portal:
    | **Location** | Select the Azure region where you want to create your host pool. |
    | **Validation environment** | Select **Yes** to create a host pool that's used as a [validation environment](create-validation-host-pool.md).<br /><br />Select **No** (*default*) to create a host pool that isn't used as a validation environment. |
    | **Preferred app group type** | Select the [preferred application group type](preferred-application-group-type.md) for this host pool: **Desktop** or **RemoteApp**. A desktop application group is created automatically when you use the Azure portal. |
-   | **Host pool type** | Select whether you want your host pool to be **Personal** or **Pooled**.<br /><br />If you select **Personal**, a new option appears for **Assignment type**. Select either **Automatic** or **Direct**.<br /><br />If you select **Pooled**, two new options appear for **Load balancing algorithm** and **Max session limit**.<br /><br />- For **Load balancing algorithm**, choose either **breadth-first** or **depth-first**, based on your usage pattern.<br /><br />- For **Max session limit**, enter the maximum number of users that you want load-balanced to a single session host. For more information, see [Host pool load-balancing algorithms](host-pool-load-balancing.md). |
+   | **Host pool type** | Select whether you want your host pool to be **Pooled** or **Personal**.<br /><br />If you select **Pooled**, two new options appear for **Load balancing algorithm** and **Max session limit**.<br /><br /><details><summary>Expand this section for the pooled options.</summary><br />- For **Load balancing algorithm**, choose either **breadth-first** or **depth-first**, based on your usage pattern.<br /><br />- For **Max session limit**, enter the maximum number of users that you want load-balanced to a single session host. For more information, see [Host pool load-balancing algorithms](host-pool-load-balancing.md).</details><br />If you select **Personal**, two new options appear for **Assignment type** and **Assign multiple desktops to a single user**.<br /><br /><details><summary>Expand this section for the personal options.</summary><br />For **Assignment type**, select **Automatic** for the service to assign any personal desktop not already assigned to a user, or select **Direct** to assign a specific personal desktop to a user. With the **Direct** assignment type you can also check the box to **Assign multiple desktops to a single user**. For more information, see [Assign multiple personal desktops to a single user](configure-host-pool-personal-desktop-assignment-type.md#assign-multiple-personal-desktops-to-a-single-user-preview).</details> |
 
    > [!TIP]
    > After you complete this tab, you can continue to optionally create session hosts, create a workspace, register the default desktop application group from this host pool, and enable diagnostic settings by selecting **Next: Virtual Machines**. Alternatively, if you want to create and configure these resources separately, select **Next: Review + create** and go to step 9.
 
-1. *Optional*: On the **Virtual machines** tab, if you want to add session hosts, expand one of the following sections and complete the information, depending on whether you want to create session hosts on Azure or on Azure Stack HCI. For guidance on sizing session host virtual machines, see [Session host virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs).<br /><br />
+1. *Optional*: On the **Virtual machines** tab, if you want to add session hosts, expand one of the following sections and complete the information, depending on whether you want to create session hosts on Azure or on Azure Local. For guidance on sizing session host virtual machines, see [Session host virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs).<br /><br />
 
    <details>
        <summary>To add session hosts on <b>Azure</b>, expand this section.</summary>
@@ -453,7 +451,7 @@ Here's how to create a host pool by using the Azure portal:
       | **Image** | Select the OS image that you want to use from the list, or select **See all images** to see more. The full list includes any images that you created and stored as an [Azure Compute Gallery shared image](/azure/virtual-machines/shared-image-galleries) or a [managed image](/azure/virtual-machines/windows/capture-image-resource). |
       | **Virtual machine size** | Select a size. If you want to use a different size, select **Change size**, and then select from the list. |
       | **Hibernate** | Select the box to enable hibernation. Hibernation is available only for personal host pools. For more information, see [Hibernation in virtual machines](/azure/virtual-machines/hibernate-resume). If you're using Microsoft Teams media optimizations, you should update the [WebRTC redirector service to 1.45.2310.13001](whats-new-webrtc.md#updates-for-version-145231013001).<br /><br />FSLogix and app attach currently don't support hibernation. Don't enable hibernation if you're using FSLogix or app attach for your personal host pools. |
-      | **Number of VMs** | Enter the number of virtual machines that you want to deploy. You can deploy up to 400 session hosts at this point if you want (depending on your [subscription quota](/azure/quotas/view-quotas)), or you can add more later.<br /><br />For more information, see [Azure Virtual Desktop service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-desktop-service-limits) and [Virtual Machines limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-machines-limits---azure-resource-manager). |
+      | **Number of VMs** | Enter the number of virtual machines that you want to deploy. You can deploy up to 400 session hosts at this point if you want (depending on your [subscription quota](/azure/quotas/view-quotas)), or you can add more later.<br /><br />For more information, see [Azure Virtual Desktop service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-desktop-service-limits) and [Virtual Machines limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-machines-limits---azure-resource-manager). |
       | **OS disk type** | Select the disk type to use for your session hosts. We recommend that you use only **Premium SSD** for production workloads. |
       | **OS disk size** | Select a size for the OS disk.<br /><br />If you enable hibernation, ensure that the OS disk is large enough to store the contents of the memory in addition to the OS and other applications. |
       | **Confidential computing encryption** | If you're using a confidential VM, you must select the **Confidential compute encryption** checkbox to enable OS disk encryption.<br /><br />This checkbox appears only if you selected **Confidential virtual machines** as your security type. |
@@ -466,8 +464,8 @@ Here's how to create a host pool by using the Azure portal:
       | **Domain to join** |  |
       | **Select which directory you would like to join** | Select from **Microsoft Entra ID** or **Active Directory**, and complete the relevant parameters for the selected option.  |
       | **Virtual Machine Administrator account** |  |
-      | **Username** | Enter a name to use as the local administrator account for the new session hosts. |
-      | **Password** | Enter a password for the local administrator account. |
+      | **Username** | Enter a name to use as the local administrator account for the new session hosts. For more information, see [What are the username requirements when creating a VM?](/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm-) |
+      | **Password** | Enter a password for the local administrator account. For more information, see [What are the password requirements when creating a VM?](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-) |
       | **Confirm password** | Reenter the password. |
       | **Custom configuration** |  |
       | **Custom configuration script URL** | If you want to run a PowerShell script during deployment, you can enter the URL here. |
@@ -475,20 +473,20 @@ Here's how to create a host pool by using the Azure portal:
    </details>
 
    <details>
-       <summary>To add session hosts on <b>Azure Stack HCI</b>, expand this section.</summary>
+       <summary>To add session hosts on <b>Azure Local</b>, expand this section.</summary>
 
       | Parameter | Value/Description |
       |--|--|
       | **Add virtual machines** | Select **Yes**. This action shows several new options. |
       | **Resource group** | This value defaults to the resource group that you chose to contain your host pool on the **Basics** tab, but you can select an alternative. |
       | **Name prefix** | Enter a name prefix for your session hosts, such as **hp01-sh**.<br /><br />Each session host has a suffix of a hyphen and then a sequential number added to the end, such as **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
-      | **Virtual machine type** | Select **Azure Stack HCI virtual machine**. |
-      | **Custom location** | In the dropdown list, select the Azure Stack HCI cluster where you want to deploy your session hosts. |
-      | **Images** | Select the OS image that you want to use from the list, or select **Manage VM images** to manage the images available on the cluster that you selected. |
+      | **Virtual machine type** | Select **Azure Local**. |
+      | **Custom location** | In the dropdown list, select the Azure Local instance where you want to deploy your session hosts. |
+      | **Images** | Select the OS image that you want to use from the list, or select **Manage VM images** to manage the images available on the instance that you selected. |
       | **Number of VMs** | Enter the number of virtual machines that you want to deploy. You can add more later. |
-      | **Virtual processor count** | Enter the number of virtual processors that you want to assign to each session host. This value isn't validated against the resources available in the cluster. |
+      | **Virtual processor count** | Enter the number of virtual processors that you want to assign to each session host. This value isn't validated against the resources available in the instance. |
       | **Memory type** | Select **Static** for a fixed memory allocation, or select **Dynamic** for a dynamic memory allocation. |
-      | **Memory (GB)** | Enter a number for the amount of memory, in gigabytes, that you want to assign to each session host. This value isn't validated against the resources available in the cluster. |
+      | **Memory (GB)** | Enter a number for the amount of memory, in gigabytes, that you want to assign to each session host. This value isn't validated against the resources available in the instance. |
       | **Maximum memory** | If you selected dynamic memory allocation, enter a number for the maximum amount of memory, in gigabytes, that you want your session host to be able to use. |
       | **Minimum memory** | If you selected dynamic memory allocation, enter a number for the minimum amount of memory, in gigabytes, that you want your session host to be able to use. |
       | **Network and security** |  |
@@ -499,8 +497,8 @@ Here's how to create a host pool by using the Azure portal:
       | **Password** | Enter the password for the Active Directory user. |
       | **Specify domain or unit** | Select **yes** if you want to join session hosts to a specific domain or be placed in a specific organizational unit (OU). If you select **no**, the suffix of the UPN is used as the domain. |
       | **Virtual Machine Administrator account** |  |
-      | **Username** | Enter a name to use as the local administrator account for the new session hosts. |
-      | **Password** | Enter a password for the local administrator account. |
+      | **Username** | Enter a name to use as the local administrator account for the new session hosts. For more information, see [What are the username requirements when creating a VM?](/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm-) |
+      | **Password** | Enter a password for the local administrator account. For more information, see [What are the password requirements when creating a VM?](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-) |
       | **Confirm password** | Reenter the password. |
 
    </details>
@@ -514,14 +512,12 @@ Here's how to create a host pool by using the Azure portal:
       | **Resource group** | This value defaults to the resource group that you chose to contain your host pool on the **Basics** tab, but you can select an alternative. |
       | **Name prefix** | Enter a name prefix for your session hosts, such as **hp01-sh**.<br /><br />Each session host has a suffix of a hyphen and then a sequential number added to the end, such as **hp01-sh-0**.<br /><br />This name prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
       | **Virtual machine type** | Select **Azure virtual machine**. |
-      | **Virtual machine location** | Select the Azure region where you want to deploy your session hosts. This value must be the same region that contains your virtual network. Then select **Deploy to an Azure Extended Zone**. |
-      | **Azure Extended Zones** |  |
-      | **Azure Extended Zone** | Select **Los Angeles**. |
-      | **Place the session host(s) behind an existing load balancing solution?** | Select the box. This action shows options for selecting a load balancer and a back-end pool.|
-      | **Select a load balancer** | Select an existing load balancer on the virtual network where you're deploying the session hosts. |
-      | **Select a backend pool** | Select a back-end pool on the load balancer where you want to place the session hosts. |
-      | **Availability options** | Select from [availability zones](/azure/reliability/availability-zones-overview), [availability set](/azure/virtual-machines/availability-set-overview), or **No infrastructure dependency required**. If you select **availability zones** or **availability set**, complete the extra parameters that appear.  |
-      | **Security type** | Select from **Standard**, [Trusted launch virtual machines](/azure/virtual-machines/trusted-launch), or [Confidential virtual machines](/azure/confidential-computing/confidential-vm-overview).<br /><br />- If you select **Trusted launch virtual machines**, options for **secure boot** and **vTPM** are automatically selected.<br /><br />- If you select **Confidential virtual machines**, options for **secure boot**, **vTPM**, and **integrity monitoring** are automatically selected. You can't opt out of vTPM when using a confidential VM. |
+      | **Virtual machine location** | Select **Deploy to an Azure Extended Zone**. |
+      | **Azure Extended Zone** | Select the Extended Zone you require. |
+      | **Network and security** |  |
+      | **Select a load balancer** | Select an existing Azure load balancer on the same virtual network you want to use for your session hosts, or select **Create a load balancer** to create a new load balancer.|
+      | **Select a backend pool** | Select a backend pool on the load balancer you want to use for your session hosts. If you're creating a new load balancer, select **Create new** to create a new backend pool for the new load balancer. |
+      | **Add outbound rule** | If you're creating a new load balancer, select **Create new** to create a new outbound rule for it. |
 
    </details>
 
@@ -551,7 +547,7 @@ Here's how to create a host pool by using the Azure portal:
 
 1. Select **Create** to create the host pool.
 
-1. Select **Go to resource** to go to the overview of your new host pool, and then select **Properties** to view its properties.
+1. Once the deployment has completed successfully, select **Go to resource** to go to the overview of your new host pool, and then select **Properties** to view its properties.
 
 ### Post-deployment tasks
 

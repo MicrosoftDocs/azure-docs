@@ -144,7 +144,7 @@ BatchClient _batchClient = new BatchClient(batchUri, new DefaultAzureCredential(
 
 ### Upload input files
 
-The app passes the `blobServerClient` object to the `CreateContainerIfNotExistc` method to create a storage container for the input files (MP4 format) and a container for the task output.
+The app passes the `blobServerClient` object to the `CreateContainerIfNotExist` method to create a storage container for the input files (MP4 format) and a container for the task output.
 
 ```csharp
 CreateContainerIfNotExist(blobClient, inputContainerName);
@@ -229,7 +229,7 @@ if (collection.Exists(poolId) == false)
             },
             ApplicationPackages =
             {
-                    new Azure.ResourceManager.Batch.Models.BatchApplicationPackageReference(new ResourceIdentifier(appPacakgeResourceID))
+                    new Azure.ResourceManager.Batch.Models.BatchApplicationPackageReference(new ResourceIdentifier(appPackageResourceID))
                     {
                         Version = appPackageVersion,
                     }

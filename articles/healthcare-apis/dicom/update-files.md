@@ -196,8 +196,8 @@ The UID `1.3.6.1.4.1.311.129` is a registered under [Microsoft OID arc](https://
 | Patient's Address | (0010,1040) | Legal address of the named patient |
 | Military Rank | (0010,1080) | Military rank of patient  |
 | Branch of Service | (0010,1081) | Branch of the military; The country or regional allegiance might also be included (for example, U.S. Army). |
-| Country of Residence | (0010,2150) | Country where a patient currently resides |
-| Region of Residence | (0010,2152) | Region within patient's country of residence |
+| Country of Residence | (0010,2150) | Country or region where a patient currently resides |
+| Region of Residence | (0010,2152) | Region within patient's country or region of residence |
 | Patient's Telephone Numbers | (0010,2154) | Telephone numbers at which the patient can be reached |
 | Ethnic Group | (0010,2160) | Ethnic group or race of patient |
 | Patient's Religious Preference | (0010,21F0) | The religious preference of the patient |

@@ -1,19 +1,20 @@
 ---
 title: Save and share customized views
 titleSuffix: Microsoft Cost Management
-description: This article explains how to save and share a customized view with others.
-author: bandersmsft
-ms.author: banders
-ms.date: 08/07/2023
+description: Learn how to save and share customized views in Cost Management. This guide explains how to preserve cost analysis views and share them with others.
+author: shasulin
+ms.author: shasulin
+ms.date: 01/07/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: micflan
+ms.reviewer: shasulin
+#customer intent: As a billing administrator, I want to learn how to save and share views so that I can share views with others.
 ---
 
 # Save and share customized views
 
-Cost analysis is used to explore costs and get quick answers for things like finding the top cost contributors. Or, understanding how you're charged for the services you use. As you analyze cost, you may find specific views you want to save or share with others.
+Cost analysis is used to explore costs and get quick answers for things like finding the top cost contributors. Or, understanding how you're charged for the services you use. As you analyze cost, you might find specific views you want to save or share with others.
 
 ## Save and share cost views
 
@@ -21,7 +22,7 @@ A *view* is a saved query in Cost Management. When you save a view, all settings
 
 Check out the [Sharing and saving views](https://www.youtube.com/watch?v=kQkXXj-SmvQ) video.
 
-After you save a view, you can share a link to it with others using the **Share** command. The link is specific to your current scope and view configuration. The link doesn't grant others access to the view itself, which may change over time, or the underlying data. If you don't have access to the scope, an `access denied` message is shown. We recommend using the Cost Management Contributor role to allow others to save and share views with others.
+After you save a view, you can share a link to it with others using the **Share** command. The link is specific to your current scope and view configuration. The link doesn't grant others access to the view itself, which might change over time, or the underlying data. If you don't have access to the scope, an `access denied` message is shown. We recommend using the Cost Management Contributor role to allow others to save and share views. A saved view, whether it's private or shared, saves only the specific filters selected for the view. To update the filters in a saved or shared view, you might need to remove the existing filters and recreate a new one with the updated values.
 
 You can also pin the current view to an Azure portal dashboard. Pinning only includes a snapshot of the main chart or table and doesn't update when the view is updated. A pinned dashboard isn't the same thing as a saved view.
 
@@ -56,7 +57,7 @@ Use the following table for each property in the URL.
 | URL property | Description|
 | --- | --- |
 | **portal-domain** | Primary domain for the Azure portal. For example, `portal.azure.com` or `portal.azure.us`). |
-| **directory-domain** | Domain used by your Microsoft Entra ID. You can also use the tenant ID. If it's omitted, the portal tries to use the default directory for the user that selected the link - it might  differ from the scope. |
+| **directory-domain** | Domain used by your Microsoft Entra ID. You can also use the tenant ID. If omitted, the portal tries to use the default directory for the user that selected the link - it might  differ from the scope. |
 | **scope-id** | Full Resource Manager ID for the resource group, subscription, management group, or billing account you want to view cost for. If not specified, Cost Management uses the last view the user used in the Azure portal. The value must be URL encoded. |
 | **view-config** | Encoded view configuration. See the following details. If not specified, cost analysis uses the `view-id` parameter. If neither are specified, cost analysis uses the built-in Accumulated cost view. |
 | **view-id** | Full Resource Manager ID for the private or shared view to load. This value must be URL encoded. If not specified, cost analysis uses the `view` parameter. If neither are specified, cost analysis uses the built-in Accumulated cost view. |
@@ -82,7 +83,7 @@ As mentioned previously, pinning a view to an Azure portal dashboard only saves 
     :::image type="content" source="./media/save-share-views/pin-dashboard.png" alt-text="Screen shot showing the Pin to dashboard page." lightbox="./media/save-share-views/pin-dashboard.png" :::
 1. Select **Private** to if you don't want to share the dashboard and then select **Pin** or select **Shared** to share the dashboard with others and then select **Pin**.
 
-To view the dashboard after you've pinned it, from the Azure portal menu, select **Dashboard**.
+To view the dashboard after you pin it, from the Azure portal menu, select **Dashboard**.
 
 :::image type="content" source="./media/save-share-views/saved-dashboard.png" alt-text="Screen shot showing the saved Dashboard page." lightbox="./media/save-share-views/saved-dashboard.png" :::
 
@@ -103,13 +104,13 @@ When you want to share information with others that don't have access to the sco
 
 :::image type="content" source="./media/save-share-views/download.png" alt-text="Screen shot showing the Download page." lightbox="./media/save-share-views/download.png" :::
 
-When you download data, cost analysis includes summarized data as it's shown in the table. The cost by resource view includes all resource meters in addition to the resource details. If you want a download of only resources and not the nested meters, use the Resources smart view. You can access the Resources view from the **Cost by resource** menu at the top of the page, where you can select the Resources, Resource groups, Subscriptions, Services, or Reservations view.
+When you download data, cost analysis includes summarized data as shown in the table. The cost by resource view includes all resource meters in addition to the resource details. If you want a download of only resources and not the nested meters, use the Resources smart view. You can access the Resources view from the **Cost by resource** menu at the top of the page, where you can select the Resources, Resource groups, Subscriptions, Services, or Reservations view.
 
-If you need more advanced summaries or you're interested in raw data that hasn't been summarized, schedule an export to publish raw data to a storage account on a recurring basis.
+If you need more advanced summaries or you're interested in raw data that wasn't summarized, schedule an export to publish raw data to a storage account on a recurring basis.
 
 ## Subscribe to scheduled alerts
 
-In addition to saving and opening views repeatedly or sharing them with others manually, you can also subscribe to updates or a recurring schedule to get alerted as costs change. You can also set up alerts to be shared with others who may not have direct access to costs in the portal. 
+In addition to saving and opening views repeatedly or sharing them with others manually, you can also subscribe to updates or a recurring schedule to get alerted as costs change. You can also set up alerts to be shared with others who might not have direct access to costs in the portal. 
 
 ### To subscribe to scheduled alerts
 
@@ -123,12 +124,12 @@ In addition to saving and opening views repeatedly or sharing them with others m
     - The **Name** helps you distinguish the different emails setup for the current view. Use it to indicate audience or purpose of this specific email.
     - The **Subject** is what people see when they receive the email.
     - You can include up to 20 recipients. Consider using a distribution list if you have a large audience. To see how the email looks, start by sending it only to yourself. You can update it later.
-    - The **Message** is shown in the email to give people more context about why they're receiving the email. You may want to include what it covers, who requested it, or who to contact to make changes.
+    - The **Message** is shown in the email to give people more context about why they're receiving the email. You might want to include what it covers, who requested it, or who to contact to make changes.
     - To share data with people who don't have access to the scope or view, select **Add a CSV download link** to include an unauthenticated link to the data.
     - To allow people with write access to the scope to modify the email configuration settings, clear the **Make this schedule private** option. Doing so allows billing account admins or Cost Management Contributors to edit the alert, in addition to the person who created it. By default, the option is selected, meaning that only the creator of the scheduled alert can see or edit it.
     - The **Start date** is when you start receiving the email. It defaults to the current day.
     - The **End date** is when you receive the last email. It can be up to one year from the current day, which is the default. You can update it later.
-    - The **Frequency** indicates how often you want the email to be sent. It's based on the start date, so if you want a weekly email on a different day of the week, change the start date first. To get an email after the month is closed, select **After invoice finalized**. Ensure your view is looking at last month. If you use the current month, it only sends you the first few days of the month. By default, all emails are sent at 8:00 AM local time. To customize any of the options, select **Custom**.
+    - The **Frequency** indicates how often you want the email to be sent. The frequency is based on the start date, so if you want a weekly email on a different day of the week, change the start date first. To get an email after the month is closed, select **After invoice finalized**. Ensure your view is looking at last month. If you use the current month, it only sends you the first few days of the month. By default, all emails are sent at 8:00 AM local time. To customize any of the options, select **Custom**.
     > [!NOTE]
     > Scheduled alerts are set to your local time. However emails are sent at a fixed time in the UTC time zone. Daylight savings time isn't accounted for, which might result in a one-hour variation in your actual delivery time.
 1. After you save the alert, a list of configured alerts for the current view is shown. If you want to see a preview of the email, select the row and select **Send now** at the top to send the email to all recipients.
@@ -144,10 +145,10 @@ The following sections cover the most commonly asked questions and answers about
 There could be a few reasons why you're not receiving alert emails. Try the following actions:
 
 - Confirm that the creator of the schedule continues to have `Reader` role assigned or `Microsoft.CostManagement/scheduledActions/read` permission, if it's a custom role.
-- Confirm that your email address is shown as a recipient and that it's entered correctly.
+- Confirm that your email address is shown as a recipient and that it's correct.
 - Check your spam or junk mail folder for emails from `microsoft-noreply@microsoft.com`.
 - Check to see if the alert is expired, disabled, or deleted. You can extend, reenable, or create a new scheduled alert to fix the problem.
-- Work with your admin to reenable the [view charges policy](assign-access-acm-data.md#enable-access-to-costs-in-the-azure-portal) in the Azure portal. The policy applies to indirect Enterprise Agreements and to Microsoft Customer Agreements with a Microsoft partner.
+- Work with your billing admin to reenable the [view charges policy](assign-access-acm-data.md#enable-access-to-costs-in-the-azure-portal) in the Azure portal. The policy applies to indirect Enterprise Agreements and to Microsoft Customer Agreements.
 
 >[!NOTE]
 > Azure checks the permissions of the alert rule creator before sending the alert email. If your organization has a policy that prohibits permanently assigning higher privileges to users, you can use a service principal and create the alert directly using the [Scheduled Actions API](/rest/api/cost-management/scheduled-actions/create-or-update-by-scope).
@@ -165,7 +166,7 @@ The end date can be anywhere from one day to one year from today or the start da
 
 For example, if you create a scheduled alert on March 3, 2023, the end date can be any date from March 4, 2023, to March 3, 2024.
 
-It's important to note that you can edit the end date of an existing scheduled alert at any time. If the end date has already passed and you want to continue receiving the alert, you must edit the scheduled alert with a future end date.
+It's important to note that you can edit the end date of an existing scheduled alert at any time. If the end date is passed and you want to continue receiving the alert, you must edit the scheduled alert with a future end date.
 
 ### When do I receive alert emails?
 
@@ -175,7 +176,15 @@ Although the configuration of scheduled alerts considers your local time, the ac
 
 ### How can I download a CSV file of the alert email content?
 
-If you selected 'Add a CSV download link' when creating the alert rule, you will receive a CSV download link with the email. Please note that the download link will expire on the same day it is issued. Ensure that you download your data as soon as you receive the email to avoid any inconvenience. 
+If you selected **Add a CSV download link** when creating the alert rule, you receive a CSV download link with the email. The download link expires the same day it gets issued. Ensure that you download your data as soon as you receive the email to avoid any inconvenience.
+
+### Why does the downloaded file only contain data for a few days, and how can I access the complete data set?
+
+The downloaded file might only contain data for a few days due to a design that allows a maximum of 15,000 records for CSV files in the download experience. If there's a large volume of data being requested, you might see incomplete data in the downloaded file. For example, such as at the billing account scope at the resource level for an entire month. In such cases, we recommend creating an export for the same scope. This process allows you to retrieve all the data without encountering the record limit. For more information about how to create an export, see [Create export](tutorial-improved-exports.md#create-exports).
+
+### Why does the image in the email not match Cost Analysis and stop midway through the month?
+
+To ensure optimal performance, Azure processes up to 200,000 rows when generating the image. It can cause the image to not match the Azure portal if there are more than 200,000 rows. In such cases, if the image in the email appears to stop midway through the month, we recommend visiting the Cost Analysis to view the complete data.
 
 ## Next steps
 

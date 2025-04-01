@@ -1,19 +1,19 @@
 ---
 title: Azure Policy definitions modify effect
 description: Azure Policy definitions modify effect determines how compliance is managed and reported.
-ms.date: 04/08/2024
+ms.date: 03/04/2025
 ms.topic: conceptual
 ---
 
 # Azure Policy definitions modify effect
 
-The `modify` effect is used to add, update, or remove properties or tags on a subscription or resource during creation or update. Existing non-compliant resources can also be remediated with a [remediation task](../how-to/remediate-resources.md). Policy assignments with effect set as Modify require a [managed identity](../how-to/remediate-resources.md) to do remediation. A common example using `modify` effect is updating tags on resources such as 'costCenter'. 
+The `modify` effect is used to add, update, or remove properties or tags on a subscription or resource during creation or update. Existing non-compliant resources can also be remediated with a [remediation task](../how-to/remediate-resources.md). Policy assignments with effect set as Modify require a [managed identity](../how-to/remediate-resources.md) to do remediation. A common example using `modify` effect is updating tags on resources such as 'costCenter'.
 
 There are some nuances in modification behavior for resource properties. Learn more about scenarios when modification is [skipped](#skipped-modification).
 
 A single `modify` rule can have any number of operations. Supported operations are:
 
-- _Add_, _replace_, or _remove_ resource tags. Only tags can be removed. For tags, a Modify policy should have [mode](./definition-structure.md#resource-manager-modes) set to `indexed` unless the target resource is a resource group.
+- _Add_, _replace_, or _remove_ resource tags. Only tags can be removed. For tags, a Modify policy should have [mode](./definition-structure-basics.md#resource-manager-modes) set to `indexed` unless the target resource is a resource group.
 - _Add_ or _replace_ the value of managed identity type (`identity.type`) of virtual machines and Virtual Machine Scale Sets. You can only modify the `identity.type` for virtual machines or Virtual Machine Scale Sets.
 - _Add_ or _replace_ the values of certain aliases.
   - Use `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }` in Azure PowerShell **4.6.0** or higher to get a list of aliases that can be used with `modify`.
@@ -26,7 +26,7 @@ A single `modify` rule can have any number of operations. Supported operations a
 
 ## Modify evaluation
 
-Modify evaluates before the request gets processed by a Resource Provider during the creation or updating of a resource. The `modify` operations are applied to the request content when the `if` condition of the policy rule is met. Each `modify` operation can specify a condition that determines when it's applied. 
+Modify evaluates before the request gets processed by a Resource Provider during the creation or updating of a resource. The `modify` operations are applied to the request content when the `if` condition of the policy rule is met. Each `modify` operation can specify a condition that determines when it's applied.
 
 When an alias is specified, more checks are performed to ensure that the `modify` operation doesn't change the request content in a way that causes the resource provider to reject it:
 
@@ -55,7 +55,7 @@ Modification of resource properties depends on the API request and the updated r
 
 Imagine you apply a policy that modifies tags on a virtual machine (VM). Every time the VM is updated, such as during resizing or disk changes, the tags are updated accordingly regardless of the contents of the VM payload. This is because tags are independent of the VM properties.
 
-However, if you apply a policy that modifies properties on a VM, modification is dependent on the resource payload. If you attempt to modify properties that are not included in the update payload, the modification will not take place. For instance, this can happen when patching the `assessmentMode` property of a VM (alias `Microsoft.Compute/virtualMachines/osProfile.windowsConfiguration.patchSettings.assessmentMode`). The property is "nested", so if its parent properties are not included in the request, this omission is assumed to be intentional and modification is skipped. For modification to take place, the resource payload should contain this context. 
+However, if you apply a policy that modifies properties on a VM, modification is dependent on the resource payload. If you attempt to modify properties that are not included in the update payload, the modification will not take place. For instance, this can happen when patching the `assessmentMode` property of a VM (alias `Microsoft.Compute/virtualMachines/osProfile.windowsConfiguration.patchSettings.assessmentMode`). The property is "nested", so if its parent properties are not included in the request, this omission is assumed to be intentional and modification is skipped. For modification to take place, the resource payload should contain this context.
 
 ## Modify properties
 
@@ -75,7 +75,7 @@ The `details` property of the `modify` effect has all the subproperties that def
   - An array of all tag operations to be completed on matching resources.
   - Properties:
     - `operation` (required)
-      - Defines what action to take on a matching resource. Options are: `addOrReplace`, `Add`, and `Remove`. 
+      - Defines what action to take on a matching resource. Options are: `addOrReplace`, `Add`, and `Remove`.
       - `Add` behaves similar to the [append](./effect-append.md) effect.
       - `Remove` is only supported for resource tags.
     - `field` (required)
@@ -84,7 +84,7 @@ The `details` property of the `modify` effect has all the subproperties that def
       - The value to set the tag to.
       - This property is required if `operation` is _addOrReplace_ or _Add_.
     - `condition` (optional)
-      - A string containing an Azure Policy language expression with [Policy functions](./definition-structure.md#policy-functions) that evaluates to _true_ or _false_.
+      - A string containing an Azure Policy language expression with [Policy functions](./definition-structure-policy-rule.md#policy-functions) that evaluates to _true_ or _false_.
       - Doesn't support the following Policy functions: `field()`, `resourceGroup()`,
         `subscription()`.
 

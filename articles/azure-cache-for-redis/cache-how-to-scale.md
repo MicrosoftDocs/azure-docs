@@ -6,9 +6,10 @@ description: Learn how to scale your Azure Cache for Redis instances using the A
 
 ms.topic: conceptual
 ms.date: 07/01/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 ms.devlang: csharp
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2024
 ---
 
 # Scale an Azure Cache for Redis instance
@@ -34,14 +35,14 @@ There are fundamentally two ways to scale an Azure Cache for Redis Instance:
 
 ## When to scale
 
-You can use the [monitoring](monitor-cache.md) features of Azure Cache for Redis to monitor the health and performance of your cache. Use that information to determine when to scale the cache.
+You can use the [monitoring](../redis/monitor-cache.md) features of Azure Cache for Redis to monitor the health and performance of your cache. Use that information to determine when to scale the cache.
 
 You can monitor the following metrics to determine if you need to scale.
 
 - **Redis Server Load**
   - High Redis server load means that the server is unable to keep pace with requests from all the clients. Because a Redis server is a single threaded process, it's typically more helpful to _scale out_ rather than _scale up_. Scaling out by enabling clustering helps distribute overhead functions across multiple Redis processes. Scaling out also helps distribute TLS encryption/decryption and connection/disconnection, speeding up cache instances using TLS.
   - Scaling up can still be helpful in reducing server load because background tasks can take advantage of the more vCPUs and free up the thread for the main Redis server process.
-  - The Enterprise and Enterprise Flash tiers use Redis Enterprise rather than open source Redis. One of the advantages of these tiers is the Redis server process can take advantage of multiple vCPUs. With multiple vCPUs, both scaling up and scaling out in these tiers can be helpful in reducing server load. For more information, see [Best Practices for the Enterprise and Enterprise Flash tiers of Azure Cache for Redis](cache-best-practices-enterprise-tiers.md).
+  - The Enterprise and Enterprise Flash tiers use Redis Enterprise rather than open source Redis. One of the advantages of these tiers is the Redis server process can take advantage of multiple vCPUs. With multiple vCPUs, both scaling up and scaling out in these tiers can be helpful in reducing server load.
 - **Memory Usage**
   - High memory usage indicates that your data size is too large for the current cache size. Consider scaling to a cache size with larger memory. Either _scaling up_ or _scaling out_ is effective here.
 - **Client connections**
@@ -117,11 +118,11 @@ You can scale your Azure Cache for Redis instances with PowerShell by using the 
    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 6GB
 ```
 
-For more information on scaling with PowerShell, see [To scale an Azure Cache for Redis using PowerShell](cache-how-to-manage-redis-cache-powershell.md#scale).
+For more information on scaling with PowerShell, see [To scale an Azure Cache for Redis using PowerShell](../redis/how-to-manage-redis-cache-powershell.md#scale).
 
 #### Scale up and down using Azure CLI
 
-To scale your Azure Cache for Redis instances using Azure CLI, call the [az redis update](/cli/azure/redis#az-redis-update) command. Use the `sku.capcity` property to scale within a tier, for example from a Standard C0 to Standard C1 cache:
+To scale your Azure Cache for Redis instances using Azure CLI, call the [az redis update](/cli/azure/redis#az-redis-update) command. Use the `sku.capacity` property to scale within a tier, for example from a Standard C0 to Standard C1 cache:
 
 ```azurecli
 az redis update --cluster-name myCache --resource-group myGroup --set "sku.capacity"="2"
@@ -157,7 +158,7 @@ Clustering is enabled during cache creation from the working pane, when you crea
 
     :::image type="content" source="media/cache-how-to-scale/redis-cache-clustering-selected.png" alt-text="Screenshot showing the clustering toggle selected.":::
 
-    Once the cache is created, you connect to it and use it just like a nonclustered cache. Redis distributes the data throughout the Cache shards. If diagnostics is [enabled](cache-monitor-diagnostic-settings.md), metrics are captured separately for each shard, and can be [viewed](monitor-cache.md#view-cache-metrics) in Azure Cache for Redis using the Resource menu.
+    Once the cache is created, you connect to it and use it just like a nonclustered cache. Redis distributes the data throughout the Cache shards. If diagnostics is [enabled](cache-monitor-diagnostic-settings.md), metrics are captured separately for each shard, and can be [viewed](../redis/monitor-cache.md#view-cache-metrics) in Azure Cache for Redis using the Resource menu.
 
 1. Finish creating the cache using the [quickstart guide](quickstart-create-redis.md).
 
@@ -188,7 +189,7 @@ You can scale out your Azure Cache for Redis instances with PowerShell by using 
    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -ShardCount 3
 ```
 
-For more information on scaling with PowerShell, see [To scale an Azure Cache for Redis using PowerShell](cache-how-to-manage-redis-cache-powershell.md#scale).
+For more information on scaling with PowerShell, see [To scale an Azure Cache for Redis using PowerShell](../redis/how-to-manage-redis-cache-powershell.md#scale).
 
 #### Scale out and in using Azure CLI
 
@@ -389,8 +390,7 @@ In the Azure portal, you can see the scaling operation in progress. When scaling
 - If you're using Redis ASP.NET Session State provider, you must use 2.0.1 or higher. See [Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 
 > [!IMPORTANT]
-> When using the Enterprise or Enterprise FLash tiers, you are given the choice of _OSS Cluster Mode_ or _Enterprise Cluster Mode_. OSS Cluster Mode is the same as clustering on the Premium tier and follows the open source clustering specification. Enterprise Cluster Mode can be less performant, but uses Redis Enterprise clustering which doesn't require any client changes to use. For more information, see [Clustering on Enterprise](cache-best-practices-enterprise-tiers.md#clustering-on-enterprise).
->
+> When using the Enterprise or Enterprise FLash tiers, you are given the choice of _OSS Cluster Mode_ or _Enterprise Cluster Mode_. OSS Cluster Mode is the same as clustering on the Premium tier and follows the open source clustering specification. Enterprise Cluster Mode can be less performant, but uses Redis Enterprise clustering which doesn't require any client changes to use. For more information, see [Clustering](../redis/architecture.md#clustering).
 >
 
 ### How are keys distributed in a cluster?
@@ -453,15 +453,15 @@ Clustering is only available for Premium, Enterprise, and Enterprise Flash cache
 
 ### I'm getting MOVE exceptions when using StackExchange.Redis and clustering, what should I do?
 
-If you're using StackExchange.Redis and receive `MOVE` exceptions when using clustering, ensure that you're using [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) or later. For instructions on configuring your .NET applications to use StackExchange.Redis, see [Configure the cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-client).
+If you're using StackExchange.Redis and receive `MOVE` exceptions when using clustering, ensure that you're using [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) or later.
 
 ### What is the difference between OSS Clustering and Enterprise Clustering on Enterprise tier caches?
 
-OSS Cluster Mode is the same as clustering on the Premium tier and follows the open source clustering specification. Enterprise Cluster Mode can be less performant, but uses Redis Enterprise clustering, which doesn't require any client changes to use. For more information, see [Clustering on Enterprise](cache-best-practices-enterprise-tiers.md#clustering-on-enterprise).
+OSS Cluster Mode is the same as clustering on the Premium tier and follows the open source clustering specification. Enterprise Cluster Mode can be less performant, but uses Redis Enterprise clustering, which doesn't require any client changes to use. For more information, see [Clustering](../redis/architecture.md#clustering).
 
 ### How many shards do Enterprise tier caches use?
 
-Unlike Basic, Standard, and Premium tier caches, Enterprise, and Enterprise Flash caches can take advantage of multiple shards on a single node. For more information, see [Sharding and CPU utilization](cache-best-practices-enterprise-tiers.md#sharding-and-cpu-utilization).
+Unlike Basic, Standard, and Premium tier caches, Enterprise, and Enterprise Flash caches can take advantage of multiple shards on a single node. For more information, see [Sharding configuration](../redis/architecture.md#sharding-configuration).
 
 ## Next steps
 

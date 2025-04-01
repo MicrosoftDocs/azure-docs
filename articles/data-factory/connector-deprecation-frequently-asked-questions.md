@@ -1,17 +1,17 @@
 ---
-title: Connector deprecation FAQ 
-description: Get answers to frequently asked questions about connector deprecation.
+title: Connector upgrade FAQ 
+description: Get answers to frequently asked questions about connector upgrade.
 author: KrishnakumarRukmangathan
 ms.author: krirukm
 ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
-ms.date: 10/17/2024
+ms.date: 11/08/2024
 ---
 
-# Connector deprecation FAQ
+# Connector upgrade FAQ
 
-This article provides answers to frequently asked questions about connector deprecation.
+This article provides answers to frequently asked questions about connector upgrade.
 
 ## Why does Azure Data Factory (ADF) release new connectors and ask users to upgrade their existing connectors?
 
@@ -67,11 +67,11 @@ There are three key deadlines outlined in our documentation:
 
 ## What should I do if I encounter the feature gaps and errors/ bugs that are preventing me from migrating to the new connectors?
 
-If you encounter any feature gaps while migrating from legacy connectors, please review our connector documentation to check if it’s a known limitation. Additionally, send us an email at **dfconnectorupgrade@microsoft.com** with a description of the feature gap.
+If you encounter any feature gaps while migrating from legacy connectors, please review our connector documentation to check if it’s a known limitation. Additionally, send us an email at **dfconnectorupgrade@microsoft.com** with a description of the feature gap. 
 
 If you encounter any errors or bugs while migrating from legacy connectors, please contact our Microsoft support team and open a support ticket. Be sure to include detailed information about the connector, the error encountered, and your use case.
 
-Our Azure Data Factory team will assist you and ensure a smooth transition to the new connectors.
+Our Azure Data Factory team will assist you and ensure a smooth transition to the new connectors. We invite you to fill out this [form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR94fEtK94M9FsNIwB3-nUTtUQTFGMjVFNkNEVkFaTEJQMUVaQlc3TlRDVi4u&route=shorturl) to help us better understand your needs and explore possible solutions.
 
 ## Related content
 

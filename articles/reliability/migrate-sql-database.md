@@ -6,7 +6,7 @@ ms.service: sql
 ms.topic: conceptual
 ms.date: 03/25/2024
 ms.author: anaharris 
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 ---
 
 # Migrate Azure SQL Database to availability zone support
@@ -17,14 +17,14 @@ Enabling zone redundancy for Azure SQL Database guarantees high availability as 
 
 ## Prerequisites
 
-Before you migrate to availability zone support, refer to the following table to ensure that your Azure SQL Database is in a supported service tier and deployment model. Make sure that your tier and model is offered in a [region that supports availability zones](/azure/reliability/availability-zones-service-support).
+Before you migrate to availability zone support, refer to the following table to ensure that your Azure SQL Database is in a supported service tier and deployment model. Make sure that your tier and model is offered in a [region that supports availability zones](regions-list.md).
 
 | Service tier | Deployment model | Zone redundancy availability |
 |-----|------|------|
-| Premium  | Single database or Elastic Pool | [All regions that support availability zones](availability-zones-service-support.md#azure-regions-with-availability-zone-support)|
-| Business Critical | Single database or Elastic Pool | [All regions that support availability zones](availability-zones-service-support.md#azure-regions-with-availability-zone-support) |
+| Premium  | Single database or Elastic Pool | [All regions that support availability zones](regions-list.md)|
+| Business Critical | Single database or Elastic Pool | [All regions that support availability zones](regions-list.md) |
 | General Purpose  | Single database or Elastic Pool | [Selected regions that support availability zones](/azure/azure-sql/database/high-availability-sla?view=azuresql&tabs=azure-powershell&preserve-view=true#general-purpose-service-tier-zone-redundant-availability)|
-| Hyperscale | Single database | [All regions that support availability zones](availability-zones-service-support.md#azure-regions-with-availability-zone-support) |
+| Hyperscale | Single database | [All regions that support availability zones](regions-list.md) |
  
 
 ## Downtime requirements
@@ -102,7 +102,7 @@ To enable zone redundancy, see [Databases - Create Or Update in ARM](/rest/api/s
 
 1. Go to the [Azure portal](https://portal.azure.com) to find and select the elastic pool that you want to migrate.
 
-1. Select **Settings**, and then select **Configure**. 
+1. Under **Settings**, select **Compute + Storage**.
 
 1. Select **Yes** for **Would you like to make this elastic pool zone redundant?**.
 
@@ -197,68 +197,81 @@ To create a geo-replica of the database:
 
 ## Disable zone-redundancy
 
-To disable zone-redundancy for a single database or an elastic pool, you can use the portal or ARM API. 
+To disable zone-redundancy for a single database or an elastic pool, you can use the portal, ARM API, PowerShell, or CLI. 
 
-To disable zone-redundancy for Hyperscale service tier, you can reverse the steps documented in [Redeployment (Hyperscale)](#redeployment-hyperscale).
-
-# [Elastic pool](#tab/pool)
-
-**To disable zone-redundancy with Azure portal:**
-
-1. Go to the  [Azure portal](https://portal.azure.com) to find and select the elastic pool that you no longer want to be zone-redundant.
-
-1. Select **Settings**, and then select **Configure**. 
-
-1. Select **No** for **Would you like to make this elastic pool zone redundant?**.
-
-1. Select **Save**.
-
-**To disable zone-redundancy with PowerShell:**
-
-```powershell
-Set-AzSqlElasticpool -ResourceGroupName "RSETLEM-AzureSQLDB" -ServerName "rs-az-testserver1" -ElasticPoolName "testep10" -ZoneRedundant:$false
-```
-
-**To disable zone-redundancy with Azure CLI:**
-
-```azurecli
-az sql elastic-pool update --resource-group "RSETLEM-AzureSQLDB" --server "rs-az-testserver1" --name "testep10" --zone-redundant false
-```
-
-**To disable zone-redundancy with ARM,** see [Databases - Create Or Update in ARM](/rest/api/sql/elastic-pools/create-or-update?tabs=HTTP) and use the `properties.zoneRedundant` property.
-
-# [Single database](#tab/single)
+### Disable zone-redundancy for a single database
 
 
-**To disable zone-redundancy with Azure portal:**
+# [Portal](#tab/portal)
 
 1. Go to the  [Azure portal](https://portal.azure.com) to find and select the database that you no longer want to be zone-redundant.
 
-1. Select **Settings**, and then select **Configure**. 
+1. Under **Settings**, select **Compute + Storage**.
 
 1. Select **No** for **Would you like to make this database zone redundant?**
 
 1. Select **Save**.
 
-**To disable zone-redundancy with PowerShell:**
+# [PowerShell](#tab/powershell)
 
 ```powershell
-set-azsqlDatabase -ResourceGroupName "RSETLEM-AzureSQLDB" -DatabaseName "TestDB1" -ServerName "rs-az-testserver1" -ZoneRedundant:$false 
+set-azsqlDatabase -ResourceGroupName "<Resource-Group-Name>" -DatabaseName "<Server-Name>" -ServerName "<Server-Name>" -ZoneRedundant:$false 
 ```
 
-**To disable zone-redundancy with Azure CLI:**
+# [CLI](#tab/cli)
 
 ```azurecli
-az sql db update --resource-group "RSETLEM-AzureSQLDB" --server "rs-az-testserver1" --name "TestDB1" --zone-redundant false
+az sql db update --resource-group "<Resource-Group-Name>" --server "<Server-Name>" --name "<Server-Name>" --zone-redundant false
 ```
 
-**To disable zone-redundancy with ARM,** see [Databases - Create Or Update in ARM](/rest/api/sql/2022-05-01-preview/databases/create-or-update?tabs=HTTP) and use the `properties.zoneRedundant` property.
+# [ARM](#tab/arm)
+
+See [Databases - Create Or Update in ARM](/rest/api/sql/2022-05-01-preview/databases/create-or-update?tabs=HTTP) and use the `properties.zoneRedundant` property.
+
+---
+
+### Disable zone-redundancy for an elastic pool
+
+# [Portal](#tab/portal)
+
+1. Go to the  [Azure portal](https://portal.azure.com) to find and select the elastic pool that you no longer want to be zone-redundant.
+
+1. Under **Settings**, select **Compute + Storage**.
+
+1. Select **No** for **Would you like to make this elastic pool zone redundant?**.
+
+1. Select **Save**.
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+Set-AzSqlElasticpool -ResourceGroupName "<Resource-Group-Name>"  -ServerName "<Server-Name>" -ElasticPoolName "<Elastic-Pool-Name>" -ZoneRedundant:$false
+```
+
+# [CLI](#tab/cli)
+
+```azurecli
+az sql elastic-pool update --resource-group "<Resource-Group-Name>" --server "<Server-Name>" --name "<Server-Name>" --zone-redundant false
+```
+
+
+# [ARM](#tab/arm)
+
+See [Databases - Create Or Update in ARM](/rest/api/sql/elastic-pools/create-or-update?tabs=HTTP) and use the `properties.zoneRedundant` property.
+
+
+
 
  
 ---
+
+To disable zone-redundancy for Hyperscale service tier, you can reverse the steps documented in [Redeployment (Hyperscale)](#redeployment-hyperscale).
 
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure services and regions that support availability zones](availability-zones-service-support.md)
+> [Azure services that support availability zones](availability-zones-service-support.md)
+
+> [!div class="nextstepaction"]
+> [Azure regions that support availability zones](regions-list.md)

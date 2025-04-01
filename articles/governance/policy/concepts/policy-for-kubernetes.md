@@ -1,7 +1,7 @@
 ---
 title: Learn Azure Policy for Kubernetes
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters running Kubernetes in Azure or on-premises.
-ms.date: 09/30/2024
+ms.date: 03/04/2025
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
 ---
@@ -299,12 +299,12 @@ az k8s-extension delete --cluster-type connectedClusters --cluster-name <CLUSTER
 ## Create a policy definition
 
 The Azure Policy language structure for managing Kubernetes follows that of existing policy
-definitions. There are sample definition files available to assign in [Azure Policy's built-in policy library](../samples/built-in-policies.md) that can be used to govern your cluster components.
+definitions. There are sample definition files available to assign in [Azure Policy's built-in policy library](../samples/built-in-policies.md#kubernetes) that can be used to govern your cluster components.
 
 Azure Policy for Kubernetes also support custom definition creation at the component-level for both Azure Kubernetes Service clusters and Azure Arc-enabled Kubernetes clusters. Constraint template and mutation template samples are available in the [Gatekeeper community library](https://github.com/open-policy-agent/gatekeeper-library/tree/master). [Azure Policy's Visual Studio Code Extension](../how-to/extension-for-vscode.md#create-policy-definition-from-a-constraint-template-or-mutation-template) can be used to help translate an existing constraint template or mutation template to a custom Azure Policy policy definition.
 
 With a [Resource Provider mode](./definition-structure.md#resource-provider-modes) of
-`Microsoft.Kubernetes.Data`, the effects [audit](./effects.md#audit), [deny](./effects.md#deny), [disabled](./effects.md#disabled), and [mutate](./effects.md#mutate-preview) are used to manage your Kubernetes clusters.
+`Microsoft.Kubernetes.Data`, the effects [audit](./effect-audit.md), [deny](./effect-deny.md), [disabled](./effect-disabled.md), and [mutate](./effect-mutate.md) are used to manage your Kubernetes clusters.
 
 _Audit_ and _deny_ must provide `details` properties
 specific to working with
@@ -606,6 +606,33 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 
 ### Add-on versions available per each AKS cluster version
 
+#### 1.10.1
+Update the `policy-kubernetes-addon-prod` and `policy-kubernetes-webhook` images to patch [CVE-2025-30204](https://nvd.nist.gov/vuln/detail/CVE-2025-30204) and [CVE-2025-22870](https://nvd.nist.gov/vuln/detail/CVE-2025-22870).
+- Released April 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.18.2
+
+#### 1.10.0
+Security improvements.
+
+CEL is enabled by default, you can continue using Rego. New CRD configpodstatuses.status.gatekeeper.sh is introduced (Reference: https://github.com/open-policy-agent/gatekeeper/issues/2918)
+- Released February 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.18.2
+##### Gatekeeper 3.18.2-1
+Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.18.2
+Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.17.1...v3.18.2
+
+#### 1.9.1
+Security improvements.
+
+Patch CVE-2024-45337 and CVE-2024-45338.
+- Released January 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.17.1
+##### Gatekeeper 3.17.1-5
+Patch CVE-2024-45337 and CVE-2024-45338.
+
 #### 1.8.0
 Policy can now be used to evaluate CONNECT operations, for instance, to deny `exec`s. Note that there is no brownfield compliance available for noncompliant CONNECT operations, so a policy with Audit effect that targets CONNECTs is a no op.
 
@@ -618,9 +645,9 @@ Security improvements.
 Introducing CEL and VAP. Common Expression Language (CEL) is a Kubernetes-native expression language that can be used to declare validation rules of a policy. Validating Admission Policy (VAP) feature provides in-tree policy evaluation, reduces admission request latency, and improves reliability and availability. The supported validation actions include Deny, Warn, and Audit. Custom policy authoring for CEL/VAP is allowed, and existing users won't need to convert their Rego to CEL as they will both be supported and be used to enforce policies. To use CEL and VAP, users need to enroll in the feature flag `AKS-AzurePolicyK8sNativeValidation` in the `Microsoft.ContainerService` namespace. For more information, view the [Gatekeeper Documentation](https://open-policy-agent.github.io/gatekeeper/website/docs/validating-admission-policy/).
 
 Security improvements.
-- Released September 2024 
+- Released September 2024
 - Kubernetes 1.27+ (VAP generation is only supported on 1.30+)
-- Gatekeeper 3.17.1 
+- Gatekeeper 3.17.1
 
 #### 1.7.0
 
@@ -759,8 +786,8 @@ aligns with how the add-on was installed:
   - Maximum number of Non-compliant records per policy per cluster: **500**
   - Maximum number of Non-compliant records per subscription: **1 million**
   - Installations of Gatekeeper outside of the Azure Policy Add-on aren't supported. Uninstall any components installed by a previous Gatekeeper installation before enabling the Azure Policy Add-on.
-  - [Reasons for non-compliance](../how-to/determine-non-compliance.md#compliance-reasons) aren't available for the Microsoft.Kubernetes.Data [Resource Provider mode](./definition-structure.md#resource-provider-modes). Use [Component details](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
- - Component-level [exemptions](./exemption-structure.md) aren't supported for [Resource Provider modes](./definition-structure.md#resource-provider-modes). Parameters support is available  in Azure Policy definitions to exclude and include particular namespaces.
+  - [Reasons for non-compliance](../how-to/determine-non-compliance.md#compliance-reasons) aren't available for the Microsoft.Kubernetes.Data [Resource Provider mode](./definition-structure-basics.md#resource-provider-modes). Use [Component details](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
+ - Component-level [exemptions](./exemption-structure.md) aren't supported for [Resource Provider modes](./definition-structure-basics.md#resource-provider-modes). Parameters support is available  in Azure Policy definitions to exclude and include particular namespaces.
  - Using the `metadata.gatekeeper.sh/requires-sync-data` annotation in a constraint template to configure the [replication of data](https://open-policy-agent.github.io/gatekeeper/website/docs/sync) from your cluster into the OPA cache is currently only allowed for built-in policies. The reason is because it can dramatically increase the Gatekeeper pods resource usage if not used carefully.
 
 ### Configuring the Gatekeeper Config

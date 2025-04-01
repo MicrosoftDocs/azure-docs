@@ -21,7 +21,11 @@ During the data connector agent update process, there might be a brief downtime 
 
 The automatic or manual updates described in this article are relevant to the SAP connector agent only, and not to the Microsoft Sentinel solution for SAP applications. To successfully update the solution, your agent needs to be up to date. The solution is updated separately, as you would any other [Microsoft Sentinel solution](../sentinel-solutions-deploy.md#install-or-update-content).
 
-Content in this article is relevant for your **security**, **infrastructure**, and  **SAP BASIS** teams.
+Content in this article is relevant for your **security**, **infrastructure**, and  **SAP BASIS** teams. 
+
+> [!NOTE]
+> This article is relevant only for the data connector agent, and isn't relevant for the [SAP agentless data connector](deployment-overview.md#data-connector) (Preview).
+>
 
 ## Prerequisites
 
@@ -84,9 +88,9 @@ Be sure to check for any other available updates, such as SAP change requests.
 
 ## Update your system for attack disruption
 
-Automatic attack disruption for SAP is supported with the unified security operations platform in the Microsoft Defender portal, and requires:
+Automatic attack disruption for SAP is supported in Microsoft's unified security operations platform, and requires:
 
-- A workspace [onboarded to the unified security operations platform](../microsoft-sentinel-defender-portal.md).
+- A workspace [onboarded to the Defender portal](../microsoft-sentinel-defender-portal.md).
 
 - A Microsoft Sentinel SAP data connector agent, version 90847355 or higher. [Check your current agent version](#verify-your-current-data-connector-agent-version) and update it if you need to.
 
@@ -102,16 +106,25 @@ The following procedures describe how to fulfill these requirements if they aren
 
 To verify your current agent version, run the following query from the Microsoft Sentinel **Logs** page:
 
-  ```Kusto
-  SAP_HeartBeat_CL
-  | where sap_client_category_s !contains "AH"
-  | summarize arg_max(TimeGenerated, agent_ver_s), make_set(system_id_s) by agent_id_g
-  | project
-      TimeGenerated,
-      SAP_Data_Connector_Agent_guid = agent_id_g,
-      Connected_SAP_Systems_Ids = set_system_id_s,
-      Current_Agent_Version = agent_ver_s
-  ```
+```Kusto
+SAP_HeartBeat_CL
+| where sap_client_category_s !contains "AH"
+| summarize arg_max(TimeGenerated, agent_ver_s), make_set(system_id_s) by agent_id_g
+| project
+    TimeGenerated,
+    SAP_Data_Connector_Agent_guid = agent_id_g,
+    Connected_SAP_Systems_Ids = set_system_id_s,
+    Current_Agent_Version = agent_ver_s
+```
+
+See more information on the following items used in the preceding example, in the Kusto documentation:
+- [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+- [***summarize*** operator](/kusto/query/summarize-operator?view=microsoft-sentinel&preserve-view=true)
+- [***project*** operator](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true)
+- [***arg_max()*** aggregation function](/kusto/query/arg-max-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+- [***make_set()*** aggregation function](/kusto/query/make-set-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+- 
+[!INCLUDE [kusto-reference-general-no-alert](../includes/kusto-reference-general-no-alert.md)]
 
 ### Check for required Azure roles
 

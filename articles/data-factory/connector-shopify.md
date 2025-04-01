@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/12/2024
+ms.date: 11/05/2024
 ---
 
 # Copy data from Shopify using Azure Data Factory or Synapse Analytics (Preview)
@@ -35,9 +35,7 @@ The service provides a built-in driver to enable connectivity, therefore you don
 
 The connector supports the Windows versions in this [article](create-self-hosted-integration-runtime.md#prerequisites).
 
-The billing_on column property was removed from the following tables. For more information, see this [article](https://shopify.dev/docs/api/admin-rest/2024-07/resources/usagecharge).
-   - Recurring_Application_Charges
-   - UsageCharge
+The billing_on column property was removed from the Recurring_Application_Charges and UsageCharge tables due to Shopify's official deprecation of billing_on field.
 
 ## Getting started
 

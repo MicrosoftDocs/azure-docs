@@ -1,51 +1,62 @@
 ---
 title: AI in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
-description: Learn about Communication Services AI concepts
+description: Learn about Azure Communication Services AI concepts.
 author: chpalm
 manager: sundraman
 services: azure-communication-services
 ms.author: chpalm
-ms.date: 07/10/2024
+ms.date: 2/3/2025
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
 # Artificial intelligence (AI) overview
 
-Artificial intelligence (AI) technologies can be useful for a wide variety of communication experiences. This concept page summarizes availability of AI and AI-adjacent features in Azure Communication Services. AI features can be split into three categories:
+Artificial intelligence (AI) technologies are useful for many communication experiences. AI can help humans communicate better and accomplish their mission more efficiently, for example, a banking employee may use an AI generated meeting summary to help them follow up. AI can reduce human workloads and enable more flexible customer engagement, such as operating a 24/7 phone bot that customers call to check their account balance.
 
--  **Accessors.** APIs that allow you to access Azure Communication data for the purposes of integrating your own separate transformations and bots.
--  **Transformers.** APIs that provide a built-in transformation of communication data using a machine learning or language model.
--  **Bots.** APIs that implement bots that directly communicate with end-users, typically blending structured programming with language models.
+More examples include:
+- Operate a chat or voice bot that responds to human conversation.
+- Transform audio speech content into text transcriptions.
+- Transform a video feed to blur the user's background.
+- Annotate and analyze conversations to identify trends and opportunities to improve service.
+- Transform a corpus of text chat and meeting transcriptions into summaries. This experience might involve a generative AI interface in which a user asks, "Summarize all conversations between me and user Joe."
 
-Typical communication scenarios integrating these capabilities:
+This article summarizes the availability of AI and AI-adjacent features in Azure Communication Services. There are two broad categories of AI functionality:
 
-- Transforming audio speech content into text transcriptions
-- Transforming a video feed to blur the user's background
-- Operating a chat or voice bot that responds to human conversation
-- Transforming a corpus of text chat and meeting transcriptions into summaries. This experience might involve a generative AI interface in which a user asks, "summarize all conversations between me and user Joe."
+- **Integrated AI**: Azure Communication Services is directly integrated with Azure AI and Microsoft Copilot Studio. Generally these features require you to create and link both Azure Communication Services and Azure AI resources in the Azure portal. After this one-time linking, using these AI features is as straightforward as a single API call.
+- **Accessors**: Azure Communication Services provides various APIs that give you raw and transformed access to your communication data making it easy for you to connect your own external services and AI systems. 
 
-## Messaging: SMS, Chat, Email, WhatsApp
+## Messaging: SMS, chat, email, WhatsApp
 
-Azure Communication Services capabilities for asynchronous messaging share common patterns for integrating AI listed here.
+This section summarizes features for integrating AI into Azure Communication messaging. 
 
-| Feature | Accessor | Transformer | Bot | Description |
-|--|--|--|--|--|
-| REST APIs and SDKs| ✅ | |  | The messaging services center around REST APIs and server-oriented SDKs. You can use these SDKs to export content to an external datastore and attach a language model to summarize conversations. Or you can use the SDKs to integrate a bot that directly engages with human users.  |
-| WhatsApp Message Analysis  | | ✅ |  | The Azure Communication Service messaging APIs for WhatsApp provide a built-in integration with Azure OpenAI that analyses and annotates messages. This integration can detect the user’s language, recognize their intent, and extract key phrases. |
-| [Azure Bot – Chat Channel Integration](../quickstarts/chat/quickstart-botframework-integration.md) | | | ✅  | The Azure Communication Service chat system is directly integrated with Azure Bot services. This integration simplifies creating chat bots that engage with human users.|
+### Direct Integrations 
 
-## Voice, Video, and Telephony
+- **[Advanced message analysis](../concepts/advanced-messaging/message-analysis/message-analysis.md)**: The Azure Communication Services messaging APIs for WhatsApp provide a built-in integration with Azure OpenAI that analyzes and annotates messages. This integration can detect the user's language, recognize their intent, and extract key phrases. 
+- **[Azure Bot Service: Chat channel integration](../quickstarts/chat/quickstart-botframework-integration.md)**: The Azure Communication Services chat system is directly integrated with Azure Bot Service. This integration simplifies creating chat bots that engage with human users.
 
-The patterns for integrating AI into the voice and video system are summarized here.
+### Accessors
+All Azure Communication Services messaging capabilities are accessible through REST APIs, server-oriented SDKs, and Event Grid notifications. You can use these SDKs to export content to an external datastore and attach a language model to summarize conversations. Or you can use the SDKs to integrate a bot that directly engages with human users. For example, this [GitHub sample](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/chat-nlp-analysis) shows how Azure Communication Services APIs for chat can be accessed through REST APIs and then analyzed by Azure OpenAI.
 
-| Feature | Accessor | Transformer | Bot | Description |
-|--|--|--|--|--|
-| [Call Automation REST APIs and SDKs](../concepts/call-automation/call-automation.md) | ✅ | ✅ |  | Call Automation APIs include both accessors and transformers, with REST APIs for playing audio files and recognizing a user’s response. The `recognize` APIs integrate Azure Bot Services to transform users’ audio content into text for easier processing by your service. The most common scenario for these APIs is implementing voice bots, sometimes called interactive voice response (IVR). |
-| [Microsoft Copilot Studio](/microsoft-copilot-studio/voice-overview) | | ✅ | ✅ | Copilot studio is directly integrated with Azure Communication Services telephony. This integration is designed for voice bots and IVR. |
-| [Azure Portal Copilot](/azure/communication-services/concepts/voice-video-calling/call-diagnostics#copilot-in-azure-for-call-diagnostics) | | ✅ | ✅ | Copilot in the Azure portal allows you to ask questions about Azure Communication Services. Currently this copilot answers questions using information solely from Azure's technical documentation, and is best used for asking questions about error codes and API behavior. |
-| [Client Raw Audio and Video](../concepts/voice-video-calling/media-access.md)  | ✅ | |  | The Calling client SDK provides APIs for accessing and modifying the raw audio and video feed. An example scenario is taking the video feed, detecting the human speaker and their background, and customizing that background. |
-| [Client Background effects](../quickstarts/voice-video-calling/get-started-video-effects.md?pivots=platform-web)| | ✅ |  | The Calling client SDKs provides APIs for blurring or replacing a user’s background. |
-| [Client Captions](../concepts/voice-video-calling/closed-captions.md) | | ✅ |  | The Calling client SDK provides APIs for real-time closed captions. These internally integrate Azure Cognitive Services to transform audio content from the call into text in real-time. |
-| [Client Noise Enhancement and Effects](../tutorials/audio-quality-enhancements/add-noise-supression.md?pivots=platform-web) | | ✅ |  | The Calling client SDK integrates a [DeepVQE](https://arxiv.org/abs/2306.03177) machine learning model to improve audio quality through echo cancellation and background noise suppression.. This transformation is toggled on and off using the client SDK. |
+## Voice, video, and telephony
+
+This section summarizes features for integrating AI into Azure Communication voice and video calling.
+
+### Direct Integrations 
+
+- **[Call Automation REST APIs and SDKs](../concepts/call-automation/call-automation.md)**: Azure Communication Services has simple APIs for [synthesizing](../concepts/call-automation/play-action.md) and [recognizing](../concepts/call-automation/recognize-action.md) speech. The most common scenario for these APIs is implementing voice bots, which is sometimes called interactive voice response (IVR).
+- **[Microsoft Copilot Studio](/microsoft-copilot-studio/voice-overview)**: Copilot Studio is directly integrated with Azure Communication Services telephony. This integration is designed for voice bots and IVR.
+- **[Client captions](../concepts/voice-video-calling/closed-captions.md)**: The Calling client SDK provides APIs for real-time closed captions, optimized for accessibility.
+- **[Copilot in the Azure portal](/azure/communication-services/concepts/voice-video-calling/call-diagnostics#copilot-in-azure-for-call-diagnostics)**: You can use Copilot in the Azure portal to ask questions about Azure Communication Services. Copilot uses Azure technical documentation to answer your questions and is best used for asking questions about error codes and API behavior.
+- **[Client background effects](../quickstarts/voice-video-calling/get-started-video-effects.md?pivots=platform-web)**:  The Calling client SDKs provide APIs for blurring or replacing a user's background.
+- **[Client noise enhancement and effects](../tutorials/audio-quality-enhancements/add-noise-supression.md?pivots=platform-web)**: The Calling client SDK integrates a [DeepVQE](https://arxiv.org/abs/2306.03177) machine learning model to improve audio quality through echo cancellation and background noise suppression. This transformation is toggled on and off by using the client SDK.
+
+### Accessors
+Similar to Azure Communication Services messaging, there are REST APIs for many voice and video calling features. However the real-time nature of calling requires closed source SDKs and more complex APIs such as websocket streaming.
+
+- **[Call Automation REST APIs and SDKs](../concepts/call-automation/call-automation.md)**: Services and AI applications  use Call Automation REST APIs to answer, route, and manage all types of Azure voice and video calls.
+- **[Service-to-service audio streaming](../concepts/call-automation/audio-streaming-concept.md)**: AI applications use Azure's service-to-service WebSockets API to stream audio data. This works in both directions, your AI can listen to a call, and speak.
+- **[Service-to-service real-time transcription](../concepts/call-automation/real-time-transcription.md)**: AI applications use Azure's service-to-service WebSockets API to stream a real-time, Azure-generated transcription. Compared to audio or video content, transcript data is often easier for AI models to reason upon.
+- **[Call recording](../concepts/voice-video-calling/call-recording.md)**: You can record Azure calls in your own datastore and then direct AI services to process that content.
+- **[Client raw audio and video](../concepts/voice-video-calling/media-access.md)**: The Calling client SDK provides APIs for accessing and modifying the raw audio and video feed. An example scenario is taking the video feed, using computer vision to distinguish the human speaker from their background, and customizing that background.

@@ -4,7 +4,7 @@ metadata:
   description: This article provides a list of frequently asked questions (FAQ) for Azure Blob Storage. 
   ms.topic: faq
   ms.service: azure-blob-storage
-  ms.date: 08/27/2024
+  ms.date: 11/25/2024
   ms.author: normesta
   author: normesta
 title: Azure Blob Storage frequently asked questions
@@ -55,7 +55,7 @@ sections:
       - question: |
           Is there a way to identify the time at which the policy will be executing?
         answer: |
-          Unfortunately, there's no way to track the time at which the policy will be executing, as it's a background scheduling process. However, the platform will run the policy once per day.     
+          Unfortunately, there's no way to track the time at which the policy will be executing, as it's a background scheduling process. Lifecycle policies start execution within 24 hours of a rule being created or updated. Policies process objects continuously in the background, as required. Priority is given to requests from workloads. So, there's no way to track the time at which a policy may be executing. The time required to process objects may depend on the request rate for the storage account. This time may be longer if the request rate for the storage account approaches the storage account limit.
   - name: Azure Storage blob inventory
     questions:
       - question: |

@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: overview
-ms.date: 08/30/2024
+ms.date: 11/15/2024
 ms.author: normesta
 ms.reviewer: jamesbak
 ---

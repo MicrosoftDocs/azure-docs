@@ -3,13 +3,13 @@ metadata:
   title: Cost Management + Billing frequently asked questions (FAQ)
   titleSuffix: Microsoft Cost Management
   description: Frequently asked questions and answers.
-  author: bandersmsft
-  ms.reviewer: adwise
+  author: maddieminn
+  ms.reviewer: maminn
   ms.service: cost-management-billing
   ms.subservice: common
   ms.topic: faq
-  ms.date: 02/22/2024
-  ms.author: banders
+  ms.date: 11/14/2024
+  ms.author: maminn
 title: Cost Management + Billing frequently asked questions (FAQ)
 summary: |
 sections:
@@ -85,16 +85,16 @@ sections:
           In the Create budget window, choose the scope for the budget you want to create. Choose **Add Filter** to choose any filters or a tag that you want to add for this budget. For more information, see the [Create and manage budgets](costs/tutorial-acm-create-budgets.md#create-a-budget-in-the-azure-portal) tutorial.
       - question: How do I export cost management data?
         answer: |
-          See the [Create and manage exported data](costs/tutorial-export-acm-data.md) tutorial.
+          See the [Create and manage exported data](costs/tutorial-improved-exports.md) tutorial.
       - question: How do I export cost management data as a partner if I don't have an Azure subscription in my tenant?
         answer: |
           See the [Export cost data with an Azure storage account SAS key](costs/export-cost-data-storage-account-sas-key.md) article.
       - question: As a CSP partner, is Cost Management supported on Classic CSP offer in Azure Plan?
         answer: |
           Given the plans to transition customers on Classic CSP to Azure Plan on the [New Commerce experience](https://www.microsoft.com/licensing/news/new-azure-experience-in-csp), Cost Management + Billing is available only for the direct partners and indirect providers of customers who are on Azure Plan. 
-      - question: As a CSP partner (global admin), how can I enable the cost visibility policy at the subscription scope for my end customers and resellers on the Azure Plan?
+      - question: As a CSP partner, how can I enable the cost visibility policy at the subscription scope for my end customers and resellers on the Azure Plan?
         answer: |
-          See [Enable Cost Management for Customer Tenant Subscriptions](costs/get-started-partners.md#enable-cost-management-for-customer-tenant-subscriptions) to enable the cost visibility policy for Azure consumed services at retail rates for Azure RBAC users of the subscription. As a global admin of a direct partner or an indirect provider, you can view the costs in the customer tenant regardless of the policy.
+          See [Enable Cost Management for Customer Tenant Subscriptions](costs/get-started-partners.md#enable-cost-management-for-customer-tenant-subscriptions) to enable the cost visibility policy for Azure consumed services at retail rates for Azure RBAC users of the subscription. As a direct partner or an indirect provider, you can view the costs in the customer tenant if you're a [billing administrator](/partner-center/account-settings/permissions-overview#billing-admin-role).
       - question: How can I charge back costs?
         answer: |
           You can allocate costs in Cost Management to see the costs that you distribute to subscriptions, resource groups, or tags in cost analysis. For more information, see the [Create and manage Azure cost allocation rules](costs/allocate-costs.md) article.

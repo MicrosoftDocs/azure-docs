@@ -4,9 +4,9 @@ description: Lists the permissions for the Azure resource providers in the Web a
 ms.service: role-based-access-control
 ms.topic: reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -99,11 +99,13 @@ Azure service: [Azure Maps](/azure/azure-maps/)
 > | Microsoft.Maps/accounts/privateEndpointConnectionProxies/validate/action | Validate a Private Endpoint Connection Proxy. |
 > | Microsoft.Maps/accounts/privateEndpointConnectionProxies/read | Read a Private Endpoint Connection Proxy. |
 > | Microsoft.Maps/accounts/privateEndpointConnectionProxies/write | Create or update a Private Endpoint Connection Proxy. |
+> | Microsoft.Maps/accounts/privateEndpointConnectionProxies/delete | Delete a Private Endpoint Connection Proxy. |
 > | Microsoft.Maps/accounts/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource |
 > | Microsoft.Maps/accounts/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
 > | Microsoft.Maps/accounts/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for Maps Accounts |
-> | Microsoft.Maps/locations/operationStatuses/read | Read an Asyncronous Operation. |
+> | Microsoft.Maps/operationResults/read | Read an Async Operation Results. |
 > | Microsoft.Maps/operations/read | Read the provider operations |
+> | Microsoft.Maps/operationStatuses/read | Read an Async Operation Statuses. |
 > | Microsoft.Maps/resourceTypes/read | Read the provider resourceTypes |
 > | **DataAction** | **Description** |
 > | Microsoft.Maps/accounts/services/batch/action | Allows actions upon data for batch services. |
@@ -1006,6 +1008,7 @@ Azure service: [App Service](/azure/app-service/), [Azure Functions](/azure/azur
 > | microsoft.web/skus/read | Get SKUs. |
 > | microsoft.web/sourcecontrols/read | Get Source Controls. |
 > | microsoft.web/sourcecontrols/write | Update Source Controls. |
+> | Microsoft.Web/staticSiteRegions/Read | Get the list of Static Site regions. |
 > | Microsoft.Web/staticSites/Read | Get the properties of a Static Site |
 > | Microsoft.Web/staticSites/Write | Create a new Static Site or update an existing one |
 > | Microsoft.Web/staticSites/Delete | Delete an existing Static Site |
@@ -1020,6 +1023,7 @@ Azure service: [App Service](/azure/app-service/), [Azure Functions](/azure/azur
 > | Microsoft.Web/staticSites/resetapikey/Action | Reset the api key for a Static Site |
 > | Microsoft.Web/staticSites/zipdeploy/action | Deploy a Static Site from zipped content |
 > | Microsoft.Web/staticSites/showDatabaseConnections/action | Show details for Database Connections for a Static Site |
+> | Microsoft.Web/staticSites/publish/action | Check publish access to static web app |
 > | Microsoft.Web/staticSites/authproviders/listusers/Action | List the users for a Static Site |
 > | Microsoft.Web/staticSites/authproviders/users/Delete | Delete a user for a Static Site |
 > | Microsoft.Web/staticSites/authproviders/users/Write | Update a user for a Static Site |

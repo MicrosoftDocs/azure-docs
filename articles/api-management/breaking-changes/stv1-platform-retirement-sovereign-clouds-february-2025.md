@@ -52,6 +52,7 @@ As of 1 September 2024, API Management will no longer provide any service level 
 
 Through continued use of an instance hosted on the `stv1` platform beyond 1 September 2024, you acknowledge that Azure does not commit to the SLA of 99.95%.
 
+[!INCLUDE [api-management-automatic-migration](../../../includes/api-management-automatic-migration.md)]
 
 [!INCLUDE [api-management-migration-support](../../../includes/api-management-migration-support.md)]
 
