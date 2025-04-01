@@ -237,9 +237,7 @@
       href: ../automate/automation-overview.md
   - name: Tutorials
     items:
-    - name: Export data
-      href: tutorial-export-acm-data.md
-    - name: Tutorial - Improved exports (Preview)
+    - name: Tutorial - Export data
       href: tutorial-improved-exports.md
     - name: Seed historical cost dataset with Exports API
       href: ../automate/tutorial-seed-historical-cost-dataset-exports-api.md
