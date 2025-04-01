@@ -85,7 +85,7 @@ sections:
           In the Create budget window, choose the scope for the budget you want to create. Choose **Add Filter** to choose any filters or a tag that you want to add for this budget. For more information, see the [Create and manage budgets](costs/tutorial-acm-create-budgets.md#create-a-budget-in-the-azure-portal) tutorial.
       - question: How do I export cost management data?
         answer: |
-          See the [Create and manage exported data](costs/tutorial-export-acm-data.md) tutorial.
+          See the [Create and manage exported data](costs/tutorial-improved-exports.md) tutorial.
       - question: How do I export cost management data as a partner if I don't have an Azure subscription in my tenant?
         answer: |
           See the [Export cost data with an Azure storage account SAS key](costs/export-cost-data-storage-account-sas-key.md) article.
