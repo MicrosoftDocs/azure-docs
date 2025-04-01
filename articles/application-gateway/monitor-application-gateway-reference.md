@@ -330,7 +330,6 @@ If the application gateway can't complete the request, it stores one of the foll
 | ERRORINFO_HTTP_NO_HOST_HEADER | Client sent a request without Host header. |
 | ERRORINFO_HTTP_TO_HTTPS_PORT | The client sent a plain HTTP request to an HTTPS port. |
 | ERRORINFO_HTTPS_NO_CERT | Indicates client isn't sending a valid and properly configured TLS certificate during Mutual TLS authentication. |
-| ERRORINFO_INVALID_HEADER | Application Gateway detected a partial invalid header and forwarded the remaining header to the backend, which responded with 200 OK. Ensure the client's request header does not contain CR, LF, NULL, or similar characters. Replace such characters with SP (whitespace). |
 
 | 5XX Errors | Description |
 |:-----------|:------------|
