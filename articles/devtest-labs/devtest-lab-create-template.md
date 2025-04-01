@@ -19,7 +19,19 @@ In this article, you learn how to create an Azure DevTest Labs virtual machine (
 
 [!INCLUDE [devtest-lab-custom-image-definition](../../includes/devtest-lab-custom-image-definition.md)]
 
-[!INCLUDE [devtest-lab-upload-vhd-options](../../includes/devtest-lab-upload-vhd-options.md)]
+## Prerequisites
+
+- **Owner** or **Contributor** permissions in the lab where you want to create the custom image.
+- A VHD file uploaded to the Azure Storage account for the lab. To upload a VHD file:
+
+  1. Go to your lab storage account in the Azure portal and select **Upload**.
+  1. Browse to and select the VHD file, select the **uploads** container or create a new container named **uploads**, and then select **Upload**.
+
+  You can also upload a VHD file by following the instructions in any of these articles:
+
+  - [Upload a VHD file by using the AzCopy command-line utility](https://review.learn.microsoft.com/en-us/azure/devtest-labs/devtest-lab-upload-vhd-using-azcopy)
+  - [Upload a VHD file by using Microsoft Azure Storage Explorer](https://review.learn.microsoft.com/en-us/azure/devtest-labs/devtest-lab-upload-vhd-using-storage-explorer)
+  - [Upload a VHD file by using PowerShell](https://review.learn.microsoft.com/en-us/azure/devtest-labs/devtest-lab-upload-vhd-using-powershell)
 
 ## Create the custom image
 
