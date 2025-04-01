@@ -8,6 +8,8 @@ ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 04/02/2025
+
+#customer intent: As a developer, I want to use the IBM IMS connector so I can integrate IMS programs with Standard workflows in Azure Logic Apps.
 ---
 
 # Integrate IMS programs on IBM mainframes with Standard workflows in Azure Logic Apps
@@ -18,7 +20,7 @@ To access and run IBM mainframe apps on Information Management System (IMS) syst
 
 This how-to guide describes the following aspects about the IMS connector:
 
-* Why use the IMS connector in Azure Logic Apps
+* Scenarios for using the IMS connector in Azure Logic Apps
 * Prerequisites and setup for using the IMS connector
 * Steps for adding IMS connector actions to your Standard logic app workflow
 
@@ -32,7 +34,7 @@ This how-to guide describes the following aspects about the IMS connector:
 
   To create this HIDX file, [download and install the Host Integration Server (HIS) Designer for Azure Logic Apps](https://aka.ms/his-designer-logicapps-download). The only prerequisite is [Microsoft .NET Framework 4.8](https://aka.ms/net-framework-download).
 
-  To invoke a mainframe program, your workflow needs to understand the mainframe program's type, parameters, and return values. The IMS connector manages the process and data conversions, which are required for providing input data from the workflow to the mainframe program and for sending any output data generated from the mainframe program to the workflow. The connector also provides tabular data definition and code page translation. For this process, Azure Logic Apps requires that you provide this information as metadata.
+  To invoke a mainframe program, your workflow needs to understand the mainframe program's type, parameters, and return values. The IMS connector manages the process and data conversions. The conversions are used to provide input data from the workflow to the mainframe program and to send any output data generated from the mainframe program to the workflow. The connector also provides tabular data definition and code page translation. For this process, Azure Logic Apps requires that you provide this information as metadata.
 
   To create this metadata, use the [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2). With this tool, you can manually create the methods, parameters, and return values that you can use in your workflow. The tool also allows you to import COBOL or RPG program definitions (copybooks) that provide this information.
 
@@ -46,7 +48,7 @@ This how-to guide describes the following aspects about the IMS connector:
 
 Currently, the IMS connector requires that you upload your HIDX file directly to your Standard logic app resource, not an integration account.
 
-## Explore the IMS connector
+## Explore the IMS connector and usage scenarios
 
 IMS systems were one of the first mission-critical systems to run on mainframes. Microsoft [Host Integration Server (HIS)](/host-integration-server/what-is-his) provides connectivity to IMS systems by following two models: IMS Connect and APPC LU6.2. Customers have used the HIS Transaction Integrator (TI) to integrate their IMS systems with Windows on-premises for many years. The **IMS Program Call** connector uses the IMS Connect model to interact with IMS transaction programs through TCP/IP.
 
@@ -58,11 +60,9 @@ To extend these hybrid cloud scenarios, the IMS connector in a Standard workflow
 
 After you generate the metadata file as a Host Integration Designer XML (HIDX) file from the HIS Designer, you can add that file as a map artifact to your Standard logic app resource. That way, your workflow can access your app's metadata when you add an IMS connector action. The connector reads the metadata file from your logic app resource, and dynamically presents the parameters to use with the IMS connector in your workflow. You can then provide parameters to the host application, and the connector returns the results to your workflow. As a result, you can integrate your legacy apps with Azure, Microsoft, other apps, services, and systems that Azure Logic Apps supports.
 
-## Connector technical reference
+## Review the IMS connector technical reference
 
-This section describes the available operations for the IMS connector. Currently, only one action is supported:
-
-### Call an IMS program
+Currently, one operation is available for the IMS connector: **Call an IMS program**. The following table summarizes the usage for this action:
 
 | Parameter | Required | Type | Description |
 |-----------|----------|-------|-------------|
@@ -80,9 +80,9 @@ After you download and install the HIS Designer for Azure Logic Apps, follow [th
 
 For your workflow to use the HIDX file, follow these steps:
 
-1. Go to the folder where you saved your HIDX file, and copy the file.
+1. Browse to the folder where you saved your HIDX file, and copy the file.
 
-1. In the [Azure portal](https://portal.azure.com), [upload the HIDX file as a map to your Standard logic app resource](../logic-apps/logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource).
+1. Go to the [Azure portal](https://portal.azure.com), and upload the HIDX file as a map to your Standard logic app resource](../logic-apps/logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource).
 
 1. Continue to the next section to [add an IMS action to your workflow](#add-an-ims-action).
 
@@ -94,7 +94,7 @@ Follow these steps to add an IMS action:
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow in the designer.
 
-1. If you haven't already added a trigger to start your workflow, follow [these steps to add the trigger that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
+1. If you don't have a trigger to start your workflow, follow [these steps to add the trigger that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
    This example continues with the **Request** trigger named **When a HTTP request is received**:
 
@@ -116,7 +116,7 @@ Follow these steps to add an IMS action:
    | **Password** | No | <*password*> | The optional user password for connection authentication. |
    | **Port Number** | Yes | <*port-number*> | The port number to use for connection authentication. |
    | **Server Name** | Yes | <*server-name*> | The server name. |
-   | **Timeout** | No | <*time-out*> | The timeout period in seconds while waiting for responses from the server. |
+   | **Timeout** | No | <*time-out*> | The time-out period in seconds while waiting for responses from the server. |
    | **User Name** | No | <*user-Name*> | The optional username for connection authentication. |
    | **Use TLS** | No | True or false | Secure the connection with Transport Security Layer (TLS). |
    | **Validate Server certificate** | No | True or false | Validate the server's certificate. |
@@ -149,7 +149,7 @@ Follow these steps to add an IMS action:
 
 ## Test your workflow
 
-Follow these steps to test your workflow:
+Follow these steps and test your workflow:
 
 1. To run your workflow, on the designer toolbar, select **Run** > **Run**.
 
