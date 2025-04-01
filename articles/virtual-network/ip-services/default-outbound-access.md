@@ -166,7 +166,7 @@ az network vnet subnet update --resource-group rgname --name subnetname --vnet-n
 
 * In configurations using a User Defined Route (UDR) with a default route (0/0) that sends traffic to an upstream firewall/network virtual appliance, any traffic that bypasses this route (for example, to Service Tagged destinations) breaks in a Private subnet.
 
-* Private Subnet may not behave as expected in delegated/managed subnets with PaaS services. This is because each service can control their own outbound in a way that is not explictly shown in your VNETs, and traffic could continue to egress even with Private subnet settings applied.
+* Private Subnet may not behave as expected in delegated/managed subnets with PaaS services. This is because each service can control their own outbound in a way that is not explicitly shown in your VNETs, and traffic could continue to egress even with Private subnet settings applied.
  
 ### Add an explicit outbound connectivity method
  
