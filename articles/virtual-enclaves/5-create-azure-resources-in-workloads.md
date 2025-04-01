@@ -45,4 +45,4 @@ In this tutorial, you deployed Azure resources into an enclave's workload using 
 - thing 1
 - thing 1
 
-In the [next tutorial](./6.-create-an-enclave-endpoint-and-connections.md), you'll learn how to create endpoints for your enclave.
+In the [next tutorial](./6-create-an-enclave-endpoint-and-connections.md), you'll learn how to create endpoints for your enclave.
