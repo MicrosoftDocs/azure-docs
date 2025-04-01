@@ -26,7 +26,7 @@ To access App Service diagnostics:
 
 The App Service diagnostics page provides many tools to diagnose app problems. For more information, see [Diagnostic tools](#diagnostic-tools) later in this article.
 
-:::image type="content" source="./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png" alt-text="Screenshot that shows the App Service diagnostics page for a selected resource in the portal." lightbox="./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png":::
+:::image type="content" source="./media/app-service-diagnostics/app-service-diagnostics-homepage.png" alt-text="Screenshot that shows the App Service diagnostics page for a selected resource in the portal." lightbox="./media/app-service-diagnostics/app-service-diagnostics-homepage.png":::
 
 > [!NOTE]
 > If your app is down or performing slowly, you can [collect a profiling trace](https://azure.github.io/AppService/2018/06/06/App-Service-Diagnostics-Profiling-an-ASP.NET-Web-App-on-Azure-App-Service.html) to identify the root cause of the problem. Profiling is lightweight and is designed for production scenarios.
@@ -39,17 +39,17 @@ The page for App Service diagnostics offers streamlined diagnostic access in mul
 
 The search box is a quick way to find a diagnostic. You can find the same diagnostic through [troubleshooting categories](#troubleshooting-categories).
 
-:::image type="content" source="./media/app-service-diagnostics/app-service-diagnostics-genie-alerts-search-1.png" alt-text="Screenshot that shows search results related to availability in the search box in the portal.":::
+:::image type="content" source="./media/app-service-diagnostics/app-service-diagnostics-alerts-search.png" alt-text="Screenshot that shows search results related to availability in the search box in the portal.":::
 
 ### Risk alerts
 
 The App Service diagnostics page performs a series of configuration checks and offers recommendations based on your application's unique configuration.
 
-:::image type="content" source="./media/app-service-diagnostics/app-service-diagnostics-risk-alerts-1.png" alt-text="Screenshot that shows availability risk alerts with a count of problems found and a link to view more details.":::
+:::image type="content" source="./media/app-service-diagnostics/app-service-diagnostics-risk-alerts.png" alt-text="Screenshot that shows availability risk alerts with a count of problems found and a link to view more details.":::
 
 To review recommendations and performed checks, select the **View more details** link. The information appears in a panel on the right side of the window.
 
-:::image type="content" source="./media/app-service-diagnostics/app-service-diagnostics-risk-alerts-details-1.png" alt-text="Screenshot that shows detailed information for availability risk alerts." lightbox="./media/app-service-diagnostics/app-service-diagnostics-risk-alerts-details-1.png":::
+:::image type="content" source="./media/app-service-diagnostics/app-service-diagnostics-risk-alerts-details.png" alt-text="Screenshot that shows detailed information for availability risk alerts." lightbox="./media/app-service-diagnostics/app-service-diagnostics-risk-alerts-details.png":::
 
 ### Troubleshooting categories
 
@@ -88,13 +88,7 @@ To investigate the problem further, you can select a topic and view more details
 
 The diagnostic report can be a powerful tool for pinpointing the problem with your app. The following example is the **Web App Down** report in **Availability and Performance**.
 
-:::image type="content" source="./media/app-service-diagnostics/full-diagnostic-report-5.png" alt-text="Screenshot that shows the Web App Down diagnostic report in the portal." lightbox="./media/app-service-diagnostics/full-diagnostic-report-5.png":::
-
-## Resiliency Score report
-
-To review tailored best-practice recommendations, look at the Resiliency Score report. This report is available as a downloadable PDF. To get it, select **Get Resiliency Score report** on the command bar of any troubleshooting category. The report shows a gauge that scores the app's resilience and indicates what you can do to improve the score.
-
-:::image type="content" source="./media/app-service-diagnostics/app-service-diagnostics-resiliency-report-1.png" alt-text="Screenshot that shows the Resiliency Score report in the portal.":::
+:::image type="content" source="./media/app-service-diagnostics/full-diagnostic-report.png" alt-text="Screenshot that shows the Web App Down diagnostic report in the portal." lightbox="./media/app-service-diagnostics/full-diagnostic-report.png":::
 
 ## Investigation of application code problems (only for Windows apps)
 
@@ -106,7 +100,7 @@ To view Application Insights exceptions and dependencies, select the **Web App D
 
 If a problem is detected in a specific category within the last 24 hours, you can view the full diagnostic report. App Service diagnostics might prompt you to view more troubleshooting advice and next steps for a more guided experience.
 
-:::image type="content" source="./media/app-service-diagnostics/troubleshooting-and-next-steps-8.png" alt-text="Screenshot that shows troubleshooting options for HTTP server errors in the portal." lightbox="./media/app-service-diagnostics/troubleshooting-and-next-steps-8.png":::
+:::image type="content" source="./media/app-service-diagnostics/troubleshooting-and-next-steps.png" alt-text="Screenshot that shows troubleshooting options for HTTP server errors in the portal." lightbox="./media/app-service-diagnostics/troubleshooting-and-next-steps.png":::
 
 ## Diagnostic tools
 
