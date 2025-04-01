@@ -41,7 +41,7 @@ For more information, see [About API Management](api-management-key-concepts.md)
 
 ## OpenAPI specification vs. wildcard operations
 
-API Management supports importing container apps that provide an OpenAPI specification (a Swagger definition). An OpenAPI specification isn't required, but we recommend that you provide an one.  API Management can import individual operations, which allows you to validate, manage, secure, and update configurations for each operation separately.
+API Management supports importing container apps that provide an OpenAPI specification (a Swagger definition). An OpenAPI specification isn't required, but we recommend that you provide one.  API Management can import individual operations, which allows you to validate, manage, secure, and update configurations for each operation separately.
 
 If the container app exposes an OpenAPI specification, API Management creates API operations that map directly to the definition. API Management will look in several locations for an OpenAPI specification:
 
