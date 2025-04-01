@@ -70,7 +70,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
      The transactions section displays all transactions that affected your credits balance.
    
-     :::image type="content" border="true" source=".media/mca-check-azure-credits-balance/credits-transactions-azportal.png" alt-text="Screenshot that shows Credit transactions in the Azure portal for Cost Management + Billing.":::
+     :::image type="content" border="true" source="./media/mca-check-azure-credits-balance/credits-transactions-azportal.png" alt-text="Screenshot that shows Credit transactions in the Azure portal for Cost Management + Billing.":::
    
    | Term | Definition |
    |---|---|
