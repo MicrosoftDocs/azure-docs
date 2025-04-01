@@ -32,7 +32,7 @@ The steps that follow assume you have an existing VM to view the effective secur
 
     :::image type="content" source="./media/diagnose-network-traffic-filter-problem/view-security-rules.png" alt-text="Screenshot of security rules for NSG nsg-subnet." lightbox="./media/diagnose-network-traffic-filter-problem/view-security-rules.png":::
 
-    :::image type="content" source="./media/diagnose-network-traffic-filter-problem/view-security-rules2.png" alt-text="Screenshot of security rules for NSG nsg-nic." lightbox="./media/diagnose-network-traffic-filter-problem/view-security-rule2.png":::
+    :::image type="content" source="./media/diagnose-network-traffic-filter-problem/view-security-rules2.png" alt-text="Screenshot of security rules for NSG nsg-nic." lightbox="./media/diagnose-network-traffic-filter-problem/view-security-rules2.png":::
   
 
    The rules you see listed in the previous figures are for a network interface named **vm-1445**. You see that there are **Inbound port rules** for the network interface from two different network security groups:
@@ -60,7 +60,7 @@ The steps that follow assume you have an existing VM to view the effective secur
 
    To see the rules for the **vm-nic-2** network interface, select it. As shown in the example that follows, the network interface has the same rules associated to its subnet as the **vm-1445** network interface, because both network interfaces are in the same subnet. When you associate an NSG to a subnet, its rules are applied to all network interfaces in the subnet.
 
-   :::image type="content" source="./media/diagnose-network-traffic-filter-problem/view-security-rules3.png" alt-text="Screenshot of security rules for nic vm-nic-2." lightbox="./media/diagnose-network-traffic-filter-problem/view-security-rule3.png":::
+   :::image type="content" source="./media/diagnose-network-traffic-filter-problem/view-security-rules3.png" alt-text="Screenshot of security rules for nic vm-nic-2." lightbox="./media/diagnose-network-traffic-filter-problem/view-security-rules3.png":::
 
    Unlike the **vm-1445** network interface, the **vm-nic-2** network interface doesn't have a network security group associated to it. Each network interface and subnet can have zero, or one, NSG associated to it. The NSG associated to each network interface or subnet can be the same, or different. You can associate the same network security group to as many network interfaces and subnets as you choose.
 
