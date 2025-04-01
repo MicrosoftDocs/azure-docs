@@ -62,7 +62,7 @@ ms.custom: include file
 | Maximum rules per rule set | 100 | 100 |
 | Maximum bandwidth<sup>1</sup> | 75 Gbps | 75 Gbps |
 | Maximum requests per second per profile<sup>1,</sup><sup>2</sup> | 100,000 | 100,000 |
-| Maximum concurrent connections per profile <sup>3</sup> | 3,000 | 3,000 |
+| Maximum concurrent WebSocket connections per profile <sup>3</sup> | 3,000 | 3,000 |
 | Path patterns to match for a routing rule | 25 | 50 |
 | URLs in a single cache purge call | 100 | 100 |
 | Maximum security policy per profile | 100 | 200 |
@@ -87,7 +87,7 @@ ms.custom: include file
 
 <sup>2</sup>Azure Front Door currently has a 5,000 request per seconds per POP limit.
 
-<sup>3</sup>If you need more than 3,000 concurrent connections, submit a [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+<sup>3</sup>If you need more than 3,000 concurrent WebSocket connections, submit a [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 #### Timeout values
 

@@ -131,7 +131,7 @@
       - name: Grant access to create EA subscriptions
         href: manage/grant-access-to-create-subscription.md
       - name: Change administrator
-        displayName: azure subcription owner, add user to azure subscription, azure subscription permissions, azure change account admin
+        displayName: azure subscription owner, add user to azure subscription, azure subscription permissions, azure change account admin
         href: manage/add-change-subscription-administrator.md
       - name: Switch subscription offer
         href: manage/switch-azure-offer.md

@@ -637,7 +637,8 @@ The following table lists services that can access your storage account data if 
 | Azure Cache for Redis | `Microsoft.Cache/Redis` | Enables access to storage accounts. [Learn more](../../azure-cache-for-redis/cache-managed-identity.md).| 
 | Azure AI Search          | `Microsoft.Search/searchServices`       | Enables access to storage accounts for indexing, processing, and querying. |
 | Azure AI services        | `Microsoft.CognitiveService/accounts`   | Enables access to storage accounts. [Learn more](../..//cognitive-services/cognitive-services-virtual-networks.md).|
-| Microsoft Cost Management | `Microsoft.CostManagementExports` | Enables export to storage accounts behind a firewall. [Learn more](../../cost-management-billing/costs/tutorial-export-acm-data.md).|
+| Azure Container Registry        | `Microsoft.ContainerRegistry/registries`| Through the ACR Tasks suite of features, enables access to storage accounts when you're building container images. |
+| Microsoft Cost Management | `Microsoft.CostManagementExports` | Enables export to storage accounts behind a firewall. [Learn more](../../cost-management-billing/costs/tutorial-improved-exports.md).|
 | Azure Databricks                | `Microsoft.Databricks/accessConnectors` | Enables access to storage accounts. |
 | Azure Data Factory              | `Microsoft.DataFactory/factories`       | Enables access to storage accounts through the Data Factory runtime. |
 | Azure Data Explorer           | `Microsoft.Kusto/Clusters`          | Read data for ingestion and external tables, and write data to external tables. [Learn more](/azure/data-explorer/data-explorer-overview). |
