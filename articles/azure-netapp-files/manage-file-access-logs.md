@@ -22,7 +22,7 @@ File access logs provide file access logging for individual volumes, capturing f
 * Once file access logs are enabled on a volume, they can take up to 75 minutes to become visible. 
 * Each log entry consumes approximately 1 KB of space.
 * File access logs occasionally create duplicate log entries that must be filtered manually. 
-* Deleting any diagnostic settings configured for `ANFFileAccess` causes any file access logs for any volume with that setting to become disabled. 
+* Deleting any diagnostic settings configured for `ANFFileAccess` causes any file access logs for any volume with that setting to become disabled. See the [diagnostic setting configuration](#diagnostic) for more information. 
 * Before enabling file access logs on a volume, either [access control lists (ACLs)](configure-access-control-lists.md) or Audit access control entries (ACEs) need to be set on a file or directory. You must set ACLs or Audit ACEs after mounting a volume.  
 * File access logs provide no explicit or implicit expectations or guarantees around logging for auditing and compliance purposes. 
 
@@ -117,7 +117,6 @@ Availability for file access log is limited to the following regions:
 - West US
 - West US 2
 
-<!-- 9 may 2023 -->
 ## Set SACLs or Audit ACEs on files and directories  
 
 You must set SACLs for SMB shares or Audit ACEs for NFSv4.1 exports for auditing. 
@@ -155,7 +154,7 @@ For NFSv4.1, both discretionary and system ACEs are stored in the same ACL, not 
 1. Select **Diagnostic settings** from the left-hand pane.
 1. Select **+ Add diagnostic setting**.
 :::image type="content" source="./media/manage-file-access-logs/logs-diagnostic-settings-add.png" alt-text="Screenshot of Azure Diagnostic settings menu.":::
-1. In the **Diagnostic setting** page, provide a diagnostic setting name.
+1. <a name="diagnostic"></a> In the **Diagnostic setting** page, provide a diagnostic setting name.
     Under **Logs > Categories**, select **ANFFileAccess** then set the retention period of the logs. 
 :::image type="content" source="./media/manage-file-access-logs/logs-diagnostic-settings-enable.png" alt-text="Screenshot of Azure Diagnostic settings menu with file access diagnostic setting.":::
 1. Select one of the destination options for the logs:
