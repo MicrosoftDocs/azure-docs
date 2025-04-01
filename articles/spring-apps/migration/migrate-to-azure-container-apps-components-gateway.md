@@ -16,14 +16,18 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 **This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
-This article shows you how to migrate Spring Cloud Gateway for Tanzu in Azure Spring Apps Enterprise plan to self-hosted Open Source Spring Cloud Gateway (OSS Gateway) running as an Azure Container Apps application.
+This article shows you how to migrate Spring Cloud Gateway for Tanzu in Azure Spring Apps Enterprise plan to self-hosted Open Source (OSS) Spring Cloud Gateway running as an Azure Container Apps application.
+
+The OSS version of Spring Cloud Gateway mentioned in this page is provided as an example for reference. Users can choose other distributions of Spring Cloud Gateway based on their requirements.
+
+Note that the features offered by Spring Cloud Gateway for Tanzu are more extensive than those in the OSS version, so it is essential to verify the differences and ensure compatibility before moving to production.
 
 ## Prerequisites
 
 - An Azure Spring Apps Enterprise plan instance with Spring Cloud Gateway enabled.
-- An Azure Container Apps. For more information, see [Quickstart: Deploy your first container app using the Azure portal](../../container-apps/quickstart-portal.md).
+- An Azure Container Apps. For more information, see [Quickstart: Deploy your first container app using the Azure portal](/azure/container-apps/quickstart-portal.md).
 - [Azure CLI](/cli/azure/install-azure-cli).
-- An Azure Container Registry with sufficient permissions to build and push Docker images, see [Create A Container Registry](../../container-registry/container-registry-get-started-azure-cli#create-a-container-registry)
+- An Azure Container Registry with sufficient permissions to build and push Docker images, see [Create A Container Registry](/azure/container-registry/container-registry-get-started-azure-cli#create-a-container-registry)
 
 ## Prepare the code of self-hosted OSS Gateway application
 
@@ -78,12 +82,12 @@ spring:
 To migrate the Cross-Origin Resource Sharing (CORS) configuration of Spring Cloud Gateway for Tanzu, you can refer to [CORS Configuration for OSS Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#cors-configuration) for global CORS configuration and route CORS configuration.
 
 ### Scale
-When migrating to OSS Gateway application in Azure Container Apps, the scaling behavior should align with Azure Container Apps' model. The instance count from Spring Cloud Gateway for Tanzu maps to `min-replica` and `max-replica` in Azure Container Apps. You can  configure automatic scaling for the gateway application by defining scaling rules. For more details, refer to [Set scaling rules in Azure Container Apps](../../container-apps/scale-app).
+When migrating to OSS Gateway application in Azure Container Apps, the scaling behavior should align with Azure Container Apps' model. The instance count from Spring Cloud Gateway for Tanzu maps to `min-replica` and `max-replica` in Azure Container Apps. You can configure automatic scaling for the gateway application by defining scaling rules. For more details, refer to [Set scaling rules in Azure Container Apps](/azure/container-apps/scale-app).
 
-The CPU and memory combinations available in Azure Spring Apps may differ from those in Azure Container Apps. When mapping resource allocations, ensure that the selected CPU and memory configurations in Azure Container Apps fit both performance needs and supported options.
+The CPU and memory combinations available in Azure Spring Apps differs from those in Azure Container Apps. When mapping resource allocations, ensure that the selected CPU and memory configurations in Azure Container Apps fit both performance needs and supported options.
 
 ### Custom domain & certificates
-Azure Container Apps supports custom domains and certificates, you can refer to [Domains & certificates](../../container-apps/certificates-overview) to migrate custom domains configured on Spring Cloud Gateway for Tanzu.
+Azure Container Apps supports custom domains and certificates, you can refer to [Domains & certificates](/azure/container-apps/certificates-overview) to migrate custom domains configured on Spring Cloud Gateway for Tanzu.
 
 ### Routes
 
@@ -233,9 +237,9 @@ Access the FQDN of the OSS Gateway application to verify that it is running.
 
 ## Troubleshooting
 
-If you encounter issues when running the OSS Gateway application, you can view real time and historical logs of the application `gateway` in Azure Container Apps following [Application Logging in Azure Container Apps](../../container-apps/logging).
+If you encounter issues when running the OSS Gateway application, you can view real time and historical logs of the application `gateway` in Azure Container Apps following [Application Logging in Azure Container Apps](/azure/container-apps/logging).
 
-To monitor gateway application's metrics, refer to [Monitor Azure Container Apps metrics](../../container-apps/metrics)
+To monitor gateway application's metrics, refer to [Monitor Azure Container Apps metrics](/azure/container-apps/metrics)
 
 ## Known limitation
 OSS Gateway does not support the following commercial features:
