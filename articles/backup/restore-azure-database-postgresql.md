@@ -63,7 +63,7 @@ You can restore a database to any Azure Database for PostgreSQL server of a diff
 
 ## Restore permissions on the target storage account
 
-Give the backup vault's managed identity permission to access the storage account containers:
+To assign the backup vault's managed identity permission to access the storage account containers, follow these steps:
 
 1. In the Azure portal, go to **Storage Account** > **Access Control (IAM)**, and then select **Add**.
 
