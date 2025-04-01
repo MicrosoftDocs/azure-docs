@@ -10,112 +10,94 @@ ms.date: 01/29/2025
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
-# Migrate Spring Cloud Gateway for Tanzu to managed Gateway for Spring in Azure Container Apps
+# Migrate Spring Cloud Gateway for Tanzu to self-hosted gateway application in Azure Container Apps
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
-This article shows you how to migrate VMware Spring Cloud Gateway in Azure Spring Apps Enterprise plan to managed Gateway for Spring in Azure Container Apps using the Azure CLI.
+This article shows you how to migrate Spring Cloud Gateway for Tanzu in Azure Spring Apps Enterprise plan to self-hosted Open Source Spring Cloud Gateway (OSS Gateway) running as an Azure Container Apps application.
 
 ## Prerequisites
 
-- An existing Azure Spring Apps Enterprise plan instance with Spring Cloud Gateway enabled.
-- An existing Azure container app. For more information, see [Quickstart: Deploy your first container app using the Azure portal](../../container-apps/quickstart-portal.md).
+- An Azure Spring Apps Enterprise plan instance with Spring Cloud Gateway enabled.
+- An Azure Container Apps. For more information, see [Quickstart: Deploy your first container app using the Azure portal](../../container-apps/quickstart-portal.md).
 - [Azure CLI](/cli/azure/install-azure-cli).
+- An Azure Container Registry with sufficient permissions to build and push Docker images, see [Create A Container Registry](../../container-registry/container-registry-get-started-azure-cli#create-a-container-registry)
 
-## Provision managed Gateway for Spring
+## Prepare the code of self-hosted OSS Gateway application
 
-Use the following command to provision the Gateway for Spring Java component in the Azure Container Apps environment that you created in the prerequisites:
+To get the code of the OSS Gateway:
+1. Navigate to https://start.spring.io.
+1. Update the project metadata by setting the `Group` to your orgnization's name. Change the `Artifact` and `Name` to `gateway`.
+1. Add dependencies `Reactive Gateway` and `Spring Boot Actuator`.
+1. Leave the other properties at their default values.
+1. Click `Generate` to download the project.
 
-```azurecli
-az containerapp env java-component gateway-for-spring create \
-    --resource-group <resource-group-name> \
-    --name <gateway-name> \
-    --environment <azure-container-app-environment-name>
-```
+Extract the project when it's downloaded.
 
-After you successfully create the component, you can see that the **Provisioning State** value for Spring Cloud Gateway is **Succeeded**.
+## Configure the OSS Gateway
+Once the OSS Gateway code is ready, navigate to the `gateway/src/main/resources` directory of the project. Rename the `application.properties` file with `application.yml`. You can migrate from Spring Cloud Gateway for Tanzu by configuring the `application.yml`.
 
-### Resource management
+The example of `application.yml` is like:
 
-The container resource allocation for the Gateway for Spring in Azure Container Apps is fixed to the following values:
-
-- **CPU**: 0.5 vCPU
-- **Memory**: 1 Gi
-
-To configure the instance count for Gateway for Spring, use the parameters `--min-replicas` and `--max-replicas`, setting both to the same value. This configuration ensures that the instance count remains fixed. The system currently doesn't support dynamic autoscaling configurations.
-
-## Configure Gateway for Spring
-
-After you provision the gateway, the next step is to configure it for smooth migration.
-
-You can update the configuration and routes of the Gateway for Spring component by using the `update` command, as shown in the following example:
-
-```azurecli
-az containerapp env java-component gateway-for-spring update \
-    --resource-group <resource-group-name> \
-    --name <gateway-name> \
-    --environment <azure-container-app-environment-name> \
-    --configuration <configuration-key>="<configuration-value>" \
-    --route-yaml <path-to-route-YAML-file>
+```yaml
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOriginPatterns: "*"
+            allowedMethods:
+            - GET
+            - POST
+            - PUT
+            - DELETE
+            allowedHeaders:
+            - "*"
+            allowCredentials: true
+            maxAge: 3600
+      routes:
+      - id: front
+        uri: http://front-app
+        predicates:
+        - Path=/**
+        - Method=GET
+        order: 1000
+        filters:
+        - StripPrefix=0
+        tags:
+        - front
 ```
 
 ### CORS configuration
 
-To migrate the global Cross-Origin Resource Sharing (CORS) configuration of VMware Spring Cloud Gateway, you need to map properties into the format `<configuration-key>="<configuration-value>"`. The mapping relation is shown in the following table:
+To migrate the Cross-Origin Resource Sharing (CORS) configuration of Spring Cloud Gateway for Tanzu, you can refer to [CORS Configuration for OSS Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#cors-configuration) for global CORS configuration and route CORS configuration.
 
-| Property name in VMware Spring Cloud Gateway | Configuration in Gateway for Spring                                                     |
-|----------------------------------------------|-----------------------------------------------------------------------------------------|
-| Allowed origins                              | `spring.cloud.gateway.globalcors.cors-configurations.[/**].allowedOrigins[<id>]`        |
-| Allowed origin patterns                      | `spring.cloud.gateway.globalcors.cors-configurations.[/**].allowedOriginPatterns[<id>]` |
-| Allowed methods                              | `spring.cloud.gateway.globalcors.cors-configurations.[/**].allowedMethods[<id>]`        |
-| Allowed headers                              | `spring.cloud.gateway.globalcors.cors-configurations.[/**].allowedHeaders[<id>]`        |
-| Max age                                      | `spring.cloud.gateway.globalcors.cors-configurations.[/**].maxAge`                      |
-| Allow credentials                            | `spring.cloud.gateway.globalcors.cors-configurations.[/**].allowCredentials`            |
-| Exposed headers                              | `spring.cloud.gateway.globalcors.cors-configurations.[/**].exposedHeaders[<id>]`        |
+### Scale
+When migrating to OSS Gateway application in Azure Container Apps, the scaling behavior should align with Azure Container Apps' model. The instance count from Spring Cloud Gateway for Tanzu maps to `min-replica` and `max-replica` in Azure Container Apps. You can  configure automatic scaling for the gateway application by defining scaling rules. For more details, refer to [Set scaling rules in Azure Container Apps](../../container-apps/scale-app).
 
-For example, if you have a configuration like `allowedOrigins:["https://example.com","https://example1.com"]` in VMware Spring Cloud Gateway, you should update Gateway for Spring with the following parameter:
+The CPU and memory combinations available in Azure Spring Apps may differ from those in Azure Container Apps. When mapping resource allocations, ensure that the selected CPU and memory configurations in Azure Container Apps fit both performance needs and supported options.
 
-```azurecli
---configuration spring.cloud.gateway.globalcors.cors-configurations.[/**].allowedOrigins[0]=https://example.com spring.cloud.gateway.globalcors.cors-configurations.[/**].allowedOrigins[1]=https://example1.com
-```
-
-For per route CORS configuration, you need to replace the "/**" in the configuration key as the route path. For example, if you have a route with path `/v1/**`, you should configure `spring.cloud.gateway.globalcors.cors-configurations.[/v1/**].allowedOrigins[<id>]`.
+### Custom domain & certificates
+Azure Container Apps supports custom domains and certificates, you can refer to [Domains & certificates](../../container-apps/certificates-overview) to migrate custom domains configured on Spring Cloud Gateway for Tanzu.
 
 ### Routes
 
-The Gateway for Spring component supports defining routes through the `id`, `uri`, `predicates`, and `filters` properties, as shown in the following example:
-
-```yaml
-springCloudGatewayRoutes:
-  - id: "route1"
-    uri: "https://otherjavacomponent.myenvironment.test.net"
-    predicates:
-      - "Path=/v1/{path}"
-      - "After=2024-01-01T00:00:00.000-00:00[America/Denver]"
-    filters:
-      - "SetPath=/{path}"
-  - id: "route2"
-    uri: "https://otherjavacomponent.myenvironment.test.net"
-    predicates:
-      - "Path=/v2/{path}"
-      - "After=2024-01-01T00:00:00.000-00:00[America/Denver]"
-    filters:
-      - "SetPath=/{path}"
-```
-
-The following list describes the mapping relationship between routes of VMware Spring Cloud Gateway and routes of Gateway for Spring:
+You can migrate the routes in Spring Cloud Gatewy for Tanzu to OSS Gateway as the example of `application.yml` shows. The following list describes the mapping relationship between routes of Spring Cloud Gateway for Tanzu and routes of OSS Gateway:
 
 - The `name` of the route is mapped to `id`.
-- The `appName` and `protocol` are mapped to the URI of the route, which should be the accessible URI for the Azure Container Apps instance.
-- Spring Cloud Gateway predicates and filters are mapped to Gateway for Spring predicates and filters.
+- The `appName` and `protocol` are mapped to the URI of the route, which should be the accessible URI for the Azure Container Apps instance, make sure that the Azure Container Apps applications enable the ingress.
+- Predicates and filters of Spring Cloud Gateway for Tanzu are mapped to that of OSS Gateway. Commercial predicates and filters are not supported, refer to [the document](https://techdocs.broadcom.com/us/en/vmware-tanzu/spring/spring-cloud-gateway-for-kubernetes/2-2/scg-k8s/developer-filters.html) for more details.
 
-For example, suppose the following route config json file, called **test-api.json** is created for VMware Spring Cloud Gateway:
+For example, consider the following route config JSON file, `test-api.json`, which defines the `test-api` route in Spring Cloud Gateway for Tanzu for the `test` app:
 
 ```json
 {
-  "protocol": "HTTP",
+  "protocol": "HTTP",   
   "routes": [
     {
       "title": "Test API",
@@ -124,90 +106,138 @@ For example, suppose the following route config json file, called **test-api.jso
         "Method=GET"
       ],
       "filters": [
-        "AddResponseHeader=X-Response-Red, Blue"
+        "AddRequestHeader=X-Request-red, blue"
       ]
     }
   ]
 }
 ```
 
-And, suppose you use the following command to apply the rule to the Azure Spring Apps app `test-app`:
-
-```azurecli
-az spring gateway route-config create \
-    --resource-group <resource-group-name> \
-    --service <Azure-Spring-Apps-instance-name> \
-    --name test-api \
-    --app-name test-app \
-    --routes-file test-api.json
-```
-
-Then, the following example shows the corresponding route YAML file **test-api.yml** for Gateway for Spring on Azure Container Apps:
+Then, the following yaml shows the corresponding route configuration for OSS Gateway:
 
 ```yaml
-springCloudGatewayRoutes:
-  - id: "test-api"
-    uri: "<app-fqdn-in-Container-Apps>"
-    predicates:
-      - Path=/test/api/healthcheck
-      - Method=GET
-    filters:
-      - AddResponseHeader=X-Response-Red, Blue
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: test-api
+        uri: http://test
+        predicates:
+        - Path=/test/api/healthcheck
+        - Method=GET
+        filters:
+        - AddRequestHeader=X-Request-red, blue
+        - StripPrefix=1
 ```
 
-And, you would use the following command to update the container app:
+Spring Cloud Gateway for Tanzu sets `StripPrefix=1` by default on every route. To migrate to OSS Gateway, you need to explicitly set `StripPrefix=1` in the filter configuration.
 
-```azurecli
-az containerapp env java-component gateway-for-spring update \
-    --route-yaml test-api.yml
-```
+To allow your OSS Gateway application to access other applications through the app name, you need to enable ingress for your Azure Container App applications. You can also use for the accessible FQDN of Azure Container Apps application as the uri of the route, following the format: `https://<app-name>.<container-app-env-name>.<region>.azurecontainerapps.io`.
 
-You need to enable ingress for your Azure Container App application to obtain its fully qualified domain name (FQDN). Then, replace `<app-FQDN-in-Azure-Container-Apps>` in the route's URI with the app's accessible endpoint. The URI format is `https://<app-name>.<container-app-env-name>.<region>.azurecontainerapps.io`.
-
-There are some [commercial predicates](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/2.2/scg-k8s/GUID-guides-predicates.html) and [commercial filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/2.2/scg-k8s/GUID-guides-filters.html) that aren't supported on Gateway for Spring on Azure Container Apps.
+There are some [commercial predicates](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/2.2/scg-k8s/GUID-guides-predicates.html) and [commercial filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/2.2/scg-k8s/GUID-guides-filters.html) that aren't supported on OSS Gateway.
 
 ### Response cache
 
-If you enable the response cache globally, you can update the managed Gateway for Spring with the following configuration:
-
-```properties
-spring.cloud.gateway.filter.local-response-cache.enabled=true
-spring.cloud.gateway.filter.local-response-cache.time-to-live=<response-cache-ttl>
-spring.cloud.gateway.filter.local-response-cache.size=<response-cache-size>
+If you enable the response cache globally in Spring Cloud Gateway for Tanzu, use the following configuration in OSS Gateway and see [local cache response global filter](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#local-cache-response-global-filter) for more details:
+```yaml
+spring:
+  cloud:
+    gateway:
+      filter:
+        local-response-cache:
+          enabled: true
+          time-to-live: <response-cache-ttl>
+          size: <response-cache-size>
 ```
 
-If you enable the response cache for the route, you can use the `LocalResponseCache` filter in the routing rule configuration of managed Gateway for Spring as the following YAML:
+If you enable the response cache for the route, you can use the [`LocalResponseCache`](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#local-cache-response-filter) filter in the routing rule configuration of managed Gateway for Spring as the following YAML:
 
 ```yaml
-springCloudGatewayRoutes:
-  - id: "test-api"
-    uri: "<app-fqdn-in-Container-Apps>"
-    predicates:
-      - Path=/v1/**
-      - Method=GET
-    filters:
-      - LocalResponseCache=3m, 1MB
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: test-api
+        uri: http://test
+        predicates:
+        - Path=/resource
+        filters:
+        - LocalResponseCache=30m,500MB
 ```
+
+### Integrate with APM
+
+To enable application performance monitoring (APM) for OSS Gateway application, refer to [Integrate application performance monitoring into container images](./migrate-to-azure-container-apps-build-application-performance-monitoring.md).
+
+## Deploy to Azure Continer Apps
+
+Once the OSS Gateway configuration is ready, build the image using Azure Container Registry and deploy it to Azure Container Apps.
+
+### Build and Push the Docker Image
+
+In the OSS Gateway project directory, create a `Dockerfile` with the following contents:
+
+```dockerfile
+FROM mcr.microsoft.com/openjdk/jdk:17-mariner as build
+WORKDIR /staging
+# Install gradle
+RUN tdnf install -y wget unzip
+
+RUN wget https://services.gradle.org/distributions/gradle-8.8-bin.zip && \
+    unzip -d /opt/gradle gradle-8.8-bin.zip && \
+    chmod +x /opt/gradle/gradle-8.8/bin/gradle
+
+ENV GRADLE_HOME=/opt/gradle/gradle-8.8
+ENV PATH=$PATH:$GRADLE_HOME/bin
+
+COPY . .
+
+# Compile with gradle
+RUN gradle build -x test
+
+FROM mcr.microsoft.com/openjdk/jdk:17-mariner as runtime
+
+WORKDIR /app
+
+COPY --from=build /staging/build/libs/gateway-0.0.1-SNAPSHOT.jar .
+
+ENTRYPOINT ["java", "-jar", "gateway-0.0.1-SNAPSHOT.jar"]
+```
+
+Alternatively, you can refer to the sample [Dockerfile](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/azure-kubernetes-service/resources/gateway/gateway/Dockerfile) for guidance.
+
+Run the following command to build the image of gateway using your Azure Container Registry:
+
+```azurecli
+az acr login --name <azure-container-registry-name>
+az acr build --image gateway:acrbuild-spring-cloud-gateway-0.0.1-SNAPSHOT --registry <azure-container-registry-name> --file Dockerfile . --resource-group <resource-group-name>
+```
+
+Ensure the gateway image is created and get the image tag, which follows the format: `<azure-container-registry-name>.azurecr.io/gateway:acrbuild-spring-cloud-gateway-0.0.1-SNAPSHOT`.
+
+### Deploy the image in Azure Container Apps
+
+Once your gateway application image is ready, deploy it as an Azure Container Apps application `gateway`. Replace the <container-image-of-gateway> with the image tag retrieved in the previous step:
+
+```azurecli
+az containerapp up \
+    --name gateway \
+    --resource-group <resource-group-name> \
+    --environment <azure-container-app-environment-name> \
+    --image <container-image-of-gateway> \
+    --target-port 8080 \
+    --ingress external
+```
+
+Access the FQDN of the OSS Gateway application to verify that it is running.
 
 ## Troubleshooting
 
-You can view logs of Gateway for Spring in Azure Container Apps using `Log Analytics` by using the following steps:
+If you encounter issues when running the OSS Gateway application, you can view real time and historical logs of the application `gateway` in Azure Container Apps following [Application Logging in Azure Container Apps](../../container-apps/logging).
 
-1. In the Azure portal, navigate to your Azure Container Apps environment.
-1. In the navigation pane, select **Monitoring** > **Logs**.
-1. To view logs, query the `ContainerAppSystemLogs_CL` table using the query editor, as shown in the following example:
-
-   ```kusto
-   ContainerAppSystemLogs_CL
-   | where ComponentType_s == "SpringCloudGateway"
-   | project Time=TimeGenerated, ComponentName=ComponentName_s, Message=Log_s
-   | take 100
-   ```
-
-For more information about querying logs, see [Observability of managed Java components in Azure Container Apps](../../container-apps/java-component-logs.md).
+To monitor gateway application's metrics, refer to [Monitor Azure Container Apps metrics](../../container-apps/metrics)
 
 ## Known limitation
-
-For now, Gateway for Spring on Azure Container Apps doesn't support certain commercial features, including metadata used to generate OpenAPI documentation, single sign-on (SSO), and application performance monitoring (APM) integration.
-
-There's a known issue where enabling Gateway for Spring prevents the **Services** section from opening in the Azure portal. We expect to resolve this issue soon.
+OSS Gateway does not support the following commercial features:
+- Metadata used to generate OpenAPI documentation
+- Single sign-on (SSO) functionality
