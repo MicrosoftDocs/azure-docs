@@ -21,7 +21,7 @@ A backup vault is a storage entity in Azure. It stores the backup data for new w
 
 Before you create a backup vault, choose the storage redundancy of the data within the vault. Then proceed to create the backup vault with that storage redundancy and the location.
 
-In this article, you create a backup vault names `TestBkpVault`, in the `westus` region, under the resource group `testBkpVaultRG`. Use the [`az dataprotection vault create`](/cli/azure/dataprotection/backup-vault#az-dataprotection-backup-vault-create) command to create a backup vault. [Learn more about creating a backup vault](./create-manage-backup-vault.md#create-a-backup-vault).
+In this article, you create a backup vault with the name `TestBkpVault`, in the `westus` region, under the resource group `testBkpVaultRG`. Use the [`az dataprotection vault create`](/cli/azure/dataprotection/backup-vault#az-dataprotection-backup-vault-create) command to create a backup vault. [Learn more about creating a backup vault](./create-manage-backup-vault.md#create-a-backup-vault).
 
 ```azurecli-interactive
 az dataprotection backup-vault create -g testBkpVaultRG --vault-name TestBkpVault -l westus --type SystemAssigned --storage-settings datastore-type="VaultStore" type="LocallyRedundant"
