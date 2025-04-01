@@ -235,8 +235,6 @@
     href: files-redundancy.md
   - name: Disaster recovery and failover
     href: files-disaster-recovery.md
-  - name: Geo-redundancy for large file shares
-    href: geo-redundant-storage-for-large-file-shares.md
   - name: Change the redundancy configuration
     href: files-change-redundancy-configuration.md
   - name: Initiate storage account failover

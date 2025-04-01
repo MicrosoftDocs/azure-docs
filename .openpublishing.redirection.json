@@ -2305,6 +2305,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service/manage-disaster-recovery.md",
+      "redirect_url": "/azure/architecture/web-apps/guides/multi-region-app-service/multi-region-app-service",
+      "redirect_document_id": false
+    },       
+    {
       "source_path_from_root": "/articles/public-multi-access-edge-compute-mec/tutorial-create-vm-using-python-sdk.md",
       "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/tutorial-create-vm-using-python-sdk",
       "redirect_document_id": false
@@ -6732,6 +6737,11 @@
     {
       "source_path": "articles/notification-hubs/xamarin-notification-hubs-push-notifications-android-gcm.md",
       "redirect_url": "/dotnet/maui/data-cloud/push-notifications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/files/geo-redundant-storage-for-large-file-shares.md",
+      "redirect_url": "/azure/storage/files/files-redundancy",
       "redirect_document_id": false
     }
   ]
