@@ -6,7 +6,7 @@ ms.reviewer: prsaini
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: concept-article
-ms.date: 01/22/2025
+ms.date: 04/01/2025
 ms.author: prsaini
 #customer intent: As an enterprise administrator, I want learn about the administrative roles available to manage Azure Enterprise Agreements so that manage my enterprise agreement.
 ---
