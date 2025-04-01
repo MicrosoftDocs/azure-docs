@@ -2,7 +2,7 @@
 title: 'Quickstart: Create and deploy Azure Functions resources from Terraform'
 description: In this quickstart, you create a resource group, storage account, blob storage account, and service plan in Azure for an Azure Functions Flex Consumption plan.
 ms.topic: quickstart
-ms.date: 03/26/2025
+ms.date: 04/01/2025
 ms.custom: devx-track-terraform
 ms.service: azure-functions
 author: ggailey777
@@ -12,7 +12,7 @@ content_well_notification:
   - AI-contribution
 ---
 
-# 'Quickstart: Create and deploy Azure Functions resources from Terraform'
+# Quickstart: Create and deploy Azure Functions resources from Terraform
 
 In this quickstart, you use Terraform to create a function app in a Flex Consumption plan in Azure, along with its required Azure resources. Azure Functions Flex Consumption is a serverless compute service that helps you to run code on demand without explicitly provisioning or managing infrastructure. It's used for processing data, integrating systems, internet-of-things computing, and building simple APIs and microservices. The resources created in this configuration include a unique resource group, a storage account, a blob storage container, a service plan, and the function app itself. The function app is configured to use blob storage and is set to run on a Linux operating system.
 
@@ -35,10 +35,7 @@ In this quickstart, you use Terraform to create a function app in a Flex Consump
 
 ## Implement the Terraform code
 
-> [!NOTE]
-> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-functions). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-functions/TestRecord.md).
-> 
-> See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform).
+The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-functions). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-functions/TestRecord.md). See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform).
 
 1. Create a directory in which to test and run the sample Terraform code, and make it the current directory.
 
@@ -53,6 +50,8 @@ In this quickstart, you use Terraform to create a function app in a Flex Consump
 
 1. Create a file named `variables.tf`, and insert the following code:
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-functions/variables.tf":::
+
+> [!IMPORTANT] > Azure Storage Actions is currently in PREVIEW and is available in these [regions](../overview.md#supported-regions). > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Initialize Terraform
 
@@ -133,6 +132,10 @@ In this quickstart, you use Terraform to create a function app in a Flex Consump
     ```
 
 ---
+
+Open a browser and enter the following URL: **https://<fa_name>.azurewebsites.net**. Replace the placeholder `<fa_name>` with the value output by Terraform.
+
+:::image type="content" source="media/functions-create-first-function-terraform/function-app-terraform.png" alt-text="Screenshot of Azure Functions app 'Welcome page'." border="false":::
 
 ## Clean up resources
 
