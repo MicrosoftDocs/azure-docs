@@ -6723,7 +6723,7 @@
       "source_path": "articles/notification-hubs/xamarin-notification-hubs-push-notifications-android-gcm.md",
       "redirect_url": "/dotnet/maui/data-cloud/push-notifications",
       "redirect_document_id": false
-    }
+    },
     {
       "source_path": "articles/defender-for-iot/organizations/extra-deploy-enterprise-iot.md",
       "redirect_url": "/azure/defender-for-iot/organizations/eiot-defender-for-endpoint",
