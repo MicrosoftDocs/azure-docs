@@ -74,8 +74,6 @@ landingContent:
           url: quickstart-dotnet-core-app.md
         - text: Code a .NET Framework app
           url: quickstart-dotnet-app.md
-        - text: Code a .NET app in Visual Studio
-          url: /visualstudio/azure/vs-azure-tools-connected-services-app-configuration
         - text: Code an Azure Functions app in C#
           url: quickstart-azure-functions-csharp.md
         - text: Code a Java Spring app
@@ -84,8 +82,10 @@ landingContent:
           url: quickstart-python-provider.md
         - text: Code a JavaScript app
           url: quickstart-javascript-provider.md
-        - text: Azure Container Apps
-          url: quickstart-container-apps.md
+        - text: Code a Go app
+          url: quickstart-go-console-app.md
+        - text: Code a Go web app using Gin
+          url: quickstart-go-web-app.md
       - linkListType: tutorial
         links:  
         - text: Use dynamic config in ASP.NET Core
@@ -102,10 +102,6 @@ landingContent:
           url: enable-dynamic-configuration-java-spring-app.md
         - text: Use dynamic config in Python
           url: enable-dynamic-configuration-python.md
-        - text: Integrating dynamic config using the push model in .NET
-          url: enable-dynamic-configuration-dotnet-core-push-refresh.md
-        - text: Integrating dynamic config using the push model in Java Spring
-          url: enable-dynamic-configuration-java-spring-push-refresh.md
       - linkListType: tutorial
         links:
         - text: Import data using Azure Pipelines
@@ -197,6 +193,8 @@ landingContent:
           url: reference-javascript-provider.md
         - text: Kubernetes provider
           url: reference-kubernetes-provider.md
+        - text: Go provider
+          url: https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration
       - linkListType: reference
         links:      
         - text: Azure SDK for .NET
