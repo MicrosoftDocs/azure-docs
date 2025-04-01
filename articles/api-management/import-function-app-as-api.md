@@ -36,7 +36,7 @@ You'll learn how to:
 * Make sure you have an Azure function app in your subscription. For more information, see [Getting started with Azure Functions](../azure-functions/functions-get-started.md). The function must have an HTTP trigger. The authorization level must be set to *Anonymous* or *Function*.
 
 > [!NOTE]
-> You can use the API Management Extension for Visual Studio Code to import and manage your APIs. Complete the [API Management Extension tutorial](visual-studio-code-tutorial.md) to get started.
+> You can also use the API Management Extension for Visual Studio Code to import and manage your APIs. Complete the [API Management Extension tutorial](visual-studio-code-tutorial.md) to get started.
 
 ## Import an Azure function app as a new API
 
@@ -65,15 +65,18 @@ To create a new API from an Azure function app:
 
     :::image type="content" source="./media/import-function-app-as-api/add-05.png" alt-text="Screenshot that shows a function and the Select button." lightbox="./media/import-function-app-as-api/add-05.png":::
 
-1. Switch to the **Full** view and assign a **Product** to your new API. 
-1. As needed, specify other settings. You can also specify settings later via the **Settings** tab. These settings are explained in the [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
+1. Switch to the **Full** view and assign a **Product** to your new API.
 
-    >[!NOTE]
+   >[!NOTE]
     > *Products* are associations of one or more APIs that are offered to developers via the developer portal. First, developers must subscribe to a product to get access to the API. When they subscribe, they get a subscription key for any API in the product. If you created the API Management instance, you're an administrator and are subscribed to every product by default.
     >
     > In some pricing tiers, API Management instances come with two default sample products:
     > - **Starter**
     > - **Unlimited**
+
+1. As needed, specify other settings. You can also specify settings later via the **Settings** tab. These settings are explained in the [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
+
+    
 
 1. Select **Create**.
 
@@ -141,7 +144,7 @@ For APIs created after April 4, 2019, the host key is passed in HTTP requests fr
 
 ### Access the named value in API Management
 
-Navigate to your API Management instance and select **Named values** in the left pane. The Azure function app key is stored there.
+Navigate to your API Management instance and select **APIs** > **Named values** in the left pane. The Azure function app key is stored there.
 
 :::image type="content" source="./media/import-function-app-as-api/api-named-value.png" alt-text="Screenshot that shows the location of the function app key." lightbox="./media/import-function-app-as-api/api-named-value.png":::
 
