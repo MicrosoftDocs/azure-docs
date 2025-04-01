@@ -189,3 +189,8 @@ parameter.
   "location": "westus2"
 }
 ```
+
+<!-- Link reference definitions -->
+[01]: /azure/azure-resource-manager/management/extension-resource-types
+[02]: /azure/azure-arc/servers/overview
+[03]: /powershell/module/az.accounts/get-azaccesstoken
