@@ -217,7 +217,7 @@ Once the vault and policy creation are complete, you need to perform the followi
   In case the AKS cluster is within a virtual network, then you will have to create a private endpoint, connecting thw storage account with the virtual network in which the AKS cluster resides.
 
   ```azurecli
-  #Fetch the Subnet ID using the name of the virtual network in which cluster resides and the name of the subnet #underneath.
+  #Fetch the Subnet ID using the name of the virtual network and subnet in which cluster resides 
   $PESubnetId = az network vnet subnet show --resource-group $aksMCResourceGroup --vnet-name $aksVnetName  --name $PESubnetName --query 'id' --output tsv
 
   #Create a Private Endpoint between Storage Account and the Virtual Network.
