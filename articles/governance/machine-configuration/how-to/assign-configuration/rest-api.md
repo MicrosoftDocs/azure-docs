@@ -36,7 +36,7 @@ Replace the following `<>` fields with values specific to your environment:
 
 The following example assigns the `AuditSecureServer` built-in configuration.
 
-```
+```http
 HTTP PUT https://<baseUrl>/<vm_name>/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/<configuration_Name>?api-version=2022-01-25
 ```
 
