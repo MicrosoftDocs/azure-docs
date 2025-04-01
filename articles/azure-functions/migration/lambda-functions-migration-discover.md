@@ -1,5 +1,5 @@
 ---
-title: "Stage 1: Discover Workloads to Migrate from AWS Lambda to Azure Functions"
+title: Discover AWS Lambda Workloads to Migrate to Azure Functions
 description: Learn how to conduct a detailed discovery process to inventory current AWS Lambda workloads, including their configuration, dependencies, and usage patterns.
 author: MadhuraBharadwaj-MSFT
 ms.author: mabhar
@@ -11,7 +11,7 @@ ms.date: 03/18/2025
 
 # Stage 1: Discover workloads to migrate from AWS Lambda to Azure Functions
 
-In this stage, you conduct a detailed discovery process to evaluate existing AWS Lambda workloads, including their configuration, dependencies, and usage patterns. 
+In this stage, you conduct a detailed discovery process to evaluate existing AWS Lambda workloads, including their configuration, dependencies, and usage patterns. The goal is to understand which AWS features and services your workload relies on.
 
 ## Evaluate your current workload
 
@@ -36,6 +36,7 @@ Compile a comprehensive inventory of your AWS Lambda functions by using familiar
 - Identify virtual private cloud configurations, including subnets, security groups, and NAT gateway dependencies, if applicable.
 
 ### Tooling
+
 - List the continuous integration and continuous delivery tools and deployment frameworks that each function uses, such as AWS SAM, Serverless Framework, or custom pipelines.
 
 - Document build and packaging tools, including testing frameworks and staging workflows.
