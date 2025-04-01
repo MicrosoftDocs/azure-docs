@@ -41,7 +41,7 @@ HTTP PUT https://<baseUrl>/<vm_name>/providers/Microsoft.GuestConfiguration/gues
 ```
 
 This request requires authentication in the format of an authorization header. You can use the
-[Get-AzAccessToken](powershell/module/az.accounts/get-azaccesstoken) cmdlet to retrieve an Azure Access Token.
+[Get-AzAccessToken][03] cmdlet to retrieve an Azure Access Token.
 
 ```json
 Authorization Bearer <yourTokenHere>
