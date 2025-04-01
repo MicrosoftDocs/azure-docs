@@ -55,7 +55,6 @@ For more information, see:
 - [Microsoft Sentinel solution for SAP applications: Deployment overview](sap/deployment-overview.md)
 - [Microsoft Sentinel solution for SAP applications - functions reference](sap/sap-solution-function-reference.md)
 - [Troubleshooting your Microsoft Sentinel solution for SAP applications deployment](sap/sap-deploy-troubleshoot.md)
-- [Multi workspace support for Microsoft Sentinel (preview)](#multi-workspace-support-for-microsoft-sentinel-preview)
 
 ## January 2025
 
