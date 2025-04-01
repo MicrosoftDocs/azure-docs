@@ -231,10 +231,10 @@
         - name: How to restrict serial port access and set timeout on terminal-server
           href: howto-restrict-serial-port-access-and-set-timeout-on-terminal-server.md
         - name: How to configure BGP prefix limit on Customer Edge (CE) devices for Azure Operator Nexus
-          href: howto-configure-bgp-prefix-limit-on-CE-devices.md
+          href: howto-configure-bgp-prefix-limit-on-ce-devices.md
         - name: BMP log streaming in Azure Operator Nexus Network Fabric 
           href: concepts-bmp-log-streaming.md
-        - name: How to enable \ disable BMP log streaming Azure Operator Nexus
+        - name: How to enable / disable BMP log streaming Azure Operator Nexus
           href: howto-enable-log-streaming.md
     - name: Cluster
       expanded: false

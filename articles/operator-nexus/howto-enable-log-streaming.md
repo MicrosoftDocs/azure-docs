@@ -1,6 +1,6 @@
 ---
-title: How to enable \ disable BMP log streaming Azure Operator Nexus
-description: Instructions on enabling \ disabling BMP log streaming various Network Fabric resources.
+title: How to enable / disable BMP log streaming Azure Operator Nexus
+description: Instructions on enabling / disabling BMP log streaming various Network Fabric resources.
 ms.service: azure-operator-nexus
 ms.custom: template-how-to, devx-track-azurecli
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.author: sushrao
 
 # BMP log streaming
 
-This guide provides you with instructions on enabling \ disabling BMP log streaming various Network Fabric resources.. 
+This guide provides you with instructions on enabling \ disabling BMP log streaming various Network Fabric resources.
 
 ## Enabling BMP log streaming for the new deployment
 
@@ -22,7 +22,7 @@ This guide provides you with instructions on enabling \ disabling BMP log stream
 - **Create NNI with BMP configuration:** Create a Network-to-Network Interface (NNI) by associating it with the NF Resource ID. 
 
 > [!Note]
-> Refer to the below detailed ARM API payload guide for more information
+> Refer to the below detailed Azure Resource Manager (ARM) API payload guide for more information.
 
 - **Provision Network Fabric:** Provision the Network Fabric to apply the configurations and make the network operational.
 
@@ -30,13 +30,11 @@ This guide provides you with instructions on enabling \ disabling BMP log stream
 
 ## Enabling BMP log streaming for the existing deployment
 
-This case involves enabling BMP log streaming on NF, which is already deployed using the supported NF Version. Since this approach is based on an ARM API user-driven input, the supported NF Version also supports BMP Log Streaming through the NF Patch Update workflow.
+This case involves enabling BMP log streaming on NF, which is already deployed using the supported NF Version. Since this approach is based on an Azure Resource Manager (ARM) API user-driven input, the supported NF Version also supports BMP Log Streaming through the NF Patch Update workflow.
 
 - **Create Network Fabric resource:** Start by creating the Network Fabric (NF) resource using the latest supported version. If the NF is outdated, upgrade it to the supported version.
 
-- **Create Network Monitor resource:**
-
-To ensure proper monitoring, create a Network Monitor resource and link the Scope ID to the NF Resource ID.
+- **Create Network Monitor resource:** To ensure proper monitoring, create a Network Monitor resource and link the Scope ID to the NF Resource ID.
 
 - **Perform Patch on NNI:** Update the Network-to-Network Interface (NNI) by applying a patch. Select `bmpConfiguration` under `OptionBLayerConfiguration` and set `configurationState` to "Enabled" for BMP logging of the NNI peer-group neighbor address.
 

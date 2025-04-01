@@ -3,7 +3,7 @@ title: How to configure BGP prefix limit on Customer Edge (CE) devices for Azure
 description: Learn the process for configuring BGP prefix limit on Customer Edge (CE) devices for Azure Operator Nexus
 author: sushantjrao 
 ms.author: sushrao
-ms.date: 06/11/2023
+ms.date: 04/02/2025
 ms.topic: how-to
 ms.service: azure-operator-nexus
 ms.custom: template-how-to, devx-track-azurecli
@@ -34,11 +34,11 @@ To configure **BGP Prefix Limit** on **Customer Edge (CE)** devices for **Azure 
 
 ### Prerequisites
 
-1. Ensure that the **Network Fabric (NF)** is upgraded to the supported version or later.
+- Ensure that the **Network Fabric (NF)** is upgraded to the supported version or later.
 
-2. Verify that your **Customer Edge (CE)** devices are running on compatible software.
+- Verify that your **Customer Edge (CE)** devices are running on compatible software.
 
-3. Check that the **peer groups** for both **IPv4** and **IPv6** address-families are properly set up for internal networks.
+- Check that the **peer groups** for both **IPv4** and **IPv6** address-families are properly set up for internal networks.
 
 ### Steps to configure BGP prefix limits
 
@@ -139,25 +139,25 @@ This configuration generates a warning once the prefix count reaches a certain p
 
 You can use Azure CLI commands to apply the BGP prefix limits to the external network configuration for Nexus.
 
-1. **With Automatic Restart**:
+- **With Automatic Restart**:
 
    ```bash
    az networkfabric externalnetwork create --resource-group <resource-group> --fabric-name <fabric-name> --network-name <network-name> --prefix-limits '{"maximumRoutes": 5000, "threshold": 80, "idleTimeExpiry": 100}'
    ```
 
-2. **Without Automatic Restart**:
+- **Without Automatic Restart**:
 
    ```bash
    az networkfabric externalnetwork create --resource-group <resource-group> --fabric-name <fabric-name> --network-name <network-name> --prefix-limits '{"maximumRoutes": 5000, "threshold": 80}'
    ```
 
-3. **Hard-Limit Drop BGP Sessions**:
+- **Hard-Limit Drop BGP Sessions**:
 
    ```bash
    az networkfabric externalnetwork create --resource-group <resource-group> --fabric-name <fabric-name> --network-name <network-name> --prefix-limits '{"maximumRoutes": 5000}'
    ```
 
-4. **Hard-Limit Warning Only**:
+- **Hard-Limit Warning Only**:
 
    ```bash
    az networkfabric externalnetwork create --resource-group <resource-group> --fabric-name <fabric-name> --network-name <network-name> --prefix-limits '{"maximumRoutes": 8000, "threshold": 75, "warning-only": true}'
@@ -181,15 +181,15 @@ Look for the session states and the number of prefixes advertised by each peer. 
 
 ## Handling BGP Prefix Limits for Different Networks
 
-### Internal network:
+### Internal network
 
 The platform supports Layer 3 Isolation Domain (L3IsolationDomain) for tenant workloads. It performs device programming on Nexus instances and Arista devices with peer groups for both IPv4 and IPv6 address families.
 
-### External network Option B (PE):
+### External network Option B (PE)
 
 For external network configuration, only the **hard-limit warning-only** option is supported. Nexus supports this configuration via the ARM API under the **NNI optionBlayer3Configuration** with the `maximumRoutes` parameter.
 
-### NNI Option A:
+### NNI Option A
 
 For NNI Option A, only a single peer group is allowed. IPv4 over IPv6 and vice versa aren't supported. Warning-only mode is available for handling prefix limits.
 

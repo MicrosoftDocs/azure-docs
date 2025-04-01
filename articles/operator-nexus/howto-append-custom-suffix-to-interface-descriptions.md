@@ -31,7 +31,7 @@ az networkfabric interface show -g "example-rg" \
   --resource-name "example-interface" --query description
 ```
 
-### Parameter Details  
+#### Parameter details  
 
 | Parameter                     | Short Form | Description |
 |--------------------------------|-----------|-------------|
@@ -54,7 +54,7 @@ az networkfabric interface update --additional-description "example-description"
   --resource-name "example-interface"
 ```
 
-### Parameter Details  
+#### Parameter details  
 
 | Parameter                | Description                                      | Constraints |
 |--------------------------|--------------------------------------------------|-------------|
@@ -70,7 +70,7 @@ After updating the description, apply the changes to the Fabric:
 ```Azure CLI
 az networkfabric fabric commit-configuration --resource-group "example-rg" --resource-name "example-fabric"
 ```
-Parameter Details:
+#### Parameter details
 
 | Parameter            | Short Form | Description |
 |----------------------|-----------|-------------|
@@ -101,7 +101,7 @@ az networkfabric interface update --additional-description "example-description"
   --resource-name "example-interface"
 ```
 
-### Parameter Details  
+#### Parameter details  
 
 | Parameter                | Description                                      | Constraints |
 |--------------------------|--------------------------------------------------|-------------|
@@ -118,7 +118,7 @@ After removing the suffix, apply the changes to the Fabric:
 az networkfabric fabric commit-configuration --resource-group "example-rg" --resource-name "example-fabric"
 ```
 
-Parameter Details:
+#### Parameter details
 
 | Parameter            | Short Form | Description |
 |----------------------|-----------|-------------|
@@ -133,22 +133,22 @@ AR-CE2(Fab3-AR-CE2):Et1/1 to CR1-TOR1(Fab3-CP1-TOR1)-Port23
 
 ## Network interface updates
 
-Updates to network interface of a network device
+Updates have been made to the network interface of the network device to standardize the interface description. Additionally, these updates now link the interface to the ARM resource ID of the connected interface for better management and tracking.
 
-### Standardized Interface Descriptions
+### Standardized interface descriptions
 
 Interface descriptions follow a consistent format:
 
 Source Device to Destination Device (including hostname and interface name).
 
-### Example:
+### Example
 AR-CE2 (Fab3-AR-CE2): Et1/1 to CR1-TOR1 (Fab3-CP1-TOR1) - Port23
 
 ### connectedTo property
 
 The `connectedTo` property returns the ARM resource ID of the connected interface, where available.
 
-### Comparison of Old and New Values:
+### Comparison of old and new values
 
 | Example | Previous Value | New Value |
 |---------|---------------|-----------|
@@ -166,4 +166,4 @@ All the above features are available for the following interface types:
 - **NPB Device**  
 
 > [!Note]  
->For non-NF managed devices for e.g., PE \ Storage Device the `connectedTo` property will continue to reflect value as a `string` with no active link.
+> For non-NF managed devices, such as PE \ Storage Device, the `connectedTo` property will continue to reflect value as a `string` with no active link.

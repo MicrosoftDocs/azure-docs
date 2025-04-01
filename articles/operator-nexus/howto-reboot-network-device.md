@@ -148,7 +148,7 @@ az networkfabric device reboot --network-device-name <DeviceName> --resource-gro
 ```
 
 >[!Note] 
-> After an ungraceful reboot into ZTP mode, the device must be manually placed into maintenance mode. This functionality will be automated in a future release. 
+> After an ungraceful reboot into ZTP mode, the device must be manually placed into maintenance mode.
 
 >[!Note]
 > Rebooting into ZTP mode does not preserve the read-write (RW) configuration. The device will boot in ZTP mode, ready for bootstrapping via the Terminal Server.

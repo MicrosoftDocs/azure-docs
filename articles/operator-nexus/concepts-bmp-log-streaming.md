@@ -1,6 +1,6 @@
 ---
 title: BMP log streaming in Azure Operator Nexus Network Fabric 
-description: An overview of BGP Monitoring Protocol (BMP), its importance, and key components for effective log monitoring..
+description: An overview of BGP Monitoring Protocol (BMP), its importance, and key components for effective log monitoring.
 author: sushantjrao
 ms.author: sushrao
 ms.service: azure-operator-nexus
@@ -86,4 +86,4 @@ Nexus NF shall not support excluding the monitoring of peer-address of neighbor 
 Nexus shall support a maximum of four Network Monitors (BMP Stations).
 
 ## Next steps
-[How to enable \ disable BMP log streaming](./howto-enable-log-streaming.md)
+[How to enable / disable BMP log streaming](./howto-enable-log-streaming.md)
