@@ -156,7 +156,8 @@ curl --request PUT \
 
 ### Response
 
-The response contains the created assignment, and any additional needed parameters are automatically completed in for you.
+The response contains the created assignment. The response automatically defines every required
+parameter.
 
 ```json
 {
