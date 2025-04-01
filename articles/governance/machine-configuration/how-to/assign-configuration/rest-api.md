@@ -1,7 +1,6 @@
 ---
 title: How to create a machine configuration assignment using the Azure Rest API
-description: >-
-  Learn how to deploy configurations to machines with the Azure Rest API.
+description: Learn how to deploy configurations to machines with the Azure Rest API.
 ms.date: 03/26/2025
 ms.topic:  how-to
 ms.custom: devx-track-arm-rest-api
@@ -50,7 +49,7 @@ Authorization Bearer <yourTokenHere>
 A request is composed of the following properties, which together make up a Machine Configuration
 Assignment.
 
-### Azure Resource Properties
+### Azure Resource properties
 
 These fields are the top level of properties as depicted in the sample request, and is made of the
 following properties.
@@ -76,7 +75,7 @@ following list:
 - `ConfigurationSettings` - Defines other configuration options for the assignment. For more
   information, see [Configuration Setting](#configuration-setting)
 
-### Assignment Type
+### Assignment type
 
 An assignment type defines how the Guest Configuration agent should process the assignment. Valid
 values are:
@@ -87,14 +86,14 @@ values are:
   settings.
 - `ApplyOnce` - Apply the settings once.
 
-### Configuration Parameter
+### Configuration parameter
 
 An array of key-value pairs to pass into the Machine Configuration Assignment. For each pair:
 
 - The key defines the name of the parameter to configure.
 - The value defines the desired value to set or audit for the assignment.
 
-### Configuration Setting
+### Configuration setting
 
 These properties represent other configurable settings presented by Machine Configuration.
 
@@ -106,7 +105,7 @@ These properties represent other configurable settings presented by Machine Conf
 - `RebootIfNeeded` - If supported by the module, allows for suppressing of restarts if a reboot is
   needed.
 
-### Example Request
+### Example request
 
 ```
 let baseUrl = https://management.azure.com
