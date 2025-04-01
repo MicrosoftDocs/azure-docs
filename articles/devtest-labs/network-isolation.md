@@ -30,7 +30,7 @@ You can use the Azure portal to enable network isolation only during lab creatio
 
 During lab creation, you can enable network isolation for the default lab virtual network, or for another, preexisting virtual network that you use for the lab.
 
-## Enable network isolation for the default virtual network
+### Enable network isolation for the default virtual network
 
 To create the lab in the default virtual network and enable network isolation:
 
@@ -41,7 +41,7 @@ To create the lab in the default virtual network and enable network isolation:
 
 If you enable network isolation for the default network, no further action is needed. The lab handles isolating resources from now on.
 
-## Enable network isolation for a different virtual network
+### Enable network isolation for a different virtual network
 
 To use a different, existing virtual network for the lab, and enable network isolation for that network:
 
@@ -72,21 +72,21 @@ If you enabled network isolation for a virtual network other than the default, c
 
 1. On the storage account page, expand **Security + networking** and select **Networking** from the left navigation menu.
 
-1. On the **Firewalls and virtual networks** tab, ensure that **Enabled from selected virtual networks and IP addresses** is selected, and select **Add existing virtual network**..
+1. On the **Firewalls and virtual networks** tab, ensure that **Enabled from selected virtual networks and IP addresses** is selected, and select **Add existing virtual network**.
 
-   :::image type="content" source="./media/network-isolation/add-existing-virtual-network.png" alt-text="Screenshot that shows the resource group networking pane with add existing virtual network highlighted.":::
+   :::image type="content" source="./media/network-isolation/add-existing-virtual-network.png" alt-text="Screenshot that shows the resource group networking page with add existing virtual network highlighted.":::
 
 1. On the **Add networks** pane, select the virtual network and subnet you chose when you created the lab, and then select **Enable**.
 
-   :::image type="content" source="./media/network-isolation/contoso-lab.png" alt-text="Screenshot that shows the resource group networking pane with add existing virtual network highlighted.":::
+   :::image type="content" source="./media/network-isolation/contoso-lab.png" alt-text="Screenshot that shows the resource group networking pane with Enable highlighted.":::
 
 1. Once the service endpoint is successfully enabled, select **Add**.
 
-   :::image type="content" source="./media/network-isolation/allow-trusted-services.png" alt-text="Screenshot that shows allowing trusted services access to a resource group.":::
+   :::image type="content" source="./media/network-isolation/key-vault-allow-access.png" alt-text="Screenshot that shows the resource group networking pane with Add highlighted.":::
 
 1. On the **Networking** page, ensure that **Allow Azure services on the trusted services list to access this storage account** at the bottom of the page is selected. DevTest Labs is a [trusted Microsoft service](/azure/storage/common/storage-network-security#trusted-microsoft-services), so selecting this option lets the lab operate normally in a network isolated mode.
 
-1. Select **Save**.
+1. Select **Save** at the top of the page.
 
    :::image type="content" source="./media/network-isolation/allow-trusted-services.png" alt-text="Screenshot that shows allowing trusted services access to a resource group.":::
 
@@ -140,7 +140,7 @@ Enabling the key vault service endpoint affects only the firewall. Make sure to 
 
 For more information, see [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy).
 
-## Next steps
+## Related content
 
 - [Manage Azure DevTest Labs storage accounts](encrypt-storage.md)
 - [Store secrets in a key vault in Azure DevTest Labs](devtest-lab-store-secrets-in-key-vault.md)
