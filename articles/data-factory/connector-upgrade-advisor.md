@@ -32,7 +32,7 @@ The Connector upgrade advisor is a comprehensive tool that helps upgrade pipelin
 
 ## Known limitations
 
-Currently, support for the Snowflake data source is unavailable. It will be added soon.
+Currently, support for the Snowflake data source is unavailable.
 
 ## How to use
 
