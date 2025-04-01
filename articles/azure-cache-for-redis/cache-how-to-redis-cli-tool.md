@@ -6,6 +6,8 @@ description: Learn how to use *redis-cli* as a command-line tool for interacting
 
 ms.topic: conceptual
 ms.date: 01/04/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 ---
 # Use the Redis command-line tool with Azure Cache for Redis
 

@@ -97,7 +97,7 @@ The following tables provide links to each Azure service relocation document. Th
 |[Azure Batch](../../batch/account-move.md?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
 |[Azure Functions](./relocation/relocation-functions.md)|✅  |❌  | ❌ |
 |[Azure Static Web Apps](./relocation/relocation-static-web-apps.md) |  ✅ |❌ | ❌ |
-|[Azure Virtual Machines]( ../../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/operational-excellence/toc.json)| ❌ | ❌|  ✅  |
+|[Azure Virtual Machines]( ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/operational-excellence/toc.json)| ❌ | ❌|  ✅  |
 |[Azure Virtual Machine Scale Sets](./relocation/relocation-virtual-machine-scale-sets.md)|❌  |✅   | ❌ |
 
 #### Containers

@@ -776,6 +776,10 @@
     items:
     - name: Review backup estate
       href: backup-azure-monitoring-built-in-monitor.md
+    - name: Monitor Azure Backup
+      href: monitor-backup.md
+    - name: Monitoring data reference
+      href: monitor-backup-reference.md
     - name: Alerts
       items:
       - name: Azure Monitor alerts

@@ -2091,10 +2091,11 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/operational-excellence/relocation-function.md",
-      "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-function",
+      "source_path_from_root": "/articles/operational-excellence/relocation-functions.md",
+      "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-functions",
       "redirect_document_id": false
     },
+    
     {
       "source_path_from_root": "/articles/operational-excellence/relocation-key-vault.md",
       "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-key-vault",
@@ -2109,6 +2110,51 @@
       "source_path_from_root": "/articles/operational-excellence/relocation-log-analytics.md",
       "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-log-analytics",
       "redirect_document_id": false
-    }
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/management/relocation/relocation-virtual-network-nsg.md",
+      "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-virtual-network-nsg",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/management/relocation/relocation-netapp.md",
+      "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-netapp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/management/relocation/relocation-postgresql-flexible-server.md",
+      "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-postgresql-flexible-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/management/relocation/relocation-private-link.md",
+      "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-private-link",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/management/relocation/relocation-site-recovery.md",
+      "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-site-recovery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/management/relocation/relocation-static-web-apps.md",
+      "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-static-web-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/management/relocation/relocation-storage-account.md",
+      "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-storage-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/management/relocation/relocation-virtual-machine-scale-sets.md",
+      "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-virtual-machine-scale-sets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/management/relocation/relocation-virtual-network.md",
+      "redirect_url": "/azure/azure-resource-manager/management/relocation/relocation-virtual-network",
+      "redirect_document_id": false
+    }    
   ]
 }

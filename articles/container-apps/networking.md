@@ -385,6 +385,20 @@ You can enable mTLS in the ARM template for Container Apps environments using th
 
 ---
 
+### Rule-based routing (preview)
+
+With rule-based routing, you create a fully qualified domain name (FQDN) on your container apps environment. You then use rules to route requests to this FQDN to different container apps, depending on the path of each request. This offers the following benefits.
+
+- Isolation: By routing different paths to different container apps, you can deploy and update individual components without affecting the entire application.
+
+- Scalability: With rule-based routing, you can scale individual container apps independently based on the traffic each container app receives.
+
+- Custom Routing Rules: You can, for example, redirect users to different versions of your application or implement A/B testing.
+
+- Security: You can implement security measures tailored to each container app. This helps you to reduce the attack surface of your application.
+
+To learn how to configure rule-based routing on your container apps environment, see [Use rule-based routing](rule-based-routing.md).
+
 ## DNS
 
 - **Custom DNS**: If your VNet uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) uses this IP address to resolve requests. When configuring your NSG or firewall, don't block the `168.63.129.16` address, otherwise, your Container Apps environment doesn't function correctly.
