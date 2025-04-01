@@ -11,7 +11,7 @@ ms.date: 03/18/2025
 
 # Migrate AWS Lambda to Azure Functions
 
-This article provides an overview of how to migrate serverless applications from AWS Lambda to Azure Functions. Learn about Functions features, and understand the stages of migration so that you can migrate your workload effeciently.
+This article provides an overview of how to migrate serverless applications from AWS Lambda to Azure Functions. Learn about Functions features, and understand the stages of migration so that you can migrate your workload efficiently.
 
 ## Introduction to Azure Functions
 
