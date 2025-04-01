@@ -96,7 +96,7 @@ If you modify or delete Azure-created tags, resources, and other resource proper
 
 A common scenario where customers want to modify resources is through tags. Azure Virtual Enclaves allows you to create and modify tags that are propagated to resources in the Community managed resource group, and you can add those tags when creating the Community . You might want to create or modify custom tags, for example, to assign a business unit or cost center. This can also be achieved by creating Azure Policies with a scope on the Community managed resource group.
 
-> NOTE:
+> **NOTE**:
 > 
 > If you don't have Community managed resource group lockdown enabled, you can directly modify any resource in the Community managed resource group. Directly modifying resources in the Community managed resource group can cause your enclave to become unstable or unresponsive.
 > 
@@ -119,7 +119,7 @@ If you modify or delete Azure-created tags, resources, and other resource proper
 
 A common scenario where customers want to modify resources is through tags. Azure Virtual Enclaves allows you to create and modify tags that are propagated to resources in the Enclave managed resource group, and you can add those tags when creating the enclave. You might want to create or modify custom tags, for example, to assign a business unit or cost center. This can also be achieved by creating Azure Policies with a scope on the Enclave managed resource group.
 
-> NOTE:
+> **NOTE**:
 > 
 > If you don't have Enclave managed resource group lockdown enabled, you can directly modify any resource in the Enclave managed resource group. Directly modifying resources in the Enclave managed resource group can cause your enclave to become unstable or unresponsive.
 

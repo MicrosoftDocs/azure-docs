@@ -43,7 +43,7 @@ Sign-in to the Azure portal at https://portal.azure.com.
 
 ![image3.png](./media/image-64d5ec2e-cfb3-4ba5-891a-545ee9c71dd9.png)
 
-> Note:
+> **Note**:
 >
 > Organizations should choose a workload naming convention that makes sense for the organization. Learn more about [defining your naming convention](../cloud-adoption-framework/ready/azure-best-practices/resource-naming.md).
 

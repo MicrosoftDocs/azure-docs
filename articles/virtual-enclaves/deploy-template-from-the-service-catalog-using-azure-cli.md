@@ -14,8 +14,8 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 - Deploy a Service Catalog template from the Service Catalog using the Azure CLI.
 
->Note
->
+> **Note**:
+> 
 > This sample deployment is just for demo purposes and doesn't represent all the best practices for network, systems, or applications administration.
 
 ## Before you begin

@@ -28,7 +28,7 @@ If you haven't created a workload yet, please return to [Tutorial 3 - Create wor
 ## Create Azure resources in workloads
 Before creating Azure resources in a workload within an enclave, you will need an existing Workload resource group. An Azure resource group is a logical container into which you deploy and manage Azure resources.
 
-> Important
+> **Important**:
 >
 > This tutorial uses `myResourceGroup` as a placeholder for the resource group name. If you want to use a different name, replace `myResourceGroup` with your own resource group name.
 

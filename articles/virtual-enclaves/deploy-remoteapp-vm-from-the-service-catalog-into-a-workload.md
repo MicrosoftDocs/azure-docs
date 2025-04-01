@@ -15,8 +15,8 @@ In this article, you will:
 
 - Deploy a Service Catalog template for a Remote Application (RemoteApp) into an existing Workload from the Portal.
 
->Note
->
+> **Note**:
+> 
 > This sample deployment is just for demonstration purposes and doesn't represent all the best practices for network, systems, or applications administration.
 
 ## Deploy Options

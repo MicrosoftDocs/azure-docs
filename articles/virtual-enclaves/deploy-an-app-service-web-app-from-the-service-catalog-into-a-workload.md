@@ -15,8 +15,8 @@ In this article, you:
 - Deploy a Service Catalog App Service Web App template into an existing Workload from the Portal.
 - Review an architecture example for a [basic web application](https://learn.microsoft.com/en-us/azure/architecture/web-apps/app-service/architectures/basic-web-app?tabs=cli)
 
->Note
->
+> **Note**:
+> 
 > This sample deployment is just for demonstration purposes and doesn't represent all the best practices for network, systems, or applications administration.
 
 ## Before you begin

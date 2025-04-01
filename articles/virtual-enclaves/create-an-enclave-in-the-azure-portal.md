@@ -47,7 +47,7 @@ Enclave deployments will take around 30-45 minutes to complete. Once it complete
 
 ![image3.png](./media/image-c799393d-7001-4c29-b6cc-e635cedd377d.png)
 
-> Note:
+> **Note**:
 >
 > Enclave Owners can choose to provide a custom CIDR address when creating their enclaves. Azure Virtual Enclaves will automatically allocate the next best fit block of network addressable space based on the existing networks allocated to the community that the enclave is targeting.
 

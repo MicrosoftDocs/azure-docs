@@ -12,7 +12,7 @@ ms.date: 01/31/2025
 
 This will guide you through replacing the existing AVE Enclave VNET subnet `AzureVirtualEnclaveSubnet` with a replacement `AzureVirtualEnclaveSubnet` subnet and a new subnet of your choice. This is an important step to perform early after the Enclave is created so there are no resources attached to the existing subnet. An existing subnet cannot be deleted until there are no resources attached to it.
 
->Notes
+> **Notes**:
 > * You are not able to resize a VNET with existing connections. [Official Docs](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-subnet?tabs=azure-portal#change-subnet-settings). If you need to resize an existing subnet you will need to move any connected devices out first, resize, then move them back.
 > * Remember when sizing your subnets that 5 IP addresses per subnet are reserved by Azure. See [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets).
 

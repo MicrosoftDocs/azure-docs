@@ -27,7 +27,7 @@ You learn how to:
 ## Create a community in Azure Virtual Enclaves
 Before creating a community instance, you need a resource group. An Azure resource group is a logical container into which you deploy and manage Azure resources. Learn more about each of the settings of an [community](./what-is-a-community.md) and [How-To Create a Community](./create-a-community-in-the-azure-portal.md).
 
-> Important
+> **Important**:
 >
 > This tutorial uses `myResourceGroup` as a placeholder for the resource group name. If you want to use a different name, replace `myResourceGroup` with your own resource group name.
 

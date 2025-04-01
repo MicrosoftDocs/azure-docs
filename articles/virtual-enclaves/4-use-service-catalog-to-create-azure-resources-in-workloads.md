@@ -23,7 +23,7 @@ NOTE: The sample deployment below is just for demonstration purposes and doesn't
 - This tutorial assumes a basic understanding of networking and Azure Virtual Enclaves concepts. For more information, see [Best practices of Azure Virtual Enclaves](./best-practices.md).
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 - A [deployed Community](./what-is-a-community.md), [deployed Virtual Enclave](./what-is-an-enclave.md), and [deployed Workload](./what-is-a-workload.md) and permissions to create resources inside the workload.
-- Complete the [prerequisites](.deploy-an-app-service-web-app-from-the-service-catalog-into-a-workload.md#prerequisites) for a App Service Web App. Including subnet delegation for the
+- Complete the [prerequisites](./deploy-an-app-service-web-app-from-the-service-catalog-into-a-workload.md#prerequisites) for a App Service Web App. Including subnet delegation for the
 
 ![image1.png](./media/sc-appService-subnetDelegate.png)
 
@@ -50,7 +50,7 @@ NOTE: The sample deployment below is just for demonstration purposes and doesn't
 7. Select `App Service` from the Service Catalog drop down list and click `Next`.
 8. Enter all the required parameters on each tab.
    - **Web App Site Name:** Enter `webapp-ui`
-   - **App Service Sku Name:** Select an option from the drop down, `P1v2` or the lowest option for this tutorial. See this table for a full list of options: https://azure.microsoft.com/en-us/pricing/details/app-service/linux/#pricing
+   - **App Service Sku Name:** Select an option from the drop down, `P1v2` or the lowest option for this tutorial. See this table for a full list of options: https://azure.microsoft.com/pricing/details/app-service/linux/#pricing
    - **App Service Sku Tier:** Enter `PremiumV2`.
    - **Number of Worker Instances:** Enter `2`.
 
@@ -73,7 +73,7 @@ It can take up to 30 minutes to finish all resource creation. Wait for the deplo
 1. Go to the specified Resource Group to confirm the intended resources were created.
 
 ## (Optional) Deploy Web App Quickstart
-Azure App Service has quickstarts for many languages such as the [python quickstart](https://learn.microsoft.com/en-us/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-cli%2Cazure-cli-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli) or [deploy from a zip file](../app-service/deploy-zip.md)
+Azure App Service has quickstarts for many languages such as the [python quickstart](https://learn.microsoft.com/azure/app-service/quickstart-python?tabs=flask%2Cwindows%2Cazure-cli%2Cazure-cli-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli) or [deploy from a zip file](../app-service/deploy-zip.md)
 
 ## Clean up resources
 

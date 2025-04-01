@@ -24,7 +24,7 @@ In the previous [tutorial](./2-create-enclaves-within-a-community.md), you used 
 ## Create a workload using Azure Virtual Enclaves
 Before creating your resources, you need to create the AVE Workload resource. Workloads are logical groups of Azure resources, similar to an Azure Resource Group, that you define to create and audit connections in Azure Virtual Enclaves.
 
-> Important
+> **Important**:
 >
 > This tutorial uses `myResourceGroup` as a placeholder for the resource group name. If you want to use a different name, replace `myResourceGroup` with your own resource group name.
 

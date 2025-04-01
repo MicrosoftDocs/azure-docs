@@ -42,7 +42,7 @@ Sign-in to the Azure portal at https://portal.azure.com.
 ![image3.png](./media/Community-creation-governance.png)
 
 
-> Note
+> **Note**:
 > 
 > In the context of governance for Communities, the following settings can be specified for each service:
 > - Enforcement: This setting determines whether the rules defined for a service are actively enforced. When enforcement is enabled, any action that violates the rules will be blocked or flagged.

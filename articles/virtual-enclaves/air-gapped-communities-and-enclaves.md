@@ -13,14 +13,11 @@ ms.date: 01/31/2025
 Virtual Enclaves are supported in Azure Commercial USSEC, and USNAT. This guidance provides resources and context specific to users with USSEC/USNAT environments.
 
 ## Links to Air-Gapped landing page for Virtual Enclaves
-The URLs below can be transfered into Air-Gapped environments via [Pastebin](https://eng.ms/docs/cloud-ai-platform/azure-edge-platform-aep/aep-silver/sovereign-foundation-team/cloud-transfer-service/cts-onboarding/cts-portal/pastebinuserguide)
+Use the same links that are available for Azure public but update the domain for the air gapped cloud you are working in.
 
-- [USSEC](https://portal.azure.microsoft.scloud/?feature.canmodifystamps=true&feature.artbrowse=true&microsoft_azure_virtualenclaves_assettypeoptions={"AzureVirtualEnclave":{"options":""},"Catalog":{"options":""},"Community":{"options":""},"ExternalConnection":{"options":""},"InternalConnection":{"options":""},"Enclave":{"options":""},"Endpoint":{"options":""},"Workload":{"options":""}}&Microsoft_Azure_VirtualEnclaves=stage2#home)
-
-- [USNAT](https://portal.azure.eaglex.ic.gov/?feature.canmodifystamps=true&feature.artbrowse=true&microsoft_azure_virtualenclaves_assettypeoptions={"AzureVirtualEnclave":{"options":""},"Catalog":{"options":""},"Community":{"options":""},"ExternalConnection":{"options":""},"InternalConnection":{"options":""},"Enclave":{"options":""},"Endpoint":{"options":""},"Workload":{"options":""}}&Microsoft_Azure_VirtualEnclaves=stage2#home)
 
 ```
-**Note** - Azure Virtual Enclaves is currently in Private Preview and is not meant to support production workloads for customers at this time other than those authorized by the Azure Virtual Enclaves PG.
+**Note** - Azure Virtual Enclaves is currently in Preview and is not meant to support production workloads for customers at this time other than those authorized by the Azure Virtual Enclaves PG.
 
 ```
 

@@ -15,8 +15,8 @@ ms.date: 01/31/2025
 - Deploy one AVE [community](./what-is-a-community.md) with two [enclaves](/docs/overview/what-is-an-enclave.md) using an Azure Resource Manager (ARM) template.
 - Deploy [workloads](./what-is-a-workload), [enclave endpoints](./what-is-an-enclave-endpoint), [transit hubs](./what-is-a-transit-hub.md) and [community endpoints](./what-is-a-community-endpoint), and [enclave connections](./what-is-an-enclave-connection.md) across your community using an ARM template.
 
-> Note
->
+> **Note**:
+> 
 > This sample deployment is just for demo purposes and doesn't represent all the best practices for network, systems, or applications administration.
 
 ## Before you begin

@@ -30,4 +30,4 @@ Go to Community creation and customize your governance settings.
 - - Allow: The service is allowed in the policies
 - - Deny: The service is not allowed in the policies
  - - ExceptionOnly: The service is not allowed in the policies, but manual [Policy Exemptions](./policy-compliance-exemptions.md) can be made.
-> Note: This governance options will be applied all of the workloads that are part of the community, overriding the default governance configuration for workloads.
+> **Note**: This governance options will be applied all of the workloads that are part of the community, overriding the default governance configuration for workloads.

@@ -23,7 +23,7 @@ In the previous [tutorial](./1-deploy-a-community.md), you used Azure portal to 
 ## Create an enclave using Azure Virtual Enclaves
 Before creating an enclave instance, you need a resource group. An Azure resource group is a logical container into which you deploy and manage Azure resources. Learn more about each of the settings of an [enclave](./what-is-an-enclave.md) and [How-To Create an Enclave](./create-an-enclave-in-the-azure-portal.md).
 
-> Important
+> **Important**:
 >
 > This tutorial uses `myResourceGroup` as a placeholder for the resource group name. If you want to use a different name, replace `myResourceGroup` with your own resource group name.
 

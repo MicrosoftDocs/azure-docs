@@ -56,7 +56,7 @@ az role assignment create \
     --scope "<resource-group-id>"
 ```
 
-> Note
+> **Note**:
 > It can take up to 60 minutes for the permissions granted to your enclave's managed identity to propagate.
 
 ### Enable a user-assigned managed identity
