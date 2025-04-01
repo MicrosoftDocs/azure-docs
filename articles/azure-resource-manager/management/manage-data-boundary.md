@@ -175,9 +175,8 @@ To get data boundary at specified scopes. The scopes include:
 
 1. Open the [Azure portal](https://portal.azure.com).
 1. In the search box, type **azure data boundaries**, and then select **Azure Data Boundaries**. The following screenshot shows a `Global` data boundary.
-1. In **Boundary region**, select data boundary geo, either `Global` or `EU`, and then select **Save**.
 
-    :::image type="content" source="./media/manage-data-boundary/azure-tenant-configure-data-boundary.png" alt-text="Screenshot of configuring data boundary.":::
+    :::image type="content" source="./media/manage-data-boundary/azure-tenant-show-data-boundary.png" alt-text="Screenshot of configuring data boundary.":::
 
 # [Azure CLI](#tab/azure-cli)
 
