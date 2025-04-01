@@ -87,7 +87,7 @@ If you haven't created those resources yet, please return to those earlier tutor
 
 ![image10.png](./media/fabrikam-endpoint-deployed.png)
 
-# Create an Enclave Connection associated to an Endpoint
+## Create an Enclave Connection associated to an Endpoint
 
 1. From the `fabrikam` community, select  `Enclave connections`
 
@@ -114,7 +114,11 @@ If you haven't created those resources yet, please return to those earlier tutor
 
 ![image14.png](./media/fabrikam-connection-deployed-disconnected.png)
 
-7. Select `Approvals` to review active approval requests and change the connection to the `connected` state.
+7. Review the pending approvals in the `Approvals` blade for the enclave.
+
+![image15.png](./media/fabrikam-connection-approval-pending.png)
+
+7. Approve the pending approvals and the connection state will automatically update to the `connected` state.
 
 
 ...
