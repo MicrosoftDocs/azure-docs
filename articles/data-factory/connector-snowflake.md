@@ -29,7 +29,7 @@ This Snowflake connector is supported for the following capabilities:
 |[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|
 |[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
-|[Script activity](transform-data-using-script.md)|&#9312; &#9313;|
+|[Script activity](transform-data-using-script.md) (Apply version 1.1 (Preview) when you use the script parameter)|&#9312; &#9313;|
 
 *&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
@@ -683,10 +683,6 @@ By setting the pipeline Logging Level to None, we exclude the transmission of in
 ## Lookup activity properties
 
 For more information about the properties, see [Lookup activity](control-flow-lookup-activity.md).
-
-## Script activity properties
-
-For more information about the properties, see [Script activity](transform-data-using-script.md). Apply version 1.1 in the linked service if you want to use the script parameter.
 
 ## <a name="upgrade-the-snowflake-linked-service"></a> Upgrade the Snowflake connector
 
