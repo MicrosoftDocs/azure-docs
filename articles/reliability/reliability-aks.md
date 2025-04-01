@@ -12,7 +12,7 @@ ms.date: 03/18/2025
 
 # Reliability in Azure Kubernetes Service (AKS)
 
-This article describes reliability support in [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multiple-region deployments](#multiple-region-support).
+This article describes reliability support in [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multiple-region deployments](#multi-region-support).
 
 Resiliency is a shared responsibility between you and Microsoft. This article covers ways for you to create a resilient solution that meets your needs.
 
@@ -38,11 +38,13 @@ After this initial node pool setup is complete, you can [add or delete node pool
 
 Resiliency is a shared responsibility between you and Microsoft. As a compute service, AKS manages some aspects of your cluster's reliability, but you're responsible for managing other aspects.
 
-- Microsoft manages the control plane and other managed components of AKS.
+- **Microsoft manages** the control plane and other managed components of AKS.
 
-- You need to define how components that AKS deploys and manages on your behalf, including node pools and load balancers that attach to services, should be configured to meet your reliability requirements. Microsoft then deploys the components based on your requirements.
+- **It's your responsibility to**:
 
-- You need to manage any components outside of the AKS cluster, including storage and databases. Verify that these components meet your reliability requirements. When you deploy your workloads, ensure that other Azure components are also configured for resiliency by following the best practices for those services.
+   - *Define how components, including node pools and load balancers that attach to services, should be configured to meet your reliability requirements.* After you define the components, Microsoft then deploys and manages them on your behalf.
+
+   - *Manage any components outside of the AKS cluster, including storage and databases.* Verify that these components meet your reliability requirements. When you deploy your workloads, ensure that other Azure components are also configured for resiliency by following the best practices for those services.
 
 ## Transient faults
 
@@ -77,25 +79,15 @@ You can deploy zone-resilient AKS clusters into any region that supports availab
 
 To enhance the reliability and resiliency of AKS production workloads in a region, you need to configure AKS for zone redundancy by making the following configurations:
 
-- Deploy multiple replicas. 
+- **Deploy multiple replicas.** Kubernetes spreads your pods across nodes based on node labels. To spread your workload across zones, you need to deploy multiple replicas of your pod. For instance, if you configure the node pool with three zones but only deploy a single replica of your pod, your deployment isn't zone resilient.
 
-   Kubernetes spreads your pods across nodes based on node labels. To spread your workload across zones, you need to deploy multiple replicas of your pod. For instance, if you configure the node pool with three zones but only deploy a single replica of your pod, your deployment isn't zone resilient.
+- **Enable automatic scaling.** Kubernetes node pools provide manual and automatic scaling options. By using manual scaling, you can add or delete nodes as needed, and pending pods wait until you scale up a node pool. AKS-managed scaling uses the [cluster autoscaler](/azure/aks/cluster-autoscaler) or [node autoprovisioning (NAP)](/azure/aks/node-autoprovision). AKS scales the node pool up or down based on the pod's requirements within your subscription's SKU quota and capacity. This method helps ensure that your pods are scheduled on available nodes in the availability zones.
 
-- Enable automatic scaling. 
+- **Set pod topology constraints.** Use pod topology spread constraints to control how pods are spread across different nodes or zones. Constraints help you achieve HA, resiliency, and efficient resource usage. If you prefer to spread pods strictly across zones, you can set constraints to force a pod into a pending state to maintain the balance of pods across zones. For more information, see [Pod topology spread constraints](/azure/aks/best-practices-app-cluster-reliability#pod-topology-spread-constraints).
 
-   Kubernetes node pools provide manual and automatic scaling options. By using manual scaling, you can add or delete nodes as needed, and pending pods wait until you scale up a node pool. AKS-managed scaling uses the [cluster autoscaler](/azure/aks/cluster-autoscaler) or [node autoprovisioning (NAP)](/azure/aks/node-autoprovision). AKS scales the node pool up or down based on the pod's requirements within your subscription's SKU quota and capacity. This method helps ensure that your pods are scheduled on available nodes in the availability zones.
+- **Configure zone-resilient networking.** If your pods serve external traffic, configure your cluster network architecture by using services like [Azure Application Gateway](../application-gateway/overview-v2.md), [Azure Load Balancer](../load-balancer/load-balancer-overview.md), or [Azure Front Door](../frontdoor/front-door-overview.md).
 
-- Set pod topology constraints.
-
-   Use pod topology spread constraints to control how pods are spread across different nodes or zones. Constraints help you achieve HA, resiliency, and efficient resource usage. If you prefer to spread pods strictly across zones, you can set constraints to force a pod into a pending state to maintain the balance of pods across zones. For more information, see [Pod topology spread constraints](/azure/aks/best-practices-app-cluster-reliability#pod-topology-spread-constraints).
-
-- Configure zone-resilient networking.
-
-   If your pods serve external traffic, configure your cluster network architecture by using services like [Azure Application Gateway](../application-gateway/overview-v2.md), [Azure Load Balancer](../load-balancer/load-balancer-overview.md), or [Azure Front Door](../frontdoor/front-door-overview.md).
-
-- Ensure that dependencies are zone resilient. 
-
-   Most AKS applications use other services for storage, security, or networking. Make sure that you review the zone resiliency recommendations for those services.
+- **Ensure that dependencies are zone resilient.** Most AKS applications use other services for storage, security, or networking. Make sure that you review the zone resiliency recommendations for those services.
 
 ### Cost
 
@@ -154,11 +146,11 @@ You can test your resiliency to availability zone failures by using the followin
 - [Cordon and drain nodes in a single availability zone](/azure/aks/aks-zone-resiliency#method-1-cordon-and-drain-nodes-in-a-single-az)
 - [Simulate an availability zone failure by using Azure Chaos Studio](/azure/aks/aks-zone-resiliency#method-2-simulate-an-az-failure-using-azure-chaos-studio)
 
-## Multiple-region support
+## Multi-region support
 
 AKS clusters are single-region resources. If the region is unavailable, your AKS cluster is also unavailable.
 
-### Alternative multiple-region approaches
+### Alternative multi-region approaches
 
 If you need to deploy your Kubernetes workload to multiple Azure regions, you have two options to manage the orchestration of these clusters.
 
