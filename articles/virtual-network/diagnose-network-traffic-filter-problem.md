@@ -32,7 +32,7 @@ The steps that follow assume you have an existing VM to view the effective secur
 
     :::image type="content" source="./media/diagnose-network-traffic-filter-problem/view-security-rules.png" alt-text="Screenshot of security rules for NSG nsg-subnet." lightbox="./media/diagnose-network-traffic-filter-problem/view-security-rules.png":::
 
-    :::image type="content" source="./media/diagnose-network-traffic-filter-problem/view-security-rules2.png" alt-text="Screenshot of security rules for NSG nsg-nic." lightbox="./media/diagnose-network-traffic-filter-problem/view-security-rules.png":::
+    :::image type="content" source="./media/diagnose-network-traffic-filter-problem/view-security-rules2.png" alt-text="Screenshot of security rules for NSG nsg-nic." lightbox="./media/diagnose-network-traffic-filter-problem/view-security-rule2.png":::
   
 
    The rules you see listed in the previous figures are for a network interface named **vm-1445**. You see that there are **Inbound port rules** for the network interface from two different network security groups:
@@ -42,33 +42,27 @@ The steps that follow assume you have an existing VM to view the effective secur
 
    The rule named **DenyAllInBound** is what's preventing inbound communication to the VM over port 80, from the internet, as described in the [scenario](#scenario). The rule lists *0.0.0.0/0* for **SOURCE**, which includes the internet. No other rule with a higher priority (lower number) allows port 80 inbound. To allow port 80 inbound to the VM from the internet, see [Resolve a problem](#resolve-a-problem). To learn more about security rules and how Azure applies them, see [Network security groups](./network-security-groups-overview.md).
 
-   At the bottom of the picture, you also see **Outbound port rules**. The outbound port rules for the network interface are listed. Though the picture only shows four inbound rules for each NSG, your NSGs may have many more than four rules. In the picture, you see **VirtualNetwork** under **Source** and **Destination** and **AzureLoadBalancer** under **SOURCE**. **VirtualNetwork** and **AzureLoadBalancer** are [service tags](./network-security-groups-overview.md#service-tags). Service tags represent a group of IP address prefixes to help minimize complexity for security rule creation.
+   At the bottom of the picture, you also see **Outbound port rules**. The outbound port rules for the network interface are listed. 
 
-1. To view the effective security rules, select the interface in the network settings of the virtual machine.
+    Though the picture only shows four inbound rules for each NSG, your NSGs may have many more than four rules. In the picture, you see **VirtualNetwork** under **Source** and **Destination** and **AzureLoadBalancer** under **SOURCE**. **VirtualNetwork** and **AzureLoadBalancer** are [service tags](./network-security-groups-overview.md#service-tags). Service tags represent a group of IP address prefixes to help minimize complexity for security rule creation.
 
-    
+1. To view the effective security rules, select the interface in the network settings of the virtual machine. Ensure the VM is in a running state before proceeding.
 
+1. In the settings for the network interface, expand **Help**, then select **Effective security rules**.
 
+    The following example shows the example network interface **vm-1445** with the **Effective security rules** selected.
 
-4. Ensure that the VM is in the running state, and then select **Effective security rules**, as shown in the previous picture, to see the effective security rules, shown in the following picture:
-
-   ![Screenshot shows the Effective security rules pane with Download selected and AllowAzureLoadBalancerInbound Inbound rule selected.](./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png)
-
+    :::image type="content" source="./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png" alt-text="Screenshot of effective security rules for network interface vm-1445." lightbox="./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png":::
+  
    The rules listed are the same as you saw in step 3, though there are different tabs for the NSG associated to the network interface and the subnet. As you can see in the picture, only the first 50 rules are shown. To download a .csv file that contains all of the rules, select **Download**.
 
-   To see which prefixes each service tag represents, select a rule, such as the rule named **AllowAzureLoadBalancerInbound**. The following picture shows the prefixes for the **AzureLoadBalancer** service tag:
+1. The previous steps showed the security rules for a network interface named **vm-1445**. What if a VM has two network interfaces? The VM in this example has two network interfaces attached to it. The effective security rules can be different for each network interface.
 
-   ![Screenshot shows Address prefixes for AllowAzureLoadBalancerInbound entered.](./media/diagnose-network-traffic-filter-problem/address-prefixes.png)
+   To see the rules for the **vm-nic-2** network interface, select it. As shown in the example that follows, the network interface has the same rules associated to its subnet as the **vm-1445** network interface, because both network interfaces are in the same subnet. When you associate an NSG to a subnet, its rules are applied to all network interfaces in the subnet.
 
-   Though the **AzureLoadBalancer** service tag only represents one prefix, other service tags represent several prefixes.
+   :::image type="content" source="./media/diagnose-network-traffic-filter-problem/view-security-rules3.png" alt-text="Screenshot of security rules for nic vm-nic-2." lightbox="./media/diagnose-network-traffic-filter-problem/view-security-rule3.png":::
 
-5. The previous steps showed the security rules for a network interface named **myVMVMNic**, but you've also seen a network interface named **myVMVMNic2** in some of the previous pictures. The VM in this example has two network interfaces attached to it. The effective security rules can be different for each network interface.
-
-   To see the rules for the **myVMVMNic2** network interface, select it. As shown in the picture that follows, the network interface has the same rules associated to its subnet as the **myVMVMNic** network interface, because both network interfaces are in the same subnet. When you associate an NSG to a subnet, its rules are applied to all network interfaces in the subnet.
-
-   ![Screenshot shows the Azure portal with Networking settings for my V M V M Nic 2.](./media/diagnose-network-traffic-filter-problem/view-security-rules2.png)
-
-   Unlike the **myVMVMNic** network interface, the **myVMVMNic2** network interface does not have a network security group associated to it. Each network interface and subnet can have zero, or one, NSG associated to it. The NSG associated to each network interface or subnet can be the same, or different. You can associate the same network security group to as many network interfaces and subnets as you choose.
+   Unlike the **vm-1445** network interface, the **vm-nic-2** network interface does not have a network security group associated to it. Each network interface and subnet can have zero, or one, NSG associated to it. The NSG associated to each network interface or subnet can be the same, or different. You can associate the same network security group to as many network interfaces and subnets as you choose.
 
 Though effective security rules were viewed through the VM, you can also view effective security rules through an individual:
 - **Network interface**: Learn how to [view a network interface](virtual-network-network-interface.md#view-network-interface-settings).
@@ -80,12 +74,14 @@ Though effective security rules were viewed through the VM, you can also view ef
 
 You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. If you run PowerShell from your computer, you need the Azure PowerShell module, version 1.0.0 or later. Run `Get-Module -ListAvailable Az` on your computer, to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to log into Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions)].
 
-Get the effective security rules for a network interface with [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup). The following example gets the effective security rules for a network interface named *myVMVMNic*, that is in a resource group named *myResourceGroup*:
+Get the effective security rules for a network interface with [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup). The following example gets the effective security rules for a network interface named *vm-nic*, that is in a resource group named *test-rg*:
 
 ```azurepowershell-interactive
-Get-AzEffectiveNetworkSecurityGroup `
-  -NetworkInterfaceName myVMVMNic `
-  -ResourceGroupName myResourceGroup
+$Params = @{
+  NetworkInterfaceName = "vm-nic"
+  ResourceGroupName    = "test-rg"
+}
+Get-AzEffectiveNetworkSecurityGroup @Params
 ```
 
 Output is returned in json format. To understand the output, see [interpret command output](#interpret-command-output).
@@ -96,7 +92,11 @@ If you're still having a connectivity problem, see [additional diagnosis](#addit
 If you don't know the name of a network interface, but do know the name of the VM the network interface is attached to, the following commands return the IDs of all network interfaces attached to a VM:
 
 ```azurepowershell-interactive
-$VM = Get-AzVM -Name myVM -ResourceGroupName myResourceGroup
+$Params = @{
+  Name              = "vm-1"
+  ResourceGroupName = "test-rg"
+}
+$VM = Get-AzVM @Params
 $VM.NetworkProfile
 ```
 
@@ -105,21 +105,21 @@ You receive output similar to the following example:
 ```output
 NetworkInterfaces
 -----------------
-{/subscriptions/<ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic
+{/subscriptions/<ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/vm-nic
 ```
 
-In the previous output, the network interface name is *myVMVMNic*.
+In the previous output, the network interface name is *vm-nic*.
 
 ## Diagnose using Azure CLI
 
 If using Azure CLI commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the Azure CLI from your computer. This article requires the Azure CLI version 2.0.32 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If you're running the Azure CLI locally, you also need to run `az login` and log into Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
 
-Get the effective security rules for a network interface with [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg). The following example gets the effective security rules for a network interface named *myVMVMNic* that is in a resource group named *myResourceGroup*:
+Get the effective security rules for a network interface with [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg). The following example gets the effective security rules for a network interface named *vm-nic* that is in a resource group named *test-rg*:
 
 ```azurecli-interactive
 az network nic list-effective-nsg \
-  --name myVMVMNic \
-  --resource-group myResourceGroup
+  --name vm-nic \
+  --resource-group test-rg
 ```
 
 Output is returned in json format. To understand the output, see [interpret command output](#interpret-command-output).
@@ -131,8 +131,8 @@ If you don't know the name of a network interface, but do know the name of the V
 
 ```azurecli-interactive
 az vm show \
-  --name myVM \
-  --resource-group myResourceGroup
+  --name vm-1 \
+  --resource-group test-rg
 ```
 
 Within the returned output, you see information similar to the following example:
@@ -143,13 +143,13 @@ Within the returned output, you see information similar to the following example
     "networkInterfaces": [
       {
         "additionalProperties": {},
-        "id": "/subscriptions/<ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic",
+        "id": "/subscriptions/<ID>/resourceGroups/test-rg/providers/Microsoft.Network/networkInterfaces/vm-nic",
         "primary": true,
-        "resourceGroup": "myResourceGroup"
+        "resourceGroup": "test-rg"
       },
 ```
 
-In the previous output, the network interface name is *myVMVMNic interface*.
+In the previous output, the network interface name is **vm-nic**
 
 ## Interpret command output
 
