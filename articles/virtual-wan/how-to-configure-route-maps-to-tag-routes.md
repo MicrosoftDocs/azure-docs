@@ -67,7 +67,7 @@ In this scenario, the goal is to tag route 10.5.0.192/26 form virtual network 3 
 
 3. Apply the Route-Map on the virtual network 3 connection. The Route-Map will be applied in the inbound direction. 
 
-   :::image type="content" source="./media/route-maps-how-to-tag/rm.png" alt-text="Screenshot that shows the Route-map being applied." lightbox="./media/route-maps-how-to-tag/apply.png":::
+   :::image type="content" source="./media/route-maps-how-to-tag/apply.png" alt-text="Screenshot that shows the Route-map being applied." lightbox="./media/route-maps-how-to-tag/apply.png":::
 
 4. Using the Route-Map dashboard in Hub 2, Verify that route 10.5.0.192/26 has the BGP community of 3356:70 added on the virtual network 3 connection.    
 
