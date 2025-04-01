@@ -37,9 +37,18 @@ sections:
           - [StackExchange.Redis best practices](#stackexchangeredis-best-practices)
           - [Configuration and concepts](#configuration-and-concepts)
           - [Performance testing](#performance-testing)
+          - [StackExchange.Redis best practices](#stackexchangeredis-best-practices)
+          - [Configuration and concepts](#configuration-and-concepts)
+          - [Performance testing](#performance-testing)
 
           ### StackExchange.Redis best practices
 
+          - Set `AbortConnect` to false, then let the ConnectionMultiplexer reconnect automatically.
+          - Use a single, long-lived `ConnectionMultiplexer` instance rather than creating a new connection for each request.
+          - Redis works best with smaller values, so consider chopping up bigger data into multiple keys. In [this Redis discussion](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ), 100 kb is considered large. For more information, see [Best practices development](cache-best-practices-development.md#consider-more-keys-and-smaller-values).
+          - Configure your [ThreadPool settings](#important-details-about-threadpool-growth) to avoid timeouts.
+          - Use at least the default connectTimeout of 5 seconds. This interval gives StackExchange.Redis sufficient time to re-establish the connection if there's a network blip.
+          - Be aware of the performance costs associated with different operations you're running. For instance, the `KEYS` command is an O(n) operation and should be avoided. The [redis.io site](https://redis.io/commands/) has details around the time complexity for each operation that it supports. Select each command to see the complexity for each operation.
           - Set `AbortConnect` to false, then let the ConnectionMultiplexer reconnect automatically.
           - Use a single, long-lived `ConnectionMultiplexer` instance rather than creating a new connection for each request.
           - Redis works best with smaller values, so consider chopping up bigger data into multiple keys. In [this Redis discussion](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ), 100 kb is considered large. For more information, see [Best practices development](cache-best-practices-development.md#consider-more-keys-and-smaller-values).
