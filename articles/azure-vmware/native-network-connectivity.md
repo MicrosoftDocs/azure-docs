@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.service: azure-vmware
 ms.date: 3/14/2025
 ms.custom: engagement-fy25
+# customer intent: As a cloud administrator, I want to learn about connectivity to Azure virtual networks so that I can understand the features and benefits of this offering.
 ---
 
 # Connectivity to Azure virtual networks
 
-This article discusses how to connect the private cloud to the Azure virtual networks – Hosted virtual network, other virtual networks in the region, and virtual networks in other regions. After you deploy Azure VMware Solution on native private clouds, you may need to have network connectivity between the private cloud and other networks you have on Azure Virtual Network (virtual network), on-premises, other Azure VMware Solution private clouds, or the internet. You learn how to establish connectivity to the Azure VMware Solution hosted (Local) virtual network
-and other virtual networks.
+In this article, you learn how to connect the private cloud to the Azure virtual networks – Hosted virtual network, other virtual networks in the region, and virtual networks in other regions. After you deploy Azure VMware Solution on native private clouds, you may need to have network connectivity between the private cloud and other networks you have on Azure Virtual Network (virtual network), on-premises, other Azure VMware Solution private clouds, or the internet. 
 
 ## Prerequisites
 

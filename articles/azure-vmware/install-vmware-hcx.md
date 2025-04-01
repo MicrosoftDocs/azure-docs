@@ -36,13 +36,20 @@ After HCX is deployed, follow the recommended [Next steps](#next-steps).
 1. Select **Get started** for **HCX Workload Mobility**.
 
      :::image type="content" source="media/tutorial-vmware-hcx/add-hcx-workload-mobility.png" alt-text="Screenshot showing the Get started button for VMware HCX Workload Mobility." lightbox="media/tutorial-vmware-hcx/add-hcx-workload-mobility.png":::
+1.	If you're installing HCX add-on on Azure VMware Solution in an Azure virtual network, then following more step is required.
+   
+      1. Specify a unique /24 CIDR address block for HCX uplink and management. This IP block is utilized for HCX service mesh appliances management and uplink interfaces.
+
+      :::image type="content" source="media/native-connectivity/native-hcx-install.png" alt-text="Screenshot showing how to install HCX add-on on an Azure VMware Solution in an Azure virtual network." lightbox=media/native-connectivity/native-hcx-install.png":::
 
 1. Select the **I agree with terms and conditions** checkbox and then select **Install**.
 
     Once installed, you should see the HCX Manager IP and the HCX keys required for the HCX on-premises connector site pairing on the **Migration using HCX** tab.
+    >[!NOTE]
+    > When initiating a site pair where source is Azure VMware Solution in an Azure Virtual Network, you can use IP address. If you need to use FQDN, raise a support case.
 
     > [!IMPORTANT]
-    > If you don't see the HCX key after installing, click the **ADD** button to generate the key which you can then use for site pairing.
+    > If you don't see the HCX key after installing, select the **ADD** button to generate the key which you can then use for site pairing.
 
    :::image type="content" source="media/tutorial-vmware-hcx/configure-hcx-appliance-for-migration-using-hcx-tab.png" alt-text="Screenshot showing the Migration using VMware HCX tab under Connectivity." lightbox="media/tutorial-vmware-hcx/configure-hcx-appliance-for-migration-using-hcx-tab.png":::
 
@@ -82,7 +89,7 @@ HCX offers various [services](https://techdocs.broadcom.com/us/en/vmware-cis/hcx
 - Downgrading from HCX Enterprise Edition to HCX Advanced is possible without redeploying. 
 
     1. Verify that you reverted to an HCX Advanced configuration state and you aren't using the Enterprise features. 
-    1. If you plan to downgrade, verify that no scheduled migrations, [Enterprise services](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-user-guide-4-9/vmware-hcx-services.html) like RAV and HCX MON, etc. are in use. Open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to request downgrade. 
+    1. To downgrade, verify that no scheduled migrations, [Enterprise services](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-user-guide-4-9/vmware-hcx-services.html) like RAV and HCX MON, etc. are in use. Open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to request downgrade. 
 
 ## Download and deploy the VMware HCX Connector on-premises 
 
@@ -108,7 +115,7 @@ Use the following steps to download the VMware HCX Connector OVA file, and then 
  
 1. Verify and then select **Finish** to deploy the VMware HCX Connector OVA. 
    >[!IMPORTANT] 
-   >You will need to turn on the virtual appliance manually.  After powering on, wait 10-15 minutes before proceeding to the next step. 
+   >You need to turn on the virtual appliance manually.  After powering on, wait 10-15 minutes before proceeding to the next step. 
 
 ## Activate VMware HCX 
 
