@@ -5,7 +5,7 @@ items:
   href: introduction.md 
 - name: Azure VMware Solution on Native
   items:
-  - name: Azure VMware Solution in a Virtual Network (Public preview) 
+  - name: What's Azure VMware Solution in an Azure virtual network (Public preview)  
     href: native-introduction.md
   - name: Tutorial
     items:
@@ -19,7 +19,7 @@ items:
     items:
     - name: Connectivity to Azure virtual networks
       href: native-network-connectivity.md
-    - name: Connect to On-premises environment
+    - name: Connect to on-premises environment
       href: native-connect-onpremises.md
     - name: Internet connectivity design considerations for Azure VMware Solution on native private cloud
       href: native-internet-connectivity-design-considerations.md

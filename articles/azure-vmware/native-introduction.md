@@ -1,15 +1,15 @@
 ---
-title: Azure VMware Solution in a Virtual Network (Public preview) 
+title: What's Azure VMware Solution in an Azure virtual network (Public preview) 
 description: Learn about Azure VMware Solution in a Virtual Network.
 ms.topic: overview
 ms.service: azure-vmware
 ms.date: 3/28/2025
 ms.custom: engagement-fy25
 ms.author: jacobjaygbay
-# customer intent: As a cloud administrator, I want to learn about Azure VMware Solution in a Virtual Network so that I can understand the benefits and features of this offering.
+# customer intent: As a cloud administrator, I want to learn about Azure VMware Solution in a virtual network so that I can understand the features and benefits of this offering.
 ---
 
-# Azure VMware Solution in a virtual network (Public preview)
+# What's Azure VMware Solution in an Azure virtual network (Public preview) 
 
 Azure VMware Solution in an Azure Virtual Network combines the first-party Azure VMware Solution with Azure hardware and operations to improve the customer experience, quality, and security. This offering provides updated architecture that uses Azure Native physical network and hardware infrastructure. This allows customers to get the best of both worlds. Customers get to use their existing VMware expertise, while using the benefits of the entire Azure cloud to more effectively and efficiently manage their workloads. This initial launch of this offering utilizes the existing AV64 SKU.
 
@@ -31,17 +31,19 @@ With the Azure VMware Solution in a virtual network offering, you get the follow
 
 ### Simplified deployment and cost efficiency
 
-You can now deploy Azure VMware Solution private clouds with the AV64 SKU directly, eliminating the need for a minimum of 3-host AV36, AV36P, or AV52 cluster. This means lower upfront costs and a faster time-to-value for customers looking to scale efficiently.
+You can now  directly deploy Azure VMware Solution private clouds with the AV64 SKU, eliminating the need for a minimum of 3-host AV36, AV36P, or AV52 cluster. This means lower upfront costs and a faster time to value for customers looking to scale efficiently.
 
 ### Seamless Azure integration
 
-Azure VMware Solution private clouds are now deployed inside an Azure Virtual Network by default, providing instant connectivity to other Azure services. This enables you to apply the full capabilities of Azure and modernize their applications while keeping your VMware expertise. No extra networking setup needed-Azure Virtual Network peering works out of the box.
+Azure VMware Solution private clouds are now deployed inside an Azure virtual network by default, providing instant connectivity to other Azure services. This enables you to apply the full capabilities of Azure and modernize your applications while keeping your VMware expertise. No extra networking setup is needed since Azure virtual network peering works out of the box.
 
 ### Enhanced security and compliance
 
-Your Azure VMware Solution private cloud still runs on a dedicated, isolated hardware, which means you get the continued benefits of privacy of a private cloud while staying within Azure. You can apply Azure-native security tools, like Network Security Groups (NSGs), to simplify security management.
+Your Azure VMware Solution private cloud still runs on a dedicated, isolated hardware, which means you get the continued benefits of privacy of a private cloud within Azure. You can apply Azure-native security tools, like Network Security Groups (NSGs), to simplify security management.
 
 ### More features and capabilities unlocked
+
+Here are additional features and capabilities available with this offering:
 
 - Ability to select Private DNS resolution for your private cloud, enabling you to communicate across Azure and on-premises environments without being exposed to the internal.
 - Ability to select which availability zone to deploy your private cloud in to minimize latency to on-premises environments.
