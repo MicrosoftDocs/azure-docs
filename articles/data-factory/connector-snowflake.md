@@ -93,7 +93,7 @@ These generic properties are supported for the Snowflake linked service:
 | Property         | Description                                                  | Required |
 | :--------------- | :----------------------------------------------------------- | :------- |
 | type             | The type property must be set to **SnowflakeV2**.              | Yes      |
-| version           | The version that you specify. Recommend upgrading to the latest version to take advantage of the newest enhancements.       | Yes      |
+| version           | The version that you specify. Recommend upgrading to the latest version to take advantage of the newest enhancements.       | Yes for version 1.1 (Preview), not supported for version 1.0.     |
 | accountIdentifier | The name of the account along with its organization. For example, myorg-account123.   | Yes |
 | database | The default database used for the session after connecting. | Yes |
 | warehouse | The default virtual warehouse used for the session after connecting. |Yes|
