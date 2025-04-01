@@ -1,6 +1,6 @@
 ---
 title: Update password for an AD DS storage account identity
-description: Learn how to update the password of the Active Directory Domain Services (AD DS) identity that represents your storage account. This prevents authentication failures and keeps the storage account from being deleted when the password expires.
+description: Learn how to update the password of the Active Directory Domain Services (AD DS) identity that represents your storage account.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
@@ -10,13 +10,9 @@ recommendations: false
 ---
 
 # Update the password of your storage account identity in AD DS
+When you domain join your storage account in your Active Directory Domain Services (AD DS), you create an AD principal (computer or service account) with a password that must be periodically rotated based on the policy of the organizational unit (OU) into which it is deployed. The password of the AD principal is one of the Kerberos keys of the storage account. To avoid authentication issues, including deletion of the AD principal representing the storage account by automated cleanup scripts, you should periodically rotate the password/storage account Kerberos keys. Failing to change the password before it expires could result in losing Kerberos authentication to your Azure file shares.
 
-If you registered the Active Directory Domain Services (AD DS) identity/account that represents your storage account in an organizational unit or domain that enforces password expiration time, you must change the password before the maximum password age. Your organization may run automated cleanup scripts that delete accounts once their password expires. Because of this, if you don't change your password before it expires, your account could be deleted, which will cause you to lose access to your Azure file shares.
-
-To prevent unintended password rotation, during the onboarding of the Azure storage account in the domain, make sure to place the Azure storage account into a separate organizational unit in AD DS. Disable Group Policy inheritance on this organizational unit to prevent default domain policies or specific password policies from being applied.
-
-> [!NOTE]
-> A storage account identity in AD DS can be either a service account or a computer account. Service account passwords can expire in Active Directory (AD); however, because computer account password changes are driven by the client machine and not AD, they don't expire in AD.
+To prevent unintended password rotation, during the onboarding of the Azure storage account in the domain, you can place the Azure storage account into a separate organizational unit in AD DS that has password rotation policies disabled using Group Policy.
 
 There are two options for triggering password rotation. You can use the `AzFilesHybrid` module or Active Directory PowerShell. Use one method, not both.
 
