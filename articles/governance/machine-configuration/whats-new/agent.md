@@ -20,7 +20,7 @@ For information on release notes for the connected machine agent, see
 
 ## Windows extension release notes (Microsoft.GuestConfiguration.ConfigurationforWindows)
 
-### Version 1.29.92.0 - March 2025
+### Version 1.29.92.0 - April 2025
 
 #### Updated
 
