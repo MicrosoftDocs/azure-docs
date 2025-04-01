@@ -99,11 +99,14 @@ To understand whether a feature is supported in your sensor version, check the r
 
 ### Version 25.1.1
 
-**Release date**: 03/2025
+**Release date**: 04/2025
 
-**Supported until**: 02/2026
+**Supported until**: 03/2026
 
-This version includes bug fixes for stability improvements.
+This version includes the following updates:
+
+- Bug fixes for stability improvements
+- Enhanced 'Address Scan Detected' alert with port and protocol details for each scanned address, allowing SOC teams to investigate more efficiently without opening the PCAP.
 
 ### Version 25.1.0
 
