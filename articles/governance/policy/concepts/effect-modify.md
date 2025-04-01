@@ -1,7 +1,7 @@
 ---
 title: Azure Policy definitions modify effect
 description: Azure Policy definitions modify effect determines how compliance is managed and reported.
-ms.date: 04/08/2024
+ms.date: 03/04/2025
 ms.topic: conceptual
 ---
 

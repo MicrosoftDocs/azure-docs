@@ -131,7 +131,7 @@
       - name: Grant access to create EA subscriptions
         href: manage/grant-access-to-create-subscription.md
       - name: Change administrator
-        displayName: azure subcription owner, add user to azure subscription, azure subscription permissions, azure change account admin
+        displayName: azure subscription owner, add user to azure subscription, azure subscription permissions, azure change account admin
         href: manage/add-change-subscription-administrator.md
       - name: Switch subscription offer
         href: manage/switch-azure-offer.md
@@ -241,6 +241,8 @@
       href: manage/resolve-past-due-balance.md
     - name: Add, update, or delete payment method
       href: manage/change-credit-card.md
+    - name: Supported payment methods
+      href: manage/supported-payment-methods.md
     - name: View payment history
       href: manage/view-payment-history.md
   - name: Troubleshoot billing

@@ -270,7 +270,7 @@ $null = Invoke-Command -ScriptBlock {
     }
 
     try {
-        # Set env variable to include Windows Powershell modules so we can find
+        # Set env variable to include Windows PowerShell modules so we can find
         # the Get-WindowsFeature cmdlet.
         $env:PSModulePath = $WindowsPSModuleFolder
         # Call Windows PowerShell to get the info about the Web-Server feature

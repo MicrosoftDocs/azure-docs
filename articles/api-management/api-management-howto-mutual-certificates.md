@@ -6,7 +6,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/12/2023
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell, engagement-fy23
@@ -91,7 +91,7 @@ To delete a certificate, select it and then select **Delete** from the context m
 > [!IMPORTANT]
 > If the certificate is referenced by any policies, then a warning screen is displayed. To delete the certificate, you must first remove the certificate from any policies that are configured to use it.
 
-## Next steps
+## Related content
 
 * [How to secure APIs using client certificate authentication in API Management](api-management-howto-mutual-certificates-for-clients.md)
 * [How to add a custom CA certificate in Azure API Management](./api-management-howto-ca-certificates.md)

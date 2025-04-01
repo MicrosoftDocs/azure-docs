@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 02/26/2025
+ms.date: 04/01/2025
 ms.collection: ce-skilling-ai-copilot
 ms.custom: template-how-to, build-2024
 ---
@@ -19,16 +19,21 @@ This article shows two options to import an [Azure OpenAI Service](/azure/ai-ser
 - [Import an Azure OpenAI API directly from Azure OpenAI Service](#option-1-import-api-from-azure-openai-service) (recommended)
 - [Download and add the OpenAPI specification](#option-2-add-an-openapi-specification-to-api-management) for Azure OpenAI and add it to API Management as an OpenAPI API.
 
+Learn more about managing AI APIs in API Management:
+
+* [Generative AI gateway capabilities in Azure API Management](genai-gateway-capabilities.md)
+
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
 - An Azure OpenAI resource with a model deployed. For more information about model deployment, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
 
     Make a note of the ID (name) of the deployment. You'll need it when you test the imported API in API Management.
-- Permissions to grant access to the Azure OpenAI resource from the API Management instance.
 
     > [!NOTE]
-    > API Management policies such as [azure-openai-token-limit](azure-openai-token-limit-policy.md) and [azure-openai-emit-token-metric](azure-openai-emit-token-metric-policy.md) are supported only for certain API types exposed through specific Azure OpenAI Service models. For more information, see [Supported Azure OpenAI Service models](azure-openai-token-limit-policy.md#supported-azure-openai-service-models).
+    > API Management policies such as [azure-openai-token-limit](azure-openai-token-limit-policy.md) and [azure-openai-emit-token-metric](azure-openai-emit-token-metric-policy.md) are supported for certain API endpoints exposed through specific Azure OpenAI Service models. For more information, see [Supported Azure OpenAI Service models](azure-openai-token-limit-policy.md#supported-azure-openai-service-models).
+
+- Permissions to grant access to the Azure OpenAI resource from the API Management instance.
 
 ## Option 1. Import API from Azure OpenAI Service
 
@@ -60,12 +65,11 @@ To import an Azure OpenAI API to API Management:
     
         For example, if your API Management gateway endpoint is `https://contoso.azure-api.net`, set a **Base URL** similar to `https://contoso.azure-api.net/my-openai-api/openai`.
     1. Optionally select one or more products to associate with the API. Select **Next**.
-1. On the **Policies** tab, optionally enable policies to monitor and manage Azure OpenAI API token consumption and response caching. You can also set or edit policies later.
+1. On the **Policies** tab, optionally enable policies to monitor and manage Azure OpenAI API token consumption. You can also set or edit policies later.
 
     If selected, enter settings or accept defaults that define the following policies (see linked articles for prerequisites and configuration details):
     * [Manage token consumption](azure-openai-token-limit-policy.md)
-    * [Track token usage](azure-openai-emit-token-metric-policy.md)
-    * [Enable semantic caching](azure-openai-enable-semantic-caching.md)  
+    * [Track token usage](azure-openai-emit-token-metric-policy.md) 
     
     Select **Review + Create**.
 1. After settings are validated, select **Create**. 
@@ -140,6 +144,7 @@ To ensure that your Azure OpenAI API is working as expected, test it in the API 
 ## Related content
 
 * [Generative AI gateway capabilities in Azure API Management](genai-gateway-capabilities.md)
+* [Enable semantic caching](azure-openai-enable-semantic-caching.md) 
 * [API Management policy reference](api-management-policies.md)
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]

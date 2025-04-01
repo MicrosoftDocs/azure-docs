@@ -75,24 +75,24 @@ For the JDK requirement, we recommend you use the [Microsoft Build of OpenJDK](/
 | macOS   | Apple Silicon   | [Download][10] | [sha256][11] / [sig][12] |
 | Linux   | AArch64 / ARM64 | [Download][4]  | [sha256][5] / [sig][6]   |
 
-[1]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64-7.6.0.1-preview.tar.gz
-[2]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64-7.6.0.1-preview.tar.gz.sha256sum.txt
-[3]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64-7.6.0.1-preview.tar.gz.sig
-[4]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64-7.6.0.1-preview.tar.gz
-[5]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64-7.6.0.1-preview.tar.gz.sha256sum.txt
-[6]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64-7.6.0.1-preview.tar.gz.sig
-[7]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64-7.6.0.1-preview.tar.gz
-[8]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64-7.6.0.1-preview.tar.gz.sha256sum.txt
-[9]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64-7.6.0.1-preview.tar.gz.sig
-[10]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64-7.6.0.1-preview.tar.gz
-[11]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64-7.6.0.1-preview.tar.gz.sha256sum.txt
-[12]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64-7.6.0.1-preview.tar.gz.sig
-[13]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64-7.6.0.1-preview.zip
-[14]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64-7.6.0.1-preview.zip.sha256sum.txt
-[15]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64-7.6.0.1-preview.zip.sig
-[16]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64-7.6.0.1-preview.zip
-[17]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64-7.6.0.1-preview.zip.sha256sum.txt
-[18]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64-7.6.0.1-preview.zip.sig
+[1]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64-7.6.0.3-preview.tar.gz
+[2]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64-7.6.0.3-preview.tar.gz.sha256sum.txt
+[3]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64-7.6.0.3-preview.tar.gz.sig
+[4]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64-7.6.0.3-preview.tar.gz
+[5]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64-7.6.0.3-preview.tar.gz.sha256sum.txt
+[6]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64-7.6.0.3-preview.tar.gz.sig
+[7]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64-7.6.0.3-preview.tar.gz
+[8]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64-7.6.0.3-preview.tar.gz.sha256sum.txt
+[9]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64-7.6.0.3-preview.tar.gz.sig
+[10]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64-7.6.0.3-preview.tar.gz
+[11]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64-7.6.0.3-preview.tar.gz.sha256sum.txt
+[12]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64-7.6.0.3-preview.tar.gz.sig
+[13]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64-7.6.0.3-preview.zip
+[14]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64-7.6.0.3-preview.zip.sha256sum.txt
+[15]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64-7.6.0.3-preview.zip.sig
+[16]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64-7.6.0.3-preview.zip
+[17]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64-7.6.0.3-preview.zip.sha256sum.txt
+[18]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64-7.6.0.3-preview.zip.sig
 
 ### Prerequisites
 
@@ -360,6 +360,19 @@ Then, for each file or class affected by the incident, you can jump into the sou
 
 ## Release notes
 
+### 7.6.0.3
+
+This release contains the following fixes and enhancements.
+
+- New `--limit-code-snips` flag: Controls code snippet limits during rule evaluation (0=unlimited, -1=disable snippets).
+- Fixed missing dependency file failures in bulk analysis mode: The tool no longer aborts during bulk analysis for non-Java projects or Java projects using `--mode=source-only`.
+
+### 7.6.0.2
+
+This release contains the following fixes.
+
+- `java-removals-00150` rule is now triggering correctly.
+
 ### 7.6.0.1
 
 This release contains the following fixes and enhancements.
@@ -424,6 +437,28 @@ Previously, a set of targets were enabled by default, making it difficult for ce
 GA (Generally Available) release of Azure Migrate application and code assessment.
 
 ## Known Issues
+
+### 7.6.0.3
+
+- The flag `--overrideProviderSettings` isn't supported.
+- Rules issues:
+    - `azure-system-config-01000`, `http-session-01000` rules aren't being triggered.
+    - `FileSystem - Java IO` rule isn't being triggered.
+- Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant incidents created on Windows OS.
+- Error in Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
+- <kbd>Ctrl</kbd>+<kbd>C</kbd> fails to stop ongoing analysis. To work around, manually terminate the process by explicitly killing the process.
+- In binary analysis reports, the code snippet title shows an incorrect or non-existent file path.
+
+### 7.6.0.2
+
+- The flag `--overrideProviderSettings` isn't supported.
+- Rules issues:
+    - `azure-system-config-01000`, `http-session-01000` rules aren't being triggered.
+    - `FileSystem - Java IO` rule isn't being triggered.
+- Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant incidents created on Windows OS.
+- Error in Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
+- <kbd>Ctrl</kbd>+<kbd>C</kbd> fails to stop ongoing analysis. To work around, manually terminate the process by explicitly killing the process.
+- In binary analysis reports, the code snippet title shows an incorrect or non-existent file path.
 
 ### 7.6.0.1
 

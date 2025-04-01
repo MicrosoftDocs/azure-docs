@@ -41,7 +41,7 @@ In this section, you create a route server. Prior to creating the route server, 
     az group create --name 'myResourceGroup' --location 'eastus'
     ```
 
-1. Create a virtual network using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) command. The following example creates a default virtual network named **myVirtualNetwork** in the **EastUS** region with **RouteServerSubnet** subnet. The route server requires a dedicated subnet named *RouteServerSubnet*. Please configure a subnet size of minimum /26 or larger.
+1. The route server requires a dedicated subnet named *RouteServerSubnet*, with a minimum subnet size of /26 or larger. Create a virtual network using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) command. The following example creates a default virtual network named **myVirtualNetwork** in the **EastUS** region with **RouteServerSubnet** subnet. 
 
     ```azurecli-interactive
     # Create a virtual network and a route server subnet. 
@@ -74,7 +74,9 @@ In this section, you learn how to configure BGP peering with a network virtual a
 # Add a peer.
 az network routeserver peering create --name 'myNVA' --peer-ip '10.0.0.4' --peer-asn '65001' --routeserver 'myRouteServer' --resource-group 'myResourceGroup'
 ``` 
-
+> [!NOTE]
+> The peer name doesn't have to be the same name of the NVA.
+ 
 ## Complete the configuration on the NVA 
 
 To complete the peering setup, you must configure the NVA to establish a BGP session with the route server's peer IPs and ASN. Use [az network routeserver show](/cli/azure/network/routeserver#az-network-routeserver-show) command to get the IP and ASN of the route server.
