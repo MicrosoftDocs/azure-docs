@@ -22,7 +22,7 @@ Assuming a [Community](./what-is-a-community.md) and [Enclave](./what-is-an-encl
 
 ### Create AVD through Azure Portal into an AVE Workload
 1. [Create a Workload](docs/How-To-Guides/Create-a-Workload-in-the-Azure-Portal) with any specified name (e.g. `wl-avd-mgmt-pool`)
-2. [Deploy AVD](https://learn.microsoft.com/en-us/azure/virtual-desktop/deploy-azure-virtual-desktop?tabs=portal) to the Workload RG (`wl-avd-mgmt-pool`)
+2. [Deploy AVD](https://learn.microsoft.com/azure/virtual-desktop/deploy-azure-virtual-desktop?tabs=portal) to the Workload RG (`wl-avd-mgmt-pool`)
    - Follow the tutorial to deploy Azure Virtual Desktop. For all steps that deploy Azure resources targeting a Resource group, select the Workload RG (`wl-avd-mgmt-pool`)
 3. [Create Community Endpoint](docs/How-To-Guides/Create-a-Community-Endpoint-in-the-Azure-Portal) for necessary URL networking information
 4. [Create Enclave Endpoint](docs/How-To-Guides/Create-a-Enclave-Endpoint-in-the-Azure-Portal) for necessary IP/CIDR/port/protocol rule networking information
@@ -43,4 +43,4 @@ Assuming a [Community](./what-is-a-community.md) and [Enclave](./what-is-an-encl
 - [What is a Workload?](./what-is-a-workload.md)
 - [Azure Bastion](https://aka.ms/bastion)
 - [Azure Virtual Desktop](https://aka.ms/avd)
-- [Azure Support](https://azure.microsoft.com/en-us/support/)
+- [Azure Support](https://azure.microsoft.com/support/)

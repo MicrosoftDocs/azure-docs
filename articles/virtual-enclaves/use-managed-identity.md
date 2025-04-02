@@ -63,6 +63,6 @@ az role assignment create \
 A user-assigned managed identity is a standalone Azure resource. When you create an enclave with a user-assigned managed identity for the control plane, the user-assigned managed identity resource must exist prior to enclave creation.
 
 #### Create a user-assigned managed identity via Azure Portal
-If you don't yet have a user-assigned managed identity resource, create one using the Azure Portal. User-assigned managed identities can be assigned Azure RBAC roles in a process similar to system-assigned managed identities. [Learn more about user-assigned managed identities](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities).
+If you don't yet have a user-assigned managed identity resource, create one using the Azure Portal. User-assigned managed identities can be assigned Azure RBAC roles in a process similar to system-assigned managed identities. [Learn more about user-assigned managed identities](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities).
 
 ![A screenshot showing the ability to create user-assigned managed identities for an enclave](./media/support-msi-create.png)

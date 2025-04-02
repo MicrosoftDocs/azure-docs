@@ -16,7 +16,7 @@ When a user accesses an app through Remote App, the BannerApp displays at the to
 
 This image shows two VS Code RemoteApp windows with different banners at the top of the windows. They have different colors and text content which aligns with the enclave configuration.
 ![image-bannerApp.png](./media/image-bannerApp.png)
-There are 3 VMs running in the picture above. The desktop shown is running on the "desktopVM", the Platform VS Code app is running on the "platformVM", and the Subcontractor VS Code is running on the "subcontractorVM". Both VS Code apps are streamed to the desktop even though they are running on a separate VM. [Learn More](https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/windows)
+There are 3 VMs running in the picture above. The desktop shown is running on the "desktopVM", the Platform VS Code app is running on the "platformVM", and the Subcontractor VS Code is running on the "subcontractorVM". Both VS Code apps are streamed to the desktop even though they are running on a separate VM. [Learn More](https://learn.microsoft.com/windows-server/remote/remote-desktop-services/clients/windows)
 
 ## What do the different BannerApp colors mean?
 The color is used in conjunction with the text in the banner to denote the classification and controlled access required for the hosting information system. Please see the appropriate customer classification guides for exact meaning. Example hex code values used for the banner color include:

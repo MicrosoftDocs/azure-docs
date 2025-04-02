@@ -21,7 +21,7 @@ Use the same links that are available for Azure public but update the domain for
 
 ```
 
-# Onboarding 
+## Onboarding 
 Follow the steps below to enable Azure Virtual Enclaves within a USSEC/USNAT Subscription.
 
 1. Transfer the code below into [Pastebin](https://eng.ms/docs/cloud-ai-platform/azure-edge-platform-aep/aep-silver/sovereign-foundation-team/cloud-transfer-service/cts-onboarding/cts-portal/pastebinuserguide)**
@@ -101,7 +101,7 @@ $appId = (Get-AzADServicePrincipal -DisplayName 'Mission Enclave').AppID
 New-AzRoleAssignment -ObjectId $appId -RoleDefinitionName "Owner" -Scope "/subscriptions/$subscriptionId"
 ```
 
-# Contact Us
+## Contact Us
 
 - [Submit a bug](https://aka.ms/azve/newbug)
 - [Request a Feature](https://aka.ms/azve/newfeature)

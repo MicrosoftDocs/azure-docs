@@ -14,7 +14,7 @@ ms.date: 01/31/2025
 
 ### Community and Enclaves Template
 
-[What gets deployed](./deploy-an-ave-community-with-enclaves.md/#what-gets-deployed)
+[What gets deployed](./deploy-an-ave-community-with-enclaves.md#what-gets-deployed)
 1. One  [Community](./what-is-a-community.md)
 2. Two  [Community Endpoints](./what-is-a-community-endpoint.md)
 3. One  [Transit Hub](./what-is-a-transit-hub.md)
@@ -23,9 +23,9 @@ ms.date: 01/31/2025
 6. One  [Enclave Endpoint](./what-is-an-enclave-endpoint.md)
 7. Four  [Enclave Connections](./what-is-an-enclave-connection.md)
 
-[ARM Template](./media/code/nightly-base.json) (easiest to deploy via Portal, PowerShell, or command line)
+[ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/nightly-base.json) (easiest to deploy via Portal, PowerShell, or command line)
 
-[Bicep Template](./media/code/nightly-base.bicep) (easiest to edit and maintain then convert to ARM template before deployment)
+[Bicep Template](https://github.com/Azure/virtual-enclaves/ave-templates/nightly-base.bicep) (easiest to edit and maintain then convert to ARM template before deployment)
 
 [Deploy the template](./deploy-an-ave-community-with-enclaves.md/#deploy-the-template)
 
@@ -43,9 +43,9 @@ What gets deployed:
 
 ![image1.png](./media/ave-saca.png)
 
-[ARM Template](./media/code/ave-saca.json) (easiest to deploy via Portal, PowerShell, or command line)
+[ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-saca.json) (easiest to deploy via Portal, PowerShell, or command line)
 
-[Bicep Template](./media/code/ave-saca.bicep) (easiest to edit and maintain then convert to ARM template before deployment)
+[Bicep Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-saca.bicep) (easiest to edit and maintain then convert to ARM template before deployment)
 
 Deploy the template:
 1. Open the Azure portal, type "deploy" into the top search bar and select "Deploy a Custom Template"
@@ -69,12 +69,12 @@ What gets deployed:
 6. 11 [Enclave Endpoint](./what-is-an-enclave-endpoint.md)
 7. 25 [Enclave Connections](./what-is-an-enclave-connection.md)
 
-![image2.png](./media/AVE-demo-env.png)
+![image2.png](./media/ave-demo-env.png)
 
 
-[ARM Template](./media/code/ave-demo-env.json) (easiest to deploy via Portal, PowerShell, or command line)
+[ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-demo-env.json) (easiest to deploy via Portal, PowerShell, or command line)
 
-[Bicep Template](./media/code/ave-demo-env.bicep) (easiest to edit and maintain then convert to ARM template before deployment)
+[Bicep Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-demo-env.bicep) (easiest to edit and maintain then convert to ARM template before deployment)
 
 Deploy the template:
 1. Open the Azure portal, type "deploy" into the top search bar and select "Deploy a Custom Template"
@@ -92,7 +92,7 @@ What gets deployed:
 2. Two  [Community Endpoints](./what-is-a-community-endpoint.md)
 3. One  [Transit Hub](./what-is-a-transit-hub.md)
 
-[ARM Template](./media/code/community.json) (easiest to deploy via Portal, PowerShell, or command line)
+[ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/community.json) (easiest to deploy via Portal, PowerShell, or command line)
 
 Deploy the template:
 1. Open the Azure portal, type "deploy" into the top search bar and select "Deploy a Custom Template"
@@ -107,7 +107,7 @@ Deploy the template:
 What gets deployed:
 1. One  [Enclave](./what-is-an-enclave.md)
 
-[ARM Template](./media/code/enclave.json) (easiest to deploy via Portal, PowerShell, or command line)
+[ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/enclave.json) (easiest to deploy via Portal, PowerShell, or command line)
 
 Deploy the template:
 1. Open the Azure portal, type "deploy" into the top search bar and select "Deploy a Custom Template"
@@ -125,7 +125,7 @@ Deploy the template:
 What gets deployed:
 1. One  [Enclave Endpoint](./what-is-an-enclave-endpoint.md)
 
-[ARM Template](./media/code/endpointsv2.json) (easiest to deploy via Portal, PowerShell, or command line)
+[ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/endpointsv2.json) (easiest to deploy via Portal, PowerShell, or command line)
 
 Deploy the template:
 1. Open the Azure portal, type "deploy" into the top search bar and select "Deploy a Custom Template"
@@ -141,7 +141,7 @@ Deploy the template:
 What gets deployed:
 1. Three  [Enclave Connections](./what-is-an-enclave-connection.md)
 
-[ARM Template](./media/code/connectionsv2.json) (easiest to deploy via Portal, PowerShell, or command line)
+[ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/connectionsv2.json) (easiest to deploy via Portal, PowerShell, or command line)
 
 Deploy the template:
 1. Oopen the Azure portal, type "deploy" into the top search bar and select "Deploy a Custom Template"
@@ -162,7 +162,7 @@ Deploy the template:
 
 [What gets deployed](./deploy-an-ave-community-with-enclaves/#what-gets-deployed.md)
 
-[Bicep Template](./media/code/nightly-base.bicep) (easiest to deploy via Portal, PowerShell, or command line)
+[Bicep Template](https://github.com/Azure/virtual-enclaves/ave-templates/nightly-base.bicep) (easiest to deploy via Portal, PowerShell, or command line)
 
 [Deploy the template](./deploy-an-ave-community-with-enclaves/#deploy-the-template)
 

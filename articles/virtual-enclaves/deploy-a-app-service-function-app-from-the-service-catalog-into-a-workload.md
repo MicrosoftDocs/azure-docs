@@ -48,9 +48,9 @@ There are guardrails in the enclaves to ensure a Function App is isolated with p
 >Note this leaves space in the subnet for additional subnets. If these are the only subnets needed, they can be resized according to your needs.
 
 2. A `Key Vault` with `Customer Mananged Key (CMK)`, `User Managed Identity`, and `Disk Encryption Set`. You can create these using the [Common Dependencies Service Catalog template](/docs/How%20To%20Guides/Service%20Catalog/Deploy-common-dependencies.md).
-    - [Disk encryption options](https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption-overview)
-    - [How to create a user assigned managed identity](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp)
-    - [Manage User Assigned Identity](https://learn.microsoft.com/en-us/azure/operator-service-manager/how-to-create-user-assigned-managed-identity)
+    - [Disk encryption options](https://learn.microsoft.com/azure/virtual-machines/disk-encryption-overview)
+    - [How to create a user assigned managed identity](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp)
+    - [Manage User Assigned Identity](https://learn.microsoft.com/azure/operator-service-manager/how-to-create-user-assigned-managed-identity)
     - Create an Access Policy in the Key Vault above for this identity with the following Key Permissions: `Unwrap Key, Wrap Key, Recover, Get`
 
 ## Deploy the template
@@ -79,12 +79,12 @@ It can take 10 minutes to finish all resource creation. Wait for the deployment 
 If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the Resource Group, the whole Resource Group can be deleted.
 
 ## Recommendations
-- [Add tags](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources) to Service Catalog deployments to track important information for that resource such as:
+- [Add tags](https://learn.microsoft.com/azure/azure-resource-manager/management/tag-resources) to Service Catalog deployments to track important information for that resource such as:
 -- Owner: <main POC>
 -- Deployer: <yourName>
 -- Purpose: <publish abc app to users>
 -- Service Catalog Name: <RemoteApp>
 -- Service Catalog Version: <version you deployed>
-- Consider adding an [Azure Policy to enforce and inherit tags](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-policies)
+- Consider adding an [Azure Policy to enforce and inherit tags](https://learn.microsoft.com/azure/azure-resource-manager/management/tag-policies)
 
 

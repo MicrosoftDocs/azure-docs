@@ -35,18 +35,18 @@ Azure Virtual Enclaves provides built-in RBAC roles to control access at the **C
 |Enclave Approver       |Read-Only              |Read-Only              |Read-Only          |Read-Only          |Read-Only          |Read-Only              |Read-Only          |Approve/Reject |
 |Enclave  Reader        |X                      |X                      |Read-Only          |Read-Only          |Read-Only          |Read-Only              |Read-Only          |Read-Only     |
 
-These built-in RBAC roles can be assigned at [different scopes](https://learn.microsoft.com/en-us/azure/role-based-access-control/scope-overview) depending on the scenario. 
+These built-in RBAC roles can be assigned at [different scopes](https://learn.microsoft.com/azure/role-based-access-control/scope-overview) depending on the scenario. 
 
 For instance, an individual given a Community Owner RBAC assignment at the subscription scope would have the ability to create and/or delete Community Resources within the subscription. If the assignment is at the individual resource level of the Community itself, they would have the ability to manage endpoints and transit hubs within that individual Community. Similarly, an Enclave Owner assignment at the individual resource level would provide the ability to manage workloads, connections, and endpoints within that Enclave, but would not necessarily have access to the resource groups containing individual workloads.
 
 More on RBAC Assignment Scopes 
-https://learn.microsoft.com/en-us/azure/role-based-access-control/scope-overview
+https://learn.microsoft.com/azure/role-based-access-control/scope-overview
 
 ## RBAC for Workloads
 Each workload deployed using Azure Virtual Enclaves comes with a managed resource group. This simply means that the Virtual Enclaves service has ownership over the resource group so that means access control is managed just as other resource groups within Azure are managed today. 
 
 More on Azure RBAC.
-https://learn.microsoft.com/en-us/azure/role-based-access-control/overview
+https://learn.microsoft.com/azure/role-based-access-control/overview
 
 ## Privileged Identity Management (PIM) Integration
 Privileged access to Virtual Enclave resources can be further controlled/enforced by leveraging Azure Privileged Identity management to grant "eligibilities" as opposed to persistent access.

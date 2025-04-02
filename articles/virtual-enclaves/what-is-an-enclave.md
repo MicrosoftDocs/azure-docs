@@ -19,7 +19,7 @@ Enclaves come with the following primary platform-managed and platform-deployed 
 - [Log Analytics Workspace](../azure-monitor/logs/log-analytics-overview.md). By default, all Enclave resources are integrated into Azure Log Analytics. This integration ensures all activities within a Community and Enclave are effectively monitored, logged, and auditable. You can then use this data to form actionable insights. More specifically, all resources deployed in an Enclave send their [diagnostic platform logs](../azure-monitor/essentials/diagnostic-settings.md) to this Log Analytics Workspace.
 - [Azure Storage Account](../storage/common/storage-account-overview.md). By default and for convenience, all Enclaves are deployed with a Storage Account that can only be accessed from other hosts within the Enclave.  [Learn more about Azure Storage](../architecture/guide/technology-choices/storage-options.md).
 - [Azure Key Vault](../key-vault/general/basic-concepts.md). By default and for convenience, all Enclaves are deployed with Key Vault that can only be accessed from other hosts within the Enclave. [Learn more about how to use Azure Key Vaults](../key-vault/general/best-practices.md).
-- [Admin Workstations](./understanding-admin-workstations.md) ([Azure Virtual Machines](https://azure.microsoft.com/en-us/products/virtual-machines.md)) and [Azure Bastion](../bastion/bastion-overview.md). These resources are created by default for Enclave system administrative access.
+- [Admin Workstations](./understanding-admin-workstations.md) ([Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines.md)) and [Azure Bastion](../bastion/bastion-overview.md). These resources are created by default for Enclave system administrative access.
 - [Private Endpoints](../private-link/private-endpoint-overview.md) and [Private DNS Zones](../dns/private-dns-privatednszone.md). By default and for private networking security, Azure Private DNS Zones, along with certain private DNS records, are created for every new enclave. All platform-managed Enclave resources are configured to use Azure Private Link Service.
 
 ![Communities and Virtual Enclaves - Enclave.svg](./media/communities-and-Virtual-Enclaves---Enclave.svg)
@@ -44,7 +44,7 @@ The following resources types are deployed into the Enclave Managed Resource Gro
 - [Azure Storage Account](../storage/common/storage-account-overview.md)
 - [Azure Key Vault](../key-vault/general/basic-concepts.md)
 - [Azure Key Vaults](../key-vault/general/best-practices.md)
-- [Azure Virtual Machine](https://azure.microsoft.com/en-us/products/virtual-machines/)
+- [Azure Virtual Machine](https://azure.microsoft.com/products/virtual-machines/)
 - [Azure Bastion](../bastion/bastion-overview.md)
 - [Private Endpoints](../private-link/private-endpoint-overview.md)
 - [Private DNS Zones](../dns/private-dns-privatednszone.md)

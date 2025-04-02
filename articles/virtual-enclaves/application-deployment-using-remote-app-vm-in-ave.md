@@ -31,7 +31,7 @@ The remote app template supports scripting to automate the process of installing
     1. Get AzCopy from the [AzToolBox](/docs/Quickstarts/Application-deployment-using-MAppsCli-in-AVE). Create a [community endpoint](/docs/How-To-Guides/Create-a-Community-Endpoint-in-the-Azure-Portal) to the storage account and AzToolBox.
     
         - Note: The latest version of AzCopy.exe might not be available at deployment
-    1. Use my copy of [AzCopy.exe](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10#download-azcopy) in my Storage Account/Container.
+    1. Use my copy of [AzCopy.exe](https://learn.microsoft.com/azure/storage/common/storage-use-azcopy-v10#download-azcopy) in my Storage Account/Container.
         - Upload the AzCopy installer to the storage account at the same level as your app folder.
         - File Structure: 
             ```md
@@ -40,7 +40,7 @@ The remote app template supports scripting to automate the process of installing
                         - app folder
                         - azcopy.exe 
             ```
-        ![Picture of container](./media/RemoteApp-Container-Artifacts.png)
+        ![Picture of container](./media/remoteapp-container-artifacts.png)
         - Like the picture above, multiple app folders can be in the same container and utilize the same copy of AzCopy.exe.
 3. [Enclave connections](/docs/How-To-Guides/Create-an-Enclave-Connection-from-the-Azure-Portal) to the previously made community endpoints using IP groups `(enclave-name}`-ipg-eas and another at `{enclave-name}`-ipg-mgmt-vms.
 1. Examples: 
@@ -49,8 +49,6 @@ The remote app template supports scripting to automate the process of installing
 - Note: If the storage account is in a different enclave, create an [enclave endpoint](/docs/How-To-Guides/Create-a-Enclave-Endpoint-in-the-Azure-Portal) in the enclave with the storage account and [enclave connection](/docs/How-To-Guides/Create-an-Enclave-Connection-from-the-Azure-Portal) to that storage account.
 
 
-[Top](#table-of-contents)
-
 ### Azure Resources Deployed
 
 - Remote app example VM
@@ -58,21 +56,18 @@ The remote app template supports scripting to automate the process of installing
   - WindowsVM 
   - Windows VM Extension
 
-[Top](#table-of-contents)
 
 ### Software Deployed
 
 - Windows
 - Application of your choice
 
-[Top](#table-of-contents)
-
 ## Installation 
 
 ### Setup Storage Account
 1. Add app folder to container within storage account
-![RemoteApp Diagram Showing Install within the same enclave](./media/RemoteApp-Install-with-SA-in-Enclave.png)
-![RemoteApp Diagram Showing Install outside SA enclave](./media/RemoteApp-Install-with-SA-in-Separate-Enclaves.png)
+![RemoteApp Diagram Showing Install within the same enclave](./media/remoteapp-install-with-sa-in-enclave.png)
+![RemoteApp Diagram Showing Install outside SA enclave](./media/remoteapp-install-with-sa-in-separate-enclaves.png)
     - File Structure:
         ```md
             - artifacts container
@@ -103,7 +98,7 @@ The remote app template supports scripting to automate the process of installing
     ![Basics Tab](./media/RemoteAppVM-Basics-Tab.png)
 1. App Tab:
     - For `App folder URI` input the URI to the container. Click on an artifact within the container, copy its URI, **remove everything** after the folder name in the URI.
-        ![App Folder URI](../.../media/RemoteAppVM-App-Folder-URI.png)
+        ![App Folder URI](./media/remoteapp-vm-app-folder-uri.png)
 
         | Original URI | Fixed URI |
         | :- | :- |
@@ -129,7 +124,7 @@ The remote app template supports scripting to automate the process of installing
 Example Private Container Parameters:
 ![App Tab Parameters Completed](./media/RemoteAppVM-App-Tab-Parameters.png)
 4. Select `Review and Create`, if validations pass, select `Create`.
-5. Once resources are deployed, check to see if app is installed on application VM by connecting to the Application VM. [Connect to the Application VM](/docs/How-To-Guides/Service-Catalog/Deploy-RemoteApp-VM-from-the-Service-Catalog-into-a-Workload/#connect-to-the-application-vm)
+5. Once resources are deployed, check to see if app is installed on application VM by connecting to the Application VM. [Connect to the Application VM](./deploy-remoteapp-vm-from-the-service-catalog-into-a-workload.md#connect-to-the-application-vm)
 
 ## Additional Examples
 

@@ -1,6 +1,6 @@
 ---
-title: Attribute-Based Access Controls
-description: Attribute-Based Access Controls
+title: Attribute-Based Access Controls Overview
+description: Attribute-Based Access Controls Overview
 author: jadean-msft
 ms.author: jadean
 # ms.service: Azure Virtual Enclaves
@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 01/31/2025
 ---
 
-# Attribute-Based Access Controls
+# Attribute-Based Access Controls Overview
 
 Attribute Based Access Control (ABAC) is an access control model used in computer security and information management. In ABAC, access to resources (such as files, databases, applications, etc.) is determined based on the attributes associated with the entities involved, such as users, objects, and the environment. It is a more flexible and dynamic approach compared to traditional access control models.
 
@@ -22,7 +22,7 @@ The reason this is implemented based on location is because the work performed i
 
 When a user logs into a SAP ONLY desktop between ABAC, Network Security Groups, Firewall rules, Active Directory Permissions (RBAC), and Sentris protections, they will not be able to view or be exposed to SCI data.
 
-### Implementation Concerns
+## ABAC Implementation Concerns
 
 Azure Active Directly (AAD) limits the ability to apply 50 assigned attributes to a user. This means technically, a user will not be able to have more than 50 ABAC attribute assignments given to them. Additionally, once an attribute is exhausted on a user, there is no way to clear those up and reuse the space.
 
@@ -32,7 +32,7 @@ A secondary limitation of ABAC is the ability to assign 500 total attributes (ar
 
 > **NOTE** At this time, the attribute limits should NOT be a concern for implementation or usage in the environment. If an attribute is required, it should be created, given it follows the guidance provided in this document.
 
-### Architecture
+## Architecture
 
 The following is a high level diagram of the user flows and decisions made in the ABAC system:
 
@@ -73,14 +73,14 @@ Operational Description:
 
 The Attribute creation and assignment occur in the ABAC Portal (based on the Microsoft Personnel portal). The specific creation and assignment process are defined in the Operations documentation. However, in this section we cover the types of attributes, and how they are used to access resources in the VE.
 
-### Managed vs Assigned Attributes
+## Managed vs Assigned Attributes
 
 There are two types of attributes in the system:
 
 * **Managed**: these are built-in and managed by the system. At the moment the only Managed attribute in use is UserLocation. The system populates this with either SAPONLY or SCICAP based on the origination ip (the distribution console where the user's connection ingresses from). A managed attribute cannot be change or assigned. 
 * **Assigned**: An assigned attribute is created at the time they are needed, such as onboarding a new enclave, you might need to create a new attribute IsEnclaveUserXYZ. Attributes are then assigned to the user at the time of user creation or during regular personnel operations.An assigned attribute can be created, given range values, can be a string, number or boolean value. They can be assigned, or retired (archived).
 
-### Methodology
+## ABAC Methodology
 
 ABAC is used primarily in VE for facility awareness. And the specific methodology applied is to limit what the user can see based on what attributes they have and where they are coming from. Other than the managed UserLocation attribute, the common attributes in place are:
 
@@ -90,7 +90,7 @@ ABAC is used primarily in VE for facility awareness. And the specific methodolog
 - IsEnclaveUser[XXX] - publishes remote applications from the [XXX] enclave to the logged in users.
 - IsEnclaveAdmin[XXX] -allows enclave administrators (EA) access to the evPAWs in the [XXX] enclave.
 
-### Naming Convention
+## Naming Convention
 
 To maintain standard there is a standard naming convention to be applied to ABAC:
 
@@ -102,14 +102,14 @@ Standard convention is to also be descriptive with the names following this patt
 
 - For enclaves: IsEnclaveUser[XXX], IsEnclaveAdmin[XXX] where XXX is the name of the enclave, like Rabbit, or Tarantula.
 
-### Attribute Usage Convention
+## Attribute Usage Convention
 
 To prevent attribute exhaust defined in the overview above, the following usage is advised:
 
 - One attribute per enclave for users
 - One attribute per enclave for EAs
 
-### Implementation
+## Implementation
 
 | Attribute | Type | Description | Values | Business Rule | When to Assign/Update |
 | - | - | - | - | - | - |
@@ -124,7 +124,7 @@ To prevent attribute exhaust defined in the overview above, the following usage 
 
 The specific steps for creating an ABAC rule are covered in the Operation documentation. This section covers the methodology for currently implemented rules, how the rules engine works, when rules should be created, and how they get applied.
 
-### Methodology and Application
+## Methodology and Application
 
 The ABAC rules engine works by evaluating all the attributes for the user as they sign into Azure AD. Each rule criteria is evaluated to the users applied attributes, and all the rules that resolve to TRUE will result in the users account being added to a specific Azure Active Directory Group. 
 
@@ -134,11 +134,11 @@ Additionally, these groups are added to the Azure Virtual Desktop (AVD) host poo
 
 Therefore, when a user logs in, and ABAC assigned then to a managed group, and that managed group is assigned to a specific host pool in AVD, the desktops or applications in those host pool will be available to the user.
 
-### Rules and AAD Managed Group Creation
+## Rules and AAD Managed Group Creation
 
 Rules should be created at specific times, such as when a new enclave is bing on boarded. At this time you will determine which attributes need to be created for the enclave, such as IsEnclaveUser and IsEnclaveAdmin. You will laos need to create an AAD Group. This section covers these steps.
 
-#### Create AAD Group
+### Create AAD Group
 
 To begin, you need to create an Azure AD Group. The following naming rules should be used:
 
@@ -155,7 +155,7 @@ Some Examples:
 - ABAC_SAP_ONLY_COMMON_DESKTOP_USERS
 - ABAC_SAP_ONLY_TARANTULA_EVPAW_ADMINS
 
-### Implementation
+## Implementation
 
 | Rule | Type | Description | Logic Statement | Associated AAD Group |
 | - | - | - | - | - |
@@ -165,7 +165,7 @@ Some Examples:
 | SAP ONLY evPAWs | **evPAW Desktop** or cloud service types | limits access for Enclave Admins to the evPAW in their enclave from SAP ONLY locations | CurrentLocation == SAP_ONLY && IsEnclaveRabbitAdmin == TRUE | ABAC_SAP_ONLY_RABBIT_EVPAW_ADMIN |
 | SCI evPAWs | **evPAW Desktop** or cloud service types | limits access for Enclave Admins to the evPAW in their enclave from SCI SAP locations | CurrentLocation == SCI_SAP && IsSciBriefed == TRUE && IsEnclaveRabbitAdmin == TRUE | ABAC_SCISAP_RABBIT_EVPAW_ADMIN | 
 
-#### Standards for Rules and Criteria
+### Standards for Rules and Criteria
 
 The specifics for creating rules are covered in the ABAC Operation documentation, this section covers the standard for building rules. Rule criteria need to be readable from top to bottom in the following order:
 
@@ -191,23 +191,7 @@ When assigning users, it is important to make sure you are applying the correct 
 > Eric has both a standard user and an enclave admin account, he is SCI Briefed and needs to access the enclave evPAW and the common desktop. You will setup Eric's accounts as follows:
 > - ERIC.EA: IsEnclaveRabbitAdmin == TRUE, IsSCIBriefed == TRUE
 > - ERIC (Standard user): IsEnclaveRabbitUser == TRUE, IsCommonDesktopUser == TRUE, IsSCIBriefed == TRUE
->
 
-### Diagrams
-
-The following section are some conceptual diagrams for how each of these attributes and rules are designed with the current implementation.
-
-#### Common Desktop + Rabbit Enclave (Common Users, SCI/SAP + SAP ONLY)
-
-![common+rabbit.png](./media/common+rabbit-81453e59-a6d3-4541-9194-e3837be42f89.png)
-
-##### vPAW (SA/DA Admins, SCI/SAP)
-
-![vPAW.png](./media/vPAW-149de6b9-1862-4707-8c14-4b2f88eee092.png)
-
-#### evPAW - (Rabbit EA's, SCI/SAP and SAP ONLY)
-
-![evPAW.png](./media/evPAW-2894b3c8-89d8-4775-bf26-911a9776ba54.png)
 
 ## ABAC Reporting
 

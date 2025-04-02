@@ -207,5 +207,5 @@ KV access is restricted to the KV VNET so the KV Key will need to be created fro
 ## References
 - [Disk Encryption](../virtual-machines/disk-encryption-overview.md)
 Read More:
-- [Generate Keys on Windows](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement)
+- [Generate Keys on Windows](https://learn.microsoft.com/windows-server/administration/openssh/openssh_keymanagement)
 - [Configure Key Vault for Storage Account CMK](../storage/common/customer-managed-keys-configure-new-account.md)

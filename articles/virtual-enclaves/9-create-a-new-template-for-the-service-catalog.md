@@ -56,7 +56,8 @@ Service Catalog deployment publishing in AVE leverages the [Custom Template Depl
 | Description | A description of the template to help the user distinguish what it will create. | string |
 | changelogLink | A link to the template changelog. Helps the user decide which version to use. | string |
 | tabGroups | A list of tab group. Adding this list creates the order of the tabGroups (that you should supply in the tabGroup parameter metadata mentioned in step 4) | string[] |
-4. Add parameter metadata to assist in the creation of the [CreateUIDefinition](#createUIDefinition) file. All of this metadata is optional but provides for a more familiar user experience from the portal.
+
+4. Add parameter metadata to assist in the creation of the [CreateUIDefinition](#createuidefinition) file. All of this metadata is optional but provides for a more familiar user experience from the portal.
 
 | Name | Description | Value |
 |:--|:--|:--|
@@ -65,6 +66,7 @@ Service Catalog deployment publishing in AVE leverages the [Custom Template Depl
 | required | Whether the user needs to input a value in order to validate/deploy. | Boolean |
 | tabGroup | Optional, The tab group that the parameter belongs to, default is Basics. Some examples include: Basics, Networking, Monitoring | string |
 | hidden | Optional, Hides the parameter on the parameter input page so that the use is not prompted for it in the UI. This is commonly used with functions like utcNow(). Default is false | Boolean |
+
 5. Don't use prefix/suffix convention that is specific to PLx enclaves. (Arc Rangers)
 
 ### Template metadata
@@ -256,7 +258,7 @@ param networkingRgName string
 
 ### Make accessible
 
-Upload your template to your [Catalog](./service-catalog.md) storage account.
+Upload your template to your [Service Catalog](./what-is-the-service-catalog.md) storage account.
 
 You can create a bicep which you should build into ARM before placing in your storage account, or you can start with an ARM template. 
 

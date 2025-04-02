@@ -4,7 +4,7 @@ description: Air-Gapped Onboarding
 author: jadean-msft
 ms.author: jadean
 # ms.service: Azure Virtual Enclaves
-ms.topic: How To Guides
+ms.topic: how-to-guides
 ms.date: 01/31/2025
 ---
 
@@ -28,14 +28,14 @@ This guide provides the steps to onboard to Azure Virtual Enclaves (AVE) in air-
 4. Open the "**Preview Features**" blade (under "Settings")
 5. Filter by "**AVE**", select "**Azure Virtual Enclaves Preview**", and click "**Register**" towards the top of the page.
    ![image-2024-05-17_131235](./media/image-2024-05-17_131235.png)
-6. Message your AVE point of contact or the [AVE Product team](vepm@microsoft.com) to get approval
+6. Message your AVE point of contact or the AVE Product team at vepm@microsoft.com to get approval
 7. Once you get approval, proceed to [next steps](#next-steps).
 
 ### Powershell
 
 You can run the following code to quickly register all required resource providers to begin using AVE.
 1. In the Azure Portal, select the `Cloud Shell` icon at the top of the window here ![image](./media/Portal-cloud-shell-link.png)
-1. [Set context](https://learn.microsoft.com/en-us/powershell/azure/context-persistence?view=azps-12.3.0#create-a-new-azure-context-from-subscription-information) to the subscription you registered above.
+1. [Set context](https://learn.microsoft.com/powershell/azure/context-persistence?view=azps-12.3.0#create-a-new-azure-context-from-subscription-information) to the subscription you registered above.
 1. Transfer the script below into the air-gapped enviroment using [Pastebin](https://eng.ms/docs/cloud-ai-platform/azure-edge-platform-aep/aep-silver/sovereign-foundation-team/cloud-transfer-service/cts-onboarding/cts-portal/pastebinuserguide)**
 
 ```Powershell
@@ -114,7 +114,7 @@ Note: You may also need to enable a Feature on the subscription (specifically, t
 
 Then proceed to [next steps](#next-steps)
 
-# Next Steps
+## Next Steps
 
 1. Once the above steps have been completed, the Azure Virtual Enclaves Resource provider can begin deploying resources into your subscription on your behalf.
 
@@ -133,4 +133,4 @@ Then proceed to [next steps](#next-steps)
 
 4. Create resources within your workload(s) to meet your objectives.
    1. Create resources from the [Service Catalog](/docs/overview/List-of-Service-Catalog-Templates)
-   1. Create resources with an [ARM template](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-to-resource-group?tabs=azure-cli) or [bicep template](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/deploy-to-resource-group?tabs=azure-cli) from [these examples](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts)
+   1. Create resources with an [ARM template](https://learn.microsoft.com/azure/azure-resource-manager/templates/deploy-to-resource-group?tabs=azure-cli) or [bicep template](https://learn.microsoft.com/azure/azure-resource-manager/bicep/deploy-to-resource-group?tabs=azure-cli) from [these examples](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts)

@@ -10,17 +10,17 @@ ms.date: 01/31/2025
 
 # Upgrade Enclave Key Vault SKU
 
-There are several types of [encryption](https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption-overview) available for securing your data on managed disks and other Azure PaaS services, including Azure Disk Encryption (ADE), Server-Side Encryption (SSE) and encryption at host.
+There are several types of [encryption](https://learn.microsoft.com/azure/virtual-machines/disk-encryption-overview) available for securing your data on managed disks and other Azure PaaS services, including Azure Disk Encryption (ADE), Server-Side Encryption (SSE) and encryption at host.
 
 In accordance with Azure Virtual Enclaves (AVE) default [governance and cybersecurity posture](/docs/concepts/governance/Governance) requires customer-managed-key encryption for all resources deployed in an 
 [enclave](./what-is-an-enclave.md).
 
 Every [enclave](./what-is-an-enclave.md) is deployed with an [Azure Key Vault](https://aka.ms/kv) with Standard SKU. Azure Key Vault is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys. By default, Enclave Contributors should be able to upload keys, secrets, or certificates to the Enclave Key Vault and utilize existing Azure capabilities and design patterns of other Azure services to support CMK encryption.
 
-Certain customers also have unique key management, security, encryption, or hardware requirements that dictate what Azure Key Vault SKU should be deployed. [Learn more](https://learn.microsoft.com/en-us/azure/security/fundamentals/key-management-choose).
+Certain customers also have unique key management, security, encryption, or hardware requirements that dictate what Azure Key Vault SKU should be deployed. [Learn more](https://learn.microsoft.com/azure/security/fundamentals/key-management-choose).
 
 ## Upgrade/Downgrade Enclave SKU Key Vault through PowerShell
-The steps below can be followed for scenarios where Enclave Owners require a different Key Vault SKU than the SKU currently configured for their enclave. If Enclave Owners require a Managed, Dedicated, or Payment HSM, AVE advises Enclave Owners to [Deploy a Managed HSM as a Workload](#deploy-a-managed-hsm-as-a-workload). Learn more about [Azure Key Vault PowerShell modules](https://learn.microsoft.com/en-us/powershell/module/az.keyvault/?view=azps-11.4.0). 
+The steps below can be followed for scenarios where Enclave Owners require a different Key Vault SKU than the SKU currently configured for their enclave. If Enclave Owners require a Managed, Dedicated, or Payment HSM, AVE advises Enclave Owners to [Deploy a Managed HSM as a Workload](#deploy-a-managed-hsm-as-a-workload). Learn more about [Azure Key Vault PowerShell modules](https://learn.microsoft.com/powershell/module/az.keyvault/?view=azps-11.4.0). 
 
 1. Select the enclave that has the key vault you wish to upgrade or downgrade
 2. Select the managed resource group in the Essentials section

@@ -24,7 +24,7 @@ ms.date: 01/31/2025
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- A [resource manager template](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview.md) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment.
+- A [resource manager template](https://learn.microsoft.com/azure/azure-resource-manager/templates/overview.md) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment.
 
 - If your environment meets the prerequisites and you're familiar with ARM templates, select Deploy to Azure to open the template in the Azure portal.
 
