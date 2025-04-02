@@ -65,7 +65,7 @@ sections:
       - question: |
           Important details about ThreadPool growth
         answer: |
-          The CLR ThreadPool has two types of threads - "Worker" and "I/O Completion Port" (IOCP) threads.
+          The CLR ThreadPool has two types of threads - _Worker_ and _I/O Completion Port_ (IOCP) threads.
           
           - Worker threads are used for things like processing the `Task.Run(…)`, or `ThreadPool.QueueUserWorkItem(…)` methods. These threads are also used by various components in the CLR when work needs to happen on a background thread.
           - IOCP threads are used when asynchronous IO happens, such as when reading from the network.
@@ -88,18 +88,18 @@ sections:
           WORKER: (Busy=3,Free=997,Min=4,Max=1000)
           ```
           
-          As shown In the example, you see that for IOCP thread there are six busy threads and the system is configured to allow four minimum threads. In this case, the client would see two 500-ms delays, because 6 > 4.
+          As shown in the example, you see that for IOCP thread there are six busy threads and the system is configured to allow four minimum threads. In this case, the client would see two 500-ms delays, because 6 > 4.
           
           > [!NOTE]
           > StackExchange.Redis can hit timeouts if growth of either IOCP or WORKER threads gets throttled.
  
           ### Recommendation
  
-          Wwe strongly recommend that customers set the minimum configuration value for IOCP and WORKER threads to something larger than the default value. We can't give one-size-fits-all guidance on  this value because the right value for one application can be too high or low for another application. This setting can also affect the performance of other parts of complicated applications. Each customer needs to fine-tune this setting to their specific needs. A good starting place is 200 or 300, then test and tweak as needed.
+          We recommend that customers set the minimum configuration value for IOCP and WORKER threads to something larger than the default value. We can't give one-size-fits-all guidance on  this value because the right value for one application can be too high or low for another application. This setting can also affect the performance of other parts of complicated applications. Each customer needs to fine-tune this setting to their specific needs. A good starting place is 200 or 300, then test and tweak as needed.
           
           How to configure this setting:
           
-          _ We recommend changing this setting programmatically by using the [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) method in .NET Framework and .NET Core applications.
+          We recommend changing this setting programmatically using the [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) method in .NET Framework and .NET Core applications.
           
           For example, in NET Framework, you set it in `Global.asax.cs` in the `Application_Start` method:
               
@@ -115,7 +115,7 @@ sections:
                   ThreadPool.SetMinThreads(minThreads, minThreads);
               }
               ```
-            If you ae using .NET Core, you would set it in `Program.cs`, just before the call to `WebApplication.CreateBuilder()`:
+          If you are using .NET Core, you set it in `Program.cs`, just before the call to `WebApplication.CreateBuilder()`:
               
               ```csharp
               const int minThreads = 200
@@ -129,12 +129,12 @@ sections:
             > The value specified by this method is a global setting, affecting the whole AppDomain. For example, if you have a machine with four cores and want to set `minWorkerThreads` and `minIoThreads` to 50 per CPU during run-time, use `ThreadPool.SetMinThreads(200, 200)`.
             >
           
-          - It's also possible to specify the minimum threads setting by using the `minIoThreads`` or `minWorkerThreads` [configuration setting](/previous-versions/dotnet/netframework-4.0/7w2sway1(v=vs.100)) under the `processModel` configuration element in `Machine.config`. `Machine.config` is typically located at `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. 
+          It's also possible to specify the minimum threads setting by using the `minIoThreads`` or `minWorkerThreads` [configuration setting](/previous-versions/dotnet/netframework-4.0/7w2sway1(v=vs.100)) under the `<processModel>` configuration element in `Machine.config`. `Machine.config` is typically located at `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. 
           
-          Setting the number of minimum threads in this way isn't recommended because it's a System-wide setting.
+          Setting the number of minimum threads in this way isn't recommended because it's a system-wide setting. If you do set it this way, you must restart the application pool.
           
             > [!NOTE]
-            > The value specified in this configuration element is a _per-core_ setting. For example, if you have a machine with four cores and want your `minIoThreads` setting to be 200 at runtime, you would use `processModel minIoThreads="50"`.
+            > The value specified in this configuration element is a _per-core_ setting. For example, if you have a machine with four cores and want your `minIoThreads` setting to be 200 at runtime, you would use `\<processModel minIoThreads="50"\>`.
             >
           
       - question: |
