@@ -153,7 +153,7 @@ Download a specific template by using the name found in the inventory above (e.g
     az deployment group create --resource-group <resource-group-name> --template-file ./<template-downloaded-name> --parameters ./<parameter-file-name>
     ```
 
-    Below you can see the complete script for deploying a Template from the Service Catalog
+    This script is for deploying a Template from the Service Catalog
     
     ```
     az storage blob list --account-name <storage-account-name> --container-name servicecatalog --query '[].{Name:name}'

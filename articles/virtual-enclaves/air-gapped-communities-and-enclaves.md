@@ -22,11 +22,11 @@ Use the same links that are available for Azure public but update the domain for
 ```
 
 ## Onboarding 
-Follow the steps below to enable Azure Virtual Enclaves within a USSEC/USNAT Subscription.
+Follow these steps to enable Azure Virtual Enclaves within a USSEC/USNAT Subscription.
 
-1. Transfer the code below into [Pastebin](https://eng.ms/docs/cloud-ai-platform/azure-edge-platform-aep/aep-silver/sovereign-foundation-team/cloud-transfer-service/cts-onboarding/cts-portal/pastebinuserguide)**
+1. Transfer the script into [Pastebin](https://eng.ms/docs/cloud-ai-platform/azure-edge-platform-aep/aep-silver/sovereign-foundation-team/cloud-transfer-service/cts-onboarding/cts-portal/pastebinuserguide)**
 
-1. Log in to a VM with access to USSEC/USNAT, use the bookmarks in edge to navigate to Pastebin and copy the script.
+1. Log in to a virtual machine with access to USSEC/USNAT, use the bookmarks in edge to navigate to Pastebin and copy the script.
 
 1. Open Powershell ISE/VS Code and paste the script into it.
 

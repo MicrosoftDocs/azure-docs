@@ -20,7 +20,7 @@ Every [enclave](./what-is-an-enclave.md) is deployed with an [Azure Key Vault](h
 Certain customers also have unique key management, security, encryption, or hardware requirements that dictate what Azure Key Vault SKU should be deployed. [Learn more](https://learn.microsoft.com/azure/security/fundamentals/key-management-choose).
 
 ## Upgrade/Downgrade Enclave SKU Key Vault through PowerShell
-The steps below can be followed for scenarios where Enclave Owners require a different Key Vault SKU than the SKU currently configured for their enclave. If Enclave Owners require a Managed, Dedicated, or Payment HSM, AVE advises Enclave Owners to [Deploy a Managed HSM as a Workload](#deploy-a-managed-hsm-as-a-workload). Learn more about [Azure Key Vault PowerShell modules](https://learn.microsoft.com/powershell/module/az.keyvault/?view=azps-11.4.0). 
+These steps can be followed for scenarios where Enclave Owners require a different Key Vault SKU than the SKU currently configured for their enclave. If Enclave Owners require a Managed, Dedicated, or Payment HSM, AVE advises Enclave Owners to [Deploy a Managed HSM as a Workload](#deploy-a-managed-hsm-as-a-workload). Learn more about [Azure Key Vault PowerShell modules](https://learn.microsoft.com/powershell/module/az.keyvault/?view=azps-11.4.0). 
 
 1. Select the enclave that has the key vault you wish to upgrade or downgrade
 2. Select the managed resource group in the Essentials section

@@ -42,7 +42,7 @@ You can also ensure that the private link resolves to an IP address by running:
 nslookup <insert the name of your private link>
 ```
 
-In your PowerShell window. This should return an IP address (using `privatelink.azurewebsites.us` as the name of the private link):
+In your Powershell window. This should return an IP address (using `privatelink.azurewebsites.us` as the name of the private link):
 
 ## References
 - [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)

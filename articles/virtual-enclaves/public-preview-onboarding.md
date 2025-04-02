@@ -10,7 +10,7 @@ ms.date: 01/31/2025
 
 # Public Preview Onboarding
 
-Thank you for your interest in the Azure Virtual Enclaves Public Preview Program! Please follow the guidance below to get onboard an Azure Subscription to Azure Virtual Enclaves. If you experience any issues with onboarding your subscription to Azure Virtual Enclaves, please submit a bug to the product group using the link below:
+Thank you for your interest in the Azure Virtual Enclaves Public Preview Program! Follow this guidance to get onboard an Azure Subscription to Azure Virtual Enclaves. If you experience any issues with onboarding your subscription to Azure Virtual Enclaves, submit a bug to the product group using the link below:
 - [Submit a Bug](https://aka/ms/ave/newbug)
 
 ## Prerequisites
@@ -25,7 +25,7 @@ Thank you for your interest in the Azure Virtual Enclaves Public Preview Program
 
 ### Azure portal
 
-1. Login to your Azure tenant and open the subscription resource
+1. Log in to your Azure tenant and open the subscription resource
 2. Open the "**Resource Providers**" blade (under "Settings")
 3. Search for and select "**Microsoft.Mission**" and click "**Register**".
    ![image3.png](./media/image-bc93cf2b-050e-4eff-b61e-8afbb05d4ac2.png)
@@ -40,7 +40,7 @@ Thank you for your interest in the Azure Virtual Enclaves Public Preview Program
 You can run the following code to quickly register all required resource providers to begin using AVE.
 1. In the Azure portal, select the `Cloud Shell` icon at the top of the window here ![image](./media/Portal-cloud-shell-link.png)
 2. [Set context](https://learn.microsoft.com/powershell/azure/context-persistence#create-a-new-azure-context-from-subscription-information) to the subscription you registered above.
-3. Copy and past the code below into the Cloud Shell and press enter.
+3. Copy and paste this code into the Cloud Shell and press enter.
 
 ```
 # Register the Azure Virtual Enclaves Resource Provider and grant contributor permissions to the Resource Provider
@@ -93,7 +93,7 @@ $resourceProviders | foreach {Register-AzResourceProvider -ProviderNamespace $_ 
 
 $subID = (Get-AzContext).subscription.id
 $objectId = (Get-AzADServicePrincipal -DisplayName "Mission Enclave").Id
-# This PowerShell command assigns the "Contributor" role to a specified user or service principal within a given Azure subscription.
+# This Powershell command assigns the "Contributor" role to a specified user or service principal within a given Azure subscription.
 # 
 # Parameters:
 # - $objectId: The Object ID of the user or service principal to which the role will be assigned.

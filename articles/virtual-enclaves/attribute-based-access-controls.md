@@ -63,7 +63,7 @@ Operational Description:
 > 
 > The SAP ONLY DESKTOP rule then applies to the user and their user account is assigned to the ABAC_SAP_ONLY_DESKTOP_USERS group. When the Azure Virtual Desktops page loads, they will only see the SAP ONLY Common Desktop to log into.
 
-> **NOTE** All the applied rules will run for the user **at login** and all assignments to AAD groups will occur at that time. So, another set of rules that will apply to the user at this time are the Remote Application Rules (such as IsEnclaveUserRabbit).  
+> **NOTE** All the applied rules will run for the user **at log in** and all assignments to AAD groups will occur at that time. So, another set of rules that will apply to the user at this time are the Remote Application Rules (such as IsEnclaveUserRabbit).  
 
 8. Once in the common desktop a user will then be able to access their assigned enclave applications.
 
@@ -113,7 +113,7 @@ To prevent attribute exhaust defined in the overview above, the following usage 
 
 | Attribute | Type | Description | Values | Business Rule | When to Assign/Update |
 | - | - | - | - | - | - |
-| CurrentLocation | Managed | stores the IP address of the user's location, which is based on the TTC DC IP | USNAT: either SAR-Only IP, or SAR/SCI IP | Location automatically captured at login | Automatically On Account Login |
+| CurrentLocation | Managed | stores the IP address of the user's location, which is based on the TTC DC IP | USNAT: either SAR-Only IP, or SAR/SCI IP | Location automatically captured at log in | Automatically On Account log in |
 | IsSciBriefed | Assigned | Denotes the user has SCI Briefing and allowed to access the system from a SCIF | T/F | True if user is SCI Briefed | Assigned at Account Creation |  
 | IsCommonDesktopUser | Assigned | Give users access to the Common Desktop (in general, scope for SAP/SCI Common Desktop combined with CurrentLocation) | T/F | True if the user is a common desktop user. | Assigned at Account Creation |
 | IsvPAWAdmin | Assigned | Gives users with SA or DA accounts to the Common vPAWs | T/F | True if the user account is SA/DA | Assigned at account creation |
@@ -201,7 +201,7 @@ This section is TBD
 
 This section is TBD
 
-#### User Login and Assignments
+#### User Log in and Assignments
 
 This section is TBD
 

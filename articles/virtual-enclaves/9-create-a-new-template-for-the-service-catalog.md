@@ -48,7 +48,7 @@ Priorities
 Service Catalog deployment publishing in AVE leverages the [Custom Template Deployment experience using the Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). There are a few recommended guidelines to follow when creating Service Catalog templates that will make it easier to integrate and style the UX.
 
 1. Parameters should all be individual elements and not objects.
-2. Consider using `variables` when possible, for parameters that should not be changed in the Virtual Enclaves product. (Arc Rangers)
+2. Consider using `variables` when possible, for parameters that shouldn't be changed in the Virtual Enclaves product. (Arc Rangers)
 3. Consider adding template level metadata
 
 | Name | Description | Value |
@@ -65,7 +65,7 @@ Service Catalog deployment publishing in AVE leverages the [Custom Template Depl
 | displayName | A readable name for the parameter, what the user will see. | string |
 | required | Whether the user needs to input a value in order to validate/deploy. | Boolean |
 | tabGroup | Optional, The tab group that the parameter belongs to, default is Basics. Some examples include: Basics, Networking, Monitoring | string |
-| hidden | Optional, Hides the parameter on the parameter input page so that the use is not prompted for it in the UI. This is commonly used with functions like utcNow(). Default is false | Boolean |
+| hidden | Optional, Hides the parameter on the parameter input page so that the use isn't prompted for it in the UI. This is commonly used with functions like utcNow(). Default is false | Boolean |
 
 5. Don't use prefix/suffix convention that is specific to PLx enclaves. (Arc Rangers)
 
@@ -119,7 +119,7 @@ Additional parameter metadata should be added to help the user in the UI.
 | displayName | A readable name for the parameter, what the user will see. | string |
 | required | Whether the user needs to input a value in order to validate/deploy. | Boolean |
 | tabGroup | Optional, The tab group that the parameter belongs to, default is Basics | string |
-| hidden | Optional, Hides the parameter on the parameter input page so that the use is not prompted for it in the UI. This is commonly used with functions like utcNow(). Default is false | Boolean |
+| hidden | Optional, Hides the parameter on the parameter input page so that the use isn't prompted for it in the UI. This is commonly used with functions like utcNow(). Default is false | Boolean |
 
 For example:
 
@@ -173,7 +173,7 @@ param publishApp bool = true
 
 ### Groupings
 
-- If you would like to group some of your parameters, you will have to add `tabGroups` and assign groups to parameters. 
+- If you would like to group some of your parameters, you'll have to add `tabGroups` and assign groups to parameters. 
 - In the schema metadata, add a list of your tab groups. If no tab groups are supplied, there will just be a Basics tab.
 
 For example:
@@ -201,7 +201,7 @@ metadata tabGroups = ['Basics', 'Enclave', 'Advanced', 'Publish']
 
 ```
 
-For each parameter, set a `tabGroup` in the metadata (if a tab group is not set, 'Basics' will be used). 
+For each parameter, set a `tabGroup` in the metadata (if a tab group isn't set, 'Basics' will be used). 
 
 For example
 
@@ -253,7 +253,7 @@ param networkingRgName string
 
 ### Ordering
 
-- Parameters will be sorted by group and display in the order they are given.
+- Parameters will be sorted by group and display in the order they're given.
 - Group tabs will be ordered by the given list.
 
 ### Make accessible
@@ -281,7 +281,7 @@ We pre-populate some enclave parameter values, based on the parameter name. The 
 - userAssignedIdentityResourceGroupName
 - logAnalyticsWorkspaceResourceGroupName
 
-If you are using an enclave paramater, please make your parameter key one of the above. If it doesn't match any of the options above, reach out to someone on the service catalog team to add it. 
+If you are using an enclave paramater, make your parameter key one of the above. If it doesn't match any of the options above, reach out to someone on the service catalog team to add it. 
 
 ## Tags
 The created CreateUiDefinition uses a TagsByResource element that allows you to tag each resource. You'll want to get tags from each resource in the following way: 
@@ -307,11 +307,11 @@ param currentDateTime string = utcNow()
 ```
 
 Note: this creates a tags parameters. the date time is going to be used for our default tag. 
-In order to get this, we use utcNow(), which can only be used in the parameters. We are hiding it so it is not displayed to the user. 
+In order to get this, we use utcNow(), which can only be used in the parameters. We're hiding it so it isn't displayed to the user. 
 
 
 
-2. Create a default tag, and get tags for each resource type that does not say existing (example for storage account)
+2. Create a default tag, and get tags for each resource type that doesn't say existing (example for storage account)
 ```
 var storageAccountTags = contains(tags, 'Microsoft.Storage/storageAccounts') ? tags['Microsoft.Storage/storageAccounts'] : {}
 
@@ -331,7 +331,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2021-06-01' = {
   tags: union(defaultTag, storageAccountTags)
  ```
  
- Note: if the tag has a squigly under it, that means that type does not use tags, so don't add a tag variable to that. 
+ Note: if the tag has a squigly under it, that means that type doesn't use tags, so don't add a tag variable to that. 
  
  For resources that have a path instead of a type, for example: 
  ```
@@ -347,13 +347,13 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2021-06-01' = {
 
 A [CreateUIDefinition.json](../azure-resource-manager/managed-applications/create-uidefinition-overview.md) is used in combination with the resource template for building and styling user interface elements in the Custom Template Deployment. It follows a standard create experience from the Azure portal. 
 
-The `SC Owner` has created helper scripts to facilitate the creation of the CreateUIDefintion.json file using the template parameters and its metadata. If the CreateUIDefinition.json file does not exist for a service, the user experience will be more limited.
+The `SC Owner` has created helper scripts to facilitate the creation of the CreateUIDefintion.json file using the template parameters and its metadata. If the CreateUIDefinition.json file doesn't exist for a service, the user experience will be more limited.
 
 See more details on the creation of the CreateUIDefinition file in our readme [Styling.md](https://msazure.visualstudio.com/Project-Honeycomb/_git/heather?path=/src/bicep/enclave/servicecatalog/docs/Styling.md&version=GBmain&_a=preview).
 
 ### Required
 
-Here is the pipeline that transfers the Service Catalog artifacts (service template compiled to ARM, CreateUIDefinition.json) to the storage account used in all environments:
+Here's the pipeline that transfers the Service Catalog artifacts (service template compiled to ARM, CreateUIDefinition.json) to the storage account used in all environments:
 https://msazure.visualstudio.com/Project-Honeycomb/_git/heather?path=/src/bicep/enclave/servicecatalog
 
 ## Exemptions

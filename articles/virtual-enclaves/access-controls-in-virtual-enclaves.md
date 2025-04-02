@@ -62,7 +62,7 @@ Azure Virtual Enclaves leverages hierarchical IAM settings to define roles and p
 
 ### **Scenario 3: Dynamic Group Management**
 - A personnel group for database administrators is created in the Personnel Portal.  
-- Membership is dynamically updated in Entra ID to grant these administrators access to workloads with Azure SQL resources.  
+- Membership is dynamically updated in Entra ID to grant administrator access to workloads with Azure SQL resources.  
 - Members lose access automatically if they no longer meet compliance requirements.
 
 ### **Scenario 4: Elevated Access for Emergency Troubleshooting**
@@ -80,7 +80,7 @@ Azure Virtual Enclaves (AVE) includes a set of built-in **Role-Based Access Cont
 
 ### **AVE Built-in Roles**
 
-These roles are scoped specifically for AVE and do not overlap with permissions for Azure networking, firewall, or virtual WAN components. Below are the key AVE RBAC roles and their descriptions:
+These roles are scoped specifically for AVE and do not overlap with permissions for Azure networking, firewall, or virtual WAN components. These are the key AVE RBAC roles and their descriptions:
 
 #### **Community-Level Roles**
 - **Community Owner**  
@@ -138,18 +138,18 @@ Environment Structure:
    - **Community Viewer** role assignment is created at the Community-Level Security Auditor to view/analyze endpoints and connections within the Community.
    - **Azure Firewall Contributor** role assignment is created at the Security Administrator for configuring firewall policies.
 
-2. **Enclave Administration** - AVE Built-in role assignments set the :  
+2. **Enclave Administration** - AVE Built-in role assignments set the:  
    - **Enclave Owner** Mission/Network Owners that need to deploy workloads, endpoints, and connections for one or more enclaves.
    - **Enclave Viewer** Security Auditor to view and analyze endpoints and connections within the enclave.
    - **Network Contributor** Network Engineer for updating underlying NSG rules within the enclave’s virtual network in a break-glass scenario.
 
 3. **Workload Administration**:
     - **Virtual Machine Contributor** Platforms Engineers to deploy and configure virtual machines.
-    - **Storage Blob Contributor** Data Engineers to store and process sensetive data.
+    - **Storage Blob Contributor** Data Engineers to store and process sensitive data.
     - **Viewer** Security Auditors to analyze and validate an individual workloads output.
 
-4. **Individual Resource Administration**
-    - **Virtual Machine User Access Administrator** role assignment for lo
+4. **Workload Administration**
+    - **User Access Administrator** role to manage user access to Azure resources.
 ---
 
 AVE’s built-in RBAC roles streamline permissions for managing AVE-specific resources while Azure’s existing roles provide the necessary access for the underlying infrastructure. This separation ensures clear boundaries and simplifies role assignments across your organization.

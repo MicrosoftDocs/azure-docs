@@ -14,16 +14,16 @@ Moving Azure resources into an enclave is very similar to [moving resources to a
 
 It's important to note that the following considerations still apply when moving resources into an Enclave or Workload:
 - Locked resources or resource groups cannot be moved
-- Source and target resource groups (if using Azure Portal, REST, Azure CLI, or Azure PowerShell Resource group move operations) are temporarily locked during the move operations
+- Source and target resource groups (if using Azure portal, REST, Azure CLI, or Azure PowerShell Resource group move operations) are temporarily locked during the move operations
 - Setting up new dependent resources will incur interruptions to those resources until they have been reconfigured
 - Moving resources only moves those resources to a new resource group or subscription. It does not change the location of the resource.
 
 ## Checklist before moving resources
-For a more exhaustive and detailed checklist, please refer to [Checklist before moving resources](../azure-resource-manager/management/move-resource-group-and-subscription.md#checklist-before-moving-resources).
+For a more exhaustive and detailed checklist, refer to [Checklist before moving resources](../azure-resource-manager/management/move-resource-group-and-subscription.md#checklist-before-moving-resources).
 - When you move a resource, the ID of the resource also changes. The standard format for a resource ID is `subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`. 
     - When you move a resource to a new resource group or subscription, you change one or more values in that path.
     - If you use the resource ID anywhere (such as in custom dashboards, scripts, or templates) you'll need to change that value. 
-- Source and destination subscriptions must be active. If you have trouble enabling an account that has been disabled, please contact [Azure Support](https://learn.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+- Source and destination subscriptions must be active. If you have trouble enabling an account that has been disabled, contact [Azure Support](https://learn.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
 - Source and destination subscriptions must exist within the same Microsoft Entra tenant.
 - The resources you want to move into your Enclave must support the move operation. For a list of which resources support move, see [Move operation support for resources](../azure-resource-manager/management/move-support-resources.md).
 - Some services have specific limitations or requirements when moving resources. If you're moving any of the following services, check that guidance before moving.

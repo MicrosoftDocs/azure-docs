@@ -26,7 +26,7 @@ Sign-in to the Azure portal at https://portal.azure.com.
 
 1. Provide a name and type for the Transit Hub.  
 
-Refer to the guidance below for more information on the different types of Transit Hub connections:
+Refer to this guidance for more information on the different types of Transit Hub connections:
 
 - [vNet Peering](../virtual-network/tutorial-connect-virtual-networks-portal.md)
 - [VPN Gateway](../virtual-wan/virtual-wan-site-to-site-portal.md)

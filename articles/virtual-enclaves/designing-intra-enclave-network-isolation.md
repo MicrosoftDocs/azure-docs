@@ -23,7 +23,7 @@ First, Enclave Owners must identify which individual [network interfaces (NICs)]
 Once these NICs have been identified, Enclave Owners can add their own [Network Security Groups] to those NICs. For more details on how to perform these steps, learn more on how to [Associate or dissociate a network security group to or from a network interface
 ](../virtual-network/manage-network-security-group.md?tabs=network-security-group-portal#associate-or-dissociate-a-network-security-group-to-or-from-a-network-interface)
 
-In the below image, a Network interface within the `contoso4-identity` Workload in the `contoso4` Enclave requires a custom NSG to be associated.
+In this image, a Network interface within the `contoso4-identity` Workload in the `contoso4` Enclave requires a custom NSG to be associated.
 
 ![image1.png](./media/image-422f6db0-6d33-4b58-8d47-ad2d3020851e.png)
 

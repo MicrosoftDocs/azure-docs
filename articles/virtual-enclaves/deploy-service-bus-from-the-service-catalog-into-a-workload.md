@@ -45,7 +45,7 @@ It can take up to 30 minutes to finish all resource creation. Wait for the deplo
 ### Connect to the Application VM
 Via the Admin VM:
 The Admin VM is used to access the resources within the enclave boundary from outside the boundary. The Admin VM may also be called a jumpbox.
-1. Login to a desktop session on the Admin VM via the Admin VM blade for the enclave.
+1. Log in to a desktop session on the Admin VM via the Admin VM blade for the enclave.
 1. From the start menu, type RDP, and open the RDP window
 1. Enter the Remote App VM IP address as the destination IP address for the RDP connection.
 1. Enter Remote App VM credentials and click accept/yes to warnings about a new connection.

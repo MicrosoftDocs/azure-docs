@@ -21,14 +21,14 @@ This guide provides the steps to onboard to Azure Virtual Enclaves (AVE) in air-
 
 ### Azure portal
 
-1. Login to your Azure tenant and open the subscription resource
+1. Log in to your Azure tenant and open the subscription resource
 2. Open the "**Resource Providers**" blade (under "Settings")
 3. Search for and select "**Microsoft.Mission**" and click "**Register**". 
    ![image 1.png](./media/image-bc93cf2b-050e-4eff-b61e-8afbb05d4ac2.png)
 4. Open the "**Preview Features**" blade (under "Settings")
 5. Filter by "**AVE**", select "**Azure Virtual Enclaves Preview**", and click "**Register**" towards the top of the page.
    ![image-2024-05-17_131235](./media/image-2024-05-17_131235.png)
-6. Message your AVE point of contact or the AVE Product team at vepm@microsoft.com to get approval
+6. Message your AVE point of contact or the [AVE Product team](mailto:vepm@microsoft.com) to get approval
 7. Once you get approval, proceed to [next steps](#next-steps).
 
 ### Powershell
@@ -36,7 +36,7 @@ This guide provides the steps to onboard to Azure Virtual Enclaves (AVE) in air-
 You can run the following code to quickly register all required resource providers to begin using AVE.
 1. In the Azure portal, select the `Cloud Shell` icon at the top of the window here ![image](./media/Portal-cloud-shell-link.png)
 1. [Set context](https://learn.microsoft.com/powershell/azure/context-persistence?view=azps-12.3.0#create-a-new-azure-context-from-subscription-information) to the subscription you registered above.
-1. Transfer the script below into the air-gapped enviroment using [Pastebin](https://eng.ms/docs/cloud-ai-platform/azure-edge-platform-aep/aep-silver/sovereign-foundation-team/cloud-transfer-service/cts-onboarding/cts-portal/pastebinuserguide)**
+1. Transfer the script into the air-gapped enviroment using [Pastebin](https://eng.ms/docs/cloud-ai-platform/azure-edge-platform-aep/aep-silver/sovereign-foundation-team/cloud-transfer-service/cts-onboarding/cts-portal/pastebinuserguide)**
 
 ```Powershell
 # Register the Azure Virtual Enclaves Resource Provider and grant contributor permissions to the Resource Provider

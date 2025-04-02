@@ -57,7 +57,7 @@ Community and Enclave Owners may also have concerns regarding the default VM ima
 ## Monitoring
 By default, Admin Workstations are configured with [Data collection rules](https://learn.microsoft.com/azure/azure-monitor/essentials/data-collection-rule-overview) to log certain resource and operating system logging.
 
-Should further troubleshooting be required to investigate Azure Virtual Machines, please contact [Azure Support](https://azure.microsoft.com/support/).
+Should further troubleshooting be required to investigate Azure Virtual Machines, contact [Azure Support](https://azure.microsoft.com/support/).
 
 ## References
 - [What is Azure Virtual Enclaves?](./what-is-azure-virtual-enclaves.md)

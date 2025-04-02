@@ -47,7 +47,7 @@ Examples of setting-up CMK encryption are provided below, with more [detailed in
 1. From the portal, in the top search bar, enter `deploy` and select `Deploy a Custom Template`
 2. Select `Build your own template in the editor`
 3. Select all of the existing template code within the curly brackets
-4. Copy the [template](#cmk-template) below and paste into the `Build your own template in the editor` window.
+4. Copy the [template](#cmk-template) and paste into the `Build your own template in the editor` window.
 5. Click Save
 6. Enter required parameters
 7. Select `Review + Create` and `Create`

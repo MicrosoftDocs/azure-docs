@@ -10,7 +10,7 @@ ms.date: 01/31/2025
 
 # Create an Enclave Connection from the Azure portal
 
-Enclave Connections enable network traffic to flow into, out of, and between AVE Communities and Enclaves. Follow the steps below to create an Enclave Connection within the Azure portal.
+Enclave Connections enable network traffic to flow into, out of, and between AVE Communities and Enclaves. Follow these steps to create an Enclave Connection within the Azure portal.
 
 ## Create Enclave Connection to Community endpoint for Azure portal access
 

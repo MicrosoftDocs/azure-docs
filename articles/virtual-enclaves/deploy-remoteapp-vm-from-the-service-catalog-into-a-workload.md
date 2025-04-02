@@ -101,7 +101,7 @@ The Admin VM is used to access the resources within the enclave boundary from ou
 1. Assign a security group assignment to give users access to your RemoteApp(s).
 
 ## Install RemoteApp (Optional)
-Install an application on your RemoteApp VM using one of the methods below or a method you are familiar with.
+Install an application on your RemoteApp VM using one of these methods or a method you are familiar with.
 
 - [Install via Remote App VM](./application-deployment-using-remote-app-vm-in-ave.md) (install or configure an application for Remote App publishing)
 - Prerequisites:
@@ -134,7 +134,7 @@ Install an application on your RemoteApp VM using one of the methods below or a 
         - Private Container: 
             - For `Storage Container Resource Id` add the [resource id ](./application-deployment-using-remote-app-vm-in-ave.md) of the container.
             - For `App folder in private container` select "true". This allows reader role access to the storage account via the VM. 
-        - Note: If in Fairfax, please do the following steps: 
+        - Note: If in Microsoft Azure for U.S. Government, do the following steps: 
             1. For the `AzCopy File URI` add the URI to the azcopy.exe from the container.
     1. Select `Review + Create`, if all validations have passed, select `Create`.
 

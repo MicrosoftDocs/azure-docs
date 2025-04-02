@@ -51,7 +51,7 @@ The existing subnet is called "AzureVirtualEnclaveSubnet" by default. This can b
 
 ### Update the subnets
 
-Either using the template below or by manually going through the Azure portal modify the subnets to meet your plan. The template modifies the existing subnet and creates a new one, and attach the original NSG to the two new subnets. Modify as needed.
+Either using the template or by manually going through the Azure portal modify the subnets to meet your plan. The template modifies the existing subnet and creates a new one, and attach the original NSG to the two new subnets. Modify as needed.
 
 ```
 {

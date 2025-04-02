@@ -18,7 +18,7 @@ Currently, [Azure Bastion](https://aka.ms/bastion) is the Azure Cloud's first-pa
 
 ## Overview
 
-Assuming a [Community](./what-is-a-community.md) and [Enclave](./what-is-an-enclave.md) have already been created, please follow the steps below to deploy Azure Virtual Desktop and configure it as an access point to resources in your enclave.
+Assuming a [Community](./what-is-a-community.md) and [Enclave](./what-is-an-enclave.md) have already been created, follow these steps to deploy Azure Virtual Desktop and configure it as an access point to resources in your enclave.
 
 ### Create AVD through Azure portal into an AVE Workload
 1. [Create a Workload](./create-a-workload-in-the-azure-portal.md) with any specified name (e.g. `wl-avd-mgmt-pool`)
@@ -35,7 +35,6 @@ Assuming a [Community](./what-is-a-community.md) and [Enclave](./what-is-an-encl
    - Service catalog package then creates AVD resources into the Workload RG
 3. [Create Community Endpoint](./create-a-community-endpoint-in-the-azure-portal.md) for necessary URL networking information
 4. [Create Enclave Endpoint](./create-a-enclave-endpoint-in-the-azure-portal.md) for necessary IP/CIDR/port/protocol rule networking information
-    - [Starting place for AVD NSG rules (Low-side)](https://msazure.visualstudio.com/Project-Honeycomb/_git/heather?path=/src/bicep/network/nsgrules/desktop-rules.bicep)
 5. [Create the Enclave Connection](./create-an-enclave-connection-from-the-azure-portal.md) so that the customer can access the AVD service in Azure from specified Enclaves
 
 ## References

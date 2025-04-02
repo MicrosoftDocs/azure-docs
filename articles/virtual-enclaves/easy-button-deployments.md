@@ -39,7 +39,7 @@ In this Quickstart, you deploy an E2E Azure Virtual Enclaves environment using t
 
 ## Deploy the template
 
-The "Deploy to Azure" deployment button below will take you to a custom deployment UX for Azure Virtual Enclaves.
+The "Deploy to Azure" deployment button will take you to a custom deployment UX for Azure Virtual Enclaves.
 
 [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](
 https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjadean-msft%2FAzure-Unified-Launchpad%2Fmain%2FAVE-Templates%2Fnightly%2Ftemplate.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2Fjadean-msft%2FAzure-Unified-Launchpad%2Fmain%2FAVE-Templates%2Fnightly%2FdeploymentUI.json)

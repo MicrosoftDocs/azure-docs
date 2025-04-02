@@ -21,7 +21,7 @@ In this tutorial, part six of eight, you create community and enclave endpoint r
 ## Before you begin
 In the previous tutorials, you created a [community](./1-deploy-a-community.md) and an [enclave](./2-create-enclaves-within-a-community.md) using the Azure portal.
 
-If you haven't created those resources yet, please return to those earlier tutorials.
+If you haven't created those resources yet, return to those earlier tutorials.
 
 ...
 

@@ -13,7 +13,7 @@ ms.date: 01/31/2025
 By default, all network traffic within an [enclave](./what-is-an-enclave.md) is permitted by Azure Virtual Enclaves (AVE) product design. This means that all resources and hosts within an enclave can reach, discover, and communicate with each other. However, this poses a potential issue for Community and Enclave Owners when first creating their AVE-related resources on how to initially migrate or bring their data into their enclaves.
 
 ## Overview
-If the data that needs to be moved into an enclave resides in an Azure Storage Account, you will need to create a connection to the data source, optionally download an application to help download/copy/move, and then perform the download/copy/move operation. Please follow these detailed steps:
+If the data that needs to be moved into an enclave resides in an Azure Storage Account, you will need to create a connection to the data source, optionally download an application to help download/copy/move, and then perform the download/copy/move operation. Follow these detailed steps:
 1. Log into [Admin Workstation](./understanding-admin-workstations.md), or any other resource located in the enclave private network. 
 2. Create an Endpoint (at either the Community or Enclave level) and Connection (targeting the Enclave/Community and Endpoint created) to where the data is
       - How to make a [Community Endpoint](./create-a-community-endpoint-in-the-azure-portal.md) or [Enclave Endpoint](./create-a-enclave-endpoint-in-the-azure-portal.md) for your IP Data Source / External Data Network (an example of this could look like this: `name: ep-mydatasource`, `source: 172.168.10.0/16`, `protocol: https`, `port: 443`)
@@ -24,8 +24,8 @@ If the data that needs to be moved into an enclave resides in an Azure Storage A
 ![storageAcct.png](./media/storageAcct-0fa64159-b3d3-4e38-b232-afad495179b7.png)
 
 ## Downloading tools from Azure Toolbox
-To download tools from Azure Toolbox into an enclave, AVE recommends that either an enclave or community endpoint be created to Azure Toolbox. Furthermore, Enclave Owners should then also create a connection from the Enclave or Community to the Azure Toolbox endpoint. Below is an example of how to do this:
-- How to make a [Community Endpoint](./create-a-community-endpoint-in-the-azure-portal.md) or [Enclave Endpoint](./create-a-enclave-endpoint-in-the-azure-portal.md) for your IP Data Source / External Data Network (an example of this could look like this: `name: ep-aztoolbox`, `source: <aztoolbox-fqdn>`, `protocol: https`, `port: 443`). Below is a table with the current environments and their respective FQDNs needed to connect to Azure Toolbox. Additional information can be found here on the [Azure Toolbox](https://eng.ms/docs/cloud-ai-platform/azure-edge-platform-aep/aep-silver/azure-toolbox/azure-toolbox/) overview page.
+To download tools from Azure Toolbox into an enclave, AVE recommends that either an enclave or community endpoint be created to Azure Toolbox. Furthermore, Enclave Owners should then also create a connection from the Enclave or Community to the Azure Toolbox endpoint. This is an example of how to creation the connection and endpoint:
+- How to make a [Community Endpoint](./create-a-community-endpoint-in-the-azure-portal.md) or [Enclave Endpoint](./create-a-enclave-endpoint-in-the-azure-portal.md) for your IP Data Source / External Data Network (an example of this could look like this: `name: ep-aztoolbox`, `source: <aztoolbox-fqdn>`, `protocol: https`, `port: 443`). This is a table with the current environments and their respective FQDNs needed to connect to Azure Toolbox. Additional information can be found here on the [Azure Toolbox](https://eng.ms/docs/cloud-ai-platform/azure-edge-platform-aep/aep-silver/azure-toolbox/azure-toolbox/) overview page.
 
 |Environment| FQDN  |
 |--|--|
@@ -39,7 +39,7 @@ To download tools from Azure Toolbox into an enclave, AVE recommends that either
 
 ---
 
-Should further troubleshooting be required to investigate making Connections, please refer to [Create a Connection from the Azure portal](./create-an-enclave-connection-from-the-azure-portal.md) or contact [Azure Support](https://azure.microsoft.com/support/).
+Should further troubleshooting be required to investigate making Connections, refer to [Create a Connection from the Azure portal](./create-an-enclave-connection-from-the-azure-portal.md) or contact [Azure Support](https://azure.microsoft.com/support/).
 
 ## References
 - [What is Azure Virtual Enclaves?](./what-is-azure-virtual-enclaves.md)

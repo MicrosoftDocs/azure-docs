@@ -29,7 +29,7 @@ AVM modules are currently written for Bicep and Terraform. Specifically for bice
 
 ## Leverage AVM for new and existing Service Catalog templates
 
-Service Catalog deployment publishing in AVE leverages the [Custom Template Deployment experience using the Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). To use AVM on new or existing templates, refer to the steps below for more details.
+Service Catalog deployment publishing in AVE leverages the [Custom Template Deployment experience using the Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). To use AVM on new or existing templates, refer to these steps for more details.
 
 > **NOTE**: For most Service Catalog templates, you'll mostly use resource templates which are prefixed by `'br/public:avm/res'`. There are other types of modules that are supported. For more information, refer to the [AVM Bicep Modules documentation](https://azure.github.io/Azure-Verified-Modules/indexes/bicep/).
 
@@ -53,7 +53,7 @@ Service Catalog deployment publishing in AVE leverages the [Custom Template Depl
 
 ## Updating a template to use a newer version of an AVM
 
-According to the [AVM guidance on transitioning to a new version](https://azure.github.io/Azure-Verified-Modules/faq/#whats-the-guidance-on-transitioning-to-new-module-versions), the [Public Bicep registry repository](https://github.com/Azure/bicep-registry-modules) uses tags to identify the version of each module. As a result, follow the steps below to update to a newer version of an AVM module.
+According to the [AVM guidance on transitioning to a new version](https://azure.github.io/Azure-Verified-Modules/faq/#whats-the-guidance-on-transitioning-to-new-module-versions), the [Public Bicep registry repository](https://github.com/Azure/bicep-registry-modules) uses tags to identify the version of each module. As a result, follow these steps to update to a newer version of an AVM module.
 
 1. Change the version of the AVM module declaration in the bicep file. For example, user-assigned-identity from **0.2.0** to **0.3.0**.
 2. Check the module documentation for any version incompatibility issues.
@@ -77,7 +77,7 @@ az bicep build --file "<in-file>" --outfile "<out-file>"
 
 If your bicep template references an AVM template by using `br/public:avm/res`, compiling will result in a ARM template with symbolic name resource deployments.
 
-> **IMPORTANT**: Please refer to the [Public Bicep Registry repository](https://github.com/Azure/bicep-registry-modules) to identify the API versions of resources deployed by the AVM modules and confirm that these versions are supported in your target environment.
+> **IMPORTANT**: Refer to the [Public Bicep Registry repository](https://github.com/Azure/bicep-registry-modules) to identify the API versions of resources deployed by the AVM modules and confirm that these versions are supported in your target environment.
 
 ### Known issues
 

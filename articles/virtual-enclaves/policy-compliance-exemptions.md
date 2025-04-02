@@ -23,10 +23,10 @@ First, Enclave Owners must identify which [Azure Policy Initiative assignment](.
 Once these Initiative assignments have been identified, Enclave Owners can create and manage their own Policy Exemptions. For more details on how to perform these steps, learn more on how to [Create and manage exemptions
 ](../governance/policy/concepts/exemption-structure.md#exemption-creation-and-management)
 
-In the below image, a Policy initiative assignment within the `contoso4-aadconnect` workload in the `contoso4` Enclave requires an exemption.
+In this image, a Policy initiative assignment within the `contoso4-aadconnect` workload in the `contoso4` Enclave requires an exemption.
 
 ![image1.png](./media/image-29fed569-7897-4459-9bd5-b12579018ddb.png)
-Should further troubleshooting be required to investigate Azure Policy exemptions, please contact [Azure Support](https://azure.microsoft.com/support/).
+Should further troubleshooting be required to investigate Azure Policy exemptions, contact [Azure Support](https://azure.microsoft.com/support/).
 
 ## References
 - [What is Azure Virtual Enclaves?](./what-is-azure-virtual-enclaves.md)

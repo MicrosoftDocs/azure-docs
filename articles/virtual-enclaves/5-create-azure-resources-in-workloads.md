@@ -21,7 +21,7 @@ In this tutorial, part five of eight, you create Azure resources in workloads. Y
 ## Before you begin
 In the previous [tutorial](./4-use-service-catalog-to-create-azure-resources-in-workloads.md), you used Azure portal to create Azure resources with service catalog. 
 
-If you haven't created a workload yet, please return to [Tutorial 3 - Create workloads in an enclave](./3-create-workloads-in-an-enclave.md).
+If you haven't created a workload yet, return to [Tutorial 3 - Create workloads in an enclave](./3-create-workloads-in-an-enclave.md).
 
 ...
 

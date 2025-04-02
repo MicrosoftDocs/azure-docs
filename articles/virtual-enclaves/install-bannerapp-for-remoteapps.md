@@ -21,7 +21,7 @@ This image shows two VS Code RemoteApp windows with different banners at the top
 There are 3 VMs running in the picture above. The desktop shown is running on the "desktopVM", the Platform VS Code app is running on the "platformVM", and the Subcontractor VS Code is running on the "subcontractorVM". Both VS Code apps are streamed to the desktop even though they are running on a separate VM. [Learn More](https://learn.microsoft.com/windows-server/remote/remote-desktop-services/clients/windows)
 
 ## What do the different BannerApp colors mean?
-The color is used in conjunction with the text in the banner to denote the classification and controlled access required for the hosting information system. Please see the appropriate customer classification guides for exact meaning. Example hex code values used for the banner color include:
+The color is used in conjunction with the text in the banner to denote the classification and controlled access required for the hosting information system. See the appropriate customer classification guides for exact meaning. Example hex code values used for the banner color include:
 *	#FF0000 is Red
 *	#FFFF00 is Yellow
 *	#004000 is Green
