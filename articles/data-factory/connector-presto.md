@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/25/2023
+ms.date: 04/02/2025
 ms.author: jianleishen
 ---
 # Copy data from Presto using Azure Data Factory or Synapse Analytics
@@ -281,6 +281,10 @@ The Presto connector version 2.0 (Preview) offers new functionalities and is com
 
 | Version 2.0 (Preview)  | Version 1.0 | 
 | :----------- | :------- |
+| `serverVersion` is not supported. | Support `serverVersion`. |
+| The default value of `port` is 8443. | The default value of `port` is 8080. |
+| The default value of `enableSSL` is true.<br><br> Support `enableServerCertificateValidation`. <br><br>`trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported.| The default value of `enableSSL` is false.<br><br>`enableServerCertificateValidation` is not supported. <br><br> Support `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert`. |
+| The default value of `timeZoneID` is null. | The default value of `timeZoneID` is the system time zone. |
 | The following mappings are used from Presto data types to interim service data type.<br><br>DATE -> Date <br>DECIMAL (Precision >= 28) -> Decimal <br> DOUBLE -> Double <br>INTERVAL_DAY_TO_SECOND -> TimeSpan <br>INTERVAL_YEAR_TO_MONTH -> String<br>IPADDRESS -> String<br>TIME -> Time<br>TIMESTAMPWITHTIMEZONE -> Datetimeoffset<br>TINYINT -> SByte<br>UUID -> Guid| The following mappings are used from Presto data types to interim service data type.<br><br>DATE -> Datetime <br>DECIMAL (Precision >= 28) -> String <br>DOUBLE -> Decimal <br>TIME -> TimeSpan<br>TINYINT -> Int16<br> Other mappings supported by version 2.0 (Preview) listed left are not supported by version 1.0. |  
 
 ## Related content
