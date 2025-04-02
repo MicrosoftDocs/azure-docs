@@ -9,7 +9,7 @@ ms.date: 01/07/2025
 > [!IMPORTANT]
 >
 > Always secure and protect sensitive and personal data, such as credentials, secrets, 
-> access keys, connection strings, certificates, thumbprints, and similiar information 
+> access keys, connection strings, certificates, thumbprints, and similar information 
 > with the highest available or supported level of security.
 >
 > Make sure that you securely store such information by using Microsoft Entra ID and 

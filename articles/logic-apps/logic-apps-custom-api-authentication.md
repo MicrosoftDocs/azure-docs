@@ -68,7 +68,7 @@ Your logic app resource uses this Microsoft Entra application identity to authen
 
    1. Under **Redirect URI**, select **Web** as the platform. Next to this option, provide a unique URL for the location to return the authentication response.
 
-      :::image type="content" source="media/logic-apps-custom-api-authentication/logic-app-identity-azure-portal.png" alt-text="Screenshot shows pane to register an application with application identity name and URL for where to send authentication response":::
+      :::image type="content" source="media/logic-apps-custom-api-authentication/logic-app-identity-azure-portal.png" alt-text="Screenshot shows pane to register an application with application identity name and URL for where to send authentication response.":::
 
    1. When you're done, select **Register**.
 
@@ -166,7 +166,7 @@ Now you must find the application (client) ID and tenant ID for the application 
 
 1. In the **Identity provider** section, find your previously created application identity. Select the application identity name.
 
-   :::image type="content" source="media/logic-apps-custom-api-authentication/custom-api-app-select-app-identity.png" alt-text="Screenshot shows Authentiation page open for newly created application identity.":::
+   :::image type="content" source="media/logic-apps-custom-api-authentication/custom-api-app-select-app-identity.png" alt-text="Screenshot shows Authentication page open for newly created application identity.":::
 
 1. On the **Overview** page, find the values for **Application (client) ID** and **Directory (tenant) ID**. Copy and save the values for use in Part 3.
 

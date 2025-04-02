@@ -9,7 +9,7 @@ ms.date: 04/01/2025
 > [!WARNING]
 >
 > Always secure and protect sensitive and personal data, such as credentials, secrets, 
-> access keys, connection strings, certificates, thumbprints, and similiar information 
+> access keys, connection strings, certificates, thumbprints, and similar information 
 > with the highest available or supported level of security.
 >
 > For authentication and authorization, set up or use 
