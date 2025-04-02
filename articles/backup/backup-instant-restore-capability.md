@@ -2,7 +2,7 @@
 title: Azure Instant Restore Capability
 description: Azure Instant Restore Capability and FAQs for VM backup stack, Resource Manager deployment model
 ms.topic: overview
-ms.date: 03/27/2025
+ms.date: 04/02/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -138,3 +138,6 @@ Instant restore feature is enabled for everyone and can't be disabled. You can r
 
 Yes it's safe, and there's absolutely no impact in data transfer speed.
 
+### Why does a 12-month backup retention policy retain data for 372 days instead of 365?
+
+The retention period for monthly backups is calculated considering **31 days** for each month. When you multiply 31 days by 12 months, the total retention duration becomes **372 days**. This approach ensures consistent retention across all months, regardless of their actual number of days.
