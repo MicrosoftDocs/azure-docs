@@ -1,6 +1,6 @@
 ---
-title: Best practices for BareMetal Machine operations
-description: Steps that should be taken before executing any BMM replace, or reimage actions. Highlight essential prerequisites and common pitfalls to avoid.
+title: Best practices for Bare Metal Machine operations
+description: Steps that should be taken before executing any Bare Metal Machine replace, or reimage actions. Highlight essential prerequisites and common pitfalls to avoid.
 ms.date: 03/25/2025
 ms.topic: how-to
 ms.service: azure-operator-nexus
@@ -10,41 +10,41 @@ ms.author: omarrivera
 ms.reviewer: bartpinto
 ---
 
-# Best Practices for BareMetal Machine Operations
+# Best practices for Bare Metal Machine operations
 
 This article provides best practices for BareMetal Machine (BMM) lifecycle management operations.
 The aim is to highlight common pitfalls and essential prerequisites.
 
-## Read Important Disclaimers
+## Read important disclaimers
 
 [!INCLUDE [caution-affect-cluster-integrity](./includes/baremetal-machines/caution-affect-cluster-integrity.md)]
 
 [!INCLUDE [important-donot-disrupt-kcpnodes](./includes/baremetal-machines/important-donot-disrupt-kcpnodes.md)]
 
-[!INCLUDE [prerequisites-azcli-bmm-actions](./includes/baremetal-machines/prerequisites-azcli-bmm-actions.md)]
+[!INCLUDE [prerequisites-azure-cli-bare-metal-machine-actions](./includes/baremetal-machines/prerequisites-azure-cli-bare-metal-machine-actions.md)]
 
-## Identify the Best-fit Corrective Approach
+## Identify the best-fit corrective approach
 
 Troubleshooting technical problems requires a systematic approach.
 One effective method is to start with the least invasive solution and, if necessary, work your way up to more complex and potentially disruptive measures.
 Keep in mind that these troubleshooting methods might not always be effective for all scenarios and accounting for various other factors might require a different approach.
-For this reason, it's essential to understand the available options well when troubleshooting a BMM for failures to determine the most appropriate corrective action.
+For this reason, it's essential to understand the available options well when troubleshooting a Bare Metal Machine for failures to determine the most appropriate corrective action.
 
-### General Advice while Troubleshooting
+### General advice while troubleshooting
 
 - Familiarize yourself with the relevant documentation, including troubleshooting guides and how-to articles.
   Always refer to the latest documentation to stay informed about best practices and updates.
 - Avoid repeated failed operations by first attempting to identify the root cause of the failure before retrying the operation.
   Perform retry attempts in incremental steps to isolate and address specific issues.
-- Wait for Az CLI commands to run to completion and validate the state of the BMM resource before executing other steps.
+- Wait for Az CLI commands to run to completion and validate the state of the Bare Metal Machine resource before executing other steps.
 - Verify that the firmware and software versions are up-to-date before a new greenfield deployment to prevent compatibility issues between hardware and software versions.
   For more information about firmware compatibility, see [Operator Nexus Platform Prerequisites](./howto-platform-prerequisites.md).
-- Check the iDRAC credentials are correct and that the BMM is powered on.
+- Check the iDRAC credentials are correct and that the Bare Metal Machine is powered on.
 
-#### Look at General Network Connectivity Health
+#### Look at general network connectivity health
 
 Ensure stable network connectivity to avoid interruptions during the process.
-Ignoring network stability could make operations fail to complete successfully and leave a BMM in an error or degraded state.
+Ignoring network stability could make operations fail to complete successfully and leave a Bare Metal Machine in an error or degraded state.
 
 A quick look at Cluster resource's `clusterConnectionStatus` serves as one indicator of network connectivity health.
 
@@ -66,13 +66,13 @@ See related articles:
   - [How to monitor interface In and Out packet rate for network fabric devices]
   - [How to configure diagnostic settings and monitor configuration differences in Nexus Network Fabric].
 
-Evaluate for any BMM warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems.
+Evaluate for any Bare Metal Machine warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems.
 For more information, see [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
 
-#### Determine if Firmware Update Jobs are Running
+#### Determine if firmware update jobs are running
 
 Validate that there are no running firmware upgrade jobs through the BMC before initiating a `replace` or `reimage` operation.
-Interrupting an ongoing firmware upgrade can leave the BMM in an inconsistent state.
+Interrupting an ongoing firmware upgrade can leave the Bare Metal Machine in an inconsistent state.
 You can view in the iDRAC GUI the `jobqueue` or use a `racadm jobqueque view` to determine if there are firmware upgrade jobs running.
 
 ```azurecli
@@ -120,77 +120,77 @@ Message=[SYS043: Successfully exported Server Configuration Profile]
 Percent Complete=[100]
 ```
 
-## Best Practices for a BMM Reimage
+## Best practices for a Bare Metal Machine reimage
 
-The BMM `reimage` action is explained in [BMM Lifecycle Management Commands] and scenario procedures described in [Troubleshoot Azure Operator Nexus Server Problems].
+The Bare Metal Machine (BMM) `reimage` action is explained in [Bare Metal Machine Lifecycle Management Commands] and scenario procedures described in [Troubleshoot Azure Operator Nexus Server Problems].
 
-[!INCLUDE [warning-donot-run-multiple-actions](./includes/baremetal-machines/warning-donot-run-multiple-actions.md)]
+[!INCLUDE [warning-do-not-run-multiple-actions](./includes/baremetal-machines/warning-do-not-run-multiple-actions.md)]
 
-You can restore the operating system runtime version on a BMM by executing the `reimage` operation.
-A BMM `reimage` can be both time-saving and reliable for resolving issues or restoring the operating system software to a known-good state.
-This process **redeploys** the runtime image on the target BMM and executes the steps to rejoin the cluster with the same identifiers.
+You can restore the operating system runtime version on a Bare Metal Machine by executing the `reimage` operation.
+A Bare Metal Machine `reimage` can be both time-saving and reliable for resolving issues or restoring the operating system software to a known-good state.
+This process **redeploys** the runtime image on the target Bare Metal Machine and executes the steps to rejoin the cluster with the same identifiers.
 The `reimage` action is designed to interact with the operating system partition, leaving virtual machine's local storage unchanged.
 
 > [!IMPORTANT]
-> Avoid manual or automated changes to the BMM's file system (also known as "break glass").
-> The `reimage` action is required to restore Microsoft support and any changes done to the BMM are lost while restoring the node to its expected state.
+> Avoid manual or automated changes to the Bare Metal Machine's file system (also known as "break glass").
+> The `reimage` action is required to restore Microsoft support and any changes done to the Bare Metal Machine are lost while restoring the node to its expected state.
 
-### Preconditions and Validations Before a BMM Reimage
+### Preconditions and validations before a Bare Metal Machine reimage
 
 Before initiating any `reimage` operation, ensure the following preconditions are met:
 
-- Make sure the BMM's workloads are drained using the [`cordon`](./howto-baremetal-functions.md#make-a-bmm-unschedulable-cordon) command with the parameter `evacuate` set to `True`.
+- Make sure the Bare Metal Machine's workloads are drained using the [`cordon`](./howto-baremetal-functions.md#make-a-bmm-unschedulable-cordon) command with the parameter `evacuate` set to `True`.
 - Perform high level checks covered in the article [Troubleshoot Bare Metal Machine Provisioning].
-- Evaluate any BMM warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems before a `reimage` operation.
+- Evaluate any Bare Metal Machine warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems before a `reimage` operation.
   For more information, read [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
-- If the BMM reports a failed state with the reason of hardware validation (seen in the BMM `Detailed Status` and `Detailed Status Message` fields), then the BMM needs a `replace` instead.
-  See the [Best Practices for a BMM Replace](#best-practices-for-a-bmm-replace).
+- If the Bare Metal Machine reports a failed state with the reason of hardware validation (seen in the Bare Metal Machine `Detailed Status` and `Detailed Status Message` fields), then the Bare Metal Machine needs a `replace` instead.
+  See the [Best Practices for a Bare Metal Machine Replace](#best-practices-for-a-bmm-replace).
 - Validate that there are no running firmware upgrade jobs.
   Follow steps in section [Determine if Firmware Update Jobs are Running](#determine-if-firmware-update-jobs-are-running).
 
-## Best Practices for a BMM Replace
+## Best practices for a Bare Metal Machine replace
 
-The BMM `replace` action is explained in [BMM Lifecycle Management Commands] and scenario procedures described in [Troubleshoot Azure Operator Nexus Server Problems].
+The Bare Metal Machine `replace` action is explained in [Bare Metal Machine Lifecycle Management Commands] and scenario procedures described in [Troubleshoot Azure Operator Nexus Server Problems].
 
-[!INCLUDE [warning-donot-run-multiple-actions](./includes/baremetal-machines/warning-donot-run-multiple-actions.md)]
+[!INCLUDE [warning-do-not-run-multiple-actions](./includes/baremetal-machines/warning-do-not-run-multiple-actions.md)]
 
 Hardware failures are a normal occurrence over the life of a server.
 Component replacements might be necessary to restore functionality and ensure continued operation.
 The `replace` operation must be executed after any hardware maintenance/repair event.
-When one or more hardware components fail on the server (multiple failures), make the necessary repairs for **all** components before executing a BMM `replace` operation.
+When one or more hardware components fail on the server (multiple failures), make the necessary repairs for **all** components before executing a Bare Metal Machine `replace` operation.
 
 > [!IMPORTANT]
-> With the `2024-07-01` GA API version, the RAID controller is reset during BMM `replace`, wiping all data from the server's virtual disks.
-> Baseboard Management Controller (BMC) virtual disk alerts triggered during BMM `replace` can be ignored unless there are more physical disk and/or RAID controllers alerts.
+> With the `2024-07-01` GA API version, the RAID controller is reset during Bare Metal Machine `replace`, wiping all data from the server's virtual disks.
+> Baseboard Management Controller (BMC) virtual disk alerts triggered during Bare Metal Machine `replace` can be ignored unless there are more physical disk and/or RAID controllers alerts.
 
-### Preconditions and Validations Before a BMM Replace
+### Preconditions and validations before a Bare Metal Machine replace
 
 Before initiating any `replace` operation, ensure the following preconditions are met:
 
-- Make sure the BMM's workloads are drained using the [`cordon`](./howto-baremetal-functions.md#make-a-bmm-unschedulable-cordon) command with the parameter `evacuate` set to `True`.
+- Make sure the Bare Metal Machine's workloads are drained using the [`cordon`](./howto-baremetal-functions.md#make-a-bmm-unschedulable-cordon) command with the parameter `evacuate` set to `True`.
 - Perform high level checks covered in the article [Troubleshoot Bare Metal Machine Provisioning].
-- Evaluate any BMM warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems before a `replace` operation.
+- Evaluate any Bare Metal Machine warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems before a `replace` operation.
   For more information, see [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
 - Validate that there are no running firmware upgrade jobs.
   Follow steps in section [Determine if Firmware Update Jobs are Running](#determine-if-firmware-update-jobs-are-running).
 
-### Resolve Hardware Validation Issues
+### Resolve hardware validation issues
 
-When a BMM is marked with failed hardware validation, it might indicate that physical repairs are needed.
-It's crucial to identify and address these repairs before performing a BMM `replace`.
+When a Bare Metal Machine is marked with failed hardware validation, it might indicate that physical repairs are needed.
+It's crucial to identify and address these repairs before performing a Bare Metal Machine `replace`.
 A hardware validation process is invoked as part of the `replace` operation to ensure the physical host's integrity before deploying the OS image.
-The BMM can't provision successfully when the BMM continues to have hardware validation failures.
-As a result, the BMM fails to complete the necessary setup steps to become operational and join the cluster.
+The Bare Metal Machine can't provision successfully when the Bare Metal Machine continues to have hardware validation failures.
+As a result, the Bare Metal Machine fails to complete the necessary setup steps to become operational and join the cluster.
 Ensure **all hardware validation issues** are cleared before the next `replace` action.
 
 To understand hardware validation result, read through the article [Troubleshoot Hardware Validation Failure](./troubleshoot-hardware-validation-failure.md).
 
-### BMM Replace isn't Required
+### Bare Metal Machine replace isn't required
 
-Some repairs don't require a BMM `replace` to be executed.
-For example, a `replace` operation isn't required when you're performing a physical hot swappable power supply repair because the BMM host will continue to function normally after the repair.
-However, if the BMM failed hardware validation, the BMM `replace` is required even if the hot swappable repairs are done.
-Examine the BMM status messages to determine if hardware validation failures or other degraded conditions are present.
+Some repairs don't require a Bare Metal Machine `replace` to be executed.
+For example, a `replace` operation isn't required when you're performing a physical hot swappable power supply repair because the Bare Metal Machine host will continue to function normally after the repair.
+However, if the Bare Metal Machine failed hardware validation, the Bare Metal Machine `replace` is required even if the hot swappable repairs are done.
+Examine the Bare Metal Machine status messages to determine if hardware validation failures or other degraded conditions are present.
   - [Troubleshoot Degraded Status Errors on Bare Metal Machines]
   - [Troubleshoot Bare Metal Machine Warning Status]
   - [Troubleshoot Hardware Validation Failure](./troubleshoot-hardware-validation-failure.md).
@@ -204,13 +204,13 @@ Other repairs of this type might be:
 - Transceiver
 - Ethernet or fiber cable replacement
 
-### BMM Relace is Required
+### Bare Metal Machine replace is required
 
-After components such as motherboard or Network Interface Card (NIC) are replaced, the BMM MAC address changes.
+After components such as motherboard or Network Interface Card (NIC) are replaced, the Bare Metal Machine MAC address changes.
 However, the iDRAC IP address and hostname remain the same.
-Motherboard changes result in MAC address changes, requiring a BMM `replace`.
+Motherboard changes result in MAC address changes, requiring a Bare Metal Machine `replace`.
 
-A `replace` operation **is required** to bring the BMM back into service when you're performing the following physical repairs:
+A `replace` operation **is required** to bring the Bare Metal Machine back into service when you're performing the following physical repairs:
 
 - Backplane
 - System board
@@ -219,19 +219,19 @@ A `replace` operation **is required** to bring the BMM back into service when yo
 - Mellanox Network Interface Card (NIC)
 - Broadcom embedded NIC
 
-### After BMM Replace
+### Check statuses after a Bare Metal Machine replace operation
 
-After the BMM `replace` operation completes successfully, ensure that the `provisioningStatus` is `Succeeded` and the `readyState` is `True`.
-Only then, proceed to execute the `uncordon` operation to have the BMM rejoin the workload schedulable node pool.
+After the Bare Metal Machine `replace` operation completes successfully, ensure that the `provisioningStatus` is `Succeeded` and the `readyState` is `True`.
+Only then, proceed to execute the `uncordon` operation to have the Bare Metal Machine rejoin the workload schedulable node pool.
 
-## Request Support
+## Request support
 
 If you still have questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 For more information about Support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).
 
 ## References
 
-- [BMM Lifecycle Management Commands]
+- [Bare Metal Machine Lifecycle Management Commands]
 - [Run emergency bare metal actions outside of Azure using nexusctl]
 - [Troubleshoot Azure Operator Nexus Server Problems]
 - [Troubleshoot Bare Metal Machine Provisioning]
@@ -239,7 +239,7 @@ For more information about Support plans, see [Azure Support plans](https://azur
 - [Troubleshoot Degraded Status Errors on Bare Metal Machines]
 - [Troubleshoot Hardware Validation Failure]
 
-[BMM Lifecycle Management Commands]: ./howto-baremetal-functions.md
+[Bare Metal Machine Lifecycle Management Commands]: ./howto-baremetal-functions.md
 [Run emergency bare metal actions outside of Azure using nexusctl]: ./howto-baremetal-nexusctl.md
 [Troubleshoot Azure Operator Nexus Server Problems]: ./troubleshoot-reboot-reimage-replace.md
 [Troubleshoot Bare Metal Machine Provisioning]: ./troubleshoot-bare-metal-machine-provisioning.md

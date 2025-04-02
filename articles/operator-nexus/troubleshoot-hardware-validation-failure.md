@@ -13,15 +13,15 @@ ms.author: vanjanikolin
 
 This article describes how to troubleshoot a failed server hardware validation (HWV).
 HWV is run as part of a cluster deploy action and a bare metal `replace` action.
-HWV validates a bare metal machine (BMM) by executing test cases against the baseboard management controller (BMC).
+HWV validates a Bare Metal Machine (BMM) by executing test cases against the baseboard management controller (BMC).
 The Azure Operator Nexus platform is deployed on Dell servers. Dell servers use the integrated Dell remote access controller (iDRAC), which is the equivalent of a BMC.
 
-[!INCLUDE [prerequisites-azcli-bmm-actions](./includes/baremetal-machines/prerequisites-azcli-bmm-actions.md)]
+[!INCLUDE [prerequisites-azure-cli-bare-metal-machine-actions](./includes/baremetal-machines/prerequisites-azure-cli-bare-metal-machine-actions.md)]
 
 Additional required access:
 
-1. Request access to the cluster's Log Analytics workspace (LAW).
-1. Access to the BMC web UI or a jumpbox that allows the `racadm` utility to run.
+- Request access to the cluster's Log Analytics workspace (LAW).
+- Access to the BMC web UI or a jumpbox that allows the `racadm` utility to run.
 
 ## Locate hardware validation results
 
@@ -397,7 +397,7 @@ To fix the problem, insert cables into the correct interfaces.
 
 #### iDRAC (BMC) MAC address check failure
 
-The iDRAC MAC address is defined in the cluster for each BMM.
+The iDRAC MAC address is defined in the cluster for each Bare Metal Machine.
 A failed `iDRAC_MAC` check indicates a mismatch between the iDRAC/BMC MAC in the cluster and the actual MAC address retrieved from the machine.
 
 ```json
@@ -415,7 +415,7 @@ If the problem persists, ensure that the server is racked in the correct locatio
 
 #### Preboot eXecution Environment (PXE) MAC address check failure
 
-The PXE MAC address is defined in the cluster for each BMM.
+The PXE MAC address is defined in the cluster for each Bare Metal Machine.
 A failed `PXE_MAC` check indicates a mismatch between the PXE MAC in the cluster and the actual MAC address retrieved from the machine.
 
 ```json
@@ -487,7 +487,7 @@ Dell server health checks fail for recent LC Log Critical Alarms. The hardware v
 }
 ```
 
-- Virtual disk errors typically indicate a RAID cleanup false positive condition. They're logged because of the timing of the RAID cleanup and system power off before HWV. The following example shows an LC log critical error on virtual disk 238. If you encounter multiple errors that block deployment, delete the cluster, wait two hours, and then reattempt cluster deployment. If the failures aren't blocking deployment, wait two hours, and then run BMM `replace`.
+- Virtual disk errors typically indicate a RAID cleanup false positive condition. They're logged because of the timing of the RAID cleanup and system power off before HWV. The following example shows an LC log critical error on virtual disk 238. If you encounter multiple errors that block deployment, delete the cluster, wait two hours, and then reattempt cluster deployment. If the failures aren't blocking deployment, wait two hours, and then run Bare Metal Machine `replace`.
 - Virtual disk errors are allow-listed starting with release 3.13 and don't trigger a health check failure.
 
 ```json
@@ -716,7 +716,7 @@ To troubleshoot, ping the iDRAC from a jumpbox with access to the BMC network. I
 
 ## Add servers back into the cluster after a repair
 
-After the hardware is fixed, run the BMM `replace` action by following the instructions in [Manage the lifecycle of bare metal machines](howto-baremetal-functions.md).
+After the hardware is fixed, run the Bare Metal Machine `replace` action by following the instructions in [Manage the lifecycle of bare metal machines](howto-baremetal-functions.md).
 
 ## Related content
 

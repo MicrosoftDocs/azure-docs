@@ -9,33 +9,33 @@ author: eak13
 ms.author: ekarandjeff
 ---
 
-# Troubleshoot Bare Metal Machine Server Problems
+# Troubleshoot Bare Metal server problems
 
-This article describes how to troubleshoot server problems by using `restart`, `reimage`, and `replace` actions on Azure Operator Nexus BareMetal Machines (BMM).
-These operations are performed for maintenance on your servers and cause a disruption to the specific BMM.
+This article describes how to troubleshoot server problems by using `restart`, `reimage`, and `replace` actions on Azure Operator Nexus BareMetal Machine (BMM).
+These operations are performed for maintenance on your servers and cause a disruption to the specific Bare Metal Machine.
 
 [!INCLUDE [caution-affect-cluster-integrity](./includes/baremetal-machines/caution-affect-cluster-integrity.md)]
 
 [!INCLUDE [important-donot-disrupt-kcpnodes](./includes/baremetal-machines/important-donot-disrupt-kcpnodes.md)]
 
-[!INCLUDE [prerequisites-azcli-bmm-actions](./includes/baremetal-machines/prerequisites-azcli-bmm-actions.md)]
+[!INCLUDE [prerequisites-azure-cli-bare-metal-machine-actions](./includes/baremetal-machines/prerequisites-azure-cli-bare-metal-machine-actions.md)]
 
-## Follow Best Practice for BMM Operations
+## Follow best practice for Bare Metal Machine operations
 
 The various operations `restart`, `reimage`, and `replace` are effective troubleshooting methods that you can use to address technical problems.
 However, it's important to have a systematic approach and to consider other factors before you try any drastic measures.
 
 First, familiarize yourself with the operations by reading and following the advice on the recommended articles before proceeding with operations:
 
-- [Best Practices for BareMetal Machine Operations](./howto-baremetal-best-practices.md).
-- [BMM Lifecycle Management Operations](howto-baremetal-functions.md).
+- [Best Practices for BareMetal Machine Operations](./howto-bare-metal-best-practices.md).
+- [Bare Metal Machine Lifecycle Management Operations](howto-baremetal-functions.md).
 
-## Troubleshoot with a Restart Operation
+## Troubleshoot with a restart operation
 
 A `restart` operation can be useful in troubleshooting problems where tenant virtual machines on the host aren't responsive or are otherwise stuck.
 
 One way approach this operation can be done by executing, in order, both a `power-off` followed by `start` operation.
-This approach will `restart` a BMM command by performing a graceful shutdown that power cycles the node.
+This approach will `restart` a Bare Metal Machine command by performing a graceful shutdown that power cycles the node.
 
 The following Azure CLI command will `power-off` the specified bareMetalMachineName.
 
@@ -66,21 +66,21 @@ az networkcloud baremetalmachine restart \
   --subscription <subscriptionID>
 ```
 
-## Troubleshoot with a Reimage Operation
+## Troubleshoot with a reimage operation
 
-The `reimage` command on a BMM is a process that **redeploys** the OS image on disk without affecting the tenant data.
+The `reimage` command on a Bare Metal Machine is a process that **redeploys** the OS image on disk without affecting the tenant data.
 This operation executes the steps to rejoin the cluster with the same identifiers.
 
 The `reimage` operation can be useful for troubleshooting problems by restoring the OS to a known-good working state.
 Common causes that can be resolved through reimaging include recovery due to doubt of host integrity, suspected or confirmed security compromise, or "break glass" write activity.
 
-A `reimage` operation is the best practice for lowest operational risk to ensure the BMM's integrity.
+A `reimage` operation is the best practice for lowest operational risk to ensure the Bare Metal Machine's integrity.
 
-As a best practice, before executing the `reimage` command make sure the BMM's workloads are drained using the cordon command with `evacuate` parameter set to `True`.
+As a best practice, before executing the `reimage` command make sure the Bare Metal Machine's workloads are drained using the cordon command with `evacuate` parameter set to `True`.
 
-[!INCLUDE [warning-donot-run-multiple-actions](./includes/baremetal-machines/warning-donot-run-multiple-actions.md)]
+[!INCLUDE [warning-do-not-run-multiple-actions](./includes/baremetal-machines/warning-do-not-run-multiple-actions.md)]
 
-To identify if any workloads are currently running on a BMM, run the following command:
+To identify if any workloads are currently running on a Bare Metal Machine, run the following command:
 
 For Virtual Machines:
 
@@ -124,21 +124,21 @@ az networkcloud baremetalmachine uncordon \
   --subscription <subscriptionID>
 ```
 
-## Troubleshoot with a Replace Operation
+## Troubleshoot with a replace operation
 
-Servers contain many physical components that fail over time. It's important to understand which physical repairs require to perform a BMM `replace`.
+Servers contain many physical components that fail over time. It's important to understand which physical repairs require to perform a Bare Metal Machine `replace`.
 Like the `reimage` action, the tenant data isn't modified during a `replace`.
 
 > [!IMPORTANT]
-> With the `2024-07-01` GA API version, the RAID controller is reset during BMM replace, wiping all data from the server's virtual disks.
-> Baseboard Management Controller (BMC) virtual disk alerts triggered during BMM replace can be ignored unless there are more physical disk and/or RAID controllers alerts.
+> With the `2024-07-01` GA API version, the RAID controller is reset during Bare Metal Machine replace, wiping all data from the server's virtual disks.
+> Baseboard Management Controller (BMC) virtual disk alerts triggered during Bare Metal Machine replace can be ignored unless there are more physical disk and/or RAID controllers alerts.
 
-### Resolve Hardware Validation Issues
+### Resolve hardware validation issues
 
 A hardware validation process is invoked, as part of the `replace`, to ensure the integrity of the physical host in advance of deploying the OS image.
-As a best practice, first issue a `cordon` command to remove the BMM from workload scheduling and then shutdown/`power-off` the BMM in advance of physical repairs.
+As a best practice, first issue a `cordon` command to remove the Bare Metal Machine from workload scheduling and then shutdown/`power-off` the Bare Metal Machine in advance of physical repairs.
 
-[!INCLUDE [warning-donot-run-multiple-actions](./includes/baremetal-machines/warning-donot-run-multiple-actions.md)]
+[!INCLUDE [warning-do-not-run-multiple-actions](./includes/baremetal-machines/warning-do-not-run-multiple-actions.md)]
 
 The following Azure CLI command will `cordon` the specified bareMetalMachineName.
 
@@ -150,9 +150,9 @@ az networkcloud baremetalmachine cordon \
   --subscription <subscriptionID>
 ```
 
-A `replace` operation isn't required when you're performing a physical hot swappable power supply repair because the BMM host will continue to function normally after the repair.
+A `replace` operation isn't required when you're performing a physical hot swappable power supply repair because the Bare Metal Machine host will continue to function normally after the repair.
 
-Although it isn't strictly necessary to bring the BMM back into service, we recommend doing a `replace` operation when you're performing the following physical repairs:
+Although it isn't strictly necessary to bring the Bare Metal Machine back into service, we recommend doing a `replace` operation when you're performing the following physical repairs:
 
 - CPU
 - Dual In-Line Memory Module (DIMM)
@@ -161,7 +161,7 @@ Although it isn't strictly necessary to bring the BMM back into service, we reco
 - Transceiver
 - Ethernet or fiber cable replacement
 
-A `replace` operation ***is required*** to bring the BMM back into service when you're performing the following physical repairs:
+A `replace` operation ***is required*** to bring the Bare Metal Machine back into service when you're performing the following physical repairs:
 
 - Backplane
 - System board
@@ -186,8 +186,8 @@ az networkcloud baremetalmachine replace \
   --subscription <subscriptionID>
 ```
 
-Once the BMM `replace` operation completes successfully, validate that the BMM's `provisioningStatus` is `Succeeded` and its `readyState` is set to `True`.
-Then, proceed to execute the `uncordon` operation to have the BMM rejoin the workload schedulable node pool.
+Once the Bare Metal Machine `replace` operation completes successfully, validate that the Bare Metal Machine's `provisioningStatus` is `Succeeded` and its `readyState` is set to `True`.
+Then, proceed to execute the `uncordon` operation to have the Bare Metal Machine rejoin the workload schedulable node pool.
 
 The following Azure CLI command will `uncordon` the specified bareMetalMachineName.
 
