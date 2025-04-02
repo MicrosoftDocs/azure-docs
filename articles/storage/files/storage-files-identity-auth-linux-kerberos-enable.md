@@ -47,7 +47,7 @@ Before you enable AD authentication over SMB for Azure file shares, make sure yo
 
 - A Linux VM running Ubuntu 18.04+, or an equivalent RHEL or SLES VM. If running on Azure, the VM must have at least one network interface on the VNET containing Microsoft Entra Domain Services. If using an on-premises VM, your AD DS must be synced to Microsoft Entra ID.
 - Root user or user credentials to a local user account that has full sudo rights (for this guide, localadmin).
-- The Linux VM is not joined already joined to another AD domain. If it's already a part of a domain, it must first leave that domain before it can join this domain.
+- The Linux VM is not joined already to another AD domain. If it's already a part of a domain, it must first leave that domain before it can join this domain.
 - A Microsoft Entra tenant [fully configured](../../active-directory-domain-services/tutorial-create-instance.md), with domain user already set up.
 
 Installing the samba package isn't strictly necessary, but it gives you some useful tools and brings in other packages automatically, such as `samba-common` and `smbclient`. Run the following commands to install it. If you're asked for any input values during installation, leave them blank.
@@ -383,7 +383,7 @@ Name:   contosovm.contosodomain.contoso.com
 Address: 10.0.0.8
 ```
 
-If you plan for users to actively log into client machines and access the Azure file shares, you need to [set up nsswitch.conf](#set-up-nsswitchconf) and [configure PAM for winbind](#configure-pam-for-winbind). If planned access is limited to applications represented by a user account or computer account that need Kerberos authentication to access the file share, you can skip these steps.
+If you plan for users to actively log in to client machines and access the Azure file shares, you need to [set up nsswitch.conf](#set-up-nsswitchconf) and [configure PAM for winbind](#configure-pam-for-winbind). If planned access is limited to applications represented by a user account or computer account that need Kerberos authentication to access the file share, you can skip these steps.
 
 ### Set up nsswitch.conf
 
