@@ -129,12 +129,12 @@ sections:
             > The value specified by this method is a global setting, affecting the whole AppDomain. For example, if you have a machine with four cores and want to set `minWorkerThreads` and `minIoThreads` to 50 per CPU during run-time, use `ThreadPool.SetMinThreads(200, 200)`.
             >
           
-          It's also possible to specify the minimum threads setting by using the `minIoThreads`` or `minWorkerThreads` [configuration setting](/previous-versions/dotnet/netframework-4.0/7w2sway1(v=vs.100)) under the `<processModel>` configuration element in `Machine.config`. `Machine.config` is typically located at `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. 
+          It's also possible to specify the minimum threads setting by using the `minIoThreads`` or `minWorkerThreads` [configuration setting](/previous-versions/dotnet/netframework-4.0/7w2sway1(v=vs.100) under the `<processModel>` configuration element in `Machine.config`. `Machine.config` is typically located at `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. 
           
           Setting the number of minimum threads in this way isn't recommended because it's a system-wide setting. If you do set it this way, you must restart the application pool.
           
             > [!NOTE]
-            > The value specified in this configuration element is a _per-core_ setting. For example, if you have a machine with four cores and want your `minIoThreads` setting to be 200 at runtime, you would use `\<processModel minIoThreads="50"\>`.
+            > The value specified in this configuration element is a _per-core_ setting. For example, if you have a machine with four cores and want your `minIoThreads` setting to be 200 at runtime, you would use `<processModel minIoThreads="50">`.
             >
           
       - question: |
