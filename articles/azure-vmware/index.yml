@@ -21,7 +21,7 @@ highlightedContent:
     - title: What's Azure VMware Solution? 
       itemType: overview
       url: /azure/azure-vmware/introduction
-    - title: What's Azure VMware Solution in an Azure virtual network (Public preview)
+    - title: What's Azure VMware Solution in an Azure Virtual Network (Public preview)
       itemType: overview
       url: /azure/azure-vmware/native-introduction
     - title: Networking
