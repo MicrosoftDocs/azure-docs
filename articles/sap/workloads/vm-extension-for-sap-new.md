@@ -94,7 +94,7 @@ The new VM Extension for SAP uses a managed identity that's assigned to the VM t
 
 1. Restart SAP Host Agent
 
-    Log on to the virtual machine on which you enabled the VM Extension for SAP and restart the SAP Host Agent if it was already installed. SAP Host Agent does not use the VM Extension until it's restarted. It currently cannot detect that an extension was installed after it was started.
+    Log on to the virtual machine on which you enabled the VM Extension for SAP and restart the SAP Host Agent if it was already installed. SAP Host Agent does not use the VM Extension until it's been restarted. It currently can't detect that an extension was installed after it was started.
 
 ### [Azure CLI](#tab/cli2)
  
@@ -128,13 +128,13 @@ The new VM Extension for SAP uses a managed identity that is assigned to the VM 
  
  1. Restart SAP Host Agent
 
-    Log on to the virtual machine on which you enabled the VM Extension for SAP and restart the SAP Host Agent if it was already installed. SAP Host Agent does not use the VM Extension until it's restarted. It currently cannot detect that an extension was installed after it was started.
+    Log on to the virtual machine on which you enabled the VM Extension for SAP and restart the SAP Host Agent if it was already installed. SAP Host Agent does not use the VM Extension until it's been restarted. It currently can't detect that an extension was installed after it was started.
 
 ---
 
 ## <a name="configure-manually"></a>Manually configure the Azure VM extension for SAP solutions
 
-If you want to use Azure Resource Manager, Terraform or other tools to deploy the VM Extension for SAP, you can also deploy the VM Extension for SAP manually i.e. without using the dedicated PowerShell or Azure CLI commands.
+If you want to use Azure Resource Manager, Terraform or other tools to deploy the VM Extension for SAP, you can also deploy the VM Extension for SAP manually, that is without using the dedicated PowerShell or Azure CLI commands.
 
 Before deploying the VM Extension for SAP make sure to assign a user or system assigned managed identity to the virtual machine. For more information, read the following guides:
 
@@ -311,9 +311,9 @@ This check makes sure that all performance metrics that appear inside your SAP a
 
 ### Run the readiness check on a Windows VM
 
-1. Sign in to the Azure virtual machine (using an admin account is not necessary).
+1. Sign in to the Azure virtual machine (using an admin account isn't necessary).
 1. Open a web browser and navigate to `http://127.0.0.1:11812/azure4sap/metrics`.
-1. The browser should display or download an XML file that contains the monitoring data of your virtual machine. If that is not the case, make sure that the Azure Extension for SAP is installed.
+1. The browser should display or download an XML file that contains the monitoring data of your virtual machine. If that isn't the case, make sure that the Azure Extension for SAP is installed.
 1. Check the content of the XML file. The XML file that you can access at `http://127.0.0.1:11812/azure4sap/metrics` contains all populated Azure performance counters for SAP. It also contains a summary and health indicator of the status of Azure Extension for SAP.
 1. Check the value of the **Provider Health Description** element. If the value is not **OK**, follow the instructions in chapter [Health checks][health-check].
  
@@ -330,17 +330,17 @@ If the preceding check was not successful, run these additional checks:
 
 1. Make sure that the waagent is installed and enabled.
 
-   a.  Run `sudo ls -al /var/lib/waagent/`
+   a. Run `sudo ls -al /var/lib/waagent/`
 
      **Expected result**: Lists the content of the waagent directory.
 
-   b.  Run `ps -ax | grep waagent`
+   b. Run `ps -ax | grep waagent`
 
    **Expected result**: Displays one entry similar to: `python /usr/sbin/waagent -daemon`
 
 1. Make sure that the Azure Extension for SAP is installed and running.
 
-   a.  Run `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-*/'`
+   a. Run `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-*/'`
 
    **Expected result**: Lists the content of the Azure Extension for SAP directory.
 
@@ -350,11 +350,11 @@ If the preceding check was not successful, run these additional checks:
 
 1. Install SAP Host Agent as described in SAP Note [1031096], and check the output of `saposcol`.
 
-   a.  Run `/usr/sap/hostctrl/exe/saposcol -d`
+   a. Run `/usr/sap/hostctrl/exe/saposcol -d`
 
-   b.  Run `dump ccm`
+   b. Run `dump ccm`
 
-   c.  Check whether the **Virtualization_Configuration\Enhanced Monitoring Access** metric is **true**.
+   c. Check whether the **Virtualization_Configuration\Enhanced Monitoring Access** metric is **true**.
 
 If you already have an SAP NetWeaver ABAP application server installed, open transaction ST06 and check whether monitoring is enabled.
 
@@ -362,7 +362,7 @@ If any of these checks fail, and for detailed information about how to redeploy 
  
 ## <a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Health checks
 
-If some of the infrastructure data is not delivered correctly as indicated by the tests described in [Readiness check][readiness-check], run the health checks described in this chapter to check whether the Azure infrastructure and the Azure Extension for SAP are configured correctly.
+If some of the infrastructure data isn't delivered correctly as indicated by the tests described in [Readiness check][readiness-check], run the health checks described in this chapter to check whether the Azure infrastructure and the Azure Extension for SAP are configured correctly.
 
 ### [Azure PowerShell](#tab/powershell5)
 
