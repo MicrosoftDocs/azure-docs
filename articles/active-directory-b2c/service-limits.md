@@ -185,7 +185,7 @@ As a protection for our customers, Microsoft places some restrictions on telepho
 |:----------- |:---------------------------------------------- |:------------------------------- | :----------------------------------------|
 | 20  | Egypt | 50 | 200 | 
 | 211 |	South Sudan |	10	| 30 |
-| 212 | Moroccoa | 20 | 100 |
+| 212 | Morocco | 20 | 100 |
 | 216 | Tunisia | 20 | 100 |
 | 221 | Senegal | 10 | 30 |
 | 223 | Mali | 20 | 100 |
