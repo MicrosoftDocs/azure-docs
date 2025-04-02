@@ -122,7 +122,7 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Microsoft Community Training| [Reliability in Microsoft Community Training](reliability-community-training.md) ||
 |Microsoft Fabric| [Reliability in Microsoft Fabric](reliability-fabric.md)||
 |Microsoft Purview| [Reliability in Microsoft Purview](reliability-microsoft-purview.md)||
-|Sustainability Data Solutions in Fabric | [Reliability in Sustainability Data Solutions in Fabric](reliability-sustainability-data-solutions-fabric.md) |
+|Sustainability Data Solutions in Fabric | [Reliability in Sustainability Data Solutions in Fabric](reliability-sustainability-data-solutions-fabric.md) ||
 
 
 
