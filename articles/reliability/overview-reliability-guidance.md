@@ -32,7 +32,7 @@ This section provides links to reliability guidance for many Azure services. Eac
 >[!NOTE]
 >Some service documents are in the process of, or are not yet updated into a single reliability guide format. These may contain more than one document that references reliability guidance.
 
-| Product| Reliability Guide | Other Reliability Guidance |
+| Product| Reliability Guide | Other Reliability Documentation |
 |----------|---------|---------|
 |Azure AI Health Insights| [Reliability in Azure AI Health Insights](reliability-health-insights.md)||
 |Azure AI Search|| | [Reliability in Azure AI Search](/azure/search/search-reliability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
