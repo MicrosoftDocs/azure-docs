@@ -12,7 +12,7 @@ ms.date: 01/31/2025
 
 ## Container Registry GitHub Repository
 
-[GitHub Repository](TBD)
+[GitHub Repository](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policyDefinitions/Container%20Registry)
 
 ## Container Registry Policies Built-in
 

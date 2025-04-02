@@ -3,10 +3,12 @@ title: Create an Enclave in the Azure portal
 description: Azure Virtual Enclaves Documentation
 author: jadean-msft
 ms.author: jadean
-ms.service: Azure Virtual Enclaves
+# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 01/31/2025
 ---
+
+# Create an Enclave in the Azure portal
 
 An [Enclave](./what-is-an-enclave.md) is a completely isolated Virtual Network that is part of a Community in which one or more workloads are hosted. These workloads can be completely isolated from other Enclaves in the Community. An Enclave Owner can enable other Enclaves to connect to theirs by creating an Endpoint. Endpoints are used by other Enclaves to establish Connections.
 

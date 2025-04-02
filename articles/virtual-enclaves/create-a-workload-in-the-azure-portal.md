@@ -3,7 +3,7 @@ title: Create a Workload in Azure
 description: Azure Virtual Enclaves Documentation
 author: jadean-msft
 ms.author: jadean
-ms.service: Azure Virtual Enclaves
+# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 01/31/2025
 ---
@@ -45,7 +45,7 @@ Sign-in to the Azure portal at https://portal.azure.com.
 
 > **Note**:
 >
-> Organizations should choose a workload naming convention that makes sense for the organization. Learn more about [defining your naming convention](../cloud-adoption-framework/ready/azure-best-practices/resource-naming.md).
+> Organizations should choose a workload naming convention that makes sense for the organization. Learn more about [defining your naming convention](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming).
 
 8. Click `Next`.
 
@@ -58,4 +58,4 @@ Sign-in to the Azure portal at https://portal.azure.com.
 - [What is a Workload?](./what-is-a-workload.md)
 - [Create an Enclave](./create-an-enclave-in-the-azure-portal.md)
 - [Best practices](./best-practices.md)
-- [Defining your naming convention](../cloud-adoption-framework/ready/azure-best-practices/resource-naming.md)
+- [Defining your naming convention](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming)

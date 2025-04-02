@@ -30,9 +30,9 @@ This will guide you through replacing the existing AVE Enclave VNET subnet `Azur
 | /25 | 123 |
 | /24 | 251 |
 
-# Detailed Steps
+## Detailed Steps
 
-## Find the existing VNET subnet
+### Find the existing VNET subnet
 
 The existing subnet is called "AzureVirtualEnclaveSubnet" by default. This can be confirmed by looking at the Enclave resource's properties.
 
@@ -49,7 +49,7 @@ The existing subnet is called "AzureVirtualEnclaveSubnet" by default. This can b
    - Remember that Azure reserves 5 IPs per subnet
    - Factor in any growth you may need
 
-## Update the subnets
+### Update the subnets
 
 Either using the template below or by manually going through the Azure Portal modify the subnets to meet your plan. The template modifies the existing subnet and creates a new one, and attach the original NSG to the two new subnets. Modify as needed.
 

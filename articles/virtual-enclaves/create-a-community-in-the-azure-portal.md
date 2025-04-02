@@ -3,7 +3,7 @@ title: Create a Community
 description: Azure Virtual Enclaves Documentation
 author: jadean-msft
 ms.author: jadean
-ms.service: Azure Virtual Enclaves
+# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 01/31/2025
 ---
@@ -61,6 +61,6 @@ Sign-in to the Azure portal at https://portal.azure.com.
 
 ## References
 - [What is a Community?](./what-is-a-community.md)
-- [Create an enclave](d./create-an-enclave-in-the-azure-portal.md)
+- [Create an enclave](./create-an-enclave-in-the-azure-portal.md)
 - [Best practices](./best-practices.md)
 - [Name resolution for resources in Azure Virtual Networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)

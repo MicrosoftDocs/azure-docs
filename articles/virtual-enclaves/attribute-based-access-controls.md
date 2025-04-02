@@ -109,7 +109,7 @@ To prevent attribute exhaust defined in the overview above, the following usage 
 - One attribute per enclave for users
 - One attribute per enclave for EAs
 
-## Implementation
+## ABAC Implementation
 
 | Attribute | Type | Description | Values | Business Rule | When to Assign/Update |
 | - | - | - | - | - | - |
