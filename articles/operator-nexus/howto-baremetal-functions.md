@@ -167,7 +167,7 @@ If the `replace` action fails due to a hardware validation failure, the specific
 This information can also be found in the Activity Log for the Bare Metal Machine (Operator Nexus).
 The error code and error message are included the JSON properties of the corresponding `BareMetalMachines_Replace` operation.
 
-### Example 1: hardware validation fails due to invalid Baseboard Management Controller (BMC) credentials provided
+**Example 1: hardware validation fails due to invalid Baseboard Management Controller (BMC) credentials provided**
 
 ```shell
 $ az networkcloud baremetalmachine replace --name rack1compute02 --resource-group hostedRG --bmc-credentials password=REDACTED username=root --bmc-mac-address 00-00-5E-00-01-00 --boot-mac-address 00-00-5E-00-02-00 --machine-name RACK1COMPUTE02 --serial-number SN123435
@@ -176,7 +176,7 @@ Code: None
 Message: BMC login unsuccessful: Fail - Unauthorized; System health test(s) failed: [Additional logs: Server power down at end of test failed with: Unauthorized]
 ```
 
-### Example 2: hardware validation fails due to networking failure
+**Example 2: hardware validation fails due to networking failure**
 
 ```shell
 $ az networkcloud baremetalmachine replace --name rack1compute02 --resource-group hostedRG --bmc-credentials password=REDACTED username=root --bmc-mac-address 00-00-5E-00-01-00 --boot-mac-address 00-00-5E-00-02-00 --machine-name RACK1COMPUTE02 --serial-number SN123435
