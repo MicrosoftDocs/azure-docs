@@ -95,11 +95,10 @@ There's no extra charge to enable availability zone support in AKS. You pay for 
 
 ### Configure availability zone support
 
-- You can create a new AKS cluster that uses availability zones and [configure availability zone support](/azure/aks/availability-zones).
 
-- You can't enable availability zone support after you create a cluster. Instead, you need to create a new cluster with availability zone support enabled and delete the existing cluster.
-
-- You can't disable availability zone support after you create a cluster. Instead, you need to create a new cluster with availability zone support disabled and delete the existing cluster.
+- **Create a new AKS cluster that has availability zone support:** To configure availability zone support, see [Create an Azure Kubernetes Service (AKS) cluster that uses availability zones](/azure/aks/availability-zones).
+- **Migration:** You can't enable availability zone support after you create a cluster. Instead, you need to create a new cluster that has availability zone support enabled and delete the existing cluster.
+- **Disable availability zone support:** You can't disable availability zone support after you create a cluster. Instead, you need to create a new cluster that has availability zone support disabled and delete the existing cluster.
 
 ### Normal operations
 
