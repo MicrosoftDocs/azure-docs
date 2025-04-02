@@ -47,13 +47,17 @@ items:
         href: discover-manage-assets/overview-manage-assets.md
       - name: Understand assets and asset endpoints
         href: discover-manage-assets/concept-assets-asset-endpoints.md
+      - name: Automatically discover assets
+        href: discover-manage-assets/overview-akri.md
+      - name: Akri services architecture
+        href: discover-manage-assets/concept-akri-architecture.md
       - name: Manage your assets
         href: discover-manage-assets/howto-manage-assets-remotely.md
       - name: Secure access to your assets
         href: discover-manage-assets/howto-secure-assets.md
       - name: OPC UA (connect to your assets)
         items:
-        - name: Connector for OPC UA overview
+        - name: What is connector for OPC UA?
           href: discover-manage-assets/overview-opcua-broker.md
         - name: Message format
           href: discover-manage-assets/concept-opcua-message-format.md
@@ -63,6 +67,8 @@ items:
           href: discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md
         - name: Configure OPC UA user authentication
           href: discover-manage-assets/howto-configure-opcua-authentication-options.md
+        - name: Configure and use automatic asset discovery
+          href: discover-manage-assets/howto-autodetect-opcua-assets-using-akri.md
       - name: Connect to media sources
         items:
         - name: What is the media connector?
