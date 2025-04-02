@@ -139,9 +139,9 @@ This example uses an RSS trigger that checks an RSS feed, based on the specified
    This step instantly publishes your logic app resource and workflow live in the Azure portal. However, the trigger only checks the RSS feed without taking any other actions. So, you need to add an action to specify what you want to happen when the trigger fires.
 
 1. On the logic app code view,
-On the Logic App code view,
 change "feedUrl": "@{encodeURIComponent(encodeURIComponent('https://feeds.a.dj.com/rss/RSSMarketsMain.xml'))}" to
-"feedUrl": "@{encodeURIComponent('https://feeds.a.dj.com/rss/RSSMarketsMain.xml')}".
+       "feedUrl": "@{encodeURIComponent('https://feeds.a.dj.com/rss/RSSMarketsMain.xml')}".
+
 This is necessary due to a double encoding issue, which must be manually corrected.
 
 <a name="add-email-action"></a>
