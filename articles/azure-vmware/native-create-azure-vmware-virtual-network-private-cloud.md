@@ -28,9 +28,9 @@ Before you begin, these items are required to create an Azure VMware Solution on
 - Ensure you have sufficient AV64 quota allocated to your subscription in the desired region before your deployment. 
 - The following preview feature flag needs to be registered under the subscription where your private cloud resides.
     - az feature register--namespace Microsoft. Network 
-      --name “EnablePrivateIpPrefixAllocation”--subscription "<Subscription ID>"
-    - az feature registrations create --namespace "Microsoft.AVS"--name "Early Access"--subscription "<Subscription ID>"
-    - az feature registration create--namespace "Microsoft.AVS"--name "FleetGreenfield"--subscription "<Subscription ID>"
+      --name “EnablePrivateIpPrefixAllocation”--subscription **Subscription ID**
+     - az feature registrations create --namespace "Microsoft.AVS"--name "Early Access"--subscription **Subscription ID**
+     - az feature registration create--namespace "Microsoft.AVS"--name "FleetGreenfield"--subscription **Subscription ID**
 
 ```bash
 az feature register --namespace Microsoft.Network --name EnablePrivateIpPrefixAllocation

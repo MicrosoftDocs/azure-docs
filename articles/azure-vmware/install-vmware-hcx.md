@@ -23,7 +23,7 @@ This article also teaches you how to do the following tasks:
 * Download and deploy the VMware HCX Connector in on-premises.
 * Activate VMware HCX with a license key.
 
-After HCX is deployed, follow the recommended [Next steps](#next-steps). 
+ After deploying HCX, follow the recommended [Next steps](#next-steps).
 
 ## Prerequisite
 
@@ -36,7 +36,7 @@ After HCX is deployed, follow the recommended [Next steps](#next-steps).
 1. Select **Get started** for **HCX Workload Mobility**.
 
      :::image type="content" source="media/tutorial-vmware-hcx/add-hcx-workload-mobility.png" alt-text="Screenshot showing the Get started button for VMware HCX Workload Mobility." lightbox="media/tutorial-vmware-hcx/add-hcx-workload-mobility.png":::
-1.	If you're installing HCX add-on on Azure VMware Solution in an Azure virtual network, then following more step is required.
+1.	If you're installing HCX add-on on Azure VMware Solution in an Azure virtual network, then follow this step:
    
       1. Specify a unique /24 CIDR address block for HCX uplink and management. This IP block is utilized for HCX service mesh appliances management and uplink interfaces.
 
@@ -89,7 +89,7 @@ HCX offers various [services](https://techdocs.broadcom.com/us/en/vmware-cis/hcx
 - Downgrading from HCX Enterprise Edition to HCX Advanced is possible without redeploying. 
 
     1. Verify that you reverted to an HCX Advanced configuration state and you aren't using the Enterprise features. 
-    1. To downgrade, verify that no scheduled migrations, [Enterprise services](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-user-guide-4-9/vmware-hcx-services.html) like RAV and HCX MON, etc. are in use. Open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to request downgrade. 
+    1. If you want to downgrade, verify that no scheduled migrations, [Enterprise services](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-user-guide-4-9/vmware-hcx-services.html) like RAV or HCX MON, etc. are active. Open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to request downgrade. 
 
 ## Download and deploy the VMware HCX Connector on-premises 
 
