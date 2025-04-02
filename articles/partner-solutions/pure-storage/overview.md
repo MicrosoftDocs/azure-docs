@@ -12,7 +12,7 @@ ms.date: 03/24/2025
 
 Microsoft and Pure Storage Cloud developed this service and manage it together.
 
-Access Pure Storage Cloud from the [Azure portal](https://portal.azure.com).
+Access Azure Native Pure Storage Cloud from the [Azure portal](https://portal.azure.com).
 
 This offering provides enterprise-class cloud block storage with built-in cloud capabilities powered by a common Purity operating environment. Pure Storage decouples storage and compute resources, which allows customers with large data footprints to optimize their cloud spend and avoid paying for unnecessary compute power.
 
@@ -39,7 +39,6 @@ You can [subscribe to Pure Storage Cloud](https://azuremarketplace.microsoft.com
 
     > [!IMPORTANT]
     > - You can't access the service until your tenant is enabled.
-    > You must use this link until Pure Storage is generally available in order to access the service in Azure portal. 
 
 1. Go to **Subscriptions** and select the subscription where you wish to deploy the AVS cluster.
 
@@ -62,4 +61,4 @@ For more information, see [Pure Storage Cloud documentation](https://www.puresto
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create a Pure Storage Cloud (preview) resource](create.md)
+> [Quickstart: Create an Azure Native Pure Storage Cloud (preview) resource](create.md)
