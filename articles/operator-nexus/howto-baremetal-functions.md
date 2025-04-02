@@ -69,7 +69,7 @@ az networkcloud baremetalmachine restart \
 
 ## Make a Bare Metal Machine unschedulable (cordon)
 
-You can make a Bare Metal Machine unschedulable by executing the [`cordon`](#make-a-bmm-unschedulable-cordon) command.
+You can make a Bare Metal Machine unschedulable by executing the [`cordon`](#make-a-bare-metal-machine-unschedulable-cordon) command.
 On the execution of the `cordon` command, Operator Nexus workloads aren't scheduled on the Bare Metal Machine when `cordon` is set.
 Any attempt to create a workload on a `cordoned` Bare Metal Machine results in the workload being set to `pending` state.
 Existing workloads continue to run on the Bare Metal Machine unless the workloads are drained.
@@ -112,7 +112,7 @@ kubectl get nodes <resourceName> -ojson |jq '.metadata.labels."topology.kubernet
 
 ## Make a Bare Metal Machine schedulable (uncordon)
 
-You can make a Bare Metal Machine "schedulable" (the server can host workloads) by executing the [`uncordon`](#make-a-bmm-schedulable-uncordon) command.
+You can make a Bare Metal Machine "schedulable" (the server can host workloads) by executing the [`uncordon`](#make-a-bare-metal-machine-schedulable-uncordon) command.
 All workloads in a `pending` state on the Bare Metal Machine are `restarted` when the Bare Metal Machine is `uncordoned`.
 
 ```azurecli
@@ -127,7 +127,7 @@ az networkcloud baremetalmachine uncordon \
 You can restore the runtime version on a Bare Metal Machine by executing `reimage` command. The `reimage` action doesn't affect the tenant workload files on the Bare Metal Machine.
 This process **redeploys** the runtime image on the target Bare Metal Machine and executes the steps to rejoin the cluster with the same identifiers.
 
-As a best practice, ensure the Bare Metal Machine's workloads are drained using the [`cordon`](#make-a-bmm-unschedulable-cordon) command, with `evacuate` set to `True`, before executing the `reimage` command.
+As a best practice, ensure the Bare Metal Machine's workloads are drained using the [`cordon`](#make-a-bare-metal-machine-unschedulable-cordon) command, with `evacuate` set to `True`, before executing the `reimage` command.
 For more best practices to follow, read through [Best Practices for Bare Metal Machine Operations](./howto-bare-metal-best-practices.md).
 
 > [!IMPORTANT]

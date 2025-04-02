@@ -139,12 +139,12 @@ The `reimage` action is designed to interact with the operating system partition
 
 Before initiating any `reimage` operation, ensure the following preconditions are met:
 
-- Make sure the Bare Metal Machine's workloads are drained using the [`cordon`](./howto-baremetal-functions.md#make-a-bmm-unschedulable-cordon) command with the parameter `evacuate` set to `True`.
+- Make sure the Bare Metal Machine's workloads are drained using the [`cordon`](./howto-baremetal-functions.md#make-a-bare-metal-machine-unschedulable-cordon) command with the parameter `evacuate` set to `True`.
 - Perform high level checks covered in the article [Troubleshoot Bare Metal Machine Provisioning].
 - Evaluate any Bare Metal Machine warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems before a `reimage` operation.
   For more information, read [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
 - If the Bare Metal Machine reports a failed state with the reason of hardware validation (seen in the Bare Metal Machine `Detailed Status` and `Detailed Status Message` fields), then the Bare Metal Machine needs a `replace` instead.
-  See the [Best Practices for a Bare Metal Machine Replace](#best-practices-for-a-bmm-replace).
+  See the [Best Practices for a Bare Metal Machine Replace](#best-practices-for-a-bare-metal-machine-replace).
 - Validate that there are no running firmware upgrade jobs.
   Follow steps in section [Determine if Firmware Update Jobs are Running](#determine-if-firmware-update-jobs-are-running).
 
@@ -167,7 +167,7 @@ When one or more hardware components fail on the server (multiple failures), mak
 
 Before initiating any `replace` operation, ensure the following preconditions are met:
 
-- Make sure the Bare Metal Machine's workloads are drained using the [`cordon`](./howto-baremetal-functions.md#make-a-bmm-unschedulable-cordon) command with the parameter `evacuate` set to `True`.
+- Make sure the Bare Metal Machine's workloads are drained using the [`cordon`](./howto-baremetal-functions.md#make-a-bare-metal-machine-unschedulable-cordon) command with the parameter `evacuate` set to `True`.
 - Perform high level checks covered in the article [Troubleshoot Bare Metal Machine Provisioning].
 - Evaluate any Bare Metal Machine warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems before a `replace` operation.
   For more information, see [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
