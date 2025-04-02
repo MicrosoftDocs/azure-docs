@@ -27,6 +27,28 @@ in the Azure Portal open “Virtual machines”, select the name of each virtual
 “Settings” in the table of contents, and finally “Extensions + Applications”.
 There you will see a list of extensions assigned.
 
+The following query will return a list of virtual machines in Azure with the
+DSC extension (for Windows) attached.
+
+```Kusto
+resources
+| where type == 'microsoft.compute/virtualmachines'
+| extend
+    JoinID = toupper(id),
+    OSName = tostring(properties.osProfile.computerName),
+    OSType = tostring(properties.storageProfile.osDisk.osType)
+| join kind=inner(
+    resources
+    | where type == 'microsoft.compute/virtualmachines/extensions'
+    | extend 
+        VMId = toupper(substring(id, 0, indexof(id, '/extensions'))),
+        ExtensionName = tolower(name)
+    | where ExtensionName == 'microsoft.powershell.dsc'
+) on $left.JoinID == $right.VMId
+| project OSName, OSType, ExtensionName, ['id']
+| order by tolower(OSName) asc
+```
+
 ## Major differences
 
 Machine configuration uses DSC version 2. DSC Extension uses
