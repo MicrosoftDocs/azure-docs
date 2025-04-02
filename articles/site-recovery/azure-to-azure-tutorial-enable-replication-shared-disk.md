@@ -276,7 +276,7 @@ $WestUSTargetStorageAccount = New-AzStorageAccount -Name "a2atargetstorage" -Res
 
 A network mapping maps virtual networks in the primary region to virtual networks in the recovery region. The network mapping specifies the Azure virtual network in the recovery region, that a virtual machine in the primary virtual network should fail over to. One Azure virtual network can be mapped to only a single Azure virtual network in a recovery region.
 
-- Create an Azure virtual network in the recovery region to fail over to:
+1. Create an Azure virtual network in the recovery region to fail over to:
 
    ```powershell
     #Create a Recovery Network in the recovery region
@@ -287,7 +287,7 @@ A network mapping maps virtual networks in the primary region to virtual network
     $WestUSRecoveryNetwork = $WestUSRecoveryVnet.Id
    ```
 
-- Retrieve the primary virtual network. The VNet that the virtual machine is connected to:
+1. Retrieve the primary virtual network. The VNet that the virtual machine is connected to:
 
    ```powershell
     #Retrieve the virtual network that the virtual machine is connected to
@@ -311,7 +311,7 @@ A network mapping maps virtual networks in the primary region to virtual network
     $EastUSPrimaryNetwork = (Split-Path(Split-Path($PrimarySubnet.Id))).Replace("\","/")
    ```
 
-- Create network mapping between the primary virtual network and the recovery virtual network:
+1. Create network mapping between the primary virtual network and the recovery virtual network:
 
    ```powershell
     #Create an ASR network mapping between the primary Azure virtual network and the recovery Azure virtual network
@@ -327,7 +327,7 @@ A network mapping maps virtual networks in the primary region to virtual network
     Write-Output $TempASRJob.State
    ```
 
-- Create network mapping for the reverse direction (fail back):
+1. Create network mapping for the reverse direction (fail back):
 
     ```powershell
     #Create an ASR network mapping for fail back between the recovery Azure virtual network and the primary Azure virtual network
