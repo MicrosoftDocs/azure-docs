@@ -141,7 +141,6 @@ This example uses an RSS trigger that checks an RSS feed, based on the specified
 1. On the logic app code view,  
 change "feedUrl": "@{encodeURIComponent(encodeURIComponent('https://feeds.a.dj.com/rss/RSSMarketsMain.xml'))}" to  
        "feedUrl": "@{encodeURIComponent('https://feeds.a.dj.com/rss/RSSMarketsMain.xml')}".  
-
 This is necessary due to a double encoding issue, which must be manually corrected.  
 
 <a name="add-email-action"></a>
