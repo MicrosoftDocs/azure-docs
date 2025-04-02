@@ -26,7 +26,7 @@ items:
     - name: Connect multiple Azure VMware Solution on native private clouds
       href: native-connect-multiple-private-clouds.md
     - name: Connect Azure VMware Solution on Native private cloud to previous edition of Azure VMware Solution private cloud
-      href: native-connect-previous-edition.md
+      href: native-connect-private-cloud-previous-edition.md
     - name: DNS forward lookup zone for Azure VMware Solution on native private cloud
       href: native-dns-forward-lookup-zone.md
 - name: Azure VMware Solution
