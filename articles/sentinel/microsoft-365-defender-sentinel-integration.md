@@ -112,7 +112,7 @@ If you onboard Microsoft Sentinel to the Defender portal and are licensed for De
 - Microsoft Defender for Endpoint
 - Microsoft Defender for Identity
 - Microsoft Defender for Office 365
-- Microsoft Entra Id Protection
+- Microsoft Entra ID Protection
 
 ### Azure portal integration
 
