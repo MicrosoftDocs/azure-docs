@@ -27,8 +27,9 @@ ms.author: wchi
     using MongoDB.Driver;
     using Azure.Identity;
     using System.Text.Json;
-    
-    var endpoint = Environment.GetEnvironmentVariable("AZURE_COSMOS_RESOURCEENDPOINT");
+
+    // you can retrieve the endpoint of the resource with the following env variable:
+    // Environment.GetEnvironmentVariable("AZURE_COSMOS_RESOURCEENDPOINT");
     var listConnectionStringUrl = Environment.GetEnvironmentVariable("AZURE_COSMOS_LISTCONNECTIONSTRINGURL");
     var scope = Environment.GetEnvironmentVariable("AZURE_COSMOS_SCOPE");
     
@@ -40,7 +41,7 @@ ms.author: wchi
     // var tokenProvider = new DefaultAzureCredential(
     //     new DefaultAzureCredentialOptions
     //     {
-    //         ManagedIdentityClientId = Environment.GetEnvironmentVariable("AZURE_COSMOS_CLIENTID");
+    //         ManagedIdentityClientId = Environment.GetEnvironmentVariable("AZURE_COSMOS_CLIENTID")
     //     }
     // );
     
@@ -57,10 +58,10 @@ ms.author: wchi
     // Get the connection string.
     var httpClient = new HttpClient();
     httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {accessToken.Token}");
-    var response = await httpClient.POSTAsync(listConnectionStringUrl);
+    var response = await httpClient.PostAsync(new Uri(listConnectionStringUrl), null);
     var responseBody = await response.Content.ReadAsStringAsync();
     var connectionStrings = JsonSerializer.Deserialize<Dictionary<string, List<Dictionary<string, string>>>>(responseBody);
-    string connectionString = connectionStrings["connectionStrings"][0]["connectionString"];
+    var connectionString = connectionStrings["connectionStrings"][0]["connectionString"];
     
     // Connect to Azure Cosmos DB for MongoDB
     var client = new MongoClient(connectionString);

@@ -43,7 +43,7 @@ The first step is to get the following information from your [Azure Data Manager
 | `TENANT_ID`          | Directory (tenant) ID    | `72f988bf-86f1-41af-91ab-xxxxxxxxxxxx`  |
 | `SCOPE`              | Application (client) ID  | `00001111-aaaa-2222-bbbb-3333cccc4444`  |
 | `base_uri`           | URI                      | `<instance>.energy.azure.com`           |
-| `data-partition-id`  | Data partitions        | `<instance>-<data-partition-name>`                    |
+| `data-partition-id`  | Data partitions        | `<data-partition-id>`                    |
 
 You'll use this information later in the tutorial.
 

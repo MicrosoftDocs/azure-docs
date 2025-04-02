@@ -2,12 +2,13 @@
 title: Control Azure Content Delivery Network caching behavior with caching rules
 description: You can use content delivery network caching rules to set or modify default cache expiration behavior both globally and with conditions, such as a URL path and file extensions.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumud
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
+ROBOTS: NOINDEX
 ---
 
 # Control Azure Content Delivery Network caching behavior with caching rules
@@ -35,8 +36,6 @@ For information about default caching behavior and caching directive headers, se
 1. Open the Azure portal, select a content delivery network profile, then select an endpoint.
 
 2. In the left pane under Settings, select **Caching rules**.
-
-    :::image type="content" source="./media/cdn-caching-rules/cdn-caching-rules-btn.png" alt-text="Screenshot of content delivery networking caching rules.":::
 
    The **Caching rules** page appears.
 

@@ -580,7 +580,7 @@ items:
       - name: Query folders and multiple files
         href: sql/query-folders-multiple-csv-files.md
         displayName: csv
-      - name: Query partitioned files using file metadata
+      - name: Use file metadata in queries
         href: sql/query-specific-files.md
       - name: Create and use views
         href: sql/create-use-views.md
@@ -738,14 +738,12 @@ items:
           href: ./spark/apache-spark-version-support.md
         - name: Azure Synapse Apache Spark 3.4 runtime (GA)
           href: ./spark/apache-spark-34-runtime.md
-        - name: Azure Synapse Apache Spark 3.3 runtime (EOSA)
+        - name: Azure Synapse Apache Spark 3.3 runtime (unsupported)
           href: ./spark/apache-spark-33-runtime.md
         - name: Azure Synapse Apache Spark 3.2 runtime (deprecated)
           href: ./spark/apache-spark-32-runtime.md
         - name: Azure Synapse Apache Spark 3.1 runtime (deprecated)
           href: ./spark/apache-spark-3-runtime.md
-        - name: Azure Synapse Apache Spark 2.4 runtime (deprecated)
-          href: ./spark/apache-spark-24-runtime.md
         - name: Lifecycle and Supportability
           href: ./spark/runtime-for-apache-spark-lifecycle-and-supportability.md
     - name: Machine learning

@@ -6,8 +6,9 @@ ms.author: sidontha
 ms.service: azure-data-share
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
-ms.date: 12/19/2023
+ms.date: 02/12/2025
 ---
+
 # Tutorial: Accept and receive data using Azure Data Share  
 
 In this tutorial, you'll learn how to accept a data share invitation using Azure Data Share. You'll learn how to receive data being shared with you, and how to enable a regular refresh interval to ensure that you always have the most recent snapshot of the data being shared with you. 
@@ -395,6 +396,7 @@ This step only applies to snapshot-based sharing. To view history of your snapsh
 When the resource is no longer needed, go to the Data Share Overview page, and select **Delete** to remove it.
 
 ## Next steps
+
 In this tutorial, you learned how to accept and receive an Azure Data Share. To learn more about Azure Data Share concepts, continue to Azure Data Share Terminology.
 
 > [!div class="nextstepaction"]

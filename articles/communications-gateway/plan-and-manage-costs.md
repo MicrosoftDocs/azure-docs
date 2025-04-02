@@ -1,8 +1,6 @@
 ---
 title: Plan and manage costs for Azure Communications Gateway
 description: Learn how to plan for and manage costs for Azure Communications Gateway by using cost analysis in the Azure portal.
-author: GemmaWakeford
-ms.author: gwakeford
 ms.custom: subject-cost-optimization
 ms.service: azure-communications-gateway
 ms.topic: how-to
@@ -111,7 +109,7 @@ Budgets can be created with filters for specific resources or services in Azure 
 
 ## Export cost data
 
-You can also [export your cost data](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. Exporting cost data is helpful when you or others need to do further data analysis. For example, a finance team can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
+You can also [export your cost data](../cost-management-billing/costs/tutorial-improved-exports.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. Exporting cost data is helpful when you or others need to do further data analysis. For example, a finance team can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
 
 ## Next steps
 

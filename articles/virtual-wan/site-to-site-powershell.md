@@ -8,7 +8,7 @@ author: cherylmc
 ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 06/15/2023
+ms.date: 03/27/2025
 ms.author: cherylmc
 ---
 # Create a site-to-site connection to Azure Virtual WAN using PowerShell
@@ -64,7 +64,7 @@ $virtualHub = New-AzVirtualHub -VirtualWan $virtualWan -ResourceGroupName "TestR
 
 In this section, you create a site-to-site VPN gateway in the same location as the referenced virtual hub. When you create the VPN gateway, you specify the scale units that you want. It takes about 30 minutes for the gateway to create.
 
-1. If you closed Azure Cloud Shell or your connection timed out, you may need to declare the variable again for $virtualHub.
+1. If you closed Azure Cloud Shell or your connection timed out, you might need to declare the variable again for $virtualHub.
 
    ```azurepowershell-interactive
    $virtualHub = Get-AzVirtualHub -ResourceGroupName "TestRG" -Name "Hub1"
@@ -84,7 +84,7 @@ In this section, you create a site-to-site VPN gateway in the same location as t
 
 ## <a name="site"></a>Create a site and connections
 
-In this section, you create sites that correspond to your physical locations and the connections. These sites contain your on-premises VPN device endpoints, you can create up to 1000 sites per virtual hub in a virtual WAN. If you have multiple hubs, you can create 1000 per each of those hubs.
+In this section, you create sites that correspond to your physical locations and the connections. These sites contain your on-premises VPN device endpoints. You can create up to 1,000 sites per virtual hub in a virtual WAN. If you have multiple hubs, you can create 1000 per each of those hubs.
 
 1. Set the variable for the VPN gateway and for the IP address space that is located on your on-premises site. Traffic destined for this address space is routed to your local site. This is required when BGP isn't enabled for the site.
 
@@ -102,7 +102,7 @@ In this section, you create sites that correspond to your physical locations and
    $vpnSiteLink2 = New-AzVpnSiteLink -Name "TestSite1Link2" -IpAddress "15.25.35.55" -LinkProviderName "SomeTelecomProvider2" -LinkSpeedInMbps "100"
    ```
 
-1. Create the VPN site, referencing the variables of the VPN site links you just created.
+1. Create the VPN site, referencing the variables of the VPN site links you created.
 
    If you closed Azure Cloud Shell or your connection timed out, redeclare the virtual WAN variable:
 
@@ -127,7 +127,7 @@ In this section, you create sites that correspond to your physical locations and
 
 Connect your VPN site to the hub site-to-site VPN gateway using the [New-AzVpnConnection](/powershell/module/az.network/new-azvpnconnection) cmdlet.
 
-1. Before running the command, you may need to redeclare the following variables:
+1. Before running the command, you might need to redeclare the following variables:
 
    ```azurepowershell-interactive
    $virtualWan = Get-AzVirtualWAN -ResourceGroupName "TestRG" -Name "TestVWAN1"
@@ -143,7 +143,7 @@ Connect your VPN site to the hub site-to-site VPN gateway using the [New-AzVpnCo
 
 ## Connect a VNet to your hub
 
-The next step is to connect the hub to the VNet. If you created a new resource group for this exercise, you typically won't already have a virtual network (VNet) in your resource group. The steps below help you create a VNet if you don't already have one. You can then create a connection between the hub and your VNet.
+The next step is to connect the hub to the virtual network (VNet). If you created a new resource group for this exercise, you typically won't already have a VNet in your resource group. The following steps help you create a VNet if you don't already have one. You can then create a connection between the hub and your VNet.
 
 ### Create a virtual network
 

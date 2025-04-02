@@ -3,7 +3,7 @@ title: Quickstart - Check access for a user to a single Azure resource - Azure R
 description: In this quickstart, you learn how to check the access for yourself or another user to an Azure resource using the Azure portal and Azure role-based access control (Azure RBAC).
 services: role-based-access-control
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.service: role-based-access-control
 ms.topic: quickstart
 ms.date: 12/12/2024

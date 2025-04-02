@@ -7,6 +7,7 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+# Customer intent: As a cloud services administrator, I want to securely store and manage certificates using Key Vault so that I can enable secure communication and authentication for Azure Cloud Services (extended support) deployments.
 ---
 
 # Use certificates with Azure Cloud Services (extended support)

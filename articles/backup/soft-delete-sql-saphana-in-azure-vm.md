@@ -2,21 +2,29 @@
 title: Soft delete for SQL server in Azure VM and SAP HANA in Azure VM workloads
 description: Learn how soft delete for SQL server in Azure VM and SAP HANA in Azure VM workloads makes backups more secure.
 ms.topic: how-to
-ms.date: 01/04/2024 
+ms.date: 01/31/2025
 ms.custom: devx-track-azurepowershell, engagement-fy24
 author: jyothisuri
 ms.author: jsuri
 ---
-# Soft delete for SQL server in Azure VM and SAP HANA in Azure VM workloads
+# Soft delete backups  for SQL server in Azure VM and SAP HANA in Azure VM workloads
+
+This article describes how to soft-delete backups  for SQL server in Azure VM and SAP HANA in Azure VM workloads.
 
 Azure Backup now provides soft delete for SQL server in Azure VM and SAP HANA in Azure VM workloads. This is in addition to the already supported [Azure Virtual machine soft delete scenario](soft-delete-virtual-machines.md).
 
 [Soft delete](backup-azure-security-feature-cloud.md) is a security feature to help protect backup data even after deletion. With soft delete, even if a malicious actor deletes the backup of a database (or backup data is accidentally deleted), the backup data is retained for 14 additional days. This allows the recovery of that backup item with no data loss. This additional retention of 14 days of the backup data in the "soft delete" state doesn’t incur any cost to the customer.
 
-## Soft delete for SQL server in Azure VM using Azure portal
+## Soft delete backups
 
 >[!NOTE]
 >These instructions also apply to SAP HANA in Azure VM.
+
+**Choose a client**:
+
+# [Azure portal](#tab/azure-portal)
+
+To perform soft delete operation on the database, follow these steps:
 
 1. To delete the backup data of a database in a SQL server, the backup must be stopped. In the Azure portal, go to your Recovery Services vault, go to the backup item, and choose **Stop backup**.
 
@@ -34,7 +42,7 @@ Azure Backup now provides soft delete for SQL server in Azure VM and SAP HANA in
 
    ![Undelete database](./media/soft-delete-sql-saphana-in-azure-vm/undelete-database.png)
 
-   A window will appear warning that if undelete is chosen, all restore points for the database will be undeleted and available for performing a restore operation. The backup item will be retained in a “stop protection with retain data” state with backups paused and backup data retained forever with no backup policy effective.
+   A window with warning appears that says if undelete is chosen, all restore points for the database are undeleted and available for performing a restore operation. The backup item will be retained in a “stop protection with retain data” state with backups paused and backup data retained forever with no backup policy effective.
 
    ![Undelete warning](./media/soft-delete-sql-saphana-in-azure-vm/undelete-warning.png)
 
@@ -46,7 +54,7 @@ Azure Backup now provides soft delete for SQL server in Azure VM and SAP HANA in
 
    ![Resume backup](./media/soft-delete-sql-saphana-in-azure-vm/resume-backup.png)
 
-## Soft delete for SQL server in VM using Azure PowerShell
+# [Azure PowerShell](#tab/azure-powershell)
 
 >[!NOTE]
 >The Az.RecoveryServices version required to use soft-delete using Azure PowerShell is minimum 2.2.0. Use `Install-Module -Name Az.RecoveryServices -Force` to get the latest version.
@@ -81,7 +89,9 @@ Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -
 
 The **DeleteState** of the backup item will revert to **NotDeleted**. But the protection is still stopped. Resume the backup to re-enable the protection.
 
-## How to disable soft delete
+---
+
+## Disable soft delete
 
 Disabling this feature isn't recommended. The only circumstance where you should consider disabling soft delete is if you're planning on moving your protected items to a new vault, and can't wait the 14 days required before deleting and reprotecting (such as in a test environment.) For instructions on how to disable soft delete, see [Enabling and disabling soft delete](backup-azure-security-feature-cloud.md#enable-and-disable-soft-delete).
 

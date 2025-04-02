@@ -1,13 +1,13 @@
 ---
 author: ProfessorKendrick
 ms.topic: include
-ms.date: 01/10/2025
+ms.date: 02/18/2025
 ms.author: kkendrick
 ---
 
 If no errors are found, the *Create* button is enabled.
 
-If the review identifies errors, a red dot appears next each section where errors exist. 
+If the review identifies errors, a red dot appears next to each section where errors exist. 
 
 #### Resolve errors
 
@@ -19,7 +19,7 @@ If the review identifies errors, a red dot appears next each section where error
 
 1. Select the **Create** button.
 
-A page with the message *Deployment is in progress** displays in the working pane. 
+A page with the message *Deployment is in progress* displays in the working pane. 
 
 When the deployment is complete, the message *Your deployment is complete* appears.
 

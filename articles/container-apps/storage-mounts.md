@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 01/30/2025
+ms.date: 03/20/2025
 ms.author: cshoe
 zone_pivot_groups: arm-azure-cli-portal
 ---
@@ -291,12 +291,16 @@ For a step-by-step tutorial on mounting an SMB file share, refer to [Create an A
         --storage-type NfsAzureFile \
         --server <NFS_SERVER> \
         --azure-file-share-name <STORAGE_SHARE_NAME> \
+        --azure-file-account-name <STORAGE_ACCOUNT_NAME> \
+        --azure-file-account-key <STORAGE_ACCOUNT_KEY> \
         --access-mode ReadWrite
     ```
 
     Replace `<NFS_SERVER>` with the NFS server address in the format `<STORAGE_ACCOUNT_NAME>.file.core.windows.net`. For example, if your storage account name is `mystorageaccount`, the NFS server address is `mystorageaccount.file.core.windows.net`.
     
     Replace `<STORAGE_SHARE_NAME>` with the name of the file share in the format `/<STORAGE_ACCOUNT_NAME>/<STORAGE_SHARE_NAME>`. For example, if your storage account name is `mystorageaccount` and the file share name is `myshare`, the share name is `/mystorageaccount/myshare`.
+
+    Replace `<STORAGE_ACCOUNT_NAME>` with the name of your Azure Storage account and `<STORAGE_ACCOUNT_KEY>` with the key for your Azure Storage account, which can be found in the Azure portal.
 
     Valid values for `--access-mode` are `ReadWrite` and `ReadOnly`.
 
@@ -317,9 +321,12 @@ For a step-by-step tutorial on mounting an SMB file share, refer to [Create an A
         - The `name` is an identifier for the volume.
         - For `storageType`, use `AzureFile` for SMB, or `NfsAzureFile` for NFS. This value must match the storage type you defined in the environment.
         - For `storageName`, use the name of the storage you defined in the environment.
+        - The `mountOptions` is a comma-separated string of mount options. For more information see [Use mountOptions settings in Azure Files](/troubleshoot/azure/azure-kubernetes/storage/mountoptions-settings-azure-files).
+        - The `secrets` list is a list of secrets to mount in the volume. For more information see [Mounting secrets in a volume](./manage-secrets.md#secrets-volume-mounts).
     - For each container in the template that you want to mount Azure Files storage, define a volume mount in the `volumeMounts` array of the container definition.
         - The `volumeName` is the name defined in the `volumes` array.
         - The `mountPath` is the path in the container to mount the volume.
+        - The `subPath` is the path in the volume to mount. If not specified, the volume root is mounted. For more information see (#sub-path).
 
     # [SMB](#tab/smb)
 
@@ -334,6 +341,7 @@ For a step-by-step tutorial on mounting an SMB file share, refer to [Create an A
           volumeMounts:
           - volumeName: azure-files-volume
             mountPath: /my-files
+            subPath: my-sub-path
         volumes:
         - name: azure-files-volume
           storageType: AzureFile
@@ -353,6 +361,7 @@ For a step-by-step tutorial on mounting an SMB file share, refer to [Create an A
           volumeMounts:
           - volumeName: azure-files-volume
             mountPath: /my-files
+            subPath: my-sub-path
         volumes:
         - name: azure-files-volume
           storageType: NfsAzureFile
@@ -497,7 +506,8 @@ The following ARM template snippets demonstrate how to add an Azure Files share 
               "volumeMounts": [
                 {
                   "mountPath": "/myfiles",
-                  "volumeName": "azure-files-volume"
+                  "volumeName": "azure-files-volume",
+                  "subPath": "my-sub-path"
                 }
               ]
             }
@@ -543,7 +553,8 @@ The following ARM template snippets demonstrate how to add an Azure Files share 
               "volumeMounts": [
                 {
                   "mountPath": "/myfiles",
-                  "volumeName": "azure-files-volume"
+                  "volumeName": "azure-files-volume",
+                  "subPath": "my-sub-path"
                 }
               ]
             }
@@ -570,9 +581,12 @@ The following ARM template snippets demonstrate how to add an Azure Files share 
         - The `name` is an identifier for the volume.
         - For `storageType`, use `AzureFile` for SMB, or `NfsAzureFile` for NFS. This value must match the storage type you defined in the environment.
         - For `storageName`, use the name of the storage you defined in the environment.
+        - The `mountOptions` is a comma-separated string of mount options. For more information see [Use mountOptions settings in Azure Files](/troubleshoot/azure/azure-kubernetes/storage/mountoptions-settings-azure-files).
+        - The `secrets` list is a list of secrets to mount in the volume. For more information see [Mounting secrets in a volume](./manage-secrets.md#secrets-volume-mounts).
     - For each container in the template that you want to mount Azure Files storage, define a volume mount in the `volumeMounts` array of the container definition.
         - The `volumeName` is the name defined in the `volumes` array.
         - The `mountPath` is the path in the container to mount the volume.
+        - The `subPath` (optional) is the path in the volume to mount. If not specified, the volume root is mounted. For more information see (#sub-path).
 
 See the [ARM template API specification](azure-resource-manager-api-spec.md) for a full example.
 
@@ -628,6 +642,7 @@ To configure a volume mount for Azure Files storage in the Azure portal, add a f
     - **Volume type**: **Azure file volume**.
     - **Name**: Enter a volume name.
     - **File share name**: Select the file share you created previously.
+    - **Mount options**: Optionally, enter a comma-separated string of mount options. For more information see [Use mountOptions settings in Azure Files](/troubleshoot/azure/azure-kubernetes/storage/mountoptions-settings-azure-files).
 
 1. Select **Add** to exit the context pane.
 
@@ -641,8 +656,36 @@ To configure a volume mount for Azure Files storage in the Azure portal, add a f
 
 1. In **Mount path**, enter the absolute path in the container to mount the volume.
 
+1. In **Sub path (optional)**, enter the path in the volume to mount. If not specified, the volume root is mounted. For more information see (#sub-path).
+
 1. Select **Save** to save changes and exit the context pane.
 
 1. Select **Create** to create the new revision.
 
 ::: zone-end
+
+### Sub path
+
+When mounting a file share from Azure Files, in addition to the mount path, you can also specify a sub path.
+
+- **Mount path**: The path in the container where you want to mount the volume.
+- **Sub path**: The path in the volume you want to mount.
+
+The sub path is optional. If not specified, the volume root is mounted.
+
+The sub path is a relative path from the volume root. The sub path should not start with `/`. Specifying a sub path that starts with `/` might prevent your container app from starting up. For example, `my-volume-folder` is a valid sub path, where `/my-volume-folder` is not.
+
+The sub path can refer to either a folder or a file in the volume.
+
+- If the sub path refers to a folder, the mount path should refer to an empty folder in the container.
+
+- If the sub path refers to a file, the mount path should refer to a file that does not already exist in the container.
+
+    For example, suppose the sub path is `my-volume-folder/my-volume-file.txt`, and the mount path is `/my-container-folder/my-container-file`. The folder `/my-container-folder` should already exist in the container but should not yet contain the file `my-container-file.txt`.
+
+Any sub path trailing slashes are ignored.
+
+## Related content
+
+- [Tutorial: Create an Azure Files volume mount in Azure Container Apps](storage-mounts-azure-files.md)
+- [Using subPath](https://kubernetes.io/docs/concepts/storage/volumes/#using-subpath)

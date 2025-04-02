@@ -1,28 +1,28 @@
 ---
 title: Use Bicep to deploy resources to resource groups
-description: Describes how to deploy resources in a Bicep file. It shows how to target more than one resource group.
+description: Learn how to deploy resources in a Bicep file and how to target more than one resource group.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 09/26/2024
+ms.date: 03/25/2025
 ---
 
-# Resource group deployments with Bicep files
+# Use Bicep to deploy resources to resource groups
 
-This article describes how to set scope with Bicep when deploying to a resource group.
+This article describes how to set scope with Bicep when deploying to a resource group. For more information, see [Understand scope](../management/overview.md#understand-scope).
 
 ## Supported resources
 
-Most resources can be deployed to a resource group. For a list of available resources, see [ARM template reference](/azure/templates).
+Most resources can be deployed to a resource group. For a list of available resources, reference the guidance for [ARM templates](/azure/templates).
 
 ## Set scope
 
-By default, a Bicep file is scoped to the resource group. If you want to explicitly set the scope, use:
+A Bicep file is scoped to the resource group by default. If you want to explicitly set the scope, use:
 
 ```bicep
 targetScope = 'resourceGroup'
 ```
 
-But, setting the target scope to resource group is unnecessary because that scope is used by default.
+However, setting the target scope to resource group isn't necessary because that scope is used by default.
 
 ## Deployment commands
 
@@ -40,7 +40,7 @@ az deployment group create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 For the PowerShell deployment command, use [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). The following example deploys a template to create a resource group. The resource group you specify in the `-ResourceGroupName` parameter is the **target resource group**.
 
@@ -54,26 +54,27 @@ New-AzResourceGroupDeployment `
 
 ---
 
-For more detailed information about deployment commands and options for deploying ARM templates, see:
+For more information about deployment commands and options for deploying ARM templates, see:
 
-* [Deploy resources with ARM templates and Azure CLI](deploy-cli.md)
-* [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md)
-* [Deploy ARM templates from Cloud Shell](deploy-cloud-shell.md)
+- [How to use Azure Resource Manager (ARM) deployment templates with Azure CLI](deploy-cli.md)
+- [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md)
+- [Deploy ARM templates from Cloud Shell](deploy-cloud-shell.md)
 
 ## Deployment scopes
 
-When deploying to a resource group, you can deploy resources to:
+In a Bicep file, all resources declared with the [`resource`](./resource-declaration.md) keyword must be deployed at the same scope as the deployment. For a resource group deployment, this means all `resource` declarations in the Bicep file must be deployed to the same resource group or as a child or extension resource of a resource in the same resource group as the deployment.  
 
-* the target resource group for the deployment operation
-* other resource groups in the same subscription or other subscriptions
-* any subscription in the tenant
-* the tenant for the resource group
+However, this restriction doesn't apply to [`existing`](./existing-resource.md) resources. You can reference existing resources at a different scope than the deployment.  
 
-An [extension resource](scope-extension-resources.md) can be scoped to a target that is different than the deployment target.
+To deploy resources at multiple scopes within a single deployment, use [modules](./modules.md). Deploying a module triggers a nested deployment, allowing you to target different scopes. The user deploying the parent Bicep file must have the necessary permissions to initiate deployments at those scopes.
 
-The user deploying the template must have access to the specified scope.
+You can deploy a resource from within a resource-group-scope Bicep file at the following scopes:
 
-This section shows how to specify different scopes. You can combine these different scopes in a single template.
+- [The same resource group](#scope-to-target-resource-group)
+- [Other resource groups in the same subscription](#scope-to-different-resource-group)
+- [Other resource groups in other subscriptions](#scope-to-different-resource-group)
+- [The subscription](#scope-to-subscription)
+- [The tenant](#scope-to-tenant)
 
 ### Scope to target resource group
 
@@ -90,11 +91,11 @@ For an example template, see [Deploy to target resource group](#deploy-to-target
 
 ### Scope to different resource group
 
-To deploy resources to a resource group that isn't the target resource group, add a [module](modules.md). Use the [resourceGroup function](bicep-functions-scope.md#resourcegroup) to set the `scope` property for that module.
+To deploy resources to a resource group that isn't the target resource group, add a [module](modules.md). Use the [`resourceGroup` function](bicep-functions-scope.md#resourcegroup) to set the `scope` property for that module.
 
-If the resource group is in a different subscription, provide the subscription ID and the name of the resource group. If the resource group is in the same subscription as the current deployment, provide only the name of the resource group. If you don't specify a subscription in the [resourceGroup function](bicep-functions-scope.md#resourcegroup), the current subscription is used.
+If the resource group is in a different subscription, provide the subscription ID and the name of the resource group. If the resource group is in the same subscription as the current deployment, provide only the name of the resource group. If you don't specify a subscription in the `resourceGroup` function, the current subscription is used.
 
-The following example shows a module that targets a resource group in a different subscription.
+The following example shows a module that targets a resource group in a different subscription:
 
 ```bicep
 param otherResourceGroup string
@@ -107,7 +108,7 @@ module exampleModule 'module.bicep' = {
 }
 ```
 
-The next example shows a module that targets a resource group in the same subscription.
+The next example shows a module that targets a resource group in the same subscription:
 
 ```bicep
 param otherResourceGroup string
@@ -122,10 +123,10 @@ module exampleModule 'module.bicep' = {
 For an example template, see [Deploy to multiple resource groups](#deploy-to-multiple-resource-groups).
 
 ### Scope to subscription
+`
+To deploy resources to a subscription, add a module. Use the [`subscription` function](bicep-functions-scope.md#subscription) to set its `scope` property.
 
-To deploy resources to a subscription, add a module. Use the [subscription function](bicep-functions-scope.md#subscription) to set its `scope` property.
-
-To deploy to the current subscription, use the subscription function without a parameter.
+To deploy to the current subscription, use the `subscription` function without a parameter.
 
 ```bicep
 
@@ -136,7 +137,7 @@ module exampleModule 'module.bicep' = {
 }
 ```
 
-To deploy to a different subscription, specify that subscription ID as a parameter in the subscription function.
+To deploy to a different subscription, specify that subscription ID as a parameter in the `subscription` function.
 
 ```bicep
 param otherSubscriptionID string
@@ -148,15 +149,13 @@ module exampleModule 'module.bicep' = {
 }
 ```
 
-For an example template, see [Create resource group with Bicep](create-resource-group.md).
-
 ### Scope to tenant
 
-To create resources at the tenant, add a module. Use the [tenant function](bicep-functions-scope.md#tenant) to set its `scope` property.
+To create resources at the tenant, add a module. Use the [`tenant` function](bicep-functions-scope.md#tenant) to set its `scope` property.
 
 The user deploying the template must have the [required access to deploy at the tenant](deploy-to-tenant.md#required-access).
 
-The following example includes a module that is deployed to the tenant.
+The following example includes a module that deploys to the tenant:
 
 ```bicep
 // module deployed at tenant level
@@ -166,7 +165,7 @@ module exampleModule 'module.bicep' = {
 }
 ```
 
-Instead of using a module, you can set the scope to `tenant()` for some resource types. The following example deploys a management group at the tenant.
+Instead of using a module, you can set the scope to `tenant()` for some resource types. The following example deploys a management group at the tenant:
 
 ```bicep
 param mgName string = 'mg-${uniqueString(newGuid())}'
@@ -185,7 +184,7 @@ For more information, see [Management group](deploy-to-management-group.md#manag
 
 ## Deploy to target resource group
 
-To deploy resources in the target resource group, define those resources in the `resources` section of the template. The following template creates a storage account in the resource group that is specified in the deployment operation.
+To deploy resources in the target resource group, define those resources in the `resources` section of the template. The following template creates a storage account in the resource group that's specified in the deployment operation:
 
 ```bicep
 @minLength(3)
@@ -225,10 +224,10 @@ output storageEndpoint object = stg.properties.primaryEndpoints
 
 ## Deploy to multiple resource groups
 
-You can deploy to more than one resource group in a single Bicep file.
+You can deploy to more than one resource group in one Bicep file.
 
 > [!NOTE]
-> You can deploy to **800 resource groups** in a single deployment. Typically, this limitation means you can deploy to one resource group specified for the parent template, and up to 799 resource groups in nested or linked deployments. However, if your parent template contains only nested or linked templates and does not itself deploy any resources, then you can include up to 800 resource groups in nested or linked deployments.
+> You can deploy up to **800 resource groups** in one deployment. Typically, this limitation means you can deploy to one resource group specified for the parent template and up to 799 resource groups in nested or linked deployments. However, if your parent template contains only nested or linked templates and doesn't itself deploy any resources, then you can include up to 800 resource groups in nested or linked deployments.
 
 The following example deploys two storage accounts. The first storage account is deployed to the resource group specified in the deployment operation. The second storage account is deployed to the resource group specified in the `secondResourceGroup` and `secondSubscriptionID` parameters:
 
@@ -263,7 +262,7 @@ module secondStorageAcct 'storage.bicep' = {
 }
 ```
 
-Both modules use the same Bicep file named **storage.bicep**.
+Both modules use the same Bicep file named **storage.bicep**:
 
 ```bicep
 param storageLocation string
@@ -282,12 +281,12 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2023-04-01' = {
 
 ## Create resource group
 
-For information about creating resource groups, see [Create resource group with Bicep](create-resource-group.md).
+For an example template and more information about creating resource groups, see [Create resource group with Bicep](create-resource-group.md).
 
 ## Next steps
 
 To learn about other scopes, see:
 
-* [Subscription deployments](deploy-to-subscription.md)
-* [Management group deployments](deploy-to-management-group.md)
-* [Tenant deployments](deploy-to-tenant.md)
+- [Subscription deployments](deploy-to-subscription.md)
+- [Management group deployments](deploy-to-management-group.md)
+- [Tenant deployments](deploy-to-tenant.md)

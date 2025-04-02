@@ -10,6 +10,9 @@ ms.date: 02/28/2024
 
 # Migrate MSIX packages from MSIX app attach to app attach
 
+> [!IMPORTANT]
+> MSIX App Attach will be deprecated on June 1, 2025. Make sure to move all apps to App Attach by this date.
+
 App attach improves the administrative and user experiences over MSIX app attach. If you use MSIX app attach, you can migrate your MSIX packages to app attach using a PowerShell script.
 
 The migration script can perform the following actions:

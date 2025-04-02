@@ -1,7 +1,7 @@
 ---
 title:  How to Monitor Spring Boot Apps with Dynatrace Java OneAgent
 description: How to use Dynatrace Java OneAgent to monitor Spring Boot applications in Azure Spring Apps
-author:  KarlErickson
+author: KarlErickson
 ms.author: karler
 ms.service: azure-spring-apps
 ms.topic: how-to
@@ -180,7 +180,7 @@ You can find **Backtrace** from **Databases/Details/Backtrace**:
 
 ## View Dynatrace OneAgent logs
 
-By default, Azure Spring Apps prints the *info* level logs of the Dynatrace OneAgent to `STDOUT`. The logs are mixed with the application logs. You can find the explicit agent version from the application logs.
+By default, Azure Spring Apps prints the `info` level logs of the Dynatrace OneAgent to `STDOUT`. The logs are mixed with the application logs. You can find the explicit agent version from the application logs.
 
 You can also get the logs of the Dynatrace agent from the following locations:
 

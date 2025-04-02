@@ -3,7 +3,7 @@ title: Bicep functions - deployment
 description: Describes the functions to use in a Bicep file to retrieve deployment information.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 12/10/2024
+ms.date: 02/12/2025
 ---
 
 # Deployment functions for Bicep

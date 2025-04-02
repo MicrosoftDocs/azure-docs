@@ -1,10 +1,10 @@
 ---
-title: Understand threat intelligence
+title: Threat intelligence
 titleSuffix: Microsoft Sentinel
 description: Understand threat intelligence and how it integrates with features in Microsoft Sentinel to analyze data, detect threats, and enrich alerts.
 author: austinmccollum
 ms.topic: concept-article
-ms.date: 01/27/2025
+ms.date: 02/27/2025
 ms.author: austinmc
 appliesto:
     - Microsoft Sentinel in the Azure portal
@@ -14,7 +14,7 @@ ms.collection: usx-security
 #Customer intent: As a security analyst, I want to integrate threat intelligence into Microsoft Sentinel so that I can detect, investigate, and respond to potential security threats effectively.
 ---
 
-# Understand threat intelligence in Microsoft Sentinel
+# Threat intelligence in Microsoft Sentinel
 
 Microsoft Sentinel is a cloud-native security information and event management (SIEM) solution with the ability to ingest, curate, and manage threat intelligence from numerous sources.
 
@@ -40,7 +40,7 @@ The following table outlines the activities required to make the most of threat 
 | Action | Description|
 |---|---|
 | **Store threat intelligence in Microsoft Sentinel's workspace** | <ul><li>Import threat intelligence into Microsoft Sentinel by enabling data connectors to various threat intelligence platforms and feeds.</li><li>Connect threat intelligence to Microsoft Sentinel by using the upload API to connect various TI platforms or custom applications.</li><li>Create threat intelligence with a streamlined management interface.</li>|
-| **Manage threat intelligence** | <ul><li>View imported threat intelligence using queries or advanced search.</li><li>Curate threat intelligence with relationships or tags</li><li>Visualize key information about your TI with workbooks.</li>|
+| **Manage threat intelligence** | <ul><li>View imported threat intelligence using queries or advanced search.</li><li>Curate threat intelligence with relationships, ingestion rules or tags</li><li>Visualize key information about your TI with workbooks.</li>|
 | **Use threat intelligence** | <ul><li>Detect threats and generate security alerts and incidents with built-in analytics rule templates based on your threat intelligence.</li><li>Hunt for threats using your threat intel to ask the right questions about the signals captured for your organization.</li>|
 
 Threat intelligence also provides useful context within other Microsoft Sentinel experiences, such as notebooks. For more information, see [Get started with notebooks and MSTICPy](/azure/sentinel/notebook-get-started). 
@@ -49,7 +49,7 @@ Threat intelligence also provides useful context within other Microsoft Sentinel
 
 ## Import and connect threat intelligence
 
-Most threat intelligence is imported using data connectors or an API. Here are the solutions available for Microsoft Sentinel.
+Most threat intelligence is imported using data connectors or an API. Configure ingestion rules to reduce noise and ensure your intelligence feeds are optimized. Here are the solutions available for Microsoft Sentinel.
 
 - **Microsoft Defender Threat Intelligence** data connector to ingest Microsoft's threat intelligence 
 - **Threat Intelligence - TAXII** data connector for industry-standard STIX/TAXII feeds
@@ -132,7 +132,9 @@ Threat intelligence powered by Microsoft Sentinel is managed next to Microsoft D
 >[!NOTE]
 > Threat intelligence in the Azure portal is still accessed from **Microsoft Sentinel** > **Threat management** > **Threat intelligence**.
 
-Two of the most common threat intelligence tasks are creating new threat intelligence related to security investigations and adding tags. The management interface streamlines the manual process of creating individual threat intel with a few key features.
+Two of the most common threat intelligence tasks are creating new threat intelligence related to security investigations and adding tags. The management interface streamlines the manual process of curating individual threat intel with a few key features.
+
+- Configure ingestion rules to optimize threat intel from incoming sources.
 - Define relationships as you create new STIX objects.
 - Curate existing TI with the relationship builder.
 - Copy common metadata from a new or existing TI object with the duplicate feature.
@@ -149,11 +151,30 @@ The following STIX objects are available in Microsoft Sentinel:
 | **Identity** | Describe victims, organizations, and other groups or individuals along with the business sectors most closely associated with them. |
 | **Relationship** | The threads that connect threat intelligence, helping to make connections across disparate signals and data points are described with relationships. |
 
+### Configure ingestion rules
+
+Optimize threat intelligence feeds by filtering and enhancing objects before they're delivered to your workspace. Ingestion rules update attributes, or filter objects out all together. The following table lists some use cases:
+
+| Ingestion rule use case | Description |
+|---|---|
+| Reduce noise | Filter out old threat intelligence not updated for 6 months that also has low confidence. |
+| Extend validity date | Promote high fidelity IOCs from trusted sources by extending their `Valid until` by 30 days. |
+| Remember the old days | The new threat actor taxonomy is great, but some of the analysts want to be sure to tag the old names. |
+
+:::image type="content" source="media/understand-threat-intelligence/ingestion-rules-overview.png" alt-text="Screenshot shows four ingestion rules matching the use cases.":::
+
+Keep in mind the following tips for using ingestion rules:
+- All rules apply in order. Threat intelligence objects being ingested will get processed by each rule until a `Delete` action is taken. If no action is taken on an object, it is ingested from the source as is.
+- The `Delete` action means the threat intelligence object is skipped for ingestion, meaning it's removed from the pipeline. Any previous versions of the object already ingested aren't affected.
+- New and edited rules take up to 15 minutes to take effect.
+
+For more information, see [Work with threat intelligence ingestion rules](work-with-threat-indicators.md#optimize-threat-intelligence-feeds-with-ingestion-rules).
+
 ### Create relationships
 
-Enhance threat detection and response by establishing connections between objects with the relationship builder. The following table lists some of its use cases.
+Enhance threat detection and response by establishing connections between objects with the relationship builder. The following table lists some of its use cases:
 
-| Use case | Description |
+| Relationship use case | Description |
 |---|---|
 | Connect a threat actor to an attack pattern | The threat actor `APT29` *Uses* the attack pattern `Phishing via Email` to gain initial access.|
 | Link an indicator to a threat actor|  A domain indicator `allyourbase.contoso.com` is *Attributed to* the threat actor `APT29`. |
@@ -165,7 +186,7 @@ The following image shows how the relationship builder connects all of these use
 
 ### Curate threat intelligence
 
-Configure which TI objects can be shared with appropriate audiences by designating a sensitivity level called Traffic Light Protocol (TLP).
+Configure which TI objects can be shared with appropriate audiences by designating a sensitivity level called Traffic Light Protocol (TLP). 
 
 | TLP color | Sensitivity |
 |---|---|
@@ -174,31 +195,31 @@ Configure which TI objects can be shared with appropriate audiences by designati
 | Amber | Information can be shared with members of the organization, but not publicly. It's intended to be used within the organization to protect sensitive information. |
 | Red | Information is highly sensitive and shouldn't be shared outside of the specific group or meeting where it was originally disclosed. |
 
-Tagging threat intelligence is a quick way to group objects together to make them easier to find. Typically, you might apply tags related to a particular incident. But, if an object represents threats from a particular known actor or well-known attack campaign, consider creating a relationship instead of a tag. After you search and filter for the threat intelligence that you want to work with, tag them individually or multiselect and tag them all at once. Because tagging is free-form, we recommend that you create standard naming conventions for threat intelligence tags.
+Set TLP values for TI objects in the UI when you create or edit them. Setting TLP through the API is less intuitive and requires choosing one of four `marking-definition` object GUIDs. For more information on configuring TLP through the API, see [object_marking_refs in the Common properties of the upload API](stix-objects-api.md#common-properties) 
+
+Another way to curate TI is with tags. Tagging threat intelligence is a quick way to group objects together to make them easier to find. Typically, you might apply tags related to a particular incident. But, if an object represents threats from a particular known actor or well-known attack campaign, consider creating a relationship instead of a tag. After you search and filter for the threat intelligence that you want to work with, tag them individually or multiselect and tag them all at once. Because tagging is free-form, we recommend that you create standard naming conventions for threat intelligence tags.
 
 For more information, see [Work with threat intelligence in Microsoft Sentinel](work-with-threat-indicators.md#create-threat-intelligence).
 
 ## View your threat intelligence
 
-View your threat intelligence from the management interface. Use advanced search to sort and filter your threat intelligence objects without even writing a Log Analytics query.
+View your threat intelligence from the management interface or using queries. From the management interface, use advanced search to sort and filter your threat intelligence objects without even writing a Log Analytics query.
 
 :::image type="content" source="media/understand-threat-intelligence/advanced-search.png" alt-text="Screenshot that shows an advanced search interface with source and confidence conditions selected." lightbox="media/understand-threat-intelligence/advanced-search.png":::
 
-View your indicators stored in the Microsoft Sentinel-enabled Log Analytics workspace. The `ThreatIntelligenceIndicator` table under the **Microsoft Sentinel** schema is where all your Microsoft Sentinel threat indicators are stored. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features, such as analytics, hunting queries, and workbooks. 
+Use queries to view threat intelligence from **Logs** or **Advanced hunting**. Either way, the `ThreatIntelligenceIndicator` table under the **Microsoft Sentinel** schema is where all your Microsoft Sentinel threat indicators are stored. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features, such as analytics, hunting queries, and workbooks.
 
 >[!IMPORTANT]
->Tables supporting the new STIX object schema are in private preview. In order to view the STIX objects in queries and unlock the hunting model that uses them, request to opt in with [this form](https://forms.office.com/r/903VU5x3hz?origin=lprLink). Ingest your threat intelligence into the new tables, `ThreatIntelIndicator` and `ThreatIntelObjects`, alongside or instead of the current table, `ThreatIntelligenceIndicator`, with this opt-in process.
+>Tables supporting the new STIX object schema aren't available publicly. In order to view the STIX objects in queries and unlock the hunting model that uses them, request to opt in with [this form](https://forms.office.com/r/903VU5x3hz?origin=lprLink). Ingest your threat intelligence into the new tables, `ThreatIntelIndicator` and `ThreatIntelObjects`, alongside or instead of the current table, `ThreatIntelligenceIndicator`, with this opt-in process.
 >
 
-Here's an example view of a basic query for just threat indicators using the current table.
+For more information, see [Work with threat intelligence in Microsoft Sentinel](work-with-threat-indicators.md#find-and-view-threat-intelligence-with-queries).
 
-:::image type="content" source="media/understand-threat-intelligence/logs-page-ti-table.png" alt-text="Screenshot that shows the Logs page with a sample query of the ThreatIntelligenceIndicator table." lightbox="media/understand-threat-intelligence/logs-page-ti-table.png":::
+### Threat intelligence life cycle
 
 Threat intelligence indicators are ingested into the `ThreatIntelligenceIndicator` table of your Log Analytics workspace as read-only. Whenever an indicator is updated, a new entry in the `ThreatIntelligenceIndicator` table is created. Only the most current indicator appears on the management interface. Microsoft Sentinel deduplicates indicators based on the `IndicatorId` and `SourceSystem` properties and chooses the indicator with the newest `TimeGenerated[UTC]`.
 
-The `IndicatorId` property is generated using the STIX indicator ID. When indicators are imported or created from non-STIX sources, `IndicatorId` is generated from the source and pattern of the indicator.
-
-For more information, see [Work with threat intelligence in Microsoft Sentinel](work-with-threat-indicators.md#find-and-view-your-indicators-with-queries).
+The `IndicatorId` property is generated using the STIX indicator ID. When indicators are imported or created from non-STIX sources, `IndicatorId` is generated using both the source and pattern of the indicator.
 
 ### View your GeoLocation and WhoIs data enrichments (public preview)
 
