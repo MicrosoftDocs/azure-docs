@@ -51,8 +51,11 @@ The sample code for this article is located in the [Azure Terraform GitHub repo]
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-functions/variables.tf":::
 
 > [!IMPORTANT]
-> Azure Storage Actions is currently in PREVIEW and is available in these [regions](/azure/storage-actions/overview#supported-regions).
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> If you are using the 4.x azurerm provider, you must [explicitly specify the Azure subscription ID](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#specifying-subscription-id-is-now-mandatory) to authenticate to Azure before running the Terraform commands.
+>
+> One way to specify the Azure subscription ID without putting it in the `providers` block is to specify the subscription ID in an environment variable named `ARM_SUBSCRIPTION_ID`.
+>
+> For more information, see the [Azure provider reference documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#argument-reference).
 
 ## Initialize Terraform
 
