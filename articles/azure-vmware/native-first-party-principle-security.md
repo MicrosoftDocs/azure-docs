@@ -28,7 +28,7 @@ There are two options to enable the service principle for Azure VMware Solution.
 
 2. Search **Microsoft Entra ID** for the application ID `1a5e141d-70dd-4594-8442-9fc46fa48686`. Select **Avs Fleet Rp**.  
 
-3. Enable the **Avs Fleet Rp** Enterprise application for user sign-in by toggling the **Enabled for users to sign-in** toggle to **Yes**. In the diagram below, it's shown as correctly set to **Yes**.  
+3. Enable the **Avs Fleet Rp** Enterprise application for user sign-in by toggling the **Enabled for users to sign-in** toggle to **Yes**.   
 
 4. Ensure you select **Save**.  
 
