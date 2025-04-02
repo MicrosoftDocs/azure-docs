@@ -8,9 +8,16 @@ ms.date: 01/07/2025
 
 > [!IMPORTANT]
 >
-> In production environments, always protect sensitive information and secrets, such as credentials, certificates, 
-> thumbprints, access keys, and connection strings. Make sure that you securely store such information by using 
-> Microsoft Entra ID and [Azure Key Vault](https://go.microsoft.com/fwlink/?linkid=2300117). Avoid hardcoding 
-> this information, sharing with other users, or saving in plain text anywhere that others can access. Rotate your 
-> secrets as soon as possible if you think this information might be compromised. For more information, see 
-> [About Azure Key Vault](/azure/key-vault/general/overview).
+> Always secure and protect sensitive and personal data, such as credentials, secrets, 
+> access keys, connection strings, certificates, thumbprints, and similar information 
+> with the highest available or supported level of security.
+>
+> Make sure that you securely store such information by using Microsoft Entra ID and 
+> [Azure Key Vault](/azure/key-vault/general/overview). Don't hardcode this information, 
+> share with other users, or save in plain text anywhere that others can access. Set up 
+> a plan to rotate or revoke secrets in the case they become compromised. For more 
+> information, see the following resources:
+>
+> - [Automate secrets rotation in Azure Key Vault](/azure/key-vault/secrets/tutorial-rotation)
+> - [Best practices for protecting secrets](/azure/security/fundamentals/secrets-best-practices)
+> - [Secrets in Azure Key Vault](/azure/key-vault/secrets/)

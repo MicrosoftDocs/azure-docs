@@ -11,17 +11,36 @@ items:
     href: whats-new.md
   - name: FAQ
     href: update-manager-faq.md
+  - name: Release Notes
+    items:
+    - name: 2025
+      items:
+      - name: March 2025
+        href: overview-arc-enabled-vm-extensions.md
 - name: Getting started
   items:
   - name: Prerequisites
     href: prerequisites.md
   - name: Roles and Permissions
     href: roles-permissions.md
-  - name: Support matrix
-    href: support-matrix.md
+- name: Support matrix
+  items:
+  - name: Supported regions
+    href: supported-regions.md
+  - name: Supported operating systems
     items:
-      - name: Support for Updates, Periodic assessments, Scheduled patching
-        href: support-matrix-updates.md
+    - name: Check for Updates, One time update, Periodic assessment and Customer managed Schedules
+      href: support-matrix-updates.md
+    - name: Automatic VM Guest Patching
+      href: support-matrix-automatic-guest-patching.md
+  - name: Unsupported workloads
+    href: unsupported-workloads.md
+  - name: Supported updates, Types, Microsoft updates and Third-party updates
+    href: support-matrix.md
+  - name: Extended Security Updates
+    href: extended-security-updates.md
+  - name: Ubuntu Pro support
+    href: security-awareness-ubuntu-support.md
 - name: Quickstarts
   items:
   - name: Check and install on-demand updates
@@ -56,8 +75,6 @@ items:
     href: manage-multiple-machines.md
   - name: Workbooks
     href: workbooks.md
-  - name: Ubuntu Pro support
-    href: security-awareness-ubuntu-support.md
 - name: Samples
   items:
   - name: ARG queries to access Azure Update Manager operations data

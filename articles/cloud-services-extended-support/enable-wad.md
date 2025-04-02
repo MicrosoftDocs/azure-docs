@@ -8,6 +8,7 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
+# Customer intent: As a cloud operator, I want to configure and apply diagnostics extensions to Azure Cloud Services roles, so that I can collect enhanced performance metrics and logs for monitoring and troubleshooting.
 ---
 
 # Apply the Microsoft Azure diagnostics extension in Cloud Services (extended support) 

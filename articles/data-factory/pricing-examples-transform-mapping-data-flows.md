@@ -3,7 +3,7 @@ title: "Pricing example: Transform data in blob store with mapping data flows"
 description: This article shows how to estimate pricing for Azure Data Factory to transform data in a blob store with mapping data flows.
 author: jianleishen
 ms.author: jianleishen
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: pricing
 ms.topic: conceptual
 ms.date: 05/15/2024

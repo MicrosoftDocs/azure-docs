@@ -55,7 +55,7 @@ The Event Grid Viewer is a sample site that allows you to view incoming events f
 
     :::image type="content" source="./media/handle-advanced-messaging-events/default-domain.png" lightbox="./media/handle-advanced-messaging-events/default-domain.png" alt-text="Screenshot that shows URL of Events Viewer web app.":::
 
-6.  The URL for the Event Grid Viewer is the Site Name you used to create the deployment with the path `/api/update` appended.
+6.  The URL for the Event Grid Viewer is the Site Name you used to create the deployment with the path `/api/updates` appended.
     For example: "https://{{site-name}}.azurewebsites.net/api/updates". You'll need it in the next step and during the creation of the demo app.
 
 ## Subscribe to Advanced Messaging events

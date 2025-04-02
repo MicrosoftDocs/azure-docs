@@ -7,7 +7,7 @@ author: kewear
 ms.author: kewear
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/10/2024
+ms.date: 02/05/2025
 # Customer intent: As a developer, I want to collect and send diagnostics data for my logic app workflows to specific destinations, such as a Log Analytics workspace, storage account, or event hub, for further review.
 ---
 
@@ -229,7 +229,7 @@ After your workflow runs, you can view the data about those runs in your Log Ana
 
    > [!NOTE]
    > 
-   > If the Logic Apps Management tile doesn't immediately show results after a run, 
+   > If the **Logic Apps Management** tile doesn't immediately show results after a run, 
    > try selecting **Refresh** or wait for a short time before trying again.
 
    :::image type="content" source="./media/monitor-workflows-collect-diagnostic-data/consumption/logic-app-runs-summary.png" alt-text="Screenshot showing Azure portal, Log Analytics workspace with Consumption logic app workflow run status and count.":::
@@ -270,9 +270,9 @@ After your workflow runs, you can view the data about those runs in your Log Ana
 
 1. On the workspace navigation menu, select **Logs**.
 
-1. On the new query tab, in the left column, under **Tables**, expand **LogManagement**, and select **LogicAppWorkflowRuntime**.
+1. On the new query tab, in the left column, under **Tables**, expand **LogManagement**, and select **LogicAppWorkflowRuntime**. If you're working with Azure Government regions, select **Azure Diagnostics** instead.
 
-   In the right pane, under **Results**, the table shows records related to the following events:
+   In the records pane, under **Results**, the table shows records related to the following events:
 
    * WorkflowRunStarted
    * WorkflowRunCompleted
