@@ -294,7 +294,7 @@ QueueBrowser browser = context.createBrowser(queue);
 > [!NOTE]
 > JMS API doesn't provide an API to browse a topic.
 >
-> This is because the topic itself doesn't store the messages. As soon as the message is sent to the topic, it is forwarded to the appropriate subscriptions.
+> This is because the topic itself doesn't store the messages. As soon as the message is sent to the topic, it's forwarded to the appropriate subscriptions.
 >
 
 ### JMS Message selectors
@@ -309,7 +309,7 @@ Selectors can be utilized when creating any of the below consumers -
    * Queue browser
 
 > [!NOTE]
-> Service Bus selectors do not support "LIKE" and "BETWEEN" SQL keywords.
+> Service Bus selectors don't support "LIKE" and "BETWEEN" SQL keywords.
 
 ## AMQP disposition and Service Bus operation mapping
 
