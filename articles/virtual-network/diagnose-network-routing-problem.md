@@ -31,11 +31,11 @@ The steps that follow assume you have an existing VM to view the effective route
 
 1. To select the interface, select its name.
 
-    :::image type="content" source="./media/diagnose-network-network-routing-problem/view-nics.png" alt-text="Screenshot of network interface in VM settings." lightbox="./media/diagnose-network-traffic-filter-problem/view-nics.png":::
+    :::image type="content" source="./media/diagnose-network-routing-problem/view-nics.png" alt-text="Screenshot of network interface in VM settings." lightbox="./media/diagnose-network-routing-problem/view-nics.png":::
 
 1. In the network interface, expand **Help**. Select **Effective routes**.
 
-    :::image type="content" source="./media/diagnose-network-network-routing-problem/view-effective-routes.png" alt-text="Screenshot of network interface effective routes." lightbox="./media/diagnose-network-traffic-filter-problem/view-effective-routes.png":::
+    :::image type="content" source="./media/diagnose-network-routing-problem/view-effective-routes.png" alt-text="Screenshot of network interface effective routes." lightbox="./media/diagnose-network-routing-problem/view-effective-routes.png":::
 
       Select the desired network interface to view its effective routes. Each interface might belong to a different subnet, resulting in unique routes.
       The example in the image shows default routes created by Azure for each subnet. Your list includes the default routes and might also include extra routes. The routes could be from features like virtual network peering or connections to on-premises networks via an Azure VPN gateway. For details about the routes, see [Virtual network traffic routing](virtual-networks-udr-overview.md). If there are many routes, use the **Download** option to save them as a .csv file for easier review.
