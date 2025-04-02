@@ -3,7 +3,7 @@ items:
   href: index.yml
 - name: Overview - Azure VMware Solution
   href: introduction.md 
-- name: Azure VMware Solution on Native
+- name: Azure VMware Solution on Azure virtual network
   items:
   - name: What's Azure VMware Solution in an Azure virtual network (Public preview)  
     href: native-introduction.md
@@ -15,6 +15,10 @@ items:
     items:
     - name: Azure VMware Solution in a virtual network design consideration (Public preview) 
       href: native-internet-connectivity-design-considerations.md
+  - name: Security
+    items:
+    - name: Enable first-party application service principle for Azure VMware Solution in an Azure virtual network
+      href: native-first-party-principle-security.md
   - name: Networking
     items:
     - name: Connectivity to Azure virtual networks
