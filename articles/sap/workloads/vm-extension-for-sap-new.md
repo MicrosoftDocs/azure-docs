@@ -407,6 +407,6 @@ Make sure that every health check result is **OK**. If some checks do not displa
 ## Next steps
 * [Azure Virtual Machines deployment for SAP NetWeaver](./deployment-guide.md)
 * [Azure Virtual Machines planning and implementation for SAP NetWeaver](./planning-guide.md)
-* [PowerShell command references for the Azure Enhanced Monitoring Extension for SAP](https://learn.microsoft.com/de-de/powershell/module/az.compute/set-azvmaemextension?view=azps-13.3.0)
-* [CLI command references for the Azure Enhanced Monitoring Extension for SAP](https://learn.microsoft.com/en-us/cli/azure/vm/aem?view=azure-cli-latest)
+* [PowerShell command references for the Azure Enhanced Monitoring Extension for SAP](/powershell/module/az.compute/set-azvmaemextension)
+* [CLI command references for the Azure Enhanced Monitoring Extension for SAP](/cli/azure/vm/aem)
   
