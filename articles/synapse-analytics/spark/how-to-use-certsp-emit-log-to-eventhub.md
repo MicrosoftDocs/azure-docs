@@ -10,7 +10,7 @@ ms.date: 03/24/2025
 
 # How to use certificate and Service Principal emit log to eventhub
 
-This document provides a step-by-step guide for setting up Azure services, particularly focusing on integrating Azure Synapse with Event Hubs and Key Vault.
+(Summry)
 
 ## Prerequisites
 
@@ -18,12 +18,16 @@ This document provides a step-by-step guide for setting up Azure services, parti
 - [Synapse Analytics workspace](/azure/synapse-analytics/get-started-create-workspace)
 - If you are new to Azure Event Hubs, read through [Event Hubs overview](/azure/event-hubs/event-hubs-about) and [Event Hubs features](/azure/event-hubs/event-hubs-features).
 - [Azure Key Vault](/azure/key-vault/general/overview)
-- To complete this tutorial's steps, you need to have access to a resource group for which you're assigned the Owner role. Generate a certificate in the Key Vault in this resource group.
+- [App Registration](https://ms.portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
 
+> [!Note]
+>
+> To complete this tutorial's steps, you need to have access to a resource group for which you're assigned the Owner role. 
+>
 
 ## Step 1. Create an App Registration (Service Principal)
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) and go to [App registrations](https://ms.portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
+1. Sign in to the [Azure portal](https://portal.azure.com/) and go to [App registrations](/entra/identity-platform/quickstart-register-app#register-an-application).
 2. Create a new app registration (Service Principal) for your Synapse workspace.
 
      :::image type="content" source="media\how-to-use-certsp-emit-log-to-eventhub\create-a-new-app-registration.png" alt-text="Screenshot showing create a new app registration.":::
@@ -41,16 +45,17 @@ This document provides a step-by-step guide for setting up Azure services, parti
 1. Go to the app created in Step 1 -> **Manage** -> **Manifest**. 
 2. Append the certificate details to the manifest file to establish trust. 
 
-```
-     "trustedCertificateSubjects": [ 
-          { 
-          "authorityId": "00000000-0000-0000-0000-000000000001", 
-          "subjectName": "Your-Subject-of-Certificate", 
-          "revokedCertificateIdentifiers": [] 
-          } 
+     ```
+          "trustedCertificateSubjects": [ 
+               { 
+               "authorityId": "00000000-0000-0000-0000-000000000001", 
+               "subjectName": "Your-Subject-of-Certificate", 
+               "revokedCertificateIdentifiers": [] 
+               } 
           ] 
-```
-:::image type="content" source="\media\how-to-use-certsp-emit-log-to-eventhub\trust-the-certificate.png" alt-text="Screenshot showing trust the certificate in the application.":::
+     ```
+
+     :::image type="content" source="media\how-to-use-certsp-emit-log-to-eventhub\trust-the-certificate.png" alt-text="Screenshot showing trust the certificate in the application.":::
 
 ## Step 4. Assign Azure Event Hubs Data Sender Role 
 
