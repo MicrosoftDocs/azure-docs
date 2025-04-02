@@ -35,17 +35,13 @@ Once you have reviewed and saved the template file named ```data-disk-bicep-temp
 
 ## Review the deployed resources
 
-After the deployment finishes, you can view the resources using the CLI or the Azure portal.
+After the deployment finishes, you can view the resources using the CLI.
 
 To view the details of the ```myDataDisk``` volume in the ```myResourceGroup``` resource group, execute the following
-
-### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az networkcloud volume show --name myDataDisk --resource-group myResourceGroup
 ```
-
----
 
 ## Delete the deployed resources
 
@@ -53,8 +49,6 @@ You can delete the data disk using the Azure CLI.
 
 > [!IMPORTANT]
 > Deleting a data disk removes the backing volume from the storage appliance. Any data stored on that volume is lost unless you have a backup. You can't delete a data disk which is attached to a VM. If your disk has previously been attached to a VM, don't delete it unless you're certain you don't need the data!
-
-### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az networkcloud volume delete --name myDataDisk --resource-group myResourceGroup

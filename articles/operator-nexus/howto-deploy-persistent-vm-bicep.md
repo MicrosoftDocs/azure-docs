@@ -39,17 +39,13 @@ Once you have reviewed and saved the template file named ```virtual-machine-bice
 
 ## Review the deployed resources
 
-After the deployment finishes, you can view the resources using the CLI or the Azure portal.
+After the deployment finishes, you can view the resources using the CLI.
 
 To view the details of the ```myNexusVirtualMachine``` VM in the ```myResourceGroup``` resource group, execute the following
-
-### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az networkcloud virtualmachine show --name myNexusVirtualMachine --resource-group myResourceGroup
 ```
-
----
 
 ## Delete the deployed resources
 
@@ -57,8 +53,6 @@ You can delete the virtual machine using the Azure CLI.
 
 > [!IMPORTANT]
 > The OS disk is deleted when you delete the VM. Data disks aren't deleted when you delete a VM. You can delete the data disks using the Azure CLI to delete the Volume (Operator Nexus) resource. Deleting a data disk removes the backing volume from the storage appliance. Any data stored on that volume will be lost unless you have a backup. You can't delete a data disk which is attached to a VM. If your disk was attached to a VM, don't delete it unless you're certain you don't need the data!
-
-### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az networkcloud virtualmachine delete --name myNexusVirtualMachine --resource-group myResourceGroup

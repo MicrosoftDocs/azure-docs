@@ -67,8 +67,7 @@ ordering errors because of complex parts lists.
 
 #### Placing a SKU-based order
 
-Operator Nexus has created a series of SKUs with vendors such as Dell, Pure
-Storage and Arista that the operator can reference when they place
+Operator Nexus has created a series of SKUs with vendors such as Dell, Pure Storage, and Arista that the operator can reference when they place
 an order. Thus, an operator simply needs to place an order based on the SKU
 information provided by Operator Nexus to the vendor to receive the correct
 parts list for the build.
@@ -140,14 +139,15 @@ Now that the physical installation and validation has completed, the next steps 
 > This guide has been validated with Opengear firmware version 24.11.2, which was upgraded from version 22.06.0, and is supported with Nexus Network Fabric runtime version 5.0.0.
 
 Terminal Server has been deployed and configured as follows:
-  - Terminal Server is configured for Out-of-Band management
-    - Authentication credentials have been set up
-    - DHCP client is enabled on the out-of-band management port
-    - HTTP access is enabled
-  - Terminal Server interface is connected to the operators on-premises Provider Edge routers (PEs) and configured with the IP addresses and credentials
-  - Terminal Server is accessible from the management VPN
-  - To upgrade the terminal server to OS version 24.11.2 [refer](./howto-upgrade-os-of-terminal-server.md)
-  - To setup single session and session timeout for serial console [refer](./howto-restrict-serial-port-access-and-set-timeout-on-terminal-server.md)
+
+- Terminal Server is configured for Out-of-Band management
+  - Authentication credentials have been set up
+  - DHCP client is enabled on the out-of-band management port
+  - HTTP access is enabled
+- Terminal Server interface is connected to the operators on-premises Provider Edge routers (PEs) and configured with the IP addresses and credentials
+- Terminal Server is accessible from the management VPN
+- To upgrade the terminal server to OS version 24.11.2 [refer](./howto-upgrade-os-of-terminal-server.md)
+- To setup single session and session timeout for serial console [refer](./howto-restrict-serial-port-access-and-set-timeout-on-terminal-server.md)
 
 ### Step 1: Setting up hostname
 
@@ -532,7 +532,7 @@ Interface:    net1, via: LLDP, RID: 1, Time: 0 day, 20:28:36
      - `puretune -set PS_RDMA_STALE_OP_THRESH_MS 5000 "PURE-209441";`
      - `puretune -set PS_BDRV_REQ_MAXBUFS 128 "PURE-209441";`
 
-## [Optional] Set up second storage array
+## (Optional) Set up second storage array
 
 >[!NOTE]
 > This section is optional. You only need to execute it if you are deploying an Azure Operator Nexus instance with two storage appliances. For more information, including restrictions on supported hardware, see [Azure Operator Nexus multiple storage appliances](./concepts-storage-multiple-appliances.md).

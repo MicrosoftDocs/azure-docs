@@ -24,7 +24,7 @@ Azure Operator Nexus supports deploying VM OS disks on either local or persisten
 
 VMs with persistent OS disks are migrated to a suitable BMM when their host BMM is stopped. See [here](#disk-migration-on-bmm-shutdown) for further information. There's no support for migration of VMs with local OS disks under any circumstances.
 
-## Data Disks
+## Data disks
 
 Azure Operator Nexus supports the following persistent data disk features.
 
@@ -42,7 +42,7 @@ Azure Operator Nexus supports the following persistent data disk features.
 | Migration of data disks from an unexpected BMM hardware failure | Not supported                                     |
 | Live VM migration                                  | Not supported                                        |
 
-## Disk Migration on BMM shutdown
+## Disk migration on BMM shutdown
 
 Azure Operator Nexus supports migration of a VM with persistent disks from a stopped BMM to a suitable alternative BMM. However, there are some restrictions and limitations to this functionality.
 
