@@ -52,7 +52,7 @@ The sample code for this article is located in the [Azure Terraform GitHub repo]
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-functions/variables.tf":::
 
 > [!IMPORTANT]
-> Azure Storage Actions is currently in PREVIEW and is available in these [regions](../overview.md#supported-regions).
+> Azure Storage Actions is currently in PREVIEW and is available in these [regions](/azure/storage-actions/overview#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Initialize Terraform
