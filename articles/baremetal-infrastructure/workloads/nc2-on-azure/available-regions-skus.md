@@ -10,7 +10,7 @@ ms.date: 03/28/2025
 ms.service: azure-baremetal-infrastructure
 ---
 
-# Nutanix Cloud Clusters (NC2) on Azure region and SKU availablity
+# Nutanix Cloud Clusters (NC2) on Azure region and SKU availability
 Nutanix Cloud Clusters on Azure are offered in three different Ready Node or SKU types and many Azure regions. 
 
 ## Supported SKUs and instances
