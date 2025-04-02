@@ -15,7 +15,7 @@ ms.custom: devx-track-terraform
 
 # Quickstart: Create a public load balancer to load balance VMs using Terraform
 
-This quickstart shows you how to deploy a standard load balancer to load balance VMs (virtual machines) using Terraform.
+This quickstart shows you how to deploy a standard load balancer to load balance virtual machines using Terraform.
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
@@ -80,7 +80,7 @@ The sample code for this article is located in the [Azure Terraform GitHub repo]
     terraform output -raw resource_group_name
     ```
 
-1. Optionally, display the VM password.
+1. Optionally, display the VM (virtual machine) password.
 
     ```console
     terraform output -raw vm_password
