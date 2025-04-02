@@ -30,7 +30,6 @@ In this quickstart, you use Terraform to create a function app in a Flex Consump
 ## Prerequisites
 
 - Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
 
 ## Implement the Terraform code
