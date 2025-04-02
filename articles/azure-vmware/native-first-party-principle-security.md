@@ -9,7 +9,7 @@ ms.date: 4/2/2025
 
 # Enable first-party application service principle for Azure VMware Solution in an Azure virtual network
 
-In this article, you learn how to re-enable the Azure VMware Solution service principle. This service principle is required to be enabled to support the Azure VMware Solution experiences. If you are already familiar with how to enable service principle, re-enable the service principle for application id “1a5e141d-70dd-4594-8442-9fc46fa48686” with name “Avs Fleet Rp”.
+In this article, you learn how to re-enable the Azure VMware Solution service principle. This service principle is required to be enabled to support the Azure VMware Solution experiences. If you're already familiar with how to enable service principle, re-enable the service principle for application ID “1a5e141d-70dd-4594-8442-9fc46fa48686” with name “Avs Fleet Rp”.
 
 ## Prerequisite
  
@@ -26,11 +26,11 @@ There are two options to enable the service principle for Azure VMware Solution.
 
 1. Select **Microsoft Entra ID**.  
 
-2. Search **Microsoft Entra ID** for the application ID `1a5e141d-70dd-4594-8442-9fc46fa48686`. Click **Avs Fleet Rp**.  
+2. Search **Microsoft Entra ID** for the application ID `1a5e141d-70dd-4594-8442-9fc46fa48686`. Select **Avs Fleet Rp**.  
 
-3. Enable the **Avs Fleet Rp** Enterprise application for user sign-in by toggling the **Enabled for users to sign-in** toggle to **Yes**. In the diagram below, it is shown as correctly set to **Yes**.  
+3. Enable the **Avs Fleet Rp** Enterprise application for user sign-in by toggling the **Enabled for users to sign-in** toggle to **Yes**. In the diagram below, it's shown as correctly set to **Yes**.  
 
-4. Ensure you click **Save**.  
+4. Ensure you select **Save**.  
 
 
 ### Option 2: From Azure PowerShell  
@@ -40,7 +40,7 @@ There are two options to enable the service principle for Azure VMware Solution.
     Get-AzADServicePrincipal -ApplicationId 1a5e141d-70dd-4594-8442-9fc46fa48686  
     ```  
 
-2. Copy the value from the `Id` column to use in the next command. Note that the `Id` field will be a full GUID (blurred in the screenshot for privacy).  
+2. Copy the value from the `Id` column to use in the next command. The `Id` field is a full GUID (blurred in the screenshot for privacy).  
 
 3. Run the following command to enable the service principal using the value you copied from the `Id` column:  
     ```powershell  
