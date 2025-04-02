@@ -101,7 +101,7 @@ To enable this feature, configure *Private Endpoint virtual network Policies*. W
 
 #### [**PowerShell**](#tab/ARG-HSP-Powershell)
 
-```Powershell
+```azurepowershell-interactive
 $vnetName = "myVirtualNetwork"
 $resourceGroupName = "myResourceGroup"
 $vnet = Get-AzVirtualNetwork -ResourceGroupName $resourceGroupName -Name $vnetName
@@ -113,7 +113,7 @@ $vnet | Set-AzVirtualNetwork
 
 #### [**CLI**](#tab/ARG-HSP-CLI)
 
-```CLI
+```azurecli-interactive
 vnetName = "myVirtualNetwork"
 resourceGroupName="myResourceGroup"
 
