@@ -15,7 +15,6 @@ This article describes how to view and manage sensors with [Microsoft Defender f
 Before you can use the procedures in this article, you need to have network sensors onboarded to Defender for IoT. For more information, see:
 
 - [Onboard OT sensors to Defender for IoT](onboard-sensors.md)
-- [Enhance IoT security monitoring with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md)
 
 ## View your sensors
 
@@ -144,7 +143,7 @@ This procedure describes how to view sensor health data from the Azure portal. S
     - Sensor fails regular sanity tests
     - No traffic detected by the sensor
     - Sensor software version is no longer supported
-    - A [remote sensor upgrade from the Azure portal](update-ot-software.md#update-ot-sensors) fails
+    - A [remote sensor upgrade from the Azure portal](update-ot-software.md#update-ot-sensors-with-the-latest-ot-monitoring-software) fails
 
     For more information, see our [Sensor health message reference](sensor-health-messages.md).
 

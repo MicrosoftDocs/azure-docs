@@ -23,6 +23,8 @@ items:
     href: create-public-ip-prefix-powershell.md
   - name: Create public IP prefix - Azure CLI
     href: create-public-ip-prefix-cli.md
+  - name: Create public IP prefix - Terraform
+    href: create-public-ip-prefix-terraform.md
   expanded: true
 - name: Tutorials
   items:

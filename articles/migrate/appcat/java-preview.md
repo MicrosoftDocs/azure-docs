@@ -2,7 +2,8 @@
 title: Azure Migrate Application and Code Assessment for Java Version 7
 description: Learn how to use the next generation of Azure Migrate application and code assessment tool to determine readiness to migrate any type of Java application to Azure.
 author: KarlErickson
-ms.author: brborges
+ms.author: karler
+ms.reviewer: brborges
 ms.service: azure
 ms.custom: devx-track-java, devx-track-extended-java
 ms.topic: overview
@@ -74,24 +75,24 @@ For the JDK requirement, we recommend you use the [Microsoft Build of OpenJDK](/
 | macOS   | Apple Silicon   | [Download][10] | [sha256][11] / [sig][12] |
 | Linux   | AArch64 / ARM64 | [Download][4]  | [sha256][5] / [sig][6]   |
 
-[1]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64-7.6.0.0-preview.tar.gz
-[2]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64-7.6.0.0-preview.tar.gz.sha256sum.txt
-[3]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64-7.6.0.0-preview.tar.gz.sig
-[4]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64-7.6.0.0-preview.tar.gz
-[5]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64-7.6.0.0-preview.tar.gz.sha256sum.txt
-[6]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64-7.6.0.0-preview.tar.gz.sig
-[7]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64-7.6.0.0-preview.tar.gz
-[8]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64-7.6.0.0-preview.tar.gz.sha256sum.txt
-[9]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64-7.6.0.0-preview.tar.gz.sig
-[10]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64-7.6.0.0-preview.tar.gz
-[11]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64-7.6.0.0-preview.tar.gz.sha256sum.txt
-[12]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64-7.6.0.0-preview.tar.gz.sig
-[13]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64-7.6.0.0-preview.zip
-[14]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64-7.6.0.0-preview.zip.sha256sum.txt
-[15]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64-7.6.0.0-preview.zip.sig
-[16]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64-7.6.0.0-preview.zip
-[17]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64-7.6.0.0-preview.zip.sha256sum.txt
-[18]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64-7.6.0.0-preview.zip.sig
+[1]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64-7.6.0.3-preview.tar.gz
+[2]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64-7.6.0.3-preview.tar.gz.sha256sum.txt
+[3]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64-7.6.0.3-preview.tar.gz.sig
+[4]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64-7.6.0.3-preview.tar.gz
+[5]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64-7.6.0.3-preview.tar.gz.sha256sum.txt
+[6]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64-7.6.0.3-preview.tar.gz.sig
+[7]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64-7.6.0.3-preview.tar.gz
+[8]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64-7.6.0.3-preview.tar.gz.sha256sum.txt
+[9]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64-7.6.0.3-preview.tar.gz.sig
+[10]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64-7.6.0.3-preview.tar.gz
+[11]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64-7.6.0.3-preview.tar.gz.sha256sum.txt
+[12]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64-7.6.0.3-preview.tar.gz.sig
+[13]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64-7.6.0.3-preview.zip
+[14]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64-7.6.0.3-preview.zip.sha256sum.txt
+[15]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64-7.6.0.3-preview.zip.sig
+[16]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64-7.6.0.3-preview.zip
+[17]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64-7.6.0.3-preview.zip.sha256sum.txt
+[18]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64-7.6.0.3-preview.zip.sig
 
 ### Prerequisites
 
@@ -359,6 +360,32 @@ Then, for each file or class affected by the incident, you can jump into the sou
 
 ## Release notes
 
+### 7.6.0.3
+
+This release contains the following fixes and enhancements.
+
+- New `--limit-code-snips` flag: Controls code snippet limits during rule evaluation (0=unlimited, -1=disable snippets).
+- Fixed missing dependency file failures in bulk analysis mode: The tool no longer aborts during bulk analysis for non-Java projects or Java projects using `--mode=source-only`.
+
+### 7.6.0.2
+
+This release contains the following fixes.
+
+- `java-removals-00150` rule is now triggering correctly.
+
+### 7.6.0.1
+
+This release contains the following fixes and enhancements.
+
+- `--analyze-known-libraries` flag: Now works on Windows.
+- Directory cleanup: Extra directories created during analysis on Windows are now automatically cleaned up.
+- `--json-output` flag: Now operational.
+- Rules parsing error: The error `unable to parse all the rules for ruleset` has been resolved.
+- Insights tab descriptions: Missing rule descriptions have been added.
+- Internet connection dependency: Analysis no longer fails without an internet connection.
+- `--context-lines` flag: Now behaves as expected when set to 0.
+- Removed Python requirement to run the tool.
+
 ### 7.6.0.0
 
 This release is based on a different set of components of the Konveyor project.
@@ -411,27 +438,60 @@ GA (Generally Available) release of Azure Migrate application and code assessmen
 
 ## Known Issues
 
+### 7.6.0.3
+
+- The flag `--overrideProviderSettings` isn't supported.
+- Rules issues:
+    - `azure-system-config-01000`, `http-session-01000` rules aren't being triggered.
+    - `FileSystem - Java IO` rule isn't being triggered.
+- Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant incidents created on Windows OS.
+- Error in Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
+- <kbd>Ctrl</kbd>+<kbd>C</kbd> fails to stop ongoing analysis. To work around, manually terminate the process by explicitly killing the process.
+- In binary analysis reports, the code snippet title shows an incorrect or non-existent file path.
+
+### 7.6.0.2
+
+- The flag `--overrideProviderSettings` isn't supported.
+- Rules issues:
+    - `azure-system-config-01000`, `http-session-01000` rules aren't being triggered.
+    - `FileSystem - Java IO` rule isn't being triggered.
+- Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant incidents created on Windows OS.
+- Error in Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
+- <kbd>Ctrl</kbd>+<kbd>C</kbd> fails to stop ongoing analysis. To work around, manually terminate the process by explicitly killing the process.
+- In binary analysis reports, the code snippet title shows an incorrect or non-existent file path.
+
+### 7.6.0.1
+
+- The flag `--overrideProviderSettings` isn't supported.
+- Rules issues:
+    - `azure-system-config-01000`, `http-session-01000`, `java-removals-00150` rules aren't being triggered.
+    - `FileSystem - Java IO` rule isn't being triggered.
+- Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant incidents created on Windows OS.
+- Error in Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
+- <kbd>Ctrl</kbd>+<kbd>C</kbd> fails to stop ongoing analysis. To work around, manually terminate the process by explicitly killing the process.
+- In binary analysis reports, the code snippet title shows an incorrect or non-existent file path.
+
 ### 7.6.0.0
 
-1. The flag `--analyze-known-libraries` isn't working on Windows.
-1. On Windows, the following extra folders are generated during the analysis process but aren't automatically removed after completion. You might want to remove these extra folders after the analysis finishes.
+- The flag `--analyze-known-libraries` isn't working on Windows.
+- On Windows, the following extra folders are generated during the analysis process but aren't automatically removed after completion. You might want to remove these extra folders after the analysis finishes.
      - **.metadata**
      - **org.eclipse.osgi**
      - **org.eclipse.equinox.app**
      - **org.eclipse.core.runtime**
      - **org.eclipse.equinox.launcher**
-1. The flag `--overrideProviderSettings` isn't supported.
-1. The flag `--json-output` isn't supported. In a future release, it generates JSON outputs for the **output.yaml** and **dependency.yaml** files.
-1. Rules issues:
-    - **azure-system-config-01000**, **http-session-01000**, **java-removals-00150** rules aren't being triggered.
-    - **FileSystem - Java IO** rule isn't being triggered
-    - _"unable to parse all the rules for ruleset"_ when running analysis. This error occurs during analysis when the tool fails to parse all rules in the ruleset.
-1. Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant incidents created on Windows OS.
-1. Missing descriptions for some rules on the Insights tab. Some tag rules are lacking descriptions, leading to blank titles appearing on the `Insights` tab of the report.
-1. Error in Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
-1. This release requires an active internet connection for dependency analysis.
-1. <kbd>Ctrl</kbd>+<kbd>C</kbd> fails to stop ongoing analysis. To work around, manually terminate the process by explicitly killing the process.
-1. When the flag `--context-lines` is set to a number 0, it doesn't work as expected. This flag allows the user to limit how much of the source code should appear on the report. Setting to a value 0 might not work as expected.
+- The flag `--overrideProviderSettings` isn't supported.
+- The flag `--json-output` isn't supported. In a future release, it generates JSON outputs for the **output.yaml** and **dependency.yaml** files.
+- Rules issues:
+    - `azure-system-config-01000`, `http-session-01000`, `java-removals-00150` rules aren't being triggered.
+    - `FileSystem - Java IO` rule isn't being triggered.
+    - Error `unable to parse all the rules for ruleset` when running analysis. This error occurs during analysis when the tool fails to parse all rules in the ruleset.
+- Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant incidents created on Windows OS.
+- Missing descriptions for some rules on the **Insights** tab. Some tag rules are lacking descriptions, leading to blank titles appearing on the **Insights** tab of the report.
+- Error in **Watcher Error** channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
+- This release requires an active internet connection for dependency analysis.
+- <kbd>Ctrl</kbd>+<kbd>C</kbd> fails to stop ongoing analysis. To work around, manually terminate the process by explicitly killing the process.
+- When the flag `--context-lines` is set to a number 0, it doesn't work as expected. This flag allows the user to limit how much of the source code should appear on the report. Setting to a value 0 might not work as expected.
 
 ## License
 

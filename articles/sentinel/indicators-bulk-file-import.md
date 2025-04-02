@@ -69,7 +69,7 @@ The templates provide all the fields you need to create a single valid indicator
 
 1. Drag your bulk threat intelligence file to the **Upload a file** section, or browse for the file by using the link.
 
-1. Enter a source for the threat intelligence in the **Source** text box. This value is stamped on all the indicators included in that file. View this property as the `SourceSystem` field. The source is also displayed in the **Manage file imports** pane. For more information, see [Work with threat indicators](work-with-threat-indicators.md#find-and-view-your-indicators-with-queries). 
+1. Enter a source for the threat intelligence in the **Source** text box. This value is stamped on all the indicators included in that file. View this property as the `SourceSystem` field. The source is also displayed in the **Manage file imports** pane. For more information, see [Work with threat indicators](work-with-threat-indicators.md#find-and-view-threat-intelligence-with-queries). 
 
 1. Choose how you want Microsoft Sentinel to handle invalid entries by selecting one of the buttons at the bottom of the **Import using a file** pane:
 

@@ -2,10 +2,10 @@
 title: Assign Azure roles using Azure Resource Manager templates - Azure RBAC
 description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using Azure Resource Manager templates and Azure role-based access control (Azure RBAC).
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 10/19/2022
+ms.date: 03/30/2025
 ms.author: rolyon
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
@@ -128,7 +128,7 @@ az deployment group create --resource-group ExampleGroup --template-file rbac-te
 
 The following shows an example of the Reader role assignment to a user for a resource group after deploying the template.
 
-![Role assignment at resource group scope](./media/role-assignments-template/role-assignment-template.png)
+:::image type="content" source="./media/role-assignments-template/role-assignment-template.png" alt-text="Screenshot of role assignment at resource group scope." lightbox="./media/role-assignments-template/role-assignment-template.png":::
 
 ### Resource group or subscription scope
 
@@ -309,7 +309,7 @@ az deployment group create --resource-group ExampleGroup --template-file rbac-te
 
 The following shows an example of the Contributor role assignment to a user for a storage account after deploying the template.
 
-![Role assignment at resource scope](./media/role-assignments-template/role-assignment-template-resource.png)
+:::image type="content" source="./media/role-assignments-template/role-assignment-template-resource.png" alt-text="Screenshot of role assignment at resource scope." lightbox="./media/role-assignments-template/role-assignment-template-resource.png":::
 
 ### New service principal
 
@@ -378,7 +378,7 @@ az deployment group create --resource-group ExampleGroup2 --template-file rbac-t
 
 The following shows an example of the Contributor role assignment to a new managed identity service principal after deploying the template.
 
-![Role assignment for a new managed identity service principal](./media/role-assignments-template/role-assignment-template-msi.png)
+:::image type="content" source="./media/role-assignments-template/role-assignment-template-msi.png" alt-text="Screenshot of role assignment for a new managed identity service principal." lightbox="./media/role-assignments-template/role-assignment-template-msi.png":::
 
 ## Next steps
 

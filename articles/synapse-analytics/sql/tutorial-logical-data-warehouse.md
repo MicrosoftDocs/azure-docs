@@ -7,7 +7,6 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 02/17/2023
 ms.author: jovanpop
-ms.reviewer: whhender
 ---
 
 # Tutorial: Create Logical Data Warehouse with serverless SQL pool
@@ -74,7 +73,7 @@ In order to access Azure Cosmos DB analytical storage, you need to define a cred
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL MyCosmosDbAccountCredential
 WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
-     SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
+     SECRET = '<yourcosmosdbaccountkey>';
 ```
 
 Any user with the Synapse Administrator role can use these credentials to access Azure Data Lake storage or Azure Cosmos DB analytical storage.
@@ -172,7 +171,7 @@ CREATE OR ALTER VIEW ecdc_cosmosdb.Ecdc
 AS SELECT *
 FROM OPENROWSET(
       PROVIDER = 'CosmosDB',
-      CONNECTION = 'Account=synapselink-cosmosdb-sqlsample;Database=covid',
+      CONNECTION = 'Account=yourcosmosdbaccount;Database=covid',
       OBJECT = 'Ecdc',
       CREDENTIAL = 'MyCosmosDbAccountCredential'
     ) WITH

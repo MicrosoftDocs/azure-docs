@@ -67,7 +67,7 @@ To move API Management instances from one Azure region to another, use the servi
 
 If you moved the API Management instance using Option 1, after you successfully restore and configure the target instance, you may delete the source instance.
 
-## Next steps
+## Related content
 
 * For more information about the backup and restore feature, see [how to implement disaster recovery](api-management-howto-disaster-recovery-backup-restore.md).
 * For information on migrating Azure resources, see [Azure cross-region migration guidance](https://github.com/Azure/Azure-Migration-Guidance).

@@ -3,7 +3,8 @@ title: How to Configure APM Integration and CA Certificates
 titleSuffix: Azure Spring Apps Enterprise plan
 description: Shows you how to configure APM integration and CA certificates in the Azure Spring Apps Enterprise plan.
 author: KarlErickson
-ms.author: fenzho
+ms.author: karler
+ms.reviewer: fenzho
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 08/29/2024
@@ -113,7 +114,7 @@ This section lists the supported languages and required environment variables fo
   - `application_packages`
   - `server_url`
 
-  For other supported environment variables, see [Elastic](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html)
+  For other supported environment variables, see [Elastic](https://www.elastic.co/guide/en/apm/agent/java/current/configuration.html)
 
 - **AppDynamics**
 

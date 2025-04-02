@@ -1,32 +1,35 @@
 ---
-title: Use external tables with Synapse SQL
-description: Reading or writing data files with external tables in Synapse SQL
+title: Use External Tables with Synapse SQL
+description: Reading or writing data files with external tables in Synapse SQL.
 author: jovanpop-msft
 ms.author: jovanpop
+ms.reviewer: jovanpop, periclesrocha
+ms.date: 02/19/2025
 ms.service: azure-synapse-analytics
-ms.topic: concept-article
 ms.subservice: sql
-ms.date: 01/08/2025
-ms.reviewer: wiassaf
+ms.topic: concept-article
 ---
 
 # Use external tables with Synapse SQL
 
-An external table points to data located in Hadoop, Azure Storage blob, or Azure Data Lake Storage. You can use external tables to read data from files or write data to files in Azure Storage. With Synapse SQL, you can use external tables to read external data using dedicated SQL pool or serverless SQL pool.
+An external table points to data located in Hadoop, Azure Storage blob, or Azure Data Lake Storage (ADLS). 
+
+You can use external tables to read data from files or write data to files in Azure Storage. With Azure Synapse SQL, you can use external tables to read external data using dedicated SQL pool or serverless SQL pool.
 
 Depending on the type of the external data source, you can use two types of external tables:
+
 - **Hadoop external tables** that you can use to read and export data in various data formats such as CSV, Parquet, and ORC. Hadoop external tables are available in dedicated SQL pools, but they aren't available in serverless SQL pools.
-- **Native external tables** that you can use to read and export data in various data formats such as CSV and Parquet. Native external tables are available in serverless SQL pools, and they are in **public preview** in dedicated SQL pools. Writing/exporting data using CETAS and the native external tables is available only in the serverless SQL pool, but not in the dedicated SQL pools.
+- **Native external tables** that you can use to read and export data in various data formats such as CSV and Parquet. Native external tables are available in serverless SQL pools and in dedicated SQL pools. Writing/exporting data using CETAS and the native external tables is available only in the serverless SQL pool, but not in the dedicated SQL pools.
 
 The key differences between Hadoop and native external tables:
 
 | External table type | Hadoop | Native |
 | --- | --- | --- |
-| Dedicated SQL pool | Available | Only Parquet tables are available in **public preview**. |
+| Dedicated SQL pool | Available | Parquet only |
 | Serverless SQL pool | Not available | Available |
-| Supported formats | Delimited/CSV, Parquet, ORC, Hive RC, and RC | Serverless SQL pool: Delimited/CSV, Parquet, and [Delta Lake](query-delta-lake-format.md)<br/>Dedicated SQL pool: Parquet (preview) |
+| Supported formats | Delimited/CSV, Parquet, ORC, Hive RC, and RC | Serverless SQL pool: Delimited/CSV, Parquet, and [Delta Lake](query-delta-lake-format.md)<br/>Dedicated SQL pool: Parquet |
 | [Folder partition elimination](#folder-partition-elimination) | No | Partition elimination is available only in the partitioned tables created on Parquet or CSV formats that are synchronized from Apache Spark pools. You might create external tables on Parquet partitioned folders, but the partitioning columns are inaccessible and ignored, while the partition elimination won't be applied. Don't create [external tables on Delta Lake folders](create-use-external-tables.md#delta-tables-on-partitioned-folders) because they aren't supported. Use [Delta partitioned views](create-use-views.md#delta-lake-partitioned-views) if you need to query partitioned Delta Lake data. |
-| [File elimination](#file-elimination) (predicate pushdown) | No | Yes in serverless SQL pool. For the string pushdown, you need to use `Latin1_General_100_BIN2_UTF8` collation on the `VARCHAR` columns to enable pushdown. For more information on collations, see [Collation types supported for Synapse SQL](reference-collation-types.md).|
+| [File elimination](#file-elimination) (predicate pushdown) | No | Yes in serverless SQL pool. For the string pushdown, you need to use `Latin1_General_100_BIN2_UTF8` collation on the `VARCHAR` columns to enable pushdown. For more information on collations, see [Database collation support for Synapse SQL in Azure Synapse Analytics](reference-collation-types.md).|
 | Custom format for location | No | Yes, using wildcards like `/year=*/month=*/day=*` for Parquet or CSV formats. Custom folder paths aren't available in Delta Lake. In the serverless SQL pool, you can also use recursive wildcards `/logs/**` to reference Parquet or CSV files in any subfolder beneath the referenced folder. |
 | Recursive folder scan | Yes | Yes. In serverless SQL pools must be specified `/**` at the end of the location path. In Dedicated pool the folders are always scanned recursively. |
 | Storage authentication | Storage Access Key(SAK), Microsoft Entra passthrough, Managed identity, custom application Microsoft Entra identity | [Shared Access Signature(SAS)](develop-storage-files-storage-access-control.md?tabs=shared-access-signature), [Microsoft Entra passthrough](develop-storage-files-storage-access-control.md?tabs=user-identity), [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity), [Custom application Microsoft Entra identity](develop-storage-files-storage-access-control.md?tabs=service-principal). |
@@ -34,14 +37,14 @@ The key differences between Hadoop and native external tables:
 | CETAS (exporting/transformation) | Yes | CETAS with the native tables as a target works only in the serverless SQL pool. You can't use the dedicated SQL pools to export data using native tables. |
 
 > [!NOTE]
-> The native external tables are the recommended solution in the pools where they're generally available. If you need to access external data, always use the native tables in serverless pools. In dedicated pools, you should switch to the native tables for reading Parquet files once they are in GA. Use the Hadoop tables only if you need to access some types that aren't supported in native external tables (for example - ORC, RC), or if the native version isn't available.
+> The native external tables are the recommended solution in the pools where they're generally available. If you need to access external data, always use the native tables in serverless or dedicated pools. Use the Hadoop tables only if you need to access some types that aren't supported in native external tables (for example - ORC, RC), or if the native version isn't available.
 
 ## External tables in dedicated SQL pool and serverless SQL pool
 
 You can use external tables to:
 
-- Query Azure Blob Storage and Azure Data Lake Gen2 with Transact-SQL statements.
-- Store query results to files in Azure Blob Storage or Azure Data Lake Storage using [CETAS](develop-tables-cetas.md).
+- Query Azure Blob Storage and ADLS Gen2 with Transact-SQL statements.
+- Store query results to files in Azure Blob Storage or Azure Data Lake Storage using [CETAS with Synapse SQL](develop-tables-cetas.md).
 - Import data from Azure Blob Storage and Azure Data Lake Storage and store it in a dedicated SQL pool (only Hadoop tables in dedicated pool).
 
 > [!NOTE]
@@ -66,7 +69,7 @@ The folder partition elimination is available in the native external tables that
 ### File elimination
 
 Some data formats such as Parquet and Delta contain file statistics for each column (for example, min/max values for each column). The queries that filter data won't read the files where the required column values don't exist. The query will first explore min/max values for the columns used in the query predicate to find the files that don't contain the required data. These files are ignored and eliminated from the query plan.
-This technique is also known as filter predicate pushdown and it can improve the performance of your queries. Filter pushdown is available in the serverless SQL pools on Parquet and Delta formats. To apply filter pushdown for the string types, use the VARCHAR type with the `Latin1_General_100_BIN2_UTF8` collation. For more information on collations, see [Collation types supported for Synapse SQL](reference-collation-types.md).
+This technique is also known as filter predicate pushdown and it can improve the performance of your queries. Filter pushdown is available in the serverless SQL pools on Parquet and Delta formats. To apply filter pushdown for the string types, use the VARCHAR type with the `Latin1_General_100_BIN2_UTF8` collation. For more information on collations, see [Database collation support for Synapse SQL in Azure Synapse Analytics](reference-collation-types.md).
 
 ### Security
 
@@ -74,17 +77,17 @@ User must have `SELECT` permission on an external table to read the data.
 External tables access underlying Azure storage using the database scoped credential defined in data source using the following rules:
 - Data source without credential enables external tables to access publicly available files on Azure storage.
 - Data source can have a credential that enables external tables to access only the files on Azure storage using SAS token or workspace Managed Identity - For examples, see [the Develop storage files storage access control](develop-storage-files-storage-access-control.md#examples) article.
- 
+
 ### Example for CREATE EXTERNAL DATA SOURCE
 
 #### [Hadoop](#tab/hadoop)
 
-The following example creates a Hadoop external data source in dedicated SQL pool for Azure Data Lake Gen2 pointing to the New York data set:
+The following example creates a Hadoop external data source in dedicated SQL pool for ADLS Gen2 pointing to the public New York data set:
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL [ADLS_credential]
 WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
+SECRET = 'sv=2022-11-02&ss=b&srt=co&sp=rl&se=2042-11-26T17:40:55Z&st=2024-11-24T09:40:55Z&spr=https&sig=DKZDuSeZhuCWP9IytWLQwu9shcI5pTJ%2Fw5Crw6fD%2BC8%3D'
 GO
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 WITH
@@ -95,7 +98,7 @@ WITH
   ) ;
 ```
 
-The following example creates an external data source for Azure Data Lake Gen2 pointing to the publicly available New York data set:
+The following example creates an external data source for ADLS Gen2 pointing to the publicly available New York data set:
 
 ```sql
 CREATE EXTERNAL DATA SOURCE YellowTaxi
@@ -105,28 +108,29 @@ WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yel
 
 #### [Native](#tab/native)
 
-The following example creates an external data source in serverless or dedicated SQL pool for Azure Data Lake Gen2 that can be accessed using SAS credential:
+The following example creates an external data source in serverless or dedicated SQL pool for ADLS Gen2 that can be accessed using SAS credential:
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL [sqlondemand]
 WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
+SECRET = 'sv=2022-11-02&ss=b&srt=co&sp=rl&se=2042-11-26T17:40:55Z&st=2024-11-24T09:40:55Z&spr=https&sig=DKZDuSeZhuCWP9IytWLQwu9shcI5pTJ%2Fw5Crw6fD%2BC8%3D'
 GO
 CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
     LOCATION = 'https://sqlondemandstorage.blob.core.windows.net',
     CREDENTIAL = sqlondemand
 );
 ```
+
 > [!NOTE]
 > The SQL users need to have proper permissions on database scoped credentials to access the data source in Azure Synapse Analytics Serverless SQL Pool. [Access external storage using serverless SQL pool in Azure Synapse Analytics](./develop-storage-files-overview.md?tabs=impersonation#permissions).
-The following example creates an external data source for Azure Data Lake Gen2 pointing to the publicly available New York data set:
+
+The following example creates an external data source for ADLS Gen2 pointing to the publicly available New York data set:
 
 ```sql
 CREATE EXTERNAL DATA SOURCE YellowTaxi
 WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/')
 ```
 ---
-
 
 ### Example for CREATE EXTERNAL FILE FORMAT
 
@@ -178,25 +182,22 @@ Using Data Lake exploration capabilities of Synapse Studio you can now create an
 - You must have at least [permissions to create an external table](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest&preserve-view=true#permissions-2) and query external tables on the Synapse SQL pool (dedicated or serverless).
 
 From the Data panel, select the file that you would like to create the external table from:
-> [!div class="mx-imgBorder"]
->![externaltable1](./media/develop-tables-external-tables/external-table-1.png)
+
+:::image type="content" source="media/develop-tables-external-tables/external-table.png" alt-text="Screenshot from the Azure portal of the Azure Synapse Analytics create external table experience." lightbox="media/develop-tables-external-tables/external-table.png":::
 
 A dialog window will open. Select dedicated SQL pool or serverless SQL pool, give a name to the table and select open script:
 
-> [!div class="mx-imgBorder"]
->![externaltable2](./media/develop-tables-external-tables/external-table-2.png)
+:::image type="content" source="media/develop-tables-external-tables/external-table-dialog.png" alt-text="Screenshot from the Azure portal of the Azure Synapse Analytics of the create external table dialog.":::
 
 The SQL Script is autogenerated inferring the schema from the file:
-> [!div class="mx-imgBorder"]
->![externaltable3](./media/develop-tables-external-tables/external-table-3.png)
 
-Run the script. The script will automatically run a Select Top 100 *.:
-> [!div class="mx-imgBorder"]
->![externaltable4](./media/develop-tables-external-tables/external-table-4.png)
+:::image type="content" source="media/develop-tables-external-tables/external-table-t-sql.png" alt-text="Screenshot from the Azure portal of a T-SQL script that creates an external table." lightbox="media/develop-tables-external-tables/external-table-t-sql.png":::
 
-The external table is now created, for future exploration of the content of this external table the user can query it directly from the Data pane:
-> [!div class="mx-imgBorder"]
->![externaltable5](./media/develop-tables-external-tables/external-table-5.png)
+Run the script. The script will automatically run a `SELECT TOP 100 *`:
+
+:::image type="content" source="media/develop-tables-external-tables/external-table-resultset.png" alt-text="Screenshot from the Azure portal of a T-SQL script's result set that shows the external table." lightbox="media/develop-tables-external-tables/external-table-resultset.png":::
+
+The external table is now created. You can now query the external table directly from the Data pane.
 
 ## Related content
 

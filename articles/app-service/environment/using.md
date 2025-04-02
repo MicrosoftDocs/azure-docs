@@ -11,9 +11,6 @@ ms.author: madsd
 
 App Service Environment is a single-tenant deployment of Azure App Service. You use it with an Azure virtual network, and you're the only user of this system. Apps deployed are subject to the networking features that are applied to the subnet. There aren't any additional features that need to be enabled on your apps to be subject to those networking features. 
 
-> [!NOTE]
-> This article is about App Service Environment v3, which is used with Isolated v2 App Service plans.
-
 ## Create an app
 
 To create an app in your App Service Environment, you use the same process as when you normally create an app, but with a few small differences. When you create a new App Service plan:
