@@ -5,25 +5,18 @@ description: Learn how to develop Python applications and services that use Azur
 author: pauljewellmsft
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/13/2024
+ms.date: 04/04/2025
 ms.author: pauljewell
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
-# Develop Python applications that use Azure Files
+# Develop for Azure Files with Python
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
-Learn the basics of using Python to develop apps or services that use Azure Files to store file data. Create a console app and learn how to perform basic actions with Python and Azure Files:
+Learn how to develop Python applications that use Azure Files to store data. Azure Files is a managed file share service in the cloud. It provides fully managed file shares that are accessible via the industry standard Server Message Block (SMB) and Network File System (NFS) protocols. Azure Files also provides a REST API for programmatic access to file shares.
 
-- Create Azure file shares
-- Create directories
-- Enumerate files and directories in an Azure file share
-- Upload, download, and delete a file
-- Create file share backups by using snapshots
-
-> [!NOTE]
-> Because Azure Files may be accessed over SMB, it's possible to write simple applications that access the Azure file share using the standard Python I/O classes and functions. This article describes how to write apps that use the Azure Storage SDK for Python, which uses the [Azure Files REST API](/rest/api/storageservices/file-service-rest-api) to talk to Azure Files.
+In this article, you learn about the different approaches to developing with Azure Files in Python, and how to choose the approach that best fits the needs of your app. You also learn how to create a basic console app that interacts with Azure Files resources.
 
 ## Applies to
 
