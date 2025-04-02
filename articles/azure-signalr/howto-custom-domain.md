@@ -21,7 +21,7 @@ In addition to the default domain provided with Azure SignalR Service, you can a
 - An Azure resource group.
 - An Azure SignalR Service resource.
 - An Azure Key Vault instance.
-- A custom domain TLS/SSL certificate stored in your Key Vault instance. For more information, see [Get started with Key Vault certificates](/azure/key-vault/certificates/certificate-scenarios)
+- A custom domain TLS/SSL certificate stored in your Key Vault instance. For more information, see [Get started with Key Vault certificates](/azure/key-vault/certificates/certificate-scenarios).
 - An Azure DNS zone (optional).
 
 ## Add a custom certificate
@@ -82,7 +82,7 @@ If you're using **Vault access policy** as your key vault permission model, foll
 
 #### [Azure role-based access control](#tab/azure-rbac)
 
-When you use the Azure role-based access control permission model, follow this procedure to assign a role to the Azure SignalR Service managed identity. To complete this procedure, you must be a member of the [Azure built-in Owner](~/articles/role-based-access-control/built-in-roles.md#owner) role.
+When you use Azure role-based access control as your permission model, follow this procedure to assign a role to the Azure SignalR Service managed identity. To complete this procedure, you must be a member of the [Azure built-in Owner](~/articles/role-based-access-control/built-in-roles.md#owner) role.
 
    :::image type="content" alt-text="Screenshot that shows Azure role-based access control selected as the vault permission model." source="media/howto-custom-domain/portal-key-vault-perm-model-rbac.png" :::
 
@@ -92,7 +92,7 @@ When you use the Azure role-based access control permission model, follow this p
 
    :::image type="content" alt-text="Screenshot that shows the IAM Add role assignment option." source="media/howto-custom-domain/portal-key-vault-iam.png" :::
 
-1. On the **Role** tab, select **Key Vault Secrets User** and select **Next**.
+1. On the **Role** tab, select **Key Vault Secrets User** and then select **Next**.
 
    :::image type="content" alt-text="Screenshot that shows the Role tab when you add a role assignment to Key Vault." source="media/howto-custom-domain/portal-key-vault-role.png" :::
 
