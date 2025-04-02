@@ -20,8 +20,8 @@ ms.author: mareusch
 
 ## <a name="dee9099b-7b8a-4cdd-86a2-3f6ee964266f"></a>Troubleshooting for Windows
  
-### Azure performance counters do not show up at all
-The AzureEnhancedMonitoring process collects performance metrics in Azure. If the process is not running in your VM, no performance metrics can be collected.
+### Azure performance counters don't show up at all
+The AzureEnhancedMonitoring process collects performance metrics in Azure. If the process isn't running in your virtual machine (VM), no performance metrics can be collected.
 
 #### The installation directory of the Azure Extension for SAP is empty
 ##### Issue
@@ -29,7 +29,7 @@ The installation directory
 C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Windows\\&lt;version>
 is empty.
 ##### Solution
-The extension is not installed. Determine whether this is a proxy issue (as described earlier). You might need to restart the machine or install the VM extension again.
+The extension isn't installed. Determine whether it is a proxy issue. You might need to restart the machine or install the VM extension again.
  
 ### Some Azure performance counters are missing
 
@@ -39,14 +39,14 @@ If troubleshooting by using SAP Note [1999351] doesn't resolve the issue, open a
 
 ## <a name="02783aa4-5443-43f5-bc11-7af19ebf0c36"></a>Troubleshooting for Linux
 
-### Azure performance counters do not show up at all
-Performance metrics in Azure are collected by a daemon. If the daemon is not running, no performance metrics can be collected.
+### Azure performance counters don't show up at all
+Performance metrics in Azure are collected by a daemon. If the daemon isn't running, no performance metrics can be collected.
 
 #### The installation directory of the Azure Extension for SAP is empty
 ##### Issue
 The directory /var/lib/waagent/ doesn't have a subdirectory for the Azure Extension for SAP.
 ##### Solution
-The extension is not installed. Determine whether this is a proxy issue (as described earlier). You might need to restart the machine and/or install the VM extension again.
+The extension isn't installed. Determine whether it is a proxy issue. You might need to restart the machine and/or install the VM extension again.
  
 ### Some Azure performance counters are missing
 
