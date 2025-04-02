@@ -1,14 +1,14 @@
 ---
-title: Shared disks in Azure Site Recovery (preview)
+title: Shared disks in Azure Site Recovery
 description: This article describes how to enable replication, failover, and failback Azure virtual machines for shared disks.
 ms.topic: conceptual
 ms.service: azure-site-recovery
-ms.date: 03/26/2025
+ms.date: 04/02/2025
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
 
-# Setup disaster recovery for Azure virtual machines using shared disk (preview)
+# Setup disaster recovery for Azure virtual machines using shared disk
 
 This article describes how to protect, monitor, failover, and reprotect your workloads that are running on Windows Server Failover Clusters (WSFC) on Azure virtual machines using a shared disk.
 

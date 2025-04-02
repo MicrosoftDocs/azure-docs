@@ -1,16 +1,16 @@
 ---
-title: Common questions about Shared disks in Azure Site Recovery (preview)
+title: Common questions about Shared disks in Azure Site Recovery 
 description: This article answers common questions about Azure to Azure Shared disks in Azure Site Recovery.
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ms.topic: faq
-ms.date: 03/26/2025
+ms.date: 04/02/2025
 ms.service: azure-site-recovery
 
 ---
-# Common questions about Azure to Azure shared disks (preview)
+# Common questions about Azure to Azure shared disks
 
-This article answers common questions about using shared disks (Azure to Azure) with Azure Site Recovery, focusing on the current capabilities and limitations during the public preview phase.
+This article answers common questions about using shared disks (Azure to Azure) with Azure Site Recovery. 
 
 ## Frequently asked questions
 
@@ -33,7 +33,7 @@ Yes, you can restart the job without reselecting clusters, just like other A2A s
 No, if new shared disks need to be added, disable the replication for the already protected cluster. Enable a new cluster protection with a new cluster name for the modified infrastructure.
 
 #### Can we select both crash-consistent and app-consistent recovery points?
-Yes, both types of recovery points are generated. However, during Public Preview only crash-consistent and the Latest Processed recovery points are supported. App-consistent recovery points and Latest recovery point will be available as part of General Availability.
+Yes, both types of recovery points are generated. App-consistent recovery points and Latest recovery point will be available as part of General Availability.
 
 #### Can we use recovery plans to failover Azure Site Recovery enabled VMs with shared disks?
 No, recovery plans are not supported for shared disks in Azure Site Recovery.
@@ -45,5 +45,6 @@ The health status warning due to test failover will be available as part of Gene
 
 Learn more about:
 
--  [Azure managed disk](/azure/virtual-machines/disks-shared).
--  [Support matrix for shared disk in Azure Site Recovery](./shared-disk-support-matrix.md).
+- [Azure managed disk](/azure/virtual-machines/disks-shared).
+- [Support matrix for shared disk in Azure Site Recovery](./shared-disk-support-matrix.md).
+- [Shared disk tutorial](./tutorial-shared-disk.md).
