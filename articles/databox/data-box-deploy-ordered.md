@@ -8,11 +8,22 @@ ms.topic: tutorial
 ms.date: 03/25/2024
 ms.author: shaas
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+zone_pivot_groups: data-box-sku
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Order Azure Data Box
 
+:::zone pivot="dbx"
+[!INCLUDE [data-box-retirement](includes/data-box-retirement.md)]
+:::zone-end
+
+:::zone pivot="dbx"
 Azure Data Box is a hybrid solution that allows you to import your on-premises data into Azure in a quick, easy, and reliable way. You transfer your data to a Microsoft-supplied storage device with 80 TB of usable capacity, and then ship the device back. This data is then uploaded to Azure.
+:::zone-end
+
+:::zone pivot="dbx-ng"
+Azure Data Box is a hybrid solution that allows you to import your on-premises data into Azure in a quick, easy, and reliable way. You transfer your data to a Microsoft-supplied storage device with 120 TB or 525 TB of usable capacity, and then ship the device back. This data is then uploaded to Azure.
+:::zone-end
 
 This tutorial describes how you can order an Azure Data Box. In this tutorial, you learn about:   
 
@@ -698,3 +709,6 @@ Advance to the next tutorial to learn how to set up your Data Box.
 
 > [!div class="nextstepaction"]
 > [Set up your Azure Data Box](./data-box-deploy-set-up.md)
+:::zone pivot="dbx-ng"
+
+:::zone-end

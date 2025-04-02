@@ -4,6 +4,9 @@ description: Learn how to connect Apache Kafka cluster with VM in different VNet
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 04/11/2024
 ---
 

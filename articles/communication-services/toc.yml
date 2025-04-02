@@ -125,7 +125,7 @@ items:
       - name: Add inline image support in Teams interop chat
         href: tutorials/inline-image-tutorial-interop-chat.md
     - name: Connect to Teams
-      items: 
+      items:
       - name: Add Teams meeting chat to your app
         href: quickstarts/chat/meeting-interop.md
       - name: Enable inline image interop in your chat app
@@ -433,7 +433,7 @@ items:
       - name: Add video calling to your app
         href: quickstarts/voice-video-calling/get-started-with-video-calling.md
     - name: Rooms
-      items: 
+      items:
       - name: Rooms API for structured meetings
         href: concepts/rooms/room-concept.md
       - name: Create a room
@@ -494,6 +494,11 @@ items:
         href: tutorials/add-video-augmented-reality-tutorial.md
     - name: Set video constraints in a calling app
       href: quickstarts/voice-video-calling/get-started-video-constraints.md
+    - name: Local preview mirroring
+      href: quickstarts/voice-video-calling/local-preview-mirroring.md
+    - name: Optimize video placement on your web app
+      href: quickstarts/voice-video-calling/optimizing-video-placement.md
+      displayName: Optimal Video Count, OVC, dual pin
     - name: Simulcast
       href: concepts/voice-video-calling/simulcast.md
       displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
@@ -572,7 +577,7 @@ items:
       href: concepts/analytics/insights/voice-and-video-insights.md
       displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
     - name: Call client logs
-      items: 
+      items:
       - name: Overview of call logs
         href: concepts/analytics/logs/voice-and-video-logs.md
       - name: Call summary updates logs
@@ -833,8 +838,6 @@ items:
       href: tutorials/trusted-service-tutorial.md
     - name: Calling hero sample
       href: samples/calling-hero-sample.md
-    - name: Xamarin calling sample
-      href: samples/ui-library-cross-platform.md?pivots=platform-xamarin
     - name: React Native calling sample
       href: samples/ui-library-cross-platform.md?pivots=platform-react
     - name: MAUI calling sample
@@ -993,6 +996,8 @@ items:
       href: how-tos/call-automation/play-action.md
     - name: Gather user input with recognize action
       href: how-tos/call-automation/recognize-action.md
+    - name: Implement Answer Machine Detection
+      href: concepts/call-automation/answer-machine-detection.md
   - name: Call recording
     items:
     - name: Call recording overview

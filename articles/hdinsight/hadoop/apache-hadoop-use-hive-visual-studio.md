@@ -4,6 +4,9 @@ description: Learn how to use the Data Lake tools for Visual Studio to run Apach
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 05/15/2024
 ---
 
