@@ -89,7 +89,7 @@ HCX offers various [services](https://techdocs.broadcom.com/us/en/vmware-cis/hcx
 - Downgrading from HCX Enterprise Edition to HCX Advanced is possible without redeploying. 
 
     1. Verify that you reverted to an HCX Advanced configuration state and you aren't using the Enterprise features. 
-    1. If you want to downgrade, verify that no scheduled migrations, [Enterprise services](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-user-guide-4-9/vmware-hcx-services.html) like RAV or HCX MON, etc. are active. Open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to request downgrade. 
+    1. If you plan to downgrade, verify that no scheduled migrations, [Enterprise services](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-user-guide-4-9/vmware-hcx-services.html) like RAV or HCX MON, etc. are active. Open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to request downgrade. 
 
 ## Download and deploy the VMware HCX Connector on-premises 
 
