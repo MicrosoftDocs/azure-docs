@@ -49,7 +49,7 @@ items:
           href: vm-extension-for-sap.md
         - name: New version of Azure VM Extension for SAP
           href: vm-extension-for-sap-new.md
-        - name: Troubleshooting the Azure VM Extension for SAP
+        - name: Troubleshoot the Azure VM Extension for SAP
           href: vm-extension-for-sap-troubleshooting.md
         - name: Standard version of Azure VM Extension for SAP
           href: vm-extension-for-sap-standard.md

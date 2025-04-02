@@ -30,7 +30,7 @@ ms.author: oldoll
 > [!NOTE]
 > General Support Statement:
 > Support for the Azure Extension for SAP is provided through SAP support channels.
-> If you need assistance with the Azure VM extension for SAP solutions, please open a support case with SAP Support
+> If you need assistance with the Azure VM extension for SAP solutions open a support case with SAP Support
   
 > [!NOTE]
 > Make sure to uninstall the VM extension before switching between the standard and the new version of the Azure Extension for SAP.
@@ -82,7 +82,7 @@ The new VM Extension for SAP uses a managed identity that's assigned to the VM t
 1. Run the following PowerShell cmdlet.
     For a list of available environments, run cmdlet `Get-AzEnvironment`. If you want to use global Azure, your environment is **AzureCloud**. For Microsoft Azure operated by 21Vianet, select **AzureChinaCloud**.
 
-    The VM Extension for SAP supports configuring a proxy that the extension should use to connect to external resources, for example the Azure Resource Manager API. Please use parameter -ProxyURI to set the proxy.
+    The VM Extension for SAP supports configuring a proxy that the extension should use to connect to external resources, for example the Azure Resource Manager API. Use parameter -ProxyURI to set the proxy.
 
     ```powershell
     $env = Get-AzEnvironment -Name <name of the environment>
@@ -94,7 +94,7 @@ The new VM Extension for SAP uses a managed identity that's assigned to the VM t
 
 1. Restart SAP Host Agent
 
-    Log on to the virtual machine on which you enabled the VM Extension for SAP and restart the SAP Host Agent if it was already installed. SAP Host Agent does not use the VM Extension until it is restarted. It currently cannot detect that an extension was installed after it was started.
+    Log on to the virtual machine on which you enabled the VM Extension for SAP and restart the SAP Host Agent if it was already installed. SAP Host Agent does not use the VM Extension until it's restarted. It currently cannot detect that an extension was installed after it was started.
 
 ### [Azure CLI](#tab/cli2)
  
@@ -120,7 +120,7 @@ The new VM Extension for SAP uses a managed identity that is assigned to the VM 
   
 1. Enable the new extension:
   
-   The VM Extension for SAP supports configuring a proxy that the extension should use to connect to external resources, for example the Azure Resource Manager API. Please use parameter --proxy-uri to set the proxy.
+   The VM Extension for SAP supports configuring a proxy that the extension should use to connect to external resources, for example the Azure Resource Manager API. Use parameter --proxy-uri to set the proxy.
 
    ```azurecli
    az vm aem set -g <resource-group-name> -n <vm name> --install-new-extension
@@ -128,7 +128,7 @@ The new VM Extension for SAP uses a managed identity that is assigned to the VM 
  
  1. Restart SAP Host Agent
 
-    Log on to the virtual machine on which you enabled the VM Extension for SAP and restart the SAP Host Agent if it was already installed. SAP Host Agent does not use the VM Extension until it is restarted. It currently cannot detect that an extension was installed after it was started.
+    Log on to the virtual machine on which you enabled the VM Extension for SAP and restart the SAP Host Agent if it was already installed. SAP Host Agent does not use the VM Extension until it's restarted. It currently cannot detect that an extension was installed after it was started.
 
 ---
 
@@ -136,7 +136,7 @@ The new VM Extension for SAP uses a managed identity that is assigned to the VM 
 
 If you want to use Azure Resource Manager, Terraform or other tools to deploy the VM Extension for SAP, you can also deploy the VM Extension for SAP manually i.e. without using the dedicated PowerShell or Azure CLI commands.
 
-Before deploying the VM Extension for SAP, please make sure to assign a user or system assigned managed identity to the virtual machine. For more information, read the following guides:
+Before deploying the VM Extension for SAP make sure to assign a user or system assigned managed identity to the virtual machine. For more information, read the following guides:
 
 * [Configure managed identities for Azure resources on a VM using the Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 * [Configure managed identities for Azure resources on an Azure VM using Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)

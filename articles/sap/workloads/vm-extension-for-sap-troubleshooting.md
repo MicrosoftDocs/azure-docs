@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting the Azure VM Extension for SAP | Microsoft Docs
+title: Troubleshoot the Azure VM Extension for SAP | Microsoft Docs
 description: Learn how to troubleshoot the new VM Extension for SAP.
 services: virtual-machines-linux,virtual-machines-windows
 author: imnotfromhere
@@ -14,7 +14,7 @@ ms.date: 06/22/2021
 ms.author: mareusch
 ---
 
-# Troubleshooting the Azure VM Extension for SAP
+# Troubleshoot the Azure VM Extension for SAP
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [configure]:vm-extension-for-sap-new.md#configure (Configure the Azure VM extension for SAP solutions)
 
@@ -35,7 +35,7 @@ The extension is not installed. Determine whether this is a proxy issue (as desc
 
 The AzureEnhancedMonitoring Windows process collects performance metrics in Azure. The process gets data from several sources. Some configuration data is collected locally, and some performance metrics are read from Azure Monitor.
 
-If troubleshooting by using SAP Note [1999351] does not resolve the issue, open an SAP customer support message on the component BC-OP-NT-AZR for Windows or BC-OP-LNX-AZR for a Linux virtual machine. Please attach the log file C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Windows\\&lt;version>\\logapp.txt to the incident.
+If troubleshooting by using SAP Note [1999351] does not resolve the issue, open an SAP customer support message on the component BC-OP-NT-AZR for Windows or BC-OP-LNX-AZR for a Linux virtual machine. Attach the log file C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Windows\\&lt;version>\\logapp.txt to the incident.
 
 ## <a name="02783aa4-5443-43f5-bc11-7af19ebf0c36"></a>Troubleshooting for Linux
 
@@ -52,7 +52,7 @@ The extension is not installed. Determine whether this is a proxy issue (as desc
 
 Performance metrics in Azure are collected by a daemon, which gets data from several sources. Some configuration data is collected locally, and some performance metrics are read from Azure Monitor.
 For a complete and up-to-date list of known issues, see SAP Note [1999351], which has additional troubleshooting information for Azure Extension for SAP.
-If troubleshooting by using SAP Note [1999351] does not resolve the issue, install the extension again as described in [Configure the Azure Extension for SAP][configure]. If the problem persists, open an SAP customer support message on the component BC-OP-NT-AZR for Windows or BC-OP-LNX-AZR for a Linux virtual machine. Please attach the log file /var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-&lt;version>/logapp.txt to the incident.
+If troubleshooting by using SAP Note [1999351] does not resolve the issue, install the extension again as described in [Configure the Azure Extension for SAP][configure]. If the problem persists, open an SAP customer support message on the component BC-OP-NT-AZR for Windows or BC-OP-LNX-AZR for a Linux virtual machine. Attach the log file /var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-&lt;version>/logapp.txt to the incident.
 
 
 ## Azure extension error codes
@@ -63,7 +63,7 @@ All error IDs have a unique tag in the form of a-#, where # is a number. It allo
 
 Error description | Solutions |
 ---|---|
- no auth token | More info:<br />The extension cannot obtain authentication token to access VM metrics in Azure monitor. To deliver VM metrics it needs access to VM resources like VM itself, all disks and all NICs  attached to a VM<br />Solution:<br />Please enable VM managed Identity and give it a reader role for a VM resource group. When you use a setup script, the script does it for you. Normally you don’t need to enable and assign VM managed identity manually. |
+ no auth token | More info:<br />The extension cannot obtain authentication token to access VM metrics in Azure monitor. To deliver VM metrics it needs access to VM resources like VM itself, all disks and all NICs  attached to a VM<br />Solution:<br />Enable VM managed Identity and give it a reader role for a VM resource group. When you use a setup script, the script does it for you. Normally you don’t need to enable and assign VM managed identity manually. |
 
 
 
