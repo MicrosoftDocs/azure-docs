@@ -92,9 +92,3 @@ Here is a sample log record in JSON format:
 ## Synapse workspace with data exfiltration protection enabled
 
 Azure Synapse Analytics workspaces support enabling data exfiltration protection for workspaces. With exfiltration protection, the logs and metrics cannot be sent out to the destination endpoints directly. You can create corresponding [managed private endpoints](../../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md) for different destination endpoints or [create IP firewall rules](../../synapse-analytics/security/synapse-workspace-ip-firewall.md) in this scenario.
-
-## Support emit log to Event Hub with a service principal and certificate
-
-Azure Synapse Analytics workspaces support use service principal and certificate emit log to eventhub, you can refer to [How to use certificate and Service Principal emit log to eventhub](#how-to-use-certsp-emit-log-to-eventhub.md).
-
-

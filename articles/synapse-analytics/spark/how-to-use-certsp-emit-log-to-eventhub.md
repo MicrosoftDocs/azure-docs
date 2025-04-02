@@ -101,10 +101,10 @@ This document provides a step-by-step guide for setting up Azure services, parti
      ```
 ### Description
 
-- EventHub.hostName : Event Hubs Namespace - Overview - Host name
-- EventHub.tenantId: App registrations - your app name - Overview - Directory (tenant) ID 
-- EventHub.clientId: App registrations - your app name - Overview - Application(client) ID 
-- EventHub.entityPath: Event Hubs Instance - Settings - Shared access policies - Find "EntityPath" in Connection string 
+- **EventHub.hostName**: Event Hubs Namespace -> Overview -> Host name
+- **EventHub.tenantId**: App registrations -> your app name -> Overview -> Directory (tenant) ID 
+- **EventHub.clientId**: App registrations -> your app name -> Overview -> Application(client) ID 
+- **EventHub.entityPath**: Event Hubs Instance -> Settings -> Shared access policies -> Find "EntityPath" in Connection string 
 
 ## Step 8. Run the Log-Sending Code
 
