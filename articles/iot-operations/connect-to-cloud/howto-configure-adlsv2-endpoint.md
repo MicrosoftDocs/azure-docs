@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 11/07/2024
+ms.date: 04/01/2025
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure data flow endpoints for Azure Data Lake Storage Gen2 in Azure IoT Operations so that I can send data to Azure Data Lake Storage Gen2.
@@ -16,28 +16,28 @@ ai-usage: ai-assisted
 
 [!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
-To send data to Azure Data Lake Storage Gen2 in Azure IoT Operations, you can configure a data flow endpoint. This configuration allows you to specify the destination endpoint, authentication method, table, and other settings.
+Send data to Azure Data Lake Storage Gen2 in Azure IoT Operations by configuring a data flow endpoint. This configuration allows you to specify the destination endpoint, authentication method, table, and other settings.
 
 ## Prerequisites
 
-- An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md)
-- An [Azure Data Lake Storage Gen2 account](../../storage/blobs/create-data-lake-storage-account.md)
-- A pre-created storage container in the storage account
+- An instance of [Azure IoT operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+- An [Azure Data Lake Storage Gen2 account](../../storage/blobs/create-data-lake-storage-account.md).
+- A storage container that is already created in the storage account.
 
 ## Assign permission to managed identity
 
-To configure a data flow endpoint for Azure Data Lake Storage Gen2, we recommend using either a user-assigned or system-assigned managed identity. This approach is secure and eliminates the need for managing credentials manually.
+To configure a data flow endpoint for Azure Data Lake Storage Gen2, use either a user-assigned or system-assigned managed identity. This approach is secure and removes the need to manage credentials manually.
 
 After the Azure Data Lake Storage Gen2 is created, you need to assign a role to the Azure IoT Operations managed identity that grants permission to write to the storage account.
 
-If using system-assigned managed identity, in Azure portal, go to your Azure IoT Operations instance and select **Overview**. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*. Your system-assigned managed identity can be found using the same name of the Azure IoT Operations Arc extension.
+If you're using a system-assigned managed identity, in the Azure portal, go to your Azure IoT Operations instance and select **Overview**. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*. Your system-assigned managed identity can be found using the same name of the Azure IoT Operations Arc extension.
 
 Then, go to the Azure Storage account > **Access control (IAM)** > **Add role assignment**.
 
-1. On the **Role** tab select an appropriate role like `Storage Blob Data Contributor`. This gives the managed identity the necessary permissions to write to the Azure Storage blob containers. To learn more, see [Authorize access to blobs using Microsoft Entra ID](../../storage/blobs/authorize-access-azure-active-directory.md).
+1. On the **Role** tab, select an appropriate role, such as `Storage Blob Data Contributor`. This gives the managed identity the necessary permissions to write to the Azure Storage blob containers. To learn more, see [Authorize access to blobs using Microsoft Entra ID](../../storage/blobs/authorize-access-azure-active-directory.md).
 1. On the **Members** tab:
-    1. If using system-assigned managed identity, for **Assign access to**, select **User, group, or service principal** option, then select **+ Select members** and search for the name of the Azure IoT Operations Arc extension. 
-    1. If using user-assigned managed identity, for **Assign access to**, select **Managed identity** option, then select **+ Select members** and search for your [user-assigned managed identity set up for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections).
+    1. If you're using a system-assigned managed identity, for **Assign access to**, select **User, group, or service principal**, then select **+ Select members** and search for the name of the Azure IoT Operations Arc extension. 
+    1. If you're using a user-assigned managed identity, for **Assign access to**, select **Managed identity**, then select **+ Select members** and search for your [user-assigned managed identity set up for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections).
 
 ## Create data flow endpoint for Azure Data Lake Storage Gen2
 
@@ -57,6 +57,7 @@ Then, go to the Azure Storage account > **Access control (IAM)** > **Add role as
     | Authentication method | The method used for authentication. We recommend that you choose [*System assigned managed identity*](#system-assigned-managed-identity) or [*User assigned managed identity*](#user-assigned-managed-identity). |
     | Client ID             | The client ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
     | Tenant ID             | The tenant ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
+    | Synced secret name | The reference name for the secret in the data flow endpoint settings and Kubernetes cluster. Required if using *Access token*. |
     | Access token secret name | The name of the Kubernetes secret containing the SAS token. Required if using *Access token*. |
 
 1. Select **Apply** to provision the endpoint.
