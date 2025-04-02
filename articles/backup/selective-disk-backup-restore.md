@@ -304,7 +304,7 @@ Here you can view the backed-up disks during restore, when you select the recove
 - If you're using Enhanced policy to back up the VM, you can select the data disks you want to back up, and optionally choose to include disks added to the VM in future for back up.
 
 >[!NOTE]
->If data spans across disks, make sure all the dependent disks are included in the backup. If you don’t backup all the dependent disks in a volume, during restore the volume comprising of some non-backed up disks won't be created.
+>If data spans across disks, make sure all the dependent disks are included in the backup. If you don’t back up all the dependent disks in a volume, during restore the volume comprising of some non-backed up disks won't be created.
 
 ### Backup OS disk only in the Azure portal (Standard policy)
 
