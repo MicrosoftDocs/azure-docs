@@ -49,17 +49,24 @@ Each number in the version indicates general compatibility with the previous ver
 
 ## Supported Purity Software Versions
 
+### Versions in support
+
+|  PurityOS version | Support added in | End of support | Remarks |
+|-------------------|------------------|----------------|---------|
+| 6.5.1             | Nexus 2403.x     | Mar 2026*     | |
+| 6.5.4             | Nexus 2404.x     | Mar 2026*     | |
+| 6.5.6             | Nexus 2406.x     | Mar 2026*     | Aligned with Nexus runtime release |
+| 6.5.8             | Nexus 2408.x     | Mar 2026*     | |
+| 6.5.10            | Nexus 2504.x     | Mar 2026*     | |
+
+> [!IMPORTANT]
+> \* At max 2 LTS versions will be supported. The dates are tentative assuming that by this timeframe we will have another set of LTS versions released, making this version deprecated per our support guidelines.
+
+### Versions out of support
+
 |  PurityOS version | Support added in | End of support | Remarks |
 |-------------------|------------------|----------------|---------|
 | 6.1.x             | Year 2021        | Jul 2024       | End of support in Nexus 2406.2 |
-| 6.5.1             | Nexus 2403.x     | Dec 2025*     | |
-| 6.5.4             | Nexus 2404.x     | Dec 2025*     | |
-| 6.5.6             | Nexus 2406.x     | Dec 2025*     | Aligned with Nexus runtime release |
-| 6.5.8             | Nexus 2408.x     | Dec 2025*     | |
-| 6.5.10            | Nexus 2504.x     | Dec 2025*     | |
-
-> [!IMPORTANT]
-> \* At max 2 LTS versions will be supported. The dates are tentative assuming that by this timeframe we will have another set of LTS versions released, making this version deprecate per our support guidelines.
 
 ## Supported Pure HW Controller versions
 
