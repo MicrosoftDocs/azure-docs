@@ -2,7 +2,7 @@
 title: Role-based access control for Azure Batch service
 description: Learn how to use Azure role-based access control for managing individual access to Azure Batch account.
 ms.topic: how-to
-ms.date: 12/11/2024
+ms.date: 04/02/2025
 ---
 
 # Role-based access control for Azure Batch service
