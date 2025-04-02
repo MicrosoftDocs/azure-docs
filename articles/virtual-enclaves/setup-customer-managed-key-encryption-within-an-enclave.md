@@ -29,7 +29,7 @@ There are several types of [encryption](https://learn.microsoft.com/azure/virtua
 ### Enclave Key Vault
 Every enclave is deployed with an [Azure Key Vault](https://aka.ms/kv) in the [default resource group](./best-practices.md#enclave-managed-resource-group) for enclave infrastructure. Azure Key Vault is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys. By default, Enclave Contributors should be able to upload keys, secrets, or certificates to the Enclave Key Vault and utilize existing Azure capabilities and design patterns of other Azure services to support CMK encryption.
 
-Examples of setting-up CMK encryption are provided below, with more [detailed instructions](#detailed-cmk-setup-instructions-for-ave) or articles provided.
+Examples of setting-up CMK encryption are provided below, with more [detailed instructions](#create-cmk-via-the-portal) or articles provided.
 
 ### Create a Key in Key Vault
 - How-to Azure article - [Key creation starts after Step 6](https://learn.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal#set-up-your-azure-key-vault)

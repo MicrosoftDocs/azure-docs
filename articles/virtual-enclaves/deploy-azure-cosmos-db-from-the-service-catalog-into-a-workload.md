@@ -21,7 +21,7 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 
 ## Before you begin
-- This quickstart assumes a basic understanding of networking and Azure Virtual Enclaves concepts. For more information, see [Concepts and best practices of Azure Virtual Enclaves](/docs/concepts/Concepts-and-best-practices).
+- This quickstart assumes a basic understanding of networking and Azure Virtual Enclaves concepts. For more information, see [Best practices of Azure Virtual Enclaves](./best-practices.md).
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
@@ -33,11 +33,11 @@ There are guardrails in the enclaves to ensure a service bus is using CMK encryp
 
 1. An existing subnet to place a private endpoint into. 
     - The default enclave subnet intended for resources can be used (ex: `AzureVirtualEnclaveSubnet`).
-2. A Key Vault that supports CMK and a key that can be leveraged for CMK encryption. [Setup CMK](docs/How-To-Guides/Set%2Dup-customer%2Dmanaged%2Dkey-\(CMK\)-encryption-within-an-enclave)
+2. A Key Vault that supports CMK and a key that can be leveraged for CMK encryption. [Setup CMK](./setup-customer-managed-key-encryption-within-an-enclave.md)
     - The enclave Key Vault in the `HostedResources` RG can be used.
     - Create a RSA (2048) key in the Key Vault.
 3. A user identity with access to the CMK key.
-    - [Create a user-assigned managed identity](/docs/How-To-Guides/Service-Catalog/Create-User-Managed-Identity) in the enclave `HostedResources` RG.
+    - [Create a user-assigned managed identity](./create-user-managed-identity.md) in the enclave `HostedResources` RG.
     - Create an Access Policy in the Key Vault above for this identity with the following Key Permissions: `Unwrap Key, Wrap Key, Recover, Get`
 4. Create Private DNS Zone for Azure Cosmos db.
     - Create a new Private DNS Zone resource in the enclave HostedResources resource group.
@@ -47,7 +47,7 @@ There are guardrails in the enclaves to ensure a service bus is using CMK encryp
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
 2. Select "Add Service" button.
-3. Select the Azure Cosmos DB service template from the [Catalog](/docs/How-To-Guides/Service-Catalog) of templates (the dropdown list).
+3. Select the Azure Cosmos DB service template from the [Catalog](./list-of-service-catalog-templates.md) of templates (the dropdown list).
 4. Click through the tabs and enter all the required parameters.
 5. Adjust any of the prepopulated parameters as needed.
 5. Select Review + Add then Add.
@@ -65,10 +65,10 @@ It can take up to 30 minutes to finish all resource creation. Wait for the deplo
 If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the Resource Group, the whole Resource Group can be deleted.
 
 ## Recommendations
-- [Add tags](https://learn.microsoft.com/azure/azure-resource-manager/management/tag-resources) to Service Catalog deployments to track important information for that resource such as:   
--- Owner: \<main POC>   
--- Deployer: \<yourName>   
--- Purpose: \<cosmos db account purpose>   
--- Service Catalog Name: \<AzureCosmosDB>   
--- Service Catalog Version: \<version you deployed>   
-- Consider adding an [Azure Policy to enforce and inherit tags](https://learn.microsoft.com/azure/azure-resource-manager/management/tag-policies)
+- [Add tags](../azure-resource-manager/management/tag-resources.md) to Service Catalog deployments to track important information for that resource such as:   
+-- Owner: `<main POC>`
+-- Deployer: `<yourName>`
+-- Purpose: `<cosmos db account purpose>`
+-- Service Catalog Name: `<AzureCosmosDB>`
+-- Service Catalog Version: `<version you deployed>`
+- Consider adding an [Azure Policy to enforce and inherit tags](../azure-resource-manager/management/tag-policies.md)

@@ -97,7 +97,7 @@ The Admin VM is used to access the resources within the enclave boundary from ou
 1. Enter the Remote App VM IP address as the destination IP address for the RDP connection.
 1. Enter Remote App VM credentials and click accept/yes to warnings about a new connection.
 1. From the Remote App VM desktop, validate any VM settings set during the deployment or complete any custom configuration.
-1. Next, [install application](#(optional)-Install-RemoteApp)
+1. Next, [install application](#(install-remoteapp-optional)
 1. Assign a security group assignment to give users access to your RemoteApp(s).
 
 ## Install RemoteApp (Optional)
@@ -152,4 +152,4 @@ If you don't plan on keeping these resources, clean up unnecessary resources to 
 -- Service Catalog Name: `<RemoteApp>`
 -- Service Catalog Version: `<version you deployed>`
 - Consider adding an [Azure Policy to enforce and inherit tags](../azure-resource-manager/management/tag-policies.md)
-- [Collect Custom Logs](../azure-monitor/agents/data-sources-custom-logs.md) from applications
+- [Collect Custom Logs](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-custom-logs) from applications

@@ -99,7 +99,7 @@ During a security incident:
 - [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)
 - [Microsoft Entra ID Private Access](https://learn.microsoft.com/entra/global-secure-access/concept-private-access)
 - [Microsoft Entra ID Internet Access](https://learn.microsoft.com/entra/global-secure-access/concept-internet-access)
-- [Azure Monitor for Logging and Diagnostics](https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview)
+- [Azure Monitor for Logging and Diagnostics](https://learn.microsoft.com/azure/azure-monitor/fundamentals/overview)
 
 ---
 

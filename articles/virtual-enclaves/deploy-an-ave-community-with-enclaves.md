@@ -3,7 +3,7 @@ title: Deploy an Azure Virtual Enclaves (AVE) Community with Enclaves using an A
 description: Azure Virtual Enclaves Documentation
 author: jadean-msft
 ms.author: jadean
-ms.service: Azure Virtual Enclaves
+# ms.service: Azure Virtual Enclaves
 ms.topic: how-to
 ms.date: 01/31/2025
 ---
@@ -30,10 +30,10 @@ ms.date: 01/31/2025
 
 ## Review the template
 
-The template used in this quickstart can be found [here](./media/code/nightly-base.json).
+The template used in this quickstart can be found [here](https://github.com/Azure/virtual-enclaves/ave-templates/nightly-base.json).
 
 ### What gets deployed
-![Nightly-docs.svg](./media/Nightly-docs.svg)
+![Nightly-docs.svg](./media/nightly-docs.svg)
 
 - Community (x1)
 - Enclaves (x2)
@@ -69,16 +69,16 @@ The template used in this quickstart can be found [here](./media/code/nightly-ba
    - **Enclave Name**: Name of the Enclave (ex: `My-Enclave`)
    - **Endpoint name**: Name of the enclave endpoint (ex: `endpoint-bingdotcom`)
 
-3. Select **Review + Create** > **Create**.
+3. Select **Review + Create** then **Create**.
 
 4. Once the template is created and available on the **Template Specs** page, select newly created ARM template and then click on **Deploy**.  
 
-5. On the **Deploy <template name>** page, leave default values and configure the following parameters:
+5. On the **Deploy "template name"** page, leave default values and configure the following parameters:
    - **Community Name**: Name of the Community (ex: `My-Community`)
    - **Enclave Name**: Name of the Enclave (ex: `My-Enclave`)
    - **Endpoint name**: Name of the enclave endpoint (ex: `endpoint-bingdotcom`)
    
-6.  Select **Review + Create** > **Create**.
+6.  Select **Review + Create** then **Create**.
 
 It can take up to 50 minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 
@@ -87,7 +87,7 @@ It can take up to 50 minutes to finish all resource creation. Wait for the deplo
 Learn more about what gets deployed in a [community](./what-is-a-community.md) and what gets deployed in an [enclave](./what-is-an-enclave.md).
 
 ### Connect to the admin workstations
-Learn more about how to access resources within your enclave from the Enclave Admin Workstation [here](../Understanding-Admin-Workstations.md).
+Learn more about how to access resources within your enclave from the Enclave Admin Workstation [here](./understanding-admin-workstations.md).
 
 ## Delete the deployment
 If you do not plan on keeping these resources, clean up unnecessary resources to avoid Azure charges.

@@ -101,7 +101,7 @@ By integrating Azure PIM's access approval workflows with Azure Virtual Enclave'
 - [Privileged Identity Management Overview](../active-directory/privileged-identity-management/pim-configure.md)
 - [Azure Conditional Access Policies](../active-directory/conditional-access/overview.md)
 - [Azure Virtual Enclaves Documentation](./what-is-azure-virtual-enclaves.md)
-- [Azure Monitor for Logging and Diagnostics](https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview)
+- [Azure Monitor for Logging and Diagnostics](https://learn.microsoft.com/azure/azure-monitor/fundamentals/overview)
 - [Microsoft Sentinel Integration](../sentinel/overview.md)
 
 ---

@@ -20,11 +20,11 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 ## WARNING
 
-- If you plan on using this template in conjunction with the [AKS Template](/docs/How-To-Guides/Service-Catalog/Deploy-Azure-Kubernetes-Service-\(AKS\)-from-the-Service-Catalog-into-a-Workload) in the same enclave, perform the AKS Templates pre-requisite steps prior to deploying this as it will have you delete and recreate the enclave's subnets.
+- If you plan on using this template in conjunction with the [AKS Template](./deploy-azure-kubernetes-service-from-the-service-catalog-into-a-workload.md) in the same enclave, perform the AKS Templates pre-requisite steps prior to deploying this as it will have you delete and recreate the enclave's subnets.
 
 ## Before you begin
 
-- This quickstart assumes a basic understanding of networking and Azure Virtual Enclaves concepts. For more information, see [Concepts and best practices of Azure Virtual Enclaves](/docs/concepts/Concepts-and-best-practices).
+- This quickstart assumes a basic understanding of networking and Azure Virtual Enclaves concepts. For more information, see [Best practices of Azure Virtual Enclaves](./best-practices.md).
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
@@ -36,18 +36,18 @@ There are guardrails in the enclaves to ensure an Azure Container registry is us
 
 1. An existing subnet to place a private endpoint into. 
     - The default enclave subnet intended for resources can be used (ex: `AzureVirtualEnclaveSubnet`).
-2. A Key Vault that supports CMK and a key that can be leveraged for CMK encryption. [Setup CMK](docs/How-To-Guides/Set%2Dup-customer%2Dmanaged%2Dkey-\(CMK\)-encryption-within-an-enclave)
+2. A Key Vault that supports CMK and a key that can be leveraged for CMK encryption. [Setup CMK](./deploy-common-dependencies-from-the-service-catalog-into-a-workload.md)
     - The enclave Key Vault in the `HostedResources` RG can be used.
     - Create a RSA (we recommend 4096 bits) key in the Key Vault.
 3. A user identity with access to the CMK key.
-    - [Create a user-assigned managed identity](/docs/How-To-Guides/Service-Catalog/Create-User-Managed-Identity) in the enclave `HostedResources` RG.
+    - [Create a user-assigned managed identity](./create-user-managed-identity.md) in the enclave `HostedResources` RG.
     - Create an Access Policy in the Key Vault above for this identity with the following Key Permissions: `Unwrap Key, Wrap Key, Recover, Get`
 
 ## Deploy the template
 
 1. Navigate to the workload for the intended deployment.
 1. Select "Add Service" button.
-1. Select the Azure Container Registry" service template from the [Catalog](/docs/How-To-Guides/Service-Catalog) of templates (the dropdown list).
+1. Select the Azure Container Registry" service template from the [Catalog](./list-of-service-catalog-templates.md) of templates (the dropdown list).
 
    ![image1.png](./media/image-dc8ca6bf-02c1-44de-ba0a-23aedf76699b.png)
 
@@ -74,15 +74,15 @@ If you don't plan on keeping these resources, clean up unnecessary resources to 
 
 ## Recommendations
 
-- [Add tags](https://learn.microsoft.com/azure/azure-resource-manager/management/tag-resources) to Service Catalog deployments to track important information for that resource such as:
+- [Add tags](../azure-resource-manager/management/tag-resources.md) to Service Catalog deployments to track important information for that resource such as:
 -- Owner: `<main POC>`
 -- Deployer: `<yourName>`
 -- Purpose: `<publish abc app to users>`
 -- Service Catalog Name: `<RemoteApp>`
 -- Service Catalog Version: `<version you deployed>`
-- Consider adding an [Azure Policy to enforce and inherit tags](https://learn.microsoft.com/azure/azure-resource-manager/management/tag-policies)
+- Consider adding an [Azure Policy to enforce and inherit tags](../azure-resource-manager/management/tag-policies.md)
 
 ## Next Steps
 
 - Deploy any needed tools onto the management VM (examples: docker cli, azure powershell modules, ...)
-- Read the [AKS Template](/docs/How-To-Guides/Service-Catalog/Deploy-Azure-Kubernetes-Service-\(AKS\)-from-the-Service-Catalog-into-a-Workload) documentation to see if you would like to use it.
+- Read the [AKS Template](./deploy-azure-kubernetes-service-from-the-service-catalog-into-a-workload.md) documentation to see if you would like to use it.

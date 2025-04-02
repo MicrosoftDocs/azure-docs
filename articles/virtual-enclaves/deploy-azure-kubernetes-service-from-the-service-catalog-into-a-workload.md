@@ -70,7 +70,7 @@ Note: This may take several minutes, to check on the status of this registration
     - priority: 1000
 9. Using Azure Container Registry: Typical configuration requires granting the `Acr Pull` role to the AKS managed identity for the ACR resource. In addition if the ACR is configured to use a public storage account, that URL must be added as a Community endpoint to create the firewall policy.
 
-Documentation around these rules can be found [here](../aks/outbound-rules-control-egress.md)
+Documentation around these rules can be found [here](https://learn.microsoft.com/azure/aks/outbound-rules-control-egress.md)
 
 ## Deploy the template
 
