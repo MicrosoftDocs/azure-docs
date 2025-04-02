@@ -1125,7 +1125,7 @@ curl -X PUT -H "Authorization: Bearer $token" -H "Content-Type:application/json"
 ## Configure cross-region or cross-zone replication
 
 >[!NOTE]
->In this example, placeholders for <CapacityPoolResourceId>, <SrcVolumeId>, and <SubnetId> need to be replaced. 
+>In this example, placeholders for `<CapacityPoolResourceId>`, `<SrcVolumeId>`, and `<SubnetId>` need to be replaced. 
 
 ```json
 {
@@ -1695,6 +1695,9 @@ curl -X PUT -H "Authorization: Bearer $token" -H "Content-Type:application/json"
 ```
 
 ### Cross-region replication using proximity placement groups
+
+>[!NOTE]
+>In this example, placeholders for `<CapacityPoolResourceId>`, `<SrcVolumeId>`, and `<SubnetId>` need to be replaced. 
 
 ```json
 {
