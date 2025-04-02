@@ -88,7 +88,7 @@ For your workflow to use the HIDX file, follow these steps:
 
 1. Go to the [Azure portal](https://portal.azure.com), and [upload the HIDX file as a map to your Standard logic app resource](../logic-apps/logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource).
 
-1. Continue to the next section to [add an IBM i action to your workflow](#add-an-ibmi-action).
+1. Continue to the next section to [add an IBM i action to your workflow](#add-an-ibm-i-action).
 
 Later in this guide, when you add an **IBM i Program Call** connector action to your workflow for the first time, a prompt asks you to create a connection between your workflow and the midrange system. After you create the connection, you can select your previously added HIDX file, the method to run, and the parameters to use.
 
