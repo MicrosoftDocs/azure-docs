@@ -1,19 +1,19 @@
 ---
-title: 'Architecture: Private Clouds and Clusters'
+title: Architecture for Private Clouds and Clusters
 description: Understand the key capabilities of Azure VMware Solution software-defined datacenters and VMware vSphere clusters. 
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 12/9/2024
+ms.date: 4/2/2025
 ms.custom: engagement-fy23, references_regions
 ---
 
 # Azure VMware Solution private cloud and cluster concepts
 
-Azure VMware Solution provides VMware-based private clouds in Azure. The private cloud hardware and software deployments are fully integrated and automated in Azure. Deploy and manage the private cloud through the Azure portal, the Azure CLI, or PowerShell.
+Azure VMware Solution provides VMware-based private clouds in Azure. The private cloud hardware and software deployments are fully integrated and automated in Azure. Deploy and manage the private cloud through the Azure portal, Azure CLI, or PowerShell.
 
 A private cloud includes clusters with:
 
-- Dedicated bare-metal server hosts provisioned with VMware ESXi Hypervisor.
+- Dedicated bare-metal server hosts provisioned with VMware vSphere Hypervisor (ESXi).
 - VMware vCenter Server for managing ESXi and vSAN.
 - VMware NSX software-defined networking for vSphere workload virtual machines (VMs).
 - VMware vSAN datastore for vSphere workload VMs.

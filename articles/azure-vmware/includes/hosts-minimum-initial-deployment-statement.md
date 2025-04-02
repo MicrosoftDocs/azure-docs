@@ -3,7 +3,7 @@ title: Minimum initial host deployment
 description: The minimum initial deployment is three hosts. 
 ms.topic: include
 ms.service: azure-vmware
-ms.date: 1/9/2025
+ms.date: 4/2/2025
 author: suzizuber
 ms.author: v-szuber
 ms.custom: engagement-fy23
@@ -15,9 +15,9 @@ For each private cloud created, there's one vSAN cluster by default. You can add
 
 You use vCenter Server and NSX Manager to manage most aspects of cluster configuration and operation. All local storage of each host in a cluster is under the control of VMware vSAN.
 
-Azure VMware Solution configures each cluster for n+1 availability through vSphere high-availability (HA) percentage-based admission control to protect workloads from the failure of a single node. `Cluster-1` of each Azure VMware Solution private cloud has a resource pool based on vSphere Distributed Resource Scheduler (`MGMT-ResourcePool`). The pool is configured for the management and control plane components (vCenter Server, NSX Manager cluster, NSX Edges, HCX Manager add-on, Site Recovery Manager add-on, and vSphere Replication add-on).
+Azure VMware Solution configures each cluster for n+1 availability through vSphere High Availability percentage-based admission control to protect workloads from the failure of a single node. `Cluster-1` of each Azure VMware Solution private cloud has a resource pool based on vSphere Distributed Resource Scheduler (`MGMT-ResourcePool`). The pool is configured for the management and control plane components (vCenter Server, NSX Manager cluster, NSX Edges, HCX Manager add-on, Site Recovery Manager add-on, and vSphere Replication add-on).
 
-`MGMT-ResourcePool` is configured to reserve 46 GHz CPU and 171.88-GB memory, which you can't change. For a three-node cluster, two nodes are dedicated to customer workloads, excluding the `MGMT-ResourcePool` CPU and memory resources reserved for management and control. One node of resources is held in reserve to protect against node failure. Azure VMware Solution stretched clusters use an admission control policy that's based on n+2 availability vSphere HA percentages.
+`MGMT-ResourcePool` is configured to reserve 46 GHz CPU and 171.88-GB memory, which you can't change. For a three-node cluster, two nodes are dedicated to customer workloads, excluding the `MGMT-ResourcePool` CPU and memory resources reserved for management and control. One node of resources is held in reserve to protect against node failure. Azure VMware Solution stretched clusters use an admission control policy that's based on n+2 availability vSphere High Availability percentages.
 
 The Azure VMware Solution management and control plane have the following resource requirements. They must be accounted for during solution sizing of a *standard private cloud*.
 
@@ -77,7 +77,7 @@ The VMware HCX and VMware Site Recovery Manager resource requirements are option
 
 The VMware Site Recovery Manager add-on has the option of configuring multiple VMware vSphere Replication Server appliances. The previous table assumes that one vSphere Replication Server appliance is used.
 
-Sizing an Azure VMware Solution is an estimate. Validate the sizing calculations from the design phase during the testing phase of a project. You need to ensure that the Azure VMware solution is sized correctly for the application workload.
+Sizing a solution is an estimate. Validate the sizing calculations from the design phase during the testing phase of a project. You need to ensure that the solution is sized correctly for the application workload.
 
 >[!TIP]
 >You can always extend the cluster and add more clusters later if you need to go beyond the initial deployment number.

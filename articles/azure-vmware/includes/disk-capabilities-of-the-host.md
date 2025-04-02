@@ -3,7 +3,7 @@ title: Hardware specifications of the hosts
 description: Hosts used to build or scale clusters come from an isolated pool of hosts.
 ms.topic: include
 ms.service: azure-vmware
-ms.date: 3/6/2024
+ms.date: 4/2/2025
 author: suzizuber
 ms.author: v-szuber
 ms.custom: engagement-fy23
