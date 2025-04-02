@@ -62,7 +62,7 @@ To resolve the issue, either elevate principal permissions, or don't deploy reso
 
 ### Deployment of MQTT broker fails
 
-A deployment can fail if the cluster doesn't have sufficient resources for the specified MQTT broker cardinality and memory profile. To resolve this situation,  adjust the replica count, workers, sharding, and memory profile settings to appropriate values for your cluster.
+A deployment can fail if the cluster doesn't have sufficient resources for the specified MQTT broker cardinality and memory profile. To resolve this situation, adjust the replica count, workers, sharding, and memory profile settings to appropriate values for your cluster.
 
 > [!WARNING]
 > Setting the replica count to one can result in data loss in node failure scenarios.
