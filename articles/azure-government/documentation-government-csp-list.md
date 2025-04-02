@@ -234,7 +234,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Integration Partners Corp.](https://integrationpartners.com/)|
 |[Intelice Solutions, LLC](https://www.intelice.com/)|
 |[InterVision Systems LLC](https://intervision.com)|
-|[Intrinium](https://www.intrinium.com/)|
+|[Intrinium](https://www.intrinium.com/cloud-computing/)|
 |[Invoke, LLC](https://invokellc.com)|
 |[It1 Source LLC](https://www.it1.com)|
 |[ITInfra](https://itinfra.biz/)|
