@@ -308,6 +308,9 @@ Selectors can be utilized when creating any of the below consumers -
    * Unshared non-durable subscription
    * Queue browser
 
+> [!NOTE]
+> Service Bus selectors do not support "LIKE" and "BETWEEN" SQL keywords.
+
 ## AMQP disposition and Service Bus operation mapping
 
 Here's how an AMQP disposition translates to a Service Bus operation:
