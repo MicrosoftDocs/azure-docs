@@ -19,7 +19,7 @@ In this article, you learn how to diagnose routing problems by viewing the effec
 
 You attempt to connect to a VM, but the connection fails. To determine why you can't connect to the VM, you can view the effective routes for a network interface using the Azure [portal](#diagnose-using-azure-portal), [PowerShell](#diagnose-using-powershell), or the [Azure CLI](#diagnose-using-azure-cli).
 
-The steps that follow assume you have an existing VM to view the effective routes for. If you don't have an existing VM, first deploy a [Linux](/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](/azure/virtual-machines/windows/quick-create-portal?toc=%2fazure%2fvirtual-network%2ftoc.json) VM to complete the tasks in this article with. The examples in this article are for a VM named *myVM* with a network interface named *nic-1*. The VM and network interface are in a resource group named *test-rg*, and are in the *East US* region. Change the values in the steps, as appropriate, for the VM you're diagnosing the problem for.
+The steps that follow assume you have an existing VM to view the effective routes for. If you don't have an existing VM, first deploy a [Linux](/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](/azure/virtual-machines/windows/quick-create-portal?toc=%2fazure%2fvirtual-network%2ftoc.json) VM to complete the tasks in this article with. The examples in this article are for a VM named *vm-1* with a network interface named *vm-1445*. The VM and network interface are in a resource group named *test-rg*, and are in the *East US* region. Change the values in the steps, as appropriate, for the VM you're diagnosing the problem for.
 
 ## Diagnose using Azure portal
 
@@ -52,11 +52,11 @@ Though effective routes were viewed through the VM in the previous steps, you ca
 
 You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. If you run PowerShell from your computer, you need the Azure PowerShell module, version 1.0.0 or later. Run `Get-Module -ListAvailable Az` on your computer, to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to log into Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
 
-Get the effective routes for a network interface with [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable). The following example gets the effective routes for a network interface named *nic-1* in a resource group named *test-rg*:
+Get the effective routes for a network interface with [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable). The following example gets the effective routes for a network interface named *vm-1445* in a resource group named *test-rg*:
 
 ```azurepowershell-interactive
 $Params = @{
-  NetworkInterfaceName = "nic-1"
+  NetworkInterfaceName = "vm-1445"
   ResourceGroupName    = "test-rg"
 }
 Get-AzEffectiveRouteTable @Params | Format-Table
@@ -80,20 +80,20 @@ You receive output similar to the following example:
 ```output
 NetworkInterfaces
 -----------------
-{/subscriptions/<ID>/resourceGroups/test-rg/providers/Microsoft.Network/networkInterfaces/nic-1
+{/subscriptions/<ID>/resourceGroups/test-rg/providers/Microsoft.Network/networkInterfaces/vm-1445
 ```
 
-In the previous output, the network interface name is *nic-1*.
+In the previous output, the network interface name is *vm-1445*.
 
 ## Diagnose using Azure CLI
 
 You can run the commands that follow in the  [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This article requires the Azure CLI version 2.0.32 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If you're running the Azure CLI locally, you also need to run `az login` and log into Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
 
-Get the effective routes for a network interface with [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table). The following command gets the effective routes for a network interface named *nic-1* that is in a resource group named *test-rg*:
+Get the effective routes for a network interface with [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table). The following command gets the effective routes for a network interface named *vm-1445* that is in a resource group named *test-rg*:
 
 ```azurecli-interactive
 az network nic show-effective-route-table \
-  --name nic-1 \
+  --name vm-1445 \
   --resource-group test-rg
 ```
 
