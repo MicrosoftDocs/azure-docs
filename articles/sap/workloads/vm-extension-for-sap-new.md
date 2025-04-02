@@ -24,7 +24,6 @@ ms.author: oldoll
 [1031096]:https://launchpad.support.sap.com/#/notes/1031096
 [readiness-check]:vm-extension-for-sap-new.md#readiness-check (Readiness check)
 [troubleshooting]:vm-extension-for-sap-troubleshooting.md
-[powershell_cmdlets]:vm-extension-for-sap-new.md#tab/powershell1
 
 ## Prerequisites
 
@@ -79,7 +78,7 @@ The new VM Extension for SAP uses a managed identity that's assigned to the VM t
 
 1. Make sure to use SAP Host Agent 7.21 PL 47 or higher.
 1. Make sure to uninstall the standard version of the VM Extension for SAP. It is not supported to install both versions of the VM Extension for SAP on the same virtual machine.
-1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet (at least 4.3.0). For more information, see [Deploying Azure PowerShell cmdlets][powershell_cmdlets].
+1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet (at least 4.3.0).
 1. Run the following PowerShell cmdlet.
     For a list of available environments, run cmdlet `Get-AzEnvironment`. If you want to use global Azure, your environment is **AzureCloud**. For Microsoft Azure operated by 21Vianet, select **AzureChinaCloud**.
 
@@ -367,7 +366,7 @@ If some of the infrastructure data is not delivered correctly as indicated by th
 
 ### [Azure PowerShell](#tab/powershell5)
 
-1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet, as described in [Deploying Azure PowerShell cmdlets][powershell_cmdlets].
+1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet (at least 4.3.0).
 1. Run the following PowerShell cmdlet. For a list of available environments, run the cmdlet `Get-AzEnvironment`. To use global Azure, select the **AzureCloud** environment. For Microsoft Azure operated by 21Vianet, select **AzureChinaCloud**.
 
    ```powershell
@@ -378,7 +377,7 @@ If some of the infrastructure data is not delivered correctly as indicated by th
    ```
 1. The script tests the configuration of the virtual machine you selected.
 
-Make sure that every health check result is **OK**. If some checks do not display **OK**, run the update cmdlet as described in [Configure the Azure VM extension for SAP solutions][configure] o. Repeat the checks described in [Readiness check][readiness-check] and this chapter. If the checks still indicate a problem with some or all counters, see [Troubleshooting][troubleshooting].
+Make sure that every health check result is **OK**. If some checks do not display **OK**, run the update cmdlet as described in [Configure the Azure VM extension for SAP solutions][configure]. Repeat the checks described in [Readiness check][readiness-check] and this chapter. If the checks still indicate a problem with some or all counters, see [Troubleshooting][troubleshooting].
 
 ### [Azure CLI](#tab/cli5)
 
@@ -408,3 +407,6 @@ Make sure that every health check result is **OK**. If some checks do not displa
 ## Next steps
 * [Azure Virtual Machines deployment for SAP NetWeaver](./deployment-guide.md)
 * [Azure Virtual Machines planning and implementation for SAP NetWeaver](./planning-guide.md)
+* [PowerShell command references for the Azure Enhanced Monitoring Extension for SAP](https://learn.microsoft.com/de-de/powershell/module/az.compute/set-azvmaemextension?view=azps-13.3.0)
+* [CLI command references for the Azure Enhanced Monitoring Extension for SAP](https://learn.microsoft.com/en-us/cli/azure/vm/aem?view=azure-cli-latest)
+  
