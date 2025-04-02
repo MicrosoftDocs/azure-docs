@@ -25,17 +25,17 @@ ms.date: 03/24/2025
 > To complete this tutorial's steps, you need to have access to a resource group for which you're assigned the Owner role. 
 >
 
-## Step 1. Create an App Registration (Service Principal)
+## Step 1. Register an application
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and go to [App registrations](/entra/identity-platform/quickstart-register-app#register-an-application).
-2. Create a new app registration (Service Principal) for your Synapse workspace.
+2. Create a new app registration for your Synapse workspace.
 
      :::image type="content" source="media\how-to-use-certsp-emit-log-to-eventhub\create-a-new-app-registration.png" alt-text="Screenshot showing create a new app registration.":::
 
 ## Step 2. Generate a Certificate in Key Vault
 
 1. Navigate to Key Vault.
-2. Expand the **Odject**, and select the **Certificates**.
+2. Expand the **Object**, and select the **Certificates**.
 3. Click on **Generate/Import**. 
 
      :::image type="content" source="media\how-to-use-certsp-emit-log-to-eventhub\generate-a-new-certificate.png" alt-text="Screenshot showing generate a new certificate for app.":::
@@ -73,10 +73,11 @@ ms.date: 03/24/2025
 
 ## Step 6. Assign Reader Role to Linked Service in Key Vault
 
-1. In **Key Vault**, assign the linked service a **Reader** role. 
-2. You can find the linked service's managed identity name and object ID under **Edit linked service**. 
+1. Get the workspace managed identity ID from the linked service. The **managed identity name** and **object ID** for the linked service is under **Edit Linked Service**. 
 
      :::image type="content" source="media\how-to-use-certsp-emit-log-to-eventhub\managed-identity-name-and-object-id.png" alt-text="Screenshot showing managed identity name and object id are in edit linked service.":::
+
+2. In **Key Vault**, assign the linked service a **Reader** role. 
 
 ## Step 7. Configure Logging in Synapse Notebook
 
@@ -111,16 +112,35 @@ ms.date: 03/24/2025
 - **EventHub.clientId**: App registrations -> your app name -> Overview -> Application(client) ID 
 - **EventHub.entityPath**: Event Hubs Instance -> Settings -> Shared access policies -> Find "EntityPath" in Connection string 
 
-## Step 8. Run the Log-Sending Code
+## Step 8. Submit an Apache Spark application and view the logs and metrics
 
-After executing the configuration code in Step 7, run the log-sending code to start emitting logs to Event Hub. 
+You can use the Apache Log4j library to write custom logs.
 
-```
+Example for Scala:
+
+```scala
 %%spark
-val logger = org.apache.log4j.LogManager.getLogger("com.contoso.LoggerExample") 
-logger.info("Hello, info message")
-logger.warn("Hello, warn message") 
-logger.error("Hello, error message") 
+val logger = org.apache.log4j.LogManager.getLogger("com.contoso.LoggerExample")
+logger.info("info message")
+logger.warn("warn message")
+logger.error("error message")
+//log exception
+try {
+      1/0
+ } catch {
+      case e:Exception =>logger.warn("Exception", e)
+}
+// run job for task level metrics
+val data = sc.parallelize(Seq(1,2,3,4)).toDF().count()
 ```
 
+Example for PySpark:
+
+```python
+%%pyspark
+logger = sc._jvm.org.apache.log4j.LogManager.getLogger("com.contoso.PythonLoggerExample")
+logger.info("info message")
+logger.warn("warn message")
+logger.error("error message")
+```
 
