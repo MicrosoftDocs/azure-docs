@@ -15,12 +15,12 @@ By default, all [enclaves](./what-is-an-enclave.md) deployed by Azure Virtual En
 ## Access
 By default, AVE creates an Azure Bastion instance for Community or Enclave Owners to access their enclaves.
 
-### Enable Enclave access to the Azure Portal
-Azure Portal access is restricted by default for enclaves. This means that to administratively access your Azure Virtual Enclave managed resources and workloads within the enclave network, you will need to create endpoint rules and connections to access the Azure Portal from within the Admin Workstation or enclave.
+### Enable Enclave access to the Azure portal
+Azure portal access is restricted by default for enclaves. This means that to administratively access your Azure Virtual Enclave managed resources and workloads within the enclave network, you will need to create endpoint rules and connections to access the Azure portal from within the Admin Workstation or enclave.
 
 1. [Create Enclave endpoint](./create-a-enclave-endpoint-in-the-azure-portal.md)
-2. [Create Community Endpoint for Azure Portal access](./create-a-community-endpoint-in-the-azure-portal.md)
-3. [Create Enclave Connection to Community endpoint for Azure Portal](./create-an-enclave-connection-from-the-azure-portal.md)
+2. [Create Community Endpoint for Azure portal access](./create-a-community-endpoint-in-the-azure-portal.md)
+3. [Create Enclave Connection to Community endpoint for Azure portal](./create-an-enclave-connection-from-the-azure-portal.md)
 
 ### Signing in to Admin Workstation
 #### Reset password

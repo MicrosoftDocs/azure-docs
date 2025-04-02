@@ -27,9 +27,9 @@ A system-assigned managed identity is an identity that is associated with an AVE
 The AVE enclave can use the system-assigned managed identity to authorize access to other resources running in Azure. You can assign an Azure RBAC role to the system-assigned managed identity to grant the enclave permissions to access specific resources. For example, if your enclave needs to assign Azure Policies on resource groups associated to a workload for use by the enclave, you can assign to the system-assigned managed identity an Azure RBAC role that grants those permissions.
 
 #### Enable a system-assigned managed identity on a new enclave
-To enable a system-assigned managed identity on a new enclave, use the Azure Portal.
+To enable a system-assigned managed identity on a new enclave, use the Azure portal.
 
-##### Azure Portal
+##### Azure portal
 During enclave creation, you have the ability to specify a system-assigned managed identity.
 
 ![A screenshot showing the ability to create system-assigned managed identities for an enclave](./media/support-msi-create.png)
@@ -40,10 +40,10 @@ You can assign an Azure RBAC role to the system-assigned managed identity to gra
 When you assign an Azure RBAC role to a managed identity, you must define the scope for the role. In general, it's a best practice to limit the scope of a role to the minimum privileges required by the managed identity. For more information on scoping Azure RBAC roles, see [Understand scope for Azure RBAC](../role-based-access-control/scope-overview.md).
 
 #### Get the principal ID of the system-assigned managed identity
-To assign an Azure RBAC role to an enclave's system-assigned managed identity, you first need the principal ID for the managed identity. Get the principal ID for the enclave's system-assigned managed identity by using the Azure Portal, __Show JSON__ view.![A screenshot showing the ability to view enclave identity metadata](./media/support-msi-show-json.png)
+To assign an Azure RBAC role to an enclave's system-assigned managed identity, you first need the principal ID for the managed identity. Get the principal ID for the enclave's system-assigned managed identity by using the Azure portal, __Show JSON__ view.![A screenshot showing the ability to view enclave identity metadata](./media/support-msi-show-json.png)
 
 #### Assign an Azure RBAC role to the system-assigned managed identity
-To grant a system-assigned managed identity permissions to a resource in Azure, you can call the `az role assignment` create command via Azure CLI to assign an Azure RBAC role to the managed identity. You can also use Azure Portal to assign roles.
+To grant a system-assigned managed identity permissions to a resource in Azure, you can call the `az role assignment` create command via Azure CLI to assign an Azure RBAC role to the managed identity. You can also use Azure portal to assign roles.
 
 For Azure Policy operations outside the workload resource groups, you need to assign the `Resource Policy Contributor` role on the resource group.
 
@@ -62,7 +62,7 @@ az role assignment create \
 ### Enable a user-assigned managed identity
 A user-assigned managed identity is a standalone Azure resource. When you create an enclave with a user-assigned managed identity for the control plane, the user-assigned managed identity resource must exist prior to enclave creation.
 
-#### Create a user-assigned managed identity via Azure Portal
-If you don't yet have a user-assigned managed identity resource, create one using the Azure Portal. User-assigned managed identities can be assigned Azure RBAC roles in a process similar to system-assigned managed identities. [Learn more about user-assigned managed identities](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities).
+#### Create a user-assigned managed identity via Azure portal
+If you don't yet have a user-assigned managed identity resource, create one using the Azure portal. User-assigned managed identities can be assigned Azure RBAC roles in a process similar to system-assigned managed identities. [Learn more about user-assigned managed identities](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities).
 
 ![A screenshot showing the ability to create user-assigned managed identities for an enclave](./media/support-msi-create.png)

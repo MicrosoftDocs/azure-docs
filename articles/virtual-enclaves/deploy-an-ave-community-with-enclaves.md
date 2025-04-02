@@ -58,7 +58,7 @@ The template used in this quickstart can be found [here](https://github.com/Azur
       | Community (via Transit hub) | Enclave 1 Endpoint `ADDS-TCP/UDP` |
 
 ## Deploy the template
-1. Login to the Azure Portal, search and select the **Template Specs** service. Select **Create template spec**. In the ARM Template section, upload or copy and paste the above ARM template.
+1. Login to the Azure portal, search and select the **Template Specs** service. Select **Create template spec**. In the ARM Template section, upload or copy and paste the above ARM template.
 ![image1.png](./media/image-3087f961-30be-4cec-9989-cfb5020f7fdb.png)
 
 2. On the **Basics** page, leave the default values, and configure the following template parameters:

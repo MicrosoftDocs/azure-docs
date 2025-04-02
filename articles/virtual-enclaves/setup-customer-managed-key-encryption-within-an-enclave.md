@@ -16,7 +16,7 @@ There are several types of [encryption](https://learn.microsoft.com/azure/virtua
 
 ## Prerequisites for manual deployment method
 1. Portal Access from Admin Workstation (192.168.0.0/26 usually)
-   - [Create Community Endpoint](./create-a-community-endpoint-in-the-azure-portal.md) to Azure Portal and Microsoft Azure services
+   - [Create Community Endpoint](./create-a-community-endpoint-in-the-azure-portal.md) to Azure portal and Microsoft Azure services
      - A default endpoint should have been created with the community that defines these. If so you may skip this step.
    - [Create Enclave Connection](./create-an-enclave-connection-from-the-azure-portal.md) to Community Endpoint
 2. You have been assigned "Key Vault Contributor" to the Enclave KV or Enclave RG
@@ -59,9 +59,9 @@ Alternatively, CMK can be created via the Portal
 2. [Create Access Policy from Admin Workstation](#create-access-policy-from-admin-workstation)
 3. [Generate Key for CMK in Key Vault](#generate-key-for-cmk-in-key-vault) 
 
-### Enable Enclave access to the Azure Portal
-KV access is restricted to the KV VNET so the KV Key will need to be created from the Azure Portal from within the Admin Workstation.
-* [Create Enclave Connection](./create-an-enclave-connection-from-the-azure-portal.md) to Community endpoint for access to the Azure Portal
+### Enable Enclave access to the Azure portal
+KV access is restricted to the KV VNET so the KV Key will need to be created from the Azure portal from within the Admin Workstation.
+* [Create Enclave Connection](./create-an-enclave-connection-from-the-azure-portal.md) to Community endpoint for access to the Azure portal
  
 ### Sign in to Admin Workstation
 Follow [these Admin Workstation](./understanding-admin-workstations.md) instructions to sign in.
@@ -71,7 +71,7 @@ Follow [these Admin Workstation](./understanding-admin-workstations.md) instruct
 2. Navigate to `https://portal.azure.com` or the domain specific portal URL.
 
 ### Create Access Policy from Admin Workstation
-KV access is restricted to the KV VNET so the KV Key will need to be created from the Azure Portal from within the Admin Workstation.
+KV access is restricted to the KV VNET so the KV Key will need to be created from the Azure portal from within the Admin Workstation.
 1. From the portal, navigate to the Key Vault and select the `Access Policy` blade.
 2. Select `Create`
 3. Select the "Configure from a template" dropdown and select `Key Management`

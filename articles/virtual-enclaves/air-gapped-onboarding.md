@@ -19,7 +19,7 @@ This guide provides the steps to onboard to Azure Virtual Enclaves (AVE) in air-
 
 ## Register the Microsoft.Mission Resource Provider and grant permissions
 
-### Azure Portal
+### Azure portal
 
 1. Login to your Azure tenant and open the subscription resource
 2. Open the "**Resource Providers**" blade (under "Settings")
@@ -34,7 +34,7 @@ This guide provides the steps to onboard to Azure Virtual Enclaves (AVE) in air-
 ### Powershell
 
 You can run the following code to quickly register all required resource providers to begin using AVE.
-1. In the Azure Portal, select the `Cloud Shell` icon at the top of the window here ![image](./media/Portal-cloud-shell-link.png)
+1. In the Azure portal, select the `Cloud Shell` icon at the top of the window here ![image](./media/Portal-cloud-shell-link.png)
 1. [Set context](https://learn.microsoft.com/powershell/azure/context-persistence?view=azps-12.3.0#create-a-new-azure-context-from-subscription-information) to the subscription you registered above.
 1. Transfer the script below into the air-gapped enviroment using [Pastebin](https://eng.ms/docs/cloud-ai-platform/azure-edge-platform-aep/aep-silver/sovereign-foundation-team/cloud-transfer-service/cts-onboarding/cts-portal/pastebinuserguide)**
 

@@ -15,18 +15,18 @@ An Azure resource is a manageable item that is available through Azure. Virtual 
 In this tutorial, part five of eight, you create Azure resources in workloads. You learn how to:
 
 - ✅ Provision Azure resources into workloads
-- ✅ View your Azure resources in Azure Portal
-- ✅ View your workloads in Azure Portal
+- ✅ View your Azure resources in Azure portal
+- ✅ View your workloads in Azure portal
 
 ## Before you begin
-In the previous [tutorial](./4-use-service-catalog-to-create-azure-resources-in-workloads.md), you used Azure Portal to create Azure resources with service catalog. 
+In the previous [tutorial](./4-use-service-catalog-to-create-azure-resources-in-workloads.md), you used Azure portal to create Azure resources with service catalog. 
 
 If you haven't created a workload yet, please return to [Tutorial 3 - Create workloads in an enclave](./3-create-workloads-in-an-enclave.md).
 
 ...
 
 ## Create Azure resources in workloads
-Before creating Azure resources in a workload within an enclave, you will need an existing Workload resource group. An Azure resource group is a logical container into which you deploy and manage Azure resources.
+Before creating Azure resources in a workload within an enclave, you need an existing Workload resource group. An Azure resource group is a logical container into which you deploy and manage Azure resources.
 
 > **Important**:
 >
@@ -39,7 +39,7 @@ Before creating Azure resources in a workload within an enclave, you will need a
 ...
 
 ## Next steps
-In this tutorial, you deployed Azure resources into an enclave's workload using Azure Portal. You also learned how to:
+In this tutorial, you deployed Azure resources into an enclave's workload using Azure portal. You also learned how to:
 
 - thing 1
 - thing 1

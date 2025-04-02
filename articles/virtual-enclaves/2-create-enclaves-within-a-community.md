@@ -10,7 +10,7 @@ ms.date: 01/31/2025
 
 # Tutorial 2: Create Enclaves in a Community on Azure Virtual Enclaves
 
-An enclave is a completely isolated Azure Virtual Network that is part of a community in which one or more workloads are hosted. 
+An enclave is an isolated Azure Virtual Network that is part of a community in which one or more workloads are hosted. 
 
 In this tutorial, part two of eight, you deploy enclaves into a community. You learn how to:
 
@@ -18,7 +18,7 @@ In this tutorial, part two of eight, you deploy enclaves into a community. You l
 - ✅ View enclaves in Azure portal
 
 ## Before you begin
-In the previous [tutorial](./1-deploy-a-community.md), you used Azure portal to create a simple community. If you haven't created the community yet, please return to [Tutorial 1 - Deploy a community](./1-deploy-a-community.md).
+In the previous [tutorial](./1-deploy-a-community.md), you used Azure portal to create a simple community. If you haven't created the community yet, return to [Tutorial 1 - Deploy a community](./1-deploy-a-community.md).
 
 ## Create an enclave using Azure Virtual Enclaves
 Before creating an enclave instance, you need a resource group. An Azure resource group is a logical container into which you deploy and manage Azure resources. Learn more about each of the settings of an [enclave](./what-is-an-enclave.md) and [How-To Create an Enclave](./create-an-enclave-in-the-azure-portal.md).
@@ -27,7 +27,7 @@ Before creating an enclave instance, you need a resource group. An Azure resourc
 >
 > This tutorial uses `myResourceGroup` as a placeholder for the resource group name. If you want to use a different name, replace `myResourceGroup` with your own resource group name.
 
-Enclave deployments will take around 30-45 minutes to complete. Once it completes, open your Enclave and verify that the Status is **succeeded**.
+Enclave deployments take around 30-45 minutes to complete. Once it completes, open your Enclave and verify that the Status is **succeeded**.
 
 1. In the **Azure Virtual Enclaves** page, select the **Enclaves** in the left menu.
 
@@ -46,7 +46,7 @@ Enclave deployments will take around 30-45 minutes to complete. Once it complete
 
 4. Click **Review + create**, ensure the details for your Enclave are correct, and click **Create**.
 
-5. Now, we will be deploying another Enclave -- **repeat Steps 1 and 2.** Once you are on the **Enclave Create** page, Enter these basic details for your second Enclave:
+5. Now, to deploy another Enclave -- **repeat Steps 1 and 2.** Once you are on the **Enclave Create** page, Enter these basic details for your second Enclave:
    - **Subscription**: Select an existing Subscription
    - **Resource Group**: `myResourceGroup`
    - **Enclave name**: `Enclave-DMZ`

@@ -54,7 +54,7 @@ Before creating your resources, you need to create the AVE Workload resource. Wo
 
 6. Click `Review + create` (this skips optional resource tags), ensure the details for your Enclave are correct, and click `Create`.
 
-7. Now, we will be creating another workload. While the previous step is completing the deployment, open a new browser tab to the portal and **repeat Steps 4 through 6.** Once you are on the **Create a workload** page, enter these basic details for your second Workload:
+7. Now, to create another workload. While the previous step is completing the deployment, open a new browser tab to the portal and **repeat Steps 4 through 6.** Once you are on the **Create a workload** page, enter these basic details for your second Workload:
    - **Enclave**: Select an existing Enclave. This value is automatically applied from `Enclave-WebApp` you were currently browsing.
    - **Workload name**: Name of the Workload for this tutorial `wl-webapp-backend`.
    - **Add**: Click to add a resource group

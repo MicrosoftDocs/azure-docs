@@ -20,7 +20,7 @@ Currently, [Azure Bastion](https://aka.ms/bastion) is the Azure Cloud's first-pa
 
 Assuming a [Community](./what-is-a-community.md) and [Enclave](./what-is-an-enclave.md) have already been created, please follow the steps below to deploy Azure Virtual Desktop and configure it as an access point to resources in your enclave.
 
-### Create AVD through Azure Portal into an AVE Workload
+### Create AVD through Azure portal into an AVE Workload
 1. [Create a Workload](./create-a-workload-in-the-azure-portal.md) with any specified name (e.g. `wl-avd-mgmt-pool`)
 2. [Deploy AVD](../virtual-desktop/deploy-azure-virtual-desktop.md) to the Workload RG (`wl-avd-mgmt-pool`)
    - Follow the tutorial to deploy Azure Virtual Desktop. For all steps that deploy Azure resources targeting a Resource group, select the Workload RG (`wl-avd-mgmt-pool`)

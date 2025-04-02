@@ -16,10 +16,10 @@ In this tutorial, part six of eight, you create community and enclave endpoint r
 
 - ✅ Create community endpoint resources in communities
 - ✅ Create enclave endpoint resources in enclaves
-- ✅ View your endpoints in Azure Portal
+- ✅ View your endpoints in Azure portal
 
 ## Before you begin
-In the previous tutorials, you created a [community](./1-deploy-a-community.md) and an [enclave](./2-create-enclaves-within-a-community.md) using the Azure Portal.
+In the previous tutorials, you created a [community](./1-deploy-a-community.md) and an [enclave](./2-create-enclaves-within-a-community.md) using the Azure portal.
 
 If you haven't created those resources yet, please return to those earlier tutorials.
 
@@ -52,7 +52,7 @@ If you haven't created those resources yet, please return to those earlier tutor
 
 ![image4.png](./media/image-a0b8d9e4-0146-40df-bf18-40d3edc6034d.png)
 
-6. Once the endpoint resource is created, you can view them in Azure Portal from the Enclave-WebApp `Enclave Endpoints`.
+6. Once the endpoint resource is created, you can view them in Azure portal from the Enclave-WebApp `Enclave Endpoints`.
 
 ![image5.png](./media/enclave-webapp-endpoint-deployed.png)
 
@@ -83,7 +83,7 @@ If you haven't created those resources yet, please return to those earlier tutor
 
 ![image9.png](./media/fabrikam-endpoint-reviewCreate.png)
 
-6. Once the endpoint resource is created, you can view them in Azure Portal from the Enclave-WebApp en.
+6. Once the endpoint resource is created, you can view them in Azure portal from the Enclave-WebApp en.
 
 ![image10.png](./media/fabrikam-endpoint-deployed.png)
 
@@ -110,7 +110,7 @@ If you haven't created those resources yet, please return to those earlier tutor
 
 5. Select `Review + Create` and then `Create`
 
-6. Once the endpoint resource is created, you can view them in Azure Portal from the `fabrikam` `Enclave connections`. However, it is in a disconnected state because we selected `Yes` to requiring approvals on connections for this endpoint.
+6. Once the endpoint resource is created, you can view them in Azure portal from the `fabrikam` `Enclave connections`. However, it is in a disconnected state because we selected `Yes` to requiring approvals on connections for this endpoint.
 
 ![image14.png](./media/fabrikam-connection-deployed-disconnected.png)
 
@@ -124,7 +124,7 @@ If you haven't created those resources yet, please return to those earlier tutor
 ...
 
 ## Next steps
-In this tutorial, you deployed community and enclave endpoints using Azure Portal. You also learned how to:
+In this tutorial, you deployed community and enclave endpoints using Azure portal. You also learned how to:
 
 - [Create connections](./what-is-an-enclave-connection.md)
 
