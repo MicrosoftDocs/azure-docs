@@ -3,8 +3,9 @@ title: Enable first-party application service principle for Azure VMware Solutio
 description: Learn about enabling first-party application service principle for Azure VMware Solution in an Azure virtual network.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 3/14/2025
-----
+ms.date: 4/2/2025
+#cusom intent: As a cloud administrator, I want to enable first-party application service principle for Azure VMware Solution in an Azure virtual network so that I can manage the Azure VMware Solution experiences.
+---
 
 # Enable first-party application service principle for Azure VMware Solution in an Azure virtual network
 
