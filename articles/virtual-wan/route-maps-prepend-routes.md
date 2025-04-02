@@ -49,35 +49,35 @@ In this scenario, the goal is to prepend route 10.5.0.192/26 from virtual networ
 > [!Important]
 > [!INCLUDE [Preview text](../../includes/virtual-wan-route-maps-asn.md)]
 
-   :::image type="content" source="./media/route-maps-how-to-prepend/Prepend.png" alt-text="Screenshot that shows the Scenario." lightbox="./media/route-maps-how-to-prepend/Prepend.png":::
+   :::image type="content" source="./media/route-maps-prepend-routes/Prepend.png" alt-text="Screenshot that shows the Scenario." lightbox="./media/route-maps-prepend-routes/Prepend.png":::
 
 ## Workflow
 
 1.  Use the Route-Map dashboard in hub 2 to verify the ASNs on routes are being advertised from the virtual network connection. 
 
-   :::image type="content" source="./media/route-maps-how-to-prepend/db_before_one.png" alt-text="Screenshot that shows the routes before Route-Map." lightbox="./media/route-maps-how-to-prepend/db_before_one.png":::
+   :::image type="content" source="./media/route-maps-prepend-routes/db_before_one.png" alt-text="Screenshot that shows the routes before Route-Map." lightbox="./media/route-maps-prepend-routes/db_before_one.png":::
 
    Look at the Route-Map dashboard for the VPN branch 2 to verify the ASNs for route 10.5.0.192/26 that are being sent to the branch office. 
 
-   :::image type="content" source="./media/route-maps-how-to-prepend/db_before_two.png" alt-text="Screenshot that shows the routes before Route-Map VPN." lightbox="./media/route-maps-how-to-prepend/db_before_two.png"::: 
+   :::image type="content" source="./media/route-maps-prepend-routes/db_before_two.png" alt-text="Screenshot that shows the routes before Route-Map VPN." lightbox="./media/route-maps-prepend-routes/db_before_two.png"::: 
 
 2. Create a Route-Map to tag the route. If this is your first time creating a Route-Map, see [How to configure Route-maps](route-maps-how-to.md) for more information. 
 
    The Route-Map will have a match rule for route 10.5.0.192/26. The action **modify** will be selected. Route Modification has a **Prepend** for **AS Path** 65533.  
 
-   :::image type="content" source="./media/route-maps-how-to-prepend/rm.png" alt-text="Screenshot that shows the Route-Map." lightbox="./media/route-maps-how-to-prepend/rm.png":::
+   :::image type="content" source="./media/route-maps-prepend-routes/rm.png" alt-text="Screenshot that shows the Route-Map." lightbox="./media/route-maps-prepend-routes/rm.png":::
 
 3. Apply the Route-Map on the virtual network 3 connection. The Route-Map will be applied in the inbound direction. 
 
-   :::image type="content" source="./media/route-maps-how-to-prepend/apply.png" alt-text="Screenshot the Route-map being applied." lightbox="./media/route-maps-how-to-prepend/apply.png":::
+   :::image type="content" source="./media/route-maps-prepend-routes/apply.png" alt-text="Screenshot the Route-map being applied." lightbox="./media/route-maps-prepend-routes/apply.png":::
 
 4. Using the Route-Map dashboard in Hub 2, Verify that route 10.5.0.192/26 has an ASN of 65533 added.    
 
-   :::image type="content" source="./media/route-maps-how-to-prepend/db_after_one.png" alt-text="Screenshot of routes after Route-map being applied." lightbox="./media/route-maps-how-to-prepend/db_after_one.png":::
+   :::image type="content" source="./media/route-maps-prepend-routes/db_after_one.png" alt-text="Screenshot of routes after Route-map being applied." lightbox="./media/route-maps-prepend-routes/db_after_one.png":::
 
    look at the Route-Map dashboard for VPN branch 2 connection to verify route 10.5.0.192/26 has the ASNs 65533 advertised to VPN branch 2.
 
-   :::image type="content" source="./media/route-maps-how-to-prepend/db_after_two.png" alt-text="Screenshot of routes after Route-map being applied VPN." lightbox="./media/route-maps-how-to-prepend/db_after_two.png":::
+   :::image type="content" source="./media/route-maps-prepend-routes/db_after_two.png" alt-text="Screenshot of routes after Route-map being applied VPN." lightbox="./media/route-maps-prepend-routes/db_after_two.png":::
 
 ## Next steps
 

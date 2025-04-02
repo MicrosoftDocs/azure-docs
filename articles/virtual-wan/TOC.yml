@@ -307,13 +307,13 @@
     - name: Configure Route-maps to summarize routes leaving your virtual WAN
       href: route-maps-how-to-summarize-routes-leaving-your-vwan.md
     - name: Configure Route-maps to drop inbound routes from branch sites
-      href: how-to-configure-route-maps-to-drop-inbound-routes-from-branch-sites.md
+      href: route-maps-drop-inbound-branch-sites.md
     - name: Configure Route-maps to prepend routes
-      href: how-to-configure-route-maps-to-prepend-routes.md
+      href: route-maps-prepend-routes.md
     - name: Configure Route-maps to tag routes
-      href: how-to-configure-route-maps-to-tag-routes.md
+      href: route-maps-tag-routes.md
     - name: Configure Route-maps to summarize routes from an NVA
-      href: how-to-configure-route-maps-to-summarize-routes-from-an-device-a-spoke-vNet.md
+      href: route-maps-summarize-from-device-spoke-vnet-nva.md
   - name: View virtual hub effective routes
     href: effective-routes-virtual-hub.md
   - name: Configure routing intent and policies
