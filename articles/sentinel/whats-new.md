@@ -20,7 +20,7 @@ The listed features were released in the last three months. For information abou
 
 ## April 2025
 
-- [Multi workspace and multitenant support for Microsoft Sentinel in the Defender portal (preview)](#multi-workspace-and-multi-tenant-support-for-microsoft-sentinel-in-the-defender-portal-preview)
+- [Multi workspace and multitenant support for Microsoft Sentinel in the Defender portal (preview)](#multi-workspace-and-multitenant-support-for-microsoft-sentinel-in-the-defender-portal-preview)
 
 ### Multi workspace and multitenant support for Microsoft Sentinel in the Defender portal (preview)
 
