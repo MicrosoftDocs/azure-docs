@@ -10,7 +10,7 @@ recommendations: false
 ---
 
 # Update the password of your storage account identity in AD DS
-When you domain join your storage account in your Active Directory Domain Services (AD DS), you create an AD principal, either a computer account or service account, with a password. The password of the AD principal is one of the Kerberos keys of the storage account. Depending on the password policy of the organization unit of the AD principal, you must periodically rotate the password of the AD principal to avoid authentication issues. Failing to change the password before it expires could result in losing Kerberos authentication to your Azure file shares. Some AD environments may also delete of the AD principals with expired passwords using automated cleanup.
+When you domain join your storage account in your Active Directory Domain Services (AD DS), you create an AD principal, either a computer account or service account, with a password. The password of the AD principal is one of the Kerberos keys of the storage account. Depending on the password policy of the organization unit of the AD principal, you must periodically rotate the password of the AD principal to avoid authentication issues. Failing to change the password before it expires could result in losing Kerberos authentication to your Azure file shares. Some AD environments may also delete AD principals with expired passwords using an automated cleanup script.
 
 Instead of periodically rotating the password, you can also place the AD principal that represents the storage account into an organizational unit that doesn't require password rotation.
 
