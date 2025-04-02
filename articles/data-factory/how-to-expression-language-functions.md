@@ -76,7 +76,7 @@ Dynamic content editor automatically escapes characters in your content when you
 }
 ```
 
-Dynamic content editor converts above content to expression `"{ \n  \"type\": \"@{if(equals(1, 2), 'Blob', 'Table' )}\",\n  \"name\": \"@{toUpper('myData')}\"\n}"`. The result of this expression is a JSON format string showed below.
+Dynamic content editor converts above content to expression `"{ \n  \"type\": \"@{if(equals(1, 2), 'Blob', 'Table' )}\",\n  \"name\": \"@{toUpper('myData')}\"\n}"`. The result of this expression is a JSON format string shown below.
 
 ```json
 {

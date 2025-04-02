@@ -932,7 +932,7 @@
         },
         {
             "source_path_from_root": "/articles/cost-management/aws-integration-set-up-configure.md",
-            "redirect_url": "/azure/cost-management-billing/overview-cost-management",
+            "redirect_url": "/azure/cost-management-billing/costs/overview-cost-management",
             "redirect_document_id": false
         },
         {
