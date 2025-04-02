@@ -11,7 +11,7 @@ ms.author: sushrao
 
 # BMP log streaming
 
-This guide provides you with instructions on enabling \ disabling BMP log streaming various Network Fabric resources.
+This guide provides you with instructions on enabling / disabling BMP log streaming various Network Fabric resources.
 
 ## Enabling BMP log streaming for the new deployment
 
