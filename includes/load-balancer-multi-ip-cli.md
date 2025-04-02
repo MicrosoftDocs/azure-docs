@@ -1,26 +1,16 @@
 ---
-title: Load balancing on multiple IP configurations using Azure CLI
-titleSuffix: Azure Load Balancer
-description: Learn how to assign multiple IP addresses to a virtual machine using Azure CLI.
-services: virtual-network
-author: mbender-ms
-ms.service: azure-load-balancer
-ms.topic: how-to
-ms.date: 06/28/2024
-ms.author: mbender
-ms.custom: template-how-to, devx-track-azurecli
+ title: include file
+ description: include file
+ services: networking
+ author: mbender-ms
+ ms.service: networking
+ ms.topic: include
+ ms.date: 03/21/2025
+ ms.author: mbender
+ ms.custom: include file
 ---
 
-# Load balancing on multiple IP configurations using Azure CLI
-
-> [!div class="op_single_selector"]
-> * [Portal](load-balancer-multiple-ip.md)
-> * [CLI](load-balancer-multiple-ip-cli.md)
-> * [PowerShell](load-balancer-multiple-ip-powershell.md)
-
-This article describes how to use Azure Load Balancer with multiple IP addresses on a secondary network interface (NIC). For this scenario, we have two VMs running Windows, each with a primary and a secondary NIC. Each of the secondary NICs has two IP configurations. Each VM hosts both websites contoso.com and fabrikam.com. Each website is bound to one of the IP configurations on the secondary NIC. We use Azure Load Balancer to expose two frontend IP addresses, one for each website, to distribute traffic to the respective IP configuration for the website. This scenario uses the same port number across both frontends, as well as both backend pool IP addresses.
-
-## Steps to load balance on multiple IP configurations
+## Load balance on multiple IP configurations
 
 To achieve the scenario outlined in this article complete the following steps:
 
@@ -65,7 +55,7 @@ To achieve the scenario outlined in this article complete the following steps:
     az network lb frontend-ip create --resource-group contosofabrikam --lb-name mylb --public-ip-name PublicIp2 --name fabrikamfe
     ```
 
-8. Create your backend address pools - *contosopool* and *fabrikampool*, a [probe](/azure/virtual-machines/linux/create-cli-complete?toc=%2fazure%2fvirtual-network%2ftoc.json) - *HTTP*, and your load balancing rules - *HTTPc* and *HTTPf*:
+8. Create your backend address pools - *contosopool* and *fabrikampool*, a [probe](/azure/virtual-machines/linux/create-cli-complete?toc=%2fazure%2fvirtual-network%2ftoc.json) - *HTTP*, and your load balancing rules - *HTTPruleContoso* and *HTTPruleFabrikam*:
 
     ```azurecli
     az network lb address-pool create --resource-group contosofabrikam --lb-name mylb --name contosopool
@@ -73,8 +63,8 @@ To achieve the scenario outlined in this article complete the following steps:
 
     az network lb probe create --resource-group contosofabrikam --lb-name mylb --name HTTP --protocol "http" --interval 15 --count 2 --path index.html
 
-    az network lb rule create --resource-group contosofabrikam --lb-name mylb --name HTTPc --protocol tcp --probe-name http--frontend-port 5000 --backend-port 5000 --frontend-ip-name contosofe --backend-address-pool-name contosopool
-    az network lb rule create --resource-group contosofabrikam --lb-name mylb --name HTTPf --protocol tcp --probe-name http --frontend-port 5000 --backend-port 5000 --frontend-ip-name fabrikamfe --backend-address-pool-name fabrikampool
+    az network lb rule create --resource-group contosofabrikam --lb-name mylb --name HTTPruleContoso --protocol tcp --probe-name http--frontend-port 5000 --backend-port 5000 --frontend-ip-name contosofe --backend-address-pool-name contosopool
+    az network lb rule create --resource-group contosofabrikam --lb-name mylb --name HTTPruleFabrikam --protocol tcp --probe-name http --frontend-port 5000 --backend-port 5000 --frontend-ip-name fabrikamfe --backend-address-pool-name fabrikampool
     ```
 
 9. Check the output to [verify your load balancer](/azure/virtual-machines/linux/create-cli-complete?toc=%2fazure%2fvirtual-network%2ftoc.json) was created correctly by running the following command:
@@ -111,8 +101,6 @@ To achieve the scenario outlined in this article complete the following steps:
     az vm create --resource-group contosofabrikam --name VM2 --location westcentralus --os-type linux --nic-names VM2Nic1,VM2Nic2 --vnet-name VNet1 --vnet-subnet-name Subnet1 --availability-set myAvailabilitySet --vm-size Standard_DS3_v2 --storage-account-name mystorageaccount2 --image-urn canonical:UbuntuServer:16.04.0-LTS:latest --admin-username <your username>  --admin-password <your password>
     ```
 
-13. Finally, you must configure DNS resource records to point to the respective frontend IP address of the Load Balancer. You may host your domains in Azure DNS. For more information about using Azure DNS with Load Balancer, see [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md).
+13. Finally, you must configure DNS resource records to point to the respective frontend IP address of the Load Balancer. You can host your domains in Azure DNS. For more information about using Azure DNS with Load Balancer, see [Using Azure DNS with other Azure services](/azure/dns/dns-for-azure-services)
 
-## Next steps
-- Learn more about how to combine load balancing services in Azure in [Using load-balancing services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Learn how you can use different types of logs in Azure to manage and troubleshoot load balancer in [Log analytics for Azure Load Balancer](./monitor-load-balancer.md).
+
