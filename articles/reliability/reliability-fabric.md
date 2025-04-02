@@ -12,7 +12,7 @@ ms.custom:
   - references_regions
   - build-2023
   - ignite-2023
-ms.date: 11/17/2024
+ms.date: 04/02/2025
 ---
 
 # Reliability in Microsoft Fabric
