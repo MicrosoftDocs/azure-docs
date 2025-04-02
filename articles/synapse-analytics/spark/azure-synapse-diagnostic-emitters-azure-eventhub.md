@@ -95,6 +95,6 @@ Azure Synapse Analytics workspaces support enabling data exfiltration protection
 
 ## Support emit log to Event Hub with a service principal and certificate
 
-Azure Synapse Analytics workspaces support use service principal and certificate emit log to eventhub, you can refer to [How to use certificate and Service Principal emit log to eventhub](#how-to-use-certsp-emit-log-to-eventhub).
+Azure Synapse Analytics workspaces support use service principal and certificate emit log to eventhub, you can refer to [How to use certificate and Service Principal emit log to eventhub](#how-to-use-certsp-emit-log-to-eventhub.md).
 
 
