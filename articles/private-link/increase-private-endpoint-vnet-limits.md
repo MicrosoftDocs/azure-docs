@@ -180,7 +180,7 @@ $vnet.PrivateEndpointVNetPolicies
 | Swift based virtual machines aren't supported. | Swift based virtual machines deployed within a High Scale Private Endpoint virtual network aren't supported with this feature. |
 | Feature currently available in select regions. | West Central US <br> UK South <br> East Asia <br> US East <br> US North |
 
-#### Next Steps
+## Next Steps
 
 In this article, you learned how to enable High Scale Private Endpoints and the considerations that come with it. For more information on Azure Private Link, see the following articles:
 
