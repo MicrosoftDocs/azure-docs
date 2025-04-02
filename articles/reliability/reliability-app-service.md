@@ -27,7 +27,7 @@ For production deployments, you should:
 
 ::: zone pivot="free-shared-basic"
 
-- Use premium v3 App Service plans.
+- Use premium v3/v4 App Service plans.
 - [Enable zone redundancy](#availability-zone-support), which requires your App Service plan to use a minimum of three instances.
 
 ::: zone-end
@@ -88,7 +88,7 @@ To see which regions support availability zones for App Service Environment v3, 
 
 ::: zone pivot="free-shared-basic,premium"
 
-- You must use either the [Premium v2 or Premium v3 plan types](/azure/app-service/overview-hosting-plans).
+- You must use either the [Premium v2, Premium v3, or Premium v4 plan types](/azure/app-service/overview-hosting-plans).
 
 - Availability zones are only supported on the newer App Service footprint. Even if you're using one of the supported regions, if availability zones aren't supported for your resource group, you receive an error. To ensure that your workloads land on a stamp that supports availability zones, you might need to create a new resource group, App Service plan, and App Service.
 
@@ -108,7 +108,7 @@ Applications that are deployed in a zone-redundant App Service plan continue to 
 
 ::: zone pivot="premium"
 
-When you're using App Service Premium v2 or Premium v3 plans, there's no extra cost associated with enabling availability zones as long as you have three or more instances in your App Service plan. You're charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria.
+When you're using App Service Premium v2, Premium v4, or Premium v4 plans, there's no extra cost associated with enabling availability zones as long as you have three or more instances in your App Service plan. You're charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria.
 
 If you enable availability zones but specify a capacity less than three, the platform enforces a minimum instance count of three. The platform charges you for those three instances.
 

@@ -87,14 +87,14 @@ App Service limits the amount of storage in `%SystemDrive%\local` for each app t
 | B1/S1/P1 | 11 GB |
 | B2/S2/P2 | 15 GB |
 | B3/S3/P3 | 58 GB |
-| P0v3 | 11 GB |
-| P1v2/P1v3/P1mv3/Isolated1/Isolated1v2 | 21 GB |
-| P2v2/P2v3/P2mv3/Isolated2/Isolated2v2 | 61 GB |
-| P3v2/P3v3/P3mv3/Isolated3/Isolated3v2 | 140 GB |
+| P0v3/P0v4 | 11 GB |
+| P1v2/P1v3/P1mv3/P1mv4/Isolated1/Isolated1v2 | 21 GB |
+| P2v2/P2v3/P2mv3/P2mv4/Isolated2/Isolated2v2 | 61 GB |
+| P3v2/P3v3/P3mv3/P3mv4/Isolated3/Isolated3v2 | 140 GB |
 | Isolated4v2 | 276 GB|
-| P4mv3 | 280 GB |
+| P4mv3/Pvmv4 | 280 GB |
 | Isolated5v2 | 552 GB|
-| P5mv3 | 560 GB |
+| P5mv3/P4mv4 | 560 GB |
 | Isolated6v2 | 1,104 GB|
 
 Two examples of how App Service uses temporary local storage are the directory for temporary ASP.NET files and the directory for IIS compressed files. The ASP.NET compilation system uses the `%SystemDrive%\local\Temporary ASP.NET Files` directory as a temporary compilation cache location. IIS uses the `%SystemDrive%\local\IIS Temporary Compressed Files` directory to store compressed response output. Both of these types of file usage (along with others) are remapped in App Service to per-app temporary local storage. This remapping helps ensure that functionality continues as expected.
