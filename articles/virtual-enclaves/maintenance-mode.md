@@ -4,7 +4,7 @@ description: Maintenance mode
 author: jadean-msft
 ms.author: jadean
 # ms.service: Azure Virtual Enclaves
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 01/31/2025
 ---
 

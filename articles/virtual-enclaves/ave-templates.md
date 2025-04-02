@@ -160,7 +160,7 @@ Deploy the template:
 ## Bicep Templates
 ### Community and Enclaves Template
 
-[What gets deployed](./deploy-an-ave-community-with-enclaves.md#what-gets-deployed.md)
+[What gets deployed](./deploy-an-ave-community-with-enclaves.md#what-gets-deployed)
 
 [Bicep Template](https://github.com/Azure/virtual-enclaves/ave-templates/nightly-base.bicep) (easiest to deploy via Portal, PowerShell, or command line)
 
