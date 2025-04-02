@@ -5,7 +5,7 @@ author: eak13
 ms.author: ekarandjeff
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 07/19/2024
+ms.date: 04/02/2025
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -147,7 +147,7 @@ az networkcloud baremetalmachine reimage \
 
 Use the `replace` command when a server encounters hardware issues requiring a complete or partial hardware replacement.
 After the replacing components such as motherboard or Network Interface Card (NIC), the MAC address of Bare Metal Machine will change; however, the iDRAC IP address and hostname will remain the same.
-A `replace` **must** be executed after each hardware maintenance operation, read through [Best Practices for Bare Metal Machine Operations](./howto-bare-metal-best-practices.md) for more details.
+A `replace` **must** be executed after each hardware maintenance operation, read through [Best practices for a Bare Metal Machine replace](./howto-bare-metal-best-practices.md#best-practices-for-a-bare-metal-machine-replace) for more details.
 
 [!INCLUDE [warning-do-not-run-multiple-actions](./includes/baremetal-machines/warning-do-not-run-multiple-actions.md)]
 
@@ -162,3 +162,27 @@ az networkcloud baremetalmachine replace \
   --serial-number <SERIAL_NUMBER> \
   --subscription <subscriptionID>
 ```
+
+If the `replace` action fails due to a hardware validation failure, the specific error or test failure is shown in the `replace` response, as shown in the following examples.
+This information can also be found in the Activity Log for the Bare Metal Machine (Operator Nexus).
+The error code and error message are included the JSON properties of the corresponding `BareMetalMachines_Replace` operation.
+
+### Example 1: hardware validation fails due to invalid Baseboard Management Controller (BMC) credentials provided
+
+```shell
+$ az networkcloud baremetalmachine replace --name rack1compute02 --resource-group hostedRG --bmc-credentials password=REDACTED username=root --bmc-mac-address 00-00-5E-00-01-00 --boot-mac-address 00-00-5E-00-02-00 --machine-name RACK1COMPUTE02 --serial-number SN123435
+(None) BMC login unsuccessful: Fail - Unauthorized; System health test(s) failed: [Additional logs: Server power down at end of test failed with: Unauthorized]
+Code: None
+Message: BMC login unsuccessful: Fail - Unauthorized; System health test(s) failed: [Additional logs: Server power down at end of test failed with: Unauthorized]
+```
+
+### Example 2: hardware validation fails due to networking failure
+
+```shell
+$ az networkcloud baremetalmachine replace --name rack1compute02 --resource-group hostedRG --bmc-credentials password=REDACTED username=root --bmc-mac-address 00-00-5E-00-01-00 --boot-mac-address 00-00-5E-00-02-00 --machine-name RACK1COMPUTE02 --serial-number SN123435
+(None) Networking test(s) failed: [NIC.Slot.6-1-1_LinkStatus] expected: up; observed: Down; [Additional logs: Link failure detected on NIC.Slot.6-1-1; Unable to perform cabling check on PCI Slot 6]
+Code: None
+Message: Networking test(s) failed: [NIC.Slot.6-1-1_LinkStatus] expected: up; observed: Down; [Additional logs: Link failure detected on NIC.Slot.6-1-1; Unable to perform cabling check on PCI Slot 6]
+```
+
+For more information about troubleshooting hardware validation failures, see [Troubleshoot Hardware Validation Failure](./troubleshoot-hardware-validation-failure.md).
