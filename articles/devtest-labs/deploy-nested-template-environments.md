@@ -1,43 +1,43 @@
 ---
-title: Deploy nested ARM template environments
-description: Learn how to nest Azure Resource Manager (ARM) templates to deploy Azure DevTest Labs environments.
+title: Nested ARM templates for lab environments
+description: Learn about using nested Azure Resource Manager (ARM) templates to deploy Azure DevTest Labs environments.
 ms.topic: how-to
 ms.custom: devx-track-arm-template, UpdateFrequency2
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 09/30/2023
+ms.date: 04/02/2025
+
+#customer intent: As a DevTest labs user, I want to learn about using nested templates to deploy environments so I can take advantage of their testing, reuse, and readability benefits.
 ---
 
-# Deploy DevTest Labs environments by using nested templates
+# DevTest Labs environments with nested templates
 
-A nested deployment runs secondary Azure Resource Manager (ARM) templates from within a main template. This article shows an example of nesting templates to deploy an Azure DevTest Labs environment. DevTest Labs environments contain multiple infrastructure-as-a-service (IaaS) virtual machines (VMs) with platform-as-a-service (PaaS) resources installed. You can provision the PaaS resources and VMs by using ARM templates.
+Azure DevTest Labs environments contain multiple infrastructure-as-a-service (IaaS) virtual machines (VMs) with platform-as-a-service (PaaS) resources installed. You can provision the PaaS and IaaS resources by using Azure Resource Manager (ARM) templates. This article shows an example of nesting templates to deploy an Azure DevTest Labs environment.
 
-Decomposing a deployment into a set of targeted, purpose-specific templates provides testing, reuse, and readability benefits. For general information about nested templates, including code samples, see [Using linked and nested templates when deploying Azure resources](../azure-resource-manager/templates/linked-templates.md).
+A *nested deployment* runs secondary ARM templates from within a main template. Decomposing a deployment into a set of targeted, purpose-specific templates provides testing, reuse, and readability benefits. For general information about nested templates, including code samples, see [Use linked and nested templates when deploying Azure resources](/azure/azure-resource-manager/templates/linked-templates).
 
+In DevTest Labs, you can store ARM templates in a Git repository that you link to a lab. When you use a linked repository template to create a new DevTest Labs environment, the deployment copies the template files into the lab's Azure Storage container.
 
 [!INCLUDE [direct-azure-deployment-environments](includes/direct-azure-deployment-environments.md)]  
 
-## Deploy nested templates with Visual Studio
+## Nested template deployment with Visual Studio
 
-The Azure Resource Group project template in Visual Studio makes it easy to develop and debug ARM templates. When you add a nested template to the main *azuredeploy.json* template file, Visual Studio adds the following items to make the template more flexible:
+The Azure Resource Group project template in Visual Studio makes it easy to develop and debug nested templates. When you add a nested template file to the lab repository and add nested template code to the main *azuredeploy.json* template file, Visual Studio automatically takes the following actions:
 
-- A subfolder with the secondary template and parameters files
-- Variable names in the main template file
-- Two key parameters, `_artifactsLocation` and `_artifactsLocationSasToken`
+- Adds a subfolder for the secondary template and parameters files, and copies the subfolder to the lab storage container.
+- Adds variables for the nested template folder and files to the `variables` section of the main template file.
+- Adds the `_artifactsLocation` and `_artifactsLocationSasToken` parameters to the main template file.
+- Inserts the location and Shared Access Signature (SaS) token into the parameters file.
 
-In DevTest Labs, you store ARM templates in a Git repository that you link to the lab. When you use one of the linked repository templates to create a new environment, the deployment copies the template files into an Azure Storage container in the lab. When you add a nested template resource to the repository and main template file, Visual Studio identifies the `_artifactsLocation` and `_artifactsLocationSasToken` values, copies the subfolders to the storage container, and inserts the location and Shared Access Signature (SaS) token into the parameters files.
+In the following nested template example, the Git repository folder has a subfolder, *nestedtemplates*, that contains the nested template files *NestOne.json* and *NestOne.parameters.json*. You can add more nested template subfolders, but at only one level of nesting.
 
-## Nested template folder structure
-
-In the following template example, the Git repository folder has a subfolder, *nestedtemplates*, with the nested template files *NestOne.json* and *NestOne.parameters.json*. The *azuredeploy.json* main template file builds the URI for the secondary templates by using the artifacts location, nested template folder, and nested template filename. The URI for the parameters file is the artifacts location, nested template folder, and nested template parameters file. You can add more nested template subfolders to the primary folder, but at only one level of nesting.
-
-The following screenshot shows the project structure in Visual Studio: 
-
-![Screenshot that shows the nested template project structure in Visual Studio.](./media/deploy-nested-template-environments/visual-studio-project-structure.png)
+:::image type="content" source="media/deploy-nested-template-environments/visual-studio-project-structure.png" alt-text="Screenshot that shows the nested template project structure in Visual Studio.":::
 
 ## Nested deployment example
 
-The following example shows the main *azuredeploy.json* ARM template file for the nested deployment:
+The following example *azuredeploy.json* main template file shows the code for a nested deployment. The main template file links to the nested templates.
+
+The template code builds the URI for the secondary templates by concatenating the artifacts location, nested template folder, nested template filename, and artifacts Shared Access Signature (SaS) token location. The URI for the secondary parameters file uses the artifacts location, nested template folder, nested parameter filename, and artifacts SaS token location.
 
 ```json
 
@@ -75,7 +75,7 @@ The following example shows the main *azuredeploy.json* ARM template file for th
 "outputs": {}
 ```
 
-## Next steps
+## Related content
 
 - For more information about DevTest Labs environments, see [Use ARM templates to create DevTest Labs environments](devtest-lab-create-environment-from-arm.md).
-- For more information about using the Visual Studio Azure Resource Group project template, including code samples, see [Creating and deploying Azure resource groups through Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).
+- For more information about using the Visual Studio Azure Resource Group project template, including code samples, see [Create and deploy Azure resource groups through Visual Studio](/azure/azure-resource-manager/templates/create-visual-studio-deployment-project).
