@@ -13,9 +13,7 @@ zone_pivot_groups: app-service-sku
 
 # Reliability in Azure App Service
 
-This article describes reliability support in [Azure App Service](../app-service/overview.md). It covers both intra-regional resiliency with [availability zones](#availability-zone-support) and information on [multi-region deployments](#multi-region-support). 
-
-Resiliency is a shared responsibility between you and Microsoft. This article also covers ways for you to build a resilient solution that meets your needs.
+This article describes reliability support in [Azure App Service](../app-service/overview.md), covering intra-regional resiliency with [availability zones](#availability-zone-support), [multi-region deployments](#multi-region-support), and transient fault handling.
 
 Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. Azure App Service adds the power of Microsoft Azure to your application, with capabilities for security, load balancing, autoscaling, and automated management. To explore how Azure App Service can bolster the reliability and resiliency of your application workload, see [Why use App Service?](../app-service/overview.md#why-use-app-service)
 
@@ -98,6 +96,10 @@ To see which regions support availability zones for App Service Environment v3, 
 
 - You must deploy a minimum of three instances of your plan.
 
+::: zone-end
+
+::: zone pivot="premium,isolated"
+
 ### Considerations
 
 Applications that are deployed in a zone-redundant App Service plan continue to run and serve traffic even if multiple zones in the region suffer an outage. Nonruntime behaviors might still be impacted during an availability zone outage. These behaviors include App Service plan scaling, application creation, application configuration, and application publishing. Zone redundancy for App Service plans only ensures continued uptime for deployed applications.
@@ -120,11 +122,9 @@ App Service Environment v3 has a specific pricing model for zone redundancy. For
 
 ::: zone-end
 
-::: zone pivot="premium,isolated"
 
 ### Configure availability zone support
 
-::: zone-end
 
 ::: zone pivot="premium"
 
@@ -138,11 +138,8 @@ To deploy a new zone-redundant Azure App Service Environment, see [Create an App
 
 ::: zone-end
 
-::: zone pivot="premium,isolated"
-
 Zone redundancy can only be configured when you create a new App Service plan. If you have an existing App Service plan that isn't zone-redundant, replace it with a new zone-redundant plan. You can't convert an existing App Service plan to use availability zones. Similarly, you can't disable zone redundancy on an existing App Service plan.
 
-::: zone-end
 
 ::: zone pivot="premium,isolated"
 
