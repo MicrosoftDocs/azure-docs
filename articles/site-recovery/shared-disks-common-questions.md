@@ -47,3 +47,4 @@ Learn more about:
 
 -  [Azure managed disk](/azure/virtual-machines/disks-shared).
 -  [Support matrix for shared disk in Azure Site Recovery](./shared-disk-support-matrix.md).
+- [Shared disk tutorial](./tutorial-shared-disk.md).
