@@ -8,6 +8,8 @@ ms.topic: overview
 ms.date: 01/31/2025
 ---
 
+# Install BannerApp for RemoteApps
+
 ## What is the BannerApp?
 BannerApp displays additional information at the top of a RemoteApp Window. This enables an admin to display classification, permissions, or other useful information to the user when they open a RemoteApp on a separate desktop. If the user has two VS Code applications open on one desktop, the BannerApp will inform the user of which application should be used for which purpose. On a common Desktop, users can access applications associated with different access restrictions on the same screen. The visible indicators provided by BannerApp helps prevent accidental spillage of data with users that do not have access to that data.
 

@@ -41,16 +41,16 @@ $vault = Get-AzResource -ResourceName "my-kv-name" -ResourceGroupName "my-manage
 $vault.Properties.sku.name = 'Standard'
 Set-AzResource -ResourceId $vault.ResourceId -Tags $vault.Tags -Properties $vault.Properties
 ```
-# Deploy your own Key Vault
+## Deploy your own Key Vault
 
-## Deploy a Managed HSM as a Workload
+### Deploy a Managed HSM as a Workload
 Should an Enclave Owner require either Dedicated, Payment, or Managed HSM solution(s) in their enclave, AVE recommends creating a [workload](./what-is-a-workload.md) to satisfy those requirements. If Community Owners require all Key Vaults to utilize HSM for key or secrets management, AVE advises Community Owners to breakglass to delete all Standard SKU Key Vaults deployed in enclaves.
 
 ### Pre-requisites
 - [Choose the right key management solution](../security/fundamentals/key-management-choose.md)
 - Determine SKU types (`StandardB1`, `CustomB32`)
 
-AVE recommends following the [Quickstart: Provision and activate a Managed HSM using PowerShell](../key-vault/managed-hsm/quick-create-powershell.md) guide to create a new Managed HSM as a workload in an enclave. AVE also advises Enclave Owners to follow Azure Key Vault and [Managed HSM best practices](../key-vault/managed-hsm/overview.md). Some important notes or guidance follows:
+AVE recommends following the [Quickstart: Provision and activate a Managed HSM using PowerShell](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-powershell.md) guide to create a new Managed HSM as a workload in an enclave. AVE also advises Enclave Owners to follow Azure Key Vault and [Managed HSM best practices](https://learn.microsoft.com/azure/key-vault/managed-hsm/overview.md). Some important notes or guidance follows:
 
 1. AVE advises setting `PublicNetworkAccess` to `Disabled`, and within `networkAcls`: `bypass` to `None`, and `defaultAction` to `Deny`.
 2. After ManagedHSM resource creation completes successfully, AVE advises Enclave Owners to create a Private Endpoint for their ManagedHSM. An example of this is provided below:
@@ -59,6 +59,6 @@ AVE recommends following the [Quickstart: Provision and activate a Managed HSM u
 
 
 ## References
-- [Azure Key Vault developer's guide](../key-vault/general/developers-guide.md)
-- [What is Azure Key Vault Managed HSM?](../key-vault/managed-hsm/overview.md)
+- [Azure Key Vault developer's guide](https://learn.microsoft.com/azure/key-vault/general/developers-guide.md)
+- [What is Azure Key Vault Managed HSM?](https://learn.microsoft.com/azure/key-vault/managed-hsm/overview.md)
 - [Choose the right key management solution](../security/fundamentals/key-management-choose.md)

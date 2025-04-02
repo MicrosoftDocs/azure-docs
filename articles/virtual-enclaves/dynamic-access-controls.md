@@ -97,9 +97,9 @@ During a security incident:
 - [Microsoft Entra ID Overview](../active-directory/fundamentals/active-directory-whatis.md)
 - [Azure Conditional Access](../active-directory/conditional-access/overview.md)
 - [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)
-- [Microsoft Entra ID Private Access](../active-directory/entra-private-access/overview.md)
-- [Microsoft Entra ID Internet Access](../active-directory/entra-internet-access/overview.md)
-- [Azure Monitor for Logging and Diagnostics](../azure-monitor/overview.md)
+- [Microsoft Entra ID Private Access](https://learn.microsoft.com/entra/global-secure-access/concept-private-access)
+- [Microsoft Entra ID Internet Access](https://learn.microsoft.com/entra/global-secure-access/concept-internet-access)
+- [Azure Monitor for Logging and Diagnostics](https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview)
 
 ---
 

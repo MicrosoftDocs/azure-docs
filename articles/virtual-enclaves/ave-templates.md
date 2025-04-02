@@ -27,7 +27,7 @@ ms.date: 01/31/2025
 
 [Bicep Template](https://github.com/Azure/virtual-enclaves/ave-templates/nightly-base.bicep) (easiest to edit and maintain then convert to ARM template before deployment)
 
-[Deploy the template](./deploy-an-ave-community-with-enclaves.md/#deploy-the-template)
+[Deploy the template](./deploy-an-ave-community-with-enclaves.md#deploy-the-template)
 
 ### Secure Azure Computing Architecture (SACA) Template
 An example of how to deploy the SACA within AVE.
@@ -160,11 +160,11 @@ Deploy the template:
 ## Bicep Templates
 ### Community and Enclaves Template
 
-[What gets deployed](./deploy-an-ave-community-with-enclaves#what-gets-deployed.md)
+[What gets deployed](./deploy-an-ave-community-with-enclaves.md#what-gets-deployed.md)
 
 [Bicep Template](https://github.com/Azure/virtual-enclaves/ave-templates/nightly-base.bicep) (easiest to deploy via Portal, PowerShell, or command line)
 
-[Deploy the template](./deploy-an-ave-community-with-enclaves#deploy-the-template)
+[Deploy the template](./deploy-an-ave-community-with-enclaves.md#deploy-the-template)
 
 ## Terraform
 Pending Public Preview product release

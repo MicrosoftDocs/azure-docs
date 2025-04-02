@@ -1,16 +1,14 @@
 ---
 title: What is the Service Catalog?
 description: Azure Virtual Enclaves Documentation
-author: jadean-msft
-ms.author: jadean
-ms.service: Azure Virtual Enclaves
+author: aserfass-msft
+ms.author: aserfass
+# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 01/31/2025
 ---
 
 # What is the Service Catalog?
-
-## Overview
 
 The Service Catalog enables customers to quickly deploy tailored ARM templates of Azure services into Azure Virtual Enclaves (AVE) while being compliant with Policy Guardrails and enclave isolation requirements. The Service Catalog helps customers springboard their setups within the secure boundary of AVE without getting blocked by the security they want.
 
@@ -31,9 +29,8 @@ You can edit the Service Catalog template itself but edits may change the format
 
 ## Ready? Deploy from the Service Catalog!
 
-- [Service Catalog List](./list-of-service-catalog-templates.md)
+- [Service Catalog How-To Guides and tips for each template](./list-of-service-catalog-templates.md)
 - [Service Catalog deployment Quickstart](./deploy-a-storage-account-from-the-service-catalog-into-a-workload.md)
-- [Service Catalog How-To Guides and tips for each template](./service-catalog.md)
 - [What is Azure Virtual Enclaves?](./what-is-azure-virtual-enclaves.md)
 - [What is a Community?](./what-is-a-community.md)
 - [Tutorial: Create resources from the Service Catalog](/./4-use-service-catalog-to-create-azure-resources-in-workloads.md)

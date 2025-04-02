@@ -10,17 +10,19 @@ ms.date: 01/31/2025
 
 # Set-up customer-managed-key (CMK) encryption within an enclave
 
-There are several types of [encryption](../virtual-machines/disk-encryption-overview.md) available for securing your data on managed disks and other Azure PaaS services, including Azure Disk Encryption (ADE), Server-Side Encryption (SSE) and encryption at host. In accordance with Azure Virtual Enclaves (AVE) default [governance and cybersecurity posture](./governance.md) requires customer-managed-key encryption for all resources deployed in an [enclave](./what-is-an-enclave.md).
+The fastest way to deploy customer managed keys to be compliant with the Azure Virtual Enclaves policy requiring CMK is through the [Common Dependencies](./deploy-common-dependencies-from-the-service-catalog-into-a-workload.md) Service Catalog template. 
 
-## Prerequisites
+There are several types of [encryption](https://learn.microsoft.com/azure/virtual-machines/windows/disk-encryption-overview) available for securing your data on managed disks and other Azure PaaS services, including Azure Disk Encryption (ADE), Server-Side Encryption (SSE) and encryption at host. In accordance with Azure Virtual Enclaves (AVE) default [governance and cybersecurity posture](./what-is-azure-virtual-enclaves.md#multi-layered-governancegovernance-security-and-monitoring) requires customer-managed-key encryption for all resources deployed in an [enclave](./what-is-an-enclave.md).
+
+## Prerequisites for manual deployment method
 1. Portal Access from Admin Workstation (192.168.0.0/26 usually)
    - [Create Community Endpoint](./create-a-community-endpoint-in-the-azure-portal.md) to Azure Portal and Microsoft Azure services
      - A default endpoint should have been created with the community that defines these. If so you may skip this step.
-   - [Create Enclave Connection](./create-a-connection-from-the-azure-portal.md) to Community Endpoint
+   - [Create Enclave Connection](./create-an-enclave-connection-from-the-azure-portal.md) to Community Endpoint
 2. You have been assigned "Key Vault Contributor" to the Enclave KV or Enclave RG
 
 ## Steps in this guide
-1. [Create KV RSA 2048 Key](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-azure-key-vault) or Bring your own key
+1. [Create KV RSA 2048 Key](https://learn.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal) or Bring your own key
 2. [Create Managed Identity](./create-user-managed-identity.md) with permissions to the KV Key
 
 
@@ -30,12 +32,11 @@ Every enclave is deployed with an [Azure Key Vault](https://aka.ms/kv) in the [d
 Examples of setting-up CMK encryption are provided below, with more [detailed instructions](#detailed-cmk-setup-instructions-for-ave) or articles provided.
 
 ### Create a Key in Key Vault
-- How-to Azure article - [Key creation starts after Step 6](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-azure-key-vault)
+- How-to Azure article - [Key creation starts after Step 6](https://learn.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal#set-up-your-azure-key-vault)
 
 ### Disk encryption sets (Windows IaaS)
-- How-to Azure article - [Pick up after KV creation](../virtual-machines/disks-enable-customer-managed-keys-portal.md)
-- [Learn more](../virtual-machines/windows/disk-encryption-windows.md)
-
+- How-to Azure article - [Pick up after KV creation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal)
+- [Learn more](https://learn.microsoft.com/azure/virtual-machines/windows/disk-encryption-windows.md)
 
 ### Azure PaaS example (Storage account)
 - ../storage/common/customer-managed-keys-overview.md
@@ -46,7 +47,7 @@ Examples of setting-up CMK encryption are provided below, with more [detailed in
 1. From the portal, in the top search bar, enter `deploy` and select `Deploy a Custom Template`
 2. Select `Build your own template in the editor`
 3. Select all of the existing template code within the curly brackets
-4. Copy the [template](#CMK-template) below and paste into the `Build your own template in the editor` window.
+4. Copy the [template](#cmk-template) below and paste into the `Build your own template in the editor` window.
 5. Click Save
 6. Enter required parameters
 7. Select `Review + Create` and `Create`
@@ -56,11 +57,11 @@ Alternatively, CMK can be created via the Portal
 ### Steps in this guide
 1. [Sign in to Admin Workstation](./understanding-admin-workstations.md)
 2. [Create Access Policy from Admin Workstation](#create-access-policy-from-admin-workstation)
-3. [Generate Key for CMK in Key Vault](#Generate-Key-for-CMK-in-Key-Vault) 
+3. [Generate Key for CMK in Key Vault](#generate-key-for-cmk-in-key-vault) 
 
 ### Enable Enclave access to the Azure Portal
 KV access is restricted to the KV VNET so the KV Key will need to be created from the Azure Portal from within the Admin Workstation.
-* [Create Enclave Connection](./create-a-connection-from-the-azure-portal.md) to Community endpoint for access to the Azure Portal
+* [Create Enclave Connection](./create-an-enclave-connection-from-the-azure-portal.md) to Community endpoint for access to the Azure Portal
  
 ### Sign in to Admin Workstation
 Follow [these Admin Workstation](./understanding-admin-workstations.md) instructions to sign in.
@@ -205,7 +206,7 @@ KV access is restricted to the KV VNET so the KV Key will need to be created fro
 ```
 
 ## References
-- [Disk Encryption](../virtual-machines/disk-encryption-overview.md)
+- [Disk Encryption](https://learn.microsoft.com/azure/virtual-machines/windows/disk-encryption-overview)
 Read More:
 - [Generate Keys on Windows](https://learn.microsoft.com/windows-server/administration/openssh/openssh_keymanagement)
 - [Configure Key Vault for Storage Account CMK](../storage/common/customer-managed-keys-configure-new-account.md)

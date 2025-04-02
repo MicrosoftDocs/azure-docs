@@ -4,11 +4,11 @@ description: Deploy a App Service Function App from the Service Catalog into a W
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
-ms.topic: how-to-guide
+ms.topic: how-to
 ms.date: 4/1/2025
 ---
 
-# Deploy a Service Catalog Template into a Workload
+# Deploy a App Service Function App from the Service Catalog into a Workload
 
 Azure Virtual Enclaves (AVE) is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this article, you:
 
@@ -70,9 +70,9 @@ If you don't plan on keeping these resources, clean up unnecessary resources to 
 
 ## Recommendations
 - [Add tags](../azure-resource-manager/management/tag-resources.md) to Service Catalog deployments to track important information for that resource such as:
--- Owner: <main POC>
--- Deployer: <yourName>
--- Purpose: <publish abc app to users>
--- Service Catalog Name: <RemoteApp>
--- Service Catalog Version: <version you deployed>
+-- Owner: `<main POC>`
+-- Deployer: `<yourName>`
+-- Purpose: `<publish abc app to users>`
+-- Service Catalog Name: `<RemoteApp>`
+-- Service Catalog Version: `<version you deployed>`
 - Consider adding an [Azure Policy to enforce and inherit tags](../azure-resource-manager/management/tag-policies.md)

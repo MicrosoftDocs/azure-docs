@@ -34,12 +34,12 @@ To download tools from Azure Toolbox into an enclave, AVE recommends that either
 | US Nat |  |
 
 
-- [How to make a Connection](./create-a-connection-from-the-azure-portal.md) connecting either a Community or an Enclave to the Endpoint created above
+- [How to make a Connection](./create-an-enclave-connection-from-the-azure-portal.md) connecting either a Community or an Enclave to the Endpoint created above
 ![toolbox.png](./media/toolbox-c55876fc-9344-41bb-aeeb-1c40f2c69b0d.png)
 
 ---
 
-Should further troubleshooting be required to investigate making Connections, please refer to [Create a Connection from the Azure Portal](./create-a-connection-from-the-azure-portal.md) or contact [Azure Support](https://azure.microsoft.com/en-us/support/).
+Should further troubleshooting be required to investigate making Connections, please refer to [Create a Connection from the Azure Portal](./create-an-enclave-connection-from-the-azure-portal.md) or contact [Azure Support](https://azure.microsoft.com/support/).
 
 ## References
 - [What is Azure Virtual Enclaves?](./what-is-azure-virtual-enclaves.md)
@@ -48,5 +48,5 @@ Should further troubleshooting be required to investigate making Connections, pl
 - [Understanding Admin Workstation](./understanding-admin-workstations.md)
 - [Create an Enclave Endpoint](./create-a-enclave-endpoint-in-the-azure-portal.md)
 - [Create a Community Endpoint](./create-a-community-endpoint-in-the-azure-portal.md)
-- [Create a Connection from the Azure Portal](./create-a-connection-from-the-azure-portal.md)
+- [Create a Connection from the Azure Portal](./create-an-enclave-connection-from-the-azure-portal.md)
 - [Azure Support](https://azure.microsoft.com/support/)

@@ -4,11 +4,11 @@ description: Deploy RemoteApp VM from the Service Catalog into a Workload
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
-ms.topic: overview
+ms.topic: how-to
 ms.date: 01/31/2025
 ---
 
-# Deploy the Remote App Service Catalog Template into a Workload
+# Deploy RemoteApp VM from the Service Catalog into a Workload
 The RemoteApp template allows customers to install an application they want to publish to one or more users without installing that application on each users' desktop.
 
 In this article, you will:
@@ -57,9 +57,9 @@ Required:
 4. Enter all the required parameters on each of the tabs.
 5. For `OS Disk Encryption Name` and `OS Disk Encryption Resource Group Name`, enter the ones used in the prerequisites section.
 6. Adjust the prepopulated parameters as needed. 
-1. (Optional) [Publish your RemoteApp](#(Optional)-Publish-Remote-App) to other users
-6. (Optional) [Domain join](#Domain-Join-(Optional)) your RemoteApp VM.
-1. (Optional) [Install application](#optional-install-remoteapp) to your RemoteApp.
+1. (Optional) [Publish your RemoteApp](#publish-remote-app-optional) to other users
+6. (Optional) [Domain join](#domain-join-optional) your RemoteApp VM.
+1. (Optional) [Install application](#install-remoteapp-optional) to your RemoteApp.
 1.  Select `Review + Create`, if all validations have passed, select `Create`
 
 ## Domain Join (Optional)
@@ -76,7 +76,7 @@ Required:
    * Next you will need to use this domain to [create an OU](https://learn.microsoft.com/entra/identity/domain-services/create-ou)
    * Use the previously created OU and Domain to fill in these respective parameters
 
-## (Optional) Publish Remote App
+## Publish Remote App (Optional)
 If you publish your application, all of the following fields on this tab must be filled out.
 ![image2.png](./media/image-483db51b-f65e-4b8b-9305-6cac55bb77bf.png)
 
@@ -100,7 +100,7 @@ The Admin VM is used to access the resources within the enclave boundary from ou
 1. Next, [install application](#(optional)-Install-RemoteApp)
 1. Assign a security group assignment to give users access to your RemoteApp(s).
 
-## (Optional) Install RemoteApp
+## Install RemoteApp (Optional)
 Install an application on your RemoteApp VM using one of the methods below or a method you are familiar with.
 
 - [Install via Remote App VM](./application-deployment-using-remote-app-vm-in-ave.md) (install or configure an application for Remote App publishing)
@@ -146,10 +146,10 @@ If you don't plan on keeping these resources, clean up unnecessary resources to 
 ## Recommendations
 - Session host or VM [Sizing](https://learn.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs)
 - [Add tags](../azure-resource-manager/management/tag-resources.md) to Service Catalog deployments to track important information for that resource such as:
--- Owner: <main POC>
--- Deployer: <yourName>
--- Purpose: <publish abc app to users>
--- Service Catalog Name: <RemoteApp>
--- Service Catalog Version: <version you deployed>
+-- Owner: `<main POC>`
+-- Deployer: `<yourName>`
+-- Purpose: `<publish abc app to users>`
+-- Service Catalog Name: `<RemoteApp>`
+-- Service Catalog Version: `<version you deployed>`
 - Consider adding an [Azure Policy to enforce and inherit tags](../azure-resource-manager/management/tag-policies.md)
 - [Collect Custom Logs](../azure-monitor/agents/data-sources-custom-logs.md) from applications

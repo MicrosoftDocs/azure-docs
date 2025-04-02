@@ -4,7 +4,7 @@ description: Deploy Template from the Service Catalog using Azure CLI
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
-ms.topic: overview
+ms.topic: how-to
 ms.date: 01/31/2025
 ---
 
@@ -54,8 +54,8 @@ Download a specific template by using the name found in the inventory above (e.g
     Storage account names by environment
     - Azure: veservicecatalogprod.z22.web.core.windows.net
     - Azure Government: veservicecatalogfairfax.z2.web.core.usgovcloudapi.net
-    - Azure Secret: veservicecatalogussec.z1.web.core.<SecretDomain>
-    - Azure Top Secret: veservicecatalogusnat.z2.web.core.<TopSecretDomain>
+    - Azure Secret: veservicecatalogussec.z1.web.core.`<SecretDomain>`
+    - Azure Top Secret: veservicecatalogusnat.z2.web.core.`<TopSecretDomain>`
 
 2. Download each template
    Continuing the script from the previous step

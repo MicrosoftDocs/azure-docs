@@ -19,8 +19,8 @@ This is the list of Azure services and workload templates in the Service Catalog
 | App Service: Web App | [link](#app-service-web-app) | Available |
 | App Service: Functions | [link](#app-service-functions) | Available |
 | Azure SQL | [link](#azure-sql) | Available |
-| Azure Kubernetes Service (AKS) | [link](#azure-kubernetes-service-(AKS)) | Available |
-| Azure Container Registry (ACR) | [link](#azure-container-registry-(ACR)) | Available |
+| Azure Kubernetes Service (AKS) | [link](#azure-kubernetes-service-aks) | Available |
+| Azure Container Registry (ACR) | [link](#azure-container-registry-acr) | Available |
 | Azure Cosmos DB | [link](#azure-cosmos-db) | Available |
 | Service Bus | [link](#service-bus) | Available |
 | Azure Compute Gallery | [link](#azure-compute-gallery) | Future |
@@ -31,7 +31,7 @@ This is the list of Azure services and workload templates in the Service Catalog
 | Template Name | Link | Status|
 |--|--|--|
 | RemoteApp | [link](#remote-app) | Available |
-| Remote Desktop | [link](#Remote-Desktop) | Future |
+| Remote Desktop | [link](#remote-desktop) | Future |
 | DNS Forwarder |  | Future |
 | Identity |  | Future |
 | Admin VM |  | Future |
@@ -69,7 +69,7 @@ Description: This template deploys an azure storage account available from the v
 Description: Azure Web Apps provides a fully managed platform for building and hosting web applications using popular programming languages such as.NET, Java, Node.js, Python, and PHP. [learn more](../app-service/overview.md)
 
 ## App Service Functions
-[How to create an AVE compliant App Service Function](./deploy-a-app-service-function-app-from-the-service-catalog-into-a-workload.md)
+[How to create an AVE compliant App Service Function](./deploy-an-app-service-function-app-from-the-service-catalog-into-a-workload.md)
 
 Description: Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs. Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date resources needed to keep your applications running. [learn more](../azure-functions/functions-overview.md)
 
@@ -77,24 +77,24 @@ Description: Azure Functions is a serverless solution that allows you to write l
 ## Azure SQL
 [How to create an AVE compliant Azure SQL](./deploy-azure-sql-from-the-service-catalog-into-a-workload.md)
 
-Description: Azure SQL Database, a fully managed platform as a service (PaaS) database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement. [learn more](../azure-sql/database/sql-database-paas-overview.md)
+Description: Azure SQL Database, a fully managed platform as a service (PaaS) database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement. [learn more](https://learn.microsoft.com/azure/azure-sql/database/sql-database-paas-overview)
 
 
 ## Azure Kubernetes Service (AKS)
 [How to create an AVE compliant AKS](./deploy-azure-kubernetes-service-from-the-service-catalog-into-a-workload.md)
 
-Description: Azure Kubernetes Service (AKS) is a managed Kubernetes service that you can use to deploy and manage containerized applications. You need minimal container orchestration expertise to use AKS. AKS reduces the complexity and operational overhead of managing Kubernetes by offloading much of that responsibility to Azure. [learn more](../aks/what-is-aks.md)
+Description: Azure Kubernetes Service (AKS) is a managed Kubernetes service that you can use to deploy and manage containerized applications. You need minimal container orchestration expertise to use AKS. AKS reduces the complexity and operational overhead of managing Kubernetes by offloading much of that responsibility to Azure. [learn more](https://learn.microsoft.com/azure/aks/what-is-aks)
 
 
 ## Azure Container Registry (ACR)
 [How to create an AVE compliant ACR](./deploy-azure-container-registry-from-the-service-catalog-into-a-workload.md)
 
-Description: Azure Container Registry allows you to build, store, and manage container images and artifacts in a private registry for all types of container deployments. Use Azure container registries with your existing container development and deployment pipelines. Use Azure Container Registry Tasks to build container images in Azure on-demand, or automate builds triggered by source code updates, updates to a container's base image, or timers. [learn more](../container-registry/)
+Description: Azure Container Registry allows you to build, store, and manage container images and artifacts in a private registry for all types of container deployments. Use Azure container registries with your existing container development and deployment pipelines. Use Azure Container Registry Tasks to build container images in Azure on-demand, or automate builds triggered by source code updates, updates to a container's base image, or timers. [learn more](https://learn.microsoft.com/azure/container-registry/container-registry-intro)
 
 
 ## PostgreSQL
 
-Description: Azure Database for PostgreSQL flexible server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. The service generally provides more flexibility and server configuration customizations based on user requirements. [learn more](../postgresql/flexible-server/overview.md)
+Description: Azure Database for PostgreSQL flexible server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. The service generally provides more flexibility and server configuration customizations based on user requirements. [learn more](https://learn.microsoft.com/azure/postgresql/flexible-server/service-overview)
 
 Status: **Future development**
 
@@ -102,7 +102,7 @@ Status: **Future development**
 ## Azure Cosmos DB
 [How to create an AVE compliant Cosmos DB](./deploy-azure-cosmos-db-from-the-service-catalog-into-a-workload.md)
 
-Description: Azure Cosmos DB simplifies and expedites your application development by being the single database for your operational data needs, from geo-replicated distributed caching to backup to vector indexing and search. It provides the data infrastructure for modern applications like AI agent, digital commerce, Internet of Things, and booking management. It can accommodate all your operational data models, including relational, document, vector, key-value, graph, and table. [learn more](../cosmos-db/introduction.md)
+Description: Azure Cosmos DB simplifies and expedites your application development by being the single database for your operational data needs, from geo-replicated distributed caching to backup to vector indexing and search. It provides the data infrastructure for modern applications like AI agent, digital commerce, Internet of Things, and booking management. It can accommodate all your operational data models, including relational, document, vector, key-value, graph, and table. [learn more](https://learn.microsoft.com/azure/cosmos-db/introduction)
 
 
 ## Service Bus
@@ -113,12 +113,9 @@ Description: Azure Service Bus is a fully managed enterprise message broker with
 
 ## Azure Compute Gallery
 
-Description: An Azure Compute Gallery helps you build structure and organization around your Azure resources, like images and applications. [learn more](../virtual-machines/azure-compute-gallery.md)
+Description: An Azure Compute Gallery helps you build structure and organization around your Azure resources, like images and applications. [learn more](https://learn.microsoft.com/azure/virtual-machines/azure-compute-gallery)
 
 Status: **Future Development**
 
-Documentation:
-[Azure Compute Gallery Overview](../virtual-machines/azure-compute-gallery.md)
-
-# Request new service
-Submit a feature request using [here](https://aka.ms/ave/newfeature)
+## Request new service
+Submit a feature request using [this form](https://aka.ms/ave/scask)

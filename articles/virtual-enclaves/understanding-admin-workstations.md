@@ -20,7 +20,7 @@ Azure Portal access is restricted by default for enclaves. This means that to ad
 
 1. [Create Enclave endpoint](./create-a-enclave-endpoint-in-the-azure-portal.md)
 2. [Create Community Endpoint for Azure Portal access](./create-a-community-endpoint-in-the-azure-portal.md)
-3. [Create Enclave Connection to Community endpoint for Azure Portal](./create-a-connection-from-the-azure-portal.md)
+3. [Create Enclave Connection to Community endpoint for Azure Portal](./create-an-enclave-connection-from-the-azure-portal.md)
 
 ### Signing in to Admin Workstation
 #### Reset password
@@ -45,7 +45,7 @@ If the default behavior of Admin Workstations or the configurations that AVE all
 The default VM SKU size for AVE Admin Workstations is Standard_D4s_v3. Community and Enclave Owners are allowed to resize the VM SKU size of these Admin Workstations after an Enclave is created. Furthermore, Community Owners will be allowed to choose what VM SKU size the Admin Workstations are deployed when creating an Enclave.
 
 ## Patching
-It is the Community or Enclave Owner's (i.e. customer's) responsibility to [maintain and patch](../virtual-machines/updates-maintenance-overview.md) the Admin Workstations deployed in their Enclaves. Currently, AVE will not perform any patching on Admin Workstations after they are deployed in an Enclave.
+It is the Community or Enclave Owner's (i.e. customer's) responsibility to [maintain and patch](https://learn.microsoft.com/azure/virtual-machines/updates-maintenance-overview) the Admin Workstations deployed in their Enclaves. Currently, AVE will not perform any patching on Admin Workstations after they are deployed in an Enclave.
 
 Admin Workstations are intended only for bootstrapping Enclaves and to provide initial entry for Enclave setup. Enclave Owners and system administrators should either delete them after set-up, or continuously monitor, patch, and manage them just like any of their other enclave workloads or Azure resources. These Virtual Machines are deployed using known good images through Azure Marketplace but are not monitored or patched by AVE thereafter.
 
@@ -55,7 +55,7 @@ Admin Workstations are intended only for bootstrapping Enclaves and to provide i
 Community and Enclave Owners may also have concerns regarding the default VM image used for these VMs. Currently, AVE uses the Azure Marketplace's Windows Server 2019 Datacenter image for Admin Workstations. AVE does not currently support custom images for our Admin Workstations.
 
 ## Monitoring
-By default, Admin Workstations are configured with [Data collection rules](../azure-monitor/essentials/data-collection-rule-overview.md) to log certain resource and operating system logging.
+By default, Admin Workstations are configured with [Data collection rules](https://learn.microsoft.com/azure/azure-monitor/essentials/data-collection-rule-overview) to log certain resource and operating system logging.
 
 Should further troubleshooting be required to investigate Azure Virtual Machines, please contact [Azure Support](https://azure.microsoft.com/support/).
 

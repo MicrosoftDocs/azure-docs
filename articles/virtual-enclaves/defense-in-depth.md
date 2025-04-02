@@ -3,7 +3,7 @@ title: Defense in depth
 description: Azure Virtual Enclaves Documentation
 author: jadean-msft
 ms.author: jadean
-ms.service: Azure Virtual Enclaves
+# ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 01/31/2025
 ---
@@ -22,7 +22,7 @@ Azure Virtual Enclaves provides defense-in-depth through multiple layers of boun
 6. [**Network Security Groups**](https://learn.microsoft.com/azure/virtual-network/network-security-groups-overview) - OSI layer 3&4 network security service to filter traffic to and from Azure resources in an Azure virtual network. This is supplemental to control provided by OS firewall and the community Azure Firewall. All flows are logged through NSG Flows Logs.
 7. [**Workloads**](/docs/overview/what%20is%20a%20workload) - Combination of cloud services and installed software hosted inside of a virtual network. Because the services are either deployed in a VNet or linked to a VNet, flows are controlled by the Azure Firewall through central Azure VWAN. ​
 > **Note**: Virtual network integration is only one pattern of isolating platform resources. Customers can further isolate their workloads through other Identity and Access Management solutions such as Entra ID and Attribute-based Access Control.
-8. **Secrets, Logging, and Monitoring** - Enclave-specific secret store (Key Vault) and Log Analytics Workspace. Although these services are platform services, they are only accessible from within the enclave virtual network (firewall + private endpoint).​ All platform-managed and customer workload resources automatically log [diagnostics settings](../azure-monitor/essentials/diagnostic-settings.md) data and [Azure Activity](https://aka.ms/activity-log) logging. When a Community Owner creates a new enclave, they can choose a destination for this logging data (enclave Log Analytics Workspace, community Log Analytics Workspace, or both).
+8. **Secrets, Logging, and Monitoring** - Enclave-specific secret store (Key Vault) and Log Analytics Workspace. Although these services are platform services, they are only accessible from within the enclave virtual network (firewall + private endpoint).​ All platform-managed and customer workload resources automatically log [diagnostics settings](https://learn.microsoft.com/azure/azure-monitor/essentials/diagnostic-settings) data and [Azure Activity](https://aka.ms/activity-log) logging. When a Community Owner creates a new enclave, they can choose a destination for this logging data (enclave Log Analytics Workspace, community Log Analytics Workspace, or both).
 
 ## Layered Security
 Multi-layer protections provided by Azure Virtual Enclaves include:

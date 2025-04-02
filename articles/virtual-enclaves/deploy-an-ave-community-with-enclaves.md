@@ -4,27 +4,27 @@ description: Azure Virtual Enclaves Documentation
 author: jadean-msft
 ms.author: jadean
 ms.service: Azure Virtual Enclaves
-ms.topic: overview
+ms.topic: how-to
 ms.date: 01/31/2025
 ---
 
-# Quickstart: Deploy an Azure Virtual Enclaves (AVE) Community with Enclaves using an ARM template
+# Deploy an Azure Virtual Enclaves (AVE) Community with Enclaves using an ARM template
 
 [Azure Virtual Enclaves](./what-is-azure-virtual-enclaves.md) accelerates and streamlines the deployment and management of secure, isolated, and compliant cloud environments for the most sensitive missions and workloads across commercial and air-gapped environments. In this quickstart, you:
 
 - Deploy one AVE [community](./what-is-a-community.md) with two [enclaves](/docs/overview/what-is-an-enclave.md) using an Azure Resource Manager (ARM) template.
-- Deploy [workloads](./what-is-a-workload), [enclave endpoints](./what-is-an-enclave-endpoint), [transit hubs](./what-is-a-transit-hub.md) and [community endpoints](./what-is-a-community-endpoint), and [enclave connections](./what-is-an-enclave-connection.md) across your community using an ARM template.
+- Deploy [workloads](./what-is-a-workload.md), [enclave endpoints](./what-is-an-enclave-endpoint.md), [transit hubs](./what-is-a-transit-hub.md) and [community endpoints](./what-is-a-community-endpoint.md), and [enclave connections](./what-is-an-enclave-connection.md) across your community using an ARM template.
 
 > **Note**:
 > 
 > This sample deployment is just for demo purposes and doesn't represent all the best practices for network, systems, or applications administration.
 
 ## Before you begin
-- This quickstart assumes a basic understanding of networking and Azure Virtual Enclaves concepts. For more information, see [Concepts and best practices of Azure Virtual Enclaves](/docs/Concepts/Concepts-and-best-practices).
+- This quickstart assumes a basic understanding of networking and Azure Virtual Enclaves concepts. For more information, see [Best practices of Azure Virtual Enclaves](./best-practices.md).
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- A [resource manager template](https://learn.microsoft.com/azure/azure-resource-manager/templates/overview.md) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment.
+- A [resource manager template](../azure-resource-manager/templates/overview.md) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment.
 
 - If your environment meets the prerequisites and you're familiar with ARM templates, select Deploy to Azure to open the template in the Azure portal.
 
@@ -84,7 +84,7 @@ It can take up to 50 minutes to finish all resource creation. Wait for the deplo
 
 ## Validate the deployment
 
-Learn more about what gets deployed in a [community](./what-is-a-community.md) and what gets deployed in an [enclave](./what-is-an-enclave).
+Learn more about what gets deployed in a [community](./what-is-a-community.md) and what gets deployed in an [enclave](./what-is-an-enclave.md).
 
 ### Connect to the admin workstations
 Learn more about how to access resources within your enclave from the Enclave Admin Workstation [here](../Understanding-Admin-Workstations.md).

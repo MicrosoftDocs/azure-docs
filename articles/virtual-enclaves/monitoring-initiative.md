@@ -12,7 +12,7 @@ ms.date: 01/31/2025
 
 ## Monitoring GitHub Repository
 
-[GitHub Repository](TBD)
+[GitHub Repository](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policyDefinitions/Monitoring)
 
 ## Monitoring Policies Custom
 
@@ -20,7 +20,7 @@ ms.date: 01/31/2025
 | :---- | :---
 - | :---- | :---
 - |
-| Azure Monitor Logs for Application Insights should be linked to a Log Analytics workspace | Link the Application Insights component to a Log Analytics workspace for logs encryption. Customer-managed keys are commonly required to meet regulatory compliance and for more control over the access to your data in Azure Monitor. Linking your component to a Log Analytics workspace that's enabled with a customer-managed key, ensures that your Application Insights logs meet this compliance requirement, [Learn more](../azure-monitor/platform/customer-managed-keys.md). | 1.1.0 | Custom | AuditDeny | N/A |
+| Azure Monitor Logs for Application Insights should be linked to a Log Analytics workspace | Link the Application Insights component to a Log Analytics workspace for logs encryption. Customer-managed keys are commonly required to meet regulatory compliance and for more control over the access to your data in Azure Monitor. Linking your component to a Log Analytics workspace that's enabled with a customer-managed key, ensures that your Application Insights logs meet this compliance requirement, [Learn more](https://learn.microsoft.com/azure/azure-monitor/logs/customer-managed-keys). | 1.1.0 | Custom | AuditDeny | N/A |
 | Apply Diagnostic Settings for Microsoft.Storage/storageAccounts to a Log Analytics workspace and Storage Account | This policy automatically deploys diagnostic settings for Microsoft.Storage/storageAccounts to a Log Analytics workspace and a Storage Account. | 1.0.0 | Custom | AuditDeploy | N/A |
 | Audit Diagnostic Settings for Microsoft.Storage/storageAccounts/blobServices to a Log Analytics workspace and Storage Account | This policy audits diagnostic settings for Microsoft.Storage/storageAccounts/blobServices to a Log Analytics workspace and a Storage Account. | 1.0.1 | Custom | AuditIfNotExist | N/A |
 | Audit Diagnostic Settings for Microsoft.Storage/storageAccounts/fileServices to a Log Analytics workspace and Storage Account | This policy audits diagnostic settings for Microsoft.Storage/storageAccounts/fileServices to a Log Analytics workspace and a Storage Account. | 1.0.1 | Custom | AuditIfNotExist | N/A |

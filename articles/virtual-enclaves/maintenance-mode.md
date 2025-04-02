@@ -1,10 +1,10 @@
 ---
 title: Maintenance mode
-description: Azure Virtual Enclaves Documentation
+description: Maintenance mode
 author: jadean-msft
 ms.author: jadean
-ms.service: Azure Virtual Enclaves
-ms.topic: Concepts
+# ms.service: Azure Virtual Enclaves
+ms.topic: concepts
 ms.date: 01/31/2025
 ---
 

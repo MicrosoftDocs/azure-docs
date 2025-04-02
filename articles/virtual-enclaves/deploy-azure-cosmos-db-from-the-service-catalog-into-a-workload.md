@@ -4,11 +4,11 @@ description: Deploy Azure Cosmos DB from the Service Catalog into a Workload
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
-ms.topic: overview
+ms.topic: how-to
 ms.date: 01/31/2025
 ---
 
-# Quickstart: Deploy a Service Catalog Template into a Workload
+# Deploy Azure Cosmos DB from the Service Catalog into a Workload
 
 Azure Virtual Enclaves (AVE) is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this quickstart, you:
 

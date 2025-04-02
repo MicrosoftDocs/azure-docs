@@ -20,8 +20,8 @@ Currently, this is the expected behavior for network traffic within an enclave. 
 
 First, Enclave Owners must identify which individual [network interfaces (NICs)](../virtual-network/virtual-network-network-interface.md) in their Workload needs greater network isolation.
 
-Once these NICs have been identified, Enclave Owners can add their own [Network Security Groups] to those NICs. For more details on how to perform these steps, learn more on how to [Associate or dissociate a network security group to or from a [network interface
-](../virtual-network/manage-network-security-group?tabs=network-security-group-portal#associate-or-dissociate-a-network-security-group-to-or-from-a-network-interface)
+Once these NICs have been identified, Enclave Owners can add their own [Network Security Groups] to those NICs. For more details on how to perform these steps, learn more on how to [Associate or dissociate a network security group to or from a network interface
+](../virtual-network/manage-network-security-group.md?tabs=network-security-group-portal#associate-or-dissociate-a-network-security-group-to-or-from-a-network-interface)
 
 In the below image, a Network interface within the `contoso4-identity` Workload in the `contoso4` Enclave requires a custom NSG to be associated.
 
@@ -34,7 +34,7 @@ Should further troubleshooting be required to investigate inter-enclave network 
 - [Best ractices](./best-practices.md)
 - [What is an Enclave?](./what-is-an-enclave.md)
 - [Tutorial: Filter network traffic with Network Security Groups](../virtual-network/tutorial-filter-network-traffic.md)
-- [Network Interfaces](../virtual-network/virtual-network-network-interface?tabs=azure-portal.md)
+- [Network Interfaces](../virtual-network/virtual-network-network-interface.md?tabs=azure-portal.md)
 - [Network security groups](../virtual-network/network-security-group-how-it-works.md)
 - [Create, change, or delete a network security group](../virtual-network/manage-network-security-group.md?tabs=network-security-group-portal)
 - [Troubleshooting connectivity problems between Azure VMs](../virtual-network/virtual-network-troubleshoot-connectivity-problem-between-vms.md)

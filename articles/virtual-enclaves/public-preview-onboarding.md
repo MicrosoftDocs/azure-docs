@@ -4,7 +4,7 @@ description: Public Preview Onboarding
 author: jadean-msft
 ms.author: jadean
 # ms.service: Azure Virtual Enclaves
-ms.topic: How to Guides
+ms.topic: how-to
 ms.date: 01/31/2025
 ---
 
@@ -39,7 +39,7 @@ Thank you for your interest in the Azure Virtual Enclaves Public Preview Program
 
 You can run the following code to quickly register all required resource providers to begin using AVE.
 1. In the Azure portal, select the `Cloud Shell` icon at the top of the window here ![image](./media/Portal-cloud-shell-link.png)
-2. [Set context](../context-persistence?view=azps-12.3.0#create-a-new-azure-context-from-subscription-information) to the subscription you registered above.
+2. [Set context](https://learn.microsoft.com/powershell/azure/context-persistence#create-a-new-azure-context-from-subscription-information) to the subscription you registered above.
 3. Copy and past the code below into the Cloud Shell and press enter.
 
 ```
@@ -104,7 +104,7 @@ New-AzRoleAssignment -ObjectId $objectId -RoleDefinitionName "Contributor" -Scop
 New-AzRoleAssignment -ObjectId $objectId -RoleDefinitionName "User Access Administrator" -Scope "/subscriptions/$subId" -Verbose  
 
 ```
-# Next Steps
+## Next Steps
 
 1. Once the above steps have been completed, the Azure Virtual Enclaves Resource provider can begin deploying resources into your subscription on your behalf.
 

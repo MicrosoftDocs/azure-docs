@@ -18,7 +18,7 @@ Thank you for participating in the Private Preview of Azure Virtual Enclaves! Fo
 
 ## Service updates and releases
 
-* [Versioning policy for Azure services](../developer/intro/azure-service-sdk-tool-versioning.md)
+* [Versioning policy for Azure services](https://learn.microsoft.com/azure/developer/intro/azure-service-sdk-tool-versioning)
 
 ## Managed features in AVE
 

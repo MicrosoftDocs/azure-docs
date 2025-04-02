@@ -4,11 +4,11 @@ description: Deploy an App Service Web App from the Service Catalog into a Workl
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
-ms.topic: overview
+ms.topic: how-to
 ms.date: 01/31/2025
 ---
 
-# Deploy a Service Catalog **Web App** Template into a Workload
+# Deploy an App Service Web App from the Service Catalog into a Workload
 
 In this article, you:
 
@@ -67,9 +67,9 @@ If you don't plan on keeping these resources, clean up unnecessary resources to 
 
 ## Recommendations
 - [Add tags](https://learn.microsoft.com/azure/azure-resource-manager/management/tag-resources) to Service Catalog deployments to track important information for that resource such as:
--- Owner: <main POC>
--- Deployer: <yourName>
--- Purpose: <publish abc app to users>
--- Service Catalog Name: <RemoteApp>
--- Service Catalog Version: <version you deployed>
+-- Owner: `<main POC>`
+-- Deployer: `<yourName>`
+-- Purpose: `<publish abc app to users>`
+-- Service Catalog Name: `<RemoteApp>`
+-- Service Catalog Version: `<version you deployed>`
 - Consider adding an [Azure Policy to enforce and inherit tags](https://learn.microsoft.com/azure/azure-resource-manager/management/tag-policies)

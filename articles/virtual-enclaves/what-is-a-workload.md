@@ -1,8 +1,8 @@
 ---
 title: What is a Workload?
 description: What is a Workload?
-author: jadean-msft
-ms.author: jadean
+author: aserfass-msft
+ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 01/31/2025
@@ -23,7 +23,7 @@ The alternative is to deploy an Azure Resource Group through the portal that is 
 Workloads come with the following primary platform-managed and platform-deployed resources:
 
 - Workload managed resource group
-- [Azure Virtual Enclaves governance](./governance.md)
+- [Azure Virtual Enclaves governance](./what-is-azure-virtual-enclaves.md#multi-layered-governancegovernance-security-and-monitoring)
 - [Enclave services and properties](./what-is-an-enclave.md)
 
 ## Workload managed resource group

@@ -4,7 +4,7 @@ description: Air-Gapped Onboarding
 author: jadean-msft
 ms.author: jadean
 # ms.service: Azure Virtual Enclaves
-ms.topic: how-to-guides
+ms.topic: how-to
 ms.date: 01/31/2025
 ---
 

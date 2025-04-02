@@ -12,8 +12,6 @@ ms.date: 01/31/2025
 
 This guide provides the steps to onboard to Azure Virtual Enclaves (AVE) by enabling the resource provider and granting permissions over an Azure subscription.
 
-
-
 ## Prerequisites
 
 1. You must already have an Azure tenant and subscription
@@ -34,7 +32,7 @@ This guide provides the steps to onboard to Azure Virtual Enclaves (AVE) by enab
 4. Open the "**Preview Features**" blade (under "Settings")
 5. Filter by "**AVE**", select "**Azure Virtual Enclaves Preview**", and click "**Register**" towards the top of the page.
    ![image-2024-05-17_131235](./media/image-2024-05-17_131235.png)
-6. Message your AVE point of contact or the [AVE Product team](vepm@microsoft.com) to get approval
+6. Message your AVE point of contact or the AVE Product tea at vepm@microsoft.com to get approval
 7. Once you get approval, proceed to [next steps](#next-steps).
 
 ### Powershell
@@ -101,7 +99,7 @@ foreach ($provider in $resourceProviders)
 
 Transfer the script above into USSEC/USNAT using [Pastebin](https://eng.ms/docs/cloud-ai-platform/azure-edge-platform-aep/aep-silver/sovereign-foundation-team/cloud-transfer-service/cts-onboarding/cts-portal/pastebinuserguide)** 
 
-# Extra step for Air-Gapped users
+## Extra step for Air-Gapped users
 You may also need to enable a Feature on the subscription (specifically, the Microsoft.Insights/enableprivatelinkscopes AFEC) on the CX subscription, since AMPLS (deployed as part of enclaves) is hidden behind this feature flag.
 
 First, submit a JIT for: ACIS > AFEC-PlatformServiceOperator. You can ping the lowside Teams channel, Compute Approvals, to ask for JIT approval in either Air-Gapped Cloud.
@@ -124,7 +122,7 @@ See the AFEC documentation on how to get access / permission to create or regist
 
 Then proceed to [next steps](#next-steps)
 
-# Next Steps
+## Next Steps
 
 1. Once the above steps have been completed, the Azure Virtual Enclaves Resource provider can begin deploying resources into your subscription on your behalf.
 

@@ -23,7 +23,7 @@ ms.date: 01/31/2025
 6. Select "Review + Create" and then select "Create"
 7. Finally, copy the Managed Identity name into the Service Catalog deployment parameter or temporarily paste into notepad for use during deployment.
 
-# Assign Role to Managed Identity
+## Assign Role to Managed Identity
 1. From the Portal, navigate to the Managed Identity created in the step above.
 2. Select the Azure Role Assignments blade.
 3. Select "+Add Role Assignment"

@@ -45,7 +45,7 @@ Sign-in to the Azure portal at https://portal.azure.com.
 
 > **Note**:
 >
-> Organizations should choose a workload naming convention that makes sense for the organization. Learn more about [defining your naming convention](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming).
+> Organizations should choose a workload naming convention that makes sense for the organization. Learn more about [defining your naming convention](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming).
 
 8. Click `Next`.
 
@@ -58,4 +58,4 @@ Sign-in to the Azure portal at https://portal.azure.com.
 - [What is a Workload?](./what-is-a-workload.md)
 - [Create an Enclave](./create-an-enclave-in-the-azure-portal.md)
 - [Best practices](./best-practices.md)
-- [Defining your naming convention](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming)
+- [Defining your naming convention](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming)

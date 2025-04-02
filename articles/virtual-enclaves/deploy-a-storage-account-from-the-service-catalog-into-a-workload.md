@@ -4,11 +4,11 @@ description: Deploy a Storage Account from the Service Catalog into a Workload
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
-ms.topic: overview
+ms.topic: how-to
 ms.date: 01/31/2025
 ---
 
-# Deploy a Service Catalog **Storage Account** Template into a Workload
+# Deploy a Storage Account from the Service Catalog into a Workload
 
 In this article, you:
 
@@ -31,7 +31,7 @@ There are guardrails in the enclaves to ensure a storage account is using CMK en
 
 1. An existing subnet to place a private endpoint into. 
     - The default enclave subnet intended for resources can be used (ex: `AzureVirtualEnclaveSubnet`).
-2. A Key Vault that supports CMK and a key that can be leveraged for CMK encryption. [Setup CMK](docs/How-To-Guides/Set%2Dup-customer%2Dmanaged%2Dkey-\(CMK\)-encryption-within-an-enclave). Follow the instructions in the [CMK](docs/How-To-Guides/Set%2Dup-customer%2Dmanaged%2Dkey-\(CMK\)-encryption-within-an-enclave) article to:
+2. A Key Vault that supports CMK and a key that can be leveraged for CMK encryption. [Setup CMK](./setup-customer-managed-key-encryption-within-an-enclave.md). Follow the instructions in the [CMK](./setup-customer-managed-key-encryption-within-an-enclave.md) article to:
     - Create an RSA (2048 or greater) key in the enclave Key Vault in the `HostedResources` resource group for the enclave.
     - Create a user managed identity with access to the CMK key.
     - Create an Access Policy in the Key Vault above for this identity with the following Key Permissions: `Unwrap Key, Wrap Key, Recover, Get`
@@ -39,7 +39,7 @@ There are guardrails in the enclaves to ensure a storage account is using CMK en
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
 2. Select "Add Service" button.
-3. Select the Storage Account service template from the [Catalog](/docs/overview/List-of-Service-Catalog-Templates) of templates (the dropdown list).
+3. Select the Storage Account service template from the [Catalog](./list-of-service-catalog-templates.md) of templates (the dropdown list).
 4. Enter the required parameters on each tab
 5. Adjust any of the prepopulated parameters as needed.
 5. Select Review + Add then Add.
@@ -55,9 +55,9 @@ If you don't plan on keeping these resources, clean up unnecessary resources to 
 
 ## Recommendations
 - [Add tags](https://learn.microsoft.com/azure/azure-resource-manager/management/tag-resources) to Service Catalog deployments to track important information for that resource such as:
--- Owner: <main POC>
--- Deployer: <yourName>
--- Purpose: <publish abc app to users>
--- Service Catalog Name: <RemoteApp>
--- Service Catalog Version: <version you deployed>
+-- Owner: `<main POC>`
+-- Deployer: `<yourName>`
+-- Purpose: `<publish abc app to users>`
+-- Service Catalog Name: `<RemoteApp>`
+-- Service Catalog Version: `<version you deployed>`
 - Consider adding an [Azure Policy to enforce and inherit tags](https://learn.microsoft.com/azure/azure-resource-manager/management/tag-policies)

@@ -72,7 +72,7 @@ These guardrails include:
 - **Secure Transit Hubs**: Managed VPN Gateway, ExpressRoute, or vNet peering connections.
 - **Service Catalog**: Ensure workload deployments simple and repeatable through a collection of pre-built templates.
 
-Learn more about how Azure Virtual Enclaves [governance](./governance.md).
+Learn more about how Azure Virtual Enclaves [governance](./what-is-azure-virtual-enclaves.md#multi-layered-governancegovernance-security-and-monitoring).
 
 ## Defense-in-Depth 
 Azure Virtual Enclaves simplifies integration with existing secure Azure security and monitoring services including:
@@ -83,22 +83,22 @@ Azure Virtual Enclaves simplifies integration with existing secure Azure securit
 
 Learn more about how Azure Virtual Enclaves incorporates [defense-in-depth](./defense-in-depth.md).
 
-# Next steps
+## Next steps
 Here are some other articles to learn about Azure Virtual Enclaves:
 
-## Create a community and enclaves
+### Create a community and enclaves
 1. [Create a community](./create-a-community-in-the-azure-portal.md) 
 2. [Create an enclave](./create-an-enclave-in-the-azure-portal.md)
 
-## Create workloads within enclaves from a template
+### Create workloads within enclaves from a template
 3. [Create a workload](./create-a-workload-in-the-azure-portal.md)
 
-## Design Endpoints and Transit Hub connections
+### Design Endpoints and Transit Hub connections
 
 4. [Create a community endpoint](./create-a-community-endpoint-in-the-azure-portal.md)
-5. [Create an enclave endpoint](./create-a-enclave-endpoint-in-the-azure-pPortal.md)
+5. [Create an enclave endpoint](./create-a-enclave-endpoint-in-the-azure-portal.md)
 6. [Create a transit hub](./create-a-transit-hub-from-the-azure-portal.md)
 
-## Connect Enclaves and Endpoints
+### Connect Enclaves and Endpoints
 
 6. [Create an enclave connection](./create-an-enclave-connection-from-the-azure-portal.md)

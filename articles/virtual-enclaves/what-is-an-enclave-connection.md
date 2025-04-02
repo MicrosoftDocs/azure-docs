@@ -19,7 +19,7 @@ Enclave Connections can also enable secured public access to resources within a 
 ![image1.png](./media/image-b0a65533-8f75-46d0-aefe-843d4ed8473b.png)
 
 ## Template
-See template documentation [here](./ave-templates.md/#connections-template)
+See template documentation [here](./ave-templates.md#connections-template)
 
 ## About enclave connection resources
 coming soon
