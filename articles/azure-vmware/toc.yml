@@ -14,7 +14,7 @@ items:
   - name: Architecture
     items:
     - name: Azure VMware Solution in a virtual network design consideration (Public preview) 
-      href: architecture-native-design-considerations.md
+      href: native-internet-connectivity-design-considerations.md
   - name: Networking
     items:
     - name: Connectivity to Azure virtual networks
@@ -32,7 +32,7 @@ items:
 - name: Azure VMware Solution
   items:
   - name: What's Azure VMware Solution
-    href: introduction-azure-vmware.md
+    href: introduction.md
   - name: What's new
     href: azure-vmware-solution-platform-updates.md
   - name: Known issues
