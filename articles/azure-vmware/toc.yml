@@ -111,7 +111,7 @@ items:
       href: native-first-party-principle-security.md
   - name: Networking
     items:
-    - name: Connectivity to Azure virtual networks
+    - name: Connectivity to an Azure Virtual Network
       href: native-network-connectivity.md
     - name: Connect to on-premises environment
       href: native-connect-onpremises.md

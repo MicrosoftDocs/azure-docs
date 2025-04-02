@@ -1,5 +1,5 @@
 ---
-title: Connect Azure VMware Solution on Native private cloud to previous edition of Azure VMware Solution private cloud
+title: Connect Azure VMware Solution in an Azure Network Network private cloud to previous edition of Azure VMware Solution private cloud
 description: Learn about connecting Azure VMware Solution on Native private cloud to previous edition of Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
@@ -8,7 +8,7 @@ ms.author: jacobjaygbay
 #customer intent: As a cloud administrator, I want to connect Azure VMware Solution on Native private cloud to previous edition of Azure VMware Solution private cloud so that I can enable seamless communication between private clouds.
 ---
 
-# Connect Azure VMware Solution on Native private cloud to previous edition of Azure VMware Solution private cloud
+# Connect Azure VMware Solution in an Azure Network Network private cloud to previous edition of Azure VMware Solution private cloud
 
 In this article, you learn how to connect Azure VMware Solution on native private cloud to the previous edition of Azure VMware Solution private cloud. After you deploy Azure VMware Solution on native private clouds, you may need to have network connectivity between the private cloud and other networks you have on Azure virtual network, on-premises, other Azure VMware Solution private clouds, or the internet.  
 
@@ -18,7 +18,7 @@ This article discusses how the Azure VMware Solution on native private cloud get
 
 Have Azure VMware Solution on native and previous edition of private cloud deployed successfully.
 
-## Connect Azure VMware Solution on Native Private Cloud to Previous Edition of Azure VMware Solution Private Cloud
+## Connect Azure VMware Solution in an Azure Network Network private cloud to previous edition of Azure VMware Solution private cloud
 
 Azure VMware Solution on native SDDC can be connected to the previous edition of Azure VMware Solution SDDC using a standard ExpressRoute connection, just like how you have been connecting earlier Azure VMware Solution editions to the virtual network.
 

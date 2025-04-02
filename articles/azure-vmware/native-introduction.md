@@ -1,5 +1,5 @@
 ---
-title: What's Azure VMware Solution in an Azure virtual network (Public preview) 
+title: What's Azure VMware Solution in an Azure Virtual Network (Public preview) 
 description: Learn about Azure VMware Solution in a Virtual Network.
 ms.topic: overview
 ms.service: azure-vmware

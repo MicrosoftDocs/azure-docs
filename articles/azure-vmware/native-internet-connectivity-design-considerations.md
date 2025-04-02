@@ -1,22 +1,22 @@
 ---
-title: Azure VMware Solution in an Azure virtual network design consideration (Public preview)
-description: Learn about Azure VMware Solution in an Azure virtual network design consideration.
+title: Azure VMware Solution in an Azure Virtual Network design consideration (Public preview)
+description: Learn about Azure VMware Solution in an Azure Virtual Network design consideration.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 3/28/2025
 ms.custom: engagement-fy25
 ---
 
-# Azure VMware Solution in an Azure virtual network design consideration (Public preview)
+# Azure VMware Solution in an Azure Virtual Network design consideration (Public preview)
 
-After you deploy Azure VMware Solution on an Azure virtual network, you may need to have network connectivity between the private cloud and other networks you have on Azure Virtual Network (virtual network), on-premises, other Azure VMware Solution private clouds, or the internet. This article focuses on how the Azure VMware Solution on native private cloud gets connectivity to the internet. In this article, you learn to connect AVS on native private cloud to the internet.
+After you deploy Azure VMware Solution in an Azure Virtual Network, you may need to have network connectivity between the private cloud and other networks you have on Azure Virtual Network (virtual network), on-premises, other Azure VMware Solution private clouds, or the internet. This article focuses on how the Azure VMware Solution on native private cloud gets connectivity to the internet. In this article, you learn to connect AVS on native private cloud to the internet.
 
 ## Prerequisites
 - Have Azure VMware Solution on native and previous editions of private cloud deployed successfully.
 - Have Azure Firewall or a third-party NVA deployed in the virtual network which will be used as an internet ingress/egress appliance.
 - Have an Azure route table with a default route pointing to the Azure Firewall/NVA appliance.
 
-## Connect Azure VMware Solution on Native Private Cloud to the Internet
+## Connect Azure VMware Solution in an Azure Virtual Network private cloud to the Internet
 
 Azure VMware Solution provides necessary internet connectivity to SDDC appliances like vCenter, NSX Manager, and HCX Manager for management functions. However, Azure VMware Solution on native’s customer workload internet connectivity relies on the internet connectivity configured on the virtual network it's deployed in. The customer workload can connect to the internet through either vWAN, Azure Firewall, or third-party NVA appliances. The standard Azure Supported topology for vWAN, Azure Firewall, and third-party NVA are supported.
 

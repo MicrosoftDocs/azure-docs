@@ -1,8 +1,8 @@
 ---
-title: Create an Azure VMware Solution on a virtual network (Public preview)
+title: Create an Azure VMware Solution in a virtual network (Public preview)
 author: jjaygbay1
 ms.author: jacobjaygbay
-description: Learn how to create an Azure VMware Solution on an Azure virtual network to apply Azure's infrastructure and VMware expertise effectively.
+description: Learn how to create an Azure VMware Solution in an Azure virtual network to apply Azure's infrastructure and VMware expertise effectively.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 03/11/2025
@@ -10,7 +10,7 @@ ms.custom: engagement-fy25
 #customer intent: As a cloud administrator, I want to create an Azure VMware Solution on a virtual network so that I can leverage Azure's infrastructure and VMware expertise.
 ---
 
-# Create an Azure VMware Solution on a virtual network (Public preview)
+# Create an Azure VMware Solution in an Azure Virtual Network (Public preview)
 
 In this tutorial, you learn how to create an Azure VMware Solution on Native private cloud. This solution combines a first-party Azure VMware Solution with Azure hardware and operations to improve your experience, enhance quality, and security. This offering provides updated architecture that uses Azure Native physical network and hardware infrastructure. You get the best of both worlds by applying your existing VMware expertise, with the benefits of the entire Azure cloud to effectively and efficiently manage your workloads. This initial launch of this offering utilizes the existing AV64 SKU.
 

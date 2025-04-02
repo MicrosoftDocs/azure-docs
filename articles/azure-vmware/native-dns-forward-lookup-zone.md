@@ -8,7 +8,7 @@ ms.custom: engagement-fy25
 # customer intent: As a cloud administrator, I want to configure DNS forward lookup zone for Azure VMware Solution in an Azure virtual network so that I can manage domain name resolution for private cloud appliances.
 ---
 
-# DNS forward lookup zone for Azure VMware Solution in an Azure virtual network
+# DNS forward lookup zone for Azure VMware Solution in an Azure Virtual Network
 
 In this article, you learn how to configure a Domain Name System (DNS) forward lookup zones for Azure VMware Solution private cloud appliances. It explains the options and behaviors for domain name resolution within an Azure virtual network. 
 
