@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/21/2025
+ms.date: 04/02/2025
 ms.author: jianleishen
 ---
 # Copy data from Vertica using Azure Data Factory or Synapse Analytics
