@@ -3,7 +3,7 @@ title: Create virtual network resources by using Bicep
 description: Describes how to create virtual networks, network security groups, and route tables by using Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 03/17/2025
+ms.date: 04/02/2025
 ---
 
 # Create virtual network resources by using Bicep
@@ -16,14 +16,12 @@ Define your virtual networks by creating a resource with the type [`Microsoft.Ne
 
 ### Configure subnets by using the subnets property
 
-Virtual networks contain subnets, which are logical groups of IP addresses within the virtual network. There are two ways to define subnets in Bicep: by using the `subnets` property on the virtual network resource, and by creating a [child resource](child-resource-name-type.md) with type `Microsoft.Network/virtualNetworks/subnets`.
+Virtual networks contain subnets, which are logical groupings of IP addresses within the network. Subnets should always be managed as child resources, and the **subnets** property should never be defined within the virtual network resource. This approach ensures a safe and independent lifecycle for both resource types.
 
-> [!WARNING]
-> Avoid defining subnets as child resources. This approach can result in downtime for your resources during subsequent deployments, or failed deployments.
+> [!NOTE]
+> Microsoft has updated the Azure Virtual Network API to allow modifications to virtual networks without requiring the inclusion of the `subnet` property in PUT requests. Previously, omitting the `subnet` property would result in the deletion of existing subnets. With the new behavior, if the subnet property is not included in a PUT request, the existing subnets remain unchanged. Explicitly setting the subnet property to an empty value will delete all existing subnets, while providing specific subnet configurations will update or create subnets accordingly. This change simplifies virtual network management by preventing unintended subnet deletions during updates. For more information, see [Azure Virtual Network now supports updates without subnet property](https://techcommunity.microsoft.com/blog/azurenetworkingblog/azure-virtual-network-now-supports-updates-without-subnet-property/4067952).
 
-It's best to define your subnets within the virtual network definition, as in this example:
-
-> The following example is part of a larger example. For a Bicep file that you can deploy, [see the complete file](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/samples/scenarios-virtual-networks/vnet.bicep).
+It's best to define your subnets as child resources, as in this example:
 
 ```bicep
 param location string = resourceGroup().location
@@ -32,7 +30,7 @@ var virtualNetworkName = 'my-vnet'
 var subnet1Name = 'Subnet-1'
 var subnet2Name = 'Subnet-2'
 
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2023-11-01' = {
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2024-05-01' = {
   name: virtualNetworkName
   location: location
   properties: {
@@ -41,38 +39,25 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2023-11-01' = {
         '10.0.0.0/16'
       ]
     }
-    subnets: [
-      {
-        name: subnet1Name
-        properties: {
-          addressPrefix: '10.0.0.0/24'
-        }
-      }
-      {
-        name: subnet2Name
-        properties: {
-          addressPrefix: '10.0.1.0/24'
-        }
-      }
-    ]
   }
 
-  resource subnet1 'subnets' existing = {
+  resource subnet1 'subnets' = {
     name: subnet1Name
-  }
+    properties: {
+      addressPrefix: '10.0.0.0/24'
+    }  }
 
-  resource subnet2 'subnets' existing = {
+  resource subnet2 'subnets' = {
     name: subnet2Name
+    properties: {
+      addressPrefix: '10.0.1.0/24'
+    }    
   }
 }
 
 output subnet1ResourceId string = virtualNetwork::subnet1.id
 output subnet2ResourceId string = virtualNetwork::subnet2.id
 ```
-
-Although both approaches enable you to define and create your subnets, there is an important difference. When you define subnets by using child resources, the first time your Bicep file is deployed, the virtual network is deployed. Then, after the virtual network deployment is complete, each subnet is deployed. This sequencing occurs because Azure Resource Manager deploys each individual resource separately.
-
-When you redeploy the same Bicep file, the same deployment sequence occurs. However, the virtual network is deployed without any subnets configured on it because the `subnets` property is effectively empty. Then, after the virtual network is reconfigured, the subnet resources are redeployed, which re-establishes each subnet. In some situations, this behavior causes the resources within your virtual network to lose connectivity during your deployment. In other situations, Azure prevents you from modifying the virtual network and your deployment fails.
 
 ### Access subnet resource IDs
 
