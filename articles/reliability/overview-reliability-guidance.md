@@ -35,7 +35,7 @@ This section provides links to reliability guidance for many Azure services. Eac
 | Product| Reliability Guide | Other Reliability Documentation |
 |----------|---------|---------|
 |Azure AI Health Insights| [Reliability in Azure AI Health Insights](reliability-health-insights.md)||
-|Azure AI Search|| | [Reliability in Azure AI Search](/azure/search/search-reliability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+|Azure AI Search| | [Reliability in Azure AI Search](/azure/search/search-reliability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure API Center| [Reliability in Azure API Center](reliability-api-center.md) ||
 |Azure API Management||[Ensure API Management availability and reliability](../api-management/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) </p> [How to implement disaster recovery using service backup and restore](../api-management/api-management-howto-disaster-recovery-backup-restore.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure App Configuration||[How does App Configuration ensure high data availability?](../azure-app-configuration/faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-does-app-configuration-ensure-high-data-availability) </p> [Resiliency and disaster recovery](../azure-app-configuration/concept-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&tabs=core2x)|
@@ -87,7 +87,7 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure Kubernetes Service (AKS)| [Reliability in Azure Kubernetes Service (AKS)](reliability-aks.md)||
 |Azure Load Balancer| [Reliability in Azure Load Balancer](reliability-load-balancer.md )||
 |Azure Logic Apps|[Reliability in Azure Logic Apps](reliability-logic-apps.md) ||
-|Azure Machine Learning Service|| [Failover for business continuity and disaster recovery]  (/azure/machine-learning/how-to-high-availability-machine-learning?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
+|Azure Machine Learning Service|| [Failover for business continuity and disaster recovery](/azure/machine-learning/how-to-high-availability-machine-learning?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Media Services|| [High Availability with Media Services and Video on Demand (VOD)](/azure/media-services/latest/architecture-high-availability-encoding-concept?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Migrate | | [Does Azure Migrate offer Backup and Disaster Recovery?](../migrate/resources-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#does-azure-migrate-offer-backup-and-disaster-recovery)|
 |Azure Monitor Logs |[Enhance data and service resilience in Azure Monitor Logs with availability zones](/azure/azure-monitor/logs/availability-zones) </p> [Azure Monitor Logs workspace replication](/azure/azure-monitor/logs/workspace-replication) | 
