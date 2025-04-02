@@ -134,7 +134,23 @@ The following table helps describe some of the features supported by tier:
 
 ### Availability by region
 
-Azure Managed Redis is continually expanding into new regions. To check the availability by region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=redis-cache&regions=all).
+Azure Managed Redis is continually expanding into new regions.
+
+| Americas | Europe | Middle East | Africa | Asia Pacific |
+|---|---|---|---|---|
+|Brazil South |Germany West Central | | |East Asia |
+|West Central US | UK South  |   |   | Australia East |
+|North Central US | West Europe |   |   | Japan East |
+|West US 3 |Sweden Central | | |South East Asia |
+|East US 2 | | | |Central India |
+|South Central US | | | | |
+|West US 2 | | | | |
+|East US | | | | |
+|West US | | | | |
+|Central US | | | | |
+|Canada Central | | | | |
+
+To check the availability by region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=redis-cache&regions=all).
 
 ## Migration from Azure Cache for Redis
 
