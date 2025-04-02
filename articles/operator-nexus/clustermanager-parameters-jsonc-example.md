@@ -12,25 +12,32 @@ ms.custom: template-how-to, devx-track-arm-template
 # Example of clusterManager.parameters.jsonc template file.
 
 ```clusterManager.parameters.jsonc
-
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "name": {
-      "value": "$CLUSTER_MANAGER_NAME"
+      "value": "<CLUSTER_MANAGER_NAME>"
     },
     "resourceGroupName": {
-      "value": "$CLUSTER_MANAGER_RG"
+      "value": "<CLUSTER_MANAGER_RG>"
     },
     "managedResourceGroupName": {
-      "value": "$MRG_NAME"
+      "value": "<MRG_NAME>"
     },
     "fabricControllerId": {
-      "value": "$NFC_ID"
+      "value": "<NFC_ID>"
     },
     "vmSize": {
-      "value": "$VM_SIZE"
+      "value": ""
+    },
+    "assignedIdentities": {
+      "value": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+          "<UAMI_RID>": {}
+        }
+      }
     },
     "clusterManagerTags": {
       "value": {
@@ -39,10 +46,10 @@ ms.custom: template-how-to, devx-track-arm-template
       }
     },
     "environment": {
-      "value": "$CLUSTER_MANAGER_NAME"
+      "value": "<CLUSTER_MANAGER_NAME>"
     },
     "location": {
-      "value": "$LOCATION"
+      "value": "<LOCATION>"
     }
   }
 }
