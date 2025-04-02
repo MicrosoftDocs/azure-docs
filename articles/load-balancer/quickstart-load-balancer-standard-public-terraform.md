@@ -1,23 +1,21 @@
 ---
-title: 'Quickstart: Create an internal load balancer - Terraform'
+title: 'Quickstart: Create a public load balancer - Terraform'
 titleSuffix: Azure Load Balancer
-description: This quickstart shows how to create an internal load balancer by using Terraform.
+description: This quickstart shows how to create a load balancer by using Terraform.
 services: load-balancer
 author: mbender-ms
-manager: kumud
+manager: kumudD
 ms.service: azure-load-balancer
 ms.topic: quickstart
 ms.date: 04/01/2025
 ms.author: mbender
 ms.custom: devx-track-terraform
-content_well_notification: 
-  - AI-contribution
-#Customer intent: I want to create an internal load balancer by using Terraform so that I can load balance internal traffic to VMs.
+#Customer intent: I want to create a load balancer by using Terraform so that I can load balance internet traffic to VMs.
 ---
 
-# Quickstart: Create an internal load balancer to load balance internal traffic to VMs using Terraform
+# Quickstart: Create a public load balancer to load balance VMs using Terraform
 
-This quickstart shows you how to deploy a standard internal load balancer and two virtual machines using Terraform. Additional resources include Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
+This quickstart shows you how to deploy a standard load balancer to load balance VMs (virtual machines) using Terraform.
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
@@ -31,11 +29,8 @@ This quickstart shows you how to deploy a standard internal load balancer and tw
 > * Create an Azure network interface load balancer backend address pool association using [azurerm_network_interface_backend_address_pool_association](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface_backend_address_pool_association)
 > * Create an Azure Linux Virtual Machine using [azurerm_linux_virtual_machine](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine)
 > * Create an Azure Virtual Machine Extension using [azurerm_virtual_machine_extension](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_machine_extension)
-> * Create an Azure NAT Gateway using [azurerm_nat_gateway](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/nat_gateway)
-> * Create an Azure Bastion using [azurerm_bastion_host](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/bastion_host)
 
 ## Prerequisites
-
 - Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
