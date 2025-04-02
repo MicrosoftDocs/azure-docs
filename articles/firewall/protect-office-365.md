@@ -50,11 +50,11 @@ When you create the rules, ensure you define the required TCP ports (for network
 
 ## Limitations
 
-If a specific combination of product, category and required/not required has only FQDNs required, but uses TCP ports that aren't 80/443, an FQDN tag isn't be created for this combination. Application Rules can only cover HTTP, HTTPS or MSSQL. To allow communication to these FQDNs, create your own network rules with these FQDNs and ports. 
+If a specific combination of product, category and required/not required has only FQDNs required, but uses TCP ports that aren't 80/443, an FQDN tag isn't created for this combination. Application Rules can only cover HTTP, HTTPS or MSSQL. To allow communication to these FQDNs, create your own network rules with these FQDNs and ports. 
 For more information, see [Use FQDN filtering in network rules](fqdn-filtering-network-rules.md).
 
 ## Next steps
 
-- For more information, see [Protect Microsoft365 and Windows365 with Azure Firewall](https://techcommunity.microsoft.com/t5/azure-network-security-blog/protect-office365-and-windows365-with-azure-firewall/ba-p/3824533).
+- For more information, see [Protect Microsoft 365 and Windows 365 with Azure Firewall](https://techcommunity.microsoft.com/t5/azure-network-security-blog/protect-office365-and-windows365-with-azure-firewall/ba-p/3824533).
 - Learn more about Microsoft 365 network connectivity: [Microsoft 365 network connectivity overview](/microsoft-365/enterprise/microsoft-365-networking-overview)
 
