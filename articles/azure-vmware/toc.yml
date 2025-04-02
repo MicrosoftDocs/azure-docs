@@ -3,7 +3,7 @@ items:
   href: index.yml
 - name: Overview - Azure VMware Solution
   href: introduction.md 
-- name: Azure VMware Solution on Azure virtual network
+- name: Azure VMware Solution on an Azure virtual network
   items:
   - name: What's Azure VMware Solution in an Azure virtual network (Public preview)  
     href: native-introduction.md
