@@ -105,7 +105,7 @@ Arguments:
 - `--tags` - Space-separated tags: key[=value] [key[=value]...]. Use '' to clear existing tags.
 - `--subscription` - Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`.
 - `--mi-system-assigned` - Enable System-assigned managed identity. One of `--mi-user-assigned` or `--mi-system-assigned` can be used at a time.
-- `--mi-user-assigned` - Space-separated resource IDs of the User-assigned managed identities to be added. One of `--mi-user-assigned` or `--mi-system-assigned` can be used at a time.
+- `--mi-user-assigned` - The resource ID of the user-assigned managed identity to be added. One of `--mi-user-assigned` or `--mi-system-assigned` can be used at a time. Cluster Managers only support one user-assigned managed identity.
 - `--if-match`/`if-none-match` - Specify the last-seen ETag value to prevent accidentally overwriting concurrent changes. The ETag is returned as the resource property once the resource is created and can be used on the update operations.
 
 Common arguments that are available for every Azure CLI command:
