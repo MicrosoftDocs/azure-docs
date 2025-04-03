@@ -146,6 +146,7 @@ There are some [commercial predicates](https://docs.vmware.com/en/VMware-Spring-
 ### Response cache
 
 If you enable the response cache globally in Spring Cloud Gateway for VMWare Tanzu, use the following configuration in Spring Cloud Gateway and see [local cache response global filter](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#local-cache-response-global-filter) for more details:
+
 ```yaml
 spring:
   cloud:
