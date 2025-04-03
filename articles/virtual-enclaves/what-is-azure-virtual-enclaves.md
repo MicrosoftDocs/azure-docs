@@ -10,12 +10,11 @@ ms.date: 01/31/2025
 
 # What is Azure Virtual Enclaves?
 
-## Overview
 Azure Virtual Enclaves (AVE) accelerates and streamlines the deployment and management of secure, isolated, and compliant cloud environments for the most sensitive workloads. AVE is design for commercial and air-gapped environments.
 
 AVE takes a multi-layered and hierarchical approach to virtual boundary protection. A **community** serves as a central hub for networking, governance, and monitoring for a collection of isolated networks known as **enclaves**. The community itself hosts a centralized, virtual hub network (Azure VWAN) secured by an intelligent firewall security platform (Azure Firewall), through which all enclave traffic is routed, logged, and monitored. Enclaves are isolated, zero-trust software-defined networks (Azure Virtual Network), hosting customer workloads deployed through Azure Cloud products. Enclaves and customer workloads are securely governed through policy configuration management (Azure Policy).
 
-![Communities and Virtual Enclaves.svg](./media/communities-and-virtual-enclaves.svg)
+![Graphic that shows Communities and Virtual Enclaves example architecture.svg](./media/communities-and-virtual-enclaves.svg)
 
 ## Key Capabilities
 
@@ -45,15 +44,15 @@ With Azure Virtual Enclaves, you can easily create new isolated, zero-trust soft
 
 ![image1.png](./media/images-hierarchy.png)
 
-## Virtual Connection Management
-With Azure Virtual Enclaves, you can easily connect your communities, enclaves, and workloads to other networks and resources, both on Azure and on-prem.
+## Virtual connection management
+With Azure Virtual Enclaves, you can easily connect your communities, enclaves, and workloads to other networks and resources, both on Azure and on-premises.
 
 - [**Enclave Endpoints**](./what-is-an-enclave-endpoint.md) are collections of networking rules that enable simplified and standardized connectivity to an Enclave or an individual Workload.
 - [**Community Endpoints**](./what-is-a-community-endpoint.md) are collections of networking rules that enable external connectivity to trusted destinations including public websites, well-known services, and external private networks.
 - [**Transit Hubs**](./what-is-a-transit-hub.md) can be associated with Community Endpoint rules to allow secure site-to-site connectivity to external private networks via VPN Gateway or ExpressRoute.
 - [**Enclave Connections**](./what-is-an-enclave-connection.md) are associated with a Community or Enclave endpoint and allow network traffic based on the rules defined within the Endpoint.
 
-## Multi-Layered governance/Governance, Security, and Monitoring
+## Multi-layered governance, security, and monitoring
 
 Azure Virtual Enclaves provides the following security layers built directly into the service:
 
@@ -74,7 +73,7 @@ These guardrails include:
 
 Learn more about how Azure Virtual Enclaves [governance](./what-is-azure-virtual-enclaves.md#multi-layered-governancegovernance-security-and-monitoring).
 
-## Defense-in-Depth 
+## Defense-in-depth 
 Azure Virtual Enclaves simplifies integration with existing secure Azure security and monitoring services including:
 - **Azure Sentinel**: Combine the power of Azure Sentinel's SIEM and SOAR capabilities with Azure Virtual Enclaves to enhance threat detection, investigation, and response across your cloud environment.
 - **Azure Monitor**: Get end-to-end visibility and in-depth monitoring of your Azure Virtual Enclaves operations, benefiting from Azure Monitor's advanced analytics.
@@ -99,6 +98,6 @@ Here are some other articles to learn about Azure Virtual Enclaves:
 5. [Create an enclave endpoint](./create-a-enclave-endpoint-in-the-azure-portal.md)
 6. [Create a transit hub](./create-a-transit-hub-from-the-azure-portal.md)
 
-### Connect Enclaves and Endpoints
+### Connect Enclaves and Enclave Endpoints
 
 6. [Create an enclave connection](./create-an-enclave-connection-from-the-azure-portal.md)
