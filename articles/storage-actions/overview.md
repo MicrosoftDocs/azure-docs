@@ -13,7 +13,7 @@ ms.author: normesta
 
 ---
 
-# What is Azure Storage Actions Preview?
+# What is Azure Storage Actions
 
 Azure Storage Actions is a fully managed platform designed to automate data management tasks for Azure Blob Storage and Azure Data Lake Storage. You can use it perform common data operations on millions of objects across multiple storage accounts without provisioning additional compute capacity and without requiring you to write code.
 
@@ -45,7 +45,7 @@ See these articles to learn how to define a storage task:
 - [Storage task conditions](storage-tasks/storage-task-conditions.md)
 - [Storage task operations](storage-tasks/storage-task-operations.md)
 
-### Execution
+## Execution
 
 To use a storage task, you must create a storage task assignment. An assignment identifies a storage account and a subset of objects to target in that account. It also specifies when the task runs and where execution reports are stored. See [Storage task assignment](storage-tasks/storage-task-assignment.md).
 
@@ -58,7 +58,10 @@ See these articles to learn how to assign a storage task:
 - [Create and manage a storage task assignment](storage-tasks/storage-task-assignment-create.md)
 - [Azure roles for storage task assignments](storage-tasks/storage-task-authorization-roles.md)
 
-### Events
+> [!NOTE]
+> Storage task assignment can't target general-purpose v1 accounts because those accounts don't support the latest features. If you have a general-purpose v1 account, we recommend you to upgrade to [general-purpose v2 accounts](/azure/well-architected/service-guides/storage-accounts/operational-excellence#design-considerations) to use all the latest features.
+
+## Events
 
 Azure Storage Actions events allow applications to react to events, such as the completion of a storage task run. It does so without the need for complicated code or expensive and inefficient polling services.
 
@@ -66,52 +69,11 @@ Azure Storage Actions events are pushed using [Azure Event Grid](https://azure.m
 
 See the [Azure Storage Actions events schema](../event-grid/event-schema-storage-actions.md?toc=/azure/storage-actions/toc.json) article to view the full list of the events that Azure Storage Actions supports.
 
-## Supported Regions
-
-Azure Storage tasks are supported in the following public regions:
-
-- Australia East
-
-- Australia Southeast
-
-- Brazil south
-
-- Canada Central
-
-- Central India
-
-- Central US
-
-- France Central
-- Germany West Central
-
-- North Central US
-
-- North Europe
-
-- South Central Us
-
-- Southeast Asia
-
-- Switzerland North
-
-- West Europe
-
-- West US
-
-- West US 2
-
-> [!NOTE]
-> General-purpose v1 accounts don't support the latest features and hence Azure Storage Actions is not supported either. If you have a general-purpose v1 account, we recommend you to upgrade to [general-purpose v2 accounts](/azure/well-architected/service-guides/storage-accounts/operational-excellence#design-considerations) to use all the latest features.
-
 ## Pricing and billing
 
 Pricing is based on the execution of storage task assignments. Each time your storage task assignment executes, you are billed a task execution instance charge. You also incur a charge based on the count of objects scanned and evaluated against the conditions of the storage task. That charge is based on a single price per million objects scanned. The final meter applies to the count of operations performed on objects in the storage account. This charge is also based on a single price per million objects. Meters are applied to each executing instance. If a storage task assignment is scheduled to execute repeatedly, then you're billed for each separate instance. 
 
 At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Storage Actions costs. There's a separate line item for each meter. These charges appear in the subscription of the storage account where the task assignment is configured. To learn more about Azure Storage Actions billing meters along with example calculations for common scenarios, see [Plan to manage costs for Azure Storage Actions](storage-actions-plan-manage-costs.md)
-
-> [!NOTE]
-> Pricing for Azure Storage Actions will start rolling out across the different preview regions starting from April 1, 2025. Charges for Azure Storage Actions might appear on your subscription if a task assignment was executed after the effective date. During the rollout period, charges for objects targeted and operations executed might not appear on your bill until later in the cycle. Because of this delay, your bill might seem lower than expected during the first part of the month.
 
 ## Next steps
 
