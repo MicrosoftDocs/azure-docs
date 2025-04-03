@@ -99,7 +99,7 @@ These roles are scoped specifically for AVE and do not overlap with permissions 
 
 #### **Enclave-Level Roles**
 - **Enclave Owner**  
-  Grants full control over the AVE Enclave resource. Users can manage the enclave’s configuration, including endpoints and workload associations, but cannot modify the underlying infrastructure (e.g., virtual network or NSGs).  
+  Grants full control over the AVE Enclave resource. Users can manage the enclave’s configuration, including endpoints and workload associations, but can't modify the underlying infrastructure (e.g., virtual network or NSGs).  
   **Example Permissions**:  
   - Create, update, or delete an Enclave.  
   - Associate workloads and manage enclave connection rules.  

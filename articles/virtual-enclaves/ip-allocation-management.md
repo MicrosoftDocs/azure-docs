@@ -15,9 +15,9 @@ In IPAM, a **CidrSpace** is a CidrRange, or a block.
 
 A **CidrPool** (or just a pool), is the community, or the larger address space, to which CidrSpaces will be allocated to. A pool can be a main pool or a secondary pool. A main CidrPool can have both CidrSpaces, and other mini CidrPools allocated to it (these are called secondary pools). In that sense, the mini CidrPools, (or secondary pools) support reservations for specific types and can have other allocations inside them.
 
-Thus, if reservations are loaded to a CidrPool, it is split between the general pool (available for any type of CidrSpace), and the reservations (which have a specific type of blocks that they accept). Note that reservations should be created up-front to ensure that the entire pool is free, but they are completely optional. This is, if a client decides not to load any reservations, the entire pool will be free for the end-user to make his allocations.
+Thus, if reservations are loaded to a CidrPool, it's split between the general pool (available for any type of CidrSpace), and the reservations (which have a specific type of blocks that they accept). Note that reservations should be created up-front to ensure that the entire pool is free, but they are completely optional. This is, if a client decides not to load any reservations, the entire pool will be free for the end-user to make his allocations.
 
-Blocks can be both allocated and deallocated to a pool (no matter if they are the main pool or secondary pools). However, once a reservation has been created, it cannot be removed. 
+Blocks can be both allocated and deallocated to a pool (no matter if they are the main pool or secondary pools). However, once a reservation has been created, it can't be removed. 
 
 If reservations are loaded, the type of allocation should be passed to IPAM whenever making a _TryGetNextAvailableCIDRBlock()_ request; as the algorithm will check if there is a specific reservation of that one type before trying to allocate it to the general pool. If there is a reservation, IPAM will retrieve the next-block from that reservation (as long as there’s space available in that specific reserved mini pool). If there isn't a reservation, it will give you the next-block from the general pool.
 

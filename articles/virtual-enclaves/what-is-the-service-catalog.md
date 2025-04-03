@@ -10,7 +10,7 @@ ms.date: 01/31/2025
 
 # What is the Service Catalog?
 
-The Service Catalog enables customers to quickly deploy tailored ARM templates of Azure services into Azure Virtual Enclaves (AVE) while being compliant with Policy Guardrails and enclave isolation requirements. The Service Catalog helps customers springboard their setups within the secure boundary of AVE without getting blocked by the security they want.
+The Service Catalog enables customers to quickly deploy tailored Azure Resource Manager (ARM) templates of Azure services into Azure Virtual Enclaves (AVE) while being compliant with Policy Guardrails and enclave isolation requirements. The Service Catalog helps customers springboard their setups within the secure boundary of AVE without getting blocked by the security they want.
 
 ![image1.png](./media/image-e66cdab2-61e2-4bc0-91cf-6f65fc34963f.png)
 

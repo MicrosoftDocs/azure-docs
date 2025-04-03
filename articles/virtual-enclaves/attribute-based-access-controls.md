@@ -18,7 +18,7 @@ The Virtual Enclaves (VE) implementation of ABAC is a system running as a servic
 
 For example, a user has an attribute called "IsAdminUser". When this user signs in from Facility A, they will be presented with Facility A Administrative desktops only. They will not see Facility B Administrative desktops, nor will they see Common User desktops for either facility.
 
-The reason this is implemented based on location is because the work performed in specific facilities cannot cross boundaries or be seen/shared across those boundaries. More specifically SCI data cannot be seen or accessed from a SAP ONLY location because the users at those SAP ONLY locations might not be briefed to know about, see or even be aware of information at the SCI/SAP level.
+The reason this is implemented based on location is because the work performed in specific facilities can't cross boundaries or be seen/shared across those boundaries. More specifically SCI data can't be seen or accessed from a SAP ONLY location because the users at those SAP ONLY locations might not be briefed to know about, see or even be aware of information at the SCI/SAP level.
 
 When a user logs into a SAP ONLY desktop between ABAC, Network Security Groups, Firewall rules, Active Directory Permissions (RBAC), and Sentris protections, they will not be able to view or be exposed to SCI data.
 
@@ -77,7 +77,7 @@ The Attribute creation and assignment occur in the ABAC Portal (based on the Mic
 
 There are two types of attributes in the system:
 
-* **Managed**: these are built in and managed by the system. At the moment the only Managed attribute in use is UserLocation. The system populates this with either SAPONLY or SCICAP based on the origination ip (the distribution console where the user's connection ingresses from). A managed attribute cannot be change or assigned. 
+* **Managed**: these are built in and managed by the system. At the moment the only Managed attribute in use is UserLocation. The system populates this with either SAPONLY or SCICAP based on the origination ip (the distribution console where the user's connection ingresses from). A managed attribute can't be change or assigned. 
 * **Assigned**: An assigned attribute is created at the time they are needed, such as onboarding a new enclave, you might need to create a new attribute IsEnclaveUserXYZ. Attributes are then assigned to the user at the time of user creation or during regular personnel operations.An assigned attribute can be created, given range values, can be a string, number or boolean value. They can be assigned, or retired (archived).
 
 ## ABAC Methodology
@@ -180,7 +180,7 @@ User assignments are the crux of ABAC. Once all the attributes, rules and criter
 
 ### Considerations
 
-When assigning users, it is important to make sure you are applying the correct assignment to the correct user account. Some users may have an EA and a standard user account, for example.
+When assigning users, it's important to make sure you are applying the correct assignment to the correct user account. Some users may have an EA and a standard user account, for example.
 
 > **Some examples**:
 >

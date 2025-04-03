@@ -10,7 +10,7 @@ ms.date: 01/31/2025
 
 # Create New Subnet for AVE Enclave VNET
 
-This will guide you through replacing the existing AVE Enclave VNET subnet `AzureVirtualEnclaveSubnet` with a replacement `AzureVirtualEnclaveSubnet` subnet and a new subnet of your choice. This is an important step to perform early after the Enclave is created so there are no resources attached to the existing subnet. An existing subnet cannot be deleted until there are no resources attached to it.
+This will guide you through replacing the existing AVE Enclave VNET subnet `AzureVirtualEnclaveSubnet` with a replacement `AzureVirtualEnclaveSubnet` subnet and a new subnet of your choice. This is an important step to perform early after the Enclave is created so there are no resources attached to the existing subnet. An existing subnet can't be deleted until there are no resources attached to it.
 
 > **Notes**:
 > * You are not able to resize a VNET with existing connections. [Official Docs](https://learn.microsoft.com/azure/virtual-network/virtual-network-manage-subnet?tabs=azure-portal#change-subnet-settings). If you need to resize an existing subnet you will need to move any connected devices out first, resize, then move them back.

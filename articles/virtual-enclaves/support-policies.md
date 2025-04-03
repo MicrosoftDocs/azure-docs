@@ -14,7 +14,7 @@ This article describes technical support policies and limitations for Azure Virt
 
 ## Support during Private Preview
 
-Thank you for participating in the Private Preview of Azure Virtual Enclaves! For all questions or concerns that cannot be addressed using the documentation found in this site, do not hesitate to reach out to your designated Azure Virtual Enclaves Product Manager (PM)point-of-contact. As part of your onboarding to the Private Preview, you and your team will have been assigned a PM that will help you with any questions you have while using Azure Virtual Enclaves.
+Thank you for participating in the Private Preview of Azure Virtual Enclaves! For all questions or concerns that can't be addressed using the documentation found in this site, do not hesitate to reach out to your designated Azure Virtual Enclaves Product Manager (PM)point-of-contact. As part of your onboarding to the Private Preview, you and your team will have been assigned a PM that will help you with any questions you have while using Azure Virtual Enclaves.
 
 ## Service updates and releases
 

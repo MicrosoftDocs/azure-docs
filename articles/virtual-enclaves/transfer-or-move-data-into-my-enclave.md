@@ -39,7 +39,7 @@ To download tools from Azure Toolbox into an enclave, AVE recommends that either
 
 ---
 
-Should further troubleshooting be required to investigate making Connections, refer to [Create a Connection from the Azure portal](./create-an-enclave-connection-from-the-azure-portal.md) or contact [Azure Support](https://azure.microsoft.com/support/).
+Should further troubleshooting be required to investigate making Connections, see [Create a Connection from the Azure portal](./create-an-enclave-connection-from-the-azure-portal.md) or contact [Azure Support](https://azure.microsoft.com/support/).
 
 ## References
 - [What is Azure Virtual Enclaves?](./what-is-azure-virtual-enclaves.md)

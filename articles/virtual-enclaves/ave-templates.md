@@ -10,7 +10,7 @@ ms.date: 01/31/2025
 
 # Azure Virtual Enclaves Deployment Templates
 
-## ARM Templates
+## Azure Resource Manager (ARM) Templates
 
 ### Community and Enclaves Template
 

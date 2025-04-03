@@ -27,7 +27,7 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 ## Prerequisites:
 
-There are guardrails in the enclaves to ensure a Function App is isolated with private endpoints. The App Service also requires a subnet delegation in the enclave virtual network to provide more control to the service. It is important to note that a private endpoint cannot be created on a delegated subnet.
+There are guardrails in the enclaves to ensure a Function App is isolated with private endpoints. The App Service also requires a subnet delegation in the enclave virtual network to provide more control to the service. It is important to note that a private endpoint can't be created on a delegated subnet.
 
 1. Two subnets 
 **Note:** you will not be able to resize a subnet once resources have been deployed inside of it.

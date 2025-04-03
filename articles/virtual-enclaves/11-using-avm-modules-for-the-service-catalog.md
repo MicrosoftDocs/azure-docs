@@ -27,11 +27,11 @@ AVM modules are currently written for Bicep and Terraform. Specifically for bice
 - To help author new and existing Service Catalog templates, use the [Bicep Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) to explore modules published in the Bicep Public Registry.
 - If you're updating an existing Service Catalog template and if you don't have a workload yet, return to [Tutorial 3 - Create workloads in an enclave](./3-create-workloads-in-an-enclave.md).
 
-## Leverage AVM for new and existing Service Catalog templates
+## Use AVM for new and existing Service Catalog templates
 
-Service Catalog deployment publishing in AVE leverages the [Custom Template Deployment experience using the Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). To use AVM on new or existing templates, refer to these steps for more details.
+Service Catalog deployment publishing in AVE leverages the [Custom Template Deployment experience using the Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). To use AVM on new or existing templates, see these steps for more details.
 
-> **NOTE**: For most Service Catalog templates, you'll mostly use resource templates which are prefixed by `'br/public:avm/res'`. There are other types of modules that are supported. For more information, refer to the [AVM Bicep Modules documentation](https://azure.github.io/Azure-Verified-Modules/indexes/bicep/).
+> **NOTE**: For most Service Catalog templates, you'll mostly use resource templates which are prefixed by `'br/public:avm/res'`. There are other types of modules that are supported. For more information, see the [AVM Bicep Modules documentation](https://azure.github.io/Azure-Verified-Modules/indexes/bicep/).
 
 1. When creating a new module, use the [VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) to explore the modules published in the Bicep Public Registry:
 
@@ -39,7 +39,7 @@ Service Catalog deployment publishing in AVE leverages the [Custom Template Depl
    module myTestModule 'br/public:'
    ```
 
-2. Expanding on this you can see the AVM modules that are published.
+2. Expanding on this path you can see the AVM modules that are published.
 
    ```bicep
    module myTestModule 'br/public:avm/res/'
@@ -63,7 +63,7 @@ According to the [AVM guidance on transitioning to a new version](https://azure.
 
 If you want to test a new or existing template, one way to deploy resources is through the [Custom Template Deployment Experience](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
-Before running a Custom Template Deployment in the Portal, you first need to compile your template, assuming it is written in bicep, into ARM. This can be done by running the following cmdlet.
+Before running a Custom Template Deployment in the Portal, you first need to compile your template, assuming it's written in bicep, into Azure Resource Manager (ARM). Compiling can be done by running the following cmdlet.
 
 ```bash
 az bicep build --file "<in-file>" --outfile "<out-file>"
@@ -102,7 +102,7 @@ This error was encountered when attempting to deploy an AVM template into some e
 
 ## Limitations
 
-- Given the way the Public Registry is implemented currently, it isn't possible to publish child resources separate from its parent reosurces. As such, you cannot reference for example, a `avm/res/key-vault/vault/key` module directly from the registry. Instead you can only deploy it through its parent `avm/res/key-vault/vault`. For more context, refer to the [AVM FAQs](https://azure.github.io/Azure-Verified-Modules/faq/#can-i-call-a-bicep-child-module-directly-eg-can-i-update-or-add-a-secret-in-an-existing-key-vault-or-a-route-in-an-existing-route-table).
+- Given the way the Public Registry is implemented currently, it isn't possible to publish child resources separate from its parent reosurces. As such, you can't reference for example, a `avm/res/key-vault/vault/key` module directly from the registry. Instead you can only deploy it through its parent `avm/res/key-vault/vault`. For more context, see the [AVM FAQs](https://azure.github.io/Azure-Verified-Modules/faq/#can-i-call-a-bicep-child-module-directly-eg-can-i-update-or-add-a-secret-in-an-existing-key-vault-or-a-route-in-an-existing-route-table).
 
 ## Learn more
 

@@ -120,17 +120,17 @@ Then proceed to [next steps](#next-steps)
 
 2. Use the following guides and start building your Virtual Enclaves Community:
 
-   1. [Create a community](/docs/How-To-Guides/Create-a-Community-in-the-Azure-portal)
-   2. [Create an enclave](/docs/How-To-Guides/Create-an-Enclave-in-the-Azure-Portal)
-   3. [Create a workload](/docs/How-To-Guides/Create-a-Workload-in-the-Azure-Portal)
+   1. [Create a community](./create-a-community-in-the-azure-portal.md)
+   2. [Create an enclave](./create-an-enclave-in-the-azure-portal.md)
+   3. [Create a workload](./create-a-workload-in-the-azure-portal.md)
 
 3. Use the following guides to establish network connectivity within your Community
 
-   1. [Create an Enclave Endpoint](/docs/How-To-Guides/Create-a-Enclave-Endpoint-in-the-Azure-Portal)
-   1. [Create an Enclave Connection](/docs/How-To-Guides/Create-an-Enclave-Connection-from-the-Azure-Portal)
-   1. [Create a Transit Hub](/docs/How-To-Guides/Create-a-Transit-Hub-from-the-Azure-Portal)
-   1. [Create a Community Endpoint](/docs/How-To-Guides/Create-a-Community-Endpoint-in-the-Azure-Portal)
+   1. [Create an Enclave Endpoint](./create-a-enclave-endpoint-in-the-azure-portal.md)
+   1. [Create an Enclave Connection](./create-an-enclave-connection-from-the-azure-portal.md)
+   1. [Create a Transit Hub](./create-a-transit-hub-from-the-azure-portal.md)
+   1. [Create a Community Endpoint](./create-a-community-endpoint-in-the-azure-portal.md)
 
 4. Create resources within your workload(s) to meet your objectives.
-   1. Create resources from the [Service Catalog](/docs/overview/List-of-Service-Catalog-Templates)
-   1. Create resources with an [ARM template](https://learn.microsoft.com/azure/azure-resource-manager/templates/deploy-to-resource-group?tabs=azure-cli) or [bicep template](https://learn.microsoft.com/azure/azure-resource-manager/bicep/deploy-to-resource-group?tabs=azure-cli) from [these examples](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts)
+   1. Create resources from the [Service Catalog](./list-of-service-catalog-templates.md)
+   1. Create resources with an [ARM template](../azure-resource-manager/templates/deploy-to-resource-group.md) or [bicep template](../azure-resource-manager/bicep/deploy-to-resource-group.md) from [these examples](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts)

@@ -110,7 +110,7 @@ If you haven't created those resources yet, return to those earlier tutorials.
 
 5. Select `Review + Create` and then `Create`
 
-6. Once the endpoint resource is created, you can view them in Azure portal from the `fabrikam` `Enclave connections`. However, it is in a disconnected state because we selected `Yes` to requiring approvals on connections for this endpoint.
+6. Once the endpoint resource is created, you can view them in Azure portal from the `fabrikam` `Enclave connections`. However, it's in a disconnected state because we selected `Yes` to requiring approvals on connections for this endpoint.
 
 ![image14.png](./media/fabrikam-connection-deployed-disconnected.png)
 

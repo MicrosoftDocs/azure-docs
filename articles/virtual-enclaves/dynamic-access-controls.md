@@ -75,12 +75,12 @@ AVE’s public preview introduces built in approval workflows for access managem
 Organizations working on confidential projects can:
 - Use dynamic role assignments in Personnel Portal to grant project-specific access to researchers.
 - Enforce Conditional Access policies to ensure only compliant devices are used.
-- Leverage Entra ID Private Access to keep sensitive workloads isolated from public networks.
+- Use Entra ID Private Access to keep sensitive workloads isolated from public networks.
 
 ### 2. **Highly Regulated Industries**
 Industries like finance or healthcare can:
 - Deploy sensitive workloads in AVE to maintain strict isolation.
-- Leverage PIM for temporary access to critical resources, ensuring minimal exposure.
+- Use PIM for temporary access to critical resources, ensuring minimal exposure.
 - Use Entra ID Internet Access to monitor and control interactions with external APIs or services.
 
 ### 3. **Incident Response and Forensics**

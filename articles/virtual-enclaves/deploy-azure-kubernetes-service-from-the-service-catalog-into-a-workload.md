@@ -29,7 +29,7 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 You will need to create a subnet to host the AKS cluster. For a 30 pod cluster with a max node count of 3 a /26 subnet will be required. Use the following equation to calculate the minimum subnet size including an extra node for upgrade operations: (number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure). Your Enclave's IP addresses may be different depending on the number of enclaves that were created before yours and the network size selected on enclave creation; assuming a `Small (/23)` subnet:
 
-1. Create new subnet for Azure Kubernetes Service. In order to create a new subnet, the existing resource `AzureVirtualEnclaveSubnet` must be broken down since it is utilizing the entire address space.
+1. Create new subnet for Azure Kubernetes Service. In order to create a new subnet, the existing resource `AzureVirtualEnclaveSubnet` must be broken down since it's utilizing the entire address space.
     - Delete subnet `AzureVirtualEnclaveSubnet 10.0.2.0/23 [10.0.2.0 - 10.0.3.255]`
     - Create new subnet `AzVirtualEnclaveSubnet 10.0.2.0/26 [10.0.2.0 - 10.0.2.63]`
         - Add NSG rule set
@@ -43,7 +43,7 @@ You will need to create a subnet to host the AKS cluster. For a 30 pod cluster w
     - save this as a secret named 'aks-ssh-public-key' in your keyvault
     > [!NOTE]
     >
-    > You must provision a separate Key Vault for your AKS cluster. If using Key Vault for secret management, it needs to be configured for `RBAC Access Policy`, which the enclave Key Vault is using Vault Policy by default. The RBAC roles for the AKS identity need to be set to `Key Vault Admin` and the disk encryption set in step 3 needs the `Key Vault Crypto Service Encryption User` role. After creating this new Key Vault, go to access configuration, and enable ARM for template deployment (this requires disabling public network access and creating a private endpoint connected to the enclave virtual network):
+    > You must provision a separate Key Vault for your AKS cluster. If using Key Vault for secret management, it needs to be configured for `RBAC Access Policy`, which the enclave Key Vault is using Vault Policy by default. The RBAC roles for the AKS identity need to be set to `Key Vault Admin` and the disk encryption set in step 3 needs the `Key Vault Crypto Service Encryption User` role. After creating this new Key Vault, go to access configuration, and enable Azure Resource Manager (ARM) for template deployment (this requires disabling public network access and creating a private endpoint connected to the enclave virtual network):
 ![image1.png](./media/image-8affb0cf-55cf-4fa3-ae50-2148adbefc29.png)
 3. [Create a user-assigned managed identity](./create-user-managed-identity.md) with `Virtual Machine Contributor` access on the resource group containing the VNet and `Key Vault Contributor` access to the resource group containing the ssh-key. Note: This may be the same resource group.
     - External services using the enclave VNet: If using the enclave VNet as the dedicated subnet for the cluster service, you will also need to grant the managed identity `Contributor` on the VNet resource group. (This seems like it should be `Network Contributor` but in testing, that was not enough).

@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 01/31/2025
 ---
 
-# Deploy an Azure Virtual Enclaves (AVE) Community with Enclaves using an ARM template
+# Deploy an Azure Virtual Enclaves (AVE) Community with Enclaves using a template
 
 [Azure Virtual Enclaves](./what-is-azure-virtual-enclaves.md) accelerates and streamlines the deployment and management of secure, isolated, and compliant cloud environments for the most sensitive missions and workloads across commercial and air-gapped environments. In this quickstart, you:
 

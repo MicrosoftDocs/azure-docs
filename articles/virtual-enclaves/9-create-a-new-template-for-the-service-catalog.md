@@ -89,7 +89,7 @@ metadata description = 'This schema creates a remote application.'
 metadata changelogLink = '<universally accessible url>'
 ```
 
-**ARM template**
+**Azure Resource Manager (ARM) template**
 
 ```json
 {

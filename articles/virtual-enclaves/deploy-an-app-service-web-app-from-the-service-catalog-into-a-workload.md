@@ -28,9 +28,9 @@ In this article, you:
 
 ## Prerequisites
 
-There are guardrails in the enclaves to ensure an App Service is isolated with private endpoints. The App Service also requires a subnet delegation in the enclave virtual network to provide more control to the service. It is important to note that a private endpoint cannot be created on a delegated subnet.
+There are guardrails in the enclaves to ensure an App Service is isolated with private endpoints. The App Service also requires a subnet delegation in the enclave virtual network to provide more control to the service. It is important to note that a private endpoint can't be created on a delegated subnet.
 
-1. [Create new subnet](/docs/How-To-Guides/Service-Catalog/Create-New-Subnet-for-AVE-Enclave-Vnet) for App Service delegation. In the AVE product, the subnet management is under the customer's control as there is currently no deny assignments on the virtual network resource. In order to create a new subnet, the existing resource `AzureVirtualEnclaveSubnet` must be split up since it is utilizing the entire IP address space. Use the Create New Subnet instructions to modify the existing subnet as described below:
+1. [Create new subnet](/docs/How-To-Guides/Service-Catalog/Create-New-Subnet-for-AVE-Enclave-Vnet) for App Service delegation. In the AVE product, the subnet management is under the customer's control as there is currently no deny assignments on the virtual network resource. In order to create a new subnet, the existing resource `AzureVirtualEnclaveSubnet` must be split up since it's utilizing the entire IP address space. Use the Create New Subnet instructions to modify the existing subnet as described below:
     - Delete subnet `AzureVirtualEnclaveSubnet 10.0.2.0/23 [10.0.2.0 - 10.0.3.255]`
     - Create new subnet `AzureVirtualEnclaveSubnet 10.0.2.0/26 [10.0.2.0 - 10.0.2.63]`
         - Add NSG rule set

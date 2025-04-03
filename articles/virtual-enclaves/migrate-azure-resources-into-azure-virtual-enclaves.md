@@ -13,13 +13,13 @@ ms.date: 01/31/2025
 Moving Azure resources into an enclave is very similar to [moving resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md). When moving resources, the target resource group would be a [Workload](./what-is-a-workload.md) resource group. [Learn more about Azure tools, scripts, templates, or commands to automate resource group moving or migration](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 It's important to note that the following considerations still apply when moving resources into an Enclave or Workload:
-- Locked resources or resource groups cannot be moved
+- Locked resources or resource groups can't be moved
 - Source and target resource groups (if using Azure portal, REST, Azure CLI, or Azure PowerShell Resource group move operations) are temporarily locked during the move operations
 - Setting up new dependent resources will incur interruptions to those resources until they have been reconfigured
 - Moving resources only moves those resources to a new resource group or subscription. It does not change the location of the resource.
 
 ## Checklist before moving resources
-For a more exhaustive and detailed checklist, refer to [Checklist before moving resources](../azure-resource-manager/management/move-resource-group-and-subscription.md#checklist-before-moving-resources).
+For a more exhaustive and detailed checklist, see [Checklist before moving resources](../azure-resource-manager/management/move-resource-group-and-subscription.md#checklist-before-moving-resources).
 - When you move a resource, the ID of the resource also changes. The standard format for a resource ID is `subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`. 
     - When you move a resource to a new resource group or subscription, you change one or more values in that path.
     - If you use the resource ID anywhere (such as in custom dashboards, scripts, or templates) you'll need to change that value. 
@@ -44,7 +44,7 @@ For a more exhaustive and detailed checklist, refer to [Checklist before moving 
 ## Existing Preview Customers
 Certain AVE customers deployed enclaves with early preview or beta builds of AVE or predecessor systems (i.e. "mission enclaves"). If you deployed your system into a traditional mission enclave (or similar landing zone architecture), here are some things to consider as you plan your migration into Azure Virtual Enclaves:
 
-- You cannot move a mission enclave network into a [Community](./what-is-a-community.md) or an [Enclave](./what-is-an-enclave.md)
+- You can't move a mission enclave network into a [Community](./what-is-a-community.md) or an [Enclave](./what-is-an-enclave.md)
 - Migrating secrets from a mission enclave Key Vault to an AVE Key Vault may require using Azure PS modules to do the following:
     - Exporting secrets from the mission enclave Key Vault
     - Temporarily storing those secrets locally

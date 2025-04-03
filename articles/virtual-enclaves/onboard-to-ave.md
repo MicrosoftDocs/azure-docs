@@ -141,4 +141,4 @@ Then proceed to [next steps](#next-steps)
 
 4. Create resources within your workload(s) to meet your objectives.
    1. Create resources from the [Service Catalog](./list-of-service-catalog-templates.md)
-   1. Create resources with an [ARM template](../azure-resource-manager/templates/deploy-to-resource-group.md) or [bicep template](../azure-resource-manager/bicep/deploy-to-resource-group.md) from [these examples](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts)
+   1. Create resources with an [template](../azure-resource-manager/templates/deploy-to-resource-group.md) or [bicep template](../azure-resource-manager/bicep/deploy-to-resource-group.md) from [these examples](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts)

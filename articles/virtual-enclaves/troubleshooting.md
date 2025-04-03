@@ -27,4 +27,4 @@ Scenario: When creating a community for the first time in a new subscription, th
 
 `"The resource type could not be found in the namespace 'Microsoft.Mission' for api version '2024-01-01-preview'."`
 
-Solution: The Microsoft.Mission preview flag must be registered and approved. Ensure you followed the [preview flag registering instructions](./onboard-to-ave.md) and reach out to your AVE POC to ensure it is approved.
+Solution: The Microsoft.Mission preview flag must be registered and approved. Ensure you followed the [preview flag registering instructions](./onboard-to-ave.md) and reach out to your AVE POC to ensure it's approved.
