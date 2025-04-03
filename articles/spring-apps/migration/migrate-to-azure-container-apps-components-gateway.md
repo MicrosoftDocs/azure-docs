@@ -1,5 +1,5 @@
 ---
-title: Migrate Spring Cloud Gateway for Tanzu to Managed Gateway for Spring in Azure Container Apps
+title: Migrate Spring Cloud Gateway for Tanzu to a Managed Gateway for Spring in Azure Container Apps
 description: Describes how to migrate Spring Cloud Gateway for Tanzu to a managed gateway for Spring in Azure Container Apps.
 author: KarlErickson
 ms.author: karler
@@ -9,7 +9,7 @@ ms.date: 04/02/2025
 ms.custom: devx-track-java
 ---
 
-# Migrate Spring Cloud Gateway for Tanzu to self-hosted gateway application in Azure Container Apps
+# Migrate Spring Cloud Gateway for Tanzu to a self-hosted gateway application in Azure Container Apps
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
@@ -31,18 +31,20 @@ Note that the features offered by Spring Cloud Gateway for Tanzu are more extens
 ## Prepare the code of self-hosted Spring Cloud Gateway application
 
 To get the code of the Spring Cloud Gateway:
+
 1. Navigate to https://start.spring.io.
-1. Update the project metadata by setting the `Group` to your orgnization's name. Change the `Artifact` and `Name` to `gateway`.
-1. Add dependencies `Reactive Gateway` and `Spring Boot Actuator`.
+1. Update the project metadata by setting the **Group** to your orgnization's name. Change the **Artifact** and **Name** to **gateway**.
+1. Add dependencies **Reactive Gateway** and **Spring Boot Actuator**.
 1. Leave the other properties at their default values.
-1. Click `Generate` to download the project.
+1. Click **Generate** to download the project.
 
 Extract the project when it's downloaded.
 
 ## Configure the Spring Cloud Gateway
-Once the Spring Cloud Gateway code is ready, navigate to the `gateway/src/main/resources` directory of the project. Rename the `application.properties` file with `application.yml`. You can migrate from Spring Cloud Gateway for Tanzu by configuring the `application.yml`.
 
-The example of `application.yml` is like:
+Once the Spring Cloud Gateway code is ready, navigate to the **gateway/src/main/resources** directory of the project. Rename the **application.properties** file with **application.yml**. You can migrate from Spring Cloud Gateway for Tanzu by configuring the **application.yml**.
+
+The example of **application.yml** is like:
 
 ```yaml
 spring:
@@ -81,22 +83,24 @@ spring:
 To migrate the Cross-Origin Resource Sharing (CORS) configuration of Spring Cloud Gateway for Tanzu, you can refer to [CORS Configuration for Spring Cloud Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#cors-configuration) for global CORS configuration and route CORS configuration.
 
 ### Scale
+
 When migrating to Spring Cloud Gateway application in Azure Container Apps, the scaling behavior should align with Azure Container Apps' model. The instance count from Spring Cloud Gateway for Tanzu maps to `min-replica` and `max-replica` in Azure Container Apps. You can configure automatic scaling for the gateway application by defining scaling rules. For more details, refer to [Set scaling rules in Azure Container Apps](/azure/container-apps/scale-app).
 
 The CPU and memory combinations available in Azure Spring Apps differs from those in Azure Container Apps. When mapping resource allocations, ensure that the selected CPU and memory configurations in Azure Container Apps fit both performance needs and supported options.
 
 ### Custom domain & certificates
+
 Azure Container Apps supports custom domains and certificates, you can refer to [Domains & certificates](/azure/container-apps/certificates-overview) to migrate custom domains configured on Spring Cloud Gateway for Tanzu.
 
 ### Routes
 
-You can migrate the routes in Spring Cloud Gatewy for Tanzu to Spring Cloud Gateway as the example of `application.yml` shows. The following list describes the mapping relationship between routes of Spring Cloud Gateway for Tanzu and routes of Spring Cloud Gateway:
+You can migrate the routes in Spring Cloud Gatewy for Tanzu to Spring Cloud Gateway as the example of **application.yml** shows. The following list describes the mapping relationship between routes of Spring Cloud Gateway for Tanzu and routes of Spring Cloud Gateway:
 
 - The `name` of the route is mapped to `id`.
 - The `appName` and `protocol` are mapped to the URI of the route, which should be the accessible URI for the Azure Container Apps instance, make sure that the Azure Container Apps applications enable the ingress.
-- Predicates and filters of Spring Cloud Gateway for Tanzu are mapped to that of Spring Cloud Gateway. Commercial predicates and filters are not supported, refer to [the document](https://techdocs.broadcom.com/us/en/vmware-tanzu/spring/spring-cloud-gateway-for-kubernetes/2-2/scg-k8s/developer-filters.html) for more details.
+- Predicates and filters of Spring Cloud Gateway for Tanzu are mapped to that of Spring Cloud Gateway. Commercial predicates and filters are not supported, refer to [Commercial route filters in Spring Cloud Gateway for K8s](https://techdocs.broadcom.com/us/en/vmware-tanzu/spring/spring-cloud-gateway-for-kubernetes/2-2/scg-k8s/developer-filters.html) for more details.
 
-For example, consider the following route config JSON file, `test-api.json`, which defines the `test-api` route in Spring Cloud Gateway for Tanzu for the `test` app:
+For example, consider the following route config JSON file, **test-api.json**, which defines the `test-api` route in Spring Cloud Gateway for Tanzu for the `test` app:
 
 ```json
 {
@@ -178,7 +182,7 @@ Once the Spring Cloud Gateway configuration is ready, build the image using Azur
 
 ### Build and Push the Docker Image
 
-In the Spring Cloud Gateway project directory, create a `Dockerfile` with the following contents:
+In the Spring Cloud Gateway project directory, create a **Dockerfile** with the following contents:
 
 ```dockerfile
 FROM mcr.microsoft.com/openjdk/jdk:17-mariner as build
@@ -241,7 +245,9 @@ If you encounter issues when running the Spring Cloud Gateway application, you c
 To monitor gateway application's metrics, refer to [Monitor Azure Container Apps metrics](/azure/container-apps/metrics)
 
 ## Known limitation
+
 As far as we know, Spring Cloud Gateway does not support the following commercial features:
+
 - Metadata used to generate OpenAPI documentation
 - Single sign-on (SSO) functionality
 
