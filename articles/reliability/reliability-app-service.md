@@ -130,7 +130,7 @@ App Service Environment v3 has a specific pricing model for zone redundancy. For
 
 ### Configure availability zone support
 
-::: zone pivot="free-shared-standard"
+::: zone pivot="free-shared-basic"
 
 - **Create a new App Service plan with zone redundancy.** To deploy a new zone-redundant Azure App Service plan, you must use either the [Premium v2 or Premium v3 plan types](/azure/app-service/overview-hosting-plans). To view more information, make sure that you select the appropriate tier at the top of this page.
 
@@ -159,6 +159,8 @@ App Service Environment v3 has a specific pricing model for zone redundancy. For
 To prepare for availability zone failure, consider *over-provisioning* the capacity of your App Service plan. Over-provisioning allows the solution to tolerate some degree of capacity loss and still continue to function without degraded performance. To learn more about over-provisioning, see [Manage capacity with over-provisioning](./concept-redundancy-replication-backup.md#manage-capacity-with-over-provisioning).
 
 ### Normal operations
+
+The following information describes what happens when you have a zone-redundant App Service plan and all availability zones are operational:
 
 - **Traffic routing between zones:** During normal operations, traffic is routed between all of your available App Service plan instances across all availability zones.
 
