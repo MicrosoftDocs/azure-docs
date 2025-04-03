@@ -290,8 +290,6 @@ Only file management APIs (`AzRmStorageShare`) are supported for NFS Azure file 
 
 Azure Backup isn't currently supported for NFS file shares.
 
-AzCopy isn't currently supported for NFS file shares. To copy data from an NFS Azure file share or share snapshot, use file system copy tools such as rsync or fpsync.
-
 NFS Azure file share snapshots are available in all Azure public cloud regions.
 
 ### Create an NFS file share snapshot
