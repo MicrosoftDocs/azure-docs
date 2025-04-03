@@ -18,6 +18,7 @@ In this quickstart, you create an Azure Windows virtual machine (VM) and associa
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
+In this article, you learn how to:
 > [!div class="checklist"]
 > * Create an Azure resource group with a unique name.
 > * Create a virtual network with a unique name and a specified address space.
@@ -26,10 +27,8 @@ In this quickstart, you create an Azure Windows virtual machine (VM) and associa
 > * Create a network security group with two security rules for remote desk protocol and web traffic.
 > * Create a network interface with a unique name, and attach it to the subnet and public IP address.
 > * Associate the network security group with the network interface.
-> * Generate a random ID for a unique storage account name.
-> * Create a storage account for boot diagnostics.
-> * Create a Windows VM with a unique name.
-> * Generate a random password for the VM.
+> * Generate a random ID for a unique storage account name, and insert a storage account for boot diagnostics.
+> * Create a Windows VM with a unique name, and generate a random password for the VM.
 > * Create a Backup recovery services vault with a unique name.
 > * Create a Backup policy for the VM with daily frequency and a retention period of seven days.
 > * Protect the VM with the created Backup policy.
@@ -74,7 +73,7 @@ In this quickstart, you create an Azure Windows virtual machine (VM) and associa
 
 ## Verify the results
 
-### [Azure CLI](#tab/azure-cli)
+### Azure CLI
 
 1. Get the Azure resource group name.
 
