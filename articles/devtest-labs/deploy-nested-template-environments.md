@@ -14,9 +14,9 @@ ms.date: 04/02/2025
 
 Azure DevTest Labs *environments* consist of multiple infrastructure-as-a-service (IaaS) virtual machines (VMs) with platform-as-a-service (PaaS) resources installed. You can provision these PaaS and IaaS resources by using Azure Resource Manager (ARM) templates.
 
-A *nested deployment* runs secondary ARM templates from within a main template. This article shows an example of using nested templates to deploy a DevTest Labs environment.
+You can decompose a deployment into a set of targeted, purpose-specific templates to provide testing, reuse, and readability benefits. A *nested deployment* runs secondary ARM templates from within a main template. This article shows an example of using nested templates to deploy a DevTest Labs environment.
 
-Decomposing a deployment into a set of targeted, purpose-specific templates provides testing, reuse, and readability benefits. For general information about nested templates, including code samples, see [Use linked and nested templates when deploying Azure resources](/azure/azure-resource-manager/templates/linked-templates).
+For general information about nested templates, including code samples, see [Use linked and nested templates when deploying Azure resources](/azure/azure-resource-manager/templates/linked-templates).
 
 [!INCLUDE [direct-azure-deployment-environments](includes/direct-azure-deployment-environments.md)]  
 
@@ -31,7 +31,7 @@ The Azure Resource Group project template in Visual Studio makes it easy to deve
 - Adds the `_artifactsLocation` and `_artifactsLocationSasToken` parameters to the main template file.
 - Inserts the location and Shared Access Signature (SaS) token into the parameters file.
 
-The following nested template example shows a Git repository folder with a subfolder, *nestedtemplates*, that contains the nested template files *NestOne.json* and *NestOne.parameters.json*. You can add more than one nested template subfolder, but at only one level of nesting.
+The following screenshot shows the project structure in Visual Studio. The Git repository folder has a subfolder, *nestedtemplates*, that contains the nested template files *NestOne.json* and *NestOne.parameters.json*. You can add more than one nested template subfolder, but at only one level of nesting.
 
 :::image type="content" source="media/deploy-nested-template-environments/visual-studio-project-structure.png" alt-text="Screenshot that shows the nested template project structure in Visual Studio.":::
 
@@ -39,7 +39,7 @@ The following nested template example shows a Git repository folder with a subfo
 
 The following example *azuredeploy.json* main template file shows the code for a nested deployment. The main template file links to the nested templates.
 
-The template code builds the URI for the secondary templates by concatenating the artifacts location, nested template folder, nested template filename, and artifacts Shared Access Signature (SaS) token location. The URI for the secondary parameters file uses the artifacts location, nested template folder, nested parameter filename, and artifacts SaS token location.
+The template code builds the URI for the secondary templates link by concatenating the artifacts location, nested template folder, nested template filename, and artifacts Shared Access Signature (SaS) token location. The URI for the secondary parameters file uses the artifacts location, nested template folder, nested parameter filename, and artifacts SaS token location.
 
 ```json
 

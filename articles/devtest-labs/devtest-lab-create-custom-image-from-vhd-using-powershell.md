@@ -29,7 +29,7 @@ In this article, you learn how to create an Azure DevTest Labs virtual machine (
 - A VHD file uploaded to the Azure Storage account for the lab. To upload a VHD file:
 
   1. Go to your lab storage account in the Azure portal and select **Upload**.
-  1. Browse to and select the VHD file, select the **uploads** container or create a new container named **uploads**, and then select **Upload**.
+  1. Browse to and select the VHD file, select the **uploads** container or create a new container named **uploads** for the file, and then select **Upload**.
 
   You can also upload a VHD file by following the instructions in any of these articles:
 
@@ -39,7 +39,7 @@ In this article, you learn how to create an Azure DevTest Labs virtual machine (
 
 ## Create a custom image
 
-The following Azure PowerShell steps create a DevTest Labs custom image from a VHD file by using a deployment template from the public [DevTest Labs template repository](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/201-dtl-create-customimage-from-vhd).
+The following Azure PowerShell steps create a DevTest Labs custom image from an uploaded VHD file by using a deployment template from the public [DevTest Labs template repository](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/201-dtl-create-customimage-from-vhd).
 
 1. After you sign in to Azure, select the subscription you want to use by running `Select-AzSubscription`. Replace the `<subscription ID>` placeholder with your subscription ID.
 
@@ -69,7 +69,7 @@ The following Azure PowerShell steps create a DevTest Labs custom image from a V
    $parameters = @{existingLabName="$($lab.Name)"; existingVhdUri=$vhdUri; imageOsType='windows'; isVhdSysPrepped=$false; imageName=$customImageName; imageDescription=$customImageDescription}
    ```
 
-1. Use [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) to create the custom image by using a template according to the parameters.
+1. Run [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) to create the custom image by using a template according to the parameters.
 
    ```powershell
    New-AzResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name CreateCustomImage -TemplateUri 'https://raw.githubusercontent.com/Azure/azure-devtestlab/master/samples/DevTestLabs/QuickStartTemplates/201-dtl-create-customimage-from-vhd/azuredeploy.json' -TemplateParameterObject $parameters
@@ -77,7 +77,7 @@ The following Azure PowerShell steps create a DevTest Labs custom image from a V
 
 ## Use a PowerShell script
 
-You can combine the preceding steps to produce the following PowerShell script that creates a custom image from a VHD file. To use the script, replace the parameter values under the `# Values to change` comment with your own values.
+You can combine the preceding steps to produce an Azure PowerShell script that creates a custom image from a VHD file. To use the script, replace the parameter values under the `# Values to change` comment with your own values.
 
 ```powershell
 # Values to change

@@ -61,7 +61,7 @@ terraform init -upgrade
 
 Run [terraform plan](https://www.terraform.io/docs/commands/plan.html) to create an execution plan. The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files.
 
-This pattern allows you to verify whether the execution plan matches your expectations before making any changes to actual resources. Use the optional `-out` parameter to specify an output file for the plan named `main.tfplan`. You can review the file to ensure that the plan is exactly what to apply.
+This pattern allows you to verify whether the execution plan matches your expectations before making any changes to actual resources. Use the optional `-out` parameter to specify an output file for the plan named `main.tfplan`. You can review the file to ensure that the plan is exactly what you want to apply.
 
 ```console
 terraform plan -out main.tfplan
@@ -69,13 +69,13 @@ terraform plan -out main.tfplan
 
 ## Apply the Terraform execution plan
 
-Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan to your cloud infrastructure. The example `terraform apply` command assumes you previously ran `terraform plan -out main.tfplan`.
-
-If you specify a different filename for the `-out` parameter in `terraform_plan`, use that filename in the call to `terraform apply`. If you don't use the `-out` parameter in `terraform_plan`, call `terraform apply` without any parameters.
+Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan to your cloud infrastructure. The following `terraform apply` command assumes you previously ran `terraform plan -out main.tfplan`.
 
 ```console
 terraform apply main.tfplan
 ```
+
+If you specify a different filename for the `-out` parameter in `terraform_plan`, use that filename in the call to `terraform apply`. If you don't use the `-out` parameter in `terraform_plan`, call `terraform apply` without any parameters.
 
 ## Verify the results
 
