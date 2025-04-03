@@ -51,7 +51,7 @@ You have 60 days after creating your Azure Sponsorship subscription to use your 
 
 ### What happens when my $200 startup credit runs out or expires?
 
-Your Azure Sponsorship subscription will automatically convert to pay-as-you-go once your $200 startup credit is fully used or 60 days have passed, whichever comes first. You'll only pay for what you use while continuning to access [65+ free services](https://azure.microsoft.com/pricing/purchase-options/azure-account?icid=payg#free-services). There's no upfront commitment, and you can [cancel your subscription](https://learn.microsoft.com/azure/cost-management-billing/manage/cancel-azure-subscription) at any time.
+Your Azure Sponsorship subscription will automatically convert to pay-as-you-go once your $200 startup credit is fully used or 60 days have passed, whichever comes first. You'll only pay for what you use while continuning to access [65+ free services](https://azure.microsoft.com/pricing/purchase-options/azure-account?icid=payg#free-services). There's no upfront commitment, and you can [cancel your subscription](/azure/cost-management-billing/manage/cancel-azure-subscription) at any time.
 
 ### Can I request more time to use my startup credit offer?
 

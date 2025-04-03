@@ -31,7 +31,7 @@ To qualify for the $200 startup credit offer, you must meet the following criter
 
 ### How do I apply for Microsoft for Startups?
 
-Microsoft for Startups accepts new startups into the program through a select group of investor partners. These investors have been given a code to share with startups that they work with. Investors can share this code with current startups in their cohorts / programs as well as alumni. To learn more, [refer to this Microsoft Learn article](https://learn.microsoft.com/microsoft-for-startups/application).
+Microsoft for Startups accepts new startups into the program through a select group of investor partners. These investors have been given a code to share with startups that they work with. Investors can share this code with current startups in their cohorts / programs as well as alumni. To learn more, [refer to this Microsoft Learn article](/microsoft-for-startups/application).
 
 ### Can I receive the startup credit offer and join Microsoft for Startups?
 

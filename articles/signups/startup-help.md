@@ -30,7 +30,7 @@ To ask a question, sign in to Microsoft Learn with the account linked to your Az
 
 ### How do I create a support request?
 
-To create a support request, go to [Help + support](https://go.microsoft.com/fwlink/p/?linkid=2201834) in the Azure portal. For detailed instructions, see [how to create an Azure support request](https://learn.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+To create a support request, go to [Help + support](https://go.microsoft.com/fwlink/p/?linkid=2201834) in the Azure portal. For detailed instructions, see [how to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 ### I'm having trouble redeeming my startup credits. How do I get support if I don't have an Azure subscription yet?
 
@@ -42,4 +42,4 @@ Technical support is provided through a paid Azure support plan. [Compare Azure 
 
 ### Where can I find Azure documentation and learning resources?
 
-Find Azure documentation, example code, tutorials, and more on [Microsoft Learn](https://learn.microsoft.com/azure/).
+Find Azure documentation, example code, tutorials, and more on [Microsoft Learn](/azure/).
