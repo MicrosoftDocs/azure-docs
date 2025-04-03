@@ -15,22 +15,6 @@ This article lists the current known issues for Azure IoT Operations.
 
 This section lists current known issues that might occur when you deploy, update, or uninstall Azure IoT Operations.
 
-### Unable to retrieve some image pull secrets
-
----
-
-Issue ID: 8959
-
----
-
-Log signature: `"Unable to retrieve some image pull secrets (regcred)"`
-
----
-
-During and after deploying Azure IoT Operations, you might see warnings about `Unable to retrieve some image pull secrets (regcred)` in the logs and Kubernetes events. These warnings are expected and don't affect the deployment and use of Azure IoT Operations.
-
-No workaround needed.
-
 ### Error creating custom resources
 
 ---
@@ -67,7 +51,7 @@ Currently, there's no workaround for the issue. If you need a cluster that suppo
 
 ---
 
-Issue ID: 0000
+Issue ID: 9928
 
 ---
 
@@ -120,49 +104,18 @@ To work around this issue, follow these steps:
     If you receive a message stating `Nothing to upgrade or upgrade complete`, force the upgrade by appending:
 
     ```sh
-    az iot ops upgrade ....... --release-train stable --version 1.0.15 
+    az iot ops upgrade ....... --release-train stable 
     ```
 
 ## MQTT broker issues
 
 This section lists current known issues for the MQTT broker.
 
-### MQTT broker high memory usage
-
----
-
-Issue ID: 3781
-
----
-
-Log signature: `"failed to connect trace upload task to diagnostics service endpoint"`
-
----
-
-Sometimes, the MQTT broker's memory usage can become unexpectedly high due to internal certificate rotation retries. This scenario results in errors such as `failed to connect trace upload task to diagnostics service endpoint` in the logs.
-
-To work around this issue, restart each broker pod one by one (including the diagnostic service, probe, and authentication service), making sure each backend recovers before moving on. Alternatively, [redeploy Azure IoT Operations with longer internal certificate duration](../manage-mqtt-broker/howto-encrypt-internal-traffic.md#internal-certificates) such as `1500h` or more. For example:
-
-```json
-{
-  "advanced": {
-    "internalCerts": {
-      "duration": "1500h",
-      "renewBefore": "1h",
-      "privateKey": {
-        "algorithm": "Ec256",
-        "rotationPolicy": "Always"
-      }
-    }
-  }
-}
-```
-
 ### MQTT broker resources aren't visible in Azure portal
 
 ---
 
-Issue ID: 0000
+Issue ID: 4257
 
 ---
 
@@ -264,20 +217,6 @@ Log signature: N/A
 
 The subject name and application URI must exactly match the provided certificate. Because there's no cross-validation, any errors could cause the OPC UA servers to reject the application certificate.  
 
-### Connection errors after adding a new certificate
-
----
-
-Issue ID: 8446
-
----
-
-Log signature: N/A
-
----
-
-Providing a new invalid OPC UA application instance certificate after a successful installation of AIO can lead to connection errors. To resolve the issue, delete your Azure IoT Operations instances and restart the installation.
-
 ## Connector for media and connector for ONVIF issues
 
 This section lists current known issues for the connector for media and the connector for ONVIF.
@@ -350,50 +289,11 @@ To work around this issue, you need to manually delete the CRD and finish the un
 
 This section lists current known issues for the OPC PLC simulator.
 
-### The simulator doesn't send data to the MQTT broker after you create an asset endpoint
-
----
-
-Issue ID: 8616
-
----
-
-Log signature: N/A
-
----
-
-The OPC PLC simulator doesn't send data to the MQTT broker after you create an asset endpoint for the OPC PLC simulator.
-
-To work around this issue, run the following command to set `autoAcceptUntrustedServerCertificates=true` for the asset endpoint:
-
-```bash
-ENDPOINT_NAME=<name-of-you-endpoint-here>
-kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
--n azure-iot-operations \
---type=merge \
--p '{"spec":{"additionalConfiguration":"{\"applicationName\":\"'"$ENDPOINT_NAME"'\",\"security\":{\"autoAcceptUntrustedServerCertificates\":true}}"}}'
-```
-
-> [!CAUTION]
-> Don't use this configuration in production or preproduction environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
-
-You can patch all your asset endpoints with the following command:
-
-```bash
-ENDPOINTS=$(kubectl get AssetEndpointProfile -n azure-iot-operations --no-headers -o custom-columns=":metadata.name")
-for ENDPOINT_NAME in `echo "$ENDPOINTS"`; do \
-kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
-   -n azure-iot-operations \
-   --type=merge \
-   -p '{"spec":{"additionalConfiguration":"{\"applicationName\":\"'"$ENDPOINT_NAME"'\",\"security\":{\"autoAcceptUntrustedServerCertificates\":true}}"}}'; \
-done
-```
-
 ### The simulator doesn't send data to the MQTT broker after you create an asset
 
 ---
 
-Issue ID: 0000
+Issue ID: 4224
 
 ---
 

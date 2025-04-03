@@ -3,7 +3,7 @@ title: 'Tutorial: Run a Batch job through Azure Data Factory'
 description: Learn how to use Batch Explorer, Azure Storage Explorer, and a Python script to run a Batch workload through an Azure Data Factory pipeline.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 03/21/2025
+ms.date: 04/02/2025
 ai-usage: ai-assisted
 ms.custom: mvc, devx-track-python
 ---
