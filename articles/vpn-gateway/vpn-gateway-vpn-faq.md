@@ -333,7 +333,7 @@ RADIUS authentication is supported for the OpenVPN protocol.
 
 ### How do I configure a cross tenant scenario?
 
- * If you're using REST API or ARM templates for connection resources referencing a gateway in a different tenant, follow this authentication procedure: [Header values for authentication](https://learn.microsoft.com/azure/azure-resource-manager/management/authenticate-multi-tenant#header-values-for-authentication).
+ * If you're using REST API or ARM templates for connection resources referencing a gateway in a different tenant, follow this authentication procedure: [Header values for authentication](../azure-resource-manager/management/authenticate-multi-tenant.md#header-values-for-authentication).
  * For [site-to-site](vpn-gateway-create-site-to-site-rm-powershell.md#tenants).
  * For [VNet-to-VNet](vpn-gateway-vnet-vnet-rm-ps.md#tenant).
 
