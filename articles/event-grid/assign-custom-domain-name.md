@@ -140,10 +140,7 @@ az resource create --resource-type Microsoft.EventGrid/namespaces --id /subscrip
                     "identity": {
                         "type": "SystemAssigned"
                     },
-                    "certificateInfo": {
-                        "keyVaultArmId": " /subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.KeyVault/vaults/KEYVAULTNAME",
-                        "certificateName": "CERTIFICATENAME"
-                    }
+                    "certificateUrl": "https://KEYVAULTNAME.vault.azure.net/certificates/CERTIFICATENAME"
                 }
             ]
         },
