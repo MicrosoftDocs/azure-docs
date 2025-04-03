@@ -60,7 +60,7 @@ LRS is a good choice for the following scenarios:
 - If your application stores data that can be easily reconstructed if data loss occurs.
 - If your application is restricted to replicating data only within a country or region due to data governance requirements. In some cases, the paired regions across which the data is geo-replicated might be in another country or region. For more information, see [Azure region pairs and nonpaired regions](/azure/reliability/regions-paired).
 
-LRS is supported in all Azure regions for HDD file shares. For a list of regions that support LRS for SSD file shares, see [LRS support for SSD file shares](redundancy-premium-file-shares.md#lrs-support-for-premium-azure-file-shares).
+LRS is supported in all Azure regions for HDD file shares. For a list of regions that support LRS for SSD file shares, see [LRS support for SSD file shares](redundancy-premium-file-shares.md#lrs-support-for-ssd-azure-file-shares).
 
 ### Zone-redundant storage
 
@@ -85,7 +85,7 @@ ZRS provides excellent performance, low latency, and resiliency for your data if
 
 To understand which regions support ZRS for standard file shares, see the [Azure regions list](/azure/reliability/regions-list#azure-regions-list-1) and refer to the availability zone support column. ZRS is supported in standard general-purpose v2 storage accounts for all three standard tiers: transaction optimized, hot, and cool.
 
-ZRS is supported for SSD file shares through the `FileStorage` storage account kind. For a list of regions that support ZRS for SSD file share accounts, see [ZRS support for SSD file shares](redundancy-premium-file-shares.md#zrs-support-for-premium-azure-file-shares).
+ZRS is supported for SSD file shares through the `FileStorage` storage account kind. For a list of regions that support ZRS for SSD file share accounts, see [ZRS support for SSD file shares](redundancy-premium-file-shares.md#zrs-support-for-ssd-azure-file-shares).
 
 ## Redundancy in a secondary region
 
