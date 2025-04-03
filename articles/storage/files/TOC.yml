@@ -235,8 +235,6 @@
     href: files-redundancy.md
   - name: Disaster recovery and failover
     href: files-disaster-recovery.md
-  - name: Geo-redundancy for large file shares
-    href: geo-redundant-storage-for-large-file-shares.md
   - name: Change the redundancy configuration
     href: files-change-redundancy-configuration.md
   - name: Initiate storage account failover
@@ -271,6 +269,8 @@
     href: files-monitoring-alerts.md
 - name: Application development
   items:
+  - name: Overview
+    href: storage-files-developer-overview.md
   - name: Configure connection strings
     href: ../common/storage-configure-connection-string.md?toc=/azure/storage/files/toc.json
   - name: .NET

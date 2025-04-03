@@ -380,6 +380,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security/fundamentals/ocsp-sha-1-sunset.md",
+      "redirect_url": "/azure/security/fundamentals/azure-CA-details",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/tls-certificate-changes.md",
+      "redirect_url": "/azure/security/fundamentals/azure-CA-details",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/event-grid/event-schema-storage-actions.md",
       "redirect_url": "/azure/storage-actions/overview",
       "redirect_document_id": false
@@ -2294,6 +2304,11 @@
       "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/tutorial-create-vm-using-go-sdk",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/app-service/manage-disaster-recovery.md",
+      "redirect_url": "/azure/architecture/web-apps/guides/multi-region-app-service/multi-region-app-service",
+      "redirect_document_id": false
+    },       
     {
       "source_path_from_root": "/articles/public-multi-access-edge-compute-mec/tutorial-create-vm-using-python-sdk.md",
       "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/tutorial-create-vm-using-python-sdk",
@@ -5750,6 +5765,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/sql-server-stretch-database/sql-server-stretch-database-encryption-tde.md",
+      "redirect_url": "/azure/azure-sql/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-server-stretch-database/sql-server-stretch-database-tde-tsql.md",
+      "redirect_url": "/azure/azure-sql/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-server-stretch-database/sql-server-stretch-database-index-all-articles.md",
+      "redirect_url": "/azure/azure-sql/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sql-server-stretch-database/index.yml",
+      "redirect_url": "/azure/azure-sql/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/vs-azure-tools-access-private-azure-clouds-with-visual-studio.md",
       "redirect_url": "/visualstudio/azure/vs-azure-tools-access-private-azure-clouds-with-visual-studio",
       "redirect_document_id": false
@@ -6703,6 +6738,21 @@
       "source_path": "articles/notification-hubs/xamarin-notification-hubs-push-notifications-android-gcm.md",
       "redirect_url": "/dotnet/maui/data-cloud/push-notifications",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/work-with-styx-objects-and-indicators.md",
+      "redirect_url": "/azure/sentinel/work-with-styx-objects-indicators",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/files/geo-redundant-storage-for-large-file-shares.md",
+      "redirect_url": "/azure/storage/files/files-redundancy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/defender-for-iot/organizations/extra-deploy-enterprise-iot.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/eiot-defender-for-endpoint",
+           "redirect_document_id": false
     }
   ]
 }
