@@ -71,7 +71,8 @@ The restart typically is the starting point for mitigating a problem.
 > The restart operation is the fastest recovery method but may not resolve issues related to OS corruption or hardware failures.
 
 **The following Azure CLI command will `power-off` the specified bareMetalMachineName:**
-```
+
+```azurecli
 az networkcloud baremetalmachine power-off \
   --name <bareMetalMachineName>  \
   --resource-group "<resourceGroup>" \
@@ -79,7 +80,8 @@ az networkcloud baremetalmachine power-off \
 ```
 
 **The following Azure CLI command will `start` the specified bareMetalMachineName:**
-```
+
+```azurecli
 az networkcloud baremetalmachine start \
   --name <bareMetalMachineName>  \
   --resource-group "<resourceGroup>" \
@@ -87,7 +89,8 @@ az networkcloud baremetalmachine start \
 ```
 
 **The following Azure CLI command will `restart` the specified bareMetalMachineName:**
-```
+
+```azurecli
 az networkcloud baremetalmachine restart \
   --name <bareMetalMachineName>  \
   --resource-group "<resourceGroup>" \
@@ -95,7 +98,8 @@ az networkcloud baremetalmachine restart \
 ```
 
 **To verify the BMM status after restart:**
-```
+
+```azurecli
 az networkcloud baremetalmachine show \
   --name <bareMetalMachineName>  \
   --resource-group "<resourceGroup>" \
@@ -125,6 +129,7 @@ A reimage action is the best practice for lowest operational risk to ensure the 
 **To identify if any workloads are currently running on a BMM, run the following command:**
 
 **For Virtual Machines:**
+
 ```azurecli
 az networkcloud baremetalmachine show -n <nodeName> \
 --resource-group <resourceGroup> \
@@ -138,7 +143,8 @@ kubectl get nodes <resourceName> -ojson |jq '.metadata.labels."topology.kubernet
 ```
 
 **The following Azure CLI command will `cordon` the specified bareMetalMachineName.**
-```
+
+```azurecli
 az networkcloud baremetalmachine cordon \
   --evacuate "True" \
   --name <bareMetalMachineName> \
@@ -147,7 +153,8 @@ az networkcloud baremetalmachine cordon \
 ```
 
 **The following Azure CLI command will `reimage` the specified bareMetalMachineName.**
-```
+
+```azurecli
 az networkcloud baremetalmachine reimage \
   --name <bareMetalMachineName>  \
   --resource-group "<resourceGroup>" \
@@ -155,7 +162,8 @@ az networkcloud baremetalmachine reimage \
 ```
 
 **The following Azure CLI command will `uncordon` the specified bareMetalMachineName.**
-```
+
+```azurecli
 az networkcloud baremetalmachine uncordon \
   --name <bareMetalMachineName> \
   --resource-group "<resourceGroup>" \
@@ -180,7 +188,8 @@ A hardware validation process is invoked to ensure the integrity of the physical
 5. **Verify status** - Check that the BMM is properly functioning
 
 **The following Azure CLI command will `cordon` the specified bareMetalMachineName.**
-```
+
+```azurecli
 az networkcloud baremetalmachine cordon \
   --evacuate "True" \
   --name <bareMetalMachineName> \
@@ -213,7 +222,8 @@ When you're performing the following physical repairs, a replace action ***is re
 After physical repairs are completed, perform a replace action.
   
 **The following Azure CLI command will `replace` the specified bareMetalMachineName.**
-```
+
+```azurecli
 az networkcloud baremetalmachine replace \
   --name <bareMetalMachineName>  \
   --resource-group "<resourceGroup>" \
@@ -226,7 +236,8 @@ az networkcloud baremetalmachine replace \
 ```
 
 **The following Azure CLI command will uncordon the specified bareMetalMachineName.**
-```
+
+```azurecli
 az networkcloud baremetalmachine uncordon \
   --name <bareMetalMachineName> \
   --resource-group "<resourceGroup>" \
