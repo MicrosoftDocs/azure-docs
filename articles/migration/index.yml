@@ -134,7 +134,7 @@ conceptualContent:
             text: Amazon RDS for PostgreSQL to Azure Database for PostgreSQL (online)
             itemType: tutorial
           - url: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-offline
-            text: Amazon Aurora PostgreSQL (offline)
+            text: Amazon Aurora PostgreSQL to Azure Database for PostgreSQL (offline)
             itemType: tutorial
         footerLink:
           text: See more
