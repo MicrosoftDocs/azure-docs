@@ -362,7 +362,7 @@ To delete the Cluster Manager, use Portal, CLI, or PowerShell.
 ---
 
 >[!NOTE]
->As best practive, wait 20 minutes after deleting a Cluster Manager before trying to create a new Cluster Manager with the same name.
+>As best practice, wait 20 minutes after deleting a Cluster Manager before trying to create a new Cluster Manager with the same name.
 
 ## Next steps
 
