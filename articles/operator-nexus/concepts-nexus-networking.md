@@ -387,6 +387,23 @@ Additional network interfaces inside a Pod will use the Pod's route table to
 route traffic to additional L3 Networks that use the `SRIOV` and `DPDK` plugin
 types.
 
+
+### CNI BFD and BGP configuration
+
+## Default BFD Configuration
+
+Bidirectional Forwarding Detection (BFD) parameters can be configured for each BGP peering. BFD timers are negotiated between the Operator Nexus Kubernetes clusters and the peer router. The higher timer value between the two routers is selected, which is the standard BFD behavior. The Nexus Kubernetes clusters uses the following values
+- **Interval**: 300ms  
+- **Multiplier**: 3  
+If BFD is not enabled on the peer router, a session will not be established.
+
+## Default BGP Configurations
+
+[Border Gateway Protocol][bgp](BGP) timers are negotiated between Operator Nexus Kubernetes clusters and the peer router. The lowest hold timer value between the two routers is selected which is the standard BGP behavior. The Nexus Kubernetes clusters uses the following values
+- **hold-time**: 240s hold time
+- **keep-alive interval**: 1/3 of hold time (80s)
+If a BFD session also exists, BGP will leverage BFD for detecting failed peers.
+
 [linux-ns]: https://en.wikipedia.org/wiki/Linux_namespaces
 [podnetwork]: https://kubernetes.io/docs/concepts/cluster-administration/networking/
 [cni]: https://www.cni.dev/
@@ -394,20 +411,6 @@ types.
 [switchdev]: https://www.kernel.org/doc/html/latest/networking/switchdev.html
 [specify-net-anno]: https://github.com/k8snetworkplumbingwg/multus-cni/blob/master/docs/how-to-use.md#run-pod-with-network-annotation
 [nad]: https://github.com/k8snetworkplumbingwg/multi-net-spec/blob/master/v1.3/%5Bv1.3%5D%20Kubernetes%20Network%20Custom%20Resource%20Definition%20De-facto%20Standard.pdf
-
-<!---
-### Service network configuration
-
-TODO(jaypipes)
-
-## Default Routing and BGP Configuration
-
-CNFs are typically a collection of Kubernetes Pods that are connected to one or
-more virtual networks. Those virtual networks are routed across the physical
-network infrastructure via [Border Gateway Protocol][bgp] (BGP).
-
-TODO(jaypipes)
-
 [bgp]: https://en.wikipedia.org/wiki/Border_Gateway_Protocol
 
--->
+
