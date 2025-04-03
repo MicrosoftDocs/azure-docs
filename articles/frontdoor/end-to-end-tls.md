@@ -121,8 +121,8 @@ For TLS 1.2/1.3, the following cipher suites are supported:
 - TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 
 - TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 
-   > [!NOTE]
-    > Old TLS versions and weak ciphers are no longer supported.
+> [!NOTE]
+> Old TLS versions and weak ciphers are no longer supported.
 
 Use *TLS policy* to configure specific cipher suites. Azure Front Door Standard and Premium offer two mechanisms for controlling TLS policy: you can use either a predefined policy or a custom policy per your own needs. For more information, see [Configure TLS policy on a Front Door custom domain](standard-premium/tls-policy-configure.md).
 

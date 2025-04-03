@@ -101,6 +101,16 @@ A network security perimeter-aware private link resource is a PaaS resource that
 > [!NOTE]
 > Refer to the respective private link resource documentation for information on currently unsupported scenarios.
 
+## Supported access rules' types
+
+Network security perimeter supports the following access rule types:
+
+| Direction | Access rule type | 
+|---------------------------|---------------|
+| Inbound | Subscription based rules |
+| Inbound | IP based rules (check respective onboarded private link resources for v6 support)| 
+| Outbound | FQDN based rules |
+
 ## Limitations of a network security perimeter
 
 ### Regional limitations

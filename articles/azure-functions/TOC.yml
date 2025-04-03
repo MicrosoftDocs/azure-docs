@@ -655,9 +655,9 @@
             - name: Azure Cache for Redis
               items:
                 - name: Get started with VS Code
-                  href: ../azure-cache-for-redis/cache-tutorial-functions-getting-started.md?toc=%2fazure%2fazure-functions%2ftoc.json
+                  href: ../redis/tutorial-functions-getting-started.md?toc=%2fazure%2fazure-functions%2ftoc.json
                 - name: Create a write-behind cache
-                  href: ../azure-cache-for-redis/cache-tutorial-write-behind.md?toc=%2fazure%2fazure-functions%2ftoc.json
+                  href: ../redis/tutorial-write-behind.md?toc=%2fazure%2fazure-functions%2ftoc.json
             - name: Storage
               items:
                 - name: Azure portal

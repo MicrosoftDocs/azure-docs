@@ -5,7 +5,7 @@ author: SoniaLopezBravo
 
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 09/29/2022
+ms.date: 03/28/2025
 ms.author: sonialopez
 ms.custom: devx-track-csharp
 ---
@@ -15,9 +15,9 @@ ms.custom: devx-track-csharp
 IoT Hub provides a powerful SQL-like language to retrieve information regarding [device twins](iot-hub-devguide-device-twins.md), [module twins](iot-hub-devguide-module-twins.md), [jobs](iot-hub-devguide-jobs.md), and [message routing](iot-hub-devguide-messages-d2c.md). This article presents:
 
 * An introduction to the major features of the IoT Hub query language, and
-* The detailed description of the language. For details on query language for message routing, see [queries in message routing](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
+* The detailed description of the language. For more information about query language for message routing, see [IoT Hub message routing query syntax](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 
-For specific examples, see [Queries for device and module twins](query-twins.md) or [Queries for jobs](query-jobs.md).
+For specific examples, see [Queries for IoT Hub device and module twins](query-twins.md) or [Queries for IoT Hub jobs](query-jobs.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -33,7 +33,7 @@ You also can run queries within your applications using the Azure IoT service SD
 
 For example code implementing IoT Hub queries, see the [Query examples with the service SDKs](#query-examples-with-the-service-sdks) section.
 
-For links to SDK reference pages and samples, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).
+For links to SDK reference pages and samples, see [Azure IoT Hub SDKs](iot-hub-devguide-sdks.md).
 
 ## Basics of an IoT Hub query
 
@@ -130,7 +130,7 @@ For example:
     WHERE devices.jobs.deviceId = 'myDeviceId'
   ```
 
-The allowed conditions are described in the [expressions and conditions](#expressions-and-conditions) section.
+The allowed conditions are described in the [Expressions and conditions](#expressions-and-conditions) section.
 
 ### GROUP BY clause
 
@@ -150,7 +150,7 @@ For example:
 Currently, the GROUP BY clause is only supported when querying device twins.
 
 > [!CAUTION]
-> The term `group` is currently treated as a special keyword in queries. In case, you use `group` as your property name, consider surrounding it with double brackets to avoid errors, e.g., `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
+> The term `group` is currently treated as a special keyword in queries. In case, you use `group` as your property name, consider surrounding it with double brackets to avoid errors, as shown in this example: `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
 
 The formal syntax for GROUP BY is:
 
@@ -165,7 +165,7 @@ GROUP BY <group_by_element>
 
 ### Query results pagination
 
-A query object is instantiated with a max page size of **less than** or **equal to** 100 records. To obtain multiple pages, call the [nextAsTwin](device-twins-node.md#create-a-service-app-that-updates-desired-properties-and-queries-twins) on Node.js SDK or [GetNextAsTwinAsync](device-twins-dotnet.md#create-a-service-app-that-updates-desired-properties-and-queries-twins) on .Net SDK method multiple times.
+A query object is instantiated with a max page size of **less than** or **equal to** 100 records. To obtain multiple pages, call the [nextAsTwin](how-to-device-twins.md?pivots=programming-language-node#create-a-device-twin-query) on Node.js SDK or [GetNextAsTwinAsync](how-to-device-twins.md?pivots=programming-language-csharp#create-a-device-twin-query) on .NET SDK method multiple times.
 A query object can expose multiple Next values, depending on the deserialization option required by the query. For example, a query object can return device twin or job objects, or plain JSON when using projections.
 
 ## Expressions and conditions
@@ -232,7 +232,7 @@ When querying twins and jobs the only supported function is:
 
 | Function | Description |
 | -------- | ----------- |
-| IS_DEFINED(property) | Returns a Boolean indicating if the property has been assigned a value (including `null`). |
+| IS_DEFINED(property) | Returns a Boolean indicating if the property is assigned a value (including `null`). |
 
 In routes conditions, the following math functions are supported:
 
@@ -254,7 +254,7 @@ In routes conditions, the following type checking and casting functions are supp
 | AS_NUMBER | Converts the input string to a number. `noop` if input is a number; `Undefined` if string doesn't represent a number.|
 | IS_ARRAY | Returns a Boolean value indicating if the type of the specified expression is an array. |
 | IS_BOOL | Returns a Boolean value indicating if the type of the specified expression is a Boolean. |
-| IS_DEFINED | Returns a Boolean indicating if the property has been assigned a value. This function is supported only when the value is a primitive type. Primitive types include string, Boolean, numeric, or `null`. DateTime, object types and arrays aren't supported. |
+| IS_DEFINED | Returns a Boolean indicating if the property is a value. This function is supported only when the value is a primitive type. Primitive types include string, Boolean, numeric, or `null`. DateTime, object types, and arrays aren't supported. |
 | IS_NULL | Returns a Boolean value indicating if the type of the specified expression is null. |
 | IS_NUMBER | Returns a Boolean value indicating if the type of the specified expression is a number. |
 | IS_OBJECT | Returns a Boolean value indicating if the type of the specified expression is a JSON object. |
@@ -279,7 +279,7 @@ In routes conditions, the following string functions are supported:
 
 ### C# example
 
-The query functionality is exposed by the [C# service SDK](iot-hub-devguide-sdks.md) in the **RegistryManager** class.
+The query functionality is exposed by the [Azure IoT Hub service SDK for .NET](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks) in the **RegistryManager** class.
 
 Here's an example of a simple query:
 
@@ -295,11 +295,11 @@ while (query.HasMoreResults)
 }
 ```
 
-The query object is instantiated with the parameters mentioned in the [query results pagination](#query-results-pagination) section. Multiple pages are retrieved by calling the **GetNextAsTwinAsync** methods multiple times.
+The query object is instantiated with the parameters mentioned in the [Query results pagination](#query-results-pagination) section. Multiple pages are retrieved by calling the **GetNextAsTwinAsync** methods multiple times.
 
 ### Node.js example
 
-The query functionality is exposed by the [Azure IoT service SDK for Node.js](iot-hub-devguide-sdks.md) in the **Registry** object.
+The query functionality is exposed by the [Azure IoT Hub service SDK for Node.js](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks) in the **Registry** object.
 
 Here's an example of a simple query:
 
@@ -322,11 +322,11 @@ var onResults = function(err, results) {
 query.nextAsTwin(onResults);
 ```
 
-The query object is instantiated with the parameters mentioned in the [query results pagination](#query-results-pagination) section. Multiple pages are retrieved by calling the **nextAsTwin** method multiple times.  
+The query object is instantiated with the parameters mentioned in the [Query results pagination](#query-results-pagination) section. Multiple pages are retrieved by calling the **nextAsTwin** method multiple times.  
 
 ## Next steps
 
 * Learn about routing messages based on message properties or message body with the [IoT Hub message routing query syntax](iot-hub-devguide-routing-query-syntax.md).
-* Get specific examples of [Queries for device and module twins](query-twins.md) or [Queries for jobs](query-jobs.md).
+* Get specific examples of [Queries for IoT Hub device and module twins](query-twins.md) or [Queries for IoT Hub jobs](query-jobs.md).
 
 

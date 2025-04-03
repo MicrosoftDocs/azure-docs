@@ -53,7 +53,7 @@ az dataprotection backup-policy retention-rule set --lifecycles ./retentionrule.
 Once the policy JSON has all the required values, proceed to create a new policy from the policy object.
 
 ```azurecli
-az dataprotection backup-policy create -g testBkpVaultRG --vault-name TestBkpVault -n mypolicy --policy policy.json
+az dataprotection backup-policy create -g testBkpVaultRG --vault-name TestBkpVault -n mypolicy --policy akspolicy.json
 ```
 
 ## Prepare AKS cluster for backup

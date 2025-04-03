@@ -21,7 +21,7 @@ You must have Cost Management permissions at the appropriate scope to use APIs a
 
 ## How to get cost details
 
-You can get cost details programmatically with [exports](../costs/tutorial-export-acm-data.md) or the [Cost Details](/rest/api/cost-management/generate-cost-details-report) report. To learn more about which solutions are best for your scenarios, see [Choose a cost details solution](usage-details-best-practices.md).
+You can get cost details programmatically with [exports](../costs/tutorial-improved-exports.md) or the [Cost Details](/rest/api/cost-management/generate-cost-details-report) report. To learn more about which solutions are best for your scenarios, see [Choose a cost details solution](usage-details-best-practices.md).
 
 For Azure portal download instructions, see [How to get your Azure billing invoice and daily usage data](../manage/download-azure-invoice-daily-usage-date.md). If you have a small cost details dataset that you maintain from one month to another, you can open your CSV file in Microsoft Excel or another spreadsheet application.
 
@@ -133,7 +133,7 @@ Azure doesn't log most user actions. Instead, Azure logs resource usage for bill
 ## Related content
 
 - Learn more about [Choose a cost details solution](usage-details-best-practices.md).
-- [Create and manage exported data](../costs/tutorial-export-acm-data.md) in the Azure portal with Exports.
+- [Create and manage exported data](../costs/tutorial-improved-exports.md) in the Azure portal with Exports.
 - [Automate Export creation](../costs/ingest-azure-usage-at-scale.md) and ingestion at scale using the API.
 - [Understand cost details fields](understand-usage-details-fields.md).
 - Learn how to [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).

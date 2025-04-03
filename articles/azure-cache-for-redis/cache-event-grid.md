@@ -4,6 +4,9 @@ description: Use Azure Event Grid to publish Azure Cache for Redis events.
 
 
 ms.date: 12/21/2020
+appliesto:
+  - ✅ Azure Cache for Redis
+
 ms.topic: conceptual
 
 ---

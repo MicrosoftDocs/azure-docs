@@ -5,7 +5,7 @@ description: Learn how to view a SKU and upgrade SKU tiers.
 author: cherylmc
 ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 03/12/2024
+ms.date: 03/31/2025
 ms.author: cherylmc
 
 ---

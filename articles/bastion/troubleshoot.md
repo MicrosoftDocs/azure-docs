@@ -5,7 +5,7 @@ services: bastion
 author: isamorris
 ms.service: azure-bastion
 ms.topic: troubleshooting
-ms.date: 01/11/2024
+ms.date: 03/31/2025
 ms.author: isamorris
 ---
 

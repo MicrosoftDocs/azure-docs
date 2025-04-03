@@ -84,7 +84,7 @@ items:
   - name: Manage a dev box through developer portal
     displayName: Windows App, connect, access dev box, RDP, iPad   
     href: how-to-create-dev-boxes-developer-portal.md
-  - name: Connect with Windows App
+  - name: Connect to your dev box
     displayName: Windows App, connect, access dev box, RDP, iPad 
     href: how-to-create-dev-boxes-developer-portal.md#connect-through-the-windows-app
   - name: Use multiple monitors

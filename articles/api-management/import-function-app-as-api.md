@@ -1,169 +1,171 @@
 ---
 title: Import an Azure Function App as an API in API Management
 titleSuffix: Azure API Management
-description: This article shows you how to import an Azure Function App into Azure API Management as an API.
+description: Learn how to import an Azure function app into Azure API Management as an API.
 services: api-management
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 04/16/2021
+ms.date: 03/28/2025
 ms.author: danlep
+
+#customer intent: As an API developer, I want to import an Azure function app as an API in API Management. 
 ---
 
-# Import an Azure Function App as an API in Azure API Management
+# Import an Azure function app as an API in Azure API Management
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-Azure API Management supports importing Azure Function Apps as new APIs or appending them to existing APIs. The process automatically generates a host key in the Azure Function App, which is then assigned to a named value in Azure API Management.
+Azure API Management supports importing Azure function apps as new APIs or appending them to existing APIs. The process automatically generates a host key in the Azure function app, which is then assigned to a named value in API Management.
 
 [!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
-This article walks through importing and testing an Azure Function App as an API in Azure API Management. 
+This article describes how to import an Azure function app as an API to Azure API Management and test the API.
 
-You will learn how to:
+You'll learn how to:
 
 > [!div class="checklist"]
-> * Import an Azure Function App as an API
-> * Append an Azure Function App to an API
-> * View the new Azure Function App host key and Azure API Management named value
+> * Import an Azure function app as an API
+> * Append an Azure function app to an API
+> * View the new function app host key and API Management named value
 > * Test the API in the Azure portal
 
 ## Prerequisites
 
 * Complete the [Create an Azure API Management instance](get-started-create-service-instance.md) quickstart.
-* Make sure you have an Azure Functions app in your subscription. For more information, see [Create an Azure Function App](../azure-functions/functions-get-started.md). Functions must have HTTP trigger and authorization level set to *Anonymous* or *Function*.
+* Make sure you have an Azure function app in your subscription. For more information, see [Getting started with Azure Functions](../azure-functions/functions-get-started.md). The function must have an HTTP trigger. The authorization level must be set to *Anonymous* or *Function*.
 
 > [!NOTE]
-> You can use the API Management Extension for Visual Studio Code to import and manage your APIs. Follow the [API Management Extension tutorial](visual-studio-code-tutorial.md) to install and get started.
+> You can also use the API Management Extension for Visual Studio Code to import and manage your APIs. Complete the [API Management Extension tutorial](visual-studio-code-tutorial.md) to get started.
 
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
+## Import an Azure function app as a new API
 
-## <a name="add-new-api-from-azure-function-app"></a> Import an Azure Function App as a new API
+To create a new API from an Azure function app:
 
-Follow the steps below to create a new API from an Azure Function App.
+1. Navigate to your API Management service in the Azure portal.
+1. Select **APIs** > **APIs** in the left pane.
 
-1. Navigate to your API Management service in the Azure portal and select **APIs** from the menu.
+1. Under **Create from Azure resource**, select **Function App**:
 
-2. In the **Add a new API** list, select **Function App**.
+    :::image type="content" source="./media/import-function-app-as-api/add-01.png" alt-text="Screenshot that shows the Function App tile in the Azure portal.":::
 
-    :::image type="content" source="./media/import-function-app-as-api/add-01.png" alt-text="Screenshot that shows the Function App tile.":::
+1. Select the **Browse** button:
 
-3. Click **Browse** to select Functions for import.
+    :::image type="content" source="./media/import-function-app-as-api/add-02.png" alt-text="Screenshot that highlights the Browse button." lightbox="./media/import-function-app-as-api/add-02.png":::
 
-    :::image type="content" source="./media/import-function-app-as-api/add-02.png" alt-text="Screenshot that highlights the Browse button.":::
+1. Click the **Select** button under **Configure required settings** to choose from the list of available function apps:
 
-4. Click on the **Function App** section to choose from the list of available Function Apps.
+    :::image type="content" source="./media/import-function-app-as-api/add-03.png" alt-text="Screenshot that shows the Select button." lightbox="./media/import-function-app-as-api/add-03.png":::
 
-    :::image type="content" source="./media/import-function-app-as-api/add-03.png" alt-text="Screenshot that highlights the Function App section.":::
+1. Find the function app that you want to import functions from, select it, and then click **Select**:
 
-5. Find the Function App you want to import Functions from, click on it and press **Select**.
+    :::image type="content" source="./media/import-function-app-as-api/add-04.png" alt-text="Screenshot that shows a function app and the Select button." lightbox="./media/import-function-app-as-api/add-04.png":::
 
-    :::image type="content" source="./media/import-function-app-as-api/add-04.png" alt-text="Screenshot that highlights the Function App you want to import Functions from and the Select button.":::
+1. Select the functions that you want to import and click **Select**. You can only import functions that have an HTTP trigger and an *Anonymous* or *Function* authorization level.
 
-6. Select the Functions you would like to import and click **Select**.
-    * You can only import Functions based off HTTP trigger with *Anonymous* or *Function* authorization levels.
+    :::image type="content" source="./media/import-function-app-as-api/add-05.png" alt-text="Screenshot that shows a function and the Select button." lightbox="./media/import-function-app-as-api/add-05.png":::
 
-    :::image type="content" source="./media/import-function-app-as-api/add-05.png" alt-text="Screenshot that highlights the Functions to import and the Select button.":::
+1. Switch to the **Full** view and assign a **Product** to your new API.
 
-7. Switch to the **Full** view and assign **Product** to your new API. 
-8. If needed, specify other fields during creation or configure them later via the **Settings** tab. 
-    * The settings are explained in the [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
-
-    >[!NOTE]
-    > Products are associations of one or more APIs offered to developers through the developer portal. First, developers must subscribe to a product to get access to the API. Once subscribed, they get a subscription key for any API in that product. As creator of the API Management instance, you are an administrator and are subscribed to every product by default.
+   >[!NOTE]
+    > *Products* are associations of one or more APIs that are offered to developers via the developer portal. First, developers must subscribe to a product to get access to the API. When they subscribe, they get a subscription key for any API in the product. If you created the API Management instance, you're an administrator and are subscribed to every product by default.
     >
-    > Each API Management instance comes with two default sample products:
+    > In some pricing tiers, API Management instances come with two default sample products:
     > - **Starter**
     > - **Unlimited**
 
-9. Click **Create**.
+1. As needed, specify other settings. You can also specify settings later via the **Settings** tab. These settings are explained in the [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
 
-## <a name="append-azure-function-app-to-api"></a> Append Azure Function App to an existing API
+    
 
-Follow the steps below to append Azure Function App to an existing API.
+1. Select **Create**.
 
-1. In your **Azure API Management** service instance, select **APIs** from the menu on the left.
+## Append a function app to an existing API
 
-2. Choose an API you want to import an Azure Function App to. Click **...** and select **Import** from the context menu.
+To append a function app to an existing API:
 
-    :::image type="content" source="./media/import-function-app-as-api/append-function-api-1.png" alt-text="Screenshot that highlights the Import menu option.":::
+1. In your **Azure API Management** service instance, select **APIs** > **APIs** in the left pane.
 
-3. Click on the **Function App** tile.
+1. Choose an API that you want to import a function app to. Select the ellipsis (**...**) next to the API, and then select **Import**:
 
-    :::image type="content" source="./media/import-function-app-as-api/append-function-api-2.png" alt-text="Screenshot that highlights the Function App tile.":::
+    :::image type="content" source="./media/import-function-app-as-api/append-function-api-1.png" alt-text="Screenshot that shows the Import menu option." lightbox="./media/import-function-app-as-api/append-function-api-1.png":::
 
-4. In the pop-up window, click **Browse**.
+1. Select the **Function App** tile:
 
-    :::image type="content" source="./media/import-function-app-as-api/append-function-api-3.png" alt-text="Screenshot that shows the Browse button.":::
+    :::image type="content" source="./media/import-function-app-as-api/append-function-api-2.png" alt-text="Screenshot that shows the Function App tile." lightbox="./media/import-function-app-as-api/append-function-api-2.png":::
 
-5. Click on the **Function App** section to choose from the list of available Function Apps.
+1. In the **Import from Function App window**, select **Browse**:
 
-    :::image type="content" source="./media/import-function-app-as-api/add-03.png" alt-text="Screenshot that highlights the list of Function Apps.":::
+    :::image type="content" source="./media/import-function-app-as-api/append-function-api-3.png" alt-text="Screenshot that shows the Browse button." lightbox="./media/import-function-app-as-api/append-function-api-3.png":::
 
-6. Find the Function App you want to import Functions from, click on it and press **Select**.
+1. Click the **Select** button under **Configure required settings** to choose from the list of available function apps:
 
-    :::image type="content" source="./media/import-function-app-as-api/add-04.png" alt-text="Screenshot that highlights the Function App you want to import functions from.":::
+    :::image type="content" source="./media/import-function-app-as-api/add-03.png" alt-text="Screenshot that shows the Function App section." lightbox="./media/import-function-app-as-api/add-03.png":::
 
-7. Select the Functions you would like to import and click **Select**.
+1. Find the function app you want to import functions from, select it, and then click **Select**:
 
-    :::image type="content" source="./media/import-function-app-as-api/add-05.png" alt-text="Screenshot that highlights the functions you'd like to import.":::
+    :::image type="content" source="./media/import-function-app-as-api/add-04.png" alt-text="Screenshot that shows the function app and the Select button." lightbox="./media/import-function-app-as-api/add-04.png":::
 
-8. Click **Import**.
+1. Select the functions that you want to import, and then click **Select**:
 
-    :::image type="content" source="./media/import-function-app-as-api/append-function-api-4.png" alt-text="Append from Function App":::
+    :::image type="content" source="./media/import-function-app-as-api/add-05.png" alt-text="Screenshot that shows the list of functions." lightbox="./media/import-function-app-as-api/add-05.png":::
 
-## <a name="authorization"></a> Authorization
+1. Select **Import**:
 
-Import of an Azure Function App automatically generates:
+    :::image type="content" source="./media/import-function-app-as-api/append-function-api-4.png" alt-text="Screenshot that shows the Import button." lightbox="./media/import-function-app-as-api/append-function-api-4.png":::
 
-* Host key inside the Function App with the name apim-{*your Azure API Management service instance name*},
-* Named value inside the Azure API Management instance with the name {*your Azure Function App instance name*}-key, which contains the created host key.
+## Authorization
 
-For APIs created after April 4th 2019, the host key is passed in HTTP requests from API Management to the Function App in a header. Older APIs pass the host key as [a query parameter](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). You can change this behavior through the `PATCH Backend` [REST API call](/rest/api/apimanagement/current-ga/backend/update#backendcredentialscontract) on the *Backend* entity associated with the Function App.
+When you import an Azure function app, these items are automatically generated:
+
+* A host key in the function app. The key is named `apim-<your API Management service instance name>`.
+* A named value in the API Management instance that has the name `<your Azure function app instance name>-key`. This value contains the host key.
+
+For APIs created after April 4, 2019, the host key is passed in HTTP requests from API Management to the function app in a header. Older APIs pass the host key as [a query parameter](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). You can change this behavior by using the `PATCH Backend` [REST API call](/rest/api/apimanagement/current-ga/backend/update#backendcredentialscontract) on the `Backend` entity that's associated with the function app.
 
 > [!WARNING]
-> Removing or changing either the Azure Function App host key value or the Azure API Management named value will break the communication between the services. The values do not sync automatically.
+> Removing or changing either the Azure function app host key value or the API Management named value will disable communication between the services. The values don't automatically sync.
 >
-> If you need to rotate the host key, make sure the named value in Azure API Management is also modified.
+> If you need to rotate the host key, be sure to also change the named value in API Management.
 
-### Access Azure Function App host key
+### Access a function app host key
 
-1. Navigate to your Azure Function App instance.
+1. Navigate to your Azure function app instance:
 
-    :::image type="content" source="./media/import-function-app-as-api/keys-01.png" alt-text="Screenshot that highlights selecting your Function app instance.":::
+    :::image type="content" source="./media/import-function-app-as-api/keys-01.png" alt-text="Screenshot that shows a list of function app instances." lightbox="./media/import-function-app-as-api/keys-01.png":::
 
-2. In the **Functions** section of the side navigation menu, select **App keys**.
+1. In the **Functions** section of the left pane, select **App keys**:
 
-    :::image type="content" source="./media/import-function-app-as-api/keys-02b.png" alt-text="Screenshot that highlights the Function Apps settings option.":::
+    :::image type="content" source="./media/import-function-app-as-api/keys-02b.png" alt-text="Screenshot that shows App keys in the menu." lightbox="./media/import-function-app-as-api/keys-02b.png":::
 
-3. Find the keys under the **Host keys** section.
+1. Find the keys in the **Host keys** section:
 
-    :::image type="content" source="./media/import-function-app-as-api/keys-03.png" alt-text="Screenshot that highlights the Host Keys section.":::
+    :::image type="content" source="./media/import-function-app-as-api/keys-03.png" alt-text="Screenshot that shows the host keys." lightbox="./media/import-function-app-as-api/keys-03.png":::
 
-### Access the named value in Azure API Management
+### Access the named value in API Management
 
-Navigate to your Azure API Management instance and select **Named values** from the menu on the left. The Azure Function App key is stored there.
+Navigate to your API Management instance and select **APIs** > **Named values** in the left pane. The Azure function app key is stored there.
 
-:::image type="content" source="./media/import-function-app-as-api/api-named-value.png" alt-text="Add from Function App":::
+:::image type="content" source="./media/import-function-app-as-api/api-named-value.png" alt-text="Screenshot that shows the location of the function app key." lightbox="./media/import-function-app-as-api/api-named-value.png":::
 
-## <a name="test-in-azure-portal"></a> Test the new API in the Azure portal
+## Test the new API in the Azure portal
 
 You can call operations directly from the Azure portal. Using the Azure portal is a convenient way to view and test the operations of an API.  
 
-:::image type="content" source="./media/import-function-app-as-api/test-api.png" alt-text="Screenshot that highlights the test procedure.":::
+:::image type="content" source="./media/import-function-app-as-api/test-api.png" alt-text="Screenshot that shows the steps for testing an API." lightbox="./media/import-function-app-as-api/test-api.png":::
 
 1. Select the API that you created in the preceding section.
 
-2. Select the **Test** tab.
+1. Select the **Test** tab.
 
-3. Select the operation you want to test.
+1. Select the operation that you want to test.
 
     * The page displays fields for query parameters and headers. 
-    * One of the headers is "Ocp-Apim-Subscription-Key", for the product subscription key associated with this API. 
-    * As creator of the API Management instance, you are an administrator already, so the key is filled in automatically. 
+    * One of the headers is `Ocp-Apim-Subscription-Key`. This header is for the product subscription key that's associated with the API. 
+    * If you created the API Management instance, you're an administrator, so the key is filled in automatically. 
 
-4. Select **Send**.
+1. Select **Send**.
 
-    * When the test succeeds, the back end responds with **200 OK** and some data.
+    When the test succeeds, the backend responds with **200 OK** and some data.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]

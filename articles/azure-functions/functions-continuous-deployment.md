@@ -19,7 +19,7 @@ Functions supports these sources for continuous deployment to your app:
 
 ### [Azure Repos](#tab/azure-repos)
 
-Maintain your project code in [Azure Repos](https://azure.microsoft.com/services/devops/repos/), one of the services in Azure DevOps. Supports both Git and Team Foundation Version Control. Used with the [Azure Pipelines build provider](functions-continuous-deployment.md?tabs=azure-repos%2azure-pipelines#build-providers). For more information, see [What is Azure Repos?](/azure/devops/repos/get-started/what-is-repos)
+Maintain your project code in [Azure Repos](https://azure.microsoft.com/services/devops/repos/), one of the services in Azure DevOps. Supports both Git and Team Foundation Version Control. Used with the [Azure Pipelines build provider](functions-continuous-deployment.md?tabs=azure-repos%2azure-pipelines#build-providers). For more information, see [What is Azure Repos?](/azure/devops/repos/get-started/what-is-repos).
 
 ### [GitHub](#tab/github)
 
@@ -49,7 +49,7 @@ The unit of deployment for functions in Azure is the function app. For continuou
 After you enable continuous deployment, access to function code in the Azure portal is configured as *read-only* because the _source of truth_ is known to reside elsewhere.
 
 >[!NOTE]
->The Deployment Center doesn't support enabling continuous deployment for a function app with [inbound network restrictions](functions-networking-options.md?#inbound-networking-features). You need to instead configure the build provider workflow directly in GitHub or Azure Pipelines. These workflows also require you to use a virtual machine in the same virtual network as the function app as either a [self-hosted agent (Pipelines)](/azure/devops/pipelines/agents/agents#self-hosted-agents) or a [self-hosted runner (GitHub)](https://docs.github.com/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
+>The Deployment Center doesn't support enabling continuous deployment for a function app with [inbound network restrictions](functions-networking-options.md?#inbound-networking-features). You need to instead configure the build provider workflow directly in GitHub or Azure Pipelines. These workflows also require you to use a virtual machine in the same virtual network as the function app as either a [self-hosted agent (Azure Pipelines)](/azure/devops/pipelines/agents/agents#self-hosted-agents) or a [self-hosted runner (GitHub)](https://docs.github.com/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
 
 ## <a name="build-providers"></a>Select a build provider
 
@@ -62,7 +62,7 @@ Functions supports these build providers:
 
 ### [Azure Pipelines](#tab/azure-pipelines)
 
-Azure Pipelines is one of the services in Azure DevOps and the default build provider for Azure Repos projects. You can also use Pipelines to build projects from GitHub. In Pipelines, there's an [`AzureFunctionApp`](/azure/devops/pipelines/tasks/reference/azure-function-app-v2) task designed specifically for deploying to Azure Functions. This task provides you with control over how the project gets built, packaged, and deployed. Supports managed identities. 
+Azure Pipelines is one of the services in Azure DevOps and the default build provider for Azure Repos projects. You can also use Azure Pipelines to build projects from GitHub. In Azure Pipelines, there's an [`AzureFunctionApp`](/azure/devops/pipelines/tasks/reference/azure-function-app-v2) task designed specifically for deploying to Azure Functions. This task provides you with control over how the project gets built, packaged, and deployed. Supports managed identities. 
 
 ### [GitHub Actions](#tab/github-actions)
 
@@ -70,7 +70,7 @@ GitHub Actions is the default build provider for GitHub projects. GitHub Actions
 
 ### [App Service (Kudu) service](#tab/app-service)
 
-The App Service platform maintains a native deployment service ([Project Kudu](https://github.com/projectkudu/kudu/wiki)) to support local Git deployment, some container deployments, and other deployment sources not supported by either Pipelines or GitHub Actions. Remote builds, packaging, and other maintenance tasks are performed in a subdomain of `scm.azurewebsites.net` dedicated to your app, such as `https://myfunctionapp.scm.azurewebsites.net`. This build service can only be used when the `scm` site can be accessed by your deployment. While you can use identities to connect to the `scm` endpoint, many publishing tools instead require basic authentication to connect to the `scm` endpoint. 
+The App Service platform maintains a native deployment service ([Project Kudu](https://github.com/projectkudu/kudu/wiki)) to support local Git deployment, some container deployments, and other deployment sources not supported by either Azure Pipelines or GitHub Actions. Remote builds, packaging, and other maintenance tasks are performed in a subdomain of `scm.azurewebsites.net` dedicated to your app, such as `https://myfunctionapp.scm.azurewebsites.net`. This build service can only be used when the `scm` site can be accessed by your deployment. While you can use identities to connect to the `scm` endpoint, many publishing tools instead require basic authentication to connect to the `scm` endpoint. 
 
 This build provider is used when you deploy your code project by using Visual Studio, Visual Studio Code, or Azure Functions Core Tools. If you haven't already deployed code to your function app by using one of these tools, you might need to [Enable basic authentication for deployments](#enable-basic-authentication-for-deployments) to use the `scm` site.  
 
@@ -82,7 +82,7 @@ Keep the strengths and limitations of these providers in mind when you enable so
 
 The [Azure portal](https://portal.azure.com) provides a **Deployment center** for your function apps, which makes it easier to configure continuous deployment. The specific way you configure continuous deployment depends both on the type of source control repository in which your code resides and the [build provider](#build-providers) you choose. 
 
-In the [Azure portal](https://portal.azure.com), browse to your function app page and select **Deployment Center** under **Deployment** in the left pane. 
+In the [Azure portal](https://portal.azure.com), browse to your function app page and select **Deployment Center** under **Deployment** on the left pane. 
 
 :::image type="content" source="media/functions-continuous-deployment/deployment-center-choose-source.png" alt-text="Screenshot of Function app deployment center in the Azure portal where you choose your source repository.":::
 
@@ -90,11 +90,11 @@ Select the **Source** repository type where your project code is being maintaine
 
 ### [Azure Repos](#tab/azure-repos/azure-pipelines)
 
-Deployments from Azure Repos that use Azure Pipelines are defined in the [Azure DevOps portal](https://go.microsoft.com/fwlink/?linkid=2245703) and not from your function app. For a step-by-step guide for creating a Pipelines-based deployment from Azure Repos, see [Continuous delivery with Azure Pipelines](functions-how-to-azure-devops.md).  
+Deployments from Azure Repos that use Azure Pipelines are defined in the [Azure DevOps portal](https://go.microsoft.com/fwlink/?linkid=2245703) and not from your function app. For a step-by-step guide for creating an Azure Pipelines-based deployment from Azure Repos, see [Continuous delivery with Azure Pipelines](functions-how-to-azure-devops.md).  
 
 ### [GitHub](#tab/github/azure-pipelines)
 
-Deployments from GitHub that use Azure Pipelines are defined in the [Azure DevOps portal](https://go.microsoft.com/fwlink/?linkid=2245703) and not from your function app. For a step-by-step guide for creating a Pipelines-based deployment from GitHub, see [Continuous delivery with Azure Pipelines](functions-how-to-azure-devops.md). 
+Deployments from GitHub that use Azure Pipelines are defined in the [Azure DevOps portal](https://go.microsoft.com/fwlink/?linkid=2245703) and not from your function app. For a step-by-step guide for creating an Azure Pipelines-based deployment from GitHub, see [Continuous delivery with Azure Pipelines](functions-how-to-azure-devops.md). 
 
 ### [Bitbucket](#tab/bitbucket/azure-pipelines)
 
@@ -124,9 +124,9 @@ You can't deploy from local git using GitHub Actions. Instead choose the [App Se
 
 ### [Azure Repos](#tab/azure-repos/app-service)
 
-1. Navigate to your function app in the [Azure portal](https://portal.azure.com) and select **Deployment Center**. 
+1. Go to your function app in the [Azure portal](https://portal.azure.com) and select **Deployment Center**. 
 
-1. For **Source** select **Azure Repos**. If **App Service build service** provider isn't the default, select **Change provider** choose **App Service build service** and select **OK**.
+1. For **Source**, select **Azure Repos**. If **App Service build service** provider isn't the default, select **Change provider**, select **App Service build service**, and then select **OK**.
 
 1. Select values for **Organization**, **Project**, **Repository**, and **Branch**. Only organizations that belong to your Azure account are displayed. 
 
@@ -134,9 +134,9 @@ You can't deploy from local git using GitHub Actions. Instead choose the [App Se
 
 ### [GitHub](#tab/github/app-service)
 
-1. Navigate to your function app in the [Azure portal](https://portal.azure.com) and select **Deployment Center**. 
+1. Go to your function app in the [Azure portal](https://portal.azure.com) and select **Deployment Center**. 
 
-1. For **Source** select **GitHub**. If **App Service build service** provider isn't the default, select **Change provider** choose **App Service build service** and select **OK**.
+1. For **Source**, select **GitHub**. If **App Service build service** provider isn't the default, select **Change provider**, select **App Service build service**, and then select **OK**.
 
 1. If you haven't already authorized GitHub access, select **Authorize**. Provide your GitHub credentials and select **Sign in**. If you need to authorize a different GitHub account, select **Change Account** and sign in with another account.
 
@@ -148,9 +148,9 @@ When a new commit is pushed to the selected branch, the service pulls your code,
 
 ### [Bitbucket](#tab/bitbucket/app-service)
 
-1. Navigate to your function app in the [Azure portal](https://portal.azure.com) and select **Deployment Center**. 
+1. Go to your function app in the [Azure portal](https://portal.azure.com) and select **Deployment Center**. 
 
-1. For **Source** select **Bitbucket**. 
+1. For **Source**, select **Bitbucket**. 
 
 1. If you haven't already authorized Bitbucket access, select **Authorize** and then **Grant access**. If requested, provide your Bitbucket credentials and select **Sign in**. If you need to authorize a different Bitbucket account, select **Change Account** and sign in with another account.
 
@@ -162,9 +162,9 @@ When a new commit is pushed to the selected branch, the service pulls your code,
 
 ### [Local Git](#tab/local-git/app-service)
 
-1. Navigate to your function app in the [Azure portal](https://portal.azure.com) and select **Deployment Center**. 
+1. Go to your function app in the [Azure portal](https://portal.azure.com) and select **Deployment Center**. 
 
-1. For **Source** select **Local Git** and select **Save**. 
+1. For **Source**, select **Local Git** and select **Save**. 
 
 1. A local repository is created in your existing App Service plan, which is accessed from the `scm` domain. Copy the **Git clone URI** and use it to create a clone of this new repository on your local computer.   
 
@@ -172,7 +172,7 @@ When a new commit is pushed to the local git repository, the service pulls your 
 
 ---
 
-After deployment completes, all code from the specified source is deployed to your app. At that point, changes in the deployment source trigger a deployment of those changes to your function app in Azure.
+After deployment finishes, all code from the specified source is deployed to your app. At that point, changes in the deployment source trigger a deployment of those changes to your function app in Azure.
 
 ## Enable continuous deployment during app creation
 
@@ -182,7 +182,7 @@ If you want to use a different deployment source or build provider for continuou
 
 ## Enable basic authentication for deployments
 
-In some cases, your function app is created with basic authentication access to the `scm` endpoint disabled. This blocks publishing by all methods that can't use managed identities to access the `scm` endpoint. The publishing impacts of having the `scm` endpoint disabled are detailed in [Deployment without basic authentication](../app-service/configure-basic-auth-disable.md#deployment-without-basic-authentication). 
+In some cases, your function app is created with basic authentication access to the `scm` endpoint disabled. This blocks publishing by all methods that can't use managed identities to access the `scm` endpoint. The publishing impacts of having the `scm` endpoint disabled are detailed in [Deploy without basic authentication](../app-service/configure-basic-auth-disable.md#deploy-without-basic-authentication).
 
 > [!IMPORTANT]
 > When you use basic authentication, credentials are sent in clear text. To protect these credentials, you must only access the `scm` endpoint over an encrypted connection (HTTPS) when using basic authentication. For more information, see [Secure deployment](security-concepts.md#secure-deployment).
@@ -191,11 +191,11 @@ To enable basic authentication to the `scm` endpoint:
 
 ### [Azure portal](#tab/azure-portal)
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your function app.
+1. In the [Azure portal](https://portal.azure.com), go to your function app.
 
-1. In the app's left menu, select **Settings** > **Configuration** > **General settings**.
+1. On the app's left menu, select **Settings** > **Configuration** > **General settings**.
 
-1. Set **SCM Basic Auth Publishing Credentials** to **On**, then select **Save**.
+1. Set **SCM Basic Auth Publishing Credentials** to **On**, and then select **Save**.
 
 ### [Azure CLI](#tab/azure-cli)
 

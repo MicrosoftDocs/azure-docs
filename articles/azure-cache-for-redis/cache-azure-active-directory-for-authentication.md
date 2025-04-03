@@ -5,6 +5,8 @@ ms.custom: references_regions, ignite-2024
 
 ms.topic: conceptual
 ms.date: 07/17/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 ---
 
 # Use Microsoft Entra for cache authentication

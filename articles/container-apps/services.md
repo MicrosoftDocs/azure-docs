@@ -4,20 +4,108 @@ description: Learn how to use runtime services in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom:
-  - ignite-2023
 ms.topic: conceptual
-ms.date: 11/02/2023
+ms.date: 03/31/2025
 ms.author: cshoe
 ---
 
 # Connect to services in Azure Container Apps (preview)
 
-As you develop applications in Azure Container Apps, you often need to connect to different services. Rather than creating services ahead of time and manually connecting them to your container app, you can quickly create instances of development-grade services that are designed for nonproduction environments known as add-ons.
+> [!IMPORTANT]
+> The public preview add-ons feature will be retired on September 30, 2025. To prepare for this change, transition to Azure-managed services, such as Azure Cache for Redis or Azure Database for PostgreSQL for a production-level service. For development and testing purposes, review the supported open-source software (OSS) quickstart images.
 
-Add-ons allow you to use OSS services without the burden of manual downloads, creation, and configuration.
+As you develop applications in Azure Container Apps, you often need to connect to different services. Rather than creating services ahead of time and manually connecting them to your container app, you can quickly create instances of development-grade services that are designed for nonproduction environments known as add-ons. 
 
-Once you're ready for your app to use a production level service, you can connect your application to an Azure managed service.
+Add-ons allow you to use OSS services without the burden of manual downloads, creation, and configuration. Since add-ons will be retired on September 30, 2025, we recommend you use our new OSS quickstarts if you want to continue using these OSS services for nonproduction environments.
+
+If you're ready for your app to use a production level service, you can connect your application to an Azure managed service.
+
+## Migration Guide
+
+As add-ons are being retired, you need to plan how to transition your applications away from this preview feature. Use the following steps help you for either a production level service if you're using open source technologies in a development or testing capacity.
+
+Make sure you prepare for data continuity between your add-on and your new Container App.
+
+### Option 1: Transition to Azure managed services
+
+If you're ready for a production level service, follow these steps to transition your add-on to an Azure managed service.
+
+1. Identify add-ons in use. Run the following command to locate all existing add-ons in your environment.
+
+    Before you run the following command, make sure to replace the placeholders surrounded by `<>` with you values.
+
+    ```azurecli
+    az containerapp add-on list \
+      --environment <ENVIRONMENT_NAME> \
+      --resource-group <RESOURCE_GROUP>
+    ```
+  
+1. Plan data continuity.
+
+    Create a backup or snapshot of your data in the current add-on if applicable.  
+
+1. Deploy the new managed service.
+
+    For example, create an [Azure Cache for Redis](/azure/azure-cache-for-redis/scripts/create-manage-cache?pivots=azure-managed-redis) or [Azure Database for PostgreSQL](/azure/postgresql/) instance using the Azure portal or CLI.
+
+1. Create a new container app.
+
+    Create a new app using the [Azure portal](quickstart-portal.md) or [CLI](get-started.md?tabs=bash).
+
+1. Configure connection settings.
+
+    In your new container app configuration, set the environment variables and network settings to point to your new managed service’s connection string, credentials, and endpoints.
+  
+1. Remove the add-on.
+
+    Once the add-on is no longer needed, delete it with the following command.
+
+    Before you run the following command, make sure to replace the placeholders surrounded by `<>` with you values.
+
+    ```azurecli
+    az containerapp add-on <SERVICE_TYPE> delete \
+      --name <ADDON_NAME> \
+      --resource-group <RESOURCE-GROUP>
+    ```
+
+### Option 2: Use open source quickstart images
+
+If you only need these services for development or testing environments and don't require production-level guarantees, follow these steps to switch to use the open-source quickstart images. 
+
+1. Identify add-ons in use. Run the following command to locate all existing add-ons in your environment.
+
+    Before you run the following command, make sure to replace the placeholders surrounded by `<>` with you values.
+
+    ```azurecli
+    az containerapp add-on list \
+      --environment <ENVIRONMENT_NAME> \
+      --resource-group <RESOURCE_GROUP>
+    ```
+
+1. Review the supported quickstart images: Redis, PostgreSQL, MariaDB, Qdrant, and Kafka. 
+
+1. Plan data continuity.
+
+    Create a backup or snapshot of your data in the current add-on if applicable.
+
+1. Create a new [Container App](quickstart-portal.md) using a quickstart image.
+
+1. Remove the add-on.
+
+    Once the add-on is no longer needed, delete it with the following command.
+
+    Before you run the following command, make sure to replace the placeholders surrounded by `<>` with you values.
+
+    ```azurecli
+    az containerapp add-on <SERVICE_TYPE> delete \
+      --name <ADDON_NAME> \
+      --resource-group <RESOURCE-GROUP>
+    ```
+
+## Add-ons
+
+> [!IMPORTANT]
+> The public preview add-ons feature will be retired on September 30, 2025. To prepare for this change, transition to Azure-managed services, such as Azure Cache for Redis or Azure Database for PostgreSQL for a production-level service. For development and testing purposes, review the supported open-source quickstarts. 
 
 Services available as an add-on include:
 
@@ -81,7 +169,7 @@ You're responsible for data continuity between development and production enviro
 
 To connect a service to an application, you first need to create the service.
 
-Use the `az containerapp add-on <SERVICE_TYPE> create` command with the service type and name to create a new service.
+To create a new service, use the `az containerapp add-on <SERVICE_TYPE> create` command with the service type and name.
 
 ``` CLI
 az containerapp add-on redis create \
@@ -124,7 +212,7 @@ For more information on the service commands and arguments, see the
 - Add-ons are in public preview.
 - Any container app created before May 23, 2023 isn't eligible to use add-ons.
 - Add-ons come with minimal guarantees. For instance, they're automatically restarted if they crash, however there's no formal quality of service or high-availability guarantees associated with them. For production workloads, use Azure-managed services.
-- If you use your own VNET, you must use a workload profiles environment. The Add-ons feature is not supported in consumption only environments that use custom VNETs.
+- If you use your own virtual network (virtual network), you must use a workload profiles environment. The Add-ons feature isn't supported in consumption only environments that use custom virtual networks.
 
 ## Next steps
 

@@ -165,7 +165,7 @@ For more information about SNC, see [Getting started with SAP SNC for RFC integr
 
    | Parameter | Required | Value | Description |
    |-----------|----------|-------|-------------|
-   | **Operation Type** | Yes | **BAPI**, **RFC**, **IDoc**, **RFC**, or **tRFC** | The operation type to use for the schema generation. This example selects and continues with **IDoc**. |
+   | **Operation Type** | Yes | **BAPI**, **IDoc**, **RFC**, or **tRFC** | The operation type to use for the schema generation. This example selects and continues with **IDoc**. |
    | **IDoc Type** | Yes | <*IDoc-type*> | Select the IDoc type to use for schema generation. This example selects **ORDERS05**. |
    | **Release** | Yes | <*IDoc-release-number*> | Select the IDoc release number. This example selects **720**. |
    | **Version** | Yes | <*IDoc-release-version*> | Select the IDoc release version. This example selects **3**. |

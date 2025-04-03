@@ -68,6 +68,8 @@ Reservation discounts apply to the following eligible subscriptions and offer ty
 
 Resources that run in a subscription with other offer types don't receive the reservation discount.
 
+Some Azure services do not support Reserved Instance (RI) discounts, so it's important to check eligibility before making a purchase to avoid unnecessary costs. For example: Azure SQL Serverless and Azure Cosmos DB serverless
+
 ## Purchase reservations
 
 When you buy a reservation, the current UTC date and time are used to record the transaction.

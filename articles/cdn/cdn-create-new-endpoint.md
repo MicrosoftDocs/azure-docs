@@ -7,7 +7,7 @@ ms.author: halkazwini
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: azure-cdn
 ms.topic: quickstart
-ms.date: 03/20/2024
+ms.date: 03/31/2025
 ROBOTS: NOINDEX
 ---
 

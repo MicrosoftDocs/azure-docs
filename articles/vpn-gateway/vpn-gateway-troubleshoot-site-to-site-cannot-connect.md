@@ -5,7 +5,7 @@ description: Learn how to troubleshoot a site-to-site VPN connection that sudden
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: troubleshooting-problem-resolution
-ms.date: 07/31/2023
+ms.date: 03/31/2025
 ms.author: cherylmc 
 ---
 # Troubleshooting: An Azure site-to-site VPN connection can't connect and stops working

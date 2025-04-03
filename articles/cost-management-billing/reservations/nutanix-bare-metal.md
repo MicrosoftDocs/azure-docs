@@ -13,13 +13,13 @@ ms.author: primittal
 
 # Save costs with reservations for Nutanix Cloud Clusters on Azure BareMetal infrastructure
 
-You can save money on [Nutanix Cloud Clusters (NC2) on Azure](../../baremetal-infrastructure/workloads/nc2-on-azure/nc2-baremetal-overview.md) with reservations. The reservation discount automatically applies to the running NC2 workload on Azure hosts that match the reservation scope and attributes. A reservation purchase covers only the compute part of your usage and doesn't include software licensing costs.
+You can save money on [Nutanix Cloud Clusters (NC2) on Azure](../../baremetal-infrastructure/workloads/nc2-on-azure/available-regions-skus.md) with reservations. The reservation discount automatically applies to the running NC2 workload on Azure hosts that match the reservation scope and attributes. A reservation purchase covers only the compute part of your usage and doesn't include software licensing costs.
 
 ## Purchase restriction considerations
 
 Reservations for NC2 on Azure BareMetal Infrastructure are available with some exceptions.
 
-- **Clouds** - Reservations are available only in the regions listed on the [Supported regions](../../baremetal-infrastructure/workloads/nc2-on-azure/architecture.md#supported-regions) page.
+- **Clouds** - Reservations are available only in the regions listed on the [Supported regions](../../baremetal-infrastructure/workloads/nc2-on-azure/available-regions-skus.md#supported-regions) page.
 - **Capacity restrictions** - In rare circumstances, Azure limits the purchase of new reservations for NC2 on Azure host SKUs because of low capacity in a region.
 
 ## Reservation scope

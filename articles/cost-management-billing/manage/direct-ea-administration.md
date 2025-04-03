@@ -3,7 +3,7 @@ title: EA Billing administration on the Azure portal
 description: This article explains the common tasks that an enterprise administrator accomplishes in the Azure portal.
 author: prashantsaini4
 ms.author: prsaini
-ms.date: 01/22/2025
+ms.date: 04/01/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise

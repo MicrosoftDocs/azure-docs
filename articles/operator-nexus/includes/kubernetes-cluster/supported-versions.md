@@ -14,5 +14,5 @@ ms.service: azure-operator-nexus
 | 1.28         | Nov 2023  | Oct 2024                       | Until end of Oct 2025 |
 | 1.29         | Aug 2024  | Feb 2025                       | Until end of Feb 2026 |
 | 1.30*        | Oct 2024  | Jul 2025, LTS until Jul 2026   | NA                    |
-
+| 1.31         | Mar 2025  | Nov 2025                       | Until end of Nov 2026 |
 *\* Indicates the version is designated for Long Term Support*

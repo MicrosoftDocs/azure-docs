@@ -77,9 +77,9 @@ If you see a negative savings value, then you're likely to have  unused savings 
 
 Using the preceding steps, you can repeat the process for any number of months. Doing so allows you to see your savings over a longer period.
 
-Instead of downloading usage files, one per month, you can get all your usage data for a specific date range using exports from Cost Management and output the data to Azure Storage. Doing so allows you to see your savings over a longer period. For more information about creating an export, see [Create and manage exported data](../costs/tutorial-export-acm-data.md).
+Instead of downloading usage files, one per month, you can get all your usage data for a specific date range using exports from Cost Management and output the data to Azure Storage. Doing so allows you to see your savings over a longer period. For more information about creating an export, see [Create and manage exported data](../costs/tutorial-improved-exports.md).
 
 ## Next steps
 
 - If you have any unused savings plans, read [View savings plan utilization after purchase](view-utilization.md).
-- Learn more about creating an export at [Create and manage exported data](../costs/tutorial-export-acm-data.md).
+- Learn more about creating an export at [Create and manage exported data](../costs/tutorial-improved-exports.md).

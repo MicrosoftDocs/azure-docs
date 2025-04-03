@@ -96,7 +96,9 @@ items:
   - name: Plan the deployment
     href: plan-private-cloud-deployment.md
   - name: Deploy Azure VMware Solution
-    href: deploy-azure-vmware-solution.md	
+    href: deploy-azure-vmware-solution.md
+  - name: Azure VMware Solution SDDC maintenance best practices
+    href: azure-vmware-solution-host-remediation.md
   - name: Deploy vSAN stretched clusters
     href: deploy-vsan-stretched-clusters.md
   - name: Create a placement policy

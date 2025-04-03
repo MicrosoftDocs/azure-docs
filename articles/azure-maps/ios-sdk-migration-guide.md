@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Find out how to migrate your Azure Maps iOS SDK applications to the Web SDK using a WebView.
 author: sinnypan
 ms.author: sipa
-ms.date: 02/20/2024
+ms.date: 03/31/2025
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: ios-sdk
@@ -18,7 +18,7 @@ Migrating from the Azure Maps iOS SDK to the Web SDK in a WebView involves trans
 >
 > **Azure Maps iOS SDK retirement**
 >
-> The Azure Maps Native SDK for iOS is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25.
+> The Azure Maps Native SDK for iOS is now retired and no longer supported. Use this guide to migrate to the Azure Maps Web SDK.
 
 ## Prerequisites
 

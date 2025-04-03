@@ -32,7 +32,7 @@ The following table describes the network topologies that are supported by each 
 |Connectivity from on-premises to an Oracle database in a spoke virtual network over a VPN gateway and virtual network peering with gateway transit| Yes |
 |Connectivity over active/passive VPN gateways| Yes |
 |Connectivity over active/active VPN gateways| No |
-|Connectivity over active/active zone-redundant gateways| No |
+|Connectivity over active/active zone-redundant gateways| Yes |
 |Transit connectivity via a virtual WAN for an Oracle database cluster provisioned in a spoke virtual network| Yes |
 |On-premises connectivity to an Oracle database cluster via a virtual WAN and attached software-defined wide area network (SD-WAN)|No|
 |On-premises connectivity via a secured hub (a firewall network virtual appliance) |Yes|

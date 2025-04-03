@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure VPN Gateway
 description: Start here to learn how to monitor Azure VPN Gateway by using Azure Monitor metrics and resource logs.
-ms.date: 07/26/2024
+ms.date: 03/31/2025
 ms.custom: horz-monitor
 ms.topic: conceptual
 author: cherylmc
