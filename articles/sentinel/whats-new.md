@@ -1,10 +1,10 @@
 ---
 title: What's new in Microsoft Sentinel
 description: Learn about the latest new features and announcement in Microsoft Sentinel from the past few months.
-author: yelevin
-ms.author: yelevin
+author: batamig
+ms.author: bagol
 ms.topic: concept-article
-ms.date: 03/13/2025
+ms.date: 04/01/2025
 
 #Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
 
@@ -17,6 +17,25 @@ This article lists recent features added for Microsoft Sentinel, and new feature
 The listed features were released in the last three months. For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+## April 2025
+
+- [Multi workspace and multitenant support for Microsoft Sentinel in the Defender portal (preview)](#multi-workspace-and-multitenant-support-for-microsoft-sentinel-in-the-defender-portal-preview)
+
+### Multi workspace and multitenant support for Microsoft Sentinel in the Defender portal (preview)
+
+For preview, in the Defender portal, connect to one primary workspace and multiple secondary workspaces for Microsoft Sentinel. If you onboard Microsoft Sentinel with Defender XDR, a primary workspace's alerts are correlated with Defender XDR data. So incidents  include alerts from Microsoft Sentinel's primary workspace and Defender XDR. All other onboarded workspaces are considered secondary workspaces. Incidents are created based on the workspace’s data and won't include Defender XDR data. 
+
+- If you plan to use Microsoft Sentinel in the Defender portal without Defender XDR, you can manage multiple workspaces. But, the primary workspace doesn't include Defender XDR data and you won't have access to Defender XDR capabilities.
+- If you're working with multiple tenants and multiple workspaces per tenant, you can also use Microsoft Defender multitenant management to view incidents and alerts, and to hunt for data in Advanced hunting, across both multiple workspaces and tenants.
+
+For more information, see the following articles:
+
+- [Multiple Microsoft Sentinel workspaces in the Defender portal](workspaces-defender-portal.md)
+- [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops-platform/microsoft-sentinel-onboard)
+- [Microsoft Defender multitenant management](/unified-secops-platform/mto-overview.md)
+- [View and manage incidents and alerts in Microsoft Defender multitenant management](/unified-secops-platform/mto-incidents-alerts.md)
+- [Advanced hunting in Microsoft Defender multitenant management](/unified-secops-platform/mto-advanced-hunting.md)
 
 ## March 2025
 
