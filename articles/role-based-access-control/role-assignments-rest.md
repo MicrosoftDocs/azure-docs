@@ -2,11 +2,11 @@
 title: Assign Azure roles using the REST API - Azure RBAC
 description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using the REST API and Azure role-based access control (Azure RBAC).
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.service: role-based-access-control
 ms.tgt_pltfrm: rest-api
 ms.topic: how-to
-ms.date: 12/01/2023
+ms.date: 03/30/2025
 ms.author: rolyon
 ---
 # Assign Azure roles using the REST API

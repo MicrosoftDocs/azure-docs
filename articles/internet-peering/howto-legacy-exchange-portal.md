@@ -13,8 +13,6 @@ ms.date: 03/03/2025
 
 In this article, you learn how to convert an existing legacy Exchange peering to an Azure resource using the Azure portal.
 
-If you prefer, you can complete this guide using [PowerShell](howto-legacy-exchange-powershell.md).
-
 ## Prerequisites
 
 - Review the [Prerequisites to set up peering with Microsoft](prerequisites.md) and the [Exchange peering walkthrough](walkthrough-exchange-all.md) before you begin configuration.
