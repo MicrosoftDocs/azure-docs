@@ -1,6 +1,7 @@
 ---
-title: Azure Communication Services support for Managed Identity 
-description: Learn about using Managed Identity with Azure Communication Services
+title: Managed Identity
+titleSuffix: An Azure Communication Services article
+description: This article describes how to use Managed Identity with Azure Communication Services
 author: joeleniqs
 manager: ankitarorabit
 services: azure-communication-services
@@ -11,7 +12,8 @@ ms.service: azure-communication-services
 ms.custom: managed-identity
 ---
 
-# How to use Managed Identity with Azure Communication Services
+# Managed Identity
+
 Azure Communication Services is a fully managed communication platform that enables developers to build real-time communication features into their applications. By using Managed Identity with Azure Communication Services, you can simplify the authentication process for your application, while also increasing its security. This document covers how to use Managed Identity with Azure Communication Services.
 
 ## Using Managed Identity with Azure Communication Services
@@ -25,7 +27,7 @@ Your Azure Communication Services resource can be assigned two types of identity
 
 To use Managed Identity with Azure Communication Services, follow these steps:
 
-1. Grant your Managed Identity access to the Communication Services resource. This assignment can be through the Azure portal, Azure CLI and the Azure Communication Management SDKs.
+1. Grant your Managed Identity access to the Communication Services resource. This assignment can be through the Azure portal, Azure CLI, and the Azure Communication Management SDKs.
 2. Use the Managed Identity to authenticate with Azure Communication Services. Authentication can be done through the Azure SDKs or REST APIs that support Managed Identity.
 
 -----
@@ -144,22 +146,21 @@ For Java apps and functions, Code Samples on how to create or update your Azure 
 
 For more information on using the java Management SDK, see [Azure Communication Management SDK for Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/communication/azure-resourcemanager-communication/README.md)
 
-# [GoLang](#tab/go)
+# [Golang](#tab/go)
 
 For Golang apps and functions, Code Samples on how to create or update your Azure Communication Services resource  with a managed identity can be found in the [Azure Communication Management Developer Samples for Golang](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/resourcemanager/communication/armcommunication/services_client_example_test.go).
 
-For more information on using the golang Management SDK, see [Azure Communication Management SDK for Golang](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/resourcemanager/communication/armcommunication/README.md)
-
+For more information about the Golang Management SDK, see [Azure Communication Management SDK for Golang](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/resourcemanager/communication/armcommunication/README.md).
 
 -----
 > [!NOTE]
-> A resource can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned,UserAssigned`.
+> A resource can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property is `SystemAssigned,UserAssigned`.
 >
->Removing all managed identity assignments from a resource can also be achieved by specifying the `type` property as `None`.
-
+> You can also remove all managed identity assignments from a resource by specifying the `type` property as `None`.
 
 ## Next steps
-Now that you have learned how to enable Managed Identity with Azure Communication Services. Consider implementing this feature in your own applications to simplify your authentication process and improve security. 
+
+This article described how to enable Managed Identity with Azure Communication Services. Consider implementing this feature in your own applications to simplify your authentication process and improve security. 
 
 - [Managed Identities](/entra/identity/managed-identities-azure-resources/overview)
 - [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities)
