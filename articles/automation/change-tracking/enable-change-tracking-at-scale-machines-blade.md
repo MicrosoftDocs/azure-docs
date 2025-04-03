@@ -20,7 +20,7 @@ This article provides detailed procedure on how you can enable change tracking a
 
     :::image type="content" source="media/enable-change-tracking-at-scale-machines-blade/portal-discoverability.png" alt-text="Screenshot showing the selection Change Tracking and Inventory from Azure portal." lightbox="media/enable-change-tracking-at-scale-machines-blade/portal-discoverability.png":::
 
-1. As per the selected subscription, the machines are listed which will confirm if they are enabled for Change Tracking and Inventory under the **Enabled** column .
+1. As per the selected subscription, the machines are listed which will confirm if they are enabled for Change Tracking and Inventory under the **Enabled** column.
 
      :::image type="content" source="media/enable-change-tracking-at-scale-machines-blade/select-subscription.png" alt-text="Screenshot showing the selection of Machines blade and subscription." lightbox="media/enable-change-tracking-at-scale-machines-blade/select-subscription.png":::
 
