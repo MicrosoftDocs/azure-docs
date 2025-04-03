@@ -1,29 +1,66 @@
 ---
 title: Troubleshoot Azure IoT Operations
-description: Troubleshoot your Azure IoT Operations deployment
+description: Troubleshoot your Azure IoT Operations deployment and configuration
 author: SoniaLopezBravo
 ms.author: sonialopez
 ms.topic: troubleshooting-general
 ms.custom:
   - ignite-2023
-ms.date: 11/01/2024
+ms.date: 03/07/2025
 ---
 
 # Troubleshoot Azure IoT Operations
 
 This article contains troubleshooting tips for Azure IoT Operations.
 
-## General deployment troubleshooting
+## Troubleshoot Azure IoT Operations deployment
 
-For general deployment and configuration troubleshooting, you can use the Azure CLI IoT Operations *check* and *support* commands.
+For general deployment and configuration troubleshooting, you can use the Azure CLI IoT Operations `check` and `support` commands.
 
 [Azure CLI version 2.53.0 or higher](/cli/azure/install-azure-cli) is required and the [Azure IoT Operations extension](/cli/azure/iot/ops) installed.
 
-- Use [az iot ops check](/cli/azure/iot/ops#az-iot-ops-check) to evaluate Azure IoT Operations service deployment for health, configuration, and usability. The *check* command can help you find problems in your deployment and configuration.
+- Use [az iot ops check](/cli/azure/iot/ops#az-iot-ops-check) to evaluate Azure IoT Operations service deployment for health, configuration, and usability. The `check` command can help you find problems in your deployment and configuration.
 
-- Use [az iot ops support create-bundle](/cli/azure/iot/ops/support#az-iot-ops-support-create-bundle) to collect logs and traces to help you diagnose problems. The *support create-bundle* command creates a standard support bundle zip archive you can review or provide to Microsoft Support.
+- Use [az iot ops support create-bundle](/cli/azure/iot/ops/support#az-iot-ops-support-create-bundle) to collect logs and traces to help you diagnose problems. The `support create-bundle` command creates a standard support bundle zip archive you can review or provide to Microsoft Support.
 
-## Secret management
+### You see an UnauthorizedNamespaceError error message
+
+If you see the following error message, you either didn't enable the required Azure-arc custom locations feature, or you enabled the custom locations feature with an incorrect custom locations RP OID.
+
+```output
+Message: Microsoft.ExtendedLocation resource provider does not have the required permissions to create a namespace on the cluster.
+```
+
+To resolve, follow [this guidance](/azure/azure-arc/kubernetes/custom-locations#enable-custom-locations-on-your-cluster) for enabling the custom locations feature with the correct OID.
+
+### You see a MissingResourceVersionOnHost error message
+
+If you see the following error message, your custom location resource associated with the deployment isn't properly configured with the API version(s) of resources attempting to be projected to the cluster.
+
+```output
+Message: The resource {resource Id} extended location {custom location resource Id} does not support the resource type {IoT Operations resource type} or api version {IoT Operations ARM API}. Please check with the owner of the extended location to ensure the host has the CRD {custom resource name} with group {api group name}.iotoperations.azure.com, plural {custom resource plural name}, and versions [{api group version}] installed.
+```
+
+To resolve, delete any provisioned resources associated with prior deployment(s) including custom locations. You can use `az iot ops delete` or alternative mechanism. Due to a potential caching issue, waiting a few minutes after deletion before re-deploying AIO or choosing a custom location name via `az iot ops create --custom-location` is recommended.
+
+### You see a LinkedAuthorizationFailed error message
+
+If your deployment fails with the `"code":"LinkedAuthorizationFailed"` error, the messages indicates that you don't have the required permissions on the resource group containing the cluster.
+
+The following message indicates that the logged-in principal doesn't have the required permissions to deploy resources to the resource group specified in the resource sync resource ID.
+
+```output
+Message: The client {principal Id} with object id {principal object Id} has permission to perform action Microsoft.ExtendedLocation/customLocations/resourceSyncRules/write on scope {resource sync resource Id}; however, it does not have permission to perform action(s) Microsoft.Authorization/roleAssignments/write on the linked scope(s) {resource sync resource group} (respectively) or the linked scope(s) are invalid.
+```
+
+To deploy resource sync rules, the logged-in principal must have the `Microsoft.Authorization/roleAssignments/write` permission against the resource group that resources are being deployed to. This is a necessary security constraint as edge to cloud resource hydration creates new resources in the target resource group.
+
+To resolve the issue, either elevate principal permissions, or don't deploy resource sync rules. The current AIO CLI has an opt-in mechanism to deploy resource sync rules by using the `--enable-rsync` flag. To stop the resource sync rules being deployed, omit the flag.
+
+> [!NOTE]
+> Legacy AIO CLIs had an opt-out mechanism by using the `--disable-rsync-rules`.
+
+## Troubleshoot Azure Key Vault secret management
 
 If you see the following error message related to secret management, you need to update your Azure Key Vault contents:
 
@@ -37,7 +74,7 @@ For help resolving this issue, please see https://go.microsoft.com/fwlink/?linki
 
 This error occurs when Azure IoT Operations tries to synchronize a secret from Azure Key Vault that doesn't exist. To resolve this issue, you need to add the secret in Azure Key Vault before you create resources such as a secret provider class.
 
-## Connector for OPC UA
+## Troubleshoot OPC UA server connections
 
 An OPC UA server connection fails with a `BadSecurityModeRejected` error if the connector tries to connect to a server that only exposes endpoints with no security. There are two options to resolve this issue:
 
@@ -50,11 +87,11 @@ An OPC UA server connection fails with a `BadSecurityModeRejected` error if the 
 
 - Add a secure endpoint to the OPC UA server and set up the certificate mutual trust to establish the connection.
 
-## Azure IoT Layered Network Management (preview) troubleshooting
+## Troubleshoot Azure IoT Layered Network Management (preview)
 
 The troubleshooting guidance in this section is specific to Azure IoT Operations when using the Layered Network Management component. For more information, see [How does Azure IoT Operations work in layered network?](../manage-layered-network/concept-iot-operations-in-layered-network.md).
 
-### Can't install Layered Network Management on the parent level
+### You can't install Layered Network Management on the parent level
 
 If the Layered Network Management operator install fails or you can't apply the custom resource for a Layered Network Management instance:
 
@@ -63,7 +100,7 @@ If the Layered Network Management operator install fails or you can't apply the 
 1. Verify the Layered Network Management operator is in the *Running and Ready* state.
 1. If applying the custom resource `kubectl apply -f cr.yaml` fails, the output of this command lists the reason for error. For example, CRD version mismatch or wrong entry in CRD.
 
-### Can't Arc-enable the cluster through the parent level Layered Network Management
+### You can't Arc-enable the cluster through the parent level Layered Network Management
 
 If you repeatedly remove and onboard a cluster with the same machine, you might get an error while Arc-enabling the cluster on nested layers. For example:
 
@@ -81,12 +118,12 @@ If your cluster is behind an outbound proxy server, please ensure that you have 
 
 1. Reboot the host machine.
 
-### Other types of Arc-enablement failures
+If you still see the error, check the following:
 
 1. Add the `--debug` parameter when running the `connectedk8s` command.
-1. Capture and investigate a network packet trace. For more information, see [capture Layered Network Management packet trace](#capture-layered-network-management-packet-trace).
+1. Capture and investigate a network packet trace. For more information, see [capture Layered Network Management to a packet trace](#you-want-to-capture-layered-network-management-to-a-packet-trace).
 
-### Can't install Azure IoT Operations on the isolated cluster
+### You can't install Azure IoT Operations on the isolated cluster
 
 You can't install Azure IoT Operations components on nested layers. For example, Layered Network Management on level 4 is running but can't install Azure IoT Operations on level 3.
 
@@ -99,10 +136,10 @@ You can't install Azure IoT Operations components on nested layers. For example,
 
     DNS should respond with the IP address of the Layered Network Management service.
 
-1. If the domain is being resolved correctly, verify the domain is added to the allowlist. For more information, see [Check the allowlist of Layered Network Management](#check-the-allowlist-of-layered-network-management).
-1. Capture and investigate a network packet trace. For more information, see [capture Layered Network Management packet trace](#capture-layered-network-management-packet-trace).
+1. If the domain is being resolved correctly, verify the domain is added to the allowlist. For more information, see [Can't connect to the Azure IoT Operations service from the child level Layered Network Management](#you-cant-connect-to-the-azure-iot-operations-service-from-the-child-level-layered-network-management).
+1. Capture and investigate a network packet trace. For more information, see [capture Layered Network Management to a packet trace](#you-want-to-capture-layered-network-management-to-a-packet-trace).
 
-### A pod fails when installing Azure IoT Operations on an isolated cluster
+### You can install Azure IoT Operations on the isolated cluster but the pods fail to start
 
 When installing the Azure IoT Operations components to a cluster, the installation starts and proceeds. However, initialization of one or few of the components (pods) fails.
 
@@ -124,9 +161,9 @@ When installing the Azure IoT Operations components to a cluster, the installati
     Warning  Failed  3m14s  kubelet  Failed to pull image "…
     ```
 
-### Check the allowlist of Layered Network Management
+### You can't connect to the Azure IoT Operations service from the child level Layered Network Management
 
-Layered Network Management blocks traffic if the destination domain isn't on the allowlist.
+Layered Network Management blocks traffic if the destination domain isn't on the allowlist. The allowlist is a list of domains that are allowed to be accessed from the child level Layered Network Management. Check the allowlist of Layered Network Management to verify if the domain is included. If the domain isn't on the allowlist, you can add it to the allowlist.
 
 1. Run the following command to list the config maps.
 
@@ -150,18 +187,18 @@ Layered Network Management blocks traffic if the destination domain isn't on the
 
 1. All the allowed domains are listed in the output.
 
-### Capture Layered Network Management packet trace
+### You want to capture Layered Network Management to a packet trace
 
 In some cases, you might suspect that Layered Network Management instance at the parent level isn't forwarding network traffic to a particular endpoint. Connection to a required endpoint is causing an issue for the service running on your node. It's possible that the service you enabled is trying to connect to a new endpoint after an update. Or you're trying to install a new Arc extension or service that requires connection to endpoints that aren't on the default allowlist. Usually there would be information in the error message to notify the connection failure. However, if there's no clear information about the missing endpoint, you can capture the network traffic on the child node for detailed debugging.
 
-#### Windows host
+#### [Windows host](#tab/tabid-windows)
 
 1. Install Wireshark network traffic analyzer on the host.
 1. Run Wireshark and start capturing.
 1. Reproduce the installation or connection failure.
 1. Stop capturing.
 
-#### Linux host
+#### [Linux host](#tab/tabid-linux)
 
 1. Run the following command to start capturing:
 
@@ -172,14 +209,14 @@ In some cases, you might suspect that Layered Network Management instance at the
 1. Reproduce the installation or connection failure.
 1. Stop capturing.
 
-#### Analyze the packet trace
+***
 
 Use Wireshark to open the trace file. Look for connection failures or unresponsive connections.
 
 1. Filter the packets with the *ip.addr == [IP address]* parameter. Input the IP address of your custom DNS service address.
 1. Review the DNS query and response, check if there's a domain name that isn't on the allowlist of Layered Network Management.
 
-## Operations experience
+## Troubleshoot access to the operations experience web UI
 
 To sign in to the [operations experience](https://iotoperations.azure.com) web UI, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance.
 

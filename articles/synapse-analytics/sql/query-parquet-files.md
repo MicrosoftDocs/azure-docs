@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 12/10/2024
 ms.author: stefanazaric
-ms.reviewer: whhender 
+ 
 ---
 
 # Query Parquet files using serverless SQL pool in Azure Synapse Analytics

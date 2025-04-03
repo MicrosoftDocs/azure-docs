@@ -61,7 +61,11 @@ Run the `Set-AVSVSANClusterUNMAPTRIM` cmdlet to enable or disable TRIM/UNMAP.
    >- disk.scsiUnmapAllowed flag is not set to false. The default is implied true. This setting can be used as a "stop switch" at the virtual machine level should you wish to disable this behavior on a per VM basis and do not want to use in guest configuration to disable this behavior. VMX file changes require a reboot to take effect.
    >- The guest operating system must be able to identify the virtual disk as thin.
    >- After enabling at a cluster level, the VM must be powered off and back on (a reboot is insufficient).
-
+   
+   >[!TIP]
+   >Articles on reclaiming space for Windows and Linux systems for TRIM/UNMAP to execute.
+   >-https://knowledge.broadcom.com/external/article/340005/reclaiming-disk-space-from-thin-provisio.html
+   >-https://knowledge.broadcom.com/external/article/326595/procedure-to-enable-trimunmap.html
 ## Set VMware vSAN Space Efficiency
 
 Run the `Set-vSANCompressDedupe` cmdlet to set preferred space efficiency model.
