@@ -181,4 +181,4 @@ By the end of this stage, you've mapped AWS Lambda features and services to thei
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Migrate stage](lambda-functions-migration-migrate.md)
+> [Migrate stage](migrate-lambda-workloads.md)

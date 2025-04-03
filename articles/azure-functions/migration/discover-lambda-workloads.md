@@ -74,4 +74,4 @@ This detailed inventory is the foundation for the next stage, where you assess t
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Assess stage](lambda-functions-migration-assess.md)
+> [Assess stage](assess-lambda-workloads.md)

@@ -6759,5 +6759,30 @@
       "redirect_url": "/azure/sentinel/work-with-stix-objects-indicators",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/azure-functions/migration",
+      "redirect_url": "/azure/azure-functions/migration/migrate-lambda-workloads-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/lambda-functions-migration-assess.md",
+      "redirect_url": "/azure/azure-functions/migration/assess-lambda-workloads",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/lambda-functions-migration-discover.md",
+      "redirect_url": "/azure/azure-functions/migration/discover-lambda-workloads",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/lambda-functions-migration-migrate.md",
+      "redirect_url": "/azure/azure-functions/migration/migrate-lambda-workloads",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/lambda-functions-migration-overview.md",
+      "redirect_url": "/azure/azure-functions/migration/migrate-lambda-workloads-overview",
+      "redirect_document_id": false
+    },
   ]
 }

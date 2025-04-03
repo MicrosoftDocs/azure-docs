@@ -46,4 +46,4 @@ During this stage, you perform these steps to adapt function code, deploy and te
 Let's get started migrating your AWS Lambda code to Azure Functions:
 
 > [!div class="nextstepaction"]
-> [Discover stage](lambda-functions-migration-discover.md)
+> [Discover stage](discover-lambda-workloads.md)
