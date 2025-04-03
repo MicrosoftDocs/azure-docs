@@ -8,6 +8,8 @@ ms.topic: conceptual
 ms.custom:
   - ignite-2024
 ms.date: 06/26/2023
+appliesto:
+  - ✅ Azure Cache for Redis
 ---
 # Import and Export data in Azure Cache for Redis
 
@@ -163,7 +165,7 @@ For more information on supported RDB versions used with import, see the [compat
 
 ### Can I use Import/Export with Redis cluster?
 
-Yes, and you can import/export between a clustered cache and a nonclustered cache. Since Redis cluster [only supports database 0](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering), any data in databases other than 0 isn't imported. When clustered cache data is imported, the keys are redistributed among the shards of the cluster.
+Yes, and you can import/export between a clustered cache and a nonclustered cache. Since Redis cluster [only supports database 0](cache-how-to-scale.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering), any data in databases other than 0 isn't imported. When clustered cache data is imported, the keys are redistributed among the shards of the cluster.
 
 ### How does Import/Export work with a custom databases setting?
 
@@ -191,7 +193,7 @@ If you want to make periodic data backups for point-in-time recovery, we recomme
 
 Yes, see the following instructions for the _Premium_ tier:
 
-- PowerShell instructions [to import Redis data](cache-how-to-manage-redis-cache-powershell.md#to-import-an-azure-cache-for-redis) and [to export Redis data](cache-how-to-manage-redis-cache-powershell.md#to-export-an-azure-cache-for-redis).
+- PowerShell instructions [to import Redis data](../redis/how-to-manage-redis-cache-powershell.md#to-import-an-azure-cache-for-redis) and [to export Redis data](../redis/how-to-manage-redis-cache-powershell.md#to-export-an-azure-cache-for-redis).
 - Azure CLI instructions to [import Redis data](/cli/azure/redis#az-redis-import) and [export Redis data](/cli/azure/redis#az-redis-export)
 
 For the _Enterprise_ and _Enterprise Flash_ tiers:
