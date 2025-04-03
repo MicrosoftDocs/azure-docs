@@ -2,7 +2,7 @@
 title: Batch accounts and Azure Storage accounts
 description: Learn about Azure Batch accounts and how they're used from a development standpoint.
 ms.topic: conceptual
-ms.date: 06/25/2024
+ms.date: 04/02/2025
 
 ---
 # Batch accounts and Azure Storage accounts

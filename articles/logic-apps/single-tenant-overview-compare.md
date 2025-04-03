@@ -6,7 +6,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 02/14/2025
+ms.date: 03/12/2025
 ---
 
 # Differences between Standard single-tenant logic apps versus Consumption multitenant logic apps
@@ -297,8 +297,6 @@ For the **Standard** logic app workflow, the following capabilities are differen
 
     * The built-in action, [Azure Logic Apps - Choose a Logic App workflow](logic-apps-http-endpoint.md) is now **Workflow Operations - Invoke a workflow in this workflow app**.
  
-    * [Custom managed connectors](../connectors/introduction.md#custom-connectors-and-apis) currently aren't currently supported. However, you can create *custom built-in operations* when you use Visual Studio Code. For more information, review [Create single-tenant based workflows using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
-
     * A Standard workflow can have only one trigger and doesn't support multiple triggers.
 
 * **Authentication**

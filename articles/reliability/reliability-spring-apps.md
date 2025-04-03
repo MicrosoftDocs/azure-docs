@@ -3,7 +3,7 @@ title: Reliability in Azure Spring Apps
 description: Learn about reliability in Azure Spring Apps.
 author: anaharris-ms
 ms.author: anaharris
-ms.topic: overview
+ms.topic: reliability-article
 ms.custom: subject-reliability, references.regions
 ms.service: azure-spring-apps
 ms.date: 10/17/2023

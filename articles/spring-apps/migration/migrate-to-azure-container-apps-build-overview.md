@@ -2,7 +2,8 @@
 title: Overview of Containerization
 description: Describes how to containerize a Java application.
 author: KarlErickson
-ms.author: dixue
+ms.author: karler
+ms.reviewer: dixue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article
 ms.date: 01/29/2025

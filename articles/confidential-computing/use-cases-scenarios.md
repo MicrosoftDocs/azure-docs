@@ -9,7 +9,7 @@ ms.topic: overview
 ms.date: 11/04/2021
 ms.author: jushiman
 ---
-# Usecases
+# Use Cases
 
 Using confidential computing technologies, you can harden your virtualized environment from the host, the hypervisor, the host admin, and even your own VM admin. Depending on your threat model, we offer various technologies that enable you to:
 

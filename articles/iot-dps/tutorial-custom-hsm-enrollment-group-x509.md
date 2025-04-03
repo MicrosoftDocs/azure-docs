@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Provision X.509 devices to Azure IoT Hub using a DPS enrollment group
 description: This tutorial shows how to use X.509 certificates to provision multiple devices through an enrollment group in your Azure IoT Hub Device Provisioning Service (DPS) instance. 
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.date: 03/12/2024
 ms.topic: tutorial
 ms.service: azure-iot-hub

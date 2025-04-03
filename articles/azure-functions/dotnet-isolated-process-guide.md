@@ -555,6 +555,36 @@ public async Task HandleCancellationCleanup(
 }
 ```
 
+#### Scenarios that lead to cancellation
+
+The cancellation token is signaled when the function invocation is canceled. Several reasons could lead to a cancellation,
+and those could vary depending on the trigger type being used. Some common reasons are:
+
+1. Client disconnect: the client that is invoking your function disconnected. This is most likely for HttpTrigger functions.
+2. Function app restart: if you, or the platform, restart (or stop) the Function App around the same time an invocation is requested.
+   A restart can occur due to worker instance movements, worker instance updates, or scaling.
+    - Invocations in-flight during a restart event may be retried depending on how they were triggered. Please refer to the [retry documentation](./functions-bindings-error-pages.md#retries) for further information.
+
+For the isolated worker model, the host we will send the invocation through to the worker _even_ if the cancellation token was cancelled _before_ the host is able to send the invocation request to the worker.
+
+If you do not want pre-cancelled invocations to be sent to the worker, you can add the `SendCanceledInvocationsToWorker` property to your `host.json` file to disable this behaviour. The following example shows a `host.json` file that uses this property:
+
+```json
+{
+    "version": "2.0",
+    "SendCanceledInvocationsToWorker": "false"
+}
+```
+
+> [!IMPORTANT]
+> Setting `SendCanceledInvocationsToWorker` to `false` may lead to a `FunctionInvocationCanceled` exception with the following log: 
+> 
+> `Cancellation has been requested. The invocation request with id '{invocationId}' is canceled and will not be sent to the worker`
+> 
+> This occurs when the cancellation token is cancelled (as a result of one of the events described above) _before_ the host has sent
+> an incoming invocation request to the worker. This exception can be safely ignored and would be expected when `SendCanceledInvocationsToWorker`
+> is `false`.
+
 ## Bindings 
 
 Bindings are defined by using attributes on methods, parameters, and return types. Bindings can provide data as strings, arrays, and serializable types, such as plain old class objects (POCOs). For some binding extensions, you can also [bind to service-specific types](#sdk-types) defined in service SDKs. 

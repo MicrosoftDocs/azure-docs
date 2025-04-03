@@ -3,8 +3,9 @@ metadata:
   title: Frequently asked questions - Azure Event Hubs for Apache Kafka 
   description: This article answers frequent questions asked about Azure Event Hubs' support for Apache Kafka clients not covered elsewhere.
   ms.topic: faq
+  ms.subservice: kafka
 
-  ms.date: 10/14/2022
+  ms.date: 03/06/2025
 title: Frequently asked questions - Event Hubs for Apache Kafka 
 summary: This article provides answers to some of the frequently asked questions on migrating to Event Hubs for Apache Kafka.
 
@@ -33,8 +34,8 @@ sections:
           - They're autocreated.  Kafka groups can be managed via the Kafka consumer group APIs.
           - They can store offsets in the Event Hubs service.
           - They're used as keys in what is effectively an offset key-value store. For a unique pair of `group.id` and `topic-partition`, we store an offset in Azure Storage (3x replication). Event Hubs users don't incur extra storage costs from storing Kafka offsets. Offsets are manipulable via the Kafka consumer group APIs, but the offset storage *accounts* aren't directly visible or manipulable for Event Hubs users.  
-          - They span a namespace. Using the same Kafka group name for multiple applications on multiple topics means that all applications and their Kafka clients will be rebalanced whenever only a single application needs rebalancing.  Choose your group names wisely.
-          - They fully distinct from Event Hubs consumer groups. You **don't** need to use '$Default', nor do you need to worry about Kafka clients interfering with AMQP workloads.
+          - They span a namespace. Using the same Kafka group name for multiple applications on multiple topics means that all applications and their Kafka clients are rebalanced whenever only a single application needs rebalancing. Choose your group names wisely.
+          - They fully distinct from Event Hubs consumer groups. You **don't** need to use `$Default`, nor do you need to worry about Kafka clients interfering with AMQP workloads.
           - They aren't viewable in the Azure portal. Consumer group info is accessible via Kafka APIs.
           
       - question: |

@@ -927,12 +927,12 @@
         },
         {
             "source_path_from_root": "/articles/cost-management/aws-integration-manage.md",
-            "redirect_url": "/azure/cost-management-billing/costs/aws-integration-manage",
+            "redirect_url": "/azure/cost-management-billing/costs/overview-cost-management",
             "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/cost-management/aws-integration-set-up-configure.md",
-            "redirect_url": "/azure/cost-management-billing/aws-integration-set-up-configure",
+            "redirect_url": "/azure/cost-management-billing/costs/overview-cost-management",
             "redirect_document_id": false
         },
         {
@@ -1048,11 +1048,6 @@
         {
             "source_path_from_root": "/articles/cost-management/tutorial-acm-opt-recommendations.md",
             "redirect_url": "/azure/cost-management-billing/costs/tutorial-acm-opt-recommendations",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/cost-management/tutorial-export-acm-data.md",
-            "redirect_url": "/azure/cost-management-billing/costs/tutorial-export-acm-data",
             "redirect_document_id": true
         },
         {
@@ -1343,6 +1338,36 @@
         {
             "source_path_from_root": "/articles/cost-management-billing/manage/enterprise-rest-apis.md",
             "redirect_url": "/azure/cost-management-billing/automate/migrate-ea-reporting-arm-apis-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/reservations/transition-azure-openai-provisioned-deployments.md",
+            "redirect_url": "/azure/cost-management-billing/reservations/azure-openai",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cost-management/tutorial-export-acm-data.md",
+            "redirect_url": "/azure/cost-management-billing/costs/tutorial-improved-exports",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/costs/tutorial-export-acm-data.md",
+            "redirect_url": "/azure/cost-management-billing/costs/tutorial-improved-exports",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/costs/retire-aws-connector.md",
+            "redirect_url": "/azure/cost-management-billing/costs/overview-cost-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/costs/aws-integration-set-up-configure.md",
+            "redirect_url": "/azure/cost-management-billing/costs/overview-cost-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/costs/aws-integration-manage.md",
+            "redirect_url": "/azure/cost-management-billing/costs/overview-cost-management",
             "redirect_document_id": false
         },
         {
