@@ -75,7 +75,7 @@ az networkcloud cluster create --name "<CLUSTER_NAME>" --location "<LOCATION>" \
 | LAW_ID                    | Log Analytics Workspace ID for the Cluster                                                                                                              |
 | CLUSTER_LOCATION          | The local name of the Cluster                                                                                                                           |
 | AGGR_RACK_RESOURCE_ID     | RackID for Aggregator Rack                                                                                                                              |
-| AGGR_RACK_SKU             | Rack Stock Keeping Unit (SKU) for Aggregator Rack \*See [Operator Nexus Network Cloud SKUs](./reference-operator-nexus-skus.md)                                              |
+| AGGR_RACK_SKU             | The Rack Stock Keeping Unit (SKU) for Aggregator Rack \*See [Operator Nexus Network Cloud SKUs](./reference-operator-nexus-skus.md)                                              |
 | AGGR_RACK_SN              | Rack Serial Number for Aggregator Rack                                                                                                                  |
 | AGGR_RACK_LOCATION        | Rack physical location for Aggregator Rack                                                                                                              |
 | AGGR_RACK_BMM             | Used for single rack deployment only, empty for multi-rack                                                                                              |
@@ -84,7 +84,7 @@ az networkcloud cluster create --name "<CLUSTER_NAME>" --location "<LOCATION>" \
 | SA_USER                   | Storage Appliance admin user                                                                                                                            |
 | SA_SN                     | Storage Appliance Serial Number                                                                                                                         |
 | COMPX_RACK_RESOURCE_ID    | RackID for CompX Rack; repeat for each rack in compute-rack-definitions                                                                                 |
-| COMPX_RACK_SKU            | Rack SKU for CompX Rack; repeat for each rack in compute-rack-definitions \*See [Operator Nexus Network Cloud SKUs](./reference-operator-nexus-skus.md) |
+| COMPX_RACK_SKU            | The Rack Stock Keeping Unit (SKU) for CompX Rack; repeat for each rack in compute-rack-definitions \*See [Operator Nexus Network Cloud Stock Keeping Unit (SKUs)](./reference-operator-nexus-skus.md) |
 | COMPX_RACK_SN             | Rack Serial Number for CompX Rack; repeat for each rack in compute-rack-definitions                                                                     |
 | COMPX_RACK_LOCATION       | Rack physical location for CompX Rack; repeat for each rack in compute-rack-definitions                                                                 |
 | COMPX_SVRY_BMC_PASS       | CompX Rack ServerY Baseboard Management Controller (BMC) password; repeat for each rack in compute-rack-definitions and for each server in rack         |
@@ -253,7 +253,7 @@ passed and/or are available to meet the thresholds necessary for deployment to c
 > [!IMPORTANT]
 > The hardware validation process writes the results to the specified `analyticsWorkspaceId` at Cluster Creation.
 > Additionally, the provided Service Principal in the Cluster object is used for authentication against the Log Analytics Workspace Data Collection API.
-> This capability is only visible during a new deployment (Green Field); existing Clusters won't have the logs available retroactively.
+> This capability is only visible during a new deployment (Green Field); the logs aren't available retroactively.
 
 > [!NOTE]
 > The RAID controller is reset during Cluster deployment wiping all data from the server's virtual disks. Any Baseboard Management Controller (BMC) virtual disk alerts can be ignored unless there are other physical disk and/or RAID controllers alerts.
@@ -361,7 +361,7 @@ Cluster create Logs can be viewed in the following locations:
 Deleting a Cluster deletes the resources in Azure and the Cluster that resides in the on-premises environment.
 
 > [!IMPORTANT]
-> If there are any tenant resources that exist in the Cluster, the delete will fail until those resources are deleted.
+> If there are any tenant resources that exist in the Cluster, the delete fails until the tenant resources are deleted.
 
 :::image type="content" source="./media/nexus-delete-failure.png" lightbox="./media/nexus-delete-failure.png" alt-text="Screenshot of the portal showing the failure to delete because of tenant resources.":::
 
