@@ -36,7 +36,7 @@ Origin support for direct private endpoint connectivity is currently limited to:
 * Internal load balancers, or any services that expose internal load balancers such as Azure Kubernetes Service, Azure Container Apps or Azure Red Hat OpenShift
 * Storage Static Website
 * API Management
-* Application Gateway (Public Preview. Don't use in production environments)
+* Application Gateway
 * Azure Container Apps (Public Preview. Don't use in production environments)
 
 > [!NOTE]
