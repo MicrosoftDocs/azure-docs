@@ -82,7 +82,7 @@ Each NVA has basic configuration requirements to function correctly on Azure. Th
     $nic2 | Format-List
     ```
 
-   The output should look similar to the following:
+   The output should look similar to the following example:
 
    ```output
    EnableIPForwarding   : True
