@@ -72,7 +72,7 @@ For App Service plans that aren't configured as zone redundant, virtual machine 
 Zone-redundant App Service Premium plans can be deployed in [any region that supports availability zones](./regions-list.md).
 
 ::: zone-end
-
+ 
 ::: zone pivot="isolated"
 
 To see which regions support availability zones for App Service Environment v3, see [Regions](../app-service/environment/overview.md#regions).
