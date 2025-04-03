@@ -11,7 +11,7 @@ ms.date: 01/31/2025
 # Why Azure Virtual Enclaves?
 "Azure Virtual Enclaves (AVE) provides secure Azure computing environments for the most sensitive mission workloads."
 
-AVE is a platform service that enables users to quickly deploy and manage a dynamic self-governing security boundary with built-in protections to ensure your environments meets the highest levels of security standards and best practices that exist and are followed by highly-regulated industries with the most sensative data requirements.
+AVE is a platform service that enables users to quickly deploy and manage a dynamic self-governing security boundary with built in protections to ensure your environments meets the highest levels of security standards and best practices that exist and are followed by highly-regulated industries with the most sensative data requirements.
 
 - Quick and simple deployment of secure, isolated Azure environments
 - Secure & isolated boundary protection: Provides boundary isolation, enclave management, and governance
@@ -21,7 +21,7 @@ AVE is a platform service that enables users to quickly deploy and manage a dyna
 ## The Value of AVE
 
 - Ability to quickly deploy secure & compliant Azure environments
-- Zero-trust networking isolation by default with built-in connection management  
+- Zero-trust networking isolation by default with built in connection management  
 - Simplified governance with automatic policy compliance security posture
 - Accellerated workload deployment and configuration via service catalog
 - Support for highly regulated industries and customers that need high degree of security, isolation, and governance

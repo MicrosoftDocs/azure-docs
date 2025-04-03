@@ -35,7 +35,7 @@ During enclave creation, you have the ability to specify a system-assigned manag
 ![A screenshot showing the ability to create system-assigned managed identities for an enclave](./media/support-msi-create.png)
 
 #### Add a role assignment for a system-assigned managed identity
-You can assign an Azure RBAC role to the system-assigned managed identity to grant the enclave permissions on another Azure resource. Azure RBAC supports both built-in and custom role definitions that specify levels of permissions. For more information about assigning Azure RBAC roles, see [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md).
+You can assign an Azure RBAC role to the system-assigned managed identity to grant the enclave permissions on another Azure resource. Azure RBAC supports both built in and custom role definitions that specify levels of permissions. For more information about assigning Azure RBAC roles, see [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md).
 
 When you assign an Azure RBAC role to a managed identity, you must define the scope for the role. In general, it's a best practice to limit the scope of a role to the minimum privileges required by the managed identity. For more information on scoping Azure RBAC roles, see [Understand scope for Azure RBAC](../role-based-access-control/scope-overview.md).
 

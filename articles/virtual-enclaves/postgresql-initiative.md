@@ -14,13 +14,13 @@ ms.date: 01/31/2025
 
 [GitHub Repository](https://github.com/Azure/azure-policy/tree/9b782ec8a2b509ab9e5466a80ea4370de172a171/built-in-policies/policyDefinitions/SQL)
 
-## PostgreSQL Policies Built-in
+## PostgreSQL Policies Built in
 
 | Name | Description | Version | Type | Effect | Policy definition |
 | :---- | :---
 - | :---- | :---
 - |
-| Configure Advanced Threat Protection to be enabled on Azure database for PostgreSQL servers | Enable Advanced Threat Protection on your non-Basic tier Azure database for PostgreSQL servers to detect anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. | 1.1.0 | Built-in | Deploy | [Link](https://portal.azure.us/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fdb048e65-913c-49f9-bb5f-1084184671d3) |
+| Configure Advanced Threat Protection to be enabled on Azure database for PostgreSQL servers | Enable Advanced Threat Protection on your non-Basic tier Azure database for PostgreSQL servers to detect anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. | 1.1.0 | Built in | Deploy | [Link](https://portal.azure.us/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fdb048e65-913c-49f9-bb5f-1084184671d3) |
 
 ## PostgreSQL Policies Custom
 

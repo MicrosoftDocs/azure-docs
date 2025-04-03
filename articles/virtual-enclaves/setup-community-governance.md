@@ -28,6 +28,6 @@ Go to Community creation and customize your governance settings.
  - Audit Mode: This option allows for the monitoring of services without actively enforcing the rules. It is useful for understanding the impact of potential governance policies by logging all actions that would violate the rules if enforcement were > enabled.
  - Options: This setting declares wheter the service is:
 - - Allow: The service is allowed in the policies
-- - Deny: The service is not allowed in the policies
- - - ExceptionOnly: The service is not allowed in the policies, but manual [Policy Exemptions](./policy-compliance-exemptions.md) can be made.
+- - Deny: The service isn't allowed in the policies
+ - - ExceptionOnly: The service isn't allowed in the policies, but manual [Policy Exemptions](./policy-compliance-exemptions.md) can be made.
 > **Note**: This governance options will be applied all of the workloads that are part of the community, overriding the default governance configuration for workloads.

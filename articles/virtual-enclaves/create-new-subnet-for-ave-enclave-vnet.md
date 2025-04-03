@@ -38,7 +38,7 @@ The existing subnet is called "AzureVirtualEnclaveSubnet" by default. This can b
 
 1. Record the name of the Virtual Network (vnet) associated with the enclave by navigating to the enclave's Overview page.
    ![image1.png](./media/image-5dbaa401-1720-4160-a6b5-75bf58c18bb0.png)
-1. Navigate to the vnet's overview page and record the address space for the enclave. Usually a 10.0.X.Y/Z, the 192.168.X.Y/Z is the management address space and should not be modified.
+1. Navigate to the vnet's overview page and record the address space for the enclave. Usually a 10.0.X.Y/Z, the 192.168.X.Y/Z is the management address space and shouldn't be modified.
    ![image2.png](./media/image-2d3ef5fd-a845-4301-8123-b49cfaeb4ac6.png)
 1. Navigate to the vnet's Subnets page
    ![image3.png](./media/image-d0898a9b-a448-4903-a8de-67d9c8ab0da0.png)

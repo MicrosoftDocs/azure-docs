@@ -102,7 +102,7 @@ This error was encountered when attempting to deploy an AVM template into some e
 
 ## Limitations
 
-- Given the way the Public Registry is implemented currently, it is not possible to publish child resources separate from its parent reosurces. As such, you cannot reference for example, a `avm/res/key-vault/vault/key` module directly from the registry. Instead you can only deploy it through its parent `avm/res/key-vault/vault`. For more context, refer to the [AVM FAQs](https://azure.github.io/Azure-Verified-Modules/faq/#can-i-call-a-bicep-child-module-directly-eg-can-i-update-or-add-a-secret-in-an-existing-key-vault-or-a-route-in-an-existing-route-table).
+- Given the way the Public Registry is implemented currently, it isn't possible to publish child resources separate from its parent reosurces. As such, you cannot reference for example, a `avm/res/key-vault/vault/key` module directly from the registry. Instead you can only deploy it through its parent `avm/res/key-vault/vault`. For more context, refer to the [AVM FAQs](https://azure.github.io/Azure-Verified-Modules/faq/#can-i-call-a-bicep-child-module-directly-eg-can-i-update-or-add-a-secret-in-an-existing-key-vault-or-a-route-in-an-existing-route-table).
 
 ## Learn more
 

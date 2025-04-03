@@ -57,7 +57,7 @@ Microsoft Entra ID Internet Access protects and governs user access to internet-
 ---
 
 ### 5. **Built-In Approval Workflows in AVE (Public Preview)**
-AVE’s public preview introduces built-in approval workflows for access management:
+AVE’s public preview introduces built in approval workflows for access management:
 - Administrators can define granular approval rules for resource access.
 - Integration with Personnel Portal streamlines approval processes.
 - Approved access is automatically logged in the AVE monitoring system.

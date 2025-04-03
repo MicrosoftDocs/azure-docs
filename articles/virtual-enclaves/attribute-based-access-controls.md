@@ -59,7 +59,7 @@ Operational Description:
 
 > **For example**,we have a user logging in from a SAP ONLY facility, but their IsCommonDesktopUser is assigned to TRUE and the IsSciBriefed is also TRUE. The rules are:
 > - SCI/SAP DESKTOP: Is the user SCI Briefed, are they a common desktop user and are they coming from an SCI location. The answer is FALSE, because they are coming from a SAP ONLY facility.
-> - SAP ONLY DESKTOP: Is the user a common desktop user and are they coming from an SAP ONLY facility. TRUE. Because the user is coming from SAP, their IsSciBriefed attribute is not important, the location is the determining factor here, and that they are a common desktop user.
+> - SAP ONLY DESKTOP: Is the user a common desktop user and are they coming from an SAP ONLY facility. TRUE. Because the user is coming from SAP, their IsSciBriefed attribute isn't important, the location is the determining factor here, and that they are a common desktop user.
 > 
 > The SAP ONLY DESKTOP rule then applies to the user and their user account is assigned to the ABAC_SAP_ONLY_DESKTOP_USERS group. When the Azure Virtual Desktops page loads, they will only see the SAP ONLY Common Desktop to log into.
 
@@ -77,7 +77,7 @@ The Attribute creation and assignment occur in the ABAC Portal (based on the Mic
 
 There are two types of attributes in the system:
 
-* **Managed**: these are built-in and managed by the system. At the moment the only Managed attribute in use is UserLocation. The system populates this with either SAPONLY or SCICAP based on the origination ip (the distribution console where the user's connection ingresses from). A managed attribute cannot be change or assigned. 
+* **Managed**: these are built in and managed by the system. At the moment the only Managed attribute in use is UserLocation. The system populates this with either SAPONLY or SCICAP based on the origination ip (the distribution console where the user's connection ingresses from). A managed attribute cannot be change or assigned. 
 * **Assigned**: An assigned attribute is created at the time they are needed, such as onboarding a new enclave, you might need to create a new attribute IsEnclaveUserXYZ. Attributes are then assigned to the user at the time of user creation or during regular personnel operations.An assigned attribute can be created, given range values, can be a string, number or boolean value. They can be assigned, or retired (archived).
 
 ## ABAC Methodology
@@ -184,7 +184,7 @@ When assigning users, it is important to make sure you are applying the correct 
 
 > **Some examples**:
 >
-> Susan has both a standard user and an enclave admin account, she is not SCI briefed and needs to access the enclave evPAW and the common desktop. You will setup Susan's accounts as follows:
+> Susan has both a standard user and an enclave admin account, she isn't SCI briefed and needs to access the enclave evPAW and the common desktop. You will setup Susan's accounts as follows:
 > - SUSAN.EA: IsEnclaveRabbitAdmin == TRUE, IsSCIBriefed == FALSE
 > - SUSAN (Standard user): IsEnclaveRabbitUser == TRUE, IsCommonDesktopUser == TRUE, IsSCIBriefed == FALSE
 >

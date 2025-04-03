@@ -33,7 +33,7 @@ Sign-in to the Azure portal at https://portal.azure.com.
    - **Description**: Description for the Community (for example `Community for secure workloads`)
    - **Address Space**: IP Address space of the Community (for example `10.0.0.0/8`)
    > Note:
-   > `192.168.0.0/16`, `192.0.0.0/8`, `192.128.0.0/9`, or any other range that includes `192.168.x.x` addresses are reserved for the platform to manage enclaves deployed within a Community. Users should not create Communities with any of these address spaces as that would create overlapping conflicts with the platform-managed enclave management IP ranges.
+   > `192.168.0.0/16`, `192.0.0.0/8`, `192.128.0.0/9`, or any other range that includes `192.168.x.x` addresses are reserved for the platform to manage enclaves deployed within a Community. Users shouldn't create Communities with any of these address spaces as that would create overlapping conflicts with the platform-managed enclave management IP ranges.
    
    ![image2.png](./media/image-d18e3676-e0f3-4205-ba37-b062e02ec81f.png)
 
@@ -49,8 +49,8 @@ Sign-in to the Azure portal at https://portal.azure.com.
 > - Audit Mode: This option allows for the monitoring of services without actively enforcing the rules. It's useful for understanding the impact of potential governance policies by logging all actions that would violate the rules if enforcement were > enabled.
 > - Options: This setting declares wheter the service is:
 > - - Allow: The service is allowed in the policies
-> - - Deny: The service is not allowed in the policies
-> - - ExceptionOnly: The service is not allowed in the policies, but manual [Policy Exemptions](/docs/Concepts/Governance/Policy-compliance-exemptions) can be made.
+> - - Deny: The service isn't allowed in the policies
+> - - ExceptionOnly: The service isn't allowed in the policies, but manual [Policy Exemptions](/docs/Concepts/Governance/Policy-compliance-exemptions) can be made.
 
 7. Click `Next`.
 8. Enter any [Tags](../azure-resource-manager/management/tag-resources.md) for your community.

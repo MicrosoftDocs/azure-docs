@@ -74,11 +74,11 @@ Azure Virtual Enclaves leverages hierarchical IAM settings to define roles and p
 
 Azure Virtual Enclaves' identity and access control model ensures robust security, dynamic adaptability, and precise governance across isolated, zero-trust environments. By leveraging integration with Azure-first identity solutions, AVE provides administrators with the tools needed to meet even the most stringent security and compliance requirements.
 
-## **Built-in RBAC Roles for Azure Virtual Enclaves**
+## **Built in RBAC Roles for Azure Virtual Enclaves**
 
-Azure Virtual Enclaves (AVE) includes a set of built-in **Role-Based Access Control (RBAC)** roles designed to manage AVE-specific resource types. These roles provide granular permissions to manage AVE objects like Communities and Enclaves, without granting permissions to underlying Azure networking resources such as Virtual WAN (vWAN) or Azure Firewall. 
+Azure Virtual Enclaves (AVE) includes a set of built in **Role-Based Access Control (RBAC)** roles designed to manage AVE-specific resource types. These roles provide granular permissions to manage AVE objects like Communities and Enclaves, without granting permissions to underlying Azure networking resources such as Virtual WAN (vWAN) or Azure Firewall. 
 
-### **AVE Built-in Roles**
+### **AVE Built in Roles**
 
 These roles are scoped specifically for AVE and do not overlap with permissions for Azure networking, firewall, or virtual WAN components. These are the key AVE RBAC roles and their descriptions:
 
@@ -138,7 +138,7 @@ Environment Structure:
    - **Community Viewer** role assignment is created at the Community-Level Security Auditor to view/analyze endpoints and connections within the Community.
    - **Azure Firewall Contributor** role assignment is created at the Security Administrator for configuring firewall policies.
 
-2. **Enclave Administration** - AVE Built-in role assignments set the:  
+2. **Enclave Administration** - AVE Built in role assignments set the:  
    - **Enclave Owner** Mission/Network Owners that need to deploy workloads, endpoints, and connections for one or more enclaves.
    - **Enclave Viewer** Security Auditor to view and analyze endpoints and connections within the enclave.
    - **Network Contributor** Network Engineer for updating underlying NSG rules within the enclave’s virtual network in a break-glass scenario.
@@ -152,4 +152,4 @@ Environment Structure:
     - **User Access Administrator** role to manage user access to Azure resources.
 ---
 
-AVE’s built-in RBAC roles streamline permissions for managing AVE-specific resources while Azure’s existing roles provide the necessary access for the underlying infrastructure. This separation ensures clear boundaries and simplifies role assignments across your organization.
+AVE’s built in RBAC roles streamline permissions for managing AVE-specific resources while Azure’s existing roles provide the necessary access for the underlying infrastructure. This separation ensures clear boundaries and simplifies role assignments across your organization.

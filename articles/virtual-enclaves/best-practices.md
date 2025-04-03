@@ -55,7 +55,7 @@ Learn more about overall [Azure networking best practices](https://learn.microso
 
 ### Workload deployment
 - Workloads contain a managed resource group, which Enclave Contributors can use to deploy Azure resources to
-- By default, all AVE Workloads are [governed](/docs/concepts/governance/Governance) through built-in Azure Policy initiatives
+- By default, all AVE Workloads are [governed](/docs/concepts/governance/Governance) through built in Azure Policy initiatives
 - Workloads associated with a [community](./what-is-a-community.md) that has a custom governance setup, will use this unique configuration instead of the default AVE governance configuration.
 - [Considerations for naming Azure resources](https://learn.microsoft.com/azure/azure-government/documentation-government-concept-naming-resources)
 

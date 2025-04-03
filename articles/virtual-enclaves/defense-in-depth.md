@@ -35,6 +35,6 @@ Multi-layer protections provided by Azure Virtual Enclaves include:
 
 - **Azure Policy Enforcement**: Ensure your environments remain secure through build-in policies at the Community, Enclave, and Workload levels to audit and/or enforce consistency and compliance across your environment.
 
-- **Mandatory Access Control** - Access to AVE resources is controlled through built-in RBAC roles that can be assigned at any scope from subscription, resource group, down to individual resources
+- **Mandatory Access Control** - Access to AVE resources is controlled through built in RBAC roles that can be assigned at any scope from subscription, resource group, down to individual resources
 
-- **Mandatory Observability**: The Azure Virtual Enclaves service consolidates the full power of Azure's built-in logging, alerting, and auditing features through integration with Azure Sentinel, Defender, and other network monitoring and security tools to ensure that your data remains secure.
+- **Mandatory Observability**: The Azure Virtual Enclaves service consolidates the full power of Azure's built in logging, alerting, and auditing features through integration with Azure Sentinel, Defender, and other network monitoring and security tools to ensure that your data remains secure.

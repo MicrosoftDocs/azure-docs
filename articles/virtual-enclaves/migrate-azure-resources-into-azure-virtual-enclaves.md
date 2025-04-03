@@ -31,7 +31,7 @@ For a more exhaustive and detailed checklist, refer to [Checklist before moving 
     - [Networking move guidance](../azure-resource-manager/management/move-limitations/networking-move-limitations.md)
     - [Virtual Machines move guidance](../azure-resource-manager/management/move-limitations/virtual-machines-move-limitations.md)
     - To move an Azure subscription to a new management group, see [Move subscriptions](https://learn.microsoft.com/azure/governance/management-groups/overview).
-- The destination subscription must be registered for the `Microsoft.Mission` resource provider and the resource provider of the resource being moved. If not, you will receive an error stating that the subscription is not registered for a resource type.
+- The destination subscription must be registered for the `Microsoft.Mission` resource provider and the resource provider of the resource being moved. If not, you will receive an error stating that the subscription isn't registered for a resource type.
 - Before moving the resources, check the subscription quotas for the subscription you're moving the resources to. If moving the resources means the subscription will exceed its limits, you need to review whether you can request an increase in the quota.
 - The account moving the resources must have at least the following permissions:
     - Microsoft.Resources/subscriptions/resourceGroups/moveResources/action on the source resource group.

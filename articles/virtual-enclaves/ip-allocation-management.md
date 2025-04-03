@@ -19,7 +19,7 @@ Thus, if reservations are loaded to a CidrPool, it is split between the general 
 
 Blocks can be both allocated and deallocated to a pool (no matter if they are the main pool or secondary pools). However, once a reservation has been created, it cannot be removed. 
 
-If reservations are loaded, the type of allocation should be passed to IPAM whenever making a _TryGetNextAvailableCIDRBlock()_ request; as the algorithm will check if there is a specific reservation of that one type before trying to allocate it to the general pool. If there is a reservation, IPAM will retrieve the next-block from that reservation (as long as there’s space available in that specific reserved mini pool). If there is not a reservation, it will give you the next-block from the general pool.
+If reservations are loaded, the type of allocation should be passed to IPAM whenever making a _TryGetNextAvailableCIDRBlock()_ request; as the algorithm will check if there is a specific reservation of that one type before trying to allocate it to the general pool. If there is a reservation, IPAM will retrieve the next-block from that reservation (as long as there’s space available in that specific reserved mini pool). If there isn't a reservation, it will give you the next-block from the general pool.
 
 ## **STATELESS USAGE**
 1. Initialize the CidrPool - create object and initialize ranges.
@@ -46,6 +46,6 @@ To use the IPAM Manager, a connection string must be passed up-front. The IPAM M
 8. If you want to retrieve a specific pool by its ID, call _GetPoolById()_ on the manager, and pass it the specific pool ID.
 
 ## **CONCURRENCY HANDLING**
-Concurrency must be handled in the client library. It is not handled inside of IPAM.
+Concurrency must be handled in the client library. It isn't handled inside of IPAM.
 
 A common concurrency handling approach is to use **Azure Cache for Redis**, with persistence in a Storage Account. In this sense, a RedLock (which is a Redis distributed mutex lock) is added before any call to IPAM is made. Since Redis supports TTL, a simple deadlock-free mechanism can be used to ensure that no two processes ever get the same conflicting CIDR Ranges returned to them when calling IPAM.

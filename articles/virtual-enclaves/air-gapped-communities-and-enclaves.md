@@ -17,7 +17,7 @@ Use the same links that are available for Azure public but update the domain for
 
 
 ```
-**Note** - Azure Virtual Enclaves is currently in Preview and is not meant to support production workloads for customers at this time other than those authorized by the Azure Virtual Enclaves PG.
+**Note** - Azure Virtual Enclaves is currently in Preview and isn't meant to support production workloads for customers at this time other than those authorized by the Azure Virtual Enclaves PG.
 
 ```
 

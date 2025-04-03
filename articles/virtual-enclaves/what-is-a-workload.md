@@ -17,7 +17,7 @@ Workloads also automatically inherit security posture and policies of their encl
 ## Why use a Workload?
 Workloads allow customers to group resources, the same as other Azure Resource Groups, and importantly also separate groups of policies and exceptions can be scoped and applied to a Workload and therefore the individual apps and services within the Workload. When using the managed resource group that comes with a Workload there are minor restrictions described [here](./best-practices.md).
 
-The alternative is to deploy an Azure Resource Group through the portal that is not managed. The Workload managed resource group is equivalent to a normal Azure resource group aside from these minor restrictions, which help to keep the resource group secured within the enclave boundary. Deploying a normal Azure resource group through the portal is still an option, but a normal Azure resource group would not be secured within the enclave boundary.
+The alternative is to deploy an Azure Resource Group through the portal that isn't managed. The Workload managed resource group is equivalent to a normal Azure resource group aside from these minor restrictions, which help to keep the resource group secured within the enclave boundary. Deploying a normal Azure resource group through the portal is still an option, but a normal Azure resource group would not be secured within the enclave boundary.
 
 ## Architecture of a workload
 Workloads come with the following primary platform-managed and platform-deployed resources:

@@ -26,10 +26,10 @@ landingContent:
             url: what-is-azure-virtual-enclaves.md
       #     - text: Why use Azure Virtual Enclaves?
       #       url: why-azure-virtual-enclaves.md
-      - linkListType: learn
-        links:
-          - text: Understanding Enclave Networking
-            url: networking.md
+      # - linkListType: learn
+      #   links:
+      #     - text: Understanding Enclave Networking
+      #       url: networking.md
 #           - text: Designing intra-enclave network isolation
 #             url: designing-intra-enclave-network-isolation.md
 #  # Card

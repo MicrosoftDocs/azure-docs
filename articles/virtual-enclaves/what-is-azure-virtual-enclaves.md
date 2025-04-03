@@ -57,7 +57,7 @@ With Azure Virtual Enclaves, you can easily connect your communities, enclaves, 
 
 Azure Virtual Enclaves provides the following security layers built directly into the service:
 
-- **Azure Policy Guardrails**: Built-in guardrails that secure the Virtual boundary ensuring only authorized resource types can be deployed into a given workload within an Enclave.
+- **Azure Policy Guardrails**: Built in guardrails that secure the Virtual boundary ensuring only authorized resource types can be deployed into a given workload within an Enclave.
 These guardrails include:
   - Resource Type protections
   - Network protections
@@ -68,7 +68,7 @@ These guardrails include:
 - **Connection Management**: All connections, internal or external, are governed by strict, user-defined rules to prevent unwarranted access through.
 - **Policy Guardrails**: Ensure your environments remain secure through build-in policies at the Community, Enclave, and Workload levels to audit and/or enforce consistency and compliance across your environment.
 - **Mandatory Access Control**: Access is granted not merely by identity but by role, ensuring users only access what they need, and nothing more.
-- **Observability**: Azure Virtual Enclaves uses Azure's built-in logging, alerting, and auditing that seamlessly integrates with Azure Sentinel, Defender, and other network monitoring and security tools to ensure that your data remains secure.
+- **Observability**: Azure Virtual Enclaves uses Azure's built in logging, alerting, and auditing that seamlessly integrates with Azure Sentinel, Defender, and other network monitoring and security tools to ensure that your data remains secure.
 - **Secure Transit Hubs**: Managed VPN Gateway, ExpressRoute, or vNet peering connections.
 - **Service Catalog**: Ensure workload deployments simple and repeatable through a collection of pre-built templates.
 
