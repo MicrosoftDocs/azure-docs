@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 03/28/2025
+ms.date: 04/01/2025
 ms.author: kendownie
 ---
 
@@ -14,7 +14,17 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 
 ## What's new in 2025
 
+### 2025 quarter 2 (April, May, June)
+
+#### Metadata caching for SSD SMB file shares is now generally available
+
+Metadata caching is an enhancement for SMB Azure SSD file shares aimed to reduce metadata latency, increase available IOPS, and boost network throughput. [Learn more](smb-performance.md#metadata-caching-for-ssd-file-shares).
+
 ### 2025 quarter 1 (January, February, March)
+
+#### Azure File Sync support for system-assigned managed identities is now generally available
+
+Azure File Sync support for managed identities is now generally available, enabling customers to be secure by default. Using managed identities eliminates the need for shared keys (storage account key, SAS keys) to authenticate to Azure Files by utilizing a system-assigned managed identity provided by Microsoft Entra ID. [Learn more](../file-sync/file-sync-managed-identities.md).
 
 #### Azure Files vaulted backup is now generally available
 
@@ -78,11 +88,11 @@ Azure Backup now enables you to perform a vaulted backup of Azure Files to prote
 ### 2024 quarter 1 (January, February, March)
 
 #### Generally available: Azure Files large file share support for Geo and GeoZone redundancy 
-HDD file shares that are Geo (GRS) or GeoZone (GZRS) redundant can now scale up to 100 TiB capacity with significantly improved IOPS and throughput limits. For more information, see [blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/general-availability-azure-files-geo-redundancy-for-standard/ba-p/4097935) and [documentation](geo-redundant-storage-for-large-file-shares.md).
+HDD file shares that are Geo (GRS) or GeoZone (GZRS) redundant can now scale up to 100 TiB capacity with significantly improved IOPS and throughput limits. For more information, see [Geo and GeoZone redundancy](./files-redundancy.md#redundancy-in-a-secondary-region).
 
 #### Metadata caching for SSD SMB file shares is in public preview
 
-Metadata caching is an enhancement for SMB Azure SSD file shares aimed to reduce metadata latency, increase available IOPS, and boost network throughput. [Learn more](smb-performance.md#metadata-caching-for-premium-smb-file-shares).
+Metadata caching is an enhancement for SMB Azure SSD file shares aimed to reduce metadata latency, increase available IOPS, and boost network throughput. [Learn more](smb-performance.md#metadata-caching-for-ssd-file-shares).
 
 #### Snapshot support for NFS file shares is generally available
 
@@ -125,7 +135,7 @@ Note: The number of active users supported per share is dependent on the applica
 The root directory handle limit has been increased in all regions and applies to all existing and new file shares. For more information about Azure Files scale targets, see: [Azure Files scalability and performance targets](storage-files-scale-targets.md).
 
 #### Preview: Azure Files large file share support for Geo and GeoZone redundancy
-Azure Files geo-redundancy for large file shares preview significantly improves capacity and performance for HDD file shares when using geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) options. The preview is only available for HDD file shares. For more information, see [Azure Files geo-redundancy for large file shares preview](geo-redundant-storage-for-large-file-shares.md).
+Azure Files geo-redundancy for large file shares preview significantly improves capacity and performance for HDD file shares when using geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) options. The preview is only available for HDD file shares. For more information, see [Geo and GeoZone redundancy](./files-redundancy.md#redundancy-in-a-secondary-region).
 
 #### New SLA of 99.99% uptime for SSD file shares
 

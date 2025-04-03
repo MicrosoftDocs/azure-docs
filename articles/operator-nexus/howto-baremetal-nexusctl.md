@@ -12,15 +12,21 @@ ms.custom: template-how-to, devx-track-azurecli
 # Run emergency bare metal actions outside of Azure using nexusctl
 
 This article describes the `nexusctl` utility, which can be used in break-glass (emergency) situations to
-run simple actions on bare metal machines without using the Azure console or command-line interface (CLI).
+run simple actions on BareMetal Machines (BMM) without using the Azure console or command-line interface (CLI).
 
-> [!CAUTION]
-> Do not perform any action against management servers without first consulting with Microsoft support personnel. Doing so could affect the integrity of the Operator Nexus Cluster.
+[!INCLUDE [caution-affect-cluster-integrity](./includes/baremetal-machines/caution-affect-cluster-integrity.md)]
 
-> [!IMPORTANT]
-> Disruptive command requests against a Kubernetes Control Plane (KCP) node are rejected if there is another disruptive action command already running against another KCP node or if the full KCP is not available. This check is done to maintain the integrity of the Nexus instance and ensure multiple KCP nodes don't become non-operational at once due to simultaneous disruptive actions. If multiple nodes become non-operational, it will break the healthy quorum threshold of the Kubernetes Control Plane.
->
-> Powering off a KCP node is the only nexusctl action considered disruptive in the context of this check.
+[!INCLUDE [important-donot-disrupt-kcpnodes](./includes/baremetal-machines/important-donot-disrupt-kcpnodes.md)]
+
+> [!WARNING]
+> When the BMM is provisioned and has joined the Cluster, only use the Az CLI BMM commands to change the powerState.
+> The `nexusctl` command should only be used for BMM that are not part of the Nexus Cluster (have not been provisioned), or the access to the server with the Az CLI is not possible.
+
+Scenarios that may need the use of `nexusctl`:
+
+- If the BMM is not is not joined to the cluster, the only method would be to reboot or power on/off using `nexusctl`.
+- A BMM that has issues such as being hung up during boot up
+- A firmware issue during the deployment (where the BMM is stuck in the IPA bootloader)
 
 ## Prerequisites
 
@@ -31,7 +37,7 @@ run simple actions on bare metal machines without using the Azure console or com
 
 `nexusctl` is a stand-alone program that can be run using `nc-toolbox` from an `ssh` session on any control-plane node. Since `nexusctl` is contained in the `nc-toolbox-breakglass` container image and isn't installed directly on the host, it must be run with a command-line like:
 
-```
+```shell
 sudo nc-toolbox nc-toolbox-breakglass nexusctl <command> [subcommand] [options]
 ```
 
@@ -39,7 +45,7 @@ sudo nc-toolbox nc-toolbox-breakglass nexusctl <command> [subcommand] [options]
 
 Like most other command-line programs, the `--help` option can be used with any command or subcommand to see more information:
 
-```
+```shell
 sudo nc-toolbox nc-toolbox-breakglass nexusctl --help
 sudo nc-toolbox nc-toolbox-breakglass nexusctl baremetal --help
 sudo nc-toolbox nc-toolbox-breakglass nexusctl baremetal power-off --help
@@ -48,20 +54,23 @@ sudo nc-toolbox nc-toolbox-breakglass nexusctl baremetal power-off --help
 etc.
 
 > [!NOTE]
->
-> > There is no bulk execution against multiple machines. Commands are executed on a machine by machine basis.
+> There is no bulk execution against multiple machines. Commands are executed on a machine by machine basis.
 
 ## Power off a bare metal machine
 
+> [!IMPORTANT]
+> Powering off a KCP node using `nexusctl` is considered disruptive.
+> If the KCP is provisioned and part of the Nexus Cluster, doing a power-off action with `nexusctl` could affect the integrity of the Operator Nexus Cluster.
+
 A single bare metal machine can be powered off by connecting to a control-plane node via ssh and running the command:
 
-```
+```shell
 sudo nc-toolbox nc-toolbox-breakglass nexusctl baremetal power-off --name <machine name>
 ```
 
 If the command is accepted, `nexusctl` responds with another command line that can be used to view the status of the long-running operation. Prefix this command with `sudo nc-toolbox nc-toolbox-breakglass`, as follows:
 
-```
+```shell
 sudo nc-toolbox nc-toolbox-breakglass nexusctl baremetal power-off --status --name <machine name> --operation-id <operation-id>
 ```
 
@@ -71,13 +80,13 @@ The status is blank until the operation completes and reaches either a "succeede
 
 A single bare metal machine can be started by connecting to a control-plane node via ssh and running the command:
 
-```
+```shell
 sudo nc-toolbox nc-toolbox-breakglass nexusctl baremetal start --name <machine name>
 ```
 
 If the command is accepted, `nexusctl` responds with another command line that can be used to view the status of the long-running operation. Prefix this command with `sudo nc-toolbox nc-toolbox-breakglass`, as follows:
 
-```
+```shell
 sudo nc-toolbox nc-toolbox-breakglass nexusctl baremetal start --status --name <machine name> --operation-id <operation-id>
 ```
 
@@ -87,7 +96,7 @@ The status is blank until the operation completes and reaches either a "succeede
 
 A single bare metal machine can be switched to an unmanaged state by connecting to a control-plane node via ssh and running the command:
 
-```
+```shell
 sudo nc-toolbox nc-toolbox-breakglass nexusctl baremetal unmanage --name <machine name>
 ```
 
@@ -99,7 +108,7 @@ While in an unmanaged state, no actions are permitted for that machine, except f
 
 A single bare metal machine can be switched to a managed state by connecting to a control-plane node via ssh and running the command:
 
-```
+```shell
 sudo nc-toolbox nc-toolbox-breakglass nexusctl baremetal manage --name <machine name>
 ```
 
