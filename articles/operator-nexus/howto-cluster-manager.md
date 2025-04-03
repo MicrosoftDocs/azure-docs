@@ -144,7 +144,7 @@ Parameters:
 - `-Location` - The geo-location where the resource lives.
 - `-ManagedResourceGroupConfigurationLocation` - The location of the managed resource group. If not specified, the location of the parent resource is chosen.
 - `-ManagedResourceGroupConfigurationName` - The name for the managed resource group. If not specified, the unique name is automatically generated.
-- `-IdentityType` - The type of managed identity to use for this Cluster Manager (`UserAssigned`, or `SystemAssigned`). If not specified, Managed Identities are not used.
+- `-IdentityType` - The type of managed identity to use for this Cluster Manager (`UserAssigned`, or `SystemAssigned`). If not specified, Managed Identities aren't used.
 - `-IdentityUserAssignedIdentity` - The ResourceID of the User Assigned Managed Identity if using `UserAssigned` for `IdentityType`.
 - `-Tag` - Hashtable of Resource tags.
 
@@ -362,7 +362,7 @@ To delete the Cluster Manager, use Portal, CLI, or PowerShell.
 ---
 
 >[!NOTE]
->It is recommended to wait for 20 minutes after deleting clustermanager before trying to create a new clustermanager with the same name.
+>As best practive, wait 20 minutes after deleting a Cluster Manager before trying to create a new Cluster Manager with the same name.
 
 ## Next steps
 
