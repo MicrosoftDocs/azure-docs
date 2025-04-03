@@ -16,19 +16,19 @@ This overview introduces the key concepts around how assets and devices connect 
 
 ### [Edge-based solution](#tab/edge)
 
-The following diagram shows a high-level view of the components in a typical edge-based IoT solution. This article focuses on the connectivity between the assets and the edge runtime environment shown in the diagram:
+The following diagram shows a high-level view of the components in a typical [edge-based IoT solution](iot-introduction.md#edge-based-solution). This article focuses on the connectivity between the assets and the edge runtime environment shown in the diagram:
 
 <!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-device-connectivity/iot-edge-connectivity-architecture.svg" alt-text="Diagram that shows the high-level IoT edge-based solution architecture highlighting device connectivity areas." border="false" lightbox="media/iot-overview-device-connectivity/iot-edge-connectivity-architecture.svg":::
 
 ### [Cloud-based solution](#tab/cloud)
 
-The following diagram shows a high-level view of the components in a typical cloud-based IoT solution. This article focuses on the connectivity between the devices and the IoT cloud services, including gateways and bridges shown in the diagram:
+The following diagram shows a high-level view of the components in a typical [cloud-based IoT solution](iot-introduction.md#cloud-based-solution). This article focuses on the connectivity between the devices and the IoT cloud services, including gateways and bridges shown in the diagram:
 
 <!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-device-connectivity/iot-cloud-connectivity-architecture.svg" alt-text="Diagram that shows the high-level IoT cloud-based solution architecture highlighting device connectivity areas." border="false" lightbox="media/iot-overview-device-connectivity/iot-cloud-connectivity-architecture.svg":::
 
-IoT Central applications use the IoT Hub and the Device Provisioning Service (DPS) services internally. Therefore, the concepts in this article apply whether you're using IoT Central or IoT Hub.
+IoT Central applications use the IoT Hub and the Device Provisioning Service (DPS) services internally. Therefore, the concepts in a cloud-based IoT solution apply whether you're using IoT Central or IoT Hub.
 
 ---
 
@@ -203,11 +203,11 @@ Edge gateways (sometimes referred to as field gateways) are typically deployed o
 
 ### [Edge-based solution](#tab/edge)
 
-Azure IoT Operations is an edge runtime environment that hosts the services to connect, monitor, and control your assets. One of the functionalities of an edge runtime environment is to act as an edge gateway, using the connectors and the MQTT broker, to communicates with assets and equipment, either directly or through a server, so that they don't need their own cloud connections.
+Azure IoT Operations is an edge runtime environment that hosts the services to connect, monitor, and control your assets. One of the functionalities of an edge runtime environment is to act as an edge gateway, using the connectors and the MQTT broker, to communicate with assets and equipment, either directly or through a server, so that they don't need their own cloud connections.
 
 Data flows provide data transformation and data contextualization capabilities before routing messages to various locations including cloud endpoints.
 
-Azure IoT Operations runs on Azure Arc-enabled edge Kubernetes clusters, enabling a fully automated machine learning operations in hybrid mode, including training and AI model deployment steps that transition seamlessly between cloud and edge. To learn more, see [Introduction to Kubernetes compute target in Azure Machine Learning](/azure/machine-learning/how-to-attach-kubernetes-anywhere).
+Azure IoT Operations runs on Azure Arc-enabled Kubernetes clusters, enabling a fully automated machine learning operations in hybrid mode, including training and AI model deployment steps that transition seamlessly between cloud and edge. To learn more, see [Introduction to Kubernetes compute target in Azure Machine Learning](/azure/machine-learning/how-to-attach-kubernetes-anywhere).
 
 ### [Cloud-based solution](#tab/cloud)
 
@@ -226,9 +226,8 @@ A device bridge enables devices that are connected to a non-Microsoft cloud to c
 The open source IoT Central Device Bridge acts as a translator that forwards device data to an IoT Central application. To learn more, see [Azure IoT Central Device Bridge](https://github.com/Azure/iotc-device-bridge). There are non-Microsoft bridge solutions, such as [Tartabit IoT Bridge](/shows/internet-of-things-show/onboarding-constrained-devices-into-azure-using-tartabits-iot-bridge), for connecting devices to an IoT hub.
 
 
-## Next steps
+## Related content
 
-Now that you've seen an overview of device connectivity in Azure IoT solutions, some suggested next steps include:
-
+- [IoT asset and device development](iot-overview-device-development.md)
 - [IoT asset and device management and control](iot-overview-device-management.md)
-- [Process and route messages](iot-overview-message-processing.md)
+- [Choose an Azure IoT service](iot-services-and-technologies.md)

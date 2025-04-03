@@ -606,6 +606,12 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 
 ### Add-on versions available per each AKS cluster version
 
+#### 1.10.1
+Update the `policy-kubernetes-addon-prod` and `policy-kubernetes-webhook` images to patch [CVE-2025-30204](https://nvd.nist.gov/vuln/detail/CVE-2025-30204) and [CVE-2025-22870](https://nvd.nist.gov/vuln/detail/CVE-2025-22870).
+- Released April 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.18.2
+
 #### 1.10.0
 Security improvements.
 

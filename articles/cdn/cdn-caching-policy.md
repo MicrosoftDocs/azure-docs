@@ -7,8 +7,9 @@ manager: erikre
 ms.assetid: be33aecc-6dbe-43d7-a056-10ba911e0e94
 ms.service: azure-media-services
 ms.topic: how-to
-ms.date: 03/20/2024
+ms.date: 03/31/2025
 ms.author: juliako
+ROBOTS: NOINDEX
 ---
 
 # Manage Azure CDN caching policy in Azure Media Services

@@ -733,7 +733,9 @@
     - name: AWS S3 WAF logs
       href: connect-aws-s3-waf.md
     - name: CloudWatch events via Lambda function
-      href: cloudwatch-lambda-function.yml
+      href: cloudwatch-lambda-function.yml      
+    - name: Cisco FTD firewall
+      href: cisco-ftd-firewall.md
     - name: Google Cloud Platform connectors 
       href: connect-google-cloud-platform.md
     - name: Microsoft Entra
@@ -800,6 +802,8 @@
     href: use-threat-indicators-in-analytics-rules.md
   - name: Use matching analytics to detect threats
     href: use-matching-analytics-to-detect-threats.md
+  - name: Work with STIX objects and indicators
+    href: work-with-styx-objects-indicators.md
 - name: Detect threats and analyze data
   items:
   - name: Monitor and visualize data
@@ -1097,7 +1101,9 @@
     href: /defender-xdr/microsoft-sentinel-onboard?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Manage multiple workspaces 
     items:
-    - name: Workspace manager
+    - name: Workspaces in the Defender portal 
+      href: workspaces-defender-portal.md
+    - name: Workspace manager in the Azure portal
       href: workspace-manager.md
     - name: Extend across multiple workspaces
       href: extend-sentinel-across-workspaces-tenants.md  

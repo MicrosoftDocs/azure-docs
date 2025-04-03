@@ -50,14 +50,14 @@
       href: nva-work-remotely-support.md
 - name: Gateways and configuration settings
   items:
-  - name: VPN Gateway configuration settings
-    href: vpn-gateway-about-vpn-gateway-settings.md
   - name: Gateway SKUs
     items:
     - name: About gateway SKUs
       href: about-gateway-skus.md
-    - name: Gateway SKU consolidation & migration
-      href: gateway-sku-consolidation.md
+    - name: SKU consolidation & migration
+      items:
+      - name: About SKU consolidation & migration
+        href: gateway-sku-consolidation.md
     - name: Resize a gateway SKU
       href: gateway-sku-resize.md
     - name: Change a gateway SKU
@@ -68,6 +68,8 @@
     href: about-active-active-gateways.md
   - name: About zone-redundant gateways
     href: about-zone-redundant-vnet-gateways.md
+  - name: VPN Gateway configuration settings
+    href: vpn-gateway-about-vpn-gateway-settings.md
 - name: Create and manage VPN gateways
   items:
   - name: Create a VPN gateway
@@ -250,11 +252,11 @@
         href: openvpn-azure-ad-mfa.md
     - name: VPN client configuration
       items:
-      - name: Windows clients
+      - name: Azure VPN Client - Windows
         href: point-to-site-entra-vpn-client-windows.md
-      - name: Linux clients
+      - name: Azure VPN Client - Linux
         href: point-to-site-entra-vpn-client-linux.md
-      - name: macOS clients
+      - name: Azure VPN Client - macOS
         href: point-to-site-entra-vpn-client-mac.md
       - name: Generate VPN client profile configuration files
         href: about-vpn-profile-download.md

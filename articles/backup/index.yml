@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: jyothisuri
   ms.author: jsuri
-  ms.date: 03/19/2025
+  ms.date: 03/20/2025
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -196,3 +196,7 @@ landingContent:
             url: https://azure.microsoft.com/updates/?product=backup
           - text: Azure Backup Microsoft Q&A question page
             url: /answers/topics/azure-backup.html
+          - text: Azure Backup sample queries for reporting  
+            url: backup-reports-system-functions.md#sample-queries
+          - text: Azure Backup archived release notes  
+            url: backup-release-notes-archived.md

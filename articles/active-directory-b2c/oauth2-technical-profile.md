@@ -1,7 +1,7 @@
 ---
 title: Define an OAuth2 technical profile in a custom policy
 titleSuffix: Azure AD B2C
-description: Define an OAuth2 technical profile in a custom policy in Azure Active Directory B2C.
+description: Define an OAuth2 technical profile in a custom policy in Azure AD B2C. Integrate with OAuth2 identity providers for social or enterprise sign-in.
 
 author: kengaderdus
 manager: CelesteDG
@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 01/11/2024
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 
@@ -359,6 +359,6 @@ The **CryptographicKeys** element contains the following attribute:
 
 When you configure the redirect URI of your identity provider, enter `https://{tenant-name}.b2clogin.com/{tenant-name}.onmicrosoft.com/oauth2/authresp`. Make sure to replace `{tenant-name}` with your tenant's name (for example, contosob2c). The redirect URI needs to be in all lowercase.
 
-## Next steps
+## Related content
 
 - Learn how to [add an identity provider to your Azure Active Directory B2C tenant](add-identity-provider.md)

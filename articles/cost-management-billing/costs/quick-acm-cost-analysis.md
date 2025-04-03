@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Start using Cost analysis
 description: Learn how to use Azure Cost Analysis to explore and analyze your organizational costs, identify trends, and understand spending patterns.
-author: bandersmsft
-ms.author: banders
+author: shasulin
+ms.author: shasulin
 ms.date: 01/07/2025
 ms.topic: quickstart
 ms.service: cost-management-billing
@@ -105,7 +105,7 @@ After you customize your view to meet your needs, you might want to save and sha
 
 1. Save the view on a subscription, resource group, management group, or billing account.
 2. Share a URL with view configuration details, which they can use on any scope they have access to.
-3. Ping the view to an Azure portal dashboard. Pinning requires access to the same scope.
+3. Pin the view to an Azure portal dashboard. Pinning requires access to the same scope.
 4. Download an image of the chart or summarized cost details in an Excel or CSV file.
 5. Subscribe to scheduled alerts on a daily, weekly, or monthly basis.
 

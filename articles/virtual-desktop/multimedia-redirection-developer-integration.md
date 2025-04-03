@@ -131,6 +131,10 @@ document.addEventListener('mmrExtensionLog', () =>
 );
 ```
 
+## Submit your website for review or request assistance
+
+If you represent an ISV and you want your website to be added to the list of [Websites for call redirection](multimedia-redirection-video-playback-calls.md#websites-for-call-redirection), or if you need assistance with integrating your website with call redirection, [complete and submit this form](https://forms.microsoft.com/r/BtDs4pdYzB).
+
 ## Related content
 
 Learn more about [Multimedia redirection for video playback and calls in a remote session](multimedia-redirection-video-playback-calls.md).
