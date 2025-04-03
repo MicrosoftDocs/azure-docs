@@ -362,7 +362,7 @@
       },
       "feedback_product_url": {
         "articles/*.md": "https://feedback.azure.com/d365community/forum/b822bb63-8b26-ec11-b6e6-000d3a4f0789",
-        "articles/active-directory-b2c/**/*.md": "https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options",
+        "articles/active-directory-b2c/**/*.md": "https://learn.microsoft.com/azure/active-directory/develop/developer-support-help-options",
         "articles/advisor/**/*.md": "https://feedback.azure.com/d365community/forum/44a8566e-0525-ec11-b6e6-000d3a4f0858",
         "articles/analysis-services/**/*.md": "https://feedback.azure.com/d365community/forum/d92323a0-0525-ec11-b6e6-000d3a4f0858",
         "articles/ansible/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
