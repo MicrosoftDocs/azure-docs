@@ -5,15 +5,14 @@
 - name: Concepts
   items: 
   - name: Azure usage and billing
-    href: coming-soon.md
+    href: azure-usage.md
   - name: Help and support
-    href: coming-soon.md
+    href: startup-help.md
   - name: Joining Microsoft for Startups
-    href: coming-soon.md
+    href: startup-programs.md
 - name: Resources
   items:
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Azure AI Foundry
     href: https://ai.azure.com/
-    
