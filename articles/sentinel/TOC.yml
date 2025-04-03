@@ -109,7 +109,7 @@
     href: migration-convert-dashboards.md
   - name: Update SOC processes      
     href: migration-security-operations-center-processes.md
-- name: Enable solutions and content
+- name: Manage solutions and content
   items:  
   - name: Overview
     href: sentinel-solutions.md
@@ -127,11 +127,11 @@
       href: domain-based-essential-solutions.md
     - name: Monitor Zero Trust 
       href: sentinel-solution.md   
-  - name: Manage custom content from repositories
+  - name: Manage content as code using repositories
     items:
     - name: Overview
       href: ci-cd-custom-content.md
-    - name: Deploy custom content from your repository
+    - name: Deploy content as code from your repository
       href: ci-cd.md   
     - name: Customize repository deployments
       href: ci-cd-custom-deploy.md
@@ -156,7 +156,7 @@
           - name: Connect your SAP system
             displayName: disable, stop ingestion, stop 
             href: sap/deploy-data-connector-agent-container.md
-          - name: Troubleshoot SAP data connector agent
+          - name: Troubleshoot SAP data connector
             href: sap/sap-deploy-troubleshoot.md    
           - name: Extra deployment steps
             items:
@@ -164,9 +164,9 @@
               href: sap/collect-sap-hana-audit-logs.md
             - name: Update the data connector agent
               href: sap/update-sap-data-connector.md      
-            - name: Deploy from the command line
+            - name: Deploy the agent from the command line
               href: sap/deploy-command-line.md
-            - name: Deploy with expert options
+            - name: Deploy the agent with expert options
               href: sap/sap-solution-deploy-alternate.md
           - name: SAP deployment reference (advanced)
             items:
@@ -394,6 +394,8 @@
       href: data-connectors/derdack-signl4.md
     - name: Digital Shadows Searchlight (using Azure Functions)
       href: data-connectors/digital-shadows-searchlight-using-azure-functions.md
+    - name: Doppel Data Connector
+      href: data-connectors/doppel-data-connector.md
     - name: Dynamics 365
       href: data-connectors/dynamics-365.md
     - name: Dynatrace Attacks
@@ -426,6 +428,8 @@
       href: data-connectors/forescout-host-property-monitor.md
     - name: Fortinet FortiNDR Cloud (using Azure Functions)
       href: data-connectors/fortinet-fortindr-cloud.md
+    - name: Garrison ULTRA Remote Logs (using Azure Functions)
+      href: data-connectors/garrison-ultra-remote-logs.md
     - name: Gigamon AMX Data Connector
       href: data-connectors/gigamon-amx-data-connector.md
     - name: GitHub (using Webhooks) (using Azure Functions)
@@ -729,7 +733,9 @@
     - name: AWS S3 WAF logs
       href: connect-aws-s3-waf.md
     - name: CloudWatch events via Lambda function
-      href: cloudwatch-lambda-function.yml
+      href: cloudwatch-lambda-function.yml      
+    - name: Cisco FTD firewall
+      href: cisco-ftd-firewall.md
     - name: Google Cloud Platform connectors 
       href: connect-google-cloud-platform.md
     - name: Microsoft Entra
@@ -796,6 +802,8 @@
     href: use-threat-indicators-in-analytics-rules.md
   - name: Use matching analytics to detect threats
     href: use-matching-analytics-to-detect-threats.md
+  - name: Work with STIX objects and indicators
+    href: work-with-stix-objects-indicators.md
 - name: Detect threats and analyze data
   items:
   - name: Monitor and visualize data
@@ -1093,7 +1101,9 @@
     href: /defender-xdr/microsoft-sentinel-onboard?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Manage multiple workspaces 
     items:
-    - name: Workspace manager
+    - name: Workspaces in the Defender portal 
+      href: workspaces-defender-portal.md
+    - name: Workspace manager in the Azure portal
       href: workspace-manager.md
     - name: Extend across multiple workspaces
       href: extend-sentinel-across-workspaces-tenants.md  

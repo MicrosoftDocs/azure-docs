@@ -2,13 +2,13 @@
 title: Understand Cost Management data
 titleSuffix: Microsoft Cost Management
 description: This article helps you better understand data included in Cost Management. It also explains how frequently data is processed, collected, shown, and closed.
-author: bandersmsft
-ms.author: banders
+author: shasulin
+ms.author: shasulin
 ms.date: 02/10/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: micflan
+ms.reviewer: shasulin
 ---
 
 # Understand Cost Management data
@@ -148,7 +148,7 @@ The following examples illustrate how billing periods could end:
 
 Usage charges can continue to accrue and can change until the fifth day of the month after your current billing period ends, as Azure completes processing all data. If the usage file isn't ready, you see a message on the Invoices page in the Azure portal stating `Your usage and charges file is not ready`. After the usage file is available, you can download it.
 
-When cost and usage data becomes available in Cost Management, it gets retained for at least seven years. Only the last 13 months are available from the Azure portal under Cost Management portal under [Exports](tutorial-export-acm-data.md). It's also available in the [Cost Details API](../automate/usage-details-best-practices.md#cost-details-api). To retrieve historical data that is older than 13 months, use the [Exports REST API](/rest/api/cost-management/exports).
+When cost and usage data becomes available in Cost Management, it gets retained for at least seven years. Only the last 13 months are available from the Azure portal under Cost Management portal under [Exports](tutorial-improved-exports.md). It's also available in the [Cost Details API](../automate/usage-details-best-practices.md#cost-details-api). To retrieve historical data that is older than 13 months, use the [Exports REST API](/rest/api/cost-management/exports).
 
 ### Rerated data
 
@@ -156,13 +156,32 @@ Whether you use the Cost Management APIs, Power BI, or the Azure portal to retri
 
 ## Cost rounding
 
-Costs shown in Cost Management are rounded. Costs returned by the Query API aren't rounded. For example:
+Costs shown in Cost Management are rounded. Costs returned by the Query API and those shown in your cost and usage data files aren't rounded. For example:
 
 - Cost analysis in the portal - Charges are rounded using standard rounding rules: values more than 0.5 and higher are rounded up, otherwise costs are rounded down. Rounding occurs only when values are shown. Rounding doesn't happen during data processing and aggregation. For example, cost analysis aggregates costs as follows:
-  -    Charge 1: $0.004
+  - Charge 1: $0.004
   - Charge 2: $0.004
-  -    Aggregate charge rendered: 0.004 + 0.004 = 0.008. The charge shown is $0.01.
+  - Aggregate charge rendered: 0.004 + 0.004 = 0.008. The charge shown is $0.01.
 - Query API - Charges are shown at eight decimal places and rounding doesn't occur.
+- Cost and usage data files - Rounding doesn't occur.
+
+### Cost rounding for Azure Commitment discount
+
+Currency rounding for Azure Commitment discount (ACD) takes place on the unit rate aspect of the effective rate. Currency rounding depends on currency *precision* (or "minimal accountable currency unit" or "minor units"). For most world currencies, the precision is 1/100. It corresponds to two digits after the decimal point.
+
+For example, assume an ACD is a 12.5% discount:
+
+- After a 0.125 discount on a $0.09 market price, it equals 0.07875. When rounded, it’s a $0.08 unit rate.
+- After a 0.125 discount on a 0.6 market price, it equals 0.525. When rounded, it’s a $0.53 unit rate.
+- The total cost equals the billable quantity, multiplied by the rounded unit rate.
+
+Charges are rounded using standard rounding rules: values of 0.5 and higher are rounded up, otherwise costs are rounded down.
+
+The *effective price* can be specified for an Azure meter per one hour, while a billable unit might be 10 hours. In such cases, currency rounding happens on unit price and effective price per hour is scaled down 10 times the value.
+
+For example, an unrounded single unit price after a 0.125 discount is applied to a per-hour price of 0.018 resulting in 0.01575000000. The billable QuantityPerUnit for the meter is 10 (hours), so Azure rounds to cents. The calculation is 10 * 0.01575 = 0.1575 and then gets rounded to $0.16. The *Quantity Per Unit* is rounded for your currency. In this example, it’s $0.16 per 10 hours. Because the EffectivePrice is per one hour, the currency-rounded unit price of 10 hours gets scaled down 10 times. Then, the Effective price per once per hour is computed and it has three digits after the decimal point. That results in $0.16 / 10 equaling $0.016.
+
+Your usage and charges file shows all of the data involved in rounding. You can download the file from the Azure portal. For more information, see [Download usage and charges data](../understand/download-azure-daily-usage.md).
 
 ## Historical data might not match invoice
 

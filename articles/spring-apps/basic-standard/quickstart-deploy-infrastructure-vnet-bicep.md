@@ -62,8 +62,8 @@ Next, open a Bash window and run the following Azure CLI command, replacing the 
 * `springCloudInstanceName`: The name of the Azure Spring Apps resource.
 * `appInsightsName`: The name of the Application Insights instance for Azure Spring Apps.
 * `laWorkspaceResourceId`: The resource ID of the existing Log Analytics workspace (for example, **/subscriptions/\<your subscription>/resourcegroups/\<your Log Analytics resource group>/providers/Microsoft.OperationalInsights/workspaces/\<your Log Analytics workspace name>**).
-* **springCloudAppSubnetID:** The resource ID of the Azure Spring Apps Application Subnet.
-* **springCloudRuntimeSubnetID:** The resource ID of the Azure Spring Apps Runtime Subnet.
+* `springCloudAppSubnetID`: The resource ID of the Azure Spring Apps Application Subnet.
+* `springCloudRuntimeSubnetID`: The resource ID of the Azure Spring Apps Runtime Subnet.
 * `springCloudServiceCidrs`: A comma-separated list of IP address ranges (three in total) in CIDR format. The IP ranges are reserved to host underlying Azure Spring Apps infrastructure. These three ranges should be at least `/16` unused IP ranges, and must not overlap with any routable subnet IP ranges used within the network.
 
   ```azurecli

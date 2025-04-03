@@ -4,7 +4,7 @@ description: Learn about VPN Gateway resources and configuration settings.
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 10/30/2024
+ms.date: 03/31/2025
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 ms.devlang: azurecli

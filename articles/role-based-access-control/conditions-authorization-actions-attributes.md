@@ -2,7 +2,7 @@
 title: Authorization actions and attributes
 description: Supported actions and attributes for Azure role assignment conditions and Azure attribute-based access control (Azure ABAC) in authorization
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual

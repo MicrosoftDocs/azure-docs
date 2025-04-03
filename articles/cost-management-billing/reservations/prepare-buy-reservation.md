@@ -1,13 +1,13 @@
 ---
 title: Buy an Azure reservation
 description: Learn about important points to help you buy an Azure reservation.
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/20/2024
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 ---
 
 # Buy a reservation
@@ -67,6 +67,8 @@ Reservation discounts apply to the following eligible subscriptions and offer ty
 - CSP subscriptions
 
 Resources that run in a subscription with other offer types don't receive the reservation discount.
+
+Some Azure services do not support Reserved Instance (RI) discounts, so it's important to check eligibility before making a purchase to avoid unnecessary costs. For example: Azure SQL Serverless and Azure Cosmos DB serverless
 
 ## Purchase reservations
 

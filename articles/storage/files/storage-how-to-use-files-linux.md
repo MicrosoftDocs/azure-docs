@@ -5,13 +5,15 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content, devx-track-azurecli
 ms.topic: how-to
-ms.date: 02/21/2025
+ms.date: 03/19/2025
 ms.author: kendownie
 ---
 
 # Mount SMB Azure file shares on Linux clients
 
 Azure file shares can be mounted in Linux distributions using the [SMB kernel client](https://wiki.samba.org/index.php/LinuxCIFS).
+
+This article shows how to mount an SMB Azure file share using NTLMv2 authentication (storage account key). Using identity-based authentication is preferred for security reasons. See [Enable Active Directory authentication over SMB for Linux clients accessing Azure Files](storage-files-identity-auth-linux-kerberos-enable.md).
 
 ## Applies to
 
@@ -23,7 +25,7 @@ Azure file shares can be mounted in Linux distributions using the [SMB kernel cl
 
 ## Protocols
 
-The recommended way to mount an Azure file share on Linux is using SMB 3.1.1. By default, Azure Files requires encryption in transit, which is supported by SMB 3.0+. Azure Files also supports SMB 2.1, which doesn't support encryption in transit, but you can't mount Azure file shares with SMB 2.1 from another Azure region or on-premises for security reasons. Unless your application specifically requires SMB 2.1, use SMB 3.1.1. SMB 2.1 support was added to Linux kernel version 3.7, so if you're using a version of the Linux kernel after 3.7, it should support SMB 2.1.
+We recommend using SMB 3.1.1. By default, Azure Files requires encryption in transit, which is supported by SMB 3.0+. Azure Files also supports SMB 2.1, which doesn't support encryption in transit, but you can't mount Azure file shares with SMB 2.1 from another Azure region or on-premises for security reasons. Unless your application specifically requires SMB 2.1, use SMB 3.1.1. SMB 2.1 support was added to Linux kernel version 3.7, so if you're using a version of the Linux kernel after 3.7, it should support SMB 2.1.
 
 | Distribution | SMB 3.1.1 (Recommended) | SMB 3.0 |
 |-|-----------|---------|
@@ -33,7 +35,7 @@ The recommended way to mount an Azure file share on Linux is using SMB 3.1.1. By
 | [Debian](https://www.debian.org/releases/) | Basic: 10+ | AES-128-CCM encryption: 10+ |
 | [SUSE Linux Enterprise Server](https://www.suse.com/support/kb/doc/?id=000019587) | AES-128-GCM encryption: 15 SP2+ | AES-128-CCM encryption: 12 SP2+ |
 
-If your Linux distribution isn't listed in the above table, you can check the Linux kernel version with the `uname` command:
+If your Linux distribution isn't listed in the table, you can check the Linux kernel version with the `uname` command:
 
 ```bash
 uname -r
@@ -110,9 +112,15 @@ On other distributions, use the appropriate package manager or [compile from sou
 
 ## Permissions
 
-All mounting scripts in this article will mount the file shares using the default 0755 Linux file and folder permissions. This means read, write, and execute for the file/directory owner, read and execute for users in the owner group, and read and execute for other users. Depending on your organization's security policies, you might want to set alternate `uid`/`gid` or `dir_mode` and `file_mode` permissions in the mount options.
+All mounting scripts in this article will mount the file shares using the default 0755 Linux file and folder permissions. This means read, write, and execute for the file/directory owner, read and execute for users in the owner group, and read and execute for other users. Depending on your organization's security policies, you might want to set alternate `uid`/`gid` or `dir_mode` and `file_mode` permissions in the mount options. For more information on how to set permissions, see [Unix symbolic notation](https://en.wikipedia.org/wiki/File-system_permissions#Symbolic_notation). See [mount options](#mount-options) for a list of mount options.
 
-For more information on how to set permissions, see [Unix symbolic notation](https://en.wikipedia.org/wiki/File-system_permissions#Symbolic_notation). See [mount options](#mount-options) for a list of mount options.
+### Unix-style permissions support
+
+You can also get Unix-style permissions support for SMB Azure file shares by using client-enforced access control and adding `modefromsid,idsfromsid` mount options to your mount command. In order for this to work:
+
+- All clients accessing the share need to mount using `modefromsid,idsfromsid`
+- The UIDs/GIDs must be uniform across all clients
+- Clients must be running one of the following supported Linux distros: Ubuntu 20.04+, SLES 15 SP3+
 
 ## Mount the Azure file share on-demand with mount
 
@@ -231,7 +239,7 @@ MNT_ROOT="/media"
 sudo mkdir -p $MNT_ROOT
 ```
 
-To mount an Azure file share on Linux, use the storage account name as the username of the file share, and the storage account key as the password. Because the storage account credentials might change over time, you should store the credentials for the storage account separately from the mount configuration.
+Use the storage account name as the username of the file share, and the storage account key as the password. Because the storage account credentials might change over time, you should store the credentials for the storage account separately from the mount configuration.
 
 The following example shows how to create a file to store the credentials. Remember to replace `<resource-group-name>` and `<storage-account-name>` with the appropriate information for your environment.
 
@@ -316,7 +324,7 @@ sudo apt install autofs
 ```
 # [RHEL](#tab/RHEL)
 
-Same applies for CentOS or Oracle Linux
+Same applies for CentOS or Oracle Linux:
 
 On Red Hat Enterprise Linux 8+,  use the `dnf` package manager:
 ```bash
@@ -387,9 +395,8 @@ You can use the following mount options when mounting SMB Azure file shares on L
 | `dir_mode=` | n/a | Optional. If the server doesn't support the CIFS Unix extensions, this overrides the default mode for directories. |
 | `handletimeout=` | n/a | Optional. The time (in milliseconds) for which the server should reserve the file handle after a failover waiting for the client to reconnect. |
 
-## Next steps
+## Next step
 
 For more information about using SMB Azure file shares with Linux, see:
 
-- [Remove SMB 1 on Linux](files-remove-smb1-linux.md)
 - [Troubleshoot general SMB issues on Linux](/troubleshoot/azure/azure-storage/files-troubleshoot-linux-smb?toc=/azure/storage/files/toc.json)

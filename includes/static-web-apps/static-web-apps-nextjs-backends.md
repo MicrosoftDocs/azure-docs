@@ -1,9 +1,9 @@
 ---
-author: craigshoemaker
 ms.service: azure-static-web-apps
 ms.topic:  include
 ms.date: 06/11/2024
-ms.author: cshoe
+author: v1212
+ms.author: wujia
 ---
 
 The following steps show you how to associate a custom backend to your Standard plan and above static web apps.

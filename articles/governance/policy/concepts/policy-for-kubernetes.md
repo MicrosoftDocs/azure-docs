@@ -1,7 +1,7 @@
 ---
 title: Learn Azure Policy for Kubernetes
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters running Kubernetes in Azure or on-premises.
-ms.date: 09/30/2024
+ms.date: 03/04/2025
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
 ---
@@ -606,15 +606,22 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 
 ### Add-on versions available per each AKS cluster version
 
+#### 1.10.1
+Update the `policy-kubernetes-addon-prod` and `policy-kubernetes-webhook` images to patch [CVE-2025-30204](https://nvd.nist.gov/vuln/detail/CVE-2025-30204) and [CVE-2025-22870](https://nvd.nist.gov/vuln/detail/CVE-2025-22870).
+- Released April 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.18.2
+
 #### 1.10.0
 Security improvements.
 
-CEL is enabled by default. Feature Flag is no longer needed to enable CEL. New CRD configpodstatuses.status.gatekeeper.sh is introduced
+CEL is enabled by default, you can continue using Rego. New CRD configpodstatuses.status.gatekeeper.sh is introduced (Reference: https://github.com/open-policy-agent/gatekeeper/issues/2918)
 - Released February 2025
 - Kubernetes 1.27+
 - Gatekeeper 3.18.2
 ##### Gatekeeper 3.18.2-1
 Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.18.2
+Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.17.1...v3.18.2
 
 #### 1.9.1
 Security improvements.

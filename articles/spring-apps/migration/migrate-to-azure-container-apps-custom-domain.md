@@ -2,7 +2,8 @@
 title: Custom Domain with TLS/SSL in Azure Container Apps
 description: Describes the settings required for a custom domain with TLS/SSL in Azure Container Apps.
 author: KarlErickson
-ms.author: dixue
+ms.author: karler
+ms.reviewer: dixue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article
 ms.date: 01/29/2025
@@ -112,7 +113,7 @@ az containerapp env update \
 
 After you enable peer-to-peer-encryption, one container app can access other container apps using HTTPS with mTLS - for example, `https://<app-name>`. The certificate used in mTLS is system-assigned.
 
-For more information, see the [Peer-to-peer encryption](../../container-apps/networking-configuration.md#peer-to-peer-encryption) section of [Networking in Azure Container Apps environment](../../container-apps/networking.md).
+For more information, see the [Peer-to-peer encryption](../../container-apps/networking-configuration.md#peer-to-peer-encryption) section of [Networking configuration in Azure Container Apps environment](../../container-apps/networking-configuration.md).
 
 ## Traffic to external services
 

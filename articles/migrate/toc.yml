@@ -33,10 +33,10 @@ items:
     items:
     - name: VMware environment
       items:
-      - name: Discover servers in VMware environment
-        href: ./vmware/tutorial-discover-vmware.md?context=/azure/migrate/context/migrate-context
-      - name: Import servers in VMware environment
-        href: ./vmware/tutorial-import-vmware-using-rvtools-xlsx.md?context=/azure/migrate/context/migrate-context
+        - name: Discover servers in VMware environment
+          href: ./vmware/tutorial-discover-vmware.md?context=/azure/migrate/context/migrate-context
+        - name: Import servers in VMware environment
+          href: ./vmware/tutorial-import-vmware-using-rvtools-xlsx.md?context=/azure/migrate/context/migrate-context
     - name: Discover servers in Hyper-V environment
       href: tutorial-discover-hyper-v.md
     - name: Discover physical servers
@@ -49,6 +49,8 @@ items:
       href: tutorial-discover-spring-boot.md
     - name: Discover SAP systems (preview)
       href: tutorial-discover-sap-systems.md
+    - name: Discover MySQL databases (preview)
+      href: tutorial-discover-mysql-database-instances.md
   - name: Decide
     items:
     - name: Build a business case
@@ -63,7 +65,7 @@ items:
         href: tutorial-assess-sql-vmware.md
       - name: Assess servers for migration to AVS
         href: ./vmware/tutorial-assess-vmware-azure-vmware-solution.md?context=/azure/migrate/context/migrate-context
-    - name: Assess servers in Hyper-V environment
+    - name: Assess servers in Hyper-V environment 
       items:
       - name: Assess servers for migration to Azure VMs
         href: tutorial-assess-hyper-v.md
@@ -74,7 +76,7 @@ items:
       - name: Assess servers for migration to Azure VMs
         href: tutorial-assess-physical.md
       - name: Assess SQL instances for migration to Azure SQL
-        href: tutorial-assess-sql.md
+        href: tutorial-assess-sql.md 
     - name: Assess AWS instances for migration to Azure
       href: tutorial-assess-aws.md
     - name: Assess GCP instances for migration to Azure
@@ -89,6 +91,8 @@ items:
       href: tutorial-discover-import.md
     - name: Assess SAP systems for migration (preview)
       href: tutorial-assess-sap-systems.md
+    - name: Assess MySQL databases for migration to Azure Database for MySQL (preview)
+      href: create-mysql-assessment.md 
   - name: Migrate
     items:
     - name: Migrate servers in VMware environment
@@ -122,7 +126,7 @@ items:
     - name: Modernize ASP.NET web apps to App Service code
       href: tutorial-modernize-asp-net-appservice-code.md
     - name: CI/CD for Day 2 operations
-      href: tutorial-app-containerization-azure-pipeline.md
+      href: tutorial-app-containerization-azure-pipeline.md  
 - name: Concepts
   items:
   - name: General
@@ -167,6 +171,8 @@ items:
       href: best-practices-assessment.md
     - name: Assessment overview (discover and assess SAP Systems) (preview)
       href: concepts-azure-sap-systems-assessment.md
+    - name: Assessment overview (migrate to Azure Database for MySQL) (preview)
+      href: assessments-overview-migrate-to-azure-db-mysql.md
   - name: Migrate
     items:
     - name: Build a migration plan
@@ -182,8 +188,8 @@ items:
     - name: VMware agentless migration architecture
       href: ./vmware/concepts-vmware-agentless-migration.md?context=/azure/migrate/context/migrate-context
       items:
-      - name: Prepare for VMware agentless migration
-        href: ./vmware/prepare-for-agentless-migration.md?context=/azure/migrate/context/migrate-context
+        - name: Prepare for VMware agentless migration
+          href: ./vmware/prepare-for-agentless-migration.md?context=/azure/migrate/context/migrate-context
     - name: Hyper-V migration architecture
       href: hyper-v-migration-architecture.md
     - name: VMware/Physical agent-based migration architecture
@@ -194,18 +200,18 @@ items:
   items:
   - name: Create and manage Azure Migrate projects
     href: create-manage-projects.md
-  - name: Use Azure Migrate with private endpoints
+  - name: Use Azure Migrate with private endpoints 
     items:
-    - name: Support requirements and considerations
-      href: how-to-use-azure-migrate-with-private-endpoints.md
-    - name: Discover and assess using Azure Private Link
-      href: discover-and-assess-using-private-endpoints.md
-    - name: Migrate Hyper-V servers to Azure using Private Link
-      href: migrate-hyper-v-servers-to-azure-using-private-link.md
-    - name: Migrate servers to Azure using Private Link for agent-based migration
-      href: migrate-servers-to-azure-using-private-link-agent-based.md
-    - name: Troubleshoot network connectivity
-      href: troubleshoot-network-connectivity.md
+      - name: Support requirements and considerations
+        href: how-to-use-azure-migrate-with-private-endpoints.md
+      - name: Discover and assess using Azure Private Link
+        href: discover-and-assess-using-private-endpoints.md
+      - name: Migrate Hyper-V servers to Azure using Private Link
+        href: migrate-hyper-v-servers-to-azure-using-private-link.md
+      - name: Migrate servers to Azure using Private Link for agent-based migration
+        href: migrate-servers-to-azure-using-private-link-agent-based.md
+      - name: Troubleshoot network connectivity
+        href: troubleshoot-network-connectivity.md
   - name: Discover
     items:
     - name: Deploy the Azure Migrate appliance
@@ -223,7 +229,7 @@ items:
     - name: Limit discovery scope for servers in VMware environment
       href: ./vmware/set-discovery-scope.md?context=/azure/migrate/context/migrate-context
     - name: Create least privilege credentials for SQL Server discovery
-      href: least-privilege-credentials.md
+      href: least-privilege-credentials.md  
     - name: Enable Arc on discovered items
       href: how-to-arc-enable-inventory.md
     - name: How to add server credentials
@@ -328,12 +334,12 @@ items:
     items:
     - name: Troubleshoot assessment
       items:
-      - name: Common Issues
-        href: troubleshoot-assessment.md
-      - name: Supported Scenarios
-        href: troubleshoot-assessment-supported-scenarios.md
-      - name: FAQ
-        href: troubleshoot-assessment-faq.md
+        - name: Common Issues
+          href: troubleshoot-assessment.md
+        - name: Supported Scenarios
+          href: troubleshoot-assessment-supported-scenarios.md
+        - name: FAQ
+          href: troubleshoot-assessment-faq.md
   - name: Migrate
     items:
     - name: Troubleshoot replication issues in agentless VMware migration
@@ -343,7 +349,7 @@ items:
     - name: Troubleshoot web app migration issues
       href: troubleshoot-webapps-migration.md
     - name: Troubleshoot Windows OS upgrade issues
-      href: troubleshoot-upgrade.md
+      href: troubleshoot-upgrade.md  
 - name: Reference
   items:
   - name: Azure CLI

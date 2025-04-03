@@ -4,7 +4,7 @@ description: Get answers to frequently asked questions about VPN Gateway connect
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 02/18/2025
+ms.date: 03/31/2025
 ms.author: cherylmc
 ---
 
@@ -329,7 +329,15 @@ RADIUS authentication is supported for the OpenVPN protocol.
 
 ## <a name="V2VMulti"></a>VNet-to-VNet and multi-site connections
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-faq-vnet-vnet-include.md)] 
+
+### How do I configure a cross tenant scenario?
+
+ * If you're using REST API or ARM templates for connection resources referencing a gateway in a different tenant, follow this authentication procedure: [Header values for authentication](https://learn.microsoft.com/azure/azure-resource-manager/management/authenticate-multi-tenant#header-values-for-authentication).
+ * For [site-to-site](vpn-gateway-create-site-to-site-rm-powershell.md#tenants).
+ * For [VNet-to-VNet](vpn-gateway-vnet-vnet-rm-ps.md#tenant).
+
+If you are using PowerShell commands, verify that you're running [Az.Network 7.15.1](https://www.powershellgallery.com/packages/Az.Network/7.15.1)
 
 ### How do I enable routing between my site-to-site VPN connection and ExpressRoute?
 

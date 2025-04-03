@@ -2,7 +2,8 @@
 title: Migrating a custom Virtual Network
 description: Describes how to migrate custom virtual network settings.
 author: KarlErickson
-ms.author: dixue
+ms.author: karler
+ms.reviewer: dixue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article
 ms.date: 01/29/2025
@@ -99,7 +100,7 @@ Both Azure Spring Apps and Azure Container Apps offer ways to control outbound t
 - A dedicated subnet for the Azure Container Apps service runtime subnet isn't required.
 - Azure Container Apps provide a more flexible way to support UDR. In Azure Container Apps, there's no need to explicitly set the option `--outbound-type` to `userDefinedRouting` when provisioning Azure Spring Apps.
 
-For more information, see [User defined routes](../../container-apps/user-defined-routes.md) and [Control outbound traffic in Azure Container Apps with user defined routes](../../container-apps/user-defined-routes.md).
+For more information, see [Control outbound traffic in Azure Container Apps with user defined routes](../../container-apps/user-defined-routes.md).
 
 In Azure Container Apps, only workload profiles of the *environment* type support UDR. Additionally, Azure Container Apps support egress through NAT Gateway and the creation of private endpoints on the container app environment.
 
@@ -125,7 +126,7 @@ For more information, see [Securing a custom VNET in Azure Container Apps with N
 
 Both Azure Spring Apps and Azure Container Apps support the use of custom DNS servers in a customer virtual network. We recommend adding Azure DNS IP `168.63.129.16` as the upstream DNS server in the custom DNS server.
 
-For more information, see the [DNS](../../container-apps/dns.md) section of [Networking in Azure Container Apps environment](../../container-apps/networking.md).
+For more information, see [DNS for virtual networks in Azure Container Apps environments](../../container-apps/dns.md).
 
 Currently, Azure Container Apps in a Consumption-only environment type doesn't support flushing DNS settings changes as Azure Spring Apps does. For more information, see [Flush DNS settings changes in Azure Spring Apps](../basic-standard/how-to-use-flush-dns-settings.md). However, the workload profile type of environment automatically refreshes DNS settings every 5 minutes.
 

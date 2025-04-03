@@ -1,5 +1,5 @@
 ---
-title: Security best practices
+title: Security best practices for IoT solutions
 description: Security best practices for building, deploying, and operating your IoT solution. Includes recommendations for assets, devices, data, and infrastructure
 author: asergaz
 ms.service: azure-iot
@@ -16,12 +16,12 @@ This overview introduces the key concepts around securing a typical Azure IoT so
 
 # [Edge-based solution](#tab/edge)
 
-The following diagram shows a high-level view of the components in a typical edge-based IoT solution. This article focuses on the security of an edge-based IoT solution:
+The following diagram shows a high-level view of the components in a typical [edge-based IoT solution](iot-introduction.md#edge-based-solution). This article focuses on the security of an edge-based IoT solution:
 
 <!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-security/iot-edge-security-architecture.svg" alt-text="Diagram that shows the high-level IoT edge-based solution architecture highlighting security." border="false":::
 
-You can divide security in an edge-based IoT solution into the following three areas:
+You can divide security in an edge-based IoT solution into the following four areas:
 
 - **Asset security**: Secure the physical or virtual item of value that you want to manage, monitor, and collect data from.
 
@@ -38,7 +38,7 @@ Typically on an edge-based solution, you want to secure your end-to-end operatio
 - Ensure governance through applying policies with [Azure Policy for Kubernetes](/azure/governance/policy/concepts/policy-for-kubernetes).
 - Grant access and connect to your Kubernetes clusters from anywhere, and manage access by using [Azure role-based access control (Azure RBAC)](/azure/azure-arc/kubernetes/azure-rbac) on your cluster.
 
-## Microsoft Defender for IoT and for Containers
+### Microsoft Defender for IoT and for Containers
 
 Microsoft Defender for IoT is a unified security solution built specifically to identify IoT and operational technology (OT) devices, vulnerabilities, and threats. Microsoft Defender for Containers is a cloud-native solution to improve, monitor, and maintain the security of your containerized assets (Kubernetes clusters, Kubernetes nodes, Kubernetes workloads, container registries, container images and more), and their applications, across multicloud and on-premises environments.
 
@@ -47,7 +47,7 @@ Both Defender for IoT and Defender for Containers can automatically monitor some
 - [Microsoft Defender for Containers - overview](/azure/defender-for-cloud/defender-for-containers-introduction)
 - [Microsoft Defender for IoT for organizations - overview](../defender-for-iot/organizations/overview.md).
 
-## Asset security
+### Asset security
 
 - **Secrets management**: Use [Azure Key Vault](/azure/key-vault/general/overview) to store and manage asset's sensitive information such as keys, passwords, certificates, and secrets. Azure IoT Operations uses Azure Key Vault as the managed vault solution on the cloud, and uses [Azure Key Vault Secret Store extension for Kubernetes](/azure/azure-arc/kubernetes/secret-store-extension) to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets. To learn more, see [Manage secrets for your Azure IoT Operations deployment](../iot-operations/secure-iot-ops/howto-manage-secrets.md).
 
@@ -61,7 +61,7 @@ Both Defender for IoT and Defender for Containers can automatically monitor some
 
 - **Follow device manufacturer security and deployment best practices**: If the device manufacturer provides security and deployment guidance, follow that guidance in addition to the generic guidance listed in this article.
 
-## Connection security
+### Connection security
 
 - **Use Transport Layer Security (TLS) to secure connections from assets**: All communication within Azure IoT Operations is encrypted using TLS. To provide a secure-by-default experience that minimizes inadvertent exposure of your edge-based solution to attackers, Azure IoT Operations is deployed with a default root CA and issuer for TLS server certificates. For a production deployment, we recommend using your own CA issuer and an enterprise PKI solution.
 
@@ -73,7 +73,7 @@ Both Defender for IoT and Defender for Containers can automatically monitor some
 
 - **Set up a secure connection to OPC UA server**: When connecting to an OPC UA server, you should determine which OPC UA servers you trust to securely establish a session with. To learn more, see [Configure OPC UA certificates infrastructure for the connector for OPC UA](../iot-operations/discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md).
 
-## Edge security
+### Edge security
 
 - **Keep the edge runtime environment up-to-date**: Keep your cluster and Azure IoT Operations deployment up-to-date with the latest patches and minor releases to get all available security and bug fixes. For production deployments, [turn off auto-upgrade for Azure Arc](/azure/azure-arc/kubernetes/agent-upgrade#toggle-automatic-upgrade-on-or-off-when-connecting-a-cluster-to-azure-arc) to have complete control over when new updates are applied to your cluster. Instead, [manually upgrade agents](/azure/azure-arc/kubernetes/agent-upgrade#manually-upgrade-agents) as needed.
 
@@ -83,9 +83,7 @@ Both Defender for IoT and Defender for Containers can automatically monitor some
 
 - **Provide the least privilege needed for the topic asset in your MQTT broker**: Authorization policies determine what actions the clients can perform on the broker, such as connecting, publishing, or subscribing to topics. Configure the MQTT broker to use one or multiple authorization policies with the BrokerAuthorization resource. To learn more, see [Configure MQTT broker authorization](../iot-operations/manage-mqtt-broker/howto-configure-authorization.md).
 
-- **Configure isolated network environments by using Azure IoT Layered Network Management (preview)**: Azure IoT Layered Network Management (preview) is a component that facilitates the connection between Azure and clusters in isolated network environments. In industrial scenarios, the isolated networks follow the *[ISA-95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95)/[Purdue Network architecture](https://en.wikipedia.org/wiki/Purdue_Enterprise_Reference_Architecture)*. To learn more, see [What is Azure IoT Layered Network Management (preview)?](../iot-operations/manage-layered-network/overview-layered-network.md).
-
-## Cloud security
+### Cloud security
 
 - **Use user-assigned managed identities for cloud connections**: Always use managed identity authentication. When possible, [use user-assigned managed identity](../iot-operations/connect-to-cloud/howto-configure-mqtt-endpoint.md#user-assigned-managed-identity) in data flow endpoints for flexibility and auditability.
 
@@ -96,7 +94,7 @@ Both Defender for IoT and Defender for Containers can automatically monitor some
 
 # [Cloud-based solution](#tab/cloud)
 
-The following diagram shows a high-level view of the components in a typical cloud-based IoT solution. This article focuses on the security of a cloud-based IoT solution:
+The following diagram shows a high-level view of the components in a typical [cloud-based IoT solution](iot-introduction.md#cloud-based-solution). This article focuses on the security of a cloud-based IoT solution:
 
 <!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-security/iot-cloud-security-architecture.svg" alt-text="Diagram that shows the high-level IoT cloud-based solution architecture highlighting security." border="false":::
@@ -112,7 +110,7 @@ You can divide security in a cloud-based IoT solution into the following three a
 
 Implementing the recommendations in this article helps you meet the security obligations described in the [shared responsibility model](../security/fundamentals/shared-responsibility.md).
 
-## Microsoft Defender for IoT
+### Microsoft Defender for IoT
 
 Microsoft Defender for IoT can automatically monitor some of the recommendations included in this article. Microsoft Defender for IoT should be the frontline of defense to protect your cloud-based solution. Microsoft Defender for IoT periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities. It then provides you with recommendations on how to address them. To learn more, see:
 
@@ -120,7 +118,7 @@ Microsoft Defender for IoT can automatically monitor some of the recommendations
 - [What is Microsoft Defender for IoT for organizations?](../defender-for-iot/organizations/overview.md).
 - [What is Microsoft Defender for IoT for device builders?](../defender-for-iot/device-builders/overview.md).
 
-## Device security
+### Device security
 
 - **Scope hardware to minimum requirements**: Select your device hardware to include the minimum features required for its operation, and nothing more. For example, only include USB ports if they're necessary for the operation of the device in your solution. Extra features can expose the device to unwanted attack vectors.
 
@@ -150,7 +148,7 @@ Microsoft Defender for IoT can automatically monitor some of the recommendations
 
 - **Use a field gateway to provide security services for legacy or constrained devices**: Legacy and constrained devices might lack the capability to encrypt data, connect with the Internet, or provide advanced auditing. In these cases, a modern and secure field gateway can aggregate data from legacy devices and provide the security required for connecting these devices over the Internet. An [IoT Edge device can be used as a gateway](../iot-edge/iot-edge-as-gateway.md) and provide secure authentication, negotiation of encrypted sessions, receipt of commands from the cloud, and many other security features. [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere?view=azure-sphere-integrated&preserve-view=true) can be used as a guardian module to secure other devices, including existing legacy systems not designed for trusted connectivity.
 
-## Connection security
+### Connection security
 
 - **Use X.509 certificates to authenticate your devices to IoT Hub or IoT Central**: IoT Hub and IoT Central support both X509 certificate-based authentication and security tokens as methods for a device to authenticate. If possible, use X509-based authentication in production environments as it provides greater security. To learn more, see [Authenticating a device to IoT Hub](../iot-hub/authenticate-authorize-x509.md) and [Device authentication concepts in IoT Central](../iot-central/core/concepts-device-authentication.md).
 
@@ -160,7 +158,7 @@ Microsoft Defender for IoT can automatically monitor some of the recommendations
 
 - **Consider using Azure Private Link**: Azure Private Link lets you connect your devices to a private endpoint on your virtual network, enabling you to block access to your IoT hub's public device-facing endpoints. To learn more, see [Ingress connectivity to IoT Hub using Azure Private Link](../iot-hub/virtual-network-support.md#ingress-connectivity-to-iot-hub-using-azure-private-link) and [Network security for IoT Central using private endpoints](../iot-central/core/concepts-private-endpoints.md).
 
-## Cloud security
+### Cloud security
 
 - **Follow a secure software development methodology**: The development of secure software requires you to consider security from the inception of the project all the way through implementation, testing, and deployment. The [Microsoft Security Development Lifecycle](https://www.microsoft.com/securityengineering/sdl/) provides a step-by-step approach to building secure software.
 
@@ -192,9 +190,7 @@ Microsoft Defender for IoT can automatically monitor some of the recommendations
 
 ---
 
-## Next steps
-
-To learn more about IoT security, see:
+## Related content
 
 - [Azure security baseline for Azure Arc enabled Kubernetes](/security/benchmark/azure/baselines/azure-arc-enabled-kubernetes-security-baseline?toc=/azure/azure-arc/kubernetes/toc.json)
 - [Concepts for keeping your cloud-native workload secure](https://kubernetes.io/docs/concepts/security/)

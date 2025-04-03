@@ -1,12 +1,11 @@
 ---
 title: 'Secure your Origin with Private Link in Azure Front Door Premium'
 description: This page provides information about how to secure connectivity to your origin using Private Link.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 08/12/2024
-ms.author: duau
 ms.custom: references_regions, ignite-2024
 ---
 
@@ -36,8 +35,8 @@ Origin support for direct private endpoint connectivity is currently limited to:
 * Web App
 * Internal load balancers, or any services that expose internal load balancers such as Azure Kubernetes Service, Azure Container Apps or Azure Red Hat OpenShift
 * Storage Static Website
-* Application Gateway (Public Preview. Don't use in production environments)
-* API Management (Public Preview. Don't use in production environments)
+* API Management
+* Application Gateway
 * Azure Container Apps (Public Preview. Don't use in production environments)
 
 > [!NOTE]
@@ -54,8 +53,9 @@ Azure Front Door private link is available in the following regions:
 | Central US | North Europe | | Japan East |
 | East US | Norway East | | Korea Central |
 | East US 2 | UK South | | East Asia |
-| South Central US | West Europe | | |
-| West US 3 | Sweden Central | | |
+| South Central US | West Europe | | South East Asia |
+| West US 2 | Sweden Central | | |
+| West US 3 | | | |
 | US Gov Arizona | | | |
 | US Gov Texas | | | |
 | US Gov Virginia | | | |

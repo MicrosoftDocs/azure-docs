@@ -53,9 +53,8 @@ When a customer has a deployed Azure VMware Solution private cloud, they can sca
 
 **Azure VMware Solution stretched clusters private cloud**: The AV64 SKU isn't supported with Azure VMware Solution stretched clusters private cloud. This means that an AV64-based expansion isn't possible for an Azure VMware Solution stretched clusters private cloud. 
 
-[!NOTE]
-
-All traffic from an AV64 host towards a customer network will utilize the IP address of the VMKernel Network Interface 1.
+> [!NOTE]
+> All traffic from an AV64 host towards a customer network will utilize the IP address of the VMKernel Network Interface 1.
 
 ### AV64 Cluster vSAN fault domain (FD) design and recommendations
 
@@ -130,7 +129,7 @@ Azure VMware Solution doesn't store customer data.
 
 ## Host and software lifecycle maintenance
 
-Regular upgrades of the Azure VMware Solution private cloud and VMware software ensure the latest security, stability, and feature sets are running in your private clouds. For more information, see [Host maintenance and lifecycle management](architecture-private-clouds.md#host-maintenance-and-lifecycle-management).
+Regular upgrades of the Azure VMware Solution private cloud and VMware software ensure the latest security, stability, and feature sets are running in your private clouds. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-host-remediation.md#host-maintenance-and-lifecycle-management).
 
 ## Monitoring your private cloud
 
