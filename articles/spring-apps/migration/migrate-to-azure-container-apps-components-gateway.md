@@ -1,13 +1,12 @@
 ---
 title: Migrate Spring Cloud Gateway for Tanzu to Managed Gateway for Spring in Azure Container Apps
-description: Describes how to migrate Spring Cloud Gateway for Tanzu to managed Gateway for Spring in Azure Container Apps.
+description: Describes how to migrate Spring Cloud Gateway for Tanzu to a managed gateway for Spring in Azure Container Apps.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: dixue
-ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article
-ms.date: 01/29/2025
-ms.custom: devx-track-java, devx-track-extended-java
+ms.date: 04/02/2025
+ms.custom: devx-track-java
 ---
 
 # Migrate Spring Cloud Gateway for Tanzu to self-hosted gateway application in Azure Container Apps
