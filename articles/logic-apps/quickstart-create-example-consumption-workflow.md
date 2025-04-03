@@ -136,7 +136,11 @@ This example uses an RSS trigger that checks an RSS feed, based on the specified
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
-1. On the designer toolbar, select **Code view**. In the code editor, change the line **`"feedUrl": "@{encodeURIComponent(encodeURIComponent(`https://feeds.a.dj.com/rss/RSSMarketsMain.xml'))}"`** to the following version:  
+1. On the designer toolbar, select **Code view**.
+
+1. In the code editor, find the line **`"feedUrl": "@{encodeURIComponent(encodeURIComponent(`https://feeds.a.dj.com/rss/RSSMarketsMain.xml'))}"`**.
+
+1. Remove the extra function named **`encodeURIComponent()`** so that you have only one instance, for example: 
    
    **`"feedUrl": "@{encodeURIComponent('https://feeds.a.dj.com/rss/RSSMarketsMain.xml')}"`**  
 
