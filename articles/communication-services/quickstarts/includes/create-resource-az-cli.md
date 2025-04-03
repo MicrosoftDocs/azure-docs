@@ -10,13 +10,15 @@ ms.author: rifox
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
-- Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli) 
+- Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli).
 
 If you're planning on using phone numbers, you can't use the free trial account. Check that your subscription meets all the [requirements](../../concepts/telephony/plan-solution.md) if you plan to purchase phone numbers before creating your resource. 
 
-## Create Azure Communication Services resource
+## Create an Azure Communication Services resource using Azure CLI
 
-To create an Azure Communication Services resource, [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and provide your credentials. Run the following command to create the resource:
+To create an Azure Communication Services resource, [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and provide your credentials.
+
+To create the resource, run the following command:
 
 ```azurepowershell-interactive
 az communication create --name "<acsResourceName>" --location "Global" --data-location "United States" --resource-group "<resourceGroup>"
