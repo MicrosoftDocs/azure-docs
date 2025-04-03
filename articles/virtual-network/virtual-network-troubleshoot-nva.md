@@ -88,6 +88,8 @@ Each NVA has basic configuration requirements to function correctly on Azure. Th
    NetworkSecurityGroup : null
    ```
 
+---
+
 **Check for NSG when using Standard SKU public IP**
 
 Use of a standard version of public IPs. There must be an NSG created and an explicit rule to allow the traffic to the NVA.
