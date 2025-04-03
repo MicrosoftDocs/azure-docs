@@ -4,7 +4,6 @@ description: Learn about Azure VMware Solution in an Azure Virtual Network desig
 ms.topic: conceptual
 ms.service: azure-vmware
 ms.date: 4/3/2025
-ms.author: jjaygbay1
 # customer intent: As a cloud administrator, I want to learn about Azure VMware Solution in an Azure Virtual Network design consideration so that I can make informed decisions about my Azure VMware Solution deployment.
 ---
 
@@ -13,7 +12,7 @@ ms.author: jjaygbay1
 In this article, you learn about design considerations for Azure VMware Solution in an Azure Virtual Network. It discusses what this solution offers in a VMware private cloud environment that your applications can access from on-premises and Azure-based environments or resources. There are several considerations to review before you set up your Azure VMware Solution private cloud in an Azure Virtual Network. This article provides solutions for use cases that you might encounter when you're using the private cloud type.
 
 > [!Note]
-> This is currently a public preview offering. For more information, see our [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
+> This is currently a public preview offering. For more information, see our [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Limitations during public preview
 

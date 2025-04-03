@@ -1,6 +1,6 @@
 ---
 title: Azure VMware Solution in an Azure Virtual Network Internet connectivity design consideration (Public preview)
-description: Learn about Azure VMware Solution in an Azure Virtual Network design consideration.
+description: Learn about Azure VMware Solution in an Azure Virtual Network Internet connectivity design consideration.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 3/28/2025
