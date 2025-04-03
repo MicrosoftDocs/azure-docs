@@ -19,10 +19,6 @@ A storage task can perform operations on blobs in an Azure Storage account. As y
 
 In this how-to article, you'll learn how to create a storage task using Terraform.
 
-> [!IMPORTANT]
-> Azure Storage Actions is currently in PREVIEW and is available in these [regions](../overview.md#supported-regions).
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
 > [!div class="checklist"]
