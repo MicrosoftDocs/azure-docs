@@ -319,11 +319,6 @@
             "source_path_from_root": "/articles/analysis-services/move-between-regions.md",
             "redirect_url": "/bi-shared/docs/azure-analysis-services/move-between-regions",
             "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/analysis-services/TOC.yml",
-            "redirect_url": "/bi-shared/docs/azure-analysis-services/TOC",
-            "redirect_document_id": false
         }
     ]
 }
