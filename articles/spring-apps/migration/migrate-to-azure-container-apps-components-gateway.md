@@ -194,38 +194,38 @@ After the Spring Cloud Gateway configuration is ready, build the image using Azu
 
 To build and push the Docker image, use the following steps:
 
-In the Spring Cloud Gateway project directory, create a **Dockerfile** with the following contents:
+1. In the Spring Cloud Gateway project directory, create a **Dockerfile** with the following contents:
 
-```dockerfile
-FROM mcr.microsoft.com/openjdk/jdk:17-mariner as build
-WORKDIR /staging
-# Install gradle
-RUN tdnf install -y wget unzip
+    ```dockerfile
+    FROM mcr.microsoft.com/openjdk/jdk:17-mariner as build
+    WORKDIR /staging
+    # Install gradle
+    RUN tdnf install -y wget unzip
 
-RUN wget https://services.gradle.org/distributions/gradle-8.8-bin.zip && \
-    unzip -d /opt/gradle gradle-8.8-bin.zip && \
-    chmod +x /opt/gradle/gradle-8.8/bin/gradle
+    RUN wget https://services.gradle.org/distributions/gradle-8.8-bin.zip && \
+        unzip -d /opt/gradle gradle-8.8-bin.zip && \
+        chmod +x /opt/gradle/gradle-8.8/bin/gradle
 
-ENV GRADLE_HOME=/opt/gradle/gradle-8.8
-ENV PATH=$PATH:$GRADLE_HOME/bin
+    ENV GRADLE_HOME=/opt/gradle/gradle-8.8
+    ENV PATH=$PATH:$GRADLE_HOME/bin
 
-COPY . .
+    COPY . .
 
-# Compile with gradle
-RUN gradle build -x test
+    # Compile with gradle
+    RUN gradle build -x test
 
-FROM mcr.microsoft.com/openjdk/jdk:17-mariner as runtime
+    FROM mcr.microsoft.com/openjdk/jdk:17-mariner as runtime
 
-WORKDIR /app
+    WORKDIR /app
 
-COPY --from=build /staging/build/libs/gateway-0.0.1-SNAPSHOT.jar .
+    COPY --from=build /staging/build/libs/gateway-0.0.1-SNAPSHOT.jar .
 
-ENTRYPOINT ["java", "-jar", "gateway-0.0.1-SNAPSHOT.jar"]
-```
+    ENTRYPOINT ["java", "-jar", "gateway-0.0.1-SNAPSHOT.jar"]
+    ```
 
-Alternatively, see the [ACME Fitness Store sample Dockerfile](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/azure-kubernetes-service/resources/gateway/gateway/Dockerfile) for guidance.
+    Alternatively, see the [ACME Fitness Store sample Dockerfile](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/azure-kubernetes-service/resources/gateway/gateway/Dockerfile) for guidance.
 
-Use the following commands to build the image of the gateway:
+1. Use the following commands to build the image of the gateway:
 
     ```azurecli
     az acr login --name <azure-container-registry-name>
@@ -236,7 +236,7 @@ Use the following commands to build the image of the gateway:
         --file Dockerfile .
     ```
 
-Ensure the gateway image is created, and get the image tag, which ues the following format: `<azure-container-registry-name>.azurecr.io/gateway:acrbuild-spring-cloud-gateway-0.0.1-SNAPSHOT`.
+1. Ensure the gateway image is created, and get the image tag, which uses the following format: `<azure-container-registry-name>.azurecr.io/gateway:acrbuild-spring-cloud-gateway-0.0.1-SNAPSHOT`.
 
 ### Deploy the image in Azure Container Apps
 
