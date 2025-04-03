@@ -6760,7 +6760,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-functions/migration",
+      "source_path_from_root": "/articles/azure-functions/migration.md",
       "redirect_url": "/azure/azure-functions/migration/migrate-lambda-workloads-overview",
       "redirect_document_id": false
     },
