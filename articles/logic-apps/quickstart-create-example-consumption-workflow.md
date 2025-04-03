@@ -144,7 +144,10 @@ This example uses an RSS trigger that checks an RSS feed, based on the specified
 
    This change is necessary to remove double-encoding behavior, which requires manual correction.  
    
-1. Switch back to the designer.  
+1. Switch back to the designer.
+
+1. Save your workflow. On the designer toolbar, select **Save**.
+
 
    This step instantly publishes your logic app resource and workflow live in the Azure portal. However, the trigger only checks the RSS feed without taking any other actions. So, you need to add an action to specify what you want to happen when the trigger fires.
 
