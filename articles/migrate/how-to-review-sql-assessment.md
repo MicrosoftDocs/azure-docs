@@ -16,7 +16,7 @@ In this article, you'll explore the concepts of a SQL assessment, its characteri
 
 **Recommended Deployment**:
 
-The recommended deployment involves selecting an Azure SQL deployment type that is highly compatible with your SQL instance. This recommendation is based on your migration preferences and cost considerations. If your instance is suitable for SQL Server on Azure VM, Azure SQL Managed Instance, and Azure SQL Database, the recommended target deployment type will minimize migration readiness issues while optimizing cost. 
+The deployment involves selecting an Azure SQL deployment type that is highly compatible with your SQL instance. This is based on your migration preferences and cost considerations. If your instance is suitable for SQL Server on Azure VM, Azure SQL Managed Instance, and Azure SQL Database, the target deployment type minimizes migration readiness issues while optimizing cost. 
 
 > [!NOTE]
 > Migrating instances to SQL Server on Azure VM is the preferred approach for migrating SQL Server instances. When SQL Server credentials are unavailable, the Azure SQL assessment provides right-sized lift-and-shift, recommendations, specifically suggesting a move to SQL Server on Azure VM.

@@ -38,8 +38,9 @@ Follow the steps to create an assessment:
 1. Provide a friendly name for the assessment. You see a query that you used to select the servers on the previous screen. Review the number of servers added and the query used before moving ahead. If you want to add more servers to the assessment, select **Add workloads**. Once you have added all the servers to the assessment scope, select **Next**. 
 1. You can customize the assessment properties to fit your requirements. Specify the general properties for **Target region**, **Default environment**, **Pricing options**, **Saving options**, and **Sizing criteria**. [Learn more](assessment-report.md). 
 1. Select **Next** to navigate to the Azure VM specific assessment properties.  
-1. Select **Edit defaults** to review and customize server-specific settings.  
-1. Select **Edit defaults** for Azure VM to review the settings for Azure VM assessment. [Learn more](assessment-properties.md).
+1. Select **Edit defaults**:
+    1. To review and customize server-specific settings.  
+    1. For Azure VM to review the settings for Azure VM assessment. [Learn more](assessment-properties.md).
 1. Select **Save** if you customized any property.
 1. In **Review + create assessment**, review the assessment details, and select **Create Assessment** to run the assessment. 
 1. After the assessment is created, view the assessment in **Decide and plan** > **Assessments** > **Workloads**.  
