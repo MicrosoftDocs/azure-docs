@@ -82,7 +82,7 @@ The content hub in Microsoft Sentinel is the centralized location to discover an
 
    #### [Defender portal](#tab/defender-portal)
 
-   :::image type="content" source="media/quickstart-onboar/content-hub-azure-activity-defender.png" alt-text="Screenshot of the content hub in the Defender portal with the solution for Azure Activity selected.":::
+   :::image type="content" source="media/quickstart-onboard/content-hub-azure-activity-defender.png" alt-text="Screenshot of the content hub in the Defender portal with the solution for Azure Activity selected.":::
 
    ---
 
@@ -162,7 +162,7 @@ Now that you've enabled the Azure Activity data connector and generated some act
 
     For example:
 
-   :::image type="content" source="media/quickstart-onboard/content-hub-azure-activity-defender.png" alt-text="Screenshot of the content hub in the Defender portal with the solution for Azure Activity selected.":::
+   :::image type="content" source="media/quickstart-onboard/content-hub-azure-activity-defender.png" alt-text="Screenshot of the AzureActivity query in the Logs page of the Defender portal.":::
 
    ---
 
