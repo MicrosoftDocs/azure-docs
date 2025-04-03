@@ -39,21 +39,21 @@ This quickstart shows you how to deploy a standard internal load balancer and tw
 
 ## Implement the Terraform code
 
-The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-load-balancer-public). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-load-balancer-public/TestRecord.md). See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
+The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-load-balancer-internal). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-load-balancer-internal/TestRecord.md). See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
 
 1. Create a directory in which to test and run the sample Terraform code, and make it the current directory.
 
 1. Create a file named `providers.tf` and insert the following code.
-    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-load-balancer-public/providers.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-load-balancer-internal/providers.tf":::
 
 1. Create a file named `main.tf` and insert the following code.
-    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-load-balancer-public/main.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-load-balancer-internal/main.tf":::
 
 1. Create a file named `variables.tf` and insert the following code.
-    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-load-balancer-public/variables.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-load-balancer-internal/variables.tf":::
 
 1. Create a file named `outputs.tf` and insert the following code.
-    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-load-balancer-public/outputs.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-load-balancer-internal/outputs.tf":::
 
 > [!IMPORTANT]
 > If you're using the 4.x azurerm provider, you must [explicitly specify the Azure subscription ID](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#specifying-subscription-id-is-now-mandatory) to authenticate to Azure before running the Terraform commands.
