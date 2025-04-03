@@ -111,37 +111,6 @@ To work around this issue, follow these steps:
 
 This section lists current known issues for the MQTT broker.
 
-### MQTT broker high memory usage
-
----
-
-Issue ID: 3781
-
----
-
-Log signature: `"failed to connect trace upload task to diagnostics service endpoint"`
-
----
-
-Sometimes, the MQTT broker's memory usage can become unexpectedly high due to internal certificate rotation retries. This scenario results in errors such as `failed to connect trace upload task to diagnostics service endpoint` in the logs.
-
-To work around this issue, restart each broker pod one by one (including the diagnostic service, probe, and authentication service), making sure each backend recovers before moving on. Alternatively, [redeploy Azure IoT Operations with longer internal certificate duration](../manage-mqtt-broker/howto-encrypt-internal-traffic.md#internal-certificates) such as `1500h` or more. For example:
-
-```json
-{
-  "advanced": {
-    "internalCerts": {
-      "duration": "1500h",
-      "renewBefore": "1h",
-      "privateKey": {
-        "algorithm": "Ec256",
-        "rotationPolicy": "Always"
-      }
-    }
-  }
-}
-```
-
 ### MQTT broker resources aren't visible in Azure portal
 
 ---
