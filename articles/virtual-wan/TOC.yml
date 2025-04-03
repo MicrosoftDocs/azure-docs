@@ -305,7 +305,7 @@
     - name: Configure Route-maps
       href: route-maps-how-to.md
     - name: Configure Route-maps to summarize routes leaving your virtual WAN
-      href: route-maps-how-to-summarize-routes-leaving-your-vwan.md
+      href: route-maps-how-to-summarize-routes-leaving-your-virtual-wan.md
     - name: Configure Route-maps to drop inbound routes from branch sites
       href: route-maps-drop-inbound-branch-sites.md
     - name: Configure Route-maps to prepend routes
