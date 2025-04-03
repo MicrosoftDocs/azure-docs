@@ -16,7 +16,26 @@ In this article, you learn how to automatically discover and configure OPC UA as
 
 ## Prerequisites
 
-A deployed instance of Azure IoT Operations. If you don't already have an instance, see [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
+- A deployed instance of Azure IoT Operations with resource sync rules enabled. You can only enable resource sync rules when you create your Azure IoT Operations instance. To learn more, see [Deploy Azure IoT Operations](../deploy-iot-ops/overview-deploy.md).
+
+  > [!NOTE]
+  > By default, the [deployment quickstart](../get-started-end-to-end-sample/quickstart-deploy.md) instructions do not enable resource sync rules.
+
+- The custom location in the resource group where you deployed Azure IoT Operations must have the **Azure Kubernetes Service Arc Contributor Role** role enabled with **K8 Bridge** as a member. For example:
+
+  ```bash
+  CUSTOM_LOCATION_NAME=$(az iot ops list -g <YOUR RESOURCE GROUP> --query "[0].extendedLocation.name" -o tsv)
+  
+  ASSIGNEE=$(az ad sp list --display-name "K8 Bridge" --query "[0].appId" -o tsv)
+  
+  az role assignment create --role "Azure Kubernetes Service Arc Contributor Role" --assignee $ASSIGNEE --scope $CUSTOM_LOCATION_NAME
+  ```
+
+## Deploy the preview connectors
+
+Currently, discovery is only enabled in the preview version of the connector for OPC UA.
+
+[!INCLUDE [deploy-preview-media-connectors](../includes/deploy-preview-media-connectors.md)]
 
 ## Create an asset endpoint
 
@@ -26,7 +45,7 @@ To create an asset endpoint with discovery enabled:
 
 1. Add a new asset endpoint and select the **Enable discovery** option:
 
-   :::image type="content" source="media/howto-autodetect-opcua-assets-using-akri/enable-auto-discover.png" alt-text="Create an asset endpoint with discovery enabled.":::
+    :::image type="content" source="media/howto-autodetect-opcua-assets-using-akri/enable-auto-discover.png" alt-text="Create an asset endpoint with discovery enabled.":::
 
 1. Select **Create** to create the asset endpoint.
 
@@ -36,7 +55,7 @@ Azure IoT Operations uses the asset endpoint to connect to the OPC UA server and
 
 1. Go to the **Discovery** page for your instance in the operations experience:
 
-   :::image type="content" source="media/howto-autodetect-opcua-assets-using-akri/discovered-assets-list.png" alt-text="View discovered assets.":::
+  :::image type="content" source="media/howto-autodetect-opcua-assets-using-akri/discovered-assets-list.png" alt-text="View discovered assets.":::
 
 1. You can filter the list by the asset endpoint name, or by keyword. The list shows the discovered assets and their status.
 
