@@ -168,9 +168,9 @@ To prepare for a failover, there might be some extra considerations, depending o
 
 - You can configure the *Azure IR* to automatically resolve the region that it uses. If the region is set to *auto resolve* and there's an outage in the primary region, the Azure IR automatically fails over to the paired region. This failover is subject to [limitations](#microsoft-managed-failover-to-a-paired-region). To configure the Azure IR region for your activity implementation or dispatch in the IR setup, set the region to *auto resolve*.
 
-- *Azure-SSIS IR* failover is managed separately from a Microsoft-managed failover of the data factory. For more information, see [Alternative multiple-region approaches](#alternative-multiple-region-approaches).
+- *Azure-SSIS IR* failover is managed separately from a Microsoft-managed failover of the data factory. For more information, see [Alternative multi-region approaches](#alternative-multi-region-approaches).
 
-- *A SHIR* runs on infrastructure that you're responsible for, so a Microsoft-managed failover doesn't apply to SHIRs. For more information, see [Alternative multiple-region approaches](#alternative-multiple-region-approaches).
+- *A SHIR* runs on infrastructure that you're responsible for, so a Microsoft-managed failover doesn't apply to SHIRs. For more information, see [Alternative multi-region approaches](#alternative-multi-region-approaches).
 
 #### Post-failover reconfiguration
 
