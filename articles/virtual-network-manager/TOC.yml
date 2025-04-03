@@ -34,6 +34,8 @@
     href: resource-manager-template-samples.md
   - name: Cross-tenant connection support
     items:
+    - name: Cross-tenant connection support
+      href: concept-cross-tenant.md
     - name: Configure cross-tenant connection - Portal
       href: how-to-configure-cross-tenant-portal.md
     - name: Configure cross-tenant connection - CLI
@@ -46,17 +48,17 @@
         href: how-to-create-hub-and-spoke.md
       - name: Azure PowerShell
         href: how-to-create-hub-and-spoke-powershell.md
+      - name: Deploy hub and spoke topology with Azure Firewall
+        href: how-to-deploy-hub-spoke-topology-with-azure-firewall.md
     - name: Mesh
       items: 
       - name: Azure portal
         href: how-to-create-mesh-network.md
       - name: Azure PowerShell
         href: how-to-create-mesh-network-powershell.md
-  - name: Deploy hub and spoke topology with Azure Firewall
-    href: how-to-deploy-hub-spoke-topology-with-azure-firewall.md
 - name: Configure
   items:
-  - name: Scope
+  - name: Scope overview
     href: concept-network-manager-scope.md
   - name: Network groups
     items:
@@ -64,31 +66,31 @@
       href: concept-network-groups.md
     - name: Azure Policy integration with network groups
       href: concept-azure-policy-integration.md
-    - name: Cross-tenant connection support
-      href: concept-cross-tenant.md
+    - name: Define dynamic network group membership with Azure Policy
+      href: how-to-define-network-group-membership-azure-policy.md
   - name: Configuration types
     items:
-    - name: Connectivity
+    - name: Connectivity configuration overview
       href: concept-connectivity-configuration.md
     - name: Security admin rules
       items: 
-      - name: Security admin rule concepts
+      - name: Security admin rule overview
         href: concept-security-admins.md
       - name: Security admin rule enforcement
         href: concept-enforcement.md
       - name: Network groups as source and destination
         href: concept-security-admin-rules-network-group.md
-    - name: User-defined routes (UDRs) management 
-      href: concept-user-defined-route.md
-    - name: View applied configurations
-      href: how-to-view-applied-configurations.md
     - name: User-defined routes (UDRs) management
       items:
+      - name: User-defined routes (UDRs) management overview
+        href: concept-user-defined-route.md
       - name: Create user-defined routes (UDRs)
         href: how-to-create-user-defined-route.md
       - name: Manage User-defined Routes (UDRs) across multiple hub-and-spoke topologies
         href: how-to-manage-user-defined-routes-multiple-hub-spoke-topologies.md
-  - name: Remove or update components
+    - name: View applied configurations
+      href: how-to-view-applied-configurations.md
+  - name: Remove or update network manager components
     href: concept-remove-components-checklist.md
 - name: Manage IP addresses (IPAM)
   items:
@@ -110,12 +112,12 @@
       href: concept-virtual-network-flow-logs.md
     - name: Query Azure Virtual Network Manager using Azure Resource Graph (ARG)
       href: query-azure-resource-graph.md
-    - name: Virtual Network Verifier overview 
-      href: concept-virtual-network-verifier.md
-    - name: Verify resource reachability with Virtual Network Verifier
-      href: how-to-verify-reachability-with-virtual-network-verifier.md
-    - name: Define dynamic network group membership with Azure Policy
-      href: how-to-define-network-group-membership-azure-policy.md
+    - name: Virtual Network Verifier
+      items:
+      - name: Virtual Network Verifier overview 
+        href: concept-virtual-network-verifier.md
+      - name: Verify resource reachability with Virtual Network Verifier
+        href: how-to-verify-reachability-with-virtual-network-verifier.md
 - name: Security
   items:
   - name: Secure network traffic with security admin rules
