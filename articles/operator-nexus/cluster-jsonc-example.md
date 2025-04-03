@@ -258,10 +258,7 @@ ms.custom: template-how-to, devx-track-arm-template
               "apiVersion": "2024-07-01",
               "name": "[parameters('name')]",
               "location": "[parameters('location')]",
-              "tags": {
-                "LabEnvironment": "[parameters('environment')]",
-                "ResourceType": "cluster"
-              },
+              "tags": {},
               "extendedLocation": {
                 "name": "[parameters('customLocation')]",
                 "type": "CustomLocation"
