@@ -196,13 +196,13 @@ conceptualContent:
             text: Azure databases services map
             itemType: reference
           - url: /azure/postgresql/migrate/migration-service/tutorial-migration-service-cloud-sql-offline
-            text: Migrate Cloud SQL for PostgreSQL to Azure Database for PostgreSQL (offline)
+            text: Migrate Google Cloud SQL for PostgreSQL to Azure Database for PostgreSQL (offline)
             itemType: tutorial
           - url: /azure/postgresql/migrate/migration-service/tutorial-migration-service-cloud-sql-online
-            text: Migrate Cloud SQL for PostgreSQL to Azure Database for PostgreSQL (online)
+            text: Migrate Google Cloud SQL for PostgreSQL to Azure Database for PostgreSQL (online)
             itemType: tutorial
           - url: /azure/dms/tutorial-mysql-azure-mysql-offline-portal
-            text: Migrate Cloud SQL for MySQL to Azure Database for MySQL (offline)
+            text: Migrate Google Cloud SQL for MySQL to Azure Database for MySQL (offline)
             itemType: tutorial
         footerLink:
           text: See more
