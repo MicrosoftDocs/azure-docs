@@ -51,15 +51,31 @@ Create the following files in your Terraform directory. Make sure the directory 
 
 ## Initialize Terraform
 
-[!INCLUDE [terraform-init.md](../includes/terraform-init.md)]
+Run [terraform init](https://www.terraform.io/docs/commands/init.html) to initialize the Terraform deployment. This command downloads the Azure provider required to manage your Azure resources. The `-upgrade` parameter upgrades the provider plugins to the newest supported version.
+
+```console
+terraform init -upgrade
+```
 
 ## Create the Terraform execution plan
 
-[!INCLUDE [terraform-plan.md](../includes/terraform-plan.md)]
+Run [terraform plan](https://www.terraform.io/docs/commands/plan.html) to create an execution plan. The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files.
+
+This pattern allows you to verify whether the execution plan matches your expectations before making any changes to actual resources. Use the optional `-out` parameter to specify an output file for the plan named `main.tfplan`. You can review the file to ensure that the plan is exactly what to apply.
+
+```console
+terraform plan -out main.tfplan
+```
 
 ## Apply the Terraform execution plan
 
-[!INCLUDE [terraform-apply-plan.md](../includes/terraform-apply-plan.md)]
+Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan to your cloud infrastructure. The example `terraform apply` command assumes you previously ran `terraform plan -out main.tfplan`.
+
+If you specify a different filename for the `-out` parameter in `terraform_plan`, use that filename in the call to `terraform apply`. If you don't use the `-out` parameter in `terraform_plan`, call `terraform apply` without any parameters.
+
+```console
+terraform apply main.tfplan
+```
 
 ## Verify the results
 
@@ -73,7 +89,19 @@ az lab vm list --resource-group $resource_group_name --lab-name $lab_name
 
 ## Clean up resources
 
-[!INCLUDE [terraform-plan-destroy.md](../includes/terraform-plan-destroy.md)]
+When you no longer need the resources Terraform created, take the following steps to remove them:
+
+1. Run [terraform plan](https://www.terraform.io/docs/commands/plan.html) with the `destroy` flag. The `terraform plan` command creates the execution plan but doesn't execute it. The `-out` parameter specifies an output file for the plan named `main.destroy.tfplan`. 
+
+   ```console
+   terraform plan -destroy -out main.destroy.tfplan
+   ```
+
+1. Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan specified in the `main.destroy.tfplan` file.
+
+    ```console
+    terraform apply main.destroy.tfplan
+    ```
 
 ## Next step
 

@@ -38,7 +38,7 @@ To create a custom image from a lab VM, take the following steps:
    - **I have already generalized this virtual machine**
    - **Generalize this virtual machine** (for Windows: **(Run sysprep)** or for Linux: **(Run deprovision)**)
 
-   [Sysprep](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) for Windows or [deprovision] for Linux create generalized images that have user profiles and other VM-specific settings removed. If you don't run sysprep or deprovision, the custom image creates exact copies of the machine that can run in isolated networks. For more information, see [Generalize a VM](/azure/virtual-machines/generalize).
+   [Sysprep](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) for Windows or [deprovision](/azure/virtual-machines/generalize#linux) for Linux create generalized images that have user profiles and other VM-specific settings removed. If you don't run sysprep or deprovision, the custom image creates exact copies of the machine that can run in isolated networks. For more information, see [Generalize a VM](/azure/virtual-machines/generalize).
 
    If you want sysprep or deprovision to be run on the VM when creating the custom image, choose **Generalize this virtual machine**. Running sysprep or deprovision when you create the custom image makes the existing VM unusable.
 

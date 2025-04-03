@@ -10,7 +10,7 @@ ms.custom: devx-track-azurepowershell, UpdateFrequency2
 #customer intent: As a lab administrator, I want to create custom images from VHD files, so I can make the custom images available to lab users as bases for creating lab VMs.
 ---
 
-# Create a custom image from a VHD file with PowerShell
+# Create a custom image from a VHD file by using Azure PowerShell
 
 [!INCLUDE [devtest-lab-create-custom-image-from-vhd-selector](../../includes/devtest-lab-create-custom-image-from-vhd-selector.md)]
 
