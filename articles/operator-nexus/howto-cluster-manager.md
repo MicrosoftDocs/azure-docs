@@ -102,7 +102,7 @@ Arguments:
   - name: The name for the managed resource group. If not specified, a unique name is
     automatically generated.
 - `wait`/`--no-wait` - Wait for command to complete or don't wait for the long-running operation to finish.
-- `--tags` - Space-separated tags: key[=value] [key[=value]...]. Use '' to clear existing tags. Required tags: EnableClusterManagerInfraServices=true, EnableFabricAssignRoleIntegration=true.
+- `--tags` - Space-separated tags: key[=value] [key[=value]...]. Use '' to clear existing tags.
 - `--subscription` - Name or ID of subscription. You can configure the default subscription using `az account set -s NAME_OR_ID`.
 - `--mi-system-assigned` - Enable System-assigned managed identity. Not used if using `--mi-user-assigned`.
 - `--mi-user-assigned` - Space-separated resource IDs of the User-assigned managed identities to be added. Not used if using `--mi-system-assigned`.
