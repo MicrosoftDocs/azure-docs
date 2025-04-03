@@ -217,20 +217,6 @@ Log signature: N/A
 
 The subject name and application URI must exactly match the provided certificate. Because there's no cross-validation, any errors could cause the OPC UA servers to reject the application certificate.  
 
-### Connection errors after adding a new certificate
-
----
-
-Issue ID: 8446
-
----
-
-Log signature: N/A
-
----
-
-Providing a new invalid OPC UA application instance certificate after a successful installation of AIO can lead to connection errors. To resolve the issue, delete your Azure IoT Operations instances and restart the installation.
-
 ## Connector for media and connector for ONVIF issues
 
 This section lists current known issues for the connector for media and the connector for ONVIF.
@@ -302,45 +288,6 @@ To work around this issue, you need to manually delete the CRD and finish the un
 ## OPC PLC simulator issues
 
 This section lists current known issues for the OPC PLC simulator.
-
-### The simulator doesn't send data to the MQTT broker after you create an asset endpoint
-
----
-
-Issue ID: 8616
-
----
-
-Log signature: N/A
-
----
-
-The OPC PLC simulator doesn't send data to the MQTT broker after you create an asset endpoint for the OPC PLC simulator.
-
-To work around this issue, run the following command to set `autoAcceptUntrustedServerCertificates=true` for the asset endpoint:
-
-```bash
-ENDPOINT_NAME=<name-of-you-endpoint-here>
-kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
--n azure-iot-operations \
---type=merge \
--p '{"spec":{"additionalConfiguration":"{\"applicationName\":\"'"$ENDPOINT_NAME"'\",\"security\":{\"autoAcceptUntrustedServerCertificates\":true}}"}}'
-```
-
-> [!CAUTION]
-> Don't use this configuration in production or preproduction environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
-
-You can patch all your asset endpoints with the following command:
-
-```bash
-ENDPOINTS=$(kubectl get AssetEndpointProfile -n azure-iot-operations --no-headers -o custom-columns=":metadata.name")
-for ENDPOINT_NAME in `echo "$ENDPOINTS"`; do \
-kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
-   -n azure-iot-operations \
-   --type=merge \
-   -p '{"spec":{"additionalConfiguration":"{\"applicationName\":\"'"$ENDPOINT_NAME"'\",\"security\":{\"autoAcceptUntrustedServerCertificates\":true}}"}}'; \
-done
-```
 
 ### The simulator doesn't send data to the MQTT broker after you create an asset
 
