@@ -134,7 +134,6 @@ This example uses an RSS trigger that checks an RSS feed, based on the specified
 
    :::image type="content" source="media/quickstart-create-example-consumption-workflow/add-rss-trigger-settings.png" alt-text="Screenshot shows the RSS trigger settings, including RSS URL, frequency, interval, and others." lightbox="media/quickstart-create-example-consumption-workflow/add-rss-trigger-settings.png":::
 
-1. Save your workflow. On the designer toolbar, select **Save**.
 1. On the designer toolbar, select **Code view**.
 
 1. In the code editor, find the line **`"feedUrl": "@{encodeURIComponent(encodeURIComponent(`https://feeds.a.dj.com/rss/RSSMarketsMain.xml'))}"`**.
