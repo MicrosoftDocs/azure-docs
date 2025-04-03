@@ -1815,7 +1815,7 @@ groups:
   - id: free-shared-basic
     title: Free, Shared, Basic
   - id: premium
-    title: Premium v2 and Premium v3
+    title: Premium v2-v4
   - id: isolated
     title: Isolated v2 (App Service Environment)
 #Owner: yassirbisteni

@@ -108,7 +108,7 @@ Applications that are deployed in a zone-redundant App Service plan continue to 
 
 ::: zone pivot="premium"
 
-When you're using App Service Premium v2, Premium v4, or Premium v4 plans, there's no extra cost associated with enabling availability zones as long as you have three or more instances in your App Service plan. You're charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria.
+When you're using App Service Premium v2, Premium v3, or Premium v4 plans, there's no extra cost associated with enabling availability zones as long as you have three or more instances in your App Service plan. You're charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria.
 
 If you enable availability zones but specify a capacity less than three, the platform enforces a minimum instance count of three. The platform charges you for those three instances.
 
