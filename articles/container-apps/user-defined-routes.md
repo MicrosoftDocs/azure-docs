@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.author: cshoe
 ms.topic: article
-ms.date: 08/29/2023
+ms.date: 04/03/2025
 ---
 
 # Control outbound traffic in Azure Container Apps with user defined routes

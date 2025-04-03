@@ -33,11 +33,11 @@ As you begin to design the network around your container app, refer to [Plan vir
 :::image type="content" source="media/networking/azure-container-apps-virtual-network.png" alt-text="Diagram of how Azure Container Apps environments use an existing V NET, or you can provide your own.":::
 
 > [!NOTE]
-> Moving VNets among different resource groups or subscriptions is not allowed if the VNet is in use by a Container Apps environment.
+> Moving VNets among different resource groups or subscriptions isn't allowed if the VNet is in use by a Container Apps environment.
 
 ## Subnet
 
-Virtual network integration depends on a dedicated subnet. How IP addresses are allocated in a subnet and what subnet sizes are supported depends on which [plan](plans.md) you're using in Azure Container Apps.
+Virtual network integration depends on a dedicated subnet. The allocation of IP addresses in a subnet and the supported subnet sizes depend on the [plan](plans.md) you're using in Azure Container Apps.
 
 Select your subnet size carefully. Subnet sizes can't be modified after you create a Container Apps environment.
 
@@ -51,7 +51,7 @@ Different environment types have different subnet requirements:
 
 - When using an external environment with external ingress, inbound traffic routes through the infrastructure’s public IP rather than through your subnet.
 
-- Container Apps automatically reserves 12 IP addresses for integration with the subnet. The number of IP addresses required for infrastructure integration doesn't vary based on the scale demands of the environment. Additional IP addresses are allocated according to the following rules depending on the type of workload profile you are using more IP addresses are allocated depending on your environment's workload profile:
+- Container Apps automatically reserves 12 IP addresses for integration with the subnet. The number of IP addresses required for infrastructure integration doesn't vary based on the scale demands of the environment. Additional IP addresses are allocated according to the following rules depending on the type of workload profile you're using more IP addresses are allocated depending on your environment's workload profile:
 
   - [Dedicated workload profile](workload-profiles-overview.md#profile-types): As your container app scales out, each node has one IP address assigned.
 

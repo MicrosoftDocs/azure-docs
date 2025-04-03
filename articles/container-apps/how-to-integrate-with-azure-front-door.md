@@ -216,7 +216,7 @@ az network private-endpoint-connection approve --id <PRIVATE_ENDPOINT_CONNECTION
 
 ## Add a route
 
-Run the following command to map the endpoint you created earlier to the origin group. Private endpoints on Azure Container Apps only support inbound HTTP traffic. TCP traffic is not supported.
+Run the following command to map the endpoint you created earlier to the origin group. Private endpoints on Azure Container Apps only support inbound HTTP traffic. TCP traffic isn't supported.
 
 ```azurecli
 az afd route create \

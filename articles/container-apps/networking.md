@@ -7,7 +7,7 @@ ms.service: azure-container-apps
 ms.custom:
   - ignite-2024
 ms.topic:  conceptual
-ms.date: 02/25/2025
+ms.date: 04/03/2025
 ms.author: cshoe
 ---
 
@@ -74,7 +74,7 @@ The public network access setting determines whether your container apps environ
 | Virtual IP | Supported public network access | Description |
 |--|--|--|
 | External | `Enabled`, `Disabled`  | The container apps environment was created with an Internet-accessible endpoint. The public network access setting determines whether traffic is accepted through the public endpoint or only through private endpoints, and the public network access setting can be changed after creating the environment. |
-| Internal | `Disabled` | The container apps environment was created without an Internet-accessible endpoint. The public network access setting cannot be changed to accept traffic from the Internet. |
+| Internal | `Disabled` | The container apps environment was created without an Internet-accessible endpoint. The public network access setting can't be changed to accept traffic from the Internet. |
 
 In order to create private endpoints on your Azure Container App environment, public network access must be set to `Disabled`.
 
@@ -116,9 +116,6 @@ You can fully secure your ingress and egress networking traffic workload profile
 
 ### <a name="private-endpoint"></a>Private endpoint (preview)
 
-> [!NOTE]
-> This feature is supported for all public regions.
-
 Azure private endpoint enables clients located in your private network to securely connect to your Azure Container Apps environment through Azure Private Link. A private link connection eliminates exposure to the public internet. Private endpoints use a private IP address in your Azure virtual network address space. 
 
 This feature is supported for both Consumption and Dedicated plans in workload profile environments.
@@ -128,7 +125,7 @@ This feature is supported for both Consumption and Dedicated plans in workload p
 - Private link connectivity with Azure Front Door is supported for Azure Container Apps. Refer to [create a private link with Azure Front Door](how-to-integrate-with-azure-front-door.md) for more information.
 
 #### Considerations
-- Private endpoints on Azure Container Apps only support inbound HTTP traffic. TCP traffic is not supported.
+- Private endpoints on Azure Container Apps only support inbound HTTP traffic. TCP traffic isn't supported.
 - To use a private endpoint with a custom domain and an *Apex domain* as the *Hostname record type*, you must configure a private DNS zone with the same name as your public DNS. In the record set, configure your private endpoint's private IP address instead of the container app environment's IP address. When you configure your custom domain with CNAME, the setup is unchanged. For more information, see [Set up custom domain with existing certificate](custom-domains-certificates.md).
 - Your private endpoint's VNet can be separate from the VNet integrated with your container app.
 - You can add a private endpoint to both new and existing workload profile environments.
