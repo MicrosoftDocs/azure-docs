@@ -12,7 +12,7 @@ ms.service: azure-automation
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software
 
-This article provides detailed procedure on how you can enable change tracking and inventory at scale using policy.
+This article provides detailed procedure on how you can enable change tracking and inventory at scale using Azure policy.
 
 ## Prerequisite
 
