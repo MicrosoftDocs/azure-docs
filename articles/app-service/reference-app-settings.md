@@ -589,8 +589,9 @@ The following environment variables are related to [health checks](monitor-insta
 
 | Setting name | Description |
 |-|-|
-| `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` | Maximum number of failed pings before removing the instance. Set to a value between `2` and `100`. When you're scaling up or out, App Service pings the health check's path to ensure that new instances are ready. For more information, see [Health check](monitor-instances-health-check.md). |
+| `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` | Maximum number of failed pings before removing the instance. Set to a value between `2` and `10`. When you're scaling up or out, App Service pings the health check's path to ensure that new instances are ready. For more information, see [Health check](monitor-instances-health-check.md). |
 | `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` | To avoid overwhelming healthy instances, no more than half of the instances are excluded. For example, if an App Service plan is scaled to four instances and three are unhealthy, at most two are excluded. The other two instances (one healthy and one unhealthy) continue to receive requests. In the worst-case scenario where all instances are unhealthy, none are excluded.<br/><br/>To override this behavior, set to a value between `1` and `100`. A higher value means more unhealthy instances are removed. The default is `50` (50%). |
+
 
 ## Push notifications
 
