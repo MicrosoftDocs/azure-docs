@@ -115,7 +115,7 @@ After release of the `2024-07-01` API version, a customer can assign managed ide
 
 Once added, the Identity can only be removed via the API call at this time.
 
-See [Azure Operator Nexus Cluster Support for Managed Identities and User Provided Resources](./howto-cluster-managed-identity-user-provided-resources.md) for more information on managed identities for Operator Nexus Clusters.
+For more information on managed identities for Operator Nexus Clusters, see [Azure Operator Nexus Cluster Support for Managed Identities and User Provided Resources](./howto-cluster-managed-identity-user-provided-resources.md).
 
 ### Create the Cluster using Azure Resource Manager template editor
 
@@ -212,7 +212,7 @@ In this example, if less than 97% of the compute nodes being deployed pass hardw
 ## Deploy Cluster
 
 > [!IMPORTANT]
-> As a best pracice, wait 20 minutes after creating a Cluster before deploying to ensure all associated resources are created.
+> As best practice, wait 20 minutes after creating a Cluster before deploying to ensure all associated resources are created.
 
 The deploy Cluster action can be triggered after creating the Cluster.
 The deploy Cluster action creates the bootstrap image and deploys the Cluster.
@@ -318,7 +318,7 @@ metal machines that failed the hardware validation (for example, `COMP0_SVR0_SER
 ```
 
 See the article [Tracking Asynchronous Operations Using Azure CLI](./howto-track-async-operations-cli.md) for another example.
-See the article [Troubleshoot Bare Metal Machine (BMM) provisioning](./troubleshoot-bare-metal-machine-provisioning.md) for more information that may be helpful when specific machines fail validation or deployment.
+For more information on specific machine validation or deployment failures, see [Troubleshoot Bare Metal Machine (BMM) provisioning](./troubleshoot-bare-metal-machine-provisioning.md).
 
 ## Cluster deployment validation
 
