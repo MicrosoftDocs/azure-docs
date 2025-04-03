@@ -223,7 +223,8 @@ To build and push the Docker image, use the following steps:
     ENTRYPOINT ["java", "-jar", "gateway-0.0.1-SNAPSHOT.jar"]
     ```
 
-    Alternatively, see the [ACME Fitness Store sample Dockerfile](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/azure-kubernetes-service/resources/gateway/gateway/Dockerfile) for guidance.
+    > [!Note]
+    > Alternatively, see the [ACME Fitness Store sample Dockerfile](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/azure-kubernetes-service/resources/gateway/gateway/Dockerfile) for guidance.
 
 1. Use the following commands to build the image of the gateway:
 
