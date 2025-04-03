@@ -88,9 +88,9 @@ There's no additional cost to use zone redundancy for Azure Bastion.
 
 **Migration:** It's not possible to change the availability zone configuration of an existing Azure Bastion resource. Instead, you need to create an Azure Bastion resource with the new configuration and delete the old one.
 
-### Traffic routing between zones
+### Normal operations
 
-When you initiate an SSH or RDP session, it can be routed to an Azure Bastion instance in any of the availability zones you selected.
+**Traffic routing between zones:** When you initiate an SSH or RDP session, it can be routed to an Azure Bastion instance in any of the availability zones you selected.
 
 If you configure zone redundancy on Azure Bastion, a session might be sent to an Azure Bastion instance in an availability zone that's different from the virtual machine you're connecting to. In the following diagram, a request from the user is sent to an Azure Bastion instance in zone 2, although the virtual machine is in zone 1:
 

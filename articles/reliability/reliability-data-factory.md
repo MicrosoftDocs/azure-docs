@@ -111,9 +111,9 @@ Zone-redundant Azure Data Factory resources can be deployed in [any region that 
 - *Azure-SSIS integration runtime* requires you to explicitly configure the number of nodes that you use. To prepare for availability zone failure, consider *over-provisioning* the capacity of your integration runtime. Over-provisioning allows the solution to tolerate some degree of capacity loss and still continue to function without degraded performance. To learn more about over-provisioning, see [Manage capacity with over-provisioning](./concept-redundancy-replication-backup.md#manage-capacity-with-over-provisioning).
 - *Self-hosted integration runtime* requires you to configure your own capacity and scaling. Consider over-provisioning when you deploy a self-hosted integration runtime.
 
-### Traffic routing between zones
+### Normal operations
 
-During normal operations, Azure Data Factory automatically distributes pipeline activities, triggers, and other work among healthy instances in each availability zone.
+**Traffic routing between zones:** During normal operations, Azure Data Factory automatically distributes pipeline activities, triggers, and other work among healthy instances in each availability zone.
 
 ### Zone-down experience
 

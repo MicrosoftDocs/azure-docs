@@ -175,17 +175,18 @@ To prepare for availability zone failure, consider *over-provisioning* the capac
 
 ::: zone-end
 
-### Traffic routing between zones
+### Normal operations
+
 
 ::: zone pivot="consumption"
 
-During normal operations, workflow invocations can use compute resources in any of the availability zones within the region.
+**Traffic routing between zones:**  During normal operations, workflow invocations can use compute resources in any of the availability zones within the region.
 
 ::: zone-end
 
 ::: zone pivot="standard-workflow-service-plan,standard-app-service-environment"
 
-During normal operations, workflow invocations are spread among all your available plan instances across all availability zones.
+**Traffic routing between zones:**  During normal operations, workflow invocations are spread among all your available plan instances across all availability zones.
 
 ::: zone-end
 
