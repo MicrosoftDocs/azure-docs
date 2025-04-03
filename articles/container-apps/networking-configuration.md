@@ -153,7 +153,7 @@ You can enable peer-to-peer encryption in the ARM template for Container Apps en
 
 ---
 
-# Rule-based routing (preview)
+## Rule-based routing (preview)
 
 With rule-based routing, you create a fully qualified domain name (FQDN) on your container apps environment. You then use rules to route requests to this FQDN to different container apps, depending on the path of each request. This offers the following benefits.
 
