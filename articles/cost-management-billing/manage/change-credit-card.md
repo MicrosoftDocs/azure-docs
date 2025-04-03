@@ -1,13 +1,13 @@
 ---
 title: Add, update, or delete a payment method
 description: This article describes how to add, update, or delete a payment method for an Azure subscription.
-author: bandersmsft
+author: lindseyshep
 ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.date: 01/22/2025
-ms.author: banders
+ms.author: lishepar
 ms.custom: references_regions
 ---
 
@@ -203,6 +203,15 @@ To detach a payment method, you must meet a list of conditions. If you don't mee
 
 - Instructions on how to meet the condition.
 - A link that takes you to the location where you can resolve the problem.
+
+Conditions:
+- Outstanding charges
+- Recurring charges
+- Pending charges
+- Active subscriptions
+  
+> [!NOTE]
+> If you have an [Entra Free subscription](microsoft-entra-id-free.md) inside your billing account you cannot delete or detach the last payment method on file. To remove the last payment method, you must delete the tenant. For more information about deleting a tenant, see [Delete the organization](/entra/identity/users/directory-delete-howto#delete-the-organization).
 
 When you fully satisfy all the conditions, you can detach the payment method from the billing profile.
 

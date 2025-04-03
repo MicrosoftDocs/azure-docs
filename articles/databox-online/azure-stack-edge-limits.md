@@ -1,20 +1,18 @@
 ---
-title: Azure Stack Edge Pro GPU/Pro FPGA limits | Microsoft Docs
-description: Learn about limits and recommended sizes as you deploy and operate Azure Stack Edge Pro GPU/ Pro FPGA, including service limits, device limits, and storage limits.
+title: Azure Stack Edge Pro GPU limits | Microsoft Docs
+description: Learn about limits and recommended sizes as you deploy and operate Azure Stack Edge Pro GPU, including service limits, device limits, and storage limits.
 services: databox
 author: alkohli
 
 ms.service: azure-stack-edge
 ms.topic: article
-ms.date: 02/27/2024
+ms.date: 03/21/2025
 ms.author: alkohli
 ---
 
 # Azure Stack Edge limits
 
-[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
-
-Consider these limits as you deploy and operate your Microsoft Azure Stack Edge Pro GPU or Azure Stack Edge Pro FPGA solution. 
+Consider these limits as you deploy and operate your Microsoft Azure Stack Edge Pro GPU solution. 
 
 ## Azure Stack Edge service limits
 
@@ -52,5 +50,5 @@ The following table describes the limits for the Azure Stack Edge device.
 
 ## Next steps
 
-- [Prepare to deploy Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-prep.md)
-- [Prepare to deploy Azure Stack Edge Pro FPGA](azure-stack-edge-deploy-prep.md)
+- [Prepare to deploy Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-prep.md).
+   

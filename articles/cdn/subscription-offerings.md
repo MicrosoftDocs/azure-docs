@@ -7,7 +7,8 @@ ms.author: halkazwini
 manager: kumud
 ms.service: azure-cdn
 ms.topic: troubleshooting
-ms.date: 03/20/2024
+ms.date: 03/31/2025
+ROBOTS: NOINDEX
 ---
 
 # Azure CDN subscription offers and bandwidth throttling

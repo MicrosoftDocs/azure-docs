@@ -118,7 +118,7 @@
       - name: Inspect to find anomalies
         href: packet-capture-inspect.md
       - name: Proactive network monitoring with Azure Functions
-        href: network-watcher-alert-triggered-packet-capture.md
+        href: packet-capture-alert-triggered.md
       - name: Perform intrusion detection using open source tools
         href: network-watcher-intrusion-detection-open-source-tools.md
       - name: Visualize network traffic patterns using open source tools
@@ -127,14 +127,8 @@
     items:
     - name: Overview
       href: connection-troubleshoot-overview.md
-    - name: Diagnose outbound connection problems
-      items:
-      - name: Azure portal
-        href: connection-troubleshoot-portal.md
-      - name: PowerShell
-        href: connection-troubleshoot-powershell.md
-      - name: Azure CLI
-        href: connection-troubleshoot-cli.md
+    - name: Troubleshoot outbound connections
+      href: connection-troubleshoot-manage.md
 - name: Flow logs
   items:
   - name: VNet flow logs
@@ -142,15 +136,9 @@
     - name: Overview
       href: vnet-flow-logs-overview.md
     - name: Manage VNet flow logs
-      items:
-      - name: Azure portal
-        href: vnet-flow-logs-portal.md
-      - name: PowerShell
-        href: vnet-flow-logs-powershell.md
-      - name: Azure CLI
-        href: vnet-flow-logs-cli.md
-      - name: Built-in Policy
-        href: vnet-flow-logs-policy.md
+      href: vnet-flow-logs-manage.md
+    - name: Audit and deploy using Azure Policy
+      href: vnet-flow-logs-policy.md
   - name: NSG flow logs
     items:
     - name: Overview
@@ -168,7 +156,9 @@
       - name: ARM template
         href: nsg-flow-logs-template.md
       - name: Bicep
-        href: quickstart-configure-network-security-group-flow-logs-from-bicep.md
+        href: nsg-flow-logs-bicep.md
+      - name: REST
+        href: /previous-versions/azure/network-watcher/nsg-flow-logs-rest?toc=/azure/network-watcher/toc.json
       - name: Built-in Policy
         href: nsg-flow-logs-policy-portal.md
     - name: Migrate NSG flow logs

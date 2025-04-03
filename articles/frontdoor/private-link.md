@@ -36,7 +36,7 @@ Origin support for direct private endpoint connectivity is currently limited to:
 * Internal load balancers, or any services that expose internal load balancers such as Azure Kubernetes Service, Azure Container Apps or Azure Red Hat OpenShift
 * Storage Static Website
 * API Management
-* Application Gateway (Public Preview. Don't use in production environments)
+* Application Gateway
 * Azure Container Apps (Public Preview. Don't use in production environments)
 
 > [!NOTE]
@@ -53,8 +53,9 @@ Azure Front Door private link is available in the following regions:
 | Central US | North Europe | | Japan East |
 | East US | Norway East | | Korea Central |
 | East US 2 | UK South | | East Asia |
-| South Central US | West Europe | | |
-| West US 3 | Sweden Central | | |
+| South Central US | West Europe | | South East Asia |
+| West US 2 | Sweden Central | | |
+| West US 3 | | | |
 | US Gov Arizona | | | |
 | US Gov Texas | | | |
 | US Gov Virginia | | | |

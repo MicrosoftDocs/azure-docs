@@ -4,8 +4,8 @@ description: Learn how to use the Power Query activity for data wrangling featur
 author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
-ms.topic: conceptual
-ms.date: 10/20/2023
+ms.topic: concept-article
+ms.date: 03/31/2025
 ---
 
 # Power Query activity in Azure Data Factory
@@ -23,13 +23,13 @@ You can work directly inside of the Power Query mash-up editor to perform intera
 To use a Power Query activity in a pipeline, complete the following steps:
 
 1. Search for _Power Query_ in the pipeline Activities pane, and drag a Power Query activity to the pipeline canvas.
-1. Select the new Power Query activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
+1. Select the new Power Query activity on the canvas if it isn't already selected, and its  **Settings** tab, to edit its details.
 
    :::image type="content" source="media/control-flow-power-query-activity/power-query-activity-settings.png" alt-text="Shows the UI for the &nbsp;Settings&nbsp; tab of a Power Query activity.":::
 
 1. Select an existing Power Query and select Open, or select the New button to create a new Power Query, opening the Power Query editor.
   
-1. Select an existing dataset or select New to define a new one.  Use the rich features of Power Query directly within the pipeline editing experience to transform the dataset however you require.  You can add multiple queries from multiple datasets in the editor and use them subsequently.
+1. Select an existing dataset or select New to define a new one. Use the rich features of Power Query directly within the pipeline editing experience to transform the dataset however you require. You can add multiple queries from multiple datasets in the editor and use them subsequently.
 
    :::image type="content" source="media/control-flow-power-query-activity/power-query-editor.png" alt-text="Shows the Power Query editor.":::
 
@@ -37,7 +37,7 @@ To use a Power Query activity in a pipeline, complete the following steps:
 
    :::image type="content" source="media/control-flow-power-query-activity/power-query-activity-sink.png" alt-text="Shows the Sink tab of the Power Query activity.":::
 
-1. You can also use the output of your Power Query activity as inputs to other activities.  Here is an example of a For Each activity that references the output of the previously defined Power Query for its Items property.  Its Items support dynamic content, where you can reference any outputs from the Power Query used as its input.
+1. You can also use the output of your Power Query activity as inputs to other activities. Here's an example of a For Each activity that references the output of the previously defined Power Query for its Items property. Its Items support dynamic content, where you can reference any outputs from the Power Query used as its input.
 
    :::image type="content" source="media/control-flow-power-query-activity/for-each-activity-using-power-query-output.png" alt-text="Shows the ForEach Activity's Settings tab with &nbsp;Add dynamic content&nbsp; link for the Items property.":::
 
@@ -60,7 +60,7 @@ To achieve scale with your Power Query activity, Azure Data Factory translates y
 
 Choose the dataset you wish to use for landing your transformed data once the Power Query M script has been executed on Spark. For more details on configuring sinks, visit the documentation for [data flow sinks](data-flow-sink.md).
 
-You have the option to sink your output to multiple destinations. Click on the plus (+) button to add more sinks to your query. You can also direct each individual query output from your wrangling Power Query activity to different destinations.
+You have the option to sink your output to multiple destinations. Select the plus (+) button to add more sinks to your query. You can also direct each individual query output from your wrangling Power Query activity to different destinations.
 
 ![Screenshot that shows Power Query multiple sinks.](media/data-flow/pq-multi-output.png)
 

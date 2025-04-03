@@ -3,7 +3,7 @@ title: Branching in Azure Data Factory pipeline
 description: Learn how to control flow of data in Azure Data Factory by branching and chaining activities.
 author: ssabat
 ms.author: susabat
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.topic: tutorial
 ms.date: 10/03/2024
 ms.subservice: orchestration

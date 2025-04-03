@@ -148,7 +148,7 @@ To install and register  the MARRS agent, follow these steps:
    If you are running into issues during vault registration, see the [troubleshooting guide](backup-azure-mars-troubleshoot.md#invalid-vault-credentials-provided).
 
    >[!Note]
-   >We recommend to save your passphrase in an alternate secure location, such as the Azure key vault. Microsoft can't recover the data without the passphrase. [Learn](save-backup-passphrase-securely-in-azure-key-vault.md) how to store a secret in a Key Vault.
+   >We recommend to save your passphrase in an alternate secure location, such as Azure Key Vault. Microsoft can't recover the data without the passphrase. [Learn](save-backup-passphrase-securely-in-azure-key-vault.md) how to store a secret in Key Vault.
 
 ## Next step
 

@@ -7,13 +7,13 @@ author: greg-lindsay
 ms.service: azure-appgw-for-containers
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
-ms.date: 2/15/2025
+ms.date: 3/31/2025
 ms.author: greglin
 ---
 
 # Quickstart: Deploy Application Gateway for Containers ALB Controller
 
-The [ALB Controller](application-gateway-for-containers-components.md#application-gateway-for-containers-alb-controller) is responsible for translating Gateway API and Ingress API configuration within Kubernetes to load balancing rules within Application Gateway for Containers. The following guide walks through the steps needed to provision an ALB Controller into a new or existing AKS cluster.
+The [ALB Controller](application-gateway-for-containers-components.md#application-gateway-for-containers-alb-controller) is responsible for translating Gateway API and Ingress API configuration within Kubernetes to load balancing rules within Application Gateway for Containers. The following guide walks through the steps needed to provision an ALB Controller into a new or existing Azure Kubernetes Service (AKS) cluster.
 
 ## Prerequisites
 
@@ -41,10 +41,10 @@ You need to complete the following tasks before deploying Application Gateway fo
 
     > [!NOTE]
     > The AKS cluster needs to be in a [region where Application Gateway for Containers is available](overview.md#supported-regions)
-    > AKS cluster should use [Azure CNI](/azure/aks/configure-azure-cni).
+    > AKS cluster should use [Azure CNI](/azure/aks/configure-azure-cni) or [Azure CNI Overlay](/azure/aks/concepts-network-azure-cni-overlay).
     > AKS cluster should have the workload identity feature enabled. [Learn how](/azure/aks/workload-identity-deploy-cluster#update-an-existing-aks-cluster) to enable workload identity on an existing AKS cluster.
 
-    If using an existing cluster, ensure you enable Workload Identity support on your AKS cluster. Workload identities can be enabled via the following:
+    If using an existing cluster, ensure you enable Workload Identity support on your AKS cluster. Workload identities can be enabled via the following commands:
 
     ```azurecli-interactive
     AKS_NAME='<your cluster name>'
@@ -77,7 +77,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     [Helm](https://github.com/helm/helm) is an open-source packaging tool that is used to install ALB controller. 
 
     > [!NOTE]
-    > Helm is already available in Azure Cloud Shell. If you are using Azure Cloud Shell, no additional Helm installation is necessary.
+    > Helm is already available in Azure Cloud Shell. If you're using Azure Cloud Shell, no additional Helm installation is necessary.
 
     You can also use the following steps to install Helm on a local device running Windows or Linux. Ensure that you have the latest version of helm installed.
 
@@ -146,7 +146,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
     helm install alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
          --namespace $HELM_NAMESPACE \
-         --version 1.4.12 \
+         --version 1.5.2 \
          --set albController.namespace=$CONTROLLER_NAMESPACE \
          --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
     ```
@@ -164,7 +164,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
     helm upgrade alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
         --namespace $HELM_NAMESPACE \
-        --version 1.4.12 \
+        --version 1.5.2 \
         --set albController.namespace=$CONTROLLER_NAMESPACE \
         --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
     ```
@@ -176,7 +176,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     ```azurecli-interactive
     kubectl get pods -n azure-alb-system
     ```
-    You should see the following:
+    You should see the following output:
    
     | NAME                                     | READY | STATUS  | RESTARTS | AGE  |
     | ---------------------------------------- | ----- | ------- | -------- | ---- |
@@ -190,7 +190,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     kubectl get gatewayclass azure-alb-external -o yaml
     ```
 
-    You should see that the GatewayClass has a condition that reads **Valid GatewayClass**. This indicates that a default GatewayClass is set up and that any gateway resources that reference this GatewayClass is managed by ALB Controller automatically.
+    You should see that the GatewayClass has a condition that reads **Valid GatewayClass**. This condition indicates that a default GatewayClass is set up and that any gateway resources that reference this GatewayClass is managed by ALB Controller automatically.
     ```output
     apiVersion: gateway.networking.k8s.io/v1beta1
     kind: GatewayClass

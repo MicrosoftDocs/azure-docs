@@ -776,6 +776,10 @@
     items:
     - name: Review backup estate
       href: backup-azure-monitoring-built-in-monitor.md
+    - name: Monitor Azure Backup
+      href: monitor-backup.md
+    - name: Monitoring data reference
+      href: monitor-backup-reference.md
     - name: Alerts
       items:
       - name: Azure Monitor alerts
@@ -971,6 +975,24 @@
       href: backup-azure-alternate-dpm-server-troubleshoot.md
     - name: Monitoring and  alerts
       href:  backup-azure-monitor-troubleshoot.md
+- name: Script samples
+  items:
+  - name: Pre-Backup and Post-Backup Scripts
+    href: pre-backup-post-backup-scripts.md
+  - name: Find Vault for Storage Account PowerShell Script  
+    href: ./scripts/backup-powershell-script-find-recovery-services-vault.md
+  - name: Disable Soft delete for File Share
+    href: ./scripts/disable-soft-delete-for-file-shares.md
+  - name: Install the latest MARS agent on on-premises Windows servers
+    href: ./scripts/install-latest-microsoft-azure-recovery-services-agent.md
+  - name: Configure Backup for on-premises Windows server
+    href: ./scripts/microsoft-azure-recovery-services-powershell-all.md
+  - name: Register on-premises Windows server/ client machine with Recovery Services vault
+    href: ./scripts/register-microsoft-azure-recovery-services-agent.md
+  - name: Create/ modify the file and folder backup policy
+    href: ./scripts/set-file-folder-backup-policy.md
+  - name: Create/ modify the system state backup policy
+    href: ./scripts/set-system-state-backup-policy.md          
 - name: Reference
   items:
   - name: Archived release notes

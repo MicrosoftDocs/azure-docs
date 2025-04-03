@@ -244,7 +244,7 @@ After you save your configuration files in a repository, use the following steps
 
 1. Select **Spring Cloud Config Server** in the navigation pane.
 
-1. In the **Default repository** section, set **URI** to `https://github.com/Azure-Samples/piggymetrics-config`.
+1. In the **Default repository** section, set **URI** to **https://github.com/Azure-Samples/piggymetrics-config**.
 
 1. Select **Validate**.
 

@@ -6,7 +6,7 @@ author: dlepow
 manager: erikre
 ms.assetid: fc813a65-7793-4c17-8bb9-e387838193ae
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: concept-article
 ms.date: 02/03/2018
 ms.author: danlep
 

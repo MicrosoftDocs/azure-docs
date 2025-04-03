@@ -8,6 +8,7 @@ author: surbhijain
 ms.author: surbhijain
 ms.reviewer: gachandw
 ms.date: 11/21/2024
+# Customer intent: "As a cloud services administrator, I want to swap deployments in Azure Cloud Services (extended support) so that I can stage, test, and promote updates to production efficiently while minimizing downtime."
 ---
 
 # Swap or switch deployments in Azure Cloud Services (extended support)

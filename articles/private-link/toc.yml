@@ -1,4 +1,3 @@
-
 - name: Azure Private Link documentation
   href: index.yml
 - name: Get started
@@ -47,6 +46,10 @@
     - name: Create a Private Link service - ARM template
       displayName: Azure Resource Manager
       href: create-private-link-service-template.md
+  - name: Disable SNAT for traffic through NVA
+    href: private-link-disable-snat.md
+  - name: Increase Private Endpoint virtual network limits
+    href: increase-private-endpoint-vnet-limits.md
   - name: Create a network security perimeter
     items:
     - name: Create a network security perimeter - Azure portal
@@ -57,6 +60,8 @@
       href: create-network-security-perimeter-cli.md
     - name: Create a network security perimeter - Bicep
       href: create-network-security-perimeter-bicep.md
+    - name: Create a network security perimeter - ARM template
+      href: create-network-security-perimeter-template.md
     - name: Transition to a network security perimeter
       href: network-security-perimeter-transition.md
   - name: DNS
@@ -181,4 +186,3 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-virtual-network
-

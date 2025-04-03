@@ -7,6 +7,7 @@ ms.date: 07/24/2024
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
+# Customer intent: As a cloud developer or architect, I want to understand the schema definitions and configuration options available in web roles for Azure Cloud Services, so that I can correctly define and configure service behavior, endpoints, and resources for my applications.
 ---
 
 # Azure Cloud Services (extended support) definition WebRole schema
